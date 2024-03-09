@@ -3,7 +3,7 @@ name: Clean cache
 on:
   push:
     branches:
-      - .*
+      - clean-cache
   workflow_dispatch:
 
 permissions:
