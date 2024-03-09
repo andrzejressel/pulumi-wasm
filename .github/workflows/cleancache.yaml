@@ -1,6 +1,10 @@
 name: Clean cache
 
 on:
+  push:
+    branches:
+      - .*
+      - *
   workflow_dispatch:
 
 permissions:
