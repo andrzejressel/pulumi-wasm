@@ -2,7 +2,7 @@ cargo component build -p wasm_common || exit /b 1
 cargo component build -p pulumi_wasm || exit /b 1
 cargo component build -p pulumi_wasm_provider_random || exit /b 1
 cargo component build -p pulumi_wasm_example_simple || exit /b 1
-cargo build || exit /b 1
+cargo build -p pulumi_wasm_runner || exit /b 1
 @REM cargo build -p pulumi_rust_wasm || exit /b
 @REM @REM wasm-tools component wit target/wasm32-wasi/debug/pulumi_wasm_example_simple.wasm
 @REM

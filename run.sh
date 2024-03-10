@@ -6,7 +6,7 @@ cargo component build -p wasm_common
 cargo component build -p pulumi_wasm
 cargo component build -p pulumi_wasm_provider_random
 cargo component build -p pulumi_wasm_example_simple
-cargo build
+cargo build -p pulumi_wasm_runner
 
 
 cp "target/wasm32-wasi/debug/pulumi_wasm.wasm" "target/wasm32-wasi/debug/pulumi-wasm.wasm"
