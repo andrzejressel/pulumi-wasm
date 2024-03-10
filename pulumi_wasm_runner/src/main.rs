@@ -5,8 +5,15 @@ use log4rs::Config;
 use log4rs::config::{Appender, Root};
 use log4rs::encode::json::JsonEncoder;
 use log::LevelFilter;
+use crate::pulumi::{Pulumi, WasmFile};
 
-use pulumi_rust::pulumi::{Pulumi, WasmFile};
+mod pulumi;
+
+mod grpc {
+    #![allow(clippy::all)]
+    #![allow(clippy::pedantic)]
+    tonic::include_proto!("pulumirpc");
+}
 
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]

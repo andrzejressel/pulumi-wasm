@@ -26,7 +26,7 @@ impl Guest for Component {
         let length: Output<i32> = Output::new(&1).map(|i: i32| i * 3);
 
         let _v = create_random_string(RandomStringArgs {
-            name: "test1234",
+            name: "test123456",
             length,
         });
 

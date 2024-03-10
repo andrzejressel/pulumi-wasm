@@ -1,5 +1,5 @@
 [package]
-name = "pulumi_wasm_main"
+name = "pulumi_wasm_example_simple"
 version = "0.1.0"
 edition = "2021"
 
@@ -24,9 +24,9 @@ rmpv.workspace = true
 serde.workspace = true
 tonic.workspace = true
 serde_json.workspace = true
-pulumi_rust_wasm = { path = "../pulumi_rust_wasm" }
+pulumi_rust_wasm = { path = "../../pulumi_wasm_rust" }
 log.workspace = true
-wasm_common = { path = "../wasm_common" }
+wasm_common = { path = "../../wasm_common" }
 
 [dev-dependencies]
 wasmtime.workspace = true
@@ -36,5 +36,5 @@ wasmtime-wasi.workspace = true
 package = "component:pulumi-wasm-main"
 
 [package.metadata.component.target]
-path = "../wits/world.wit"
+path = "../../wits/world.wit"
 world = "new-main"

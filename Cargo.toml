@@ -6,23 +6,15 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-pulumi_rust = { path = "pulumi_rust" }
-tokio.workspace = true
-log.workspace = true
-anyhow.workspace = true
-tonic = { workspace = true, default-features = true }
-prost-types.workspace = true
-clap.workspace = true
-log4rs.workspace = true
 
 [workspace]
 members = [
-    "pulumi_rust",
+    "pulumi_wasm_runner",
     "pulumi_wasm",
-    "pulumi_wasm_random",
-    "pulumi_wasm_main",
-    "pulumi_rust_wasm",
-    "wasm_common"
+    "providers/pulumi_wasm_provider_random",
+    "pulumi_wasm_rust",
+    "wasm_common",
+    "examples/simple"
 ]
 
 [workspace.dependencies]

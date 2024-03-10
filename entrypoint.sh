@@ -4,4 +4,4 @@ set -e
 
 ./run.sh
 
-cargo run -- run --wasm target/wasm32-wasi/debug/composed2.wasm
+cargo run -p pulumi_wasm_runner -- run --wasm target/wasm32-wasi/debug/composed2.wasm

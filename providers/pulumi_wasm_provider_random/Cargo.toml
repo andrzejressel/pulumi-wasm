@@ -1,5 +1,5 @@
 [package]
-name = "pulumi_wasm_random"
+name = "pulumi_wasm_provider_random"
 version = "0.1.0"
 edition = "2021"
 
@@ -25,7 +25,7 @@ serde.workspace = true
 tonic.workspace = true
 serde_json.workspace = true
 log.workspace = true
-wasm_common = { path = "../wasm_common" }
+wasm_common = { path = "../../wasm_common" }
 
 [dev-dependencies]
 wasmtime.workspace = true
@@ -35,5 +35,5 @@ wasmtime-wasi.workspace = true
 package = "component:pulumi-provider-random"
 
 [package.metadata.component.target]
-path = "../wits/world.wit"
+path = "../../wits/world.wit"
 world = "pulumi-provider-random"

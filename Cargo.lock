@@ -379,9 +379,9 @@ checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 
 [[package]]
 name = "chrono"
-version = "0.4.34"
+version = "0.4.35"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5bc015644b92d5890fab7489e49d21f879d5c990186827d42ec511919404f38b"
+checksum = "8eaf5903dcbc0a39312feb77df2ff4c76387d591b9fc7b04a238dcf8bb62639a"
 dependencies = [
  "android-tzdata",
  "iana-time-zone",
@@ -1609,39 +1609,6 @@ dependencies = [
 [[package]]
 name = "pulumi-wasm-parent"
 version = "0.1.0"
-dependencies = [
- "anyhow",
- "clap",
- "log",
- "log4rs",
- "prost-types",
- "pulumi_rust",
- "tokio",
- "tonic",
-]
-
-[[package]]
-name = "pulumi_rust"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "async-trait",
- "futures",
- "log",
- "prost",
- "prost-types",
- "regex",
- "rmp-serde",
- "serde",
- "serde_json",
- "tonic",
- "tonic-build",
- "tonic-web",
- "tracing-subscriber",
- "uuid",
- "wasmtime",
- "wasmtime-wasi",
-]
 
 [[package]]
 name = "pulumi_rust_wasm"
@@ -1686,7 +1653,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "pulumi_wasm_main"
+name = "pulumi_wasm_example_simple"
 version = "0.1.0"
 dependencies = [
  "anyhow",
@@ -1712,7 +1679,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "pulumi_wasm_random"
+name = "pulumi_wasm_provider_random"
 version = "0.1.0"
 dependencies = [
  "anyhow",
@@ -1734,6 +1701,32 @@ dependencies = [
  "wasmtime",
  "wasmtime-wasi",
  "wit-bindgen-rt",
+]
+
+[[package]]
+name = "pulumi_wasm_runner"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "async-trait",
+ "clap",
+ "futures",
+ "log",
+ "log4rs",
+ "prost",
+ "prost-types",
+ "regex",
+ "rmp-serde",
+ "serde",
+ "serde_json",
+ "tokio",
+ "tonic",
+ "tonic-build",
+ "tonic-web",
+ "tracing-subscriber",
+ "uuid",
+ "wasmtime",
+ "wasmtime-wasi",
 ]
 
 [[package]]

@@ -1,5 +1,5 @@
 [package]
-name = "pulumi_rust"
+name = "pulumi_wasm_runner"
 version = "0.1.0"
 edition = "2021"
 
@@ -22,6 +22,9 @@ serde_json.workspace = true
 futures.workspace = true
 async-trait.workspace = true
 regex.workspace = true
+tokio.workspace = true
+log4rs.workspace = true
+clap.workspace = true
 
 [build-dependencies]
 tonic-build.workspace = true
