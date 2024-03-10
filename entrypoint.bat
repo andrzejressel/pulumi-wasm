@@ -4,4 +4,4 @@
 
 @REM cargo run -- run --wasm target/wasm32-wasi/debug/composed2.wasm
 
-.\run.bat && cargo run -p pulumi_wasm_runner -- run --wasm target/wasm32-wasi/debug/composed2.wasm
+.\build.bat && cargo run -p pulumi_wasm_runner -- run --wasm target/wasm32-wasi/debug/composed2.wasm
