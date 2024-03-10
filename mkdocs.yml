@@ -1,0 +1,13 @@
+site_name: Pulumi WASM
+theme:
+  palette:
+    scheme: slate
+  name: material
+  search: true
+
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
