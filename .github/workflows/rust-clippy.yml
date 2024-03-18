@@ -18,6 +18,10 @@ on:
   schedule:
     - cron: '42 22 * * 6'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   rust-clippy-analyze:
     name: Run rust-clippy analyzing
