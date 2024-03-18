@@ -1,6 +1,10 @@
 queue_rules:
   - name: default
-    conditions: []
+    merge_method: squash
+    commit_message_template: |
+      {{ title }} (#{{ number }})
+        
+      {{ body }}
 
 pull_request_rules:
   - name: automatic merge for main when CI passes
@@ -12,6 +16,7 @@ pull_request_rules:
     actions:
       queue:
         name: default
+
   - name: delete head branch after merge
     conditions:
       - merged
