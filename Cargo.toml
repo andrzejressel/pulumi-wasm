@@ -22,6 +22,11 @@ version = "0.1.0"
 edition = "2021"
 
 [workspace.dependencies]
+pulumi_wasm_rust = { path = "pulumi_wasm_rust" }
+pulumi_wasm_rust_macro = { path = "pulumi_wasm_rust_macro" }
+wasm_common = { path = "wasm_common" }
+pulumi_wasm_provider_random_rust = { path = "providers/pulumi_wasm_provider_random_rust" }
+
 anyhow = "1.0.81"
 prost = "0.12.3"
 prost-types = "0.12.3"
@@ -52,10 +57,6 @@ regex = "1.10.3"
 syn = { version = "2.0.53", features = ["full"] }
 quote = "1.0.35"
 proc-macro2 = "1.0.79"
-pulumi_wasm_rust = { path = "pulumi_wasm_rust" }
-pulumi_wasm_rust_macro = { path = "pulumi_wasm_rust_macro" }
-wasm_common = { path = "wasm_common" }
-pulumi_wasm_provider_random_rust = { path = "providers/pulumi_wasm_provider_random_rust" }
 assert_cmd = "2.0.14"
 predicates = "3.1.0"
 normpath = "1.2"

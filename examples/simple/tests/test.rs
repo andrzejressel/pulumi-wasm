@@ -2,7 +2,7 @@ use std::process::Command;
 use assert_cmd::prelude::*;
 use std::str;
 use anyhow::anyhow;
-use serde_json::{json, Value};
+use serde_json::Value;
 
 #[test]
 fn test_integration() -> Result<(), anyhow::Error> {
@@ -27,7 +27,7 @@ fn test_integration() -> Result<(), anyhow::Error> {
         .success();
 
     let binding = Command::new("pulumi")
-        .args(["stack", "export"])
+        .args(["stack", "output", "--json"])
         .current_dir(".")
         .env("PULUMI_CONFIG_PASSPHRASE", " ")
         .assert()
@@ -38,9 +38,9 @@ fn test_integration() -> Result<(), anyhow::Error> {
 
     let stack: Value = serde_json::from_str(str::from_utf8(stack)?)?;
 
-    let length = stack.pointer("/deployment/resources/1/inputs/length").ok_or(anyhow!("Cannot find length in stack export"))?;
+    let result = stack.pointer("/result").ok_or(anyhow!("Cannot find [result] in stack export"))?.as_str().ok_or(anyhow!("[result] is not a string"))?;
 
-    assert_eq!(length, &json!(36));
+    assert_eq!(result.len(), 36);
 
     Ok(())
 }

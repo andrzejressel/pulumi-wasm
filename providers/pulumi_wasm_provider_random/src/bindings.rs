@@ -100,24 +100,6 @@ pub mod component {
                     _rt::bool_lift(ret as u8)
                 }
             }
-            #[allow(unused_unsafe, clippy::all)]
-            pub fn combine_outputs() -> bool {
-                unsafe {
-                    #[cfg(target_arch = "wasm32")]
-                    #[link(wasm_import_module = "component:pulumi-wasm/output-interface@0.1.0")]
-                    extern "C" {
-                        #[link_name = "combine-outputs"]
-                        fn wit_import() -> i32;
-                    }
-
-                    #[cfg(not(target_arch = "wasm32"))]
-                    fn wit_import() -> i32 {
-                        unreachable!()
-                    }
-                    let ret = wit_import();
-                    _rt::bool_lift(ret as u8)
-                }
-            }
             impl Output {
                 #[allow(unused_unsafe, clippy::all)]
                 pub fn new(value: &[u8]) -> Self {
@@ -407,10 +389,6 @@ pub mod exports {
                 use super::super::super::super::_rt;
                 pub type Output =
                     super::super::super::super::component::pulumi_wasm::output_interface::Output;
-                /// variant either-u32 {
-                /// literal(option<u32>),
-                /// res(option<borrow<output>>),
-                /// }
                 pub struct RandomStringArgs<'a> {
                     pub name: _rt::String,
                     pub length: &'a Output,
@@ -644,29 +622,28 @@ pub(crate) use __export_pulumi_provider_random_impl as export;
 #[cfg(target_arch = "wasm32")]
 #[link_section = "component-type:wit-bindgen:0.20.0:pulumi-provider-random:encoded world"]
 #[doc(hidden)]
-pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 1030] = *b"\
-\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xf9\x06\x01A\x02\x01\
-A\x07\x01B\x16\x04\0\x06output\x03\x01\x01p}\x01i\0\x01@\x01\x05value\x01\0\x02\x04\
+pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 1010] = *b"\
+\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xe5\x06\x01A\x02\x01\
+A\x07\x01B\x15\x04\0\x06output\x03\x01\x01p}\x01i\0\x01@\x01\x05value\x01\0\x02\x04\
 \0\x13[constructor]output\x01\x03\x01h\0\x01@\x02\x04self\x04\x0dfunction-names\0\
 \x02\x04\0\x12[method]output.map\x01\x05\x01k\x01\x01@\x01\x04self\x04\0\x06\x04\
 \0\x12[method]output.get\x01\x07\x01@\x02\x04self\x04\x05fields\0\x02\x04\0\x18[\
 method]output.get-field\x01\x08\x01@\x01\x04self\x04\0s\x04\0\x17[method]output.\
 get-type\x01\x09\x01@\x01\x04self\x04\0\x02\x04\0\x18[method]output.duplicate\x01\
 \x0a\x01@\0\0s\x04\0\x10describe-outputs\x01\x0b\x01@\0\0\x7f\x04\0\x0fnon-done-\
-exists\x01\x0c\x04\0\x0fcombine-outputs\x01\x0c\x03\x01,component:pulumi-wasm/ou\
-tput-interface@0.1.0\x05\0\x02\x03\0\0\x06output\x01B\x0b\x02\x03\x02\x01\x01\x04\
-\0\x06output\x03\0\0\x01h\x01\x01r\x02\x04names\x05value\x02\x04\0\x0cobject-fie\
-ld\x03\0\x03\x01p\x04\x01r\x03\x04types\x04names\x06object\x05\x04\0\x19register\
--resource-request\x03\0\x06\x01i\x01\x01@\x01\x07request\x07\0\x08\x04\0\x08regi\
-ster\x01\x09\x03\x01.component:pulumi-wasm/register-interface@0.1.0\x05\x02\x01B\
-\x0c\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x04names\x06l\
-ength\x02\x04\0\x12random-string-args\x03\0\x03\x01i\x01\x01r\x01\x06result\x05\x04\
-\0\x14random-string-result\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x14create-\
-random-string\x01\x08\x01@\0\x01\0\x04\0\x10handle-functions\x01\x09\x04\x01<com\
-ponent:pulumi-wasm/pulumi-provider-random-interface@0.1.0\x05\x03\x04\x012compon\
-ent:pulumi-wasm/pulumi-provider-random@0.1.0\x04\0\x0b\x1c\x01\0\x16pulumi-provi\
-der-random\x03\0\0\0G\x09producers\x01\x0cprocessed-by\x02\x0dwit-component\x070\
-.201.0\x10wit-bindgen-rust\x060.20.0";
+exists\x01\x0c\x03\x01,component:pulumi-wasm/output-interface@0.1.0\x05\0\x02\x03\
+\0\0\x06output\x01B\x0b\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
+r\x02\x04names\x05value\x02\x04\0\x0cobject-field\x03\0\x03\x01p\x04\x01r\x03\x04\
+types\x04names\x06object\x05\x04\0\x19register-resource-request\x03\0\x06\x01i\x01\
+\x01@\x01\x07request\x07\0\x08\x04\0\x08register\x01\x09\x03\x01.component:pulum\
+i-wasm/register-interface@0.1.0\x05\x02\x01B\x0c\x02\x03\x02\x01\x01\x04\0\x06ou\
+tput\x03\0\0\x01h\x01\x01r\x02\x04names\x06length\x02\x04\0\x12random-string-arg\
+s\x03\0\x03\x01i\x01\x01r\x01\x06result\x05\x04\0\x14random-string-result\x03\0\x06\
+\x01@\x01\x04args\x04\0\x07\x04\0\x14create-random-string\x01\x08\x01@\0\x01\0\x04\
+\0\x10handle-functions\x01\x09\x04\x01<component:pulumi-wasm/pulumi-provider-ran\
+dom-interface@0.1.0\x05\x03\x04\x012component:pulumi-wasm/pulumi-provider-random\
+@0.1.0\x04\0\x0b\x1c\x01\0\x16pulumi-provider-random\x03\0\0\0G\x09producers\x01\
+\x0cprocessed-by\x02\x0dwit-component\x070.201.0\x10wit-bindgen-rust\x060.20.0";
 
 #[inline(never)]
 #[doc(hidden)]

@@ -6,9 +6,13 @@ pub struct RandomStringArgs<'a> {
     pub length: Output<i32>,
 }
 
+pub struct RandomString {
+    pub result: Output<String>,
+}
+
 pub fn create_random_string(
     args: RandomStringArgs,
-) -> Output<String> {
+) -> RandomString {
     let length = clone(args.length);
     let args = pulumi_provider_random_interface::RandomStringArgs {
         name: args.name.into(),
@@ -16,7 +20,9 @@ pub fn create_random_string(
     };
     let result = pulumi_provider_random_interface::create_random_string(&args);
 
-    random_to_domain_mapper::<String>(result.result)
+    RandomString {
+        result: random_to_domain_mapper(result.result),
+    }
 }
 
 fn random_to_domain_mapper<F: serde::Serialize>(random: pulumi_provider_random_interface::Output) -> Output<F> {

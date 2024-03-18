@@ -1,5 +1,9 @@
+use std::collections::HashMap;
 use std::fmt::Debug;
 use std::marker::PhantomData;
+use std::sync::Mutex;
+use anyhow::Error;
+use lazy_static::lazy_static;
 use crate::bindings::component::pulumi_wasm::output_interface;
 use uuid::Uuid;
 use log::{info};
@@ -13,6 +17,15 @@ impl <T: serde::Serialize> From<T> for Output<T> {
     fn from(value: T) -> Output<T> {
         Output::new(&value)
     }
+}
+
+type Function = Box<dyn Fn(Vec<u8>) -> Result<Vec<u8>, Error> + Send>;
+
+lazy_static! {
+    pub (crate) static ref HASHMAP: Mutex<HashMap<String, Function>> = {
+        let m = HashMap::new();
+        Mutex::new(m)
+    };
 }
 
 impl<T> Output<T> {
@@ -66,7 +79,7 @@ impl<T> Output<T> {
         };
 
         let uuid = Uuid::now_v7().to_string();
-        let mut map = crate::HASHMAP.lock().unwrap();
+        let mut map = HASHMAP.lock().unwrap();
         map.insert(uuid.clone(), Box::new(f));
 
         let new_output = self.future.map(uuid.as_str());
@@ -75,5 +88,9 @@ impl<T> Output<T> {
             phantom: PhantomData,
             future: new_output,
         }
+    }
+
+    pub(crate) fn add_to_export(&self, name: &str) {
+        crate::bindings::component::pulumi_wasm::stack_interface::add_export(name, &self.future);
     }
 }

@@ -19,7 +19,7 @@ pub fn pulumi_main(_attr: TokenStream, item: TokenStream) -> TokenStream {
 
         #[export_name = "component:pulumi-wasm/pulumi-main@0.1.0#main"]
         unsafe extern "C" fn __exported() {
-            pulumi_wasm_rust::run(|| {
+            pulumi_wasm_rust::runner::run(|| {
                 #fn_name()
             }).unwrap();
         }

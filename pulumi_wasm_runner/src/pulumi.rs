@@ -5,7 +5,8 @@ use wasmtime::component::{Component, Instance, Linker, ResourceTable};
 use wasmtime::Store;
 use wasmtime_wasi::preview2::{WasiCtx, WasiCtxBuilder, WasiView};
 
-use crate::grpc::RegisterResourceRequest;
+use crate::grpc::{GetRootResourceRequest, RegisterResourceOutputsRequest, RegisterResourceRequest, RegisterResourceResponse, SetRootResourceRequest};
+use crate::grpc::engine_client::EngineClient;
 use crate::grpc::resource_monitor_client::ResourceMonitorClient;
 use crate::pulumi::server::Main;
 
@@ -31,15 +32,24 @@ struct SimplePluginCtx {
 
 struct MyState {
     pulumi_monitor_url: Option<String>,
+    pulumi_engine_url: Option<String>,
+    pulumi_stack: Option<String>,
+    pulumi_project: Option<String>,
 }
 
 #[async_trait]
 impl server::component::pulumi_wasm::external_world::Host for MyState {
     async fn is_in_preview(&mut self) -> wasmtime::Result<bool> {
-        Ok(std::env::var("PULUMI_DRY_RUN").is_ok())
+        Ok(std::env::var("PULUMI_DRY_RUN").map(|s| s.to_ascii_lowercase() == "true").unwrap_or_else(|_| false))
     }
     async fn register_resource(&mut self, request: Vec<u8>) -> wasmtime::Result<Vec<u8>> {
         Ok(self.register_async(request).await?)
+    }
+    async fn register_resource_outputs(&mut self, request: Vec<u8>) -> wasmtime::Result<Vec<u8>> {
+        Ok(self.register_resource_outputs_async(request).await?)
+    }
+    async fn get_root_resource(&mut self) -> wasmtime::Result<String> {
+        Ok(self.get_root_resource_async().await?)
     }
 }
 
@@ -74,7 +84,7 @@ impl MyState {
         let engine_url = self
             .pulumi_monitor_url
             .clone()
-            .ok_or(Error::msg("engine_url not set"))?;
+            .ok_or(Error::msg("pulumi_monitor_url not set"))?;
 
         let request = RegisterResourceRequest::decode(&mut request.as_slice())?;
 
@@ -83,6 +93,51 @@ impl MyState {
         let result = client.register_resource(request).await?;
 
         Ok(result.get_ref().encode_to_vec())
+    }
+
+    async fn register_resource_outputs_async(&mut self, request: Vec<u8>) -> wasmtime::Result<Vec<u8>> {
+        let engine_url = self
+            .pulumi_monitor_url
+            .clone()
+            .ok_or(Error::msg("pulumi_monitor_url not set"))?;
+
+        let request = RegisterResourceOutputsRequest::decode(&mut request.as_slice())?;
+
+        let mut client = ResourceMonitorClient::connect(format!("tcp://{engine_url}")).await?;
+
+        let result = client.register_resource_outputs(request).await?;
+
+        Ok(result.get_ref().encode_to_vec())
+    }
+
+    async fn set_root_resource_async(&mut self, urn: String) -> wasmtime::Result<()> {
+        let engine_url = self
+            .pulumi_engine_url
+            .clone()
+            .ok_or(Error::msg("pulumi_monitor_url not set"))?;
+
+        let mut client = EngineClient::connect(format!("tcp://{engine_url}")).await?;
+
+        let request = SetRootResourceRequest { urn };
+
+        let _ = client.set_root_resource(request).await?;
+
+        Ok(())
+    }
+
+    async fn get_root_resource_async(&mut self) -> wasmtime::Result<String> {
+        let engine_url = self
+            .pulumi_engine_url
+            .clone()
+            .ok_or(Error::msg("pulumi_monitor_url not set"))?;
+
+        let mut client = EngineClient::connect(format!("tcp://{engine_url}")).await?;
+
+        let request = GetRootResourceRequest {};
+
+        let result = client.get_root_resource(request).await?;
+
+        Ok(result.get_ref().urn.clone())
     }
 }
 
@@ -105,6 +160,9 @@ impl Pulumi {
     pub async fn create(
         pulumi_wasm_file: &WasmFile,
         pulumi_monitor_url: &Option<String>,
+        pulumi_engine_url: &Option<String>,
+        pulumi_stack: &Option<String>,
+        pulumi_project: &Option<String>,
     ) -> Result<Pulumi, Error> {
         let mut engine_config = wasmtime::Config::new();
         engine_config.wasm_component_model(true);
@@ -136,6 +194,9 @@ impl Pulumi {
                 context: wasi_ctx,
                 my_state: MyState {
                     pulumi_monitor_url: pulumi_monitor_url.clone(),
+                    pulumi_engine_url: pulumi_engine_url.clone(),
+                    pulumi_stack: pulumi_stack.clone(),
+                    pulumi_project: pulumi_project.clone()
                 },
             },
         );
@@ -177,6 +238,23 @@ impl Pulumi {
         let component = Component::from_file(&engine, pulumi_wasm_file)?;
 
         component.serialize()
+    }
+
+    pub async fn create_root_stack(&mut self) -> Result<(), Error> {
+
+        let request = RegisterResourceRequest {
+            r#type: "pulumi:pulumi:Stack".to_string(),
+            name: format!("{}-{}", self.store.data_mut().my_state.pulumi_project.clone().unwrap(), self.store.data_mut().my_state.pulumi_stack.clone().unwrap()),
+            custom: false,
+            ..Default::default()
+        };
+
+        let result = self.store.data_mut().my_state.register_async(request.encode_to_vec()).await?;
+
+        let url = RegisterResourceResponse::decode(&mut result.as_slice())?.urn;
+        self.store.data_mut().my_state.set_root_resource_async(url).await?;
+
+        Ok(())
     }
 
     pub async fn start(&mut self) -> Result<(), Error> {

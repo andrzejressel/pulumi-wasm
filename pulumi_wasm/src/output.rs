@@ -1,6 +1,8 @@
 use std::cell::RefCell;
+use std::collections::HashMap;
 use rmpv::Value;
 use std::rc::Rc;
+use crate::Output;
 
 pub(crate) type OutputContentRefCell = Rc<RefCell<OutputContent>>;
 
@@ -35,6 +37,7 @@ impl FunctionSource {
 }
 
 static mut GLOBAL_MAP: Option<Vec<OutputContentRefCell>> = None;
+static mut OUTPUT_MAP: Option<HashMap<String, Output>> = None;
 
 pub(crate) fn access_map() -> &'static mut Vec<OutputContentRefCell> {
     let maybe_map = unsafe { &mut GLOBAL_MAP };
@@ -48,8 +51,20 @@ pub(crate) fn access_map() -> &'static mut Vec<OutputContentRefCell> {
         }
         Some(m) => m,
     }
+}
 
-    // unsafe { &mut GLOBAL_MAP }
+pub(crate) fn output_map() -> &'static mut HashMap<String, Output> {
+    let maybe_map = unsafe { &mut OUTPUT_MAP };
+
+    match maybe_map {
+        None => {
+            unsafe {
+                OUTPUT_MAP = Some(HashMap::new());
+            };
+            output_map()
+        }
+        Some(m) => m,
+    }
 }
 
 pub(crate) enum OutputContent {

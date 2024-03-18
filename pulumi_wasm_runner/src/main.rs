@@ -89,10 +89,18 @@ async fn main() -> Result<(), Error> {
                 }
             };
 
-            let _pulumi_engine_url = std::env::var("PULUMI_ENGINE")?;
+            let pulumi_engine_url = std::env::var("PULUMI_ENGINE")?;
             let pulumi_monitor_url = std::env::var("PULUMI_MONITOR")?;
+            let pulumi_stack = std::env::var("PULUMI_STACK")?;
+            let pulumi_project = std::env::var("PULUMI_PROJECT")?;
 
-            let mut pulumi = Pulumi::create(&wasm, &Some(pulumi_monitor_url)).await?;
+            let mut pulumi = Pulumi::create(&wasm,
+                                            &Some(pulumi_monitor_url),
+                                            &Some(pulumi_engine_url),
+                                            &Some(pulumi_stack),
+                                            &Some(pulumi_project),
+            ).await?;
+            pulumi.create_root_stack().await?;
             pulumi.start().await?;
         }
         Command::Compile { wasm, output } => {

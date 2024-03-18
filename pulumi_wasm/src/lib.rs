@@ -2,8 +2,6 @@ use core::fmt::Debug;
 use std::collections::{BTreeMap};
 use std::fmt::Formatter;
 use std::ops::Deref;
-
-
 use log::{error, info};
 use prost::Message;
 use prost_types::Struct;
@@ -11,20 +9,16 @@ use prost_types::value::Kind;
 use rmpv::{Utf8String, Value};
 use bindings::component::pulumi_wasm::external_world;
 use crate::bindings::component::pulumi_wasm::external_world::is_in_preview;
-
-
 use crate::bindings::exports::component::pulumi_wasm::function_reverse_callback::{
     FunctionInvocationRequest, FunctionInvocationResult,
 };
 use crate::bindings::exports::component::pulumi_wasm::output_interface::Output as WasmOutput;
-
 use crate::bindings::exports::component::pulumi_wasm::output_interface::{GuestOutput};
 use crate::bindings::exports::component::pulumi_wasm::register_interface::{RegisterResourceRequest};
-use crate::bindings::exports::component::pulumi_wasm::{
-    function_reverse_callback, output_interface, register_interface,
-};
+use crate::bindings::exports::component::pulumi_wasm::{function_reverse_callback, output_interface, register_interface, stack_interface};
+use crate::bindings::exports::component::pulumi_wasm::stack_interface::OutputBorrow;
 
-use crate::output::{access_map, FunctionId, FunctionSource, OutputContent};
+use crate::output::{access_map, FunctionId, FunctionSource, output_map, OutputContent};
 bindings::export!(Component with_types_in bindings);
 
 #[allow(clippy::all)]
@@ -38,8 +32,23 @@ mod grpc {
     tonic::include_proto!("pulumirpc");
 }
 mod output;
+mod finalizer;
 
 struct Component;
+
+impl stack_interface::Guest for Component {
+    fn add_export(name: String, value: OutputBorrow<'_>) {
+        wasm_common::setup_logger();
+        let output = value.get::<Output>().clone();
+        info!("Adding export [{name}] with output [{output:?}]");
+        output_map().insert(name, output);
+    }
+
+    fn finish() -> bool {
+        wasm_common::setup_logger();
+        finalizer::finish()
+    }
+}
 
 impl output_interface::Guest for Component {
     type Output = Output;
@@ -74,54 +83,6 @@ impl output_interface::Guest for Component {
         false
     }
 
-    fn combine_outputs() -> bool {
-        wasm_common::setup_logger();
-        let outputs = access_map();
-        let mut changed = false;
-
-        outputs.iter().for_each(|o| {
-            let ref_cell = o.borrow();
-            let content = ref_cell.deref();
-
-            let new_value = match content {
-                OutputContent::Func(refcells, f) => {
-                    info!("Found func");
-                    let data = refcells.iter().flat_map(|r| {
-                        let ref_cell = r.borrow();
-                        let content = ref_cell.deref();
-                        match content {
-                            OutputContent::Done(v) => {
-                                Some(v.clone())
-                            }
-                            OutputContent::Mapped(_, _, _) | OutputContent::Func(_, _) | OutputContent::Nothing => None
-                        }
-                    }).collect::<Vec<_>>();
-
-                    if data.len() == refcells.len() {
-                        info!("Map");
-                        Some(f(data))
-                    } else {
-                        info!("Cannot map");
-                        None
-                    }
-                }
-                OutputContent::Done(_) => None,
-                OutputContent::Mapped(_, _, _) => None,
-                OutputContent::Nothing => None
-            };
-
-            drop(ref_cell);
-            match new_value {
-                None => {}
-                Some(i) => {
-                    changed = true;
-                    o.replace(OutputContent::Done(i));
-                }
-            };
-        });
-
-        changed
-    }
 }
 
 #[derive(Clone)]
@@ -316,6 +277,9 @@ fn messagepack_to_protoc(v: &Value) -> prost_types::Value {
         Value::Integer(i) => prost_types::Value {
             kind: Option::from(prost_types::value::Kind::NumberValue(i.as_f64().unwrap())),
         },
+        Value::String(s) => prost_types::Value {
+            kind: Option::from(prost_types::value::Kind::StringValue(s.clone().into_str().unwrap())),
+        },
         _ => {
             error!("Cannot convert [{v}]");
             todo!("Cannot convert [{v}]")
@@ -335,14 +299,7 @@ impl register_interface::Guest for Component {
         let new_output = output::map_internal(values, move |v| {
             info!("Converting values [{v:?}] with names [{names:?}]");
 
-            let pairs = names.iter().zip(v.iter()).map(|(name, value)| {
-                let v = messagepack_to_protoc(value);
-                (name.clone(), v)
-            }).collect::<Vec<_>>();
-
-            let object = prost_types::Struct {
-                fields: BTreeMap::from_iter(pairs)
-            };
+            let object = Self::create_protobuf_struct(&names, &v);
 
             info!("Resulting object: [{object:?}]");
 
@@ -402,5 +359,18 @@ impl register_interface::Guest for Component {
         });
 
         WasmOutput::new(Output { output: new_output, tags: vec![] })
+    }
+}
+
+impl Component {
+    pub fn create_protobuf_struct(names: &[String], v: &[Value]) -> Struct {
+        let pairs = names.iter().zip(v.iter()).map(|(name, value)| {
+            let v = messagepack_to_protoc(value);
+            (name.clone(), v)
+        }).collect::<Vec<_>>();
+
+        Struct {
+            fields: BTreeMap::from_iter(pairs)
+        }
     }
 }

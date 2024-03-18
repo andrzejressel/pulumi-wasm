@@ -1,7 +1,7 @@
 use crate::server::component::pulumi_wasm::log;
 use crate::server::exports::component::pulumi_wasm::function_reverse_callback::FunctionInvocationRequest;
 use crate::server::PulumiWasm;
-use anyhow::{Error, Ok};
+use anyhow::{Error, Ok, Result};
 use std::collections::HashMap;
 use std::string::String;
 use wasmtime::component::{Component, Linker, ResourceTable};
@@ -38,23 +38,30 @@ fn create_function<A, B, F>(f: F) -> impl Fn(Vec<u8>) -> Vec<u8> + Send
     }
 }
 
+type Function = Box<dyn Fn(Vec<u8>) -> Vec<u8> + Send>;
+
 struct MyState {
     is_in_preview: bool,
-    functions: HashMap<String, Box<dyn Fn(Vec<u8>) -> Vec<u8> + Send>>,
+    functions: HashMap<String, Function>,
 }
 
 impl server::component::pulumi_wasm::external_world::Host for MyState {
-    fn is_in_preview(&mut self) -> std::result::Result<bool, anyhow::Error> {
+    fn is_in_preview(&mut self) -> Result<bool, Error> {
         Ok(self.is_in_preview)
     }
-    fn register_resource(&mut self, _request: Vec<u8>) -> anyhow::Result<Vec<u8>> {
+    fn register_resource(&mut self, _request: Vec<u8>) -> Result<Vec<u8>> {
+        todo!()
+    }
+    fn get_root_resource(&mut self) -> Result<String> {
+        todo!()
+    }
+    fn register_resource_outputs(&mut self, _request: Vec<u8>) -> Result<Vec<u8>> {
         todo!()
     }
 }
 
-
 impl log::Host for MyState {
-    fn log(&mut self, s: log::Content) -> std::result::Result<(), anyhow::Error> {
+    fn log(&mut self, s: log::Content) -> Result<()> {
         println!("{:?}", s);
         Ok(())
     }
@@ -254,8 +261,8 @@ fn run_loop(
 ) -> Result<(), Error> {
     loop {
         let combined = plugin
-            .component_pulumi_wasm_output_interface()
-            .call_combine_outputs(store.borrow_mut())?;
+            .component_pulumi_wasm_stack_interface()
+            .call_finish(store.borrow_mut())?;
         if !run_all_function(store, plugin)? && !combined {
             return Ok(());
         }
