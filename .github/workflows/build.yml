@@ -63,5 +63,7 @@ jobs:
 
     - name: Run tests
       run: cargo test --all --verbose
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Ensure no files have changed
       run: git diff --exit-code
