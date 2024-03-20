@@ -1896,6 +1896,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "pulumi_wasm_generator"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "pulumi_wasm_provider_random"
 version = "0.1.0"
 dependencies = [

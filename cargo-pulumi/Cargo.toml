@@ -22,5 +22,5 @@ assert_cmd.workspace = true
 predicates.workspace = true
 wasmtime.workspace = true
 wasmtime-wasi.workspace = true
-testdir = "0.9.1"
-fs_extra = "1.3.0"
+testdir.workspace = true
+fs_extra.workspace = true

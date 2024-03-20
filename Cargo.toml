@@ -14,7 +14,8 @@ members = [
     "pulumi_wasm_rust",
     "wasm_common",
     "examples/simple",
-    "cargo-pulumi"
+    "cargo-pulumi",
+    "pulumi_wasm_generator",
 ]
 
 [workspace.package]
@@ -23,6 +24,7 @@ edition = "2021"
 
 [workspace.dependencies]
 pulumi_wasm_rust = { path = "pulumi_wasm_rust" }
+pulumi_wasm_generator = { path = "pulumi_wasm_generator" }
 pulumi_wasm_rust_macro = { path = "pulumi_wasm_rust_macro" }
 wasm_common = { path = "wasm_common" }
 pulumi_wasm_provider_random_rust = { path = "providers/pulumi_wasm_provider_random_rust" }
@@ -64,3 +66,5 @@ simple_logger = "4.3.3"
 petgraph = "0.6.4"
 cargo_metadata = "0.18.1"
 itertools = "0.12.1"
+testdir = "0.9.1"
+fs_extra = "1.3.0"
