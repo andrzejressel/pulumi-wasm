@@ -5,9 +5,9 @@ use anyhow::{Error};
 use fs_extra::dir::CopyOptions;
 use wasmtime::component::{Component, Linker, ResourceTable};
 use wasmtime::Store;
-use wasmtime_wasi::preview2::WasiCtx;
-use wasmtime_wasi::preview2::WasiCtxBuilder;
-use wasmtime_wasi::preview2::WasiView;
+use wasmtime_wasi::WasiCtx;
+use wasmtime_wasi::WasiCtxBuilder;
+use wasmtime_wasi::WasiView;
 use crate::server::Runner;
 
 mod server {
@@ -119,7 +119,7 @@ fn create_engine(file: &str) -> Result<(Store<SimplePluginCtx>, Runner), Error> 
 
     let mut linker: Linker<SimplePluginCtx> = Linker::new(&engine);
 
-    wasmtime_wasi::preview2::command::sync::add_to_linker(&mut linker).unwrap();
+    wasmtime_wasi::command::sync::add_to_linker(&mut linker).unwrap();
 
     let table = ResourceTable::new();
 

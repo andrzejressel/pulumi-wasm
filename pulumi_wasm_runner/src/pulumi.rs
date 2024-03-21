@@ -3,7 +3,7 @@ use async_trait::async_trait;
 use prost::Message;
 use wasmtime::component::{Component, Instance, Linker, ResourceTable};
 use wasmtime::Store;
-use wasmtime_wasi::preview2::{WasiCtx, WasiCtxBuilder, WasiView};
+use wasmtime_wasi::{WasiCtx, WasiCtxBuilder, WasiView};
 
 use crate::grpc::{GetRootResourceRequest, RegisterResourceOutputsRequest, RegisterResourceRequest, RegisterResourceResponse, SetRootResourceRequest};
 use crate::grpc::engine_client::EngineClient;
@@ -177,7 +177,7 @@ impl Pulumi {
             &mut state.my_state
         })?;
 
-        wasmtime_wasi::preview2::command::add_to_linker(&mut linker)?;
+        wasmtime_wasi::command::add_to_linker(&mut linker)?;
 
         let table = ResourceTable::new();
 
@@ -233,7 +233,7 @@ impl Pulumi {
             &mut state.my_state
         })?;
 
-        wasmtime_wasi::preview2::command::add_to_linker(&mut linker).unwrap();
+        wasmtime_wasi::command::add_to_linker(&mut linker).unwrap();
 
         let component = Component::from_file(&engine, pulumi_wasm_file)?;
 
