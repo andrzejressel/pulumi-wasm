@@ -1,0 +1,214 @@
+package pulumi:random@4.15.0;
+
+world main-world {
+    import component:pulumi-wasm/output-interface@0.1.0;
+    import register-interface;
+    export random-index-random-password-random-password;
+    export random-index-random-shuffle-random-shuffle;
+    export random-index-random-bytes-random-bytes;
+    export random-index-random-id-random-id;
+    export random-index-random-uuid-random-uuid;
+    export random-index-random-integer-random-integer;
+    export random-index-random-pet-random-pet;
+    export random-index-random-string-random-string;
+}
+
+world main-world-client {
+    import output-interface;
+    import register-interface;
+    import random-index-random-password-random-password;
+    import random-index-random-shuffle-random-shuffle;
+    import random-index-random-bytes-random-bytes;
+    import random-index-random-id-random-id;
+    import random-index-random-uuid-random-uuid;
+    import random-index-random-integer-random-integer;
+    import random-index-random-pet-random-pet;
+    import random-index-random-string-random-string;
+}
+
+interface output-interface {
+
+    describe-outputs: func() -> string;
+    non-done-exists: func() -> bool;
+
+    resource output {
+        constructor(value: list<u8>);
+        map: func(function-name: string) -> output;
+        get: func() -> option<list<u8>>;
+        get-field: func(field: string) -> output;
+        get-type: func() -> string;
+        duplicate: func() -> output;
+    }
+}
+
+interface register-interface {
+    use output-interface.{output};
+
+    record object-field {
+        name: string,
+        value: borrow<output>
+    }
+
+    record register-resource-request {
+        %type: string,
+        name: string,
+        object: list<object-field>,
+    }
+
+    register: func(request: register-resource-request) -> output;
+}
+
+interface random-index-random-password-random-password {
+
+    use output-interface.{output};
+
+    record args {
+        special: borrow<output>,
+        min-numeric: borrow<output>,
+        lower: borrow<output>,
+        keepers: borrow<output>,
+        min-lower: borrow<output>,
+        numeric: borrow<output>,
+        override-special: borrow<output>,
+        number: borrow<output>,
+        upper: borrow<output>,
+        min-upper: borrow<output>,
+        length: borrow<output>,
+        min-special: borrow<output>,
+    }
+
+    record res {
+    }
+
+    invoke: func(args: args) -> res;
+
+}
+
+interface random-index-random-shuffle-random-shuffle {
+
+    use output-interface.{output};
+
+    record args {
+        result-count: borrow<output>,
+        seed: borrow<output>,
+        inputs: borrow<output>,
+        keepers: borrow<output>,
+    }
+
+    record res {
+    }
+
+    invoke: func(args: args) -> res;
+
+}
+
+interface random-index-random-bytes-random-bytes {
+
+    use output-interface.{output};
+
+    record args {
+        keepers: borrow<output>,
+        length: borrow<output>,
+    }
+
+    record res {
+    }
+
+    invoke: func(args: args) -> res;
+
+}
+
+interface random-index-random-id-random-id {
+
+    use output-interface.{output};
+
+    record args {
+        prefix: borrow<output>,
+        byte-length: borrow<output>,
+        keepers: borrow<output>,
+    }
+
+    record res {
+    }
+
+    invoke: func(args: args) -> res;
+
+}
+
+interface random-index-random-uuid-random-uuid {
+
+    use output-interface.{output};
+
+    record args {
+        keepers: borrow<output>,
+    }
+
+    record res {
+    }
+
+    invoke: func(args: args) -> res;
+
+}
+
+interface random-index-random-integer-random-integer {
+
+    use output-interface.{output};
+
+    record args {
+        keepers: borrow<output>,
+        seed: borrow<output>,
+        min: borrow<output>,
+        max: borrow<output>,
+    }
+
+    record res {
+    }
+
+    invoke: func(args: args) -> res;
+
+}
+
+interface random-index-random-pet-random-pet {
+
+    use output-interface.{output};
+
+    record args {
+        prefix: borrow<output>,
+        keepers: borrow<output>,
+        length: borrow<output>,
+        separator: borrow<output>,
+    }
+
+    record res {
+    }
+
+    invoke: func(args: args) -> res;
+
+}
+
+interface random-index-random-string-random-string {
+
+    use output-interface.{output};
+
+    record args {
+        min-lower: borrow<output>,
+        length: borrow<output>,
+        special: borrow<output>,
+        override-special: borrow<output>,
+        min-numeric: borrow<output>,
+        min-upper: borrow<output>,
+        keepers: borrow<output>,
+        upper: borrow<output>,
+        lower: borrow<output>,
+        numeric: borrow<output>,
+        number: borrow<output>,
+        min-special: borrow<output>,
+    }
+
+    record res {
+    }
+
+    invoke: func(args: args) -> res;
+
+}
+
