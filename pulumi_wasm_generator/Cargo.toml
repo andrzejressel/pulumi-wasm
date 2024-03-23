@@ -10,3 +10,8 @@ serde.workspace = true
 serde_json.workspace = true
 anyhow.workspace = true
 handlebars.workspace = true
+regex = "1.10.3"
+
+[dev-dependencies]
+assert_cmd.workspace = true
+predicates.workspace = true

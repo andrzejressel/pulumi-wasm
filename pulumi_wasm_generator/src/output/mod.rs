@@ -1,1 +1,1 @@
-mod wit;
+pub(crate) mod wit;

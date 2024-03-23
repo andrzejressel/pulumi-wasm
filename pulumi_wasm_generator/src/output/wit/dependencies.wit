@@ -1,4 +1,4 @@
-package {{package.name}}@{{package.version}};
+package component:pulumi-wasm@0.1.0;
 
 interface output-interface {
 
@@ -15,26 +15,20 @@ interface output-interface {
     }
 }
 
-{{#each package.interface}}
 
-interface {{name}} {
-
+interface register-interface {
     use output-interface.{output};
 
-    record args {
-        {{#each arguments}}
-        {{name}}: {{type}},
-        {{/each}}
+    record object-field {
+        name: string,
+        value: borrow<output>
     }
 
-    record result {
-        {{#each results}}
-        {{name}}: {{type}},
-        {{/each}}
+    record register-resource-request {
+        %type: string,
+        name: string,
+        object: list<object-field>,
     }
 
-    invoke: func(args: args) -> result;
-
+    register: func(request: register-resource-request) -> output;
 }
-
-{{/each}}

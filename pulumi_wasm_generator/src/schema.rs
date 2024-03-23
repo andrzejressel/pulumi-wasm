@@ -1,4 +1,4 @@
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 
 use serde::Deserialize;
 
@@ -40,17 +40,17 @@ struct ObjectType {
     #[serde(default)]
     properties: PulumiMap<Property>,
     #[serde(default)]
-    required: Vec<String>,
+    required: HashSet<String>,
 }
 
 #[derive(Deserialize, Debug)]
 struct Resource {
     #[serde(flatten)]
     object_type: ObjectType,
-    #[serde(default)]
+    #[serde(default, rename = "inputProperties")]
     input_properties: PulumiMap<Property>,
     #[serde(default, rename = "requiredInputs")]
-    required_inputs: Vec<String>,
+    required_inputs: HashSet<String>,
 }
 
 #[derive(Deserialize, Debug)]
@@ -75,6 +75,37 @@ pub(crate) struct Package {
     display_name: Option<String>,
     #[serde(default)]
     resources: PulumiMap<Resource>,
+    version: String,
     #[serde(default)]
     types: PulumiMap<ComplexType>,
+}
+
+fn resource_to_model(resource_name: &String, resource: &Resource) -> crate::model::Resource {
+    return crate::model::Resource {
+        name: resource_name.clone(),
+        description: resource.object_type.description.clone(),
+        input_properties: resource.input_properties.iter().map(|(input_name, input_property)| {
+            return crate::model::InputProperty {
+                name: input_name.clone(),
+                // r#type: match &input_property.r#type.r#type {
+                //     Some(t) => crate::model::TypeOrRef::Type(match t),
+                //     None => crate::model::TypeOrRef::Ref(input_property.r#type.r#ref.clone().unwrap()),
+                // },
+                // description: input_property.descriptio
+                required: resource.required_inputs.contains(input_name),
+            };
+        }).collect(),
+    };
+
+}
+
+pub(crate) fn to_model(package: &Package) -> crate::model::Package {
+    return crate::model::Package {
+        name: package.name.clone(),
+        version: package.version.clone(),
+        display_name: package.display_name.clone(),
+        resources: package.resources.iter().map(|(resource_name, resource)| {
+            resource_to_model(resource_name, resource)
+        }).collect(),
+    };
 }
