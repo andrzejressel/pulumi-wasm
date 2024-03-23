@@ -1,5 +1,6 @@
 mod schema;
 mod model;
+mod output;
 
 use std::fs::File;
 use std::io::BufReader;

@@ -1,0 +1,40 @@
+package {{package.name}}@{{package.version}};
+
+interface output-interface {
+
+    describe-outputs: func() -> string;
+    non-done-exists: func() -> bool;
+
+    resource output {
+        constructor(value: list<u8>);
+        map: func(function-name: string) -> output;
+        get: func() -> option<list<u8>>;
+        get-field: func(field: string) -> output;
+        get-type: func() -> string;
+        duplicate: func() -> output;
+    }
+}
+
+{{#each package.interface}}
+
+interface {{name}} {
+
+    use output-interface.{output};
+
+    record args {
+        {{#each arguments}}
+        {{name}}: {{type}},
+        {{/each}}
+    }
+
+    record result {
+        {{#each results}}
+        {{name}}: {{type}},
+        {{/each}}
+    }
+
+    invoke: func(args: args) -> result;
+
+}
+
+{{/each}}
