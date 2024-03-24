@@ -1,5 +1,12 @@
-use crate::bindings::component::pulumi_wasm::register_interface::RegisterResourceRequest;
-use crate::bindings::component::pulumi_wasm::register_interface::ObjectField;
+use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest};
+use bindings::exports::pulumi::random::random_index_random_bytes_random_bytes;
+use bindings::exports::pulumi::random::random_index_random_id_random_id;
+use bindings::exports::pulumi::random::random_index_random_integer_random_integer;
+use bindings::exports::pulumi::random::random_index_random_password_random_password;
+use bindings::exports::pulumi::random::random_index_random_pet_random_pet;
+use bindings::exports::pulumi::random::random_index_random_shuffle_random_shuffle;
+use bindings::exports::pulumi::random::random_index_random_string_random_string;
+use bindings::exports::pulumi::random::random_index_random_uuid_random_uuid;
 
 #[allow(clippy::all)]
 #[allow(dead_code)]
@@ -10,14 +17,8 @@ bindings::export!(Component with_types_in bindings);
 
 struct Component {}
 
-impl bindings::exports::pulumi::random::random_index_random_bytes_random_bytes::Guest for Component {
-    fn invoke(name: String, args: bindings::exports::pulumi::random::random_index_random_bytes_random_bytes::Args) -> bindings::exports::pulumi::random::random_index_random_bytes_random_bytes::Res {
-/*        let mut res = bindings::exports::pulumi::random::random_index_random_bytes_random_bytes::res {
-        };
-        res
-*/
-
-//        let r#type = "random:index/randomBytes:RandomBytes".to_string();
+impl random_index_random_bytes_random_bytes::Guest for Component {
+    fn invoke(name: String, args: random_index_random_bytes_random_bytes::Args) -> random_index_random_bytes_random_bytes::Res {
 
         let request = RegisterResourceRequest {
             type_: "random:index/randomBytes:RandomBytes".into(),
@@ -28,18 +29,19 @@ impl bindings::exports::pulumi::random::random_index_random_bytes_random_bytes::
             ],
         };
 
-        todo!()
+        let o = register(&request);
+
+        random_index_random_bytes_random_bytes::Res {
+            base64: o.get_field("base64"),
+            hex: o.get_field("hex"),
+            keepers: o.get_field("keepers"),
+            length: o.get_field("length"),
+        }
 
     }
 }
-impl bindings::exports::pulumi::random::random_index_random_id_random_id::Guest for Component {
-    fn invoke(name: String, args: bindings::exports::pulumi::random::random_index_random_id_random_id::Args) -> bindings::exports::pulumi::random::random_index_random_id_random_id::Res {
-/*        let mut res = bindings::exports::pulumi::random::random_index_random_id_random_id::res {
-        };
-        res
-*/
-
-//        let r#type = "random:index/randomId:RandomId".to_string();
+impl random_index_random_id_random_id::Guest for Component {
+    fn invoke(name: String, args: random_index_random_id_random_id::Args) -> random_index_random_id_random_id::Res {
 
         let request = RegisterResourceRequest {
             type_: "random:index/randomId:RandomId".into(),
@@ -51,18 +53,22 @@ impl bindings::exports::pulumi::random::random_index_random_id_random_id::Guest 
             ],
         };
 
-        todo!()
+        let o = register(&request);
+
+        random_index_random_id_random_id::Res {
+            b64_std: o.get_field("b64Std"),
+            b64_url: o.get_field("b64Url"),
+            byte_length: o.get_field("byteLength"),
+            dec: o.get_field("dec"),
+            hex: o.get_field("hex"),
+            keepers: o.get_field("keepers"),
+            prefix: o.get_field("prefix"),
+        }
 
     }
 }
-impl bindings::exports::pulumi::random::random_index_random_integer_random_integer::Guest for Component {
-    fn invoke(name: String, args: bindings::exports::pulumi::random::random_index_random_integer_random_integer::Args) -> bindings::exports::pulumi::random::random_index_random_integer_random_integer::Res {
-/*        let mut res = bindings::exports::pulumi::random::random_index_random_integer_random_integer::res {
-        };
-        res
-*/
-
-//        let r#type = "random:index/randomInteger:RandomInteger".to_string();
+impl random_index_random_integer_random_integer::Guest for Component {
+    fn invoke(name: String, args: random_index_random_integer_random_integer::Args) -> random_index_random_integer_random_integer::Res {
 
         let request = RegisterResourceRequest {
             type_: "random:index/randomInteger:RandomInteger".into(),
@@ -75,18 +81,20 @@ impl bindings::exports::pulumi::random::random_index_random_integer_random_integ
             ],
         };
 
-        todo!()
+        let o = register(&request);
+
+        random_index_random_integer_random_integer::Res {
+            keepers: o.get_field("keepers"),
+            max: o.get_field("max"),
+            min: o.get_field("min"),
+            result: o.get_field("result"),
+            seed: o.get_field("seed"),
+        }
 
     }
 }
-impl bindings::exports::pulumi::random::random_index_random_password_random_password::Guest for Component {
-    fn invoke(name: String, args: bindings::exports::pulumi::random::random_index_random_password_random_password::Args) -> bindings::exports::pulumi::random::random_index_random_password_random_password::Res {
-/*        let mut res = bindings::exports::pulumi::random::random_index_random_password_random_password::res {
-        };
-        res
-*/
-
-//        let r#type = "random:index/randomPassword:RandomPassword".to_string();
+impl random_index_random_password_random_password::Guest for Component {
+    fn invoke(name: String, args: random_index_random_password_random_password::Args) -> random_index_random_password_random_password::Res {
 
         let request = RegisterResourceRequest {
             type_: "random:index/randomPassword:RandomPassword".into(),
@@ -107,18 +115,29 @@ impl bindings::exports::pulumi::random::random_index_random_password_random_pass
             ],
         };
 
-        todo!()
+        let o = register(&request);
+
+        random_index_random_password_random_password::Res {
+            bcrypt_hash: o.get_field("bcryptHash"),
+            keepers: o.get_field("keepers"),
+            length: o.get_field("length"),
+            lower: o.get_field("lower"),
+            min_lower: o.get_field("minLower"),
+            min_numeric: o.get_field("minNumeric"),
+            min_special: o.get_field("minSpecial"),
+            min_upper: o.get_field("minUpper"),
+            number: o.get_field("number"),
+            numeric: o.get_field("numeric"),
+            override_special: o.get_field("overrideSpecial"),
+            result: o.get_field("result"),
+            special: o.get_field("special"),
+            upper: o.get_field("upper"),
+        }
 
     }
 }
-impl bindings::exports::pulumi::random::random_index_random_pet_random_pet::Guest for Component {
-    fn invoke(name: String, args: bindings::exports::pulumi::random::random_index_random_pet_random_pet::Args) -> bindings::exports::pulumi::random::random_index_random_pet_random_pet::Res {
-/*        let mut res = bindings::exports::pulumi::random::random_index_random_pet_random_pet::res {
-        };
-        res
-*/
-
-//        let r#type = "random:index/randomPet:RandomPet".to_string();
+impl random_index_random_pet_random_pet::Guest for Component {
+    fn invoke(name: String, args: random_index_random_pet_random_pet::Args) -> random_index_random_pet_random_pet::Res {
 
         let request = RegisterResourceRequest {
             type_: "random:index/randomPet:RandomPet".into(),
@@ -131,18 +150,19 @@ impl bindings::exports::pulumi::random::random_index_random_pet_random_pet::Gues
             ],
         };
 
-        todo!()
+        let o = register(&request);
+
+        random_index_random_pet_random_pet::Res {
+            keepers: o.get_field("keepers"),
+            length: o.get_field("length"),
+            prefix: o.get_field("prefix"),
+            separator: o.get_field("separator"),
+        }
 
     }
 }
-impl bindings::exports::pulumi::random::random_index_random_shuffle_random_shuffle::Guest for Component {
-    fn invoke(name: String, args: bindings::exports::pulumi::random::random_index_random_shuffle_random_shuffle::Args) -> bindings::exports::pulumi::random::random_index_random_shuffle_random_shuffle::Res {
-/*        let mut res = bindings::exports::pulumi::random::random_index_random_shuffle_random_shuffle::res {
-        };
-        res
-*/
-
-//        let r#type = "random:index/randomShuffle:RandomShuffle".to_string();
+impl random_index_random_shuffle_random_shuffle::Guest for Component {
+    fn invoke(name: String, args: random_index_random_shuffle_random_shuffle::Args) -> random_index_random_shuffle_random_shuffle::Res {
 
         let request = RegisterResourceRequest {
             type_: "random:index/randomShuffle:RandomShuffle".into(),
@@ -155,18 +175,20 @@ impl bindings::exports::pulumi::random::random_index_random_shuffle_random_shuff
             ],
         };
 
-        todo!()
+        let o = register(&request);
+
+        random_index_random_shuffle_random_shuffle::Res {
+            inputs: o.get_field("inputs"),
+            keepers: o.get_field("keepers"),
+            result_count: o.get_field("resultCount"),
+            results: o.get_field("results"),
+            seed: o.get_field("seed"),
+        }
 
     }
 }
-impl bindings::exports::pulumi::random::random_index_random_string_random_string::Guest for Component {
-    fn invoke(name: String, args: bindings::exports::pulumi::random::random_index_random_string_random_string::Args) -> bindings::exports::pulumi::random::random_index_random_string_random_string::Res {
-/*        let mut res = bindings::exports::pulumi::random::random_index_random_string_random_string::res {
-        };
-        res
-*/
-
-//        let r#type = "random:index/randomString:RandomString".to_string();
+impl random_index_random_string_random_string::Guest for Component {
+    fn invoke(name: String, args: random_index_random_string_random_string::Args) -> random_index_random_string_random_string::Res {
 
         let request = RegisterResourceRequest {
             type_: "random:index/randomString:RandomString".into(),
@@ -187,18 +209,28 @@ impl bindings::exports::pulumi::random::random_index_random_string_random_string
             ],
         };
 
-        todo!()
+        let o = register(&request);
+
+        random_index_random_string_random_string::Res {
+            keepers: o.get_field("keepers"),
+            length: o.get_field("length"),
+            lower: o.get_field("lower"),
+            min_lower: o.get_field("minLower"),
+            min_numeric: o.get_field("minNumeric"),
+            min_special: o.get_field("minSpecial"),
+            min_upper: o.get_field("minUpper"),
+            number: o.get_field("number"),
+            numeric: o.get_field("numeric"),
+            override_special: o.get_field("overrideSpecial"),
+            result: o.get_field("result"),
+            special: o.get_field("special"),
+            upper: o.get_field("upper"),
+        }
 
     }
 }
-impl bindings::exports::pulumi::random::random_index_random_uuid_random_uuid::Guest for Component {
-    fn invoke(name: String, args: bindings::exports::pulumi::random::random_index_random_uuid_random_uuid::Args) -> bindings::exports::pulumi::random::random_index_random_uuid_random_uuid::Res {
-/*        let mut res = bindings::exports::pulumi::random::random_index_random_uuid_random_uuid::res {
-        };
-        res
-*/
-
-//        let r#type = "random:index/randomUuid:RandomUuid".to_string();
+impl random_index_random_uuid_random_uuid::Guest for Component {
+    fn invoke(name: String, args: random_index_random_uuid_random_uuid::Args) -> random_index_random_uuid_random_uuid::Res {
 
         let request = RegisterResourceRequest {
             type_: "random:index/randomUuid:RandomUuid".into(),
@@ -208,7 +240,12 @@ impl bindings::exports::pulumi::random::random_index_random_uuid_random_uuid::Gu
             ],
         };
 
-        todo!()
+        let o = register(&request);
+
+        random_index_random_uuid_random_uuid::Res {
+            keepers: o.get_field("keepers"),
+            result: o.get_field("result"),
+        }
 
     }
 }

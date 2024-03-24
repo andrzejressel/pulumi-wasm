@@ -24,10 +24,10 @@ pub fn generate_files(path: &Path, result_path: &Path) -> anyhow::Result<()> {
     deps_wit_file.write_all(output::wit::get_dependencies().as_ref())?;
 
     let mut cargo_file = File::create(result_path.join("Cargo.toml"))?;
-    cargo_file.write_all(output::rust::cargo::generate_cargo(&package).as_bytes())?;
+    cargo_file.write_all(output::provider::cargo::generate_cargo(&package).as_bytes())?;
 
     let mut lib_file = File::create(result_path.join("src").join("lib.rs"))?;
-    lib_file.write_all(output::rust::source_code::generate_source_code(&package).as_bytes())?;
+    lib_file.write_all(output::provider::source_code::generate_source_code(&package).as_bytes())?;
 
     Ok(())
 }

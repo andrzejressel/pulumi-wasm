@@ -15,10 +15,17 @@ struct InputProperty {
 }
 
 #[derive(Serialize)]
+struct OutputProperty {
+    name: String,
+    arg_name: String,
+}
+
+#[derive(Serialize)]
 struct Interface {
     name: String,
     r#type: String,
     input_properties: Vec<InputProperty>,
+    output_properties: Vec<OutputProperty>,
 }
 
 #[derive(Serialize)]
@@ -40,7 +47,13 @@ fn convert_model(package: &crate::model::Package) -> Package {
                         arg_name: create_valid_id(&input_property.name),
                         required: input_property.required,
                     }
-                }).collect()
+                }).collect(),
+                output_properties: resource.output_properties.iter().map(|output_property| {
+                    OutputProperty {
+                        name: output_property.name.clone(),
+                        arg_name: create_valid_id(&output_property.name),
+                    }
+                }).collect(),
             }
         }).collect()
     }

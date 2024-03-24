@@ -1,2 +1,2 @@
 pub(crate) mod wit;
-pub(crate) mod rust;
+pub(crate) mod provider;

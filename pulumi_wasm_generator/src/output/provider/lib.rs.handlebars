@@ -1,0 +1,39 @@
+use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest};
+{{#each package.interfaces}}
+use bindings::exports::pulumi::{{@root.package.name}}::{{name}};
+{{/each}}
+
+#[allow(clippy::all)]
+#[allow(dead_code)]
+#[allow(unused_variables)]
+#[allow(unused_unsafe)]
+mod bindings;
+bindings::export!(Component with_types_in bindings);
+
+struct Component {}
+
+{{#each package.interfaces}}
+impl {{name}}::Guest for Component {
+    fn invoke(name: String, args: {{name}}::Args) -> {{name}}::Res {
+
+        let request = RegisterResourceRequest {
+            type_: "{{type}}".into(),
+            name,
+            object: vec![
+                {{#each input_properties}}
+                ObjectField { name: "{{name}}".into(), value: args.{{arg_name}} },
+                {{/each}}
+            ],
+        };
+
+        let o = register(&request);
+
+        {{name}}::Res {
+            {{#each output_properties}}
+            {{arg_name}}: o.get_field("{{name}}"),
+            {{/each}}
+        }
+
+    }
+}
+{{/each}}
