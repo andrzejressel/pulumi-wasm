@@ -3,8 +3,8 @@
 version = 3
 
 [[package]]
-name = "common"
-version = "0.1.0"
+name = "random"
+version = "4.15.0"
 dependencies = [
  "wit-bindgen-rt",
 ]

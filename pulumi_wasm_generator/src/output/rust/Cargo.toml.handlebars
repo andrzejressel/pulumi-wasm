@@ -1,6 +1,6 @@
 [package]
-name = "common"
-version = "0.1.0"
+name = "{{package.name}}"
+version = "{{package.version}}"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -12,7 +12,7 @@ crate-type = ["cdylib"]
 wit-bindgen-rt = "0.22.0"
 
 [package.metadata.component]
-package = "pulumi:random"
+package = "pulumi:{{package.name}}"
 
 [package.metadata.component.target]
 path = "wit"

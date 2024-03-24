@@ -1,8 +1,8 @@
-use std::collections::{HashMap, HashSet};
+use std::collections::{BTreeMap, BTreeSet};
 
 use serde::Deserialize;
 
-type PulumiMap<T> = HashMap<String, T>;
+type PulumiMap<T> = BTreeMap<String, T>;
 
 #[derive(Deserialize, Debug)]
 pub(crate) enum TypeType {
@@ -40,7 +40,7 @@ struct ObjectType {
     #[serde(default)]
     properties: PulumiMap<Property>,
     #[serde(default)]
-    required: HashSet<String>,
+    required: BTreeSet<String>,
 }
 
 #[derive(Deserialize, Debug)]
@@ -50,7 +50,7 @@ struct Resource {
     #[serde(default, rename = "inputProperties")]
     input_properties: PulumiMap<Property>,
     #[serde(default, rename = "requiredInputs")]
-    required_inputs: HashSet<String>,
+    required_inputs: BTreeSet<String>,
 }
 
 #[derive(Deserialize, Debug)]

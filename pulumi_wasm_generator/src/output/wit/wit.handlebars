@@ -2,18 +2,17 @@ package pulumi:{{package.name}}@{{package.version}};
 
 world main-world {
     import component:pulumi-wasm/output-interface@0.1.0;
-    import register-interface;
+    import component:pulumi-wasm/register-interface@0.1.0;
 {{#each package.interfaces}}
     export {{name}};
 {{/each}}
 }
 
 world main-world-client {
-    import output-interface;
-    import register-interface;
-    {{#each package.interfaces}}
+    import component:pulumi-wasm/output-interface@0.1.0;
+{{#each package.interfaces}}
     import {{name}};
-    {{/each}}
+{{/each}}
 }
 
 interface output-interface {

@@ -73,7 +73,7 @@ fn replace_multiple_dashes(s: &String) -> String {
 }
 
 pub(crate) fn generate_wit(package: &crate::model::Package) -> anyhow::Result<String> {
-    let mut data = std::collections::HashMap::new();
+    let mut data = std::collections::BTreeMap::new();
     data.insert("package", convert_model(package));
 
     let reg = Handlebars::new();

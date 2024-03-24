@@ -25,5 +25,8 @@ pub fn generate_files(path: &Path, result_path: &Path) -> anyhow::Result<()> {
     wit_file.write_all(wit.as_bytes())?;
     deps_wit_file.write_all(output::wit::get_dependencies().as_ref())?;
 
+    let mut cargo_file = File::create(result_path.join("Cargo.toml"))?;
+    cargo_file.write_all(output::rust::cargo::generate_cargo(&package).as_bytes())?;
+
     Ok(())
 }

@@ -9,7 +9,7 @@ fn random() -> anyhow::Result<()> {
         Path::new("tests/schemas/pulumi-resource-random.json"),
         Path::new("tests/output/random")
     )?;
-    fs::copy("tests/inputs/Cargo.toml", "tests/output/random/Cargo.toml")?;
+
     fs::create_dir_all("tests/output/random/src")?;
     fs::create_dir_all("tests/output/random/deps/pulumi-wasm")?;
     fs::write("tests/output/random/src/lib.rs", "")?;
@@ -19,7 +19,6 @@ fn random() -> anyhow::Result<()> {
         .current_dir("tests/output/random")
         .assert()
         .success();
-
 
     Ok(())
 }
