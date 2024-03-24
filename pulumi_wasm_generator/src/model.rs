@@ -19,10 +19,18 @@ pub(crate) struct InputProperty {
     pub(crate) required: bool,
 }
 
+pub(crate) struct OutputProperty {
+    pub(crate) name: String,
+    // pub(crate) r#type: TypeOrRef,
+    // pub(crate) description: Option<String>,
+    pub(crate) required: bool,
+}
+
 pub(crate) struct Resource {
     pub(crate) name: String,
     pub(crate) description: Option<String>,
     pub(crate) input_properties: Vec<InputProperty>,
+    pub(crate) output_properties: Vec<OutputProperty>
 }
 
 pub(crate) struct Package {

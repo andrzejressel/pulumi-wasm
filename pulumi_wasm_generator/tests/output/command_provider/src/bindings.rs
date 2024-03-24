@@ -375,267 +375,6 @@ pub mod component {
         }
     }
 }
-pub mod pulumi {
-    pub mod command {
-
-        #[allow(clippy::all)]
-        pub mod output_interface {
-            #[used]
-            #[doc(hidden)]
-            #[cfg(target_arch = "wasm32")]
-            static __FORCE_SECTION_REF: fn() =
-                super::super::super::__link_custom_section_describing_imports;
-            use super::super::super::_rt;
-
-            #[derive(Debug)]
-            #[repr(transparent)]
-            pub struct Output {
-                handle: _rt::Resource<Output>,
-            }
-
-            impl Output {
-                #[doc(hidden)]
-                pub unsafe fn from_handle(handle: u32) -> Self {
-                    Self {
-                        handle: _rt::Resource::from_handle(handle),
-                    }
-                }
-
-                #[doc(hidden)]
-                pub fn take_handle(&self) -> u32 {
-                    _rt::Resource::take_handle(&self.handle)
-                }
-
-                #[doc(hidden)]
-                pub fn handle(&self) -> u32 {
-                    _rt::Resource::handle(&self.handle)
-                }
-            }
-
-            unsafe impl _rt::WasmResource for Output {
-                #[inline]
-                unsafe fn drop(_handle: u32) {
-                    #[cfg(not(target_arch = "wasm32"))]
-                    unreachable!();
-
-                    #[cfg(target_arch = "wasm32")]
-                    {
-                        #[link(wasm_import_module = "pulumi:command/output-interface@0.9.2")]
-                        extern "C" {
-                            #[link_name = "[resource-drop]output"]
-                            fn drop(_: u32);
-                        }
-
-                        drop(_handle);
-                    }
-                }
-            }
-
-            #[allow(unused_unsafe, clippy::all)]
-            pub fn describe_outputs() -> _rt::String {
-                unsafe {
-                    #[repr(align(4))]
-                    struct RetArea([::core::mem::MaybeUninit<u8>; 8]);
-                    let mut ret_area = RetArea([::core::mem::MaybeUninit::uninit(); 8]);
-                    let ptr0 = ret_area.0.as_mut_ptr().cast::<u8>();
-                    #[cfg(target_arch = "wasm32")]
-                    #[link(wasm_import_module = "pulumi:command/output-interface@0.9.2")]
-                    extern "C" {
-                        #[link_name = "describe-outputs"]
-                        fn wit_import(_: *mut u8);
-                    }
-
-                    #[cfg(not(target_arch = "wasm32"))]
-                    fn wit_import(_: *mut u8) {
-                        unreachable!()
-                    }
-                    wit_import(ptr0);
-                    let l1 = *ptr0.add(0).cast::<*mut u8>();
-                    let l2 = *ptr0.add(4).cast::<usize>();
-                    let len3 = l2;
-                    let bytes3 = _rt::Vec::from_raw_parts(l1.cast(), len3, len3);
-                    _rt::string_lift(bytes3)
-                }
-            }
-            #[allow(unused_unsafe, clippy::all)]
-            pub fn non_done_exists() -> bool {
-                unsafe {
-                    #[cfg(target_arch = "wasm32")]
-                    #[link(wasm_import_module = "pulumi:command/output-interface@0.9.2")]
-                    extern "C" {
-                        #[link_name = "non-done-exists"]
-                        fn wit_import() -> i32;
-                    }
-
-                    #[cfg(not(target_arch = "wasm32"))]
-                    fn wit_import() -> i32 {
-                        unreachable!()
-                    }
-                    let ret = wit_import();
-                    _rt::bool_lift(ret as u8)
-                }
-            }
-            impl Output {
-                #[allow(unused_unsafe, clippy::all)]
-                pub fn new(value: &[u8]) -> Self {
-                    unsafe {
-                        let vec0 = value;
-                        let ptr0 = vec0.as_ptr().cast::<u8>();
-                        let len0 = vec0.len();
-
-                        #[cfg(target_arch = "wasm32")]
-                        #[link(wasm_import_module = "pulumi:command/output-interface@0.9.2")]
-                        extern "C" {
-                            #[link_name = "[constructor]output"]
-                            fn wit_import(_: *mut u8, _: usize) -> i32;
-                        }
-
-                        #[cfg(not(target_arch = "wasm32"))]
-                        fn wit_import(_: *mut u8, _: usize) -> i32 {
-                            unreachable!()
-                        }
-                        let ret = wit_import(ptr0.cast_mut(), len0);
-                        Output::from_handle(ret as u32)
-                    }
-                }
-            }
-            impl Output {
-                #[allow(unused_unsafe, clippy::all)]
-                pub fn map(&self, function_name: &str) -> Output {
-                    unsafe {
-                        let vec0 = function_name;
-                        let ptr0 = vec0.as_ptr().cast::<u8>();
-                        let len0 = vec0.len();
-
-                        #[cfg(target_arch = "wasm32")]
-                        #[link(wasm_import_module = "pulumi:command/output-interface@0.9.2")]
-                        extern "C" {
-                            #[link_name = "[method]output.map"]
-                            fn wit_import(_: i32, _: *mut u8, _: usize) -> i32;
-                        }
-
-                        #[cfg(not(target_arch = "wasm32"))]
-                        fn wit_import(_: i32, _: *mut u8, _: usize) -> i32 {
-                            unreachable!()
-                        }
-                        let ret = wit_import((self).handle() as i32, ptr0.cast_mut(), len0);
-                        Output::from_handle(ret as u32)
-                    }
-                }
-            }
-            impl Output {
-                #[allow(unused_unsafe, clippy::all)]
-                pub fn get(&self) -> Option<_rt::Vec<u8>> {
-                    unsafe {
-                        #[repr(align(4))]
-                        struct RetArea([::core::mem::MaybeUninit<u8>; 12]);
-                        let mut ret_area = RetArea([::core::mem::MaybeUninit::uninit(); 12]);
-                        let ptr0 = ret_area.0.as_mut_ptr().cast::<u8>();
-                        #[cfg(target_arch = "wasm32")]
-                        #[link(wasm_import_module = "pulumi:command/output-interface@0.9.2")]
-                        extern "C" {
-                            #[link_name = "[method]output.get"]
-                            fn wit_import(_: i32, _: *mut u8);
-                        }
-
-                        #[cfg(not(target_arch = "wasm32"))]
-                        fn wit_import(_: i32, _: *mut u8) {
-                            unreachable!()
-                        }
-                        wit_import((self).handle() as i32, ptr0);
-                        let l1 = i32::from(*ptr0.add(0).cast::<u8>());
-                        match l1 {
-                            0 => None,
-                            1 => {
-                                let e = {
-                                    let l2 = *ptr0.add(4).cast::<*mut u8>();
-                                    let l3 = *ptr0.add(8).cast::<usize>();
-                                    let len4 = l3;
-
-                                    _rt::Vec::from_raw_parts(l2.cast(), len4, len4)
-                                };
-                                Some(e)
-                            }
-                            _ => _rt::invalid_enum_discriminant(),
-                        }
-                    }
-                }
-            }
-            impl Output {
-                #[allow(unused_unsafe, clippy::all)]
-                pub fn get_field(&self, field: &str) -> Output {
-                    unsafe {
-                        let vec0 = field;
-                        let ptr0 = vec0.as_ptr().cast::<u8>();
-                        let len0 = vec0.len();
-
-                        #[cfg(target_arch = "wasm32")]
-                        #[link(wasm_import_module = "pulumi:command/output-interface@0.9.2")]
-                        extern "C" {
-                            #[link_name = "[method]output.get-field"]
-                            fn wit_import(_: i32, _: *mut u8, _: usize) -> i32;
-                        }
-
-                        #[cfg(not(target_arch = "wasm32"))]
-                        fn wit_import(_: i32, _: *mut u8, _: usize) -> i32 {
-                            unreachable!()
-                        }
-                        let ret = wit_import((self).handle() as i32, ptr0.cast_mut(), len0);
-                        Output::from_handle(ret as u32)
-                    }
-                }
-            }
-            impl Output {
-                #[allow(unused_unsafe, clippy::all)]
-                pub fn get_type(&self) -> _rt::String {
-                    unsafe {
-                        #[repr(align(4))]
-                        struct RetArea([::core::mem::MaybeUninit<u8>; 8]);
-                        let mut ret_area = RetArea([::core::mem::MaybeUninit::uninit(); 8]);
-                        let ptr0 = ret_area.0.as_mut_ptr().cast::<u8>();
-                        #[cfg(target_arch = "wasm32")]
-                        #[link(wasm_import_module = "pulumi:command/output-interface@0.9.2")]
-                        extern "C" {
-                            #[link_name = "[method]output.get-type"]
-                            fn wit_import(_: i32, _: *mut u8);
-                        }
-
-                        #[cfg(not(target_arch = "wasm32"))]
-                        fn wit_import(_: i32, _: *mut u8) {
-                            unreachable!()
-                        }
-                        wit_import((self).handle() as i32, ptr0);
-                        let l1 = *ptr0.add(0).cast::<*mut u8>();
-                        let l2 = *ptr0.add(4).cast::<usize>();
-                        let len3 = l2;
-                        let bytes3 = _rt::Vec::from_raw_parts(l1.cast(), len3, len3);
-                        _rt::string_lift(bytes3)
-                    }
-                }
-            }
-            impl Output {
-                #[allow(unused_unsafe, clippy::all)]
-                pub fn duplicate(&self) -> Output {
-                    unsafe {
-                        #[cfg(target_arch = "wasm32")]
-                        #[link(wasm_import_module = "pulumi:command/output-interface@0.9.2")]
-                        extern "C" {
-                            #[link_name = "[method]output.duplicate"]
-                            fn wit_import(_: i32) -> i32;
-                        }
-
-                        #[cfg(not(target_arch = "wasm32"))]
-                        fn wit_import(_: i32) -> i32 {
-                            unreachable!()
-                        }
-                        let ret = wit_import((self).handle() as i32);
-                        Output::from_handle(ret as u32)
-                    }
-                }
-            }
-        }
-    }
-}
 pub mod exports {
     pub mod pulumi {
         pub mod command {
@@ -647,8 +386,9 @@ pub mod exports {
                 #[cfg(target_arch = "wasm32")]
                 static __FORCE_SECTION_REF: fn() =
                     super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
                 pub type Output =
-                    super::super::super::super::pulumi::command::output_interface::Output;
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub archive_paths: &'a Output,
                     pub asset_paths: &'a Output,
@@ -677,20 +417,48 @@ pub mod exports {
                             .finish()
                     }
                 }
-                #[repr(C)]
-                #[derive(Clone, Copy)]
-                pub struct Res {}
+                pub struct Res {
+                    pub archive: Output,
+                    pub archive_paths: Output,
+                    pub asset_paths: Output,
+                    pub assets: Output,
+                    pub create: Output,
+                    pub delete: Output,
+                    pub dir: Output,
+                    pub environment: Output,
+                    pub interpreter: Output,
+                    pub stderr: Output,
+                    pub stdin: Output,
+                    pub stdout: Output,
+                    pub triggers: Output,
+                    pub update: Output,
+                }
                 impl ::core::fmt::Debug for Res {
                     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-                        f.debug_struct("Res").finish()
+                        f.debug_struct("Res")
+                            .field("archive", &self.archive)
+                            .field("archive-paths", &self.archive_paths)
+                            .field("asset-paths", &self.asset_paths)
+                            .field("assets", &self.assets)
+                            .field("create", &self.create)
+                            .field("delete", &self.delete)
+                            .field("dir", &self.dir)
+                            .field("environment", &self.environment)
+                            .field("interpreter", &self.interpreter)
+                            .field("stderr", &self.stderr)
+                            .field("stdin", &self.stdin)
+                            .field("stdout", &self.stdout)
+                            .field("triggers", &self.triggers)
+                            .field("update", &self.update)
+                            .finish()
                     }
                 }
 
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: i32,
-                    arg1: i32,
+                    arg0: *mut u8,
+                    arg1: usize,
                     arg2: i32,
                     arg3: i32,
                     arg4: i32,
@@ -699,8 +467,9 @@ pub mod exports {
                     arg7: i32,
                     arg8: i32,
                     arg9: i32,
-                ) {
-                    let handle0;
+                    arg10: i32,
+                    arg11: i32,
+                ) -> *mut u8 {
                     let handle1;
                     let handle2;
                     let handle3;
@@ -710,52 +479,89 @@ pub mod exports {
                     let handle7;
                     let handle8;
                     let handle9;
-                    let result10 = T::invoke(Args {
-                        archive_paths: {
-                            handle0 = super::super::super::super::pulumi::command::output_interface::Output::from_handle(arg0 as u32);
-                            &handle0
+                    let handle10;
+                    let len0 = arg1;
+                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
+                    let result11 = T::invoke(
+                        _rt::string_lift(bytes0),
+                        Args {
+                            archive_paths: {
+                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg2 as u32);
+                                &handle1
+                            },
+                            asset_paths: {
+                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg3 as u32);
+                                &handle2
+                            },
+                            create: {
+                                handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg4 as u32);
+                                &handle3
+                            },
+                            delete: {
+                                handle4 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg5 as u32);
+                                &handle4
+                            },
+                            dir: {
+                                handle5 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg6 as u32);
+                                &handle5
+                            },
+                            environment: {
+                                handle6 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg7 as u32);
+                                &handle6
+                            },
+                            interpreter: {
+                                handle7 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg8 as u32);
+                                &handle7
+                            },
+                            stdin: {
+                                handle8 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg9 as u32);
+                                &handle8
+                            },
+                            triggers: {
+                                handle9 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg10 as u32);
+                                &handle9
+                            },
+                            update: {
+                                handle10 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg11 as u32);
+                                &handle10
+                            },
                         },
-                        asset_paths: {
-                            handle1 = super::super::super::super::pulumi::command::output_interface::Output::from_handle(arg1 as u32);
-                            &handle1
-                        },
-                        create: {
-                            handle2 = super::super::super::super::pulumi::command::output_interface::Output::from_handle(arg2 as u32);
-                            &handle2
-                        },
-                        delete: {
-                            handle3 = super::super::super::super::pulumi::command::output_interface::Output::from_handle(arg3 as u32);
-                            &handle3
-                        },
-                        dir: {
-                            handle4 = super::super::super::super::pulumi::command::output_interface::Output::from_handle(arg4 as u32);
-                            &handle4
-                        },
-                        environment: {
-                            handle5 = super::super::super::super::pulumi::command::output_interface::Output::from_handle(arg5 as u32);
-                            &handle5
-                        },
-                        interpreter: {
-                            handle6 = super::super::super::super::pulumi::command::output_interface::Output::from_handle(arg6 as u32);
-                            &handle6
-                        },
-                        stdin: {
-                            handle7 = super::super::super::super::pulumi::command::output_interface::Output::from_handle(arg7 as u32);
-                            &handle7
-                        },
-                        triggers: {
-                            handle8 = super::super::super::super::pulumi::command::output_interface::Output::from_handle(arg8 as u32);
-                            &handle8
-                        },
-                        update: {
-                            handle9 = super::super::super::super::pulumi::command::output_interface::Output::from_handle(arg9 as u32);
-                            &handle9
-                        },
-                    });
-                    let Res {} = result10;
+                    );
+                    let ptr12 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        archive: archive13,
+                        archive_paths: archive_paths13,
+                        asset_paths: asset_paths13,
+                        assets: assets13,
+                        create: create13,
+                        delete: delete13,
+                        dir: dir13,
+                        environment: environment13,
+                        interpreter: interpreter13,
+                        stderr: stderr13,
+                        stdin: stdin13,
+                        stdout: stdout13,
+                        triggers: triggers13,
+                        update: update13,
+                    } = result11;
+                    *ptr12.add(0).cast::<i32>() = (archive13).take_handle() as i32;
+                    *ptr12.add(4).cast::<i32>() = (archive_paths13).take_handle() as i32;
+                    *ptr12.add(8).cast::<i32>() = (asset_paths13).take_handle() as i32;
+                    *ptr12.add(12).cast::<i32>() = (assets13).take_handle() as i32;
+                    *ptr12.add(16).cast::<i32>() = (create13).take_handle() as i32;
+                    *ptr12.add(20).cast::<i32>() = (delete13).take_handle() as i32;
+                    *ptr12.add(24).cast::<i32>() = (dir13).take_handle() as i32;
+                    *ptr12.add(28).cast::<i32>() = (environment13).take_handle() as i32;
+                    *ptr12.add(32).cast::<i32>() = (interpreter13).take_handle() as i32;
+                    *ptr12.add(36).cast::<i32>() = (stderr13).take_handle() as i32;
+                    *ptr12.add(40).cast::<i32>() = (stdin13).take_handle() as i32;
+                    *ptr12.add(44).cast::<i32>() = (stdout13).take_handle() as i32;
+                    *ptr12.add(48).cast::<i32>() = (triggers13).take_handle() as i32;
+                    *ptr12.add(52).cast::<i32>() = (update13).take_handle() as i32;
+                    ptr12
                 }
                 pub trait Guest {
-                    fn invoke(args: Args<'_>) -> Res;
+                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
 
@@ -764,13 +570,17 @@ pub mod exports {
 
 
           #[export_name = "pulumi:command/command-local-command@0.9.2#invoke"]
-          unsafe extern "C" fn export_invoke(arg0: i32,arg1: i32,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,arg9: i32,) {
-            $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9)
+          unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,arg9: i32,arg10: i32,arg11: i32,) -> *mut u8 {
+            $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11)
           }
         };);
       }
                 #[doc(hidden)]
                 pub(crate) use __export_pulumi_command_command_local_command_0_9_2_cabi;
+
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 56]);
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 56]);
             }
 
             #[allow(clippy::all)]
@@ -780,8 +590,9 @@ pub mod exports {
                 #[cfg(target_arch = "wasm32")]
                 static __FORCE_SECTION_REF: fn() =
                     super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
                 pub type Output =
-                    super::super::super::super::pulumi::command::output_interface::Output;
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub connection: &'a Output,
                     pub create: &'a Output,
@@ -804,67 +615,113 @@ pub mod exports {
                             .finish()
                     }
                 }
-                #[repr(C)]
-                #[derive(Clone, Copy)]
-                pub struct Res {}
+                pub struct Res {
+                    pub connection: Output,
+                    pub create: Output,
+                    pub delete: Output,
+                    pub environment: Output,
+                    pub stderr: Output,
+                    pub stdin: Output,
+                    pub stdout: Output,
+                    pub triggers: Output,
+                    pub update: Output,
+                }
                 impl ::core::fmt::Debug for Res {
                     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-                        f.debug_struct("Res").finish()
+                        f.debug_struct("Res")
+                            .field("connection", &self.connection)
+                            .field("create", &self.create)
+                            .field("delete", &self.delete)
+                            .field("environment", &self.environment)
+                            .field("stderr", &self.stderr)
+                            .field("stdin", &self.stdin)
+                            .field("stdout", &self.stdout)
+                            .field("triggers", &self.triggers)
+                            .field("update", &self.update)
+                            .finish()
                     }
                 }
 
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: i32,
-                    arg1: i32,
+                    arg0: *mut u8,
+                    arg1: usize,
                     arg2: i32,
                     arg3: i32,
                     arg4: i32,
                     arg5: i32,
                     arg6: i32,
-                ) {
-                    let handle0;
+                    arg7: i32,
+                    arg8: i32,
+                ) -> *mut u8 {
                     let handle1;
                     let handle2;
                     let handle3;
                     let handle4;
                     let handle5;
                     let handle6;
-                    let result7 = T::invoke(Args {
-                        connection: {
-                            handle0 = super::super::super::super::pulumi::command::output_interface::Output::from_handle(arg0 as u32);
-                            &handle0
+                    let handle7;
+                    let len0 = arg1;
+                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
+                    let result8 = T::invoke(
+                        _rt::string_lift(bytes0),
+                        Args {
+                            connection: {
+                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg2 as u32);
+                                &handle1
+                            },
+                            create: {
+                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg3 as u32);
+                                &handle2
+                            },
+                            delete: {
+                                handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg4 as u32);
+                                &handle3
+                            },
+                            environment: {
+                                handle4 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg5 as u32);
+                                &handle4
+                            },
+                            stdin: {
+                                handle5 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg6 as u32);
+                                &handle5
+                            },
+                            triggers: {
+                                handle6 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg7 as u32);
+                                &handle6
+                            },
+                            update: {
+                                handle7 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg8 as u32);
+                                &handle7
+                            },
                         },
-                        create: {
-                            handle1 = super::super::super::super::pulumi::command::output_interface::Output::from_handle(arg1 as u32);
-                            &handle1
-                        },
-                        delete: {
-                            handle2 = super::super::super::super::pulumi::command::output_interface::Output::from_handle(arg2 as u32);
-                            &handle2
-                        },
-                        environment: {
-                            handle3 = super::super::super::super::pulumi::command::output_interface::Output::from_handle(arg3 as u32);
-                            &handle3
-                        },
-                        stdin: {
-                            handle4 = super::super::super::super::pulumi::command::output_interface::Output::from_handle(arg4 as u32);
-                            &handle4
-                        },
-                        triggers: {
-                            handle5 = super::super::super::super::pulumi::command::output_interface::Output::from_handle(arg5 as u32);
-                            &handle5
-                        },
-                        update: {
-                            handle6 = super::super::super::super::pulumi::command::output_interface::Output::from_handle(arg6 as u32);
-                            &handle6
-                        },
-                    });
-                    let Res {} = result7;
+                    );
+                    let ptr9 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        connection: connection10,
+                        create: create10,
+                        delete: delete10,
+                        environment: environment10,
+                        stderr: stderr10,
+                        stdin: stdin10,
+                        stdout: stdout10,
+                        triggers: triggers10,
+                        update: update10,
+                    } = result8;
+                    *ptr9.add(0).cast::<i32>() = (connection10).take_handle() as i32;
+                    *ptr9.add(4).cast::<i32>() = (create10).take_handle() as i32;
+                    *ptr9.add(8).cast::<i32>() = (delete10).take_handle() as i32;
+                    *ptr9.add(12).cast::<i32>() = (environment10).take_handle() as i32;
+                    *ptr9.add(16).cast::<i32>() = (stderr10).take_handle() as i32;
+                    *ptr9.add(20).cast::<i32>() = (stdin10).take_handle() as i32;
+                    *ptr9.add(24).cast::<i32>() = (stdout10).take_handle() as i32;
+                    *ptr9.add(28).cast::<i32>() = (triggers10).take_handle() as i32;
+                    *ptr9.add(32).cast::<i32>() = (update10).take_handle() as i32;
+                    ptr9
                 }
                 pub trait Guest {
-                    fn invoke(args: Args<'_>) -> Res;
+                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
 
@@ -873,13 +730,17 @@ pub mod exports {
 
 
         #[export_name = "pulumi:command/command-remote-command@0.9.2#invoke"]
-        unsafe extern "C" fn export_invoke(arg0: i32,arg1: i32,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,) {
-          $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6)
+        unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,) -> *mut u8 {
+          $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8)
         }
       };);
     }
                 #[doc(hidden)]
                 pub(crate) use __export_pulumi_command_command_remote_command_0_9_2_cabi;
+
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 36]);
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 36]);
             }
 
             #[allow(clippy::all)]
@@ -889,8 +750,9 @@ pub mod exports {
                 #[cfg(target_arch = "wasm32")]
                 static __FORCE_SECTION_REF: fn() =
                     super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
                 pub type Output =
-                    super::super::super::super::pulumi::command::output_interface::Output;
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub connection: &'a Output,
                     pub local_path: &'a Output,
@@ -907,49 +769,75 @@ pub mod exports {
                             .finish()
                     }
                 }
-                #[repr(C)]
-                #[derive(Clone, Copy)]
-                pub struct Res {}
+                pub struct Res {
+                    pub connection: Output,
+                    pub local_path: Output,
+                    pub remote_path: Output,
+                    pub triggers: Output,
+                }
                 impl ::core::fmt::Debug for Res {
                     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-                        f.debug_struct("Res").finish()
+                        f.debug_struct("Res")
+                            .field("connection", &self.connection)
+                            .field("local-path", &self.local_path)
+                            .field("remote-path", &self.remote_path)
+                            .field("triggers", &self.triggers)
+                            .finish()
                     }
                 }
 
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: i32,
-                    arg1: i32,
+                    arg0: *mut u8,
+                    arg1: usize,
                     arg2: i32,
                     arg3: i32,
-                ) {
-                    let handle0;
+                    arg4: i32,
+                    arg5: i32,
+                ) -> *mut u8 {
                     let handle1;
                     let handle2;
                     let handle3;
-                    let result4 = T::invoke(Args {
-                        connection: {
-                            handle0 = super::super::super::super::pulumi::command::output_interface::Output::from_handle(arg0 as u32);
-                            &handle0
+                    let handle4;
+                    let len0 = arg1;
+                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
+                    let result5 = T::invoke(
+                        _rt::string_lift(bytes0),
+                        Args {
+                            connection: {
+                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg2 as u32);
+                                &handle1
+                            },
+                            local_path: {
+                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg3 as u32);
+                                &handle2
+                            },
+                            remote_path: {
+                                handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg4 as u32);
+                                &handle3
+                            },
+                            triggers: {
+                                handle4 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg5 as u32);
+                                &handle4
+                            },
                         },
-                        local_path: {
-                            handle1 = super::super::super::super::pulumi::command::output_interface::Output::from_handle(arg1 as u32);
-                            &handle1
-                        },
-                        remote_path: {
-                            handle2 = super::super::super::super::pulumi::command::output_interface::Output::from_handle(arg2 as u32);
-                            &handle2
-                        },
-                        triggers: {
-                            handle3 = super::super::super::super::pulumi::command::output_interface::Output::from_handle(arg3 as u32);
-                            &handle3
-                        },
-                    });
-                    let Res {} = result4;
+                    );
+                    let ptr6 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        connection: connection7,
+                        local_path: local_path7,
+                        remote_path: remote_path7,
+                        triggers: triggers7,
+                    } = result5;
+                    *ptr6.add(0).cast::<i32>() = (connection7).take_handle() as i32;
+                    *ptr6.add(4).cast::<i32>() = (local_path7).take_handle() as i32;
+                    *ptr6.add(8).cast::<i32>() = (remote_path7).take_handle() as i32;
+                    *ptr6.add(12).cast::<i32>() = (triggers7).take_handle() as i32;
+                    ptr6
                 }
                 pub trait Guest {
-                    fn invoke(args: Args<'_>) -> Res;
+                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
 
@@ -958,13 +846,17 @@ pub mod exports {
 
 
       #[export_name = "pulumi:command/command-remote-copy-file@0.9.2#invoke"]
-      unsafe extern "C" fn export_invoke(arg0: i32,arg1: i32,arg2: i32,arg3: i32,) {
-        $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3)
+      unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,) -> *mut u8 {
+        $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
       }
     };);
   }
                 #[doc(hidden)]
                 pub(crate) use __export_pulumi_command_command_remote_copy_file_0_9_2_cabi;
+
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
             }
         }
     }
@@ -1128,9 +1020,9 @@ pub(crate) use __export_main_world_impl as export;
 #[cfg(target_arch = "wasm32")]
 #[link_section = "component-type:wit-bindgen:0.20.0:main-world:encoded world"]
 #[doc(hidden)]
-pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 1691] = *b"\
-\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\x9a\x0c\x01A\x02\x01\
-A\x0e\x01B\x15\x04\0\x06output\x03\x01\x01p}\x01i\0\x01@\x01\x05value\x01\0\x02\x04\
+pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 1605] = *b"\
+\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xc4\x0b\x01A\x02\x01\
+A\x0b\x01B\x15\x04\0\x06output\x03\x01\x01p}\x01i\0\x01@\x01\x05value\x01\0\x02\x04\
 \0\x13[constructor]output\x01\x03\x01h\0\x01@\x02\x04self\x04\x0dfunction-names\0\
 \x02\x04\0\x12[method]output.map\x01\x05\x01k\x01\x01@\x01\x04self\x04\0\x06\x04\
 \0\x12[method]output.get\x01\x07\x01@\x02\x04self\x04\x05fields\0\x02\x04\0\x18[\
@@ -1142,30 +1034,28 @@ exists\x01\x0c\x03\x01,component:pulumi-wasm/output-interface@0.1.0\x05\0\x02\x0
 r\x02\x04names\x05value\x02\x04\0\x0cobject-field\x03\0\x03\x01p\x04\x01r\x03\x04\
 types\x04names\x06object\x05\x04\0\x19register-resource-request\x03\0\x06\x01i\x01\
 \x01@\x01\x07request\x07\0\x08\x04\0\x08register\x01\x09\x03\x01.component:pulum\
-i-wasm/register-interface@0.1.0\x05\x02\x01B\x15\x04\0\x06output\x03\x01\x01p}\x01\
-i\0\x01@\x01\x05value\x01\0\x02\x04\0\x13[constructor]output\x01\x03\x01h\0\x01@\
-\x02\x04self\x04\x0dfunction-names\0\x02\x04\0\x12[method]output.map\x01\x05\x01\
-k\x01\x01@\x01\x04self\x04\0\x06\x04\0\x12[method]output.get\x01\x07\x01@\x02\x04\
-self\x04\x05fields\0\x02\x04\0\x18[method]output.get-field\x01\x08\x01@\x01\x04s\
-elf\x04\0s\x04\0\x17[method]output.get-type\x01\x09\x01@\x01\x04self\x04\0\x02\x04\
-\0\x18[method]output.duplicate\x01\x0a\x01@\0\0s\x04\0\x10describe-outputs\x01\x0b\
-\x01@\0\0\x7f\x04\0\x0fnon-done-exists\x01\x0c\x03\x01%pulumi:command/output-int\
-erface@0.9.2\x05\x03\x02\x03\0\x02\x06output\x01B\x09\x02\x03\x02\x01\x04\x04\0\x06\
-output\x03\0\0\x01h\x01\x01r\x0a\x0darchive-paths\x02\x0basset-paths\x02\x06crea\
-te\x02\x06delete\x02\x03dir\x02\x0benvironment\x02\x0binterpreter\x02\x05stdin\x02\
-\x08triggers\x02\x06update\x02\x04\0\x04args\x03\0\x03\x01r\0\x04\0\x03res\x03\0\
-\x05\x01@\x01\x04args\x04\0\x06\x04\0\x06invoke\x01\x07\x04\x01*pulumi:command/c\
-ommand-local-command@0.9.2\x05\x05\x01B\x09\x02\x03\x02\x01\x04\x04\0\x06output\x03\
-\0\0\x01h\x01\x01r\x07\x0aconnection\x02\x06create\x02\x06delete\x02\x0benvironm\
-ent\x02\x05stdin\x02\x08triggers\x02\x06update\x02\x04\0\x04args\x03\0\x03\x01r\0\
-\x04\0\x03res\x03\0\x05\x01@\x01\x04args\x04\0\x06\x04\0\x06invoke\x01\x07\x04\x01\
-+pulumi:command/command-remote-command@0.9.2\x05\x06\x01B\x09\x02\x03\x02\x01\x04\
-\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aconnection\x02\x0alocal-path\x02\x0b\
-remote-path\x02\x08triggers\x02\x04\0\x04args\x03\0\x03\x01r\0\x04\0\x03res\x03\0\
-\x05\x01@\x01\x04args\x04\0\x06\x04\0\x06invoke\x01\x07\x04\x01-pulumi:command/c\
-ommand-remote-copy-file@0.9.2\x05\x07\x04\x01\x1fpulumi:command/main-world@0.9.2\
-\x04\0\x0b\x10\x01\0\x0amain-world\x03\0\0\0G\x09producers\x01\x0cprocessed-by\x02\
-\x0dwit-component\x070.201.0\x10wit-bindgen-rust\x060.20.0";
+i-wasm/register-interface@0.1.0\x05\x02\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06ou\
+tput\x03\0\0\x01h\x01\x01r\x0a\x0darchive-paths\x02\x0basset-paths\x02\x06create\
+\x02\x06delete\x02\x03dir\x02\x0benvironment\x02\x0binterpreter\x02\x05stdin\x02\
+\x08triggers\x02\x06update\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0e\x07arch\
+ive\x05\x0darchive-paths\x05\x0basset-paths\x05\x06assets\x05\x06create\x05\x06d\
+elete\x05\x03dir\x05\x0benvironment\x05\x0binterpreter\x05\x06stderr\x05\x05stdi\
+n\x05\x06stdout\x05\x08triggers\x05\x06update\x05\x04\0\x03res\x03\0\x06\x01@\x02\
+\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01*pulumi:command/comma\
+nd-local-command@0.9.2\x05\x03\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\
+\0\x01h\x01\x01r\x07\x0aconnection\x02\x06create\x02\x06delete\x02\x0benvironmen\
+t\x02\x05stdin\x02\x08triggers\x02\x06update\x02\x04\0\x04args\x03\0\x03\x01i\x01\
+\x01r\x09\x0aconnection\x05\x06create\x05\x06delete\x05\x0benvironment\x05\x06st\
+derr\x05\x05stdin\x05\x06stdout\x05\x08triggers\x05\x06update\x05\x04\0\x03res\x03\
+\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01+pulum\
+i:command/command-remote-command@0.9.2\x05\x04\x01B\x0a\x02\x03\x02\x01\x01\x04\0\
+\x06output\x03\0\0\x01h\x01\x01r\x04\x0aconnection\x02\x0alocal-path\x02\x0bremo\
+te-path\x02\x08triggers\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aconnect\
+ion\x05\x0alocal-path\x05\x0bremote-path\x05\x08triggers\x05\x04\0\x03res\x03\0\x06\
+\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01-pulumi:comm\
+and/command-remote-copy-file@0.9.2\x05\x05\x04\x01\x1fpulumi:command/main-world@\
+0.9.2\x04\0\x0b\x10\x01\0\x0amain-world\x03\0\0\0G\x09producers\x01\x0cprocessed\
+-by\x02\x0dwit-component\x070.201.0\x10wit-bindgen-rust\x060.20.0";
 
 #[inline(never)]
 #[doc(hidden)]

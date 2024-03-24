@@ -44,7 +44,11 @@ fn convert_model(package: &crate::model::Package) -> Package {
                         name: create_valid_id(&input_property.name),
                     }
                 }).collect(),
-                results: vec![],
+                results: resource.output_properties.iter().map(|output_property| {
+                    Result {
+                        name: create_valid_id(&output_property.name),
+                    }
+                }).collect()
             }
         }).collect()
     }

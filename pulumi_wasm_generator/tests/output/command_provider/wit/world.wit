@@ -1,7 +1,6 @@
 package pulumi:%command@0.9.2;
 
 world main-world {
-    import component:pulumi-wasm/output-interface@0.1.0;
     import component:pulumi-wasm/register-interface@0.1.0;
     export %command-local-command;
     export %command-remote-command;
@@ -9,47 +8,14 @@ world main-world {
 }
 
 world main-world-client {
-    import component:pulumi-wasm/output-interface@0.1.0;
     import %command-local-command;
     import %command-remote-command;
     import %command-remote-copy-file;
 }
 
-interface output-interface {
-
-    describe-outputs: func() -> string;
-    non-done-exists: func() -> bool;
-
-    resource output {
-        constructor(value: list<u8>);
-        map: func(function-name: string) -> output;
-        get: func() -> option<list<u8>>;
-        get-field: func(field: string) -> output;
-        get-type: func() -> string;
-        duplicate: func() -> output;
-    }
-}
-
-interface register-interface {
-    use output-interface.{output};
-
-    record object-field {
-        name: string,
-        value: borrow<output>
-    }
-
-    record register-resource-request {
-        %type: string,
-        name: string,
-        object: list<object-field>,
-    }
-
-    register: func(request: register-resource-request) -> output;
-}
-
 interface %command-local-command {
 
-    use output-interface.{output};
+    use component:pulumi-wasm/output-interface@0.1.0.{output};
 
     record args {
         %archive-paths: borrow<output>,
@@ -65,15 +31,29 @@ interface %command-local-command {
     }
 
     record res {
+        %archive: output,
+        %archive-paths: output,
+        %asset-paths: output,
+        %assets: output,
+        %create: output,
+        %delete: output,
+        %dir: output,
+        %environment: output,
+        %interpreter: output,
+        %stderr: output,
+        %stdin: output,
+        %stdout: output,
+        %triggers: output,
+        %update: output,
     }
 
-    invoke: func(args: args) -> res;
+    invoke: func(name: string, args: args) -> res;
 
 }
 
 interface %command-remote-command {
 
-    use output-interface.{output};
+    use component:pulumi-wasm/output-interface@0.1.0.{output};
 
     record args {
         %connection: borrow<output>,
@@ -86,15 +66,24 @@ interface %command-remote-command {
     }
 
     record res {
+        %connection: output,
+        %create: output,
+        %delete: output,
+        %environment: output,
+        %stderr: output,
+        %stdin: output,
+        %stdout: output,
+        %triggers: output,
+        %update: output,
     }
 
-    invoke: func(args: args) -> res;
+    invoke: func(name: string, args: args) -> res;
 
 }
 
 interface %command-remote-copy-file {
 
-    use output-interface.{output};
+    use component:pulumi-wasm/output-interface@0.1.0.{output};
 
     record args {
         %connection: borrow<output>,
@@ -104,9 +93,13 @@ interface %command-remote-copy-file {
     }
 
     record res {
+        %connection: output,
+        %local-path: output,
+        %remote-path: output,
+        %triggers: output,
     }
 
-    invoke: func(args: args) -> res;
+    invoke: func(name: string, args: args) -> res;
 
 }
 

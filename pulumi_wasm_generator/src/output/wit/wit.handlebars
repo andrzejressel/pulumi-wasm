@@ -1,7 +1,6 @@
 package pulumi:{{package.name}}@{{package.version}};
 
 world main-world {
-    import component:pulumi-wasm/output-interface@0.1.0;
     import component:pulumi-wasm/register-interface@0.1.0;
 {{#each package.interfaces}}
     export {{name}};
@@ -9,48 +8,15 @@ world main-world {
 }
 
 world main-world-client {
-    import component:pulumi-wasm/output-interface@0.1.0;
 {{#each package.interfaces}}
     import {{name}};
 {{/each}}
 }
 
-interface output-interface {
-
-    describe-outputs: func() -> string;
-    non-done-exists: func() -> bool;
-
-    resource output {
-        constructor(value: list<u8>);
-        map: func(function-name: string) -> output;
-        get: func() -> option<list<u8>>;
-        get-field: func(field: string) -> output;
-        get-type: func() -> string;
-        duplicate: func() -> output;
-    }
-}
-
-interface register-interface {
-    use output-interface.{output};
-
-    record object-field {
-        name: string,
-        value: borrow<output>
-    }
-
-    record register-resource-request {
-        %type: string,
-        name: string,
-        object: list<object-field>,
-    }
-
-    register: func(request: register-resource-request) -> output;
-}
-
 {{#each package.interfaces}}
 interface {{name}} {
 
-    use output-interface.{output};
+    use component:pulumi-wasm/output-interface@0.1.0.{output};
 
     record args {
         {{#each arguments}}
@@ -60,11 +26,11 @@ interface {{name}} {
 
     record res {
         {{#each results}}
-        {{name}}: borrow<output>,
+        {{name}}: output,
         {{/each}}
     }
 
-    invoke: func(args: args) -> res;
+    invoke: func(name: string, args: args) -> res;
 
 }
 

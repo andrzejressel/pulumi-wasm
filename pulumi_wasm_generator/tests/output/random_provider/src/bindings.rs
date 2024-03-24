@@ -375,267 +375,6 @@ pub mod component {
         }
     }
 }
-pub mod pulumi {
-    pub mod random {
-
-        #[allow(clippy::all)]
-        pub mod output_interface {
-            #[used]
-            #[doc(hidden)]
-            #[cfg(target_arch = "wasm32")]
-            static __FORCE_SECTION_REF: fn() =
-                super::super::super::__link_custom_section_describing_imports;
-            use super::super::super::_rt;
-
-            #[derive(Debug)]
-            #[repr(transparent)]
-            pub struct Output {
-                handle: _rt::Resource<Output>,
-            }
-
-            impl Output {
-                #[doc(hidden)]
-                pub unsafe fn from_handle(handle: u32) -> Self {
-                    Self {
-                        handle: _rt::Resource::from_handle(handle),
-                    }
-                }
-
-                #[doc(hidden)]
-                pub fn take_handle(&self) -> u32 {
-                    _rt::Resource::take_handle(&self.handle)
-                }
-
-                #[doc(hidden)]
-                pub fn handle(&self) -> u32 {
-                    _rt::Resource::handle(&self.handle)
-                }
-            }
-
-            unsafe impl _rt::WasmResource for Output {
-                #[inline]
-                unsafe fn drop(_handle: u32) {
-                    #[cfg(not(target_arch = "wasm32"))]
-                    unreachable!();
-
-                    #[cfg(target_arch = "wasm32")]
-                    {
-                        #[link(wasm_import_module = "pulumi:random/output-interface@4.15.0")]
-                        extern "C" {
-                            #[link_name = "[resource-drop]output"]
-                            fn drop(_: u32);
-                        }
-
-                        drop(_handle);
-                    }
-                }
-            }
-
-            #[allow(unused_unsafe, clippy::all)]
-            pub fn describe_outputs() -> _rt::String {
-                unsafe {
-                    #[repr(align(4))]
-                    struct RetArea([::core::mem::MaybeUninit<u8>; 8]);
-                    let mut ret_area = RetArea([::core::mem::MaybeUninit::uninit(); 8]);
-                    let ptr0 = ret_area.0.as_mut_ptr().cast::<u8>();
-                    #[cfg(target_arch = "wasm32")]
-                    #[link(wasm_import_module = "pulumi:random/output-interface@4.15.0")]
-                    extern "C" {
-                        #[link_name = "describe-outputs"]
-                        fn wit_import(_: *mut u8);
-                    }
-
-                    #[cfg(not(target_arch = "wasm32"))]
-                    fn wit_import(_: *mut u8) {
-                        unreachable!()
-                    }
-                    wit_import(ptr0);
-                    let l1 = *ptr0.add(0).cast::<*mut u8>();
-                    let l2 = *ptr0.add(4).cast::<usize>();
-                    let len3 = l2;
-                    let bytes3 = _rt::Vec::from_raw_parts(l1.cast(), len3, len3);
-                    _rt::string_lift(bytes3)
-                }
-            }
-            #[allow(unused_unsafe, clippy::all)]
-            pub fn non_done_exists() -> bool {
-                unsafe {
-                    #[cfg(target_arch = "wasm32")]
-                    #[link(wasm_import_module = "pulumi:random/output-interface@4.15.0")]
-                    extern "C" {
-                        #[link_name = "non-done-exists"]
-                        fn wit_import() -> i32;
-                    }
-
-                    #[cfg(not(target_arch = "wasm32"))]
-                    fn wit_import() -> i32 {
-                        unreachable!()
-                    }
-                    let ret = wit_import();
-                    _rt::bool_lift(ret as u8)
-                }
-            }
-            impl Output {
-                #[allow(unused_unsafe, clippy::all)]
-                pub fn new(value: &[u8]) -> Self {
-                    unsafe {
-                        let vec0 = value;
-                        let ptr0 = vec0.as_ptr().cast::<u8>();
-                        let len0 = vec0.len();
-
-                        #[cfg(target_arch = "wasm32")]
-                        #[link(wasm_import_module = "pulumi:random/output-interface@4.15.0")]
-                        extern "C" {
-                            #[link_name = "[constructor]output"]
-                            fn wit_import(_: *mut u8, _: usize) -> i32;
-                        }
-
-                        #[cfg(not(target_arch = "wasm32"))]
-                        fn wit_import(_: *mut u8, _: usize) -> i32 {
-                            unreachable!()
-                        }
-                        let ret = wit_import(ptr0.cast_mut(), len0);
-                        Output::from_handle(ret as u32)
-                    }
-                }
-            }
-            impl Output {
-                #[allow(unused_unsafe, clippy::all)]
-                pub fn map(&self, function_name: &str) -> Output {
-                    unsafe {
-                        let vec0 = function_name;
-                        let ptr0 = vec0.as_ptr().cast::<u8>();
-                        let len0 = vec0.len();
-
-                        #[cfg(target_arch = "wasm32")]
-                        #[link(wasm_import_module = "pulumi:random/output-interface@4.15.0")]
-                        extern "C" {
-                            #[link_name = "[method]output.map"]
-                            fn wit_import(_: i32, _: *mut u8, _: usize) -> i32;
-                        }
-
-                        #[cfg(not(target_arch = "wasm32"))]
-                        fn wit_import(_: i32, _: *mut u8, _: usize) -> i32 {
-                            unreachable!()
-                        }
-                        let ret = wit_import((self).handle() as i32, ptr0.cast_mut(), len0);
-                        Output::from_handle(ret as u32)
-                    }
-                }
-            }
-            impl Output {
-                #[allow(unused_unsafe, clippy::all)]
-                pub fn get(&self) -> Option<_rt::Vec<u8>> {
-                    unsafe {
-                        #[repr(align(4))]
-                        struct RetArea([::core::mem::MaybeUninit<u8>; 12]);
-                        let mut ret_area = RetArea([::core::mem::MaybeUninit::uninit(); 12]);
-                        let ptr0 = ret_area.0.as_mut_ptr().cast::<u8>();
-                        #[cfg(target_arch = "wasm32")]
-                        #[link(wasm_import_module = "pulumi:random/output-interface@4.15.0")]
-                        extern "C" {
-                            #[link_name = "[method]output.get"]
-                            fn wit_import(_: i32, _: *mut u8);
-                        }
-
-                        #[cfg(not(target_arch = "wasm32"))]
-                        fn wit_import(_: i32, _: *mut u8) {
-                            unreachable!()
-                        }
-                        wit_import((self).handle() as i32, ptr0);
-                        let l1 = i32::from(*ptr0.add(0).cast::<u8>());
-                        match l1 {
-                            0 => None,
-                            1 => {
-                                let e = {
-                                    let l2 = *ptr0.add(4).cast::<*mut u8>();
-                                    let l3 = *ptr0.add(8).cast::<usize>();
-                                    let len4 = l3;
-
-                                    _rt::Vec::from_raw_parts(l2.cast(), len4, len4)
-                                };
-                                Some(e)
-                            }
-                            _ => _rt::invalid_enum_discriminant(),
-                        }
-                    }
-                }
-            }
-            impl Output {
-                #[allow(unused_unsafe, clippy::all)]
-                pub fn get_field(&self, field: &str) -> Output {
-                    unsafe {
-                        let vec0 = field;
-                        let ptr0 = vec0.as_ptr().cast::<u8>();
-                        let len0 = vec0.len();
-
-                        #[cfg(target_arch = "wasm32")]
-                        #[link(wasm_import_module = "pulumi:random/output-interface@4.15.0")]
-                        extern "C" {
-                            #[link_name = "[method]output.get-field"]
-                            fn wit_import(_: i32, _: *mut u8, _: usize) -> i32;
-                        }
-
-                        #[cfg(not(target_arch = "wasm32"))]
-                        fn wit_import(_: i32, _: *mut u8, _: usize) -> i32 {
-                            unreachable!()
-                        }
-                        let ret = wit_import((self).handle() as i32, ptr0.cast_mut(), len0);
-                        Output::from_handle(ret as u32)
-                    }
-                }
-            }
-            impl Output {
-                #[allow(unused_unsafe, clippy::all)]
-                pub fn get_type(&self) -> _rt::String {
-                    unsafe {
-                        #[repr(align(4))]
-                        struct RetArea([::core::mem::MaybeUninit<u8>; 8]);
-                        let mut ret_area = RetArea([::core::mem::MaybeUninit::uninit(); 8]);
-                        let ptr0 = ret_area.0.as_mut_ptr().cast::<u8>();
-                        #[cfg(target_arch = "wasm32")]
-                        #[link(wasm_import_module = "pulumi:random/output-interface@4.15.0")]
-                        extern "C" {
-                            #[link_name = "[method]output.get-type"]
-                            fn wit_import(_: i32, _: *mut u8);
-                        }
-
-                        #[cfg(not(target_arch = "wasm32"))]
-                        fn wit_import(_: i32, _: *mut u8) {
-                            unreachable!()
-                        }
-                        wit_import((self).handle() as i32, ptr0);
-                        let l1 = *ptr0.add(0).cast::<*mut u8>();
-                        let l2 = *ptr0.add(4).cast::<usize>();
-                        let len3 = l2;
-                        let bytes3 = _rt::Vec::from_raw_parts(l1.cast(), len3, len3);
-                        _rt::string_lift(bytes3)
-                    }
-                }
-            }
-            impl Output {
-                #[allow(unused_unsafe, clippy::all)]
-                pub fn duplicate(&self) -> Output {
-                    unsafe {
-                        #[cfg(target_arch = "wasm32")]
-                        #[link(wasm_import_module = "pulumi:random/output-interface@4.15.0")]
-                        extern "C" {
-                            #[link_name = "[method]output.duplicate"]
-                            fn wit_import(_: i32) -> i32;
-                        }
-
-                        #[cfg(not(target_arch = "wasm32"))]
-                        fn wit_import(_: i32) -> i32 {
-                            unreachable!()
-                        }
-                        let ret = wit_import((self).handle() as i32);
-                        Output::from_handle(ret as u32)
-                    }
-                }
-            }
-        }
-    }
-}
 pub mod exports {
     pub mod pulumi {
         pub mod random {
@@ -647,8 +386,9 @@ pub mod exports {
                 #[cfg(target_arch = "wasm32")]
                 static __FORCE_SECTION_REF: fn() =
                     super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
                 pub type Output =
-                    super::super::super::super::pulumi::random::output_interface::Output;
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub keepers: &'a Output,
                     pub length: &'a Output,
@@ -661,34 +401,63 @@ pub mod exports {
                             .finish()
                     }
                 }
-                #[repr(C)]
-                #[derive(Clone, Copy)]
-                pub struct Res {}
+                pub struct Res {
+                    pub base64: Output,
+                    pub hex: Output,
+                    pub keepers: Output,
+                    pub length: Output,
+                }
                 impl ::core::fmt::Debug for Res {
                     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-                        f.debug_struct("Res").finish()
+                        f.debug_struct("Res")
+                            .field("base64", &self.base64)
+                            .field("hex", &self.hex)
+                            .field("keepers", &self.keepers)
+                            .field("length", &self.length)
+                            .finish()
                     }
                 }
 
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
-                pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: i32, arg1: i32) {
-                    let handle0;
+                pub unsafe fn _export_invoke_cabi<T: Guest>(
+                    arg0: *mut u8,
+                    arg1: usize,
+                    arg2: i32,
+                    arg3: i32,
+                ) -> *mut u8 {
                     let handle1;
-                    let result2 = T::invoke(Args {
-                        keepers: {
-                            handle0 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg0 as u32);
-                            &handle0
+                    let handle2;
+                    let len0 = arg1;
+                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
+                    let result3 = T::invoke(
+                        _rt::string_lift(bytes0),
+                        Args {
+                            keepers: {
+                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg2 as u32);
+                                &handle1
+                            },
+                            length: {
+                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg3 as u32);
+                                &handle2
+                            },
                         },
-                        length: {
-                            handle1 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg1 as u32);
-                            &handle1
-                        },
-                    });
-                    let Res {} = result2;
+                    );
+                    let ptr4 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        base64: base645,
+                        hex: hex5,
+                        keepers: keepers5,
+                        length: length5,
+                    } = result3;
+                    *ptr4.add(0).cast::<i32>() = (base645).take_handle() as i32;
+                    *ptr4.add(4).cast::<i32>() = (hex5).take_handle() as i32;
+                    *ptr4.add(8).cast::<i32>() = (keepers5).take_handle() as i32;
+                    *ptr4.add(12).cast::<i32>() = (length5).take_handle() as i32;
+                    ptr4
                 }
                 pub trait Guest {
-                    fn invoke(args: Args<'_>) -> Res;
+                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
 
@@ -697,13 +466,17 @@ pub mod exports {
 
 
           #[export_name = "pulumi:random/random-index-random-bytes-random-bytes@4.15.0#invoke"]
-          unsafe extern "C" fn export_invoke(arg0: i32,arg1: i32,) {
-            $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1)
+          unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,) -> *mut u8 {
+            $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3)
           }
         };);
       }
                 #[doc(hidden)]
                 pub(crate) use __export_pulumi_random_random_index_random_bytes_random_bytes_4_15_0_cabi;
+
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
             }
 
             #[allow(clippy::all)]
@@ -713,8 +486,9 @@ pub mod exports {
                 #[cfg(target_arch = "wasm32")]
                 static __FORCE_SECTION_REF: fn() =
                     super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
                 pub type Output =
-                    super::super::super::super::pulumi::random::output_interface::Output;
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub byte_length: &'a Output,
                     pub keepers: &'a Output,
@@ -729,39 +503,81 @@ pub mod exports {
                             .finish()
                     }
                 }
-                #[repr(C)]
-                #[derive(Clone, Copy)]
-                pub struct Res {}
+                pub struct Res {
+                    pub b64_std: Output,
+                    pub b64_url: Output,
+                    pub byte_length: Output,
+                    pub dec: Output,
+                    pub hex: Output,
+                    pub keepers: Output,
+                    pub prefix: Output,
+                }
                 impl ::core::fmt::Debug for Res {
                     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-                        f.debug_struct("Res").finish()
+                        f.debug_struct("Res")
+                            .field("b64-std", &self.b64_std)
+                            .field("b64-url", &self.b64_url)
+                            .field("byte-length", &self.byte_length)
+                            .field("dec", &self.dec)
+                            .field("hex", &self.hex)
+                            .field("keepers", &self.keepers)
+                            .field("prefix", &self.prefix)
+                            .finish()
                     }
                 }
 
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
-                pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: i32, arg1: i32, arg2: i32) {
-                    let handle0;
+                pub unsafe fn _export_invoke_cabi<T: Guest>(
+                    arg0: *mut u8,
+                    arg1: usize,
+                    arg2: i32,
+                    arg3: i32,
+                    arg4: i32,
+                ) -> *mut u8 {
                     let handle1;
                     let handle2;
-                    let result3 = T::invoke(Args {
-                        byte_length: {
-                            handle0 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg0 as u32);
-                            &handle0
+                    let handle3;
+                    let len0 = arg1;
+                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
+                    let result4 = T::invoke(
+                        _rt::string_lift(bytes0),
+                        Args {
+                            byte_length: {
+                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg2 as u32);
+                                &handle1
+                            },
+                            keepers: {
+                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg3 as u32);
+                                &handle2
+                            },
+                            prefix: {
+                                handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg4 as u32);
+                                &handle3
+                            },
                         },
-                        keepers: {
-                            handle1 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg1 as u32);
-                            &handle1
-                        },
-                        prefix: {
-                            handle2 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg2 as u32);
-                            &handle2
-                        },
-                    });
-                    let Res {} = result3;
+                    );
+                    let ptr5 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        b64_std: b64_std6,
+                        b64_url: b64_url6,
+                        byte_length: byte_length6,
+                        dec: dec6,
+                        hex: hex6,
+                        keepers: keepers6,
+                        prefix: prefix6,
+                    } = result4;
+                    *ptr5.add(0).cast::<i32>() = (b64_std6).take_handle() as i32;
+                    *ptr5.add(4).cast::<i32>() = (b64_url6).take_handle() as i32;
+                    *ptr5.add(8).cast::<i32>() = (byte_length6).take_handle() as i32;
+                    *ptr5.add(12).cast::<i32>() = (dec6).take_handle() as i32;
+                    *ptr5.add(16).cast::<i32>() = (hex6).take_handle() as i32;
+                    *ptr5.add(20).cast::<i32>() = (keepers6).take_handle() as i32;
+                    *ptr5.add(24).cast::<i32>() = (prefix6).take_handle() as i32;
+                    ptr5
                 }
                 pub trait Guest {
-                    fn invoke(args: Args<'_>) -> Res;
+                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
 
@@ -770,13 +586,17 @@ pub mod exports {
 
 
         #[export_name = "pulumi:random/random-index-random-id-random-id@4.15.0#invoke"]
-        unsafe extern "C" fn export_invoke(arg0: i32,arg1: i32,arg2: i32,) {
-          $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2)
+        unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,) -> *mut u8 {
+          $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4)
         }
       };);
     }
                 #[doc(hidden)]
                 pub(crate) use __export_pulumi_random_random_index_random_id_random_id_4_15_0_cabi;
+
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 28]);
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 28]);
             }
 
             #[allow(clippy::all)]
@@ -786,8 +606,9 @@ pub mod exports {
                 #[cfg(target_arch = "wasm32")]
                 static __FORCE_SECTION_REF: fn() =
                     super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
                 pub type Output =
-                    super::super::super::super::pulumi::random::output_interface::Output;
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub keepers: &'a Output,
                     pub max: &'a Output,
@@ -804,49 +625,79 @@ pub mod exports {
                             .finish()
                     }
                 }
-                #[repr(C)]
-                #[derive(Clone, Copy)]
-                pub struct Res {}
+                pub struct Res {
+                    pub keepers: Output,
+                    pub max: Output,
+                    pub min: Output,
+                    pub result: Output,
+                    pub seed: Output,
+                }
                 impl ::core::fmt::Debug for Res {
                     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-                        f.debug_struct("Res").finish()
+                        f.debug_struct("Res")
+                            .field("keepers", &self.keepers)
+                            .field("max", &self.max)
+                            .field("min", &self.min)
+                            .field("result", &self.result)
+                            .field("seed", &self.seed)
+                            .finish()
                     }
                 }
 
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: i32,
-                    arg1: i32,
+                    arg0: *mut u8,
+                    arg1: usize,
                     arg2: i32,
                     arg3: i32,
-                ) {
-                    let handle0;
+                    arg4: i32,
+                    arg5: i32,
+                ) -> *mut u8 {
                     let handle1;
                     let handle2;
                     let handle3;
-                    let result4 = T::invoke(Args {
-                        keepers: {
-                            handle0 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg0 as u32);
-                            &handle0
+                    let handle4;
+                    let len0 = arg1;
+                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
+                    let result5 = T::invoke(
+                        _rt::string_lift(bytes0),
+                        Args {
+                            keepers: {
+                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg2 as u32);
+                                &handle1
+                            },
+                            max: {
+                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg3 as u32);
+                                &handle2
+                            },
+                            min: {
+                                handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg4 as u32);
+                                &handle3
+                            },
+                            seed: {
+                                handle4 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg5 as u32);
+                                &handle4
+                            },
                         },
-                        max: {
-                            handle1 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg1 as u32);
-                            &handle1
-                        },
-                        min: {
-                            handle2 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg2 as u32);
-                            &handle2
-                        },
-                        seed: {
-                            handle3 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg3 as u32);
-                            &handle3
-                        },
-                    });
-                    let Res {} = result4;
+                    );
+                    let ptr6 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        keepers: keepers7,
+                        max: max7,
+                        min: min7,
+                        result: result7,
+                        seed: seed7,
+                    } = result5;
+                    *ptr6.add(0).cast::<i32>() = (keepers7).take_handle() as i32;
+                    *ptr6.add(4).cast::<i32>() = (max7).take_handle() as i32;
+                    *ptr6.add(8).cast::<i32>() = (min7).take_handle() as i32;
+                    *ptr6.add(12).cast::<i32>() = (result7).take_handle() as i32;
+                    *ptr6.add(16).cast::<i32>() = (seed7).take_handle() as i32;
+                    ptr6
                 }
                 pub trait Guest {
-                    fn invoke(args: Args<'_>) -> Res;
+                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
 
@@ -855,13 +706,17 @@ pub mod exports {
 
 
       #[export_name = "pulumi:random/random-index-random-integer-random-integer@4.15.0#invoke"]
-      unsafe extern "C" fn export_invoke(arg0: i32,arg1: i32,arg2: i32,arg3: i32,) {
-        $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3)
+      unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,) -> *mut u8 {
+        $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
       }
     };);
   }
                 #[doc(hidden)]
                 pub(crate) use __export_pulumi_random_random_index_random_integer_random_integer_4_15_0_cabi;
+
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
             }
 
             #[allow(clippy::all)]
@@ -871,8 +726,9 @@ pub mod exports {
                 #[cfg(target_arch = "wasm32")]
                 static __FORCE_SECTION_REF: fn() =
                     super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
                 pub type Output =
-                    super::super::super::super::pulumi::random::output_interface::Output;
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub keepers: &'a Output,
                     pub length: &'a Output,
@@ -905,20 +761,48 @@ pub mod exports {
                             .finish()
                     }
                 }
-                #[repr(C)]
-                #[derive(Clone, Copy)]
-                pub struct Res {}
+                pub struct Res {
+                    pub bcrypt_hash: Output,
+                    pub keepers: Output,
+                    pub length: Output,
+                    pub lower: Output,
+                    pub min_lower: Output,
+                    pub min_numeric: Output,
+                    pub min_special: Output,
+                    pub min_upper: Output,
+                    pub number: Output,
+                    pub numeric: Output,
+                    pub override_special: Output,
+                    pub result: Output,
+                    pub special: Output,
+                    pub upper: Output,
+                }
                 impl ::core::fmt::Debug for Res {
                     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-                        f.debug_struct("Res").finish()
+                        f.debug_struct("Res")
+                            .field("bcrypt-hash", &self.bcrypt_hash)
+                            .field("keepers", &self.keepers)
+                            .field("length", &self.length)
+                            .field("lower", &self.lower)
+                            .field("min-lower", &self.min_lower)
+                            .field("min-numeric", &self.min_numeric)
+                            .field("min-special", &self.min_special)
+                            .field("min-upper", &self.min_upper)
+                            .field("number", &self.number)
+                            .field("numeric", &self.numeric)
+                            .field("override-special", &self.override_special)
+                            .field("result", &self.result)
+                            .field("special", &self.special)
+                            .field("upper", &self.upper)
+                            .finish()
                     }
                 }
 
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: i32,
-                    arg1: i32,
+                    arg0: *mut u8,
+                    arg1: usize,
                     arg2: i32,
                     arg3: i32,
                     arg4: i32,
@@ -929,8 +813,9 @@ pub mod exports {
                     arg9: i32,
                     arg10: i32,
                     arg11: i32,
-                ) {
-                    let handle0;
+                    arg12: i32,
+                    arg13: i32,
+                ) -> *mut u8 {
                     let handle1;
                     let handle2;
                     let handle3;
@@ -942,60 +827,97 @@ pub mod exports {
                     let handle9;
                     let handle10;
                     let handle11;
-                    let result12 = T::invoke(Args {
-                        keepers: {
-                            handle0 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg0 as u32);
-                            &handle0
+                    let handle12;
+                    let len0 = arg1;
+                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
+                    let result13 = T::invoke(
+                        _rt::string_lift(bytes0),
+                        Args {
+                            keepers: {
+                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg2 as u32);
+                                &handle1
+                            },
+                            length: {
+                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg3 as u32);
+                                &handle2
+                            },
+                            lower: {
+                                handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg4 as u32);
+                                &handle3
+                            },
+                            min_lower: {
+                                handle4 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg5 as u32);
+                                &handle4
+                            },
+                            min_numeric: {
+                                handle5 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg6 as u32);
+                                &handle5
+                            },
+                            min_special: {
+                                handle6 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg7 as u32);
+                                &handle6
+                            },
+                            min_upper: {
+                                handle7 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg8 as u32);
+                                &handle7
+                            },
+                            number: {
+                                handle8 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg9 as u32);
+                                &handle8
+                            },
+                            numeric: {
+                                handle9 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg10 as u32);
+                                &handle9
+                            },
+                            override_special: {
+                                handle10 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg11 as u32);
+                                &handle10
+                            },
+                            special: {
+                                handle11 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg12 as u32);
+                                &handle11
+                            },
+                            upper: {
+                                handle12 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg13 as u32);
+                                &handle12
+                            },
                         },
-                        length: {
-                            handle1 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg1 as u32);
-                            &handle1
-                        },
-                        lower: {
-                            handle2 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg2 as u32);
-                            &handle2
-                        },
-                        min_lower: {
-                            handle3 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg3 as u32);
-                            &handle3
-                        },
-                        min_numeric: {
-                            handle4 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg4 as u32);
-                            &handle4
-                        },
-                        min_special: {
-                            handle5 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg5 as u32);
-                            &handle5
-                        },
-                        min_upper: {
-                            handle6 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg6 as u32);
-                            &handle6
-                        },
-                        number: {
-                            handle7 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg7 as u32);
-                            &handle7
-                        },
-                        numeric: {
-                            handle8 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg8 as u32);
-                            &handle8
-                        },
-                        override_special: {
-                            handle9 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg9 as u32);
-                            &handle9
-                        },
-                        special: {
-                            handle10 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg10 as u32);
-                            &handle10
-                        },
-                        upper: {
-                            handle11 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg11 as u32);
-                            &handle11
-                        },
-                    });
-                    let Res {} = result12;
+                    );
+                    let ptr14 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        bcrypt_hash: bcrypt_hash15,
+                        keepers: keepers15,
+                        length: length15,
+                        lower: lower15,
+                        min_lower: min_lower15,
+                        min_numeric: min_numeric15,
+                        min_special: min_special15,
+                        min_upper: min_upper15,
+                        number: number15,
+                        numeric: numeric15,
+                        override_special: override_special15,
+                        result: result15,
+                        special: special15,
+                        upper: upper15,
+                    } = result13;
+                    *ptr14.add(0).cast::<i32>() = (bcrypt_hash15).take_handle() as i32;
+                    *ptr14.add(4).cast::<i32>() = (keepers15).take_handle() as i32;
+                    *ptr14.add(8).cast::<i32>() = (length15).take_handle() as i32;
+                    *ptr14.add(12).cast::<i32>() = (lower15).take_handle() as i32;
+                    *ptr14.add(16).cast::<i32>() = (min_lower15).take_handle() as i32;
+                    *ptr14.add(20).cast::<i32>() = (min_numeric15).take_handle() as i32;
+                    *ptr14.add(24).cast::<i32>() = (min_special15).take_handle() as i32;
+                    *ptr14.add(28).cast::<i32>() = (min_upper15).take_handle() as i32;
+                    *ptr14.add(32).cast::<i32>() = (number15).take_handle() as i32;
+                    *ptr14.add(36).cast::<i32>() = (numeric15).take_handle() as i32;
+                    *ptr14.add(40).cast::<i32>() = (override_special15).take_handle() as i32;
+                    *ptr14.add(44).cast::<i32>() = (result15).take_handle() as i32;
+                    *ptr14.add(48).cast::<i32>() = (special15).take_handle() as i32;
+                    *ptr14.add(52).cast::<i32>() = (upper15).take_handle() as i32;
+                    ptr14
                 }
                 pub trait Guest {
-                    fn invoke(args: Args<'_>) -> Res;
+                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
 
@@ -1004,13 +926,17 @@ pub mod exports {
 
 
     #[export_name = "pulumi:random/random-index-random-password-random-password@4.15.0#invoke"]
-    unsafe extern "C" fn export_invoke(arg0: i32,arg1: i32,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,arg9: i32,arg10: i32,arg11: i32,) {
-      $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11)
+    unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,arg9: i32,arg10: i32,arg11: i32,arg12: i32,arg13: i32,) -> *mut u8 {
+      $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13)
     }
   };);
 }
                 #[doc(hidden)]
                 pub(crate) use __export_pulumi_random_random_index_random_password_random_password_4_15_0_cabi;
+
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 56]);
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 56]);
             }
 
             #[allow(clippy::all)]
@@ -1020,8 +946,9 @@ pub mod exports {
                 #[cfg(target_arch = "wasm32")]
                 static __FORCE_SECTION_REF: fn() =
                     super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
                 pub type Output =
-                    super::super::super::super::pulumi::random::output_interface::Output;
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub keepers: &'a Output,
                     pub length: &'a Output,
@@ -1038,49 +965,75 @@ pub mod exports {
                             .finish()
                     }
                 }
-                #[repr(C)]
-                #[derive(Clone, Copy)]
-                pub struct Res {}
+                pub struct Res {
+                    pub keepers: Output,
+                    pub length: Output,
+                    pub prefix: Output,
+                    pub separator: Output,
+                }
                 impl ::core::fmt::Debug for Res {
                     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-                        f.debug_struct("Res").finish()
+                        f.debug_struct("Res")
+                            .field("keepers", &self.keepers)
+                            .field("length", &self.length)
+                            .field("prefix", &self.prefix)
+                            .field("separator", &self.separator)
+                            .finish()
                     }
                 }
 
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: i32,
-                    arg1: i32,
+                    arg0: *mut u8,
+                    arg1: usize,
                     arg2: i32,
                     arg3: i32,
-                ) {
-                    let handle0;
+                    arg4: i32,
+                    arg5: i32,
+                ) -> *mut u8 {
                     let handle1;
                     let handle2;
                     let handle3;
-                    let result4 = T::invoke(Args {
-                        keepers: {
-                            handle0 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg0 as u32);
-                            &handle0
+                    let handle4;
+                    let len0 = arg1;
+                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
+                    let result5 = T::invoke(
+                        _rt::string_lift(bytes0),
+                        Args {
+                            keepers: {
+                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg2 as u32);
+                                &handle1
+                            },
+                            length: {
+                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg3 as u32);
+                                &handle2
+                            },
+                            prefix: {
+                                handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg4 as u32);
+                                &handle3
+                            },
+                            separator: {
+                                handle4 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg5 as u32);
+                                &handle4
+                            },
                         },
-                        length: {
-                            handle1 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg1 as u32);
-                            &handle1
-                        },
-                        prefix: {
-                            handle2 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg2 as u32);
-                            &handle2
-                        },
-                        separator: {
-                            handle3 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg3 as u32);
-                            &handle3
-                        },
-                    });
-                    let Res {} = result4;
+                    );
+                    let ptr6 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        keepers: keepers7,
+                        length: length7,
+                        prefix: prefix7,
+                        separator: separator7,
+                    } = result5;
+                    *ptr6.add(0).cast::<i32>() = (keepers7).take_handle() as i32;
+                    *ptr6.add(4).cast::<i32>() = (length7).take_handle() as i32;
+                    *ptr6.add(8).cast::<i32>() = (prefix7).take_handle() as i32;
+                    *ptr6.add(12).cast::<i32>() = (separator7).take_handle() as i32;
+                    ptr6
                 }
                 pub trait Guest {
-                    fn invoke(args: Args<'_>) -> Res;
+                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
 
@@ -1089,13 +1042,17 @@ pub mod exports {
 
 
     #[export_name = "pulumi:random/random-index-random-pet-random-pet@4.15.0#invoke"]
-    unsafe extern "C" fn export_invoke(arg0: i32,arg1: i32,arg2: i32,arg3: i32,) {
-      $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3)
+    unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,) -> *mut u8 {
+      $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
     }
   };);
 }
                 #[doc(hidden)]
                 pub(crate) use __export_pulumi_random_random_index_random_pet_random_pet_4_15_0_cabi;
+
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
             }
 
             #[allow(clippy::all)]
@@ -1105,8 +1062,9 @@ pub mod exports {
                 #[cfg(target_arch = "wasm32")]
                 static __FORCE_SECTION_REF: fn() =
                     super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
                 pub type Output =
-                    super::super::super::super::pulumi::random::output_interface::Output;
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub inputs: &'a Output,
                     pub keepers: &'a Output,
@@ -1123,49 +1081,79 @@ pub mod exports {
                             .finish()
                     }
                 }
-                #[repr(C)]
-                #[derive(Clone, Copy)]
-                pub struct Res {}
+                pub struct Res {
+                    pub inputs: Output,
+                    pub keepers: Output,
+                    pub result_count: Output,
+                    pub results: Output,
+                    pub seed: Output,
+                }
                 impl ::core::fmt::Debug for Res {
                     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-                        f.debug_struct("Res").finish()
+                        f.debug_struct("Res")
+                            .field("inputs", &self.inputs)
+                            .field("keepers", &self.keepers)
+                            .field("result-count", &self.result_count)
+                            .field("results", &self.results)
+                            .field("seed", &self.seed)
+                            .finish()
                     }
                 }
 
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: i32,
-                    arg1: i32,
+                    arg0: *mut u8,
+                    arg1: usize,
                     arg2: i32,
                     arg3: i32,
-                ) {
-                    let handle0;
+                    arg4: i32,
+                    arg5: i32,
+                ) -> *mut u8 {
                     let handle1;
                     let handle2;
                     let handle3;
-                    let result4 = T::invoke(Args {
-                        inputs: {
-                            handle0 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg0 as u32);
-                            &handle0
+                    let handle4;
+                    let len0 = arg1;
+                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
+                    let result5 = T::invoke(
+                        _rt::string_lift(bytes0),
+                        Args {
+                            inputs: {
+                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg2 as u32);
+                                &handle1
+                            },
+                            keepers: {
+                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg3 as u32);
+                                &handle2
+                            },
+                            result_count: {
+                                handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg4 as u32);
+                                &handle3
+                            },
+                            seed: {
+                                handle4 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg5 as u32);
+                                &handle4
+                            },
                         },
-                        keepers: {
-                            handle1 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg1 as u32);
-                            &handle1
-                        },
-                        result_count: {
-                            handle2 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg2 as u32);
-                            &handle2
-                        },
-                        seed: {
-                            handle3 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg3 as u32);
-                            &handle3
-                        },
-                    });
-                    let Res {} = result4;
+                    );
+                    let ptr6 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        inputs: inputs7,
+                        keepers: keepers7,
+                        result_count: result_count7,
+                        results: results7,
+                        seed: seed7,
+                    } = result5;
+                    *ptr6.add(0).cast::<i32>() = (inputs7).take_handle() as i32;
+                    *ptr6.add(4).cast::<i32>() = (keepers7).take_handle() as i32;
+                    *ptr6.add(8).cast::<i32>() = (result_count7).take_handle() as i32;
+                    *ptr6.add(12).cast::<i32>() = (results7).take_handle() as i32;
+                    *ptr6.add(16).cast::<i32>() = (seed7).take_handle() as i32;
+                    ptr6
                 }
                 pub trait Guest {
-                    fn invoke(args: Args<'_>) -> Res;
+                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
 
@@ -1174,13 +1162,17 @@ pub mod exports {
 
 
     #[export_name = "pulumi:random/random-index-random-shuffle-random-shuffle@4.15.0#invoke"]
-    unsafe extern "C" fn export_invoke(arg0: i32,arg1: i32,arg2: i32,arg3: i32,) {
-      $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3)
+    unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,) -> *mut u8 {
+      $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
     }
   };);
 }
                 #[doc(hidden)]
                 pub(crate) use __export_pulumi_random_random_index_random_shuffle_random_shuffle_4_15_0_cabi;
+
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
             }
 
             #[allow(clippy::all)]
@@ -1190,8 +1182,9 @@ pub mod exports {
                 #[cfg(target_arch = "wasm32")]
                 static __FORCE_SECTION_REF: fn() =
                     super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
                 pub type Output =
-                    super::super::super::super::pulumi::random::output_interface::Output;
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub keepers: &'a Output,
                     pub length: &'a Output,
@@ -1224,20 +1217,46 @@ pub mod exports {
                             .finish()
                     }
                 }
-                #[repr(C)]
-                #[derive(Clone, Copy)]
-                pub struct Res {}
+                pub struct Res {
+                    pub keepers: Output,
+                    pub length: Output,
+                    pub lower: Output,
+                    pub min_lower: Output,
+                    pub min_numeric: Output,
+                    pub min_special: Output,
+                    pub min_upper: Output,
+                    pub number: Output,
+                    pub numeric: Output,
+                    pub override_special: Output,
+                    pub result: Output,
+                    pub special: Output,
+                    pub upper: Output,
+                }
                 impl ::core::fmt::Debug for Res {
                     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-                        f.debug_struct("Res").finish()
+                        f.debug_struct("Res")
+                            .field("keepers", &self.keepers)
+                            .field("length", &self.length)
+                            .field("lower", &self.lower)
+                            .field("min-lower", &self.min_lower)
+                            .field("min-numeric", &self.min_numeric)
+                            .field("min-special", &self.min_special)
+                            .field("min-upper", &self.min_upper)
+                            .field("number", &self.number)
+                            .field("numeric", &self.numeric)
+                            .field("override-special", &self.override_special)
+                            .field("result", &self.result)
+                            .field("special", &self.special)
+                            .field("upper", &self.upper)
+                            .finish()
                     }
                 }
 
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: i32,
-                    arg1: i32,
+                    arg0: *mut u8,
+                    arg1: usize,
                     arg2: i32,
                     arg3: i32,
                     arg4: i32,
@@ -1248,8 +1267,9 @@ pub mod exports {
                     arg9: i32,
                     arg10: i32,
                     arg11: i32,
-                ) {
-                    let handle0;
+                    arg12: i32,
+                    arg13: i32,
+                ) -> *mut u8 {
                     let handle1;
                     let handle2;
                     let handle3;
@@ -1261,60 +1281,95 @@ pub mod exports {
                     let handle9;
                     let handle10;
                     let handle11;
-                    let result12 = T::invoke(Args {
-                        keepers: {
-                            handle0 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg0 as u32);
-                            &handle0
+                    let handle12;
+                    let len0 = arg1;
+                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
+                    let result13 = T::invoke(
+                        _rt::string_lift(bytes0),
+                        Args {
+                            keepers: {
+                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg2 as u32);
+                                &handle1
+                            },
+                            length: {
+                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg3 as u32);
+                                &handle2
+                            },
+                            lower: {
+                                handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg4 as u32);
+                                &handle3
+                            },
+                            min_lower: {
+                                handle4 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg5 as u32);
+                                &handle4
+                            },
+                            min_numeric: {
+                                handle5 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg6 as u32);
+                                &handle5
+                            },
+                            min_special: {
+                                handle6 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg7 as u32);
+                                &handle6
+                            },
+                            min_upper: {
+                                handle7 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg8 as u32);
+                                &handle7
+                            },
+                            number: {
+                                handle8 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg9 as u32);
+                                &handle8
+                            },
+                            numeric: {
+                                handle9 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg10 as u32);
+                                &handle9
+                            },
+                            override_special: {
+                                handle10 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg11 as u32);
+                                &handle10
+                            },
+                            special: {
+                                handle11 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg12 as u32);
+                                &handle11
+                            },
+                            upper: {
+                                handle12 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg13 as u32);
+                                &handle12
+                            },
                         },
-                        length: {
-                            handle1 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg1 as u32);
-                            &handle1
-                        },
-                        lower: {
-                            handle2 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg2 as u32);
-                            &handle2
-                        },
-                        min_lower: {
-                            handle3 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg3 as u32);
-                            &handle3
-                        },
-                        min_numeric: {
-                            handle4 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg4 as u32);
-                            &handle4
-                        },
-                        min_special: {
-                            handle5 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg5 as u32);
-                            &handle5
-                        },
-                        min_upper: {
-                            handle6 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg6 as u32);
-                            &handle6
-                        },
-                        number: {
-                            handle7 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg7 as u32);
-                            &handle7
-                        },
-                        numeric: {
-                            handle8 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg8 as u32);
-                            &handle8
-                        },
-                        override_special: {
-                            handle9 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg9 as u32);
-                            &handle9
-                        },
-                        special: {
-                            handle10 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg10 as u32);
-                            &handle10
-                        },
-                        upper: {
-                            handle11 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg11 as u32);
-                            &handle11
-                        },
-                    });
-                    let Res {} = result12;
+                    );
+                    let ptr14 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        keepers: keepers15,
+                        length: length15,
+                        lower: lower15,
+                        min_lower: min_lower15,
+                        min_numeric: min_numeric15,
+                        min_special: min_special15,
+                        min_upper: min_upper15,
+                        number: number15,
+                        numeric: numeric15,
+                        override_special: override_special15,
+                        result: result15,
+                        special: special15,
+                        upper: upper15,
+                    } = result13;
+                    *ptr14.add(0).cast::<i32>() = (keepers15).take_handle() as i32;
+                    *ptr14.add(4).cast::<i32>() = (length15).take_handle() as i32;
+                    *ptr14.add(8).cast::<i32>() = (lower15).take_handle() as i32;
+                    *ptr14.add(12).cast::<i32>() = (min_lower15).take_handle() as i32;
+                    *ptr14.add(16).cast::<i32>() = (min_numeric15).take_handle() as i32;
+                    *ptr14.add(20).cast::<i32>() = (min_special15).take_handle() as i32;
+                    *ptr14.add(24).cast::<i32>() = (min_upper15).take_handle() as i32;
+                    *ptr14.add(28).cast::<i32>() = (number15).take_handle() as i32;
+                    *ptr14.add(32).cast::<i32>() = (numeric15).take_handle() as i32;
+                    *ptr14.add(36).cast::<i32>() = (override_special15).take_handle() as i32;
+                    *ptr14.add(40).cast::<i32>() = (result15).take_handle() as i32;
+                    *ptr14.add(44).cast::<i32>() = (special15).take_handle() as i32;
+                    *ptr14.add(48).cast::<i32>() = (upper15).take_handle() as i32;
+                    ptr14
                 }
                 pub trait Guest {
-                    fn invoke(args: Args<'_>) -> Res;
+                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
 
@@ -1323,13 +1378,17 @@ pub mod exports {
 
 
     #[export_name = "pulumi:random/random-index-random-string-random-string@4.15.0#invoke"]
-    unsafe extern "C" fn export_invoke(arg0: i32,arg1: i32,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,arg9: i32,arg10: i32,arg11: i32,) {
-      $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11)
+    unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,arg9: i32,arg10: i32,arg11: i32,arg12: i32,arg13: i32,) -> *mut u8 {
+      $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13)
     }
   };);
 }
                 #[doc(hidden)]
                 pub(crate) use __export_pulumi_random_random_index_random_string_random_string_4_15_0_cabi;
+
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 52]);
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 52]);
             }
 
             #[allow(clippy::all)]
@@ -1339,8 +1398,9 @@ pub mod exports {
                 #[cfg(target_arch = "wasm32")]
                 static __FORCE_SECTION_REF: fn() =
                     super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
                 pub type Output =
-                    super::super::super::super::pulumi::random::output_interface::Output;
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub keepers: &'a Output,
                 }
@@ -1351,29 +1411,49 @@ pub mod exports {
                             .finish()
                     }
                 }
-                #[repr(C)]
-                #[derive(Clone, Copy)]
-                pub struct Res {}
+                pub struct Res {
+                    pub keepers: Output,
+                    pub result: Output,
+                }
                 impl ::core::fmt::Debug for Res {
                     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-                        f.debug_struct("Res").finish()
+                        f.debug_struct("Res")
+                            .field("keepers", &self.keepers)
+                            .field("result", &self.result)
+                            .finish()
                     }
                 }
 
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
-                pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: i32) {
-                    let handle0;
-                    let result1 = T::invoke(Args {
-                        keepers: {
-                            handle0 = super::super::super::super::pulumi::random::output_interface::Output::from_handle(arg0 as u32);
-                            &handle0
+                pub unsafe fn _export_invoke_cabi<T: Guest>(
+                    arg0: *mut u8,
+                    arg1: usize,
+                    arg2: i32,
+                ) -> *mut u8 {
+                    let handle1;
+                    let len0 = arg1;
+                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
+                    let result2 = T::invoke(
+                        _rt::string_lift(bytes0),
+                        Args {
+                            keepers: {
+                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg2 as u32);
+                                &handle1
+                            },
                         },
-                    });
-                    let Res {} = result1;
+                    );
+                    let ptr3 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        keepers: keepers4,
+                        result: result4,
+                    } = result2;
+                    *ptr3.add(0).cast::<i32>() = (keepers4).take_handle() as i32;
+                    *ptr3.add(4).cast::<i32>() = (result4).take_handle() as i32;
+                    ptr3
                 }
                 pub trait Guest {
-                    fn invoke(args: Args<'_>) -> Res;
+                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
 
@@ -1382,13 +1462,17 @@ pub mod exports {
 
 
     #[export_name = "pulumi:random/random-index-random-uuid-random-uuid@4.15.0#invoke"]
-    unsafe extern "C" fn export_invoke(arg0: i32,) {
-      $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0)
+    unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,) -> *mut u8 {
+      $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2)
     }
   };);
 }
                 #[doc(hidden)]
                 pub(crate) use __export_pulumi_random_random_index_random_uuid_random_uuid_4_15_0_cabi;
+
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 8]);
             }
         }
     }
@@ -1557,9 +1641,9 @@ pub(crate) use __export_main_world_impl as export;
 #[cfg(target_arch = "wasm32")]
 #[link_section = "component-type:wit-bindgen:0.20.0:main-world:encoded world"]
 #[doc(hidden)]
-pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 2599] = *b"\
-\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xa6\x13\x01A\x02\x01\
-A\x18\x01B\x15\x04\0\x06output\x03\x01\x01p}\x01i\0\x01@\x01\x05value\x01\0\x02\x04\
+pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 2791] = *b"\
+\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xe6\x14\x01A\x02\x01\
+A\x15\x01B\x15\x04\0\x06output\x03\x01\x01p}\x01i\0\x01@\x01\x05value\x01\0\x02\x04\
 \0\x13[constructor]output\x01\x03\x01h\0\x01@\x02\x04self\x04\x0dfunction-names\0\
 \x02\x04\0\x12[method]output.map\x01\x05\x01k\x01\x01@\x01\x04self\x04\0\x06\x04\
 \0\x12[method]output.get\x01\x07\x01@\x02\x04self\x04\x05fields\0\x02\x04\0\x18[\
@@ -1571,50 +1655,54 @@ exists\x01\x0c\x03\x01,component:pulumi-wasm/output-interface@0.1.0\x05\0\x02\x0
 r\x02\x04names\x05value\x02\x04\0\x0cobject-field\x03\0\x03\x01p\x04\x01r\x03\x04\
 types\x04names\x06object\x05\x04\0\x19register-resource-request\x03\0\x06\x01i\x01\
 \x01@\x01\x07request\x07\0\x08\x04\0\x08register\x01\x09\x03\x01.component:pulum\
-i-wasm/register-interface@0.1.0\x05\x02\x01B\x15\x04\0\x06output\x03\x01\x01p}\x01\
-i\0\x01@\x01\x05value\x01\0\x02\x04\0\x13[constructor]output\x01\x03\x01h\0\x01@\
-\x02\x04self\x04\x0dfunction-names\0\x02\x04\0\x12[method]output.map\x01\x05\x01\
-k\x01\x01@\x01\x04self\x04\0\x06\x04\0\x12[method]output.get\x01\x07\x01@\x02\x04\
-self\x04\x05fields\0\x02\x04\0\x18[method]output.get-field\x01\x08\x01@\x01\x04s\
-elf\x04\0s\x04\0\x17[method]output.get-type\x01\x09\x01@\x01\x04self\x04\0\x02\x04\
-\0\x18[method]output.duplicate\x01\x0a\x01@\0\0s\x04\0\x10describe-outputs\x01\x0b\
-\x01@\0\0\x7f\x04\0\x0fnon-done-exists\x01\x0c\x03\x01%pulumi:random/output-inte\
-rface@4.15.0\x05\x03\x02\x03\0\x02\x06output\x01B\x09\x02\x03\x02\x01\x04\x04\0\x06\
-output\x03\0\0\x01h\x01\x01r\x02\x07keepers\x02\x06length\x02\x04\0\x04args\x03\0\
-\x03\x01r\0\x04\0\x03res\x03\0\x05\x01@\x01\x04args\x04\0\x06\x04\0\x06invoke\x01\
-\x07\x04\x01;pulumi:random/random-index-random-bytes-random-bytes@4.15.0\x05\x05\
-\x01B\x09\x02\x03\x02\x01\x04\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0bbyte-\
-length\x02\x07keepers\x02\x06prefix\x02\x04\0\x04args\x03\0\x03\x01r\0\x04\0\x03\
-res\x03\0\x05\x01@\x01\x04args\x04\0\x06\x04\0\x06invoke\x01\x07\x04\x015pulumi:\
-random/random-index-random-id-random-id@4.15.0\x05\x06\x01B\x09\x02\x03\x02\x01\x04\
-\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x07keepers\x02\x03max\x02\x03min\x02\x04\
-seed\x02\x04\0\x04args\x03\0\x03\x01r\0\x04\0\x03res\x03\0\x05\x01@\x01\x04args\x04\
-\0\x06\x04\0\x06invoke\x01\x07\x04\x01?pulumi:random/random-index-random-integer\
--random-integer@4.15.0\x05\x07\x01B\x09\x02\x03\x02\x01\x04\x04\0\x06output\x03\0\
-\0\x01h\x01\x01r\x0c\x07keepers\x02\x06length\x02\x05lower\x02\x09min-lower\x02\x0b\
-min-numeric\x02\x0bmin-special\x02\x09min-upper\x02\x06number\x02\x07numeric\x02\
-\x10override-special\x02\x07special\x02\x05upper\x02\x04\0\x04args\x03\0\x03\x01\
-r\0\x04\0\x03res\x03\0\x05\x01@\x01\x04args\x04\0\x06\x04\0\x06invoke\x01\x07\x04\
-\x01Apulumi:random/random-index-random-password-random-password@4.15.0\x05\x08\x01\
-B\x09\x02\x03\x02\x01\x04\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x07keepers\x02\
-\x06length\x02\x06prefix\x02\x09separator\x02\x04\0\x04args\x03\0\x03\x01r\0\x04\
-\0\x03res\x03\0\x05\x01@\x01\x04args\x04\0\x06\x04\0\x06invoke\x01\x07\x04\x017p\
-ulumi:random/random-index-random-pet-random-pet@4.15.0\x05\x09\x01B\x09\x02\x03\x02\
-\x01\x04\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x06inputs\x02\x07keepers\x02\x0c\
-result-count\x02\x04seed\x02\x04\0\x04args\x03\0\x03\x01r\0\x04\0\x03res\x03\0\x05\
-\x01@\x01\x04args\x04\0\x06\x04\0\x06invoke\x01\x07\x04\x01?pulumi:random/random\
--index-random-shuffle-random-shuffle@4.15.0\x05\x0a\x01B\x09\x02\x03\x02\x01\x04\
-\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0c\x07keepers\x02\x06length\x02\x05lower\
-\x02\x09min-lower\x02\x0bmin-numeric\x02\x0bmin-special\x02\x09min-upper\x02\x06\
-number\x02\x07numeric\x02\x10override-special\x02\x07special\x02\x05upper\x02\x04\
-\0\x04args\x03\0\x03\x01r\0\x04\0\x03res\x03\0\x05\x01@\x01\x04args\x04\0\x06\x04\
-\0\x06invoke\x01\x07\x04\x01=pulumi:random/random-index-random-string-random-str\
-ing@4.15.0\x05\x0b\x01B\x09\x02\x03\x02\x01\x04\x04\0\x06output\x03\0\0\x01h\x01\
-\x01r\x01\x07keepers\x02\x04\0\x04args\x03\0\x03\x01r\0\x04\0\x03res\x03\0\x05\x01\
-@\x01\x04args\x04\0\x06\x04\0\x06invoke\x01\x07\x04\x019pulumi:random/random-ind\
-ex-random-uuid-random-uuid@4.15.0\x05\x0c\x04\x01\x1fpulumi:random/main-world@4.\
-15.0\x04\0\x0b\x10\x01\0\x0amain-world\x03\0\0\0G\x09producers\x01\x0cprocessed-\
-by\x02\x0dwit-component\x070.201.0\x10wit-bindgen-rust\x060.20.0";
+i-wasm/register-interface@0.1.0\x05\x02\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06ou\
+tput\x03\0\0\x01h\x01\x01r\x02\x07keepers\x02\x06length\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x04\x06base64\x05\x03hex\x05\x07keepers\x05\x06length\x05\x04\0\x03\
+res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\
+;pulumi:random/random-index-random-bytes-random-bytes@4.15.0\x05\x03\x01B\x0a\x02\
+\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0bbyte-length\x02\x07\
+keepers\x02\x06prefix\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\x07b64-std\x05\
+\x07b64-url\x05\x0bbyte-length\x05\x03dec\x05\x03hex\x05\x07keepers\x05\x06prefi\
+x\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\
+\x01\x08\x04\x015pulumi:random/random-index-random-id-random-id@4.15.0\x05\x04\x01\
+B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x07keepers\x02\
+\x03max\x02\x03min\x02\x04seed\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x07\
+keepers\x05\x03max\x05\x03min\x05\x06result\x05\x04seed\x05\x04\0\x03res\x03\0\x06\
+\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01?pulumi:rand\
+om/random-index-random-integer-random-integer@4.15.0\x05\x05\x01B\x0a\x02\x03\x02\
+\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0c\x07keepers\x02\x06length\x02\x05\
+lower\x02\x09min-lower\x02\x0bmin-numeric\x02\x0bmin-special\x02\x09min-upper\x02\
+\x06number\x02\x07numeric\x02\x10override-special\x02\x07special\x02\x05upper\x02\
+\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0e\x0bbcrypt-hash\x05\x07keepers\x05\x06\
+length\x05\x05lower\x05\x09min-lower\x05\x0bmin-numeric\x05\x0bmin-special\x05\x09\
+min-upper\x05\x06number\x05\x07numeric\x05\x10override-special\x05\x06result\x05\
+\x07special\x05\x05upper\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
+\0\x07\x04\0\x06invoke\x01\x08\x04\x01Apulumi:random/random-index-random-passwor\
+d-random-password@4.15.0\x05\x06\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
+\0\0\x01h\x01\x01r\x04\x07keepers\x02\x06length\x02\x06prefix\x02\x09separator\x02\
+\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x07keepers\x05\x06length\x05\x06prefi\
+x\x05\x09separator\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
+\x04\0\x06invoke\x01\x08\x04\x017pulumi:random/random-index-random-pet-random-pe\
+t@4.15.0\x05\x07\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
+r\x04\x06inputs\x02\x07keepers\x02\x0cresult-count\x02\x04seed\x02\x04\0\x04args\
+\x03\0\x03\x01i\x01\x01r\x05\x06inputs\x05\x07keepers\x05\x0cresult-count\x05\x07\
+results\x05\x04seed\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
+\x04\0\x06invoke\x01\x08\x04\x01?pulumi:random/random-index-random-shuffle-rando\
+m-shuffle@4.15.0\x05\x08\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
+h\x01\x01r\x0c\x07keepers\x02\x06length\x02\x05lower\x02\x09min-lower\x02\x0bmin\
+-numeric\x02\x0bmin-special\x02\x09min-upper\x02\x06number\x02\x07numeric\x02\x10\
+override-special\x02\x07special\x02\x05upper\x02\x04\0\x04args\x03\0\x03\x01i\x01\
+\x01r\x0d\x07keepers\x05\x06length\x05\x05lower\x05\x09min-lower\x05\x0bmin-nume\
+ric\x05\x0bmin-special\x05\x09min-upper\x05\x06number\x05\x07numeric\x05\x10over\
+ride-special\x05\x06result\x05\x07special\x05\x05upper\x05\x04\0\x03res\x03\0\x06\
+\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01=pulumi:rand\
+om/random-index-random-string-random-string@4.15.0\x05\x09\x01B\x0a\x02\x03\x02\x01\
+\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x07keepers\x02\x04\0\x04args\x03\0\
+\x03\x01i\x01\x01r\x02\x07keepers\x05\x06result\x05\x04\0\x03res\x03\0\x06\x01@\x02\
+\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x019pulumi:random/random\
+-index-random-uuid-random-uuid@4.15.0\x05\x0a\x04\x01\x1fpulumi:random/main-worl\
+d@4.15.0\x04\0\x0b\x10\x01\0\x0amain-world\x03\0\0\0G\x09producers\x01\x0cproces\
+sed-by\x02\x0dwit-component\x070.201.0\x10wit-bindgen-rust\x060.20.0";
 
 #[inline(never)]
 #[doc(hidden)]

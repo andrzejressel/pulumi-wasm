@@ -95,6 +95,17 @@ fn resource_to_model(resource_name: &String, resource: &Resource) -> crate::mode
                 required: resource.required_inputs.contains(input_name),
             };
         }).collect(),
+        output_properties: resource.object_type.properties.iter().map(|(output_name, output_property)| {
+            return crate::model::OutputProperty {
+                name: output_name.clone(),
+                // r#type: match &output_property.r#type.r#type {
+                //     Some(t) => crate::model::TypeOrRef::Type(match t),
+                //     None => crate::model::TypeOrRef::Ref(output_property.r#type.r#ref.clone().unwrap()),
+                // },
+                // description: output_property.description.clone(),
+                required: resource.object_type.required.contains(output_name),
+            };
+        }).collect(),
     };
 
 }

@@ -1,0 +1,42 @@
+use crate::bindings::component::pulumi_wasm::register_interface::RegisterResourceRequest;
+use crate::bindings::component::pulumi_wasm::register_interface::ObjectField;
+
+#[allow(clippy::all)]
+#[allow(dead_code)]
+#[allow(unused_variables)]
+#[allow(unused_unsafe)]
+mod bindings;
+bindings::export!(Component with_types_in bindings);
+
+struct Component {}
+
+{{#each package.interfaces}}
+impl bindings::exports::pulumi::{{@root.package.name}}::{{name}}::Guest for Component {
+    fn invoke(name: String, args: bindings::exports::pulumi::{{@root.package.name}}::{{name}}::Args) -> bindings::exports::pulumi::{{@root.package.name}}::{{name}}::Res {
+/*        let mut res = bindings::exports::pulumi::random::{{name}}::res {
+            {{#each results}}
+            {{name}}: bindings::exports::pulumi::random::output::output {
+                value: bindings::exports::pulumi::random::output::output_value::{{type}},
+            },
+            {{/each}}
+        };
+        res
+*/
+
+//        let r#type = "{{type}}".to_string();
+
+        let request = RegisterResourceRequest {
+            type_: "{{type}}".into(),
+            name,
+            object: vec![
+                {{#each input_properties}}
+                ObjectField { name: "{{name}}".into(), value: args.{{arg_name}} },
+                {{/each}}
+            ],
+        };
+
+        todo!()
+
+    }
+}
+{{/each}}
