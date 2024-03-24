@@ -63,7 +63,10 @@ fn create_valid_id(s: &String) -> String {
         })
         .collect();
 
-    replace_multiple_dashes(&result)
+    let result = replace_multiple_dashes(&result);
+    let result = format!("%{result}");
+
+    result
 }
 
 fn replace_multiple_dashes(s: &String) -> String {
