@@ -52,7 +52,7 @@ jobs:
       working-directory: pulumi-language-wasm
 
     - name: Install cargo-component
-      run: cargo install cargo-component@0.9.0 --locked || cargo-component --version
+      run: cargo install cargo-component@0.10.1 --locked || cargo-component --version
 
     - name: Install wasm-tools
       run: cargo install wasm-tools@1.201.0 --locked || wasm-tools --version
