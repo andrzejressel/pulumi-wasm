@@ -2,8 +2,8 @@ use handlebars::Handlebars;
 use serde::Serialize;
 use regex::Regex;
 
-static TEMPLATE: &'static str = include_str!("wit.handlebars");
-static DEPENDENCIES: &'static str = include_str!("dependencies.wit");
+static TEMPLATE: &str = include_str!("wit.handlebars");
+static DEPENDENCIES: &str = include_str!("dependencies.wit");
 
 
 #[derive(Serialize)]

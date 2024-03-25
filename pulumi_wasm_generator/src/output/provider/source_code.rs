@@ -3,7 +3,7 @@ use regex::Regex;
 use serde::Serialize;
 use serde_json::json;
 
-static TEMPLATE: &'static str = include_str!("lib.rs.handlebars");
+static TEMPLATE: &str = include_str!("lib.rs.handlebars");
 
 #[derive(Serialize)]
 struct InputProperty {

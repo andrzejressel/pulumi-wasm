@@ -2,7 +2,7 @@ use handlebars::Handlebars;
 use serde_json::json;
 use serde::Serialize;
 
-static TEMPLATE: &'static str = include_str!("Cargo.toml.handlebars");
+static TEMPLATE: &str = include_str!("Cargo.toml.handlebars");
 
 #[derive(Serialize)]
 struct Package {
