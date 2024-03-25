@@ -3,15 +3,15 @@
 version = 3
 
 [[package]]
-name = "main"
-version = "0.0.1"
-
-[[package]]
-name = "random_provider"
-version = "4.15.0"
+name = "command_provider"
+version = "0.9.2"
 dependencies = [
  "wit-bindgen-rt",
 ]
+
+[[package]]
+name = "main"
+version = "0.0.1"
 
 [[package]]
 name = "wit-bindgen-rt"

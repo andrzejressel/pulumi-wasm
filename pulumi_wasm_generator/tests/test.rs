@@ -19,21 +19,26 @@ fn command() -> Result<()> {
 }
 
 fn run_test(provider_name: &str) -> Result<()> {
-    let output_path = format!("tests/output/{provider_name}_provider");
-    let output = Path::new(&output_path);
+    let root_path = format!("tests/output/{provider_name}_provider");
+    let root = Path::new(&root_path);
+    let provider_output_path = root.join("provider");
+    let output = Path::new(&provider_output_path);
     pulumi_wasm_generator::generate_files(
         Path::new(&format!("tests/schemas/pulumi-resource-{provider_name}.json")),
         &output
     )?;
 
+    fs::copy(
+        "tests/input/Cargo.toml",
+        format!("tests/output/{provider_name}_provider/Cargo.toml")
+    )?;
 
-
-    // fs::create_dir_all(output.join("src"))?;
-    // fs::write(output.join("src/lib.rs"), "")?;
+    fs::create_dir_all(root.join("src"))?;
+    fs::write(root.join("src/lib.rs"), "")?;
 
     Command::new("cargo")
-        .args(["component", "build"])
-        .current_dir(&output)
+        .args(["component", "build", "-p", format!("{provider_name}_provider").as_str()])
+        .current_dir(&root)
         .assert()
         .success();
     Ok(())
