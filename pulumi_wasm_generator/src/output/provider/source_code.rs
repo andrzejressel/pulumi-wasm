@@ -9,9 +9,6 @@ static TEMPLATE: &'static str = include_str!("lib.rs.handlebars");
 struct InputProperty {
     name: String,
     arg_name: String,
-    // pub(crate) r#type: TypeOrRef,
-    // pub(crate) description: Option<String>,
-    required: bool,
 }
 
 #[derive(Serialize)]
@@ -44,8 +41,7 @@ fn convert_model(package: &crate::model::Package) -> Package {
                 input_properties: resource.input_properties.iter().map(|input_property| {
                     InputProperty {
                         name: input_property.name.clone(),
-                        arg_name: create_valid_id(&input_property.name),
-                        required: input_property.required,
+                        arg_name: create_valid_id(&input_property.name)
                     }
                 }).collect(),
                 output_properties: resource.output_properties.iter().map(|output_property| {
