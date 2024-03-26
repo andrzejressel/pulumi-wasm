@@ -10,7 +10,6 @@ build-language-plugin:
 install-requirements:
     cargo install cargo-component@0.10.1 --locked || cargo-component --version
     cargo install wasm-tools@1.201.0 --locked || wasm-tools --version
-    rustup target add wasm32-wasi
 
 build-wasm-components:
     cargo component build -p pulumi_wasm -p pulumi_wasm_provider_random -p pulumi_wasm_example_simple
