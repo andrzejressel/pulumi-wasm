@@ -41,7 +41,7 @@ jobs:
       if: runner.os == 'macOS'
     - run: pulumi version
     - run: pulumi login --local
-    - uses: extractions/setup-just@v1
+    - uses: extractions/setup-just@v2
     - name: Build
       run: just build
     - name: Test
