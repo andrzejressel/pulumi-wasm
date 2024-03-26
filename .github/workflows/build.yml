@@ -41,32 +41,13 @@ jobs:
       if: runner.os == 'macOS'
     - run: pulumi version
     - run: pulumi login --local
-
-    - name: Build language plugin (Windows)
-      if: runner.os == 'Windows'
-      run: ./build.bat
-      working-directory: pulumi-language-wasm
-    - name: Build language plugin (Unix)
-      if: runner.os == 'Linux' || runner.os == 'macOS'
-      run: ./build.sh
-      working-directory: pulumi-language-wasm
-
-    - name: Install cargo-component
-      run: cargo install cargo-component@0.10.1 --locked || cargo-component --version
-
-    - name: Install wasm-tools
-      run: cargo install wasm-tools@1.201.0 --locked || wasm-tools --version
-
-    - name: Install wasm32-wasi support
-      run: rustup target add wasm32-wasi
-
-    - name: Build WASM component
-      run: cargo component build -p pulumi_wasm -p pulumi_wasm_provider_random -p pulumi_wasm_example_simple
-    - name: Build libraries
-      run: cargo build -p pulumi_wasm_runner -p pulumi_wasm_rust -p pulumi_wasm_rust_macro -p pulumi_wasm_provider_random_rust
-
-    - name: Run tests
-      run: cargo test --all --verbose
+    - uses: extractions/setup-just@v1
+      with:
+        just-version: 1.5.0
+    - name: Build
+      run: just build
+    - name: Test
+      run: just test
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Ensure no files have changed
