@@ -42,8 +42,6 @@ jobs:
     - run: pulumi version
     - run: pulumi login --local
     - uses: extractions/setup-just@v1
-      with:
-        just-version: 1.5.0
     - name: Build
       run: just build
     - name: Test
