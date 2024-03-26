@@ -2,28 +2,28 @@ package pulumi:%random@4.15.0;
 
 world main-world {
     import component:pulumi-wasm/register-interface@0.1.0;
-    export %random-index-random-bytes-random-bytes;
-    export %random-index-random-id-random-id;
-    export %random-index-random-integer-random-integer;
-    export %random-index-random-password-random-password;
-    export %random-index-random-pet-random-pet;
-    export %random-index-random-shuffle-random-shuffle;
-    export %random-index-random-string-random-string;
-    export %random-index-random-uuid-random-uuid;
+    export %random-bytes;
+    export %random-id;
+    export %random-integer;
+    export %random-password;
+    export %random-pet;
+    export %random-shuffle;
+    export %random-string;
+    export %random-uuid;
 }
 
 world main-world-client {
-    import %random-index-random-bytes-random-bytes;
-    import %random-index-random-id-random-id;
-    import %random-index-random-integer-random-integer;
-    import %random-index-random-password-random-password;
-    import %random-index-random-pet-random-pet;
-    import %random-index-random-shuffle-random-shuffle;
-    import %random-index-random-string-random-string;
-    import %random-index-random-uuid-random-uuid;
+    import %random-bytes;
+    import %random-id;
+    import %random-integer;
+    import %random-password;
+    import %random-pet;
+    import %random-shuffle;
+    import %random-string;
+    import %random-uuid;
 }
 
-interface %random-index-random-bytes-random-bytes {
+interface %random-bytes {
 
     use component:pulumi-wasm/output-interface@0.1.0.{output};
 
@@ -43,7 +43,7 @@ interface %random-index-random-bytes-random-bytes {
 
 }
 
-interface %random-index-random-id-random-id {
+interface %random-id {
 
     use component:pulumi-wasm/output-interface@0.1.0.{output};
 
@@ -67,7 +67,7 @@ interface %random-index-random-id-random-id {
 
 }
 
-interface %random-index-random-integer-random-integer {
+interface %random-integer {
 
     use component:pulumi-wasm/output-interface@0.1.0.{output};
 
@@ -90,7 +90,7 @@ interface %random-index-random-integer-random-integer {
 
 }
 
-interface %random-index-random-password-random-password {
+interface %random-password {
 
     use component:pulumi-wasm/output-interface@0.1.0.{output};
 
@@ -130,7 +130,7 @@ interface %random-index-random-password-random-password {
 
 }
 
-interface %random-index-random-pet-random-pet {
+interface %random-pet {
 
     use component:pulumi-wasm/output-interface@0.1.0.{output};
 
@@ -152,7 +152,7 @@ interface %random-index-random-pet-random-pet {
 
 }
 
-interface %random-index-random-shuffle-random-shuffle {
+interface %random-shuffle {
 
     use component:pulumi-wasm/output-interface@0.1.0.{output};
 
@@ -175,7 +175,7 @@ interface %random-index-random-shuffle-random-shuffle {
 
 }
 
-interface %random-index-random-string-random-string {
+interface %random-string {
 
     use component:pulumi-wasm/output-interface@0.1.0.{output};
 
@@ -214,7 +214,7 @@ interface %random-index-random-string-random-string {
 
 }
 
-interface %random-index-random-uuid-random-uuid {
+interface %random-uuid {
 
     use component:pulumi-wasm/output-interface@0.1.0.{output};
 

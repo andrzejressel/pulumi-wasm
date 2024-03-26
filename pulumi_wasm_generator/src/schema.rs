@@ -1,6 +1,8 @@
 use std::collections::{BTreeMap, BTreeSet};
 
 use serde::Deserialize;
+use crate::model::{ElementId, InputProperty, OutputProperty};
+use anyhow::Result;
 
 type PulumiMap<T> = BTreeMap<String, T>;
 
@@ -65,7 +67,7 @@ struct ComplexType {
     #[serde(flatten)]
     object_type: ObjectType,
     #[serde(default)]
-    r#enum: Vec<EnumValue>
+    r#enum: Vec<EnumValue>,
 }
 
 #[derive(Deserialize, Debug)]
@@ -80,9 +82,10 @@ pub(crate) struct Package {
     types: PulumiMap<ComplexType>,
 }
 
-fn resource_to_model(resource_name: &String, resource: &Resource) -> crate::model::Resource {
-    return crate::model::Resource {
-        name: resource_name.clone(),
+fn resource_to_model(resource_name: &String, resource: &Resource) -> Result<(ElementId, crate::model::Resource)> {
+    let element_id = ElementId::new(resource_name)?;
+    return Ok((element_id, crate::model::Resource {
+        // name: resource_name.clone(),
         description: resource.object_type.description.clone(),
         input_properties: resource.input_properties.iter().map(|(input_name, input_property)| {
             return crate::model::InputProperty {
@@ -106,17 +109,49 @@ fn resource_to_model(resource_name: &String, resource: &Resource) -> crate::mode
                 required: resource.object_type.required.contains(output_name),
             };
         }).collect(),
-    };
-
+    }));
 }
 
-pub(crate) fn to_model(package: &Package) -> crate::model::Package {
-    return crate::model::Package {
+// fn create_output_properties(resource: &Resource) -> Result<BTreeMap<ElementId, OutputProperty>> {
+//     let map = resource.object_type.properties.iter().map(|(output_name, output_property)| {
+//         let element_id = ElementId::new(output_name)?;
+//         Ok((element_id, OutputProperty {
+//             // name: output_name.clone(),
+//             // r#type: match &output_property.r#type.r#type {
+//             //     Some(t) => crate::model::TypeOrRef::Type(match t),
+//             //     None => crate::model::TypeOrRef::Ref(output_property.r#type.r#ref.clone().unwrap()),
+//             // },
+//             // description: output_property.description.clone(),
+//             required: resource.object_type.required.contains(output_name),
+//         }))
+//     }).collect::<Result<_>>()?;
+//     Ok(map)
+// }
+//
+// fn create_input_properties_map(resource: &Resource) -> Result<BTreeMap<ElementId, InputProperty>> {
+//     let map: BTreeMap<ElementId, InputProperty> = resource.input_properties.iter().map(|(input_name, input_property)| {
+//         let element_id = ElementId::new(input_name)?;
+//         Ok((element_id, InputProperty {
+//             // name: input_name.clone(),
+//             // r#type: match &input_property.r#type.r#type {
+//             //     Some(t) => crate::model::TypeOrRef::Type(match t),
+//             //     None => crate::model::TypeOrRef::Ref(input_property.r#type.r#ref.clone().unwrap()),
+//             // },
+//             // description: input_property.descriptio
+//             required: resource.required_inputs.contains(input_name),
+//         }))
+//     }).collect::<Result<_>>()?;
+//     Ok(map)
+// }
+
+pub(crate) fn to_model(package: &Package) -> Result<crate::model::Package> {
+    let resources = package.resources.iter().map(|(resource_name, resource)| {
+        resource_to_model(resource_name, resource)
+    }).collect::<Result<BTreeMap<_, _>>>()?;
+    return Ok(crate::model::Package {
         name: package.name.clone(),
         version: package.version.clone(),
         display_name: package.display_name.clone(),
-        resources: package.resources.iter().map(|(resource_name, resource)| {
-            resource_to_model(resource_name, resource)
-        }).collect(),
-    };
+        resources: resources,
+    });
 }

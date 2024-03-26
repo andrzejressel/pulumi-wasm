@@ -1,6 +1,8 @@
 use handlebars::Handlebars;
 use serde::Serialize;
 use regex::Regex;
+use crate::model::ElementId;
+use crate::output::replace_multiple_dashes;
 
 static TEMPLATE: &str = include_str!("wit.handlebars");
 static DEPENDENCIES: &str = include_str!("dependencies.wit");
@@ -36,10 +38,10 @@ fn convert_model(package: &crate::model::Package) -> Package {
     Package {
         name: create_valid_id(&package.name),
         version: package.version.clone(),
-        interfaces: package.resources.iter().map(|resource| {
+        interfaces: package.resources.iter().map(|(element_id, resource)| {
             Interface {
-                name: create_valid_id(&resource.name),
-                arguments: resource.input_properties.iter().map(|input_property| {
+                name: create_valid_element_id(&element_id),
+                arguments: resource.input_properties.iter().map(|(input_property)| {
                     Argument {
                         name: create_valid_id(&input_property.name),
                     }
@@ -52,6 +54,12 @@ fn convert_model(package: &crate::model::Package) -> Package {
             }
         }).collect()
     }
+}
+
+fn create_valid_element_id(element_id: &ElementId) -> String {
+    let mut vec = element_id.namespace.clone();
+    vec.push(element_id.name.clone());
+    create_valid_id(&vec.join("-"))
 }
 
 fn create_valid_id(s: &String) -> String {
@@ -68,15 +76,10 @@ fn create_valid_id(s: &String) -> String {
         .collect();
 
     let result = replace_multiple_dashes(&result);
+    let result = result.trim_matches('-').to_string();
     let result = format!("%{result}");
 
     result
-}
-
-fn replace_multiple_dashes(s: &String) -> String {
-    let re = Regex::new("-+").unwrap();
-    let result = re.replace_all(s, "-");
-    result.to_string()
 }
 
 pub(crate) fn generate_wit(package: &crate::model::Package) -> anyhow::Result<String> {

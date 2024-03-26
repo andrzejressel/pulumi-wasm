@@ -1,12 +1,12 @@
 use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest};
-use bindings::exports::pulumi::random::random_index_random_bytes_random_bytes;
-use bindings::exports::pulumi::random::random_index_random_id_random_id;
-use bindings::exports::pulumi::random::random_index_random_integer_random_integer;
-use bindings::exports::pulumi::random::random_index_random_password_random_password;
-use bindings::exports::pulumi::random::random_index_random_pet_random_pet;
-use bindings::exports::pulumi::random::random_index_random_shuffle_random_shuffle;
-use bindings::exports::pulumi::random::random_index_random_string_random_string;
-use bindings::exports::pulumi::random::random_index_random_uuid_random_uuid;
+use bindings::exports::pulumi::random::random_bytes;
+use bindings::exports::pulumi::random::random_id;
+use bindings::exports::pulumi::random::random_integer;
+use bindings::exports::pulumi::random::random_password;
+use bindings::exports::pulumi::random::random_pet;
+use bindings::exports::pulumi::random::random_shuffle;
+use bindings::exports::pulumi::random::random_string;
+use bindings::exports::pulumi::random::random_uuid;
 
 #[allow(clippy::all)]
 #[allow(dead_code)]
@@ -17,8 +17,8 @@ bindings::export!(Component with_types_in bindings);
 
 struct Component {}
 
-impl random_index_random_bytes_random_bytes::Guest for Component {
-    fn invoke(name: String, args: random_index_random_bytes_random_bytes::Args) -> random_index_random_bytes_random_bytes::Res {
+impl random_bytes::Guest for Component {
+    fn invoke(name: String, args: random_bytes::Args) -> random_bytes::Res {
 
         let request = RegisterResourceRequest {
             type_: "random:index/randomBytes:RandomBytes".into(),
@@ -31,7 +31,7 @@ impl random_index_random_bytes_random_bytes::Guest for Component {
 
         let o = register(&request);
 
-        random_index_random_bytes_random_bytes::Res {
+        random_bytes::Res {
             base64: o.get_field("base64"),
             hex: o.get_field("hex"),
             keepers: o.get_field("keepers"),
@@ -40,8 +40,8 @@ impl random_index_random_bytes_random_bytes::Guest for Component {
 
     }
 }
-impl random_index_random_id_random_id::Guest for Component {
-    fn invoke(name: String, args: random_index_random_id_random_id::Args) -> random_index_random_id_random_id::Res {
+impl random_id::Guest for Component {
+    fn invoke(name: String, args: random_id::Args) -> random_id::Res {
 
         let request = RegisterResourceRequest {
             type_: "random:index/randomId:RandomId".into(),
@@ -55,7 +55,7 @@ impl random_index_random_id_random_id::Guest for Component {
 
         let o = register(&request);
 
-        random_index_random_id_random_id::Res {
+        random_id::Res {
             b64_std: o.get_field("b64Std"),
             b64_url: o.get_field("b64Url"),
             byte_length: o.get_field("byteLength"),
@@ -67,8 +67,8 @@ impl random_index_random_id_random_id::Guest for Component {
 
     }
 }
-impl random_index_random_integer_random_integer::Guest for Component {
-    fn invoke(name: String, args: random_index_random_integer_random_integer::Args) -> random_index_random_integer_random_integer::Res {
+impl random_integer::Guest for Component {
+    fn invoke(name: String, args: random_integer::Args) -> random_integer::Res {
 
         let request = RegisterResourceRequest {
             type_: "random:index/randomInteger:RandomInteger".into(),
@@ -83,7 +83,7 @@ impl random_index_random_integer_random_integer::Guest for Component {
 
         let o = register(&request);
 
-        random_index_random_integer_random_integer::Res {
+        random_integer::Res {
             keepers: o.get_field("keepers"),
             max: o.get_field("max"),
             min: o.get_field("min"),
@@ -93,8 +93,8 @@ impl random_index_random_integer_random_integer::Guest for Component {
 
     }
 }
-impl random_index_random_password_random_password::Guest for Component {
-    fn invoke(name: String, args: random_index_random_password_random_password::Args) -> random_index_random_password_random_password::Res {
+impl random_password::Guest for Component {
+    fn invoke(name: String, args: random_password::Args) -> random_password::Res {
 
         let request = RegisterResourceRequest {
             type_: "random:index/randomPassword:RandomPassword".into(),
@@ -117,7 +117,7 @@ impl random_index_random_password_random_password::Guest for Component {
 
         let o = register(&request);
 
-        random_index_random_password_random_password::Res {
+        random_password::Res {
             bcrypt_hash: o.get_field("bcryptHash"),
             keepers: o.get_field("keepers"),
             length: o.get_field("length"),
@@ -136,8 +136,8 @@ impl random_index_random_password_random_password::Guest for Component {
 
     }
 }
-impl random_index_random_pet_random_pet::Guest for Component {
-    fn invoke(name: String, args: random_index_random_pet_random_pet::Args) -> random_index_random_pet_random_pet::Res {
+impl random_pet::Guest for Component {
+    fn invoke(name: String, args: random_pet::Args) -> random_pet::Res {
 
         let request = RegisterResourceRequest {
             type_: "random:index/randomPet:RandomPet".into(),
@@ -152,7 +152,7 @@ impl random_index_random_pet_random_pet::Guest for Component {
 
         let o = register(&request);
 
-        random_index_random_pet_random_pet::Res {
+        random_pet::Res {
             keepers: o.get_field("keepers"),
             length: o.get_field("length"),
             prefix: o.get_field("prefix"),
@@ -161,8 +161,8 @@ impl random_index_random_pet_random_pet::Guest for Component {
 
     }
 }
-impl random_index_random_shuffle_random_shuffle::Guest for Component {
-    fn invoke(name: String, args: random_index_random_shuffle_random_shuffle::Args) -> random_index_random_shuffle_random_shuffle::Res {
+impl random_shuffle::Guest for Component {
+    fn invoke(name: String, args: random_shuffle::Args) -> random_shuffle::Res {
 
         let request = RegisterResourceRequest {
             type_: "random:index/randomShuffle:RandomShuffle".into(),
@@ -177,7 +177,7 @@ impl random_index_random_shuffle_random_shuffle::Guest for Component {
 
         let o = register(&request);
 
-        random_index_random_shuffle_random_shuffle::Res {
+        random_shuffle::Res {
             inputs: o.get_field("inputs"),
             keepers: o.get_field("keepers"),
             result_count: o.get_field("resultCount"),
@@ -187,8 +187,8 @@ impl random_index_random_shuffle_random_shuffle::Guest for Component {
 
     }
 }
-impl random_index_random_string_random_string::Guest for Component {
-    fn invoke(name: String, args: random_index_random_string_random_string::Args) -> random_index_random_string_random_string::Res {
+impl random_string::Guest for Component {
+    fn invoke(name: String, args: random_string::Args) -> random_string::Res {
 
         let request = RegisterResourceRequest {
             type_: "random:index/randomString:RandomString".into(),
@@ -211,7 +211,7 @@ impl random_index_random_string_random_string::Guest for Component {
 
         let o = register(&request);
 
-        random_index_random_string_random_string::Res {
+        random_string::Res {
             keepers: o.get_field("keepers"),
             length: o.get_field("length"),
             lower: o.get_field("lower"),
@@ -229,8 +229,8 @@ impl random_index_random_string_random_string::Guest for Component {
 
     }
 }
-impl random_index_random_uuid_random_uuid::Guest for Component {
-    fn invoke(name: String, args: random_index_random_uuid_random_uuid::Args) -> random_index_random_uuid_random_uuid::Res {
+impl random_uuid::Guest for Component {
+    fn invoke(name: String, args: random_uuid::Args) -> random_uuid::Res {
 
         let request = RegisterResourceRequest {
             type_: "random:index/randomUuid:RandomUuid".into(),
@@ -242,7 +242,7 @@ impl random_index_random_uuid_random_uuid::Guest for Component {
 
         let o = register(&request);
 
-        random_index_random_uuid_random_uuid::Res {
+        random_uuid::Res {
             keepers: o.get_field("keepers"),
             result: o.get_field("result"),
         }
