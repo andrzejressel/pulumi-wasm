@@ -5,8 +5,11 @@ edition = "2021"
 
 [workspace]
 members = [
-    "provider"
+    "provider",
+    "lib"
 ]
 
 [workspace.dependencies]
 wit-bindgen-rt = "0.22.0"
+wit-bindgen = "0.22.0"
+wasm_common = { path = "../../../../wasm_common" }

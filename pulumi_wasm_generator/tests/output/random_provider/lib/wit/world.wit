@@ -1,0 +1,233 @@
+package pulumi:%random@4.15.0;
+
+world main-world {
+    import component:pulumi-wasm/register-interface@0.1.0;
+    export %random-bytes;
+    export %random-id;
+    export %random-integer;
+    export %random-password;
+    export %random-pet;
+    export %random-shuffle;
+    export %random-string;
+    export %random-uuid;
+}
+
+world main-world-client {
+    import %random-bytes;
+    import %random-id;
+    import %random-integer;
+    import %random-password;
+    import %random-pet;
+    import %random-shuffle;
+    import %random-string;
+    import %random-uuid;
+}
+
+interface %random-bytes {
+
+    use component:pulumi-wasm/output-interface@0.1.0.{output};
+
+    record args {
+        %keepers: borrow<output>,
+        %length: borrow<output>,
+    }
+
+    record res {
+        %base64: output,
+        %hex: output,
+        %keepers: output,
+        %length: output,
+    }
+
+    invoke: func(name: string, args: args) -> res;
+
+}
+
+interface %random-id {
+
+    use component:pulumi-wasm/output-interface@0.1.0.{output};
+
+    record args {
+        %byte-length: borrow<output>,
+        %keepers: borrow<output>,
+        %prefix: borrow<output>,
+    }
+
+    record res {
+        %b64-std: output,
+        %b64-url: output,
+        %byte-length: output,
+        %dec: output,
+        %hex: output,
+        %keepers: output,
+        %prefix: output,
+    }
+
+    invoke: func(name: string, args: args) -> res;
+
+}
+
+interface %random-integer {
+
+    use component:pulumi-wasm/output-interface@0.1.0.{output};
+
+    record args {
+        %keepers: borrow<output>,
+        %max: borrow<output>,
+        %min: borrow<output>,
+        %seed: borrow<output>,
+    }
+
+    record res {
+        %keepers: output,
+        %max: output,
+        %min: output,
+        %result: output,
+        %seed: output,
+    }
+
+    invoke: func(name: string, args: args) -> res;
+
+}
+
+interface %random-password {
+
+    use component:pulumi-wasm/output-interface@0.1.0.{output};
+
+    record args {
+        %keepers: borrow<output>,
+        %length: borrow<output>,
+        %lower: borrow<output>,
+        %min-lower: borrow<output>,
+        %min-numeric: borrow<output>,
+        %min-special: borrow<output>,
+        %min-upper: borrow<output>,
+        %number: borrow<output>,
+        %numeric: borrow<output>,
+        %override-special: borrow<output>,
+        %special: borrow<output>,
+        %upper: borrow<output>,
+    }
+
+    record res {
+        %bcrypt-hash: output,
+        %keepers: output,
+        %length: output,
+        %lower: output,
+        %min-lower: output,
+        %min-numeric: output,
+        %min-special: output,
+        %min-upper: output,
+        %number: output,
+        %numeric: output,
+        %override-special: output,
+        %result: output,
+        %special: output,
+        %upper: output,
+    }
+
+    invoke: func(name: string, args: args) -> res;
+
+}
+
+interface %random-pet {
+
+    use component:pulumi-wasm/output-interface@0.1.0.{output};
+
+    record args {
+        %keepers: borrow<output>,
+        %length: borrow<output>,
+        %prefix: borrow<output>,
+        %separator: borrow<output>,
+    }
+
+    record res {
+        %keepers: output,
+        %length: output,
+        %prefix: output,
+        %separator: output,
+    }
+
+    invoke: func(name: string, args: args) -> res;
+
+}
+
+interface %random-shuffle {
+
+    use component:pulumi-wasm/output-interface@0.1.0.{output};
+
+    record args {
+        %inputs: borrow<output>,
+        %keepers: borrow<output>,
+        %result-count: borrow<output>,
+        %seed: borrow<output>,
+    }
+
+    record res {
+        %inputs: output,
+        %keepers: output,
+        %result-count: output,
+        %results: output,
+        %seed: output,
+    }
+
+    invoke: func(name: string, args: args) -> res;
+
+}
+
+interface %random-string {
+
+    use component:pulumi-wasm/output-interface@0.1.0.{output};
+
+    record args {
+        %keepers: borrow<output>,
+        %length: borrow<output>,
+        %lower: borrow<output>,
+        %min-lower: borrow<output>,
+        %min-numeric: borrow<output>,
+        %min-special: borrow<output>,
+        %min-upper: borrow<output>,
+        %number: borrow<output>,
+        %numeric: borrow<output>,
+        %override-special: borrow<output>,
+        %special: borrow<output>,
+        %upper: borrow<output>,
+    }
+
+    record res {
+        %keepers: output,
+        %length: output,
+        %lower: output,
+        %min-lower: output,
+        %min-numeric: output,
+        %min-special: output,
+        %min-upper: output,
+        %number: output,
+        %numeric: output,
+        %override-special: output,
+        %result: output,
+        %special: output,
+        %upper: output,
+    }
+
+    invoke: func(name: string, args: args) -> res;
+
+}
+
+interface %random-uuid {
+
+    use component:pulumi-wasm/output-interface@0.1.0.{output};
+
+    record args {
+        %keepers: borrow<output>,
+    }
+
+    record res {
+        %keepers: output,
+        %result: output,
+    }
+
+    invoke: func(name: string, args: args) -> res;
+
+}
+
