@@ -12,6 +12,6 @@
     { 
       "matchPackagePatterns": "^wit-bindgen*",
       "groupName": "wit-bindgen"
-    },
+    }
   ]
 }
