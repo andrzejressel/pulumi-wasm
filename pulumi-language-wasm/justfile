@@ -1,0 +1,17 @@
+set windows-powershell := true
+
+@default: build
+
+[windows]
+build:
+    pulumi plugin rm language wasm -y
+    go build
+    pulumi plugin install language wasm 1.0 --file ./pulumi-language-wasm.exe
+    Copy-Item -Path "{{env_var('userprofile')}}\.pulumi\plugins\language-wasm-v1.0.0\pulumi-language-wasm" -Destination "{{env_var('userprofile')}}\.pulumi\plugins\language-wasm-v1.0.0\pulumi-language-wasm.exe" -Force
+
+[linux]
+[macos]
+build:
+    pulumi plugin rm language wasm -y
+    go build
+    pulumi plugin install language wasm 1.0 --file ./pulumi-language-wasm

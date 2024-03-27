@@ -45,8 +45,6 @@ world pulumi-provider-random {
 }
 
 world pulumi-provider-random-client {
-    import output-interface;
-    import register-interface;
     import pulumi-provider-random-interface;
 }
 

@@ -3,5 +3,11 @@
   "extends": [
     "config:recommended"
   ],
-  "labels": ["dependencies"]
+  "labels": ["dependencies"],
+  "packageRules": [
+    { 
+      "matchPackagePatterns": "^wasmtime*",
+      "groupName": "wasmtime"
+    }
+  ]
 }
