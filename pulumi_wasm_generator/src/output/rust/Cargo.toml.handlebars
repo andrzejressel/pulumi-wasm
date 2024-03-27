@@ -1,0 +1,10 @@
+[package]
+name = "pulumi_wasm_{{package.name}}"
+version = "{{package.version}}"
+edition = "2021"
+
+[dependencies]
+wit-bindgen.workspace = true
+
+[package.metadata.pulumi]
+related_crate = "pulumi_wasm_{{package.name}}_provider"

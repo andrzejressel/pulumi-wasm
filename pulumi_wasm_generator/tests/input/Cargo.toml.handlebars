@@ -1,0 +1,14 @@
+[package]
+name = "main"
+version = "0.0.1"
+edition = "2021"
+
+[workspace]
+members = [
+    "pulumi_wasm_{{name}}_provider"
+]
+
+[workspace.dependencies]
+wit-bindgen-rt = "0.22.0"
+wit-bindgen = "0.22.0"
+wasm_common = { path = "../../../../wasm_common" }
