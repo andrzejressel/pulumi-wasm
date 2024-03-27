@@ -8,6 +8,10 @@
     { 
       "matchPackagePatterns": "^wasmtime*",
       "groupName": "wasmtime"
-    }
+    },
+    { 
+      "matchPackagePatterns": "^wit-bindgen*",
+      "groupName": "wit-bindgen"
+    },
   ]
 }
