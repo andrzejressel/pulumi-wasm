@@ -44,6 +44,7 @@ fn run_test(provider_name: &str) -> Result<()> {
     )?;
     fs::create_dir_all(root.join("src"))?;
     fs::write(root.join("src/lib.rs"), "")?;
+    fs::copy("../rust-toolchain.toml", root.join("rust-toolchain.toml"))?;
 
     Command::new("cargo")
         .args(["component", "build", "-p", format!("pulumi_wasm_{provider_name}_provider").as_str()])

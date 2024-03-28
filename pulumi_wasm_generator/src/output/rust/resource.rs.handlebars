@@ -1,0 +1,9 @@
+
+
+pub struct {{interface.struct_name}}Args<'a> {
+    pub name: &'a str,
+{{#each interface.input_properties}}
+    pub {{name}}: {{type_}},
+{{/each}}
+
+}

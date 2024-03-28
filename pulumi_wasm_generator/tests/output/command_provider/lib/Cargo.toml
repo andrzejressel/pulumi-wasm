@@ -5,6 +5,8 @@ edition = "2021"
 
 [dependencies]
 wit-bindgen.workspace = true
+pulumi_wasm_rust.workspace = true
+serde.workspace = true
 
 [package.metadata.pulumi]
 related_crate = "pulumi_wasm_command_provider"

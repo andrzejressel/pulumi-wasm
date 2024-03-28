@@ -35,7 +35,13 @@ pub fn generate_rust_library(path: &Path, result_path: &Path) -> Result<()> {
     cargo_file.write_all(output::rust::cargo::generate_cargo(&package).as_bytes())?;
 
     let mut lib_file = File::create(result_path.join("src").join("lib.rs"))?;
-    lib_file.write_all(output::rust::source_code::generate_source_code(&package).as_bytes())?;
+    lib_file.write_all(output::rust::source_code_librs::generate_source_code(&package).as_bytes())?;
+
+    for (path, content) in output::rust::source_code_resource::generate_source_code(&package) {
+        let mut file = File::create(result_path.join("src").join(path))?;
+        file.write_all(content.as_bytes())?;
+    }
+
     Ok(())
 }
 

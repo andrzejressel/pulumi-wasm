@@ -1,6 +1,7 @@
 use std::collections::BTreeMap;
 use anyhow::Result;
 
+#[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
 pub(crate) enum TypeType {
     Boolean,
     Integer,
@@ -10,25 +11,29 @@ pub(crate) enum TypeType {
     Object,
 }
 
+#[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
 pub(crate) enum TypeOrRef {
     Type(TypeType),
     Ref(String),
 }
 
+#[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
 pub(crate) struct InputProperty {
     pub(crate) name: String,
-    // pub(crate) r#type: TypeOrRef,
+    pub(crate) r#type: TypeOrRef,
     // pub(crate) description: Option<String>,
     pub(crate) required: bool,
 }
 
+#[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
 pub(crate) struct OutputProperty {
     pub(crate) name: String,
-    // pub(crate) r#type: TypeOrRef,
+    pub(crate) r#type: TypeOrRef,
     // pub(crate) description: Option<String>,
     pub(crate) required: bool,
 }
 
+#[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
 pub(crate) struct Resource {
     // pub(crate) name: String,
     pub(crate) description: Option<String>,
@@ -36,6 +41,7 @@ pub(crate) struct Resource {
     pub(crate) output_properties: Vec<OutputProperty>
 }
 
+#[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
 pub(crate) struct Package {
     pub(crate) name: String,
     pub(crate) display_name: Option<String>,
