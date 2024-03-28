@@ -1,8 +1,9 @@
 use std::collections::{BTreeMap, BTreeSet};
+use std::fmt::format;
 
 use serde::Deserialize;
 use crate::model::ElementId;
-use anyhow::{anyhow, Result};
+use anyhow::{anyhow, Context, Result};
 
 type PulumiMap<T> = BTreeMap<String, T>;
 
@@ -88,8 +89,8 @@ fn type_type_to_model(type_type: &TypeType) -> Result<crate::model::TypeType> {
         TypeType::Integer => Ok(crate::model::TypeType::Integer),
         TypeType::Number => Ok(crate::model::TypeType::Number),
         TypeType::String => Ok(crate::model::TypeType::String),
-        TypeType::Array => Ok(crate::model::TypeType::Array),
-        TypeType::Object => Ok(crate::model::TypeType::Object),
+        TypeType::Array => Err(anyhow!("Array type not supported")),
+        TypeType::Object => Err(anyhow!("Object type not supported")),
     };
 }
 
@@ -114,7 +115,8 @@ fn resource_to_model(resource_name: &String, resource: &Resource) -> Result<(Ele
         input_properties: resource.input_properties.iter().map(|(input_name, input_property)| {
             return Ok(crate::model::InputProperty {
                 name: input_name.clone(),
-                r#type: type_to_model(&input_property.r#type)?,
+                r#type: type_to_model(&input_property.r#type)
+                    .context(format!("Cannot handle [{input_name}] type"))?,
                 // r#type: match &input_property.r#type.r#type {
                 //     Some(t) => crate::model::TypeOrRef::Type(match t),
                 //     None => crate::model::TypeOrRef::Ref(input_property.r#type.r#ref.clone().unwrap()),
@@ -224,7 +226,12 @@ mod test {
         });
 
         let err = to_model(&serde_json::from_value(json)?).unwrap_err();
-        assert!(err.to_string().contains("Cannot generate element id from [invalid]"));
+
+        let chain: Vec<_> = anyhow::Chain::new(err.as_ref()).into_iter().map(|e| {
+            e.to_string()
+        }).collect();
+
+        assert_eq!(vec!["Cannot handle [test_input] type", "Object type not supported"], chain);
 
         Ok(())
     }
