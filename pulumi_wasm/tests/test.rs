@@ -2,6 +2,7 @@ use crate::server::component::pulumi_wasm::log;
 use crate::server::exports::component::pulumi_wasm::function_reverse_callback::FunctionInvocationRequest;
 use crate::server::PulumiWasm;
 use anyhow::{Error, Ok, Result};
+use std::borrow::BorrowMut;
 use std::collections::HashMap;
 use std::string::String;
 use wasmtime::component::{Component, Linker, ResourceTable};
@@ -9,7 +10,6 @@ use wasmtime::Store;
 use wasmtime_wasi::WasiCtx;
 use wasmtime_wasi::WasiCtxBuilder;
 use wasmtime_wasi::WasiView;
-use std::borrow::BorrowMut;
 
 mod server {
     wasmtime::component::bindgen!({
@@ -25,10 +25,10 @@ struct SimplePluginCtx {
 }
 
 fn create_function<A, B, F>(f: F) -> impl Fn(Vec<u8>) -> Vec<u8> + Send
-    where
-        F: Fn(A) -> B + Send,
-        A: serde::de::DeserializeOwned,
-        B: serde::Serialize,
+where
+    F: Fn(A) -> B + Send,
+    A: serde::de::DeserializeOwned,
+    B: serde::Serialize,
 {
     move |arg: Vec<u8>| {
         let arg = arg.clone();
@@ -161,13 +161,19 @@ fn should_return_value_of_handled_mapped_value() -> Result<(), Error> {
 }
 
 #[test]
-fn should_return_uninitialized_when_getting_nonexisting_field_during_preview() -> Result<(), Error> {
+fn should_return_uninitialized_when_getting_nonexisting_field_during_preview() -> Result<(), Error>
+{
     let (mut store, plugin) = create_engine(true)?;
 
     let output1 = plugin
         .component_pulumi_wasm_output_interface()
         .output()
-        .call_constructor(&mut store, rmp_serde::to_vec(&HashMap::from([("key", "value")])).unwrap().as_slice())?;
+        .call_constructor(
+            &mut store,
+            rmp_serde::to_vec(&HashMap::from([("key", "value")]))
+                .unwrap()
+                .as_slice(),
+        )?;
 
     let output2 = plugin
         .component_pulumi_wasm_output_interface()
@@ -199,7 +205,12 @@ fn should_panic_when_getting_nonexisting_field_not_during_preview() -> Result<()
     let output1 = plugin
         .component_pulumi_wasm_output_interface()
         .output()
-        .call_constructor(&mut store, rmp_serde::to_vec(&HashMap::from([("key", "value")])).unwrap().as_slice())?;
+        .call_constructor(
+            &mut store,
+            rmp_serde::to_vec(&HashMap::from([("key", "value")]))
+                .unwrap()
+                .as_slice(),
+        )?;
 
     let _output2 = plugin
         .component_pulumi_wasm_output_interface()
@@ -255,10 +266,7 @@ fn create_engine(is_in_preview: bool) -> Result<(Store<SimplePluginCtx>, PulumiW
     Ok((store, plugin))
 }
 
-fn run_loop(
-    store: &mut Store<SimplePluginCtx>,
-    plugin: &PulumiWasm,
-) -> Result<(), Error> {
+fn run_loop(store: &mut Store<SimplePluginCtx>, plugin: &PulumiWasm) -> Result<(), Error> {
     loop {
         let combined = plugin
             .component_pulumi_wasm_stack_interface()

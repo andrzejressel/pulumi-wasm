@@ -20,7 +20,7 @@ impl GetRelatedCrate for cargo_metadata::Package {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use cargo_metadata::{Package};
+    use cargo_metadata::Package;
     use serde_json::json;
 
     #[test]

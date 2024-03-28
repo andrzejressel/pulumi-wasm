@@ -1,24 +1,26 @@
-use core::fmt::Debug;
-use std::collections::{BTreeMap};
-use std::fmt::Formatter;
-use std::ops::Deref;
-use log::{error, info};
-use prost::Message;
-use prost_types::Struct;
-use prost_types::value::Kind;
-use rmpv::{Utf8String, Value};
-use bindings::component::pulumi_wasm::external_world;
 use crate::bindings::component::pulumi_wasm::external_world::is_in_preview;
 use crate::bindings::exports::component::pulumi_wasm::function_reverse_callback::{
     FunctionInvocationRequest, FunctionInvocationResult,
 };
+use crate::bindings::exports::component::pulumi_wasm::output_interface::GuestOutput;
 use crate::bindings::exports::component::pulumi_wasm::output_interface::Output as WasmOutput;
-use crate::bindings::exports::component::pulumi_wasm::output_interface::{GuestOutput};
-use crate::bindings::exports::component::pulumi_wasm::register_interface::{RegisterResourceRequest};
-use crate::bindings::exports::component::pulumi_wasm::{function_reverse_callback, output_interface, register_interface, stack_interface};
+use crate::bindings::exports::component::pulumi_wasm::register_interface::RegisterResourceRequest;
 use crate::bindings::exports::component::pulumi_wasm::stack_interface::OutputBorrow;
+use crate::bindings::exports::component::pulumi_wasm::{
+    function_reverse_callback, output_interface, register_interface, stack_interface,
+};
+use bindings::component::pulumi_wasm::external_world;
+use core::fmt::Debug;
+use log::{error, info};
+use prost::Message;
+use prost_types::value::Kind;
+use prost_types::Struct;
+use rmpv::{Utf8String, Value};
+use std::collections::BTreeMap;
+use std::fmt::Formatter;
+use std::ops::Deref;
 
-use crate::output::{access_map, FunctionId, FunctionSource, output_map, OutputContent};
+use crate::output::{access_map, output_map, FunctionId, FunctionSource, OutputContent};
 bindings::export!(Component with_types_in bindings);
 
 #[allow(clippy::all)]
@@ -31,8 +33,8 @@ mod grpc {
     #![allow(clippy::pedantic)]
     tonic::include_proto!("pulumirpc");
 }
-mod output;
 mod finalizer;
+mod output;
 
 struct Component;
 
@@ -77,12 +79,11 @@ impl output_interface::Guest for Component {
                 OutputContent::Done(_) => {}
                 OutputContent::Mapped(_, _, _) => return true,
                 OutputContent::Func(_, _) => return true,
-                OutputContent::Nothing => return true
+                OutputContent::Nothing => return true,
             }
         }
         false
     }
-
 }
 
 #[derive(Clone)]
@@ -102,7 +103,10 @@ impl GuestOutput for Output {
         wasm_common::setup_logger();
         let value = rmpv::decode::read_value(&mut value.as_slice()).unwrap();
         let cell = output::create_new(value);
-        Output { output: cell, tags: vec![] }
+        Output {
+            output: cell,
+            tags: vec![],
+        }
     }
 
     fn map(&self, function_name: String) -> WasmOutput {
@@ -110,7 +114,10 @@ impl GuestOutput for Output {
         let function_id = FunctionId::from_string(&function_name);
         let function_source = FunctionSource::from_str("source");
         let output = output::map_external(function_id, function_source, self.output.clone());
-        WasmOutput::new(Output { output, tags: vec![] })
+        WasmOutput::new(Output {
+            output,
+            tags: vec![],
+        })
     }
 
     fn get(&self) -> Option<Vec<u8>> {
@@ -142,10 +149,16 @@ impl GuestOutput for Output {
             let v = match v {
                 Value::Map(m) => {
                     let key = Value::String(Utf8String::from(field.clone()));
-                    let maybe_value = m.iter().find(|(k, _)| k == &key).map(|(_, v)| v.clone());//.unwrap_or(Value::Nil)
+                    let maybe_value = m.iter().find(|(k, _)| k == &key).map(|(_, v)| v.clone()); //.unwrap_or(Value::Nil)
                     match maybe_value {
-                        None => if is_in_preview() { Value::Nil } else { todo!() }
-                        Some(v) => v
+                        None => {
+                            if is_in_preview() {
+                                Value::Nil
+                            } else {
+                                todo!()
+                            }
+                        }
+                        Some(v) => v,
                     }
                 }
                 Value::Nil => todo!(),
@@ -164,7 +177,10 @@ impl GuestOutput for Output {
             v
         });
 
-        WasmOutput::new(Output { output: o, tags: vec![] })
+        WasmOutput::new(Output {
+            output: o,
+            tags: vec![],
+        })
     }
 
     fn get_type(&self) -> String {
@@ -175,8 +191,9 @@ impl GuestOutput for Output {
             OutputContent::Done(_) => "Done",
             OutputContent::Mapped(_, _, _) => "Mapped",
             OutputContent::Func(_, _) => "Func",
-            OutputContent::Nothing => "Nothing"
-        }.to_string()
+            OutputContent::Nothing => "Nothing",
+        }
+        .to_string()
     }
 
     fn duplicate(&self) -> WasmOutput {
@@ -205,16 +222,17 @@ impl function_reverse_callback::Guest for Component {
                                 let mut vec = vec![];
                                 rmpv::encode::write_value(&mut vec, v).unwrap();
                                 Some(FunctionInvocationRequest {
-                                    id: WasmOutput::new(Output { output: f.clone(), tags: vec![] }),
+                                    id: WasmOutput::new(Output {
+                                        output: f.clone(),
+                                        tags: vec![],
+                                    }),
                                     function_id: id.get(),
                                     value: vec,
                                 })
                             }
                             OutputContent::Mapped(_, _, _)
                             | OutputContent::Func(_, _)
-                            | OutputContent::Nothing => {
-                                None
-                            }
+                            | OutputContent::Nothing => None,
                         }
                     }
                     OutputContent::Mapped(_, _, _)
@@ -244,7 +262,7 @@ fn protoc_to_messagepack(value: prost_types::Value) -> Value {
             error!("Kind is none");
             unreachable!("Kind is none")
         }
-        Some(k) => k
+        Some(k) => k,
     };
 
     let result = match kind {
@@ -253,20 +271,23 @@ fn protoc_to_messagepack(value: prost_types::Value) -> Value {
         Kind::StringValue(s) => Value::String(Utf8String::from(s)),
         Kind::BoolValue(b) => Value::Boolean(b),
         Kind::StructValue(_) => todo!(),
-        Kind::ListValue(_) => todo!()
+        Kind::ListValue(_) => todo!(),
     };
-
 
     info!("Result: [{result:?}]");
     result
 }
 
 fn protoc_object_to_messagepack_map(o: prost_types::Struct) -> rmpv::Value {
-    let fields = o.fields.iter().map(|(k, v)| {
-        let k = Value::String(k.clone().into());
-        let v = protoc_to_messagepack(v.clone());
-        (k, v)
-    }).collect::<Vec<_>>();
+    let fields = o
+        .fields
+        .iter()
+        .map(|(k, v)| {
+            let k = Value::String(k.clone().into());
+            let v = protoc_to_messagepack(v.clone());
+            (k, v)
+        })
+        .collect::<Vec<_>>();
 
     Value::Map(fields)
 }
@@ -278,7 +299,9 @@ fn messagepack_to_protoc(v: &Value) -> prost_types::Value {
             kind: Option::from(prost_types::value::Kind::NumberValue(i.as_f64().unwrap())),
         },
         Value::String(s) => prost_types::Value {
-            kind: Option::from(prost_types::value::Kind::StringValue(s.clone().into_str().unwrap())),
+            kind: Option::from(prost_types::value::Kind::StringValue(
+                s.clone().into_str().unwrap(),
+            )),
         },
         _ => {
             error!("Cannot convert [{v}]");
@@ -293,8 +316,16 @@ impl register_interface::Guest for Component {
     fn register(request: RegisterResourceRequest) -> WasmOutput {
         wasm_common::setup_logger();
 
-        let values = request.object.iter().map(|o| o.value.get::<Output>().output.clone()).collect::<Vec<_>>();
-        let names = request.object.iter().map(|o| o.name.clone()).collect::<Vec<_>>();
+        let values = request
+            .object
+            .iter()
+            .map(|o| o.value.get::<Output>().output.clone())
+            .collect::<Vec<_>>();
+        let names = request
+            .object
+            .iter()
+            .map(|o| o.name.clone())
+            .collect::<Vec<_>>();
 
         let new_output = output::map_internal(values, move |v| {
             info!("Converting values [{v:?}] with names [{names:?}]");
@@ -343,7 +374,8 @@ impl register_interface::Guest for Component {
 
             let result_vec = external_world::register_resource(vec_request.as_slice());
 
-            let response = grpc::RegisterResourceResponse::decode(&mut result_vec.as_slice()).unwrap();
+            let response =
+                grpc::RegisterResourceResponse::decode(&mut result_vec.as_slice()).unwrap();
 
             info!("Response: [{response:?}]");
 
@@ -358,19 +390,26 @@ impl register_interface::Guest for Component {
             result
         });
 
-        WasmOutput::new(Output { output: new_output, tags: vec![] })
+        WasmOutput::new(Output {
+            output: new_output,
+            tags: vec![],
+        })
     }
 }
 
 impl Component {
     pub fn create_protobuf_struct(names: &[String], v: &[Value]) -> Struct {
-        let pairs = names.iter().zip(v.iter()).map(|(name, value)| {
-            let v = messagepack_to_protoc(value);
-            (name.clone(), v)
-        }).collect::<Vec<_>>();
+        let pairs = names
+            .iter()
+            .zip(v.iter())
+            .map(|(name, value)| {
+                let v = messagepack_to_protoc(value);
+                (name.clone(), v)
+            })
+            .collect::<Vec<_>>();
 
         Struct {
-            fields: BTreeMap::from_iter(pairs)
+            fields: BTreeMap::from_iter(pairs),
         }
     }
 }

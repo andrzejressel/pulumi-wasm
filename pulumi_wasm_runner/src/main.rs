@@ -1,11 +1,11 @@
+use crate::pulumi::{Pulumi, WasmFile};
 use anyhow::Error;
 use clap::{arg, Args, Parser, Subcommand};
+use log::LevelFilter;
 use log4rs::append::file::FileAppender;
-use log4rs::Config;
 use log4rs::config::{Appender, Root};
 use log4rs::encode::json::JsonEncoder;
-use log::LevelFilter;
-use crate::pulumi::{Pulumi, WasmFile};
+use log4rs::Config;
 
 mod pulumi;
 
@@ -42,7 +42,7 @@ enum Command {
         #[arg(short, long)]
         wasm: String,
         #[arg(short, long)]
-        output: String
+        output: String,
     },
 }
 
@@ -66,11 +66,7 @@ async fn main() -> Result<(), Error> {
 
     let config = Config::builder()
         .appender(Appender::builder().build("logfile", Box::new(logfile)))
-        .build(
-            Root::builder()
-                .appender("logfile")
-                .build(LevelFilter::Info),
-        )?;
+        .build(Root::builder().appender("logfile").build(LevelFilter::Info))?;
 
     let _handle = log4rs::init_config(config)?;
 
@@ -94,12 +90,14 @@ async fn main() -> Result<(), Error> {
             let pulumi_stack = std::env::var("PULUMI_STACK")?;
             let pulumi_project = std::env::var("PULUMI_PROJECT")?;
 
-            let mut pulumi = Pulumi::create(&wasm,
-                                            &Some(pulumi_monitor_url),
-                                            &Some(pulumi_engine_url),
-                                            &Some(pulumi_stack),
-                                            &Some(pulumi_project),
-            ).await?;
+            let mut pulumi = Pulumi::create(
+                &wasm,
+                &Some(pulumi_monitor_url),
+                &Some(pulumi_engine_url),
+                &Some(pulumi_stack),
+                &Some(pulumi_project),
+            )
+            .await?;
             pulumi.create_root_stack().await?;
             pulumi.start().await?;
         }
@@ -107,7 +105,7 @@ async fn main() -> Result<(), Error> {
             let compiled = Pulumi::compile(wasm)?;
             std::fs::write(output, compiled)?;
         }
-        Command::Plugins { .. } => todo!()
+        Command::Plugins { .. } => todo!(),
     }
 
     Ok(())

@@ -1,5 +1,5 @@
-use pulumi_wasm_rust::output::Output;
 use crate::bindings::component::pulumi_wasm::{output_interface, pulumi_provider_random_interface};
+use pulumi_wasm_rust::output::Output;
 
 pub struct RandomStringArgs<'a> {
     pub name: &'a str,
@@ -10,9 +10,7 @@ pub struct RandomString {
     pub result: Output<String>,
 }
 
-pub fn create_random_string(
-    args: RandomStringArgs,
-) -> RandomString {
+pub fn create_random_string(args: RandomStringArgs) -> RandomString {
     let length = clone(args.length);
     let args = pulumi_provider_random_interface::RandomStringArgs {
         name: args.name.into(),
@@ -25,7 +23,9 @@ pub fn create_random_string(
     }
 }
 
-fn random_to_domain_mapper<F: serde::Serialize>(random: pulumi_provider_random_interface::Output) -> Output<F> {
+fn random_to_domain_mapper<F: serde::Serialize>(
+    random: pulumi_provider_random_interface::Output,
+) -> Output<F> {
     unsafe {
         let inner = random.take_handle();
         Output::<F>::new_from_handle(inner)

@@ -1,8 +1,8 @@
+use crate::Output;
+use rmpv::Value;
 use std::cell::RefCell;
 use std::collections::HashMap;
-use rmpv::Value;
 use std::rc::Rc;
-use crate::Output;
 
 pub(crate) type OutputContentRefCell = Rc<RefCell<OutputContent>>;
 
@@ -105,9 +105,12 @@ pub(crate) fn map_external(
     ))
 }
 
-pub(crate) fn map_internal<F>(ref_cell: Vec<OutputContentRefCell>, f: F) -> Rc<RefCell<OutputContent>>
-    where
-        F: Fn(Vec<Value>) -> Value + 'static,
+pub(crate) fn map_internal<F>(
+    ref_cell: Vec<OutputContentRefCell>,
+    f: F,
+) -> Rc<RefCell<OutputContent>>
+where
+    F: Fn(Vec<Value>) -> Value + 'static,
 {
     create_wrapper(OutputContent::Func(ref_cell, Box::new(f)))
 }

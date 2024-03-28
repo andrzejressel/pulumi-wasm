@@ -29,10 +29,8 @@ pub fn build(metadata: Metadata) -> Result<Graph, Error> {
     }
 
     for node in resolve.nodes {
-
         let from = graph.nodes[&node.id];
         for dep in node.deps {
-
             let to = graph.nodes[&dep.pkg];
             for kind in dep.dep_kinds {
                 if kind.kind != DependencyKind::Normal {

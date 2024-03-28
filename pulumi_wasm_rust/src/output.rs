@@ -1,19 +1,19 @@
+use crate::bindings::component::pulumi_wasm::output_interface;
+use anyhow::Error;
+use lazy_static::lazy_static;
+use log::info;
 use std::collections::HashMap;
 use std::fmt::Debug;
 use std::marker::PhantomData;
 use std::sync::Mutex;
-use anyhow::Error;
-use lazy_static::lazy_static;
-use crate::bindings::component::pulumi_wasm::output_interface;
 use uuid::Uuid;
-use log::{info};
 
 pub struct Output<T> {
     phantom: PhantomData<T>,
     future: output_interface::Output,
 }
 
-impl <T: serde::Serialize> From<T> for Output<T> {
+impl<T: serde::Serialize> From<T> for Output<T> {
     fn from(value: T) -> Output<T> {
         Output::new(&value)
     }
@@ -22,14 +22,13 @@ impl <T: serde::Serialize> From<T> for Output<T> {
 type Function = Box<dyn Fn(Vec<u8>) -> Result<Vec<u8>, Error> + Send>;
 
 lazy_static! {
-    pub (crate) static ref HASHMAP: Mutex<HashMap<String, Function>> = {
+    pub(crate) static ref HASHMAP: Mutex<HashMap<String, Function>> = {
         let m = HashMap::new();
         Mutex::new(m)
     };
 }
 
 impl<T> Output<T> {
-
     ///
     /// # Safety
     ///
@@ -67,10 +66,9 @@ impl<T> Output<T> {
         T: serde::de::DeserializeOwned + Debug,
         B: serde::Serialize + Debug,
     {
-
         let f = move |arg: Vec<u8>| {
             let arg = arg.clone();
-            let argument = rmp_serde::decode::from_slice(&arg)?;   // .map_err(|e| format!("{e}")).map_err(|e| anyhow!(e))?;
+            let argument = rmp_serde::decode::from_slice(&arg)?; // .map_err(|e| format!("{e}")).map_err(|e| anyhow!(e))?;
             info!("Argument: {:?}", argument);
             let result = f(argument);
             info!("Result: {:?}", result);

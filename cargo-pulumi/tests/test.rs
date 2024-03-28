@@ -1,14 +1,14 @@
-use std::process::Command;
-use assert_cmd::prelude::*; // Add methods on commands
+use assert_cmd::prelude::*;
+use std::process::Command; // Add methods on commands
 
-use anyhow::{Error};
+use crate::server::Runner;
+use anyhow::Error;
 use fs_extra::dir::CopyOptions;
 use wasmtime::component::{Component, Linker, ResourceTable};
 use wasmtime::Store;
 use wasmtime_wasi::WasiCtx;
 use wasmtime_wasi::WasiCtxBuilder;
 use wasmtime_wasi::WasiView;
-use crate::server::Runner;
 
 mod server {
     wasmtime::component::bindgen!({
@@ -25,7 +25,11 @@ fn errors_out_when_cargo_toml_not_available() -> Result<(), Error> {
         .failure()
         .to_string();
 
-    assert!(s.contains("Command run in directory that is not cargo project"), "Output was: {}", s);
+    assert!(
+        s.contains("Command run in directory that is not cargo project"),
+        "Output was: {}",
+        s
+    );
     Ok(())
 }
 
@@ -41,7 +45,11 @@ fn errors_out_in_invalid_package() -> Result<(), Error> {
         .failure()
         .to_string();
 
-    assert!(s.contains("Cannot find package [invalid_package] in workspace"), "Output was: {}", s);
+    assert!(
+        s.contains("Cannot find package [invalid_package] in workspace"),
+        "Output was: {}",
+        s
+    );
     Ok(())
 }
 
@@ -51,7 +59,16 @@ fn run_from_subdirectory() -> Result<(), Error> {
     fs_extra::dir::copy("tests/fixtures/example", &dir, &CopyOptions::new())?;
 
     Command::new("cargo")
-        .args(["component", "build", "-p", "common", "-p", "provider_a", "-p", "main"])
+        .args([
+            "component",
+            "build",
+            "-p",
+            "common",
+            "-p",
+            "provider_a",
+            "-p",
+            "main",
+        ])
         .current_dir(dir.join("example"))
         .assert()
         .success();
@@ -61,8 +78,14 @@ fn run_from_subdirectory() -> Result<(), Error> {
         .assert()
         .success();
 
-    let (mut store, plugin) = create_engine(dir.join("example/target/wasm32-wasi/debug/composed.wasm").to_str().unwrap())?;
-    let result = plugin.example_service_main_interface().call_main(&mut store)?;
+    let (mut store, plugin) = create_engine(
+        dir.join("example/target/wasm32-wasi/debug/composed.wasm")
+            .to_str()
+            .unwrap(),
+    )?;
+    let result = plugin
+        .example_service_main_interface()
+        .call_main(&mut store)?;
 
     assert_eq!(result, "Hello from main: [Hello from provider-a-lib: Hello from provider-a: Hello from common-lib: run_common] [Hello from common-lib: run_common]".to_string());
 
@@ -75,7 +98,16 @@ fn run_from_main_directory() -> Result<(), Error> {
     fs_extra::dir::copy("tests/fixtures/example", &dir, &CopyOptions::new())?;
 
     Command::new("cargo")
-        .args(["component", "build", "-p", "common", "-p", "provider_a", "-p", "main"])
+        .args([
+            "component",
+            "build",
+            "-p",
+            "common",
+            "-p",
+            "provider_a",
+            "-p",
+            "main",
+        ])
         .current_dir(dir.join("example"))
         .assert()
         .success();
@@ -86,8 +118,14 @@ fn run_from_main_directory() -> Result<(), Error> {
         .assert()
         .success();
 
-    let (mut store, plugin) = create_engine(dir.join("example/target/wasm32-wasi/debug/composed.wasm").to_str().unwrap())?;
-    let result = plugin.example_service_main_interface().call_main(&mut store)?;
+    let (mut store, plugin) = create_engine(
+        dir.join("example/target/wasm32-wasi/debug/composed.wasm")
+            .to_str()
+            .unwrap(),
+    )?;
+    let result = plugin
+        .example_service_main_interface()
+        .call_main(&mut store)?;
 
     assert_eq!(result, "Hello from main: [Hello from provider-a-lib: Hello from provider-a: Hello from common-lib: run_common] [Hello from common-lib: run_common]".to_string());
 
@@ -132,7 +170,7 @@ fn create_engine(file: &str) -> Result<(Store<SimplePluginCtx>, Runner), Error> 
         &engine,
         SimplePluginCtx {
             table,
-            context: wasi_ctx
+            context: wasi_ctx,
         },
     );
 

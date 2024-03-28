@@ -1,10 +1,15 @@
-use anyhow::{Context, Error};
-use log::{error, info};
-use crate::bindings::component::pulumi_wasm::function_reverse_callback::{FunctionInvocationRequest, FunctionInvocationResult, get_functions, set_functions};
+use crate::bindings::component::pulumi_wasm::function_reverse_callback::{
+    get_functions, set_functions, FunctionInvocationRequest, FunctionInvocationResult,
+};
 use crate::bindings::component::pulumi_wasm::stack_interface::finish;
 use crate::output::HASHMAP;
+use anyhow::{Context, Error};
+use log::{error, info};
 
-pub fn run<F>(f: F) -> Result<(), Error> where F: Fn() -> Result<(), Error> {
+pub fn run<F>(f: F) -> Result<(), Error>
+where
+    F: Fn() -> Result<(), Error>,
+{
     let outer = || {
         wasm_common::setup_logger();
         f()?;
@@ -31,15 +36,14 @@ fn run_loop() -> Result<(), Error> {
     }
 }
 
-fn run_all_function(
-    // store: &mut Store<SimplePluginCtx>,
+fn run_all_function(// store: &mut Store<SimplePluginCtx>,
     // plugin: &PulumiWasm,
 ) -> Result<bool, Error> {
     let functions = get_functions("source");
 
     if functions.is_empty() {
         info!("Functions are empty");
-        return Ok(false)
+        return Ok(false);
     }
 
     info!("Functions are not empty");
@@ -57,7 +61,9 @@ fn run_all_function(
                 info!("Invoking function [{function_id}] with value [{value:?}]");
                 let v = rmpv::decode::read_value(&mut value.clone().as_slice())?;
                 info!("Invoking function [{function_id}] with decoded value [{v:?}]");
-                let f = functions_map.get(function_id).context(format!("Function with id {function_id} not found"))?;
+                let f = functions_map
+                    .get(function_id)
+                    .context(format!("Function with id {function_id} not found"))?;
                 Ok(FunctionInvocationResult {
                     id,
                     value: f(value.to_vec())?,

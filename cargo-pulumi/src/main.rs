@@ -2,6 +2,7 @@ use std::collections::{HashSet, VecDeque};
 use std::path::{Path, PathBuf};
 use std::process::Command;
 
+use crate::metadata::GetRelatedCrate;
 use anyhow::{anyhow, Error};
 use cargo_metadata::{MetadataCommand, Package};
 use clap::Parser;
@@ -9,10 +10,9 @@ use itertools::Itertools;
 use log::{debug, info};
 use normpath::PathExt;
 use petgraph::visit::{Dfs, Walker};
-use crate::metadata::GetRelatedCrate;
 
-mod metadata;
 mod graph;
+mod metadata;
 
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]
@@ -20,7 +20,6 @@ struct App {
     #[clap(short, long)]
     package: Option<String>,
 }
-
 
 fn main() -> Result<(), Error> {
     simple_logger::SimpleLogger::new().env().init().unwrap();
@@ -30,35 +29,40 @@ fn main() -> Result<(), Error> {
     let path = Path::new("./Cargo.toml");
 
     if std::fs::metadata(path).is_err() {
-        return Err(Error::msg("Command run in directory that is not cargo project"));
+        return Err(Error::msg(
+            "Command run in directory that is not cargo project",
+        ));
     }
 
     let path = path.normalize()?;
 
-    let metadata = MetadataCommand::new()
-        .exec()?;
+    let metadata = MetadataCommand::new().exec()?;
 
     let target = metadata.target_directory.clone();
 
     let package = match args.package {
         None => {
-            let package = metadata.packages.iter().find(|p|
+            let package = metadata.packages.iter().find(|p| {
                 if let Ok(p) = Path::new(&p.manifest_path).normalize() {
                     p == path
                 } else {
                     false
                 }
-            );
+            });
             match package {
                 None => return Err(Error::msg("Cannot find current package in workspace")),
-                Some(p) => p
+                Some(p) => p,
             }
         }
         Some(package_name) => {
             let package = metadata.packages.iter().find(|p| p.name == package_name);
             match package {
-                None => return Err(Error::msg(format!("Cannot find package [{package_name}] in workspace"))),
-                Some(p) => p
+                None => {
+                    return Err(Error::msg(format!(
+                        "Cannot find package [{package_name}] in workspace"
+                    )))
+                }
+                Some(p) => p,
             }
         }
     };
@@ -70,12 +74,16 @@ fn main() -> Result<(), Error> {
 
     let dfs = Dfs::new(&g.graph, *node);
 
-    let wasm_dependencies: Vec<_> = dfs.iter(&g.graph).flat_map(|nx| {
-        g.graph[nx].get_related_crate().clone()
-    }).collect();
+    let wasm_dependencies: Vec<_> = dfs
+        .iter(&g.graph)
+        .flat_map(|nx| g.graph[nx].get_related_crate().clone())
+        .collect();
 
     if wasm_dependencies.is_empty() {
-        return Err(anyhow!("Cannot find WASM dependencies for package {}", &package.name));
+        return Err(anyhow!(
+            "Cannot find WASM dependencies for package {}",
+            &package.name
+        ));
     }
 
     debug!("WASM dependencies: {:?}", wasm_dependencies);
@@ -88,7 +96,11 @@ fn main() -> Result<(), Error> {
 
     compile_wasm_packages(&all_packages)?;
 
-    let wasm_files_location = target.clone().into_std_path_buf().join("wasm32-wasi").join("debug");
+    let wasm_files_location = target
+        .clone()
+        .into_std_path_buf()
+        .join("wasm32-wasi")
+        .join("debug");
 
     let packages = sort_packages(&package, all_packages);
 
@@ -96,27 +108,36 @@ fn main() -> Result<(), Error> {
 
     let current_composite = combine_wasm_files(&wasm_files_location, wasm_files)?;
 
-    let final_composite = copy_final_composite_to_composed_wasm(wasm_files_location, current_composite)?;
+    let final_composite =
+        copy_final_composite_to_composed_wasm(wasm_files_location, current_composite)?;
 
     info!("Final composite: {:?}", final_composite);
 
     Ok(())
 }
 
-fn convert_package_to_location(wasm_files_location: &Path, packages: Vec<String>) -> Result<Vec<PathBuf>, Error> {
-    packages.iter()
+fn convert_package_to_location(
+    wasm_files_location: &Path,
+    packages: Vec<String>,
+) -> Result<Vec<PathBuf>, Error> {
+    packages
+        .iter()
         .map(|file_name| {
             let wasm_file = wasm_files_location.join(format!("{}.wasm", &file_name));
             if !wasm_file.exists() {
-                Err(anyhow!("Cannot find WASM file for package {}. Tried {:?}", &file_name, &wasm_file))
+                Err(anyhow!(
+                    "Cannot find WASM file for package {}. Tried {:?}",
+                    &file_name,
+                    &wasm_file
+                ))
             } else {
                 Ok(replace_underscores_with_dashes(&wasm_file))
             }
-        }).collect::<Result<Vec<_>, _>>()
+        })
+        .collect::<Result<Vec<_>, _>>()
 }
 
 fn sort_packages(package: &Package, all_packages: HashSet<String>) -> Vec<String> {
-
     #[derive(Debug, PartialOrd, PartialEq, Eq, Ord, Hash)]
     enum PackageType {
         Main(String),
@@ -129,12 +150,13 @@ fn sort_packages(package: &Package, all_packages: HashSet<String>) -> Vec<String
             match self {
                 PackageType::Main(name) => name,
                 PackageType::Provider(name) => name,
-                PackageType::Other(name) => name
+                PackageType::Other(name) => name,
             }
         }
     }
 
-    all_packages.iter()
+    all_packages
+        .iter()
         .map(|p| {
             if p.contains("provider") {
                 PackageType::Provider(p.clone())
@@ -149,14 +171,17 @@ fn sort_packages(package: &Package, all_packages: HashSet<String>) -> Vec<String
         .collect()
 }
 
-fn combine_wasm_files(wasm_files_location: &Path, packages: Vec<PathBuf>) -> Result<PathBuf, Error> {
+fn combine_wasm_files(
+    wasm_files_location: &Path,
+    packages: Vec<PathBuf>,
+) -> Result<PathBuf, Error> {
     let mut packages = VecDeque::from(packages);
 
     info!("Packages: {:?}", packages);
 
     let wasm_file = match packages.pop_front() {
-        Some(location) => { location }
-        a => panic!("Expected main package, got {:?}", a)
+        Some(location) => location,
+        a => panic!("Expected main package, got {:?}", a),
     };
 
     let mut current_composite = wasm_file;
@@ -165,12 +190,27 @@ fn combine_wasm_files(wasm_files_location: &Path, packages: Vec<PathBuf>) -> Res
     while let Some(package) = packages.pop_front() {
         info!("Merging package: {:?}", package.file_name().unwrap());
         let composite = wasm_files_location.join(format!("composed{}.wasm", i));
-        info!("Composing {:?} and {:?} into {:?}", &current_composite, &package, &composite);
+        info!(
+            "Composing {:?} and {:?} into {:?}",
+            &current_composite, &package, &composite
+        );
         let output = Command::new("wasm-tools")
-            .args(["compose", "-o", &composite.to_str().unwrap(), current_composite.to_str().unwrap(), "-d", package.to_str().unwrap()])
+            .args([
+                "compose",
+                "-o",
+                &composite.to_str().unwrap(),
+                current_composite.to_str().unwrap(),
+                "-d",
+                package.to_str().unwrap(),
+            ])
             .output()?;
         if !output.status.success() {
-            return Err(anyhow!("Failed to compose {:?} and {:?}: {}", &current_composite, &package, String::from_utf8_lossy(&output.stderr)));
+            return Err(anyhow!(
+                "Failed to compose {:?} and {:?}: {}",
+                &current_composite,
+                &package,
+                String::from_utf8_lossy(&output.stderr)
+            ));
         }
         current_composite = composite;
         i += 1;
@@ -178,7 +218,10 @@ fn combine_wasm_files(wasm_files_location: &Path, packages: Vec<PathBuf>) -> Res
     Ok(current_composite)
 }
 
-fn copy_final_composite_to_composed_wasm(wasm_files_location: PathBuf, current_composite: PathBuf) -> Result<PathBuf, Error> {
+fn copy_final_composite_to_composed_wasm(
+    wasm_files_location: PathBuf,
+    current_composite: PathBuf,
+) -> Result<PathBuf, Error> {
     let final_composite = wasm_files_location.join("composed.wasm");
 
     std::fs::copy(current_composite, &final_composite)?;
@@ -186,7 +229,10 @@ fn copy_final_composite_to_composed_wasm(wasm_files_location: PathBuf, current_c
 }
 
 fn compile_wasm_packages(all_packages: &HashSet<String>) -> Result<(), Error> {
-    let binding = all_packages.iter().map(|d| vec!["-p", d]).collect::<Vec<_>>();
+    let binding = all_packages
+        .iter()
+        .map(|d| vec!["-p", d])
+        .collect::<Vec<_>>();
     let flags = binding.iter().flatten().collect::<Vec<_>>();
 
     let output = Command::new("cargo")
@@ -196,7 +242,11 @@ fn compile_wasm_packages(all_packages: &HashSet<String>) -> Result<(), Error> {
         .wait_with_output()?;
 
     if !output.status.success() {
-        return Err(anyhow!("Failed to build {:?}: {}", all_packages, String::from_utf8_lossy(&output.stderr)));
+        return Err(anyhow!(
+            "Failed to build {:?}: {}",
+            all_packages,
+            String::from_utf8_lossy(&output.stderr)
+        ));
     }
     Ok(())
 }
