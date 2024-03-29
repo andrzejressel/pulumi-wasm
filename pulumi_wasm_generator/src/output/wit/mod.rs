@@ -1,12 +1,11 @@
-use handlebars::Handlebars;
-use serde::Serialize;
-use regex::Regex;
 use crate::model::ElementId;
 use crate::output::replace_multiple_dashes;
+use handlebars::Handlebars;
+
+use serde::Serialize;
 
 static TEMPLATE: &str = include_str!("wit.handlebars");
 static DEPENDENCIES: &str = include_str!("dependencies.wit");
-
 
 #[derive(Serialize)]
 struct Argument {
@@ -38,21 +37,27 @@ fn convert_model(package: &crate::model::Package) -> Package {
     Package {
         name: create_valid_id(&package.name),
         version: package.version.clone(),
-        interfaces: package.resources.iter().map(|(element_id, resource)| {
-            Interface {
-                name: create_valid_element_id(&element_id),
-                arguments: resource.input_properties.iter().map(|(input_property)| {
-                    Argument {
+        interfaces: package
+            .resources
+            .iter()
+            .map(|(element_id, resource)| Interface {
+                name: create_valid_element_id(element_id),
+                arguments: resource
+                    .input_properties
+                    .iter()
+                    .map(|input_property| Argument {
                         name: create_valid_id(&input_property.name),
-                    }
-                }).collect(),
-                results: resource.output_properties.iter().map(|output_property| {
-                    Result {
+                    })
+                    .collect(),
+                results: resource
+                    .output_properties
+                    .iter()
+                    .map(|output_property| Result {
                         name: create_valid_id(&output_property.name),
-                    }
-                }).collect()
-            }
-        }).collect()
+                    })
+                    .collect(),
+            })
+            .collect(),
     }
 }
 
@@ -63,7 +68,8 @@ fn create_valid_element_id(element_id: &ElementId) -> String {
 }
 
 fn create_valid_id(s: &String) -> String {
-    let result = s.chars()
+    let result = s
+        .chars()
         .map(|c| {
             if c.is_uppercase() {
                 format!("-{}", c.to_lowercase())
@@ -92,6 +98,6 @@ pub(crate) fn generate_wit(package: &crate::model::Package) -> anyhow::Result<St
     Ok(output)
 }
 
-pub (crate) fn get_dependencies() -> &'static str {
-    return DEPENDENCIES
+pub(crate) fn get_dependencies() -> &'static str {
+    DEPENDENCIES
 }

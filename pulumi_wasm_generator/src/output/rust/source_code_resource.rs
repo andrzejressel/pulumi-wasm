@@ -1,9 +1,9 @@
-use std::path::PathBuf;
+use crate::model::{ElementId, TypeOrRef, TypeType};
+use crate::output::replace_multiple_dashes;
 use handlebars::Handlebars;
 use serde::Serialize;
 use serde_json::json;
-use crate::model::{ElementId, TypeOrRef, TypeType};
-use crate::output::replace_multiple_dashes;
+use std::path::PathBuf;
 
 static TEMPLATE: &str = include_str!("resource.rs.handlebars");
 
@@ -38,26 +38,32 @@ struct Package {
 fn convert_model(package: &crate::model::Package) -> Package {
     Package {
         name: package.name.clone(),
-        interfaces: package.resources.iter().map(|(element_id, resource)| {
-            Interface {
-                name: create_valid_element_id(&element_id),
+        interfaces: package
+            .resources
+            .iter()
+            .map(|(element_id, resource)| Interface {
+                name: create_valid_element_id(element_id),
                 struct_name: element_id.name.clone(),
                 r#type: element_id.raw.clone(),
-                input_properties: resource.input_properties.iter().map(|(input_property)| {
-                    InputProperty {
+                input_properties: resource
+                    .input_properties
+                    .iter()
+                    .map(|input_property| InputProperty {
                         name: input_property.name.clone(),
                         arg_name: create_valid_id(&input_property.name),
-                        type_: convert_typeofref(&input_property.r#type)
-                    }
-                }).collect(),
-                output_properties: resource.output_properties.iter().map(|(output_property)| {
-                    OutputProperty {
+                        type_: convert_typeofref(&input_property.r#type),
+                    })
+                    .collect(),
+                output_properties: resource
+                    .output_properties
+                    .iter()
+                    .map(|output_property| OutputProperty {
                         name: output_property.name.clone(),
                         arg_name: create_valid_id(&output_property.name),
-                    }
-                }).collect(),
-            }
-        }).collect()
+                    })
+                    .collect(),
+            })
+            .collect(),
     }
 }
 
@@ -70,7 +76,7 @@ fn convert_typeofref(type_or_ref: &TypeOrRef) -> String {
             TypeType::String => "String".into(),
             TypeType::Array => "Vec".into(),
             TypeType::Object => "Object".into(),
-        }
+        },
         TypeOrRef::Ref(r) => format!("Ref<{}>", r),
     }
 }
@@ -82,7 +88,8 @@ fn create_valid_element_id(element_id: &ElementId) -> String {
 }
 
 fn create_valid_id(s: &String) -> String {
-    let result = s.chars()
+    let result = s
+        .chars()
         .map(|c| {
             if c.is_uppercase() {
                 format!("-{}", c.to_lowercase())
@@ -96,20 +103,26 @@ fn create_valid_id(s: &String) -> String {
 
     let result = replace_multiple_dashes(&result);
     let result = result.trim_matches('-').to_string();
-    let result = result.replace("-", "_");
+    
 
-    result
+    result.replace('-', "_")
 }
 
 pub(crate) fn generate_source_code(package: &crate::model::Package) -> Vec<(PathBuf, String)> {
     let package = convert_model(package);
 
-    let element = package.interfaces.iter().map(|interface| {
-        let path = PathBuf::from(format!("{}.rs", interface.name));
-        let handlebars = Handlebars::new();
-        let content = handlebars.render_template(TEMPLATE, &json!({"interface": &interface})).unwrap();
-        (path, content)
-    }).collect();
+    let element = package
+        .interfaces
+        .iter()
+        .map(|interface| {
+            let path = PathBuf::from(format!("{}.rs", interface.name));
+            let handlebars = Handlebars::new();
+            let content = handlebars
+                .render_template(TEMPLATE, &json!({"interface": &interface}))
+                .unwrap();
+            (path, content)
+        })
+        .collect();
 
     element
     // let handlebars = Handlebars::new();

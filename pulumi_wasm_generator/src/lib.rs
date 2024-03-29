@@ -1,13 +1,13 @@
-mod schema;
 mod model;
 mod output;
+mod schema;
 
+use crate::schema::to_model;
+use anyhow::Result;
 use std::fs;
 use std::fs::File;
 use std::io::{BufReader, Write};
 use std::path::Path;
-use crate::schema::to_model;
-use anyhow::Result;
 
 pub fn read_file(path: &Path) -> Result<model::Package> {
     let file = File::open(path)?;
@@ -28,14 +28,21 @@ pub fn generate_rust_library(path: &Path, result_path: &Path) -> Result<()> {
     let mut wit_file = File::create(result_path.join("wit").join("world.wit"))?;
     wit_file.write_all(output::wit::generate_wit(&package)?.as_ref())?;
 
-    let mut deps_wit_file = File::create(result_path.join("wit").join("deps").join("pulumi-wasm").join("pulumi-wasm.wit"))?;
+    let mut deps_wit_file = File::create(
+        result_path
+            .join("wit")
+            .join("deps")
+            .join("pulumi-wasm")
+            .join("pulumi-wasm.wit"),
+    )?;
     deps_wit_file.write_all(output::wit::get_dependencies().as_ref())?;
 
     let mut cargo_file = File::create(result_path.join("Cargo.toml"))?;
     cargo_file.write_all(output::rust::cargo::generate_cargo(&package).as_bytes())?;
 
     let mut lib_file = File::create(result_path.join("src").join("lib.rs"))?;
-    lib_file.write_all(output::rust::source_code_librs::generate_source_code(&package).as_bytes())?;
+    lib_file
+        .write_all(output::rust::source_code_librs::generate_source_code(&package).as_bytes())?;
 
     for (path, content) in output::rust::source_code_resource::generate_source_code(&package) {
         let mut file = File::create(result_path.join("src").join(path))?;
@@ -57,7 +64,8 @@ pub fn generate_files(path: &Path, result_path: &Path) -> anyhow::Result<()> {
     let mut wit_file = File::create(result_path.join("wit").join("world.wit"))?;
     wit_file.write_all(output::wit::generate_wit(&package)?.as_ref())?;
 
-    let mut deps_wit_file = File::create(result_path.join("wit").join("deps").join("pulumi-wasm.wit"))?;
+    let mut deps_wit_file =
+        File::create(result_path.join("wit").join("deps").join("pulumi-wasm.wit"))?;
     deps_wit_file.write_all(output::wit::get_dependencies().as_ref())?;
 
     let mut cargo_file = File::create(result_path.join("Cargo.toml"))?;

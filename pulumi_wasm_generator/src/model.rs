@@ -1,5 +1,5 @@
-use std::collections::BTreeMap;
 use anyhow::Result;
+use std::collections::BTreeMap;
 
 #[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
 pub(crate) enum TypeType {
@@ -38,7 +38,7 @@ pub(crate) struct Resource {
     // pub(crate) name: String,
     pub(crate) description: Option<String>,
     pub(crate) input_properties: Vec<InputProperty>,
-    pub(crate) output_properties: Vec<OutputProperty>
+    pub(crate) output_properties: Vec<OutputProperty>,
 }
 
 #[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
@@ -59,7 +59,7 @@ pub(crate) struct ElementId {
 
 impl ElementId {
     pub(crate) fn new(raw: &str) -> Result<ElementId> {
-        if raw.contains("/") {
+        if raw.contains('/') {
             let parts: Vec<&str> = raw.split('/').collect();
             if parts.len() != 2 {
                 return Err(anyhow::anyhow!("Cannot generate element id from [{raw}]."));
@@ -82,7 +82,7 @@ impl ElementId {
 
             let namespace = match &parts[1] {
                 &"index" => vec![],
-                package => vec![package.to_string()]
+                package => vec![package.to_string()],
             };
 
             Ok(ElementId {
@@ -99,7 +99,7 @@ impl ElementId {
             let _package = parts[0].to_string();
             let namespace = match &parts[1] {
                 &"index" => vec![],
-                package => vec![package.to_string()]
+                package => vec![package.to_string()],
             };
             let name = parts[2].to_string();
             Ok(ElementId {
@@ -118,20 +118,26 @@ mod tests {
     #[test]
     fn extract_namespace_from_command() {
         let id = "command:remote:Connection";
-        assert_eq!(ElementId::new(id).unwrap(), ElementId {
-            namespace: vec!["remote".to_string()],
-            name: "Connection".to_string(),
-            raw: id.to_string(),
-        });
+        assert_eq!(
+            ElementId::new(id).unwrap(),
+            ElementId {
+                namespace: vec!["remote".to_string()],
+                name: "Connection".to_string(),
+                raw: id.to_string(),
+            }
+        );
     }
 
     #[test]
     fn extract_namespace_from_random() {
         let id = "random:index/randomBytes:RandomBytes";
-        assert_eq!(ElementId::new(id).unwrap(), ElementId {
-            namespace: vec![],
-            name: "RandomBytes".to_string(),
-            raw: id.to_string(),
-        });
+        assert_eq!(
+            ElementId::new(id).unwrap(),
+            ElementId {
+                namespace: vec![],
+                name: "RandomBytes".to_string(),
+                raw: id.to_string(),
+            }
+        );
     }
 }

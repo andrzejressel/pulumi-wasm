@@ -1,9 +1,9 @@
-use handlebars::Handlebars;
-use regex::Regex;
-use serde::Serialize;
-use serde_json::json;
 use crate::model::ElementId;
 use crate::output::replace_multiple_dashes;
+use handlebars::Handlebars;
+
+use serde::Serialize;
+use serde_json::json;
 
 static TEMPLATE: &str = include_str!("lib.rs.handlebars");
 
@@ -36,24 +36,30 @@ struct Package {
 fn convert_model(package: &crate::model::Package) -> Package {
     Package {
         name: package.name.clone(),
-        interfaces: package.resources.iter().map(|(element_id, resource)| {
-            Interface {
-                name: create_valid_element_id(&element_id),
+        interfaces: package
+            .resources
+            .iter()
+            .map(|(element_id, resource)| Interface {
+                name: create_valid_element_id(element_id),
                 r#type: element_id.raw.clone(),
-                input_properties: resource.input_properties.iter().map(|(input_property)| {
-                    InputProperty {
+                input_properties: resource
+                    .input_properties
+                    .iter()
+                    .map(|input_property| InputProperty {
                         name: input_property.name.clone(),
-                        arg_name: create_valid_id(&input_property.name)
-                    }
-                }).collect(),
-                output_properties: resource.output_properties.iter().map(|(output_property)| {
-                    OutputProperty {
+                        arg_name: create_valid_id(&input_property.name),
+                    })
+                    .collect(),
+                output_properties: resource
+                    .output_properties
+                    .iter()
+                    .map(|output_property| OutputProperty {
                         name: output_property.name.clone(),
                         arg_name: create_valid_id(&output_property.name),
-                    }
-                }).collect(),
-            }
-        }).collect()
+                    })
+                    .collect(),
+            })
+            .collect(),
     }
 }
 
@@ -64,7 +70,8 @@ fn create_valid_element_id(element_id: &ElementId) -> String {
 }
 
 fn create_valid_id(s: &String) -> String {
-    let result = s.chars()
+    let result = s
+        .chars()
         .map(|c| {
             if c.is_uppercase() {
                 format!("-{}", c.to_lowercase())
@@ -78,12 +85,14 @@ fn create_valid_id(s: &String) -> String {
 
     let result = replace_multiple_dashes(&result);
     let result = result.trim_matches('-').to_string();
-    let result = result.replace("-", "_");
+    
 
-    result
+    result.replace('-', "_")
 }
 
 pub(crate) fn generate_source_code(package: &crate::model::Package) -> String {
     let handlebars = Handlebars::new();
-    handlebars.render_template(TEMPLATE, &json!({"package": &convert_model(package)})).unwrap()
+    handlebars
+        .render_template(TEMPLATE, &json!({"package": &convert_model(package)}))
+        .unwrap()
 }

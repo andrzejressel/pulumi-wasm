@@ -1,13 +1,13 @@
 use handlebars::Handlebars;
-use serde_json::json;
 use serde::Serialize;
+use serde_json::json;
 
 static TEMPLATE: &str = include_str!("Cargo.toml.handlebars");
 
 #[derive(Serialize)]
 struct Package {
     name: String,
-    version: String
+    version: String,
 }
 
 fn convert_model(package: &crate::model::Package) -> Package {
@@ -20,5 +20,7 @@ fn convert_model(package: &crate::model::Package) -> Package {
 pub(crate) fn generate_cargo(package: &crate::model::Package) -> String {
     let package = convert_model(package);
     let handlebars = Handlebars::new();
-    handlebars.render_template(TEMPLATE, &json!({"package": &package})).unwrap()
+    handlebars
+        .render_template(TEMPLATE, &json!({"package": &package}))
+        .unwrap()
 }
