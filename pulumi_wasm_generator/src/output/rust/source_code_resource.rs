@@ -1,4 +1,4 @@
-use crate::model::{ElementId, TypeOrRef, TypeType};
+use crate::model::{ElementId, Type};
 use crate::output::replace_multiple_dashes;
 use handlebars::Handlebars;
 use serde::Serialize;
@@ -51,7 +51,7 @@ fn convert_model(package: &crate::model::Package) -> Package {
                     .map(|input_property| InputProperty {
                         name: input_property.name.clone(),
                         arg_name: create_valid_id(&input_property.name),
-                        type_: convert_typeofref(&input_property.r#type),
+                        type_: convert_type(&input_property.r#type),
                     })
                     .collect(),
                 output_properties: resource
@@ -67,17 +67,24 @@ fn convert_model(package: &crate::model::Package) -> Package {
     }
 }
 
-fn convert_typeofref(type_or_ref: &TypeOrRef) -> String {
+fn convert_type(type_or_ref: &Type) -> String {
     match type_or_ref {
-        TypeOrRef::Type(tt) => match tt {
-            TypeType::Boolean => "boolean".into(),
-            TypeType::Integer => "int".into(),
-            TypeType::Number => "double".into(),
-            TypeType::String => "String".into(),
-            TypeType::Array => "Vec".into(),
-            TypeType::Object => "Object".into(),
-        },
-        TypeOrRef::Ref(r) => format!("Ref<{}>", r),
+        // TypeOrRef::Type(tt) => match tt {
+        //     TypeType::Boolean => "boolean".into(),
+        //     TypeType::Integer => "int".into(),
+        //     TypeType::Number => "double".into(),
+        //     TypeType::String => "String".into(),
+        //     TypeType::Array => "Vec".into(),
+        //     TypeType::Object => "Object".into(),
+        // },
+        // TypeOrRef::Ref(r) => format!("Ref<{}>", r),
+        Type::Boolean => "bool".into(),
+        Type::Integer => "i32".into(),
+        Type::Number => "f64".into(),
+        Type::String => "String".into(),
+        Type::Array(_) => "Vec".into(), // "Vec<{}>
+        Type::Object(_) => "Object".into(),
+        Type::Ref(_) => "Ref".into(),
     }
 }
 
@@ -103,7 +110,6 @@ fn create_valid_id(s: &String) -> String {
 
     let result = replace_multiple_dashes(&result);
     let result = result.trim_matches('-').to_string();
-    
 
     result.replace('-', "_")
 }

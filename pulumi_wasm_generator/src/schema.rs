@@ -1,5 +1,5 @@
 use std::collections::{BTreeMap, BTreeSet};
-
+use std::fmt::format;
 
 use crate::model::ElementId;
 use anyhow::{anyhow, Context, Result};
@@ -8,7 +8,7 @@ use serde::Deserialize;
 type PulumiMap<T> = BTreeMap<String, T>;
 
 #[derive(Deserialize, Debug)]
-pub(crate) enum TypeType {
+pub(crate) enum TypeEnum {
     #[serde(alias = "boolean")]
     Boolean,
     #[serde(alias = "integer")]
@@ -25,9 +25,13 @@ pub(crate) enum TypeType {
 
 #[derive(Deserialize, Debug)]
 struct Type {
-    r#type: Option<TypeType>,
+    #[serde(rename = "type")]
+    type_: Option<TypeEnum>,
     #[serde(rename = "$ref")]
-    r#ref: Option<String>,
+    ref_: Option<String>,
+    items: Option<Box<Type>>,
+    #[serde(rename = "additionalProperties")]
+    additional_properties: Option<Box<Type>>,
 }
 
 #[derive(Deserialize, Debug)]
@@ -83,36 +87,54 @@ pub(crate) struct Package {
     types: PulumiMap<ComplexType>,
 }
 
-fn type_type_to_model(type_type: &TypeType) -> Result<crate::model::TypeType> {
-    match type_type {
-        TypeType::Boolean => Ok(crate::model::TypeType::Boolean),
-        TypeType::Integer => Ok(crate::model::TypeType::Integer),
-        TypeType::Number => Ok(crate::model::TypeType::Number),
-        TypeType::String => Ok(crate::model::TypeType::String),
-        TypeType::Array => Err(anyhow!("Array type not supported")),
-        TypeType::Object => Err(anyhow!("Object type not supported")),
-    }
-}
-
-fn type_to_model(type_: &Type) -> Result<crate::model::TypeOrRef> {
-    match (&type_.r#type, &type_.r#ref) {
-        (Some(_), Some(_)) => {
-            Err(anyhow!(
-                "Cannot have both type and ref in a type. [{type_:?}]"
-            ))
-        }
-        (None, None) => {
-            Err(anyhow!(
-                "Must have either type or ref in a type. [{type_:?}]"
-            ))
-        }
-        (Some(t), None) => Ok(crate::model::TypeOrRef::Type(type_type_to_model(t)?)),
-        (None, Some(ref_)) => Ok(crate::model::TypeOrRef::Ref(ref_.clone())),
-    }
-    // return match &type_.r#type {
-    //     Some(t) => crate::model::TypeOrRef::Type(match t),
-    //     None => crate::model::TypeOrRef::Ref(type_.r#ref.clone().unwrap()),
-    // };
+fn new_type_mapper(type_: &Type) -> Result<crate::model::Type> {
+    (match type_ {
+        Type {
+            ref_: Some(ref r), ..
+        } => Ok(crate::model::Type::Ref(r.to_string())),
+        Type {
+            type_: Some(TypeEnum::Boolean),
+            ..
+        } => Ok(crate::model::Type::Boolean),
+        Type {
+            type_: Some(TypeEnum::Integer),
+            ..
+        } => Ok(crate::model::Type::Integer),
+        Type {
+            type_: Some(TypeEnum::Number),
+            ..
+        } => Ok(crate::model::Type::Number),
+        Type {
+            type_: Some(TypeEnum::String),
+            ..
+        } => Ok(crate::model::Type::String),
+        Type {
+            type_: Some(TypeEnum::Array),
+            items: Some(items),
+            ..
+        } => Ok(crate::model::Type::Array(Box::new(new_type_mapper(items)?))),
+        Type {
+            type_: Some(TypeEnum::Array),
+            ..
+        } => Err(anyhow!("Array does not have 'items' field")),
+        Type {
+            type_: Some(TypeEnum::Object),
+            additional_properties: Some(property),
+            ..
+        } => Ok(crate::model::Type::Object(Box::new(new_type_mapper(
+            property,
+        )?))),
+        Type {
+            type_: Some(TypeEnum::Object),
+            ..
+        } => Err(anyhow!("Object does not have 'additionalProperties' field")),
+        Type {
+            type_: None,
+            ref_: None,
+            ..
+        } => Err(anyhow!("'type' and 'ref' fields cannot be empty")),
+    })
+    .context(format!("Cannot handle type: [{type_:?}]"))
 }
 
 fn resource_to_model(
@@ -131,7 +153,7 @@ fn resource_to_model(
                 .map(|(input_name, input_property)| {
                     Ok(crate::model::InputProperty {
                         name: input_name.clone(),
-                        r#type: type_to_model(&input_property.r#type)
+                        r#type: new_type_mapper(&input_property.r#type)
                             .context(format!("Cannot handle [{input_name}] type"))?,
                         // r#type: match &input_property.r#type.r#type {
                         //     Some(t) => crate::model::TypeOrRef::Type(match t),
@@ -149,7 +171,8 @@ fn resource_to_model(
                 .map(|(output_name, output_property)| {
                     Ok(crate::model::OutputProperty {
                         name: output_name.clone(),
-                        r#type: type_to_model(&output_property.r#type)?,
+                        r#type: new_type_mapper(&output_property.r#type)
+                            .context(format!("Cannot handle [{output_name}] type"))?,
                         // r#type: match &output_property.r#type.r#type {
                         //     Some(t) => crate::model::TypeOrRef::Type(match t),
                         //     None => crate::model::TypeOrRef::Ref(output_property.r#type.r#ref.clone().unwrap()),
@@ -259,10 +282,38 @@ mod test {
             .collect();
 
         assert_eq!(
-            vec![
-                "Cannot handle [test_input] type",
-                "Object type not supported"
-            ],
+            vec! ["Cannot handle [test_input] type", "Cannot handle type: [Type { type_: Some(Object), ref_: None, items: None, additional_properties: None }]", "Object does not have 'additionalProperties' field"],
+            chain
+        );
+
+        Ok(())
+    }
+
+    #[test]
+    fn array_without_items_fails() -> Result<()> {
+        let json = json!({
+            "name": "test",
+            "version": "0.0.0",
+            "resources": {
+                "test:index:test_resource": {
+                    "description": "test resource",
+                    "inputProperties": {
+                        "test_input": {
+                            "type": "array"
+                        }
+                    },
+                }
+            }
+        });
+
+        let err = to_model(&serde_json::from_value(json)?).unwrap_err();
+
+        let chain: Vec<_> = anyhow::Chain::new(err.as_ref())
+            .map(|e| e.to_string())
+            .collect();
+
+        assert_eq!(
+            vec!["Cannot handle [test_input] type", "Cannot handle type: [Type { type_: Some(Array), ref_: None, items: None, additional_properties: None }]", "Array does not have 'items' field"],
             chain
         );
 

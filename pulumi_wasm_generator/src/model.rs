@@ -2,25 +2,20 @@ use anyhow::Result;
 use std::collections::BTreeMap;
 
 #[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
-pub(crate) enum TypeType {
+pub(crate) enum Type {
     Boolean,
     Integer,
     Number,
     String,
-    Array,
-    Object,
-}
-
-#[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
-pub(crate) enum TypeOrRef {
-    Type(TypeType),
+    Array(Box<Type>),
+    Object(Box<Type>),
     Ref(String),
 }
 
 #[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
 pub(crate) struct InputProperty {
     pub(crate) name: String,
-    pub(crate) r#type: TypeOrRef,
+    pub(crate) r#type: Type,
     // pub(crate) description: Option<String>,
     pub(crate) required: bool,
 }
@@ -28,7 +23,7 @@ pub(crate) struct InputProperty {
 #[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
 pub(crate) struct OutputProperty {
     pub(crate) name: String,
-    pub(crate) r#type: TypeOrRef,
+    pub(crate) r#type: Type,
     // pub(crate) description: Option<String>,
     pub(crate) required: bool,
 }

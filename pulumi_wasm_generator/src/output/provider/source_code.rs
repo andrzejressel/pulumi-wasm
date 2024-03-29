@@ -85,7 +85,6 @@ fn create_valid_id(s: &String) -> String {
 
     let result = replace_multiple_dashes(&result);
     let result = result.trim_matches('-').to_string();
-    
 
     result.replace('-', "_")
 }
