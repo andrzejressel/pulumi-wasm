@@ -1,9 +1,9 @@
-use std::collections::HashMap;
-use log::{Level, Log, Metadata, Record};
-use log::kv::{Source, VisitSource};
-use bindings::component::pulumi_wasm;
 use crate::bindings;
 use crate::bindings::component::pulumi_wasm::log::Content;
+use bindings::component::pulumi_wasm;
+use log::kv::{Source, VisitSource};
+use log::{Level, Log, Metadata, Record};
+use std::collections::HashMap;
 
 pub(crate) struct Logger {}
 
@@ -42,10 +42,8 @@ impl Log for Logger {
         }
     }
 
-    fn flush(&self) {
-    }
+    fn flush(&self) {}
 }
-
 
 struct HashMapPrinter {
     map: HashMap<String, String>,
@@ -60,7 +58,11 @@ impl HashMapPrinter {
 }
 
 impl<'kvs> VisitSource<'kvs> for HashMapPrinter {
-    fn visit_pair(&mut self, key: log::kv::Key<'kvs>, value: log::kv::Value<'kvs>) -> Result<(), log::kv::Error> {
+    fn visit_pair(
+        &mut self,
+        key: log::kv::Key<'kvs>,
+        value: log::kv::Value<'kvs>,
+    ) -> Result<(), log::kv::Error> {
         self.map.insert(key.to_string(), value.to_string());
         Ok(())
     }

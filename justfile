@@ -21,5 +21,16 @@ build-libraries:
                 -p pulumi_wasm_rust_macro \
                 -p pulumi_wasm_provider_random_rust
 
+check:
+    cargo fmt --all -- --check
+
+format:
+    cargo fmt --all
+    cargo clippy --all --all-features --fix
+
+format-clippy:
+    cargo fmt --all
+    cargo clippy --all --all-features --fix --allow-dirty --allow-staged
+
 test:
     cargo test --all

@@ -1,5 +1,5 @@
-pub use pulumi_wasm_rust_macro::pulumi_main;
 use crate::output::Output;
+pub use pulumi_wasm_rust_macro::pulumi_main;
 
 #[allow(clippy::all)]
 #[allow(dead_code)]

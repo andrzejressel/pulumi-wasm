@@ -19,7 +19,7 @@ pub use bindings::*;
 
 mod logger;
 
-static IS_SET : AtomicBool = AtomicBool::new(false);
+static IS_SET: AtomicBool = AtomicBool::new(false);
 static LOGGER: Logger = Logger {};
 
 pub fn setup_logger() {
