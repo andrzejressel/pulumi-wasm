@@ -2,7 +2,7 @@ set windows-shell := ["pwsh.exe", "-c"]
 
 @default: build test
 
-build: build-language-plugin regenerate-providers install-requirements build-wasm-components build-libraries
+build: build-language-plugin regenerate-providers install-requirements build-wasm-components build-libraries fmt
 
 build-language-plugin:
     cd pulumi-language-wasm && just
@@ -23,6 +23,9 @@ build-libraries:
 
 check:
     cargo fmt --all -- --check
+
+fmt:
+    cargo fmt --all
 
 format:
     cargo fmt --all

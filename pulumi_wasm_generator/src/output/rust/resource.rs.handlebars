@@ -23,14 +23,11 @@ pub mod {{interface.name}} {
     {{/each}}
         });
 
-
-        let result = {{interface.struct_name}}Result {
+        {{interface.struct_name}}Result {
         {{#each interface.output_properties}}
             {{arg_name}}: crate::random_to_domain_mapper::<{{&type_}}>(result.{{wit_name}}),
         {{/each}}
-        };
-
-        result
+        }
     }
 
 }
