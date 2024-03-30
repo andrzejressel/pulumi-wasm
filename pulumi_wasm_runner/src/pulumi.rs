@@ -235,7 +235,7 @@ impl Pulumi {
         })
     }
 
-    pub fn compile(pulumi_wasm_file: &String) -> Result<Vec<u8>, Error> {
+    pub fn compile(pulumi_wasm_file: &str) -> Result<Vec<u8>, Error> {
         let mut engine_config = wasmtime::Config::new();
         engine_config.wasm_component_model(true);
         engine_config.async_support(true);

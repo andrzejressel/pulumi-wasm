@@ -68,8 +68,8 @@ fn create_valid_element_id(element_id: &ElementId) -> String {
     create_valid_id(&vec.join("-"))
 }
 
-fn create_valid_id(s: &String) -> String {
-    let result = s
+fn create_valid_id(s: &str) -> String {
+    let result: String = s
         .chars()
         .map(|c| {
             if c.is_uppercase() {

@@ -1,4 +1,3 @@
-use crate::bindings::component::pulumi_wasm::external_world::is_in_preview;
 use crate::bindings::exports::component::pulumi_wasm::function_reverse_callback::{
     FunctionInvocationRequest, FunctionInvocationResult,
 };

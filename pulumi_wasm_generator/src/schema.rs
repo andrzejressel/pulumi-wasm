@@ -138,7 +138,7 @@ fn new_type_mapper(type_: &Type) -> Result<crate::model::Type> {
 }
 
 fn resource_to_model(
-    resource_name: &String,
+    resource_name: &str,
     resource: &Resource,
 ) -> Result<(ElementId, crate::model::Resource)> {
     let element_id = ElementId::new(resource_name)?;

@@ -4,7 +4,6 @@ use convert_case::{Case, Casing};
 use handlebars::Handlebars;
 use serde::Serialize;
 use serde_json::json;
-use std::path::PathBuf;
 
 static TEMPLATE: &str = include_str!("resource.rs.handlebars");
 
@@ -97,7 +96,7 @@ fn convert_type(type_or_ref: &Type) -> String {
     }
 }
 
-fn convert_to_wit_name(s: &String) -> String {
+fn convert_to_wit_name(s: &str) -> String {
     s.replace('-', "_")
 }
 
@@ -107,8 +106,8 @@ fn create_valid_element_id(element_id: &ElementId) -> String {
     create_valid_id(&vec.join("-"))
 }
 
-fn create_valid_id(s: &String) -> String {
-    let result = s
+fn create_valid_id(s: &str) -> String {
+    let result: String = s
         .chars()
         .map(|c| {
             if c.is_uppercase() {
@@ -133,8 +132,8 @@ fn create_valid_wit_element_id(element_id: &ElementId) -> String {
     create_valid_id(&vec.join("-"))
 }
 
-fn create_valid_wit_id(s: &String) -> String {
-    let result = s
+fn create_valid_wit_id(s: &str) -> String {
+    let result: String = s
         .chars()
         .map(|c| {
             if c.is_uppercase() {
