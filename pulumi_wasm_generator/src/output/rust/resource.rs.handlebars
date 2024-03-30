@@ -1,6 +1,6 @@
 {{#each package.interfaces as |interface|}}
 
-mod {{interface.name}} {
+pub mod {{interface.name}} {
 
     pub struct {{interface.struct_name}}Args<'a> {
         pub name: &'a str,
@@ -15,7 +15,7 @@ mod {{interface.name}} {
     {{/each}}
     }
 
-    fn {{interface.function_name}}<'a>(args: {{interface.struct_name}}Args<'a>) -> {{interface.struct_name}}Result {
+    pub fn {{interface.function_name}}<'a>(args: {{interface.struct_name}}Args<'a>) -> {{interface.struct_name}}Result {
 
         let result = crate::bindings::pulumi::{{@root.package.name}}::{{interface.wit_name}}::invoke(args.name, &crate::bindings::pulumi::{{@root.package.name}}::{{interface.wit_name}}::Args {
     {{#each interface.input_properties}}

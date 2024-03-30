@@ -186,6 +186,17 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d468802bab17cbc0cc575e9b053f41e72aa36bfa6b7f55e3529ffa43161b97fa"
 
 [[package]]
+name = "automod"
+version = "1.0.14"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "edf3ee19dbc0a46d740f6f0926bde8c50f02bdbc7b536842da28f6ac56513a8b"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.55",
+]
+
+[[package]]
 name = "axum"
 version = "0.6.20"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1969,40 +1980,21 @@ dependencies = [
 ]
 
 [[package]]
-name = "pulumi_wasm_provider_random"
-version = "0.1.0"
+name = "pulumi_wasm_random"
+version = "4.15.0"
 dependencies = [
- "anyhow",
- "bitflags 2.5.0",
- "futures",
- "lazy_static",
- "log",
- "once_cell",
- "prost",
- "prost-types",
- "rmp",
- "rmp-serde",
- "rmpv",
+ "automod",
+ "pulumi_wasm_rust",
  "serde",
- "serde_json",
- "tonic",
- "uuid",
- "wasm_common",
- "wasmtime",
- "wasmtime-wasi",
- "wit-bindgen-rt",
+ "wit-bindgen",
 ]
 
 [[package]]
-name = "pulumi_wasm_random"
-version = "0.1.0"
+name = "pulumi_wasm_random_provider"
+version = "4.15.0"
 dependencies = [
- "anyhow",
- "log",
- "pulumi_wasm_rust",
- "serde",
  "wasm_common",
- "wit-bindgen",
+ "wit-bindgen-rt",
 ]
 
 [[package]]

@@ -152,11 +152,13 @@ impl GuestOutput for Output {
                     let maybe_value = m.iter().find(|(k, _)| k == &key).map(|(_, v)| v.clone()); //.unwrap_or(Value::Nil)
                     match maybe_value {
                         None => {
-                            if is_in_preview() {
-                                Value::Nil
-                            } else {
-                                todo!()
-                            }
+                            // TODO: Implement
+                            Value::Nil
+                            // if is_in_preview() {
+                            //     Value::Nil
+                            // } else {
+                            //     todo!()
+                            // }
                         }
                         Some(v) => v,
                     }
@@ -262,16 +264,20 @@ fn protoc_to_messagepack(value: prost_types::Value) -> Value {
             error!("Kind is none");
             unreachable!("Kind is none")
         }
-        Some(k) => k,
+        Some(ref k) => k,
     };
 
     let result = match kind {
-        Kind::NullValue(_) => todo!(),
-        Kind::NumberValue(n) => Value::F64(n),
-        Kind::StringValue(s) => Value::String(Utf8String::from(s)),
-        Kind::BoolValue(b) => Value::Boolean(b),
-        Kind::StructValue(_) => todo!(),
-        Kind::ListValue(_) => todo!(),
+        // Kind::NullValue(_) => todo!(),
+        Kind::NumberValue(n) => Value::F64(*n),
+        Kind::StringValue(s) => Value::String(Utf8String::from(s.clone())),
+        Kind::BoolValue(b) => Value::Boolean(*b),
+        // Kind::StructValue(_) => todo!(),
+        // Kind::ListValue(_) => todo!(),
+        _ => {
+            error!("Cannot convert protoc [{value:?}] to messagepack");
+            todo!()
+        }
     };
 
     info!("Result: [{result:?}]");
@@ -295,6 +301,9 @@ fn protoc_object_to_messagepack_map(o: prost_types::Struct) -> rmpv::Value {
 fn messagepack_to_protoc(v: &Value) -> prost_types::Value {
     info!("Converting value [{v}] to protoc value");
     let result = match v {
+        Value::Nil => prost_types::Value {
+            kind: Option::from(prost_types::value::Kind::NullValue(0)),
+        },
         Value::Integer(i) => prost_types::Value {
             kind: Option::from(prost_types::value::Kind::NumberValue(i.as_f64().unwrap())),
         },
@@ -304,8 +313,8 @@ fn messagepack_to_protoc(v: &Value) -> prost_types::Value {
             )),
         },
         _ => {
-            error!("Cannot convert [{v}]");
-            todo!("Cannot convert [{v}]")
+            error!("Cannot convert messagepack [{v}] to protoc");
+            todo!()
         }
     };
     info!("Result: [{result:?}]");

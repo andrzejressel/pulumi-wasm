@@ -375,10 +375,10 @@ pub mod component {
     }
 }
 pub mod exports {
-    pub mod component {
-        pub mod pulumi_wasm {
+    pub mod pulumi {
+        pub mod random {
             #[allow(clippy::all)]
-            pub mod pulumi_provider_random_interface {
+            pub mod random_bytes {
                 #[used]
                 #[doc(hidden)]
                 #[cfg(target_arch = "wasm32")]
@@ -387,74 +387,1066 @@ pub mod exports {
                 use super::super::super::super::_rt;
                 pub type Output =
                     super::super::super::super::component::pulumi_wasm::output_interface::Output;
-                pub struct RandomStringArgs<'a> {
-                    pub name: _rt::String,
+                pub struct Args<'a> {
+                    pub keepers: &'a Output,
                     pub length: &'a Output,
                 }
-                impl<'a> ::core::fmt::Debug for RandomStringArgs<'a> {
+                impl<'a> ::core::fmt::Debug for Args<'a> {
                     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-                        f.debug_struct("RandomStringArgs")
-                            .field("name", &self.name)
+                        f.debug_struct("Args")
+                            .field("keepers", &self.keepers)
                             .field("length", &self.length)
                             .finish()
                     }
                 }
-                pub struct RandomStringResult {
+                pub struct Res {
+                    pub base64: Output,
+                    pub hex: Output,
+                    pub keepers: Output,
+                    pub length: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("base64", &self.base64)
+                            .field("hex", &self.hex)
+                            .field("keepers", &self.keepers)
+                            .field("length", &self.length)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(
+                    arg0: *mut u8,
+                    arg1: usize,
+                    arg2: i32,
+                    arg3: i32,
+                ) -> *mut u8 {
+                    let handle1;
+                    let handle2;
+                    let len0 = arg1;
+                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
+                    let result3 = T::invoke(
+                        _rt::string_lift(bytes0),
+                        Args {
+                            keepers: {
+                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg2 as u32);
+                                &handle1
+                            },
+                            length: {
+                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg3 as u32);
+                                &handle2
+                            },
+                        },
+                    );
+                    let ptr4 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        base64: base645,
+                        hex: hex5,
+                        keepers: keepers5,
+                        length: length5,
+                    } = result3;
+                    *ptr4.add(0).cast::<i32>() = (base645).take_handle() as i32;
+                    *ptr4.add(4).cast::<i32>() = (hex5).take_handle() as i32;
+                    *ptr4.add(8).cast::<i32>() = (keepers5).take_handle() as i32;
+                    *ptr4.add(12).cast::<i32>() = (length5).take_handle() as i32;
+                    ptr4
+                }
+                pub trait Guest {
+                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+
+                macro_rules! __export_pulumi_random_random_bytes_4_15_0_cabi{
+        ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
+
+          #[export_name = "pulumi:random/random-bytes@4.15.0#invoke"]
+          unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,) -> *mut u8 {
+            $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3)
+          }
+        };);
+      }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_random_random_bytes_4_15_0_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
+            }
+
+            #[allow(clippy::all)]
+            pub mod random_id {
+                #[used]
+                #[doc(hidden)]
+                #[cfg(target_arch = "wasm32")]
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub byte_length: &'a Output,
+                    pub keepers: &'a Output,
+                    pub prefix: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                        f.debug_struct("Args")
+                            .field("byte-length", &self.byte_length)
+                            .field("keepers", &self.keepers)
+                            .field("prefix", &self.prefix)
+                            .finish()
+                    }
+                }
+                pub struct Res {
+                    pub b64_std: Output,
+                    pub b64_url: Output,
+                    pub byte_length: Output,
+                    pub dec: Output,
+                    pub hex: Output,
+                    pub keepers: Output,
+                    pub prefix: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("b64-std", &self.b64_std)
+                            .field("b64-url", &self.b64_url)
+                            .field("byte-length", &self.byte_length)
+                            .field("dec", &self.dec)
+                            .field("hex", &self.hex)
+                            .field("keepers", &self.keepers)
+                            .field("prefix", &self.prefix)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(
+                    arg0: *mut u8,
+                    arg1: usize,
+                    arg2: i32,
+                    arg3: i32,
+                    arg4: i32,
+                ) -> *mut u8 {
+                    let handle1;
+                    let handle2;
+                    let handle3;
+                    let len0 = arg1;
+                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
+                    let result4 = T::invoke(
+                        _rt::string_lift(bytes0),
+                        Args {
+                            byte_length: {
+                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg2 as u32);
+                                &handle1
+                            },
+                            keepers: {
+                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg3 as u32);
+                                &handle2
+                            },
+                            prefix: {
+                                handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg4 as u32);
+                                &handle3
+                            },
+                        },
+                    );
+                    let ptr5 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        b64_std: b64_std6,
+                        b64_url: b64_url6,
+                        byte_length: byte_length6,
+                        dec: dec6,
+                        hex: hex6,
+                        keepers: keepers6,
+                        prefix: prefix6,
+                    } = result4;
+                    *ptr5.add(0).cast::<i32>() = (b64_std6).take_handle() as i32;
+                    *ptr5.add(4).cast::<i32>() = (b64_url6).take_handle() as i32;
+                    *ptr5.add(8).cast::<i32>() = (byte_length6).take_handle() as i32;
+                    *ptr5.add(12).cast::<i32>() = (dec6).take_handle() as i32;
+                    *ptr5.add(16).cast::<i32>() = (hex6).take_handle() as i32;
+                    *ptr5.add(20).cast::<i32>() = (keepers6).take_handle() as i32;
+                    *ptr5.add(24).cast::<i32>() = (prefix6).take_handle() as i32;
+                    ptr5
+                }
+                pub trait Guest {
+                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+
+                macro_rules! __export_pulumi_random_random_id_4_15_0_cabi{
+      ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
+
+        #[export_name = "pulumi:random/random-id@4.15.0#invoke"]
+        unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,) -> *mut u8 {
+          $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4)
+        }
+      };);
+    }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_random_random_id_4_15_0_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 28]);
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 28]);
+            }
+
+            #[allow(clippy::all)]
+            pub mod random_integer {
+                #[used]
+                #[doc(hidden)]
+                #[cfg(target_arch = "wasm32")]
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub keepers: &'a Output,
+                    pub max: &'a Output,
+                    pub min: &'a Output,
+                    pub seed: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                        f.debug_struct("Args")
+                            .field("keepers", &self.keepers)
+                            .field("max", &self.max)
+                            .field("min", &self.min)
+                            .field("seed", &self.seed)
+                            .finish()
+                    }
+                }
+                pub struct Res {
+                    pub keepers: Output,
+                    pub max: Output,
+                    pub min: Output,
+                    pub result: Output,
+                    pub seed: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("keepers", &self.keepers)
+                            .field("max", &self.max)
+                            .field("min", &self.min)
+                            .field("result", &self.result)
+                            .field("seed", &self.seed)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(
+                    arg0: *mut u8,
+                    arg1: usize,
+                    arg2: i32,
+                    arg3: i32,
+                    arg4: i32,
+                    arg5: i32,
+                ) -> *mut u8 {
+                    let handle1;
+                    let handle2;
+                    let handle3;
+                    let handle4;
+                    let len0 = arg1;
+                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
+                    let result5 = T::invoke(
+                        _rt::string_lift(bytes0),
+                        Args {
+                            keepers: {
+                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg2 as u32);
+                                &handle1
+                            },
+                            max: {
+                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg3 as u32);
+                                &handle2
+                            },
+                            min: {
+                                handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg4 as u32);
+                                &handle3
+                            },
+                            seed: {
+                                handle4 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg5 as u32);
+                                &handle4
+                            },
+                        },
+                    );
+                    let ptr6 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        keepers: keepers7,
+                        max: max7,
+                        min: min7,
+                        result: result7,
+                        seed: seed7,
+                    } = result5;
+                    *ptr6.add(0).cast::<i32>() = (keepers7).take_handle() as i32;
+                    *ptr6.add(4).cast::<i32>() = (max7).take_handle() as i32;
+                    *ptr6.add(8).cast::<i32>() = (min7).take_handle() as i32;
+                    *ptr6.add(12).cast::<i32>() = (result7).take_handle() as i32;
+                    *ptr6.add(16).cast::<i32>() = (seed7).take_handle() as i32;
+                    ptr6
+                }
+                pub trait Guest {
+                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+
+                macro_rules! __export_pulumi_random_random_integer_4_15_0_cabi{
+    ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
+
+      #[export_name = "pulumi:random/random-integer@4.15.0#invoke"]
+      unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,) -> *mut u8 {
+        $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
+      }
+    };);
+  }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_random_random_integer_4_15_0_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
+            }
+
+            #[allow(clippy::all)]
+            pub mod random_password {
+                #[used]
+                #[doc(hidden)]
+                #[cfg(target_arch = "wasm32")]
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub keepers: &'a Output,
+                    pub length: &'a Output,
+                    pub lower: &'a Output,
+                    pub min_lower: &'a Output,
+                    pub min_numeric: &'a Output,
+                    pub min_special: &'a Output,
+                    pub min_upper: &'a Output,
+                    pub number: &'a Output,
+                    pub numeric: &'a Output,
+                    pub override_special: &'a Output,
+                    pub special: &'a Output,
+                    pub upper: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                        f.debug_struct("Args")
+                            .field("keepers", &self.keepers)
+                            .field("length", &self.length)
+                            .field("lower", &self.lower)
+                            .field("min-lower", &self.min_lower)
+                            .field("min-numeric", &self.min_numeric)
+                            .field("min-special", &self.min_special)
+                            .field("min-upper", &self.min_upper)
+                            .field("number", &self.number)
+                            .field("numeric", &self.numeric)
+                            .field("override-special", &self.override_special)
+                            .field("special", &self.special)
+                            .field("upper", &self.upper)
+                            .finish()
+                    }
+                }
+                pub struct Res {
+                    pub bcrypt_hash: Output,
+                    pub keepers: Output,
+                    pub length: Output,
+                    pub lower: Output,
+                    pub min_lower: Output,
+                    pub min_numeric: Output,
+                    pub min_special: Output,
+                    pub min_upper: Output,
+                    pub number: Output,
+                    pub numeric: Output,
+                    pub override_special: Output,
+                    pub result: Output,
+                    pub special: Output,
+                    pub upper: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("bcrypt-hash", &self.bcrypt_hash)
+                            .field("keepers", &self.keepers)
+                            .field("length", &self.length)
+                            .field("lower", &self.lower)
+                            .field("min-lower", &self.min_lower)
+                            .field("min-numeric", &self.min_numeric)
+                            .field("min-special", &self.min_special)
+                            .field("min-upper", &self.min_upper)
+                            .field("number", &self.number)
+                            .field("numeric", &self.numeric)
+                            .field("override-special", &self.override_special)
+                            .field("result", &self.result)
+                            .field("special", &self.special)
+                            .field("upper", &self.upper)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(
+                    arg0: *mut u8,
+                    arg1: usize,
+                    arg2: i32,
+                    arg3: i32,
+                    arg4: i32,
+                    arg5: i32,
+                    arg6: i32,
+                    arg7: i32,
+                    arg8: i32,
+                    arg9: i32,
+                    arg10: i32,
+                    arg11: i32,
+                    arg12: i32,
+                    arg13: i32,
+                ) -> *mut u8 {
+                    let handle1;
+                    let handle2;
+                    let handle3;
+                    let handle4;
+                    let handle5;
+                    let handle6;
+                    let handle7;
+                    let handle8;
+                    let handle9;
+                    let handle10;
+                    let handle11;
+                    let handle12;
+                    let len0 = arg1;
+                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
+                    let result13 = T::invoke(
+                        _rt::string_lift(bytes0),
+                        Args {
+                            keepers: {
+                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg2 as u32);
+                                &handle1
+                            },
+                            length: {
+                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg3 as u32);
+                                &handle2
+                            },
+                            lower: {
+                                handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg4 as u32);
+                                &handle3
+                            },
+                            min_lower: {
+                                handle4 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg5 as u32);
+                                &handle4
+                            },
+                            min_numeric: {
+                                handle5 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg6 as u32);
+                                &handle5
+                            },
+                            min_special: {
+                                handle6 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg7 as u32);
+                                &handle6
+                            },
+                            min_upper: {
+                                handle7 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg8 as u32);
+                                &handle7
+                            },
+                            number: {
+                                handle8 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg9 as u32);
+                                &handle8
+                            },
+                            numeric: {
+                                handle9 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg10 as u32);
+                                &handle9
+                            },
+                            override_special: {
+                                handle10 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg11 as u32);
+                                &handle10
+                            },
+                            special: {
+                                handle11 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg12 as u32);
+                                &handle11
+                            },
+                            upper: {
+                                handle12 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg13 as u32);
+                                &handle12
+                            },
+                        },
+                    );
+                    let ptr14 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        bcrypt_hash: bcrypt_hash15,
+                        keepers: keepers15,
+                        length: length15,
+                        lower: lower15,
+                        min_lower: min_lower15,
+                        min_numeric: min_numeric15,
+                        min_special: min_special15,
+                        min_upper: min_upper15,
+                        number: number15,
+                        numeric: numeric15,
+                        override_special: override_special15,
+                        result: result15,
+                        special: special15,
+                        upper: upper15,
+                    } = result13;
+                    *ptr14.add(0).cast::<i32>() = (bcrypt_hash15).take_handle() as i32;
+                    *ptr14.add(4).cast::<i32>() = (keepers15).take_handle() as i32;
+                    *ptr14.add(8).cast::<i32>() = (length15).take_handle() as i32;
+                    *ptr14.add(12).cast::<i32>() = (lower15).take_handle() as i32;
+                    *ptr14.add(16).cast::<i32>() = (min_lower15).take_handle() as i32;
+                    *ptr14.add(20).cast::<i32>() = (min_numeric15).take_handle() as i32;
+                    *ptr14.add(24).cast::<i32>() = (min_special15).take_handle() as i32;
+                    *ptr14.add(28).cast::<i32>() = (min_upper15).take_handle() as i32;
+                    *ptr14.add(32).cast::<i32>() = (number15).take_handle() as i32;
+                    *ptr14.add(36).cast::<i32>() = (numeric15).take_handle() as i32;
+                    *ptr14.add(40).cast::<i32>() = (override_special15).take_handle() as i32;
+                    *ptr14.add(44).cast::<i32>() = (result15).take_handle() as i32;
+                    *ptr14.add(48).cast::<i32>() = (special15).take_handle() as i32;
+                    *ptr14.add(52).cast::<i32>() = (upper15).take_handle() as i32;
+                    ptr14
+                }
+                pub trait Guest {
+                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+
+                macro_rules! __export_pulumi_random_random_password_4_15_0_cabi{
+  ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
+
+    #[export_name = "pulumi:random/random-password@4.15.0#invoke"]
+    unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,arg9: i32,arg10: i32,arg11: i32,arg12: i32,arg13: i32,) -> *mut u8 {
+      $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13)
+    }
+  };);
+}
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_random_random_password_4_15_0_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 56]);
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 56]);
+            }
+
+            #[allow(clippy::all)]
+            pub mod random_pet {
+                #[used]
+                #[doc(hidden)]
+                #[cfg(target_arch = "wasm32")]
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub keepers: &'a Output,
+                    pub length: &'a Output,
+                    pub prefix: &'a Output,
+                    pub separator: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                        f.debug_struct("Args")
+                            .field("keepers", &self.keepers)
+                            .field("length", &self.length)
+                            .field("prefix", &self.prefix)
+                            .field("separator", &self.separator)
+                            .finish()
+                    }
+                }
+                pub struct Res {
+                    pub keepers: Output,
+                    pub length: Output,
+                    pub prefix: Output,
+                    pub separator: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("keepers", &self.keepers)
+                            .field("length", &self.length)
+                            .field("prefix", &self.prefix)
+                            .field("separator", &self.separator)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(
+                    arg0: *mut u8,
+                    arg1: usize,
+                    arg2: i32,
+                    arg3: i32,
+                    arg4: i32,
+                    arg5: i32,
+                ) -> *mut u8 {
+                    let handle1;
+                    let handle2;
+                    let handle3;
+                    let handle4;
+                    let len0 = arg1;
+                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
+                    let result5 = T::invoke(
+                        _rt::string_lift(bytes0),
+                        Args {
+                            keepers: {
+                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg2 as u32);
+                                &handle1
+                            },
+                            length: {
+                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg3 as u32);
+                                &handle2
+                            },
+                            prefix: {
+                                handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg4 as u32);
+                                &handle3
+                            },
+                            separator: {
+                                handle4 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg5 as u32);
+                                &handle4
+                            },
+                        },
+                    );
+                    let ptr6 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        keepers: keepers7,
+                        length: length7,
+                        prefix: prefix7,
+                        separator: separator7,
+                    } = result5;
+                    *ptr6.add(0).cast::<i32>() = (keepers7).take_handle() as i32;
+                    *ptr6.add(4).cast::<i32>() = (length7).take_handle() as i32;
+                    *ptr6.add(8).cast::<i32>() = (prefix7).take_handle() as i32;
+                    *ptr6.add(12).cast::<i32>() = (separator7).take_handle() as i32;
+                    ptr6
+                }
+                pub trait Guest {
+                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+
+                macro_rules! __export_pulumi_random_random_pet_4_15_0_cabi{
+  ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
+
+    #[export_name = "pulumi:random/random-pet@4.15.0#invoke"]
+    unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,) -> *mut u8 {
+      $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
+    }
+  };);
+}
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_random_random_pet_4_15_0_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
+            }
+
+            #[allow(clippy::all)]
+            pub mod random_shuffle {
+                #[used]
+                #[doc(hidden)]
+                #[cfg(target_arch = "wasm32")]
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub inputs: &'a Output,
+                    pub keepers: &'a Output,
+                    pub result_count: &'a Output,
+                    pub seed: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                        f.debug_struct("Args")
+                            .field("inputs", &self.inputs)
+                            .field("keepers", &self.keepers)
+                            .field("result-count", &self.result_count)
+                            .field("seed", &self.seed)
+                            .finish()
+                    }
+                }
+                pub struct Res {
+                    pub inputs: Output,
+                    pub keepers: Output,
+                    pub result_count: Output,
+                    pub results: Output,
+                    pub seed: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("inputs", &self.inputs)
+                            .field("keepers", &self.keepers)
+                            .field("result-count", &self.result_count)
+                            .field("results", &self.results)
+                            .field("seed", &self.seed)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(
+                    arg0: *mut u8,
+                    arg1: usize,
+                    arg2: i32,
+                    arg3: i32,
+                    arg4: i32,
+                    arg5: i32,
+                ) -> *mut u8 {
+                    let handle1;
+                    let handle2;
+                    let handle3;
+                    let handle4;
+                    let len0 = arg1;
+                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
+                    let result5 = T::invoke(
+                        _rt::string_lift(bytes0),
+                        Args {
+                            inputs: {
+                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg2 as u32);
+                                &handle1
+                            },
+                            keepers: {
+                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg3 as u32);
+                                &handle2
+                            },
+                            result_count: {
+                                handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg4 as u32);
+                                &handle3
+                            },
+                            seed: {
+                                handle4 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg5 as u32);
+                                &handle4
+                            },
+                        },
+                    );
+                    let ptr6 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        inputs: inputs7,
+                        keepers: keepers7,
+                        result_count: result_count7,
+                        results: results7,
+                        seed: seed7,
+                    } = result5;
+                    *ptr6.add(0).cast::<i32>() = (inputs7).take_handle() as i32;
+                    *ptr6.add(4).cast::<i32>() = (keepers7).take_handle() as i32;
+                    *ptr6.add(8).cast::<i32>() = (result_count7).take_handle() as i32;
+                    *ptr6.add(12).cast::<i32>() = (results7).take_handle() as i32;
+                    *ptr6.add(16).cast::<i32>() = (seed7).take_handle() as i32;
+                    ptr6
+                }
+                pub trait Guest {
+                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+
+                macro_rules! __export_pulumi_random_random_shuffle_4_15_0_cabi{
+  ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
+
+    #[export_name = "pulumi:random/random-shuffle@4.15.0#invoke"]
+    unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,) -> *mut u8 {
+      $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
+    }
+  };);
+}
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_random_random_shuffle_4_15_0_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
+            }
+
+            #[allow(clippy::all)]
+            pub mod random_string {
+                #[used]
+                #[doc(hidden)]
+                #[cfg(target_arch = "wasm32")]
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub keepers: &'a Output,
+                    pub length: &'a Output,
+                    pub lower: &'a Output,
+                    pub min_lower: &'a Output,
+                    pub min_numeric: &'a Output,
+                    pub min_special: &'a Output,
+                    pub min_upper: &'a Output,
+                    pub number: &'a Output,
+                    pub numeric: &'a Output,
+                    pub override_special: &'a Output,
+                    pub special: &'a Output,
+                    pub upper: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                        f.debug_struct("Args")
+                            .field("keepers", &self.keepers)
+                            .field("length", &self.length)
+                            .field("lower", &self.lower)
+                            .field("min-lower", &self.min_lower)
+                            .field("min-numeric", &self.min_numeric)
+                            .field("min-special", &self.min_special)
+                            .field("min-upper", &self.min_upper)
+                            .field("number", &self.number)
+                            .field("numeric", &self.numeric)
+                            .field("override-special", &self.override_special)
+                            .field("special", &self.special)
+                            .field("upper", &self.upper)
+                            .finish()
+                    }
+                }
+                pub struct Res {
+                    pub keepers: Output,
+                    pub length: Output,
+                    pub lower: Output,
+                    pub min_lower: Output,
+                    pub min_numeric: Output,
+                    pub min_special: Output,
+                    pub min_upper: Output,
+                    pub number: Output,
+                    pub numeric: Output,
+                    pub override_special: Output,
+                    pub result: Output,
+                    pub special: Output,
+                    pub upper: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("keepers", &self.keepers)
+                            .field("length", &self.length)
+                            .field("lower", &self.lower)
+                            .field("min-lower", &self.min_lower)
+                            .field("min-numeric", &self.min_numeric)
+                            .field("min-special", &self.min_special)
+                            .field("min-upper", &self.min_upper)
+                            .field("number", &self.number)
+                            .field("numeric", &self.numeric)
+                            .field("override-special", &self.override_special)
+                            .field("result", &self.result)
+                            .field("special", &self.special)
+                            .field("upper", &self.upper)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(
+                    arg0: *mut u8,
+                    arg1: usize,
+                    arg2: i32,
+                    arg3: i32,
+                    arg4: i32,
+                    arg5: i32,
+                    arg6: i32,
+                    arg7: i32,
+                    arg8: i32,
+                    arg9: i32,
+                    arg10: i32,
+                    arg11: i32,
+                    arg12: i32,
+                    arg13: i32,
+                ) -> *mut u8 {
+                    let handle1;
+                    let handle2;
+                    let handle3;
+                    let handle4;
+                    let handle5;
+                    let handle6;
+                    let handle7;
+                    let handle8;
+                    let handle9;
+                    let handle10;
+                    let handle11;
+                    let handle12;
+                    let len0 = arg1;
+                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
+                    let result13 = T::invoke(
+                        _rt::string_lift(bytes0),
+                        Args {
+                            keepers: {
+                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg2 as u32);
+                                &handle1
+                            },
+                            length: {
+                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg3 as u32);
+                                &handle2
+                            },
+                            lower: {
+                                handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg4 as u32);
+                                &handle3
+                            },
+                            min_lower: {
+                                handle4 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg5 as u32);
+                                &handle4
+                            },
+                            min_numeric: {
+                                handle5 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg6 as u32);
+                                &handle5
+                            },
+                            min_special: {
+                                handle6 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg7 as u32);
+                                &handle6
+                            },
+                            min_upper: {
+                                handle7 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg8 as u32);
+                                &handle7
+                            },
+                            number: {
+                                handle8 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg9 as u32);
+                                &handle8
+                            },
+                            numeric: {
+                                handle9 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg10 as u32);
+                                &handle9
+                            },
+                            override_special: {
+                                handle10 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg11 as u32);
+                                &handle10
+                            },
+                            special: {
+                                handle11 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg12 as u32);
+                                &handle11
+                            },
+                            upper: {
+                                handle12 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg13 as u32);
+                                &handle12
+                            },
+                        },
+                    );
+                    let ptr14 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        keepers: keepers15,
+                        length: length15,
+                        lower: lower15,
+                        min_lower: min_lower15,
+                        min_numeric: min_numeric15,
+                        min_special: min_special15,
+                        min_upper: min_upper15,
+                        number: number15,
+                        numeric: numeric15,
+                        override_special: override_special15,
+                        result: result15,
+                        special: special15,
+                        upper: upper15,
+                    } = result13;
+                    *ptr14.add(0).cast::<i32>() = (keepers15).take_handle() as i32;
+                    *ptr14.add(4).cast::<i32>() = (length15).take_handle() as i32;
+                    *ptr14.add(8).cast::<i32>() = (lower15).take_handle() as i32;
+                    *ptr14.add(12).cast::<i32>() = (min_lower15).take_handle() as i32;
+                    *ptr14.add(16).cast::<i32>() = (min_numeric15).take_handle() as i32;
+                    *ptr14.add(20).cast::<i32>() = (min_special15).take_handle() as i32;
+                    *ptr14.add(24).cast::<i32>() = (min_upper15).take_handle() as i32;
+                    *ptr14.add(28).cast::<i32>() = (number15).take_handle() as i32;
+                    *ptr14.add(32).cast::<i32>() = (numeric15).take_handle() as i32;
+                    *ptr14.add(36).cast::<i32>() = (override_special15).take_handle() as i32;
+                    *ptr14.add(40).cast::<i32>() = (result15).take_handle() as i32;
+                    *ptr14.add(44).cast::<i32>() = (special15).take_handle() as i32;
+                    *ptr14.add(48).cast::<i32>() = (upper15).take_handle() as i32;
+                    ptr14
+                }
+                pub trait Guest {
+                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+
+                macro_rules! __export_pulumi_random_random_string_4_15_0_cabi{
+  ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
+
+    #[export_name = "pulumi:random/random-string@4.15.0#invoke"]
+    unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,arg9: i32,arg10: i32,arg11: i32,arg12: i32,arg13: i32,) -> *mut u8 {
+      $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13)
+    }
+  };);
+}
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_random_random_string_4_15_0_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 52]);
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 52]);
+            }
+
+            #[allow(clippy::all)]
+            pub mod random_uuid {
+                #[used]
+                #[doc(hidden)]
+                #[cfg(target_arch = "wasm32")]
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub keepers: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                        f.debug_struct("Args")
+                            .field("keepers", &self.keepers)
+                            .finish()
+                    }
+                }
+                pub struct Res {
+                    pub keepers: Output,
                     pub result: Output,
                 }
-                impl ::core::fmt::Debug for RandomStringResult {
+                impl ::core::fmt::Debug for Res {
                     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-                        f.debug_struct("RandomStringResult")
+                        f.debug_struct("Res")
+                            .field("keepers", &self.keepers)
                             .field("result", &self.result)
                             .finish()
                     }
                 }
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
-                pub unsafe fn _export_create_random_string_cabi<T: Guest>(
+                pub unsafe fn _export_invoke_cabi<T: Guest>(
                     arg0: *mut u8,
                     arg1: usize,
                     arg2: i32,
-                ) -> i32 {
+                ) -> *mut u8 {
                     let handle1;
                     let len0 = arg1;
                     let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
-                    let result2 = T::create_random_string(RandomStringArgs {
-                        name: _rt::string_lift(bytes0),
-                        length: {
-                            handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg2 as u32);
-                            &handle1
+                    let result2 = T::invoke(
+                        _rt::string_lift(bytes0),
+                        Args {
+                            keepers: {
+                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(arg2 as u32);
+                                &handle1
+                            },
                         },
-                    });
-                    let RandomStringResult { result: result3 } = result2;
-                    (result3).take_handle() as i32
-                }
-                #[doc(hidden)]
-                #[allow(non_snake_case)]
-                pub unsafe fn _export_handle_functions_cabi<T: Guest>() {
-                    T::handle_functions();
+                    );
+                    let ptr3 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        keepers: keepers4,
+                        result: result4,
+                    } = result2;
+                    *ptr3.add(0).cast::<i32>() = (keepers4).take_handle() as i32;
+                    *ptr3.add(4).cast::<i32>() = (result4).take_handle() as i32;
+                    ptr3
                 }
                 pub trait Guest {
-                    fn create_random_string(args: RandomStringArgs<'_>) -> RandomStringResult;
-                    fn handle_functions();
+                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_component_pulumi_wasm_pulumi_provider_random_interface_0_1_0_cabi{
-      ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
+                macro_rules! __export_pulumi_random_random_uuid_4_15_0_cabi{
+  ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-        #[export_name = "component:pulumi-wasm/pulumi-provider-random-interface@0.1.0#create-random-string"]
-        unsafe extern "C" fn export_create_random_string(arg0: *mut u8,arg1: usize,arg2: i32,) -> i32 {
-          $($path_to_types)*::_export_create_random_string_cabi::<$ty>(arg0, arg1, arg2)
-        }
-        #[export_name = "component:pulumi-wasm/pulumi-provider-random-interface@0.1.0#handle-functions"]
-        unsafe extern "C" fn export_handle_functions() {
-          $($path_to_types)*::_export_handle_functions_cabi::<$ty>()
-        }
-      };);
+    #[export_name = "pulumi:random/random-uuid@4.15.0#invoke"]
+    unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,) -> *mut u8 {
+      $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2)
     }
+  };);
+}
                 #[doc(hidden)]
-                pub(crate) use __export_component_pulumi_wasm_pulumi_provider_random_interface_0_1_0_cabi;
+                pub(crate) use __export_pulumi_random_random_uuid_4_15_0_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 8]);
             }
         }
     }
@@ -604,21 +1596,28 @@ mod _rt {
 #[allow(unused_macros)]
 #[doc(hidden)]
 
-macro_rules! __export_pulumi_provider_random_impl {
+macro_rules! __export_main_world_impl {
   ($ty:ident) => (self::export!($ty with_types_in self););
   ($ty:ident with_types_in $($path_to_types_root:tt)*) => (
-  $($path_to_types_root)*::exports::component::pulumi_wasm::pulumi_provider_random_interface::__export_component_pulumi_wasm_pulumi_provider_random_interface_0_1_0_cabi!($ty with_types_in $($path_to_types_root)*::exports::component::pulumi_wasm::pulumi_provider_random_interface);
+  $($path_to_types_root)*::exports::pulumi::random::random_bytes::__export_pulumi_random_random_bytes_4_15_0_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::random::random_bytes);
+  $($path_to_types_root)*::exports::pulumi::random::random_id::__export_pulumi_random_random_id_4_15_0_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::random::random_id);
+  $($path_to_types_root)*::exports::pulumi::random::random_integer::__export_pulumi_random_random_integer_4_15_0_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::random::random_integer);
+  $($path_to_types_root)*::exports::pulumi::random::random_password::__export_pulumi_random_random_password_4_15_0_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::random::random_password);
+  $($path_to_types_root)*::exports::pulumi::random::random_pet::__export_pulumi_random_random_pet_4_15_0_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::random::random_pet);
+  $($path_to_types_root)*::exports::pulumi::random::random_shuffle::__export_pulumi_random_random_shuffle_4_15_0_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::random::random_shuffle);
+  $($path_to_types_root)*::exports::pulumi::random::random_string::__export_pulumi_random_random_string_4_15_0_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::random::random_string);
+  $($path_to_types_root)*::exports::pulumi::random::random_uuid::__export_pulumi_random_random_uuid_4_15_0_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::random::random_uuid);
   )
 }
 #[doc(inline)]
-pub(crate) use __export_pulumi_provider_random_impl as export;
+pub(crate) use __export_main_world_impl as export;
 
 #[cfg(target_arch = "wasm32")]
-#[link_section = "component-type:wit-bindgen:0.21.0:pulumi-provider-random:encoded world"]
+#[link_section = "component-type:wit-bindgen:0.21.0:main-world:encoded world"]
 #[doc(hidden)]
-pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 1010] = *b"\
-\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xe5\x06\x01A\x02\x01\
-A\x07\x01B\x15\x04\0\x06output\x03\x01\x01p}\x01i\0\x01@\x01\x05value\x01\0\x02\x04\
+pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 2581] = *b"\
+\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\x94\x13\x01A\x02\x01\
+A\x15\x01B\x15\x04\0\x06output\x03\x01\x01p}\x01i\0\x01@\x01\x05value\x01\0\x02\x04\
 \0\x13[constructor]output\x01\x03\x01h\0\x01@\x02\x04self\x04\x0dfunction-names\0\
 \x02\x04\0\x12[method]output.map\x01\x05\x01k\x01\x01@\x01\x04self\x04\0\x06\x04\
 \0\x12[method]output.get\x01\x07\x01@\x02\x04self\x04\x05fields\0\x02\x04\0\x18[\
@@ -630,14 +1629,52 @@ exists\x01\x0c\x03\x01,component:pulumi-wasm/output-interface@0.1.0\x05\0\x02\x0
 r\x02\x04names\x05value\x02\x04\0\x0cobject-field\x03\0\x03\x01p\x04\x01r\x03\x04\
 types\x04names\x06object\x05\x04\0\x19register-resource-request\x03\0\x06\x01i\x01\
 \x01@\x01\x07request\x07\0\x08\x04\0\x08register\x01\x09\x03\x01.component:pulum\
-i-wasm/register-interface@0.1.0\x05\x02\x01B\x0c\x02\x03\x02\x01\x01\x04\0\x06ou\
-tput\x03\0\0\x01h\x01\x01r\x02\x04names\x06length\x02\x04\0\x12random-string-arg\
-s\x03\0\x03\x01i\x01\x01r\x01\x06result\x05\x04\0\x14random-string-result\x03\0\x06\
-\x01@\x01\x04args\x04\0\x07\x04\0\x14create-random-string\x01\x08\x01@\0\x01\0\x04\
-\0\x10handle-functions\x01\x09\x04\x01<component:pulumi-wasm/pulumi-provider-ran\
-dom-interface@0.1.0\x05\x03\x04\x012component:pulumi-wasm/pulumi-provider-random\
-@0.1.0\x04\0\x0b\x1c\x01\0\x16pulumi-provider-random\x03\0\0\0G\x09producers\x01\
-\x0cprocessed-by\x02\x0dwit-component\x070.201.0\x10wit-bindgen-rust\x060.21.0";
+i-wasm/register-interface@0.1.0\x05\x02\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06ou\
+tput\x03\0\0\x01h\x01\x01r\x02\x07keepers\x02\x06length\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x04\x06base64\x05\x03hex\x05\x07keepers\x05\x06length\x05\x04\0\x03\
+res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\
+!pulumi:random/random-bytes@4.15.0\x05\x03\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
+output\x03\0\0\x01h\x01\x01r\x03\x0bbyte-length\x02\x07keepers\x02\x06prefix\x02\
+\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\x07b64-std\x05\x07b64-url\x05\x0bbyte\
+-length\x05\x03dec\x05\x03hex\x05\x07keepers\x05\x06prefix\x05\x04\0\x03res\x03\0\
+\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\x1epulu\
+mi:random/random-id@4.15.0\x05\x04\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
+\0\0\x01h\x01\x01r\x04\x07keepers\x02\x03max\x02\x03min\x02\x04seed\x02\x04\0\x04\
+args\x03\0\x03\x01i\x01\x01r\x05\x07keepers\x05\x03max\x05\x03min\x05\x06result\x05\
+\x04seed\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
+invoke\x01\x08\x04\x01#pulumi:random/random-integer@4.15.0\x05\x05\x01B\x0a\x02\x03\
+\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0c\x07keepers\x02\x06length\x02\
+\x05lower\x02\x09min-lower\x02\x0bmin-numeric\x02\x0bmin-special\x02\x09min-uppe\
+r\x02\x06number\x02\x07numeric\x02\x10override-special\x02\x07special\x02\x05upp\
+er\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0e\x0bbcrypt-hash\x05\x07keepers\x05\
+\x06length\x05\x05lower\x05\x09min-lower\x05\x0bmin-numeric\x05\x0bmin-special\x05\
+\x09min-upper\x05\x06number\x05\x07numeric\x05\x10override-special\x05\x06result\
+\x05\x07special\x05\x05upper\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04arg\
+s\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01$pulumi:random/random-password@4.15.0\
+\x05\x06\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x07\
+keepers\x02\x06length\x02\x06prefix\x02\x09separator\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x04\x07keepers\x05\x06length\x05\x06prefix\x05\x09separator\x05\x04\
+\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
+\x01\x1fpulumi:random/random-pet@4.15.0\x05\x07\x01B\x0a\x02\x03\x02\x01\x01\x04\
+\0\x06output\x03\0\0\x01h\x01\x01r\x04\x06inputs\x02\x07keepers\x02\x0cresult-co\
+unt\x02\x04seed\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x06inputs\x05\x07k\
+eepers\x05\x0cresult-count\x05\x07results\x05\x04seed\x05\x04\0\x03res\x03\0\x06\
+\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01#pulumi:rand\
+om/random-shuffle@4.15.0\x05\x08\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
+\0\0\x01h\x01\x01r\x0c\x07keepers\x02\x06length\x02\x05lower\x02\x09min-lower\x02\
+\x0bmin-numeric\x02\x0bmin-special\x02\x09min-upper\x02\x06number\x02\x07numeric\
+\x02\x10override-special\x02\x07special\x02\x05upper\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x0d\x07keepers\x05\x06length\x05\x05lower\x05\x09min-lower\x05\x0b\
+min-numeric\x05\x0bmin-special\x05\x09min-upper\x05\x06number\x05\x07numeric\x05\
+\x10override-special\x05\x06result\x05\x07special\x05\x05upper\x05\x04\0\x03res\x03\
+\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\"pulu\
+mi:random/random-string@4.15.0\x05\x09\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06out\
+put\x03\0\0\x01h\x01\x01r\x01\x07keepers\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
+r\x02\x07keepers\x05\x06result\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04a\
+rgs\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\x20pulumi:random/random-uuid@4.15.\
+0\x05\x0a\x04\x01\x1fpulumi:random/main-world@4.15.0\x04\0\x0b\x10\x01\0\x0amain\
+-world\x03\0\0\0G\x09producers\x01\x0cprocessed-by\x02\x0dwit-component\x070.201\
+.0\x10wit-bindgen-rust\x060.21.0";
 
 #[inline(never)]
 #[doc(hidden)]
