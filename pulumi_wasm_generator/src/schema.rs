@@ -1,5 +1,4 @@
 use std::collections::{BTreeMap, BTreeSet};
-use std::fmt::format;
 
 use crate::model::ElementId;
 use anyhow::{anyhow, Context, Result};
@@ -87,6 +86,7 @@ pub(crate) struct Package {
     types: PulumiMap<ComplexType>,
 }
 
+//TODO: Fix formatting
 fn new_type_mapper(type_: &Type) -> Result<crate::model::Type> {
     (match type_ {
         Type {
@@ -134,7 +134,7 @@ fn new_type_mapper(type_: &Type) -> Result<crate::model::Type> {
             ..
         } => Err(anyhow!("'type' and 'ref' fields cannot be empty")),
     })
-    .context(format!("Cannot handle type: [{type_:?}]"))
+        .context(format!("Cannot handle type: [{type_:?}]"))
 }
 
 fn resource_to_model(
@@ -282,7 +282,11 @@ mod test {
             .collect();
 
         assert_eq!(
-            vec! ["Cannot handle [test_input] type", "Cannot handle type: [Type { type_: Some(Object), ref_: None, items: None, additional_properties: None }]", "Object does not have 'additionalProperties' field"],
+            vec![
+                "Cannot handle [test_input] type",
+                "Cannot handle type: [Type { type_: Some(Object), ref_: None, items: None, additional_properties: None }]",
+                "Object does not have 'additionalProperties' field",
+            ],
             chain
         );
 
@@ -313,7 +317,11 @@ mod test {
             .collect();
 
         assert_eq!(
-            vec!["Cannot handle [test_input] type", "Cannot handle type: [Type { type_: Some(Array), ref_: None, items: None, additional_properties: None }]", "Array does not have 'items' field"],
+            vec![
+                "Cannot handle [test_input] type",
+                "Cannot handle type: [Type { type_: Some(Array), ref_: None, items: None, additional_properties: None }]",
+                "Array does not have 'items' field",
+            ],
             chain
         );
 

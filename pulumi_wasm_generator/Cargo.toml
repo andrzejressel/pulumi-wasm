@@ -11,6 +11,7 @@ serde_json.workspace = true
 anyhow.workspace = true
 handlebars.workspace = true
 regex.workspace = true
+convert_case.workspace = true
 
 [dev-dependencies]
 assert_cmd.workspace = true

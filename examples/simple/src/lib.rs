@@ -1,6 +1,6 @@
 use anyhow::Error;
 use pulumi_wasm_provider_random_rust::random::{create_random_string, RandomStringArgs};
-use pulumi_wasm_rust::output::Output;
+use pulumi_wasm_rust::Output;
 use pulumi_wasm_rust::{add_export, pulumi_main};
 
 // Causes compilation errors

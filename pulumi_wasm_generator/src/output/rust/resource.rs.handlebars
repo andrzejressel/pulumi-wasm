@@ -1,9 +1,25 @@
-
-
 pub struct {{interface.struct_name}}Args<'a> {
     pub name: &'a str,
 {{#each interface.input_properties}}
-    pub {{name}}: {{type_}},
+    pub {{name}}: pulumi_wasm_rust::Output<{{&type_}}>,
 {{/each}}
+}
+
+pub struct {{interface.struct_name}}Result<'a> {
+    pub name: &'a str,
+{{#each interface.output_properties}}
+    pub {{name}}: pulumi_wasm_rust::Output<{{&type_}}>,
+{{/each}}
+}
+
+fn {{interface.function_name}}<'a>(args: {{interface.struct_name}}Args<'a>) -> {{interface.struct_name}}Result<'a> {
+
+    crate::bindings::pulumi::{{package.name}}::{{interface.wit_name}}::invoke(args.name, &crate::bindings::pulumi::{{package.name}}::{{interface.wit_name}}::Args {
+{{#each interface.input_properties}}
+        {{wit_name}}: &crate::clone::<{{&type_}}>(args.{{name}}),
+{{/each}}
+    });
+
+    todo!();
 
 }

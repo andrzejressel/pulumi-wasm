@@ -7,6 +7,7 @@ edition = "2021"
 wit-bindgen.workspace = true
 pulumi_wasm_rust.workspace = true
 serde.workspace = true
+automod.workspace = true
 
 [package.metadata.pulumi]
 related_crate = "pulumi_wasm_random_provider"

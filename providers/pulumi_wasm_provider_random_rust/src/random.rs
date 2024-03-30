@@ -1,5 +1,5 @@
 use crate::bindings::component::pulumi_wasm::{output_interface, pulumi_provider_random_interface};
-use pulumi_wasm_rust::output::Output;
+use pulumi_wasm_rust::Output;
 
 pub struct RandomStringArgs<'a> {
     pub name: &'a str,

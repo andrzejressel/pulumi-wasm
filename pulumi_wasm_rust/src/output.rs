@@ -6,6 +6,7 @@ use std::collections::HashMap;
 use std::fmt::Debug;
 use std::marker::PhantomData;
 use std::sync::Mutex;
+use serde::Serialize;
 use uuid::Uuid;
 
 pub struct Output<T> {

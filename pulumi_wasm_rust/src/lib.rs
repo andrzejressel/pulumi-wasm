@@ -1,5 +1,6 @@
-use crate::output::Output;
 pub use pulumi_wasm_rust_macro::pulumi_main;
+mod output;
+pub use output::Output;
 
 #[allow(clippy::all)]
 #[allow(dead_code)]
@@ -13,7 +14,6 @@ mod bindings {
     });
 }
 
-pub mod output;
 pub mod runner;
 
 pub fn add_export<T>(name: &str, output: Output<T>) {

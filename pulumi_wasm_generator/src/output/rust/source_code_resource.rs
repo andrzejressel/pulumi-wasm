@@ -4,6 +4,7 @@ use handlebars::Handlebars;
 use serde::Serialize;
 use serde_json::json;
 use std::path::PathBuf;
+use convert_case::{Case, Casing};
 
 static TEMPLATE: &str = include_str!("resource.rs.handlebars");
 
@@ -12,12 +13,14 @@ struct InputProperty {
     name: String,
     arg_name: String,
     type_: String,
+    wit_name: String,
 }
 
 #[derive(Serialize)]
 struct OutputProperty {
     name: String,
     arg_name: String,
+    type_: String,
 }
 
 #[derive(Serialize)]
@@ -27,6 +30,8 @@ struct Interface {
     input_properties: Vec<InputProperty>,
     output_properties: Vec<OutputProperty>,
     struct_name: String,
+    function_name: String,
+    wit_name: String,
 }
 
 #[derive(Serialize)]
@@ -44,7 +49,9 @@ fn convert_model(package: &crate::model::Package) -> Package {
             .map(|(element_id, resource)| Interface {
                 name: create_valid_element_id(element_id),
                 struct_name: element_id.name.clone(),
+                function_name: element_id.name.clone().from_case(Case::UpperCamel).to_case(Case::Snake),
                 r#type: element_id.raw.clone(),
+                wit_name: create_valid_wit_element_id(element_id),
                 input_properties: resource
                     .input_properties
                     .iter()
@@ -52,6 +59,7 @@ fn convert_model(package: &crate::model::Package) -> Package {
                         name: input_property.name.clone(),
                         arg_name: create_valid_id(&input_property.name),
                         type_: convert_type(&input_property.r#type),
+                        wit_name: convert_to_wit_name(&create_valid_wit_id(&input_property.name)),
                     })
                     .collect(),
                 output_properties: resource
@@ -60,6 +68,7 @@ fn convert_model(package: &crate::model::Package) -> Package {
                     .map(|output_property| OutputProperty {
                         name: output_property.name.clone(),
                         arg_name: create_valid_id(&output_property.name),
+                        type_: convert_type(&output_property.r#type),
                     })
                     .collect(),
             })
@@ -69,23 +78,18 @@ fn convert_model(package: &crate::model::Package) -> Package {
 
 fn convert_type(type_or_ref: &Type) -> String {
     match type_or_ref {
-        // TypeOrRef::Type(tt) => match tt {
-        //     TypeType::Boolean => "boolean".into(),
-        //     TypeType::Integer => "int".into(),
-        //     TypeType::Number => "double".into(),
-        //     TypeType::String => "String".into(),
-        //     TypeType::Array => "Vec".into(),
-        //     TypeType::Object => "Object".into(),
-        // },
-        // TypeOrRef::Ref(r) => format!("Ref<{}>", r),
         Type::Boolean => "bool".into(),
         Type::Integer => "i32".into(),
         Type::Number => "f64".into(),
         Type::String => "String".into(),
-        Type::Array(_) => "Vec".into(), // "Vec<{}>
-        Type::Object(_) => "Object".into(),
+        Type::Array(type_) => format!("Vec<{}>", convert_type(type_)).into(), // "Vec<{}>
+        Type::Object(type_) => format!("std::collections::HashMap<String, {}>", convert_type(type_)).into(),
         Type::Ref(_) => "Ref".into(),
     }
+}
+
+fn convert_to_wit_name(s: &String) -> String {
+    return s.replace("-", "_");
 }
 
 fn create_valid_element_id(element_id: &ElementId) -> String {
@@ -114,6 +118,31 @@ fn create_valid_id(s: &String) -> String {
     result.replace('-', "_")
 }
 
+fn create_valid_wit_element_id(element_id: &ElementId) -> String {
+    let mut vec = element_id.namespace.clone();
+    vec.push(element_id.name.clone());
+    create_valid_id(&vec.join("-"))
+}
+
+fn create_valid_wit_id(s: &String) -> String {
+    let result = s
+        .chars()
+        .map(|c| {
+            if c.is_uppercase() {
+                format!("-{}", c.to_lowercase())
+            } else if !c.is_alphanumeric() {
+                "-".to_string()
+            } else {
+                c.to_string()
+            }
+        })
+        .collect();
+
+    let result = replace_multiple_dashes(&result);
+    let result = result.trim_matches('-').to_string();
+    result
+}
+
 pub(crate) fn generate_source_code(package: &crate::model::Package) -> Vec<(PathBuf, String)> {
     let package = convert_model(package);
 
@@ -124,7 +153,7 @@ pub(crate) fn generate_source_code(package: &crate::model::Package) -> Vec<(Path
             let path = PathBuf::from(format!("{}.rs", interface.name));
             let handlebars = Handlebars::new();
             let content = handlebars
-                .render_template(TEMPLATE, &json!({"interface": &interface}))
+                .render_template(TEMPLATE, &json!({"interface": &interface, "package": &package}))
                 .unwrap();
             (path, content)
         })
