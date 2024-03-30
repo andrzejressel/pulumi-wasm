@@ -14,7 +14,7 @@ import (
 func runCommand(cmd *exec.Cmd) error {
 	name := cmd.Path
 	commandStr := strings.Join(cmd.Args, " ")
-//	fmt.Printf("%+v\n", cmd)
+	//	fmt.Printf("%+v\n", cmd)
 	if err := cmd.Run(); err != nil {
 		var exitErr *exec.ExitError
 		if errors.As(err, &exitErr) {
