@@ -10,22 +10,19 @@ pub(crate) enum Type {
     Array(Box<Type>),
     Object(Box<Type>),
     Ref(String),
+    Option(Box<Type>),
 }
 
 #[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
 pub(crate) struct InputProperty {
     pub(crate) name: String,
     pub(crate) r#type: Type,
-    // pub(crate) description: Option<String>,
-    pub(crate) required: bool,
 }
 
 #[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
 pub(crate) struct OutputProperty {
     pub(crate) name: String,
     pub(crate) r#type: Type,
-    // pub(crate) description: Option<String>,
-    pub(crate) required: bool,
 }
 
 #[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]

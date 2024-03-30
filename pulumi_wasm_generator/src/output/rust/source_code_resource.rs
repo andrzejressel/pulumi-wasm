@@ -93,6 +93,7 @@ fn convert_type(type_or_ref: &Type) -> String {
             format!("std::collections::HashMap<String, {}>", convert_type(type_))
         }
         Type::Ref(_) => "Ref".into(),
+        Type::Option(type_) => format!("Option<{}>", convert_type(type_)),
     }
 }
 
