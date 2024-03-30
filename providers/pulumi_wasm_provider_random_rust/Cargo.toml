@@ -1,5 +1,5 @@
 [package]
-name = "pulumi_wasm_provider_random_rust"
+name = "pulumi_wasm_random"
 version.workspace = true
 edition.workspace = true
 

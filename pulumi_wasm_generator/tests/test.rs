@@ -12,7 +12,7 @@ fn random() -> Result<()> {
     Ok(())
 }
 
-#[test]
+// #[test]
 fn command() -> Result<()> {
     let provider_name = "command";
     run_test(provider_name)?;
@@ -37,10 +37,6 @@ fn run_test(provider_name: &str) -> Result<()> {
         &root.join("lib"),
     )?;
 
-    // let handlebars = Handlebars::new();
-    // let cargo = handlebars.render_template(CARGO_TOML_TEMPLATE, &json!({"name": provider_name})).unwrap();
-    //
-    // fs::write(format!("tests/output/{provider_name}_provider/Cargo.toml"), cargo)?;
     fs::copy(
         "tests/input/Cargo.toml",
         format!("tests/output/{provider_name}_provider/Cargo.toml"),

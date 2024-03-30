@@ -21,6 +21,7 @@ struct OutputProperty {
     name: String,
     arg_name: String,
     type_: String,
+    wit_name: String,
 }
 
 #[derive(Serialize)]
@@ -73,6 +74,7 @@ fn convert_model(package: &crate::model::Package) -> Package {
                         name: output_property.name.clone(),
                         arg_name: create_valid_id(&output_property.name),
                         type_: convert_type(&output_property.r#type),
+                        wit_name: convert_to_wit_name(&create_valid_wit_id(&output_property.name)),
                     })
                     .collect(),
             })
@@ -149,27 +151,15 @@ fn create_valid_wit_id(s: &String) -> String {
     result
 }
 
-pub(crate) fn generate_source_code(package: &crate::model::Package) -> Vec<(PathBuf, String)> {
+pub(crate) fn generate_source_code(package: &crate::model::Package) -> String {
     let package = convert_model(package);
 
-    let element = package
-        .interfaces
-        .iter()
-        .map(|interface| {
-            let path = PathBuf::from(format!("{}.rs", interface.name));
-            let handlebars = Handlebars::new();
-            let content = handlebars
-                .render_template(
-                    TEMPLATE,
-                    &json!({"interface": &interface, "package": &package}),
-                )
-                .unwrap();
-            (path, content)
-        })
-        .collect();
+    let content = {
+        let handlebars = Handlebars::new();
+        handlebars
+            .render_template(TEMPLATE, &json!({"package": &package}))
+            .unwrap()
+    };
 
-    element
-    // let handlebars = Handlebars::new();
-    // let el = ("".into(), handlebars.render_template(TEMPLATE, &json!({"package": &convert_model(package)})).unwrap());
-    // vec![el]
+    content
 }

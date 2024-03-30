@@ -19,7 +19,7 @@ build-libraries:
     cargo build -p pulumi_wasm_runner \
                 -p pulumi_wasm_rust \
                 -p pulumi_wasm_rust_macro \
-                -p pulumi_wasm_provider_random_rust
+                -p pulumi_wasm_random
 
 check:
     cargo fmt --all -- --check
@@ -34,3 +34,12 @@ format-clippy:
 
 test:
     cargo test --all
+
+[windows]
+copy-provider:
+    Remove-Item 'providers/pulumi_wasm_provider_random' -Recurse -Force
+    Remove-Item 'providers/pulumi_wasm_provider_random_rust' -Recurse -Force
+    mkdir 'providers/pulumi_wasm_provider_random'
+    mkdir 'providers/pulumi_wasm_provider_random_rust'
+    Copy-Item 'pulumi_wasm_generator/tests/output/random_provider/lib/*' 'providers/pulumi_wasm_provider_random_rust' -Recurse -Force
+    Copy-Item 'pulumi_wasm_generator/tests/output/random_provider/provider/*' 'providers/pulumi_wasm_provider_random' -Recurse -Force

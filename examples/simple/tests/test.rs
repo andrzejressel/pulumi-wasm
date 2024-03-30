@@ -51,7 +51,5 @@ fn test_integration() -> Result<(), anyhow::Error> {
 
     assert_eq!(result.len(), 36);
 
-    unreachable!();
-
     Ok(())
 }

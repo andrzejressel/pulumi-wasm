@@ -27,7 +27,7 @@ serde_json.workspace = true
 pulumi_wasm_rust.workspace = true
 log.workspace = true
 wasm_common.workspace = true
-pulumi_wasm_provider_random_rust.workspace = true
+pulumi_wasm_random.workspace = true
 
 [dev-dependencies]
 assert_cmd.workspace = true

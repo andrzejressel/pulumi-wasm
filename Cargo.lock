@@ -1941,7 +1941,7 @@ dependencies = [
  "predicates",
  "prost",
  "prost-types",
- "pulumi_wasm_provider_random_rust",
+ "pulumi_wasm_random",
  "pulumi_wasm_rust",
  "rmp",
  "rmp-serde",
@@ -1994,7 +1994,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "pulumi_wasm_provider_random_rust"
+name = "pulumi_wasm_random"
 version = "0.1.0"
 dependencies = [
  "anyhow",
