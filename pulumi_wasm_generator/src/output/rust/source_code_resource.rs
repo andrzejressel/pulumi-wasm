@@ -1,10 +1,10 @@
 use crate::model::{ElementId, Type};
 use crate::output::replace_multiple_dashes;
+use convert_case::{Case, Casing};
 use handlebars::Handlebars;
 use serde::Serialize;
 use serde_json::json;
 use std::path::PathBuf;
-use convert_case::{Case, Casing};
 
 static TEMPLATE: &str = include_str!("resource.rs.handlebars");
 
@@ -49,7 +49,11 @@ fn convert_model(package: &crate::model::Package) -> Package {
             .map(|(element_id, resource)| Interface {
                 name: create_valid_element_id(element_id),
                 struct_name: element_id.name.clone(),
-                function_name: element_id.name.clone().from_case(Case::UpperCamel).to_case(Case::Snake),
+                function_name: element_id
+                    .name
+                    .clone()
+                    .from_case(Case::UpperCamel)
+                    .to_case(Case::Snake),
                 r#type: element_id.raw.clone(),
                 wit_name: create_valid_wit_element_id(element_id),
                 input_properties: resource
@@ -82,14 +86,16 @@ fn convert_type(type_or_ref: &Type) -> String {
         Type::Integer => "i32".into(),
         Type::Number => "f64".into(),
         Type::String => "String".into(),
-        Type::Array(type_) => format!("Vec<{}>", convert_type(type_)).into(), // "Vec<{}>
-        Type::Object(type_) => format!("std::collections::HashMap<String, {}>", convert_type(type_)).into(),
+        Type::Array(type_) => format!("Vec<{}>", convert_type(type_)), // "Vec<{}>
+        Type::Object(type_) => {
+            format!("std::collections::HashMap<String, {}>", convert_type(type_))
+        }
         Type::Ref(_) => "Ref".into(),
     }
 }
 
 fn convert_to_wit_name(s: &String) -> String {
-    return s.replace("-", "_");
+    s.replace('-', "_")
 }
 
 fn create_valid_element_id(element_id: &ElementId) -> String {
@@ -153,7 +159,10 @@ pub(crate) fn generate_source_code(package: &crate::model::Package) -> Vec<(Path
             let path = PathBuf::from(format!("{}.rs", interface.name));
             let handlebars = Handlebars::new();
             let content = handlebars
-                .render_template(TEMPLATE, &json!({"interface": &interface, "package": &package}))
+                .render_template(
+                    TEMPLATE,
+                    &json!({"interface": &interface, "package": &package}),
+                )
                 .unwrap();
             (path, content)
         })

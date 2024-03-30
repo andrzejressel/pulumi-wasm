@@ -134,7 +134,7 @@ fn new_type_mapper(type_: &Type) -> Result<crate::model::Type> {
             ..
         } => Err(anyhow!("'type' and 'ref' fields cannot be empty")),
     })
-        .context(format!("Cannot handle type: [{type_:?}]"))
+    .context(format!("Cannot handle type: [{type_:?}]"))
 }
 
 fn resource_to_model(
