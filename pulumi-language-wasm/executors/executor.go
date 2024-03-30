@@ -57,14 +57,13 @@ type wasmExecutorFactory interface {
 
 func NewWasmExecutor(opts WasmExecutorOptions) (*WasmExecutor, error) {
 	e, err := combineWasmExecutorFactories(
-		&windows{},
-		&unix{},
+		&justfile{},
 	).NewWasmExecutor(opts)
 	if err != nil {
 		return nil, err
 	}
 	if e == nil {
-		return nil, fmt.Errorf("failed to configure executor, tried: entrypoint.bat, entrypoint.sh")
+		return nil, fmt.Errorf("failed to configure executor, tried: justfile")
 	}
 	return e, nil
 }
