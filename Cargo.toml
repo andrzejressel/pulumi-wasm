@@ -7,15 +7,16 @@ edition.workspace = true
 
 [workspace]
 members = [
-    "pulumi_wasm_runner",
-    "pulumi_wasm",
-    "providers/pulumi_wasm_provider_random",
-    "pulumi_wasm_rust_macro",
-    "pulumi_wasm_rust",
-    "wasm_common",
-    "examples/simple",
     "cargo-pulumi",
+    "cargo-pulumi-gen",
+    "examples/simple",
+    "providers/pulumi_wasm_provider_random",
+    "pulumi_wasm",
     "pulumi_wasm_generator",
+    "pulumi_wasm_runner",
+    "pulumi_wasm_rust",
+    "pulumi_wasm_rust_macro",
+    "wasm_common",
 ]
 
 [workspace.package]
@@ -23,11 +24,11 @@ version = "0.1.0"
 edition = "2021"
 
 [workspace.dependencies]
-pulumi_wasm_rust = { path = "pulumi_wasm_rust" }
 pulumi_wasm_generator = { path = "pulumi_wasm_generator" }
+pulumi_wasm_random = { path = "providers/pulumi_wasm_provider_random_rust" }
+pulumi_wasm_rust = { path = "pulumi_wasm_rust" }
 pulumi_wasm_rust_macro = { path = "pulumi_wasm_rust_macro" }
 wasm_common = { path = "wasm_common" }
-pulumi_wasm_random = { path = "providers/pulumi_wasm_provider_random_rust" }
 
 anyhow = "1.0.81"
 prost = "0.12.3"

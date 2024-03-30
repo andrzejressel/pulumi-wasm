@@ -2,7 +2,7 @@ set windows-shell := ["pwsh.exe", "-c"]
 
 @default: build test
 
-build: build-language-plugin install-requirements build-wasm-components build-libraries
+build: build-language-plugin regenerate-providers install-requirements build-wasm-components build-libraries
 
 build-language-plugin:
     cd pulumi-language-wasm && just
@@ -32,14 +32,9 @@ format-clippy:
     cargo fmt --all
     cargo clippy --all --all-features --fix --allow-dirty --allow-staged
 
+regenerate-providers:
+    cargo run -p cargo-pulumi-gen -- gen-provider --remove true --schema providers/random.json --output providers/pulumi_wasm_provider_random
+    cargo run -p cargo-pulumi-gen -- gen-rust     --remove true --schema providers/random.json --output providers/pulumi_wasm_provider_random_rust
+
 test:
     cargo test --all
-
-[windows]
-copy-provider:
-    Remove-Item 'providers/pulumi_wasm_provider_random' -Recurse -Force
-    Remove-Item 'providers/pulumi_wasm_provider_random_rust' -Recurse -Force
-    mkdir 'providers/pulumi_wasm_provider_random'
-    mkdir 'providers/pulumi_wasm_provider_random_rust'
-    Copy-Item 'pulumi_wasm_generator/tests/output/random_provider/lib/*' 'providers/pulumi_wasm_provider_random_rust' -Recurse -Force
-    Copy-Item 'pulumi_wasm_generator/tests/output/random_provider/provider/*' 'providers/pulumi_wasm_provider_random' -Recurse -Force

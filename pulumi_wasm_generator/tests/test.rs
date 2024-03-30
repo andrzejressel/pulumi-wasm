@@ -12,7 +12,8 @@ fn random() -> Result<()> {
     Ok(())
 }
 
-// #[test]
+#[test]
+#[ignore]
 fn command() -> Result<()> {
     let provider_name = "command";
     run_test(provider_name)?;
@@ -68,5 +69,3 @@ fn run_test(provider_name: &str) -> Result<()> {
 
     Ok(())
 }
-
-static CARGO_TOML_TEMPLATE: &str = include_str!("input/Cargo.toml.handlebars");

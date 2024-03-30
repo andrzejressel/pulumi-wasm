@@ -1,23 +1,16 @@
-mod model;
-mod output;
-mod schema;
-
-use crate::schema::to_model;
-use anyhow::Result;
 use std::fs;
 use std::fs::File;
 use std::io::{BufReader, Write};
 use std::path::Path;
 
-pub fn read_file(path: &Path) -> Result<model::Package> {
-    let file = File::open(path)?;
-    let reader = BufReader::new(file);
-    let package_json: schema::Package = serde_json::from_reader(reader)?;
-    to_model(&package_json)
-}
+use anyhow::Result;
 
-pub fn generate_rust_library(path: &Path, result_path: &Path) -> Result<()> {
-    let file = File::open(path)?;
+mod model;
+mod output;
+mod schema;
+
+pub fn generate_rust_library(schema_json: &Path, result_path: &Path) -> Result<()> {
+    let file = File::open(schema_json)?;
     let reader = BufReader::new(file);
     let package_json: schema::Package = serde_json::from_reader(reader)?;
     let package = schema::to_model(&package_json)?;
@@ -51,8 +44,8 @@ pub fn generate_rust_library(path: &Path, result_path: &Path) -> Result<()> {
     Ok(())
 }
 
-pub fn generate_wasm_provider(path: &Path, result_path: &Path) -> Result<()> {
-    let file = File::open(path)?;
+pub fn generate_wasm_provider(schema_json: &Path, result_path: &Path) -> Result<()> {
+    let file = File::open(schema_json)?;
     let reader = BufReader::new(file);
     let package_json: schema::Package = serde_json::from_reader(reader)?;
     let package = schema::to_model(&package_json)?;

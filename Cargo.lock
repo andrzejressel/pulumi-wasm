@@ -439,6 +439,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "cargo-pulumi-gen"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "clap",
+ "pulumi_wasm_generator",
+]
+
+[[package]]
 name = "cargo_metadata"
 version = "0.14.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
