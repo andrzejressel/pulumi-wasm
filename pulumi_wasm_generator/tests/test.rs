@@ -24,7 +24,7 @@ fn run_test(provider_name: &str) -> Result<()> {
     let root = Path::new(&root_path);
     let provider_output_path = root.join("provider");
     let output = Path::new(&provider_output_path);
-    pulumi_wasm_generator::generate_files(
+    pulumi_wasm_generator::generate_wasm_provider(
         Path::new(&format!(
             "tests/schemas/pulumi-resource-{provider_name}.json"
         )),

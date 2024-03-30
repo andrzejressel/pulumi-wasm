@@ -51,7 +51,7 @@ pub fn generate_rust_library(path: &Path, result_path: &Path) -> Result<()> {
     Ok(())
 }
 
-pub fn generate_files(path: &Path, result_path: &Path) -> anyhow::Result<()> {
+pub fn generate_wasm_provider(path: &Path, result_path: &Path) -> Result<()> {
     let file = File::open(path)?;
     let reader = BufReader::new(file);
     let package_json: schema::Package = serde_json::from_reader(reader)?;
