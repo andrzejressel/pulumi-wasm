@@ -29,11 +29,10 @@ fmt:
 
 format:
     cargo fmt --all
-    cargo clippy --all --all-features --fix
 
 format-clippy:
-    cargo fmt --all
     cargo clippy --all --all-features --fix --allow-dirty --allow-staged
+    cargo fmt --all
 
 regenerate-providers:
     cargo run -p cargo-pulumi-gen -- gen-provider --remove true --schema providers/random.json --output providers/pulumi_wasm_provider_random
