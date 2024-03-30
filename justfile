@@ -26,11 +26,10 @@ check:
 
 format:
     cargo fmt --all
-    cargo clippy --all --all-features --fix
 
 format-clippy:
-    cargo fmt --all
     cargo clippy --all --all-features --fix --allow-dirty --allow-staged
+    cargo fmt --all
 
 test:
     cargo test --all
