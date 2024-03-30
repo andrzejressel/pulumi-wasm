@@ -25,12 +25,11 @@ check:
     cargo fmt --all -- --check
 
 fmt:
+    cd pulumi-language-wasm && just fmt
     cargo fmt --all
 
-format:
-    cargo fmt --all
-
-format-clippy:
+fmt-clippy:
+    cd pulumi-language-wasm && just fmt
     cargo clippy --all --all-features --fix --allow-dirty --allow-staged
     cargo fmt --all
 
