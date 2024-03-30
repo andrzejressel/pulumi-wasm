@@ -21,15 +21,12 @@ pub mod random_bytes {
             length: &crate::clone::<i32>(args.length),
         });
 
-
-        let result = RandomBytesResult {
+        RandomBytesResult {
             base64: crate::random_to_domain_mapper::<Option<String>>(result.base64),
             hex: crate::random_to_domain_mapper::<Option<String>>(result.hex),
             keepers: crate::random_to_domain_mapper::<Option<std::collections::HashMap<String, String>>>(result.keepers),
             length: crate::random_to_domain_mapper::<i32>(result.length),
-        };
-
-        result
+        }
     }
 
 }
@@ -62,8 +59,7 @@ pub mod random_id {
             prefix: &crate::clone::<Option<String>>(args.prefix),
         });
 
-
-        let result = RandomIdResult {
+        RandomIdResult {
             b64_std: crate::random_to_domain_mapper::<Option<String>>(result.b64_std),
             b64_url: crate::random_to_domain_mapper::<Option<String>>(result.b64_url),
             byte_length: crate::random_to_domain_mapper::<i32>(result.byte_length),
@@ -71,9 +67,7 @@ pub mod random_id {
             hex: crate::random_to_domain_mapper::<Option<String>>(result.hex),
             keepers: crate::random_to_domain_mapper::<Option<std::collections::HashMap<String, String>>>(result.keepers),
             prefix: crate::random_to_domain_mapper::<Option<String>>(result.prefix),
-        };
-
-        result
+        }
     }
 
 }
@@ -106,16 +100,13 @@ pub mod random_integer {
             seed: &crate::clone::<Option<String>>(args.seed),
         });
 
-
-        let result = RandomIntegerResult {
+        RandomIntegerResult {
             keepers: crate::random_to_domain_mapper::<Option<std::collections::HashMap<String, String>>>(result.keepers),
             max: crate::random_to_domain_mapper::<i32>(result.max),
             min: crate::random_to_domain_mapper::<i32>(result.min),
             result: crate::random_to_domain_mapper::<Option<i32>>(result.result),
             seed: crate::random_to_domain_mapper::<Option<String>>(result.seed),
-        };
-
-        result
+        }
     }
 
 }
@@ -173,8 +164,7 @@ pub mod random_password {
             upper: &crate::clone::<Option<bool>>(args.upper),
         });
 
-
-        let result = RandomPasswordResult {
+        RandomPasswordResult {
             bcrypt_hash: crate::random_to_domain_mapper::<Option<String>>(result.bcrypt_hash),
             keepers: crate::random_to_domain_mapper::<Option<std::collections::HashMap<String, String>>>(result.keepers),
             length: crate::random_to_domain_mapper::<i32>(result.length),
@@ -189,9 +179,7 @@ pub mod random_password {
             result: crate::random_to_domain_mapper::<Option<String>>(result.result),
             special: crate::random_to_domain_mapper::<Option<bool>>(result.special),
             upper: crate::random_to_domain_mapper::<Option<bool>>(result.upper),
-        };
-
-        result
+        }
     }
 
 }
@@ -223,15 +211,12 @@ pub mod random_pet {
             separator: &crate::clone::<Option<String>>(args.separator),
         });
 
-
-        let result = RandomPetResult {
+        RandomPetResult {
             keepers: crate::random_to_domain_mapper::<Option<std::collections::HashMap<String, String>>>(result.keepers),
             length: crate::random_to_domain_mapper::<Option<i32>>(result.length),
             prefix: crate::random_to_domain_mapper::<Option<String>>(result.prefix),
             separator: crate::random_to_domain_mapper::<Option<String>>(result.separator),
-        };
-
-        result
+        }
     }
 
 }
@@ -264,16 +249,13 @@ pub mod random_shuffle {
             seed: &crate::clone::<Option<String>>(args.seed),
         });
 
-
-        let result = RandomShuffleResult {
+        RandomShuffleResult {
             inputs: crate::random_to_domain_mapper::<Vec<String>>(result.inputs),
             keepers: crate::random_to_domain_mapper::<Option<std::collections::HashMap<String, String>>>(result.keepers),
             result_count: crate::random_to_domain_mapper::<Option<i32>>(result.result_count),
             results: crate::random_to_domain_mapper::<Option<Vec<String>>>(result.results),
             seed: crate::random_to_domain_mapper::<Option<String>>(result.seed),
-        };
-
-        result
+        }
     }
 
 }
@@ -330,8 +312,7 @@ pub mod random_string {
             upper: &crate::clone::<Option<bool>>(args.upper),
         });
 
-
-        let result = RandomStringResult {
+        RandomStringResult {
             keepers: crate::random_to_domain_mapper::<Option<std::collections::HashMap<String, String>>>(result.keepers),
             length: crate::random_to_domain_mapper::<i32>(result.length),
             lower: crate::random_to_domain_mapper::<Option<bool>>(result.lower),
@@ -345,9 +326,7 @@ pub mod random_string {
             result: crate::random_to_domain_mapper::<Option<String>>(result.result),
             special: crate::random_to_domain_mapper::<Option<bool>>(result.special),
             upper: crate::random_to_domain_mapper::<Option<bool>>(result.upper),
-        };
-
-        result
+        }
     }
 
 }
@@ -371,13 +350,10 @@ pub mod random_uuid {
             keepers: &crate::clone::<Option<std::collections::HashMap<String, String>>>(args.keepers),
         });
 
-
-        let result = RandomUuidResult {
+        RandomUuidResult {
             keepers: crate::random_to_domain_mapper::<Option<std::collections::HashMap<String, String>>>(result.keepers),
             result: crate::random_to_domain_mapper::<Option<String>>(result.result),
-        };
-
-        result
+        }
     }
 
 }
