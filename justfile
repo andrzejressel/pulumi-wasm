@@ -8,7 +8,8 @@ build-language-plugin:
     cd pulumi-language-wasm && just
 
 install-requirements:
-    rustup component add rustfmt
+    rustup component add rustfmt llvm-tools-preview
+    cargo install cargo-llvm-cov@0.6.8 --locked || cargo-llvm-cov --version
     cargo install cargo-component@0.10.1 --locked || cargo-component --version
     cargo install wasm-tools@1.201.0 --locked || wasm-tools --version
 
