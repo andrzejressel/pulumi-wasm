@@ -9,6 +9,7 @@ build-language-plugin:
 
 install-requirements:
     rustup component add rustfmt
+    cargo install cargo-nextest@0.9.68 --locked || cargo-nextest --version
     cargo install cargo-component@0.10.1 --locked || cargo-component --version
     cargo install wasm-tools@1.201.0 --locked || wasm-tools --version
 
@@ -38,7 +39,7 @@ regenerate-providers:
     cargo run -p cargo-pulumi-gen -- gen-rust     --remove true --schema providers/random.json --output providers/pulumi_wasm_provider_random_rust
 
 test:
-    cargo test --all
+    cargo nextest run --all
 
 docs:
     docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material
