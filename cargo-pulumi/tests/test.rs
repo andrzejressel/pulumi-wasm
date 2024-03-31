@@ -1,6 +1,6 @@
-use std::{env, fs};
 use std::path::{Path, PathBuf};
 use std::process::Command;
+use std::{env, fs};
 
 use anyhow::{Context, Error};
 use assert_cmd::prelude::*;
@@ -39,7 +39,11 @@ fn errors_out_when_cargo_toml_not_available() -> Result<(), Error> {
 #[test]
 fn errors_out_in_invalid_package() -> Result<(), Error> {
     let dir = create_test_dir("errors_out_in_invalid_package")?;
-    fs_extra::dir::copy("tests/fixtures/example", &dir, &CopyOptions::new().overwrite(true))?;
+    fs_extra::dir::copy(
+        "tests/fixtures/example",
+        &dir,
+        &CopyOptions::new().overwrite(true),
+    )?;
 
     let s = Command::cargo_bin("cargo-pulumi")?
         .args(["-p", "invalid_package"])
@@ -59,7 +63,11 @@ fn errors_out_in_invalid_package() -> Result<(), Error> {
 #[test]
 fn run_from_subdirectory() -> Result<(), Error> {
     let dir = create_test_dir("run_from_subdirectory")?;
-    fs_extra::dir::copy("tests/fixtures/example", &dir, &CopyOptions::new().overwrite(true))?;
+    fs_extra::dir::copy(
+        "tests/fixtures/example",
+        &dir,
+        &CopyOptions::new().overwrite(true),
+    )?;
 
     Command::new("cargo")
         .args([
@@ -98,7 +106,11 @@ fn run_from_subdirectory() -> Result<(), Error> {
 #[test]
 fn run_from_main_directory() -> Result<(), Error> {
     let dir = create_test_dir("run_from_main_directory")?;
-    fs_extra::dir::copy("tests/fixtures/example", &dir, &CopyOptions::new().overwrite(true))?;
+    fs_extra::dir::copy(
+        "tests/fixtures/example",
+        &dir,
+        &CopyOptions::new().overwrite(true),
+    )?;
 
     Command::new("cargo")
         .args([
@@ -139,9 +151,16 @@ fn create_test_dir(name: &str) -> anyhow::Result<PathBuf> {
     let mut dir = env::current_dir()?;
     // Go to project root
     while !Path::new(&dir.join("justfile")).exists() {
-        dir = PathBuf::from(dir.parent().ok_or(anyhow::anyhow!("Cannot find project root"))?);
+        dir = PathBuf::from(
+            dir.parent()
+                .ok_or(anyhow::anyhow!("Cannot find project root"))?,
+        );
     }
-    let dir = PathBuf::from(dir).join("target").join("tests").join("cargo-pulumi").join(name);
+    let dir = dir
+        .join("target")
+        .join("tests")
+        .join("cargo-pulumi")
+        .join(name);
     fs::create_dir_all(&dir).context("Cannot create directory")?;
     Ok(dir)
 }
