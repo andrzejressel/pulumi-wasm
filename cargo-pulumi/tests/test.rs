@@ -1,14 +1,17 @@
-use assert_cmd::prelude::*;
-use std::process::Command; // Add methods on commands
+use std::path::{Path, PathBuf};
+use std::process::Command;
+use std::{env, fs};
 
-use crate::server::Runner;
-use anyhow::Error;
+use anyhow::{Context, Error};
+use assert_cmd::prelude::*;
 use fs_extra::dir::CopyOptions;
 use wasmtime::component::{Component, Linker, ResourceTable};
 use wasmtime::Store;
 use wasmtime_wasi::WasiCtx;
 use wasmtime_wasi::WasiCtxBuilder;
 use wasmtime_wasi::WasiView;
+
+use crate::server::Runner;
 
 mod server {
     wasmtime::component::bindgen!({
@@ -35,8 +38,12 @@ fn errors_out_when_cargo_toml_not_available() -> Result<(), Error> {
 
 #[test]
 fn errors_out_in_invalid_package() -> Result<(), Error> {
-    let dir = testdir::testdir!();
-    fs_extra::dir::copy("tests/fixtures/example", &dir, &CopyOptions::new())?;
+    let dir = create_test_dir("errors_out_in_invalid_package")?;
+    fs_extra::dir::copy(
+        "tests/fixtures/example",
+        &dir,
+        &CopyOptions::new().overwrite(true),
+    )?;
 
     let s = Command::cargo_bin("cargo-pulumi")?
         .args(["-p", "invalid_package"])
@@ -55,8 +62,12 @@ fn errors_out_in_invalid_package() -> Result<(), Error> {
 
 #[test]
 fn run_from_subdirectory() -> Result<(), Error> {
-    let dir = testdir::testdir!();
-    fs_extra::dir::copy("tests/fixtures/example", &dir, &CopyOptions::new())?;
+    let dir = create_test_dir("run_from_subdirectory")?;
+    fs_extra::dir::copy(
+        "tests/fixtures/example",
+        &dir,
+        &CopyOptions::new().overwrite(true),
+    )?;
 
     Command::new("cargo")
         .args([
@@ -94,8 +105,12 @@ fn run_from_subdirectory() -> Result<(), Error> {
 
 #[test]
 fn run_from_main_directory() -> Result<(), Error> {
-    let dir = testdir::testdir!();
-    fs_extra::dir::copy("tests/fixtures/example", &dir, &CopyOptions::new())?;
+    let dir = create_test_dir("run_from_main_directory")?;
+    fs_extra::dir::copy(
+        "tests/fixtures/example",
+        &dir,
+        &CopyOptions::new().overwrite(true),
+    )?;
 
     Command::new("cargo")
         .args([
@@ -130,6 +145,24 @@ fn run_from_main_directory() -> Result<(), Error> {
     assert_eq!(result, "Hello from main: [Hello from provider-a-lib: Hello from provider-a: Hello from common-lib: run_common] [Hello from common-lib: run_common]".to_string());
 
     Ok(())
+}
+
+fn create_test_dir(name: &str) -> anyhow::Result<PathBuf> {
+    let mut dir = env::current_dir()?;
+    // Go to project root
+    while !Path::new(&dir.join("justfile")).exists() {
+        dir = PathBuf::from(
+            dir.parent()
+                .ok_or(anyhow::anyhow!("Cannot find project root"))?,
+        );
+    }
+    let dir = dir
+        .join("target")
+        .join("tests")
+        .join("cargo-pulumi")
+        .join(name);
+    fs::create_dir_all(&dir).context("Cannot create directory")?;
+    Ok(dir)
 }
 
 struct SimplePluginCtx {
