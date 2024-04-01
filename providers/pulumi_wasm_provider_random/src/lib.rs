@@ -1,6 +1,4 @@
-use crate::bindings::component::pulumi_wasm::register_interface::{
-    register, ObjectField, RegisterResourceRequest,
-};
+use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest};
 use bindings::exports::pulumi::random::random_bytes;
 use bindings::exports::pulumi::random::random_id;
 use bindings::exports::pulumi::random::random_integer;
@@ -26,25 +24,20 @@ impl random_bytes::Guest for Component {
             type_: "random:index/randomBytes:RandomBytes".into(),
             name,
             object: vec![
-                ObjectField {
-                    name: "keepers".into(),
-                    value: args.keepers,
-                },
-                ObjectField {
-                    name: "length".into(),
-                    value: args.length,
-                },
+                ObjectField { name: "keepers".into(), value: args.keepers },
+                ObjectField { name: "length".into(), value: args.length },
             ],
         };
 
         let o = register(&request);
 
         random_bytes::Res {
-            base64: o.get_field("base64"),
-            hex: o.get_field("hex"),
-            keepers: o.get_field("keepers"),
-            length: o.get_field("length"),
+            base64: o.get_field("base64", true),
+            hex: o.get_field("hex", true),
+            keepers: o.get_field("keepers", false),
+            length: o.get_field("length", true),
         }
+
     }
 }
 impl random_id::Guest for Component {
@@ -54,32 +47,24 @@ impl random_id::Guest for Component {
             type_: "random:index/randomId:RandomId".into(),
             name,
             object: vec![
-                ObjectField {
-                    name: "byteLength".into(),
-                    value: args.byte_length,
-                },
-                ObjectField {
-                    name: "keepers".into(),
-                    value: args.keepers,
-                },
-                ObjectField {
-                    name: "prefix".into(),
-                    value: args.prefix,
-                },
+                ObjectField { name: "byteLength".into(), value: args.byte_length },
+                ObjectField { name: "keepers".into(), value: args.keepers },
+                ObjectField { name: "prefix".into(), value: args.prefix },
             ],
         };
 
         let o = register(&request);
 
         random_id::Res {
-            b64_std: o.get_field("b64Std"),
-            b64_url: o.get_field("b64Url"),
-            byte_length: o.get_field("byteLength"),
-            dec: o.get_field("dec"),
-            hex: o.get_field("hex"),
-            keepers: o.get_field("keepers"),
-            prefix: o.get_field("prefix"),
+            b64_std: o.get_field("b64Std", true),
+            b64_url: o.get_field("b64Url", true),
+            byte_length: o.get_field("byteLength", true),
+            dec: o.get_field("dec", true),
+            hex: o.get_field("hex", true),
+            keepers: o.get_field("keepers", false),
+            prefix: o.get_field("prefix", false),
         }
+
     }
 }
 impl random_integer::Guest for Component {
@@ -89,34 +74,23 @@ impl random_integer::Guest for Component {
             type_: "random:index/randomInteger:RandomInteger".into(),
             name,
             object: vec![
-                ObjectField {
-                    name: "keepers".into(),
-                    value: args.keepers,
-                },
-                ObjectField {
-                    name: "max".into(),
-                    value: args.max,
-                },
-                ObjectField {
-                    name: "min".into(),
-                    value: args.min,
-                },
-                ObjectField {
-                    name: "seed".into(),
-                    value: args.seed,
-                },
+                ObjectField { name: "keepers".into(), value: args.keepers },
+                ObjectField { name: "max".into(), value: args.max },
+                ObjectField { name: "min".into(), value: args.min },
+                ObjectField { name: "seed".into(), value: args.seed },
             ],
         };
 
         let o = register(&request);
 
         random_integer::Res {
-            keepers: o.get_field("keepers"),
-            max: o.get_field("max"),
-            min: o.get_field("min"),
-            result: o.get_field("result"),
-            seed: o.get_field("seed"),
+            keepers: o.get_field("keepers", false),
+            max: o.get_field("max", true),
+            min: o.get_field("min", true),
+            result: o.get_field("result", true),
+            seed: o.get_field("seed", false),
         }
+
     }
 }
 impl random_password::Guest for Component {
@@ -126,75 +100,40 @@ impl random_password::Guest for Component {
             type_: "random:index/randomPassword:RandomPassword".into(),
             name,
             object: vec![
-                ObjectField {
-                    name: "keepers".into(),
-                    value: args.keepers,
-                },
-                ObjectField {
-                    name: "length".into(),
-                    value: args.length,
-                },
-                ObjectField {
-                    name: "lower".into(),
-                    value: args.lower,
-                },
-                ObjectField {
-                    name: "minLower".into(),
-                    value: args.min_lower,
-                },
-                ObjectField {
-                    name: "minNumeric".into(),
-                    value: args.min_numeric,
-                },
-                ObjectField {
-                    name: "minSpecial".into(),
-                    value: args.min_special,
-                },
-                ObjectField {
-                    name: "minUpper".into(),
-                    value: args.min_upper,
-                },
-                ObjectField {
-                    name: "number".into(),
-                    value: args.number,
-                },
-                ObjectField {
-                    name: "numeric".into(),
-                    value: args.numeric,
-                },
-                ObjectField {
-                    name: "overrideSpecial".into(),
-                    value: args.override_special,
-                },
-                ObjectField {
-                    name: "special".into(),
-                    value: args.special,
-                },
-                ObjectField {
-                    name: "upper".into(),
-                    value: args.upper,
-                },
+                ObjectField { name: "keepers".into(), value: args.keepers },
+                ObjectField { name: "length".into(), value: args.length },
+                ObjectField { name: "lower".into(), value: args.lower },
+                ObjectField { name: "minLower".into(), value: args.min_lower },
+                ObjectField { name: "minNumeric".into(), value: args.min_numeric },
+                ObjectField { name: "minSpecial".into(), value: args.min_special },
+                ObjectField { name: "minUpper".into(), value: args.min_upper },
+                ObjectField { name: "number".into(), value: args.number },
+                ObjectField { name: "numeric".into(), value: args.numeric },
+                ObjectField { name: "overrideSpecial".into(), value: args.override_special },
+                ObjectField { name: "special".into(), value: args.special },
+                ObjectField { name: "upper".into(), value: args.upper },
             ],
         };
 
         let o = register(&request);
 
         random_password::Res {
-            bcrypt_hash: o.get_field("bcryptHash"),
-            keepers: o.get_field("keepers"),
-            length: o.get_field("length"),
-            lower: o.get_field("lower"),
-            min_lower: o.get_field("minLower"),
-            min_numeric: o.get_field("minNumeric"),
-            min_special: o.get_field("minSpecial"),
-            min_upper: o.get_field("minUpper"),
-            number: o.get_field("number"),
-            numeric: o.get_field("numeric"),
-            override_special: o.get_field("overrideSpecial"),
-            result: o.get_field("result"),
-            special: o.get_field("special"),
-            upper: o.get_field("upper"),
+            bcrypt_hash: o.get_field("bcryptHash", true),
+            keepers: o.get_field("keepers", false),
+            length: o.get_field("length", true),
+            lower: o.get_field("lower", true),
+            min_lower: o.get_field("minLower", true),
+            min_numeric: o.get_field("minNumeric", true),
+            min_special: o.get_field("minSpecial", true),
+            min_upper: o.get_field("minUpper", true),
+            number: o.get_field("number", true),
+            numeric: o.get_field("numeric", true),
+            override_special: o.get_field("overrideSpecial", false),
+            result: o.get_field("result", true),
+            special: o.get_field("special", true),
+            upper: o.get_field("upper", true),
         }
+
     }
 }
 impl random_pet::Guest for Component {
@@ -204,33 +143,22 @@ impl random_pet::Guest for Component {
             type_: "random:index/randomPet:RandomPet".into(),
             name,
             object: vec![
-                ObjectField {
-                    name: "keepers".into(),
-                    value: args.keepers,
-                },
-                ObjectField {
-                    name: "length".into(),
-                    value: args.length,
-                },
-                ObjectField {
-                    name: "prefix".into(),
-                    value: args.prefix,
-                },
-                ObjectField {
-                    name: "separator".into(),
-                    value: args.separator,
-                },
+                ObjectField { name: "keepers".into(), value: args.keepers },
+                ObjectField { name: "length".into(), value: args.length },
+                ObjectField { name: "prefix".into(), value: args.prefix },
+                ObjectField { name: "separator".into(), value: args.separator },
             ],
         };
 
         let o = register(&request);
 
         random_pet::Res {
-            keepers: o.get_field("keepers"),
-            length: o.get_field("length"),
-            prefix: o.get_field("prefix"),
-            separator: o.get_field("separator"),
+            keepers: o.get_field("keepers", false),
+            length: o.get_field("length", true),
+            prefix: o.get_field("prefix", false),
+            separator: o.get_field("separator", true),
         }
+
     }
 }
 impl random_shuffle::Guest for Component {
@@ -240,34 +168,23 @@ impl random_shuffle::Guest for Component {
             type_: "random:index/randomShuffle:RandomShuffle".into(),
             name,
             object: vec![
-                ObjectField {
-                    name: "inputs".into(),
-                    value: args.inputs,
-                },
-                ObjectField {
-                    name: "keepers".into(),
-                    value: args.keepers,
-                },
-                ObjectField {
-                    name: "resultCount".into(),
-                    value: args.result_count,
-                },
-                ObjectField {
-                    name: "seed".into(),
-                    value: args.seed,
-                },
+                ObjectField { name: "inputs".into(), value: args.inputs },
+                ObjectField { name: "keepers".into(), value: args.keepers },
+                ObjectField { name: "resultCount".into(), value: args.result_count },
+                ObjectField { name: "seed".into(), value: args.seed },
             ],
         };
 
         let o = register(&request);
 
         random_shuffle::Res {
-            inputs: o.get_field("inputs"),
-            keepers: o.get_field("keepers"),
-            result_count: o.get_field("resultCount"),
-            results: o.get_field("results"),
-            seed: o.get_field("seed"),
+            inputs: o.get_field("inputs", true),
+            keepers: o.get_field("keepers", false),
+            result_count: o.get_field("resultCount", false),
+            results: o.get_field("results", true),
+            seed: o.get_field("seed", false),
         }
+
     }
 }
 impl random_string::Guest for Component {
@@ -277,74 +194,39 @@ impl random_string::Guest for Component {
             type_: "random:index/randomString:RandomString".into(),
             name,
             object: vec![
-                ObjectField {
-                    name: "keepers".into(),
-                    value: args.keepers,
-                },
-                ObjectField {
-                    name: "length".into(),
-                    value: args.length,
-                },
-                ObjectField {
-                    name: "lower".into(),
-                    value: args.lower,
-                },
-                ObjectField {
-                    name: "minLower".into(),
-                    value: args.min_lower,
-                },
-                ObjectField {
-                    name: "minNumeric".into(),
-                    value: args.min_numeric,
-                },
-                ObjectField {
-                    name: "minSpecial".into(),
-                    value: args.min_special,
-                },
-                ObjectField {
-                    name: "minUpper".into(),
-                    value: args.min_upper,
-                },
-                ObjectField {
-                    name: "number".into(),
-                    value: args.number,
-                },
-                ObjectField {
-                    name: "numeric".into(),
-                    value: args.numeric,
-                },
-                ObjectField {
-                    name: "overrideSpecial".into(),
-                    value: args.override_special,
-                },
-                ObjectField {
-                    name: "special".into(),
-                    value: args.special,
-                },
-                ObjectField {
-                    name: "upper".into(),
-                    value: args.upper,
-                },
+                ObjectField { name: "keepers".into(), value: args.keepers },
+                ObjectField { name: "length".into(), value: args.length },
+                ObjectField { name: "lower".into(), value: args.lower },
+                ObjectField { name: "minLower".into(), value: args.min_lower },
+                ObjectField { name: "minNumeric".into(), value: args.min_numeric },
+                ObjectField { name: "minSpecial".into(), value: args.min_special },
+                ObjectField { name: "minUpper".into(), value: args.min_upper },
+                ObjectField { name: "number".into(), value: args.number },
+                ObjectField { name: "numeric".into(), value: args.numeric },
+                ObjectField { name: "overrideSpecial".into(), value: args.override_special },
+                ObjectField { name: "special".into(), value: args.special },
+                ObjectField { name: "upper".into(), value: args.upper },
             ],
         };
 
         let o = register(&request);
 
         random_string::Res {
-            keepers: o.get_field("keepers"),
-            length: o.get_field("length"),
-            lower: o.get_field("lower"),
-            min_lower: o.get_field("minLower"),
-            min_numeric: o.get_field("minNumeric"),
-            min_special: o.get_field("minSpecial"),
-            min_upper: o.get_field("minUpper"),
-            number: o.get_field("number"),
-            numeric: o.get_field("numeric"),
-            override_special: o.get_field("overrideSpecial"),
-            result: o.get_field("result"),
-            special: o.get_field("special"),
-            upper: o.get_field("upper"),
+            keepers: o.get_field("keepers", false),
+            length: o.get_field("length", true),
+            lower: o.get_field("lower", true),
+            min_lower: o.get_field("minLower", true),
+            min_numeric: o.get_field("minNumeric", true),
+            min_special: o.get_field("minSpecial", true),
+            min_upper: o.get_field("minUpper", true),
+            number: o.get_field("number", true),
+            numeric: o.get_field("numeric", true),
+            override_special: o.get_field("overrideSpecial", false),
+            result: o.get_field("result", true),
+            special: o.get_field("special", true),
+            upper: o.get_field("upper", true),
         }
+
     }
 }
 impl random_uuid::Guest for Component {
@@ -353,17 +235,17 @@ impl random_uuid::Guest for Component {
         let request = RegisterResourceRequest {
             type_: "random:index/randomUuid:RandomUuid".into(),
             name,
-            object: vec![ObjectField {
-                name: "keepers".into(),
-                value: args.keepers,
-            }],
+            object: vec![
+                ObjectField { name: "keepers".into(), value: args.keepers },
+            ],
         };
 
         let o = register(&request);
 
         random_uuid::Res {
-            keepers: o.get_field("keepers"),
-            result: o.get_field("result"),
+            keepers: o.get_field("keepers", false),
+            result: o.get_field("result", true),
         }
+
     }
 }

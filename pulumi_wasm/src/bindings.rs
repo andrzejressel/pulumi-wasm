@@ -569,12 +569,14 @@ pub mod exports {
                     arg0: i32,
                     arg1: *mut u8,
                     arg2: usize,
+                    arg3: i32,
                 ) -> i32 {
                     let len0 = arg2;
                     let bytes0 = _rt::Vec::from_raw_parts(arg1.cast(), len0, len0);
                     let result1 = T::get_field(
                         OutputBorrow::lift(arg0 as u32 as usize).get(),
                         _rt::string_lift(bytes0),
+                        _rt::bool_lift(arg3 as u8),
                     );
                     (result1).take_handle() as i32
                 }
@@ -659,7 +661,7 @@ pub mod exports {
                     fn new(value: _rt::Vec<u8>) -> Self;
                     fn map(&self, function_name: _rt::String) -> Output;
                     fn get(&self) -> Option<_rt::Vec<u8>>;
-                    fn get_field(&self, field: _rt::String) -> Output;
+                    fn get_field(&self, field: _rt::String, required: bool) -> Output;
                     fn get_type(&self) -> _rt::String;
                     fn duplicate(&self) -> Output;
                 }
@@ -697,8 +699,8 @@ pub mod exports {
       $($path_to_types)*::__post_return_method_output_get::<<$ty as $($path_to_types)*::Guest>::Output>(arg0)
     }
     #[export_name = "component:pulumi-wasm/output-interface@0.1.0#[method]output.get-field"]
-    unsafe extern "C" fn export_method_output_get_field(arg0: i32,arg1: *mut u8,arg2: usize,) -> i32 {
-      $($path_to_types)*::_export_method_output_get_field_cabi::<<$ty as $($path_to_types)*::Guest>::Output>(arg0, arg1, arg2)
+    unsafe extern "C" fn export_method_output_get_field(arg0: i32,arg1: *mut u8,arg2: usize,arg3: i32,) -> i32 {
+      $($path_to_types)*::_export_method_output_get_field_cabi::<<$ty as $($path_to_types)*::Guest>::Output>(arg0, arg1, arg2, arg3)
     }
     #[export_name = "component:pulumi-wasm/output-interface@0.1.0#[method]output.get-type"]
     unsafe extern "C" fn export_method_output_get_type(arg0: i32,) -> *mut u8 {
@@ -1268,8 +1270,8 @@ pub(crate) use __export_pulumi_wasm_impl as export;
 #[cfg(target_arch = "wasm32")]
 #[link_section = "component-type:wit-bindgen:0.21.0:pulumi-wasm:encoded world"]
 #[doc(hidden)]
-pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 1499] = *b"\
-\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xd9\x0a\x01A\x02\x01\
+pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 1509] = *b"\
+\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xe3\x0a\x01A\x02\x01\
 A\x0d\x01B\x0a\x01m\x05\x05TRACE\x05DEBUG\x04INFO\x04WARN\x05ERROR\x04\0\x05leve\
 l\x03\0\0\x01ks\x01ky\x01o\x02ss\x01p\x04\x01r\x07\x05level\x01\x06targets\x04ar\
 gss\x0bmodule-path\x02\x04file\x02\x04line\x03\x0akey-values\x05\x04\0\x07conten\
@@ -1281,26 +1283,27 @@ ent:pulumi-wasm/log@0.1.0\x05\0\x01B\x08\x01@\0\0\x7f\x04\0\x0dis-in-preview\x01
 \x03\x01\x01p}\x01i\0\x01@\x01\x05value\x01\0\x02\x04\0\x13[constructor]output\x01\
 \x03\x01h\0\x01@\x02\x04self\x04\x0dfunction-names\0\x02\x04\0\x12[method]output\
 .map\x01\x05\x01k\x01\x01@\x01\x04self\x04\0\x06\x04\0\x12[method]output.get\x01\
-\x07\x01@\x02\x04self\x04\x05fields\0\x02\x04\0\x18[method]output.get-field\x01\x08\
-\x01@\x01\x04self\x04\0s\x04\0\x17[method]output.get-type\x01\x09\x01@\x01\x04se\
-lf\x04\0\x02\x04\0\x18[method]output.duplicate\x01\x0a\x01@\0\0s\x04\0\x10descri\
-be-outputs\x01\x0b\x01@\0\0\x7f\x04\0\x0fnon-done-exists\x01\x0c\x04\x01,compone\
-nt:pulumi-wasm/output-interface@0.1.0\x05\x02\x02\x03\0\x02\x06output\x01B\x0b\x02\
-\x03\x02\x01\x03\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x04names\x05value\x02\
-\x04\0\x0cobject-field\x03\0\x03\x01p\x04\x01r\x03\x04types\x04names\x06object\x05\
-\x04\0\x19register-resource-request\x03\0\x06\x01i\x01\x01@\x01\x07request\x07\0\
-\x08\x04\0\x08register\x01\x09\x04\x01.component:pulumi-wasm/register-interface@\
-0.1.0\x05\x04\x01B\x0f\x02\x03\x02\x01\x03\x04\0\x06output\x03\0\0\x01i\x01\x01p\
-}\x01r\x03\x02id\x02\x0bfunction-ids\x05value\x03\x04\0\x1bfunction-invocation-r\
-equest\x03\0\x04\x01h\x01\x01r\x02\x02id\x06\x05value\x03\x04\0\x1afunction-invo\
-cation-result\x03\0\x07\x01p\x05\x01@\x01\x06sources\0\x09\x04\0\x0dget-function\
-s\x01\x0a\x01p\x08\x01@\x01\x07results\x0b\x01\0\x04\0\x0dset-functions\x01\x0c\x04\
-\x015component:pulumi-wasm/function-reverse-callback@0.1.0\x05\x05\x01B\x07\x02\x03\
-\x02\x01\x03\x04\0\x06output\x03\0\0\x01h\x01\x01@\x02\x04names\x05value\x02\x01\
-\0\x04\0\x0aadd-export\x01\x03\x01@\0\0\x7f\x04\0\x06finish\x01\x04\x04\x01+comp\
-onent:pulumi-wasm/stack-interface@0.1.0\x05\x06\x04\x01'component:pulumi-wasm/pu\
-lumi-wasm@0.1.0\x04\0\x0b\x11\x01\0\x0bpulumi-wasm\x03\0\0\0G\x09producers\x01\x0c\
-processed-by\x02\x0dwit-component\x070.201.0\x10wit-bindgen-rust\x060.21.0";
+\x07\x01@\x03\x04self\x04\x05fields\x08required\x7f\0\x02\x04\0\x18[method]outpu\
+t.get-field\x01\x08\x01@\x01\x04self\x04\0s\x04\0\x17[method]output.get-type\x01\
+\x09\x01@\x01\x04self\x04\0\x02\x04\0\x18[method]output.duplicate\x01\x0a\x01@\0\
+\0s\x04\0\x10describe-outputs\x01\x0b\x01@\0\0\x7f\x04\0\x0fnon-done-exists\x01\x0c\
+\x04\x01,component:pulumi-wasm/output-interface@0.1.0\x05\x02\x02\x03\0\x02\x06o\
+utput\x01B\x0b\x02\x03\x02\x01\x03\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x04\
+names\x05value\x02\x04\0\x0cobject-field\x03\0\x03\x01p\x04\x01r\x03\x04types\x04\
+names\x06object\x05\x04\0\x19register-resource-request\x03\0\x06\x01i\x01\x01@\x01\
+\x07request\x07\0\x08\x04\0\x08register\x01\x09\x04\x01.component:pulumi-wasm/re\
+gister-interface@0.1.0\x05\x04\x01B\x0f\x02\x03\x02\x01\x03\x04\0\x06output\x03\0\
+\0\x01i\x01\x01p}\x01r\x03\x02id\x02\x0bfunction-ids\x05value\x03\x04\0\x1bfunct\
+ion-invocation-request\x03\0\x04\x01h\x01\x01r\x02\x02id\x06\x05value\x03\x04\0\x1a\
+function-invocation-result\x03\0\x07\x01p\x05\x01@\x01\x06sources\0\x09\x04\0\x0d\
+get-functions\x01\x0a\x01p\x08\x01@\x01\x07results\x0b\x01\0\x04\0\x0dset-functi\
+ons\x01\x0c\x04\x015component:pulumi-wasm/function-reverse-callback@0.1.0\x05\x05\
+\x01B\x07\x02\x03\x02\x01\x03\x04\0\x06output\x03\0\0\x01h\x01\x01@\x02\x04names\
+\x05value\x02\x01\0\x04\0\x0aadd-export\x01\x03\x01@\0\0\x7f\x04\0\x06finish\x01\
+\x04\x04\x01+component:pulumi-wasm/stack-interface@0.1.0\x05\x06\x04\x01'compone\
+nt:pulumi-wasm/pulumi-wasm@0.1.0\x04\0\x0b\x11\x01\0\x0bpulumi-wasm\x03\0\0\0G\x09\
+producers\x01\x0cprocessed-by\x02\x0dwit-component\x070.201.0\x10wit-bindgen-rus\
+t\x060.21.0";
 
 #[inline(never)]
 #[doc(hidden)]

@@ -30,7 +30,7 @@ impl {{name}}::Guest for Component {
 
         {{name}}::Res {
             {{#each output_properties}}
-            {{arg_name}}: o.get_field("{{name}}"),
+            {{arg_name}}: o.get_field("{{name}}", {{required}}),
             {{/each}}
         }
 

@@ -1,3 +1,4 @@
+use crate::bindings::component::pulumi_wasm::external_world::is_in_preview;
 use crate::bindings::exports::component::pulumi_wasm::function_reverse_callback::{
     FunctionInvocationRequest, FunctionInvocationResult,
 };
@@ -136,7 +137,7 @@ impl GuestOutput for Output {
         }
     }
 
-    fn get_field(&self, field: String) -> WasmOutput {
+    fn get_field(&self, field: String, required: bool) -> WasmOutput {
         wasm_common::setup_logger();
 
         info!("Getting field [{field}] from Output [TODO]");
@@ -150,30 +151,22 @@ impl GuestOutput for Output {
                     let key = Value::String(Utf8String::from(field.clone()));
                     let maybe_value = m.iter().find(|(k, _)| k == &key).map(|(_, v)| v.clone()); //.unwrap_or(Value::Nil)
                     match maybe_value {
-                        None => {
-                            // TODO: Implement
-                            Value::Nil
-                            // if is_in_preview() {
-                            //     Value::Nil
-                            // } else {
-                            //     todo!()
-                            // }
+                        None if is_in_preview() => None,
+                        None if required => {
+                            error!("Field [{field}] not found in map [{m:?}]");
+                            unreachable!("Field [{field}] not found in map [{m:?}]")
                         }
-                        Some(v) => v,
+                        None => Some(Value::Nil),
+                        Some(v) => Some(v),
                     }
                 }
-                Value::Nil => todo!(),
-                Value::Boolean(_) => todo!(),
-                Value::Integer(_) => todo!(),
-                Value::F32(_) => todo!(),
-                Value::F64(_) => todo!(),
-                Value::String(_) => todo!(),
-                Value::Binary(_) => todo!(),
-                Value::Array(_) => todo!(),
-                Value::Ext(_, _) => todo!(),
+                v => {
+                    error!("Value is not a map [{v}]");
+                    unreachable!("Value is not a map [{v}]")
+                }
             };
 
-            info!("Result is [{v}]");
+            info!("Result is [{v:?}]");
 
             v
         });
@@ -395,7 +388,7 @@ impl register_interface::Guest for Component {
 
             info!("Message pack map: [{result:?}]");
 
-            result
+            Some(result)
         });
 
         WasmOutput::new(Output {

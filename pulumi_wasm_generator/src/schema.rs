@@ -57,6 +57,8 @@ struct Resource {
     input_properties: PulumiMap<Property>,
     #[serde(default, rename = "requiredInputs")]
     required_inputs: BTreeSet<String>,
+    #[serde(default)]
+    required: BTreeSet<String>,
 }
 
 #[derive(Deserialize, Debug)]
@@ -169,7 +171,7 @@ fn resource_to_model(
                 .map(|(output_name, output_property)| {
                     let mut type_ = new_type_mapper(&output_property.r#type)
                         .context(format!("Cannot handle [{output_name}] type"))?;
-                    if !resource.required_inputs.contains(output_name) {
+                    if !resource.required.contains(output_name) {
                         type_ = crate::model::Type::Option(Box::new(type_));
                     }
                     Ok(crate::model::OutputProperty {

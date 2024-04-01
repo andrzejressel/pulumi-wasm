@@ -17,6 +17,7 @@ struct InputProperty {
 struct OutputProperty {
     name: String,
     arg_name: String,
+    required: bool,
 }
 
 #[derive(Serialize)]
@@ -56,6 +57,10 @@ fn convert_model(package: &crate::model::Package) -> Package {
                     .map(|output_property| OutputProperty {
                         name: output_property.name.clone(),
                         arg_name: create_valid_id(&output_property.name),
+                        required: match output_property.r#type {
+                            crate::model::Type::Option(_) => false,
+                            _ => true,
+                        },
                     })
                     .collect(),
             })
