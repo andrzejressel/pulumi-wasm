@@ -134,10 +134,7 @@ fn protobuf_to_msgpack(message: &ProtobufValue, tpe: &Type) -> Result<MsgpackVal
             "invalid type [{tpe:?}] for list value [{message:?}]"
         )),
         (Some(ProtobufKind::StructValue(protobuf_struct)), Type::Map(type_map)) => {
-            let map = combine_maps(
-                type_map,
-                &protobuf_struct.fields,
-            );
+            let map = combine_maps(type_map, &protobuf_struct.fields);
 
             let fields = map
                 .iter()
