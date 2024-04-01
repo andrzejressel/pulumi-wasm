@@ -4,7 +4,7 @@ use crate::output::{access_map, output_map, OutputContent};
 use crate::{grpc, output};
 use log::info;
 use prost::Message;
-use rmpv::Value;
+
 use std::ops::Deref;
 use std::sync::atomic::AtomicBool;
 use std::sync::atomic::Ordering::Relaxed;

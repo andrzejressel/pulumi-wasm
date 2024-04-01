@@ -1,5 +1,5 @@
-use pulumi_wasm_rust::Output;
 use crate::bindings::component::pulumi_wasm::output_interface::Output as WitOutput;
+use pulumi_wasm_rust::Output;
 pub mod source;
 
 #[allow(clippy::all)]
