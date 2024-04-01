@@ -1,10 +1,8 @@
 name: Build
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  push: null
+  pull_request: null
 
 env:
   CARGO_TERM_COLOR: always
