@@ -1,4 +1,5 @@
 use std::collections::{BTreeMap, HashMap};
+use std::hash::Hash;
 
 use anyhow::{anyhow, Context, Result};
 use log::{error, info};
@@ -55,7 +56,7 @@ fn msgpack_to_protobuf(v: &MsgpackValue) -> Result<ProtobufValue> {
                     MsgpackValue::String(s) => Ok(s.clone().into_str().unwrap()),
                     _ => {
                         error!("Cannot convert map key [{k}] to string");
-                        return Err(anyhow!("Cannot convert map key [{k}] to string"));
+                        Err(anyhow!("Cannot convert map key [{k}] to string"))
                     }
                 })
                 .collect::<Result<Vec<_>>>()?;
@@ -134,7 +135,7 @@ fn protobuf_to_msgpack(message: &ProtobufValue, tpe: &Type) -> Result<MsgpackVal
         )),
         (Some(ProtobufKind::StructValue(protobuf_struct)), Type::Map(type_map)) => {
             let map = combine_maps(
-                &type_map.iter().map(|(k, v)| (k.clone(), v)).collect(),
+                type_map,
                 &protobuf_struct.fields,
             );
 
@@ -142,7 +143,7 @@ fn protobuf_to_msgpack(message: &ProtobufValue, tpe: &Type) -> Result<MsgpackVal
                 .iter()
                 .map(|(k, (v, t))| {
                     Ok((
-                        MsgpackValue::from(k.clone()),
+                        MsgpackValue::from((*k).clone()),
                         protobuf_to_msgpack(t, v)
                             .context(format!("Cannot convert value for key [{k}]"))?,
                     ))
@@ -156,18 +157,15 @@ fn protobuf_to_msgpack(message: &ProtobufValue, tpe: &Type) -> Result<MsgpackVal
     }
 }
 
-fn combine_maps<A: Eq + std::hash::Hash + Clone + Ord, B: Clone, C: Clone>(
-    map1: &BTreeMap<A, B>,
-    map2: &BTreeMap<A, C>,
-) -> BTreeMap<A, (B, C)> {
-    let mut result: BTreeMap<A, (B, C)> = BTreeMap::new();
+fn combine_maps<'a, A: Eq + Hash + Ord, B, C>(
+    map1: &'a HashMap<A, B>,
+    map2: &'a BTreeMap<A, C>,
+) -> BTreeMap<&'a A, (&'a B, &'a C)> {
+    let mut result = BTreeMap::new();
 
-    for (key, value) in map1 {
-        match map2.get(key) {
-            Some(map2_value) => {
-                result.insert(key.clone(), (value.clone(), map2_value.clone()));
-            }
-            None => {}
+    for (key, map2_value) in map2 {
+        if let Some(map1_value) = map1.get(key) {
+            result.insert(key, (map1_value, map2_value));
         }
     }
 
@@ -176,7 +174,7 @@ fn combine_maps<A: Eq + std::hash::Hash + Clone + Ord, B: Clone, C: Clone>(
 
 #[cfg(test)]
 mod tests {
-    use std::collections::BTreeMap;
+    use std::collections::{BTreeMap, HashMap};
 
     mod msgpack_to_protobuf {
         use std::collections::BTreeMap;
@@ -607,11 +605,11 @@ mod tests {
 
     #[test]
     fn combine_maps_test() {
-        let map1 = BTreeMap::from([("key1", 42), ("key2", 43)]);
+        let map1 = HashMap::from([("key1", 42), ("key2", 43)]);
         let map2 = BTreeMap::from([("key2", 44), ("key3", 45)]);
 
         let result = super::combine_maps(&map1, &map2);
 
-        assert_eq!(result, BTreeMap::from([("key2", (43, 44))]));
+        assert_eq!(result, BTreeMap::from([(&"key2", (&43, &44))]));
     }
 }
