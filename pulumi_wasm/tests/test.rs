@@ -161,47 +161,7 @@ fn should_return_value_of_handled_mapped_value() -> Result<(), Error> {
 }
 
 #[test]
-fn should_return_uninitialized_when_getting_nonexisting_field_during_preview() -> Result<(), Error>
-{
-    let (mut store, plugin) = create_engine(true)?;
-
-    let output1 = plugin
-        .component_pulumi_wasm_output_interface()
-        .output()
-        .call_constructor(
-            &mut store,
-            rmp_serde::to_vec(&HashMap::from([("key", "value")]))
-                .unwrap()
-                .as_slice(),
-        )?;
-
-    let output2 = plugin
-        .component_pulumi_wasm_output_interface()
-        .output()
-        .call_get_field(&mut store, output1, "nonexisting")?;
-
-    run_loop(&mut store, &plugin)?;
-
-    let output2_type = plugin
-        .component_pulumi_wasm_output_interface()
-        .output()
-        .call_get_type(&mut store, output2)?;
-
-    let output2_value = plugin
-        .component_pulumi_wasm_output_interface()
-        .output()
-        .call_get(&mut store, output2)?;
-
-    anyhow::ensure!(output2_type == "Done");
-    anyhow::ensure!(output2_value.unwrap() == rmp_serde::to_vec(&None::<String>).unwrap());
-
-    Ok(())
-}
-
-//TODO: Implement
-#[test]
-#[ignore]
-fn should_panic_when_getting_nonexisting_field_not_during_preview() -> Result<(), Error> {
+fn should_panic_when_getting_nonexisting_required_field_not_during_preview() -> Result<(), Error> {
     let (mut store, plugin) = create_engine(false)?;
 
     let output1 = plugin
@@ -217,11 +177,80 @@ fn should_panic_when_getting_nonexisting_field_not_during_preview() -> Result<()
     let _output2 = plugin
         .component_pulumi_wasm_output_interface()
         .output()
-        .call_get_field(&mut store, output1, "nonexisting")?;
+        .call_get_field(&mut store, output1, "nonexisting", true)?;
 
     let result = run_loop(&mut store, &plugin);
 
     anyhow::ensure!(result.is_err());
+
+    Ok(())
+}
+
+#[test]
+fn should_return_nothing_when_getting_nonexisting_nonrequired_field_during_preview(
+) -> Result<(), Error> {
+    let (mut store, plugin) = create_engine(true)?;
+
+    let output1 = plugin
+        .component_pulumi_wasm_output_interface()
+        .output()
+        .call_constructor(
+            &mut store,
+            rmp_serde::to_vec(&HashMap::from([("key", "value")]))
+                .unwrap()
+                .as_slice(),
+        )?;
+
+    let output2 = plugin
+        .component_pulumi_wasm_output_interface()
+        .output()
+        .call_get_field(&mut store, output1, "nonexisting", false)?;
+
+    run_loop(&mut store, &plugin)?;
+
+    let output2_type = plugin
+        .component_pulumi_wasm_output_interface()
+        .output()
+        .call_get_type(&mut store, output2)?;
+
+    anyhow::ensure!(output2_type == "Nothing");
+
+    Ok(())
+}
+
+#[test]
+fn should_return_null_when_getting_nonexisting_nonrequired_field() -> Result<(), Error> {
+    let (mut store, plugin) = create_engine(false)?;
+
+    let output1 = plugin
+        .component_pulumi_wasm_output_interface()
+        .output()
+        .call_constructor(
+            &mut store,
+            rmp_serde::to_vec(&HashMap::from([("key", "value")]))
+                .unwrap()
+                .as_slice(),
+        )?;
+
+    let output2 = plugin
+        .component_pulumi_wasm_output_interface()
+        .output()
+        .call_get_field(&mut store, output1, "nonexisting", false)?;
+
+    run_loop(&mut store, &plugin)?;
+
+    let output2_type = plugin
+        .component_pulumi_wasm_output_interface()
+        .output()
+        .call_get_type(&mut store, output2)?;
+
+    let output2_value = plugin
+        .component_pulumi_wasm_output_interface()
+        .output()
+        .call_get(&mut store, output2)?;
+
+    anyhow::ensure!(output2_type == "Done");
+    anyhow::ensure!(output2_value.unwrap() == rmp_serde::to_vec(&None::<String>).unwrap());
 
     Ok(())
 }
