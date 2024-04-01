@@ -11,7 +11,7 @@ enum Type {
     Nullable(Box<Type>),
     Bool,
     Int,
-    Float,
+    Double,
     String,
     Array(Box<Type>),
     Map(HashMap<String, Type>),
@@ -104,7 +104,7 @@ fn protobuf_to_msgpack(message: &ProtobufValue, tpe: &Type) -> Result<MsgpackVal
             Err(anyhow!("Invalid type [{tpe:?}] for null value"))
         }
         (Some(_), Type::Nullable(t)) => protobuf_to_msgpack(message, t),
-        (Some(ProtobufKind::NumberValue(f)), Type::Float) => Ok(MsgpackValue::F64(*f)),
+        (Some(ProtobufKind::NumberValue(f)), Type::Double) => Ok(MsgpackValue::F64(*f)),
         (Some(ProtobufKind::NumberValue(f)), Type::Int) => Ok(MsgpackValue::from(*f as i64)),
         (Some(ProtobufKind::NumberValue(_)), tpe) => Err(anyhow!(
             "invalid type [{tpe:?}] for number value [{message:?}]"
@@ -160,17 +160,12 @@ fn combine_maps<A: Eq + std::hash::Hash + Clone + Ord, B: Clone, C: Clone>(
     map1: &BTreeMap<A, B>,
     map2: &BTreeMap<A, C>,
 ) -> BTreeMap<A, (B, C)> {
-    let mut result_temp: BTreeMap<A, B> = BTreeMap::new();
     let mut result: BTreeMap<A, (B, C)> = BTreeMap::new();
 
     for (key, value) in map1 {
-        result_temp.insert(key.clone(), value.clone());
-    }
-
-    for (key, value) in map2 {
-        match result_temp.get_mut(key) {
-            Some(tuple) => {
-                result.insert(key.clone(), (tuple.clone(), value.clone()));
+        match map2.get(key) {
+            Some(map2_value) => {
+                result.insert(key.clone(), (value.clone(), map2_value.clone()));
             }
             None => {}
         }
@@ -181,6 +176,8 @@ fn combine_maps<A: Eq + std::hash::Hash + Clone + Ord, B: Clone, C: Clone>(
 
 #[cfg(test)]
 mod tests {
+    use std::collections::BTreeMap;
+
     mod msgpack_to_protobuf {
         use std::collections::BTreeMap;
 
@@ -394,7 +391,7 @@ mod tests {
             let protobuf_value = prost_types::Value {
                 kind: Some(ProtobufKind::NumberValue(42.0)),
             };
-            let msgpack_value = protobuf_to_msgpack(&protobuf_value, &Type::Float).unwrap();
+            let msgpack_value = protobuf_to_msgpack(&protobuf_value, &Type::Double).unwrap();
             assert_eq!(msgpack_value, rmpv::Value::F64(42.0));
         }
 
@@ -606,5 +603,15 @@ mod tests {
                 ])
             );
         }
+    }
+
+    #[test]
+    fn combine_maps_test() {
+        let map1 = BTreeMap::from([("key1", 42), ("key2", 43)]);
+        let map2 = BTreeMap::from([("key2", 44), ("key3", 45)]);
+
+        let result = super::combine_maps(&map1, &map2);
+
+        assert_eq!(result, BTreeMap::from([("key2", (43, 44))]));
     }
 }
