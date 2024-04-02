@@ -1,4 +1,4 @@
-use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest};
+use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
 {{#each package.interfaces}}
 use bindings::exports::pulumi::{{@root.package.name}}::{{name}};
 {{/each}}
@@ -22,6 +22,11 @@ impl {{name}}::Guest for Component {
             object: vec![
                 {{#each input_properties}}
                 ObjectField { name: "{{name}}".into(), value: args.{{arg_name}} },
+                {{/each}}
+            ],
+            results: vec![
+                {{#each output_properties}}
+                ResultField { name: "{{name}}".into(), schema: vec!{{schema}} },
                 {{/each}}
             ],
         };

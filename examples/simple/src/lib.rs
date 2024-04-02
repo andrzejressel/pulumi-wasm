@@ -26,9 +26,14 @@ fn test_main() -> Result<(), Error> {
         upper: None.into(),
     });
 
+    // Tests preview behaviour for unknown fields
     let t = random_string.result.map(|s| format!("Result: {s}"));
+
+    // Tests number mapping
+    let number = random_string.min_upper.map(|i| i * 2);
 
     add_export("result", random_string.result);
     add_export("transformed_result", t);
+    add_export("number", number);
     Ok(())
 }

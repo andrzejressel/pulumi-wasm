@@ -12,6 +12,8 @@ anyhow.workspace = true
 handlebars.workspace = true
 regex.workspace = true
 convert_case.workspace = true
+msgpack_protobuf_converter.workspace = true
+rmp-serde.workspace = true
 
 [dev-dependencies]
 assert_cmd.workspace = true

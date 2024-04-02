@@ -6,19 +6,21 @@ use log::{error, info};
 use prost_types::value::Kind as ProtobufKind;
 use prost_types::Value as ProtobufValue;
 use rmpv::{Value as MsgpackValue, Value};
+use serde::{Deserialize, Serialize};
 
-#[derive(Debug, PartialEq)]
-enum Type {
+#[derive(Clone, Debug, PartialEq, Deserialize, Serialize)]
+pub enum Type {
     Nullable(Box<Type>),
     Bool,
     Int,
     Double,
     String,
     Array(Box<Type>),
-    Map(HashMap<String, Type>),
+    Object(HashMap<String, Type>),
+    SingleTypeObject(Box<Type>),
 }
 
-fn msgpack_to_protobuf(v: &MsgpackValue) -> Result<ProtobufValue> {
+pub fn msgpack_to_protobuf(v: &MsgpackValue) -> Result<ProtobufValue> {
     info!("Converting value [{v}] to protoc value");
     let result = match v {
         MsgpackValue::Nil => prost_types::Value {
@@ -95,7 +97,7 @@ fn msgpack_to_protobuf(v: &MsgpackValue) -> Result<ProtobufValue> {
     Ok(result)
 }
 
-fn protobuf_to_msgpack(message: &ProtobufValue, tpe: &Type) -> Result<MsgpackValue> {
+pub fn protobuf_to_msgpack(message: &ProtobufValue, tpe: &Type) -> Result<MsgpackValue> {
     let kind = &message.kind;
 
     match (kind, tpe) {
@@ -133,7 +135,7 @@ fn protobuf_to_msgpack(message: &ProtobufValue, tpe: &Type) -> Result<MsgpackVal
         (Some(ProtobufKind::ListValue(_)), tpe) => Err(anyhow!(
             "invalid type [{tpe:?}] for list value [{message:?}]"
         )),
-        (Some(ProtobufKind::StructValue(protobuf_struct)), Type::Map(type_map)) => {
+        (Some(ProtobufKind::StructValue(protobuf_struct)), Type::Object(type_map)) => {
             let map = combine_maps(type_map, &protobuf_struct.fields);
 
             let fields = map
@@ -142,6 +144,20 @@ fn protobuf_to_msgpack(message: &ProtobufValue, tpe: &Type) -> Result<MsgpackVal
                     Ok((
                         MsgpackValue::from((*k).clone()),
                         protobuf_to_msgpack(t, v)
+                            .context(format!("Cannot convert value for key [{k}]"))?,
+                    ))
+                })
+                .collect::<Result<Vec<(_, _)>>>()?;
+            Ok(MsgpackValue::Map(fields))
+        }
+        (Some(ProtobufKind::StructValue(protobuf_struct)), Type::SingleTypeObject(tpe)) => {
+            let fields = protobuf_struct
+                .fields
+                .iter()
+                .map(|(k, v)| {
+                    Ok((
+                        MsgpackValue::from((*k).clone()),
+                        protobuf_to_msgpack(v, tpe)
                             .context(format!("Cannot convert value for key [{k}]"))?,
                     ))
                 })
@@ -485,7 +501,7 @@ mod tests {
         }
 
         #[test]
-        fn should_convert_map() {
+        fn should_convert_object() {
             let protobuf_value = prost_types::Value {
                 kind: Some(ProtobufKind::StructValue(prost_types::Struct {
                     fields: BTreeMap::from([
@@ -506,7 +522,7 @@ mod tests {
             };
             let msgpack_value = protobuf_to_msgpack(
                 &protobuf_value,
-                &Type::Map(HashMap::from([
+                &Type::Object(HashMap::from([
                     ("key1".to_string(), Type::Int),
                     ("key2".to_string(), Type::Int),
                 ])),
@@ -522,7 +538,7 @@ mod tests {
         }
 
         #[test]
-        fn should_return_nested_map_error() {
+        fn should_return_nested_object_error() {
             let protobuf_value = prost_types::Value {
                 kind: Some(ProtobufKind::StructValue(prost_types::Struct {
                     fields: BTreeMap::from([
@@ -543,7 +559,7 @@ mod tests {
             };
             let err = protobuf_to_msgpack(
                 &protobuf_value,
-                &Type::Map(HashMap::from([
+                &Type::Object(HashMap::from([
                     ("key1".to_string(), Type::Int),
                     ("key2".to_string(), Type::Int),
                 ])),
@@ -563,7 +579,7 @@ mod tests {
         }
 
         #[test]
-        fn should_convert_nullable_map() {
+        fn should_convert_nullable_object_field() {
             let protobuf_value = prost_types::Value {
                 kind: Some(ProtobufKind::StructValue(prost_types::Struct {
                     fields: BTreeMap::from([
@@ -584,7 +600,105 @@ mod tests {
             };
             let msgpack_value = protobuf_to_msgpack(
                 &protobuf_value,
-                &Type::Map(HashMap::from([
+                &Type::Object(HashMap::from([
+                    ("key1".to_string(), Type::Int),
+                    ("key2".to_string(), Type::Nullable(Box::from(Type::Int))),
+                ])),
+            )
+            .unwrap();
+            assert_eq!(
+                msgpack_value,
+                rmpv::Value::Map(vec![
+                    (rmpv::Value::from("key1"), rmpv::Value::from(42)),
+                    (rmpv::Value::from("key2"), rmpv::Value::Nil),
+                ])
+            );
+        }
+
+        #[test]
+        fn should_convert_single_type_object() {
+            let protobuf_value = prost_types::Value {
+                kind: Some(ProtobufKind::StructValue(prost_types::Struct {
+                    fields: BTreeMap::from([(
+                        "key1".to_string(),
+                        prost_types::Value {
+                            kind: Some(ProtobufKind::NumberValue(42.0)),
+                        },
+                    )]),
+                })),
+            };
+            let msgpack_value = protobuf_to_msgpack(
+                &protobuf_value,
+                &Type::SingleTypeObject(Box::from(Type::Int)),
+            )
+            .unwrap();
+            assert_eq!(
+                msgpack_value,
+                rmpv::Value::Map(vec![(rmpv::Value::from("key1"), rmpv::Value::from(42))])
+            );
+        }
+
+        #[test]
+        fn should_return_nested_single_type_object_error() {
+            let protobuf_value = prost_types::Value {
+                kind: Some(ProtobufKind::StructValue(prost_types::Struct {
+                    fields: BTreeMap::from([
+                        (
+                            "key1".to_string(),
+                            prost_types::Value {
+                                kind: Some(ProtobufKind::NumberValue(42.0)),
+                            },
+                        ),
+                        (
+                            "key2".to_string(),
+                            prost_types::Value {
+                                kind: Some(ProtobufKind::NullValue(0)),
+                            },
+                        ),
+                    ]),
+                })),
+            };
+            let err = protobuf_to_msgpack(
+                &protobuf_value,
+                &Type::SingleTypeObject(Box::from(Type::Int)),
+            )
+            .unwrap_err();
+            let chain: Vec<_> = anyhow::Chain::new(err.as_ref())
+                .map(|e| e.to_string())
+                .collect();
+
+            assert_eq!(
+                vec![
+                    "Cannot convert value for key [key2]",
+                    "Invalid type [Int] for null value",
+                ],
+                chain
+            );
+        }
+
+        #[test]
+        fn should_convert_nullable_single_type_object_field() {
+            let protobuf_value = prost_types::Value {
+                kind: Some(ProtobufKind::StructValue(prost_types::Struct {
+                    fields: BTreeMap::from([
+                        (
+                            "key1".to_string(),
+                            prost_types::Value {
+                                kind: Some(ProtobufKind::NumberValue(42.0)),
+                            },
+                        ),
+                        (
+                            "key2".to_string(),
+                            prost_types::Value {
+                                kind: Some(ProtobufKind::NullValue(0)),
+                            },
+                        ),
+                    ]),
+                })),
+            };
+            let msgpack_value = protobuf_to_msgpack(
+                &protobuf_value,
+                &Type::Object(HashMap::from([
                     ("key1".to_string(), Type::Int),
                     ("key2".to_string(), Type::Nullable(Box::from(Type::Int))),
                 ])),

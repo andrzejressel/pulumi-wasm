@@ -844,9 +844,9 @@ checksum = "fea41bba32d969b513997752735605054bc0dfa92b4c56bf1189f2e174be7a10"
 
 [[package]]
 name = "either"
-version = "1.9.0"
+version = "1.10.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a26ae43d7bcc3b814de94796a5e736d4029efb0ee900c12e2d54c993ad1a1e07"
+checksum = "11157ac094ffbdde99aa67b23417ebdd801842852b500e395a45a9c0aac03e4a"
 
 [[package]]
 name = "encoding_rs"
@@ -1563,10 +1563,12 @@ name = "msgpack_protobuf_converter"
 version = "0.1.0"
 dependencies = [
  "anyhow",
+ "either",
  "log",
  "prost",
  "prost-types",
  "rmpv",
+ "serde",
 ]
 
 [[package]]
@@ -1941,6 +1943,7 @@ dependencies = [
  "futures",
  "lazy_static",
  "log",
+ "msgpack_protobuf_converter",
  "once_cell",
  "prost",
  "prost-types",
@@ -1993,8 +1996,10 @@ dependencies = [
  "assert_cmd",
  "convert_case",
  "handlebars",
+ "msgpack_protobuf_converter",
  "predicates",
  "regex",
+ "rmp-serde",
  "serde",
  "serde_json",
 ]

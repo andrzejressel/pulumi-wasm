@@ -288,10 +288,24 @@ pub mod component {
                         .finish()
                 }
             }
+            #[derive(Clone)]
+            pub struct ResultField {
+                pub name: _rt::String,
+                pub schema: _rt::Vec<u8>,
+            }
+            impl ::core::fmt::Debug for ResultField {
+                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                    f.debug_struct("ResultField")
+                        .field("name", &self.name)
+                        .field("schema", &self.schema)
+                        .finish()
+                }
+            }
             pub struct RegisterResourceRequest<'a> {
                 pub type_: _rt::String,
                 pub name: _rt::String,
                 pub object: _rt::Vec<ObjectField<'a>>,
+                pub results: _rt::Vec<ResultField>,
             }
             impl<'a> ::core::fmt::Debug for RegisterResourceRequest<'a> {
                 fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -299,6 +313,7 @@ pub mod component {
                         .field("type", &self.type_)
                         .field("name", &self.name)
                         .field("object", &self.object)
+                        .field("results", &self.results)
                         .finish()
                 }
             }
@@ -309,6 +324,7 @@ pub mod component {
                         type_: type_0,
                         name: name0,
                         object: object0,
+                        results: results0,
                     } = request;
                     let vec1 = type_0;
                     let ptr1 = vec1.as_ptr().cast::<u8>();
@@ -345,12 +361,47 @@ pub mod component {
                             *base.add(8).cast::<i32>() = (value3).handle() as i32;
                         }
                     }
+                    let vec9 = results0;
+                    let len9 = vec9.len();
+                    let layout9 = _rt::alloc::Layout::from_size_align_unchecked(vec9.len() * 16, 4);
+                    let result9 = if layout9.size() != 0 {
+                        let ptr = _rt::alloc::alloc(layout9).cast::<u8>();
+                        if ptr.is_null() {
+                            _rt::alloc::handle_alloc_error(layout9);
+                        }
+                        ptr
+                    } else {
+                        {
+                            ::core::ptr::null_mut()
+                        }
+                    };
+                    for (i, e) in vec9.into_iter().enumerate() {
+                        let base = result9.add(i * 16);
+                        {
+                            let ResultField {
+                                name: name6,
+                                schema: schema6,
+                            } = e;
+                            let vec7 = name6;
+                            let ptr7 = vec7.as_ptr().cast::<u8>();
+                            let len7 = vec7.len();
+                            *base.add(4).cast::<usize>() = len7;
+                            *base.add(0).cast::<*mut u8>() = ptr7.cast_mut();
+                            let vec8 = schema6;
+                            let ptr8 = vec8.as_ptr().cast::<u8>();
+                            let len8 = vec8.len();
+                            *base.add(12).cast::<usize>() = len8;
+                            *base.add(8).cast::<*mut u8>() = ptr8.cast_mut();
+                        }
+                    }
 
                     #[cfg(target_arch = "wasm32")]
                     #[link(wasm_import_module = "component:pulumi-wasm/register-interface@0.1.0")]
                     extern "C" {
                         #[link_name = "register"]
                         fn wit_import(
+                            _: *mut u8,
+                            _: usize,
                             _: *mut u8,
                             _: usize,
                             _: *mut u8,
@@ -368,13 +419,26 @@ pub mod component {
                         _: usize,
                         _: *mut u8,
                         _: usize,
+                        _: *mut u8,
+                        _: usize,
                     ) -> i32 {
                         unreachable!()
                     }
-                    let ret =
-                        wit_import(ptr1.cast_mut(), len1, ptr2.cast_mut(), len2, result5, len5);
+                    let ret = wit_import(
+                        ptr1.cast_mut(),
+                        len1,
+                        ptr2.cast_mut(),
+                        len2,
+                        result5,
+                        len5,
+                        result9,
+                        len9,
+                    );
                     if layout5.size() != 0 {
                         _rt::alloc::dealloc(result5.cast(), layout5);
+                    }
+                    if layout9.size() != 0 {
+                        _rt::alloc::dealloc(result9.cast(), layout9);
                     }
                     super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(ret as u32)
                 }
@@ -1623,8 +1687,8 @@ pub(crate) use __export_main_world_impl as export;
 #[cfg(target_arch = "wasm32")]
 #[link_section = "component-type:wit-bindgen:0.21.0:main-world:encoded world"]
 #[doc(hidden)]
-pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 2591] = *b"\
-\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\x9e\x13\x01A\x02\x01\
+pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 2641] = *b"\
+\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xd0\x13\x01A\x02\x01\
 A\x15\x01B\x15\x04\0\x06output\x03\x01\x01p}\x01i\0\x01@\x01\x05value\x01\0\x02\x04\
 \0\x13[constructor]output\x01\x03\x01h\0\x01@\x02\x04self\x04\x0dfunction-names\0\
 \x02\x04\0\x12[method]output.map\x01\x05\x01k\x01\x01@\x01\x04self\x04\0\x06\x04\
@@ -1633,56 +1697,57 @@ A\x15\x01B\x15\x04\0\x06output\x03\x01\x01p}\x01i\0\x01@\x01\x05value\x01\0\x02\
 [method]output.get-type\x01\x09\x01@\x01\x04self\x04\0\x02\x04\0\x18[method]outp\
 ut.duplicate\x01\x0a\x01@\0\0s\x04\0\x10describe-outputs\x01\x0b\x01@\0\0\x7f\x04\
 \0\x0fnon-done-exists\x01\x0c\x03\x01,component:pulumi-wasm/output-interface@0.1\
-.0\x05\0\x02\x03\0\0\x06output\x01B\x0b\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\
-\0\x01h\x01\x01r\x02\x04names\x05value\x02\x04\0\x0cobject-field\x03\0\x03\x01p\x04\
-\x01r\x03\x04types\x04names\x06object\x05\x04\0\x19register-resource-request\x03\
-\0\x06\x01i\x01\x01@\x01\x07request\x07\0\x08\x04\0\x08register\x01\x09\x03\x01.\
-component:pulumi-wasm/register-interface@0.1.0\x05\x02\x01B\x0a\x02\x03\x02\x01\x01\
-\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x07keepers\x02\x06length\x02\x04\0\x04\
-args\x03\0\x03\x01i\x01\x01r\x04\x06base64\x05\x03hex\x05\x07keepers\x05\x06leng\
-th\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invok\
-e\x01\x08\x04\x01!pulumi:random/random-bytes@4.15.0\x05\x03\x01B\x0a\x02\x03\x02\
-\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0bbyte-length\x02\x07keepers\
-\x02\x06prefix\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\x07b64-std\x05\x07b\
-64-url\x05\x0bbyte-length\x05\x03dec\x05\x03hex\x05\x07keepers\x05\x06prefix\x05\
-\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
-\x04\x01\x1epulumi:random/random-id@4.15.0\x05\x04\x01B\x0a\x02\x03\x02\x01\x01\x04\
-\0\x06output\x03\0\0\x01h\x01\x01r\x04\x07keepers\x02\x03max\x02\x03min\x02\x04s\
-eed\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x07keepers\x05\x03max\x05\x03m\
-in\x05\x06result\x05\x04seed\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04arg\
-s\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01#pulumi:random/random-integer@4.15.0\x05\
-\x05\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0c\x07k\
-eepers\x02\x06length\x02\x05lower\x02\x09min-lower\x02\x0bmin-numeric\x02\x0bmin\
--special\x02\x09min-upper\x02\x06number\x02\x07numeric\x02\x10override-special\x02\
-\x07special\x02\x05upper\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0e\x0bbcrypt\
--hash\x05\x07keepers\x05\x06length\x05\x05lower\x05\x09min-lower\x05\x0bmin-nume\
-ric\x05\x0bmin-special\x05\x09min-upper\x05\x06number\x05\x07numeric\x05\x10over\
-ride-special\x05\x06result\x05\x07special\x05\x05upper\x05\x04\0\x03res\x03\0\x06\
-\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01$pulumi:rand\
-om/random-password@4.15.0\x05\x06\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
-\0\0\x01h\x01\x01r\x04\x07keepers\x02\x06length\x02\x06prefix\x02\x09separator\x02\
-\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x07keepers\x05\x06length\x05\x06prefi\
-x\x05\x09separator\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
-\x04\0\x06invoke\x01\x08\x04\x01\x1fpulumi:random/random-pet@4.15.0\x05\x07\x01B\
-\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x06inputs\x02\
-\x07keepers\x02\x0cresult-count\x02\x04seed\x02\x04\0\x04args\x03\0\x03\x01i\x01\
-\x01r\x05\x06inputs\x05\x07keepers\x05\x0cresult-count\x05\x07results\x05\x04see\
-d\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\
-\x01\x08\x04\x01#pulumi:random/random-shuffle@4.15.0\x05\x08\x01B\x0a\x02\x03\x02\
-\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0c\x07keepers\x02\x06length\x02\x05\
-lower\x02\x09min-lower\x02\x0bmin-numeric\x02\x0bmin-special\x02\x09min-upper\x02\
-\x06number\x02\x07numeric\x02\x10override-special\x02\x07special\x02\x05upper\x02\
-\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0d\x07keepers\x05\x06length\x05\x05lower\
-\x05\x09min-lower\x05\x0bmin-numeric\x05\x0bmin-special\x05\x09min-upper\x05\x06\
-number\x05\x07numeric\x05\x10override-special\x05\x06result\x05\x07special\x05\x05\
-upper\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06in\
-voke\x01\x08\x04\x01\"pulumi:random/random-string@4.15.0\x05\x09\x01B\x0a\x02\x03\
-\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x07keepers\x02\x04\0\x04a\
-rgs\x03\0\x03\x01i\x01\x01r\x02\x07keepers\x05\x06result\x05\x04\0\x03res\x03\0\x06\
-\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\x20pulumi:r\
-andom/random-uuid@4.15.0\x05\x0a\x04\x01\x1fpulumi:random/main-world@4.15.0\x04\0\
-\x0b\x10\x01\0\x0amain-world\x03\0\0\0G\x09producers\x01\x0cprocessed-by\x02\x0d\
-wit-component\x070.201.0\x10wit-bindgen-rust\x060.21.0";
+.0\x05\0\x02\x03\0\0\x06output\x01B\x0f\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\
+\0\x01h\x01\x01r\x02\x04names\x05value\x02\x04\0\x0cobject-field\x03\0\x03\x01p}\
+\x01r\x02\x04names\x06schema\x05\x04\0\x0cresult-field\x03\0\x06\x01p\x04\x01p\x07\
+\x01r\x04\x04types\x04names\x06object\x08\x07results\x09\x04\0\x19register-resou\
+rce-request\x03\0\x0a\x01i\x01\x01@\x01\x07request\x0b\0\x0c\x04\0\x08register\x01\
+\x0d\x03\x01.component:pulumi-wasm/register-interface@0.1.0\x05\x02\x01B\x0a\x02\
+\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x07keepers\x02\x06len\
+gth\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x06base64\x05\x03hex\x05\x07ke\
+epers\x05\x06length\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
+\x04\0\x06invoke\x01\x08\x04\x01!pulumi:random/random-bytes@4.15.0\x05\x03\x01B\x0a\
+\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0bbyte-length\x02\
+\x07keepers\x02\x06prefix\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\x07b64-s\
+td\x05\x07b64-url\x05\x0bbyte-length\x05\x03dec\x05\x03hex\x05\x07keepers\x05\x06\
+prefix\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06i\
+nvoke\x01\x08\x04\x01\x1epulumi:random/random-id@4.15.0\x05\x04\x01B\x0a\x02\x03\
+\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x07keepers\x02\x03max\x02\
+\x03min\x02\x04seed\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x07keepers\x05\
+\x03max\x05\x03min\x05\x06result\x05\x04seed\x05\x04\0\x03res\x03\0\x06\x01@\x02\
+\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01#pulumi:random/random\
+-integer@4.15.0\x05\x05\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
+h\x01\x01r\x0c\x07keepers\x02\x06length\x02\x05lower\x02\x09min-lower\x02\x0bmin\
+-numeric\x02\x0bmin-special\x02\x09min-upper\x02\x06number\x02\x07numeric\x02\x10\
+override-special\x02\x07special\x02\x05upper\x02\x04\0\x04args\x03\0\x03\x01i\x01\
+\x01r\x0e\x0bbcrypt-hash\x05\x07keepers\x05\x06length\x05\x05lower\x05\x09min-lo\
+wer\x05\x0bmin-numeric\x05\x0bmin-special\x05\x09min-upper\x05\x06number\x05\x07\
+numeric\x05\x10override-special\x05\x06result\x05\x07special\x05\x05upper\x05\x04\
+\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
+\x01$pulumi:random/random-password@4.15.0\x05\x06\x01B\x0a\x02\x03\x02\x01\x01\x04\
+\0\x06output\x03\0\0\x01h\x01\x01r\x04\x07keepers\x02\x06length\x02\x06prefix\x02\
+\x09separator\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x07keepers\x05\x06le\
+ngth\x05\x06prefix\x05\x09separator\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\
+\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\x1fpulumi:random/random-pet@4\
+.15.0\x05\x07\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\
+\x04\x06inputs\x02\x07keepers\x02\x0cresult-count\x02\x04seed\x02\x04\0\x04args\x03\
+\0\x03\x01i\x01\x01r\x05\x06inputs\x05\x07keepers\x05\x0cresult-count\x05\x07res\
+ults\x05\x04seed\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\
+\0\x06invoke\x01\x08\x04\x01#pulumi:random/random-shuffle@4.15.0\x05\x08\x01B\x0a\
+\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0c\x07keepers\x02\x06\
+length\x02\x05lower\x02\x09min-lower\x02\x0bmin-numeric\x02\x0bmin-special\x02\x09\
+min-upper\x02\x06number\x02\x07numeric\x02\x10override-special\x02\x07special\x02\
+\x05upper\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0d\x07keepers\x05\x06length\
+\x05\x05lower\x05\x09min-lower\x05\x0bmin-numeric\x05\x0bmin-special\x05\x09min-\
+upper\x05\x06number\x05\x07numeric\x05\x10override-special\x05\x06result\x05\x07\
+special\x05\x05upper\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
+\x04\0\x06invoke\x01\x08\x04\x01\"pulumi:random/random-string@4.15.0\x05\x09\x01\
+B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x07keepers\x02\
+\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x07keepers\x05\x06result\x05\x04\0\x03\
+res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\
+\x20pulumi:random/random-uuid@4.15.0\x05\x0a\x04\x01\x1fpulumi:random/main-world\
+@4.15.0\x04\0\x0b\x10\x01\0\x0amain-world\x03\0\0\0G\x09producers\x01\x0cprocess\
+ed-by\x02\x0dwit-component\x070.201.0\x10wit-bindgen-rust\x060.21.0";
 
 #[inline(never)]
 #[doc(hidden)]

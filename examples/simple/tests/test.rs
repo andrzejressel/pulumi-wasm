@@ -55,8 +55,15 @@ fn test_integration() -> Result<(), anyhow::Error> {
         .as_str()
         .ok_or(anyhow!("[transformed_result] is not a string"))?;
 
+    let number = stack
+        .pointer("/number")
+        .ok_or(anyhow!("Cannot find [transformed_result] in stack export"))?
+        .as_i64()
+        .ok_or(anyhow!("[transformed_result] is not a string"))?;
+
     assert_eq!(result.len(), 36);
     assert_eq!(transformed_result, format!("Result: {}", result));
+    assert_eq!(number, 0);
 
     Ok(())
 }

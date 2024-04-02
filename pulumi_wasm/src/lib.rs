@@ -4,20 +4,24 @@ use crate::bindings::exports::component::pulumi_wasm::function_reverse_callback:
 };
 use crate::bindings::exports::component::pulumi_wasm::output_interface::GuestOutput;
 use crate::bindings::exports::component::pulumi_wasm::output_interface::Output as WasmOutput;
-use crate::bindings::exports::component::pulumi_wasm::register_interface::RegisterResourceRequest;
+use crate::bindings::exports::component::pulumi_wasm::register_interface::{
+    RegisterResourceRequest, ResultField,
+};
 use crate::bindings::exports::component::pulumi_wasm::stack_interface::OutputBorrow;
 use crate::bindings::exports::component::pulumi_wasm::{
     function_reverse_callback, output_interface, register_interface, stack_interface,
 };
 use bindings::component::pulumi_wasm::external_world;
 use core::fmt::Debug;
-use log::{error, info};
+use log::{error, info, warn};
+use msgpack_protobuf_converter::Type as ConverterType;
 use prost::Message;
 use prost_types::value::Kind;
 use prost_types::Struct;
 use rmpv::{Utf8String, Value};
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, HashMap};
 use std::fmt::Formatter;
+use std::iter::Map;
 use std::ops::Deref;
 
 use crate::output::{access_map, output_map, FunctionId, FunctionSource, OutputContent};
@@ -276,41 +280,27 @@ fn protoc_to_messagepack(value: prost_types::Value) -> Value {
     result
 }
 
-fn protoc_object_to_messagepack_map(o: prost_types::Struct) -> rmpv::Value {
+fn protoc_object_to_messagepack_map(
+    o: prost_types::Struct,
+    schema: HashMap<String, msgpack_protobuf_converter::Type>,
+) -> rmpv::Value {
     let fields = o
         .fields
         .iter()
-        .map(|(k, v)| {
-            let k = Value::String(k.clone().into());
-            let v = protoc_to_messagepack(v.clone());
-            (k, v)
+        .flat_map(|(k, v)| match schema.get(k) {
+            None => {
+                warn!("Schema for field [{k}] not found");
+                None
+            }
+            Some(t) => {
+                let k = Value::String(k.clone().into());
+                let v = msgpack_protobuf_converter::protobuf_to_msgpack(v, t).unwrap();
+                Some((k, v))
+            }
         })
         .collect::<Vec<_>>();
 
     Value::Map(fields)
-}
-
-fn messagepack_to_protoc(v: &Value) -> prost_types::Value {
-    info!("Converting value [{v}] to protoc value");
-    let result = match v {
-        Value::Nil => prost_types::Value {
-            kind: Option::from(prost_types::value::Kind::NullValue(0)),
-        },
-        Value::Integer(i) => prost_types::Value {
-            kind: Option::from(prost_types::value::Kind::NumberValue(i.as_f64().unwrap())),
-        },
-        Value::String(s) => prost_types::Value {
-            kind: Option::from(prost_types::value::Kind::StringValue(
-                s.clone().into_str().unwrap(),
-            )),
-        },
-        _ => {
-            error!("Cannot convert messagepack [{v}] to protoc");
-            todo!()
-        }
-    };
-    info!("Result: [{result:?}]");
-    result
 }
 
 impl register_interface::Guest for Component {
@@ -327,6 +317,16 @@ impl register_interface::Guest for Component {
             .iter()
             .map(|o| o.name.clone())
             .collect::<Vec<_>>();
+        let results = request
+            .results
+            .iter()
+            .map(|ResultField { name, schema }| {
+                (
+                    name.clone(),
+                    rmp_serde::from_slice::<msgpack_protobuf_converter::Type>(schema).unwrap(),
+                )
+            })
+            .collect::<HashMap<_, _>>();
 
         let new_output = output::map_internal(values, move |v| {
             info!("Converting values [{v:?}] with names [{names:?}]");
@@ -384,7 +384,7 @@ impl register_interface::Guest for Component {
 
             info!("Converting protobuf struct {object:?}");
 
-            let result = protoc_object_to_messagepack_map(object);
+            let result = protoc_object_to_messagepack_map(object, results.clone());
 
             info!("Message pack map: [{result:?}]");
 
@@ -404,7 +404,7 @@ impl Component {
             .iter()
             .zip(v.iter())
             .map(|(name, value)| {
-                let v = messagepack_to_protoc(value);
+                let v = msgpack_protobuf_converter::msgpack_to_protobuf(value).unwrap();
                 (name.clone(), v)
             })
             .collect::<Vec<_>>();

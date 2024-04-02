@@ -1,4 +1,4 @@
-use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest};
+use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
 use bindings::exports::pulumi::random::random_bytes;
 use bindings::exports::pulumi::random::random_id;
 use bindings::exports::pulumi::random::random_integer;
@@ -27,6 +27,12 @@ impl random_bytes::Guest for Component {
                 ObjectField { name: "keepers".into(), value: args.keepers },
                 ObjectField { name: "length".into(), value: args.length },
             ],
+            results: vec![
+                ResultField { name: "base64".into(), schema: vec![166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "hex".into(), schema: vec![166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "keepers".into(), schema: vec![129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103, 108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "length".into(), schema: vec![163, 73, 110, 116] },
+            ],
         };
 
         let o = register(&request);
@@ -50,6 +56,15 @@ impl random_id::Guest for Component {
                 ObjectField { name: "byteLength".into(), value: args.byte_length },
                 ObjectField { name: "keepers".into(), value: args.keepers },
                 ObjectField { name: "prefix".into(), value: args.prefix },
+            ],
+            results: vec![
+                ResultField { name: "b64Std".into(), schema: vec![166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "b64Url".into(), schema: vec![166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "byteLength".into(), schema: vec![163, 73, 110, 116] },
+                ResultField { name: "dec".into(), schema: vec![166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "hex".into(), schema: vec![166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "keepers".into(), schema: vec![129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103, 108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "prefix".into(), schema: vec![129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 166, 83, 116, 114, 105, 110, 103] },
             ],
         };
 
@@ -78,6 +93,13 @@ impl random_integer::Guest for Component {
                 ObjectField { name: "max".into(), value: args.max },
                 ObjectField { name: "min".into(), value: args.min },
                 ObjectField { name: "seed".into(), value: args.seed },
+            ],
+            results: vec![
+                ResultField { name: "keepers".into(), schema: vec![129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103, 108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "max".into(), schema: vec![163, 73, 110, 116] },
+                ResultField { name: "min".into(), schema: vec![163, 73, 110, 116] },
+                ResultField { name: "result".into(), schema: vec![163, 73, 110, 116] },
+                ResultField { name: "seed".into(), schema: vec![129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 166, 83, 116, 114, 105, 110, 103] },
             ],
         };
 
@@ -112,6 +134,22 @@ impl random_password::Guest for Component {
                 ObjectField { name: "overrideSpecial".into(), value: args.override_special },
                 ObjectField { name: "special".into(), value: args.special },
                 ObjectField { name: "upper".into(), value: args.upper },
+            ],
+            results: vec![
+                ResultField { name: "bcryptHash".into(), schema: vec![166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "keepers".into(), schema: vec![129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103, 108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "length".into(), schema: vec![163, 73, 110, 116] },
+                ResultField { name: "lower".into(), schema: vec![164, 66, 111, 111, 108] },
+                ResultField { name: "minLower".into(), schema: vec![163, 73, 110, 116] },
+                ResultField { name: "minNumeric".into(), schema: vec![163, 73, 110, 116] },
+                ResultField { name: "minSpecial".into(), schema: vec![163, 73, 110, 116] },
+                ResultField { name: "minUpper".into(), schema: vec![163, 73, 110, 116] },
+                ResultField { name: "number".into(), schema: vec![164, 66, 111, 111, 108] },
+                ResultField { name: "numeric".into(), schema: vec![164, 66, 111, 111, 108] },
+                ResultField { name: "overrideSpecial".into(), schema: vec![129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "result".into(), schema: vec![166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "special".into(), schema: vec![164, 66, 111, 111, 108] },
+                ResultField { name: "upper".into(), schema: vec![164, 66, 111, 111, 108] },
             ],
         };
 
@@ -148,6 +186,12 @@ impl random_pet::Guest for Component {
                 ObjectField { name: "prefix".into(), value: args.prefix },
                 ObjectField { name: "separator".into(), value: args.separator },
             ],
+            results: vec![
+                ResultField { name: "keepers".into(), schema: vec![129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103, 108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "length".into(), schema: vec![163, 73, 110, 116] },
+                ResultField { name: "prefix".into(), schema: vec![129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "separator".into(), schema: vec![166, 83, 116, 114, 105, 110, 103] },
+            ],
         };
 
         let o = register(&request);
@@ -172,6 +216,13 @@ impl random_shuffle::Guest for Component {
                 ObjectField { name: "keepers".into(), value: args.keepers },
                 ObjectField { name: "resultCount".into(), value: args.result_count },
                 ObjectField { name: "seed".into(), value: args.seed },
+            ],
+            results: vec![
+                ResultField { name: "inputs".into(), schema: vec![129, 165, 65, 114, 114, 97, 121, 166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "keepers".into(), schema: vec![129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103, 108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "resultCount".into(), schema: vec![129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 163, 73, 110, 116] },
+                ResultField { name: "results".into(), schema: vec![129, 165, 65, 114, 114, 97, 121, 166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "seed".into(), schema: vec![129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 166, 83, 116, 114, 105, 110, 103] },
             ],
         };
 
@@ -207,6 +258,21 @@ impl random_string::Guest for Component {
                 ObjectField { name: "special".into(), value: args.special },
                 ObjectField { name: "upper".into(), value: args.upper },
             ],
+            results: vec![
+                ResultField { name: "keepers".into(), schema: vec![129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103, 108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "length".into(), schema: vec![163, 73, 110, 116] },
+                ResultField { name: "lower".into(), schema: vec![164, 66, 111, 111, 108] },
+                ResultField { name: "minLower".into(), schema: vec![163, 73, 110, 116] },
+                ResultField { name: "minNumeric".into(), schema: vec![163, 73, 110, 116] },
+                ResultField { name: "minSpecial".into(), schema: vec![163, 73, 110, 116] },
+                ResultField { name: "minUpper".into(), schema: vec![163, 73, 110, 116] },
+                ResultField { name: "number".into(), schema: vec![164, 66, 111, 111, 108] },
+                ResultField { name: "numeric".into(), schema: vec![164, 66, 111, 111, 108] },
+                ResultField { name: "overrideSpecial".into(), schema: vec![129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "result".into(), schema: vec![166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "special".into(), schema: vec![164, 66, 111, 111, 108] },
+                ResultField { name: "upper".into(), schema: vec![164, 66, 111, 111, 108] },
+            ],
         };
 
         let o = register(&request);
@@ -237,6 +303,10 @@ impl random_uuid::Guest for Component {
             name,
             object: vec![
                 ObjectField { name: "keepers".into(), value: args.keepers },
+            ],
+            results: vec![
+                ResultField { name: "keepers".into(), schema: vec![129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103, 108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "result".into(), schema: vec![166, 83, 116, 114, 105, 110, 103] },
             ],
         };
 

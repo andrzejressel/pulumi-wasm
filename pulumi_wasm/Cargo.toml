@@ -26,6 +26,7 @@ tonic.workspace = true
 serde_json.workspace = true
 wasm_common.workspace = true
 log.workspace = true
+msgpack_protobuf_converter.workspace = true
 
 [build-dependencies]
 tonic-build.workspace = true

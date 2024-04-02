@@ -1,6 +1,8 @@
-use crate::model::ElementId;
+use crate::model::{ElementId, Type};
 use crate::output::replace_multiple_dashes;
+use anyhow::Context;
 use handlebars::Handlebars;
+use msgpack_protobuf_converter::Type as ConverterType;
 
 use serde::Serialize;
 use serde_json::json;
@@ -18,6 +20,7 @@ struct OutputProperty {
     name: String,
     arg_name: String,
     required: bool,
+    schema: Vec<u8>,
 }
 
 #[derive(Serialize)]
@@ -57,7 +60,15 @@ fn convert_model(package: &crate::model::Package) -> Package {
                     .map(|output_property| OutputProperty {
                         name: output_property.name.clone(),
                         arg_name: create_valid_id(&output_property.name),
-                        required: !matches!(output_property.r#type, crate::model::Type::Option(_)),
+                        required: !matches!(output_property.r#type, Type::Option(_)),
+                        schema: rmp_serde::encode::to_vec(&generate_schema(
+                            &output_property.r#type,
+                        ))
+                        .context(format!(
+                            "Cannot convert schema for {}",
+                            output_property.name
+                        ))
+                        .unwrap(),
                     })
                     .collect(),
             })
@@ -96,4 +107,17 @@ pub(crate) fn generate_source_code(package: &crate::model::Package) -> String {
     handlebars
         .render_template(TEMPLATE, &json!({"package": &convert_model(package)}))
         .unwrap()
+}
+
+fn generate_schema(t: &Type) -> ConverterType {
+    match t {
+        Type::Boolean => ConverterType::Bool,
+        Type::Integer => ConverterType::Int,
+        Type::Number => ConverterType::Double,
+        Type::String => ConverterType::String,
+        Type::Array(t) => ConverterType::Array(Box::from(generate_schema(t))),
+        Type::Object(t) => ConverterType::SingleTypeObject(Box::from(generate_schema(t))),
+        Type::Ref(_) => todo!("Ref"),
+        Type::Option(t) => ConverterType::Nullable(Box::from(generate_schema(t))),
+    }
 }

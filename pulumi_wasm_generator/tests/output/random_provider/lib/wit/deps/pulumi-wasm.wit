@@ -24,10 +24,16 @@ interface register-interface {
         value: borrow<output>
     }
 
+    record result-field {
+        name: string,
+        schema: list<u8>
+    }
+
     record register-resource-request {
         %type: string,
         name: string,
         object: list<object-field>,
+        results: list<result-field>
     }
 
     register: func(request: register-resource-request) -> output;

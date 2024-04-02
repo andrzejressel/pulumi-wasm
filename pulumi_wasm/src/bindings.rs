@@ -745,10 +745,24 @@ pub mod exports {
                             .finish()
                     }
                 }
+                #[derive(Clone)]
+                pub struct ResultField {
+                    pub name: _rt::String,
+                    pub schema: _rt::Vec<u8>,
+                }
+                impl ::core::fmt::Debug for ResultField {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                        f.debug_struct("ResultField")
+                            .field("name", &self.name)
+                            .field("schema", &self.schema)
+                            .finish()
+                    }
+                }
                 pub struct RegisterResourceRequest<'a> {
                     pub type_: _rt::String,
                     pub name: _rt::String,
                     pub object: _rt::Vec<ObjectField<'a>>,
+                    pub results: _rt::Vec<ResultField>,
                 }
                 impl<'a> ::core::fmt::Debug for RegisterResourceRequest<'a> {
                     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -756,6 +770,7 @@ pub mod exports {
                             .field("type", &self.type_)
                             .field("name", &self.name)
                             .field("object", &self.object)
+                            .field("results", &self.results)
                             .finish()
                     }
                 }
@@ -768,6 +783,8 @@ pub mod exports {
                     arg3: usize,
                     arg4: *mut u8,
                     arg5: usize,
+                    arg6: *mut u8,
+                    arg7: usize,
                 ) -> i32 {
                     let len0 = arg1;
                     let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
@@ -793,12 +810,35 @@ pub mod exports {
                         result6.push(e6);
                     }
                     _rt::cabi_dealloc(base6, len6 * 12, 4);
-                    let result7 = T::register(RegisterResourceRequest {
+                    let base13 = arg6;
+                    let len13 = arg7;
+                    let mut result13 = _rt::Vec::with_capacity(len13);
+                    for i in 0..len13 {
+                        let base = base13.add(i * 16);
+                        let e13 = {
+                            let l7 = *base.add(0).cast::<*mut u8>();
+                            let l8 = *base.add(4).cast::<usize>();
+                            let len9 = l8;
+                            let bytes9 = _rt::Vec::from_raw_parts(l7.cast(), len9, len9);
+                            let l10 = *base.add(8).cast::<*mut u8>();
+                            let l11 = *base.add(12).cast::<usize>();
+                            let len12 = l11;
+
+                            ResultField {
+                                name: _rt::string_lift(bytes9),
+                                schema: _rt::Vec::from_raw_parts(l10.cast(), len12, len12),
+                            }
+                        };
+                        result13.push(e13);
+                    }
+                    _rt::cabi_dealloc(base13, len13 * 16, 4);
+                    let result14 = T::register(RegisterResourceRequest {
                         type_: _rt::string_lift(bytes0),
                         name: _rt::string_lift(bytes1),
                         object: result6,
+                        results: result13,
                     });
-                    (result7).take_handle() as i32
+                    (result14).take_handle() as i32
                 }
                 pub trait Guest {
                     fn register(request: RegisterResourceRequest<'_>) -> Output;
@@ -809,8 +849,8 @@ pub mod exports {
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
     #[export_name = "component:pulumi-wasm/register-interface@0.1.0#register"]
-    unsafe extern "C" fn export_register(arg0: *mut u8,arg1: usize,arg2: *mut u8,arg3: usize,arg4: *mut u8,arg5: usize,) -> i32 {
-      $($path_to_types)*::_export_register_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
+    unsafe extern "C" fn export_register(arg0: *mut u8,arg1: usize,arg2: *mut u8,arg3: usize,arg4: *mut u8,arg5: usize,arg6: *mut u8,arg7: usize,) -> i32 {
+      $($path_to_types)*::_export_register_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7)
     }
   };);
 }
@@ -1270,8 +1310,8 @@ pub(crate) use __export_pulumi_wasm_impl as export;
 #[cfg(target_arch = "wasm32")]
 #[link_section = "component-type:wit-bindgen:0.21.0:pulumi-wasm:encoded world"]
 #[doc(hidden)]
-pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 1509] = *b"\
-\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xe3\x0a\x01A\x02\x01\
+pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 1559] = *b"\
+\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\x95\x0b\x01A\x02\x01\
 A\x0d\x01B\x0a\x01m\x05\x05TRACE\x05DEBUG\x04INFO\x04WARN\x05ERROR\x04\0\x05leve\
 l\x03\0\0\x01ks\x01ky\x01o\x02ss\x01p\x04\x01r\x07\x05level\x01\x06targets\x04ar\
 gss\x0bmodule-path\x02\x04file\x02\x04line\x03\x0akey-values\x05\x04\0\x07conten\
@@ -1288,22 +1328,23 @@ t.get-field\x01\x08\x01@\x01\x04self\x04\0s\x04\0\x17[method]output.get-type\x01
 \x09\x01@\x01\x04self\x04\0\x02\x04\0\x18[method]output.duplicate\x01\x0a\x01@\0\
 \0s\x04\0\x10describe-outputs\x01\x0b\x01@\0\0\x7f\x04\0\x0fnon-done-exists\x01\x0c\
 \x04\x01,component:pulumi-wasm/output-interface@0.1.0\x05\x02\x02\x03\0\x02\x06o\
-utput\x01B\x0b\x02\x03\x02\x01\x03\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x04\
-names\x05value\x02\x04\0\x0cobject-field\x03\0\x03\x01p\x04\x01r\x03\x04types\x04\
-names\x06object\x05\x04\0\x19register-resource-request\x03\0\x06\x01i\x01\x01@\x01\
-\x07request\x07\0\x08\x04\0\x08register\x01\x09\x04\x01.component:pulumi-wasm/re\
-gister-interface@0.1.0\x05\x04\x01B\x0f\x02\x03\x02\x01\x03\x04\0\x06output\x03\0\
-\0\x01i\x01\x01p}\x01r\x03\x02id\x02\x0bfunction-ids\x05value\x03\x04\0\x1bfunct\
-ion-invocation-request\x03\0\x04\x01h\x01\x01r\x02\x02id\x06\x05value\x03\x04\0\x1a\
-function-invocation-result\x03\0\x07\x01p\x05\x01@\x01\x06sources\0\x09\x04\0\x0d\
-get-functions\x01\x0a\x01p\x08\x01@\x01\x07results\x0b\x01\0\x04\0\x0dset-functi\
-ons\x01\x0c\x04\x015component:pulumi-wasm/function-reverse-callback@0.1.0\x05\x05\
-\x01B\x07\x02\x03\x02\x01\x03\x04\0\x06output\x03\0\0\x01h\x01\x01@\x02\x04names\
-\x05value\x02\x01\0\x04\0\x0aadd-export\x01\x03\x01@\0\0\x7f\x04\0\x06finish\x01\
-\x04\x04\x01+component:pulumi-wasm/stack-interface@0.1.0\x05\x06\x04\x01'compone\
-nt:pulumi-wasm/pulumi-wasm@0.1.0\x04\0\x0b\x11\x01\0\x0bpulumi-wasm\x03\0\0\0G\x09\
-producers\x01\x0cprocessed-by\x02\x0dwit-component\x070.201.0\x10wit-bindgen-rus\
-t\x060.21.0";
+utput\x01B\x0f\x02\x03\x02\x01\x03\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x04\
+names\x05value\x02\x04\0\x0cobject-field\x03\0\x03\x01p}\x01r\x02\x04names\x06sc\
+hema\x05\x04\0\x0cresult-field\x03\0\x06\x01p\x04\x01p\x07\x01r\x04\x04types\x04\
+names\x06object\x08\x07results\x09\x04\0\x19register-resource-request\x03\0\x0a\x01\
+i\x01\x01@\x01\x07request\x0b\0\x0c\x04\0\x08register\x01\x0d\x04\x01.component:\
+pulumi-wasm/register-interface@0.1.0\x05\x04\x01B\x0f\x02\x03\x02\x01\x03\x04\0\x06\
+output\x03\0\0\x01i\x01\x01p}\x01r\x03\x02id\x02\x0bfunction-ids\x05value\x03\x04\
+\0\x1bfunction-invocation-request\x03\0\x04\x01h\x01\x01r\x02\x02id\x06\x05value\
+\x03\x04\0\x1afunction-invocation-result\x03\0\x07\x01p\x05\x01@\x01\x06sources\0\
+\x09\x04\0\x0dget-functions\x01\x0a\x01p\x08\x01@\x01\x07results\x0b\x01\0\x04\0\
+\x0dset-functions\x01\x0c\x04\x015component:pulumi-wasm/function-reverse-callbac\
+k@0.1.0\x05\x05\x01B\x07\x02\x03\x02\x01\x03\x04\0\x06output\x03\0\0\x01h\x01\x01\
+@\x02\x04names\x05value\x02\x01\0\x04\0\x0aadd-export\x01\x03\x01@\0\0\x7f\x04\0\
+\x06finish\x01\x04\x04\x01+component:pulumi-wasm/stack-interface@0.1.0\x05\x06\x04\
+\x01'component:pulumi-wasm/pulumi-wasm@0.1.0\x04\0\x0b\x11\x01\0\x0bpulumi-wasm\x03\
+\0\0\0G\x09producers\x01\x0cprocessed-by\x02\x0dwit-component\x070.201.0\x10wit-\
+bindgen-rust\x060.21.0";
 
 #[inline(never)]
 #[doc(hidden)]
