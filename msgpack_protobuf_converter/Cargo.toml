@@ -12,4 +12,3 @@ prost-types.workspace = true
 anyhow.workspace = true
 log.workspace = true
 serde.workspace = true
-either = "1.10"

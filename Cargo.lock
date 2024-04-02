@@ -1563,7 +1563,6 @@ name = "msgpack_protobuf_converter"
 version = "0.1.0"
 dependencies = [
  "anyhow",
- "either",
  "log",
  "prost",
  "prost-types",
