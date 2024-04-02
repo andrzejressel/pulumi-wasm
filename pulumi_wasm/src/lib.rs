@@ -14,14 +14,12 @@ use crate::bindings::exports::component::pulumi_wasm::{
 use bindings::component::pulumi_wasm::external_world;
 use core::fmt::Debug;
 use log::{error, info, warn};
-use msgpack_protobuf_converter::Type as ConverterType;
 use prost::Message;
 use prost_types::value::Kind;
 use prost_types::Struct;
 use rmpv::{Utf8String, Value};
 use std::collections::{BTreeMap, HashMap};
 use std::fmt::Formatter;
-use std::iter::Map;
 use std::ops::Deref;
 
 use crate::output::{access_map, output_map, FunctionId, FunctionSource, OutputContent};
