@@ -1,6 +1,6 @@
 use std::collections::{BTreeMap, BTreeSet};
 
-use crate::model::ElementId;
+use crate::model::{ElementId, GlobalType, GlobalTypeProperty, OutputProperty, Ref};
 use anyhow::{anyhow, Context, Result};
 use serde::Deserialize;
 
@@ -42,7 +42,7 @@ struct Property {
 #[derive(Deserialize, Debug)]
 struct ObjectType {
     description: Option<String>,
-    r#type: Option<String>,
+    r#type: Option<TypeEnum>,
     #[serde(default)]
     properties: PulumiMap<Property>,
     #[serde(default)]
@@ -57,8 +57,6 @@ struct Resource {
     input_properties: PulumiMap<Property>,
     #[serde(default, rename = "requiredInputs")]
     required_inputs: BTreeSet<String>,
-    #[serde(default)]
-    required: BTreeSet<String>,
 }
 
 #[derive(Deserialize, Debug)]
@@ -88,12 +86,24 @@ pub(crate) struct Package {
     types: PulumiMap<ComplexType>,
 }
 
+// fn complex_type_mapper(complex_type: ComplexType) -> Result<crate::model::Type> {
+//     //TODO: Enums
+//     object_type_mapper(complex_type.object_type)
+// }
+//
+// fn object_type_mapper(object_type: ObjectType) -> Result<crate::model::Type> {
+//
+//
+// }
+
 //TODO: Fix formatting
 fn new_type_mapper(type_: &Type) -> Result<crate::model::Type> {
     (match type_ {
         Type {
             ref_: Some(ref r), ..
-        } => Ok(crate::model::Type::Ref(r.to_string())),
+        } => Ok(crate::model::Type::Ref(
+            Ref::new(r).context(format!("Cannot convert ref fo type {type_:?}"))?,
+        )),
         Type {
             type_: Some(TypeEnum::Boolean),
             ..
@@ -164,36 +174,69 @@ fn resource_to_model(
                     })
                 })
                 .collect::<Result<Vec<_>>>()?,
-            output_properties: resource
-                .object_type
-                .properties
-                .iter()
-                .map(|(output_name, output_property)| {
-                    let mut type_ = new_type_mapper(&output_property.r#type)
-                        .context(format!("Cannot handle [{output_name}] type"))?;
-                    if !resource.required.contains(output_name) {
-                        type_ = crate::model::Type::Option(Box::new(type_));
-                    }
-                    Ok(crate::model::OutputProperty {
-                        name: output_name.clone(),
-                        r#type: type_,
-                    })
-                })
-                .collect::<Result<Vec<_>>>()?,
+            output_properties: convert_object_type(&resource.object_type)?,
         },
     ))
 }
+
+fn convert_object_type(object_type: &ObjectType) -> Result<Vec<OutputProperty>> {
+    object_type
+        .properties
+        .iter()
+        .map(|(output_name, output_property)| {
+            let mut type_ = new_type_mapper(&output_property.r#type)
+                .context(format!("Cannot handle [{output_name}] type"))?;
+            if !object_type.required.contains(output_name) {
+                type_ = crate::model::Type::Option(Box::new(type_));
+            }
+            Ok(crate::model::OutputProperty {
+                name: output_name.clone(),
+                r#type: type_,
+            })
+        })
+        .collect::<Result<Vec<_>>>()
+}
+
+// fn complex_type_to_model(name: &str, type_: &ComplexType) -> Result<crate::model::Type> {
+//     let element_id = ElementId::new(name)?;
+//
+//
+// }
 
 pub(crate) fn to_model(package: &Package) -> Result<crate::model::Package> {
     let resources = package
         .resources
         .iter()
         .map(|(resource_name, resource)| resource_to_model(resource_name, resource))
-        .collect::<Result<BTreeMap<_, _>>>()?;
+        .collect::<Result<BTreeMap<_, _>>>()
+        .context("Cannot handle resources")?;
+    let types = package
+        .types
+        .iter()
+        .map(|(type_name, type_)| {
+            //TODO: Enums, support non objects
+            let element_id = ElementId::new(type_name)?;
+            let tpe = convert_object_type(&type_.object_type)?;
+            Ok((
+                element_id,
+                GlobalType {
+                    properties: tpe
+                        .iter()
+                        .map(|p| GlobalTypeProperty {
+                            name: p.name.clone(),
+                            r#type: p.r#type.clone(),
+                        })
+                        .collect(),
+                },
+            ))
+        })
+        .collect::<Result<BTreeMap<_, _>>>()
+        .context("Cannot handle types")?;
     Ok(crate::model::Package {
         name: package.name.clone(),
         version: package.version.clone(),
         display_name: package.display_name.clone(),
+        types,
         resources,
     })
 }

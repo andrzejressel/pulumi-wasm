@@ -1961,6 +1961,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "pulumi_wasm_docker_provider"
+version = "4.5.3"
+dependencies = [
+ "wasm_common",
+ "wit-bindgen-rt",
+]
+
+[[package]]
 name = "pulumi_wasm_example_simple"
 version = "0.1.0"
 dependencies = [

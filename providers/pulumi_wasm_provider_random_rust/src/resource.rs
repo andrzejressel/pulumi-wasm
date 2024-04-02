@@ -1,7 +1,6 @@
 pub mod random_bytes {
 
-    pub struct RandomBytesArgs<'a> {
-        pub name: &'a str,
+    pub struct RandomBytesArgs {
         pub keepers: pulumi_wasm_rust::Output<Option<std::collections::HashMap<String, String>>>,
         pub length: pulumi_wasm_rust::Output<i32>,
     }
@@ -13,9 +12,9 @@ pub mod random_bytes {
         pub length: pulumi_wasm_rust::Output<i32>,
     }
 
-    pub fn random_bytes(args: RandomBytesArgs) -> RandomBytesResult {
+    pub fn random_bytes(name: &str, args: RandomBytesArgs) -> RandomBytesResult {
         let result = crate::bindings::pulumi::random::random_bytes::invoke(
-            args.name,
+            name,
             &crate::bindings::pulumi::random::random_bytes::Args {
                 keepers: &crate::clone::<Option<std::collections::HashMap<String, String>>>(
                     args.keepers,
@@ -37,8 +36,7 @@ pub mod random_bytes {
 
 pub mod random_id {
 
-    pub struct RandomIdArgs<'a> {
-        pub name: &'a str,
+    pub struct RandomIdArgs {
         pub byte_length: pulumi_wasm_rust::Output<i32>,
         pub keepers: pulumi_wasm_rust::Output<Option<std::collections::HashMap<String, String>>>,
         pub prefix: pulumi_wasm_rust::Output<Option<String>>,
@@ -54,9 +52,9 @@ pub mod random_id {
         pub prefix: pulumi_wasm_rust::Output<Option<String>>,
     }
 
-    pub fn random_id(args: RandomIdArgs) -> RandomIdResult {
+    pub fn random_id(name: &str, args: RandomIdArgs) -> RandomIdResult {
         let result = crate::bindings::pulumi::random::random_id::invoke(
-            args.name,
+            name,
             &crate::bindings::pulumi::random::random_id::Args {
                 byte_length: &crate::clone::<i32>(args.byte_length),
                 keepers: &crate::clone::<Option<std::collections::HashMap<String, String>>>(
@@ -82,8 +80,7 @@ pub mod random_id {
 
 pub mod random_integer {
 
-    pub struct RandomIntegerArgs<'a> {
-        pub name: &'a str,
+    pub struct RandomIntegerArgs {
         pub keepers: pulumi_wasm_rust::Output<Option<std::collections::HashMap<String, String>>>,
         pub max: pulumi_wasm_rust::Output<i32>,
         pub min: pulumi_wasm_rust::Output<i32>,
@@ -98,9 +95,9 @@ pub mod random_integer {
         pub seed: pulumi_wasm_rust::Output<Option<String>>,
     }
 
-    pub fn random_integer(args: RandomIntegerArgs) -> RandomIntegerResult {
+    pub fn random_integer(name: &str, args: RandomIntegerArgs) -> RandomIntegerResult {
         let result = crate::bindings::pulumi::random::random_integer::invoke(
-            args.name,
+            name,
             &crate::bindings::pulumi::random::random_integer::Args {
                 keepers: &crate::clone::<Option<std::collections::HashMap<String, String>>>(
                     args.keepers,
@@ -125,8 +122,7 @@ pub mod random_integer {
 
 pub mod random_password {
 
-    pub struct RandomPasswordArgs<'a> {
-        pub name: &'a str,
+    pub struct RandomPasswordArgs {
         pub keepers: pulumi_wasm_rust::Output<Option<std::collections::HashMap<String, String>>>,
         pub length: pulumi_wasm_rust::Output<i32>,
         pub lower: pulumi_wasm_rust::Output<Option<bool>>,
@@ -158,9 +154,9 @@ pub mod random_password {
         pub upper: pulumi_wasm_rust::Output<bool>,
     }
 
-    pub fn random_password(args: RandomPasswordArgs) -> RandomPasswordResult {
+    pub fn random_password(name: &str, args: RandomPasswordArgs) -> RandomPasswordResult {
         let result = crate::bindings::pulumi::random::random_password::invoke(
-            args.name,
+            name,
             &crate::bindings::pulumi::random::random_password::Args {
                 keepers: &crate::clone::<Option<std::collections::HashMap<String, String>>>(
                     args.keepers,
@@ -204,8 +200,7 @@ pub mod random_password {
 
 pub mod random_pet {
 
-    pub struct RandomPetArgs<'a> {
-        pub name: &'a str,
+    pub struct RandomPetArgs {
         pub keepers: pulumi_wasm_rust::Output<Option<std::collections::HashMap<String, String>>>,
         pub length: pulumi_wasm_rust::Output<Option<i32>>,
         pub prefix: pulumi_wasm_rust::Output<Option<String>>,
@@ -219,9 +214,9 @@ pub mod random_pet {
         pub separator: pulumi_wasm_rust::Output<String>,
     }
 
-    pub fn random_pet(args: RandomPetArgs) -> RandomPetResult {
+    pub fn random_pet(name: &str, args: RandomPetArgs) -> RandomPetResult {
         let result = crate::bindings::pulumi::random::random_pet::invoke(
-            args.name,
+            name,
             &crate::bindings::pulumi::random::random_pet::Args {
                 keepers: &crate::clone::<Option<std::collections::HashMap<String, String>>>(
                     args.keepers,
@@ -245,8 +240,7 @@ pub mod random_pet {
 
 pub mod random_shuffle {
 
-    pub struct RandomShuffleArgs<'a> {
-        pub name: &'a str,
+    pub struct RandomShuffleArgs {
         pub inputs: pulumi_wasm_rust::Output<Vec<String>>,
         pub keepers: pulumi_wasm_rust::Output<Option<std::collections::HashMap<String, String>>>,
         pub result_count: pulumi_wasm_rust::Output<Option<i32>>,
@@ -261,9 +255,9 @@ pub mod random_shuffle {
         pub seed: pulumi_wasm_rust::Output<Option<String>>,
     }
 
-    pub fn random_shuffle(args: RandomShuffleArgs) -> RandomShuffleResult {
+    pub fn random_shuffle(name: &str, args: RandomShuffleArgs) -> RandomShuffleResult {
         let result = crate::bindings::pulumi::random::random_shuffle::invoke(
-            args.name,
+            name,
             &crate::bindings::pulumi::random::random_shuffle::Args {
                 inputs: &crate::clone::<Vec<String>>(args.inputs),
                 keepers: &crate::clone::<Option<std::collections::HashMap<String, String>>>(
@@ -288,8 +282,7 @@ pub mod random_shuffle {
 
 pub mod random_string {
 
-    pub struct RandomStringArgs<'a> {
-        pub name: &'a str,
+    pub struct RandomStringArgs {
         pub keepers: pulumi_wasm_rust::Output<Option<std::collections::HashMap<String, String>>>,
         pub length: pulumi_wasm_rust::Output<i32>,
         pub lower: pulumi_wasm_rust::Output<Option<bool>>,
@@ -320,9 +313,9 @@ pub mod random_string {
         pub upper: pulumi_wasm_rust::Output<bool>,
     }
 
-    pub fn random_string(args: RandomStringArgs) -> RandomStringResult {
+    pub fn random_string(name: &str, args: RandomStringArgs) -> RandomStringResult {
         let result = crate::bindings::pulumi::random::random_string::invoke(
-            args.name,
+            name,
             &crate::bindings::pulumi::random::random_string::Args {
                 keepers: &crate::clone::<Option<std::collections::HashMap<String, String>>>(
                     args.keepers,
@@ -365,8 +358,7 @@ pub mod random_string {
 
 pub mod random_uuid {
 
-    pub struct RandomUuidArgs<'a> {
-        pub name: &'a str,
+    pub struct RandomUuidArgs {
         pub keepers: pulumi_wasm_rust::Output<Option<std::collections::HashMap<String, String>>>,
     }
 
@@ -375,9 +367,9 @@ pub mod random_uuid {
         pub result: pulumi_wasm_rust::Output<String>,
     }
 
-    pub fn random_uuid(args: RandomUuidArgs) -> RandomUuidResult {
+    pub fn random_uuid(name: &str, args: RandomUuidArgs) -> RandomUuidResult {
         let result = crate::bindings::pulumi::random::random_uuid::invoke(
-            args.name,
+            name,
             &crate::bindings::pulumi::random::random_uuid::Args {
                 keepers: &crate::clone::<Option<std::collections::HashMap<String, String>>>(
                     args.keepers,

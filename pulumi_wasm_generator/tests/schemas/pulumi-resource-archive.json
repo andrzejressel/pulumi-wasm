@@ -1,0 +1,476 @@
+{
+  "name": "archive",
+  "displayName": "Archive",
+  "version": "0.0.5",
+  "description": "A Pulumi package for creating and managing Archive cloud resources.",
+  "keywords": [
+    "pulumi",
+    "category/cloud"
+  ],
+  "homepage": "https://www.pulumi.com/",
+  "license": "Apache-2.0",
+  "attribution": "This Pulumi package is based on the [`archive` Terraform Provider](https://github.com/terraform-providers/terraform-provider-archive).",
+  "repository": "https://github.com/pulumi/pulumi-archive",
+  "publisher": "Pulumi",
+  "meta": {
+    "moduleFormat": "(.*)(?:/[^/]*)"
+  },
+  "language": {
+    "csharp": {
+      "packageReferences": {
+        "Pulumi": "3.*"
+      },
+      "compatibility": "tfbridge20"
+    },
+    "go": {
+      "importBasePath": "github.com/pulumi/pulumi-archive/sdk/go/archive",
+      "generateResourceContainerTypes": true,
+      "generateExtraInputTypes": true
+    },
+    "nodejs": {
+      "packageDescription": "A Pulumi package for creating and managing Archive cloud resources.",
+      "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/terraform-providers/terraform-provider-archive)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-archive` repo](https://github.com/pulumi/pulumi-archive/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-archive` repo](https://github.com/terraform-providers/terraform-provider-archive/issues).",
+      "dependencies": {
+        "@pulumi/pulumi": "^3.0.0"
+      },
+      "devDependencies": {
+        "@types/node": "^16.0.0"
+      },
+      "compatibility": "tfbridge20",
+      "disableUnionOutputTypes": true
+    },
+    "python": {
+      "requires": {
+        "pulumi": "\u003e=3.0.0,\u003c4.0.0"
+      },
+      "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/terraform-providers/terraform-provider-archive)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-archive` repo](https://github.com/pulumi/pulumi-archive/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-archive` repo](https://github.com/terraform-providers/terraform-provider-archive/issues).",
+      "compatibility": "tfbridge20",
+      "pyproject": {
+        "enabled": true
+      }
+    }
+  },
+  "config": {},
+  "types": {
+    "archive:index/FileSource:FileSource": {
+      "properties": {
+        "content": {
+          "type": "string",
+          "description": "Add this content to the archive with `filename` as the filename.\n"
+        },
+        "filename": {
+          "type": "string",
+          "description": "Set this as the filename when declaring a `source`.\n"
+        }
+      },
+      "type": "object",
+      "required": [
+        "content",
+        "filename"
+      ]
+    },
+    "archive:index/getFileSource:getFileSource": {
+      "properties": {
+        "content": {
+          "type": "string",
+          "description": "Add this content to the archive with `filename` as the filename.\n"
+        },
+        "filename": {
+          "type": "string",
+          "description": "Set this as the filename when declaring a `source`.\n"
+        }
+      },
+      "type": "object",
+      "required": [
+        "content",
+        "filename"
+      ]
+    }
+  },
+  "provider": {
+    "description": "The provider type for the archive package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
+    "type": "object"
+  },
+  "resources": {
+    "archive:index/file:File": {
+      "description": "**NOTE**: This resource is deprecated, use data source instead.\n",
+      "properties": {
+        "excludeSymlinkDirectories": {
+          "type": "boolean",
+          "description": "Boolean flag indicating whether symbolically linked directories should be excluded during the creation of the archive. Defaults to `false`.\n"
+        },
+        "excludes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Specify files to ignore when reading the `source_dir`.\n"
+        },
+        "outputBase64sha256": {
+          "type": "string",
+          "description": "Base64 Encoded SHA256 checksum of output file\n"
+        },
+        "outputBase64sha512": {
+          "type": "string",
+          "description": "Base64 Encoded SHA512 checksum of output file\n"
+        },
+        "outputFileMode": {
+          "type": "string",
+          "description": "String that specifies the octal file mode for all archived files. For example: `\"0666\"`. Setting this will ensure that cross platform usage of this module will not vary the modes of archived files (and ultimately checksums) resulting in more deterministic behavior.\n"
+        },
+        "outputMd5": {
+          "type": "string",
+          "description": "MD5 of output file\n"
+        },
+        "outputPath": {
+          "type": "string",
+          "description": "The output of the archive file.\n"
+        },
+        "outputSha": {
+          "type": "string",
+          "description": "SHA1 checksum of output file\n"
+        },
+        "outputSha256": {
+          "type": "string",
+          "description": "SHA256 checksum of output file\n"
+        },
+        "outputSha512": {
+          "type": "string",
+          "description": "SHA512 checksum of output file\n"
+        },
+        "outputSize": {
+          "type": "integer",
+          "description": "The byte size of the output archive file.\n"
+        },
+        "sourceContent": {
+          "type": "string",
+          "description": "Add only this content to the archive with `source_content_filename` as the filename. One and only one of `source`, `source_content_filename` (with `source_content`), `source_file`, or `source_dir` must be specified.\n"
+        },
+        "sourceContentFilename": {
+          "type": "string",
+          "description": "Set this as the filename when using `source_content`. One and only one of `source`, `source_content_filename` (with `source_content`), `source_file`, or `source_dir` must be specified.\n"
+        },
+        "sourceDir": {
+          "type": "string",
+          "description": "Package entire contents of this directory into the archive. One and only one of `source`, `source_content_filename` (with `source_content`), `source_file`, or `source_dir` must be specified.\n"
+        },
+        "sourceFile": {
+          "type": "string",
+          "description": "Package this file into the archive. One and only one of `source`, `source_content_filename` (with `source_content`), `source_file`, or `source_dir` must be specified.\n"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/types/archive:index%2FFileSource:FileSource"
+          },
+          "description": "Specifies attributes of a single source file to include into the archive. One and only one of `source`, `source_content_filename` (with `source_content`), `source_file`, or `source_dir` must be specified.\n"
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of archive to generate. NOTE: `zip` is supported.\n"
+        }
+      },
+      "type": "object",
+      "required": [
+        "outputBase64sha256",
+        "outputBase64sha512",
+        "outputMd5",
+        "outputPath",
+        "outputSha",
+        "outputSha256",
+        "outputSha512",
+        "outputSize",
+        "type"
+      ],
+      "inputProperties": {
+        "excludeSymlinkDirectories": {
+          "type": "boolean",
+          "description": "Boolean flag indicating whether symbolically linked directories should be excluded during the creation of the archive. Defaults to `false`.\n"
+        },
+        "excludes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Specify files to ignore when reading the `source_dir`.\n"
+        },
+        "outputFileMode": {
+          "type": "string",
+          "description": "String that specifies the octal file mode for all archived files. For example: `\"0666\"`. Setting this will ensure that cross platform usage of this module will not vary the modes of archived files (and ultimately checksums) resulting in more deterministic behavior.\n"
+        },
+        "outputPath": {
+          "type": "string",
+          "description": "The output of the archive file.\n"
+        },
+        "sourceContent": {
+          "type": "string",
+          "description": "Add only this content to the archive with `source_content_filename` as the filename. One and only one of `source`, `source_content_filename` (with `source_content`), `source_file`, or `source_dir` must be specified.\n"
+        },
+        "sourceContentFilename": {
+          "type": "string",
+          "description": "Set this as the filename when using `source_content`. One and only one of `source`, `source_content_filename` (with `source_content`), `source_file`, or `source_dir` must be specified.\n"
+        },
+        "sourceDir": {
+          "type": "string",
+          "description": "Package entire contents of this directory into the archive. One and only one of `source`, `source_content_filename` (with `source_content`), `source_file`, or `source_dir` must be specified.\n"
+        },
+        "sourceFile": {
+          "type": "string",
+          "description": "Package this file into the archive. One and only one of `source`, `source_content_filename` (with `source_content`), `source_file`, or `source_dir` must be specified.\n"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/types/archive:index%2FFileSource:FileSource"
+          },
+          "description": "Specifies attributes of a single source file to include into the archive. One and only one of `source`, `source_content_filename` (with `source_content`), `source_file`, or `source_dir` must be specified.\n"
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of archive to generate. NOTE: `zip` is supported.\n"
+        }
+      },
+      "requiredInputs": [
+        "outputPath",
+        "type"
+      ],
+      "stateInputs": {
+        "description": "Input properties used for looking up and filtering File resources.\n",
+        "properties": {
+          "excludeSymlinkDirectories": {
+            "type": "boolean",
+            "description": "Boolean flag indicating whether symbolically linked directories should be excluded during the creation of the archive. Defaults to `false`.\n"
+          },
+          "excludes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Specify files to ignore when reading the `source_dir`.\n"
+          },
+          "outputBase64sha256": {
+            "type": "string",
+            "description": "Base64 Encoded SHA256 checksum of output file\n"
+          },
+          "outputBase64sha512": {
+            "type": "string",
+            "description": "Base64 Encoded SHA512 checksum of output file\n"
+          },
+          "outputFileMode": {
+            "type": "string",
+            "description": "String that specifies the octal file mode for all archived files. For example: `\"0666\"`. Setting this will ensure that cross platform usage of this module will not vary the modes of archived files (and ultimately checksums) resulting in more deterministic behavior.\n"
+          },
+          "outputMd5": {
+            "type": "string",
+            "description": "MD5 of output file\n"
+          },
+          "outputPath": {
+            "type": "string",
+            "description": "The output of the archive file.\n"
+          },
+          "outputSha": {
+            "type": "string",
+            "description": "SHA1 checksum of output file\n"
+          },
+          "outputSha256": {
+            "type": "string",
+            "description": "SHA256 checksum of output file\n"
+          },
+          "outputSha512": {
+            "type": "string",
+            "description": "SHA512 checksum of output file\n"
+          },
+          "outputSize": {
+            "type": "integer",
+            "description": "The byte size of the output archive file.\n"
+          },
+          "sourceContent": {
+            "type": "string",
+            "description": "Add only this content to the archive with `source_content_filename` as the filename. One and only one of `source`, `source_content_filename` (with `source_content`), `source_file`, or `source_dir` must be specified.\n"
+          },
+          "sourceContentFilename": {
+            "type": "string",
+            "description": "Set this as the filename when using `source_content`. One and only one of `source`, `source_content_filename` (with `source_content`), `source_file`, or `source_dir` must be specified.\n"
+          },
+          "sourceDir": {
+            "type": "string",
+            "description": "Package entire contents of this directory into the archive. One and only one of `source`, `source_content_filename` (with `source_content`), `source_file`, or `source_dir` must be specified.\n"
+          },
+          "sourceFile": {
+            "type": "string",
+            "description": "Package this file into the archive. One and only one of `source`, `source_content_filename` (with `source_content`), `source_file`, or `source_dir` must be specified.\n"
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/types/archive:index%2FFileSource:FileSource"
+            },
+            "description": "Specifies attributes of a single source file to include into the archive. One and only one of `source`, `source_content_filename` (with `source_content`), `source_file`, or `source_dir` must be specified.\n"
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of archive to generate. NOTE: `zip` is supported.\n"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "functions": {
+    "archive:index/getFile:getFile": {
+      "description": "Generates an archive from content, a file, or directory of files.\n\n## Example Usage\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as archive from \"@pulumi/archive\";\n\nconst init = archive.getFile({\n    outputPath: `${path.module}/files/init.zip`,\n    sourceFile: `${path.module}/init.tpl`,\n    type: \"zip\",\n});\n```\n```python\nimport pulumi\nimport pulumi_archive as archive\n\ninit = archive.get_file(output_path=f\"{path['module']}/files/init.zip\",\n    source_file=f\"{path['module']}/init.tpl\",\n    type=\"zip\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Archive = Pulumi.Archive;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var init = Archive.GetFile.Invoke(new()\n    {\n        OutputPath = $\"{path.Module}/files/init.zip\",\n        SourceFile = $\"{path.Module}/init.tpl\",\n        Type = \"zip\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-archive/sdk/go/archive\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := archive.LookupFile(ctx, \u0026archive.LookupFileArgs{\n\t\t\tOutputPath: fmt.Sprintf(\"%v/files/init.zip\", path.Module),\n\t\t\tSourceFile: pulumi.StringRef(fmt.Sprintf(\"%v/init.tpl\", path.Module)),\n\t\t\tType:       \"zip\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.archive.ArchiveFunctions;\nimport com.pulumi.archive.inputs.GetFileArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var init = ArchiveFunctions.getFile(GetFileArgs.builder()\n            .outputPath(String.format(\"%s/files/init.zip\", path.module()))\n            .sourceFile(String.format(\"%s/init.tpl\", path.module()))\n            .type(\"zip\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  init:\n    fn::invoke:\n      Function: archive:getFile\n      Arguments:\n        outputPath: ${path.module}/files/init.zip\n        sourceFile: ${path.module}/init.tpl\n        type: zip\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as archive from \"@pulumi/archive\";\n\nconst dotfiles = archive.getFile({\n    type: \"zip\",\n    outputPath: `${path.module}/files/dotfiles.zip`,\n    excludes: [`${path.module}/unwanted.zip`],\n    sources: [\n        {\n            content: data.template_file.vimrc.rendered,\n            filename: \".vimrc\",\n        },\n        {\n            content: data.template_file.ssh_config.rendered,\n            filename: \".ssh/config\",\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_archive as archive\n\ndotfiles = archive.get_file(type=\"zip\",\n    output_path=f\"{path['module']}/files/dotfiles.zip\",\n    excludes=[f\"{path['module']}/unwanted.zip\"],\n    sources=[\n        archive.GetFileSourceArgs(\n            content=data[\"template_file\"][\"vimrc\"][\"rendered\"],\n            filename=\".vimrc\",\n        ),\n        archive.GetFileSourceArgs(\n            content=data[\"template_file\"][\"ssh_config\"][\"rendered\"],\n            filename=\".ssh/config\",\n        ),\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Archive = Pulumi.Archive;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var dotfiles = Archive.GetFile.Invoke(new()\n    {\n        Type = \"zip\",\n        OutputPath = $\"{path.Module}/files/dotfiles.zip\",\n        Excludes = new[]\n        {\n            $\"{path.Module}/unwanted.zip\",\n        },\n        Sources = new[]\n        {\n            new Archive.Inputs.GetFileSourceInputArgs\n            {\n                Content = data.Template_file.Vimrc.Rendered,\n                Filename = \".vimrc\",\n            },\n            new Archive.Inputs.GetFileSourceInputArgs\n            {\n                Content = data.Template_file.Ssh_config.Rendered,\n                Filename = \".ssh/config\",\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-archive/sdk/go/archive\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := archive.LookupFile(ctx, \u0026archive.LookupFileArgs{\n\t\t\tType:       \"zip\",\n\t\t\tOutputPath: fmt.Sprintf(\"%v/files/dotfiles.zip\", path.Module),\n\t\t\tExcludes: []string{\n\t\t\t\tfmt.Sprintf(\"%v/unwanted.zip\", path.Module),\n\t\t\t},\n\t\t\tSources: []archive.GetFileSource{\n\t\t\t\t{\n\t\t\t\t\tContent:  data.Template_file.Vimrc.Rendered,\n\t\t\t\t\tFilename: \".vimrc\",\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\tContent:  data.Template_file.Ssh_config.Rendered,\n\t\t\t\t\tFilename: \".ssh/config\",\n\t\t\t\t},\n\t\t\t},\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.archive.ArchiveFunctions;\nimport com.pulumi.archive.inputs.GetFileArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var dotfiles = ArchiveFunctions.getFile(GetFileArgs.builder()\n            .type(\"zip\")\n            .outputPath(String.format(\"%s/files/dotfiles.zip\", path.module()))\n            .excludes(String.format(\"%s/unwanted.zip\", path.module()))\n            .sources(            \n                GetFileSourceArgs.builder()\n                    .content(data.template_file().vimrc().rendered())\n                    .filename(\".vimrc\")\n                    .build(),\n                GetFileSourceArgs.builder()\n                    .content(data.template_file().ssh_config().rendered())\n                    .filename(\".ssh/config\")\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  dotfiles:\n    fn::invoke:\n      Function: archive:getFile\n      Arguments:\n        type: zip\n        outputPath: ${path.module}/files/dotfiles.zip\n        excludes:\n          - ${path.module}/unwanted.zip\n        sources:\n          - content: ${data.template_file.vimrc.rendered}\n            filename: .vimrc\n          - content: ${data.template_file.ssh_config.rendered}\n            filename: .ssh/config\n```\n\u003c!--End PulumiCodeChooser --\u003e\n\n\u003c!--Start PulumiCodeChooser --\u003e\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as archive from \"@pulumi/archive\";\n\nconst lambdaMyFunction = archive.getFile({\n    outputFileMode: \"0666\",\n    outputPath: `${path.module}/files/lambda-my-function.js.zip`,\n    sourceFile: `${path.module}/../lambda/my-function/index.js`,\n    type: \"zip\",\n});\n```\n```python\nimport pulumi\nimport pulumi_archive as archive\n\nlambda_my_function = archive.get_file(output_file_mode=\"0666\",\n    output_path=f\"{path['module']}/files/lambda-my-function.js.zip\",\n    source_file=f\"{path['module']}/../lambda/my-function/index.js\",\n    type=\"zip\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing Archive = Pulumi.Archive;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var lambdaMyFunction = Archive.GetFile.Invoke(new()\n    {\n        OutputFileMode = \"0666\",\n        OutputPath = $\"{path.Module}/files/lambda-my-function.js.zip\",\n        SourceFile = $\"{path.Module}/../lambda/my-function/index.js\",\n        Type = \"zip\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-archive/sdk/go/archive\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := archive.LookupFile(ctx, \u0026archive.LookupFileArgs{\n\t\t\tOutputFileMode: pulumi.StringRef(\"0666\"),\n\t\t\tOutputPath:     fmt.Sprintf(\"%v/files/lambda-my-function.js.zip\", path.Module),\n\t\t\tSourceFile:     pulumi.StringRef(fmt.Sprintf(\"%v/../lambda/my-function/index.js\", path.Module)),\n\t\t\tType:           \"zip\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.archive.ArchiveFunctions;\nimport com.pulumi.archive.inputs.GetFileArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var lambdaMyFunction = ArchiveFunctions.getFile(GetFileArgs.builder()\n            .outputFileMode(\"0666\")\n            .outputPath(String.format(\"%s/files/lambda-my-function.js.zip\", path.module()))\n            .sourceFile(String.format(\"%s/../lambda/my-function/index.js\", path.module()))\n            .type(\"zip\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  lambdaMyFunction:\n    fn::invoke:\n      Function: archive:getFile\n      Arguments:\n        outputFileMode: '0666'\n        outputPath: ${path.module}/files/lambda-my-function.js.zip\n        sourceFile: ${path.module}/../lambda/my-function/index.js\n        type: zip\n```\n\u003c!--End PulumiCodeChooser --\u003e\n",
+      "inputs": {
+        "description": "A collection of arguments for invoking getFile.\n",
+        "properties": {
+          "excludeSymlinkDirectories": {
+            "type": "boolean",
+            "description": "Boolean flag indicating whether symbolically linked directories should be excluded during the creation of the archive. Defaults to `false`.\n"
+          },
+          "excludes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Specify files to ignore when reading the `source_dir`.\n"
+          },
+          "outputFileMode": {
+            "type": "string",
+            "description": "String that specifies the octal file mode for all archived files. For example: `\"0666\"`. Setting this will ensure that cross platform usage of this module will not vary the modes of archived files (and ultimately checksums) resulting in more deterministic behavior.\n"
+          },
+          "outputPath": {
+            "type": "string",
+            "description": "The output of the archive file.\n"
+          },
+          "sourceContent": {
+            "type": "string",
+            "description": "Add only this content to the archive with `source_content_filename` as the filename. One and only one of `source`, `source_content_filename` (with `source_content`), `source_file`, or `source_dir` must be specified.\n"
+          },
+          "sourceContentFilename": {
+            "type": "string",
+            "description": "Set this as the filename when using `source_content`. One and only one of `source`, `source_content_filename` (with `source_content`), `source_file`, or `source_dir` must be specified.\n"
+          },
+          "sourceDir": {
+            "type": "string",
+            "description": "Package entire contents of this directory into the archive. One and only one of `source`, `source_content_filename` (with `source_content`), `source_file`, or `source_dir` must be specified.\n"
+          },
+          "sourceFile": {
+            "type": "string",
+            "description": "Package this file into the archive. One and only one of `source`, `source_content_filename` (with `source_content`), `source_file`, or `source_dir` must be specified.\n"
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/types/archive:index%2FgetFileSource:getFileSource"
+            },
+            "description": "Specifies attributes of a single source file to include into the archive. One and only one of `source`, `source_content_filename` (with `source_content`), `source_file`, or `source_dir` must be specified.\n"
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of archive to generate. NOTE: `zip` is supported.\n"
+          }
+        },
+        "type": "object",
+        "required": [
+          "outputPath",
+          "type"
+        ]
+      },
+      "outputs": {
+        "description": "A collection of values returned by getFile.\n",
+        "properties": {
+          "excludeSymlinkDirectories": {
+            "description": "Boolean flag indicating whether symbolically linked directories should be excluded during the creation of the archive. Defaults to `false`.\n",
+            "type": "boolean"
+          },
+          "excludes": {
+            "description": "Specify files to ignore when reading the `source_dir`.\n",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "id": {
+            "description": "The sha1 checksum hash of the output.\n",
+            "type": "string"
+          },
+          "outputBase64sha256": {
+            "description": "Base64 Encoded SHA256 checksum of output file\n",
+            "type": "string"
+          },
+          "outputBase64sha512": {
+            "description": "Base64 Encoded SHA512 checksum of output file\n",
+            "type": "string"
+          },
+          "outputFileMode": {
+            "description": "String that specifies the octal file mode for all archived files. For example: `\"0666\"`. Setting this will ensure that cross platform usage of this module will not vary the modes of archived files (and ultimately checksums) resulting in more deterministic behavior.\n",
+            "type": "string"
+          },
+          "outputMd5": {
+            "description": "MD5 of output file\n",
+            "type": "string"
+          },
+          "outputPath": {
+            "description": "The output of the archive file.\n",
+            "type": "string"
+          },
+          "outputSha": {
+            "description": "SHA1 checksum of output file\n",
+            "type": "string"
+          },
+          "outputSha256": {
+            "description": "SHA256 checksum of output file\n",
+            "type": "string"
+          },
+          "outputSha512": {
+            "description": "SHA512 checksum of output file\n",
+            "type": "string"
+          },
+          "outputSize": {
+            "description": "The byte size of the output archive file.\n",
+            "type": "integer"
+          },
+          "sourceContent": {
+            "description": "Add only this content to the archive with `source_content_filename` as the filename. One and only one of `source`, `source_content_filename` (with `source_content`), `source_file`, or `source_dir` must be specified.\n",
+            "type": "string"
+          },
+          "sourceContentFilename": {
+            "description": "Set this as the filename when using `source_content`. One and only one of `source`, `source_content_filename` (with `source_content`), `source_file`, or `source_dir` must be specified.\n",
+            "type": "string"
+          },
+          "sourceDir": {
+            "description": "Package entire contents of this directory into the archive. One and only one of `source`, `source_content_filename` (with `source_content`), `source_file`, or `source_dir` must be specified.\n",
+            "type": "string"
+          },
+          "sourceFile": {
+            "description": "Package this file into the archive. One and only one of `source`, `source_content_filename` (with `source_content`), `source_file`, or `source_dir` must be specified.\n",
+            "type": "string"
+          },
+          "sources": {
+            "description": "Specifies attributes of a single source file to include into the archive. One and only one of `source`, `source_content_filename` (with `source_content`), `source_file`, or `source_dir` must be specified.\n",
+            "items": {
+              "$ref": "#/types/archive:index%2FgetFileSource:getFileSource"
+            },
+            "type": "array"
+          },
+          "type": {
+            "description": "The type of archive to generate. NOTE: `zip` is supported.\n",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "outputBase64sha256",
+          "outputBase64sha512",
+          "outputMd5",
+          "outputPath",
+          "outputSha",
+          "outputSha256",
+          "outputSha512",
+          "outputSize",
+          "type"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

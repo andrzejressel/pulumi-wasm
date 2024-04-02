@@ -6,29 +6,18 @@ use handlebars::Handlebars;
 use serde::Serialize;
 use serde_json::json;
 
-static TEMPLATE: &str = include_str!("resource.rs.handlebars");
+static TEMPLATE: &str = include_str!("types.rs.handlebars");
 
 #[derive(Serialize)]
-struct InputProperty {
+struct Property {
     name: String,
-    arg_name: String,
     type_: String,
-    wit_name: String,
 }
 
 #[derive(Serialize)]
-struct OutputProperty {
+struct RefType {
     name: String,
-    arg_name: String,
-    type_: String,
-    wit_name: String,
-}
-
-#[derive(Serialize)]
-struct Interface {
-    name: String,
-    input_properties: Vec<InputProperty>,
-    output_properties: Vec<OutputProperty>,
+    fields: Vec<Property>,
     struct_name: String,
     function_name: String,
     wit_name: String,
@@ -37,16 +26,16 @@ struct Interface {
 #[derive(Serialize)]
 struct Package {
     name: String,
-    interfaces: Vec<Interface>,
+    types: Vec<RefType>,
 }
 
 fn convert_model(package: &crate::model::Package) -> Package {
     Package {
         name: package.name.clone(),
-        interfaces: package
-            .resources
+        types: package
+            .types
             .iter()
-            .map(|(element_id, resource)| Interface {
+            .map(|(element_id, resource)| RefType {
                 name: create_valid_element_id(element_id),
                 struct_name: element_id.name.clone(),
                 function_name: element_id
@@ -55,24 +44,14 @@ fn convert_model(package: &crate::model::Package) -> Package {
                     .from_case(Case::UpperCamel)
                     .to_case(Case::Snake),
                 wit_name: create_valid_wit_element_id(element_id),
-                input_properties: resource
-                    .input_properties
+                fields: resource
+                    .properties
                     .iter()
-                    .map(|input_property| InputProperty {
-                        name: input_property.name.clone(),
-                        arg_name: create_valid_id(&input_property.name),
-                        type_: convert_type(&input_property.r#type),
-                        wit_name: convert_to_wit_name(&create_valid_wit_id(&input_property.name)),
-                    })
-                    .collect(),
-                output_properties: resource
-                    .output_properties
-                    .iter()
-                    .map(|output_property| OutputProperty {
-                        name: output_property.name.clone(),
-                        arg_name: create_valid_id(&output_property.name),
-                        type_: convert_type(&output_property.r#type),
-                        wit_name: convert_to_wit_name(&create_valid_wit_id(&output_property.name)),
+                    .map(|global_type_property| Property {
+                        name: global_type_property.name.clone(),
+                        // arg_name: create_valid_id(&global_type_property.name),
+                        type_: convert_type(&global_type_property.r#type),
+                        // wit_name: convert_to_wit_name(&create_valid_wit_id(&global_type_property.name)),
                     })
                     .collect(),
             })

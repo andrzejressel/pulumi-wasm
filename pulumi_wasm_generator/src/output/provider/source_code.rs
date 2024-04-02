@@ -1,8 +1,9 @@
-use crate::model::{ElementId, Type};
+use crate::model::{ElementId, GlobalType, GlobalTypeProperty, Ref, Type};
 use crate::output::replace_multiple_dashes;
 use anyhow::Context;
 use handlebars::Handlebars;
 use msgpack_protobuf_converter::Type as ConverterType;
+use std::collections::BTreeMap;
 
 use serde::Serialize;
 use serde_json::json;
@@ -63,6 +64,7 @@ fn convert_model(package: &crate::model::Package) -> Package {
                         required: !matches!(output_property.r#type, Type::Option(_)),
                         schema: rmp_serde::encode::to_vec(&generate_schema(
                             &output_property.r#type,
+                            &package.types,
                         ))
                         .context(format!(
                             "Cannot convert schema for {}",
@@ -109,15 +111,35 @@ pub(crate) fn generate_source_code(package: &crate::model::Package) -> String {
         .unwrap()
 }
 
-fn generate_schema(t: &Type) -> ConverterType {
+fn generate_schema(t: &Type, all_types: &BTreeMap<ElementId, GlobalType>) -> ConverterType {
     match t {
         Type::Boolean => ConverterType::Bool,
         Type::Integer => ConverterType::Int,
         Type::Number => ConverterType::Double,
         Type::String => ConverterType::String,
-        Type::Array(t) => ConverterType::Array(Box::from(generate_schema(t))),
-        Type::Object(t) => ConverterType::SingleTypeObject(Box::from(generate_schema(t))),
-        Type::Ref(_) => todo!("Ref"),
-        Type::Option(t) => ConverterType::Nullable(Box::from(generate_schema(t))),
+        Type::Array(t) => ConverterType::Array(Box::from(generate_schema(t, all_types))),
+        Type::Object(t) => {
+            ConverterType::SingleTypeObject(Box::from(generate_schema(t, all_types)))
+        }
+        Type::Ref(r) => match r {
+            Ref::Type(tpe) => {
+                let tpe = all_types
+                    .get(tpe)
+                    .context(format!("Cannot find type {:?}", tpe))
+                    .unwrap();
+                ConverterType::Object(
+                    tpe.properties
+                        .iter()
+                        .map(|GlobalTypeProperty { name, r#type }| {
+                            (name.clone(), generate_schema(r#type, all_types))
+                        })
+                        .collect(),
+                )
+            }
+            Ref::Archive => ConverterType::String, // FIXME
+            Ref::Asset => ConverterType::String,
+            Ref::Any => ConverterType::String,
+        },
+        Type::Option(t) => ConverterType::Nullable(Box::from(generate_schema(t, all_types))),
     }
 }

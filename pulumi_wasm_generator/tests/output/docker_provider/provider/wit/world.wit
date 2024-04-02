@@ -1,0 +1,436 @@
+package pulumi:%docker@4.5.3;
+
+world main-world {
+    import component:pulumi-wasm/register-interface@0.1.0;
+    export %container;
+    export %image;
+    export %network;
+    export %plugin;
+    export %registry-image;
+    export %remote-image;
+    export %secret;
+    export %service;
+    export %service-config;
+    export %tag;
+    export %volume;
+}
+
+world main-world-client {
+    import %container;
+    import %image;
+    import %network;
+    import %plugin;
+    import %registry-image;
+    import %remote-image;
+    import %secret;
+    import %service;
+    import %service-config;
+    import %tag;
+    import %volume;
+}
+
+interface %container {
+
+    use component:pulumi-wasm/output-interface@0.1.0.{output};
+
+    record args {
+        %attach: borrow<output>,
+        %capabilities: borrow<output>,
+        %cgroupns-mode: borrow<output>,
+        %command: borrow<output>,
+        %container-read-refresh-timeout-milliseconds: borrow<output>,
+        %cpu-set: borrow<output>,
+        %cpu-shares: borrow<output>,
+        %destroy-grace-seconds: borrow<output>,
+        %devices: borrow<output>,
+        %dns: borrow<output>,
+        %dns-opts: borrow<output>,
+        %dns-searches: borrow<output>,
+        %domainname: borrow<output>,
+        %entrypoints: borrow<output>,
+        %envs: borrow<output>,
+        %gpus: borrow<output>,
+        %group-adds: borrow<output>,
+        %healthcheck: borrow<output>,
+        %hostname: borrow<output>,
+        %hosts: borrow<output>,
+        %image: borrow<output>,
+        %init: borrow<output>,
+        %ipc-mode: borrow<output>,
+        %labels: borrow<output>,
+        %log-driver: borrow<output>,
+        %log-opts: borrow<output>,
+        %logs: borrow<output>,
+        %max-retry-count: borrow<output>,
+        %memory: borrow<output>,
+        %memory-swap: borrow<output>,
+        %mounts: borrow<output>,
+        %must-run: borrow<output>,
+        %name: borrow<output>,
+        %network-mode: borrow<output>,
+        %networks-advanced: borrow<output>,
+        %pid-mode: borrow<output>,
+        %ports: borrow<output>,
+        %privileged: borrow<output>,
+        %publish-all-ports: borrow<output>,
+        %read-only: borrow<output>,
+        %remove-volumes: borrow<output>,
+        %restart: borrow<output>,
+        %rm: borrow<output>,
+        %runtime: borrow<output>,
+        %security-opts: borrow<output>,
+        %shm-size: borrow<output>,
+        %start: borrow<output>,
+        %stdin-open: borrow<output>,
+        %stop-signal: borrow<output>,
+        %stop-timeout: borrow<output>,
+        %storage-opts: borrow<output>,
+        %sysctls: borrow<output>,
+        %tmpfs: borrow<output>,
+        %tty: borrow<output>,
+        %ulimits: borrow<output>,
+        %uploads: borrow<output>,
+        %user: borrow<output>,
+        %userns-mode: borrow<output>,
+        %volumes: borrow<output>,
+        %wait: borrow<output>,
+        %wait-timeout: borrow<output>,
+        %working-dir: borrow<output>,
+    }
+
+    record res {
+        %attach: output,
+        %bridge: output,
+        %capabilities: output,
+        %cgroupns-mode: output,
+        %command: output,
+        %container-logs: output,
+        %container-read-refresh-timeout-milliseconds: output,
+        %cpu-set: output,
+        %cpu-shares: output,
+        %destroy-grace-seconds: output,
+        %devices: output,
+        %dns: output,
+        %dns-opts: output,
+        %dns-searches: output,
+        %domainname: output,
+        %entrypoints: output,
+        %envs: output,
+        %exit-code: output,
+        %gpus: output,
+        %group-adds: output,
+        %healthcheck: output,
+        %hostname: output,
+        %hosts: output,
+        %image: output,
+        %init: output,
+        %ipc-mode: output,
+        %labels: output,
+        %log-driver: output,
+        %log-opts: output,
+        %logs: output,
+        %max-retry-count: output,
+        %memory: output,
+        %memory-swap: output,
+        %mounts: output,
+        %must-run: output,
+        %name: output,
+        %network-datas: output,
+        %network-mode: output,
+        %networks-advanced: output,
+        %pid-mode: output,
+        %ports: output,
+        %privileged: output,
+        %publish-all-ports: output,
+        %read-only: output,
+        %remove-volumes: output,
+        %restart: output,
+        %rm: output,
+        %runtime: output,
+        %security-opts: output,
+        %shm-size: output,
+        %start: output,
+        %stdin-open: output,
+        %stop-signal: output,
+        %stop-timeout: output,
+        %storage-opts: output,
+        %sysctls: output,
+        %tmpfs: output,
+        %tty: output,
+        %ulimits: output,
+        %uploads: output,
+        %user: output,
+        %userns-mode: output,
+        %volumes: output,
+        %wait: output,
+        %wait-timeout: output,
+        %working-dir: output,
+    }
+
+    invoke: func(name: string, args: args) -> res;
+
+}
+
+interface %image {
+
+    use component:pulumi-wasm/output-interface@0.1.0.{output};
+
+    record args {
+        %build: borrow<output>,
+        %build-on-preview: borrow<output>,
+        %image-name: borrow<output>,
+        %registry: borrow<output>,
+        %skip-push: borrow<output>,
+    }
+
+    record res {
+        %base-image-name: output,
+        %context: output,
+        %dockerfile: output,
+        %image-name: output,
+        %platform: output,
+        %registry-server: output,
+        %repo-digest: output,
+    }
+
+    invoke: func(name: string, args: args) -> res;
+
+}
+
+interface %network {
+
+    use component:pulumi-wasm/output-interface@0.1.0.{output};
+
+    record args {
+        %attachable: borrow<output>,
+        %check-duplicate: borrow<output>,
+        %driver: borrow<output>,
+        %ingress: borrow<output>,
+        %internal: borrow<output>,
+        %ipam-configs: borrow<output>,
+        %ipam-driver: borrow<output>,
+        %ipam-options: borrow<output>,
+        %ipv6: borrow<output>,
+        %labels: borrow<output>,
+        %name: borrow<output>,
+        %options: borrow<output>,
+    }
+
+    record res {
+        %attachable: output,
+        %check-duplicate: output,
+        %driver: output,
+        %ingress: output,
+        %internal: output,
+        %ipam-configs: output,
+        %ipam-driver: output,
+        %ipam-options: output,
+        %ipv6: output,
+        %labels: output,
+        %name: output,
+        %options: output,
+        %scope: output,
+    }
+
+    invoke: func(name: string, args: args) -> res;
+
+}
+
+interface %plugin {
+
+    use component:pulumi-wasm/output-interface@0.1.0.{output};
+
+    record args {
+        %alias: borrow<output>,
+        %enable-timeout: borrow<output>,
+        %enabled: borrow<output>,
+        %envs: borrow<output>,
+        %force-destroy: borrow<output>,
+        %force-disable: borrow<output>,
+        %grant-all-permissions: borrow<output>,
+        %grant-permissions: borrow<output>,
+        %name: borrow<output>,
+    }
+
+    record res {
+        %alias: output,
+        %enable-timeout: output,
+        %enabled: output,
+        %envs: output,
+        %force-destroy: output,
+        %force-disable: output,
+        %grant-all-permissions: output,
+        %grant-permissions: output,
+        %name: output,
+        %plugin-reference: output,
+    }
+
+    invoke: func(name: string, args: args) -> res;
+
+}
+
+interface %registry-image {
+
+    use component:pulumi-wasm/output-interface@0.1.0.{output};
+
+    record args {
+        %insecure-skip-verify: borrow<output>,
+        %keep-remotely: borrow<output>,
+        %name: borrow<output>,
+        %triggers: borrow<output>,
+    }
+
+    record res {
+        %insecure-skip-verify: output,
+        %keep-remotely: output,
+        %name: output,
+        %sha256-digest: output,
+        %triggers: output,
+    }
+
+    invoke: func(name: string, args: args) -> res;
+
+}
+
+interface %remote-image {
+
+    use component:pulumi-wasm/output-interface@0.1.0.{output};
+
+    record args {
+        %build: borrow<output>,
+        %force-remove: borrow<output>,
+        %keep-locally: borrow<output>,
+        %name: borrow<output>,
+        %platform: borrow<output>,
+        %pull-triggers: borrow<output>,
+        %triggers: borrow<output>,
+    }
+
+    record res {
+        %build: output,
+        %force-remove: output,
+        %image-id: output,
+        %keep-locally: output,
+        %name: output,
+        %platform: output,
+        %pull-triggers: output,
+        %repo-digest: output,
+        %triggers: output,
+    }
+
+    invoke: func(name: string, args: args) -> res;
+
+}
+
+interface %secret {
+
+    use component:pulumi-wasm/output-interface@0.1.0.{output};
+
+    record args {
+        %data: borrow<output>,
+        %labels: borrow<output>,
+        %name: borrow<output>,
+    }
+
+    record res {
+        %data: output,
+        %labels: output,
+        %name: output,
+    }
+
+    invoke: func(name: string, args: args) -> res;
+
+}
+
+interface %service {
+
+    use component:pulumi-wasm/output-interface@0.1.0.{output};
+
+    record args {
+        %auth: borrow<output>,
+        %converge-config: borrow<output>,
+        %endpoint-spec: borrow<output>,
+        %labels: borrow<output>,
+        %mode: borrow<output>,
+        %name: borrow<output>,
+        %rollback-config: borrow<output>,
+        %task-spec: borrow<output>,
+        %update-config: borrow<output>,
+    }
+
+    record res {
+        %auth: output,
+        %converge-config: output,
+        %endpoint-spec: output,
+        %labels: output,
+        %mode: output,
+        %name: output,
+        %rollback-config: output,
+        %task-spec: output,
+        %update-config: output,
+    }
+
+    invoke: func(name: string, args: args) -> res;
+
+}
+
+interface %service-config {
+
+    use component:pulumi-wasm/output-interface@0.1.0.{output};
+
+    record args {
+        %data: borrow<output>,
+        %name: borrow<output>,
+    }
+
+    record res {
+        %data: output,
+        %name: output,
+    }
+
+    invoke: func(name: string, args: args) -> res;
+
+}
+
+interface %tag {
+
+    use component:pulumi-wasm/output-interface@0.1.0.{output};
+
+    record args {
+        %source-image: borrow<output>,
+        %target-image: borrow<output>,
+    }
+
+    record res {
+        %source-image: output,
+        %source-image-id: output,
+        %target-image: output,
+    }
+
+    invoke: func(name: string, args: args) -> res;
+
+}
+
+interface %volume {
+
+    use component:pulumi-wasm/output-interface@0.1.0.{output};
+
+    record args {
+        %driver: borrow<output>,
+        %driver-opts: borrow<output>,
+        %labels: borrow<output>,
+        %name: borrow<output>,
+    }
+
+    record res {
+        %driver: output,
+        %driver-opts: output,
+        %labels: output,
+        %mountpoint: output,
+        %name: output,
+    }
+
+    invoke: func(name: string, args: args) -> res;
+
+}
+

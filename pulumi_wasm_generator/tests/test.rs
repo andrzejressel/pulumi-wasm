@@ -20,6 +20,13 @@ fn command() -> Result<()> {
     Ok(())
 }
 
+#[test]
+fn docker() -> Result<()> {
+    let provider_name = "docker";
+    run_test(provider_name)?;
+    Ok(())
+}
+
 fn run_test(provider_name: &str) -> Result<()> {
     let root_path = format!("tests/output/{provider_name}_provider");
     let root = Path::new(&root_path);

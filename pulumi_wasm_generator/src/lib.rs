@@ -32,9 +32,13 @@ pub fn generate_rust_library(schema_json: &Path, result_path: &Path) -> Result<(
     lib_file
         .write_all(output::rust::source_code_librs::generate_source_code(&package).as_bytes())?;
 
-    let mut source_file = File::create(result_path.join("src").join("source.rs"))?;
+    let mut source_file = File::create(result_path.join("src").join("resource.rs"))?;
     source_file
         .write_all(output::rust::source_code_resource::generate_source_code(&package).as_bytes())?;
+
+    let mut types_file = File::create(result_path.join("src").join("types.rs"))?;
+    types_file
+        .write_all(output::rust::source_code_types::generate_source_code(&package).as_ref())?;
 
     Ok(())
 }

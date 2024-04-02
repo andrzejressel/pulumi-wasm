@@ -2,8 +2,7 @@
 
 pub mod {{interface.name}} {
 
-    pub struct {{interface.struct_name}}Args<'a> {
-        pub name: &'a str,
+    pub struct {{interface.struct_name}}Args {
     {{#each interface.input_properties}}
         pub {{arg_name}}: pulumi_wasm_rust::Output<{{&type_}}>,
     {{/each}}
@@ -15,9 +14,9 @@ pub mod {{interface.name}} {
     {{/each}}
     }
 
-    pub fn {{interface.function_name}}(args: {{interface.struct_name}}Args) -> {{interface.struct_name}}Result {
+    pub fn {{interface.function_name}}(name: &str, args: {{interface.struct_name}}Args) -> {{interface.struct_name}}Result {
 
-        let result = crate::bindings::pulumi::{{@root.package.name}}::{{interface.wit_name}}::invoke(args.name, &crate::bindings::pulumi::{{@root.package.name}}::{{interface.wit_name}}::Args {
+        let result = crate::bindings::pulumi::{{@root.package.name}}::{{interface.wit_name}}::invoke(name, &crate::bindings::pulumi::{{@root.package.name}}::{{interface.wit_name}}::Args {
     {{#each interface.input_properties}}
             {{wit_name}}: &crate::clone::<{{&type_}}>(args.{{arg_name}}),
     {{/each}}

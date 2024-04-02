@@ -11,6 +11,7 @@ members = [
     "cargo-pulumi-gen",
     "examples/simple",
     "msgpack_protobuf_converter",
+    "providers/pulumi_wasm_provider_docker",
     "providers/pulumi_wasm_provider_random",
     "pulumi_wasm",
     "pulumi_wasm_generator",
