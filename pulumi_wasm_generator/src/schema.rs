@@ -1,4 +1,5 @@
-use std::collections::{BTreeMap, BTreeSet};
+use std::collections::{BTreeMap, BTreeSet, HashMap, HashSet};
+use std::iter::Map;
 
 use crate::model::{ElementId, GlobalType, GlobalTypeProperty, OutputProperty, Ref};
 use anyhow::{anyhow, Context, Result};
@@ -155,7 +156,7 @@ fn resource_to_model(
 ) -> Result<(ElementId, crate::model::Resource)> {
     let element_id = ElementId::new(resource_name)?;
     Ok((
-        element_id,
+        element_id.clone(),
         crate::model::Resource {
             // name: resource_name.clone(),
             description: resource.object_type.description.clone(),
@@ -165,6 +166,7 @@ fn resource_to_model(
                 .map(|(input_name, input_property)| {
                     let mut type_ = new_type_mapper(&input_property.r#type)
                         .context(format!("Cannot handle [{input_name}] type"))?;
+                    // Forced options are not for inputs
                     if !resource.required_inputs.contains(input_name) {
                         type_ = crate::model::Type::Option(Box::new(type_));
                     }
@@ -174,19 +176,25 @@ fn resource_to_model(
                     })
                 })
                 .collect::<Result<Vec<_>>>()?,
-            output_properties: convert_object_type(&resource.object_type)?,
+            output_properties: convert_object_type(&element_id, &resource.object_type)?,
         },
     ))
 }
 
-fn convert_object_type(object_type: &ObjectType) -> Result<Vec<OutputProperty>> {
+fn convert_object_type(
+    element_id: &ElementId,
+    object_type: &ObjectType,
+) -> Result<Vec<OutputProperty>> {
+    let forced_options = invalid_required_complextype_required_fields();
     object_type
         .properties
         .iter()
         .map(|(output_name, output_property)| {
             let mut type_ = new_type_mapper(&output_property.r#type)
                 .context(format!("Cannot handle [{output_name}] type"))?;
-            if !object_type.required.contains(output_name) {
+            if !object_type.required.contains(output_name)
+                || forced_options.contains(&(element_id.clone(), output_name.clone()))
+            {
                 type_ = crate::model::Type::Option(Box::new(type_));
             }
             Ok(crate::model::OutputProperty {
@@ -216,7 +224,7 @@ pub(crate) fn to_model(package: &Package) -> Result<crate::model::Package> {
         .map(|(type_name, type_)| {
             //TODO: Enums, support non objects
             let element_id = ElementId::new(type_name)?;
-            let tpe = convert_object_type(&type_.object_type)?;
+            let tpe = convert_object_type(&element_id, &type_.object_type)?;
             Ok((
                 element_id,
                 GlobalType {
@@ -241,6 +249,21 @@ pub(crate) fn to_model(package: &Package) -> Result<crate::model::Package> {
     })
 }
 
+fn invalid_required_complextype_required_fields() -> HashSet<(ElementId, String)> {
+    HashSet::from([
+        // https://github.com/pulumi/pulumi-docker/issues/1052
+        (
+            ElementId::new("docker:index/container:Container").unwrap(),
+            "containerLogs".to_string(),
+        ),
+        (
+            ElementId::new("docker:index/container:Container").unwrap(),
+            "healthcheck".to_string(),
+        ),
+        //
+    ])
+}
+
 #[cfg(test)]
 mod test {
     use crate::schema::to_model;
@@ -260,11 +283,26 @@ mod test {
         });
 
         let err = to_model(&serde_json::from_value(json)?).unwrap_err();
-        assert!(err
-            .to_string()
-            .contains("Cannot generate element id from [invalid]"));
+
+        let chain: Vec<_> = anyhow::Chain::new(err.as_ref())
+            .map(|e| e.to_string())
+            .collect();
+
+        assert_eq!(
+            vec![
+                "Cannot handle resources",
+                "Cannot generate element id from [invalid]",
+            ],
+            chain
+        );
 
         Ok(())
+
+        // assert!(err
+        //     .to_string()
+        //     .contains("Cannot generate element id from [invalid]"));
+        //
+        // Ok(())
     }
 
     #[test]
@@ -292,6 +330,7 @@ mod test {
 
         assert_eq!(
             vec![
+                "Cannot handle resources",
                 "Cannot handle [test_input] type",
                 "Cannot handle type: [Type { type_: Some(Object), ref_: None, items: None, additional_properties: None }]",
                 "Object does not have 'additionalProperties' field",
@@ -327,6 +366,7 @@ mod test {
 
         assert_eq!(
             vec![
+                "Cannot handle resources",
                 "Cannot handle [test_input] type",
                 "Cannot handle type: [Type { type_: Some(Array), ref_: None, items: None, additional_properties: None }]",
                 "Array does not have 'items' field",

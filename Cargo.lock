@@ -1961,9 +1961,46 @@ dependencies = [
 ]
 
 [[package]]
+name = "pulumi_wasm_docker"
+version = "4.5.3"
+dependencies = [
+ "automod",
+ "pulumi_wasm_rust",
+ "serde",
+ "wit-bindgen",
+]
+
+[[package]]
 name = "pulumi_wasm_docker_provider"
 version = "4.5.3"
 dependencies = [
+ "wasm_common",
+ "wit-bindgen-rt",
+]
+
+[[package]]
+name = "pulumi_wasm_example_docker"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "assert_cmd",
+ "bitflags 2.5.0",
+ "futures",
+ "lazy_static",
+ "log",
+ "once_cell",
+ "predicates",
+ "prost",
+ "prost-types",
+ "pulumi_wasm_docker",
+ "pulumi_wasm_rust",
+ "rmp",
+ "rmp-serde",
+ "rmpv",
+ "serde",
+ "serde_json",
+ "tonic",
+ "uuid",
  "wasm_common",
  "wit-bindgen-rt",
 ]

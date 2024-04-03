@@ -1,0 +1,16 @@
+set windows-shell := ["pwsh.exe", "-c"]
+
+build:
+    cargo run -p cargo-pulumi -- --no-build # No build required for concurrent tests
+
+run:
+    just build
+    cargo run -p pulumi_wasm_runner -- run --wasm ../../target/wasm32-wasi/debug/pulumi/pulumi_wasm_example_docker.wasm
+
+[windows]
+local-test:
+    #!pwsh
+    cargo run -p cargo-pulumi
+    $env:PULUMI_CONFIG_PASSPHRASE=" "
+    pulumi destroy -y
+    pulumi up -y

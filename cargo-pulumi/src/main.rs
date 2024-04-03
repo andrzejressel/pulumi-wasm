@@ -1,7 +1,3 @@
-use std::collections::{HashSet, VecDeque};
-use std::path::{Path, PathBuf};
-use std::process::Command;
-
 use crate::metadata::GetRelatedCrate;
 use anyhow::{anyhow, Error};
 use cargo_metadata::{MetadataCommand, Package};
@@ -10,6 +6,9 @@ use itertools::Itertools;
 use log::{debug, info};
 use normpath::PathExt;
 use petgraph::visit::{Dfs, Walker};
+use std::collections::{HashSet, VecDeque};
+use std::path::{Path, PathBuf};
+use std::process::Command;
 
 mod graph;
 mod metadata;
@@ -19,6 +18,8 @@ mod metadata;
 struct App {
     #[clap(short, long)]
     package: Option<String>,
+    #[clap(short, long, default_value = "false")]
+    no_build: bool,
 }
 
 fn main() -> Result<(), Error> {
@@ -92,9 +93,12 @@ fn main() -> Result<(), Error> {
     all_packages.extend([package.name.clone()]);
     all_packages.extend(wasm_dependencies.iter().map(|s| s.to_string()));
 
-    info!("Compiling {:?}", all_packages);
-
-    compile_wasm_packages(&all_packages)?;
+    if args.no_build {
+        info!("Skipping compiling step");
+    } else {
+        info!("Compiling {:?}", all_packages);
+        compile_wasm_packages(&all_packages)?;
+    }
 
     let wasm_files_location = target
         .clone()
@@ -106,10 +110,14 @@ fn main() -> Result<(), Error> {
 
     let wasm_files = convert_package_to_location(&wasm_files_location, packages)?;
 
-    let current_composite = combine_wasm_files(&wasm_files_location, wasm_files)?;
+    let current_composite =
+        combine_wasm_files(&wasm_files_location.join(&package.name), wasm_files)?;
 
-    let final_composite =
-        copy_final_composite_to_composed_wasm(wasm_files_location, current_composite)?;
+    let final_composite = copy_final_composite_to_composed_wasm(
+        &package,
+        wasm_files_location.join("pulumi"),
+        current_composite,
+    )?;
 
     info!("Final composite: {:?}", final_composite);
 
@@ -176,6 +184,7 @@ fn combine_wasm_files(
     packages: Vec<PathBuf>,
 ) -> Result<PathBuf, Error> {
     let mut packages = VecDeque::from(packages);
+    std::fs::create_dir_all(wasm_files_location)?;
 
     info!("Packages: {:?}", packages);
 
@@ -219,10 +228,12 @@ fn combine_wasm_files(
 }
 
 fn copy_final_composite_to_composed_wasm(
+    package: &Package,
     wasm_files_location: PathBuf,
     current_composite: PathBuf,
 ) -> Result<PathBuf, Error> {
-    let final_composite = wasm_files_location.join("composed.wasm");
+    std::fs::create_dir_all(&wasm_files_location)?;
+    let final_composite = wasm_files_location.join(format!("{}.wasm", package.name));
 
     std::fs::copy(current_composite, &final_composite)?;
     Ok(final_composite)

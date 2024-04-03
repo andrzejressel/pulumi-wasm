@@ -16,6 +16,6 @@ mod bindings {
 
 pub mod runner;
 
-pub fn add_export<T>(name: &str, output: Output<T>) {
+pub fn add_export<T>(name: &str, output: &Output<T>) {
     output.add_to_export(name);
 }

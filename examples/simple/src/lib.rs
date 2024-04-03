@@ -34,8 +34,8 @@ fn test_main() -> Result<(), Error> {
     // Tests number mapping
     let number = random_string.min_upper.map(|i| i * 2);
 
-    add_export("result", random_string.result);
-    add_export("transformed_result", t);
-    add_export("number", number);
+    add_export("result", &random_string.result);
+    add_export("transformed_result", &t);
+    add_export("number", &number);
     Ok(())
 }

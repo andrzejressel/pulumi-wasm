@@ -1,0 +1,1 @@
+cargo run -p cargo-pulumi && cargo run -p pulumi_wasm_runner -- run --wasm ../../target/wasm32-wasi/debug/composed.wasm

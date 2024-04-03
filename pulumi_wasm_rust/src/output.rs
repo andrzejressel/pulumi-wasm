@@ -19,6 +19,12 @@ impl<T: serde::Serialize> From<T> for Output<T> {
     }
 }
 
+impl<T: serde::Serialize> From<T> for Output<Option<T>> {
+    fn from(value: T) -> Self {
+        Output::new(&Some(&value))
+    }
+}
+
 type Function = Box<dyn Fn(Vec<u8>) -> Result<Vec<u8>, Error> + Send>;
 
 lazy_static! {

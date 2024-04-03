@@ -96,7 +96,7 @@ impl ElementId {
         if raw.contains('/') {
             let parts: Vec<&str> = raw.split('/').collect();
             if parts.len() != 2 {
-                return Err(anyhow::anyhow!("Cannot generate element id from [{raw}]."));
+                return Err(anyhow::anyhow!("Cannot generate element id from [{raw}]"));
             }
 
             let left = parts[0];
@@ -104,14 +104,14 @@ impl ElementId {
 
             let parts = right.split(':').collect::<Vec<&str>>();
             if parts.len() != 2 {
-                return Err(anyhow::anyhow!("Cannot generate element id from [{raw}]."));
+                return Err(anyhow::anyhow!("Cannot generate element id from [{raw}]"));
             }
 
             let name = parts[1].to_string();
 
             let parts = left.split(':').collect::<Vec<&str>>();
             if parts.len() != 2 {
-                return Err(anyhow::anyhow!("Cannot generate element id from [{raw}]."));
+                return Err(anyhow::anyhow!("Cannot generate element id from [{raw}]"));
             }
 
             let namespace = match &parts[1] {
@@ -127,7 +127,7 @@ impl ElementId {
         } else {
             let parts: Vec<&str> = raw.split(':').collect();
             if parts.len() != 3 {
-                return Err(anyhow::anyhow!("Cannot generate element id from [{raw}]."));
+                return Err(anyhow::anyhow!("Cannot generate element id from [{raw}]"));
             }
 
             let _package = parts[0].to_string();
