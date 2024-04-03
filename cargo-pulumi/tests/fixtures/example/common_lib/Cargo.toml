@@ -9,4 +9,4 @@ related_crate = "common"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-wit-bindgen = "0.22.0"
+wit-bindgen = "0.24.0"
