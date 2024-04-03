@@ -1,6 +1,7 @@
 use anyhow::anyhow;
 use assert_cmd::prelude::*;
 use serde_json::Value;
+use std::path::PathBuf;
 use std::process::Command;
 use std::str;
 
@@ -49,7 +50,14 @@ fn test_integration() -> Result<(), anyhow::Error> {
         .as_str()
         .ok_or(anyhow!("[logs] is not a string"))?;
 
+    let image_id = stack
+        .pointer("/image_id")
+        .ok_or(anyhow!("Cannot find [image_id] in stack export"))?
+        .as_str()
+        .ok_or(anyhow!("[image_id] is not a string"))?;
+
     assert!(logs.contains("Hello World!"));
+    assert!(!image_id.is_empty());
 
     Ok(())
 }

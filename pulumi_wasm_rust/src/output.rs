@@ -57,7 +57,7 @@ impl<T> Output<T> {
     }
 
     pub fn new<F: serde::Serialize>(value: &F) -> Self {
-        let binding = rmp_serde::to_vec(value).unwrap();
+        let binding = rmp_serde::to_vec_named(value).unwrap();
         let arg = binding.as_slice();
         let resource = output_interface::Output::new(arg);
         Output {
@@ -78,7 +78,7 @@ impl<T> Output<T> {
             info!("Argument: {:?}", argument);
             let result = f(argument);
             info!("Result: {:?}", result);
-            let result = rmp_serde::to_vec(&result)?;
+            let result = rmp_serde::to_vec_named(&result)?;
             Ok(result)
         };
 

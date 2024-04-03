@@ -34,7 +34,7 @@ where
         let arg = arg.clone();
         let argument = rmp_serde::decode::from_slice(&arg).unwrap();
         let result = f(argument);
-        rmp_serde::to_vec(&result).unwrap()
+        rmp_serde::to_vec_named(&result).unwrap()
     }
 }
 
@@ -84,14 +84,17 @@ fn should_return_output_value() -> Result<(), Error> {
     let output1 = plugin
         .component_pulumi_wasm_output_interface()
         .output()
-        .call_constructor(&mut store, rmp_serde::to_vec("123").unwrap().as_slice())?;
+        .call_constructor(
+            &mut store,
+            rmp_serde::to_vec_named("123").unwrap().as_slice(),
+        )?;
 
     let output1_value = plugin
         .component_pulumi_wasm_output_interface()
         .output()
         .call_get(&mut store, output1)?;
 
-    anyhow::ensure!(output1_value.unwrap() == rmp_serde::to_vec("123").unwrap());
+    anyhow::ensure!(output1_value.unwrap() == rmp_serde::to_vec_named("123").unwrap());
 
     Ok(())
 }
@@ -110,7 +113,10 @@ fn should_not_return_value_of_unhandled_mapped_value() -> Result<(), Error> {
     let output1 = plugin
         .component_pulumi_wasm_output_interface()
         .output()
-        .call_constructor(&mut store, rmp_serde::to_vec("Hello").unwrap().as_slice())?;
+        .call_constructor(
+            &mut store,
+            rmp_serde::to_vec_named("Hello").unwrap().as_slice(),
+        )?;
 
     let output2 = plugin
         .component_pulumi_wasm_output_interface()
@@ -141,7 +147,10 @@ fn should_return_value_of_handled_mapped_value() -> Result<(), Error> {
     let output1 = plugin
         .component_pulumi_wasm_output_interface()
         .output()
-        .call_constructor(&mut store, rmp_serde::to_vec("Hello").unwrap().as_slice())?;
+        .call_constructor(
+            &mut store,
+            rmp_serde::to_vec_named("Hello").unwrap().as_slice(),
+        )?;
 
     let output2 = plugin
         .component_pulumi_wasm_output_interface()
@@ -155,7 +164,7 @@ fn should_return_value_of_handled_mapped_value() -> Result<(), Error> {
         .output()
         .call_get(&mut store, output2)?;
 
-    anyhow::ensure!(output2_value.unwrap() == rmp_serde::to_vec("Hello World").unwrap());
+    anyhow::ensure!(output2_value.unwrap() == rmp_serde::to_vec_named("Hello World").unwrap());
 
     Ok(())
 }
@@ -169,7 +178,7 @@ fn should_panic_when_getting_nonexisting_required_field_not_during_preview() -> 
         .output()
         .call_constructor(
             &mut store,
-            rmp_serde::to_vec(&HashMap::from([("key", "value")]))
+            rmp_serde::to_vec_named(&HashMap::from([("key", "value")]))
                 .unwrap()
                 .as_slice(),
         )?;
@@ -196,7 +205,7 @@ fn should_return_nothing_when_getting_nonexisting_nonrequired_field_during_previ
         .output()
         .call_constructor(
             &mut store,
-            rmp_serde::to_vec(&HashMap::from([("key", "value")]))
+            rmp_serde::to_vec_named(&HashMap::from([("key", "value")]))
                 .unwrap()
                 .as_slice(),
         )?;
@@ -227,7 +236,7 @@ fn should_return_null_when_getting_nonexisting_nonrequired_field() -> Result<(),
         .output()
         .call_constructor(
             &mut store,
-            rmp_serde::to_vec(&HashMap::from([("key", "value")]))
+            rmp_serde::to_vec_named(&HashMap::from([("key", "value")]))
                 .unwrap()
                 .as_slice(),
         )?;
@@ -250,7 +259,7 @@ fn should_return_null_when_getting_nonexisting_nonrequired_field() -> Result<(),
         .call_get(&mut store, output2)?;
 
     anyhow::ensure!(output2_type == "Done");
-    anyhow::ensure!(output2_value.unwrap() == rmp_serde::to_vec(&None::<String>).unwrap());
+    anyhow::ensure!(output2_value.unwrap() == rmp_serde::to_vec_named(&None::<String>).unwrap());
 
     Ok(())
 }

@@ -1,7 +1,4 @@
 #[derive(serde::Serialize)]
-pub struct BuilderVersion {}
-
-#[derive(serde::Serialize)]
 pub struct CacheFrom {
     pub r#images: Option<Vec<String>>,
 }
@@ -537,3 +534,5 @@ pub struct registryAuth {
     pub r#password: Option<String>,
     pub r#username: Option<String>,
 }
+
+pub type BuilderVersion = String;

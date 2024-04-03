@@ -205,12 +205,6 @@ fn convert_object_type(
         .collect::<Result<Vec<_>>>()
 }
 
-// fn complex_type_to_model(name: &str, type_: &ComplexType) -> Result<crate::model::Type> {
-//     let element_id = ElementId::new(name)?;
-//
-//
-// }
-
 pub(crate) fn to_model(package: &Package) -> Result<crate::model::Package> {
     let resources = package
         .resources
@@ -224,19 +218,43 @@ pub(crate) fn to_model(package: &Package) -> Result<crate::model::Package> {
         .map(|(type_name, type_)| {
             //TODO: Enums, support non objects
             let element_id = ElementId::new(type_name)?;
-            let tpe = convert_object_type(&element_id, &type_.object_type)?;
-            Ok((
-                element_id,
-                GlobalType {
-                    properties: tpe
+            let tpe = match type_.object_type {
+                ObjectType { r#type: None, .. } => Err(anyhow!("Unknown complex type")),
+                ObjectType {
+                    r#type: Some(TypeEnum::Object),
+                    ..
+                } => Ok(GlobalType::Object(
+                    convert_object_type(&element_id, &type_.object_type)?
                         .iter()
                         .map(|p| GlobalTypeProperty {
                             name: p.name.clone(),
                             r#type: p.r#type.clone(),
                         })
                         .collect(),
-                },
-            ))
+                )),
+                ObjectType {
+                    r#type: Some(TypeEnum::Array),
+                    ..
+                } => Err(anyhow!("Array not supported")),
+                ObjectType {
+                    r#type: Some(TypeEnum::Boolean),
+                    ..
+                } => Ok(GlobalType::Boolean),
+                ObjectType {
+                    r#type: Some(TypeEnum::Integer),
+                    ..
+                } => Ok(GlobalType::Integer),
+                ObjectType {
+                    r#type: Some(TypeEnum::Number),
+                    ..
+                } => Ok(GlobalType::Number),
+                ObjectType {
+                    r#type: Some(TypeEnum::String),
+                    ..
+                } => Ok(GlobalType::String),
+            }
+            .context(format!("Cannot convert type [{type_name}]"))?;
+            Ok((element_id, tpe))
         })
         .collect::<Result<BTreeMap<_, _>>>()
         .context("Cannot handle types")?;

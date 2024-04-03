@@ -32,8 +32,12 @@ pub(crate) struct GlobalTypeProperty {
 }
 
 #[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
-pub(crate) struct GlobalType {
-    pub(crate) properties: Vec<GlobalTypeProperty>,
+pub(crate) enum GlobalType {
+    Object(Vec<GlobalTypeProperty>),
+    String,
+    Boolean,
+    Number,
+    Integer,
 }
 
 #[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
@@ -56,7 +60,6 @@ pub(crate) struct Package {
 #[derive(Clone, Eq, PartialEq, Hash, Ord, PartialOrd, Debug)]
 pub(crate) enum Ref {
     Type(ElementId),
-    // Element(ElementId),
     Archive,
     Asset,
     Any,
@@ -64,7 +67,6 @@ pub(crate) enum Ref {
 
 #[derive(Clone, Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
 pub(crate) struct ElementId {
-    // pub(crate) package: String,
     pub(crate) namespace: Vec<String>,
     pub(crate) name: String,
     pub(crate) raw: String,

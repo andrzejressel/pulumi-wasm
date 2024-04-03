@@ -8,3 +8,7 @@ pub struct {{type.struct_name}} {
 }
 
 {{/each}}
+
+{{#each package.aliases as |alias|}}
+pub type {{alias.name}} = {{&alias.type_}};
+{{/each}}

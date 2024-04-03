@@ -127,14 +127,20 @@ fn generate_schema(t: &Type, all_types: &BTreeMap<ElementId, GlobalType>) -> Con
                     .get(tpe)
                     .context(format!("Cannot find type {:?}", tpe))
                     .unwrap();
-                ConverterType::Object(
-                    tpe.properties
-                        .iter()
-                        .map(|GlobalTypeProperty { name, r#type }| {
-                            (name.clone(), generate_schema(r#type, all_types))
-                        })
-                        .collect(),
-                )
+                match tpe {
+                    GlobalType::Object(properties) => ConverterType::Object(
+                        properties
+                            .iter()
+                            .map(|GlobalTypeProperty { name, r#type }| {
+                                (name.clone(), generate_schema(r#type, all_types))
+                            })
+                            .collect(),
+                    ),
+                    GlobalType::String => ConverterType::String,
+                    GlobalType::Boolean => ConverterType::Bool,
+                    GlobalType::Number => ConverterType::Double,
+                    GlobalType::Integer => ConverterType::Int,
+                }
             }
             Ref::Archive => ConverterType::String, // FIXME
             Ref::Asset => ConverterType::String,

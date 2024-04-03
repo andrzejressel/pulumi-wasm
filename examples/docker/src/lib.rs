@@ -1,7 +1,10 @@
 use anyhow::Error;
 use pulumi_wasm_docker::resource::container;
 use pulumi_wasm_docker::resource::container::container;
+use pulumi_wasm_docker::resource::image;
+use pulumi_wasm_docker::types::{BuilderVersion, DockerBuild};
 use rmpv::Value::String;
+use std::path::{Path, PathBuf};
 // use pulumi_wasm_random::resource::random_string::{random_string, RandomStringArgs};
 use pulumi_wasm_rust::Output;
 use pulumi_wasm_rust::{add_export, pulumi_main};
@@ -82,6 +85,29 @@ fn test_main() -> Result<(), Error> {
         },
     );
 
+    let image = image::image(
+        "image",
+        image::ImageArgs {
+            build: DockerBuild {
+                addHosts: None,
+                args: None,
+                builderVersion: None.into(),
+                cacheFrom: None,
+                context: "docker/".to_string().into(),
+                dockerfile: None,
+                network: None,
+                platform: None,
+                target: None,
+            }
+            .into(),
+            build_on_preview: None.into(),
+            image_name: "image:test".to_string().into(),
+            registry: None.into(),
+            skip_push: true.into(),
+        },
+    );
+
     add_export("logs", &cont.container_logs);
+    add_export("image_id", &image.image_name);
     Ok(())
 }
