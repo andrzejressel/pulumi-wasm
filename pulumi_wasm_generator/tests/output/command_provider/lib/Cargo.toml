@@ -1,0 +1,13 @@
+[package]
+name = "pulumi_wasm_command"
+version = "0.9.2"
+edition = "2021"
+
+[dependencies]
+wit-bindgen.workspace = true
+pulumi_wasm_rust.workspace = true
+serde.workspace = true
+automod.workspace = true
+
+[package.metadata.pulumi]
+related_crate = "pulumi_wasm_command_provider"

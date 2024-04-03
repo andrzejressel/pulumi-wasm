@@ -40,7 +40,7 @@ regenerate-providers:
     cargo run -p cargo-pulumi-gen -- gen-rust     --remove true --schema providers/docker.json --output providers/pulumi_wasm_provider_docker_rust
 
 test:
-    cargo nextest run --all
+    cargo nextest run --workspace
 
 docs:
     docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material
