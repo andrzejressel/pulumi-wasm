@@ -2,9 +2,8 @@ use anyhow::Error;
 use pulumi_wasm_docker::resource::container;
 use pulumi_wasm_docker::resource::container::container;
 use pulumi_wasm_docker::resource::image;
-use pulumi_wasm_docker::types::{BuilderVersion, DockerBuild};
-use rmpv::Value::String;
-use std::path::{Path, PathBuf};
+use pulumi_wasm_docker::types::DockerBuild;
+
 // use pulumi_wasm_random::resource::random_string::{random_string, RandomStringArgs};
 use pulumi_wasm_rust::Output;
 use pulumi_wasm_rust::{add_export, pulumi_main};
@@ -15,7 +14,7 @@ use pulumi_wasm_rust::{add_export, pulumi_main};
 
 #[pulumi_main]
 fn test_main() -> Result<(), Error> {
-    let length: Output<i32> = Output::new(&12).map(|i: i32| i * 3);
+    let _length: Output<i32> = Output::new(&12).map(|i: i32| i * 3);
 
     let cont = container(
         "container",
@@ -91,7 +90,7 @@ fn test_main() -> Result<(), Error> {
             build: DockerBuild {
                 addHosts: None,
                 args: None,
-                builderVersion: None.into(),
+                builderVersion: None,
                 cacheFrom: None,
                 context: "docker/".to_string().into(),
                 dockerfile: None,

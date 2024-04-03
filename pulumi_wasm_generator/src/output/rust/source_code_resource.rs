@@ -1,4 +1,4 @@
-use crate::model::{ElementId, Type};
+use crate::model::ElementId;
 use crate::output::replace_multiple_dashes;
 use crate::output::rust::convert_type;
 use convert_case::{Case, Casing};

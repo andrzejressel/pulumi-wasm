@@ -1,9 +1,7 @@
-use std::collections::{BTreeMap, BTreeSet, HashMap, HashSet};
-use std::iter::Map;
-
 use crate::model::{ElementId, GlobalType, GlobalTypeProperty, OutputProperty, Ref};
 use anyhow::{anyhow, Context, Result};
 use serde::Deserialize;
+use std::collections::{BTreeMap, BTreeSet, HashSet};
 
 type PulumiMap<T> = BTreeMap<String, T>;
 

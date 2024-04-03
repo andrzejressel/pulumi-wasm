@@ -1,4 +1,4 @@
-use crate::model::{ElementId, GlobalType, Type};
+use crate::model::{ElementId, GlobalType};
 use crate::output::replace_multiple_dashes;
 use crate::output::rust::convert_type;
 use convert_case::{Case, Casing};
@@ -65,19 +65,19 @@ fn convert_model(package: &crate::model::Package) -> Package {
                 real_types.push(ref_type);
             }
             GlobalType::String => aliases.push(AliasType {
-                name: (&element_id.name).to_string(),
+                name: element_id.name.to_string(),
                 type_: "String".to_string(),
             }),
             GlobalType::Boolean => aliases.push(AliasType {
-                name: (&element_id.name).to_string(),
+                name: element_id.name.to_string(),
                 type_: "bool".to_string(),
             }),
             GlobalType::Number => aliases.push(AliasType {
-                name: (&element_id.name).to_string(),
+                name: element_id.name.to_string(),
                 type_: "f64".to_string(),
             }),
             GlobalType::Integer => aliases.push(AliasType {
-                name: (&element_id.name).to_string(),
+                name: element_id.name.to_string(),
                 type_: "i32".to_string(),
             }),
         }

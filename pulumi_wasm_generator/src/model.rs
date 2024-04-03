@@ -75,19 +75,19 @@ pub(crate) struct ElementId {
 impl Ref {
     pub(crate) fn new(raw: &str) -> Result<Self> {
         if raw == "pulumi.json#/Archive" {
-            return Ok(Ref::Archive);
+            Ok(Ref::Archive)
         } else if raw == "pulumi.json#/Asset" {
-            return Ok(Ref::Asset);
+            Ok(Ref::Asset)
         } else if raw == "pulumi.json#/Any" {
-            return Ok(Ref::Any);
+            Ok(Ref::Any)
         } else if raw.starts_with("#/types/") {
-            return Ok(Ref::Type(ElementId::new(
+            Ok(Ref::Type(ElementId::new(
                 raw.strip_prefix("#/types/")
                     .context(format!("Cannot strip types prefix from {raw}"))?,
-            )?));
+            )?))
             // return Ok(Ref::Element(ElementId::new(raw)?));
         } else {
-            return Err(anyhow::anyhow!("Cannot generate ref from [{raw}]."));
+            Err(anyhow::anyhow!("Cannot generate ref from [{raw}]."))
         }
     }
 }
