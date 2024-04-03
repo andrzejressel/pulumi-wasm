@@ -250,34 +250,6 @@ impl function_reverse_callback::Guest for Component {
     }
 }
 
-fn protoc_to_messagepack(value: prost_types::Value) -> Value {
-    info!("Converting protoc value [{value:?}] to messagepack value");
-
-    let kind = match value.kind {
-        None => {
-            error!("Kind is none");
-            unreachable!("Kind is none")
-        }
-        Some(ref k) => k,
-    };
-
-    let result = match kind {
-        // Kind::NullValue(_) => todo!(),
-        Kind::NumberValue(n) => Value::F64(*n),
-        Kind::StringValue(s) => Value::String(Utf8String::from(s.clone())),
-        Kind::BoolValue(b) => Value::Boolean(*b),
-        // Kind::StructValue(_) => todo!(),
-        // Kind::ListValue(_) => todo!(),
-        _ => {
-            error!("Cannot convert protoc [{value:?}] to messagepack");
-            todo!()
-        }
-    };
-
-    info!("Result: [{result:?}]");
-    result
-}
-
 fn protoc_object_to_messagepack_map(
     o: prost_types::Struct,
     schema: HashMap<String, msgpack_protobuf_converter::Type>,
