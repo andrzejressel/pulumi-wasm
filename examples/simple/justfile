@@ -4,12 +4,12 @@ build:
     cargo run -p cargo-pulumi
 
 run:
-    just build
     cargo run -p pulumi_wasm_runner -- run --wasm ../../target/wasm32-wasi/debug/composed.wasm
 
 [windows]
 local-test:
     #!pwsh
+    cargo run -p cargo-pulumi
     $env:PULUMI_CONFIG_PASSPHRASE=" "
     pulumi destroy -y
     pulumi up -y

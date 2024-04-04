@@ -1966,25 +1966,10 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "assert_cmd",
- "bitflags 2.5.0",
- "futures",
- "lazy_static",
- "log",
- "once_cell",
  "predicates",
- "prost",
- "prost-types",
  "pulumi_wasm_random",
  "pulumi_wasm_rust",
- "rmp",
- "rmp-serde",
- "rmpv",
- "serde",
  "serde_json",
- "tonic",
- "uuid",
- "wasm_common",
- "wit-bindgen-rt",
 ]
 
 [[package]]
