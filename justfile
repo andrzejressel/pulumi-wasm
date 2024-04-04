@@ -11,14 +11,16 @@ install-requirements:
     rustup component add rustfmt
     cargo install cargo-nextest@0.9.68 --locked || cargo-nextest --version
     cargo install cargo-component@0.10.1 --locked || cargo-component --version
-    cargo install wasm-tools@1.201.0 --locked || wasm-tools --version
+    cargo install wasm-tools@1.202.0 --locked || wasm-tools --version
 
 build-wasm-components:
     cargo component build -p pulumi_wasm \
-                          -p pulumi_wasm_docker_provider \
                           -p pulumi_wasm_random_provider \
+                          -p pulumi_wasm_docker_provider \
                           -p pulumi_wasm_example_simple \
                           -p pulumi_wasm_example_docker
+    cargo run -p cargo-pulumi -- -p pulumi_wasm_example_simple
+    cargo run -p cargo-pulumi -- -p pulumi_wasm_example_docker
 
 check:
     cargo fmt --all -- --check
