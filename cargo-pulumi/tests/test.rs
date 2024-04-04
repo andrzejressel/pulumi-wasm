@@ -90,7 +90,7 @@ fn run_from_subdirectory() -> Result<(), Error> {
         .success();
 
     let (mut store, plugin) = create_engine(
-        dir.join("example/target/wasm32-wasi/debug/composed.wasm")
+        dir.join("example/target/wasm32-wasi/debug/pulumi/main.wasm")
             .to_str()
             .unwrap(),
     )?;
@@ -134,7 +134,7 @@ fn run_from_main_directory() -> Result<(), Error> {
         .success();
 
     let (mut store, plugin) = create_engine(
-        dir.join("example/target/wasm32-wasi/debug/composed.wasm")
+        dir.join("example/target/wasm32-wasi/debug/pulumi/main.wasm")
             .to_str()
             .unwrap(),
     )?;
