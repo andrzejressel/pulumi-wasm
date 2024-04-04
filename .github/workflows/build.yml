@@ -26,6 +26,12 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - uses: Swatinem/rust-cache@v2
+      with:
+        workspace-paths: |
+          ./
+          pulumi_wasm_generator/tests/output/command_provider/
+          pulumi_wasm_generator/tests/output/docker_provider/
+          pulumi_wasm_generator/tests/output/random_provider/
     - uses: actions/setup-go@v5
       with:
         go-version: '^1.22.0'
