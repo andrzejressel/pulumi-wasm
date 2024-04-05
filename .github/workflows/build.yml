@@ -63,17 +63,13 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-
+    env:
+      RUSTC_WRAPPER: "sccache"
+      CARGO_INCREMENTAL: "0"
+      
+    
     steps:
       - uses: actions/checkout@v4
-      - name: Configure sccache env var and set build profile to ephemeral build (unix)
-        run: |
-          echo "RUSTC_WRAPPER=sccache" >> $GITHUB_ENV
-        if: runner.os != 'Windows'
-      - name: Configure sccache env var and set build profile to ephemeral build (windows)
-        run: |
-          echo "RUSTC_WRAPPER=sccache" >> $env:GITHUB_ENV
-        if: runner.os == 'Windows'
       - uses: hendrikmuhs/ccache-action@v1.2
         with:
           variant: sccache
