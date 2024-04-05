@@ -16,7 +16,7 @@ pub enum Type {
     Double,
     String,
     Array(Box<Type>),
-    Object(HashMap<String, Type>),
+    Object(BTreeMap<String, Type>),
     SingleTypeObject(Box<Type>),
 }
 
@@ -171,7 +171,7 @@ pub fn protobuf_to_msgpack(message: &ProtobufValue, tpe: &Type) -> Result<Msgpac
 }
 
 fn combine_maps<'a, A: Eq + Hash + Ord, B, C>(
-    map1: &'a HashMap<A, B>,
+    map1: &'a BTreeMap<A, B>,
     map2: &'a BTreeMap<A, C>,
 ) -> BTreeMap<&'a A, (&'a B, &'a C)> {
     let mut result = BTreeMap::new();
@@ -187,7 +187,7 @@ fn combine_maps<'a, A: Eq + Hash + Ord, B, C>(
 
 #[cfg(test)]
 mod tests {
-    use std::collections::{BTreeMap, HashMap};
+    use std::collections::BTreeMap;
 
     mod msgpack_to_protobuf {
         use std::collections::BTreeMap;
@@ -361,8 +361,9 @@ mod tests {
     }
 
     mod protobuf_to_msgpack {
-        use prost_types::value::Kind as ProtobufKind;
         use std::collections::{BTreeMap, HashMap};
+
+        use prost_types::value::Kind as ProtobufKind;
 
         use crate::{protobuf_to_msgpack, Type};
 
@@ -522,7 +523,7 @@ mod tests {
             };
             let msgpack_value = protobuf_to_msgpack(
                 &protobuf_value,
-                &Type::Object(HashMap::from([
+                &Type::Object(BTreeMap::from([
                     ("key1".to_string(), Type::Int),
                     ("key2".to_string(), Type::Int),
                 ])),
@@ -559,7 +560,7 @@ mod tests {
             };
             let err = protobuf_to_msgpack(
                 &protobuf_value,
-                &Type::Object(HashMap::from([
+                &Type::Object(BTreeMap::from([
                     ("key1".to_string(), Type::Int),
                     ("key2".to_string(), Type::Int),
                 ])),
@@ -600,7 +601,7 @@ mod tests {
             };
             let msgpack_value = protobuf_to_msgpack(
                 &protobuf_value,
-                &Type::Object(HashMap::from([
+                &Type::Object(BTreeMap::from([
                     ("key1".to_string(), Type::Int),
                     ("key2".to_string(), Type::Nullable(Box::from(Type::Int))),
                 ])),
@@ -698,7 +699,7 @@ mod tests {
             };
             let msgpack_value = protobuf_to_msgpack(
                 &protobuf_value,
-                &Type::Object(HashMap::from([
+                &Type::Object(BTreeMap::from([
                     ("key1".to_string(), Type::Int),
                     ("key2".to_string(), Type::Nullable(Box::from(Type::Int))),
                 ])),
@@ -716,7 +717,7 @@ mod tests {
 
     #[test]
     fn combine_maps_test() {
-        let map1 = HashMap::from([("key1", 42), ("key2", 43)]);
+        let map1 = BTreeMap::from([("key1", 42), ("key2", 43)]);
         let map2 = BTreeMap::from([("key2", 44), ("key3", 45)]);
 
         let result = super::combine_maps(&map1, &map2);
