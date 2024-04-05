@@ -1,0 +1,35 @@
+{{#each package.interfaces as |interface|}}
+
+pub mod {{interface.name}} {
+
+    pub struct {{interface.struct_name}}Args<'a> {
+        pub name: &'a str,
+    {{#each interface.input_properties}}
+        pub {{arg_name}}: pulumi_wasm_rust::Output<{{&type_}}>,
+    {{/each}}
+    }
+
+    pub struct {{interface.struct_name}}Result {
+    {{#each interface.output_properties}}
+        pub {{arg_name}}: pulumi_wasm_rust::Output<{{&type_}}>,
+    {{/each}}
+    }
+
+    pub fn {{interface.function_name}}(args: {{interface.struct_name}}Args) -> {{interface.struct_name}}Result {
+
+        let result = crate::bindings::pulumi::{{@root.package.name}}::{{interface.wit_name}}::invoke(args.name, &crate::bindings::pulumi::{{@root.package.name}}::{{interface.wit_name}}::Args {
+    {{#each interface.input_properties}}
+            {{wit_name}}: &crate::clone::<{{&type_}}>(args.{{arg_name}}),
+    {{/each}}
+        });
+
+        {{interface.struct_name}}Result {
+        {{#each interface.output_properties}}
+            {{arg_name}}: crate::random_to_domain_mapper::<{{&type_}}>(result.{{wit_name}}),
+        {{/each}}
+        }
+    }
+
+}
+
+{{/each}}

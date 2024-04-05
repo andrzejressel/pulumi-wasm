@@ -9,7 +9,7 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-wit-bindgen-rt = "0.22.0"
+wit-bindgen-rt = "0.24.0"
 common_lib = { path = "../common_lib" }
 
 [package.metadata.component]

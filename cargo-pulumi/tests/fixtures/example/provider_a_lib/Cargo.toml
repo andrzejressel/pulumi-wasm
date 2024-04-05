@@ -9,4 +9,4 @@ related_crate = "provider_a"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/referen
 
 [dependencies]
-wit-bindgen = "0.22.0"
+wit-bindgen = "0.24.0"

@@ -4,7 +4,7 @@ use crate::output::{access_map, output_map, OutputContent};
 use crate::{grpc, output};
 use log::info;
 use prost::Message;
-use rmpv::Value;
+
 use std::ops::Deref;
 use std::sync::atomic::AtomicBool;
 use std::sync::atomic::Ordering::Relaxed;
@@ -51,7 +51,7 @@ fn invoke_exporting_if_needed() {
                 };
                 info!("Request: [{request:?}]");
                 external_world::register_resource_outputs(request.encode_to_vec().as_slice());
-                Value::Nil
+                None
             },
         );
     }
@@ -101,7 +101,10 @@ fn combine_outputs() -> bool {
             None => {}
             Some(i) => {
                 changed = true;
-                o.replace(OutputContent::Done(i));
+                match i {
+                    None => o.replace(OutputContent::Nothing),
+                    Some(i) => o.replace(OutputContent::Done(i)),
+                };
             }
         };
     });

@@ -7,14 +7,17 @@ edition.workspace = true
 
 [workspace]
 members = [
-    "pulumi_wasm_runner",
-    "pulumi_wasm",
-    "providers/pulumi_wasm_provider_random",
-    "pulumi_wasm_rust_macro",
-    "pulumi_wasm_rust",
-    "wasm_common",
+    "cargo-pulumi",
+    "cargo-pulumi-gen",
     "examples/simple",
-    "cargo-pulumi"
+    "msgpack_protobuf_converter",
+    "providers/pulumi_wasm_provider_random",
+    "pulumi_wasm",
+    "pulumi_wasm_generator",
+    "pulumi_wasm_runner",
+    "pulumi_wasm_rust",
+    "pulumi_wasm_rust_macro",
+    "wasm_common",
 ]
 
 [workspace.package]
@@ -22,10 +25,12 @@ version = "0.1.0"
 edition = "2021"
 
 [workspace.dependencies]
+msgpack_protobuf_converter = { path = "msgpack_protobuf_converter" }
+pulumi_wasm_generator = { path = "pulumi_wasm_generator" }
+pulumi_wasm_random = { path = "providers/pulumi_wasm_provider_random_rust" }
 pulumi_wasm_rust = { path = "pulumi_wasm_rust" }
 pulumi_wasm_rust_macro = { path = "pulumi_wasm_rust_macro" }
 wasm_common = { path = "wasm_common" }
-pulumi_wasm_provider_random_rust = { path = "providers/pulumi_wasm_provider_random_rust" }
 
 anyhow = "1.0.81"
 prost = "0.12.3"
@@ -35,16 +40,16 @@ futures = "0.3.30"
 lazy_static = "1.4.0"
 once_cell = "1.19.0"
 bitflags = "2.5.0"
-wit-bindgen = "0.23.0"
-wit-bindgen-rt = "0.23.0"
+wit-bindgen = "0.24.0"
+wit-bindgen-rt = "0.24.0"
 rmp = "0.8.12"
 rmp-serde = "1.1.2"
 rmpv = "1.0.1"
 serde = { version = "1.0.197", features = ["derive"] }
 tonic = { version = "0.11.0", default-features = false }
 serde_json = "1.0.115"
-wasmtime = "19.0.0"
-wasmtime-wasi = "19.0.0"
+wasmtime = "19.0.1"
+wasmtime-wasi = "19.0.1"
 tonic-build = "0.11.0"
 async-trait = "0.1.79"
 tonic-web = "0.11.0"
@@ -54,7 +59,7 @@ log4rs = "1.3.0"
 tokio = { version = "1.37.0", features = ["sync", "macros", "io-util", "rt", "time"] }
 clap = { version = "4.5.4", features = ["derive"] }
 regex = "1.10.4"
-syn = { version = "2.0.55", features = ["full"] }
+syn = { version = "2.0.58", features = ["full"] }
 quote = "1.0.35"
 proc-macro2 = "1.0.79"
 assert_cmd = "2.0.14"
@@ -64,3 +69,8 @@ simple_logger = "4.3.3"
 petgraph = "0.6.4"
 cargo_metadata = "0.18.1"
 itertools = "0.12.1"
+testdir = "0.9.1"
+fs_extra = "1.3.0"
+handlebars = "5.1.2"
+convert_case = "0.6.0"
+automod = "1.0.14"

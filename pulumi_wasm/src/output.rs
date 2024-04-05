@@ -70,7 +70,10 @@ pub(crate) fn output_map() -> &'static mut HashMap<String, Output> {
 pub(crate) enum OutputContent {
     Done(Value),
     Mapped(FunctionId, FunctionSource, OutputContentRefCell),
-    Func(Vec<OutputContentRefCell>, Box<dyn Fn(Vec<Value>) -> Value>),
+    Func(
+        Vec<OutputContentRefCell>,
+        Box<dyn Fn(Vec<Value>) -> Option<Value>>,
+    ),
     Nothing,
 }
 
@@ -110,7 +113,7 @@ pub(crate) fn map_internal<F>(
     f: F,
 ) -> Rc<RefCell<OutputContent>>
 where
-    F: Fn(Vec<Value>) -> Value + 'static,
+    F: Fn(Vec<Value>) -> Option<Value> + 'static,
 {
     create_wrapper(OutputContent::Func(ref_cell, Box::new(f)))
 }

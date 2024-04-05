@@ -1,1 +1,0 @@
-These scripts must be run from root, not from `scripts` directory.
