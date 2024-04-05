@@ -75,7 +75,7 @@ jobs:
           variant: sccache
           key: sccache-${{ runner.os }}-${{ github.sha }}
           restore-keys: sccache-${{ runner.os }}
-          max-size: 2G
+          max-size: 20G
       - uses: actions/setup-go@v5
         with:
           go-version: '^1.22.0'
