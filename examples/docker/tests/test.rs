@@ -2,10 +2,15 @@ use anyhow::anyhow;
 use assert_cmd::prelude::*;
 use serde_json::Value;
 use std::process::Command;
-use std::str;
+use std::{env, str};
 
 #[test]
 fn test_integration() -> Result<(), anyhow::Error> {
+
+    if std::env::var("GITHUB_ACTIONS").is_ok() && !cfg!(linux) {
+        return Ok(());
+    }
+
     let github_token_env_vars = if let Ok(token) = std::env::var("GITHUB_TOKEN") {
         vec![("GITHUB_TOKEN".to_string(), token)]
     } else {
