@@ -62,12 +62,7 @@ fn errors_out_in_invalid_package() -> Result<(), Error> {
 
 #[test]
 fn run_from_subdirectory() -> Result<(), Error> {
-    let dir = create_test_dir("run_from_subdirectory")?;
-    fs_extra::dir::copy(
-        "tests/fixtures/example",
-        &dir,
-        &CopyOptions::new().overwrite(true),
-    )?;
+    let dir = PathBuf::from("tests/fixtures/example");
 
     Command::new("cargo")
         .args([
@@ -80,17 +75,19 @@ fn run_from_subdirectory() -> Result<(), Error> {
             "-p",
             "main",
         ])
-        .current_dir(dir.join("example"))
+        .current_dir(&dir)
+        .env("CARGO_TARGET_DIR", "targets/run_from_subdirectory")
         .assert()
         .success();
 
     Command::cargo_bin("cargo-pulumi")?
-        .current_dir(dir.join("example").join("main"))
+        .current_dir(dir.join("main"))
+        .env("CARGO_TARGET_DIR", "../targets/run_from_subdirectory")
         .assert()
         .success();
 
     let (mut store, plugin) = create_engine(
-        dir.join("example/target/wasm32-wasi/debug/pulumi/main.wasm")
+        dir.join("targets/run_from_subdirectory/wasm32-wasi/debug/pulumi/main.wasm")
             .to_str()
             .unwrap(),
     )?;
@@ -105,12 +102,7 @@ fn run_from_subdirectory() -> Result<(), Error> {
 
 #[test]
 fn run_from_main_directory() -> Result<(), Error> {
-    let dir = create_test_dir("run_from_main_directory")?;
-    fs_extra::dir::copy(
-        "tests/fixtures/example",
-        &dir,
-        &CopyOptions::new().overwrite(true),
-    )?;
+    let dir = PathBuf::from("tests/fixtures/example");
 
     Command::new("cargo")
         .args([
@@ -123,18 +115,20 @@ fn run_from_main_directory() -> Result<(), Error> {
             "-p",
             "main",
         ])
-        .current_dir(dir.join("example"))
+        .current_dir(&dir)
+        .env("CARGO_TARGET_DIR", "targets/run_from_main_directory")
         .assert()
         .success();
 
     Command::cargo_bin("cargo-pulumi")?
         .args(["-p", "main"])
-        .current_dir(dir.join("example"))
+        .current_dir(&dir)
+        .env("CARGO_TARGET_DIR", "targets/run_from_main_directory")
         .assert()
         .success();
 
     let (mut store, plugin) = create_engine(
-        dir.join("example/target/wasm32-wasi/debug/pulumi/main.wasm")
+        dir.join("targets/run_from_main_directory/wasm32-wasi/debug/pulumi/main.wasm")
             .to_str()
             .unwrap(),
     )?;
