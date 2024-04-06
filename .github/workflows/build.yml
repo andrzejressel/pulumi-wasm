@@ -23,6 +23,9 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
 
+    env:
+      RUST_BACKTRACE: "full"
+
     steps:
     - uses: actions/checkout@v4
     - uses: Swatinem/rust-cache@v2
