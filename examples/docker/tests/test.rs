@@ -6,7 +6,7 @@ use std::str;
 
 #[test]
 fn test_integration() -> Result<(), anyhow::Error> {
-    if std::env::var("GITHUB_ACTIONS").is_ok() && !cfg!(linux) {
+    if std::env::var("GITHUB_ACTIONS").is_ok() && !cfg!(target_os = linux) {
         return Ok(());
     }
 
