@@ -11,6 +11,7 @@ static TEMPLATE: &str = include_str!("types.rs.handlebars");
 #[derive(Serialize)]
 struct Property {
     name: String,
+    original_name: String,
     type_: String,
 }
 
@@ -55,7 +56,12 @@ fn convert_model(package: &crate::model::Package) -> Package {
                     fields: properties
                         .iter()
                         .map(|global_type_property| Property {
-                            name: global_type_property.name.clone(),
+                            name: global_type_property
+                                .name
+                                .clone()
+                                .from_case(Case::Camel)
+                                .to_case(Case::Snake),
+                            original_name: global_type_property.name.clone(),
                             // arg_name: create_valid_id(&global_type_property.name),
                             type_: convert_type(&global_type_property.r#type),
                             // wit_name: convert_to_wit_name(&create_valid_wit_id(&global_type_property.name)),

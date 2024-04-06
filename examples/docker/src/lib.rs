@@ -88,10 +88,10 @@ fn test_main() -> Result<(), Error> {
         "image",
         image::ImageArgs {
             build: DockerBuild {
-                addHosts: None,
+                add_hosts: None,
                 args: None,
-                builderVersion: None,
-                cacheFrom: None,
+                builder_version: None,
+                cache_from: None,
                 context: "docker/".to_string().into(),
                 dockerfile: None,
                 network: None,
