@@ -2,11 +2,10 @@ use anyhow::anyhow;
 use assert_cmd::prelude::*;
 use serde_json::Value;
 use std::process::Command;
-use std::{env, str};
+use std::str;
 
 #[test]
 fn test_integration() -> Result<(), anyhow::Error> {
-
     if std::env::var("GITHUB_ACTIONS").is_ok() && !cfg!(linux) {
         return Ok(());
     }

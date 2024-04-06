@@ -1,4 +1,4 @@
-use std::collections::{BTreeMap, HashMap};
+use std::collections::BTreeMap;
 use std::hash::Hash;
 
 use anyhow::{anyhow, Context, Result};
@@ -361,7 +361,7 @@ mod tests {
     }
 
     mod protobuf_to_msgpack {
-        use std::collections::{BTreeMap, HashMap};
+        use std::collections::BTreeMap;
 
         use prost_types::value::Kind as ProtobufKind;
 
