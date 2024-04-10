@@ -65,7 +65,7 @@ tokio = { version = "1.37.0", features = ["sync", "macros", "io-util", "rt", "ti
 clap = { version = "4.5.4", features = ["derive"] }
 regex = "1.10.4"
 syn = { version = "2.0.58", features = ["full"] }
-quote = "1.0.35"
+quote = "1.0.36"
 proc-macro2 = "1.0.79"
 assert_cmd = "2.0.14"
 predicates = "3.1.0"
