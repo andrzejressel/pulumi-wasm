@@ -1961,6 +1961,24 @@ dependencies = [
 ]
 
 [[package]]
+name = "pulumi_wasm_cloudflare"
+version = "5.24.1"
+dependencies = [
+ "automod",
+ "pulumi_wasm_rust",
+ "serde",
+ "wit-bindgen",
+]
+
+[[package]]
+name = "pulumi_wasm_cloudflare_provider"
+version = "5.24.1"
+dependencies = [
+ "wasm_common",
+ "wit-bindgen-rt",
+]
+
+[[package]]
 name = "pulumi_wasm_docker"
 version = "4.5.3"
 dependencies = [

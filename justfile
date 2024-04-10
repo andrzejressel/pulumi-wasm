@@ -17,6 +17,7 @@ build-wasm-components:
     cargo component build -p pulumi_wasm \
                           -p pulumi_wasm_random_provider \
                           -p pulumi_wasm_docker_provider \
+                          -p pulumi_wasm_cloudflare_provider \
                           -p pulumi_wasm_example_simple \
                           -p pulumi_wasm_example_docker
     cargo run -p cargo-pulumi -- -p pulumi_wasm_example_simple
@@ -40,6 +41,9 @@ regenerate-providers:
 
     cargo run -p cargo-pulumi-gen -- gen-provider --remove true --schema providers/docker.json --output providers/pulumi_wasm_provider_docker
     cargo run -p cargo-pulumi-gen -- gen-rust     --remove true --schema providers/docker.json --output providers/pulumi_wasm_provider_docker_rust
+
+    cargo run -p cargo-pulumi-gen -- gen-provider --remove true --schema providers/cloudflare.json --output providers/pulumi_wasm_provider_cloudflare
+    cargo run -p cargo-pulumi-gen -- gen-rust     --remove true --schema providers/cloudflare.json --output providers/pulumi_wasm_provider_cloudflare_rust
 
 test:
     cargo nextest run --workspace

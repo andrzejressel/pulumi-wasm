@@ -12,6 +12,8 @@ members = [
     "examples/docker",
     "examples/simple",
     "msgpack_protobuf_converter",
+    "providers/pulumi_wasm_provider_cloudflare",
+    "providers/pulumi_wasm_provider_cloudflare_rust",
     "providers/pulumi_wasm_provider_docker",
     "providers/pulumi_wasm_provider_docker_rust",
     "providers/pulumi_wasm_provider_random",
