@@ -53,7 +53,7 @@ jobs:
     - run: pulumi version
     - run: pulumi login --local
     - uses: extractions/setup-just@v2
-    - uses: VirtusLab/scala-cli-setup@v0.1
+    - uses: VirtusLab/scala-cli-setup@v1.2.2
     - name: Regenerate provider list
       run: just regenerate-provider-list
     - name: Install requirements
