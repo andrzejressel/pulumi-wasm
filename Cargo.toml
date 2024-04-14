@@ -12,10 +12,12 @@ members = [
     "examples/docker",
     "examples/simple",
     "msgpack_protobuf_converter",
+# DO NOT EDIT - START
     "providers/pulumi_wasm_provider_docker",
     "providers/pulumi_wasm_provider_docker_rust",
     "providers/pulumi_wasm_provider_random",
     "providers/pulumi_wasm_provider_random_rust",
+# DO NOT EDIT - END
     "pulumi_wasm",
     "pulumi_wasm_generator",
     "pulumi_wasm_runner",

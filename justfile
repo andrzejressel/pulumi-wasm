@@ -27,19 +27,23 @@ check:
 
 fmt:
     cd pulumi-language-wasm && just fmt
+    scala-cli format generate_providers.scala
     cargo fmt --all
 
 fmt-clippy:
-    cd pulumi-language-wasm && just fmt
     cargo clippy --all --all-features --fix --allow-dirty --allow-staged
-    cargo fmt --all
+    just fmt
 
+regenerate-provider-list:
+    scala-cli generate_providers.scala
+
+# DO NOT EDIT - START
 regenerate-providers:
-    cargo run -p cargo-pulumi-gen -- gen-provider --remove true --schema providers/random.json --output providers/pulumi_wasm_provider_random
-    cargo run -p cargo-pulumi-gen -- gen-rust     --remove true --schema providers/random.json --output providers/pulumi_wasm_provider_random_rust
-
     cargo run -p cargo-pulumi-gen -- gen-provider --remove true --schema providers/docker.json --output providers/pulumi_wasm_provider_docker
     cargo run -p cargo-pulumi-gen -- gen-rust     --remove true --schema providers/docker.json --output providers/pulumi_wasm_provider_docker_rust
+    cargo run -p cargo-pulumi-gen -- gen-provider --remove true --schema providers/random.json --output providers/pulumi_wasm_provider_random
+    cargo run -p cargo-pulumi-gen -- gen-rust     --remove true --schema providers/random.json --output providers/pulumi_wasm_provider_random_rust
+# DO NOT EDIT - END
 
 test:
     cargo nextest run --workspace

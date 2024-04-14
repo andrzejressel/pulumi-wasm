@@ -21,3 +21,9 @@ devenv.local.nix
 .idea/
 
 output.log
+
+# scala-cli
+.bsp
+.metals
+.scala-build
+.vscode
