@@ -197,7 +197,7 @@ impl Pulumi {
             &mut state.my_state
         })?;
 
-        wasmtime_wasi::command::add_to_linker(&mut linker)?;
+        wasmtime_wasi::add_to_linker_async(&mut linker)?;
 
         let table = ResourceTable::new();
 
@@ -249,7 +249,7 @@ impl Pulumi {
             &mut state.my_state
         })?;
 
-        wasmtime_wasi::command::add_to_linker(&mut linker).unwrap();
+        wasmtime_wasi::add_to_linker_sync(&mut linker).unwrap();
 
         let component = Component::from_file(&engine, pulumi_wasm_file)?;
 

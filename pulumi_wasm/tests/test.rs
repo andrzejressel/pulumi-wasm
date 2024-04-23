@@ -278,7 +278,7 @@ fn create_engine(is_in_preview: bool) -> Result<(Store<SimplePluginCtx>, PulumiW
         &mut state.my_state
     })?;
 
-    wasmtime_wasi::command::sync::add_to_linker(&mut linker).unwrap();
+    wasmtime_wasi::add_to_linker_sync(&mut linker).unwrap();
 
     let table = ResourceTable::new();
 
