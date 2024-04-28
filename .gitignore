@@ -19,11 +19,3 @@ devenv.local.nix
 /composed2.wat
 
 .idea/
-
-output.log
-
-# scala-cli
-.bsp
-.metals
-.scala-build
-.vscode

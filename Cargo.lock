@@ -2183,6 +2183,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "regenerate_providers"
+version = "0.1.0"
+
+[[package]]
 name = "regex"
 version = "1.10.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"

@@ -23,6 +23,7 @@ members = [
     "pulumi_wasm_runner",
     "pulumi_wasm_rust",
     "pulumi_wasm_rust_macro",
+    "regenerate_providers",
     "wasm_common",
 ]
 

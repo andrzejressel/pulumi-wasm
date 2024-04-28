@@ -2,7 +2,7 @@ set windows-shell := ["pwsh.exe", "-c"]
 
 @default: build test
 
-build: build-language-plugin regenerate-providers install-requirements build-wasm-components fmt
+build: regenerate-provider-list build-language-plugin regenerate-providers install-requirements build-wasm-components fmt
 
 build-language-plugin:
     cd pulumi-language-wasm && just
@@ -35,7 +35,7 @@ fmt-clippy:
     just fmt
 
 regenerate-provider-list:
-    scala-cli generate_providers.scala
+    cargo run -p regenerate_providers
 
 # DO NOT EDIT - START
 regenerate-providers:
