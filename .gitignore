@@ -19,3 +19,5 @@ devenv.local.nix
 /composed2.wat
 
 .idea/
+
+output.log
