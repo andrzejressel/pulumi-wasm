@@ -1,5 +1,4 @@
 use std::fs;
-use std::io::Write;
 use std::process::Command;
 
 #[derive(Debug)]
@@ -93,8 +92,8 @@ fn replace_between_markers(
 
     let mut new_content = String::new();
     new_content.push_str(&source[..start_index + start_marker.len()]);
-    new_content.push_str("\n");
-    new_content.push_str(&replacement);
+    new_content.push('\n');
+    new_content.push_str(replacement);
     new_content.push_str(&source[end_index..]);
 
     new_content
