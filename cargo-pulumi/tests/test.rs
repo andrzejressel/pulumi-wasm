@@ -184,7 +184,7 @@ fn create_engine(file: &str) -> Result<(Store<SimplePluginCtx>, Runner), Error> 
 
     let mut linker: Linker<SimplePluginCtx> = Linker::new(&engine);
 
-    wasmtime_wasi::command::sync::add_to_linker(&mut linker).unwrap();
+    wasmtime_wasi::add_to_linker_sync(&mut linker).unwrap();
 
     let table = ResourceTable::new();
 

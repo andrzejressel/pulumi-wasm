@@ -1,33 +1,23 @@
-name: Build
+name: Update branch
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_dispatch: { }
 
 env:
   CARGO_TERM_COLOR: always
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   build:
 
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ubuntu-latest
 
     env:
       RUST_BACKTRACE: "full"
 
     steps:
     - uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.PAT }}
     - uses: Swatinem/rust-cache@v2
       with:
         workspaces: |
@@ -53,8 +43,6 @@ jobs:
     - run: pulumi version
     - run: pulumi login --local
     - uses: extractions/setup-just@v2
-    - name: Regenerate provider list
-      run: just regenerate-provider-list
     - name: Install requirements
       run: just install-requirements
     - name: Check
@@ -66,5 +54,9 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         RUST_BACKTRACE: "full"
-    - name: Ensure no files have changed
-      run: git diff --exit-code
+    - name: Commit report
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git commit -am "Update branch"
+        git push

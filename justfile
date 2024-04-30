@@ -31,16 +31,19 @@ fmt:
     cargo fmt --all
 
 fmt-clippy:
-    cd pulumi-language-wasm && just fmt
     cargo clippy --all --all-features --fix --allow-dirty --allow-staged
-    cargo fmt --all
+    just fmt
 
+regenerate-provider-list:
+    cargo run -p regenerate_providers
+
+# DO NOT EDIT - START
 regenerate-providers:
-    cargo run -p cargo-pulumi-gen -- gen-provider --remove true --schema providers/random.json --output providers/pulumi_wasm_provider_random
-    cargo run -p cargo-pulumi-gen -- gen-rust     --remove true --schema providers/random.json --output providers/pulumi_wasm_provider_random_rust
-
     cargo run -p cargo-pulumi-gen -- gen-provider --remove true --schema providers/docker.json --output providers/pulumi_wasm_provider_docker
     cargo run -p cargo-pulumi-gen -- gen-rust     --remove true --schema providers/docker.json --output providers/pulumi_wasm_provider_docker_rust
+    cargo run -p cargo-pulumi-gen -- gen-provider --remove true --schema providers/random.json --output providers/pulumi_wasm_provider_random
+    cargo run -p cargo-pulumi-gen -- gen-rust     --remove true --schema providers/random.json --output providers/pulumi_wasm_provider_random_rust
+# DO NOT EDIT - END
 
     cargo run -p cargo-pulumi-gen -- gen-provider --remove true --schema providers/cloudflare.json --output providers/pulumi_wasm_provider_cloudflare
     cargo run -p cargo-pulumi-gen -- gen-rust     --remove true --schema providers/cloudflare.json --output providers/pulumi_wasm_provider_cloudflare_rust

@@ -12,6 +12,10 @@
     { 
       "matchPackagePatterns": "^wit-bindgen*",
       "groupName": "wit-bindgen"
+    },
+    { 
+      "matchPackagePatterns": "^rmp*",
+      "groupName": "rmp"
     }
   ]
 }

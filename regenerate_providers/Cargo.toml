@@ -1,0 +1,4 @@
+[package]
+name = "regenerate_providers"
+version.workspace = true
+edition.workspace = true
