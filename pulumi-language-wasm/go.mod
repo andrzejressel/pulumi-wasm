@@ -7,7 +7,7 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/pulumi/sdk/v3 v3.114.0
 	google.golang.org/grpc v1.63.2
-	google.golang.org/protobuf v1.33.0
+	google.golang.org/protobuf v1.34.0
 )
 
 require (
