@@ -51,7 +51,7 @@ bitflags = "2.5.0"
 wit-bindgen = "0.24.0"
 wit-bindgen-rt = "0.24.0"
 rmp = "0.8.14"
-rmp-serde = "1.2.0"
+rmp-serde = "1.3.0"
 rmpv = "1.0.2"
 serde = { version = "1.0.199", features = ["derive"] }
 tonic = { version = "0.11.0", default-features = false }
