@@ -78,7 +78,7 @@ fn replace_regenerate_providers(providers: &[Provider], content: &String) -> Str
 
     let start_marker = "# DO NOT EDIT - REGENERATE-PROVIDERS - START\nregenerate-providers:";
     let end_marker = "# DO NOT EDIT - REGENERATE-PROVIDERS - END";
-    replace_between_markers(&content, start_marker, end_marker, &replacement)
+    replace_between_markers(content, start_marker, end_marker, &replacement)
 }
 
 fn replace_build_wasm_components(providers: &[Provider], content: &String) -> String {
@@ -93,7 +93,7 @@ fn replace_build_wasm_components(providers: &[Provider], content: &String) -> St
     let start_marker =
         "    # DO NOT EDIT - BUILD-WASM-COMPONENTS - START\n    cargo component build \\";
     let end_marker = "    # DO NOT EDIT - BUILD-WASM-COMPONENTS - END";
-    replace_between_markers(&content, start_marker, end_marker, &replacement)
+    replace_between_markers(content, start_marker, end_marker, &replacement)
 }
 
 fn replace_between_markers(
