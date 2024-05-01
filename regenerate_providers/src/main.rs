@@ -78,20 +78,22 @@ fn replace_regenerate_providers(providers: &[Provider], content: &String) -> Str
 
     let start_marker = "# DO NOT EDIT - REGENERATE-PROVIDERS - START\nregenerate-providers:";
     let end_marker = "# DO NOT EDIT - REGENERATE-PROVIDERS - END";
-    let new_content = replace_between_markers(&content, start_marker, end_marker, &replacement);
-    new_content
+    replace_between_markers(&content, start_marker, end_marker, &replacement)
 }
 
 fn replace_build_wasm_components(providers: &[Provider], content: &String) -> String {
     let mut replacement = String::new();
     for provider in providers {
-        replacement.push_str(&format!("      -p pulumi_wasm_{}_provider \\\n", provider.name));
+        replacement.push_str(&format!(
+            "      -p pulumi_wasm_{}_provider \\\n",
+            provider.name
+        ));
     }
 
-    let start_marker = "    # DO NOT EDIT - BUILD-WASM-COMPONENTS - START\n    cargo component build \\";
+    let start_marker =
+        "    # DO NOT EDIT - BUILD-WASM-COMPONENTS - START\n    cargo component build \\";
     let end_marker = "    # DO NOT EDIT - BUILD-WASM-COMPONENTS - END";
-    let new_content = replace_between_markers(&content, start_marker, end_marker, &replacement);
-    new_content
+    replace_between_markers(&content, start_marker, end_marker, &replacement)
 }
 
 fn replace_between_markers(
