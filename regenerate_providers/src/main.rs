@@ -69,7 +69,7 @@ fn update_justfile(providers: &[Provider]) {
     fs::write("justfile", content).expect("Failed to write to justfile");
 }
 
-fn replace_regenerate_providers(providers: &[Provider], content: &String) -> String {
+fn replace_regenerate_providers(providers: &[Provider], content: &str) -> String {
     let mut replacement = String::new();
     for provider in providers {
         replacement.push_str(&format!("    cargo run -p cargo-pulumi-gen -- gen-provider --remove true --schema providers/{}.json --output providers/pulumi_wasm_provider_{}\n", provider.name, provider.name));
@@ -81,7 +81,7 @@ fn replace_regenerate_providers(providers: &[Provider], content: &String) -> Str
     replace_between_markers(content, start_marker, end_marker, &replacement)
 }
 
-fn replace_build_wasm_components(providers: &[Provider], content: &String) -> String {
+fn replace_build_wasm_components(providers: &[Provider], content: &str) -> String {
     let mut replacement = String::new();
     for provider in providers {
         replacement.push_str(&format!(
