@@ -63,18 +63,35 @@ fn update_cargo_toml(providers: &[Provider]) {
 
 fn update_justfile(providers: &[Provider]) {
     let content = fs::read_to_string("justfile").expect("Failed to read justfile");
+    let content = replace_regenerate_providers(providers, &content);
+    let content = replace_build_wasm_components(providers, &content);
 
+    fs::write("justfile", content).expect("Failed to write to justfile");
+}
+
+fn replace_regenerate_providers(providers: &[Provider], content: &String) -> String {
     let mut replacement = String::new();
     for provider in providers {
         replacement.push_str(&format!("    cargo run -p cargo-pulumi-gen -- gen-provider --remove true --schema providers/{}.json --output providers/pulumi_wasm_provider_{}\n", provider.name, provider.name));
         replacement.push_str(&format!("    cargo run -p cargo-pulumi-gen -- gen-rust     --remove true --schema providers/{}.json --output providers/pulumi_wasm_provider_{}_rust\n", provider.name, provider.name));
     }
 
-    let start_marker = "# DO NOT EDIT - START\nregenerate-providers:";
-    let end_marker = "# DO NOT EDIT - END";
+    let start_marker = "# DO NOT EDIT - REGENERATE-PROVIDERS - START\nregenerate-providers:";
+    let end_marker = "# DO NOT EDIT - REGENERATE-PROVIDERS - END";
     let new_content = replace_between_markers(&content, start_marker, end_marker, &replacement);
+    new_content
+}
 
-    fs::write("justfile", new_content).expect("Failed to write to justfile");
+fn replace_build_wasm_components(providers: &[Provider], content: &String) -> String {
+    let mut replacement = String::new();
+    for provider in providers {
+        replacement.push_str(&format!("      -p pulumi_wasm_{}_provider \\\n", provider.name));
+    }
+
+    let start_marker = "    # DO NOT EDIT - BUILD-WASM-COMPONENTS - START\n    cargo component build \\";
+    let end_marker = "    # DO NOT EDIT - BUILD-WASM-COMPONENTS - END";
+    let new_content = replace_between_markers(&content, start_marker, end_marker, &replacement);
+    new_content
 }
 
 fn replace_between_markers(

@@ -15,10 +15,13 @@ install-requirements:
 
 build-wasm-components:
     cargo component build -p pulumi_wasm \
-                          -p pulumi_wasm_random_provider \
-                          -p pulumi_wasm_docker_provider \
                           -p pulumi_wasm_example_simple \
                           -p pulumi_wasm_example_docker
+    # DO NOT EDIT - BUILD-WASM-COMPONENTS - START
+    cargo component build \
+      -p pulumi_wasm_docker_provider \
+      -p pulumi_wasm_random_provider \
+    # DO NOT EDIT - BUILD-WASM-COMPONENTS - END
     cargo run -p cargo-pulumi -- -p pulumi_wasm_example_simple
     cargo run -p cargo-pulumi -- -p pulumi_wasm_example_docker
 
@@ -36,13 +39,13 @@ fmt-clippy:
 regenerate-provider-list:
     cargo run -p regenerate_providers
 
-# DO NOT EDIT - START
+# DO NOT EDIT - REGENERATE-PROVIDERS - START
 regenerate-providers:
     cargo run -p cargo-pulumi-gen -- gen-provider --remove true --schema providers/docker.json --output providers/pulumi_wasm_provider_docker
     cargo run -p cargo-pulumi-gen -- gen-rust     --remove true --schema providers/docker.json --output providers/pulumi_wasm_provider_docker_rust
     cargo run -p cargo-pulumi-gen -- gen-provider --remove true --schema providers/random.json --output providers/pulumi_wasm_provider_random
     cargo run -p cargo-pulumi-gen -- gen-rust     --remove true --schema providers/random.json --output providers/pulumi_wasm_provider_random_rust
-# DO NOT EDIT - END
+# DO NOT EDIT - REGENERATE-PROVIDERS - END
 
 test:
     cargo nextest run --workspace
