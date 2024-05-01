@@ -2,20 +2,20 @@ use std::fs;
 use std::process::Command;
 
 #[derive(Debug)]
-struct Provider {
-    name: String,
-    version: String,
+struct Provider<'a> {
+    name: &'a str,
+    version: &'a str,
 }
 
 fn main() {
     let providers = vec![
         Provider {
-            name: String::from("docker"),
-            version: String::from("4.5.3"),
+            name: "docker",
+            version: "4.5.3",
         },
         Provider {
-            name: String::from("random"),
-            version: String::from("4.15.0"),
+            name: "random",
+            version: "4.15.0",
         },
     ];
 
