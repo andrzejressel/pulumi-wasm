@@ -18,8 +18,8 @@ fn main() {
             version: "4.15.0",
         },
         Provider {
-            name: String::from("cloudflare"),
-            version: String::from("5.24.1"),
+            name: "cloudflare",
+            version: "5.24.1",
         },
     ];
 
