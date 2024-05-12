@@ -40,13 +40,13 @@ impl DoneOutput {
 #[derive(Clone, Debug, PartialEq)]
 pub(crate) struct NativeFunctionOutput {
     pub(crate) output_id: OutputId,
-    pub(crate) native_function_id: NativeFunctionId
+    pub(crate) native_function_id: NativeFunctionId,
 }
 impl NativeFunctionOutput {
     pub(crate) const fn new(output_id: OutputId, native_function_id: NativeFunctionId) -> Self {
         NativeFunctionOutput {
             output_id,
-            native_function_id
+            native_function_id,
         }
     }
 }
@@ -57,7 +57,11 @@ pub(crate) struct ExtractFieldOutput {
     pub(crate) dependencies: Vec<String>,
 }
 impl ExtractFieldOutput {
-    pub(crate) const fn new(output_id: OutputId, field_name: FieldName, dependencies: Vec<String>) -> Self {
+    pub(crate) const fn new(
+        output_id: OutputId,
+        field_name: FieldName,
+        dependencies: Vec<String>,
+    ) -> Self {
         ExtractFieldOutput {
             output_id,
             field_name,

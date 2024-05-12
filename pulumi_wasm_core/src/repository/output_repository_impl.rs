@@ -1,8 +1,8 @@
 use std::collections::HashMap;
 
 use crate::model::{
-    DoneOutput, ExtractFieldOutput, FieldsToExtract, FunctionsToMap,
-    NativeFunctionOutput, NothingOutput, OutputId,
+    DoneOutput, ExtractFieldOutput, FieldsToExtract, FunctionsToMap, NativeFunctionOutput,
+    NothingOutput, OutputId,
 };
 use crate::repository::output_repository::OutputRepository;
 
@@ -57,7 +57,8 @@ impl OutputRepository for OutputRepositoryImpl {
             .native_function_map
             .iter()
             .flat_map(|(output_id, native_function)| {
-                self.nothing_map.get(&native_function.output_id)
+                self.nothing_map
+                    .get(&native_function.output_id)
                     .map(|nothing| (*output_id, nothing.clone()))
             })
             .collect::<Vec<_>>();
@@ -66,7 +67,6 @@ impl OutputRepository for OutputRepositoryImpl {
             self.native_function_map.remove(&output_id);
             self.nothing_map.insert(output_id, nothing_output);
         }
-
     }
 }
 
@@ -149,9 +149,10 @@ mod tests {
             done_output_id,
             DoneOutput::new(Value::Boolean(true), vec!["done1".into()]),
         );
-        output_repository
-            .nothing_map
-            .insert(nothing_output_id, NothingOutput::new(vec!["nothing1".into()]));
+        output_repository.nothing_map.insert(
+            nothing_output_id,
+            NothingOutput::new(vec!["nothing1".into()]),
+        );
 
         output_repository.native_function_map.insert(
             native_function_1_output_id,
@@ -166,22 +167,30 @@ mod tests {
 
         assert_eq!(
             output_repository.native_function_map,
-            HashMap::from([
-                (native_function_1_output_id, NativeFunctionOutput::new(done_output_id, native_function_1_id)),
-            ])
+            HashMap::from([(
+                native_function_1_output_id,
+                NativeFunctionOutput::new(done_output_id, native_function_1_id)
+            ),])
         );
         assert_eq!(
             output_repository.nothing_map,
             HashMap::from([
-                (nothing_output_id, NothingOutput::new(vec!["nothing1".into()])),
-                (native_function_2_output_id, NothingOutput::new(vec!["nothing1".into()])),
+                (
+                    nothing_output_id,
+                    NothingOutput::new(vec!["nothing1".into()])
+                ),
+                (
+                    native_function_2_output_id,
+                    NothingOutput::new(vec!["nothing1".into()])
+                ),
             ])
         );
         assert_eq!(
             output_repository.done_map,
-            HashMap::from([
-                (done_output_id, DoneOutput::new(Value::Boolean(true), vec!["done1".into()]))
-            ])
+            HashMap::from([(
+                done_output_id,
+                DoneOutput::new(Value::Boolean(true), vec!["done1".into()])
+            )])
         );
     }
 
