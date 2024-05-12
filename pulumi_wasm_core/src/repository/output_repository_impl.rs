@@ -17,7 +17,11 @@ pub(crate) struct OutputRepositoryImpl {
     extract_fields_map: HashMap<OutputId, ExtractFieldOutput>,
 }
 
-impl OutputRepositoryImpl {}
+impl OutputRepositoryImpl {
+    pub(crate) fn new() -> Self {
+        Default::default()
+    }
+}
 
 impl OutputRepository for OutputRepositoryImpl {
     fn get_native_functions_to_map(&self) -> Vec<FunctionsToMap> {
@@ -81,7 +85,7 @@ mod tests {
 
     #[test]
     fn should_return_native_functions_that_depend_on_done() {
-        let mut output_repository = OutputRepositoryImpl::default();
+        let mut output_repository = OutputRepositoryImpl::new();
         let done_output_id = OutputId::new(UUID_1);
         let native_function_output_id = OutputId::new(UUID_2);
         let native_function_id = NativeFunctionId::new("native_function_id".into());
@@ -109,7 +113,7 @@ mod tests {
 
     #[test]
     fn should_return_extract_fields_that_depend_on_done() {
-        let mut output_repository = OutputRepositoryImpl::default();
+        let mut output_repository = OutputRepositoryImpl::new();
         let done_output_id = OutputId::new(UUID_1);
         let extract_field_output_id = OutputId::new(UUID_2);
         let field_name = FieldName::new("field_name".into());
@@ -137,7 +141,7 @@ mod tests {
 
     #[test]
     fn should_spread_nothings_to_native_functions() {
-        let mut output_repository = OutputRepositoryImpl::default();
+        let mut output_repository = OutputRepositoryImpl::new();
         let native_function_1_output_id = OutputId::new(UUID_1);
         let native_function_1_id = NativeFunctionId::new("native_function_1_id".into());
         let native_function_2_output_id = OutputId::new(UUID_2);
