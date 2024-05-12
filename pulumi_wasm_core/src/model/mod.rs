@@ -1,4 +1,6 @@
 use rmpv::Value;
+use std::collections::HashMap;
+use std::process::Output;
 use uuid::Uuid;
 
 #[derive(Clone, Debug, PartialEq)]
@@ -8,15 +10,21 @@ impl NativeFunctionId {
         NativeFunctionId(id)
     }
 }
-#[derive(Clone, Debug, Eq, Hash, PartialEq, Copy)]
-pub(crate) struct OutputId(Uuid);
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+pub(crate) struct OutputId(pub(crate) Uuid);
 impl OutputId {
     pub(crate) const fn new(uuid: Uuid) -> OutputId {
         OutputId(uuid)
     }
 }
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, Hash, PartialEq)]
 pub(crate) struct FieldName(String);
+
+impl FieldName {
+    pub(crate) fn to_string(&self) -> String {
+        self.0.clone()
+    }
+}
 
 impl FieldName {
     pub(crate) const fn new(name: String) -> FieldName {
@@ -70,13 +78,21 @@ impl ExtractFieldOutput {
     }
 }
 
-pub(crate) struct FuncOutput {
-    dependencies: Vec<String>,
-    function: Box<dyn Fn(Vec<Value>) -> Option<Value>>,
+#[derive(Clone, Debug)]
+struct CreateResourceOptions {
+    r#type: String,
+    name: String,
+}
+
+#[derive(Clone, Debug)]
+pub(crate) struct CreateResourceOutput {
+    options: CreateResourceOptions,
+    inputs: HashMap<FieldName, OutputId>,
+    expected_results: HashMap<FieldName, msgpack_protobuf_converter::Type>,
 }
 #[derive(Clone, Debug, PartialEq)]
 pub(crate) struct NothingOutput {
-    dependencies: Vec<String>,
+    pub(crate) dependencies: Vec<String>,
 }
 
 impl NothingOutput {
@@ -85,12 +101,15 @@ impl NothingOutput {
     }
 }
 
+#[derive(Clone, Debug)]
 pub(crate) enum OutputContent {
     Done(DoneOutput),
+    Nothing(NothingOutput),
+    
+    
     NativeFunction(NativeFunctionOutput),
     ExtractField(ExtractFieldOutput),
-    Func(FuncOutput),
-    Nothing(NothingOutput),
+    CreateResource(CreateResourceOutput),
 }
 #[derive(Debug, PartialEq)]
 pub(crate) struct FunctionsToMap {
@@ -110,9 +129,9 @@ impl FunctionsToMap {
 
 #[derive(Debug, PartialEq)]
 pub(crate) struct FieldsToExtract {
-    id: OutputId,
-    field_name: FieldName,
-    output: Value,
+    pub(crate) id: OutputId,
+    pub(crate) field_name: FieldName,
+    pub(crate) output: Value,
 }
 impl FieldsToExtract {
     pub(crate) const fn new(id: OutputId, field_name: FieldName, output: Value) -> Self {
@@ -122,4 +141,9 @@ impl FieldsToExtract {
             output,
         }
     }
+}
+
+#[derive(Debug, PartialEq)]
+pub(crate) struct RegisteredResourceOutput {
+    fields: HashMap<FieldName, (Option<Value>, Vec<String>)>
 }

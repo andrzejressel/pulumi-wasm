@@ -1,12 +1,12 @@
-use std::collections::HashMap;
+use std::collections::{BTreeSet, HashMap};
 
 use crate::model::{
-    DoneOutput, ExtractFieldOutput, FieldsToExtract, FunctionsToMap, NativeFunctionOutput,
-    NothingOutput, OutputId,
+    CreateResourceOutput, DoneOutput, ExtractFieldOutput, FieldsToExtract, FunctionsToMap,
+    NativeFunctionOutput, NothingOutput, OutputId,
 };
 use crate::repository::output_repository::OutputRepository;
 
-#[derive(Default)]
+#[derive(Debug, Default)]
 pub(crate) struct OutputRepositoryImpl {
     // Ready values
     nothing_map: HashMap<OutputId, NothingOutput>,
@@ -15,6 +15,7 @@ pub(crate) struct OutputRepositoryImpl {
     // Values waiting to be computed
     native_function_map: HashMap<OutputId, NativeFunctionOutput>,
     extract_fields_map: HashMap<OutputId, ExtractFieldOutput>,
+    create_resource_map: HashMap<OutputId, CreateResourceOutput>,
 }
 
 impl OutputRepositoryImpl {
@@ -66,11 +67,39 @@ impl OutputRepository for OutputRepositoryImpl {
                     .map(|nothing| (*output_id, nothing.clone()))
             })
             .collect::<Vec<_>>();
-        let are_there_changes = !native_functions_with_nothing.is_empty();
+        let extract_fields_with_nothing = self
+            .extract_fields_map
+            .iter()
+            .flat_map(|(output_id, native_function)| {
+                self.nothing_map
+                    .get(&native_function.output_id)
+                    .map(|nothing| {
+                        (
+                            *output_id,
+                            nothing.clone(),
+                            native_function.dependencies.clone(),
+                        )
+                    })
+            })
+            .collect::<Vec<_>>();
+
+        let are_there_changes =
+            !(native_functions_with_nothing.is_empty() && extract_fields_with_nothing.is_empty());
 
         for (output_id, nothing_output) in native_functions_with_nothing {
             self.native_function_map.remove(&output_id);
             self.nothing_map.insert(output_id, nothing_output);
+        }
+        for (output_id, nothing_output, dependencies) in extract_fields_with_nothing {
+            let mut all_dependencies = BTreeSet::new();
+            all_dependencies.extend(dependencies);
+            all_dependencies.extend(nothing_output.dependencies.clone());
+
+            self.extract_fields_map.remove(&output_id);
+            self.nothing_map.insert(
+                output_id,
+                NothingOutput::new(all_dependencies.into_iter().collect()),
+            );
         }
         are_there_changes
     }
@@ -157,55 +186,31 @@ mod tests {
         use super::*;
 
         #[test]
-        fn should_spread_nothings_to_native_functions() {
+        fn does_not_modify_done_outputs() {
             let mut output_repository = OutputRepositoryImpl::new();
-            let native_function_1_output_id = OutputId::new(UUID_1);
-            let native_function_1_id = NativeFunctionId::new("native_function_1_id".into());
-            let native_function_2_output_id = OutputId::new(UUID_2);
-            let native_function_2_id = NativeFunctionId::new("native_function_2_id".into());
-            let done_output_id = OutputId::new(UUID_3);
-            let nothing_output_id = OutputId::new(UUID_4);
+            let native_function_output_id = OutputId::new(UUID_1);
+            let native_function_id = NativeFunctionId::new("native_function_1_id".into());
+            let done_output_id = OutputId::new(UUID_2);
 
             output_repository.done_map.insert(
                 done_output_id,
                 DoneOutput::new(Value::Boolean(true), vec!["done1".into()]),
             );
-            output_repository.nothing_map.insert(
-                nothing_output_id,
-                NothingOutput::new(vec!["nothing1".into()]),
-            );
 
             output_repository.native_function_map.insert(
-                native_function_1_output_id,
-                NativeFunctionOutput::new(done_output_id, native_function_1_id.clone()),
-            );
-            output_repository.native_function_map.insert(
-                native_function_2_output_id,
-                NativeFunctionOutput::new(nothing_output_id, native_function_2_id.clone()),
+                native_function_output_id,
+                NativeFunctionOutput::new(done_output_id, native_function_id.clone()),
             );
 
             let result = output_repository.distribute_nothings();
 
-            assert!(result);
+            assert!(!result);
             assert_eq!(
                 output_repository.native_function_map,
                 HashMap::from([(
-                    native_function_1_output_id,
-                    NativeFunctionOutput::new(done_output_id, native_function_1_id)
-                ), ])
-            );
-            assert_eq!(
-                output_repository.nothing_map,
-                HashMap::from([
-                    (
-                        nothing_output_id,
-                        NothingOutput::new(vec!["nothing1".into()])
-                    ),
-                    (
-                        native_function_2_output_id,
-                        NothingOutput::new(vec!["nothing1".into()])
-                    ),
-                ])
+                    native_function_output_id,
+                    NativeFunctionOutput::new(done_output_id, native_function_id)
+                ),])
             );
             assert_eq!(
                 output_repository.done_map,
@@ -219,10 +224,78 @@ mod tests {
         #[test]
         fn should_return_false_when_there_are_no_changes() {
             let mut output_repository = OutputRepositoryImpl::new();
+            let result = output_repository.distribute_nothings();
+            assert!(!result);
+        }
+
+        #[test]
+        fn should_distribute_nothings_to_native_function() {
+            let mut output_repository = OutputRepositoryImpl::new();
+            let native_function_output_id = OutputId::new(UUID_1);
+            let native_function_id = NativeFunctionId::new("native_function_id".into());
+            let nothing_output_id = OutputId::new(UUID_2);
+
+            output_repository.nothing_map.insert(
+                nothing_output_id,
+                NothingOutput::new(vec!["nothing1".into()]),
+            );
+            output_repository.native_function_map.insert(
+                native_function_output_id,
+                NativeFunctionOutput::new(nothing_output_id, native_function_id.clone()),
+            );
 
             let result = output_repository.distribute_nothings();
 
-            assert!(!result);
+            assert!(result);
+            assert_eq!(output_repository.native_function_map, HashMap::new());
+            assert_eq!(
+                output_repository.nothing_map,
+                HashMap::from([
+                    (
+                        nothing_output_id,
+                        NothingOutput::new(vec!["nothing1".into()])
+                    ),
+                    (
+                        native_function_output_id,
+                        NothingOutput::new(vec!["nothing1".into()])
+                    ),
+                ])
+            );
+        }
+
+        #[test]
+        fn should_distribute_nothings_to_extract_fields_function() {
+            let mut output_repository = OutputRepositoryImpl::new();
+            let extract_field_output_id = OutputId::new(UUID_1);
+            let field_name = FieldName::new("field_name".into());
+            let nothing_output_id = OutputId::new(UUID_2);
+
+            output_repository.nothing_map.insert(
+                nothing_output_id,
+                NothingOutput::new(vec!["nothing1".into()]),
+            );
+            output_repository.extract_fields_map.insert(
+                extract_field_output_id,
+                ExtractFieldOutput::new(nothing_output_id, field_name, vec!["extract1".into()]),
+            );
+
+            let result = output_repository.distribute_nothings();
+
+            assert!(result);
+            assert_eq!(output_repository.native_function_map, HashMap::new());
+            assert_eq!(
+                output_repository.nothing_map,
+                HashMap::from([
+                    (
+                        nothing_output_id,
+                        NothingOutput::new(vec!["nothing1".into()])
+                    ),
+                    (
+                        extract_field_output_id,
+                        NothingOutput::new(vec!["extract1".into(), "nothing1".into()])
+                    ),
+                ])
+            );
         }
     }
 

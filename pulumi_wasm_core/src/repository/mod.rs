@@ -1,2 +1,2 @@
 pub(crate) mod output_repository;
-mod output_repository_impl;
+pub(crate) mod output_repository_impl;
