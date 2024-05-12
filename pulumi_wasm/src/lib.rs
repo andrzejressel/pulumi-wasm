@@ -336,7 +336,7 @@ impl register_interface::Guest for Component {
                 retain_on_delete: false,
                 aliases: vec![],
                 deleted_with: "".to_string(),
-                alias_specs: false,
+                alias_specs: true,
                 source_position: None,
             };
 

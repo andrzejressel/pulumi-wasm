@@ -1970,6 +1970,33 @@ dependencies = [
 ]
 
 [[package]]
+name = "pulumi_wasm_core"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "bitflags 2.5.0",
+ "futures",
+ "lazy_static",
+ "log",
+ "msgpack_protobuf_converter",
+ "once_cell",
+ "prost",
+ "prost-types",
+ "rmp",
+ "rmp-serde",
+ "rmpv",
+ "serde",
+ "serde_json",
+ "tonic",
+ "tonic-build",
+ "uuid",
+ "wasm_common",
+ "wasmtime",
+ "wasmtime-wasi",
+ "wit-bindgen-rt",
+]
+
+[[package]]
 name = "pulumi_wasm_docker"
 version = "4.5.3"
 dependencies = [
@@ -1985,6 +2012,18 @@ version = "4.5.3"
 dependencies = [
  "wasm_common",
  "wit-bindgen-rt",
+]
+
+[[package]]
+name = "pulumi_wasm_example_dependencies"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "assert_cmd",
+ "predicates",
+ "pulumi_wasm_random",
+ "pulumi_wasm_rust",
+ "serde_json",
 ]
 
 [[package]]

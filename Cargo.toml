@@ -9,6 +9,7 @@ edition.workspace = true
 members = [
     "cargo-pulumi",
     "cargo-pulumi-gen",
+    "examples/dependencies",
     "examples/docker",
     "examples/simple",
     "msgpack_protobuf_converter",
@@ -19,6 +20,7 @@ members = [
     "providers/pulumi_wasm_provider_random_rust",
 # DO NOT EDIT - END
     "pulumi_wasm",
+    "pulumi_wasm_core",
     "pulumi_wasm_generator",
     "pulumi_wasm_runner",
     "pulumi_wasm_rust",

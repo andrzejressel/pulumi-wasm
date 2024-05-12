@@ -16,7 +16,9 @@ install-requirements:
 build-wasm-components:
     cargo component build -p pulumi_wasm \
                           -p pulumi_wasm_example_simple \
-                          -p pulumi_wasm_example_docker
+                          -p pulumi_wasm_example_docker \
+                          -p pulumi_wasm_example_dependencies_part1 \
+                          -p pulumi_wasm_example_dependencies_part2
     # DO NOT EDIT - BUILD-WASM-COMPONENTS - START
     cargo component build \
       -p pulumi_wasm_docker_provider \
@@ -24,6 +26,8 @@ build-wasm-components:
     # DO NOT EDIT - BUILD-WASM-COMPONENTS - END
     cargo run -p cargo-pulumi -- -p pulumi_wasm_example_simple
     cargo run -p cargo-pulumi -- -p pulumi_wasm_example_docker
+    cargo run -p cargo-pulumi -- -p pulumi_wasm_example_dependencies_part1
+    cargo run -p cargo-pulumi -- -p pulumi_wasm_example_dependencies_part2
 
 check:
     cargo fmt --all -- --check
