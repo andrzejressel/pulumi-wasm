@@ -56,7 +56,7 @@ impl OutputRepository for OutputRepositoryImpl {
             })
             .collect()
     }
-    fn distribute_nothings(&mut self) {
+    fn distribute_nothings(&mut self) -> bool {
         let native_functions_with_nothing = self
             .native_function_map
             .iter()
@@ -66,11 +66,13 @@ impl OutputRepository for OutputRepositoryImpl {
                     .map(|nothing| (*output_id, nothing.clone()))
             })
             .collect::<Vec<_>>();
+        let are_there_changes = !native_functions_with_nothing.is_empty();
 
         for (output_id, nothing_output) in native_functions_with_nothing {
             self.native_function_map.remove(&output_id);
             self.nothing_map.insert(output_id, nothing_output);
         }
+        are_there_changes
     }
 }
 
@@ -83,119 +85,145 @@ mod tests {
 
     use super::*;
 
-    #[test]
-    fn should_return_native_functions_that_depend_on_done() {
-        let mut output_repository = OutputRepositoryImpl::new();
-        let done_output_id = OutputId::new(UUID_1);
-        let native_function_output_id = OutputId::new(UUID_2);
-        let native_function_id = NativeFunctionId::new("native_function_id".into());
+    mod get_native_functions_to_map {
+        use super::*;
 
-        output_repository.done_map.insert(
-            done_output_id,
-            DoneOutput::new(Value::Boolean(true), vec!["dep1".into()]),
-        );
-        output_repository.native_function_map.insert(
-            native_function_output_id,
-            NativeFunctionOutput::new(done_output_id, native_function_id.clone()),
-        );
+        #[test]
+        fn should_return_native_functions_that_depend_on_done() {
+            let mut output_repository = OutputRepositoryImpl::new();
+            let done_output_id = OutputId::new(UUID_1);
+            let native_function_output_id = OutputId::new(UUID_2);
+            let native_function_id = NativeFunctionId::new("native_function_id".into());
 
-        let mappable_native_functions = output_repository.get_native_functions_to_map();
-
-        assert_eq!(
-            mappable_native_functions,
-            vec![FunctionsToMap::new(
-                native_function_output_id,
-                native_function_id,
-                Value::Boolean(true),
-            )]
-        );
-    }
-
-    #[test]
-    fn should_return_extract_fields_that_depend_on_done() {
-        let mut output_repository = OutputRepositoryImpl::new();
-        let done_output_id = OutputId::new(UUID_1);
-        let extract_field_output_id = OutputId::new(UUID_2);
-        let field_name = FieldName::new("field_name".into());
-
-        output_repository.done_map.insert(
-            done_output_id,
-            DoneOutput::new(Value::Boolean(true), vec!["dep1".into()]),
-        );
-        output_repository.extract_fields_map.insert(
-            extract_field_output_id,
-            ExtractFieldOutput::new(done_output_id, field_name.clone(), vec!["extract1".into()]),
-        );
-
-        let fields_to_extract = output_repository.get_fields_to_extract();
-
-        assert_eq!(
-            fields_to_extract,
-            vec![FieldsToExtract::new(
-                extract_field_output_id,
-                field_name,
-                Value::Boolean(true),
-            )]
-        );
-    }
-
-    #[test]
-    fn should_spread_nothings_to_native_functions() {
-        let mut output_repository = OutputRepositoryImpl::new();
-        let native_function_1_output_id = OutputId::new(UUID_1);
-        let native_function_1_id = NativeFunctionId::new("native_function_1_id".into());
-        let native_function_2_output_id = OutputId::new(UUID_2);
-        let native_function_2_id = NativeFunctionId::new("native_function_2_id".into());
-        let done_output_id = OutputId::new(UUID_3);
-        let nothing_output_id = OutputId::new(UUID_4);
-
-        output_repository.done_map.insert(
-            done_output_id,
-            DoneOutput::new(Value::Boolean(true), vec!["done1".into()]),
-        );
-        output_repository.nothing_map.insert(
-            nothing_output_id,
-            NothingOutput::new(vec!["nothing1".into()]),
-        );
-
-        output_repository.native_function_map.insert(
-            native_function_1_output_id,
-            NativeFunctionOutput::new(done_output_id, native_function_1_id.clone()),
-        );
-        output_repository.native_function_map.insert(
-            native_function_2_output_id,
-            NativeFunctionOutput::new(nothing_output_id, native_function_2_id.clone()),
-        );
-
-        output_repository.distribute_nothings();
-
-        assert_eq!(
-            output_repository.native_function_map,
-            HashMap::from([(
-                native_function_1_output_id,
-                NativeFunctionOutput::new(done_output_id, native_function_1_id)
-            ),])
-        );
-        assert_eq!(
-            output_repository.nothing_map,
-            HashMap::from([
-                (
-                    nothing_output_id,
-                    NothingOutput::new(vec!["nothing1".into()])
-                ),
-                (
-                    native_function_2_output_id,
-                    NothingOutput::new(vec!["nothing1".into()])
-                ),
-            ])
-        );
-        assert_eq!(
-            output_repository.done_map,
-            HashMap::from([(
+            output_repository.done_map.insert(
                 done_output_id,
-                DoneOutput::new(Value::Boolean(true), vec!["done1".into()])
-            )])
-        );
+                DoneOutput::new(Value::Boolean(true), vec!["dep1".into()]),
+            );
+            output_repository.native_function_map.insert(
+                native_function_output_id,
+                NativeFunctionOutput::new(done_output_id, native_function_id.clone()),
+            );
+
+            let mappable_native_functions = output_repository.get_native_functions_to_map();
+
+            assert_eq!(
+                mappable_native_functions,
+                vec![FunctionsToMap::new(
+                    native_function_output_id,
+                    native_function_id,
+                    Value::Boolean(true),
+                )]
+            );
+        }
+    }
+
+    mod get_fields_to_extract {
+        use super::*;
+
+        #[test]
+        fn should_return_extract_fields_that_depend_on_done() {
+            let mut output_repository = OutputRepositoryImpl::new();
+            let done_output_id = OutputId::new(UUID_1);
+            let extract_field_output_id = OutputId::new(UUID_2);
+            let field_name = FieldName::new("field_name".into());
+
+            output_repository.done_map.insert(
+                done_output_id,
+                DoneOutput::new(Value::Boolean(true), vec!["dep1".into()]),
+            );
+            output_repository.extract_fields_map.insert(
+                extract_field_output_id,
+                ExtractFieldOutput::new(
+                    done_output_id,
+                    field_name.clone(),
+                    vec!["extract1".into()],
+                ),
+            );
+
+            let fields_to_extract = output_repository.get_fields_to_extract();
+
+            assert_eq!(
+                fields_to_extract,
+                vec![FieldsToExtract::new(
+                    extract_field_output_id,
+                    field_name,
+                    Value::Boolean(true),
+                )]
+            );
+        }
+    }
+
+    mod distribute_nothings {
+        use super::*;
+
+        #[test]
+        fn should_spread_nothings_to_native_functions() {
+            let mut output_repository = OutputRepositoryImpl::new();
+            let native_function_1_output_id = OutputId::new(UUID_1);
+            let native_function_1_id = NativeFunctionId::new("native_function_1_id".into());
+            let native_function_2_output_id = OutputId::new(UUID_2);
+            let native_function_2_id = NativeFunctionId::new("native_function_2_id".into());
+            let done_output_id = OutputId::new(UUID_3);
+            let nothing_output_id = OutputId::new(UUID_4);
+
+            output_repository.done_map.insert(
+                done_output_id,
+                DoneOutput::new(Value::Boolean(true), vec!["done1".into()]),
+            );
+            output_repository.nothing_map.insert(
+                nothing_output_id,
+                NothingOutput::new(vec!["nothing1".into()]),
+            );
+
+            output_repository.native_function_map.insert(
+                native_function_1_output_id,
+                NativeFunctionOutput::new(done_output_id, native_function_1_id.clone()),
+            );
+            output_repository.native_function_map.insert(
+                native_function_2_output_id,
+                NativeFunctionOutput::new(nothing_output_id, native_function_2_id.clone()),
+            );
+
+            let result = output_repository.distribute_nothings();
+
+            assert!(result);
+            assert_eq!(
+                output_repository.native_function_map,
+                HashMap::from([(
+                    native_function_1_output_id,
+                    NativeFunctionOutput::new(done_output_id, native_function_1_id)
+                ), ])
+            );
+            assert_eq!(
+                output_repository.nothing_map,
+                HashMap::from([
+                    (
+                        nothing_output_id,
+                        NothingOutput::new(vec!["nothing1".into()])
+                    ),
+                    (
+                        native_function_2_output_id,
+                        NothingOutput::new(vec!["nothing1".into()])
+                    ),
+                ])
+            );
+            assert_eq!(
+                output_repository.done_map,
+                HashMap::from([(
+                    done_output_id,
+                    DoneOutput::new(Value::Boolean(true), vec!["done1".into()])
+                )])
+            );
+        }
+
+        #[test]
+        fn should_return_false_when_there_are_no_changes() {
+            let mut output_repository = OutputRepositoryImpl::new();
+
+            let result = output_repository.distribute_nothings();
+
+            assert!(!result);
+        }
     }
 
     static UUID_1: Uuid = Uuid::from_bytes([1; 16]);
