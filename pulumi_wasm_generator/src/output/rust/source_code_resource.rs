@@ -1,6 +1,6 @@
 use crate::model::ElementId;
-use crate::output::replace_multiple_dashes;
 use crate::output::rust::convert_type;
+use crate::output::{replace_multiple_dashes, to_rust_ident};
 use convert_case::{Case, Casing};
 use handlebars::Handlebars;
 use serde::Serialize;
@@ -106,6 +106,7 @@ fn create_valid_id(s: &str) -> String {
 
     let result = replace_multiple_dashes(&result);
     let result = result.trim_matches('-').to_string();
+    let result = to_rust_ident(&result);
 
     result.replace('-', "_")
 }
@@ -132,6 +133,7 @@ fn create_valid_wit_id(s: &str) -> String {
 
     let result = replace_multiple_dashes(&result);
     let result = result.trim_matches('-').to_string();
+    let result = to_rust_ident(&result);
     result
 }
 
