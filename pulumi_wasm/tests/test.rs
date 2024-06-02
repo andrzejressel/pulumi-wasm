@@ -46,24 +46,23 @@ struct MyState {
 }
 
 impl server::component::pulumi_wasm::external_world::Host for MyState {
-    fn is_in_preview(&mut self) -> Result<bool, Error> {
-        Ok(self.is_in_preview)
+    fn is_in_preview(&mut self) -> bool {
+        self.is_in_preview
     }
-    fn register_resource(&mut self, _request: Vec<u8>) -> Result<Vec<u8>> {
+    fn register_resource(&mut self, _request: Vec<u8>) -> Vec<u8> {
         todo!()
     }
-    fn get_root_resource(&mut self) -> Result<String> {
+    fn get_root_resource(&mut self) -> String {
         todo!()
     }
-    fn register_resource_outputs(&mut self, _request: Vec<u8>) -> Result<Vec<u8>> {
+    fn register_resource_outputs(&mut self, _request: Vec<u8>) -> Vec<u8> {
         todo!()
     }
 }
 
 impl log::Host for MyState {
-    fn log(&mut self, s: log::Content) -> Result<()> {
+    fn log(&mut self, s: log::Content) {
         println!("{:?}", s);
-        Ok(())
     }
 }
 
