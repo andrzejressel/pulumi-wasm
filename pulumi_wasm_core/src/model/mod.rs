@@ -78,18 +78,35 @@ impl ExtractFieldOutput {
     }
 }
 
-#[derive(Clone, Debug)]
-struct CreateResourceOptions {
-    r#type: String,
-    name: String,
+#[derive(Clone, Debug, PartialEq)]
+pub(crate) struct CreateResourceOptions {
+    pub(crate) r#type: String,
+    pub(crate) name: String,
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, PartialEq)]
 pub(crate) struct CreateResourceOutput {
+    output_id: OutputId,
     options: CreateResourceOptions,
     inputs: HashMap<FieldName, OutputId>,
     expected_results: HashMap<FieldName, msgpack_protobuf_converter::Type>,
 }
+impl CreateResourceOutput {
+    pub(crate) const fn new(
+        output_id: OutputId,
+        options: CreateResourceOptions,
+        inputs: HashMap<FieldName, OutputId>,
+        expected_results: HashMap<FieldName, msgpack_protobuf_converter::Type>,
+    ) -> Self {
+        CreateResourceOutput {
+            output_id,
+            options,
+            inputs,
+            expected_results,
+        }
+    }
+}
+
 #[derive(Clone, Debug, PartialEq)]
 pub(crate) struct NothingOutput {
     pub(crate) dependencies: Vec<String>,
@@ -105,8 +122,7 @@ impl NothingOutput {
 pub(crate) enum OutputContent {
     Done(DoneOutput),
     Nothing(NothingOutput),
-    
-    
+
     NativeFunction(NativeFunctionOutput),
     ExtractField(ExtractFieldOutput),
     CreateResource(CreateResourceOutput),
@@ -145,5 +161,5 @@ impl FieldsToExtract {
 
 #[derive(Debug, PartialEq)]
 pub(crate) struct RegisteredResourceOutput {
-    fields: HashMap<FieldName, (Option<Value>, Vec<String>)>
+    fields: HashMap<FieldName, (Option<Value>, Vec<String>)>,
 }

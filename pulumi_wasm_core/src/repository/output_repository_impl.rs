@@ -22,9 +22,21 @@ impl OutputRepositoryImpl {
     pub(crate) fn new() -> Self {
         Default::default()
     }
+
+    fn remove_output(&mut self, output_id: OutputId) {
+        self.nothing_map.remove(&output_id);
+        self.done_map.remove(&output_id);
+        self.native_function_map.remove(&output_id);
+        self.extract_fields_map.remove(&output_id);
+        self.create_resource_map.remove(&output_id);
+    }
 }
 
 impl OutputRepository for OutputRepositoryImpl {
+    fn add_done_output(&mut self, output_id: OutputId, output: DoneOutput) {
+        self.remove_output(output_id);
+        self.done_map.insert(output_id, output);
+    }
     fn get_native_functions_to_map(&self) -> Vec<FunctionsToMap> {
         self.native_function_map
             .iter()
@@ -296,6 +308,87 @@ mod tests {
                     ),
                 ])
             );
+        }
+    }
+
+    mod add_done_output {
+        use super::*;
+        use crate::model::CreateResourceOptions;
+
+        #[test]
+        fn should_add_done_output() {
+            let mut output_repository = OutputRepositoryImpl::new();
+            let output_id = OutputId::new(UUID_1);
+            let output = DoneOutput::new(Value::Boolean(true), vec!["dep1".into()]);
+
+            output_repository.add_done_output(output_id, output);
+
+            assert_eq!(
+                output_repository.done_map,
+                HashMap::from([(
+                    output_id,
+                    DoneOutput::new(Value::Boolean(true), vec!["dep1".into()])
+                )])
+            );
+        }
+
+        #[test]
+        fn should_add_done_should_remove_existing_outputs() {
+            let mut output_repository = OutputRepositoryImpl::new();
+            let output_id = OutputId::new(UUID_1);
+
+            let output = DoneOutput::new(Value::Boolean(true), vec!["dep1".into()]);
+            let nothing_output = NothingOutput::new(vec!["nothing1".into()]);
+            let native_function_output = NativeFunctionOutput::new(
+                output_id,
+                NativeFunctionId::new("native_function_id".into()),
+            );
+            let extract_field_output = ExtractFieldOutput::new(
+                output_id,
+                FieldName::new("field_name".into()),
+                vec!["extract1".into()],
+            );
+            let create_resource_options = CreateResourceOptions {
+                r#type: "type".into(),
+                name: "name".into(),
+            };
+            let create_resource_output = CreateResourceOutput::new(
+                output_id,
+                create_resource_options,
+                HashMap::new(),
+                HashMap::new(),
+            );
+
+            output_repository
+                .create_resource_map
+                .insert(output_id, create_resource_output);
+            output_repository
+                .native_function_map
+                .insert(output_id, native_function_output);
+            output_repository
+                .extract_fields_map
+                .insert(output_id, extract_field_output);
+            output_repository
+                .nothing_map
+                .insert(output_id, nothing_output);
+
+
+            output_repository.add_done_output(output_id, output);
+
+            // output_repository.add_done_output(output_id, output.clone());
+            // output_repository.add_done_output(output_id, output);
+
+            assert_eq!(
+                output_repository.done_map,
+                HashMap::from([(
+                    output_id,
+                    DoneOutput::new(Value::Boolean(true), vec!["dep1".into()])
+                )])
+            );
+            assert_eq!(output_repository.create_resource_map, HashMap::new());
+            assert_eq!(output_repository.native_function_map, HashMap::new());
+            assert_eq!(output_repository.extract_fields_map, HashMap::new());
+            assert_eq!(output_repository.nothing_map, HashMap::new())
         }
     }
 
