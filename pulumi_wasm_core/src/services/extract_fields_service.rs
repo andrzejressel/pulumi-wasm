@@ -6,7 +6,7 @@ use rmpv::{Utf8String, Value};
 use crate::model::{DoneOutput, FieldsToExtract};
 use crate::repository::output_repository::OutputRepository;
 
-struct ExtractFieldsService {
+pub(crate) struct ExtractFieldsService {
     output_repository: RwLock<Box<dyn OutputRepository>>,
 }
 
@@ -15,7 +15,7 @@ impl ExtractFieldsService {
         ExtractFieldsService { output_repository }
     }
 
-    fn run(&self) -> Result<bool> {
+    pub(crate) fn run(&self) -> Result<bool> {
         let fields_to_extract = {
             self.output_repository
                 .read()
@@ -109,7 +109,7 @@ mod tests {
             .map(|e| e.to_string())
             .collect();
 
-        assert_eq!(vec!["Value is not present",], chain);
+        assert_eq!(vec!["Value is not present"], chain);
     }
 
     #[test]
@@ -167,7 +167,7 @@ mod tests {
             .map(|e| e.to_string())
             .collect();
 
-        assert_eq!(vec!["List of deps is not present",], chain);
+        assert_eq!(vec!["List of deps is not present"], chain);
     }
 
     #[test]
@@ -201,7 +201,7 @@ mod tests {
             .collect();
 
         assert_eq!(
-            vec!["List of deps is not an array - it's [true] instead",],
+            vec!["List of deps is not an array - it's [true] instead"],
             chain
         );
     }
@@ -236,7 +236,7 @@ mod tests {
             .map(|e| e.to_string())
             .collect();
 
-        assert_eq!(vec!["Dep is not a string - it's [true] instead",], chain);
+        assert_eq!(vec!["Dep is not a string - it's [true] instead"], chain);
     }
 
     #[test]
@@ -263,7 +263,10 @@ mod tests {
             });
         output_repository
             .expect_add_done_output()
-            .with(eq(output_id), eq(DoneOutput::new(Value::Boolean(true), vec!["dep".into()])))
+            .with(
+                eq(output_id),
+                eq(DoneOutput::new(Value::Boolean(true), vec!["dep".into()])),
+            )
             .returning(|_, _| ());
 
         let service = ExtractFieldsService::new(RwLock::new(Box::new(output_repository)));
@@ -274,8 +277,4 @@ mod tests {
     }
 
     static UUID_1: Uuid = Uuid::from_bytes([1; 16]);
-    static UUID_2: Uuid = Uuid::from_bytes([2; 16]);
-    static UUID_3: Uuid = Uuid::from_bytes([3; 16]);
-    static UUID_4: Uuid = Uuid::from_bytes([4; 16]);
-    static UUID_5: Uuid = Uuid::from_bytes([5; 16]);
 }

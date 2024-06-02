@@ -131,14 +131,14 @@ pub(crate) enum OutputContent {
 pub(crate) struct FunctionsToMap {
     id: OutputId,
     function_id: NativeFunctionId,
-    output: Value,
+    input: Value,
 }
 impl FunctionsToMap {
-    pub(crate) const fn new(id: OutputId, function_id: NativeFunctionId, output: Value) -> Self {
+    pub(crate) const fn new(id: OutputId, function_id: NativeFunctionId, input: Value) -> Self {
         FunctionsToMap {
             id,
             function_id,
-            output,
+            input,
         }
     }
 }

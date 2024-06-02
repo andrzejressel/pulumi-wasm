@@ -372,7 +372,6 @@ mod tests {
                 .nothing_map
                 .insert(output_id, nothing_output);
 
-
             output_repository.add_done_output(output_id, output);
 
             // output_repository.add_done_output(output_id, output.clone());
