@@ -9,7 +9,7 @@ build-language-plugin:
 
 install-requirements:
     rustup component add rustfmt
-    cargo install cargo-nextest@0.9.68 --locked || cargo-nextest --version
+    cargo install cargo-nextest@0.9.72 --locked || cargo-nextest --version
     cargo install cargo-component@0.10.1 --locked || cargo-component --version
     cargo install wasm-tools@1.202.0 --locked || wasm-tools --version
 
