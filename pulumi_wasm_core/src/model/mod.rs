@@ -6,15 +6,15 @@ use uuid::Uuid;
 #[derive(Clone, Debug, PartialEq)]
 pub(crate) struct NativeFunctionId(String);
 impl NativeFunctionId {
-    pub(crate) const fn new(id: String) -> NativeFunctionId {
-        NativeFunctionId(id)
+    pub(crate) const fn new(id: String) -> Self {
+        Self(id)
     }
 }
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 pub(crate) struct OutputId(pub(crate) Uuid);
 impl OutputId {
-    pub(crate) const fn new(uuid: Uuid) -> OutputId {
-        OutputId(uuid)
+    pub(crate) const fn new(uuid: Uuid) -> Self {
+        Self(uuid)
     }
 }
 #[derive(Clone, Debug, Eq, Hash, PartialEq)]
@@ -27,8 +27,8 @@ impl FieldName {
 }
 
 impl FieldName {
-    pub(crate) const fn new(name: String) -> FieldName {
-        FieldName(name)
+    pub(crate) const fn new(name: String) -> Self {
+        Self(name)
     }
 }
 
@@ -39,7 +39,7 @@ pub(crate) struct DoneOutput {
 }
 impl DoneOutput {
     pub(crate) const fn new(value: Value, dependencies: Vec<String>) -> Self {
-        DoneOutput {
+        Self {
             value,
             dependencies,
         }
@@ -52,7 +52,7 @@ pub(crate) struct NativeFunctionOutput {
 }
 impl NativeFunctionOutput {
     pub(crate) const fn new(output_id: OutputId, native_function_id: NativeFunctionId) -> Self {
-        NativeFunctionOutput {
+        Self {
             output_id,
             native_function_id,
         }
@@ -70,7 +70,7 @@ impl ExtractFieldOutput {
         field_name: FieldName,
         dependencies: Vec<String>,
     ) -> Self {
-        ExtractFieldOutput {
+        Self {
             output_id,
             field_name,
             dependencies,
@@ -98,7 +98,7 @@ impl CreateResourceOutput {
         inputs: HashMap<FieldName, OutputId>,
         expected_results: HashMap<FieldName, msgpack_protobuf_converter::Type>,
     ) -> Self {
-        CreateResourceOutput {
+        Self {
             output_id,
             options,
             inputs,
@@ -135,7 +135,7 @@ pub(crate) struct FunctionsToMap {
 }
 impl FunctionsToMap {
     pub(crate) const fn new(id: OutputId, function_id: NativeFunctionId, input: Value) -> Self {
-        FunctionsToMap {
+        Self {
             id,
             function_id,
             input,
@@ -151,7 +151,7 @@ pub(crate) struct FieldsToExtract {
 }
 impl FieldsToExtract {
     pub(crate) const fn new(id: OutputId, field_name: FieldName, output: Value) -> Self {
-        FieldsToExtract {
+        Self {
             id,
             field_name,
             output,

@@ -35,6 +35,7 @@ edition = "2021"
 
 [workspace.dependencies]
 msgpack_protobuf_converter = { path = "msgpack_protobuf_converter" }
+pulumi_wasm_core = { path = "pulumi_wasm_core" }
 pulumi_wasm_docker = { path = "providers/pulumi_wasm_provider_docker_rust" }
 pulumi_wasm_generator = { path = "pulumi_wasm_generator" }
 pulumi_wasm_random = { path = "providers/pulumi_wasm_provider_random_rust" }

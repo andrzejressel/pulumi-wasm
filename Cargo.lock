@@ -1994,6 +1994,7 @@ dependencies = [
  "once_cell",
  "prost",
  "prost-types",
+ "pulumi_wasm_core",
  "rmp",
  "rmp-serde",
  "rmpv",
