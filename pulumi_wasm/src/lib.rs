@@ -155,7 +155,7 @@ impl GuestOutput for Output {
                         None if is_in_preview() => None,
                         None if required => {
                             error!("Field [{field}] not found in map [{m:?}]");
-                            unreachable!("Field [{field}] not found in map [{m:?}]")
+                            panic!("Field [{field}] not found in map [{m:?}]")
                         }
                         None => Some(Value::Nil),
                         Some(v) => Some(v),

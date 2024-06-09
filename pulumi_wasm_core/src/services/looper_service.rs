@@ -1,8 +1,8 @@
+use crate::model::FunctionsToMap;
 use crate::repository::output_repository::OutputRepository;
 use anyhow::Context;
 use anyhow::Result;
 use std::sync::RwLock;
-use crate::model::FunctionsToMap;
 
 use crate::services::extract_fields_service::ExtractFieldsService;
 use crate::services::functions::extract_functions_service::ExtractFunctionsService;
@@ -17,12 +17,12 @@ impl Looper {
     fn new(
         extract_fields_service: ExtractFieldsService,
         output_repository: RwLock<Box<dyn OutputRepository>>,
-        extract_functions_service: ExtractFunctionsService
+        extract_functions_service: ExtractFunctionsService,
     ) -> Self {
         Self {
             extract_fields_service,
             output_repository,
-            extract_functions_service
+            extract_functions_service,
         }
     }
 
@@ -44,7 +44,7 @@ impl Looper {
                 break;
             }
         }
-        
+
         Ok(self.extract_functions_service.run())
     }
 }

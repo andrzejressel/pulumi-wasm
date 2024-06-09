@@ -1,8 +1,8 @@
 use crate::model::FieldName;
-use rmpv::Value;
-use std::collections::HashMap;
 #[cfg(test)]
 use mockall::automock;
+use rmpv::Value;
+use std::collections::HashMap;
 
 #[cfg_attr(test, automock)]
 pub(crate) trait Pulumi {
