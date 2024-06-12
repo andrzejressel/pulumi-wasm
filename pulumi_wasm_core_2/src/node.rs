@@ -7,7 +7,7 @@ use rmpv::Value;
 
 use crate::node::MaybeNodeValue::{NotYetCalculated, Set};
 use crate::node::NodeValue::Exists;
-use crate::pulumi::FieldName;
+use crate::pulumi::RegisterId;
 
 #[derive(Clone, Debug, Hash, PartialEq, Eq, Ord, PartialOrd)]
 pub struct OutputId(pub(crate) String);
@@ -33,6 +33,35 @@ pub struct NativeFunctionActionableNode {
 }
 
 impl NativeFunctionActionableNode {
+    pub(crate) fn new(
+        output_id: OutputId,
+        function_name: String,
+        argument: Value,
+    ) -> NativeFunctionActionableNode {
+        NativeFunctionActionableNode {
+            output_id,
+            function_name,
+            argument,
+        }
+    }
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub struct RegisterResourceActionableNode {
+    pub(crate) output_id: OutputId,
+    pub(crate) register_id: RegisterId,
+}
+
+impl RegisterResourceActionableNode {
+    pub(crate) fn new(output_id: OutputId, register_id: RegisterId) -> Self {
+        Self {
+            output_id,
+            register_id,
+        }
+    }
+}
+
+impl NativeFunctionActionableNode {
     pub fn get_output_id(&self) -> &OutputId {
         &self.output_id
     }
@@ -49,6 +78,7 @@ impl NativeFunctionActionableNode {
 #[derive(Debug, PartialEq)]
 pub enum ActionableNode {
     NativeFunction(NativeFunctionActionableNode),
+    RegisterResource(RegisterResourceActionableNode),
 }
 
 impl ActionableNode {
@@ -61,6 +91,16 @@ impl ActionableNode {
             output_id,
             function_name,
             argument,
+        })
+    }
+
+    pub(crate) fn new_register_crate(
+        output_id: OutputId,
+        register_id: RegisterId,
+    ) -> ActionableNode {
+        ActionableNode::RegisterResource(RegisterResourceActionableNode {
+            output_id,
+            register_id,
         })
     }
 }

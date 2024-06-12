@@ -1,10 +1,53 @@
-use pulumi_wasm_core_2::{ActionableNode, OutputId, State};
+use std::collections::{HashMap, HashSet};
+use std::rc::Rc;
+use std::sync::Mutex;
+
 use rmpv::Value;
-use std::collections::HashMap;
+
+use pulumi_wasm_core_2::{NativeFunctionActionableNode, OutputId, Pulumi, State};
 
 #[test]
-fn basic_test() {
-    let mut state = State::default();
+fn abc() {
+    
+    let rc = Rc::new(Mutex::new(1));
+    
+    // assert_eq!(rc, rc);
+    
+}
+
+#[test]
+fn foreign_functions_only() {
+    struct PulumiImpl {}
+    impl Pulumi for PulumiImpl {
+        fn is_in_preview(&self) -> bool {
+            todo!()
+        }
+
+        fn get_root_resource(&self) -> String {
+            todo!()
+        }
+
+        fn register_outputs(&self, outputs: HashMap<String, Value>) {
+            todo!()
+        }
+
+        fn register_resource(
+            &self,
+            request: pulumi_wasm_core_2::RegisterResourceRequest,
+        ) -> pulumi_wasm_core_2::RegisterId {
+            todo!()
+        }
+
+        fn register_resource_poll(
+            &self,
+            register_ids: HashSet<pulumi_wasm_core_2::RegisterId>,
+        ) -> HashMap<pulumi_wasm_core_2::RegisterId, pulumi_wasm_core_2::RegisterResourceResponse>
+        {
+            todo!()
+        }
+    }
+
+    let mut state = State::new(Rc::new(PulumiImpl {}));
 
     let output_id_1 = state.add_done_node(2.into());
     let output_id_2 = state
@@ -36,14 +79,14 @@ fn basic_test() {
     assert_eq!(state.get_value(&output_id_3), Some(16.into()));
 }
 
-fn run_functions(functions: Vec<ActionableNode>) -> HashMap<OutputId, Value> {
+fn run_functions(functions: Vec<NativeFunctionActionableNode>) -> HashMap<OutputId, Value> {
     functions
         .iter()
-        .map(|ac| match ac {
-            ActionableNode::NativeFunction(nfan) => (
+        .map(|nfan| {
+            (
                 nfan.get_output_id().clone(),
                 get_function_result(nfan.get_function_name(), nfan.get_argument()),
-            ),
+            )
         })
         .collect::<HashMap<_, _>>()
 }

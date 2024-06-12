@@ -1,31 +1,36 @@
 use std::collections::{HashMap, HashSet};
 use std::rc::Rc;
+
 use rmpv::Value;
 
-use crate::node::{MaybeNodeValue, Node, NodeValue};
-use crate::pulumi::{FieldName, Pulumi, RegisterResourceRequest};
-use crate::{ActionableNode, OutputId};
 use crate::node::MaybeNodeValue::Set;
+use crate::node::{MaybeNodeValue, Node, NodeValue, RegisterResourceActionableNode};
+use crate::pulumi::{FieldName, Pulumi, RegisterResourceRequest};
+use crate::ActionableNode::RegisterResource;
+use crate::{ActionableNode, OutputId};
 
-struct RegisterResourceNode {
+pub(crate) struct RegisterResourceNode {
+    output_id: OutputId,
     pulumi: Rc<dyn Pulumi>,
     name: String,
     r#type: String,
-    required_inputs: HashSet<String>,
-    inputs: HashMap<String, NodeValue>,
+    required_inputs: HashSet<FieldName>,
+    inputs: HashMap<FieldName, NodeValue>,
     outputs: HashMap<FieldName, msgpack_protobuf_converter::Type>,
     callbacks: Vec<Box<dyn Fn(NodeValue) -> Vec<ActionableNode>>>,
 }
 
 impl RegisterResourceNode {
-    fn new(
+    pub(crate) fn new(
+        output_id: OutputId,
         pulumi: Rc<dyn Pulumi>,
         r#type: String,
         name: String,
-        input_names: Vec<String>,
+        input_names: Vec<FieldName>,
         outputs: HashMap<FieldName, msgpack_protobuf_converter::Type>,
     ) -> Self {
         Self {
+            output_id,
             pulumi,
             outputs,
             name,
@@ -36,34 +41,43 @@ impl RegisterResourceNode {
         }
     }
 
-    fn set_input(&mut self, name: String, value: NodeValue) -> Vec<ActionableNode> {
+    pub(crate) fn set_input(&mut self, name: FieldName, value: NodeValue) -> Vec<ActionableNode> {
         if !self.required_inputs.contains(&name) {
-            panic!("Input not found: {}", name);
+            panic!("Input not found: {:?}", name);
         }
         self.required_inputs.remove(&name);
         self.inputs.insert(name, value);
 
         if self.required_inputs.is_empty() {
+            self.send_to_pulumi()
             // send
+            // panic!("All required inputs set");
+        } else {
+            vec![]
         }
-        vec![]
     }
-    
+
     fn send_to_pulumi(&self) -> Vec<ActionableNode> {
-        
         let request = RegisterResourceRequest {
             r#type: self.r#type.clone(),
             name: self.name.clone(),
-            object: self.inputs.iter().map(|(name, nv)| match nv {
-                NodeValue::Nothing => (FieldName::new(name.clone()), Value::Nil),
-                NodeValue::Exists(v) => (FieldName::new(name.clone()), v.clone()),
-            }).collect(),
+            object: self
+                .inputs
+                .iter()
+                .map(|(name, nv)| match nv {
+                    NodeValue::Nothing => (name.clone(), Value::Nil),
+                    NodeValue::Exists(v) => (name.clone(), v.clone()),
+                })
+                .collect(),
             expected_results: self.outputs.clone(),
         };
-        
-        self.pulumi.register_resource(request);
-        
-        vec![]
+
+        let register_id = self.pulumi.register_resource(request);
+
+        vec![RegisterResource(RegisterResourceActionableNode::new(
+            self.output_id.clone(),
+            register_id,
+        ))]
     }
 }
 
@@ -142,30 +156,22 @@ impl ExtractFieldNode {
 #[cfg(test)]
 mod tests {
     use once_cell::sync::Lazy;
+
     use crate::OutputId;
 
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-    }
-
-    mod register_resource_node {
-        #[test]
-        fn it_works() {
-            assert_eq!(2 + 2, 4);
-        }
-    }
-    
     mod lazy_node {
-        use super::*;
         use std::cell::OnceCell;
         use std::rc::Rc;
+
         use rmpv::Value::Nil;
-        use crate::ActionableNode;
+
         use crate::node::MaybeNodeValue::{NotYetCalculated, Set};
-        use crate::node::{NativeFunctionNode, Node};
+        use crate::node::Node;
         use crate::node::NodeValue::Exists;
         use crate::register_resource::node::LazyNode;
+        use crate::ActionableNode;
+
+        use super::*;
 
         #[test]
         fn value_is_empty_by_default() {
@@ -200,9 +206,61 @@ mod tests {
             assert_eq!(cell.as_ref().get(), Some(Set(Exists(Nil))).as_ref());
             assert_eq!(nfn.get_value(), &Set(Exists(Nil)));
         }
-        
+    }
+
+    mod register_resource_node {
+        use std::collections::HashMap;
+        use std::rc::Rc;
+
+        use rmpv::Value::Nil;
+
+        use crate::node::NodeValue::{Exists, Nothing};
+        use crate::pulumi::MockPulumi;
+        use crate::register_resource::node::RegisterResourceNode;
+        use crate::{ActionableNode, RegisterId};
+
+        use super::*;
+
+        #[test]
+        fn set_input_passes_it_to_pulumi() {
+            let register_id = RegisterId::new("abc".to_string());
+            let mut pulumi = MockPulumi::new();
+            let register_id_2 = register_id.clone();
+            pulumi
+                .expect_register_resource()
+                .once()
+                .returning(move |_| register_id_2.clone());
+
+            let mut node = RegisterResourceNode::new(
+                OUTPUT_ID_1.clone(),
+                Rc::new(pulumi),
+                "type".into(),
+                "name".into(),
+                vec!["exists_nil".into(), "exists_int".into(), "not_exist".into()],
+                HashMap::new(),
+            );
+
+            let result = node.set_input("exists_nil".into(), Exists(Nil));
+            assert_eq!(result, vec![]);
+
+            let result = node.set_input("exists_int".into(), Exists(2.into()));
+            assert_eq!(result, vec![]);
+
+            let result = node.set_input("not_exist".into(), Nothing);
+            assert_eq!(
+                result,
+                vec![ActionableNode::new_register_crate(
+                    OUTPUT_ID_1.clone(),
+                    register_id
+                )]
+            );
+        }
     }
 
     static OUTPUT_ID_1: Lazy<OutputId> = Lazy::new(|| OutputId::new("1".to_string()));
     static OUTPUT_ID_2: Lazy<OutputId> = Lazy::new(|| OutputId::new("2".to_string()));
+    static OUTPUT_ID_3: Lazy<OutputId> = Lazy::new(|| OutputId::new("3".to_string()));
+    static OUTPUT_ID_4: Lazy<OutputId> = Lazy::new(|| OutputId::new("4".to_string()));
+    static OUTPUT_ID_5: Lazy<OutputId> = Lazy::new(|| OutputId::new("5".to_string()));
+    static OUTPUT_ID_6: Lazy<OutputId> = Lazy::new(|| OutputId::new("6".to_string()));
 }
