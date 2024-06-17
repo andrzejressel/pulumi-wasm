@@ -1,4 +1,4 @@
-use log::{error, log};
+use log::error;
 use std::collections::HashMap;
 use std::rc::Rc;
 use std::sync::Mutex;
@@ -338,7 +338,8 @@ mod tests {
         }
 
         #[test]
-        fn run_should_distribute_values_save_register_resources_and_return_foreign_functions_if_exists() {
+        fn run_should_distribute_values_save_register_resources_and_return_foreign_functions_if_exists(
+        ) {
             let mut pulumi = MockPulumi::new();
             pulumi
                 .expect_register_resource()
@@ -379,7 +380,9 @@ mod tests {
             )
         }
 
-        fn run_should_distribute_values_save_and_wait_for_register_resources_if_no_foreign_functions() {}
+        fn run_should_distribute_values_save_and_wait_for_register_resources_if_no_foreign_functions(
+        ) {
+        }
     }
 
     static UUID_1: Uuid = Uuid::from_bytes([1; 16]);

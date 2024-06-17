@@ -2055,6 +2055,23 @@ dependencies = [
 ]
 
 [[package]]
+name = "pulumi_wasm_core_3"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "lazy_static",
+ "log",
+ "mockall",
+ "msgpack_protobuf_converter",
+ "once_cell",
+ "prost",
+ "prost-types",
+ "rmpv",
+ "tonic-build",
+ "uuid",
+]
+
+[[package]]
 name = "pulumi_wasm_docker"
 version = "4.5.3"
 dependencies = [

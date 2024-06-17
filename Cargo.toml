@@ -22,6 +22,7 @@ members = [
     "pulumi_wasm",
     "pulumi_wasm_core",
     "pulumi_wasm_core_2",
+    "pulumi_wasm_core_3",
     "pulumi_wasm_generator",
     "pulumi_wasm_runner",
     "pulumi_wasm_rust",

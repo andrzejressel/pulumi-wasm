@@ -8,11 +8,9 @@ use pulumi_wasm_core_2::{NativeFunctionActionableNode, OutputId, Pulumi, State};
 
 #[test]
 fn abc() {
-    
     let rc = Rc::new(Mutex::new(1));
-    
+
     // assert_eq!(rc, rc);
-    
 }
 
 #[test]
