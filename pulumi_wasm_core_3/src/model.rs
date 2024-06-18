@@ -14,6 +14,12 @@ pub(crate) enum NodeValue {
     Exists(Value),
 }
 
+impl From<Value> for NodeValue {
+    fn from(value: Value) -> Self {
+        Self::Exists(value)
+    }
+}
+
 #[derive(Clone, Debug, PartialEq, Eq, Hash)]
 pub(crate) struct FunctionName(String);
 

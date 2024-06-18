@@ -60,6 +60,7 @@ impl DoneNode {
 
 #[derive(Debug, PartialEq)]
 pub(crate) struct NativeFunctionNode {
+    argument: MaybeNodeValue,
     value: MaybeNodeValue,
     function_name: FunctionName,
     callbacks: Vec<Callback>,
@@ -68,10 +69,19 @@ pub(crate) struct NativeFunctionNode {
 impl NativeFunctionNode {
     pub(crate) fn new(function_name: FunctionName) -> Self {
         Self {
+            argument: MaybeNodeValue::NotYetCalculated,
             value: MaybeNodeValue::NotYetCalculated,
             function_name,
             callbacks: Vec::new(),
         }
+    }
+
+    pub(crate) fn set_argument(&mut self, value: NodeValue) {
+        self.argument = MaybeNodeValue::Set(value);
+    }
+    
+    pub(crate) fn set_value(&mut self, value: NodeValue) {
+        self.value = MaybeNodeValue::Set(value);
     }
 }
 
