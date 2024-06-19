@@ -1,3 +1,4 @@
+use log::error;
 use crate::model::MaybeNodeValue::Set;
 use crate::model::{FieldName, FunctionName, MaybeNodeValue, NodeValue, OutputId};
 use rmpv::Value;
@@ -32,7 +33,7 @@ impl Callback {
 
 #[derive(Debug, PartialEq)]
 pub(crate) struct DoneNode {
-    value: Value,
+    value: NodeValue, // In reality Done have only Value, but being able to set Nothing is useful for testing
     callbacks: Vec<Callback>,
 }
 
@@ -42,11 +43,18 @@ impl DoneNode {
     }
 
     pub(crate) fn create(value: Value, callbacks: Vec<Callback>) -> Self {
-        Self { value, callbacks }
+        Self { value: value.into(), callbacks }
+    }
+    
+    pub(crate) fn create_nothing() -> Self {
+        Self {
+            value: NodeValue::Nothing,
+            callbacks: Vec::new(),
+        }
     }
 
-    pub(crate) fn get_value(&self) -> Value {
-        self.value.clone()
+    pub(crate) fn get_value(&self) -> &NodeValue {
+        &self.value
     }
 
     pub(crate) fn get_callbacks(&self) -> &Vec<Callback> {
@@ -76,6 +84,28 @@ impl NativeFunctionNode {
         }
     }
 
+    pub(crate) fn get_argument_value(&self) -> &Value {
+        match &self.argument {
+            MaybeNodeValue::NotYetCalculated => {
+                error!("Argument is not yet calculated");
+                panic!("Argument is not yet calculated");
+            }
+            Set(NodeValue::Nothing) => {
+                error!("Argument is Nothing");
+                panic!("Argument is Nothing");
+            }
+            Set(NodeValue::Exists(value)) => value
+        }
+    }
+    
+    pub(crate) fn get_value(&self) -> &MaybeNodeValue {
+        &self.value
+    }
+    
+    pub(crate) fn get_function_name(&self) -> &FunctionName {
+        &self.function_name
+    }
+    
     pub(crate) fn set_argument(&mut self, value: NodeValue) {
         self.argument = MaybeNodeValue::Set(value);
     }
@@ -83,14 +113,13 @@ impl NativeFunctionNode {
     pub(crate) fn set_value(&mut self, value: NodeValue) {
         self.value = MaybeNodeValue::Set(value);
     }
-}
 
-impl NativeFunctionNode {
-    fn set_data(&mut self, node_value: NodeValue) {
-        self.value = MaybeNodeValue::Set(node_value);
-    }
     pub(crate) fn add_callback(&mut self, callback: Callback) {
         self.callbacks.push(callback);
+    }
+    
+    pub(crate) fn get_callbacks(&self) -> &Vec<Callback> {
+        &self.callbacks
     }
 }
 

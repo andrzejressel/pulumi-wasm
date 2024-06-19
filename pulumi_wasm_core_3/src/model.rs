@@ -8,6 +8,12 @@ pub(crate) enum MaybeNodeValue {
     Set(NodeValue),
 }
 
+impl From<Value> for MaybeNodeValue {
+    fn from(value: Value) -> Self {
+        Self::Set(value.into())
+    }
+}
+
 #[derive(Debug, PartialEq, Clone)]
 pub(crate) enum NodeValue {
     Nothing, // preview
