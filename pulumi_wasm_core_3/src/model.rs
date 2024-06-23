@@ -59,6 +59,12 @@ impl From<Uuid> for OutputId {
 #[derive(Clone, Debug, PartialEq, Eq, Hash)]
 pub(crate) struct FieldName(String);
 
+impl FieldName {
+    pub(crate) fn as_string(&self) -> &String {
+        &self.0
+    }
+}
+
 impl From<String> for FieldName {
     fn from(value: String) -> Self {
         Self(value)

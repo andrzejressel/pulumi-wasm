@@ -1,4 +1,4 @@
-use crate::model::OutputId;
+use crate::model::{FieldName, OutputId};
 #[cfg(test)]
 use mockall::automock;
 use rmpv::Value;
@@ -9,11 +9,11 @@ pub trait Pulumi {
     fn is_in_preview(&self) -> bool;
     fn get_root_resource(&self) -> String;
     fn register_outputs(&self, outputs: HashMap<String, Value>);
-    fn register_resource(&self, request: RegisterResourceRequest) -> RegisterId;
+    fn register_resource(&self, output_id: OutputId, request: RegisterResourceRequest);
     fn register_resource_poll(
         &self,
-        register_ids: HashSet<RegisterId>,
-    ) -> HashMap<RegisterId, RegisterResourceResponse>;
+        register_ids: HashSet<OutputId>,
+    ) -> HashMap<OutputId, RegisterResourceResponse>;
 }
 
 #[derive(Clone, Debug, Eq, Hash, PartialEq)]
@@ -24,27 +24,27 @@ impl RegisterId {
         Self(s)
     }
 }
-
-#[derive(Clone, Debug, Eq, Hash, PartialEq)]
-pub struct FieldName(String);
-
-impl From<String> for FieldName {
-    fn from(s: String) -> Self {
-        Self(s)
-    }
-}
-
-impl From<&str> for FieldName {
-    fn from(s: &str) -> Self {
-        Self(s.to_string())
-    }
-}
-
-impl FieldName {
-    pub(crate) fn new(s: String) -> Self {
-        Self(s)
-    }
-}
+//
+// #[derive(Clone, Debug, Eq, Hash, PartialEq)]
+// pub struct FieldName(String);
+//
+// impl From<String> for FieldName {
+//     fn from(s: String) -> Self {
+//         Self(s)
+//     }
+// }
+//
+// impl From<&str> for FieldName {
+//     fn from(s: &str) -> Self {
+//         Self(s.to_string())
+//     }
+// }
+//
+// impl FieldName {
+//     pub(crate) fn new(s: String) -> Self {
+//         Self(s)
+//     }
+// }
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct RegisterResourceRequest {

@@ -50,8 +50,6 @@ impl RegisterResourceNode {
 
         if self.required_inputs.is_empty() {
             self.send_to_pulumi()
-            // send
-            // panic!("All required inputs set");
         } else {
             vec![]
         }
