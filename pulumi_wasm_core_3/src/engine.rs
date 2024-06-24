@@ -84,7 +84,7 @@ type NodesMap = HashMap<OutputId, Holder<EngineNode>>;
 struct EngineView<'a> {
     ready_foreign_function_ids: &'a mut HashSet<OutputId>,
     register_resource_ids: &'a mut HashSet<OutputId>,
-    pulumi: &'a Box<dyn Pulumi>,
+    pulumi: &'a dyn Pulumi,
 }
 
 struct Engine {
@@ -148,7 +148,7 @@ impl Engine {
             let mut sets = EngineView {
                 ready_foreign_function_ids: &mut self.ready_foreign_function_ids,
                 register_resource_ids: &mut self.register_resource_ids,
-                pulumi: &self.pulumi,
+                pulumi: self.pulumi.deref(),
             };
             
             for callback in callbacks {
@@ -177,7 +177,7 @@ impl Engine {
             let mut sets = EngineView {
                 ready_foreign_function_ids: &mut self.ready_foreign_function_ids,
                 register_resource_ids: &mut self.register_resource_ids,
-                pulumi: &self.pulumi
+                pulumi: self.pulumi.deref(),
             };
             
             Self::run_callbacks(
