@@ -8,12 +8,14 @@ use std::rc::Rc;
 use log::error;
 use rmpv::Value;
 use uuid::Uuid;
+use msgpack_protobuf_converter::Type;
 
 use crate::model::NodeValue::Exists;
 use crate::model::{FieldName, FunctionName, NodeValue, OutputId};
 use crate::nodes::{
     Callback, DoneNode, ExtractFieldNode, NativeFunctionNode, RegisterResourceNode,
 };
+use crate::pulumi::{Pulumi, RegisterResourceRequest};
 
 #[derive(Clone, Debug, PartialEq)]
 struct ForeignFunctionToInvoke {
@@ -79,21 +81,29 @@ pub trait Swappable {
 
 type NodesMap = HashMap<OutputId, Holder<EngineNode>>;
 
+struct EngineView<'a> {
+    ready_foreign_function_ids: &'a mut HashSet<OutputId>,
+    register_resource_ids: &'a mut HashSet<OutputId>,
+    pulumi: &'a Box<dyn Pulumi>,
+}
+
 struct Engine {
     done_node_ids: VecDeque<OutputId>,
     ready_foreign_function_ids: HashSet<OutputId>,
     register_resource_ids: HashSet<OutputId>,
 
+    pulumi: Box<dyn Pulumi>,
     nodes: NodesMap,
 }
 
 impl Engine {
-    fn new() -> Self {
+    fn new(pulumi: Box<dyn Pulumi>) -> Self {
         Self {
             done_node_ids: VecDeque::new(),
             ready_foreign_function_ids: HashSet::new(),
             register_resource_ids: HashSet::new(),
             nodes: HashMap::new(),
+            pulumi
         }
     }
 
@@ -135,13 +145,18 @@ impl Engine {
 
             let value = node.get_value();
             let callbacks = node.get_callbacks();
-
+            let mut sets = EngineView {
+                ready_foreign_function_ids: &mut self.ready_foreign_function_ids,
+                register_resource_ids: &mut self.register_resource_ids,
+                pulumi: &self.pulumi,
+            };
+            
             for callback in callbacks {
                 Engine::handle_callback(
                     value,
                     callback,
                     &self.nodes,
-                    &mut self.ready_foreign_function_ids,
+                    &mut sets,
                 );
             }
         }
@@ -158,11 +173,18 @@ impl Engine {
             let node_value: NodeValue = value.into();
             node.set_value(node_value.clone());
             self.ready_foreign_function_ids.remove(&output_id);
+            
+            let mut sets = EngineView {
+                ready_foreign_function_ids: &mut self.ready_foreign_function_ids,
+                register_resource_ids: &mut self.register_resource_ids,
+                pulumi: &self.pulumi
+            };
+            
             Self::run_callbacks(
                 node.get_callbacks(),
                 &node_value,
                 nodes,
-                &mut self.ready_foreign_function_ids,
+                &mut sets
             );
         }
     }
@@ -171,10 +193,10 @@ impl Engine {
         callbacks: &[Callback],
         node_value: &NodeValue,
         nodes: &NodesMap,
-        unknown_foreign_function_ids: &mut HashSet<OutputId>,
+        sets: &mut EngineView,
     ) {
         callbacks.iter().for_each(|callback| {
-            Self::handle_callback(node_value, callback, nodes, unknown_foreign_function_ids)
+            Self::handle_callback(node_value, callback, nodes, sets)
         });
     }
 
@@ -182,15 +204,23 @@ impl Engine {
         value: &NodeValue,
         callback: &Callback,
         nodes: &NodesMap,
-        unknown_foreign_function_ids: &mut HashSet<OutputId>,
+        sets: &mut EngineView,
     ) {
         match callback {
-            Callback::CreateResource(_, _) => panic!("TEST"),
+            Callback::CreateResource(output_id, field_name) =>
+                Self::handle_create_resource_callback(
+                    value,
+                    nodes,
+                    output_id,
+                    field_name,
+                    sets
+                )
+            ,
             Callback::ExtractField(output_id) => {
                 Self::handle_extract_field_callback(
                     value,
                     nodes,
-                    unknown_foreign_function_ids,
+                    sets,
                     output_id,
                 );
             }
@@ -198,17 +228,42 @@ impl Engine {
                 Self::handle_native_function_callback(
                     value,
                     nodes,
-                    unknown_foreign_function_ids,
+                    sets,
                     output_id,
                 );
             }
         }
     }
 
+    // fn handle_create_resource_callback(
+    //     value: &NodeValue,
+    //     nodes: &NodesMap,
+    //     unknown_foreign_function_ids: &mut HashSet<OutputId>,
+    //     output_id: &OutputId,
+    // ) {
+    //
+    // }
+
+
+    fn handle_create_resource_callback(value: &NodeValue, nodes: &NodesMap, output_id: &OutputId, field_name: &FieldName, engine_view: &mut EngineView) {
+        let mut create_resource_node = Self::get_create_resource_free_mut(nodes, *output_id);
+        
+        let registration_request = create_resource_node.set_input(field_name.clone(), value.clone());
+       
+        match registration_request {
+            None => {}
+            Some(rr) => {
+                engine_view.pulumi.register_resource(*output_id, rr);
+                engine_view.register_resource_ids.insert(*output_id);
+            }
+        }
+        
+    }
+
     fn handle_native_function_callback(
         value: &NodeValue,
         nodes: &NodesMap,
-        unknown_foreign_function_ids: &mut HashSet<OutputId>,
+        sets: &mut EngineView,
         output_id: &OutputId,
     ) {
         let mut node = Self::get_native_function_free_mut(nodes, *output_id);
@@ -220,11 +275,11 @@ impl Engine {
                     node.get_callbacks(),
                     value,
                     nodes,
-                    unknown_foreign_function_ids,
+                    sets
                 );
             }
             Exists(_) => {
-                unknown_foreign_function_ids.insert(*output_id);
+                sets.ready_foreign_function_ids.insert(*output_id);
             }
         }
     }
@@ -232,7 +287,7 @@ impl Engine {
     fn handle_extract_field_callback(
         value: &NodeValue,
         nodes: &NodesMap,
-        unknown_foreign_function_ids: &mut HashSet<OutputId>,
+        mutable_sets: &mut EngineView,
         output_id: &OutputId,
     ) {
         let mut node = Self::get_extract_field_free_mut(nodes, *output_id);
@@ -241,7 +296,7 @@ impl Engine {
             node.get_callbacks(),
             &new_value,
             nodes,
-            unknown_foreign_function_ids,
+            mutable_sets,
         )
     }
 
@@ -409,6 +464,72 @@ impl Engine {
         }
     }
 
+    fn get_create_resource_free(nodes: &NodesMap, output_id: OutputId) -> Ref<RegisterResourceNode> {
+        match nodes.get(&output_id) {
+            None => {
+                error!("Cannot find node with id {}", output_id);
+                panic!("Cannot find node with id {}", output_id)
+                // Maybe in the future?
+                // unsafe { unreachable_unchecked() }
+            }
+            Some(r) => r.map(|t| match t {
+                EngineNode::RegisterResource(node) => node,
+                EngineNode::NativeFunction(node) => {
+                    error!("Node with id [{}] is native function, not create resource", output_id);
+                    panic!("Node with id [{}] is native function, not create resource", output_id)
+                },
+                EngineNode::Done(_) => {
+                    error!("Node with id [{}] is done, not create resource", output_id);
+                    panic!("Node with id [{}] is done, not create resource", output_id)
+                }
+
+                EngineNode::ExtractField(_) => {
+                    error!(
+                        "Node with id [{}] is extract field, not create resource",
+                        output_id
+                    );
+                    panic!(
+                        "Node with id [{}] is extract field, not create resource",
+                        output_id
+                    )
+                }
+            }),
+        }
+    }
+
+    fn get_create_resource_free_mut(nodes: &NodesMap, output_id: OutputId) -> RefMut<RegisterResourceNode> {
+        match nodes.get(&output_id) {
+            None => {
+                error!("Cannot find node with id {}", output_id);
+                panic!("Cannot find node with id {}", output_id)
+                // Maybe in the future?
+                // unsafe { unreachable_unchecked() }
+            }
+            Some(r) => r.map_mut(|t| match t {
+                EngineNode::RegisterResource(node) => node,
+                EngineNode::NativeFunction(node) => {
+                    error!("Node with id [{}] is native function, not create resource", output_id);
+                    panic!("Node with id [{}] is native function, not create resource", output_id)
+                },
+                EngineNode::Done(_) => {
+                    error!("Node with id [{}] is done, not create resource", output_id);
+                    panic!("Node with id [{}] is done, not create resource", output_id)
+                }
+
+                EngineNode::ExtractField(_) => {
+                    error!(
+                        "Node with id [{}] is extract field, not create resource",
+                        output_id
+                    );
+                    panic!(
+                        "Node with id [{}] is extract field, not create resource",
+                        output_id
+                    )
+                }
+            }),
+        }
+    }
+
     fn add_callback(&self, output_id: OutputId, callback: Callback) {
         match self.nodes.get(&output_id) {
             None => {
@@ -422,9 +543,7 @@ impl Engine {
                     match t {
                         EngineNode::Done(node) => node.add_callback(callback),
                         EngineNode::NativeFunction(node) => node.add_callback(callback),
-                        EngineNode::RegisterResource(_) => {
-                            panic!("TEST")
-                        }
+                        EngineNode::RegisterResource(node) => node.add_callback(callback),
                         EngineNode::ExtractField(node) => node.add_callback(callback),
                     };
                 });
@@ -455,6 +574,29 @@ impl Engine {
         output_id
     }
 
+    fn create_register_resource_node(
+        &mut self,
+        r#type: String,
+        name: String,
+        inputs: HashMap<FieldName, OutputId>,
+        outputs: HashMap<FieldName, msgpack_protobuf_converter::Type>,
+    ) -> OutputId {
+        let output_id = Uuid::now_v7().into();
+        let node = RegisterResourceNode::new(
+            r#type,
+            name,
+            inputs.keys().cloned().collect(),
+            outputs,
+        );
+
+        inputs.iter().for_each(|(field_name, source_output_id)| {
+            let callback = Callback::create_resource(output_id, field_name.clone());
+            self.add_callback(*source_output_id, callback);
+        });
+        self.nodes.insert(output_id, EngineNode::RegisterResource(node).into());
+        output_id
+    }
+
     fn create_extract_field(
         &mut self,
         field_name: FieldName,
@@ -480,10 +622,11 @@ mod tests {
 
     use crate::engine::{Engine, ForeignFunctionToInvoke};
     use crate::nodes::{Callback, DoneNode, NativeFunctionNode};
+    use crate::pulumi::MockPulumi;
 
     #[test]
     fn create_done_node_create_node_in_map() {
-        let mut engine = Engine::new();
+        let mut engine = Engine::new(Box::new(MockPulumi::new()));
         let value: Value = 1.into();
         let output_id = engine.create_done_node(value.clone());
 
@@ -496,7 +639,7 @@ mod tests {
 
     #[test]
     fn create_native_function_node_create_node_in_map() {
-        let mut engine = Engine::new();
+        let mut engine = Engine::new(Box::new(MockPulumi::new()));
         let value: Value = 1.into();
         let done_node_output_id = engine.create_done_node(value.clone());
         let native_node_output_id =
@@ -520,7 +663,7 @@ mod tests {
 
         #[test]
         fn run_return_native_functions() {
-            let mut engine = Engine::new();
+            let mut engine = Engine::new(Box::new(MockPulumi::new()));
             let value: Value = 1.into();
             let done_node_output_id = engine.create_done_node(value.clone());
             let native_node_output_id =
@@ -543,7 +686,7 @@ mod tests {
 
         #[test]
         fn sets_native_function_results() {
-            let mut engine = Engine::new();
+            let mut engine = Engine::new(Box::new(MockPulumi::new()));
             let value: Value = 1.into();
             let done_node_output_id = engine.create_done_node(value.clone());
             let native_node_output_id =
@@ -567,7 +710,7 @@ mod tests {
 
         #[test]
         fn native_function_passes_unknown_value_downstream() {
-            let mut engine = Engine::new();
+            let mut engine = Engine::new(Box::new(MockPulumi::new()));
             let value: Value = 1.into();
             let done_node_output_id = engine.create_done_node(value.clone());
             let native_node_output_id =
@@ -591,7 +734,7 @@ mod tests {
 
         #[test]
         fn native_function_can_be_run_from_another_native_function() {
-            let mut engine = Engine::new();
+            let mut engine = Engine::new(Box::new(MockPulumi::new()));
             let value: Value = 1.into();
             let done_node_output_id = engine.create_done_node(value.clone());
             let native_node_output_id_1 =
@@ -625,7 +768,7 @@ mod tests {
 
         #[test]
         fn extract_field_extract_field_from_map() {
-            let mut engine = Engine::new();
+            let mut engine = Engine::new(Box::new(MockPulumi::new()));
             let value = Value::Map(vec![("key".into(), 1.into())]);
             let done_node_output_id = engine.create_done_node(value.clone());
             let extract_field_node_output_id =
@@ -657,6 +800,30 @@ mod tests {
                     vec![NativeFunction(native_function_node_output_id)]
                 )
             );
+        }
+    }
+
+    mod register_resource {
+        use std::collections::HashMap;
+        use prost_types::field_descriptor_proto::Type;
+        use crate::engine::Engine;
+        use crate::pulumi::MockPulumi;
+
+        #[test]
+        fn register_resource_test() {
+            let mut mock = MockPulumi::new();
+            let mut engine = Engine::new(Box::new(mock));
+            let done_node_output_id = engine.create_done_node(1.into());
+            let register_resource_node_output_id = engine.create_register_resource_node(
+                "type".into(),
+                "name".into(),
+                HashMap::from([("input".into(), done_node_output_id)]),
+                HashMap::from([("output".into(), msgpack_protobuf_converter::Type::Bool)]),
+            );
+
+            let result = engine.run(HashMap::new());
+            assert_eq!(result, None);
+
         }
     }
 

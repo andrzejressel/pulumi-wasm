@@ -136,7 +136,7 @@ impl RegisterResourceNode {
     pub(crate) fn new(
         r#type: String,
         name: String,
-        input_names: Vec<FieldName>,
+        input_names: HashSet<FieldName>,
         outputs: HashMap<FieldName, msgpack_protobuf_converter::Type>,
     ) -> Self {
         Self {
@@ -144,7 +144,7 @@ impl RegisterResourceNode {
             outputs,
             name,
             r#type,
-            required_inputs: input_names.iter().cloned().collect(),
+            required_inputs: input_names,
             inputs: HashMap::new(),
             callbacks: Vec::new(),
         }
@@ -188,7 +188,7 @@ impl RegisterResourceNode {
         }
     }
 
-    fn add_callback(&mut self, callback: Callback) {
+    pub(crate) fn add_callback(&mut self, callback: Callback) {
         self.callbacks.push(callback);
     }
 }
@@ -262,15 +262,15 @@ impl ExtractFieldNode {
 #[cfg(test)]
 mod tests {
     use uuid::Uuid;
+    use std::collections::HashMap;
+
+    use crate::model::NodeValue::{Exists, Nothing};
+    use crate::nodes::RegisterResourceNode;
+    use crate::pulumi::RegisterResourceRequest;
+    use msgpack_protobuf_converter::Type;
+    use rmpv::Value::Nil;
 
     mod register_resource_node {
-        use std::collections::HashMap;
-
-        use crate::model::NodeValue::{Exists, Nothing};
-        use crate::nodes::RegisterResourceNode;
-        use crate::pulumi::RegisterResourceRequest;
-        use rmpv::Value::Nil;
-
         use super::*;
 
         #[test]
@@ -278,8 +278,8 @@ mod tests {
             let mut node = RegisterResourceNode::new(
                 "type".into(),
                 "name".into(),
-                vec!["exists_nil".into(), "exists_int".into(), "not_exist".into()],
-                HashMap::new(),
+                ["exists_nil".into(), "exists_int".into(), "not_exist".into()].into(),
+                HashMap::from([("output".into(), Type::Bool)]),
             );
 
             let result = node.set_input("exists_nil".into(), Exists(Nil));
@@ -298,7 +298,7 @@ mod tests {
                         ("exists_nil".into(), Nil),
                         ("exists_int".into(), 2.into()),
                     ]),
-                    expected_results: HashMap::new(),
+                    expected_results: HashMap::from([("output".into(), Type::Bool)]),
                 })
             );
         }
