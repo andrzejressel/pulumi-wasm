@@ -261,8 +261,8 @@ impl ExtractFieldNode {
 
 #[cfg(test)]
 mod tests {
-    use uuid::Uuid;
     use std::collections::HashMap;
+    use uuid::Uuid;
 
     use crate::model::NodeValue::{Exists, Nothing};
     use crate::nodes::RegisterResourceNode;

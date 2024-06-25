@@ -56,5 +56,5 @@ pub struct RegisterResourceRequest {
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct RegisterResourceResponse {
-    outputs: HashMap<FieldName, OutputId>,
+    pub(crate) outputs: HashMap<FieldName, Value>,
 }
