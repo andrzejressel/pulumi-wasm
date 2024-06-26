@@ -1,21 +1,18 @@
 use std::cell::{Ref, RefCell, RefMut};
 use std::collections::{HashMap, HashSet, VecDeque};
-use std::hint::unreachable_unchecked;
-use std::ops::{Deref, DerefMut};
-use std::ptr::NonNull;
+use std::ops::{Deref};
 use std::rc::Rc;
 
 use log::error;
-use msgpack_protobuf_converter::Type;
 use rmpv::Value;
 use uuid::Uuid;
 
-use crate::model::NodeValue::Exists;
 use crate::model::{FieldName, FunctionName, NodeValue, OutputId};
+use crate::model::NodeValue::Exists;
 use crate::nodes::{
     Callback, DoneNode, ExtractFieldNode, NativeFunctionNode, RegisterResourceNode,
 };
-use crate::pulumi::{Pulumi, RegisterResourceRequest};
+use crate::pulumi::Pulumi;
 
 #[derive(Clone, Debug, PartialEq)]
 struct ForeignFunctionToInvoke {
@@ -113,12 +110,12 @@ impl Engine {
     ) -> Option<Vec<ForeignFunctionToInvoke>> {
         self.loop_over_dones();
         self.loop_over_native_function_results(native_function_results);
-        
+
         loop {
             if !self.ready_foreign_function_ids.is_empty() {
                 return Some(self.prepare_foreign_function_results());
             }
-         
+
             if self.register_resource_ids.is_empty() {
                 return None;
             }
@@ -186,7 +183,7 @@ impl Engine {
             Self::run_callbacks(node.get_callbacks(), &node_value, nodes, &mut sets);
         }
     }
-    
+
     fn handle_creating_resources(&mut self) {
         let output = self.pulumi.register_resource_poll(&self.register_resource_ids);
 
@@ -201,7 +198,7 @@ impl Engine {
             };
             Self::run_callbacks(node.get_callbacks(), &value, &self.nodes, &mut sets);
         }
-        
+
     }
 
     fn run_callbacks(
@@ -233,15 +230,6 @@ impl Engine {
             }
         }
     }
-
-    // fn handle_create_resource_callback(
-    //     value: &NodeValue,
-    //     nodes: &NodesMap,
-    //     unknown_foreign_function_ids: &mut HashSet<OutputId>,
-    //     output_id: &OutputId,
-    // ) {
-    //
-    // }
 
     fn handle_create_resource_callback(
         value: &NodeValue,
@@ -416,7 +404,7 @@ impl Engine {
     fn get_extract_field(&self, output_id: OutputId) -> Ref<ExtractFieldNode> {
         Self::get_extract_field_free(&self.nodes, output_id)
     }
-    
+
     fn get_extract_field_free(
         nodes: &NodesMap,
         output_id: OutputId,
@@ -833,11 +821,12 @@ mod tests {
     }
 
     mod extract_field {
-        use super::*;
         use crate::model::MaybeNodeValue::Set;
         use crate::model::NodeValue::Exists;
         use crate::nodes::Callback::NativeFunction;
         use crate::nodes::ExtractFieldNode;
+
+        use super::*;
 
         #[test]
         fn extract_field_extract_field_from_map() {
@@ -877,77 +866,21 @@ mod tests {
     }
 
     mod register_resource {
-        use crate::engine::Engine;
-        use crate::model::OutputId;
-        use crate::pulumi::{MockPulumi, RegisterResourceRequest, RegisterResourceResponse};
-        use mockall::predicate::{always, eq, function};
-        use prost_types::field_descriptor_proto::Type;
-        use std::cell::OnceCell;
         use std::collections::{HashMap, HashSet};
         use std::ops::Deref;
-        use std::rc::Rc;
         use std::sync::{Arc, OnceLock};
+
+        use mockall::predicate::{eq, function};
         use rmpv::Value;
-        use crate::engine::EngineNode::Done;
-        use crate::model::MaybeNodeValue::{NotYetCalculated, Set};
-        use crate::model::NodeValue::Exists;
-        use crate::nodes::Callback::ExtractField;
+
+        use crate::engine::Engine;
+        use crate::model::MaybeNodeValue::NotYetCalculated;
         use crate::nodes::{Callback, DoneNode, ExtractFieldNode, RegisterResourceNode};
+        use crate::pulumi::{MockPulumi, RegisterResourceRequest, RegisterResourceResponse};
 
         #[test]
         fn should_create_required_nodes() {
-            let mut mock = MockPulumi::new();
-
-            // let register_resource_node_output_id_once_cell = Arc::new(OnceLock::new());
-
-            // let register_resource_node_output_id_once_cell_2 =
-            //     register_resource_node_output_id_once_cell.clone();
-            // mock.expect_register_resource()
-            //     .times(1)
-            //     .with(
-            //         function(move |output_id| {
-            //             output_id
-            //                 == register_resource_node_output_id_once_cell_2
-            //                     .deref()
-            //                     .get()
-            //                     .unwrap()
-            //         }),
-            //         eq(RegisterResourceRequest {
-            //             r#type: "type".into(),
-            //             name: "name".into(),
-            //             object: HashMap::from([("input".into(), 1.into())]),
-            //             expected_results: HashMap::from([(
-            //                 "output".into(),
-            //                 msgpack_protobuf_converter::Type::Bool,
-            //             )]),
-            //         }),
-            //     )
-            //     .returning(|_, _| ());
-            // 
-            // let register_resource_node_output_id_once_cell_2 =
-            //     register_resource_node_output_id_once_cell.clone();
-            // mock.expect_register_resource_poll()
-            //     .times(1)
-            //     .with(function(move |output_ids| {
-            //         output_ids
-            //             == &([*register_resource_node_output_id_once_cell_2
-            //                 .deref()
-            //                 .get()
-            //                 .unwrap()]
-            //             .into())
-            //     }))
-            //     .returning(|output_ids| {
-            //         let output_id = output_ids.iter().next().unwrap();
-            // 
-            //         HashMap::from([(
-            //             *output_id,
-            //             RegisterResourceResponse {
-            //                 outputs: HashMap::from([("output".into(), true.into())]),
-            //             },
-            //         )])
-            //     });
-
-            let mut engine = Engine::new(Box::new(mock));
+            let mut engine = Engine::new(Box::new(MockPulumi::new()));
             let done_node_output_id = engine.create_done_node(1.into());
             let (register_resource_node_output_id, output_fields) = engine.create_register_resource_node(
                 "type".into(),
@@ -955,7 +888,7 @@ mod tests {
                 HashMap::from([("input".into(), done_node_output_id)]),
                 HashMap::from([("output".into(), msgpack_protobuf_converter::Type::Bool)]),
             );
-            
+
             assert_eq!(output_fields.len(), 1);
             assert_eq!(engine.get_done(done_node_output_id).deref(), &DoneNode::create(
                1.into(),
@@ -976,7 +909,7 @@ mod tests {
                vec![]
             ));
         }
-        
+
         #[test]
         fn should_handle_create_resource_node() {
             let mut mock = MockPulumi::new();
@@ -1029,10 +962,9 @@ mod tests {
             register_resource_node_output_id_once_cell.set(register_resource_node_output_id).unwrap();
             let result = engine.run(HashMap::new());
             assert_eq!(result, None);
-            
+
             let output_node = engine.get_extract_field(*outputs.get(&"output".into()).unwrap());
             assert_eq!(output_node.get_value(), &Value::Boolean(true).into());
-            // let register = engine.get_create_resource(register_resource_node_output_id).deref();
         }
     }
 
