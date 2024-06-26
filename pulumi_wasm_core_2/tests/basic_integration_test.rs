@@ -8,7 +8,7 @@ use pulumi_wasm_core_2::{NativeFunctionActionableNode, OutputId, Pulumi, State};
 
 #[test]
 fn abc() {
-    let rc = Rc::new(Mutex::new(1));
+    let _rc = Rc::new(Mutex::new(1));
 
     // assert_eq!(rc, rc);
 }
@@ -25,20 +25,20 @@ fn foreign_functions_only() {
             todo!()
         }
 
-        fn register_outputs(&self, outputs: HashMap<String, Value>) {
+        fn register_outputs(&self, _outputs: HashMap<String, Value>) {
             todo!()
         }
 
         fn register_resource(
             &self,
-            request: pulumi_wasm_core_2::RegisterResourceRequest,
+            _request: pulumi_wasm_core_2::RegisterResourceRequest,
         ) -> pulumi_wasm_core_2::RegisterId {
             todo!()
         }
 
         fn register_resource_poll(
             &self,
-            register_ids: HashSet<pulumi_wasm_core_2::RegisterId>,
+            _register_ids: HashSet<pulumi_wasm_core_2::RegisterId>,
         ) -> HashMap<pulumi_wasm_core_2::RegisterId, pulumi_wasm_core_2::RegisterResourceResponse>
         {
             todo!()

@@ -353,7 +353,7 @@ mod tests {
             let output_id_2 = state
                 .add_native_function_node("add".into(), output_id_1.clone())
                 .unwrap();
-            let (output_ids_3, fields) = state
+            let (output_ids_3, _fields) = state
                 .add_create_resource_node(
                     "minus".into(),
                     "type".into(),

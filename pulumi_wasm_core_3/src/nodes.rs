@@ -133,7 +133,6 @@ pub(crate) struct RegisterResourceNode {
 }
 
 impl RegisterResourceNode {
-    
     pub(crate) fn create(
         value: MaybeNodeValue,
         name: String,
@@ -153,7 +152,7 @@ impl RegisterResourceNode {
             callbacks,
         }
     }
-    
+
     pub(crate) fn new(
         r#type: String,
         name: String,
@@ -188,13 +187,17 @@ impl RegisterResourceNode {
             None
         }
     }
-    
+
     //TODO: Write tests
     pub(crate) fn set_value(&mut self, value: &RegisterResourceResponse) -> NodeValue {
-        let map: Vec<(Value, Value)> = value.outputs.iter().map(|(k, v)| (Value::String(k.as_string().clone().into()), v.clone())).collect();
+        let map: Vec<(Value, Value)> = value
+            .outputs
+            .iter()
+            .map(|(k, v)| (Value::String(k.as_string().clone().into()), v.clone()))
+            .collect();
         let val = Value::Map(map);
         let node_value = NodeValue::Exists(val);
-        
+
         self.value = Set(node_value.clone());
         node_value
     }
@@ -222,7 +225,7 @@ impl RegisterResourceNode {
     pub(crate) fn add_callback(&mut self, callback: Callback) {
         self.callbacks.push(callback);
     }
-    
+
     pub(crate) fn get_callbacks(&self) -> &Vec<Callback> {
         &self.callbacks
     }
