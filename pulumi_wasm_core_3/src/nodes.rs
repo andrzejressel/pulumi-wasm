@@ -1,6 +1,6 @@
 use crate::model::MaybeNodeValue::{NotYetCalculated, Set};
 use crate::model::{FieldName, FunctionName, MaybeNodeValue, NodeValue, OutputId};
-use crate::pulumi::RegisterResourceRequest;
+use crate::pulumi::{RegisterResourceRequest, RegisterResourceResponse};
 use log::error;
 use rmpv::Value;
 use std::collections::{HashMap, HashSet};
@@ -133,6 +133,27 @@ pub(crate) struct RegisterResourceNode {
 }
 
 impl RegisterResourceNode {
+    
+    pub(crate) fn create(
+        value: MaybeNodeValue,
+        name: String,
+        r#type: String,
+        required_inputs: HashSet<FieldName>,
+        inputs: HashMap<FieldName, NodeValue>,
+        outputs: HashMap<FieldName, msgpack_protobuf_converter::Type>,
+        callbacks: Vec<Callback>,
+    ) -> Self {
+        Self {
+            value,
+            name,
+            r#type,
+            required_inputs,
+            inputs,
+            outputs,
+            callbacks,
+        }
+    }
+    
     pub(crate) fn new(
         r#type: String,
         name: String,
@@ -167,6 +188,16 @@ impl RegisterResourceNode {
             None
         }
     }
+    
+    //TODO: Write tests
+    pub(crate) fn set_value(&mut self, value: &RegisterResourceResponse) -> NodeValue {
+        let map: Vec<(Value, Value)> = value.outputs.iter().map(|(k, v)| (Value::String(k.as_string().clone().into()), v.clone())).collect();
+        let val = Value::Map(map);
+        let node_value = NodeValue::Exists(val);
+        
+        self.value = Set(node_value.clone());
+        node_value
+    }
 
     fn generate_request(&self) -> RegisterResourceRequest {
         let mut object = HashMap::new();
@@ -190,6 +221,10 @@ impl RegisterResourceNode {
 
     pub(crate) fn add_callback(&mut self, callback: Callback) {
         self.callbacks.push(callback);
+    }
+    
+    pub(crate) fn get_callbacks(&self) -> &Vec<Callback> {
+        &self.callbacks
     }
 }
 

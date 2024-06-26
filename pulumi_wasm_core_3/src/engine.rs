@@ -113,11 +113,19 @@ impl Engine {
     ) -> Option<Vec<ForeignFunctionToInvoke>> {
         self.loop_over_dones();
         self.loop_over_native_function_results(native_function_results);
-        if !self.ready_foreign_function_ids.is_empty() {
-            return Some(self.prepare_foreign_function_results());
+        
+        loop {
+            if !self.ready_foreign_function_ids.is_empty() {
+                return Some(self.prepare_foreign_function_results());
+            }
+         
+            if self.register_resource_ids.is_empty() {
+                return None;
+            }
+            self.handle_creating_resources();
         }
 
-        None
+        // None
     }
 
     fn prepare_foreign_function_results(&self) -> Vec<ForeignFunctionToInvoke> {
@@ -177,6 +185,23 @@ impl Engine {
 
             Self::run_callbacks(node.get_callbacks(), &node_value, nodes, &mut sets);
         }
+    }
+    
+    fn handle_creating_resources(&mut self) {
+        let output = self.pulumi.register_resource_poll(&self.register_resource_ids);
+
+        for (output_id, response) in output {
+            self.register_resource_ids.remove(&output_id);
+            let mut node = Self::get_create_resource_free_mut(&self.nodes, output_id);
+            let value = node.set_value(&response);
+            let mut sets = EngineView {
+                ready_foreign_function_ids: &mut self.ready_foreign_function_ids,
+                register_resource_ids: &mut self.register_resource_ids,
+                pulumi: self.pulumi.deref(),
+            };
+            Self::run_callbacks(node.get_callbacks(), &value, &self.nodes, &mut sets);
+        }
+        
     }
 
     fn run_callbacks(
@@ -388,6 +413,51 @@ impl Engine {
         }
     }
 
+    fn get_extract_field(&self, output_id: OutputId) -> Ref<ExtractFieldNode> {
+        Self::get_extract_field_free(&self.nodes, output_id)
+    }
+    
+    fn get_extract_field_free(
+        nodes: &NodesMap,
+        output_id: OutputId,
+    ) -> Ref<ExtractFieldNode> {
+        match nodes.get(&output_id) {
+            None => {
+                error!("Cannot find node with id {}", output_id);
+                panic!("Cannot find node with id {}", output_id)
+                // Maybe in the future?
+                // unsafe { unreachable_unchecked() }
+            }
+            Some(r) => r.map(|t| match t {
+                EngineNode::ExtractField(node) => node,
+                EngineNode::NativeFunction(_) => {
+                    error!(
+                        "Node with id [{}] is native function, not extract field",
+                        output_id
+                    );
+                    panic!(
+                        "Node with id [{}] is native function, not extract field",
+                        output_id
+                    )
+                }
+                EngineNode::Done(_) => {
+                    error!("Node with id [{}] is done, not extract field", output_id);
+                    panic!("Node with id [{}] is done, not extract field", output_id)
+                }
+                EngineNode::RegisterResource(_) => {
+                    error!(
+                        "Node with id [{}] is register resource, not extract field",
+                        output_id
+                    );
+                    panic!(
+                        "Node with id [{}] is register resource, not extract field",
+                        output_id
+                    )
+                }
+            }),
+        }
+    }
+
     fn get_extract_field_mut(&self, output_id: OutputId) -> RefMut<ExtractFieldNode> {
         Self::get_extract_field_free_mut(&self.nodes, output_id)
     }
@@ -431,6 +501,14 @@ impl Engine {
                 }
             }),
         }
+    }
+
+    fn get_create_resource(&self, output_id: OutputId) -> Ref<RegisterResourceNode> {
+        Self::get_create_resource_free(&self.nodes, output_id)
+    }
+
+    fn get_create_resource_mut(&self, output_id: OutputId) -> RefMut<RegisterResourceNode> {
+        Self::get_create_resource_free_mut(&self.nodes, output_id)
     }
 
     fn get_create_resource_free(
@@ -567,18 +645,29 @@ impl Engine {
         name: String,
         inputs: HashMap<FieldName, OutputId>,
         outputs: HashMap<FieldName, msgpack_protobuf_converter::Type>,
-    ) -> OutputId {
+    ) -> (OutputId, HashMap<FieldName, OutputId>) {
         let output_id = Uuid::now_v7().into();
-        let node =
-            RegisterResourceNode::new(r#type, name, inputs.keys().cloned().collect(), outputs);
+        let node = RegisterResourceNode::new(
+            r#type,
+            name,
+            inputs.keys().cloned().collect(),
+            outputs.clone(),
+        );
+        self.nodes
+            .insert(output_id, EngineNode::RegisterResource(node).into());
 
         inputs.iter().for_each(|(field_name, source_output_id)| {
             let callback = Callback::create_resource(output_id, field_name.clone());
             self.add_callback(*source_output_id, callback);
         });
-        self.nodes
-            .insert(output_id, EngineNode::RegisterResource(node).into());
-        output_id
+
+        let mut output_nodes = HashMap::new();
+        outputs.iter().for_each(|(field_name, _)| {
+            let extract_field_output = self.create_extract_field(field_name.clone(), output_id);
+            output_nodes.insert(field_name.clone(), extract_field_output);
+        });
+
+        (output_id, output_nodes)
     }
 
     fn create_extract_field(
@@ -788,19 +877,108 @@ mod tests {
     }
 
     mod register_resource {
-        use std::cell::OnceCell;
         use crate::engine::Engine;
+        use crate::model::OutputId;
         use crate::pulumi::{MockPulumi, RegisterResourceRequest, RegisterResourceResponse};
         use mockall::predicate::{always, eq, function};
         use prost_types::field_descriptor_proto::Type;
+        use std::cell::OnceCell;
         use std::collections::{HashMap, HashSet};
         use std::ops::Deref;
         use std::rc::Rc;
         use std::sync::{Arc, OnceLock};
-        use crate::model::OutputId;
+        use rmpv::Value;
+        use crate::engine::EngineNode::Done;
+        use crate::model::MaybeNodeValue::{NotYetCalculated, Set};
+        use crate::model::NodeValue::Exists;
+        use crate::nodes::Callback::ExtractField;
+        use crate::nodes::{Callback, DoneNode, ExtractFieldNode, RegisterResourceNode};
 
         #[test]
-        fn register_resource_test() {
+        fn should_create_required_nodes() {
+            let mut mock = MockPulumi::new();
+
+            // let register_resource_node_output_id_once_cell = Arc::new(OnceLock::new());
+
+            // let register_resource_node_output_id_once_cell_2 =
+            //     register_resource_node_output_id_once_cell.clone();
+            // mock.expect_register_resource()
+            //     .times(1)
+            //     .with(
+            //         function(move |output_id| {
+            //             output_id
+            //                 == register_resource_node_output_id_once_cell_2
+            //                     .deref()
+            //                     .get()
+            //                     .unwrap()
+            //         }),
+            //         eq(RegisterResourceRequest {
+            //             r#type: "type".into(),
+            //             name: "name".into(),
+            //             object: HashMap::from([("input".into(), 1.into())]),
+            //             expected_results: HashMap::from([(
+            //                 "output".into(),
+            //                 msgpack_protobuf_converter::Type::Bool,
+            //             )]),
+            //         }),
+            //     )
+            //     .returning(|_, _| ());
+            // 
+            // let register_resource_node_output_id_once_cell_2 =
+            //     register_resource_node_output_id_once_cell.clone();
+            // mock.expect_register_resource_poll()
+            //     .times(1)
+            //     .with(function(move |output_ids| {
+            //         output_ids
+            //             == &([*register_resource_node_output_id_once_cell_2
+            //                 .deref()
+            //                 .get()
+            //                 .unwrap()]
+            //             .into())
+            //     }))
+            //     .returning(|output_ids| {
+            //         let output_id = output_ids.iter().next().unwrap();
+            // 
+            //         HashMap::from([(
+            //             *output_id,
+            //             RegisterResourceResponse {
+            //                 outputs: HashMap::from([("output".into(), true.into())]),
+            //             },
+            //         )])
+            //     });
+
+            let mut engine = Engine::new(Box::new(mock));
+            let done_node_output_id = engine.create_done_node(1.into());
+            let (register_resource_node_output_id, output_fields) = engine.create_register_resource_node(
+                "type".into(),
+                "name".into(),
+                HashMap::from([("input".into(), done_node_output_id)]),
+                HashMap::from([("output".into(), msgpack_protobuf_converter::Type::Bool)]),
+            );
+            
+            assert_eq!(output_fields.len(), 1);
+            assert_eq!(engine.get_done(done_node_output_id).deref(), &DoneNode::create(
+               1.into(),
+               vec![Callback::create_resource(register_resource_node_output_id, "input".into())],
+            ));
+            assert_eq!(engine.get_create_resource(register_resource_node_output_id).deref(), &RegisterResourceNode::create(
+                NotYetCalculated,
+                "name".into(),
+                "type".into(),
+                HashSet::from(["input".into()]),
+                HashMap::new(),
+                HashMap::from([("output".into(), msgpack_protobuf_converter::Type::Bool)]),
+                vec![Callback::extract_field(*output_fields.get(&"output".into()).unwrap())],
+            ));
+            assert_eq!(engine.get_extract_field(*output_fields.get(&"output".into()).unwrap()).deref(), &ExtractFieldNode::create(
+               NotYetCalculated,
+               "output".into(),
+               vec![]
+            ));
+        }
+        
+        #[test]
+        fn should_handle_create_resource_node() {
             let mut mock = MockPulumi::new();
 
             let register_resource_node_output_id_once_cell = Arc::new(OnceLock::new());
@@ -827,7 +1005,7 @@ mod tests {
                 .times(1)
                 .with(
                     function(move |output_ids| output_ids == &([*register_resource_node_output_id_once_cell_2.deref().get().unwrap()].into()),
-                ))
+                    ))
                 .returning(|output_ids| {
                     let output_id = output_ids.iter().next().unwrap();
 
@@ -842,16 +1020,19 @@ mod tests {
 
             let mut engine = Engine::new(Box::new(mock));
             let done_node_output_id = engine.create_done_node(1.into());
-            let register_resource_node_output_id = engine.create_register_resource_node(
+            let (register_resource_node_output_id, outputs) = engine.create_register_resource_node(
                 "type".into(),
                 "name".into(),
                 HashMap::from([("input".into(), done_node_output_id)]),
                 HashMap::from([("output".into(), msgpack_protobuf_converter::Type::Bool)]),
             );
             register_resource_node_output_id_once_cell.set(register_resource_node_output_id).unwrap();
-
             let result = engine.run(HashMap::new());
             assert_eq!(result, None);
+            
+            let output_node = engine.get_extract_field(*outputs.get(&"output".into()).unwrap());
+            assert_eq!(output_node.get_value(), &Value::Boolean(true).into());
+            // let register = engine.get_create_resource(register_resource_node_output_id).deref();
         }
     }
 

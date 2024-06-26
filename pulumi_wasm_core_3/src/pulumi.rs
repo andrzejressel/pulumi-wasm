@@ -12,7 +12,7 @@ pub trait Pulumi {
     fn register_resource(&self, output_id: OutputId, request: RegisterResourceRequest);
     fn register_resource_poll(
         &self,
-        register_ids: HashSet<OutputId>,
+        register_ids: &HashSet<OutputId>,
     ) -> HashMap<OutputId, RegisterResourceResponse>;
 }
 
