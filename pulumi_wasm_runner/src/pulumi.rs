@@ -23,7 +23,8 @@ pub(crate) mod server {
     wasmtime::component::bindgen!({
         path: "../wits/world.wit",
         world: "main",
-        async: true
+        async: true,
+        trappable_imports: true,
     });
 }
 
