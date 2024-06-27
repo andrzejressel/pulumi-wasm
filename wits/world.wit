@@ -130,6 +130,19 @@ interface external-world {
     get-root-resource: func() -> string;
     register-resource: func(request: list<u8>) -> list<u8>;
     register-resource-outputs: func(request: list<u8>) -> list<u8>;
+
+    record register-resource-v2-request {
+        output-id: string,
+        body: list<u8>
+    }
+
+    record registered-resource {
+        output-id: string,
+        body: list<u8>
+    }
+
+    register-resource-v2: func(request: list<register-resource-v2-request>);
+    wait-for-registered-resources: func() -> list<registered-resource>;
 }
 
 interface pulumi-provider-random-interface {

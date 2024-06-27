@@ -8,6 +8,8 @@ use log4rs::encode::json::JsonEncoder;
 use log4rs::Config;
 
 mod pulumi;
+mod pulumi_state;
+mod model;
 
 mod grpc {
     #![allow(clippy::all)]
