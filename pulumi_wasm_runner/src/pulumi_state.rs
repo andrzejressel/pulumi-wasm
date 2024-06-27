@@ -34,8 +34,8 @@ impl PulumiState {
         }
 
         let mut created_resources = Vec::new();
-        return match self.join_set.join_next().await {
-            None => created_resources,
+        match self.join_set.join_next().await {
+            None => (),
             Some(res) => {
                 let res = res.unwrap().unwrap();
                 created_resources.push(res);
@@ -49,11 +49,11 @@ impl PulumiState {
                             created_resources.push(res);
                         }
                     }
-                }
-
-                created_resources
+                };
             }
         }
+
+        created_resources
     }
 
     async fn send_request_inner(output_id: OutputId, request: RegisterResourceRequest, engine_url: String) -> anyhow::Result<(OutputId, Vec<u8>)> {
@@ -79,29 +79,25 @@ mod tests {
     #[tonic::async_trait]
     impl ResourceMonitor for MyServer {
         async fn supports_feature(&self, request: Request<SupportsFeatureRequest>) -> Result<Response<SupportsFeatureResponse>, Status> {
-            todo!()
+            unimplemented!()
         }
 
         async fn invoke(&self, request: Request<ResourceInvokeRequest>) -> Result<Response<InvokeResponse>, Status> {
-            todo!()
+            unimplemented!()
         }
 
         type StreamInvokeStream = ReceiverStream<Result<InvokeResponse, Status>>;
 
         async fn stream_invoke(&self, request: Request<ResourceInvokeRequest>) -> Result<Response<Self::StreamInvokeStream>, Status> {
-            todo!()
+            unimplemented!()
         }
 
         async fn call(&self, request: Request<CallRequest>) -> Result<Response<CallResponse>, Status> {
-            todo!()
+            unimplemented!()
         }
 
         async fn read_resource(&self, request: Request<ReadResourceRequest>) -> Result<Response<ReadResourceResponse>, Status> {
-            todo!()
-        }
-
-        async fn register_resource_outputs(&self, request: Request<RegisterResourceOutputsRequest>) -> Result<Response<()>, Status> {
-            todo!()
+            unimplemented!()
         }
 
         async fn register_resource(&self, request: Request<RegisterResourceRequest>) -> Result<Response<RegisterResourceResponse>, Status> {
@@ -129,13 +125,16 @@ mod tests {
             }
         }
 
+        async fn register_resource_outputs(&self, request: Request<RegisterResourceOutputsRequest>) -> Result<Response<()>, Status> {
+            unimplemented!()
+        }
+
     }
 
     #[tokio::test]
     async fn test() -> Result<(), anyhow::Error> {
 
         let addr = "127.0.0.1:50051".parse()?;
-
 
         let server = Server::builder()
             .add_service(ResourceMonitorServer::new(MyServer{}))
