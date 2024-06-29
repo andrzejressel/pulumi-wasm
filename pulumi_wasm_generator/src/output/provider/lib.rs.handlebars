@@ -35,7 +35,7 @@ impl {{name}}::Guest for Component {
 
         {{name}}::Res {
             {{#each output_properties}}
-             {{arg_name}}: o.fields.iter().find(|o| o.name == "{{name}}").unwrap().output.duplicate(),
+            {{arg_name}}: o.fields.iter().find(|o| o.name == "{{name}}").unwrap().output.duplicate(),
             {{/each}}
         }
 
