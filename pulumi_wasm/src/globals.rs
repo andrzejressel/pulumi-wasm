@@ -10,9 +10,9 @@ thread_local! {
 pub(crate) fn get_pulumi_engine() -> Rc<RefCell<Engine>> {
     PULUMI_ENGINE.with(|e| {
         e.get_or_init(|| {
-            Rc::new(RefCell::new(Engine::new(Box::new(PulumiServiceImpl::new(
+            Rc::new(RefCell::new(Engine::new(PulumiServiceImpl::new(
                 PulumiConnectorImpl {},
-            )))))
+            ))))
         })
         .clone()
     })

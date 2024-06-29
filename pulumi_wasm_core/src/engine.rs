@@ -87,13 +87,13 @@ pub struct Engine {
 }
 
 impl Engine {
-    pub fn new(pulumi: Box<dyn PulumiService>) -> Self {
+    pub fn new(pulumi: impl PulumiService + 'static) -> Self {
         Self {
             done_node_ids: VecDeque::new(),
             ready_foreign_function_ids: HashSet::new(),
             register_resource_ids: HashSet::new(),
             nodes: HashMap::new(),
-            pulumi,
+            pulumi: Box::new(pulumi),
         }
     }
 
@@ -678,7 +678,7 @@ mod tests {
 
     #[test]
     fn create_done_node_create_node_in_map() {
-        let mut engine = Engine::new(Box::new(MockPulumiService::new()));
+        let mut engine = Engine::new(MockPulumiService::new());
         let value: Value = 1.into();
         let output_id = engine.create_done_node(value.clone());
 
@@ -691,7 +691,7 @@ mod tests {
 
     #[test]
     fn create_native_function_node_create_node_in_map() {
-        let mut engine = Engine::new(Box::new(MockPulumiService::new()));
+        let mut engine = Engine::new(MockPulumiService::new());
         let value: Value = 1.into();
         let done_node_output_id = engine.create_done_node(value.clone());
         let native_node_output_id =
@@ -715,7 +715,7 @@ mod tests {
 
         #[test]
         fn run_return_native_functions() {
-            let mut engine = Engine::new(Box::new(MockPulumiService::new()));
+            let mut engine = Engine::new(MockPulumiService::new());
             let value: Value = 1.into();
             let done_node_output_id = engine.create_done_node(value.clone());
             let native_node_output_id =
@@ -738,7 +738,7 @@ mod tests {
 
         #[test]
         fn sets_native_function_results() {
-            let mut engine = Engine::new(Box::new(MockPulumiService::new()));
+            let mut engine = Engine::new(MockPulumiService::new());
             let value: Value = 1.into();
             let done_node_output_id = engine.create_done_node(value.clone());
             let native_node_output_id =
@@ -762,7 +762,7 @@ mod tests {
 
         #[test]
         fn native_function_passes_unknown_value_downstream() {
-            let mut engine = Engine::new(Box::new(MockPulumiService::new()));
+            let mut engine = Engine::new(MockPulumiService::new());
             let value: Value = 1.into();
             let done_node_output_id = engine.create_done_node(value.clone());
             let native_node_output_id =
@@ -786,7 +786,7 @@ mod tests {
 
         #[test]
         fn native_function_can_be_run_from_another_native_function() {
-            let mut engine = Engine::new(Box::new(MockPulumiService::new()));
+            let mut engine = Engine::new(MockPulumiService::new());
             let value: Value = 1.into();
             let done_node_output_id = engine.create_done_node(value.clone());
             let native_node_output_id_1 =
@@ -821,7 +821,7 @@ mod tests {
 
         #[test]
         fn extract_field_extract_field_from_map() {
-            let mut engine = Engine::new(Box::new(MockPulumiService::new()));
+            let mut engine = Engine::new(MockPulumiService::new());
             let value = Value::Map(vec![("key".into(), 1.into())]);
             let done_node_output_id = engine.create_done_node(value.clone());
             let extract_field_node_output_id =
@@ -873,7 +873,7 @@ mod tests {
 
         #[test]
         fn should_create_required_nodes() {
-            let mut engine = Engine::new(Box::new(MockPulumiService::new()));
+            let mut engine = Engine::new(MockPulumiService::new());
             let done_node_output_id = engine.create_done_node(1.into());
             let (register_resource_node_output_id, output_fields) = engine
                 .create_register_resource_node(
@@ -971,7 +971,7 @@ mod tests {
                     )])
                 });
 
-            let mut engine = Engine::new(Box::new(mock));
+            let mut engine = Engine::new(mock);
             let done_node_output_id = engine.create_done_node(1.into());
             let (register_resource_node_output_id, outputs) = engine.create_register_resource_node(
                 "type".into(),
