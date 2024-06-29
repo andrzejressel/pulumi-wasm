@@ -4,6 +4,11 @@ set windows-shell := ["pwsh.exe", "-c"]
 
 build: build-language-plugin regenerate-providers install-requirements build-wasm-components fmt
 
+# https://stackoverflow.com/questions/74524817/why-is-anyhow-not-working-in-the-stable-version
+fix-issues:
+    cargo component check --workspace
+    cargo check --workspace
+
 build-language-plugin:
     cd pulumi-language-wasm && just
 
@@ -15,6 +20,7 @@ install-requirements:
 
 build-wasm-components:
     cargo component build -p pulumi_wasm \
+                          -p pulumi_wasm_runner \
                           -p pulumi_wasm_example_simple \
                           -p pulumi_wasm_example_docker
     # DO NOT EDIT - BUILD-WASM-COMPONENTS - START

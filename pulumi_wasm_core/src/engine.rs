@@ -1,7 +1,6 @@
 use std::cell::{Ref, RefCell, RefMut};
 use std::collections::{HashMap, HashSet, VecDeque};
 use std::ops::Deref;
-use std::rc::Rc;
 
 use log::error;
 use rmpv::Value;

@@ -1,6 +1,4 @@
-use crate::bindings::component::pulumi_wasm::register_interface::{
-    register, ObjectField, RegisterResourceRequest, ResultField,
-};
+use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
 use bindings::exports::pulumi::random::random_bytes;
 use bindings::exports::pulumi::random::random_id;
 use bindings::exports::pulumi::random::random_integer;
@@ -26,75 +24,26 @@ impl random_bytes::Guest for Component {
             type_: "random:index/randomBytes:RandomBytes".into(),
             name,
             object: vec![
-                ObjectField {
-                    name: "keepers".into(),
-                    value: args.keepers,
-                },
-                ObjectField {
-                    name: "length".into(),
-                    value: args.length,
-                },
+                ObjectField { name: "keepers".into(), value: args.keepers },
+                ObjectField { name: "length".into(), value: args.length },
             ],
             results: vec![
-                ResultField {
-                    name: "base64".into(),
-                    schema: vec![166, 83, 116, 114, 105, 110, 103],
-                },
-                ResultField {
-                    name: "hex".into(),
-                    schema: vec![166, 83, 116, 114, 105, 110, 103],
-                },
-                ResultField {
-                    name: "keepers".into(),
-                    schema: vec![
-                        129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103,
-                        108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114,
-                        105, 110, 103,
-                    ],
-                },
-                ResultField {
-                    name: "length".into(),
-                    schema: vec![163, 73, 110, 116],
-                },
+                ResultField { name: "base64".into(), schema: vec![166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "hex".into(), schema: vec![166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "keepers".into(), schema: vec![129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103, 108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "length".into(), schema: vec![163, 73, 110, 116] },
             ],
         };
 
         let o = register(&request);
 
         random_bytes::Res {
-            base64: o
-                .fields
-                .iter()
-                .find(|o| o.name == "base64")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            base64: o.get_field("base64", true),
-            hex: o
-                .fields
-                .iter()
-                .find(|o| o.name == "hex")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            hex: o.get_field("hex", true),
-            keepers: o
-                .fields
-                .iter()
-                .find(|o| o.name == "keepers")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            keepers: o.get_field("keepers", false),
-            length: o
-                .fields
-                .iter()
-                .find(|o| o.name == "length")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            length: o.get_field("length", true),
+             base64: o.fields.iter().find(|o| o.name == "base64").unwrap().output.duplicate(),
+             hex: o.fields.iter().find(|o| o.name == "hex").unwrap().output.duplicate(),
+             keepers: o.fields.iter().find(|o| o.name == "keepers").unwrap().output.duplicate(),
+             length: o.fields.iter().find(|o| o.name == "length").unwrap().output.duplicate(),
         }
+
     }
 }
 impl random_id::Guest for Component {
@@ -104,118 +53,33 @@ impl random_id::Guest for Component {
             type_: "random:index/randomId:RandomId".into(),
             name,
             object: vec![
-                ObjectField {
-                    name: "byteLength".into(),
-                    value: args.byte_length,
-                },
-                ObjectField {
-                    name: "keepers".into(),
-                    value: args.keepers,
-                },
-                ObjectField {
-                    name: "prefix".into(),
-                    value: args.prefix,
-                },
+                ObjectField { name: "byteLength".into(), value: args.byte_length },
+                ObjectField { name: "keepers".into(), value: args.keepers },
+                ObjectField { name: "prefix".into(), value: args.prefix },
             ],
             results: vec![
-                ResultField {
-                    name: "b64Std".into(),
-                    schema: vec![166, 83, 116, 114, 105, 110, 103],
-                },
-                ResultField {
-                    name: "b64Url".into(),
-                    schema: vec![166, 83, 116, 114, 105, 110, 103],
-                },
-                ResultField {
-                    name: "byteLength".into(),
-                    schema: vec![163, 73, 110, 116],
-                },
-                ResultField {
-                    name: "dec".into(),
-                    schema: vec![166, 83, 116, 114, 105, 110, 103],
-                },
-                ResultField {
-                    name: "hex".into(),
-                    schema: vec![166, 83, 116, 114, 105, 110, 103],
-                },
-                ResultField {
-                    name: "keepers".into(),
-                    schema: vec![
-                        129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103,
-                        108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114,
-                        105, 110, 103,
-                    ],
-                },
-                ResultField {
-                    name: "prefix".into(),
-                    schema: vec![
-                        129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 166, 83, 116, 114, 105, 110,
-                        103,
-                    ],
-                },
+                ResultField { name: "b64Std".into(), schema: vec![166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "b64Url".into(), schema: vec![166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "byteLength".into(), schema: vec![163, 73, 110, 116] },
+                ResultField { name: "dec".into(), schema: vec![166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "hex".into(), schema: vec![166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "keepers".into(), schema: vec![129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103, 108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "prefix".into(), schema: vec![129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 166, 83, 116, 114, 105, 110, 103] },
             ],
         };
 
         let o = register(&request);
 
         random_id::Res {
-            b64_std: o
-                .fields
-                .iter()
-                .find(|o| o.name == "b64Std")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            b64_std: o.get_field("b64Std", true),
-            b64_url: o
-                .fields
-                .iter()
-                .find(|o| o.name == "b64Url")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            b64_url: o.get_field("b64Url", true),
-            byte_length: o
-                .fields
-                .iter()
-                .find(|o| o.name == "byteLength")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            byte_length: o.get_field("byteLength", true),
-            dec: o
-                .fields
-                .iter()
-                .find(|o| o.name == "dec")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            dec: o.get_field("dec", true),
-            hex: o
-                .fields
-                .iter()
-                .find(|o| o.name == "hex")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            hex: o.get_field("hex", true),
-            keepers: o
-                .fields
-                .iter()
-                .find(|o| o.name == "keepers")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            keepers: o.get_field("keepers", false),
-            prefix: o
-                .fields
-                .iter()
-                .find(|o| o.name == "prefix")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            prefix: o.get_field("prefix", false),
+             b64_std: o.fields.iter().find(|o| o.name == "b64Std").unwrap().output.duplicate(),
+             b64_url: o.fields.iter().find(|o| o.name == "b64Url").unwrap().output.duplicate(),
+             byte_length: o.fields.iter().find(|o| o.name == "byteLength").unwrap().output.duplicate(),
+             dec: o.fields.iter().find(|o| o.name == "dec").unwrap().output.duplicate(),
+             hex: o.fields.iter().find(|o| o.name == "hex").unwrap().output.duplicate(),
+             keepers: o.fields.iter().find(|o| o.name == "keepers").unwrap().output.duplicate(),
+             prefix: o.fields.iter().find(|o| o.name == "prefix").unwrap().output.duplicate(),
         }
+
     }
 }
 impl random_integer::Guest for Component {
@@ -225,98 +89,30 @@ impl random_integer::Guest for Component {
             type_: "random:index/randomInteger:RandomInteger".into(),
             name,
             object: vec![
-                ObjectField {
-                    name: "keepers".into(),
-                    value: args.keepers,
-                },
-                ObjectField {
-                    name: "max".into(),
-                    value: args.max,
-                },
-                ObjectField {
-                    name: "min".into(),
-                    value: args.min,
-                },
-                ObjectField {
-                    name: "seed".into(),
-                    value: args.seed,
-                },
+                ObjectField { name: "keepers".into(), value: args.keepers },
+                ObjectField { name: "max".into(), value: args.max },
+                ObjectField { name: "min".into(), value: args.min },
+                ObjectField { name: "seed".into(), value: args.seed },
             ],
             results: vec![
-                ResultField {
-                    name: "keepers".into(),
-                    schema: vec![
-                        129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103,
-                        108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114,
-                        105, 110, 103,
-                    ],
-                },
-                ResultField {
-                    name: "max".into(),
-                    schema: vec![163, 73, 110, 116],
-                },
-                ResultField {
-                    name: "min".into(),
-                    schema: vec![163, 73, 110, 116],
-                },
-                ResultField {
-                    name: "result".into(),
-                    schema: vec![163, 73, 110, 116],
-                },
-                ResultField {
-                    name: "seed".into(),
-                    schema: vec![
-                        129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 166, 83, 116, 114, 105, 110,
-                        103,
-                    ],
-                },
+                ResultField { name: "keepers".into(), schema: vec![129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103, 108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "max".into(), schema: vec![163, 73, 110, 116] },
+                ResultField { name: "min".into(), schema: vec![163, 73, 110, 116] },
+                ResultField { name: "result".into(), schema: vec![163, 73, 110, 116] },
+                ResultField { name: "seed".into(), schema: vec![129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 166, 83, 116, 114, 105, 110, 103] },
             ],
         };
 
         let o = register(&request);
 
         random_integer::Res {
-            keepers: o
-                .fields
-                .iter()
-                .find(|o| o.name == "keepers")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            keepers: o.get_field("keepers", false),
-            max: o
-                .fields
-                .iter()
-                .find(|o| o.name == "max")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            max: o.get_field("max", true),
-            min: o
-                .fields
-                .iter()
-                .find(|o| o.name == "min")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            min: o.get_field("min", true),
-            result: o
-                .fields
-                .iter()
-                .find(|o| o.name == "result")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            result: o.get_field("result", true),
-            seed: o
-                .fields
-                .iter()
-                .find(|o| o.name == "seed")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            seed: o.get_field("seed", false),
+             keepers: o.fields.iter().find(|o| o.name == "keepers").unwrap().output.duplicate(),
+             max: o.fields.iter().find(|o| o.name == "max").unwrap().output.duplicate(),
+             min: o.fields.iter().find(|o| o.name == "min").unwrap().output.duplicate(),
+             result: o.fields.iter().find(|o| o.name == "result").unwrap().output.duplicate(),
+             seed: o.fields.iter().find(|o| o.name == "seed").unwrap().output.duplicate(),
         }
+
     }
 }
 impl random_password::Guest for Component {
@@ -326,238 +122,56 @@ impl random_password::Guest for Component {
             type_: "random:index/randomPassword:RandomPassword".into(),
             name,
             object: vec![
-                ObjectField {
-                    name: "keepers".into(),
-                    value: args.keepers,
-                },
-                ObjectField {
-                    name: "length".into(),
-                    value: args.length,
-                },
-                ObjectField {
-                    name: "lower".into(),
-                    value: args.lower,
-                },
-                ObjectField {
-                    name: "minLower".into(),
-                    value: args.min_lower,
-                },
-                ObjectField {
-                    name: "minNumeric".into(),
-                    value: args.min_numeric,
-                },
-                ObjectField {
-                    name: "minSpecial".into(),
-                    value: args.min_special,
-                },
-                ObjectField {
-                    name: "minUpper".into(),
-                    value: args.min_upper,
-                },
-                ObjectField {
-                    name: "number".into(),
-                    value: args.number,
-                },
-                ObjectField {
-                    name: "numeric".into(),
-                    value: args.numeric,
-                },
-                ObjectField {
-                    name: "overrideSpecial".into(),
-                    value: args.override_special,
-                },
-                ObjectField {
-                    name: "special".into(),
-                    value: args.special,
-                },
-                ObjectField {
-                    name: "upper".into(),
-                    value: args.upper,
-                },
+                ObjectField { name: "keepers".into(), value: args.keepers },
+                ObjectField { name: "length".into(), value: args.length },
+                ObjectField { name: "lower".into(), value: args.lower },
+                ObjectField { name: "minLower".into(), value: args.min_lower },
+                ObjectField { name: "minNumeric".into(), value: args.min_numeric },
+                ObjectField { name: "minSpecial".into(), value: args.min_special },
+                ObjectField { name: "minUpper".into(), value: args.min_upper },
+                ObjectField { name: "number".into(), value: args.number },
+                ObjectField { name: "numeric".into(), value: args.numeric },
+                ObjectField { name: "overrideSpecial".into(), value: args.override_special },
+                ObjectField { name: "special".into(), value: args.special },
+                ObjectField { name: "upper".into(), value: args.upper },
             ],
             results: vec![
-                ResultField {
-                    name: "bcryptHash".into(),
-                    schema: vec![166, 83, 116, 114, 105, 110, 103],
-                },
-                ResultField {
-                    name: "keepers".into(),
-                    schema: vec![
-                        129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103,
-                        108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114,
-                        105, 110, 103,
-                    ],
-                },
-                ResultField {
-                    name: "length".into(),
-                    schema: vec![163, 73, 110, 116],
-                },
-                ResultField {
-                    name: "lower".into(),
-                    schema: vec![164, 66, 111, 111, 108],
-                },
-                ResultField {
-                    name: "minLower".into(),
-                    schema: vec![163, 73, 110, 116],
-                },
-                ResultField {
-                    name: "minNumeric".into(),
-                    schema: vec![163, 73, 110, 116],
-                },
-                ResultField {
-                    name: "minSpecial".into(),
-                    schema: vec![163, 73, 110, 116],
-                },
-                ResultField {
-                    name: "minUpper".into(),
-                    schema: vec![163, 73, 110, 116],
-                },
-                ResultField {
-                    name: "number".into(),
-                    schema: vec![164, 66, 111, 111, 108],
-                },
-                ResultField {
-                    name: "numeric".into(),
-                    schema: vec![164, 66, 111, 111, 108],
-                },
-                ResultField {
-                    name: "overrideSpecial".into(),
-                    schema: vec![
-                        129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 166, 83, 116, 114, 105, 110,
-                        103,
-                    ],
-                },
-                ResultField {
-                    name: "result".into(),
-                    schema: vec![166, 83, 116, 114, 105, 110, 103],
-                },
-                ResultField {
-                    name: "special".into(),
-                    schema: vec![164, 66, 111, 111, 108],
-                },
-                ResultField {
-                    name: "upper".into(),
-                    schema: vec![164, 66, 111, 111, 108],
-                },
+                ResultField { name: "bcryptHash".into(), schema: vec![166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "keepers".into(), schema: vec![129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103, 108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "length".into(), schema: vec![163, 73, 110, 116] },
+                ResultField { name: "lower".into(), schema: vec![164, 66, 111, 111, 108] },
+                ResultField { name: "minLower".into(), schema: vec![163, 73, 110, 116] },
+                ResultField { name: "minNumeric".into(), schema: vec![163, 73, 110, 116] },
+                ResultField { name: "minSpecial".into(), schema: vec![163, 73, 110, 116] },
+                ResultField { name: "minUpper".into(), schema: vec![163, 73, 110, 116] },
+                ResultField { name: "number".into(), schema: vec![164, 66, 111, 111, 108] },
+                ResultField { name: "numeric".into(), schema: vec![164, 66, 111, 111, 108] },
+                ResultField { name: "overrideSpecial".into(), schema: vec![129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "result".into(), schema: vec![166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "special".into(), schema: vec![164, 66, 111, 111, 108] },
+                ResultField { name: "upper".into(), schema: vec![164, 66, 111, 111, 108] },
             ],
         };
 
         let o = register(&request);
 
         random_password::Res {
-            bcrypt_hash: o
-                .fields
-                .iter()
-                .find(|o| o.name == "bcryptHash")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            bcrypt_hash: o.get_field("bcryptHash", true),
-            keepers: o
-                .fields
-                .iter()
-                .find(|o| o.name == "keepers")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            keepers: o.get_field("keepers", false),
-            length: o
-                .fields
-                .iter()
-                .find(|o| o.name == "length")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            length: o.get_field("length", true),
-            lower: o
-                .fields
-                .iter()
-                .find(|o| o.name == "lower")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            lower: o.get_field("lower", true),
-            min_lower: o
-                .fields
-                .iter()
-                .find(|o| o.name == "minLower")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            min_lower: o.get_field("minLower", true),
-            min_numeric: o
-                .fields
-                .iter()
-                .find(|o| o.name == "minNumeric")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            min_numeric: o.get_field("minNumeric", true),
-            min_special: o
-                .fields
-                .iter()
-                .find(|o| o.name == "minSpecial")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            min_special: o.get_field("minSpecial", true),
-            min_upper: o
-                .fields
-                .iter()
-                .find(|o| o.name == "minUpper")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            min_upper: o.get_field("minUpper", true),
-            number: o
-                .fields
-                .iter()
-                .find(|o| o.name == "number")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            number: o.get_field("number", true),
-            numeric: o
-                .fields
-                .iter()
-                .find(|o| o.name == "numeric")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            numeric: o.get_field("numeric", true),
-            override_special: o
-                .fields
-                .iter()
-                .find(|o| o.name == "overrideSpecial")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            override_special: o.get_field("overrideSpecial", false),
-            result: o
-                .fields
-                .iter()
-                .find(|o| o.name == "result")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            result: o.get_field("result", true),
-            special: o
-                .fields
-                .iter()
-                .find(|o| o.name == "special")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            special: o.get_field("special", true),
-            upper: o
-                .fields
-                .iter()
-                .find(|o| o.name == "upper")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            upper: o.get_field("upper", true),
+             bcrypt_hash: o.fields.iter().find(|o| o.name == "bcryptHash").unwrap().output.duplicate(),
+             keepers: o.fields.iter().find(|o| o.name == "keepers").unwrap().output.duplicate(),
+             length: o.fields.iter().find(|o| o.name == "length").unwrap().output.duplicate(),
+             lower: o.fields.iter().find(|o| o.name == "lower").unwrap().output.duplicate(),
+             min_lower: o.fields.iter().find(|o| o.name == "minLower").unwrap().output.duplicate(),
+             min_numeric: o.fields.iter().find(|o| o.name == "minNumeric").unwrap().output.duplicate(),
+             min_special: o.fields.iter().find(|o| o.name == "minSpecial").unwrap().output.duplicate(),
+             min_upper: o.fields.iter().find(|o| o.name == "minUpper").unwrap().output.duplicate(),
+             number: o.fields.iter().find(|o| o.name == "number").unwrap().output.duplicate(),
+             numeric: o.fields.iter().find(|o| o.name == "numeric").unwrap().output.duplicate(),
+             override_special: o.fields.iter().find(|o| o.name == "overrideSpecial").unwrap().output.duplicate(),
+             result: o.fields.iter().find(|o| o.name == "result").unwrap().output.duplicate(),
+             special: o.fields.iter().find(|o| o.name == "special").unwrap().output.duplicate(),
+             upper: o.fields.iter().find(|o| o.name == "upper").unwrap().output.duplicate(),
         }
+
     }
 }
 impl random_pet::Guest for Component {
@@ -567,86 +181,28 @@ impl random_pet::Guest for Component {
             type_: "random:index/randomPet:RandomPet".into(),
             name,
             object: vec![
-                ObjectField {
-                    name: "keepers".into(),
-                    value: args.keepers,
-                },
-                ObjectField {
-                    name: "length".into(),
-                    value: args.length,
-                },
-                ObjectField {
-                    name: "prefix".into(),
-                    value: args.prefix,
-                },
-                ObjectField {
-                    name: "separator".into(),
-                    value: args.separator,
-                },
+                ObjectField { name: "keepers".into(), value: args.keepers },
+                ObjectField { name: "length".into(), value: args.length },
+                ObjectField { name: "prefix".into(), value: args.prefix },
+                ObjectField { name: "separator".into(), value: args.separator },
             ],
             results: vec![
-                ResultField {
-                    name: "keepers".into(),
-                    schema: vec![
-                        129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103,
-                        108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114,
-                        105, 110, 103,
-                    ],
-                },
-                ResultField {
-                    name: "length".into(),
-                    schema: vec![163, 73, 110, 116],
-                },
-                ResultField {
-                    name: "prefix".into(),
-                    schema: vec![
-                        129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 166, 83, 116, 114, 105, 110,
-                        103,
-                    ],
-                },
-                ResultField {
-                    name: "separator".into(),
-                    schema: vec![166, 83, 116, 114, 105, 110, 103],
-                },
+                ResultField { name: "keepers".into(), schema: vec![129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103, 108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "length".into(), schema: vec![163, 73, 110, 116] },
+                ResultField { name: "prefix".into(), schema: vec![129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "separator".into(), schema: vec![166, 83, 116, 114, 105, 110, 103] },
             ],
         };
 
         let o = register(&request);
 
         random_pet::Res {
-            keepers: o
-                .fields
-                .iter()
-                .find(|o| o.name == "keepers")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            keepers: o.get_field("keepers", false),
-            length: o
-                .fields
-                .iter()
-                .find(|o| o.name == "length")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            length: o.get_field("length", true),
-            prefix: o
-                .fields
-                .iter()
-                .find(|o| o.name == "prefix")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            prefix: o.get_field("prefix", false),
-            separator: o
-                .fields
-                .iter()
-                .find(|o| o.name == "separator")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            separator: o.get_field("separator", true),
+             keepers: o.fields.iter().find(|o| o.name == "keepers").unwrap().output.duplicate(),
+             length: o.fields.iter().find(|o| o.name == "length").unwrap().output.duplicate(),
+             prefix: o.fields.iter().find(|o| o.name == "prefix").unwrap().output.duplicate(),
+             separator: o.fields.iter().find(|o| o.name == "separator").unwrap().output.duplicate(),
         }
+
     }
 }
 impl random_shuffle::Guest for Component {
@@ -656,104 +212,30 @@ impl random_shuffle::Guest for Component {
             type_: "random:index/randomShuffle:RandomShuffle".into(),
             name,
             object: vec![
-                ObjectField {
-                    name: "inputs".into(),
-                    value: args.inputs,
-                },
-                ObjectField {
-                    name: "keepers".into(),
-                    value: args.keepers,
-                },
-                ObjectField {
-                    name: "resultCount".into(),
-                    value: args.result_count,
-                },
-                ObjectField {
-                    name: "seed".into(),
-                    value: args.seed,
-                },
+                ObjectField { name: "inputs".into(), value: args.inputs },
+                ObjectField { name: "keepers".into(), value: args.keepers },
+                ObjectField { name: "resultCount".into(), value: args.result_count },
+                ObjectField { name: "seed".into(), value: args.seed },
             ],
             results: vec![
-                ResultField {
-                    name: "inputs".into(),
-                    schema: vec![
-                        129, 165, 65, 114, 114, 97, 121, 166, 83, 116, 114, 105, 110, 103,
-                    ],
-                },
-                ResultField {
-                    name: "keepers".into(),
-                    schema: vec![
-                        129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103,
-                        108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114,
-                        105, 110, 103,
-                    ],
-                },
-                ResultField {
-                    name: "resultCount".into(),
-                    schema: vec![
-                        129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 163, 73, 110, 116,
-                    ],
-                },
-                ResultField {
-                    name: "results".into(),
-                    schema: vec![
-                        129, 165, 65, 114, 114, 97, 121, 166, 83, 116, 114, 105, 110, 103,
-                    ],
-                },
-                ResultField {
-                    name: "seed".into(),
-                    schema: vec![
-                        129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 166, 83, 116, 114, 105, 110,
-                        103,
-                    ],
-                },
+                ResultField { name: "inputs".into(), schema: vec![129, 165, 65, 114, 114, 97, 121, 166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "keepers".into(), schema: vec![129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103, 108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "resultCount".into(), schema: vec![129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 163, 73, 110, 116] },
+                ResultField { name: "results".into(), schema: vec![129, 165, 65, 114, 114, 97, 121, 166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "seed".into(), schema: vec![129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 166, 83, 116, 114, 105, 110, 103] },
             ],
         };
 
         let o = register(&request);
 
         random_shuffle::Res {
-            inputs: o
-                .fields
-                .iter()
-                .find(|o| o.name == "inputs")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            inputs: o.get_field("inputs", true),
-            keepers: o
-                .fields
-                .iter()
-                .find(|o| o.name == "keepers")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            keepers: o.get_field("keepers", false),
-            result_count: o
-                .fields
-                .iter()
-                .find(|o| o.name == "resultCount")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            result_count: o.get_field("resultCount", false),
-            results: o
-                .fields
-                .iter()
-                .find(|o| o.name == "results")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            results: o.get_field("results", true),
-            seed: o
-                .fields
-                .iter()
-                .find(|o| o.name == "seed")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            seed: o.get_field("seed", false),
+             inputs: o.fields.iter().find(|o| o.name == "inputs").unwrap().output.duplicate(),
+             keepers: o.fields.iter().find(|o| o.name == "keepers").unwrap().output.duplicate(),
+             result_count: o.fields.iter().find(|o| o.name == "resultCount").unwrap().output.duplicate(),
+             results: o.fields.iter().find(|o| o.name == "results").unwrap().output.duplicate(),
+             seed: o.fields.iter().find(|o| o.name == "seed").unwrap().output.duplicate(),
         }
+
     }
 }
 impl random_string::Guest for Component {
@@ -763,226 +245,54 @@ impl random_string::Guest for Component {
             type_: "random:index/randomString:RandomString".into(),
             name,
             object: vec![
-                ObjectField {
-                    name: "keepers".into(),
-                    value: args.keepers,
-                },
-                ObjectField {
-                    name: "length".into(),
-                    value: args.length,
-                },
-                ObjectField {
-                    name: "lower".into(),
-                    value: args.lower,
-                },
-                ObjectField {
-                    name: "minLower".into(),
-                    value: args.min_lower,
-                },
-                ObjectField {
-                    name: "minNumeric".into(),
-                    value: args.min_numeric,
-                },
-                ObjectField {
-                    name: "minSpecial".into(),
-                    value: args.min_special,
-                },
-                ObjectField {
-                    name: "minUpper".into(),
-                    value: args.min_upper,
-                },
-                ObjectField {
-                    name: "number".into(),
-                    value: args.number,
-                },
-                ObjectField {
-                    name: "numeric".into(),
-                    value: args.numeric,
-                },
-                ObjectField {
-                    name: "overrideSpecial".into(),
-                    value: args.override_special,
-                },
-                ObjectField {
-                    name: "special".into(),
-                    value: args.special,
-                },
-                ObjectField {
-                    name: "upper".into(),
-                    value: args.upper,
-                },
+                ObjectField { name: "keepers".into(), value: args.keepers },
+                ObjectField { name: "length".into(), value: args.length },
+                ObjectField { name: "lower".into(), value: args.lower },
+                ObjectField { name: "minLower".into(), value: args.min_lower },
+                ObjectField { name: "minNumeric".into(), value: args.min_numeric },
+                ObjectField { name: "minSpecial".into(), value: args.min_special },
+                ObjectField { name: "minUpper".into(), value: args.min_upper },
+                ObjectField { name: "number".into(), value: args.number },
+                ObjectField { name: "numeric".into(), value: args.numeric },
+                ObjectField { name: "overrideSpecial".into(), value: args.override_special },
+                ObjectField { name: "special".into(), value: args.special },
+                ObjectField { name: "upper".into(), value: args.upper },
             ],
             results: vec![
-                ResultField {
-                    name: "keepers".into(),
-                    schema: vec![
-                        129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103,
-                        108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114,
-                        105, 110, 103,
-                    ],
-                },
-                ResultField {
-                    name: "length".into(),
-                    schema: vec![163, 73, 110, 116],
-                },
-                ResultField {
-                    name: "lower".into(),
-                    schema: vec![164, 66, 111, 111, 108],
-                },
-                ResultField {
-                    name: "minLower".into(),
-                    schema: vec![163, 73, 110, 116],
-                },
-                ResultField {
-                    name: "minNumeric".into(),
-                    schema: vec![163, 73, 110, 116],
-                },
-                ResultField {
-                    name: "minSpecial".into(),
-                    schema: vec![163, 73, 110, 116],
-                },
-                ResultField {
-                    name: "minUpper".into(),
-                    schema: vec![163, 73, 110, 116],
-                },
-                ResultField {
-                    name: "number".into(),
-                    schema: vec![164, 66, 111, 111, 108],
-                },
-                ResultField {
-                    name: "numeric".into(),
-                    schema: vec![164, 66, 111, 111, 108],
-                },
-                ResultField {
-                    name: "overrideSpecial".into(),
-                    schema: vec![
-                        129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 166, 83, 116, 114, 105, 110,
-                        103,
-                    ],
-                },
-                ResultField {
-                    name: "result".into(),
-                    schema: vec![166, 83, 116, 114, 105, 110, 103],
-                },
-                ResultField {
-                    name: "special".into(),
-                    schema: vec![164, 66, 111, 111, 108],
-                },
-                ResultField {
-                    name: "upper".into(),
-                    schema: vec![164, 66, 111, 111, 108],
-                },
+                ResultField { name: "keepers".into(), schema: vec![129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103, 108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "length".into(), schema: vec![163, 73, 110, 116] },
+                ResultField { name: "lower".into(), schema: vec![164, 66, 111, 111, 108] },
+                ResultField { name: "minLower".into(), schema: vec![163, 73, 110, 116] },
+                ResultField { name: "minNumeric".into(), schema: vec![163, 73, 110, 116] },
+                ResultField { name: "minSpecial".into(), schema: vec![163, 73, 110, 116] },
+                ResultField { name: "minUpper".into(), schema: vec![163, 73, 110, 116] },
+                ResultField { name: "number".into(), schema: vec![164, 66, 111, 111, 108] },
+                ResultField { name: "numeric".into(), schema: vec![164, 66, 111, 111, 108] },
+                ResultField { name: "overrideSpecial".into(), schema: vec![129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "result".into(), schema: vec![166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "special".into(), schema: vec![164, 66, 111, 111, 108] },
+                ResultField { name: "upper".into(), schema: vec![164, 66, 111, 111, 108] },
             ],
         };
 
         let o = register(&request);
 
         random_string::Res {
-            keepers: o
-                .fields
-                .iter()
-                .find(|o| o.name == "keepers")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            keepers: o.get_field("keepers", false),
-            length: o
-                .fields
-                .iter()
-                .find(|o| o.name == "length")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            length: o.get_field("length", true),
-            lower: o
-                .fields
-                .iter()
-                .find(|o| o.name == "lower")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            lower: o.get_field("lower", true),
-            min_lower: o
-                .fields
-                .iter()
-                .find(|o| o.name == "minLower")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            min_lower: o.get_field("minLower", true),
-            min_numeric: o
-                .fields
-                .iter()
-                .find(|o| o.name == "minNumeric")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            min_numeric: o.get_field("minNumeric", true),
-            min_special: o
-                .fields
-                .iter()
-                .find(|o| o.name == "minSpecial")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            min_special: o.get_field("minSpecial", true),
-            min_upper: o
-                .fields
-                .iter()
-                .find(|o| o.name == "minUpper")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            min_upper: o.get_field("minUpper", true),
-            number: o
-                .fields
-                .iter()
-                .find(|o| o.name == "number")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            number: o.get_field("number", true),
-            numeric: o
-                .fields
-                .iter()
-                .find(|o| o.name == "numeric")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            numeric: o.get_field("numeric", true),
-            override_special: o
-                .fields
-                .iter()
-                .find(|o| o.name == "overrideSpecial")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            override_special: o.get_field("overrideSpecial", false),
-            result: o
-                .fields
-                .iter()
-                .find(|o| o.name == "result")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            result: o.get_field("result", true),
-            special: o
-                .fields
-                .iter()
-                .find(|o| o.name == "special")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            special: o.get_field("special", true),
-            upper: o
-                .fields
-                .iter()
-                .find(|o| o.name == "upper")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            upper: o.get_field("upper", true),
+             keepers: o.fields.iter().find(|o| o.name == "keepers").unwrap().output.duplicate(),
+             length: o.fields.iter().find(|o| o.name == "length").unwrap().output.duplicate(),
+             lower: o.fields.iter().find(|o| o.name == "lower").unwrap().output.duplicate(),
+             min_lower: o.fields.iter().find(|o| o.name == "minLower").unwrap().output.duplicate(),
+             min_numeric: o.fields.iter().find(|o| o.name == "minNumeric").unwrap().output.duplicate(),
+             min_special: o.fields.iter().find(|o| o.name == "minSpecial").unwrap().output.duplicate(),
+             min_upper: o.fields.iter().find(|o| o.name == "minUpper").unwrap().output.duplicate(),
+             number: o.fields.iter().find(|o| o.name == "number").unwrap().output.duplicate(),
+             numeric: o.fields.iter().find(|o| o.name == "numeric").unwrap().output.duplicate(),
+             override_special: o.fields.iter().find(|o| o.name == "overrideSpecial").unwrap().output.duplicate(),
+             result: o.fields.iter().find(|o| o.name == "result").unwrap().output.duplicate(),
+             special: o.fields.iter().find(|o| o.name == "special").unwrap().output.duplicate(),
+             upper: o.fields.iter().find(|o| o.name == "upper").unwrap().output.duplicate(),
         }
+
     }
 }
 impl random_uuid::Guest for Component {
@@ -991,45 +301,21 @@ impl random_uuid::Guest for Component {
         let request = RegisterResourceRequest {
             type_: "random:index/randomUuid:RandomUuid".into(),
             name,
-            object: vec![ObjectField {
-                name: "keepers".into(),
-                value: args.keepers,
-            }],
+            object: vec![
+                ObjectField { name: "keepers".into(), value: args.keepers },
+            ],
             results: vec![
-                ResultField {
-                    name: "keepers".into(),
-                    schema: vec![
-                        129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103,
-                        108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114,
-                        105, 110, 103,
-                    ],
-                },
-                ResultField {
-                    name: "result".into(),
-                    schema: vec![166, 83, 116, 114, 105, 110, 103],
-                },
+                ResultField { name: "keepers".into(), schema: vec![129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103, 108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114, 105, 110, 103] },
+                ResultField { name: "result".into(), schema: vec![166, 83, 116, 114, 105, 110, 103] },
             ],
         };
 
         let o = register(&request);
 
         random_uuid::Res {
-            keepers: o
-                .fields
-                .iter()
-                .find(|o| o.name == "keepers")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            keepers: o.get_field("keepers", false),
-            result: o
-                .fields
-                .iter()
-                .find(|o| o.name == "result")
-                .unwrap()
-                .output
-                .duplicate(),
-            //            result: o.get_field("result", true),
+             keepers: o.fields.iter().find(|o| o.name == "keepers").unwrap().output.duplicate(),
+             result: o.fields.iter().find(|o| o.name == "result").unwrap().output.duplicate(),
         }
+
     }
 }

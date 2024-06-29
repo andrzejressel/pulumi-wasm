@@ -128,20 +128,26 @@ mod tests {
             match request.name.as_str() {
                 "test1" => {
                     tokio::time::sleep(std::time::Duration::from_secs(1)).await;
-                    let mut response = RegisterResourceResponse::default();
-                    response.id = "1".to_string();
+                    let response = RegisterResourceResponse {
+                        id: "1".to_string(),
+                        ..Default::default()
+                    };
                     Ok(Response::new(response))
                 }
                 "test2" => {
                     tokio::time::sleep(std::time::Duration::from_secs(1)).await;
-                    let mut response = RegisterResourceResponse::default();
-                    response.id = "2".to_string();
+                    let response = RegisterResourceResponse {
+                        id: "2".to_string(),
+                        ..Default::default()
+                    };
                     Ok(Response::new(response))
                 }
                 "test3" => {
                     tokio::time::sleep(std::time::Duration::from_secs(5)).await;
-                    let mut response = RegisterResourceResponse::default();
-                    response.id = "2".to_string();
+                    let response = RegisterResourceResponse {
+                        id: "3".to_string(),
+                        ..Default::default()
+                    };
                     Ok(Response::new(response))
                 }
                 _ => {

@@ -2,16 +2,11 @@ use core::fmt::Debug;
 use std::borrow::BorrowMut;
 use std::cell::RefCell;
 use std::collections::HashMap;
-use std::ops::Deref;
-
-use prost::Message;
 
 use globals::get_pulumi_engine;
 use pulumi_wasm_core::{Engine, OutputId};
 
-use crate::bindings::exports::component::pulumi_wasm::output_interface::{
-    Guest, GuestOutput, Output,
-};
+use crate::bindings::exports::component::pulumi_wasm::output_interface::{GuestOutput, Output};
 use crate::bindings::exports::component::pulumi_wasm::register_interface::{
     ObjectField, RegisterResourceRequest, RegisterResourceResult, RegisterResourceResultField,
     ResultField,
@@ -68,18 +63,11 @@ impl stack_interface::Guest for Component {
                 let v = function_invocation_result.value.clone();
                 let v = rmpv::decode::read_value(&mut v.as_slice()).unwrap();
 
-                (
-                    function_invocation_result
-                        .id
-                        .get::<CustomOutputId>()
-                        .0
-                        .clone(),
-                    v,
-                )
+                (function_invocation_result.id.get::<CustomOutputId>().0, v)
             })
             .collect();
 
-        let results = refcell.borrow_mut().run(v).unwrap_or(vec![]);
+        let results = refcell.borrow_mut().run(v).unwrap_or_default();
 
         results
             .into_iter()

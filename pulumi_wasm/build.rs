@@ -5,11 +5,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .build_server(false)
         .compile(
             &[
-                "proto/pulumi/plugin.proto",
-                "proto/pulumi/engine.proto",
-                "proto/pulumi/resource.proto",
+                "../proto/pulumi/plugin.proto",
+                "../proto/pulumi/engine.proto",
+                "../proto/pulumi/resource.proto",
             ],
-            &["proto"],
+            &["../proto"],
         )?;
     Ok(())
 }

@@ -163,72 +163,72 @@ impl container::Guest for Component {
         let o = register(&request);
 
         container::Res {
-            attach: o.get_field("attach", false),
-            bridge: o.get_field("bridge", true),
-            capabilities: o.get_field("capabilities", false),
-            cgroupns_mode: o.get_field("cgroupnsMode", false),
-            command: o.get_field("command", true),
-            container_logs: o.get_field("containerLogs", false),
-            container_read_refresh_timeout_milliseconds: o.get_field("containerReadRefreshTimeoutMilliseconds", false),
-            cpu_set: o.get_field("cpuSet", false),
-            cpu_shares: o.get_field("cpuShares", false),
-            destroy_grace_seconds: o.get_field("destroyGraceSeconds", false),
-            devices: o.get_field("devices", false),
-            dns: o.get_field("dns", false),
-            dns_opts: o.get_field("dnsOpts", false),
-            dns_searches: o.get_field("dnsSearches", false),
-            domainname: o.get_field("domainname", false),
-            entrypoints: o.get_field("entrypoints", true),
-            envs: o.get_field("envs", true),
-            exit_code: o.get_field("exitCode", true),
-            gpus: o.get_field("gpus", false),
-            group_adds: o.get_field("groupAdds", false),
-            healthcheck: o.get_field("healthcheck", false),
-            hostname: o.get_field("hostname", true),
-            hosts: o.get_field("hosts", false),
-            image: o.get_field("image", true),
-            init: o.get_field("init", true),
-            ipc_mode: o.get_field("ipcMode", true),
-            labels: o.get_field("labels", true),
-            log_driver: o.get_field("logDriver", true),
-            log_opts: o.get_field("logOpts", false),
-            logs: o.get_field("logs", false),
-            max_retry_count: o.get_field("maxRetryCount", false),
-            memory: o.get_field("memory", false),
-            memory_swap: o.get_field("memorySwap", false),
-            mounts: o.get_field("mounts", false),
-            must_run: o.get_field("mustRun", false),
-            name: o.get_field("name", true),
-            network_datas: o.get_field("networkDatas", true),
-            network_mode: o.get_field("networkMode", false),
-            networks_advanced: o.get_field("networksAdvanced", false),
-            pid_mode: o.get_field("pidMode", false),
-            ports: o.get_field("ports", false),
-            privileged: o.get_field("privileged", false),
-            publish_all_ports: o.get_field("publishAllPorts", false),
-            read_only: o.get_field("readOnly", false),
-            remove_volumes: o.get_field("removeVolumes", false),
-            restart: o.get_field("restart", false),
-            rm: o.get_field("rm", false),
-            runtime: o.get_field("runtime", true),
-            security_opts: o.get_field("securityOpts", true),
-            shm_size: o.get_field("shmSize", true),
-            start: o.get_field("start", false),
-            stdin_open: o.get_field("stdinOpen", false),
-            stop_signal: o.get_field("stopSignal", true),
-            stop_timeout: o.get_field("stopTimeout", true),
-            storage_opts: o.get_field("storageOpts", false),
-            sysctls: o.get_field("sysctls", false),
-            tmpfs: o.get_field("tmpfs", false),
-            tty: o.get_field("tty", false),
-            ulimits: o.get_field("ulimits", false),
-            uploads: o.get_field("uploads", false),
-            user: o.get_field("user", false),
-            userns_mode: o.get_field("usernsMode", false),
-            volumes: o.get_field("volumes", false),
-            wait: o.get_field("wait", false),
-            wait_timeout: o.get_field("waitTimeout", false),
-            working_dir: o.get_field("workingDir", false),
+             attach: o.fields.iter().find(|o| o.name == "attach").unwrap().output.duplicate(),
+             bridge: o.fields.iter().find(|o| o.name == "bridge").unwrap().output.duplicate(),
+             capabilities: o.fields.iter().find(|o| o.name == "capabilities").unwrap().output.duplicate(),
+             cgroupns_mode: o.fields.iter().find(|o| o.name == "cgroupnsMode").unwrap().output.duplicate(),
+             command: o.fields.iter().find(|o| o.name == "command").unwrap().output.duplicate(),
+             container_logs: o.fields.iter().find(|o| o.name == "containerLogs").unwrap().output.duplicate(),
+             container_read_refresh_timeout_milliseconds: o.fields.iter().find(|o| o.name == "containerReadRefreshTimeoutMilliseconds").unwrap().output.duplicate(),
+             cpu_set: o.fields.iter().find(|o| o.name == "cpuSet").unwrap().output.duplicate(),
+             cpu_shares: o.fields.iter().find(|o| o.name == "cpuShares").unwrap().output.duplicate(),
+             destroy_grace_seconds: o.fields.iter().find(|o| o.name == "destroyGraceSeconds").unwrap().output.duplicate(),
+             devices: o.fields.iter().find(|o| o.name == "devices").unwrap().output.duplicate(),
+             dns: o.fields.iter().find(|o| o.name == "dns").unwrap().output.duplicate(),
+             dns_opts: o.fields.iter().find(|o| o.name == "dnsOpts").unwrap().output.duplicate(),
+             dns_searches: o.fields.iter().find(|o| o.name == "dnsSearches").unwrap().output.duplicate(),
+             domainname: o.fields.iter().find(|o| o.name == "domainname").unwrap().output.duplicate(),
+             entrypoints: o.fields.iter().find(|o| o.name == "entrypoints").unwrap().output.duplicate(),
+             envs: o.fields.iter().find(|o| o.name == "envs").unwrap().output.duplicate(),
+             exit_code: o.fields.iter().find(|o| o.name == "exitCode").unwrap().output.duplicate(),
+             gpus: o.fields.iter().find(|o| o.name == "gpus").unwrap().output.duplicate(),
+             group_adds: o.fields.iter().find(|o| o.name == "groupAdds").unwrap().output.duplicate(),
+             healthcheck: o.fields.iter().find(|o| o.name == "healthcheck").unwrap().output.duplicate(),
+             hostname: o.fields.iter().find(|o| o.name == "hostname").unwrap().output.duplicate(),
+             hosts: o.fields.iter().find(|o| o.name == "hosts").unwrap().output.duplicate(),
+             image: o.fields.iter().find(|o| o.name == "image").unwrap().output.duplicate(),
+             init: o.fields.iter().find(|o| o.name == "init").unwrap().output.duplicate(),
+             ipc_mode: o.fields.iter().find(|o| o.name == "ipcMode").unwrap().output.duplicate(),
+             labels: o.fields.iter().find(|o| o.name == "labels").unwrap().output.duplicate(),
+             log_driver: o.fields.iter().find(|o| o.name == "logDriver").unwrap().output.duplicate(),
+             log_opts: o.fields.iter().find(|o| o.name == "logOpts").unwrap().output.duplicate(),
+             logs: o.fields.iter().find(|o| o.name == "logs").unwrap().output.duplicate(),
+             max_retry_count: o.fields.iter().find(|o| o.name == "maxRetryCount").unwrap().output.duplicate(),
+             memory: o.fields.iter().find(|o| o.name == "memory").unwrap().output.duplicate(),
+             memory_swap: o.fields.iter().find(|o| o.name == "memorySwap").unwrap().output.duplicate(),
+             mounts: o.fields.iter().find(|o| o.name == "mounts").unwrap().output.duplicate(),
+             must_run: o.fields.iter().find(|o| o.name == "mustRun").unwrap().output.duplicate(),
+             name: o.fields.iter().find(|o| o.name == "name").unwrap().output.duplicate(),
+             network_datas: o.fields.iter().find(|o| o.name == "networkDatas").unwrap().output.duplicate(),
+             network_mode: o.fields.iter().find(|o| o.name == "networkMode").unwrap().output.duplicate(),
+             networks_advanced: o.fields.iter().find(|o| o.name == "networksAdvanced").unwrap().output.duplicate(),
+             pid_mode: o.fields.iter().find(|o| o.name == "pidMode").unwrap().output.duplicate(),
+             ports: o.fields.iter().find(|o| o.name == "ports").unwrap().output.duplicate(),
+             privileged: o.fields.iter().find(|o| o.name == "privileged").unwrap().output.duplicate(),
+             publish_all_ports: o.fields.iter().find(|o| o.name == "publishAllPorts").unwrap().output.duplicate(),
+             read_only: o.fields.iter().find(|o| o.name == "readOnly").unwrap().output.duplicate(),
+             remove_volumes: o.fields.iter().find(|o| o.name == "removeVolumes").unwrap().output.duplicate(),
+             restart: o.fields.iter().find(|o| o.name == "restart").unwrap().output.duplicate(),
+             rm: o.fields.iter().find(|o| o.name == "rm").unwrap().output.duplicate(),
+             runtime: o.fields.iter().find(|o| o.name == "runtime").unwrap().output.duplicate(),
+             security_opts: o.fields.iter().find(|o| o.name == "securityOpts").unwrap().output.duplicate(),
+             shm_size: o.fields.iter().find(|o| o.name == "shmSize").unwrap().output.duplicate(),
+             start: o.fields.iter().find(|o| o.name == "start").unwrap().output.duplicate(),
+             stdin_open: o.fields.iter().find(|o| o.name == "stdinOpen").unwrap().output.duplicate(),
+             stop_signal: o.fields.iter().find(|o| o.name == "stopSignal").unwrap().output.duplicate(),
+             stop_timeout: o.fields.iter().find(|o| o.name == "stopTimeout").unwrap().output.duplicate(),
+             storage_opts: o.fields.iter().find(|o| o.name == "storageOpts").unwrap().output.duplicate(),
+             sysctls: o.fields.iter().find(|o| o.name == "sysctls").unwrap().output.duplicate(),
+             tmpfs: o.fields.iter().find(|o| o.name == "tmpfs").unwrap().output.duplicate(),
+             tty: o.fields.iter().find(|o| o.name == "tty").unwrap().output.duplicate(),
+             ulimits: o.fields.iter().find(|o| o.name == "ulimits").unwrap().output.duplicate(),
+             uploads: o.fields.iter().find(|o| o.name == "uploads").unwrap().output.duplicate(),
+             user: o.fields.iter().find(|o| o.name == "user").unwrap().output.duplicate(),
+             userns_mode: o.fields.iter().find(|o| o.name == "usernsMode").unwrap().output.duplicate(),
+             volumes: o.fields.iter().find(|o| o.name == "volumes").unwrap().output.duplicate(),
+             wait: o.fields.iter().find(|o| o.name == "wait").unwrap().output.duplicate(),
+             wait_timeout: o.fields.iter().find(|o| o.name == "waitTimeout").unwrap().output.duplicate(),
+             working_dir: o.fields.iter().find(|o| o.name == "workingDir").unwrap().output.duplicate(),
         }
 
     }
@@ -260,13 +260,13 @@ impl image::Guest for Component {
         let o = register(&request);
 
         image::Res {
-            base_image_name: o.get_field("baseImageName", true),
-            context: o.get_field("context", true),
-            dockerfile: o.get_field("dockerfile", true),
-            image_name: o.get_field("imageName", true),
-            platform: o.get_field("platform", false),
-            registry_server: o.get_field("registryServer", true),
-            repo_digest: o.get_field("repoDigest", true),
+             base_image_name: o.fields.iter().find(|o| o.name == "baseImageName").unwrap().output.duplicate(),
+             context: o.fields.iter().find(|o| o.name == "context").unwrap().output.duplicate(),
+             dockerfile: o.fields.iter().find(|o| o.name == "dockerfile").unwrap().output.duplicate(),
+             image_name: o.fields.iter().find(|o| o.name == "imageName").unwrap().output.duplicate(),
+             platform: o.fields.iter().find(|o| o.name == "platform").unwrap().output.duplicate(),
+             registry_server: o.fields.iter().find(|o| o.name == "registryServer").unwrap().output.duplicate(),
+             repo_digest: o.fields.iter().find(|o| o.name == "repoDigest").unwrap().output.duplicate(),
         }
 
     }
@@ -311,19 +311,19 @@ impl network::Guest for Component {
         let o = register(&request);
 
         network::Res {
-            attachable: o.get_field("attachable", false),
-            check_duplicate: o.get_field("checkDuplicate", false),
-            driver: o.get_field("driver", true),
-            ingress: o.get_field("ingress", false),
-            internal: o.get_field("internal", true),
-            ipam_configs: o.get_field("ipamConfigs", true),
-            ipam_driver: o.get_field("ipamDriver", false),
-            ipam_options: o.get_field("ipamOptions", false),
-            ipv6: o.get_field("ipv6", false),
-            labels: o.get_field("labels", false),
-            name: o.get_field("name", true),
-            options: o.get_field("options", true),
-            scope: o.get_field("scope", true),
+             attachable: o.fields.iter().find(|o| o.name == "attachable").unwrap().output.duplicate(),
+             check_duplicate: o.fields.iter().find(|o| o.name == "checkDuplicate").unwrap().output.duplicate(),
+             driver: o.fields.iter().find(|o| o.name == "driver").unwrap().output.duplicate(),
+             ingress: o.fields.iter().find(|o| o.name == "ingress").unwrap().output.duplicate(),
+             internal: o.fields.iter().find(|o| o.name == "internal").unwrap().output.duplicate(),
+             ipam_configs: o.fields.iter().find(|o| o.name == "ipamConfigs").unwrap().output.duplicate(),
+             ipam_driver: o.fields.iter().find(|o| o.name == "ipamDriver").unwrap().output.duplicate(),
+             ipam_options: o.fields.iter().find(|o| o.name == "ipamOptions").unwrap().output.duplicate(),
+             ipv6: o.fields.iter().find(|o| o.name == "ipv6").unwrap().output.duplicate(),
+             labels: o.fields.iter().find(|o| o.name == "labels").unwrap().output.duplicate(),
+             name: o.fields.iter().find(|o| o.name == "name").unwrap().output.duplicate(),
+             options: o.fields.iter().find(|o| o.name == "options").unwrap().output.duplicate(),
+             scope: o.fields.iter().find(|o| o.name == "scope").unwrap().output.duplicate(),
         }
 
     }
@@ -362,16 +362,16 @@ impl plugin::Guest for Component {
         let o = register(&request);
 
         plugin::Res {
-            alias: o.get_field("alias", true),
-            enable_timeout: o.get_field("enableTimeout", false),
-            enabled: o.get_field("enabled", false),
-            envs: o.get_field("envs", true),
-            force_destroy: o.get_field("forceDestroy", false),
-            force_disable: o.get_field("forceDisable", false),
-            grant_all_permissions: o.get_field("grantAllPermissions", false),
-            grant_permissions: o.get_field("grantPermissions", false),
-            name: o.get_field("name", true),
-            plugin_reference: o.get_field("pluginReference", true),
+             alias: o.fields.iter().find(|o| o.name == "alias").unwrap().output.duplicate(),
+             enable_timeout: o.fields.iter().find(|o| o.name == "enableTimeout").unwrap().output.duplicate(),
+             enabled: o.fields.iter().find(|o| o.name == "enabled").unwrap().output.duplicate(),
+             envs: o.fields.iter().find(|o| o.name == "envs").unwrap().output.duplicate(),
+             force_destroy: o.fields.iter().find(|o| o.name == "forceDestroy").unwrap().output.duplicate(),
+             force_disable: o.fields.iter().find(|o| o.name == "forceDisable").unwrap().output.duplicate(),
+             grant_all_permissions: o.fields.iter().find(|o| o.name == "grantAllPermissions").unwrap().output.duplicate(),
+             grant_permissions: o.fields.iter().find(|o| o.name == "grantPermissions").unwrap().output.duplicate(),
+             name: o.fields.iter().find(|o| o.name == "name").unwrap().output.duplicate(),
+             plugin_reference: o.fields.iter().find(|o| o.name == "pluginReference").unwrap().output.duplicate(),
         }
 
     }
@@ -400,11 +400,11 @@ impl registry_image::Guest for Component {
         let o = register(&request);
 
         registry_image::Res {
-            insecure_skip_verify: o.get_field("insecureSkipVerify", false),
-            keep_remotely: o.get_field("keepRemotely", false),
-            name: o.get_field("name", true),
-            sha256_digest: o.get_field("sha256Digest", true),
-            triggers: o.get_field("triggers", false),
+             insecure_skip_verify: o.fields.iter().find(|o| o.name == "insecureSkipVerify").unwrap().output.duplicate(),
+             keep_remotely: o.fields.iter().find(|o| o.name == "keepRemotely").unwrap().output.duplicate(),
+             name: o.fields.iter().find(|o| o.name == "name").unwrap().output.duplicate(),
+             sha256_digest: o.fields.iter().find(|o| o.name == "sha256Digest").unwrap().output.duplicate(),
+             triggers: o.fields.iter().find(|o| o.name == "triggers").unwrap().output.duplicate(),
         }
 
     }
@@ -440,15 +440,15 @@ impl remote_image::Guest for Component {
         let o = register(&request);
 
         remote_image::Res {
-            build: o.get_field("build", false),
-            force_remove: o.get_field("forceRemove", false),
-            image_id: o.get_field("imageId", true),
-            keep_locally: o.get_field("keepLocally", false),
-            name: o.get_field("name", true),
-            platform: o.get_field("platform", false),
-            pull_triggers: o.get_field("pullTriggers", false),
-            repo_digest: o.get_field("repoDigest", true),
-            triggers: o.get_field("triggers", false),
+             build: o.fields.iter().find(|o| o.name == "build").unwrap().output.duplicate(),
+             force_remove: o.fields.iter().find(|o| o.name == "forceRemove").unwrap().output.duplicate(),
+             image_id: o.fields.iter().find(|o| o.name == "imageId").unwrap().output.duplicate(),
+             keep_locally: o.fields.iter().find(|o| o.name == "keepLocally").unwrap().output.duplicate(),
+             name: o.fields.iter().find(|o| o.name == "name").unwrap().output.duplicate(),
+             platform: o.fields.iter().find(|o| o.name == "platform").unwrap().output.duplicate(),
+             pull_triggers: o.fields.iter().find(|o| o.name == "pullTriggers").unwrap().output.duplicate(),
+             repo_digest: o.fields.iter().find(|o| o.name == "repoDigest").unwrap().output.duplicate(),
+             triggers: o.fields.iter().find(|o| o.name == "triggers").unwrap().output.duplicate(),
         }
 
     }
@@ -474,9 +474,9 @@ impl secret::Guest for Component {
         let o = register(&request);
 
         secret::Res {
-            data: o.get_field("data", true),
-            labels: o.get_field("labels", false),
-            name: o.get_field("name", true),
+             data: o.fields.iter().find(|o| o.name == "data").unwrap().output.duplicate(),
+             labels: o.fields.iter().find(|o| o.name == "labels").unwrap().output.duplicate(),
+             name: o.fields.iter().find(|o| o.name == "name").unwrap().output.duplicate(),
         }
 
     }
@@ -514,15 +514,15 @@ impl service::Guest for Component {
         let o = register(&request);
 
         service::Res {
-            auth: o.get_field("auth", false),
-            converge_config: o.get_field("convergeConfig", false),
-            endpoint_spec: o.get_field("endpointSpec", true),
-            labels: o.get_field("labels", true),
-            mode: o.get_field("mode", true),
-            name: o.get_field("name", true),
-            rollback_config: o.get_field("rollbackConfig", false),
-            task_spec: o.get_field("taskSpec", true),
-            update_config: o.get_field("updateConfig", false),
+             auth: o.fields.iter().find(|o| o.name == "auth").unwrap().output.duplicate(),
+             converge_config: o.fields.iter().find(|o| o.name == "convergeConfig").unwrap().output.duplicate(),
+             endpoint_spec: o.fields.iter().find(|o| o.name == "endpointSpec").unwrap().output.duplicate(),
+             labels: o.fields.iter().find(|o| o.name == "labels").unwrap().output.duplicate(),
+             mode: o.fields.iter().find(|o| o.name == "mode").unwrap().output.duplicate(),
+             name: o.fields.iter().find(|o| o.name == "name").unwrap().output.duplicate(),
+             rollback_config: o.fields.iter().find(|o| o.name == "rollbackConfig").unwrap().output.duplicate(),
+             task_spec: o.fields.iter().find(|o| o.name == "taskSpec").unwrap().output.duplicate(),
+             update_config: o.fields.iter().find(|o| o.name == "updateConfig").unwrap().output.duplicate(),
         }
 
     }
@@ -546,8 +546,8 @@ impl service_config::Guest for Component {
         let o = register(&request);
 
         service_config::Res {
-            data: o.get_field("data", true),
-            name: o.get_field("name", true),
+             data: o.fields.iter().find(|o| o.name == "data").unwrap().output.duplicate(),
+             name: o.fields.iter().find(|o| o.name == "name").unwrap().output.duplicate(),
         }
 
     }
@@ -572,9 +572,9 @@ impl tag::Guest for Component {
         let o = register(&request);
 
         tag::Res {
-            source_image: o.get_field("sourceImage", true),
-            source_image_id: o.get_field("sourceImageId", true),
-            target_image: o.get_field("targetImage", true),
+             source_image: o.fields.iter().find(|o| o.name == "sourceImage").unwrap().output.duplicate(),
+             source_image_id: o.fields.iter().find(|o| o.name == "sourceImageId").unwrap().output.duplicate(),
+             target_image: o.fields.iter().find(|o| o.name == "targetImage").unwrap().output.duplicate(),
         }
 
     }
@@ -603,11 +603,11 @@ impl volume::Guest for Component {
         let o = register(&request);
 
         volume::Res {
-            driver: o.get_field("driver", true),
-            driver_opts: o.get_field("driverOpts", false),
-            labels: o.get_field("labels", false),
-            mountpoint: o.get_field("mountpoint", true),
-            name: o.get_field("name", true),
+             driver: o.fields.iter().find(|o| o.name == "driver").unwrap().output.duplicate(),
+             driver_opts: o.fields.iter().find(|o| o.name == "driverOpts").unwrap().output.duplicate(),
+             labels: o.fields.iter().find(|o| o.name == "labels").unwrap().output.duplicate(),
+             mountpoint: o.fields.iter().find(|o| o.name == "mountpoint").unwrap().output.duplicate(),
+             name: o.fields.iter().find(|o| o.name == "name").unwrap().output.duplicate(),
         }
 
     }
