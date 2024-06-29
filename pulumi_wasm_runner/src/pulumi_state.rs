@@ -1,38 +1,33 @@
-use futures::future::poll_fn;
+use anyhow::Result;
 use futures::FutureExt;
 use prost::Message;
+use std::future::poll_fn;
 use tokio::task::JoinSet;
 
-use crate::grpc::RegisterResourceRequest;
 use crate::grpc::resource_monitor_client::ResourceMonitorClient;
+use crate::grpc::RegisterResourceRequest;
 use crate::model::OutputId;
 
 pub(crate) struct PulumiState {
     engine_url: String,
-    join_set: JoinSet<anyhow::Result<(OutputId, Vec<u8>)>>,
-    // resource_monitor_client: Arc<ResourceMonitorClient<Channel>>,
+    join_set: JoinSet<Result<(OutputId, Vec<u8>)>>,
 }
 
 impl PulumiState {
     pub(crate) fn new(engine_url: String) -> Self {
         Self {
             engine_url,
-            join_set: JoinSet::new()
+            join_set: JoinSet::new(),
         }
     }
 
     pub(crate) fn send_request(&mut self, output_id: OutputId, request: RegisterResourceRequest) {
         let engine_url = self.engine_url.clone();
-        self.join_set.spawn(async move {
-            Self::send_request_inner(output_id, request, engine_url).await
-        });
+        self.join_set
+            .spawn(async move { Self::send_request_inner(output_id, request, engine_url).await });
     }
 
     pub(crate) async fn get_created_resources(&mut self) -> Vec<(OutputId, Vec<u8>)> {
-        if self.join_set.is_empty() {
-            return Vec::new();
-        }
-
         let mut created_resources = Vec::new();
         match self.join_set.join_next().await {
             None => (),
@@ -49,15 +44,20 @@ impl PulumiState {
                             created_resources.push(res);
                         }
                     }
-                };
+                }
             }
         }
 
         created_resources
     }
 
-    async fn send_request_inner(output_id: OutputId, request: RegisterResourceRequest, engine_url: String) -> anyhow::Result<(OutputId, Vec<u8>)> {
-        let mut resource_monitor_client = ResourceMonitorClient::connect(format!("tcp://{engine_url}")).await?;
+    async fn send_request_inner(
+        output_id: OutputId,
+        request: RegisterResourceRequest,
+        engine_url: String,
+    ) -> Result<(OutputId, Vec<u8>)> {
+        let mut resource_monitor_client =
+            ResourceMonitorClient::connect(format!("tcp://{engine_url}")).await?;
         let result = resource_monitor_client.register_resource(request).await?;
         Ok((output_id, result.get_ref().encode_to_vec()))
     }
@@ -65,12 +65,17 @@ impl PulumiState {
 
 #[cfg(test)]
 mod tests {
-    use tonic::{Request, Response, Status};
+    use std::time::Instant;
     use tonic::codegen::tokio_stream::wrappers::ReceiverStream;
     use tonic::transport::Server;
+    use tonic::{Request, Response, Status};
 
-    use crate::grpc::{CallRequest, CallResponse, InvokeResponse, ReadResourceRequest, ReadResourceResponse, RegisterResourceOutputsRequest, RegisterResourceRequest, RegisterResourceResponse, ResourceInvokeRequest, SupportsFeatureRequest, SupportsFeatureResponse};
     use crate::grpc::resource_monitor_server::{ResourceMonitor, ResourceMonitorServer};
+    use crate::grpc::{
+        CallRequest, CallResponse, InvokeResponse, ReadResourceRequest, ReadResourceResponse,
+        RegisterResourceOutputsRequest, RegisterResourceRequest, RegisterResourceResponse,
+        ResourceInvokeRequest, SupportsFeatureRequest, SupportsFeatureResponse,
+    };
     use crate::model::OutputId;
     use crate::pulumi_state::PulumiState;
 
@@ -78,29 +83,47 @@ mod tests {
 
     #[tonic::async_trait]
     impl ResourceMonitor for MyServer {
-        async fn supports_feature(&self, request: Request<SupportsFeatureRequest>) -> Result<Response<SupportsFeatureResponse>, Status> {
+        async fn supports_feature(
+            &self,
+            _request: Request<SupportsFeatureRequest>,
+        ) -> Result<Response<SupportsFeatureResponse>, Status> {
             unimplemented!()
         }
 
-        async fn invoke(&self, request: Request<ResourceInvokeRequest>) -> Result<Response<InvokeResponse>, Status> {
+        async fn invoke(
+            &self,
+            _request: Request<ResourceInvokeRequest>,
+        ) -> Result<Response<InvokeResponse>, Status> {
             unimplemented!()
         }
 
         type StreamInvokeStream = ReceiverStream<Result<InvokeResponse, Status>>;
 
-        async fn stream_invoke(&self, request: Request<ResourceInvokeRequest>) -> Result<Response<Self::StreamInvokeStream>, Status> {
+        async fn stream_invoke(
+            &self,
+            _request: Request<ResourceInvokeRequest>,
+        ) -> Result<Response<Self::StreamInvokeStream>, Status> {
             unimplemented!()
         }
 
-        async fn call(&self, request: Request<CallRequest>) -> Result<Response<CallResponse>, Status> {
+        async fn call(
+            &self,
+            _request: Request<CallRequest>,
+        ) -> Result<Response<CallResponse>, Status> {
             unimplemented!()
         }
 
-        async fn read_resource(&self, request: Request<ReadResourceRequest>) -> Result<Response<ReadResourceResponse>, Status> {
+        async fn read_resource(
+            &self,
+            _request: Request<ReadResourceRequest>,
+        ) -> Result<Response<ReadResourceResponse>, Status> {
             unimplemented!()
         }
 
-        async fn register_resource(&self, request: Request<RegisterResourceRequest>) -> Result<Response<RegisterResourceResponse>, Status> {
+        async fn register_resource(
+            &self,
+            request: Request<RegisterResourceRequest>,
+        ) -> Result<Response<RegisterResourceResponse>, Status> {
             let request = request.into_inner();
             match request.name.as_str() {
                 "test1" => {
@@ -121,23 +144,29 @@ mod tests {
                     response.id = "2".to_string();
                     Ok(Response::new(response))
                 }
-                _ => return Err(Status::aborted(format!("unknown resource name: {}", request.name)))
+                _ => {
+                    return Err(Status::aborted(format!(
+                        "unknown resource name: {}",
+                        request.name
+                    )))
+                }
             }
         }
 
-        async fn register_resource_outputs(&self, request: Request<RegisterResourceOutputsRequest>) -> Result<Response<()>, Status> {
+        async fn register_resource_outputs(
+            &self,
+            _request: Request<RegisterResourceOutputsRequest>,
+        ) -> Result<Response<()>, Status> {
             unimplemented!()
         }
-
     }
 
     #[tokio::test]
     async fn test() -> Result<(), anyhow::Error> {
-
         let addr = "127.0.0.1:50051".parse()?;
 
         let server = Server::builder()
-            .add_service(ResourceMonitorServer::new(MyServer{}))
+            .add_service(ResourceMonitorServer::new(MyServer {}))
             .serve(addr);
 
         tokio::spawn(server);
@@ -154,14 +183,21 @@ mod tests {
 
         tokio::time::sleep(std::time::Duration::from_secs(2)).await;
 
+        let start = Instant::now();
         let result = pulumi_state.get_created_resources().await;
         assert_eq!(result.len(), 2);
+        assert!(start.elapsed().as_secs() <= 1);
 
+        let start = Instant::now();
         let result = pulumi_state.get_created_resources().await;
         assert_eq!(result.len(), 1);
+        assert!(start.elapsed().as_secs() <= 3);
+        assert!(start.elapsed().as_secs() >= 1);
 
+        let start = Instant::now();
         let result = pulumi_state.get_created_resources().await;
         assert_eq!(result.len(), 0);
+        assert!(start.elapsed().as_secs() <= 1);
 
         Ok(())
     }

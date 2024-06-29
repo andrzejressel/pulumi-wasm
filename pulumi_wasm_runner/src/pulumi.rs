@@ -12,10 +12,10 @@ use crate::grpc::{
     RegisterResourceResponse, SetRootResourceRequest,
 };
 use crate::pulumi::server::component::pulumi_wasm::external_world::Host;
-use crate::pulumi::server::Main;
-use crate::pulumi_state::PulumiState;
 use crate::pulumi::server::component::pulumi_wasm::external_world::RegisterResourceV2Request;
 use crate::pulumi::server::component::pulumi_wasm::external_world::RegisteredResource;
+use crate::pulumi::server::Main;
+use crate::pulumi_state::PulumiState;
 
 pub struct Pulumi {
     plugin: Main,
@@ -63,17 +63,26 @@ impl Host for MyState {
         Ok(self.register_resource_outputs_async(request).await?)
     }
 
-    async fn register_resource_v2(&mut self, body: Vec<RegisterResourceV2Request>) -> wasmtime::Result<()> {
-        for RegisterResourceV2Request { output_id, body } in body {
-            let b = RegisterResourceRequest::decode(&*body).unwrap();
-            self.pulumi_state.send_request(output_id.into(), b);
-        }
+    async fn register_resource_v2(
+        &mut self,
+        request: RegisterResourceV2Request,
+    ) -> wasmtime::Result<()> {
+        let b = RegisterResourceRequest::decode(&*(request.body)).unwrap();
+        self.pulumi_state.send_request(request.output_id.into(), b);
 
         Ok(())
     }
 
     async fn wait_for_registered_resources(&mut self) -> wasmtime::Result<Vec<RegisteredResource>> {
-        Ok(Vec::new())
+        let mut outputs = Vec::new();
+        for (output_id, body) in self.pulumi_state.get_created_resources().await {
+            let b = RegisterResourceResponse::decode(&*body).unwrap();
+            outputs.push(RegisteredResource {
+                output_id: output_id.0,
+                body: b.encode_to_vec(),
+            });
+        }
+        Ok(outputs)
     }
 }
 
@@ -236,7 +245,7 @@ impl Pulumi {
                     pulumi_engine_url: pulumi_engine_url.clone(),
                     pulumi_stack: pulumi_stack.clone(),
                     pulumi_project: pulumi_project.clone(),
-                    pulumi_state: PulumiState::new(pulumi_engine_url.clone().unwrap()),
+                    pulumi_state: PulumiState::new(pulumi_monitor_url.clone().unwrap()),
                 },
             },
         );

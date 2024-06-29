@@ -1,4 +1,11 @@
-mod external;
+mod engine;
 mod model;
-mod repository;
-mod services;
+mod nodes;
+mod pulumi;
+mod ref_utils;
+
+pub use crate::engine::Engine;
+pub use crate::model::OutputId;
+pub use crate::pulumi::connector::PulumiConnector;
+pub use crate::pulumi::service::RegisterResourceRequest;
+pub use crate::pulumi::service_impl::PulumiServiceImpl;

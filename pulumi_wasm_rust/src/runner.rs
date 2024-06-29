@@ -1,7 +1,6 @@
-use crate::bindings::component::pulumi_wasm::function_reverse_callback::{
-    get_functions, set_functions, FunctionInvocationRequest, FunctionInvocationResult,
+use crate::bindings::component::pulumi_wasm::stack_interface::{
+    finish, FunctionInvocationRequest, FunctionInvocationResult,
 };
-use crate::bindings::component::pulumi_wasm::stack_interface::finish;
 use crate::output::HASHMAP;
 use anyhow::{Context, Error};
 use log::{error, info};
@@ -29,28 +28,27 @@ where
 }
 
 fn run_loop() -> Result<(), Error> {
+    run_all_function()
+}
+
+fn run_all_function() -> Result<(), Error> {
+    let mut functions = finish(&[]);
+
     loop {
-        if !run_all_function()? && !finish() {
+        if functions.is_empty() {
             return Ok(());
         }
+        let mapped = map_functions(&functions)?;
+        functions = finish(&mapped);
     }
 }
 
-fn run_all_function(// store: &mut Store<SimplePluginCtx>,
-    // plugin: &PulumiWasm,
-) -> Result<bool, Error> {
-    let functions = get_functions("source");
-
-    if functions.is_empty() {
-        info!("Functions are empty");
-        return Ok(false);
-    }
-
-    info!("Functions are not empty");
-
+fn map_functions(
+    functions: &Vec<FunctionInvocationRequest>,
+) -> anyhow::Result<Vec<FunctionInvocationResult>> {
     let functions_map = HASHMAP.lock().unwrap();
 
-    let mapped: Result<Vec<_>, _> = functions
+    functions
         .iter()
         .map(
             |FunctionInvocationRequest {
@@ -70,21 +68,5 @@ fn run_all_function(// store: &mut Store<SimplePluginCtx>,
                 })
             },
         )
-        .collect();
-
-    // mapped
-
-    let mapped = match mapped {
-        Ok(mapped) => mapped,
-        Err(e) => {
-            error!("Failed to invoke functions due to [{e}]");
-            return Err(e);
-        }
-    };
-
-    info!("Setting functions");
-    set_functions(&mapped);
-    info!("run_all_function completed");
-
-    Ok(true)
+        .collect()
 }

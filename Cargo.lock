@@ -2036,8 +2036,6 @@ name = "pulumi_wasm_core"
 version = "0.1.0"
 dependencies = [
  "anyhow",
- "bitflags 2.6.0",
- "futures",
  "lazy_static",
  "log",
  "mockall",
@@ -2045,50 +2043,8 @@ dependencies = [
  "once_cell",
  "prost",
  "prost-types",
- "rmp",
- "rmp-serde",
  "rmpv",
- "serde",
- "serde_json",
  "tonic",
- "tonic-build",
- "uuid",
- "wasm_common",
- "wasmtime",
- "wasmtime-wasi",
- "wit-bindgen-rt",
-]
-
-[[package]]
-name = "pulumi_wasm_core_2"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "lazy_static",
- "log",
- "mockall",
- "msgpack_protobuf_converter",
- "once_cell",
- "prost",
- "prost-types",
- "rmpv",
- "tonic-build",
- "uuid",
-]
-
-[[package]]
-name = "pulumi_wasm_core_3"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "lazy_static",
- "log",
- "mockall",
- "msgpack_protobuf_converter",
- "once_cell",
- "prost",
- "prost-types",
- "rmpv",
  "tonic-build",
  "uuid",
 ]

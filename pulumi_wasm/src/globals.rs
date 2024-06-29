@@ -1,0 +1,22 @@
+use crate::pulumi_connector_impl::PulumiConnectorImpl;
+use once_cell::sync::Lazy;
+use pulumi_wasm_core::{Engine, PulumiServiceImpl};
+use std::borrow::Borrow;
+use std::cell::{OnceCell, Ref, RefCell, RefMut};
+use std::ops::Deref;
+use std::rc::Rc;
+
+thread_local! {
+    static PULUMI_ENGINE: OnceCell<Rc<RefCell<Engine>>> = OnceCell::new();
+}
+
+pub(crate) fn get_pulumi_engine() -> Rc<RefCell<Engine>> {
+    PULUMI_ENGINE.with(|e| {
+        e.get_or_init(|| {
+            Rc::new(RefCell::new(Engine::new(Box::new(PulumiServiceImpl::new(
+                PulumiConnectorImpl {},
+            )))))
+        })
+        .clone()
+    })
+}
