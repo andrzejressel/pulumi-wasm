@@ -1,4 +1,4 @@
 dependencies:
-  #  "example:service/my-resource@0.1.0": target\wasm32-wasi\debug\bimpl.wasm
-  "example:service/a-interface@0.1.0": target\wasm32-wasi\debug\aimpl.wasm
-  "example:service/b-interface@0.1.0": target\wasm32-wasi\debug\bimpl.wasm
+  #  "example:service/my-resource@0.1.0": target\wasm32-wasip1\debug\bimpl.wasm
+  "example:service/a-interface@0.1.0": target\wasm32-wasip1\debug\aimpl.wasm
+  "example:service/b-interface@0.1.0": target\wasm32-wasip1\debug\bimpl.wasm
