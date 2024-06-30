@@ -8,6 +8,7 @@ run:
 [windows]
 local-test:
     #!pwsh
+    cargo build -p pulumi_wasm_runner
     cargo run -p cargo-pulumi
     $env:PULUMI_CONFIG_PASSPHRASE=" "
     pulumi destroy -y
