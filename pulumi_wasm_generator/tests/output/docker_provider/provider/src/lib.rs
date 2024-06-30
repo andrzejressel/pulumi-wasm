@@ -11,10 +11,6 @@ use bindings::exports::pulumi::docker::service_config;
 use bindings::exports::pulumi::docker::tag;
 use bindings::exports::pulumi::docker::volume;
 
-#[allow(clippy::all)]
-#[allow(dead_code)]
-#[allow(unused_variables)]
-#[allow(unused_unsafe)]
 mod bindings;
 bindings::export!(Component with_types_in bindings);
 
