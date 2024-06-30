@@ -18,5 +18,15 @@
       "matchPackagePatterns": "^rmp*",
       "groupName": "rmp"
     }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Update _VERSION variables in justfile",
+      "fileMatch": ["(^|/|\\.)justfile"],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>[a-z-]+?)(?: depName=(?<depName>.+?))? packageName=(?<packageName>.+?)(?: versioning=(?<versioning>[a-z-]+?))?\\s.+?_VERSION := \"(?<currentValue>.+?)\"\\s"
+      ]
+    }
   ]
 }
