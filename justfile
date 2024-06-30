@@ -25,8 +25,6 @@ install-requirements:
     cargo install wasm-tools@{{WASM_TOOLS_VERSION}} --locked || wasm-tools --version
 
 build-wasm-components:
-    cargo build -p pulumi_wasm_runner
-    cargo test --no-run --all
     cargo component build -p pulumi_wasm \
                           -p pulumi_wasm_example_simple \
                           -p pulumi_wasm_example_docker
@@ -38,6 +36,8 @@ build-wasm-components:
     cargo run -p cargo-pulumi -- -p pulumi_wasm_example_dependencies
     cargo run -p cargo-pulumi -- -p pulumi_wasm_example_docker
     cargo run -p cargo-pulumi -- -p pulumi_wasm_example_simple
+    cargo build --all
+    cargo test --no-run --all
 
 check:
     cargo fmt --all -- --check
