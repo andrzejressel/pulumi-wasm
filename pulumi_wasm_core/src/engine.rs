@@ -535,7 +535,6 @@ impl Engine {
         Self::get_create_resource_free(&self.nodes, output_id)
     }
 
-
     #[cfg(test)]
     fn get_create_resource_free(
         nodes: &NodesMap,

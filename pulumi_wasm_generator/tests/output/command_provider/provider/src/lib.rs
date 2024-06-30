@@ -51,20 +51,20 @@ impl local_command::Guest for Component {
         let o = register(&request);
 
         local_command::Res {
-             archive: o.fields.iter().find(|o| o.name == "archive").unwrap().output.duplicate(),
-             archive_paths: o.fields.iter().find(|o| o.name == "archivePaths").unwrap().output.duplicate(),
-             asset_paths: o.fields.iter().find(|o| o.name == "assetPaths").unwrap().output.duplicate(),
-             assets: o.fields.iter().find(|o| o.name == "assets").unwrap().output.duplicate(),
-             create: o.fields.iter().find(|o| o.name == "create").unwrap().output.duplicate(),
-             delete: o.fields.iter().find(|o| o.name == "delete").unwrap().output.duplicate(),
-             dir: o.fields.iter().find(|o| o.name == "dir").unwrap().output.duplicate(),
-             environment: o.fields.iter().find(|o| o.name == "environment").unwrap().output.duplicate(),
-             interpreter: o.fields.iter().find(|o| o.name == "interpreter").unwrap().output.duplicate(),
-             stderr: o.fields.iter().find(|o| o.name == "stderr").unwrap().output.duplicate(),
-             stdin: o.fields.iter().find(|o| o.name == "stdin").unwrap().output.duplicate(),
-             stdout: o.fields.iter().find(|o| o.name == "stdout").unwrap().output.duplicate(),
-             triggers: o.fields.iter().find(|o| o.name == "triggers").unwrap().output.duplicate(),
-             update: o.fields.iter().find(|o| o.name == "update").unwrap().output.duplicate(),
+            archive: o.fields.iter().find(|o| o.name == "archive").unwrap().output.duplicate(),
+            archive_paths: o.fields.iter().find(|o| o.name == "archivePaths").unwrap().output.duplicate(),
+            asset_paths: o.fields.iter().find(|o| o.name == "assetPaths").unwrap().output.duplicate(),
+            assets: o.fields.iter().find(|o| o.name == "assets").unwrap().output.duplicate(),
+            create: o.fields.iter().find(|o| o.name == "create").unwrap().output.duplicate(),
+            delete: o.fields.iter().find(|o| o.name == "delete").unwrap().output.duplicate(),
+            dir: o.fields.iter().find(|o| o.name == "dir").unwrap().output.duplicate(),
+            environment: o.fields.iter().find(|o| o.name == "environment").unwrap().output.duplicate(),
+            interpreter: o.fields.iter().find(|o| o.name == "interpreter").unwrap().output.duplicate(),
+            stderr: o.fields.iter().find(|o| o.name == "stderr").unwrap().output.duplicate(),
+            stdin: o.fields.iter().find(|o| o.name == "stdin").unwrap().output.duplicate(),
+            stdout: o.fields.iter().find(|o| o.name == "stdout").unwrap().output.duplicate(),
+            triggers: o.fields.iter().find(|o| o.name == "triggers").unwrap().output.duplicate(),
+            update: o.fields.iter().find(|o| o.name == "update").unwrap().output.duplicate(),
         }
 
     }
@@ -100,15 +100,15 @@ impl remote_command::Guest for Component {
         let o = register(&request);
 
         remote_command::Res {
-             connection: o.fields.iter().find(|o| o.name == "connection").unwrap().output.duplicate(),
-             create: o.fields.iter().find(|o| o.name == "create").unwrap().output.duplicate(),
-             delete: o.fields.iter().find(|o| o.name == "delete").unwrap().output.duplicate(),
-             environment: o.fields.iter().find(|o| o.name == "environment").unwrap().output.duplicate(),
-             stderr: o.fields.iter().find(|o| o.name == "stderr").unwrap().output.duplicate(),
-             stdin: o.fields.iter().find(|o| o.name == "stdin").unwrap().output.duplicate(),
-             stdout: o.fields.iter().find(|o| o.name == "stdout").unwrap().output.duplicate(),
-             triggers: o.fields.iter().find(|o| o.name == "triggers").unwrap().output.duplicate(),
-             update: o.fields.iter().find(|o| o.name == "update").unwrap().output.duplicate(),
+            connection: o.fields.iter().find(|o| o.name == "connection").unwrap().output.duplicate(),
+            create: o.fields.iter().find(|o| o.name == "create").unwrap().output.duplicate(),
+            delete: o.fields.iter().find(|o| o.name == "delete").unwrap().output.duplicate(),
+            environment: o.fields.iter().find(|o| o.name == "environment").unwrap().output.duplicate(),
+            stderr: o.fields.iter().find(|o| o.name == "stderr").unwrap().output.duplicate(),
+            stdin: o.fields.iter().find(|o| o.name == "stdin").unwrap().output.duplicate(),
+            stdout: o.fields.iter().find(|o| o.name == "stdout").unwrap().output.duplicate(),
+            triggers: o.fields.iter().find(|o| o.name == "triggers").unwrap().output.duplicate(),
+            update: o.fields.iter().find(|o| o.name == "update").unwrap().output.duplicate(),
         }
 
     }
@@ -136,10 +136,10 @@ impl remote_copy_file::Guest for Component {
         let o = register(&request);
 
         remote_copy_file::Res {
-             connection: o.fields.iter().find(|o| o.name == "connection").unwrap().output.duplicate(),
-             local_path: o.fields.iter().find(|o| o.name == "localPath").unwrap().output.duplicate(),
-             remote_path: o.fields.iter().find(|o| o.name == "remotePath").unwrap().output.duplicate(),
-             triggers: o.fields.iter().find(|o| o.name == "triggers").unwrap().output.duplicate(),
+            connection: o.fields.iter().find(|o| o.name == "connection").unwrap().output.duplicate(),
+            local_path: o.fields.iter().find(|o| o.name == "localPath").unwrap().output.duplicate(),
+            remote_path: o.fields.iter().find(|o| o.name == "remotePath").unwrap().output.duplicate(),
+            triggers: o.fields.iter().find(|o| o.name == "triggers").unwrap().output.duplicate(),
         }
 
     }

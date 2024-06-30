@@ -213,5 +213,4 @@ mod tests {
     mod register_resource {}
 
     mod register_resource_poll {}
-
 }
