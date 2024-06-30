@@ -3,10 +3,6 @@ use crate::bindings::component::pulumi_wasm::output_interface::Output as WitOutp
 pub mod resource;
 pub mod types;
 
-#[allow(clippy::all)]
-#[allow(dead_code)]
-#[allow(unused_variables)]
-#[allow(unused_unsafe)]
 mod bindings {
     wit_bindgen::generate!({
         // the name of the world in the `*.wit` input file

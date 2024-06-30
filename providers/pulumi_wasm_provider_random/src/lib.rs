@@ -10,10 +10,6 @@ use bindings::exports::pulumi::random::random_shuffle;
 use bindings::exports::pulumi::random::random_string;
 use bindings::exports::pulumi::random::random_uuid;
 
-#[allow(clippy::all)]
-#[allow(dead_code)]
-#[allow(unused_variables)]
-#[allow(unused_unsafe)]
 mod bindings;
 bindings::export!(Component with_types_in bindings);
 
