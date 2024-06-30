@@ -2,7 +2,7 @@ set windows-shell := ["pwsh.exe", "-c"]
 # renovate: datasource=crate depName=cargo-nextest packageName=cargo-nextest
 NEXTEST_VERSION := "0.9.72"
 # renovate: datasource=crate depName=cargo-component packageName=cargo-component
-CARGO_COMPONENT_VERSION := "0.10.1"
+CARGO_COMPONENT_VERSION := "0.13.0"
 # renovate: datasource=crate depName=wasm-tools packageName=wasm-tools
 WASM_TOOLS_VERSION := "1.202.0"
 
