@@ -16,15 +16,6 @@ pub trait PulumiService {
     ) -> HashMap<OutputId, RegisterResourceResponse>;
 }
 
-#[derive(Clone, Debug, Eq, Hash, PartialEq)]
-pub struct RegisterId(String);
-
-impl RegisterId {
-    pub(crate) fn new(s: String) -> Self {
-        Self(s)
-    }
-}
-
 #[derive(Clone, Debug, PartialEq)]
 pub struct RegisterResourceRequest {
     pub(crate) r#type: String,

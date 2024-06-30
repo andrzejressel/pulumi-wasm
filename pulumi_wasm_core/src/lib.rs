@@ -2,7 +2,6 @@ mod engine;
 mod model;
 mod nodes;
 mod pulumi;
-mod ref_utils;
 
 pub use crate::engine::Engine;
 pub use crate::model::OutputId;

@@ -33,22 +33,14 @@ pub(crate) struct DoneNode {
 }
 
 impl DoneNode {
-    pub(crate) fn new(value: Value) -> Self {
-        DoneNode::create(value, Vec::new())
-    }
-
     pub(crate) fn create(value: Value, callbacks: Vec<Callback>) -> Self {
         Self {
             value: value.into(),
             callbacks,
         }
     }
-
-    pub(crate) fn create_nothing() -> Self {
-        Self {
-            value: NodeValue::Nothing,
-            callbacks: Vec::new(),
-        }
+    pub(crate) fn new(value: Value) -> Self {
+        DoneNode::create(value, Vec::new())
     }
 
     pub(crate) fn get_value(&self) -> &NodeValue {
@@ -135,8 +127,8 @@ pub(crate) struct RegisterResourceNode {
 impl RegisterResourceNode {
     pub(crate) fn create(
         value: MaybeNodeValue,
-        name: String,
         r#type: String,
+        name: String,
         required_inputs: HashSet<FieldName>,
         inputs: HashMap<FieldName, NodeValue>,
         outputs: HashMap<FieldName, msgpack_protobuf_converter::Type>,
@@ -159,15 +151,15 @@ impl RegisterResourceNode {
         input_names: HashSet<FieldName>,
         outputs: HashMap<FieldName, msgpack_protobuf_converter::Type>,
     ) -> Self {
-        Self {
-            value: NotYetCalculated,
-            outputs,
-            name,
+        Self::create(
+            NotYetCalculated,
             r#type,
-            required_inputs: input_names,
-            inputs: HashMap::new(),
-            callbacks: Vec::new(),
-        }
+            name,
+            input_names,
+            HashMap::new(),
+            outputs,
+            Vec::new(),
+        )
     }
 
     pub(crate) fn set_input(
@@ -258,11 +250,7 @@ impl ExtractFieldNode {
     }
 
     pub(crate) fn new(field_name: FieldName) -> ExtractFieldNode {
-        Self {
-            value: MaybeNodeValue::NotYetCalculated,
-            field_name,
-            callbacks: Vec::new(),
-        }
+        Self::create(NotYetCalculated, field_name, Vec::new())
     }
 
     pub(crate) fn add_callback(&mut self, callback: Callback) {

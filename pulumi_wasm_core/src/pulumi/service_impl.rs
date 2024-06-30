@@ -214,5 +214,4 @@ mod tests {
 
     mod register_resource_poll {}
 
-    fn create_response() {}
 }

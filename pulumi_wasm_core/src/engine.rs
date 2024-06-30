@@ -12,7 +12,6 @@ use crate::nodes::{
     Callback, DoneNode, ExtractFieldNode, NativeFunctionNode, RegisterResourceNode,
 };
 use crate::pulumi::service::PulumiService;
-use crate::ref_utils::Mappable;
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct ForeignFunctionToInvoke {
@@ -321,6 +320,7 @@ impl Engine {
         Self::run_callbacks(node.get_callbacks(), &new_value, nodes, mutable_sets)
     }
 
+    #[cfg(test)]
     fn get_done(&self, output_id: OutputId) -> Ref<DoneNode> {
         Self::get_done_free(&self.nodes, output_id)
     }
@@ -440,10 +440,12 @@ impl Engine {
         }
     }
 
+    #[cfg(test)]
     fn get_extract_field(&self, output_id: OutputId) -> Ref<ExtractFieldNode> {
         Self::get_extract_field_free(&self.nodes, output_id)
     }
 
+    #[cfg(test)]
     fn get_extract_field_free(nodes: &NodesMap, output_id: OutputId) -> Ref<ExtractFieldNode> {
         match nodes.get(&output_id) {
             None => {
@@ -482,6 +484,7 @@ impl Engine {
         }
     }
 
+    #[cfg(test)]
     fn get_extract_field_mut(&self, output_id: OutputId) -> RefMut<ExtractFieldNode> {
         Self::get_extract_field_free_mut(&self.nodes, output_id)
     }
@@ -527,14 +530,13 @@ impl Engine {
         }
     }
 
+    #[cfg(test)]
     fn get_create_resource(&self, output_id: OutputId) -> Ref<RegisterResourceNode> {
         Self::get_create_resource_free(&self.nodes, output_id)
     }
 
-    fn get_create_resource_mut(&self, output_id: OutputId) -> RefMut<RegisterResourceNode> {
-        Self::get_create_resource_free_mut(&self.nodes, output_id)
-    }
 
+    #[cfg(test)]
     fn get_create_resource_free(
         nodes: &NodesMap,
         output_id: OutputId,
@@ -715,7 +717,6 @@ mod tests {
     use std::ops::Deref;
 
     use rmpv::Value;
-    use uuid::Uuid;
 
     use crate::engine::{Engine, ForeignFunctionToInvoke};
     use crate::nodes::{Callback, DoneNode, NativeFunctionNode};
@@ -945,8 +946,8 @@ mod tests {
                     .deref(),
                 &RegisterResourceNode::create(
                     NotYetCalculated,
-                    "name".into(),
                     "type".into(),
+                    "name".into(),
                     HashSet::from(["input".into()]),
                     HashMap::new(),
                     HashMap::from([("output".into(), msgpack_protobuf_converter::Type::Bool)]),
@@ -1056,11 +1057,4 @@ mod tests {
             assert_eq!(result, None);
         }
     }
-
-    static UUID_1: Uuid = Uuid::from_bytes([1; 16]);
-    static UUID_2: Uuid = Uuid::from_bytes([2; 16]);
-    static UUID_3: Uuid = Uuid::from_bytes([3; 16]);
-    static UUID_4: Uuid = Uuid::from_bytes([4; 16]);
-    static UUID_5: Uuid = Uuid::from_bytes([5; 16]);
-    static UUID_6: Uuid = Uuid::from_bytes([6; 16]);
 }
