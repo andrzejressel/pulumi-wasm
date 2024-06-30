@@ -14,8 +14,8 @@ use crate::grpc::{
     GetRootResourceRequest, RegisterResourceOutputsRequest, RegisterResourceRequest,
     RegisterResourceResponse, SetRootResourceRequest,
 };
+use crate::pulumi::server::component::pulumi_wasm::external_world;
 use crate::pulumi::server::component::pulumi_wasm::external_world::Host;
-use crate::pulumi::server::component::pulumi_wasm::external_world::RegisterResourceV2Request;
 use crate::pulumi::server::component::pulumi_wasm::external_world::RegisteredResource;
 use crate::pulumi::server::Main;
 use crate::pulumi_state::PulumiState;
@@ -59,16 +59,13 @@ impl Host for MyState {
     async fn get_root_resource(&mut self) -> wasmtime::Result<String> {
         Ok(self.get_root_resource_async().await?)
     }
-    async fn register_resource(&mut self, request: Vec<u8>) -> wasmtime::Result<Vec<u8>> {
-        Ok(self.register_async(request).await?)
-    }
     async fn register_resource_outputs(&mut self, request: Vec<u8>) -> wasmtime::Result<Vec<u8>> {
         Ok(self.register_resource_outputs_async(request).await?)
     }
 
-    async fn register_resource_v2(
+    async fn register_resource(
         &mut self,
-        request: RegisterResourceV2Request,
+        request: external_world::RegisterResourceRequest,
     ) -> wasmtime::Result<()> {
         let b = RegisterResourceRequest::decode(&*(request.body)).unwrap();
 

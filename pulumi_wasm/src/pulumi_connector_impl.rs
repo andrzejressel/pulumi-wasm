@@ -1,5 +1,5 @@
 use crate::bindings::component::pulumi_wasm::external_world;
-use crate::bindings::component::pulumi_wasm::external_world::RegisterResourceV2Request;
+use crate::bindings::component::pulumi_wasm::external_world::RegisterResourceRequest;
 use pulumi_wasm_core::PulumiConnector;
 
 pub(crate) struct PulumiConnectorImpl {}
@@ -13,7 +13,7 @@ impl PulumiConnector for PulumiConnectorImpl {
     }
 
     fn create_resource(&self, output_id: String, req: Vec<u8>) {
-        external_world::register_resource_v2(&RegisterResourceV2Request {
+        external_world::register_resource(&RegisterResourceRequest {
             output_id,
             body: req,
         });

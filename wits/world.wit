@@ -137,10 +137,9 @@ interface register-interface {
 interface external-world {
     is-in-preview: func() -> bool;
     get-root-resource: func() -> string;
-    register-resource: func(request: list<u8>) -> list<u8>;
     register-resource-outputs: func(request: list<u8>) -> list<u8>;
 
-    record register-resource-v2-request {
+    record register-resource-request {
         output-id: string,
         body: list<u8>
     }
@@ -150,7 +149,7 @@ interface external-world {
         body: list<u8>
     }
 
-    register-resource-v2: func(request: register-resource-v2-request);
+    register-resource: func(request: register-resource-request);
     wait-for-registered-resources: func() -> list<registered-resource>;
 }
 
