@@ -1,10 +1,8 @@
-
 #[derive(serde::Serialize)]
 pub struct CacheFrom {
     #[serde(rename = "images")]
     pub r#images: Option<Vec<String>>,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct ContainerCapabilities {
@@ -13,7 +11,6 @@ pub struct ContainerCapabilities {
     #[serde(rename = "drops")]
     pub r#drops: Option<Vec<String>>,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct ContainerDevice {
@@ -24,7 +21,6 @@ pub struct ContainerDevice {
     #[serde(rename = "permissions")]
     pub r#permissions: Option<String>,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct ContainerHealthcheck {
@@ -40,7 +36,6 @@ pub struct ContainerHealthcheck {
     pub r#timeout: Option<String>,
 }
 
-
 #[derive(serde::Serialize)]
 pub struct ContainerHost {
     #[serde(rename = "host")]
@@ -49,7 +44,6 @@ pub struct ContainerHost {
     pub r#ip: String,
 }
 
-
 #[derive(serde::Serialize)]
 pub struct ContainerLabel {
     #[serde(rename = "label")]
@@ -57,7 +51,6 @@ pub struct ContainerLabel {
     #[serde(rename = "value")]
     pub r#value: String,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct ContainerMount {
@@ -77,13 +70,11 @@ pub struct ContainerMount {
     pub r#volume_options: Option<crate::types::ContainerMountVolumeOptions>,
 }
 
-
 #[derive(serde::Serialize)]
 pub struct ContainerMountBindOptions {
     #[serde(rename = "propagation")]
     pub r#propagation: Option<String>,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct ContainerMountTmpfsOptions {
@@ -92,7 +83,6 @@ pub struct ContainerMountTmpfsOptions {
     #[serde(rename = "sizeBytes")]
     pub r#size_bytes: Option<i32>,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct ContainerMountVolumeOptions {
@@ -106,7 +96,6 @@ pub struct ContainerMountVolumeOptions {
     pub r#no_copy: Option<bool>,
 }
 
-
 #[derive(serde::Serialize)]
 pub struct ContainerMountVolumeOptionsLabel {
     #[serde(rename = "label")]
@@ -114,7 +103,6 @@ pub struct ContainerMountVolumeOptionsLabel {
     #[serde(rename = "value")]
     pub r#value: String,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct ContainerNetworkData {
@@ -136,7 +124,6 @@ pub struct ContainerNetworkData {
     pub r#network_name: Option<String>,
 }
 
-
 #[derive(serde::Serialize)]
 pub struct ContainerNetworksAdvanced {
     #[serde(rename = "aliases")]
@@ -148,7 +135,6 @@ pub struct ContainerNetworksAdvanced {
     #[serde(rename = "name")]
     pub r#name: String,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct ContainerPort {
@@ -162,7 +148,6 @@ pub struct ContainerPort {
     pub r#protocol: Option<String>,
 }
 
-
 #[derive(serde::Serialize)]
 pub struct ContainerUlimit {
     #[serde(rename = "hard")]
@@ -172,7 +157,6 @@ pub struct ContainerUlimit {
     #[serde(rename = "soft")]
     pub r#soft: i32,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct ContainerUpload {
@@ -190,7 +174,6 @@ pub struct ContainerUpload {
     pub r#source_hash: Option<String>,
 }
 
-
 #[derive(serde::Serialize)]
 pub struct ContainerVolume {
     #[serde(rename = "containerPath")]
@@ -204,7 +187,6 @@ pub struct ContainerVolume {
     #[serde(rename = "volumeName")]
     pub r#volume_name: Option<String>,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct DockerBuild {
@@ -228,7 +210,6 @@ pub struct DockerBuild {
     pub r#target: Option<String>,
 }
 
-
 #[derive(serde::Serialize)]
 pub struct NetworkIpamConfig {
     #[serde(rename = "auxAddress")]
@@ -241,7 +222,6 @@ pub struct NetworkIpamConfig {
     pub r#subnet: Option<String>,
 }
 
-
 #[derive(serde::Serialize)]
 pub struct NetworkLabel {
     #[serde(rename = "label")]
@@ -250,7 +230,6 @@ pub struct NetworkLabel {
     pub r#value: String,
 }
 
-
 #[derive(serde::Serialize)]
 pub struct PluginGrantPermission {
     #[serde(rename = "name")]
@@ -258,7 +237,6 @@ pub struct PluginGrantPermission {
     #[serde(rename = "values")]
     pub r#values: Vec<String>,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct ProviderRegistryAuth {
@@ -276,7 +254,6 @@ pub struct ProviderRegistryAuth {
     pub r#username: Option<String>,
 }
 
-
 #[derive(serde::Serialize)]
 pub struct Registry {
     #[serde(rename = "password")]
@@ -286,7 +263,6 @@ pub struct Registry {
     #[serde(rename = "username")]
     pub r#username: Option<String>,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct RemoteImageBuild {
@@ -362,7 +338,6 @@ pub struct RemoteImageBuild {
     pub r#version: Option<String>,
 }
 
-
 #[derive(serde::Serialize)]
 pub struct RemoteImageBuildAuthConfig {
     #[serde(rename = "auth")]
@@ -383,7 +358,6 @@ pub struct RemoteImageBuildAuthConfig {
     pub r#user_name: Option<String>,
 }
 
-
 #[derive(serde::Serialize)]
 pub struct RemoteImageBuildUlimit {
     #[serde(rename = "hard")]
@@ -394,7 +368,6 @@ pub struct RemoteImageBuildUlimit {
     pub r#soft: i32,
 }
 
-
 #[derive(serde::Serialize)]
 pub struct SecretLabel {
     #[serde(rename = "label")]
@@ -402,7 +375,6 @@ pub struct SecretLabel {
     #[serde(rename = "value")]
     pub r#value: String,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct ServiceAuth {
@@ -414,7 +386,6 @@ pub struct ServiceAuth {
     pub r#username: Option<String>,
 }
 
-
 #[derive(serde::Serialize)]
 pub struct ServiceConvergeConfig {
     #[serde(rename = "delay")]
@@ -423,7 +394,6 @@ pub struct ServiceConvergeConfig {
     pub r#timeout: Option<String>,
 }
 
-
 #[derive(serde::Serialize)]
 pub struct ServiceEndpointSpec {
     #[serde(rename = "mode")]
@@ -431,7 +401,6 @@ pub struct ServiceEndpointSpec {
     #[serde(rename = "ports")]
     pub r#ports: Option<Vec<crate::types::ServiceEndpointSpecPort>>,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct ServiceEndpointSpecPort {
@@ -447,7 +416,6 @@ pub struct ServiceEndpointSpecPort {
     pub r#target_port: i32,
 }
 
-
 #[derive(serde::Serialize)]
 pub struct ServiceLabel {
     #[serde(rename = "label")]
@@ -455,7 +423,6 @@ pub struct ServiceLabel {
     #[serde(rename = "value")]
     pub r#value: String,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct ServiceMode {
@@ -465,13 +432,11 @@ pub struct ServiceMode {
     pub r#replicated: Option<crate::types::ServiceModeReplicated>,
 }
 
-
 #[derive(serde::Serialize)]
 pub struct ServiceModeReplicated {
     #[serde(rename = "replicas")]
     pub r#replicas: Option<i32>,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct ServiceRollbackConfig {
@@ -488,7 +453,6 @@ pub struct ServiceRollbackConfig {
     #[serde(rename = "parallelism")]
     pub r#parallelism: Option<i32>,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct ServiceTaskSpec {
@@ -509,7 +473,6 @@ pub struct ServiceTaskSpec {
     #[serde(rename = "runtime")]
     pub r#runtime: Option<String>,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct ServiceTaskSpecContainerSpec {
@@ -557,7 +520,6 @@ pub struct ServiceTaskSpecContainerSpec {
     pub r#user: Option<String>,
 }
 
-
 #[derive(serde::Serialize)]
 pub struct ServiceTaskSpecContainerSpecConfig {
     #[serde(rename = "configId")]
@@ -574,7 +536,6 @@ pub struct ServiceTaskSpecContainerSpecConfig {
     pub r#file_uid: Option<String>,
 }
 
-
 #[derive(serde::Serialize)]
 pub struct ServiceTaskSpecContainerSpecDnsConfig {
     #[serde(rename = "nameservers")]
@@ -584,7 +545,6 @@ pub struct ServiceTaskSpecContainerSpecDnsConfig {
     #[serde(rename = "searches")]
     pub r#searches: Option<Vec<String>>,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct ServiceTaskSpecContainerSpecHealthcheck {
@@ -600,7 +560,6 @@ pub struct ServiceTaskSpecContainerSpecHealthcheck {
     pub r#timeout: Option<String>,
 }
 
-
 #[derive(serde::Serialize)]
 pub struct ServiceTaskSpecContainerSpecHost {
     #[serde(rename = "host")]
@@ -609,7 +568,6 @@ pub struct ServiceTaskSpecContainerSpecHost {
     pub r#ip: String,
 }
 
-
 #[derive(serde::Serialize)]
 pub struct ServiceTaskSpecContainerSpecLabel {
     #[serde(rename = "label")]
@@ -617,7 +575,6 @@ pub struct ServiceTaskSpecContainerSpecLabel {
     #[serde(rename = "value")]
     pub r#value: String,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct ServiceTaskSpecContainerSpecMount {
@@ -637,13 +594,11 @@ pub struct ServiceTaskSpecContainerSpecMount {
     pub r#volume_options: Option<crate::types::ServiceTaskSpecContainerSpecMountVolumeOptions>,
 }
 
-
 #[derive(serde::Serialize)]
 pub struct ServiceTaskSpecContainerSpecMountBindOptions {
     #[serde(rename = "propagation")]
     pub r#propagation: Option<String>,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct ServiceTaskSpecContainerSpecMountTmpfsOptions {
@@ -652,7 +607,6 @@ pub struct ServiceTaskSpecContainerSpecMountTmpfsOptions {
     #[serde(rename = "sizeBytes")]
     pub r#size_bytes: Option<i32>,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct ServiceTaskSpecContainerSpecMountVolumeOptions {
@@ -666,7 +620,6 @@ pub struct ServiceTaskSpecContainerSpecMountVolumeOptions {
     pub r#no_copy: Option<bool>,
 }
 
-
 #[derive(serde::Serialize)]
 pub struct ServiceTaskSpecContainerSpecMountVolumeOptionsLabel {
     #[serde(rename = "label")]
@@ -675,15 +628,15 @@ pub struct ServiceTaskSpecContainerSpecMountVolumeOptionsLabel {
     pub r#value: String,
 }
 
-
 #[derive(serde::Serialize)]
 pub struct ServiceTaskSpecContainerSpecPrivileges {
     #[serde(rename = "credentialSpec")]
-    pub r#credential_spec: Option<crate::types::ServiceTaskSpecContainerSpecPrivilegesCredentialSpec>,
+    pub r#credential_spec:
+        Option<crate::types::ServiceTaskSpecContainerSpecPrivilegesCredentialSpec>,
     #[serde(rename = "seLinuxContext")]
-    pub r#se_linux_context: Option<crate::types::ServiceTaskSpecContainerSpecPrivilegesSeLinuxContext>,
+    pub r#se_linux_context:
+        Option<crate::types::ServiceTaskSpecContainerSpecPrivilegesSeLinuxContext>,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct ServiceTaskSpecContainerSpecPrivilegesCredentialSpec {
@@ -692,7 +645,6 @@ pub struct ServiceTaskSpecContainerSpecPrivilegesCredentialSpec {
     #[serde(rename = "registry")]
     pub r#registry: Option<String>,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct ServiceTaskSpecContainerSpecPrivilegesSeLinuxContext {
@@ -707,7 +659,6 @@ pub struct ServiceTaskSpecContainerSpecPrivilegesSeLinuxContext {
     #[serde(rename = "user")]
     pub r#user: Option<String>,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct ServiceTaskSpecContainerSpecSecret {
@@ -725,7 +676,6 @@ pub struct ServiceTaskSpecContainerSpecSecret {
     pub r#secret_name: Option<String>,
 }
 
-
 #[derive(serde::Serialize)]
 pub struct ServiceTaskSpecLogDriver {
     #[serde(rename = "name")]
@@ -733,7 +683,6 @@ pub struct ServiceTaskSpecLogDriver {
     #[serde(rename = "options")]
     pub r#options: Option<std::collections::HashMap<String, String>>,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct ServiceTaskSpecNetworksAdvanced {
@@ -744,7 +693,6 @@ pub struct ServiceTaskSpecNetworksAdvanced {
     #[serde(rename = "name")]
     pub r#name: String,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct ServiceTaskSpecPlacement {
@@ -758,7 +706,6 @@ pub struct ServiceTaskSpecPlacement {
     pub r#prefs: Option<Vec<String>>,
 }
 
-
 #[derive(serde::Serialize)]
 pub struct ServiceTaskSpecPlacementPlatform {
     #[serde(rename = "architecture")]
@@ -766,7 +713,6 @@ pub struct ServiceTaskSpecPlacementPlatform {
     #[serde(rename = "os")]
     pub r#os: String,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct ServiceTaskSpecResources {
@@ -776,7 +722,6 @@ pub struct ServiceTaskSpecResources {
     pub r#reservation: Option<crate::types::ServiceTaskSpecResourcesReservation>,
 }
 
-
 #[derive(serde::Serialize)]
 pub struct ServiceTaskSpecResourcesLimits {
     #[serde(rename = "memoryBytes")]
@@ -785,17 +730,16 @@ pub struct ServiceTaskSpecResourcesLimits {
     pub r#nano_cpus: Option<i32>,
 }
 
-
 #[derive(serde::Serialize)]
 pub struct ServiceTaskSpecResourcesReservation {
     #[serde(rename = "genericResources")]
-    pub r#generic_resources: Option<crate::types::ServiceTaskSpecResourcesReservationGenericResources>,
+    pub r#generic_resources:
+        Option<crate::types::ServiceTaskSpecResourcesReservationGenericResources>,
     #[serde(rename = "memoryBytes")]
     pub r#memory_bytes: Option<i32>,
     #[serde(rename = "nanoCpus")]
     pub r#nano_cpus: Option<i32>,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct ServiceTaskSpecResourcesReservationGenericResources {
@@ -804,7 +748,6 @@ pub struct ServiceTaskSpecResourcesReservationGenericResources {
     #[serde(rename = "namedResourcesSpecs")]
     pub r#named_resources_specs: Option<Vec<String>>,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct ServiceTaskSpecRestartPolicy {
@@ -817,7 +760,6 @@ pub struct ServiceTaskSpecRestartPolicy {
     #[serde(rename = "window")]
     pub r#window: Option<String>,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct ServiceUpdateConfig {
@@ -835,7 +777,6 @@ pub struct ServiceUpdateConfig {
     pub r#parallelism: Option<i32>,
 }
 
-
 #[derive(serde::Serialize)]
 pub struct VolumeLabel {
     #[serde(rename = "label")]
@@ -843,7 +784,6 @@ pub struct VolumeLabel {
     #[serde(rename = "value")]
     pub r#value: String,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct getNetworkIpamConfig {
@@ -856,7 +796,6 @@ pub struct getNetworkIpamConfig {
     #[serde(rename = "subnet")]
     pub r#subnet: Option<String>,
 }
-
 
 #[derive(serde::Serialize)]
 pub struct registryAuth {
@@ -873,6 +812,5 @@ pub struct registryAuth {
     #[serde(rename = "username")]
     pub r#username: Option<String>,
 }
-
 
 pub type BuilderVersion = String;
