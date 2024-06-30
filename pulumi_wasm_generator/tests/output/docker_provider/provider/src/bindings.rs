@@ -57,50 +57,6 @@ pub mod component {
                 }
             }
 
-            #[allow(unused_unsafe, clippy::all)]
-            pub fn describe_outputs() -> _rt::String {
-                unsafe {
-                    #[repr(align(4))]
-                    struct RetArea([::core::mem::MaybeUninit<u8>; 8]);
-                    let mut ret_area = RetArea([::core::mem::MaybeUninit::uninit(); 8]);
-                    let ptr0 = ret_area.0.as_mut_ptr().cast::<u8>();
-                    #[cfg(target_arch = "wasm32")]
-                    #[link(wasm_import_module = "component:pulumi-wasm/output-interface@0.1.0")]
-                    extern "C" {
-                        #[link_name = "describe-outputs"]
-                        fn wit_import(_: *mut u8);
-                    }
-
-                    #[cfg(not(target_arch = "wasm32"))]
-                    fn wit_import(_: *mut u8) {
-                        unreachable!()
-                    }
-                    wit_import(ptr0);
-                    let l1 = *ptr0.add(0).cast::<*mut u8>();
-                    let l2 = *ptr0.add(4).cast::<usize>();
-                    let len3 = l2;
-                    let bytes3 = _rt::Vec::from_raw_parts(l1.cast(), len3, len3);
-                    _rt::string_lift(bytes3)
-                }
-            }
-            #[allow(unused_unsafe, clippy::all)]
-            pub fn non_done_exists() -> bool {
-                unsafe {
-                    #[cfg(target_arch = "wasm32")]
-                    #[link(wasm_import_module = "component:pulumi-wasm/output-interface@0.1.0")]
-                    extern "C" {
-                        #[link_name = "non-done-exists"]
-                        fn wit_import() -> i32;
-                    }
-
-                    #[cfg(not(target_arch = "wasm32"))]
-                    fn wit_import() -> i32 {
-                        unreachable!()
-                    }
-                    let ret = wit_import();
-                    _rt::bool_lift(ret as u8)
-                }
-            }
             impl Output {
                 #[allow(unused_unsafe, clippy::all)]
                 pub fn new(value: &[u8]) -> Self {
@@ -146,104 +102,6 @@ pub mod component {
                         }
                         let ret = wit_import((self).handle() as i32, ptr0.cast_mut(), len0);
                         Output::from_handle(ret as u32)
-                    }
-                }
-            }
-            impl Output {
-                #[allow(unused_unsafe, clippy::all)]
-                pub fn get(&self) -> Option<_rt::Vec<u8>> {
-                    unsafe {
-                        #[repr(align(4))]
-                        struct RetArea([::core::mem::MaybeUninit<u8>; 12]);
-                        let mut ret_area = RetArea([::core::mem::MaybeUninit::uninit(); 12]);
-                        let ptr0 = ret_area.0.as_mut_ptr().cast::<u8>();
-                        #[cfg(target_arch = "wasm32")]
-                        #[link(wasm_import_module = "component:pulumi-wasm/output-interface@0.1.0")]
-                        extern "C" {
-                            #[link_name = "[method]output.get"]
-                            fn wit_import(_: i32, _: *mut u8);
-                        }
-
-                        #[cfg(not(target_arch = "wasm32"))]
-                        fn wit_import(_: i32, _: *mut u8) {
-                            unreachable!()
-                        }
-                        wit_import((self).handle() as i32, ptr0);
-                        let l1 = i32::from(*ptr0.add(0).cast::<u8>());
-                        match l1 {
-                            0 => None,
-                            1 => {
-                                let e = {
-                                    let l2 = *ptr0.add(4).cast::<*mut u8>();
-                                    let l3 = *ptr0.add(8).cast::<usize>();
-                                    let len4 = l3;
-
-                                    _rt::Vec::from_raw_parts(l2.cast(), len4, len4)
-                                };
-                                Some(e)
-                            }
-                            _ => _rt::invalid_enum_discriminant(),
-                        }
-                    }
-                }
-            }
-            impl Output {
-                #[allow(unused_unsafe, clippy::all)]
-                pub fn get_field(&self, field: &str, required: bool) -> Output {
-                    unsafe {
-                        let vec0 = field;
-                        let ptr0 = vec0.as_ptr().cast::<u8>();
-                        let len0 = vec0.len();
-
-                        #[cfg(target_arch = "wasm32")]
-                        #[link(wasm_import_module = "component:pulumi-wasm/output-interface@0.1.0")]
-                        extern "C" {
-                            #[link_name = "[method]output.get-field"]
-                            fn wit_import(_: i32, _: *mut u8, _: usize, _: i32) -> i32;
-                        }
-
-                        #[cfg(not(target_arch = "wasm32"))]
-                        fn wit_import(_: i32, _: *mut u8, _: usize, _: i32) -> i32 {
-                            unreachable!()
-                        }
-                        let ret = wit_import(
-                            (self).handle() as i32,
-                            ptr0.cast_mut(),
-                            len0,
-                            match &required {
-                                true => 1,
-                                false => 0,
-                            },
-                        );
-                        Output::from_handle(ret as u32)
-                    }
-                }
-            }
-            impl Output {
-                #[allow(unused_unsafe, clippy::all)]
-                pub fn get_type(&self) -> _rt::String {
-                    unsafe {
-                        #[repr(align(4))]
-                        struct RetArea([::core::mem::MaybeUninit<u8>; 8]);
-                        let mut ret_area = RetArea([::core::mem::MaybeUninit::uninit(); 8]);
-                        let ptr0 = ret_area.0.as_mut_ptr().cast::<u8>();
-                        #[cfg(target_arch = "wasm32")]
-                        #[link(wasm_import_module = "component:pulumi-wasm/output-interface@0.1.0")]
-                        extern "C" {
-                            #[link_name = "[method]output.get-type"]
-                            fn wit_import(_: i32, _: *mut u8);
-                        }
-
-                        #[cfg(not(target_arch = "wasm32"))]
-                        fn wit_import(_: i32, _: *mut u8) {
-                            unreachable!()
-                        }
-                        wit_import((self).handle() as i32, ptr0);
-                        let l1 = *ptr0.add(0).cast::<*mut u8>();
-                        let l2 = *ptr0.add(4).cast::<usize>();
-                        let len3 = l2;
-                        let bytes3 = _rt::Vec::from_raw_parts(l1.cast(), len3, len3);
-                        _rt::string_lift(bytes3)
                     }
                 }
             }
@@ -303,6 +161,18 @@ pub mod component {
                         .finish()
                 }
             }
+            pub struct RegisterResourceResultField {
+                pub name: _rt::String,
+                pub output: Output,
+            }
+            impl ::core::fmt::Debug for RegisterResourceResultField {
+                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                    f.debug_struct("RegisterResourceResultField")
+                        .field("name", &self.name)
+                        .field("output", &self.output)
+                        .finish()
+                }
+            }
             pub struct RegisterResourceRequest<'a> {
                 pub type_: _rt::String,
                 pub name: _rt::String,
@@ -319,9 +189,22 @@ pub mod component {
                         .finish()
                 }
             }
+            pub struct RegisterResourceResult {
+                pub fields: _rt::Vec<RegisterResourceResultField>,
+            }
+            impl ::core::fmt::Debug for RegisterResourceResult {
+                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                    f.debug_struct("RegisterResourceResult")
+                        .field("fields", &self.fields)
+                        .finish()
+                }
+            }
             #[allow(unused_unsafe, clippy::all)]
-            pub fn register(request: &RegisterResourceRequest<'_>) -> Output {
+            pub fn register(request: &RegisterResourceRequest<'_>) -> RegisterResourceResult {
                 unsafe {
+                    #[repr(align(4))]
+                    struct RetArea([::core::mem::MaybeUninit<u8>; 8]);
+                    let mut ret_area = RetArea([::core::mem::MaybeUninit::uninit(); 8]);
                     let RegisterResourceRequest {
                         type_: type_0,
                         name: name0,
@@ -396,7 +279,7 @@ pub mod component {
                             *base.add(8).cast::<*mut u8>() = ptr8.cast_mut();
                         }
                     }
-
+                    let ptr10 = ret_area.0.as_mut_ptr().cast::<u8>();
                     #[cfg(target_arch = "wasm32")]
                     #[link(wasm_import_module = "component:pulumi-wasm/register-interface@0.1.0")]
                     extern "C" {
@@ -410,7 +293,8 @@ pub mod component {
                             _: usize,
                             _: *mut u8,
                             _: usize,
-                        ) -> i32;
+                            _: *mut u8,
+                        );
                     }
 
                     #[cfg(not(target_arch = "wasm32"))]
@@ -423,10 +307,11 @@ pub mod component {
                         _: usize,
                         _: *mut u8,
                         _: usize,
-                    ) -> i32 {
+                        _: *mut u8,
+                    ) {
                         unreachable!()
                     }
-                    let ret = wit_import(
+                    wit_import(
                         ptr1.cast_mut(),
                         len1,
                         ptr2.cast_mut(),
@@ -435,14 +320,37 @@ pub mod component {
                         len5,
                         result9,
                         len9,
+                        ptr10,
                     );
+                    let l11 = *ptr10.add(0).cast::<*mut u8>();
+                    let l12 = *ptr10.add(4).cast::<usize>();
+                    let base17 = l11;
+                    let len17 = l12;
+                    let mut result17 = _rt::Vec::with_capacity(len17);
+                    for i in 0..len17 {
+                        let base = base17.add(i * 12);
+                        let e17 = {
+                            let l13 = *base.add(0).cast::<*mut u8>();
+                            let l14 = *base.add(4).cast::<usize>();
+                            let len15 = l14;
+                            let bytes15 = _rt::Vec::from_raw_parts(l13.cast(), len15, len15);
+                            let l16 = *base.add(8).cast::<i32>();
+
+                            RegisterResourceResultField{
+                name: _rt::string_lift(bytes15),
+                output: super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(l16 as u32),
+              }
+                        };
+                        result17.push(e17);
+                    }
+                    _rt::cabi_dealloc(base17, len17 * 12, 4);
                     if layout5.size() != 0 {
                         _rt::alloc::dealloc(result5.cast(), layout5);
                     }
                     if layout9.size() != 0 {
                         _rt::alloc::dealloc(result9.cast(), layout9);
                     }
-                    super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(ret as u32)
+                    RegisterResourceResult { fields: result17 }
                 }
             }
         }
@@ -2778,6 +2686,7 @@ mod _rt {
             }
         }
     }
+    pub use alloc_crate::alloc;
     pub use alloc_crate::string::String;
     pub use alloc_crate::vec::Vec;
     pub unsafe fn string_lift(bytes: Vec<u8>) -> String {
@@ -2787,36 +2696,17 @@ mod _rt {
             String::from_utf8_unchecked(bytes)
         }
     }
-    pub unsafe fn bool_lift(val: u8) -> bool {
-        if cfg!(debug_assertions) {
-            match val {
-                0 => false,
-                1 => true,
-                _ => panic!("invalid bool discriminant"),
-            }
-        } else {
-            val != 0
-        }
-    }
-    pub unsafe fn invalid_enum_discriminant<T>() -> T {
-        if cfg!(debug_assertions) {
-            panic!("invalid enum discriminant")
-        } else {
-            core::hint::unreachable_unchecked()
-        }
-    }
-    pub use alloc_crate::alloc;
-
-    #[cfg(target_arch = "wasm32")]
-    pub fn run_ctors_once() {
-        wit_bindgen_rt::run_ctors_once();
-    }
     pub unsafe fn cabi_dealloc(ptr: *mut u8, size: usize, align: usize) {
         if size == 0 {
             return;
         }
         let layout = alloc::Layout::from_size_align_unchecked(size, align);
         alloc::dealloc(ptr as *mut u8, layout);
+    }
+
+    #[cfg(target_arch = "wasm32")]
+    pub fn run_ctors_once() {
+        wit_bindgen_rt::run_ctors_once();
     }
     extern crate alloc as alloc_crate;
 }
@@ -2862,21 +2752,19 @@ pub(crate) use __export_main_world_impl as export;
 #[cfg(target_arch = "wasm32")]
 #[link_section = "component-type:wit-bindgen:0.25.0:main-world:encoded world"]
 #[doc(hidden)]
-pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 4840] = *b"\
-\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xe7$\x01A\x02\x01A\x1b\
-\x01B\x15\x04\0\x06output\x03\x01\x01p}\x01i\0\x01@\x01\x05value\x01\0\x02\x04\0\
+pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 4753] = *b"\
+\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\x90$\x01A\x02\x01A\x1b\
+\x01B\x0a\x04\0\x06output\x03\x01\x01p}\x01i\0\x01@\x01\x05value\x01\0\x02\x04\0\
 \x13[constructor]output\x01\x03\x01h\0\x01@\x02\x04self\x04\x0dfunction-names\0\x02\
-\x04\0\x12[method]output.map\x01\x05\x01k\x01\x01@\x01\x04self\x04\0\x06\x04\0\x12\
-[method]output.get\x01\x07\x01@\x03\x04self\x04\x05fields\x08required\x7f\0\x02\x04\
-\0\x18[method]output.get-field\x01\x08\x01@\x01\x04self\x04\0s\x04\0\x17[method]\
-output.get-type\x01\x09\x01@\x01\x04self\x04\0\x02\x04\0\x18[method]output.dupli\
-cate\x01\x0a\x01@\0\0s\x04\0\x10describe-outputs\x01\x0b\x01@\0\0\x7f\x04\0\x0fn\
-on-done-exists\x01\x0c\x03\x01,component:pulumi-wasm/output-interface@0.1.0\x05\0\
-\x02\x03\0\0\x06output\x01B\x0f\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\
-\x01\x01r\x02\x04names\x05value\x02\x04\0\x0cobject-field\x03\0\x03\x01p}\x01r\x02\
-\x04names\x06schema\x05\x04\0\x0cresult-field\x03\0\x06\x01p\x04\x01p\x07\x01r\x04\
-\x04types\x04names\x06object\x08\x07results\x09\x04\0\x19register-resource-reque\
-st\x03\0\x0a\x01i\x01\x01@\x01\x07request\x0b\0\x0c\x04\0\x08register\x01\x0d\x03\
+\x04\0\x12[method]output.map\x01\x05\x01@\x01\x04self\x04\0\x02\x04\0\x18[method\
+]output.duplicate\x01\x06\x03\x01,component:pulumi-wasm/output-interface@0.1.0\x05\
+\0\x02\x03\0\0\x06output\x01B\x14\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
+h\x01\x01r\x02\x04names\x05value\x02\x04\0\x0cobject-field\x03\0\x03\x01p}\x01r\x02\
+\x04names\x06schema\x05\x04\0\x0cresult-field\x03\0\x06\x01i\x01\x01r\x02\x04nam\
+es\x06output\x08\x04\0\x1eregister-resource-result-field\x03\0\x09\x01p\x04\x01p\
+\x07\x01r\x04\x04types\x04names\x06object\x0b\x07results\x0c\x04\0\x19register-r\
+esource-request\x03\0\x0d\x01p\x0a\x01r\x01\x06fields\x0f\x04\0\x18register-reso\
+urce-result\x03\0\x10\x01@\x01\x07request\x0e\0\x11\x04\0\x08register\x01\x12\x03\
 \x01.component:pulumi-wasm/register-interface@0.1.0\x05\x02\x01B\x0a\x02\x03\x02\
 \x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r>\x06attach\x02\x0ccapabilities\x02\
 \x0dcgroupns-mode\x02\x07command\x02+container-read-refresh-timeout-milliseconds\
