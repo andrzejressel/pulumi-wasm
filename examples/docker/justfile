@@ -1,7 +1,7 @@
 set windows-shell := ["pwsh.exe", "-c"]
 
 run:
-    ../../target/debug/pulumi_wasm_runner -- run --wasm ../../target/wasm32-wasi/debug/pulumi/pulumi_wasm_example_docker.wasm
+    ../../target/debug/pulumi_wasm_runner run --wasm ../../target/wasm32-wasi/debug/pulumi/pulumi_wasm_example_docker.wasm
 
 [windows]
 local-test:
