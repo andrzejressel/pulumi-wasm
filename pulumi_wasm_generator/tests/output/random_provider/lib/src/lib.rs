@@ -7,6 +7,9 @@ mod bindings {
     wit_bindgen::generate!({
         // the name of the world in the `*.wit` input file
         world: "main-world-client",
+        with: {
+            "component:pulumi-wasm/output-interface@0.1.0": generate
+        }
     });
 }
 
