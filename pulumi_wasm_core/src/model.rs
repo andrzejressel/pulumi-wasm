@@ -29,9 +29,9 @@ impl From<Value> for NodeValue {
 #[derive(Clone, Debug, PartialEq, Eq, Hash)]
 pub struct FunctionName(String);
 
-impl FunctionName {
-    pub fn to_string(&self) -> String {
-        self.0.clone()
+impl From<FunctionName> for String {
+    fn from(val: FunctionName) -> Self {
+        val.0
     }
 }
 

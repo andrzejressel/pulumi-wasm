@@ -77,7 +77,7 @@ impl stack_interface::Guest for Component {
                 let id: CustomOutputId = result.output_id.into();
                 FunctionInvocationRequest {
                     id: Output::new(id),
-                    function_id: result.function_name.to_string(),
+                    function_id: result.function_name.into(),
                     value: vec,
                 }
             })
