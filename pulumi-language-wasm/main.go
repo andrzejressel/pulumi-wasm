@@ -431,7 +431,7 @@ func (host *wasmLanguageHost) GetProgramDependencies(
 	return &pulumirpc.GetProgramDependenciesResponse{}, nil
 }
 
-func (host *wasmLanguageHost) About(ctx context.Context, _  *pulumirpc.AboutRequest) (*pulumirpc.AboutResponse, error) {
+func (host *wasmLanguageHost) About(ctx context.Context, _ *pulumirpc.AboutRequest) (*pulumirpc.AboutResponse, error) {
 	metadata := make(map[string]string)
 
 	scalaExec, err := host.Executor()
