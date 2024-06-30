@@ -3,10 +3,6 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use bindings::exports::pulumi::{{@root.package.name}}::{{name}};
 {{/each}}
 
-#[allow(clippy::all)]
-#[allow(dead_code)]
-#[allow(unused_variables)]
-#[allow(unused_unsafe)]
 mod bindings;
 bindings::export!(Component with_types_in bindings);
 

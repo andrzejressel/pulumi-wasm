@@ -3,10 +3,6 @@ use bindings::exports::pulumi::command::local_command;
 use bindings::exports::pulumi::command::remote_command;
 use bindings::exports::pulumi::command::remote_copy_file;
 
-#[allow(clippy::all)]
-#[allow(dead_code)]
-#[allow(unused_variables)]
-#[allow(unused_unsafe)]
 mod bindings;
 bindings::export!(Component with_types_in bindings);
 
