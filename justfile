@@ -36,7 +36,7 @@ build-wasm-components:
     cargo run -p cargo-pulumi -- -p pulumi_wasm_example_dependencies
     cargo run -p cargo-pulumi -- -p pulumi_wasm_example_docker
     cargo run -p cargo-pulumi -- -p pulumi_wasm_example_simple
-    cargo build --all
+    cargo build -p pulumi_wasm_runner
     cargo test --no-run --all
 
 check:
