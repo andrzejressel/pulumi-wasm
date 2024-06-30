@@ -129,7 +129,6 @@ impl Engine {
             }
 
             self.pulumi.register_outputs(value);
-
         }
 
         None
@@ -1037,8 +1036,8 @@ mod tests {
     }
 
     mod register_outputs {
-        use mockall::predicate::eq;
         use super::*;
+        use mockall::predicate::eq;
 
         #[test]
         fn should_register_outputs() {

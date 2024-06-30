@@ -44,11 +44,12 @@ impl PulumiService for PulumiServiceImpl {
     }
 
     fn register_outputs(&self, outputs: HashMap<FieldName, Value>) {
-        if (!self.is_in_preview) {
-
+        if !self.is_in_preview {
             let root = self.connector.get_root_resource();
 
-            let object = Self::create_protobuf_struct(outputs.into_iter().map(|(k, v)| (k, Some(v))).collect());
+            let object = Self::create_protobuf_struct(
+                outputs.into_iter().map(|(k, v)| (k, Some(v))).collect(),
+            );
 
             let request = grpc::RegisterResourceOutputsRequest {
                 urn: root,
@@ -56,7 +57,6 @@ impl PulumiService for PulumiServiceImpl {
             };
 
             self.connector.register_outputs(request.encode_to_vec());
-
         }
     }
 
@@ -135,7 +135,7 @@ impl PulumiService for PulumiServiceImpl {
     }
 }
 
-const UNKNOWN_VALUE: &'static str = "04da6b54-80e4-46f7-96ec-b56ff0331ba9";
+const UNKNOWN_VALUE: &str = "04da6b54-80e4-46f7-96ec-b56ff0331ba9";
 
 impl PulumiServiceImpl {
     fn protoc_object_to_messagepack_map(

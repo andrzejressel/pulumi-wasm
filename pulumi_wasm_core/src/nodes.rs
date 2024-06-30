@@ -306,7 +306,6 @@ impl ExtractFieldNode {
 #[cfg(test)]
 mod tests {
     use std::collections::HashMap;
-    use uuid::Uuid;
 
     use crate::model::NodeValue::{Exists, Nothing};
     use crate::nodes::RegisterResourceNode;
@@ -348,11 +347,4 @@ mod tests {
             );
         }
     }
-
-    static UUID_1: Uuid = Uuid::from_bytes([1; 16]);
-    static UUID_2: Uuid = Uuid::from_bytes([2; 16]);
-    static UUID_3: Uuid = Uuid::from_bytes([3; 16]);
-    static UUID_4: Uuid = Uuid::from_bytes([4; 16]);
-    static UUID_5: Uuid = Uuid::from_bytes([5; 16]);
-    static UUID_6: Uuid = Uuid::from_bytes([6; 16]);
 }

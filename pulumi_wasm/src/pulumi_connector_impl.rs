@@ -28,6 +28,6 @@ impl PulumiConnector for PulumiConnectorImpl {
     }
 
     fn register_outputs(&self, req: Vec<u8>) {
-        external_world::register_resource_outputs(&*req);
+        external_world::register_resource_outputs(&req);
     }
 }

@@ -2,7 +2,7 @@ use crate::bindings::component::pulumi_wasm::stack_interface::{
     finish, FunctionInvocationRequest, FunctionInvocationResult,
 };
 use crate::output::HASHMAP;
-use anyhow::{Context, Error};
+use anyhow::{Context, Error, Result};
 use log::{error, info};
 
 pub fn run<F>(f: F) -> Result<(), Error>
@@ -43,9 +43,7 @@ fn run_all_function() -> Result<(), Error> {
     }
 }
 
-fn map_functions(
-    functions: &Vec<FunctionInvocationRequest>,
-) -> anyhow::Result<Vec<FunctionInvocationResult>> {
+fn map_functions(functions: &[FunctionInvocationRequest]) -> Result<Vec<FunctionInvocationResult>> {
     let functions_map = HASHMAP.lock().unwrap();
 
     functions

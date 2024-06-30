@@ -48,7 +48,9 @@ impl stack_interface::Guest for Component {
     fn add_export(name: String, value: OutputBorrow<'_>) {
         wasm_common::setup_logger();
         let refcell: &RefCell<Engine> = &get_pulumi_engine();
-        refcell.borrow_mut().add_output(name.into(), value.get::<CustomOutputId>().0);
+        refcell
+            .borrow_mut()
+            .add_output(name.into(), value.get::<CustomOutputId>().0);
     }
 
     fn finish(functions: Vec<FunctionInvocationResult>) -> Vec<FunctionInvocationRequest> {

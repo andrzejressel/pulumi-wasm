@@ -2,13 +2,11 @@ use anyhow::Error;
 use async_trait::async_trait;
 use log::info;
 use prost::Message;
-use std::collections::HashMap;
 use wasmtime::component::{Component, Instance, Linker, ResourceTable};
 use wasmtime::Store;
 use wasmtime_wasi::{WasiCtx, WasiCtxBuilder, WasiView};
 
 use crate::grpc::engine_client::EngineClient;
-use crate::grpc::register_resource_request::PropertyDependencies;
 use crate::grpc::resource_monitor_client::ResourceMonitorClient;
 use crate::grpc::{
     GetRootResourceRequest, RegisterResourceOutputsRequest, RegisterResourceRequest,
