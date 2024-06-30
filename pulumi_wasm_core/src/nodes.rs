@@ -202,14 +202,20 @@ impl RegisterResourceNode {
         node_value
     }
 
+    pub(crate) fn get_value(&self) -> &MaybeNodeValue {
+        &self.value
+    }
+
     fn generate_request(&self) -> RegisterResourceRequest {
         let mut object = HashMap::new();
 
         for (name, value) in self.inputs.iter() {
             match value {
-                NodeValue::Nothing => {}
+                NodeValue::Nothing => {
+                    object.insert(name.clone(), None);
+                }
                 NodeValue::Exists(v) => {
-                    object.insert(name.clone(), v.clone());
+                    object.insert(name.clone(), Some(v.clone()));
                 }
             };
         }
@@ -333,8 +339,9 @@ mod tests {
                     r#type: "type".into(),
                     name: "name".into(),
                     object: HashMap::from([
-                        ("exists_nil".into(), Nil),
-                        ("exists_int".into(), 2.into()),
+                        ("exists_nil".into(), Some(Nil)),
+                        ("exists_int".into(), Some(2.into())),
+                        ("not_exist".into(), None),
                     ]),
                     expected_results: HashMap::from([("output".into(), Type::Bool)]),
                 })

@@ -43,8 +43,21 @@ impl PulumiService for PulumiServiceImpl {
         unimplemented!()
     }
 
-    fn register_outputs(&self, _outputs: HashMap<String, Value>) {
-        unimplemented!()
+    fn register_outputs(&self, outputs: HashMap<FieldName, Value>) {
+        if (!self.is_in_preview) {
+
+            let root = self.connector.get_root_resource();
+
+            let object = Self::create_protobuf_struct(outputs.into_iter().map(|(k, v)| (k, Some(v))).collect());
+
+            let request = grpc::RegisterResourceOutputsRequest {
+                urn: root,
+                outputs: Some(object),
+            };
+
+            self.connector.register_outputs(request.encode_to_vec());
+
+        }
     }
 
     fn register_resource(&self, output_id: OutputId, request: RegisterResourceRequest) {
@@ -122,6 +135,8 @@ impl PulumiService for PulumiServiceImpl {
     }
 }
 
+const UNKNOWN_VALUE: &'static str = "04da6b54-80e4-46f7-96ec-b56ff0331ba9";
+
 impl PulumiServiceImpl {
     fn protoc_object_to_messagepack_map(
         o: Struct,
@@ -142,11 +157,16 @@ impl PulumiServiceImpl {
             .collect::<HashMap<_, _>>()
     }
 
-    fn create_protobuf_struct(fields: HashMap<FieldName, Value>) -> Struct {
+    fn create_protobuf_struct(fields: HashMap<FieldName, Option<Value>>) -> Struct {
         let pairs = fields
             .iter()
             .map(|(name, value)| {
-                let v = msgpack_protobuf_converter::msgpack_to_protobuf(value).unwrap();
+                let v = match value {
+                    None => prost_types::Value {
+                        kind: Some(prost_types::value::Kind::StringValue(UNKNOWN_VALUE.into())),
+                    },
+                    Some(value) => msgpack_protobuf_converter::msgpack_to_protobuf(value).unwrap(),
+                };
                 (name.as_string().clone(), v)
             })
             .collect::<Vec<_>>();
@@ -164,11 +184,6 @@ mod tests {
     use prost_types::Struct;
 
     use crate::pulumi::service_impl::PulumiServiceImpl;
-
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-    }
 
     #[test]
     fn protoc_object_to_messagepack_map_ignored_fields_without_schema() {

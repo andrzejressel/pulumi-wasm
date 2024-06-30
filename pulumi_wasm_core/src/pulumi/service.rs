@@ -8,7 +8,7 @@ use std::collections::{HashMap, HashSet};
 pub trait PulumiService {
     fn is_in_preview(&self) -> bool;
     fn get_root_resource(&self) -> String;
-    fn register_outputs(&self, outputs: HashMap<String, Value>);
+    fn register_outputs(&self, outputs: HashMap<FieldName, Value>);
     fn register_resource(&self, output_id: OutputId, request: RegisterResourceRequest);
     fn register_resource_poll(
         &self,
@@ -29,7 +29,7 @@ impl RegisterId {
 pub struct RegisterResourceRequest {
     pub(crate) r#type: String,
     pub(crate) name: String,
-    pub(crate) object: HashMap<FieldName, Value>,
+    pub(crate) object: HashMap<FieldName, Option<Value>>,
     pub(crate) expected_results: HashMap<FieldName, msgpack_protobuf_converter::Type>,
 }
 

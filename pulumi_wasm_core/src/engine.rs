@@ -7,11 +7,12 @@ use rmpv::Value;
 use uuid::Uuid;
 
 use crate::model::NodeValue::Exists;
-use crate::model::{FieldName, FunctionName, NodeValue, OutputId};
+use crate::model::{FieldName, FunctionName, MaybeNodeValue, NodeValue, OutputId};
 use crate::nodes::{
     Callback, DoneNode, ExtractFieldNode, NativeFunctionNode, RegisterResourceNode,
 };
 use crate::pulumi::service::PulumiService;
+use crate::ref_utils::Mappable;
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct ForeignFunctionToInvoke {
@@ -82,6 +83,8 @@ pub struct Engine {
     ready_foreign_function_ids: HashSet<OutputId>,
     register_resource_ids: HashSet<OutputId>,
 
+    outputs: HashMap<FieldName, OutputId>,
+
     pulumi: Box<dyn PulumiService>,
     nodes: NodesMap,
 }
@@ -92,6 +95,7 @@ impl Engine {
             done_node_ids: VecDeque::new(),
             ready_foreign_function_ids: HashSet::new(),
             register_resource_ids: HashSet::new(),
+            outputs: HashMap::new(),
             nodes: HashMap::new(),
             pulumi: Box::new(pulumi),
         }
@@ -110,12 +114,54 @@ impl Engine {
             }
 
             if self.register_resource_ids.is_empty() {
-                return None;
+                break;
             }
             self.handle_creating_resources();
         }
 
-        // None
+        if !self.outputs.is_empty() {
+            let mut value = HashMap::new();
+
+            for (field_name, output_id) in self.outputs.iter() {
+                if let Some(output_id) = self.get_value(*output_id) {
+                    value.insert(field_name.clone(), output_id);
+                }
+            }
+
+            self.pulumi.register_outputs(value);
+
+        }
+
+        None
+    }
+
+    pub fn add_output(&mut self, field_name: FieldName, output_id: OutputId) {
+        self.outputs.insert(field_name, output_id);
+    }
+
+    fn get_value(&self, output_id: OutputId) -> Option<Value> {
+        match self.nodes.get(&output_id) {
+            None => {
+                error!("Cannot find node with id {}", output_id);
+                panic!("Cannot find node with id {}", output_id)
+                // Maybe in the future?
+                // unsafe { unreachable_unchecked() }
+            }
+            Some(r) => {
+                let ndv = match r.0.borrow().deref() {
+                    EngineNode::Done(node) => MaybeNodeValue::Set(node.get_value().clone()),
+                    EngineNode::NativeFunction(node) => node.get_value().clone(),
+                    EngineNode::RegisterResource(node) => node.get_value().clone(),
+                    EngineNode::ExtractField(node) => node.get_value().clone(),
+                };
+
+                match ndv {
+                    MaybeNodeValue::NotYetCalculated => None,
+                    MaybeNodeValue::Set(NodeValue::Nothing) => None,
+                    MaybeNodeValue::Set(NodeValue::Exists(v)) => Some(v),
+                }
+            }
+        }
     }
 
     fn prepare_foreign_function_results(&self) -> Vec<ForeignFunctionToInvoke> {
@@ -850,7 +896,7 @@ mod tests {
                 &ExtractFieldNode::create(
                     Set(Exists(1.into())),
                     "key".into(),
-                    vec![NativeFunction(native_function_node_output_id)]
+                    vec![NativeFunction(native_function_node_output_id)],
                 )
             );
         }
@@ -890,7 +936,7 @@ mod tests {
                     1.into(),
                     vec![Callback::create_resource(
                         register_resource_node_output_id,
-                        "input".into()
+                        "input".into(),
                     )],
                 )
             );
@@ -939,7 +985,7 @@ mod tests {
                     eq(RegisterResourceRequest {
                         r#type: "type".into(),
                         name: "name".into(),
-                        object: HashMap::from([("input".into(), 1.into())]),
+                        object: HashMap::from([("input".into(), Some(1.into()))]),
                         expected_results: HashMap::from([(
                             "output".into(),
                             msgpack_protobuf_converter::Type::Bool,
@@ -987,6 +1033,28 @@ mod tests {
 
             let output_node = engine.get_extract_field(*outputs.get(&"output".into()).unwrap());
             assert_eq!(output_node.get_value(), &Value::Boolean(true).into());
+        }
+    }
+
+    mod register_outputs {
+        use mockall::predicate::eq;
+        use super::*;
+
+        #[test]
+        fn should_register_outputs() {
+            let mut mock = MockPulumiService::new();
+            mock.expect_register_outputs()
+                .times(1)
+                .with(eq(HashMap::from([("output".into(), 1.into())])))
+                .returning(|_| ());
+
+            let mut engine = Engine::new(mock);
+
+            let output_id = engine.create_done_node(1.into());
+            engine.add_output("output".into(), output_id);
+
+            let result = engine.run(HashMap::new());
+            assert_eq!(result, None);
         }
     }
 

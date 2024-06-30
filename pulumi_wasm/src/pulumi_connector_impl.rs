@@ -5,6 +5,9 @@ use pulumi_wasm_core::PulumiConnector;
 pub(crate) struct PulumiConnectorImpl {}
 
 impl PulumiConnector for PulumiConnectorImpl {
+    fn get_root_resource(&self) -> String {
+        external_world::get_root_resource()
+    }
     fn is_in_preview(&self) -> bool {
         external_world::is_in_preview()
     }
@@ -22,5 +25,9 @@ impl PulumiConnector for PulumiConnectorImpl {
             .into_iter()
             .map(|r| (r.output_id, r.body))
             .collect()
+    }
+
+    fn register_outputs(&self, req: Vec<u8>) {
+        external_world::register_resource_outputs(&*req);
     }
 }

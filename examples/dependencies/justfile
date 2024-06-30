@@ -12,4 +12,4 @@ local-test:
     cargo run -p cargo-pulumi
     $env:PULUMI_CONFIG_PASSPHRASE=" "
     pulumi destroy -y
-    pulumi up -y 
+    pulumi up -y

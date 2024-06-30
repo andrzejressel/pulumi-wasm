@@ -47,9 +47,8 @@ struct Component;
 impl stack_interface::Guest for Component {
     fn add_export(name: String, value: OutputBorrow<'_>) {
         wasm_common::setup_logger();
-        // let output = value.get::<Output>().clone();
-        // info!("Adding export [{name}] with output [{output:?}]");
-        // output_map().insert(name, output);
+        let refcell: &RefCell<Engine> = &get_pulumi_engine();
+        refcell.borrow_mut().add_output(name.into(), value.get::<CustomOutputId>().0);
     }
 
     fn finish(functions: Vec<FunctionInvocationResult>) -> Vec<FunctionInvocationRequest> {
