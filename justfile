@@ -19,8 +19,8 @@ install-requirements:
     cargo install wasm-tools@1.202.0 --locked || wasm-tools --version
 
 build-wasm-components:
+    cargo build pulumi_wasm_runner
     cargo component build -p pulumi_wasm \
-                          -p pulumi_wasm_runner \
                           -p pulumi_wasm_example_simple \
                           -p pulumi_wasm_example_docker
     # DO NOT EDIT - BUILD-WASM-COMPONENTS - START
