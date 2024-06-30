@@ -28,8 +28,9 @@ build-wasm-components:
       -p pulumi_wasm_docker_provider \
       -p pulumi_wasm_random_provider \
     # DO NOT EDIT - BUILD-WASM-COMPONENTS - END
-    cargo run -p cargo-pulumi -- -p pulumi_wasm_example_simple
+    cargo run -p cargo-pulumi -- -p pulumi_wasm_example_dependencies
     cargo run -p cargo-pulumi -- -p pulumi_wasm_example_docker
+    cargo run -p cargo-pulumi -- -p pulumi_wasm_example_simple
 
 check:
     cargo fmt --all -- --check
