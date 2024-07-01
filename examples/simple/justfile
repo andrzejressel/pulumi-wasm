@@ -1,6 +1,6 @@
 set windows-shell := ["pwsh.exe", "-c"]
 binary := "../../target/debug/pulumi_wasm_runner"
-wasm := "../../target/wasm32-wasi/debug/pulumi/pulumi_wasm_example_simple.wasm"
+wasm := "../../target/wasm32-wasip1/debug/pulumi/pulumi_wasm_example_simple.wasm"
 
 run:
     {{binary}} run --wasm {{wasm}}

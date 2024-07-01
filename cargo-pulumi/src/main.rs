@@ -103,7 +103,7 @@ fn main() -> Result<(), Error> {
     let wasm_files_location = target
         .clone()
         .into_std_path_buf()
-        .join("wasm32-wasi")
+        .join("wasm32-wasip1")
         .join("debug");
 
     let packages = sort_packages(&package, all_packages);
