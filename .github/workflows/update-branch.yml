@@ -25,8 +25,8 @@ jobs:
           pulumi_wasm_generator/tests/output/command_provider/
           pulumi_wasm_generator/tests/output/docker_provider/
           pulumi_wasm_generator/tests/output/random_provider/
-          cargo-pulumi/tests/fixtures/example -> targets/run_from_main_directory
-          cargo-pulumi/tests/fixtures/example -> targets/run_from_subdirectory
+          cargo-pulumi/tests/fixtures/example -> targets/target/run_from_main_directory
+          cargo-pulumi/tests/fixtures/example -> targets/target/run_from_subdirectory
     - uses: actions/setup-go@v5
       with:
         go-version: '^1.22.0'
