@@ -82,7 +82,10 @@ fn run_from_subdirectory() -> Result<(), Error> {
 
     Command::cargo_bin("cargo-pulumi")?
         .current_dir(dir.join("main"))
-        .env("CARGO_TARGET_DIR", "../targets/target/run_from_subdirectory")
+        .env(
+            "CARGO_TARGET_DIR",
+            "../targets/target/run_from_subdirectory",
+        )
         .assert()
         .success();
 
