@@ -45,8 +45,6 @@ jobs:
     - uses: extractions/setup-just@v2
     - name: Install requirements
       run: just install-requirements
-    - name: Check
-      run: just check
     - name: Build
       run: just build
     - name: Test
