@@ -1,5 +1,5 @@
 use crate::model::{ElementId, GlobalType, GlobalTypeProperty, Ref, Type};
-use crate::output::replace_multiple_dashes;
+use crate::output::{replace_multiple_dashes, to_rust_ident};
 use anyhow::Context;
 use handlebars::Handlebars;
 use msgpack_protobuf_converter::Type as ConverterType;
@@ -100,6 +100,7 @@ fn create_valid_id(s: &str) -> String {
 
     let result = replace_multiple_dashes(&result);
     let result = result.trim_matches('-').to_string();
+    let result = to_rust_ident(&result);
 
     result.replace('-', "_")
 }
