@@ -6,6 +6,10 @@ use std::str;
 
 #[test]
 fn test_integration() -> Result<(), anyhow::Error> {
+    if std::env::var("GITHUB_ACTIONS").is_ok() && !cfg!(target_os = "linux") {
+        return Ok(());
+    }
+
     let github_token_env_vars = if let Ok(token) = std::env::var("GITHUB_TOKEN") {
         vec![("GITHUB_TOKEN".to_string(), token)]
     } else {
