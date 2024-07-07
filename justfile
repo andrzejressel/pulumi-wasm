@@ -19,9 +19,9 @@ build-language-plugin:
     cd pulumi-language-wasm && just
 
 install-requirements:
-    cargo binstall cargo-nextest@{{NEXTEST_VERSION}} --locked || cargo-nextest --version
-    cargo binstall cargo-component@{{CARGO_COMPONENT_VERSION}} --locked || cargo-component --version
-    cargo binstall wasm-tools@{{WASM_TOOLS_VERSION}} --locked || wasm-tools --version
+    cargo binstall --no-confirm cargo-nextest@{{NEXTEST_VERSION}} || cargo-nextest --version
+    cargo binstall --no-confirm cargo-component@{{CARGO_COMPONENT_VERSION}} || cargo-component --version
+    cargo binstall --no-confirm wasm-tools@{{WASM_TOOLS_VERSION}} || wasm-tools --version
 
 build-wasm-components:
     cargo component build -p pulumi_wasm \
