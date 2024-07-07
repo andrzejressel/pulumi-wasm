@@ -3,8 +3,6 @@ set windows-shell := ["pwsh.exe", "-c"]
 NEXTEST_VERSION := "0.9.72"
 # renovate: datasource=crate depName=cargo-component packageName=cargo-component
 CARGO_COMPONENT_VERSION := "0.13.0"
-# renovate: datasource=crate depName=wasm-tools packageName=wasm-tools
-WASM_TOOLS_VERSION := "1.202.0"
 
 @default: build test
 
@@ -22,7 +20,6 @@ install-requirements:
     rustup component add rustfmt
     cargo install cargo-nextest@{{NEXTEST_VERSION}} --locked || cargo-nextest --version
     cargo install cargo-component@{{CARGO_COMPONENT_VERSION}} --locked || cargo-component --version
-    cargo install wasm-tools@{{WASM_TOOLS_VERSION}} --locked || wasm-tools --version
 
 build-wasm-components:
     cargo component build -p pulumi_wasm \
