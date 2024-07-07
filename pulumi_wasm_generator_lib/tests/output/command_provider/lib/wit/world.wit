@@ -1,0 +1,105 @@
+package pulumi:%command@0.9.2;
+
+world %command-pulumi {
+    import component:pulumi-wasm/register-interface@0.1.0;
+    export %local-command;
+    export %remote-command;
+    export %remote-copy-file;
+}
+
+world %command-pulumi-client {
+    import %local-command;
+    import %remote-command;
+    import %remote-copy-file;
+}
+
+interface %local-command {
+
+    use component:pulumi-wasm/output-interface@0.1.0.{output};
+
+    record args {
+        %archive-paths: borrow<output>,
+        %asset-paths: borrow<output>,
+        %create: borrow<output>,
+        %delete: borrow<output>,
+        %dir: borrow<output>,
+        %environment: borrow<output>,
+        %interpreter: borrow<output>,
+        %stdin: borrow<output>,
+        %triggers: borrow<output>,
+        %update: borrow<output>,
+    }
+
+    record res {
+        %archive: output,
+        %archive-paths: output,
+        %asset-paths: output,
+        %assets: output,
+        %create: output,
+        %delete: output,
+        %dir: output,
+        %environment: output,
+        %interpreter: output,
+        %stderr: output,
+        %stdin: output,
+        %stdout: output,
+        %triggers: output,
+        %update: output,
+    }
+
+    invoke: func(name: string, args: args) -> res;
+
+}
+
+interface %remote-command {
+
+    use component:pulumi-wasm/output-interface@0.1.0.{output};
+
+    record args {
+        %connection: borrow<output>,
+        %create: borrow<output>,
+        %delete: borrow<output>,
+        %environment: borrow<output>,
+        %stdin: borrow<output>,
+        %triggers: borrow<output>,
+        %update: borrow<output>,
+    }
+
+    record res {
+        %connection: output,
+        %create: output,
+        %delete: output,
+        %environment: output,
+        %stderr: output,
+        %stdin: output,
+        %stdout: output,
+        %triggers: output,
+        %update: output,
+    }
+
+    invoke: func(name: string, args: args) -> res;
+
+}
+
+interface %remote-copy-file {
+
+    use component:pulumi-wasm/output-interface@0.1.0.{output};
+
+    record args {
+        %connection: borrow<output>,
+        %local-path: borrow<output>,
+        %remote-path: borrow<output>,
+        %triggers: borrow<output>,
+    }
+
+    record res {
+        %connection: output,
+        %local-path: output,
+        %remote-path: output,
+        %triggers: output,
+    }
+
+    invoke: func(name: string, args: args) -> res;
+
+}
+

@@ -41,10 +41,10 @@ struct SimplePluginCtx {
 
 struct MyState {
     pulumi_state: PulumiState,
-    pulumi_monitor_url: Option<String>,
-    pulumi_engine_url: Option<String>,
-    pulumi_stack: Option<String>,
-    pulumi_project: Option<String>,
+    pulumi_monitor_url: String,
+    pulumi_engine_url: String,
+    pulumi_stack: String,
+    pulumi_project: String,
 }
 
 #[async_trait]
@@ -127,10 +127,7 @@ impl server::component::pulumi_wasm::log::Host for MyState {
 
 impl MyState {
     async fn register_async(&mut self, request: Vec<u8>) -> wasmtime::Result<Vec<u8>> {
-        let engine_url = self
-            .pulumi_monitor_url
-            .clone()
-            .ok_or(Error::msg("pulumi_monitor_url not set"))?;
+        let engine_url = &self.pulumi_monitor_url;
 
         let request = RegisterResourceRequest::decode(&mut request.as_slice())?;
 
@@ -145,10 +142,7 @@ impl MyState {
         &mut self,
         request: Vec<u8>,
     ) -> wasmtime::Result<Vec<u8>> {
-        let engine_url = self
-            .pulumi_monitor_url
-            .clone()
-            .ok_or(Error::msg("pulumi_monitor_url not set"))?;
+        let engine_url = &self.pulumi_monitor_url;
 
         let request = RegisterResourceOutputsRequest::decode(&mut request.as_slice())?;
 
@@ -160,10 +154,7 @@ impl MyState {
     }
 
     async fn set_root_resource_async(&mut self, urn: String) -> wasmtime::Result<()> {
-        let engine_url = self
-            .pulumi_engine_url
-            .clone()
-            .ok_or(Error::msg("pulumi_monitor_url not set"))?;
+        let engine_url = &self.pulumi_engine_url;
 
         let mut client = EngineClient::connect(format!("tcp://{engine_url}")).await?;
 
@@ -175,10 +166,7 @@ impl MyState {
     }
 
     async fn get_root_resource_async(&mut self) -> wasmtime::Result<String> {
-        let engine_url = self
-            .pulumi_engine_url
-            .clone()
-            .ok_or(Error::msg("pulumi_monitor_url not set"))?;
+        let engine_url = &self.pulumi_engine_url;
 
         let mut client = EngineClient::connect(format!("tcp://{engine_url}")).await?;
 
@@ -200,18 +188,13 @@ impl WasiView for SimplePluginCtx {
     }
 }
 
-pub enum WasmFile {
-    Wasm(String),
-    CompiledWasm(String),
-}
-
 impl Pulumi {
     pub async fn create(
-        pulumi_wasm_file: &WasmFile,
-        pulumi_monitor_url: &Option<String>,
-        pulumi_engine_url: &Option<String>,
-        pulumi_stack: &Option<String>,
-        pulumi_project: &Option<String>,
+        pulumi_wasm_file: Vec<u8>,
+        pulumi_monitor_url: String,
+        pulumi_engine_url: String,
+        pulumi_stack: String,
+        pulumi_project: String,
     ) -> Result<Pulumi, Error> {
         let mut engine_config = wasmtime::Config::new();
         engine_config.wasm_component_model(true);
@@ -243,19 +226,15 @@ impl Pulumi {
                 context: wasi_ctx,
                 my_state: MyState {
                     pulumi_monitor_url: pulumi_monitor_url.clone(),
-                    pulumi_engine_url: pulumi_engine_url.clone(),
-                    pulumi_stack: pulumi_stack.clone(),
-                    pulumi_project: pulumi_project.clone(),
-                    pulumi_state: PulumiState::new(pulumi_monitor_url.clone().unwrap()),
+                    pulumi_engine_url,
+                    pulumi_stack,
+                    pulumi_project,
+                    pulumi_state: PulumiState::new(pulumi_monitor_url),
                 },
             },
         );
 
-        let component = match pulumi_wasm_file {
-            WasmFile::Wasm(file) => Component::from_file(&engine, file),
-            WasmFile::CompiledWasm(file) => unsafe { Component::deserialize_file(&engine, file) },
-        }?;
-
+        let component = Component::from_binary(&engine, &pulumi_wasm_file)?;
         let (plugin, instance) = Main::instantiate_async(&mut store, &component, &linker).await?;
 
         Ok(Pulumi {
@@ -291,13 +270,8 @@ impl Pulumi {
             r#type: "pulumi:pulumi:Stack".to_string(),
             name: format!(
                 "{}-{}",
-                self.store
-                    .data_mut()
-                    .my_state
-                    .pulumi_project
-                    .clone()
-                    .unwrap(),
-                self.store.data_mut().my_state.pulumi_stack.clone().unwrap()
+                self.store.data().my_state.pulumi_project,
+                self.store.data().my_state.pulumi_stack
             ),
             custom: false,
             ..Default::default()

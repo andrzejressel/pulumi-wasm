@@ -1,6 +1,6 @@
 package pulumi:%docker@4.5.3;
 
-world main-world {
+world %docker-pulumi {
     import component:pulumi-wasm/register-interface@0.1.0;
     export %container;
     export %image;
@@ -15,7 +15,7 @@ world main-world {
     export %volume;
 }
 
-world main-world-client {
+world %docker-pulumi-client {
     import %container;
     import %image;
     import %network;

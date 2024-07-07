@@ -72,8 +72,8 @@ fn update_justfile(providers: &[Provider]) {
 fn replace_regenerate_providers(providers: &[Provider], content: &str) -> String {
     let mut replacement = String::new();
     for provider in providers {
-        replacement.push_str(&format!("    cargo run -p cargo-pulumi-gen -- gen-provider --remove true --schema providers/{}.json --output providers/pulumi_wasm_provider_{}\n", provider.name, provider.name));
-        replacement.push_str(&format!("    cargo run -p cargo-pulumi-gen -- gen-rust     --remove true --schema providers/{}.json --output providers/pulumi_wasm_provider_{}_rust\n", provider.name, provider.name));
+        replacement.push_str(&format!("    cargo run -p pulumi_wasm_generator -- gen-provider --remove true --schema providers/{}.json --output providers/pulumi_wasm_provider_{}\n", provider.name, provider.name));
+        replacement.push_str(&format!("    cargo run -p pulumi_wasm_generator -- gen-rust     --remove true --schema providers/{}.json --output providers/pulumi_wasm_provider_{}_rust\n", provider.name, provider.name));
     }
 
     let start_marker = "# DO NOT EDIT - REGENERATE-PROVIDERS - START\nregenerate-providers:";

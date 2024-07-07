@@ -1,0 +1,20 @@
+[package]
+name = "pulumi_wasm_example_multiple_providers"
+version.workspace = true
+edition.workspace = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+anyhow.workspace = true
+pulumi_wasm_rust.workspace = true
+pulumi_wasm_random.workspace = true
+pulumi_wasm_docker.workspace = true
+
+[dev-dependencies]
+assert_cmd.workspace = true
+predicates.workspace = true
+serde_json.workspace = true

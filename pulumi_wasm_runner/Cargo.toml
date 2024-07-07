@@ -25,6 +25,7 @@ regex.workspace = true
 tokio.workspace = true
 log4rs.workspace = true
 clap.workspace = true
+wac-graph.workspace = true
 
 [build-dependencies]
 tonic-build.workspace = true

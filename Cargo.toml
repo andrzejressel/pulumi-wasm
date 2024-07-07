@@ -7,10 +7,9 @@ edition.workspace = true
 
 [workspace]
 members = [
-    "cargo-pulumi",
-    "cargo-pulumi-gen",
     "examples/dependencies",
     "examples/docker",
+    "examples/multiple_providers",
     "examples/simple",
     "msgpack_protobuf_converter",
 # DO NOT EDIT - START
@@ -22,6 +21,7 @@ members = [
     "pulumi_wasm",
     "pulumi_wasm_core",
     "pulumi_wasm_generator",
+    "pulumi_wasm_generator_lib",
     "pulumi_wasm_runner",
     "pulumi_wasm_rust",
     "pulumi_wasm_rust_macro",
@@ -37,7 +37,7 @@ edition = "2021"
 msgpack_protobuf_converter = { path = "msgpack_protobuf_converter" }
 pulumi_wasm_core = { path = "pulumi_wasm_core" }
 pulumi_wasm_docker = { path = "providers/pulumi_wasm_provider_docker_rust" }
-pulumi_wasm_generator = { path = "pulumi_wasm_generator" }
+pulumi_wasm_generator_lib = { path = "pulumi_wasm_generator_lib" }
 pulumi_wasm_random = { path = "providers/pulumi_wasm_provider_random_rust" }
 pulumi_wasm_rust = { path = "pulumi_wasm_rust" }
 pulumi_wasm_rust_macro = { path = "pulumi_wasm_rust_macro" }
@@ -86,3 +86,4 @@ handlebars = "5.1.2"
 convert_case = "0.6.0"
 automod = "1.0.14"
 mockall = "0.12.1"
+wac-graph = "0.3.0"

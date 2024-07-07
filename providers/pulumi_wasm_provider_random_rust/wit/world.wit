@@ -1,6 +1,6 @@
 package pulumi:%random@4.15.0;
 
-world main-world {
+world %random-pulumi {
     import component:pulumi-wasm/register-interface@0.1.0;
     export %random-bytes;
     export %random-id;
@@ -12,7 +12,7 @@ world main-world {
     export %random-uuid;
 }
 
-world main-world-client {
+world %random-pulumi-client {
     import %random-bytes;
     import %random-id;
     import %random-integer;
