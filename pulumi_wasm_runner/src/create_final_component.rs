@@ -1,13 +1,8 @@
-use std::ops::Index;
 use std::path::PathBuf;
 use wac_graph::types::SubtypeChecker;
 use wac_graph::{types::Package, CompositionGraph, EncodeOptions, NodeId, PackageId};
 
-pub(crate) fn create(
-    providers: &Vec<PathBuf>,
-    pulumi_wasm: &PathBuf,
-    program: &PathBuf,
-) -> Vec<u8> {
+pub(crate) fn create(providers: &[PathBuf], pulumi_wasm: &PathBuf, program: &PathBuf) -> Vec<u8> {
     let mut graph = CompositionGraph::new();
 
     // Register the package dependencies into the graph
@@ -66,8 +61,7 @@ pub(crate) fn create(
         .export(greet_export, "component:pulumi-wasm/pulumi-main@0.1.0")
         .unwrap();
 
-    let encoding = graph.encode(EncodeOptions::default()).unwrap();
-    encoding
+    graph.encode(EncodeOptions::default()).unwrap()
 }
 
 /// https://github.com/bytecodealliance/wac/blob/290c10068a080b33a49cb8d0b4f83601840cec51/src/commands/plug.rs#L282-L316
