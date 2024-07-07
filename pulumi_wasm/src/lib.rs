@@ -1,27 +1,22 @@
-use crate::bindings::component::pulumi_wasm::external_world::is_in_preview;
-use crate::bindings::exports::component::pulumi_wasm::function_reverse_callback::{
-    FunctionInvocationRequest, FunctionInvocationResult,
-};
-use crate::bindings::exports::component::pulumi_wasm::output_interface::GuestOutput;
-use crate::bindings::exports::component::pulumi_wasm::output_interface::Output as WasmOutput;
-use crate::bindings::exports::component::pulumi_wasm::register_interface::{
-    RegisterResourceRequest, ResultField,
-};
-use crate::bindings::exports::component::pulumi_wasm::stack_interface::OutputBorrow;
-use crate::bindings::exports::component::pulumi_wasm::{
-    function_reverse_callback, output_interface, register_interface, stack_interface,
-};
-use bindings::component::pulumi_wasm::external_world;
 use core::fmt::Debug;
-use log::{error, info, warn};
-use prost::Message;
-use prost_types::Struct;
-use rmpv::{Utf8String, Value};
-use std::collections::{BTreeMap, HashMap};
-use std::fmt::Formatter;
-use std::ops::Deref;
+use std::cell::RefCell;
+use std::collections::HashMap;
 
-use crate::output::{access_map, output_map, FunctionId, FunctionSource, OutputContent};
+use globals::get_pulumi_engine;
+use pulumi_wasm_core::{Engine, OutputId};
+
+use crate::bindings::exports::component::pulumi_wasm::output_interface::{GuestOutput, Output};
+use crate::bindings::exports::component::pulumi_wasm::register_interface::{
+    ObjectField, RegisterResourceRequest, RegisterResourceResult, RegisterResourceResultField,
+    ResultField,
+};
+use crate::bindings::exports::component::pulumi_wasm::stack_interface::{
+    FunctionInvocationRequest, FunctionInvocationResult, OutputBorrow,
+};
+use crate::bindings::exports::component::pulumi_wasm::{
+    output_interface, register_interface, stack_interface,
+};
+
 bindings::export!(Component with_types_in bindings);
 
 #[allow(clippy::all)]
@@ -34,352 +29,134 @@ mod grpc {
     #![allow(clippy::pedantic)]
     tonic::include_proto!("pulumirpc");
 }
-mod finalizer;
-mod output;
+mod globals;
+mod pulumi_connector_impl;
+
+#[derive(Copy, Clone, Debug, PartialEq, Eq, Hash)]
+pub(crate) struct CustomOutputId(OutputId);
+
+impl From<OutputId> for CustomOutputId {
+    fn from(output_id: OutputId) -> Self {
+        Self(output_id)
+    }
+}
 
 struct Component;
 
 impl stack_interface::Guest for Component {
     fn add_export(name: String, value: OutputBorrow<'_>) {
         wasm_common::setup_logger();
-        let output = value.get::<Output>().clone();
-        info!("Adding export [{name}] with output [{output:?}]");
-        output_map().insert(name, output);
+        let refcell: &RefCell<Engine> = &get_pulumi_engine();
+        refcell
+            .borrow_mut()
+            .add_output(name.into(), value.get::<CustomOutputId>().0);
     }
 
-    fn finish() -> bool {
+    fn finish(functions: Vec<FunctionInvocationResult>) -> Vec<FunctionInvocationRequest> {
         wasm_common::setup_logger();
-        finalizer::finish()
+
+        let refcell: &RefCell<Engine> = &get_pulumi_engine();
+
+        let v = functions
+            .iter()
+            .map(|function_invocation_result| {
+                let v = function_invocation_result.value.clone();
+                let v = rmpv::decode::read_value(&mut v.as_slice()).unwrap();
+
+                (function_invocation_result.id.get::<CustomOutputId>().0, v)
+            })
+            .collect();
+
+        let results = refcell.borrow_mut().run(v).unwrap_or_default();
+
+        results
+            .into_iter()
+            .map(|result| {
+                let mut vec = vec![];
+                rmpv::encode::write_value(&mut vec, &result.value).unwrap();
+                let id: CustomOutputId = result.output_id.into();
+                FunctionInvocationRequest {
+                    id: Output::new(id),
+                    function_id: result.function_name.into(),
+                    value: vec,
+                }
+            })
+            .collect()
+
+        // vec![]
+
+        // true
+        // finalizer::finish()
     }
 }
 
 impl output_interface::Guest for Component {
-    type Output = Output;
-
-    fn describe_outputs() -> String {
-        wasm_common::setup_logger();
-        let outputs = access_map()
-            .iter()
-            .map(|o| {
-                let ref_cell = o.borrow();
-                let content = ref_cell.deref();
-                content.tpe()
-                // o.tpe
-            })
-            .collect::<Vec<_>>();
-
-        format!("{:?}", outputs)
-    }
-
-    fn non_done_exists() -> bool {
-        wasm_common::setup_logger();
-        for o in access_map() {
-            let ref_cell = o.borrow();
-            let content = ref_cell.deref();
-            match content {
-                OutputContent::Done(_) => {}
-                OutputContent::Mapped(_, _, _) => return true,
-                OutputContent::Func(_, _) => return true,
-                OutputContent::Nothing => return true,
-            }
-        }
-        false
-    }
-}
-
-#[derive(Clone)]
-pub struct Output {
-    output: output::OutputContentRefCell,
-    tags: Vec<String>,
-}
-
-impl Debug for Output {
-    fn fmt(&self, _f: &mut Formatter<'_>) -> std::fmt::Result {
-        std::fmt::Result::Ok(()) // TODO: Implement Debug for Output
-    }
-}
-
-impl GuestOutput for Output {
-    fn new(value: Vec<u8>) -> Self {
-        wasm_common::setup_logger();
-        let value = rmpv::decode::read_value(&mut value.as_slice()).unwrap();
-        let cell = output::create_new(value);
-        Output {
-            output: cell,
-            tags: vec![],
-        }
-    }
-
-    fn map(&self, function_name: String) -> WasmOutput {
-        wasm_common::setup_logger();
-        let function_id = FunctionId::from_string(&function_name);
-        let function_source = FunctionSource::from_str("source");
-        let output = output::map_external(function_id, function_source, self.output.clone());
-        WasmOutput::new(Output {
-            output,
-            tags: vec![],
-        })
-    }
-
-    fn get(&self) -> Option<Vec<u8>> {
-        wasm_common::setup_logger();
-        let ref_cell = self.output.borrow();
-        let content = ref_cell.deref();
-
-        match content {
-            OutputContent::Done(v) => {
-                let mut vec = vec![];
-                rmpv::encode::write_value(&mut vec, v).unwrap();
-                Some(vec)
-            }
-            OutputContent::Mapped(_, _, _) | OutputContent::Func(_, _) | OutputContent::Nothing => {
-                None
-            }
-        }
-    }
-
-    fn get_field(&self, field: String, required: bool) -> WasmOutput {
-        wasm_common::setup_logger();
-
-        info!("Getting field [{field}] from Output [TODO]");
-
-        let o = output::map_internal(vec![self.output.clone()], move |v| {
-            let v = v[0].clone();
-            info!("Value is [{v}]");
-
-            let v = match v {
-                Value::Map(m) => {
-                    let key = Value::String(Utf8String::from(field.clone()));
-                    let maybe_value = m.iter().find(|(k, _)| k == &key).map(|(_, v)| v.clone()); //.unwrap_or(Value::Nil)
-                    match maybe_value {
-                        None if is_in_preview() => None,
-                        None if required => {
-                            error!("Field [{field}] not found in map [{m:?}]");
-                            unreachable!("Field [{field}] not found in map [{m:?}]")
-                        }
-                        None => Some(Value::Nil),
-                        Some(v) => Some(v),
-                    }
-                }
-                v => {
-                    error!("Value is not a map [{v}]");
-                    unreachable!("Value is not a map [{v}]")
-                }
-            };
-
-            info!("Result is [{v:?}]");
-
-            v
-        });
-
-        WasmOutput::new(Output {
-            output: o,
-            tags: vec![],
-        })
-    }
-
-    fn get_type(&self) -> String {
-        wasm_common::setup_logger();
-        let ref_cell = self.output.borrow();
-        let content = ref_cell.deref();
-        match content {
-            OutputContent::Done(_) => "Done",
-            OutputContent::Mapped(_, _, _) => "Mapped",
-            OutputContent::Func(_, _) => "Func",
-            OutputContent::Nothing => "Nothing",
-        }
-        .to_string()
-    }
-
-    fn duplicate(&self) -> WasmOutput {
-        wasm_common::setup_logger();
-        WasmOutput::new(Output {
-            output: self.output.clone(),
-            tags: self.tags.clone(),
-        })
-    }
-}
-
-impl function_reverse_callback::Guest for Component {
-    fn get_functions(source: String) -> Vec<FunctionInvocationRequest> {
-        wasm_common::setup_logger();
-        let function_source = &FunctionSource::from_string(&source);
-        access_map()
-            .iter()
-            .flat_map(|f| {
-                let f1 = &*f.borrow();
-
-                match f1 {
-                    OutputContent::Mapped(id, s, prev) if s == function_source => {
-                        match &*prev.borrow() {
-                            OutputContent::Done(v) => {
-                                info!("Found function [{id:?}] with value [{v}]");
-                                let mut vec = vec![];
-                                rmpv::encode::write_value(&mut vec, v).unwrap();
-                                Some(FunctionInvocationRequest {
-                                    id: WasmOutput::new(Output {
-                                        output: f.clone(),
-                                        tags: vec![],
-                                    }),
-                                    function_id: id.get(),
-                                    value: vec,
-                                })
-                            }
-                            OutputContent::Mapped(_, _, _)
-                            | OutputContent::Func(_, _)
-                            | OutputContent::Nothing => None,
-                        }
-                    }
-                    OutputContent::Mapped(_, _, _)
-                    | OutputContent::Func(_, _)
-                    | OutputContent::Done(_)
-                    | OutputContent::Nothing => None,
-                }
-            })
-            .collect()
-    }
-
-    fn set_functions(results: Vec<FunctionInvocationResult>) {
-        wasm_common::setup_logger();
-        for x in results {
-            let value = rmpv::decode::read_value(&mut x.value.as_slice()).unwrap();
-            let borrowed = &x.id.get::<Output>().output;
-            borrowed.replace(OutputContent::Done(value));
-        }
-    }
-}
-
-fn protoc_object_to_messagepack_map(
-    o: prost_types::Struct,
-    schema: HashMap<String, msgpack_protobuf_converter::Type>,
-) -> rmpv::Value {
-    let fields = o
-        .fields
-        .iter()
-        .flat_map(|(k, v)| match schema.get(k) {
-            None => {
-                warn!("Schema for field [{k}] not found");
-                None
-            }
-            Some(t) => {
-                let k = Value::String(k.clone().into());
-                let v = msgpack_protobuf_converter::protobuf_to_msgpack(v, t).unwrap();
-                Some((k, v))
-            }
-        })
-        .collect::<Vec<_>>();
-
-    Value::Map(fields)
+    type Output = CustomOutputId;
 }
 
 impl register_interface::Guest for Component {
-    fn register(request: RegisterResourceRequest) -> WasmOutput {
+    fn register(request: RegisterResourceRequest<'_>) -> RegisterResourceResult {
         wasm_common::setup_logger();
+        let refcell: &RefCell<Engine> = &get_pulumi_engine();
 
-        let values = request
-            .object
-            .iter()
-            .map(|o| o.value.get::<Output>().output.clone())
-            .collect::<Vec<_>>();
-        let names = request
-            .object
-            .iter()
-            .map(|o| o.name.clone())
-            .collect::<Vec<_>>();
-        let results = request
+        let outputs = request
             .results
             .iter()
             .map(|ResultField { name, schema }| {
                 (
-                    name.clone(),
+                    name.clone().into(),
                     rmp_serde::from_slice::<msgpack_protobuf_converter::Type>(schema).unwrap(),
                 )
             })
             .collect::<HashMap<_, _>>();
 
-        let new_output = output::map_internal(values, move |v| {
-            info!("Converting values [{v:?}] with names [{names:?}]");
+        let object = request
+            .object
+            .iter()
+            .map(|ObjectField { name, value }| {
+                (name.clone().into(), value.get::<CustomOutputId>().0)
+            })
+            .collect::<HashMap<_, _>>();
 
-            let object = Self::create_protobuf_struct(&names, &v);
+        let (_, field_outputs) = refcell.borrow_mut().create_register_resource_node(
+            request.type_.to_string(),
+            request.name.to_string(),
+            object,
+            outputs,
+        );
 
-            info!("Resulting object: [{object:?}]");
-
-            let request = grpc::RegisterResourceRequest {
-                r#type: request.type_.clone(),
-                name: request.name.clone(),
-                parent: "".to_string(),
-                custom: true,
-                object: Some(object),
-                protect: false,
-                dependencies: vec![],
-                provider: "".to_string(),
-                property_dependencies: Default::default(),
-                // property_dependencies: HashMap::from(
-                //     [("value".to_string(), register_resource_request::PropertyDependencies { urns: vec!["test".to_string()] })]
-                // ),
-                delete_before_replace: false,
-                version: "".to_string(),
-                ignore_changes: vec![],
-                accept_secrets: true,
-                additional_secret_outputs: vec![],
-                alias_ur_ns: vec![],
-                import_id: "".to_string(),
-                custom_timeouts: None,
-                delete_before_replace_defined: false,
-                supports_partial_values: false,
-                remote: false,
-                accept_resources: false,
-                providers: Default::default(),
-                replace_on_changes: vec![],
-                plugin_download_url: "".to_string(),
-                plugin_checksums: Default::default(),
-                retain_on_delete: false,
-                aliases: vec![],
-                deleted_with: "".to_string(),
-                alias_specs: false,
-                source_position: None,
-            };
-
-            let vec_request = request.encode_to_vec();
-
-            let result_vec = external_world::register_resource(vec_request.as_slice());
-
-            let response =
-                grpc::RegisterResourceResponse::decode(&mut result_vec.as_slice()).unwrap();
-
-            info!("Response: [{response:?}]");
-
-            let object = response.object.unwrap_or(Struct::default());
-
-            info!("Converting protobuf struct {object:?}");
-
-            let result = protoc_object_to_messagepack_map(object, results.clone());
-
-            info!("Message pack map: [{result:?}]");
-
-            Some(result)
-        });
-
-        WasmOutput::new(Output {
-            output: new_output,
-            tags: vec![],
-        })
+        RegisterResourceResult {
+            fields: field_outputs
+                .iter()
+                .map(|(field_name, output_id)| RegisterResourceResultField {
+                    name: field_name.as_string().clone(),
+                    output: Output::new(CustomOutputId(*output_id)),
+                })
+                .collect(),
+        }
     }
 }
 
-impl Component {
-    pub fn create_protobuf_struct(names: &[String], v: &[Value]) -> Struct {
-        let pairs = names
-            .iter()
-            .zip(v.iter())
-            .map(|(name, value)| {
-                let v = msgpack_protobuf_converter::msgpack_to_protobuf(value).unwrap();
-                (name.clone(), v)
-            })
-            .collect::<Vec<_>>();
+impl GuestOutput for CustomOutputId {
+    fn new(value: Vec<u8>) -> CustomOutputId {
+        wasm_common::setup_logger();
+        let value = rmpv::decode::read_value(&mut value.as_slice()).unwrap();
+        let refcell: &RefCell<Engine> = &get_pulumi_engine();
+        let output_id = refcell.borrow_mut().create_done_node(value);
+        output_id.into()
+    }
 
-        Struct {
-            fields: BTreeMap::from_iter(pairs),
-        }
+    fn map(&self, function_name: String) -> Output {
+        wasm_common::setup_logger();
+        let refcell: &RefCell<Engine> = &get_pulumi_engine();
+        let output_id = refcell
+            .borrow_mut()
+            .create_native_function_node(function_name.into(), self.0);
+        Output::new::<CustomOutputId>(output_id.into())
+    }
+
+    fn duplicate(&self) -> Output {
+        wasm_common::setup_logger();
+        Output::new::<CustomOutputId>(self.0.into())
     }
 }

@@ -3,7 +3,6 @@ package component:pulumi-wasm@0.1.0;
 world pulumi-wasm {
     export output-interface;
     export register-interface;
-    export function-reverse-callback;
     export stack-interface;
 
     import log;
@@ -12,7 +11,6 @@ world pulumi-wasm {
 
 world pulumi-rust {
     export register-interface;
-    export function-reverse-callback;
     import output-interface;
 }
 
@@ -24,7 +22,6 @@ world main {
 
 world pulumi-wasm-rust {
     import output-interface;
-    import function-reverse-callback;
     import stack-interface;
     export pulumi-main; // Used by macro
 }
@@ -81,15 +78,9 @@ interface log {
 
 interface output-interface {
 
-    describe-outputs: func() -> string;
-    non-done-exists: func() -> bool;
-
     resource output {
         constructor(value: list<u8>);
         map: func(function-name: string) -> output;
-        get: func() -> option<list<u8>>;
-        get-field: func(field: string, required: bool) -> output;
-        get-type: func() -> string;
         duplicate: func() -> output;
     }
 }
@@ -97,8 +88,17 @@ interface output-interface {
 interface stack-interface {
     use output-interface.{output};
 
+    record function-invocation-request {
+        id: output,
+        function-id: string,
+        value: list<u8>,
+    }
+    record function-invocation-result {
+        id: borrow<output>,
+        value: list<u8>,
+    }
     add-export: func(name: string, value: borrow<output>);
-    finish: func() -> bool;
+    finish: func(functions: list<function-invocation-result>) -> list<function-invocation-request>;
 }
 
 
@@ -115,6 +115,11 @@ interface register-interface {
         schema: list<u8>
     }
 
+    record register-resource-result-field {
+        name: string,
+        output: output
+    }
+
     record register-resource-request {
         %type: string,
         name: string,
@@ -122,14 +127,30 @@ interface register-interface {
         results: list<result-field>
     }
 
-    register: func(request: register-resource-request) -> output;
+    record register-resource-result {
+        fields: list<register-resource-result-field>
+    }
+
+    register: func(request: register-resource-request) -> register-resource-result;
 }
 
 interface external-world {
     is-in-preview: func() -> bool;
     get-root-resource: func() -> string;
-    register-resource: func(request: list<u8>) -> list<u8>;
     register-resource-outputs: func(request: list<u8>) -> list<u8>;
+
+    record register-resource-request {
+        output-id: string,
+        body: list<u8>
+    }
+
+    record registered-resource {
+        output-id: string,
+        body: list<u8>
+    }
+
+    register-resource: func(request: register-resource-request);
+    wait-for-registered-resources: func() -> list<registered-resource>;
 }
 
 interface pulumi-provider-random-interface {
@@ -152,21 +173,4 @@ interface pulumi-provider-random-interface {
 
 interface pulumi-main {
     main: func();
-}
-
-interface function-reverse-callback {
-
-    use output-interface.{output};
-
-    record function-invocation-request {
-        id: output,
-        function-id: string,
-        value: list<u8>,
-    }
-    record function-invocation-result {
-        id: borrow<output>,
-        value: list<u8>,
-    }
-    get-functions: func(source: string) -> list<function-invocation-request>;
-    set-functions: func(results: list<function-invocation-result>);
 }

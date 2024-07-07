@@ -1,11 +1,14 @@
 set windows-shell := ["pwsh.exe", "-c"]
+binary := "../../target/debug/pulumi_wasm_runner"
+wasm := "../../target/wasm32-wasi/debug/pulumi/pulumi_wasm_example_simple.wasm"
 
 run:
-    cargo run -p pulumi_wasm_runner -- run --wasm ../../target/wasm32-wasi/debug/pulumi/pulumi_wasm_example_simple.wasm
+    {{binary}} run --wasm {{wasm}}
 
 [windows]
 local-test:
     #!pwsh
+    cargo build -p pulumi_wasm_runner
     cargo run -p cargo-pulumi
     $env:PULUMI_CONFIG_PASSPHRASE=" "
     pulumi destroy -y

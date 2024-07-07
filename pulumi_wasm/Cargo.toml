@@ -27,6 +27,7 @@ serde_json.workspace = true
 wasm_common.workspace = true
 log.workspace = true
 msgpack_protobuf_converter.workspace = true
+pulumi_wasm_core.workspace = true
 
 [build-dependencies]
 tonic-build.workspace = true

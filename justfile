@@ -1,17 +1,27 @@
 set windows-shell := ["pwsh.exe", "-c"]
+# renovate: datasource=crate depName=cargo-nextest packageName=cargo-nextest
+NEXTEST_VERSION := "0.9.72"
+# renovate: datasource=crate depName=cargo-component packageName=cargo-component
+CARGO_COMPONENT_VERSION := "0.13.0"
+# renovate: datasource=crate depName=wasm-tools packageName=wasm-tools
+WASM_TOOLS_VERSION := "1.202.0"
 
 @default: build test
 
 build: build-language-plugin regenerate-providers install-requirements build-wasm-components fmt
 
+# https://stackoverflow.com/questions/74524817/why-is-anyhow-not-working-in-the-stable-version
+fix-issues:
+    cargo component check --workspace
+    cargo check --workspace
+
 build-language-plugin:
     cd pulumi-language-wasm && just
 
 install-requirements:
-    rustup component add rustfmt
-    cargo install cargo-nextest@0.9.68 --locked || cargo-nextest --version
-    cargo install cargo-component@0.10.1 --locked || cargo-component --version
-    cargo install wasm-tools@1.202.0 --locked || wasm-tools --version
+    cargo binstall --no-confirm cargo-nextest@{{NEXTEST_VERSION}} || cargo-nextest --version
+    cargo binstall --no-confirm cargo-component@{{CARGO_COMPONENT_VERSION}} || cargo-component --version
+    cargo binstall --no-confirm wasm-tools@{{WASM_TOOLS_VERSION}} || wasm-tools --version
 
 build-wasm-components:
     cargo component build -p pulumi_wasm \
@@ -23,8 +33,11 @@ build-wasm-components:
       -p pulumi_wasm_random_provider \
       -p pulumi_wasm_cloudflare_provider \
     # DO NOT EDIT - BUILD-WASM-COMPONENTS - END
-    cargo run -p cargo-pulumi -- -p pulumi_wasm_example_simple
+    cargo run -p cargo-pulumi -- -p pulumi_wasm_example_dependencies
     cargo run -p cargo-pulumi -- -p pulumi_wasm_example_docker
+    cargo run -p cargo-pulumi -- -p pulumi_wasm_example_simple
+    cargo build -p pulumi_wasm_runner
+    cargo test --no-run --all
 
 check:
     cargo fmt --all -- --check

@@ -29,7 +29,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/version"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 	"google.golang.org/grpc"
-	"google.golang.org/protobuf/types/known/emptypb"
 )
 
 // Launches the language host RPC endpoint, which in turn fires up an RPC server implementing the
@@ -432,7 +431,7 @@ func (host *wasmLanguageHost) GetProgramDependencies(
 	return &pulumirpc.GetProgramDependenciesResponse{}, nil
 }
 
-func (host *wasmLanguageHost) About(ctx context.Context, _ *emptypb.Empty) (*pulumirpc.AboutResponse, error) {
+func (host *wasmLanguageHost) About(ctx context.Context, _ *pulumirpc.AboutRequest) (*pulumirpc.AboutResponse, error) {
 	metadata := make(map[string]string)
 
 	scalaExec, err := host.Executor()

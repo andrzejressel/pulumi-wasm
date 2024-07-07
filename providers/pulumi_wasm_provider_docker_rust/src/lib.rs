@@ -3,14 +3,13 @@ use pulumi_wasm_rust::Output;
 pub mod resource;
 pub mod types;
 
-#[allow(clippy::all)]
-#[allow(dead_code)]
-#[allow(unused_variables)]
-#[allow(unused_unsafe)]
 mod bindings {
     wit_bindgen::generate!({
         // the name of the world in the `*.wit` input file
         world: "main-world-client",
+        with: {
+            "component:pulumi-wasm/output-interface@0.1.0": generate
+        }
     });
 }
 

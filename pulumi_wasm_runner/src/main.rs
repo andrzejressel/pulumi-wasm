@@ -7,7 +7,9 @@ use log4rs::config::{Appender, Root};
 use log4rs::encode::json::JsonEncoder;
 use log4rs::Config;
 
+mod model;
 mod pulumi;
+mod pulumi_state;
 
 mod grpc {
     #![allow(clippy::all)]

@@ -1,7 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
+    "config:recommended",
+    "github>andrzejressel/renovate-config//rust/updateToolchain"
   ],
   "labels": ["dependencies"],
   "packageRules": [
@@ -16,6 +17,16 @@
     { 
       "matchPackagePatterns": "^rmp*",
       "groupName": "rmp"
+    }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Update _VERSION variables in justfile",
+      "fileMatch": ["(^|/|\\.)justfile"],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>[a-z-]+?)(?: depName=(?<depName>.+?))? packageName=(?<packageName>.+?)(?: versioning=(?<versioning>[a-z-]+?))?\\s.+?_VERSION := \"(?<currentValue>.+?)\"\\s"
+      ]
     }
   ]
 }

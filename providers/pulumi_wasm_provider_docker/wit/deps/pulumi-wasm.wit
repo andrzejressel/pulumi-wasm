@@ -2,15 +2,9 @@ package component:pulumi-wasm@0.1.0;
 
 interface output-interface {
 
-    describe-outputs: func() -> string;
-    non-done-exists: func() -> bool;
-
     resource output {
         constructor(value: list<u8>);
         map: func(function-name: string) -> output;
-        get: func() -> option<list<u8>>;
-        get-field: func(field: string, required: bool) -> output;
-        get-type: func() -> string;
         duplicate: func() -> output;
     }
 }
@@ -29,6 +23,11 @@ interface register-interface {
         schema: list<u8>
     }
 
+    record register-resource-result-field {
+        name: string,
+        output: output
+    }
+
     record register-resource-request {
         %type: string,
         name: string,
@@ -36,5 +35,9 @@ interface register-interface {
         results: list<result-field>
     }
 
-    register: func(request: register-resource-request) -> output;
+    record register-resource-result {
+        fields: list<register-resource-result-field>
+    }
+
+    register: func(request: register-resource-request) -> register-resource-result;
 }

@@ -1,0 +1,24 @@
+[package]
+name = "pulumi_wasm_core"
+version.workspace = true
+edition.workspace = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow.workspace = true
+prost.workspace = true
+prost-types.workspace = true
+uuid.workspace = true
+lazy_static.workspace = true
+once_cell.workspace = true
+rmpv.workspace = true
+log.workspace = true
+msgpack_protobuf_converter.workspace = true
+tonic.workspace = true
+
+[build-dependencies]
+tonic-build.workspace = true
+
+[dev-dependencies]
+mockall.workspace = true

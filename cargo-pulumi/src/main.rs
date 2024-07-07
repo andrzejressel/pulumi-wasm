@@ -207,7 +207,7 @@ fn combine_wasm_files(
             .args([
                 "compose",
                 "-o",
-                &composite.to_str().unwrap(),
+                (composite.to_str().unwrap()),
                 current_composite.to_str().unwrap(),
                 "-d",
                 package.to_str().unwrap(),

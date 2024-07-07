@@ -1,5 +1,6 @@
 use anyhow::Error;
 use async_trait::async_trait;
+use log::info;
 use prost::Message;
 use wasmtime::component::{Component, Instance, Linker, ResourceTable};
 use wasmtime::Store;
@@ -11,7 +12,11 @@ use crate::grpc::{
     GetRootResourceRequest, RegisterResourceOutputsRequest, RegisterResourceRequest,
     RegisterResourceResponse, SetRootResourceRequest,
 };
+use crate::pulumi::server::component::pulumi_wasm::external_world;
+use crate::pulumi::server::component::pulumi_wasm::external_world::Host;
+use crate::pulumi::server::component::pulumi_wasm::external_world::RegisteredResource;
 use crate::pulumi::server::Main;
+use crate::pulumi_state::PulumiState;
 
 pub struct Pulumi {
     plugin: Main,
@@ -23,7 +28,8 @@ pub(crate) mod server {
     wasmtime::component::bindgen!({
         path: "../wits/world.wit",
         world: "main",
-        async: true
+        async: true,
+        trappable_imports: true,
     });
 }
 
@@ -34,6 +40,7 @@ struct SimplePluginCtx {
 }
 
 struct MyState {
+    pulumi_state: PulumiState,
     pulumi_monitor_url: Option<String>,
     pulumi_engine_url: Option<String>,
     pulumi_stack: Option<String>,
@@ -41,20 +48,42 @@ struct MyState {
 }
 
 #[async_trait]
-impl server::component::pulumi_wasm::external_world::Host for MyState {
+impl Host for MyState {
     async fn is_in_preview(&mut self) -> wasmtime::Result<bool> {
         Ok(std::env::var("PULUMI_DRY_RUN")
             .map(|s| s.to_ascii_lowercase() == "true")
             .unwrap_or_else(|_| false))
     }
-    async fn register_resource(&mut self, request: Vec<u8>) -> wasmtime::Result<Vec<u8>> {
-        Ok(self.register_async(request).await?)
+    async fn get_root_resource(&mut self) -> wasmtime::Result<String> {
+        Ok(self.get_root_resource_async().await?)
     }
     async fn register_resource_outputs(&mut self, request: Vec<u8>) -> wasmtime::Result<Vec<u8>> {
         Ok(self.register_resource_outputs_async(request).await?)
     }
-    async fn get_root_resource(&mut self) -> wasmtime::Result<String> {
-        Ok(self.get_root_resource_async().await?)
+
+    async fn register_resource(
+        &mut self,
+        request: external_world::RegisterResourceRequest,
+    ) -> wasmtime::Result<()> {
+        let b = RegisterResourceRequest::decode(&*(request.body)).unwrap();
+
+        info!("registering resource: {:?}", b);
+
+        self.pulumi_state.send_request(request.output_id.into(), b);
+
+        Ok(())
+    }
+
+    async fn wait_for_registered_resources(&mut self) -> wasmtime::Result<Vec<RegisteredResource>> {
+        let mut outputs = Vec::new();
+        for (output_id, body) in self.pulumi_state.get_created_resources().await {
+            let b = RegisterResourceResponse::decode(&*body).unwrap();
+            outputs.push(RegisteredResource {
+                output_id: output_id.0,
+                body: b.encode_to_vec(),
+            });
+        }
+        Ok(outputs)
     }
 }
 
@@ -217,6 +246,7 @@ impl Pulumi {
                     pulumi_engine_url: pulumi_engine_url.clone(),
                     pulumi_stack: pulumi_stack.clone(),
                     pulumi_project: pulumi_project.clone(),
+                    pulumi_state: PulumiState::new(pulumi_monitor_url.clone().unwrap()),
                 },
             },
         );

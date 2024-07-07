@@ -10,10 +10,6 @@ use bindings::exports::pulumi::random::random_shuffle;
 use bindings::exports::pulumi::random::random_string;
 use bindings::exports::pulumi::random::random_uuid;
 
-#[allow(clippy::all)]
-#[allow(dead_code)]
-#[allow(unused_variables)]
-#[allow(unused_unsafe)]
 mod bindings;
 bindings::export!(Component with_types_in bindings);
 
@@ -62,10 +58,34 @@ impl random_bytes::Guest for Component {
         let o = register(&request);
 
         random_bytes::Res {
-            base64: o.get_field("base64", true),
-            hex: o.get_field("hex", true),
-            keepers: o.get_field("keepers", false),
-            length: o.get_field("length", true),
+            base64: o
+                .fields
+                .iter()
+                .find(|o| o.name == "base64")
+                .unwrap()
+                .output
+                .duplicate(),
+            hex: o
+                .fields
+                .iter()
+                .find(|o| o.name == "hex")
+                .unwrap()
+                .output
+                .duplicate(),
+            keepers: o
+                .fields
+                .iter()
+                .find(|o| o.name == "keepers")
+                .unwrap()
+                .output
+                .duplicate(),
+            length: o
+                .fields
+                .iter()
+                .find(|o| o.name == "length")
+                .unwrap()
+                .output
+                .duplicate(),
         }
     }
 }
@@ -131,13 +151,55 @@ impl random_id::Guest for Component {
         let o = register(&request);
 
         random_id::Res {
-            b64_std: o.get_field("b64Std", true),
-            b64_url: o.get_field("b64Url", true),
-            byte_length: o.get_field("byteLength", true),
-            dec: o.get_field("dec", true),
-            hex: o.get_field("hex", true),
-            keepers: o.get_field("keepers", false),
-            prefix: o.get_field("prefix", false),
+            b64_std: o
+                .fields
+                .iter()
+                .find(|o| o.name == "b64Std")
+                .unwrap()
+                .output
+                .duplicate(),
+            b64_url: o
+                .fields
+                .iter()
+                .find(|o| o.name == "b64Url")
+                .unwrap()
+                .output
+                .duplicate(),
+            byte_length: o
+                .fields
+                .iter()
+                .find(|o| o.name == "byteLength")
+                .unwrap()
+                .output
+                .duplicate(),
+            dec: o
+                .fields
+                .iter()
+                .find(|o| o.name == "dec")
+                .unwrap()
+                .output
+                .duplicate(),
+            hex: o
+                .fields
+                .iter()
+                .find(|o| o.name == "hex")
+                .unwrap()
+                .output
+                .duplicate(),
+            keepers: o
+                .fields
+                .iter()
+                .find(|o| o.name == "keepers")
+                .unwrap()
+                .output
+                .duplicate(),
+            prefix: o
+                .fields
+                .iter()
+                .find(|o| o.name == "prefix")
+                .unwrap()
+                .output
+                .duplicate(),
         }
     }
 }
@@ -199,11 +261,41 @@ impl random_integer::Guest for Component {
         let o = register(&request);
 
         random_integer::Res {
-            keepers: o.get_field("keepers", false),
-            max: o.get_field("max", true),
-            min: o.get_field("min", true),
-            result: o.get_field("result", true),
-            seed: o.get_field("seed", false),
+            keepers: o
+                .fields
+                .iter()
+                .find(|o| o.name == "keepers")
+                .unwrap()
+                .output
+                .duplicate(),
+            max: o
+                .fields
+                .iter()
+                .find(|o| o.name == "max")
+                .unwrap()
+                .output
+                .duplicate(),
+            min: o
+                .fields
+                .iter()
+                .find(|o| o.name == "min")
+                .unwrap()
+                .output
+                .duplicate(),
+            result: o
+                .fields
+                .iter()
+                .find(|o| o.name == "result")
+                .unwrap()
+                .output
+                .duplicate(),
+            seed: o
+                .fields
+                .iter()
+                .find(|o| o.name == "seed")
+                .unwrap()
+                .output
+                .duplicate(),
         }
     }
 }
@@ -333,20 +425,104 @@ impl random_password::Guest for Component {
         let o = register(&request);
 
         random_password::Res {
-            bcrypt_hash: o.get_field("bcryptHash", true),
-            keepers: o.get_field("keepers", false),
-            length: o.get_field("length", true),
-            lower: o.get_field("lower", true),
-            min_lower: o.get_field("minLower", true),
-            min_numeric: o.get_field("minNumeric", true),
-            min_special: o.get_field("minSpecial", true),
-            min_upper: o.get_field("minUpper", true),
-            number: o.get_field("number", true),
-            numeric: o.get_field("numeric", true),
-            override_special: o.get_field("overrideSpecial", false),
-            result: o.get_field("result", true),
-            special: o.get_field("special", true),
-            upper: o.get_field("upper", true),
+            bcrypt_hash: o
+                .fields
+                .iter()
+                .find(|o| o.name == "bcryptHash")
+                .unwrap()
+                .output
+                .duplicate(),
+            keepers: o
+                .fields
+                .iter()
+                .find(|o| o.name == "keepers")
+                .unwrap()
+                .output
+                .duplicate(),
+            length: o
+                .fields
+                .iter()
+                .find(|o| o.name == "length")
+                .unwrap()
+                .output
+                .duplicate(),
+            lower: o
+                .fields
+                .iter()
+                .find(|o| o.name == "lower")
+                .unwrap()
+                .output
+                .duplicate(),
+            min_lower: o
+                .fields
+                .iter()
+                .find(|o| o.name == "minLower")
+                .unwrap()
+                .output
+                .duplicate(),
+            min_numeric: o
+                .fields
+                .iter()
+                .find(|o| o.name == "minNumeric")
+                .unwrap()
+                .output
+                .duplicate(),
+            min_special: o
+                .fields
+                .iter()
+                .find(|o| o.name == "minSpecial")
+                .unwrap()
+                .output
+                .duplicate(),
+            min_upper: o
+                .fields
+                .iter()
+                .find(|o| o.name == "minUpper")
+                .unwrap()
+                .output
+                .duplicate(),
+            number: o
+                .fields
+                .iter()
+                .find(|o| o.name == "number")
+                .unwrap()
+                .output
+                .duplicate(),
+            numeric: o
+                .fields
+                .iter()
+                .find(|o| o.name == "numeric")
+                .unwrap()
+                .output
+                .duplicate(),
+            override_special: o
+                .fields
+                .iter()
+                .find(|o| o.name == "overrideSpecial")
+                .unwrap()
+                .output
+                .duplicate(),
+            result: o
+                .fields
+                .iter()
+                .find(|o| o.name == "result")
+                .unwrap()
+                .output
+                .duplicate(),
+            special: o
+                .fields
+                .iter()
+                .find(|o| o.name == "special")
+                .unwrap()
+                .output
+                .duplicate(),
+            upper: o
+                .fields
+                .iter()
+                .find(|o| o.name == "upper")
+                .unwrap()
+                .output
+                .duplicate(),
         }
     }
 }
@@ -404,10 +580,34 @@ impl random_pet::Guest for Component {
         let o = register(&request);
 
         random_pet::Res {
-            keepers: o.get_field("keepers", false),
-            length: o.get_field("length", true),
-            prefix: o.get_field("prefix", false),
-            separator: o.get_field("separator", true),
+            keepers: o
+                .fields
+                .iter()
+                .find(|o| o.name == "keepers")
+                .unwrap()
+                .output
+                .duplicate(),
+            length: o
+                .fields
+                .iter()
+                .find(|o| o.name == "length")
+                .unwrap()
+                .output
+                .duplicate(),
+            prefix: o
+                .fields
+                .iter()
+                .find(|o| o.name == "prefix")
+                .unwrap()
+                .output
+                .duplicate(),
+            separator: o
+                .fields
+                .iter()
+                .find(|o| o.name == "separator")
+                .unwrap()
+                .output
+                .duplicate(),
         }
     }
 }
@@ -475,11 +675,41 @@ impl random_shuffle::Guest for Component {
         let o = register(&request);
 
         random_shuffle::Res {
-            inputs: o.get_field("inputs", true),
-            keepers: o.get_field("keepers", false),
-            result_count: o.get_field("resultCount", false),
-            results: o.get_field("results", true),
-            seed: o.get_field("seed", false),
+            inputs: o
+                .fields
+                .iter()
+                .find(|o| o.name == "inputs")
+                .unwrap()
+                .output
+                .duplicate(),
+            keepers: o
+                .fields
+                .iter()
+                .find(|o| o.name == "keepers")
+                .unwrap()
+                .output
+                .duplicate(),
+            result_count: o
+                .fields
+                .iter()
+                .find(|o| o.name == "resultCount")
+                .unwrap()
+                .output
+                .duplicate(),
+            results: o
+                .fields
+                .iter()
+                .find(|o| o.name == "results")
+                .unwrap()
+                .output
+                .duplicate(),
+            seed: o
+                .fields
+                .iter()
+                .find(|o| o.name == "seed")
+                .unwrap()
+                .output
+                .duplicate(),
         }
     }
 }
@@ -605,19 +835,97 @@ impl random_string::Guest for Component {
         let o = register(&request);
 
         random_string::Res {
-            keepers: o.get_field("keepers", false),
-            length: o.get_field("length", true),
-            lower: o.get_field("lower", true),
-            min_lower: o.get_field("minLower", true),
-            min_numeric: o.get_field("minNumeric", true),
-            min_special: o.get_field("minSpecial", true),
-            min_upper: o.get_field("minUpper", true),
-            number: o.get_field("number", true),
-            numeric: o.get_field("numeric", true),
-            override_special: o.get_field("overrideSpecial", false),
-            result: o.get_field("result", true),
-            special: o.get_field("special", true),
-            upper: o.get_field("upper", true),
+            keepers: o
+                .fields
+                .iter()
+                .find(|o| o.name == "keepers")
+                .unwrap()
+                .output
+                .duplicate(),
+            length: o
+                .fields
+                .iter()
+                .find(|o| o.name == "length")
+                .unwrap()
+                .output
+                .duplicate(),
+            lower: o
+                .fields
+                .iter()
+                .find(|o| o.name == "lower")
+                .unwrap()
+                .output
+                .duplicate(),
+            min_lower: o
+                .fields
+                .iter()
+                .find(|o| o.name == "minLower")
+                .unwrap()
+                .output
+                .duplicate(),
+            min_numeric: o
+                .fields
+                .iter()
+                .find(|o| o.name == "minNumeric")
+                .unwrap()
+                .output
+                .duplicate(),
+            min_special: o
+                .fields
+                .iter()
+                .find(|o| o.name == "minSpecial")
+                .unwrap()
+                .output
+                .duplicate(),
+            min_upper: o
+                .fields
+                .iter()
+                .find(|o| o.name == "minUpper")
+                .unwrap()
+                .output
+                .duplicate(),
+            number: o
+                .fields
+                .iter()
+                .find(|o| o.name == "number")
+                .unwrap()
+                .output
+                .duplicate(),
+            numeric: o
+                .fields
+                .iter()
+                .find(|o| o.name == "numeric")
+                .unwrap()
+                .output
+                .duplicate(),
+            override_special: o
+                .fields
+                .iter()
+                .find(|o| o.name == "overrideSpecial")
+                .unwrap()
+                .output
+                .duplicate(),
+            result: o
+                .fields
+                .iter()
+                .find(|o| o.name == "result")
+                .unwrap()
+                .output
+                .duplicate(),
+            special: o
+                .fields
+                .iter()
+                .find(|o| o.name == "special")
+                .unwrap()
+                .output
+                .duplicate(),
+            upper: o
+                .fields
+                .iter()
+                .find(|o| o.name == "upper")
+                .unwrap()
+                .output
+                .duplicate(),
         }
     }
 }
@@ -650,8 +958,20 @@ impl random_uuid::Guest for Component {
         let o = register(&request);
 
         random_uuid::Res {
-            keepers: o.get_field("keepers", false),
-            result: o.get_field("result", true),
+            keepers: o
+                .fields
+                .iter()
+                .find(|o| o.name == "keepers")
+                .unwrap()
+                .output
+                .duplicate(),
+            result: o
+                .fields
+                .iter()
+                .find(|o| o.name == "result")
+                .unwrap()
+                .output
+                .duplicate(),
         }
     }
 }
