@@ -13,10 +13,9 @@ devenv.local.nix
 
 # Added by cargo
 
-/target
+target
 
-/composed1.wat
-/composed2.wat
+*.wasm
 
 .idea/
 
