@@ -53,6 +53,7 @@ jobs:
     - run: pulumi version
     - run: pulumi login --local
     - uses: extractions/setup-just@v2
+    - uses: cargo-bins/cargo-binstall@main
     - name: Regenerate provider list
       run: just regenerate-provider-list
     - name: Install requirements

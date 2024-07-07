@@ -43,6 +43,7 @@ jobs:
     - run: pulumi version
     - run: pulumi login --local
     - uses: extractions/setup-just@v2
+    - uses: cargo-bins/cargo-binstall@main
     - name: Install requirements
       run: just install-requirements
     - name: Build
