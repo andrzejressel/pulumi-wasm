@@ -21,3 +21,4 @@ devenv.local.nix
 .idea/
 
 output.log
+*.wasm
