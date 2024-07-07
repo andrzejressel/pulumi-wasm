@@ -14,4 +14,4 @@ jobs:
     steps:
       - run: gh cache delete --all -R $GITHUB_REPOSITORY
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

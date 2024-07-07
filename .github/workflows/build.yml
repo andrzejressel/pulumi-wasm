@@ -44,13 +44,15 @@ jobs:
       uses: arduino/setup-protoc@v3
       with:
         version: "25.3"
-        repo-token: ${{ github.token }}
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
     - run: protoc --version
     - run: brew install pulumi
       if: runner.os == 'macOS'
     - run: pulumi version
     - run: pulumi login --local
     - uses: extractions/setup-just@v2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - uses: cargo-bins/cargo-binstall@main
     - name: Regenerate provider list
       run: just regenerate-provider-list
