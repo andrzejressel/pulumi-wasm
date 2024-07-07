@@ -15,26 +15,6 @@ pub(crate) fn create(
     let main_package_id = graph.register_package(main.clone()).unwrap();
     let main_instance = graph.instantiate(main_package_id);
 
-    // let docker_provider = Package::from_file(
-    //     "docker_provider",
-    //     None,
-    //     "D:\\MojeProgramy\\pulumi-wasm\\target\\wasm32-wasi\\debug\\pulumi-wasm-docker-provider.wasm",
-    //     graph.types_mut(),
-    // )
-    //     .unwrap();
-    // let docker_provider_package_id = graph.register_package(docker_provider.clone()).unwrap();
-    // let docker_provider_instance = graph.instantiate(docker_provider_package_id);
-    //
-    // let random_provider = Package::from_file(
-    //     "random_provider",
-    //     None,
-    //     "D:\\MojeProgramy\\pulumi-wasm\\target\\wasm32-wasi\\debug\\pulumi-wasm-random-provider.wasm",
-    //     graph.types_mut(),
-    // )
-    //     .unwrap();
-    // let random_provider_package_id = graph.register_package(random_provider.clone()).unwrap();
-    // let random_provider_instance = graph.instantiate(random_provider_package_id);
-
     let pulumi_wasm =
         Package::from_file("pulumi_wasm", None, pulumi_wasm, graph.types_mut()).unwrap();
     let pulumi_wasm_package_id = graph.register_package(pulumi_wasm.clone()).unwrap();
@@ -70,39 +50,6 @@ pub(crate) fn create(
         .unwrap();
     }
 
-    // plug_into_socket(
-    //     main_package_id,
-    //     main_instance,
-    //     docker_provider_package_id,
-    //     docker_provider_instance,
-    //     &mut graph,
-    // ).unwrap();
-    //
-    // plug_into_socket(
-    //     main_package_id,
-    //     main_instance,
-    //     random_provider_package_id,
-    //     random_provider_instance,
-    //     &mut graph,
-    // ).unwrap();
-    //
-    //
-    // plug_into_socket(
-    //     random_provider_package_id,
-    //     random_provider_instance,
-    //     pulumi_wasm_package_id,
-    //     pulumi_wasm_instance,
-    //     &mut graph,
-    // ).unwrap();
-    //
-    // plug_into_socket(
-    //     docker_provider_package_id,
-    //     docker_provider_instance,
-    //     pulumi_wasm_package_id,
-    //     pulumi_wasm_instance,
-    //     &mut graph,
-    // ).unwrap();
-
     plug_into_socket(
         main_package_id,
         main_instance,
@@ -121,7 +68,6 @@ pub(crate) fn create(
 
     let encoding = graph.encode(EncodeOptions::default()).unwrap();
     encoding
-    // std::fs::write("composition.wasm", encoding).unwrap();
 }
 
 /// https://github.com/bytecodealliance/wac/blob/290c10068a080b33a49cb8d0b4f83601840cec51/src/commands/plug.rs#L282-L316
