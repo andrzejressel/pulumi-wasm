@@ -25,6 +25,7 @@ build-wasm-components:
     cargo component build -p pulumi_wasm \
                           -p pulumi_wasm_example_simple \
                           -p pulumi_wasm_example_docker \
+                          -p pulumi_wasm_example_dependencies \
                           -p pulumi_wasm_example_multiple_providers
     # DO NOT EDIT - BUILD-WASM-COMPONENTS - START
     cargo component build \
