@@ -18,8 +18,8 @@ build-language-plugin:
 
 install-requirements:
     rustup component add rustfmt
-    cargo binstall cargo-nextest@{{NEXTEST_VERSION}} --locked || cargo-nextest --version
-    cargo binstall cargo-component@{{CARGO_COMPONENT_VERSION}} --locked || cargo-component --version
+    cargo binstall --no-confirm cargo-nextest@{{NEXTEST_VERSION}} || cargo-nextest --version
+    cargo binstall --no-confirm cargo-component@{{CARGO_COMPONENT_VERSION}} || cargo-component --version
 
 build-wasm-components:
     cargo component build -p pulumi_wasm \
