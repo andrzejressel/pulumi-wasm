@@ -42,8 +42,8 @@ pulumi_wasm_rust_macro = { path = "pulumi_wasm_rust_macro" }
 wasm_common = { path = "wasm_common" }
 
 anyhow = "1.0.82"
-prost = "0.12.4"
-prost-types = "0.12.4"
+prost = "0.13.0"
+prost-types = "0.13.0"
 uuid = { version = "1.8.0", features = ["v4", "v7"] }
 futures = "0.3.30"
 lazy_static = "1.4.0"
