@@ -3,7 +3,7 @@
 set windows-shell := ["pwsh.exe", "-c"]
 
 run:
-    cargo run -p pulumi_wasm_runner -- run --wasm ../../target/wasm32-wasi/debug/pulumi/pulumi_wasm_example_docker.wasm
+    cargo run -p pulumi_wasm_runner -- run --wasm ../../target/wasm32-wasip1/debug/pulumi/pulumi_wasm_example_docker.wasm
 
 [windows]
 local-test:
