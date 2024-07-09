@@ -1,9 +1,9 @@
 set windows-shell := ["pwsh.exe", "-c"]
 binary := "../../target/debug/pulumi_wasm_runner"
-wasm := "../../target/wasm32-wasi/debug/pulumi_wasm_example_multiple_providers.wasm"
-pulumi_wasm := "../../target/wasm32-wasi/debug/pulumi_wasm.wasm"
-docker := "../../target/wasm32-wasi/debug/pulumi_wasm_docker_provider.wasm"
-random := "../../target/wasm32-wasi/debug/pulumi_wasm_random_provider.wasm"
+wasm := "../../target/wasm32-wasip1/debug/pulumi_wasm_example_multiple_providers.wasm"
+pulumi_wasm := "../../target/wasm32-wasip1/debug/pulumi_wasm.wasm"
+docker := "../../target/wasm32-wasip1/debug/pulumi_wasm_docker_provider.wasm"
+random := "../../target/wasm32-wasip1/debug/pulumi_wasm_random_provider.wasm"
 
 run:
     {{binary}} run --pulumi-wasm "{{pulumi_wasm}}" --provider "{{docker}}" --provider "{{random}}" "{{wasm}}"
