@@ -1,6 +1,3 @@
-use crate::bindings::component::pulumi_wasm::register_interface::{
-    register, ObjectField, RegisterResourceRequest, ResultField,
-};
 use bindings::exports::pulumi::docker::container;
 use bindings::exports::pulumi::docker::image;
 use bindings::exports::pulumi::docker::network;
@@ -13,6 +10,9 @@ use bindings::exports::pulumi::docker::service_config;
 use bindings::exports::pulumi::docker::tag;
 use bindings::exports::pulumi::docker::volume;
 
+use crate::bindings::component::pulumi_wasm::register_interface::{
+    register, ObjectField, RegisterResourceRequest, ResultField,
+};
 mod bindings;
 bindings::export!(Component with_types_in bindings);
 
