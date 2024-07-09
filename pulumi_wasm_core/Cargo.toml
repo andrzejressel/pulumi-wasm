@@ -13,7 +13,7 @@ uuid.workspace = true
 lazy_static.workspace = true
 once_cell.workspace = true
 log.workspace = true
-tonic.workspace = true
+#tonic.workspace = true
 serde_json.workspace = true
 
 [build-dependencies]

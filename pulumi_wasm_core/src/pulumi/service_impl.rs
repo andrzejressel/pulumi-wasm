@@ -20,7 +20,9 @@ pub struct PulumiServiceImpl {
 mod grpc {
     #![allow(clippy::all)]
     #![allow(clippy::pedantic)]
-    tonic::include_proto!("pulumirpc");
+    // https://github.com/hyperium/tonic/issues/1783
+    include!(concat!(env!("OUT_DIR"), concat!("/", "pulumirpc", ".rs")));
+    // tonic::include_proto!("pulumirpc");
 }
 
 impl PulumiServiceImpl {

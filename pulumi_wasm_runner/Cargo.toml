@@ -12,7 +12,6 @@ prost-types.workspace = true
 tonic = { workspace = true, default-features = true }
 log.workspace = true
 uuid.workspace = true
-tracing-subscriber.workspace = true
 wasmtime.workspace = true
 wasmtime-wasi.workspace = true
 anyhow.workspace = true
