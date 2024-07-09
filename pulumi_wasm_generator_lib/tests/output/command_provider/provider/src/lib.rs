@@ -1,8 +1,8 @@
-use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
 use bindings::exports::pulumi::command::local_command;
 use bindings::exports::pulumi::command::remote_command;
 use bindings::exports::pulumi::command::remote_copy_file;
 
+use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
 mod bindings;
 bindings::export!(Component with_types_in bindings);
 

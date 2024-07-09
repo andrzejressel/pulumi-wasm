@@ -1,1 +1,3 @@
 target
+bindings.rs
+Cargo.lock
