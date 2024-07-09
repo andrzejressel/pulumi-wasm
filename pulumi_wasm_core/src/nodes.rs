@@ -4,7 +4,6 @@ use crate::pulumi::service::{RegisterResourceRequest, RegisterResourceResponse};
 use log::error;
 use serde_json::Value;
 use std::collections::{HashMap, HashSet};
-use std::iter::Map;
 
 #[derive(Clone, Debug, PartialEq)]
 pub(crate) enum Callback {

@@ -1,8 +1,6 @@
-use crate::model::{ElementId, GlobalType, GlobalTypeProperty, Ref, Type};
+use crate::model::{ElementId, Type};
 use crate::output::replace_multiple_dashes;
-use anyhow::Context;
 use handlebars::Handlebars;
-use std::collections::BTreeMap;
 
 use serde::Serialize;
 use serde_json::json;

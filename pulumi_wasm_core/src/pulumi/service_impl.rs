@@ -4,7 +4,6 @@ use std::collections::{BTreeMap, HashMap, HashSet};
 use log::{error, warn};
 use prost::Message;
 use prost_types::value::Kind;
-use prost_types::value::Kind::StructValue;
 use prost_types::{ListValue, Struct};
 use serde_json::{Number, Value};
 
@@ -183,7 +182,7 @@ impl PulumiServiceImpl {
                 kind: Some(prost_types::value::Kind::NullValue(0)),
             },
             Value::Bool(b) => prost_types::Value {
-                kind: Some(prost_types::value::Kind::BoolValue(b.clone())),
+                kind: Some(prost_types::value::Kind::BoolValue(*b)),
             },
             Value::Number(n) => prost_types::Value {
                 kind: Some(prost_types::value::Kind::NumberValue(n.as_f64().unwrap())),
@@ -232,7 +231,7 @@ impl PulumiServiceImpl {
             Some(Kind::StructValue(s)) => Value::Object(
                 s.fields
                     .iter()
-                    .map(|(k, v)| (k.clone(), Self::protobuf_to_json(&v)))
+                    .map(|(k, v)| (k.clone(), Self::protobuf_to_json(v)))
                     .collect(),
             ),
             Some(Kind::ListValue(l)) => {
