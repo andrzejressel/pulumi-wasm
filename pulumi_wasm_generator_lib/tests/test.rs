@@ -1,4 +1,4 @@
-use anyhow::{anyhow, Result};
+use anyhow::Result;
 use assert_cmd::assert::OutputAssertExt;
 
 use pulumi_wasm_generator_lib::{generate_rust_library, generate_wasm_provider};
@@ -40,14 +40,8 @@ fn run_pulumi_generator_test(test_name: &str, provider_name: &str) -> Result<()>
 
     // schema.file_name().unwrap()
 
-    generate_wasm_provider(
-        schema.as_path(),
-        output,
-    )?;
-    generate_rust_library(
-        schema.as_path(),
-        &root.join("lib"),
-    )?;
+    generate_wasm_provider(schema.as_path(), output)?;
+    generate_rust_library(schema.as_path(), &root.join("lib"))?;
 
     fs::copy(
         "tests/input/Cargo.toml",
@@ -78,18 +72,25 @@ fn run_pulumi_generator_test(test_name: &str, provider_name: &str) -> Result<()>
         .assert()
         .success();
 
-
     Ok(())
 }
 
 fn find_schema_files(name: &str) -> PathBuf {
     let possible_paths = vec![
-        Path::new("../pulumi/tests/testdata/codegen").join(name).join("schema.yaml"),
-        Path::new("../pulumi/tests/testdata/codegen").join(name).join("schema.json"),
+        Path::new("../pulumi/tests/testdata/codegen")
+            .join(name)
+            .join("schema.yaml"),
+        Path::new("../pulumi/tests/testdata/codegen")
+            .join(name)
+            .join("schema.json"),
         Path::new("../pulumi/tests/testdata/codegen").join(format!("{name}.yaml")),
         Path::new("../pulumi/tests/testdata/codegen").join(format!("{name}.json")),
-        Path::new("../pulumi-java/pkg/codegen/testing/test/testdata").join(name).join("schema.yaml"),
-        Path::new("../pulumi-java/pkg/codegen/testing/test/testdata").join(name).join("schema.json"),
+        Path::new("../pulumi-java/pkg/codegen/testing/test/testdata")
+            .join(name)
+            .join("schema.yaml"),
+        Path::new("../pulumi-java/pkg/codegen/testing/test/testdata")
+            .join(name)
+            .join("schema.json"),
         Path::new("../pulumi-java/pkg/codegen/testing/test/testdata").join(format!("{name}.yaml")),
         Path::new("../pulumi-java/pkg/codegen/testing/test/testdata").join(format!("{name}.json")),
     ];

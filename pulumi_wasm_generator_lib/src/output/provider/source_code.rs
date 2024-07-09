@@ -38,7 +38,7 @@ struct Package {
 fn convert_model(package: &crate::model::Package) -> Package {
     Package {
         name: package.name.clone(),
-        name_escaped: package.name.clone().replace("-", "_"),
+        name_escaped: package.name.clone().replace('-', "_"),
         interfaces: package
             .resources
             .iter()

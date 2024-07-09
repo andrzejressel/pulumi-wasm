@@ -1,4 +1,3 @@
-use std::ffi::OsStr;
 use std::fs;
 use std::fs::File;
 use std::io::{BufReader, Write};
@@ -75,10 +74,8 @@ fn extract_schema_from_file(schema_json: &Path) -> anyhow::Result<Package> {
             "No extensions for schema file: {}.",
             schema_json.display()
         )),
-        Some("yml" | "yaml") => {
-            serde_yaml::from_reader(reader).map_err(|err| anyhow::Error::new(err))
-        }
-        Some("json") => serde_json::from_reader(reader).map_err(|err| anyhow::Error::new(err)),
+        Some("yml" | "yaml") => serde_yaml::from_reader(reader).map_err(anyhow::Error::new),
+        Some("json") => serde_json::from_reader(reader).map_err(anyhow::Error::new),
         Some(ext) => Err(anyhow::anyhow!(
             "Unsupported schema file extension: {}.",
             ext
