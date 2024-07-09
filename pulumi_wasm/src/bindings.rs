@@ -565,8 +565,8 @@ pub mod exports {
                     #[cfg(target_arch = "wasm32")]
                     _rt::run_ctors_once();
                     let len0 = arg1;
-                    let result1 =
-                        Output::new(T::new(_rt::Vec::from_raw_parts(arg0.cast(), len0, len0)));
+                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
+                    let result1 = Output::new(T::new(_rt::string_lift(bytes0)));
                     (result1).take_handle() as i32
                 }
                 #[doc(hidden)]
@@ -648,7 +648,7 @@ pub mod exports {
                         }
                     }
 
-                    fn new(value: _rt::Vec<u8>) -> Self;
+                    fn new(value: _rt::String) -> Self;
                     fn map(&self, function_name: _rt::String) -> Output;
                     fn duplicate(&self) -> Output;
                 }
@@ -712,13 +712,11 @@ pub mod exports {
                 #[derive(Clone)]
                 pub struct ResultField {
                     pub name: _rt::String,
-                    pub schema: _rt::Vec<u8>,
                 }
                 impl ::core::fmt::Debug for ResultField {
                     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("ResultField")
                             .field("name", &self.name)
-                            .field("schema", &self.schema)
                             .finish()
                     }
                 }
@@ -798,44 +796,40 @@ pub mod exports {
                         result6.push(e6);
                     }
                     _rt::cabi_dealloc(base6, len6 * 12, 4);
-                    let base13 = arg6;
-                    let len13 = arg7;
-                    let mut result13 = _rt::Vec::with_capacity(len13);
-                    for i in 0..len13 {
-                        let base = base13.add(i * 16);
-                        let e13 = {
+                    let base10 = arg6;
+                    let len10 = arg7;
+                    let mut result10 = _rt::Vec::with_capacity(len10);
+                    for i in 0..len10 {
+                        let base = base10.add(i * 8);
+                        let e10 = {
                             let l7 = *base.add(0).cast::<*mut u8>();
                             let l8 = *base.add(4).cast::<usize>();
                             let len9 = l8;
                             let bytes9 = _rt::Vec::from_raw_parts(l7.cast(), len9, len9);
-                            let l10 = *base.add(8).cast::<*mut u8>();
-                            let l11 = *base.add(12).cast::<usize>();
-                            let len12 = l11;
 
                             ResultField {
                                 name: _rt::string_lift(bytes9),
-                                schema: _rt::Vec::from_raw_parts(l10.cast(), len12, len12),
                             }
                         };
-                        result13.push(e13);
+                        result10.push(e10);
                     }
-                    _rt::cabi_dealloc(base13, len13 * 16, 4);
-                    let result14 = T::register(RegisterResourceRequest {
+                    _rt::cabi_dealloc(base10, len10 * 8, 4);
+                    let result11 = T::register(RegisterResourceRequest {
                         type_: _rt::string_lift(bytes0),
                         name: _rt::string_lift(bytes1),
                         object: result6,
-                        results: result13,
+                        results: result10,
                     });
-                    let ptr15 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
-                    let RegisterResourceResult { fields: fields16 } = result14;
-                    let vec19 = fields16;
-                    let len19 = vec19.len();
-                    let layout19 =
-                        _rt::alloc::Layout::from_size_align_unchecked(vec19.len() * 12, 4);
-                    let result19 = if layout19.size() != 0 {
-                        let ptr = _rt::alloc::alloc(layout19).cast::<u8>();
+                    let ptr12 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let RegisterResourceResult { fields: fields13 } = result11;
+                    let vec16 = fields13;
+                    let len16 = vec16.len();
+                    let layout16 =
+                        _rt::alloc::Layout::from_size_align_unchecked(vec16.len() * 12, 4);
+                    let result16 = if layout16.size() != 0 {
+                        let ptr = _rt::alloc::alloc(layout16).cast::<u8>();
                         if ptr.is_null() {
-                            _rt::alloc::handle_alloc_error(layout19);
+                            _rt::alloc::handle_alloc_error(layout16);
                         }
                         ptr
                     } else {
@@ -843,25 +837,25 @@ pub mod exports {
                             ::core::ptr::null_mut()
                         }
                     };
-                    for (i, e) in vec19.into_iter().enumerate() {
-                        let base = result19.add(i * 12);
+                    for (i, e) in vec16.into_iter().enumerate() {
+                        let base = result16.add(i * 12);
                         {
                             let RegisterResourceResultField {
-                                name: name17,
-                                output: output17,
+                                name: name14,
+                                output: output14,
                             } = e;
-                            let vec18 = (name17.into_bytes()).into_boxed_slice();
-                            let ptr18 = vec18.as_ptr().cast::<u8>();
-                            let len18 = vec18.len();
-                            ::core::mem::forget(vec18);
-                            *base.add(4).cast::<usize>() = len18;
-                            *base.add(0).cast::<*mut u8>() = ptr18.cast_mut();
-                            *base.add(8).cast::<i32>() = (output17).take_handle() as i32;
+                            let vec15 = (name14.into_bytes()).into_boxed_slice();
+                            let ptr15 = vec15.as_ptr().cast::<u8>();
+                            let len15 = vec15.len();
+                            ::core::mem::forget(vec15);
+                            *base.add(4).cast::<usize>() = len15;
+                            *base.add(0).cast::<*mut u8>() = ptr15.cast_mut();
+                            *base.add(8).cast::<i32>() = (output14).take_handle() as i32;
                         }
                     }
-                    *ptr15.add(4).cast::<usize>() = len19;
-                    *ptr15.add(0).cast::<*mut u8>() = result19;
-                    ptr15
+                    *ptr12.add(4).cast::<usize>() = len16;
+                    *ptr12.add(0).cast::<*mut u8>() = result16;
+                    ptr12
                 }
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
@@ -918,7 +912,7 @@ pub mod exports {
                 pub struct FunctionInvocationRequest {
                     pub id: Output,
                     pub function_id: _rt::String,
-                    pub value: _rt::Vec<u8>,
+                    pub value: _rt::String,
                 }
                 impl ::core::fmt::Debug for FunctionInvocationRequest {
                     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -931,7 +925,7 @@ pub mod exports {
                 }
                 pub struct FunctionInvocationResult<'a> {
                     pub id: OutputBorrow<'a>,
-                    pub value: _rt::Vec<u8>,
+                    pub value: _rt::String,
                 }
                 impl<'a> ::core::fmt::Debug for FunctionInvocationResult<'a> {
                     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -972,10 +966,11 @@ pub mod exports {
                             let l1 = *base.add(4).cast::<*mut u8>();
                             let l2 = *base.add(8).cast::<usize>();
                             let len3 = l2;
+                            let bytes3 = _rt::Vec::from_raw_parts(l1.cast(), len3, len3);
 
                             FunctionInvocationResult {
                                 id: OutputBorrow::lift(l0 as u32 as usize),
-                                value: _rt::Vec::from_raw_parts(l1.cast(), len3, len3),
+                                value: _rt::string_lift(bytes3),
                             }
                         };
                         result4.push(e4);
@@ -1013,7 +1008,7 @@ pub mod exports {
                             ::core::mem::forget(vec8);
                             *base.add(8).cast::<usize>() = len8;
                             *base.add(4).cast::<*mut u8>() = ptr8.cast_mut();
-                            let vec9 = (value7).into_boxed_slice();
+                            let vec9 = (value7.into_bytes()).into_boxed_slice();
                             let ptr9 = vec9.as_ptr().cast::<u8>();
                             let len9 = vec9.len();
                             ::core::mem::forget(vec9);
@@ -1028,24 +1023,22 @@ pub mod exports {
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn __post_return_finish<T: Guest>(arg0: *mut u8) {
-                    let l5 = *arg0.add(0).cast::<*mut u8>();
-                    let l6 = *arg0.add(4).cast::<usize>();
-                    let base7 = l5;
-                    let len7 = l6;
-                    for i in 0..len7 {
-                        let base = base7.add(i * 20);
+                    let l4 = *arg0.add(0).cast::<*mut u8>();
+                    let l5 = *arg0.add(4).cast::<usize>();
+                    let base6 = l4;
+                    let len6 = l5;
+                    for i in 0..len6 {
+                        let base = base6.add(i * 20);
                         {
                             let l0 = *base.add(4).cast::<*mut u8>();
                             let l1 = *base.add(8).cast::<usize>();
                             _rt::cabi_dealloc(l0, l1, 1);
                             let l2 = *base.add(12).cast::<*mut u8>();
                             let l3 = *base.add(16).cast::<usize>();
-                            let base4 = l2;
-                            let len4 = l3;
-                            _rt::cabi_dealloc(base4, len4 * 1, 1);
+                            _rt::cabi_dealloc(l2, l3, 1);
                         }
                     }
-                    _rt::cabi_dealloc(base7, len7 * 20, 4);
+                    _rt::cabi_dealloc(base6, len6 * 20, 4);
                 }
                 pub trait Guest {
                     fn add_export(name: _rt::String, value: OutputBorrow<'_>);
@@ -1317,8 +1310,8 @@ pub(crate) use __export_pulumi_wasm_impl as export;
 #[cfg(target_arch = "wasm32")]
 #[link_section = "component-type:wit-bindgen:0.25.0:pulumi-wasm:encoded world"]
 #[doc(hidden)]
-pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 1491] = *b"\
-\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xd1\x0a\x01A\x02\x01\
+pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 1474] = *b"\
+\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xc0\x0a\x01A\x02\x01\
 A\x0b\x01B\x0a\x01m\x05\x05TRACE\x05DEBUG\x04INFO\x04WARN\x05ERROR\x04\0\x05leve\
 l\x03\0\0\x01ks\x01ky\x01o\x02ss\x01p\x04\x01r\x07\x05level\x01\x06targets\x04ar\
 gss\x0bmodule-path\x02\x04file\x02\x04line\x03\x0akey-values\x05\x04\0\x07conten\
@@ -1329,27 +1322,26 @@ ent:pulumi-wasm/log@0.1.0\x05\0\x01B\x10\x01p}\x01r\x02\x09output-ids\x04body\0\
 @\0\0s\x04\0\x11get-root-resource\x01\x06\x01@\x01\x07request\0\0\0\x04\0\x19reg\
 ister-resource-outputs\x01\x07\x01@\x01\x07request\x02\x01\0\x04\0\x11register-r\
 esource\x01\x08\x01p\x04\x01@\0\0\x09\x04\0\x1dwait-for-registered-resources\x01\
-\x0a\x03\x01*component:pulumi-wasm/external-world@0.1.0\x05\x01\x01B\x0a\x04\0\x06\
-output\x03\x01\x01p}\x01i\0\x01@\x01\x05value\x01\0\x02\x04\0\x13[constructor]ou\
-tput\x01\x03\x01h\0\x01@\x02\x04self\x04\x0dfunction-names\0\x02\x04\0\x12[metho\
-d]output.map\x01\x05\x01@\x01\x04self\x04\0\x02\x04\0\x18[method]output.duplicat\
-e\x01\x06\x04\x01,component:pulumi-wasm/output-interface@0.1.0\x05\x02\x02\x03\0\
-\x02\x06output\x01B\x14\x02\x03\x02\x01\x03\x04\0\x06output\x03\0\0\x01h\x01\x01\
-r\x02\x04names\x05value\x02\x04\0\x0cobject-field\x03\0\x03\x01p}\x01r\x02\x04na\
-mes\x06schema\x05\x04\0\x0cresult-field\x03\0\x06\x01i\x01\x01r\x02\x04names\x06\
-output\x08\x04\0\x1eregister-resource-result-field\x03\0\x09\x01p\x04\x01p\x07\x01\
-r\x04\x04types\x04names\x06object\x0b\x07results\x0c\x04\0\x19register-resource-\
-request\x03\0\x0d\x01p\x0a\x01r\x01\x06fields\x0f\x04\0\x18register-resource-res\
-ult\x03\0\x10\x01@\x01\x07request\x0e\0\x11\x04\0\x08register\x01\x12\x04\x01.co\
-mponent:pulumi-wasm/register-interface@0.1.0\x05\x04\x01B\x0f\x02\x03\x02\x01\x03\
-\x04\0\x06output\x03\0\0\x01i\x01\x01p}\x01r\x03\x02id\x02\x0bfunction-ids\x05va\
-lue\x03\x04\0\x1bfunction-invocation-request\x03\0\x04\x01h\x01\x01r\x02\x02id\x06\
-\x05value\x03\x04\0\x1afunction-invocation-result\x03\0\x07\x01@\x02\x04names\x05\
-value\x06\x01\0\x04\0\x0aadd-export\x01\x09\x01p\x08\x01p\x05\x01@\x01\x09functi\
-ons\x0a\0\x0b\x04\0\x06finish\x01\x0c\x04\x01+component:pulumi-wasm/stack-interf\
-ace@0.1.0\x05\x05\x04\x01'component:pulumi-wasm/pulumi-wasm@0.1.0\x04\0\x0b\x11\x01\
-\0\x0bpulumi-wasm\x03\0\0\0G\x09producers\x01\x0cprocessed-by\x02\x0dwit-compone\
-nt\x070.208.1\x10wit-bindgen-rust\x060.25.0";
+\x0a\x03\x01*component:pulumi-wasm/external-world@0.1.0\x05\x01\x01B\x09\x04\0\x06\
+output\x03\x01\x01i\0\x01@\x01\x05values\0\x01\x04\0\x13[constructor]output\x01\x02\
+\x01h\0\x01@\x02\x04self\x03\x0dfunction-names\0\x01\x04\0\x12[method]output.map\
+\x01\x04\x01@\x01\x04self\x03\0\x01\x04\0\x18[method]output.duplicate\x01\x05\x04\
+\x01,component:pulumi-wasm/output-interface@0.1.0\x05\x02\x02\x03\0\x02\x06outpu\
+t\x01B\x13\x02\x03\x02\x01\x03\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x04name\
+s\x05value\x02\x04\0\x0cobject-field\x03\0\x03\x01r\x01\x04names\x04\0\x0cresult\
+-field\x03\0\x05\x01i\x01\x01r\x02\x04names\x06output\x07\x04\0\x1eregister-reso\
+urce-result-field\x03\0\x08\x01p\x04\x01p\x06\x01r\x04\x04types\x04names\x06obje\
+ct\x0a\x07results\x0b\x04\0\x19register-resource-request\x03\0\x0c\x01p\x09\x01r\
+\x01\x06fields\x0e\x04\0\x18register-resource-result\x03\0\x0f\x01@\x01\x07reque\
+st\x0d\0\x10\x04\0\x08register\x01\x11\x04\x01.component:pulumi-wasm/register-in\
+terface@0.1.0\x05\x04\x01B\x0e\x02\x03\x02\x01\x03\x04\0\x06output\x03\0\0\x01i\x01\
+\x01r\x03\x02id\x02\x0bfunction-ids\x05values\x04\0\x1bfunction-invocation-reque\
+st\x03\0\x03\x01h\x01\x01r\x02\x02id\x05\x05values\x04\0\x1afunction-invocation-\
+result\x03\0\x06\x01@\x02\x04names\x05value\x05\x01\0\x04\0\x0aadd-export\x01\x08\
+\x01p\x07\x01p\x04\x01@\x01\x09functions\x09\0\x0a\x04\0\x06finish\x01\x0b\x04\x01\
++component:pulumi-wasm/stack-interface@0.1.0\x05\x05\x04\x01'component:pulumi-wa\
+sm/pulumi-wasm@0.1.0\x04\0\x0b\x11\x01\0\x0bpulumi-wasm\x03\0\0\0G\x09producers\x01\
+\x0cprocessed-by\x02\x0dwit-component\x070.208.1\x10wit-bindgen-rust\x060.25.0";
 
 #[inline(never)]
 #[doc(hidden)]

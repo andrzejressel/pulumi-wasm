@@ -59,7 +59,7 @@ pub mod component {
 
             impl Output {
                 #[allow(unused_unsafe, clippy::all)]
-                pub fn new(value: &[u8]) -> Self {
+                pub fn new(value: &str) -> Self {
                     unsafe {
                         let vec0 = value;
                         let ptr0 = vec0.as_ptr().cast::<u8>();
@@ -151,13 +151,11 @@ pub mod component {
             #[derive(Clone)]
             pub struct ResultField {
                 pub name: _rt::String,
-                pub schema: _rt::Vec<u8>,
             }
             impl ::core::fmt::Debug for ResultField {
                 fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                     f.debug_struct("ResultField")
                         .field("name", &self.name)
-                        .field("schema", &self.schema)
                         .finish()
                 }
             }
@@ -246,13 +244,13 @@ pub mod component {
                             *base.add(8).cast::<i32>() = (value3).handle() as i32;
                         }
                     }
-                    let vec9 = results0;
-                    let len9 = vec9.len();
-                    let layout9 = _rt::alloc::Layout::from_size_align_unchecked(vec9.len() * 16, 4);
-                    let result9 = if layout9.size() != 0 {
-                        let ptr = _rt::alloc::alloc(layout9).cast::<u8>();
+                    let vec8 = results0;
+                    let len8 = vec8.len();
+                    let layout8 = _rt::alloc::Layout::from_size_align_unchecked(vec8.len() * 8, 4);
+                    let result8 = if layout8.size() != 0 {
+                        let ptr = _rt::alloc::alloc(layout8).cast::<u8>();
                         if ptr.is_null() {
-                            _rt::alloc::handle_alloc_error(layout9);
+                            _rt::alloc::handle_alloc_error(layout8);
                         }
                         ptr
                     } else {
@@ -260,26 +258,18 @@ pub mod component {
                             ::core::ptr::null_mut()
                         }
                     };
-                    for (i, e) in vec9.into_iter().enumerate() {
-                        let base = result9.add(i * 16);
+                    for (i, e) in vec8.into_iter().enumerate() {
+                        let base = result8.add(i * 8);
                         {
-                            let ResultField {
-                                name: name6,
-                                schema: schema6,
-                            } = e;
+                            let ResultField { name: name6 } = e;
                             let vec7 = name6;
                             let ptr7 = vec7.as_ptr().cast::<u8>();
                             let len7 = vec7.len();
                             *base.add(4).cast::<usize>() = len7;
                             *base.add(0).cast::<*mut u8>() = ptr7.cast_mut();
-                            let vec8 = schema6;
-                            let ptr8 = vec8.as_ptr().cast::<u8>();
-                            let len8 = vec8.len();
-                            *base.add(12).cast::<usize>() = len8;
-                            *base.add(8).cast::<*mut u8>() = ptr8.cast_mut();
                         }
                     }
-                    let ptr10 = ret_area.0.as_mut_ptr().cast::<u8>();
+                    let ptr9 = ret_area.0.as_mut_ptr().cast::<u8>();
                     #[cfg(target_arch = "wasm32")]
                     #[link(wasm_import_module = "component:pulumi-wasm/register-interface@0.1.0")]
                     extern "C" {
@@ -318,39 +308,39 @@ pub mod component {
                         len2,
                         result5,
                         len5,
-                        result9,
-                        len9,
-                        ptr10,
+                        result8,
+                        len8,
+                        ptr9,
                     );
-                    let l11 = *ptr10.add(0).cast::<*mut u8>();
-                    let l12 = *ptr10.add(4).cast::<usize>();
-                    let base17 = l11;
-                    let len17 = l12;
-                    let mut result17 = _rt::Vec::with_capacity(len17);
-                    for i in 0..len17 {
-                        let base = base17.add(i * 12);
-                        let e17 = {
-                            let l13 = *base.add(0).cast::<*mut u8>();
-                            let l14 = *base.add(4).cast::<usize>();
-                            let len15 = l14;
-                            let bytes15 = _rt::Vec::from_raw_parts(l13.cast(), len15, len15);
-                            let l16 = *base.add(8).cast::<i32>();
+                    let l10 = *ptr9.add(0).cast::<*mut u8>();
+                    let l11 = *ptr9.add(4).cast::<usize>();
+                    let base16 = l10;
+                    let len16 = l11;
+                    let mut result16 = _rt::Vec::with_capacity(len16);
+                    for i in 0..len16 {
+                        let base = base16.add(i * 12);
+                        let e16 = {
+                            let l12 = *base.add(0).cast::<*mut u8>();
+                            let l13 = *base.add(4).cast::<usize>();
+                            let len14 = l13;
+                            let bytes14 = _rt::Vec::from_raw_parts(l12.cast(), len14, len14);
+                            let l15 = *base.add(8).cast::<i32>();
 
                             RegisterResourceResultField{
-                name: _rt::string_lift(bytes15),
-                output: super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(l16 as u32),
+                name: _rt::string_lift(bytes14),
+                output: super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(l15 as u32),
               }
                         };
-                        result17.push(e17);
+                        result16.push(e16);
                     }
-                    _rt::cabi_dealloc(base17, len17 * 12, 4);
+                    _rt::cabi_dealloc(base16, len16 * 12, 4);
                     if layout5.size() != 0 {
                         _rt::alloc::dealloc(result5.cast(), layout5);
                     }
-                    if layout9.size() != 0 {
-                        _rt::alloc::dealloc(result9.cast(), layout9);
+                    if layout8.size() != 0 {
+                        _rt::alloc::dealloc(result8.cast(), layout8);
                     }
-                    RegisterResourceResult { fields: result17 }
+                    RegisterResourceResult { fields: result16 }
                 }
             }
         }
@@ -995,41 +985,41 @@ pub(crate) use __export_command_pulumi_impl as export;
 #[cfg(target_arch = "wasm32")]
 #[link_section = "component-type:wit-bindgen:0.25.0:command-pulumi:encoded world"]
 #[doc(hidden)]
-pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 1562] = *b"\
-\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\x95\x0b\x01A\x02\x01\
-A\x0b\x01B\x0a\x04\0\x06output\x03\x01\x01p}\x01i\0\x01@\x01\x05value\x01\0\x02\x04\
-\0\x13[constructor]output\x01\x03\x01h\0\x01@\x02\x04self\x04\x0dfunction-names\0\
-\x02\x04\0\x12[method]output.map\x01\x05\x01@\x01\x04self\x04\0\x02\x04\0\x18[me\
-thod]output.duplicate\x01\x06\x03\x01,component:pulumi-wasm/output-interface@0.1\
-.0\x05\0\x02\x03\0\0\x06output\x01B\x14\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\
-\0\x01h\x01\x01r\x02\x04names\x05value\x02\x04\0\x0cobject-field\x03\0\x03\x01p}\
-\x01r\x02\x04names\x06schema\x05\x04\0\x0cresult-field\x03\0\x06\x01i\x01\x01r\x02\
-\x04names\x06output\x08\x04\0\x1eregister-resource-result-field\x03\0\x09\x01p\x04\
-\x01p\x07\x01r\x04\x04types\x04names\x06object\x0b\x07results\x0c\x04\0\x19regis\
-ter-resource-request\x03\0\x0d\x01p\x0a\x01r\x01\x06fields\x0f\x04\0\x18register\
--resource-result\x03\0\x10\x01@\x01\x07request\x0e\0\x11\x04\0\x08register\x01\x12\
-\x03\x01.component:pulumi-wasm/register-interface@0.1.0\x05\x02\x01B\x0a\x02\x03\
-\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0a\x0darchive-paths\x02\x0ba\
-sset-paths\x02\x06create\x02\x06delete\x02\x03dir\x02\x0benvironment\x02\x0binte\
-rpreter\x02\x05stdin\x02\x08triggers\x02\x06update\x02\x04\0\x04args\x03\0\x03\x01\
-i\x01\x01r\x0e\x07archive\x05\x0darchive-paths\x05\x0basset-paths\x05\x06assets\x05\
-\x06create\x05\x06delete\x05\x03dir\x05\x0benvironment\x05\x0binterpreter\x05\x06\
-stderr\x05\x05stdin\x05\x06stdout\x05\x08triggers\x05\x06update\x05\x04\0\x03res\
-\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\"\
-pulumi:command/local-command@0.9.2\x05\x03\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
-output\x03\0\0\x01h\x01\x01r\x07\x0aconnection\x02\x06create\x02\x06delete\x02\x0b\
-environment\x02\x05stdin\x02\x08triggers\x02\x06update\x02\x04\0\x04args\x03\0\x03\
-\x01i\x01\x01r\x09\x0aconnection\x05\x06create\x05\x06delete\x05\x0benvironment\x05\
-\x06stderr\x05\x05stdin\x05\x06stdout\x05\x08triggers\x05\x06update\x05\x04\0\x03\
-res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\
-#pulumi:command/remote-command@0.9.2\x05\x04\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
-output\x03\0\0\x01h\x01\x01r\x04\x0aconnection\x02\x0alocal-path\x02\x0bremote-p\
-ath\x02\x08triggers\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aconnection\x05\
-\x0alocal-path\x05\x0bremote-path\x05\x08triggers\x05\x04\0\x03res\x03\0\x06\x01\
-@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01%pulumi:command/\
-remote-copy-file@0.9.2\x05\x05\x04\x01#pulumi:command/command-pulumi@0.9.2\x04\0\
-\x0b\x14\x01\0\x0ecommand-pulumi\x03\0\0\0G\x09producers\x01\x0cprocessed-by\x02\
-\x0dwit-component\x070.208.1\x10wit-bindgen-rust\x060.25.0";
+pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 1548] = *b"\
+\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\x87\x0b\x01A\x02\x01\
+A\x0b\x01B\x09\x04\0\x06output\x03\x01\x01i\0\x01@\x01\x05values\0\x01\x04\0\x13\
+[constructor]output\x01\x02\x01h\0\x01@\x02\x04self\x03\x0dfunction-names\0\x01\x04\
+\0\x12[method]output.map\x01\x04\x01@\x01\x04self\x03\0\x01\x04\0\x18[method]out\
+put.duplicate\x01\x05\x03\x01,component:pulumi-wasm/output-interface@0.1.0\x05\0\
+\x02\x03\0\0\x06output\x01B\x13\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\
+\x01\x01r\x02\x04names\x05value\x02\x04\0\x0cobject-field\x03\0\x03\x01r\x01\x04\
+names\x04\0\x0cresult-field\x03\0\x05\x01i\x01\x01r\x02\x04names\x06output\x07\x04\
+\0\x1eregister-resource-result-field\x03\0\x08\x01p\x04\x01p\x06\x01r\x04\x04typ\
+es\x04names\x06object\x0a\x07results\x0b\x04\0\x19register-resource-request\x03\0\
+\x0c\x01p\x09\x01r\x01\x06fields\x0e\x04\0\x18register-resource-result\x03\0\x0f\
+\x01@\x01\x07request\x0d\0\x10\x04\0\x08register\x01\x11\x03\x01.component:pulum\
+i-wasm/register-interface@0.1.0\x05\x02\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06ou\
+tput\x03\0\0\x01h\x01\x01r\x0a\x0darchive-paths\x02\x0basset-paths\x02\x06create\
+\x02\x06delete\x02\x03dir\x02\x0benvironment\x02\x0binterpreter\x02\x05stdin\x02\
+\x08triggers\x02\x06update\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0e\x07arch\
+ive\x05\x0darchive-paths\x05\x0basset-paths\x05\x06assets\x05\x06create\x05\x06d\
+elete\x05\x03dir\x05\x0benvironment\x05\x0binterpreter\x05\x06stderr\x05\x05stdi\
+n\x05\x06stdout\x05\x08triggers\x05\x06update\x05\x04\0\x03res\x03\0\x06\x01@\x02\
+\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\"pulumi:command/loca\
+l-command@0.9.2\x05\x03\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
+h\x01\x01r\x07\x0aconnection\x02\x06create\x02\x06delete\x02\x0benvironment\x02\x05\
+stdin\x02\x08triggers\x02\x06update\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x09\
+\x0aconnection\x05\x06create\x05\x06delete\x05\x0benvironment\x05\x06stderr\x05\x05\
+stdin\x05\x06stdout\x05\x08triggers\x05\x06update\x05\x04\0\x03res\x03\0\x06\x01\
+@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01#pulumi:command/\
+remote-command@0.9.2\x05\x04\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\
+\x01h\x01\x01r\x04\x0aconnection\x02\x0alocal-path\x02\x0bremote-path\x02\x08tri\
+ggers\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aconnection\x05\x0alocal-p\
+ath\x05\x0bremote-path\x05\x08triggers\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04na\
+mes\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01%pulumi:command/remote-copy\
+-file@0.9.2\x05\x05\x04\x01#pulumi:command/command-pulumi@0.9.2\x04\0\x0b\x14\x01\
+\0\x0ecommand-pulumi\x03\0\0\0G\x09producers\x01\x0cprocessed-by\x02\x0dwit-comp\
+onent\x070.208.1\x10wit-bindgen-rust\x060.25.0";
 
 #[inline(never)]
 #[doc(hidden)]

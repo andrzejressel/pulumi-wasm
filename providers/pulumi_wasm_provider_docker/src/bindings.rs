@@ -59,7 +59,7 @@ pub mod component {
 
             impl Output {
                 #[allow(unused_unsafe, clippy::all)]
-                pub fn new(value: &[u8]) -> Self {
+                pub fn new(value: &str) -> Self {
                     unsafe {
                         let vec0 = value;
                         let ptr0 = vec0.as_ptr().cast::<u8>();
@@ -151,13 +151,11 @@ pub mod component {
             #[derive(Clone)]
             pub struct ResultField {
                 pub name: _rt::String,
-                pub schema: _rt::Vec<u8>,
             }
             impl ::core::fmt::Debug for ResultField {
                 fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                     f.debug_struct("ResultField")
                         .field("name", &self.name)
-                        .field("schema", &self.schema)
                         .finish()
                 }
             }
@@ -246,13 +244,13 @@ pub mod component {
                             *base.add(8).cast::<i32>() = (value3).handle() as i32;
                         }
                     }
-                    let vec9 = results0;
-                    let len9 = vec9.len();
-                    let layout9 = _rt::alloc::Layout::from_size_align_unchecked(vec9.len() * 16, 4);
-                    let result9 = if layout9.size() != 0 {
-                        let ptr = _rt::alloc::alloc(layout9).cast::<u8>();
+                    let vec8 = results0;
+                    let len8 = vec8.len();
+                    let layout8 = _rt::alloc::Layout::from_size_align_unchecked(vec8.len() * 8, 4);
+                    let result8 = if layout8.size() != 0 {
+                        let ptr = _rt::alloc::alloc(layout8).cast::<u8>();
                         if ptr.is_null() {
-                            _rt::alloc::handle_alloc_error(layout9);
+                            _rt::alloc::handle_alloc_error(layout8);
                         }
                         ptr
                     } else {
@@ -260,26 +258,18 @@ pub mod component {
                             ::core::ptr::null_mut()
                         }
                     };
-                    for (i, e) in vec9.into_iter().enumerate() {
-                        let base = result9.add(i * 16);
+                    for (i, e) in vec8.into_iter().enumerate() {
+                        let base = result8.add(i * 8);
                         {
-                            let ResultField {
-                                name: name6,
-                                schema: schema6,
-                            } = e;
+                            let ResultField { name: name6 } = e;
                             let vec7 = name6;
                             let ptr7 = vec7.as_ptr().cast::<u8>();
                             let len7 = vec7.len();
                             *base.add(4).cast::<usize>() = len7;
                             *base.add(0).cast::<*mut u8>() = ptr7.cast_mut();
-                            let vec8 = schema6;
-                            let ptr8 = vec8.as_ptr().cast::<u8>();
-                            let len8 = vec8.len();
-                            *base.add(12).cast::<usize>() = len8;
-                            *base.add(8).cast::<*mut u8>() = ptr8.cast_mut();
                         }
                     }
-                    let ptr10 = ret_area.0.as_mut_ptr().cast::<u8>();
+                    let ptr9 = ret_area.0.as_mut_ptr().cast::<u8>();
                     #[cfg(target_arch = "wasm32")]
                     #[link(wasm_import_module = "component:pulumi-wasm/register-interface@0.1.0")]
                     extern "C" {
@@ -318,39 +308,39 @@ pub mod component {
                         len2,
                         result5,
                         len5,
-                        result9,
-                        len9,
-                        ptr10,
+                        result8,
+                        len8,
+                        ptr9,
                     );
-                    let l11 = *ptr10.add(0).cast::<*mut u8>();
-                    let l12 = *ptr10.add(4).cast::<usize>();
-                    let base17 = l11;
-                    let len17 = l12;
-                    let mut result17 = _rt::Vec::with_capacity(len17);
-                    for i in 0..len17 {
-                        let base = base17.add(i * 12);
-                        let e17 = {
-                            let l13 = *base.add(0).cast::<*mut u8>();
-                            let l14 = *base.add(4).cast::<usize>();
-                            let len15 = l14;
-                            let bytes15 = _rt::Vec::from_raw_parts(l13.cast(), len15, len15);
-                            let l16 = *base.add(8).cast::<i32>();
+                    let l10 = *ptr9.add(0).cast::<*mut u8>();
+                    let l11 = *ptr9.add(4).cast::<usize>();
+                    let base16 = l10;
+                    let len16 = l11;
+                    let mut result16 = _rt::Vec::with_capacity(len16);
+                    for i in 0..len16 {
+                        let base = base16.add(i * 12);
+                        let e16 = {
+                            let l12 = *base.add(0).cast::<*mut u8>();
+                            let l13 = *base.add(4).cast::<usize>();
+                            let len14 = l13;
+                            let bytes14 = _rt::Vec::from_raw_parts(l12.cast(), len14, len14);
+                            let l15 = *base.add(8).cast::<i32>();
 
                             RegisterResourceResultField{
-                name: _rt::string_lift(bytes15),
-                output: super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(l16 as u32),
+                name: _rt::string_lift(bytes14),
+                output: super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(l15 as u32),
               }
                         };
-                        result17.push(e17);
+                        result16.push(e16);
                     }
-                    _rt::cabi_dealloc(base17, len17 * 12, 4);
+                    _rt::cabi_dealloc(base16, len16 * 12, 4);
                     if layout5.size() != 0 {
                         _rt::alloc::dealloc(result5.cast(), layout5);
                     }
-                    if layout9.size() != 0 {
-                        _rt::alloc::dealloc(result9.cast(), layout9);
+                    if layout8.size() != 0 {
+                        _rt::alloc::dealloc(result8.cast(), layout8);
                     }
-                    RegisterResourceResult { fields: result17 }
+                    RegisterResourceResult { fields: result16 }
                 }
             }
         }
@@ -2752,109 +2742,109 @@ pub(crate) use __export_docker_pulumi_impl as export;
 #[cfg(target_arch = "wasm32")]
 #[link_section = "component-type:wit-bindgen:0.25.0:docker-pulumi:encoded world"]
 #[doc(hidden)]
-pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 4759] = *b"\
-\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\x93$\x01A\x02\x01A\x1b\
-\x01B\x0a\x04\0\x06output\x03\x01\x01p}\x01i\0\x01@\x01\x05value\x01\0\x02\x04\0\
-\x13[constructor]output\x01\x03\x01h\0\x01@\x02\x04self\x04\x0dfunction-names\0\x02\
-\x04\0\x12[method]output.map\x01\x05\x01@\x01\x04self\x04\0\x02\x04\0\x18[method\
-]output.duplicate\x01\x06\x03\x01,component:pulumi-wasm/output-interface@0.1.0\x05\
-\0\x02\x03\0\0\x06output\x01B\x14\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
-h\x01\x01r\x02\x04names\x05value\x02\x04\0\x0cobject-field\x03\0\x03\x01p}\x01r\x02\
-\x04names\x06schema\x05\x04\0\x0cresult-field\x03\0\x06\x01i\x01\x01r\x02\x04nam\
-es\x06output\x08\x04\0\x1eregister-resource-result-field\x03\0\x09\x01p\x04\x01p\
-\x07\x01r\x04\x04types\x04names\x06object\x0b\x07results\x0c\x04\0\x19register-r\
-esource-request\x03\0\x0d\x01p\x0a\x01r\x01\x06fields\x0f\x04\0\x18register-reso\
-urce-result\x03\0\x10\x01@\x01\x07request\x0e\0\x11\x04\0\x08register\x01\x12\x03\
-\x01.component:pulumi-wasm/register-interface@0.1.0\x05\x02\x01B\x0a\x02\x03\x02\
-\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r>\x06attach\x02\x0ccapabilities\x02\
-\x0dcgroupns-mode\x02\x07command\x02+container-read-refresh-timeout-milliseconds\
-\x02\x07cpu-set\x02\x0acpu-shares\x02\x15destroy-grace-seconds\x02\x07devices\x02\
-\x03dns\x02\x08dns-opts\x02\x0cdns-searches\x02\x0adomainname\x02\x0bentrypoints\
-\x02\x04envs\x02\x04gpus\x02\x0agroup-adds\x02\x0bhealthcheck\x02\x08hostname\x02\
-\x05hosts\x02\x05image\x02\x04init\x02\x08ipc-mode\x02\x06labels\x02\x0alog-driv\
-er\x02\x08log-opts\x02\x04logs\x02\x0fmax-retry-count\x02\x06memory\x02\x0bmemor\
-y-swap\x02\x06mounts\x02\x08must-run\x02\x04name\x02\x0cnetwork-mode\x02\x11netw\
-orks-advanced\x02\x08pid-mode\x02\x05ports\x02\x0aprivileged\x02\x11publish-all-\
-ports\x02\x09read-only\x02\x0eremove-volumes\x02\x07restart\x02\x02rm\x02\x07run\
-time\x02\x0dsecurity-opts\x02\x08shm-size\x02\x05start\x02\x0astdin-open\x02\x0b\
-stop-signal\x02\x0cstop-timeout\x02\x0cstorage-opts\x02\x07sysctls\x02\x05tmpfs\x02\
-\x03tty\x02\x07ulimits\x02\x07uploads\x02\x04user\x02\x0buserns-mode\x02\x07volu\
-mes\x02\x04wait\x02\x0cwait-timeout\x02\x0bworking-dir\x02\x04\0\x04args\x03\0\x03\
-\x01i\x01\x01rB\x06attach\x05\x06bridge\x05\x0ccapabilities\x05\x0dcgroupns-mode\
-\x05\x07command\x05\x0econtainer-logs\x05+container-read-refresh-timeout-millise\
-conds\x05\x07cpu-set\x05\x0acpu-shares\x05\x15destroy-grace-seconds\x05\x07devic\
-es\x05\x03dns\x05\x08dns-opts\x05\x0cdns-searches\x05\x0adomainname\x05\x0bentry\
-points\x05\x04envs\x05\x09exit-code\x05\x04gpus\x05\x0agroup-adds\x05\x0bhealthc\
-heck\x05\x08hostname\x05\x05hosts\x05\x05image\x05\x04init\x05\x08ipc-mode\x05\x06\
-labels\x05\x0alog-driver\x05\x08log-opts\x05\x04logs\x05\x0fmax-retry-count\x05\x06\
-memory\x05\x0bmemory-swap\x05\x06mounts\x05\x08must-run\x05\x04name\x05\x0dnetwo\
-rk-datas\x05\x0cnetwork-mode\x05\x11networks-advanced\x05\x08pid-mode\x05\x05por\
-ts\x05\x0aprivileged\x05\x11publish-all-ports\x05\x09read-only\x05\x0eremove-vol\
-umes\x05\x07restart\x05\x02rm\x05\x07runtime\x05\x0dsecurity-opts\x05\x08shm-siz\
-e\x05\x05start\x05\x0astdin-open\x05\x0bstop-signal\x05\x0cstop-timeout\x05\x0cs\
-torage-opts\x05\x07sysctls\x05\x05tmpfs\x05\x03tty\x05\x07ulimits\x05\x07uploads\
-\x05\x04user\x05\x0buserns-mode\x05\x07volumes\x05\x04wait\x05\x0cwait-timeout\x05\
-\x0bworking-dir\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\
-\0\x06invoke\x01\x08\x04\x01\x1dpulumi:docker/container@4.5.3\x05\x03\x01B\x0a\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x05build\x02\x10build\
--on-preview\x02\x0aimage-name\x02\x08registry\x02\x09skip-push\x02\x04\0\x04args\
-\x03\0\x03\x01i\x01\x01r\x07\x0fbase-image-name\x05\x07context\x05\x0adockerfile\
-\x05\x0aimage-name\x05\x08platform\x05\x0fregistry-server\x05\x0brepo-digest\x05\
-\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
-\x04\x01\x19pulumi:docker/image@4.5.3\x05\x04\x01B\x0a\x02\x03\x02\x01\x01\x04\0\
-\x06output\x03\0\0\x01h\x01\x01r\x0c\x0aattachable\x02\x0fcheck-duplicate\x02\x06\
-driver\x02\x07ingress\x02\x08internal\x02\x0cipam-configs\x02\x0bipam-driver\x02\
-\x0cipam-options\x02\x04ipv6\x02\x06labels\x02\x04name\x02\x07options\x02\x04\0\x04\
-args\x03\0\x03\x01i\x01\x01r\x0d\x0aattachable\x05\x0fcheck-duplicate\x05\x06dri\
-ver\x05\x07ingress\x05\x08internal\x05\x0cipam-configs\x05\x0bipam-driver\x05\x0c\
-ipam-options\x05\x04ipv6\x05\x06labels\x05\x04name\x05\x07options\x05\x05scope\x05\
-\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
-\x04\x01\x1bpulumi:docker/network@4.5.3\x05\x05\x01B\x0a\x02\x03\x02\x01\x01\x04\
-\0\x06output\x03\0\0\x01h\x01\x01r\x09\x05alias\x02\x0eenable-timeout\x02\x07ena\
-bled\x02\x04envs\x02\x0dforce-destroy\x02\x0dforce-disable\x02\x15grant-all-perm\
-issions\x02\x11grant-permissions\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\
-\x01r\x0a\x05alias\x05\x0eenable-timeout\x05\x07enabled\x05\x04envs\x05\x0dforce\
--destroy\x05\x0dforce-disable\x05\x15grant-all-permissions\x05\x11grant-permissi\
-ons\x05\x04name\x05\x10plugin-reference\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04n\
-ames\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\x1apulumi:docker/plugin@4\
-.5.3\x05\x06\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\
-\x14insecure-skip-verify\x02\x0dkeep-remotely\x02\x04name\x02\x08triggers\x02\x04\
-\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x14insecure-skip-verify\x05\x0dkeep-remot\
-ely\x05\x04name\x05\x0dsha256-digest\x05\x08triggers\x05\x04\0\x03res\x03\0\x06\x01\
-@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\"pulumi:docker/\
-registry-image@4.5.3\x05\x07\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\
-\x01h\x01\x01r\x07\x05build\x02\x0cforce-remove\x02\x0ckeep-locally\x02\x04name\x02\
-\x08platform\x02\x0dpull-triggers\x02\x08triggers\x02\x04\0\x04args\x03\0\x03\x01\
-i\x01\x01r\x09\x05build\x05\x0cforce-remove\x05\x08image-id\x05\x0ckeep-locally\x05\
-\x04name\x05\x08platform\x05\x0dpull-triggers\x05\x0brepo-digest\x05\x08triggers\
-\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\
-\x08\x04\x01\x20pulumi:docker/remote-image@4.5.3\x05\x08\x01B\x0a\x02\x03\x02\x01\
-\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x04data\x02\x06labels\x02\x04name\
-\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x04data\x05\x06labels\x05\x04name\
-\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\
-\x08\x04\x01\x1apulumi:docker/secret@4.5.3\x05\x09\x01B\x0a\x02\x03\x02\x01\x01\x04\
-\0\x06output\x03\0\0\x01h\x01\x01r\x09\x04auth\x02\x0fconverge-config\x02\x0dend\
-point-spec\x02\x06labels\x02\x04mode\x02\x04name\x02\x0frollback-config\x02\x09t\
-ask-spec\x02\x0dupdate-config\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x09\x04a\
-uth\x05\x0fconverge-config\x05\x0dendpoint-spec\x05\x06labels\x05\x04mode\x05\x04\
-name\x05\x0frollback-config\x05\x09task-spec\x05\x0dupdate-config\x05\x04\0\x03r\
-es\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\
-\x1bpulumi:docker/service@4.5.3\x05\x0a\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06ou\
-tput\x03\0\0\x01h\x01\x01r\x02\x04data\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01\
-i\x01\x01r\x02\x04data\x05\x04name\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
-args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\"pulumi:docker/service-config@4.5\
-.3\x05\x0b\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\
-\x0csource-image\x02\x0ctarget-image\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\
-\x0csource-image\x05\x0fsource-image-id\x05\x0ctarget-image\x05\x04\0\x03res\x03\
-\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\x17pu\
-lumi:docker/tag@4.5.3\x05\x0c\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\
-\0\x01h\x01\x01r\x04\x06driver\x02\x0bdriver-opts\x02\x06labels\x02\x04name\x02\x04\
-\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x06driver\x05\x0bdriver-opts\x05\x06label\
-s\x05\x0amountpoint\x05\x04name\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
-args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\x1apulumi:docker/volume@4.5.3\x05\
-\x0d\x04\x01!pulumi:docker/docker-pulumi@4.5.3\x04\0\x0b\x13\x01\0\x0ddocker-pul\
-umi\x03\0\0\0G\x09producers\x01\x0cprocessed-by\x02\x0dwit-component\x070.208.1\x10\
-wit-bindgen-rust\x060.25.0";
+pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 4745] = *b"\
+\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\x85$\x01A\x02\x01A\x1b\
+\x01B\x09\x04\0\x06output\x03\x01\x01i\0\x01@\x01\x05values\0\x01\x04\0\x13[cons\
+tructor]output\x01\x02\x01h\0\x01@\x02\x04self\x03\x0dfunction-names\0\x01\x04\0\
+\x12[method]output.map\x01\x04\x01@\x01\x04self\x03\0\x01\x04\0\x18[method]outpu\
+t.duplicate\x01\x05\x03\x01,component:pulumi-wasm/output-interface@0.1.0\x05\0\x02\
+\x03\0\0\x06output\x01B\x13\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
+\x01r\x02\x04names\x05value\x02\x04\0\x0cobject-field\x03\0\x03\x01r\x01\x04name\
+s\x04\0\x0cresult-field\x03\0\x05\x01i\x01\x01r\x02\x04names\x06output\x07\x04\0\
+\x1eregister-resource-result-field\x03\0\x08\x01p\x04\x01p\x06\x01r\x04\x04types\
+\x04names\x06object\x0a\x07results\x0b\x04\0\x19register-resource-request\x03\0\x0c\
+\x01p\x09\x01r\x01\x06fields\x0e\x04\0\x18register-resource-result\x03\0\x0f\x01\
+@\x01\x07request\x0d\0\x10\x04\0\x08register\x01\x11\x03\x01.component:pulumi-wa\
+sm/register-interface@0.1.0\x05\x02\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\
+\x03\0\0\x01h\x01\x01r>\x06attach\x02\x0ccapabilities\x02\x0dcgroupns-mode\x02\x07\
+command\x02+container-read-refresh-timeout-milliseconds\x02\x07cpu-set\x02\x0acp\
+u-shares\x02\x15destroy-grace-seconds\x02\x07devices\x02\x03dns\x02\x08dns-opts\x02\
+\x0cdns-searches\x02\x0adomainname\x02\x0bentrypoints\x02\x04envs\x02\x04gpus\x02\
+\x0agroup-adds\x02\x0bhealthcheck\x02\x08hostname\x02\x05hosts\x02\x05image\x02\x04\
+init\x02\x08ipc-mode\x02\x06labels\x02\x0alog-driver\x02\x08log-opts\x02\x04logs\
+\x02\x0fmax-retry-count\x02\x06memory\x02\x0bmemory-swap\x02\x06mounts\x02\x08mu\
+st-run\x02\x04name\x02\x0cnetwork-mode\x02\x11networks-advanced\x02\x08pid-mode\x02\
+\x05ports\x02\x0aprivileged\x02\x11publish-all-ports\x02\x09read-only\x02\x0erem\
+ove-volumes\x02\x07restart\x02\x02rm\x02\x07runtime\x02\x0dsecurity-opts\x02\x08\
+shm-size\x02\x05start\x02\x0astdin-open\x02\x0bstop-signal\x02\x0cstop-timeout\x02\
+\x0cstorage-opts\x02\x07sysctls\x02\x05tmpfs\x02\x03tty\x02\x07ulimits\x02\x07up\
+loads\x02\x04user\x02\x0buserns-mode\x02\x07volumes\x02\x04wait\x02\x0cwait-time\
+out\x02\x0bworking-dir\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01rB\x06attach\x05\x06\
+bridge\x05\x0ccapabilities\x05\x0dcgroupns-mode\x05\x07command\x05\x0econtainer-\
+logs\x05+container-read-refresh-timeout-milliseconds\x05\x07cpu-set\x05\x0acpu-s\
+hares\x05\x15destroy-grace-seconds\x05\x07devices\x05\x03dns\x05\x08dns-opts\x05\
+\x0cdns-searches\x05\x0adomainname\x05\x0bentrypoints\x05\x04envs\x05\x09exit-co\
+de\x05\x04gpus\x05\x0agroup-adds\x05\x0bhealthcheck\x05\x08hostname\x05\x05hosts\
+\x05\x05image\x05\x04init\x05\x08ipc-mode\x05\x06labels\x05\x0alog-driver\x05\x08\
+log-opts\x05\x04logs\x05\x0fmax-retry-count\x05\x06memory\x05\x0bmemory-swap\x05\
+\x06mounts\x05\x08must-run\x05\x04name\x05\x0dnetwork-datas\x05\x0cnetwork-mode\x05\
+\x11networks-advanced\x05\x08pid-mode\x05\x05ports\x05\x0aprivileged\x05\x11publ\
+ish-all-ports\x05\x09read-only\x05\x0eremove-volumes\x05\x07restart\x05\x02rm\x05\
+\x07runtime\x05\x0dsecurity-opts\x05\x08shm-size\x05\x05start\x05\x0astdin-open\x05\
+\x0bstop-signal\x05\x0cstop-timeout\x05\x0cstorage-opts\x05\x07sysctls\x05\x05tm\
+pfs\x05\x03tty\x05\x07ulimits\x05\x07uploads\x05\x04user\x05\x0buserns-mode\x05\x07\
+volumes\x05\x04wait\x05\x0cwait-timeout\x05\x0bworking-dir\x05\x04\0\x03res\x03\0\
+\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\x1dpulu\
+mi:docker/container@4.5.3\x05\x03\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
+\0\0\x01h\x01\x01r\x05\x05build\x02\x10build-on-preview\x02\x0aimage-name\x02\x08\
+registry\x02\x09skip-push\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\x0fbase-\
+image-name\x05\x07context\x05\x0adockerfile\x05\x0aimage-name\x05\x08platform\x05\
+\x0fregistry-server\x05\x0brepo-digest\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04na\
+mes\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\x19pulumi:docker/image@4.5\
+.3\x05\x04\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0c\
+\x0aattachable\x02\x0fcheck-duplicate\x02\x06driver\x02\x07ingress\x02\x08intern\
+al\x02\x0cipam-configs\x02\x0bipam-driver\x02\x0cipam-options\x02\x04ipv6\x02\x06\
+labels\x02\x04name\x02\x07options\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0d\x0a\
+attachable\x05\x0fcheck-duplicate\x05\x06driver\x05\x07ingress\x05\x08internal\x05\
+\x0cipam-configs\x05\x0bipam-driver\x05\x0cipam-options\x05\x04ipv6\x05\x06label\
+s\x05\x04name\x05\x07options\x05\x05scope\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04\
+names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\x1bpulumi:docker/network\
+@4.5.3\x05\x05\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
+r\x09\x05alias\x02\x0eenable-timeout\x02\x07enabled\x02\x04envs\x02\x0dforce-des\
+troy\x02\x0dforce-disable\x02\x15grant-all-permissions\x02\x11grant-permissions\x02\
+\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0a\x05alias\x05\x0eenable-ti\
+meout\x05\x07enabled\x05\x04envs\x05\x0dforce-destroy\x05\x0dforce-disable\x05\x15\
+grant-all-permissions\x05\x11grant-permissions\x05\x04name\x05\x10plugin-referen\
+ce\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invok\
+e\x01\x08\x04\x01\x1apulumi:docker/plugin@4.5.3\x05\x06\x01B\x0a\x02\x03\x02\x01\
+\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x14insecure-skip-verify\x02\x0dke\
+ep-remotely\x02\x04name\x02\x08triggers\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
+r\x05\x14insecure-skip-verify\x05\x0dkeep-remotely\x05\x04name\x05\x0dsha256-dig\
+est\x05\x08triggers\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
+\x04\0\x06invoke\x01\x08\x04\x01\"pulumi:docker/registry-image@4.5.3\x05\x07\x01\
+B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x07\x05build\x02\
+\x0cforce-remove\x02\x0ckeep-locally\x02\x04name\x02\x08platform\x02\x0dpull-tri\
+ggers\x02\x08triggers\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x09\x05build\x05\
+\x0cforce-remove\x05\x08image-id\x05\x0ckeep-locally\x05\x04name\x05\x08platform\
+\x05\x0dpull-triggers\x05\x0brepo-digest\x05\x08triggers\x05\x04\0\x03res\x03\0\x06\
+\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\x20pulumi:d\
+ocker/remote-image@4.5.3\x05\x08\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
+\0\0\x01h\x01\x01r\x03\x04data\x02\x06labels\x02\x04name\x02\x04\0\x04args\x03\0\
+\x03\x01i\x01\x01r\x03\x04data\x05\x06labels\x05\x04name\x05\x04\0\x03res\x03\0\x06\
+\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\x1apulumi:d\
+ocker/secret@4.5.3\x05\x09\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
+h\x01\x01r\x09\x04auth\x02\x0fconverge-config\x02\x0dendpoint-spec\x02\x06labels\
+\x02\x04mode\x02\x04name\x02\x0frollback-config\x02\x09task-spec\x02\x0dupdate-c\
+onfig\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x09\x04auth\x05\x0fconverge-conf\
+ig\x05\x0dendpoint-spec\x05\x06labels\x05\x04mode\x05\x04name\x05\x0frollback-co\
+nfig\x05\x09task-spec\x05\x0dupdate-config\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04\
+names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\x1bpulumi:docker/service\
+@4.5.3\x05\x0a\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
+r\x02\x04data\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x04data\x05\
+\x04name\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
+invoke\x01\x08\x04\x01\"pulumi:docker/service-config@4.5.3\x05\x0b\x01B\x0a\x02\x03\
+\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x0csource-image\x02\x0cta\
+rget-image\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x0csource-image\x05\x0f\
+source-image-id\x05\x0ctarget-image\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\
+\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\x17pulumi:docker/tag@4.5.3\x05\
+\x0c\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x06d\
+river\x02\x0bdriver-opts\x02\x06labels\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01\
+i\x01\x01r\x05\x06driver\x05\x0bdriver-opts\x05\x06labels\x05\x0amountpoint\x05\x04\
+name\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06inv\
+oke\x01\x08\x04\x01\x1apulumi:docker/volume@4.5.3\x05\x0d\x04\x01!pulumi:docker/\
+docker-pulumi@4.5.3\x04\0\x0b\x13\x01\0\x0ddocker-pulumi\x03\0\0\0G\x09producers\
+\x01\x0cprocessed-by\x02\x0dwit-component\x070.208.1\x10wit-bindgen-rust\x060.25\
+.0";
 
 #[inline(never)]
 #[doc(hidden)]

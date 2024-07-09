@@ -55,14 +55,12 @@ fn map_functions(functions: &[FunctionInvocationRequest]) -> Result<Vec<Function
                  value,
              }| {
                 info!("Invoking function [{function_id}] with value [{value:?}]");
-                let v = rmpv::decode::read_value(&mut value.clone().as_slice())?;
-                info!("Invoking function [{function_id}] with decoded value [{v:?}]");
                 let f = functions_map
                     .get(function_id)
                     .context(format!("Function with id {function_id} not found"))?;
                 Ok(FunctionInvocationResult {
                     id,
-                    value: f(value.to_vec())?,
+                    value: f(value)?,
                 })
             },
         )

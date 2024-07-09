@@ -1,10 +1,12 @@
 use std::cell::RefCell;
 use std::collections::{BTreeMap, HashMap, HashSet};
 
-use log::warn;
+use log::{error, warn};
 use prost::Message;
-use prost_types::Struct;
-use rmpv::Value;
+use prost_types::value::Kind;
+use prost_types::value::Kind::StructValue;
+use prost_types::{ListValue, Struct};
+use serde_json::{Number, Value};
 
 use crate::model::{FieldName, OutputId};
 use crate::pulumi::service::{PulumiService, RegisterResourceResponse};
@@ -12,8 +14,7 @@ use crate::{PulumiConnector, RegisterResourceRequest};
 
 pub struct PulumiServiceImpl {
     connector: Box<dyn PulumiConnector>,
-    expected_results:
-        RefCell<HashMap<OutputId, HashMap<FieldName, msgpack_protobuf_converter::Type>>>,
+    expected_results: RefCell<HashMap<OutputId, HashSet<FieldName>>>,
     is_in_preview: bool,
 }
 
@@ -126,7 +127,7 @@ impl PulumiService for PulumiServiceImpl {
 
             let object = response.object.unwrap_or(Struct::default());
 
-            let result = Self::protoc_object_to_messagepack_map(object, expected_results.clone());
+            let result = Self::protoc_object_to_json_map(object, expected_results.clone());
 
             map.insert(output_id, RegisterResourceResponse { outputs: result });
         }
@@ -138,9 +139,9 @@ impl PulumiService for PulumiServiceImpl {
 const UNKNOWN_VALUE: &str = "04da6b54-80e4-46f7-96ec-b56ff0331ba9";
 
 impl PulumiServiceImpl {
-    fn protoc_object_to_messagepack_map(
+    fn protoc_object_to_json_map(
         o: Struct,
-        schema: HashMap<FieldName, msgpack_protobuf_converter::Type>,
+        schema: HashSet<FieldName>,
     ) -> HashMap<FieldName, Value> {
         o.fields
             .iter()
@@ -149,8 +150,8 @@ impl PulumiServiceImpl {
                     warn!("Schema for field [{k}] not found");
                     None
                 }
-                Some(t) => {
-                    let v = msgpack_protobuf_converter::protobuf_to_msgpack(v, t).unwrap();
+                Some(_) => {
+                    let v = Self::protobuf_to_json(v);
                     Some((k.into(), v))
                 }
             })
@@ -163,9 +164,9 @@ impl PulumiServiceImpl {
             .map(|(name, value)| {
                 let v = match value {
                     None => prost_types::Value {
-                        kind: Some(prost_types::value::Kind::StringValue(UNKNOWN_VALUE.into())),
+                        kind: Some(Kind::StringValue(UNKNOWN_VALUE.into())),
                     },
-                    Some(value) => msgpack_protobuf_converter::msgpack_to_protobuf(value).unwrap(),
+                    Some(value) => Self::json_to_protobuf(value),
                 };
                 (name.as_string().clone(), v)
             })
@@ -173,6 +174,70 @@ impl PulumiServiceImpl {
 
         Struct {
             fields: BTreeMap::from_iter(pairs),
+        }
+    }
+
+    fn json_to_protobuf(json: &Value) -> prost_types::Value {
+        match json {
+            Value::Null => prost_types::Value {
+                kind: Some(prost_types::value::Kind::NullValue(0)),
+            },
+            Value::Bool(b) => prost_types::Value {
+                kind: Some(prost_types::value::Kind::BoolValue(b.clone())),
+            },
+            Value::Number(n) => prost_types::Value {
+                kind: Some(prost_types::value::Kind::NumberValue(n.as_f64().unwrap())),
+            },
+            Value::String(s) => prost_types::Value {
+                kind: Some(prost_types::value::Kind::StringValue(s.clone())),
+            },
+            Value::Array(arr) => {
+                let list_value = ListValue {
+                    values: arr.iter().map(Self::json_to_protobuf).collect(),
+                };
+                prost_types::Value {
+                    kind: Some(prost_types::value::Kind::ListValue(list_value)),
+                }
+            }
+            Value::Object(obj) => {
+                let struct_value = Struct {
+                    fields: obj
+                        .iter()
+                        .map(|(k, v)| (k.clone(), Self::json_to_protobuf(v)))
+                        .collect(),
+                };
+                prost_types::Value {
+                    kind: Some(prost_types::value::Kind::StructValue(struct_value)),
+                }
+            }
+        }
+    }
+
+    fn protobuf_to_json(protobuf: &prost_types::Value) -> Value {
+        match &protobuf.kind {
+            None => {
+                error!("Unknown kind in protobuf value");
+                panic!("Unknown kind in protobuf value");
+            }
+            Some(Kind::NullValue(_)) => Value::Null,
+            Some(Kind::NumberValue(n)) => {
+                if n.fract() == 0.0 {
+                    Value::Number(Number::from(*n as i64))
+                } else {
+                    Value::Number(Number::from_f64(*n).unwrap())
+                }
+            }
+            Some(Kind::StringValue(s)) => Value::String(s.clone()),
+            Some(Kind::BoolValue(b)) => Value::Bool(*b),
+            Some(Kind::StructValue(s)) => Value::Object(
+                s.fields
+                    .iter()
+                    .map(|(k, v)| (k.clone(), Self::protobuf_to_json(&v)))
+                    .collect(),
+            ),
+            Some(Kind::ListValue(l)) => {
+                Value::Array(l.values.iter().map(Self::protobuf_to_json).collect())
+            }
         }
     }
 }
@@ -192,22 +257,22 @@ mod tests {
                 (
                     "field1".into(),
                     prost_types::Value {
-                        kind: Some(prost_types::value::Kind::NumberValue(1.0)),
+                        kind: Some(prost_types::value::Kind::NumberValue(1.5)),
                     },
                 ),
                 (
                     "field2".into(),
                     prost_types::Value {
-                        kind: Some(prost_types::value::Kind::NumberValue(2.0)),
+                        kind: Some(prost_types::value::Kind::NumberValue(2.5)),
                     },
                 ),
             ]),
         };
 
-        let schema = HashMap::from([("field1".into(), msgpack_protobuf_converter::Type::Double)]);
-        let result = PulumiServiceImpl::protoc_object_to_messagepack_map(s, schema);
+        let schema = ["field1".into()].into();
+        let result = PulumiServiceImpl::protoc_object_to_json_map(s, schema);
 
-        assert_eq!(result, HashMap::from([("field1".into(), 1.0.into())]))
+        assert_eq!(result, HashMap::from([("field1".into(), 1.5.into())]))
     }
 
     mod register_resource {}

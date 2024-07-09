@@ -1,6 +1,6 @@
 use core::fmt::Debug;
 use std::cell::RefCell;
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 
 use globals::get_pulumi_engine;
 use pulumi_wasm_core::{Engine, OutputId};
@@ -60,9 +60,7 @@ impl stack_interface::Guest for Component {
         let v = functions
             .iter()
             .map(|function_invocation_result| {
-                let v = function_invocation_result.value.clone();
-                let v = rmpv::decode::read_value(&mut v.as_slice()).unwrap();
-
+                let v = serde_json::from_str(function_invocation_result.value.as_str()).unwrap();
                 (function_invocation_result.id.get::<CustomOutputId>().0, v)
             })
             .collect();
@@ -72,8 +70,7 @@ impl stack_interface::Guest for Component {
         results
             .into_iter()
             .map(|result| {
-                let mut vec = vec![];
-                rmpv::encode::write_value(&mut vec, &result.value).unwrap();
+                let vec = result.value.to_string();
                 let id: CustomOutputId = result.output_id.into();
                 FunctionInvocationRequest {
                     id: Output::new(id),
@@ -102,13 +99,8 @@ impl register_interface::Guest for Component {
         let outputs = request
             .results
             .iter()
-            .map(|ResultField { name, schema }| {
-                (
-                    name.clone().into(),
-                    rmp_serde::from_slice::<msgpack_protobuf_converter::Type>(schema).unwrap(),
-                )
-            })
-            .collect::<HashMap<_, _>>();
+            .map(|ResultField { name }| name.clone().into())
+            .collect::<HashSet<_>>();
 
         let object = request
             .object
@@ -138,9 +130,9 @@ impl register_interface::Guest for Component {
 }
 
 impl GuestOutput for CustomOutputId {
-    fn new(value: Vec<u8>) -> CustomOutputId {
+    fn new(value: String) -> CustomOutputId {
         wasm_common::setup_logger();
-        let value = rmpv::decode::read_value(&mut value.as_slice()).unwrap();
+        let value = serde_json::from_str(&value).unwrap();
         let refcell: &RefCell<Engine> = &get_pulumi_engine();
         let output_id = refcell.borrow_mut().create_done_node(value);
         output_id.into()

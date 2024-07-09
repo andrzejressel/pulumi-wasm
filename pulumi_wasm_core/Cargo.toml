@@ -12,10 +12,9 @@ prost-types.workspace = true
 uuid.workspace = true
 lazy_static.workspace = true
 once_cell.workspace = true
-rmpv.workspace = true
 log.workspace = true
-msgpack_protobuf_converter.workspace = true
 tonic.workspace = true
+serde_json.workspace = true
 
 [build-dependencies]
 tonic-build.workspace = true

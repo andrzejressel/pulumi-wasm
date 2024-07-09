@@ -3,7 +3,7 @@ package component:pulumi-wasm@0.1.0;
 interface output-interface {
 
     resource output {
-        constructor(value: list<u8>);
+        constructor(value: string);
         map: func(function-name: string) -> output;
         duplicate: func() -> output;
     }
@@ -19,8 +19,7 @@ interface register-interface {
     }
 
     record result-field {
-        name: string,
-        schema: list<u8>
+        name: string
     }
 
     record register-resource-result-field {

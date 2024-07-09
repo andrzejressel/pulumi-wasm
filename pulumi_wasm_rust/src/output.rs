@@ -25,7 +25,7 @@ impl<T: serde::Serialize> From<T> for Output<Option<T>> {
     }
 }
 
-type Function = Box<dyn Fn(Vec<u8>) -> Result<Vec<u8>, Error> + Send>;
+type Function = Box<dyn Fn(&String) -> Result<String, Error> + Send>;
 
 lazy_static! {
     pub(crate) static ref HASHMAP: Mutex<HashMap<String, Function>> = {
@@ -57,9 +57,8 @@ impl<T> Output<T> {
     }
 
     pub fn new<F: serde::Serialize>(value: &F) -> Self {
-        let binding = rmp_serde::to_vec_named(value).unwrap();
-        let arg = binding.as_slice();
-        let resource = output_interface::Output::new(arg);
+        let binding = serde_json::to_string(value).unwrap();
+        let resource = output_interface::Output::new(binding.as_str());
         Output {
             phantom: PhantomData,
             future: resource,
@@ -72,13 +71,12 @@ impl<T> Output<T> {
         T: serde::de::DeserializeOwned + Debug,
         B: serde::Serialize + Debug,
     {
-        let f = move |arg: Vec<u8>| {
-            let arg = arg.clone();
-            let argument = rmp_serde::decode::from_slice(&arg)?; // .map_err(|e| format!("{e}")).map_err(|e| anyhow!(e))?;
+        let f = move |arg: &String| {
+            let argument = serde_json::from_str(arg)?;
             info!("Argument: {:?}", argument);
             let result = f(argument);
             info!("Result: {:?}", result);
-            let result = rmp_serde::to_vec_named(&result)?;
+            let result = serde_json::to_string(&result)?;
             Ok(result)
         };
 

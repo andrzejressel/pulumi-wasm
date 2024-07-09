@@ -34,23 +34,13 @@ impl random_bytes::Guest for Component {
             results: vec![
                 ResultField {
                     name: "base64".into(),
-                    schema: vec![166, 83, 116, 114, 105, 110, 103],
                 },
-                ResultField {
-                    name: "hex".into(),
-                    schema: vec![166, 83, 116, 114, 105, 110, 103],
-                },
+                ResultField { name: "hex".into() },
                 ResultField {
                     name: "keepers".into(),
-                    schema: vec![
-                        129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103,
-                        108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114,
-                        105, 110, 103,
-                    ],
                 },
                 ResultField {
                     name: "length".into(),
-                    schema: vec![163, 73, 110, 116],
                 },
             ],
         };
@@ -112,38 +102,20 @@ impl random_id::Guest for Component {
             results: vec![
                 ResultField {
                     name: "b64Std".into(),
-                    schema: vec![166, 83, 116, 114, 105, 110, 103],
                 },
                 ResultField {
                     name: "b64Url".into(),
-                    schema: vec![166, 83, 116, 114, 105, 110, 103],
                 },
                 ResultField {
                     name: "byteLength".into(),
-                    schema: vec![163, 73, 110, 116],
                 },
-                ResultField {
-                    name: "dec".into(),
-                    schema: vec![166, 83, 116, 114, 105, 110, 103],
-                },
-                ResultField {
-                    name: "hex".into(),
-                    schema: vec![166, 83, 116, 114, 105, 110, 103],
-                },
+                ResultField { name: "dec".into() },
+                ResultField { name: "hex".into() },
                 ResultField {
                     name: "keepers".into(),
-                    schema: vec![
-                        129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103,
-                        108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114,
-                        105, 110, 103,
-                    ],
                 },
                 ResultField {
                     name: "prefix".into(),
-                    schema: vec![
-                        129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 166, 83, 116, 114, 105, 110,
-                        103,
-                    ],
                 },
             ],
         };
@@ -230,30 +202,14 @@ impl random_integer::Guest for Component {
             results: vec![
                 ResultField {
                     name: "keepers".into(),
-                    schema: vec![
-                        129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103,
-                        108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114,
-                        105, 110, 103,
-                    ],
                 },
-                ResultField {
-                    name: "max".into(),
-                    schema: vec![163, 73, 110, 116],
-                },
-                ResultField {
-                    name: "min".into(),
-                    schema: vec![163, 73, 110, 116],
-                },
+                ResultField { name: "max".into() },
+                ResultField { name: "min".into() },
                 ResultField {
                     name: "result".into(),
-                    schema: vec![163, 73, 110, 116],
                 },
                 ResultField {
                     name: "seed".into(),
-                    schema: vec![
-                        129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 166, 83, 116, 114, 105, 110,
-                        103,
-                    ],
                 },
             ],
         };
@@ -358,66 +314,45 @@ impl random_password::Guest for Component {
             results: vec![
                 ResultField {
                     name: "bcryptHash".into(),
-                    schema: vec![166, 83, 116, 114, 105, 110, 103],
                 },
                 ResultField {
                     name: "keepers".into(),
-                    schema: vec![
-                        129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103,
-                        108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114,
-                        105, 110, 103,
-                    ],
                 },
                 ResultField {
                     name: "length".into(),
-                    schema: vec![163, 73, 110, 116],
                 },
                 ResultField {
                     name: "lower".into(),
-                    schema: vec![164, 66, 111, 111, 108],
                 },
                 ResultField {
                     name: "minLower".into(),
-                    schema: vec![163, 73, 110, 116],
                 },
                 ResultField {
                     name: "minNumeric".into(),
-                    schema: vec![163, 73, 110, 116],
                 },
                 ResultField {
                     name: "minSpecial".into(),
-                    schema: vec![163, 73, 110, 116],
                 },
                 ResultField {
                     name: "minUpper".into(),
-                    schema: vec![163, 73, 110, 116],
                 },
                 ResultField {
                     name: "number".into(),
-                    schema: vec![164, 66, 111, 111, 108],
                 },
                 ResultField {
                     name: "numeric".into(),
-                    schema: vec![164, 66, 111, 111, 108],
                 },
                 ResultField {
                     name: "overrideSpecial".into(),
-                    schema: vec![
-                        129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 166, 83, 116, 114, 105, 110,
-                        103,
-                    ],
                 },
                 ResultField {
                     name: "result".into(),
-                    schema: vec![166, 83, 116, 114, 105, 110, 103],
                 },
                 ResultField {
                     name: "special".into(),
-                    schema: vec![164, 66, 111, 111, 108],
                 },
                 ResultField {
                     name: "upper".into(),
-                    schema: vec![164, 66, 111, 111, 108],
                 },
             ],
         };
@@ -553,26 +488,15 @@ impl random_pet::Guest for Component {
             results: vec![
                 ResultField {
                     name: "keepers".into(),
-                    schema: vec![
-                        129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103,
-                        108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114,
-                        105, 110, 103,
-                    ],
                 },
                 ResultField {
                     name: "length".into(),
-                    schema: vec![163, 73, 110, 116],
                 },
                 ResultField {
                     name: "prefix".into(),
-                    schema: vec![
-                        129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 166, 83, 116, 114, 105, 110,
-                        103,
-                    ],
                 },
                 ResultField {
                     name: "separator".into(),
-                    schema: vec![166, 83, 116, 114, 105, 110, 103],
                 },
             ],
         };
@@ -638,36 +562,18 @@ impl random_shuffle::Guest for Component {
             results: vec![
                 ResultField {
                     name: "inputs".into(),
-                    schema: vec![
-                        129, 165, 65, 114, 114, 97, 121, 166, 83, 116, 114, 105, 110, 103,
-                    ],
                 },
                 ResultField {
                     name: "keepers".into(),
-                    schema: vec![
-                        129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103,
-                        108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114,
-                        105, 110, 103,
-                    ],
                 },
                 ResultField {
                     name: "resultCount".into(),
-                    schema: vec![
-                        129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 163, 73, 110, 116,
-                    ],
                 },
                 ResultField {
                     name: "results".into(),
-                    schema: vec![
-                        129, 165, 65, 114, 114, 97, 121, 166, 83, 116, 114, 105, 110, 103,
-                    ],
                 },
                 ResultField {
                     name: "seed".into(),
-                    schema: vec![
-                        129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 166, 83, 116, 114, 105, 110,
-                        103,
-                    ],
                 },
             ],
         };
@@ -772,62 +678,42 @@ impl random_string::Guest for Component {
             results: vec![
                 ResultField {
                     name: "keepers".into(),
-                    schema: vec![
-                        129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103,
-                        108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114,
-                        105, 110, 103,
-                    ],
                 },
                 ResultField {
                     name: "length".into(),
-                    schema: vec![163, 73, 110, 116],
                 },
                 ResultField {
                     name: "lower".into(),
-                    schema: vec![164, 66, 111, 111, 108],
                 },
                 ResultField {
                     name: "minLower".into(),
-                    schema: vec![163, 73, 110, 116],
                 },
                 ResultField {
                     name: "minNumeric".into(),
-                    schema: vec![163, 73, 110, 116],
                 },
                 ResultField {
                     name: "minSpecial".into(),
-                    schema: vec![163, 73, 110, 116],
                 },
                 ResultField {
                     name: "minUpper".into(),
-                    schema: vec![163, 73, 110, 116],
                 },
                 ResultField {
                     name: "number".into(),
-                    schema: vec![164, 66, 111, 111, 108],
                 },
                 ResultField {
                     name: "numeric".into(),
-                    schema: vec![164, 66, 111, 111, 108],
                 },
                 ResultField {
                     name: "overrideSpecial".into(),
-                    schema: vec![
-                        129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 166, 83, 116, 114, 105, 110,
-                        103,
-                    ],
                 },
                 ResultField {
                     name: "result".into(),
-                    schema: vec![166, 83, 116, 114, 105, 110, 103],
                 },
                 ResultField {
                     name: "special".into(),
-                    schema: vec![164, 66, 111, 111, 108],
                 },
                 ResultField {
                     name: "upper".into(),
-                    schema: vec![164, 66, 111, 111, 108],
                 },
             ],
         };
@@ -942,15 +828,9 @@ impl random_uuid::Guest for Component {
             results: vec![
                 ResultField {
                     name: "keepers".into(),
-                    schema: vec![
-                        129, 168, 78, 117, 108, 108, 97, 98, 108, 101, 129, 176, 83, 105, 110, 103,
-                        108, 101, 84, 121, 112, 101, 79, 98, 106, 101, 99, 116, 166, 83, 116, 114,
-                        105, 110, 103,
-                    ],
                 },
                 ResultField {
                     name: "result".into(),
-                    schema: vec![166, 83, 116, 114, 105, 110, 103],
                 },
             ],
         };

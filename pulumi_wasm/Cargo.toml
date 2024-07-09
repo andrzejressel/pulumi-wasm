@@ -18,15 +18,11 @@ lazy_static.workspace = true
 once_cell.workspace = true
 bitflags.workspace = true
 wit-bindgen-rt.workspace = true
-rmp.workspace = true
-rmp-serde.workspace = true
-rmpv.workspace = true
 serde.workspace = true
 tonic.workspace = true
 serde_json.workspace = true
 wasm_common.workspace = true
 log.workspace = true
-msgpack_protobuf_converter.workspace = true
 pulumi_wasm_core.workspace = true
 
 [build-dependencies]

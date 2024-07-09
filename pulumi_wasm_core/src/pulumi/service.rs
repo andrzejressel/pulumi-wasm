@@ -1,7 +1,7 @@
 use crate::model::{FieldName, OutputId};
 #[cfg(test)]
 use mockall::automock;
-use rmpv::Value;
+use serde_json::Value;
 use std::collections::{HashMap, HashSet};
 
 #[cfg_attr(test, automock)]
@@ -21,7 +21,7 @@ pub struct RegisterResourceRequest {
     pub(crate) r#type: String,
     pub(crate) name: String,
     pub(crate) object: HashMap<FieldName, Option<Value>>,
-    pub(crate) expected_results: HashMap<FieldName, msgpack_protobuf_converter::Type>,
+    pub(crate) expected_results: HashSet<FieldName>,
 }
 
 #[derive(Clone, Debug, PartialEq)]

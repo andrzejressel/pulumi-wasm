@@ -79,7 +79,7 @@ interface log {
 interface output-interface {
 
     resource output {
-        constructor(value: list<u8>);
+        constructor(value: string);
         map: func(function-name: string) -> output;
         duplicate: func() -> output;
     }
@@ -91,11 +91,11 @@ interface stack-interface {
     record function-invocation-request {
         id: output,
         function-id: string,
-        value: list<u8>,
+        value: string,
     }
     record function-invocation-result {
         id: borrow<output>,
-        value: list<u8>,
+        value: string,
     }
     add-export: func(name: string, value: borrow<output>);
     finish: func(functions: list<function-invocation-result>) -> list<function-invocation-request>;
@@ -111,8 +111,7 @@ interface register-interface {
     }
 
     record result-field {
-        name: string,
-        schema: list<u8>
+        name: string
     }
 
     record register-resource-result-field {

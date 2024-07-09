@@ -1,4 +1,4 @@
-use rmpv::Value;
+use serde_json::Value;
 use std::fmt;
 use uuid::Uuid;
 

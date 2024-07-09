@@ -22,7 +22,7 @@ impl {{name}}::Guest for Component {
             ],
             results: vec![
                 {{#each output_properties}}
-                ResultField { name: "{{name}}".into(), schema: vec!{{schema}} },
+                ResultField { name: "{{name}}".into() },
                 {{/each}}
             ],
         };

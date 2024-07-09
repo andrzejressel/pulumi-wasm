@@ -3,7 +3,7 @@ use std::collections::{HashMap, HashSet, VecDeque};
 use std::ops::Deref;
 
 use log::error;
-use rmpv::Value;
+use serde_json::Value;
 use uuid::Uuid;
 
 use crate::model::NodeValue::Exists;
@@ -669,7 +669,7 @@ impl Engine {
         r#type: String,
         name: String,
         inputs: HashMap<FieldName, OutputId>,
-        outputs: HashMap<FieldName, msgpack_protobuf_converter::Type>,
+        outputs: HashSet<FieldName>,
     ) -> (OutputId, HashMap<FieldName, OutputId>) {
         let output_id = Uuid::now_v7().into();
         let node = RegisterResourceNode::new(
@@ -687,7 +687,7 @@ impl Engine {
         });
 
         let mut output_nodes = HashMap::new();
-        outputs.iter().for_each(|(field_name, _)| {
+        outputs.iter().for_each(|field_name| {
             let extract_field_output = self.create_extract_field(field_name.clone(), output_id);
             output_nodes.insert(field_name.clone(), extract_field_output);
         });
@@ -715,7 +715,7 @@ mod tests {
     use std::collections::HashMap;
     use std::ops::Deref;
 
-    use rmpv::Value;
+    use serde_json::Value;
 
     use crate::engine::{Engine, ForeignFunctionToInvoke};
     use crate::nodes::{Callback, DoneNode, NativeFunctionNode};
@@ -867,7 +867,7 @@ mod tests {
         #[test]
         fn extract_field_extract_field_from_map() {
             let mut engine = Engine::new(MockPulumiService::new());
-            let value = Value::Map(vec![("key".into(), 1.into())]);
+            let value = Value::Object([("key".into(), 1.into())].into_iter().collect());
             let done_node_output_id = engine.create_done_node(value.clone());
             let extract_field_node_output_id =
                 engine.create_extract_field("key".into(), done_node_output_id);
@@ -907,7 +907,7 @@ mod tests {
         use std::sync::{Arc, OnceLock};
 
         use mockall::predicate::{eq, function};
-        use rmpv::Value;
+        use serde_json::Value;
 
         use crate::engine::Engine;
         use crate::model::MaybeNodeValue::NotYetCalculated;
@@ -925,7 +925,7 @@ mod tests {
                     "type".into(),
                     "name".into(),
                     HashMap::from([("input".into(), done_node_output_id)]),
-                    HashMap::from([("output".into(), msgpack_protobuf_converter::Type::Bool)]),
+                    ["output".into()].into(),
                 );
 
             assert_eq!(output_fields.len(), 1);
@@ -949,7 +949,7 @@ mod tests {
                     "name".into(),
                     HashSet::from(["input".into()]),
                     HashMap::new(),
-                    HashMap::from([("output".into(), msgpack_protobuf_converter::Type::Bool)]),
+                    HashSet::from(["output".into()]),
                     vec![Callback::extract_field(
                         *output_fields.get(&"output".into()).unwrap()
                     )],
@@ -985,10 +985,7 @@ mod tests {
                         r#type: "type".into(),
                         name: "name".into(),
                         object: HashMap::from([("input".into(), Some(1.into()))]),
-                        expected_results: HashMap::from([(
-                            "output".into(),
-                            msgpack_protobuf_converter::Type::Bool,
-                        )]),
+                        expected_results: HashSet::from(["output".into()]),
                     }),
                 )
                 .returning(|_, _| ());
@@ -1022,7 +1019,7 @@ mod tests {
                 "type".into(),
                 "name".into(),
                 HashMap::from([("input".into(), done_node_output_id)]),
-                HashMap::from([("output".into(), msgpack_protobuf_converter::Type::Bool)]),
+                ["output".into()].into(),
             );
             register_resource_node_output_id_once_cell
                 .set(register_resource_node_output_id)
@@ -1031,7 +1028,7 @@ mod tests {
             assert_eq!(result, None);
 
             let output_node = engine.get_extract_field(*outputs.get(&"output".into()).unwrap());
-            assert_eq!(output_node.get_value(), &Value::Boolean(true).into());
+            assert_eq!(output_node.get_value(), &Value::Bool(true).into());
         }
     }
 

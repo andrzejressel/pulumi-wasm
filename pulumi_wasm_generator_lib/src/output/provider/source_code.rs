@@ -2,7 +2,6 @@ use crate::model::{ElementId, GlobalType, GlobalTypeProperty, Ref, Type};
 use crate::output::replace_multiple_dashes;
 use anyhow::Context;
 use handlebars::Handlebars;
-use msgpack_protobuf_converter::Type as ConverterType;
 use std::collections::BTreeMap;
 
 use serde::Serialize;
@@ -21,7 +20,6 @@ struct OutputProperty {
     name: String,
     arg_name: String,
     required: bool,
-    schema: Vec<u8>,
 }
 
 #[derive(Serialize)]
@@ -62,15 +60,6 @@ fn convert_model(package: &crate::model::Package) -> Package {
                         name: output_property.name.clone(),
                         arg_name: create_valid_id(&output_property.name),
                         required: !matches!(output_property.r#type, Type::Option(_)),
-                        schema: rmp_serde::encode::to_vec(&generate_schema(
-                            &output_property.r#type,
-                            &package.types,
-                        ))
-                        .context(format!(
-                            "Cannot convert schema for {}",
-                            output_property.name
-                        ))
-                        .unwrap(),
                     })
                     .collect(),
             })
@@ -109,43 +98,4 @@ pub(crate) fn generate_source_code(package: &crate::model::Package) -> String {
     handlebars
         .render_template(TEMPLATE, &json!({"package": &convert_model(package)}))
         .unwrap()
-}
-
-fn generate_schema(t: &Type, all_types: &BTreeMap<ElementId, GlobalType>) -> ConverterType {
-    match t {
-        Type::Boolean => ConverterType::Bool,
-        Type::Integer => ConverterType::Int,
-        Type::Number => ConverterType::Double,
-        Type::String => ConverterType::String,
-        Type::Array(t) => ConverterType::Array(Box::from(generate_schema(t, all_types))),
-        Type::Object(t) => {
-            ConverterType::SingleTypeObject(Box::from(generate_schema(t, all_types)))
-        }
-        Type::Ref(r) => match r {
-            Ref::Type(tpe) => {
-                let tpe = all_types
-                    .get(tpe)
-                    .context(format!("Cannot find type {:?}", tpe))
-                    .unwrap();
-                match tpe {
-                    GlobalType::Object(properties) => ConverterType::Object(
-                        properties
-                            .iter()
-                            .map(|GlobalTypeProperty { name, r#type }| {
-                                (name.clone(), generate_schema(r#type, all_types))
-                            })
-                            .collect(),
-                    ),
-                    GlobalType::String => ConverterType::String,
-                    GlobalType::Boolean => ConverterType::Bool,
-                    GlobalType::Number => ConverterType::Double,
-                    GlobalType::Integer => ConverterType::Int,
-                }
-            }
-            Ref::Archive => ConverterType::String, // FIXME
-            Ref::Asset => ConverterType::String,
-            Ref::Any => ConverterType::String,
-        },
-        Type::Option(t) => ConverterType::Nullable(Box::from(generate_schema(t, all_types))),
-    }
 }

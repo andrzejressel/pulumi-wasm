@@ -2,8 +2,9 @@ use crate::model::MaybeNodeValue::{NotYetCalculated, Set};
 use crate::model::{FieldName, FunctionName, MaybeNodeValue, NodeValue, OutputId};
 use crate::pulumi::service::{RegisterResourceRequest, RegisterResourceResponse};
 use log::error;
-use rmpv::Value;
+use serde_json::Value;
 use std::collections::{HashMap, HashSet};
+use std::iter::Map;
 
 #[derive(Clone, Debug, PartialEq)]
 pub(crate) enum Callback {
@@ -120,7 +121,7 @@ pub(crate) struct RegisterResourceNode {
     r#type: String,
     required_inputs: HashSet<FieldName>,
     inputs: HashMap<FieldName, NodeValue>,
-    outputs: HashMap<FieldName, msgpack_protobuf_converter::Type>,
+    outputs: HashSet<FieldName>,
     callbacks: Vec<Callback>,
 }
 
@@ -131,7 +132,7 @@ impl RegisterResourceNode {
         name: String,
         required_inputs: HashSet<FieldName>,
         inputs: HashMap<FieldName, NodeValue>,
-        outputs: HashMap<FieldName, msgpack_protobuf_converter::Type>,
+        outputs: HashSet<FieldName>,
         callbacks: Vec<Callback>,
     ) -> Self {
         Self {
@@ -149,7 +150,7 @@ impl RegisterResourceNode {
         r#type: String,
         name: String,
         input_names: HashSet<FieldName>,
-        outputs: HashMap<FieldName, msgpack_protobuf_converter::Type>,
+        outputs: HashSet<FieldName>,
     ) -> Self {
         Self::create(
             NotYetCalculated,
@@ -182,12 +183,12 @@ impl RegisterResourceNode {
 
     //TODO: Write tests
     pub(crate) fn set_value(&mut self, value: &RegisterResourceResponse) -> NodeValue {
-        let map: Vec<(Value, Value)> = value
+        let map: HashMap<String, Value> = value
             .outputs
             .iter()
-            .map(|(k, v)| (Value::String(k.as_string().clone().into()), v.clone()))
+            .map(|(k, v)| (k.as_string().clone(), v.clone()))
             .collect();
-        let val = Value::Map(map);
+        let val = Value::Object(map.into_iter().collect());
         let node_value = NodeValue::Exists(val);
 
         self.value = Set(node_value.clone());
@@ -273,9 +274,9 @@ impl ExtractFieldNode {
                 panic!("Cannot extract field from Nothing");
             }
 
-            NodeValue::Exists(Value::Map(map)) => {
+            NodeValue::Exists(Value::Object(map)) => {
                 let key: Value = self.field_name.as_string().clone().into();
-                let value = map.iter().find(|(k, _)| k == &key).map(|(_, v)| v.clone());
+                let value = map.iter().find(|(k, _)| *k == &key).map(|(_, v)| v.clone());
                 let new_node_value = match value {
                     None => NodeValue::Nothing,
                     Some(v) => NodeValue::Exists(v),
@@ -297,12 +298,12 @@ mod tests {
 
     use crate::model::NodeValue::{Exists, Nothing};
     use crate::nodes::RegisterResourceNode;
-    use msgpack_protobuf_converter::Type;
-    use rmpv::Value::Nil;
+    use serde_json::Value::Null;
 
     mod register_resource_node {
         use super::*;
         use crate::pulumi::service::RegisterResourceRequest;
+        use std::collections::HashSet;
 
         #[test]
         fn set_input_passes_it_to_pulumi() {
@@ -310,10 +311,10 @@ mod tests {
                 "type".into(),
                 "name".into(),
                 ["exists_nil".into(), "exists_int".into(), "not_exist".into()].into(),
-                HashMap::from([("output".into(), Type::Bool)]),
+                HashSet::from(["output".into()]),
             );
 
-            let result = node.set_input("exists_nil".into(), Exists(Nil));
+            let result = node.set_input("exists_nil".into(), Exists(Null));
             assert_eq!(result, None);
 
             let result = node.set_input("exists_int".into(), Exists(2.into()));
@@ -326,11 +327,11 @@ mod tests {
                     r#type: "type".into(),
                     name: "name".into(),
                     object: HashMap::from([
-                        ("exists_nil".into(), Some(Nil)),
+                        ("exists_nil".into(), Some(Null)),
                         ("exists_int".into(), Some(2.into())),
                         ("not_exist".into(), None),
                     ]),
-                    expected_results: HashMap::from([("output".into(), Type::Bool)]),
+                    expected_results: HashSet::from(["output".into()]),
                 })
             );
         }
