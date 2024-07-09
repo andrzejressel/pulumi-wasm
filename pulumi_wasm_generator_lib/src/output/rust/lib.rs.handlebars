@@ -1,5 +1,7 @@
 use pulumi_wasm_rust::Output;
+{{#if package.interfaces}}
 use crate::bindings::component::pulumi_wasm::output_interface::Output as WitOutput;
+{{/if}}
 pub mod resource;
 pub mod types;
 
@@ -7,12 +9,15 @@ mod bindings {
     wit_bindgen::generate!({
         // the name of the world in the `*.wit` input file
         world: "{{package.name}}-pulumi-client",
+{{#if package.interfaces}}
         with: {
             "component:pulumi-wasm/output-interface@0.1.0": generate
         }
+{{/if}}
     });
 }
 
+{{#if package.interfaces}}
 fn random_to_domain_mapper<F: serde::Serialize>(random: WitOutput) -> Output<F> {
     unsafe {
         let inner = random.take_handle();
@@ -27,3 +32,4 @@ fn clone<T>(output: Output<T>) -> WitOutput {
         WitOutput::from_handle(cloned.take_handle())
     }
 }
+{{/if}}

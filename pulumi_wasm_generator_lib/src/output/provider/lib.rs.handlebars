@@ -1,10 +1,12 @@
-use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
 {{#each package.interfaces}}
-use bindings::exports::pulumi::{{@root.package.name}}::{{name}};
+use bindings::exports::pulumi::{{@root.package.name_escaped}}::{{name}};
 {{/each}}
 
+{{#if package.interfaces}}
+use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
 mod bindings;
 bindings::export!(Component with_types_in bindings);
+{{/if}}
 
 struct Component {}
 

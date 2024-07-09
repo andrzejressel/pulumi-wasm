@@ -1,0 +1,18 @@
+[package]
+name = "main"
+version = "0.0.1"
+edition = "2021"
+
+[workspace]
+members = [
+    "provider",
+    "lib"
+]
+
+[workspace.dependencies]
+wit-bindgen-rt = "0.27.0"
+wit-bindgen = "0.27.0"
+automod = "1.0.14"
+wasm_common = { path = "../../../../wasm_common" }
+pulumi_wasm_rust = { path = "../../../../pulumi_wasm_rust" }
+serde = "1.0.197"

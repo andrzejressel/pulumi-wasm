@@ -1,4 +1,3 @@
-use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
 use bindings::exports::pulumi::random::random_bytes;
 use bindings::exports::pulumi::random::random_id;
 use bindings::exports::pulumi::random::random_integer;
@@ -8,6 +7,7 @@ use bindings::exports::pulumi::random::random_shuffle;
 use bindings::exports::pulumi::random::random_string;
 use bindings::exports::pulumi::random::random_uuid;
 
+use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
 mod bindings;
 bindings::export!(Component with_types_in bindings);
 

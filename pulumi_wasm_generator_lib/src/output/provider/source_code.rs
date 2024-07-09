@@ -32,11 +32,13 @@ struct Interface {
 struct Package {
     name: String,
     interfaces: Vec<Interface>,
+    name_escaped: String,
 }
 
 fn convert_model(package: &crate::model::Package) -> Package {
     Package {
         name: package.name.clone(),
+        name_escaped: package.name.clone().replace('-', "_"),
         interfaces: package
             .resources
             .iter()
