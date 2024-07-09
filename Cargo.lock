@@ -2884,9 +2884,9 @@ checksum = "49874b5167b65d7193b8aba1567f5c7d93d001cafc34600cee003eda787e483f"
 
 [[package]]
 name = "wac-graph"
-version = "0.3.0"
+version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d726a22b5a7ab4c10e17c3851440a7ce4ae3fa073d9456f48b46167ed50995ab"
+checksum = "f437edeec237c23990c01a72e09a7fbffbaeb06c723721e6b149aafd4909bd31"
 dependencies = [
  "anyhow",
  "id-arena",
@@ -2903,9 +2903,9 @@ dependencies = [
 
 [[package]]
 name = "wac-types"
-version = "0.3.0"
+version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cd72bacccdcb7c90168c1075215a1f9fd62f59d98e0e9e3c9a73bf5f4d3f94d5"
+checksum = "e954a63c1a917dabddec76d59ecdcdf978338448e53224d9b4baff0278207b66"
 dependencies = [
  "anyhow",
  "id-arena",
