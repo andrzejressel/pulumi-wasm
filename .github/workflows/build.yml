@@ -81,7 +81,7 @@ jobs:
       with:
         name: wasm_artefacts
         if-no-files-found: error
-        files: |
+        path: |
           pulumi_wasm_generator_lib/**/pulumi_providers/**/wasm32-wasip1/debug/*_provider.wasm
           target/wasm32-wasip1/debug/pulumi_wasm.wasm
   deploy:
