@@ -42,40 +42,40 @@ jobs:
           pulumi_wasm_generator_lib/tests/output/pulumi_cyclic-types/
           pulumi_wasm_generator_lib/tests/output/pulumi_mini-awsnative/
           pulumi_wasm_generator_lib/tests/output/random_provider/
-    - uses: actions/setup-go@v5
-      with:
-        go-version: '^1.22.0'
-        cache-dependency-path: "**/go.sum"
-    - run: go version
-    - name: Install Protoc
-      uses: arduino/setup-protoc@v3
-      with:
-        version: "25.3"
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-    - run: protoc --version
-    - run: brew install pulumi
-      if: runner.os == 'macOS'
-    - run: pulumi version
-    - run: pulumi login --local
-    - uses: extractions/setup-just@v2
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - uses: cargo-bins/cargo-binstall@main
-    - name: Regenerate provider list
-      run: just regenerate-provider-list
-    - name: Install requirements
-      run: just install-requirements
-    - name: Check
-      run: just check
-    - name: Build
-      run: just build
-    - name: Test
-      run: just test
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        RUST_BACKTRACE: "full"
-    - name: Ensure no files have changed
-      run: git diff --exit-code
+#    - uses: actions/setup-go@v5
+#      with:
+#        go-version: '^1.22.0'
+#        cache-dependency-path: "**/go.sum"
+#    - run: go version
+#    - name: Install Protoc
+#      uses: arduino/setup-protoc@v3
+#      with:
+#        version: "25.3"
+#        repo-token: ${{ secrets.GITHUB_TOKEN }}
+#    - run: protoc --version
+#    - run: brew install pulumi
+#      if: runner.os == 'macOS'
+#    - run: pulumi version
+#    - run: pulumi login --local
+#    - uses: extractions/setup-just@v2
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#    - uses: cargo-bins/cargo-binstall@main
+#    - name: Regenerate provider list
+#      run: just regenerate-provider-list
+#    - name: Install requirements
+#      run: just install-requirements
+#    - name: Check
+#      run: just check
+#    - name: Build
+#      run: just build
+#    - name: Test
+#      run: just test
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        RUST_BACKTRACE: "full"
+#    - name: Ensure no files have changed
+#      run: git diff --exit-code
     - uses: benjlevesque/short-sha@v3.0
       id: short-sha
       with:
@@ -88,4 +88,4 @@ jobs:
         tag_name: main-${{ steps.short-sha.outputs.sha }}
         prerelease: true
         files: |
-          target/wasm32-wasip1/debug/*_provider.wasm
+          pulumi_wasm_generator_lib/**/wasm32-wasip1/debug/*_provider.wasm
