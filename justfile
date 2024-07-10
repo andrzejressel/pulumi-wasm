@@ -16,6 +16,9 @@ fix-issues:
 build-language-plugin:
     cd pulumi-language-wasm && just
 
+package-language-plugin VERSION:
+    cd pulumi-language-wasm && just package-language-plugin-all {{VERSION}}
+
 install-requirements:
     rustup component add rustfmt
     cargo binstall --no-confirm cargo-nextest@{{NEXTEST_VERSION}} --force || cargo-nextest --version
