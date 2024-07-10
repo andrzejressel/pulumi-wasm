@@ -27,12 +27,18 @@ fn mini_awsnative() -> Result<()> {
     run_pulumi_generator_test("mini-awsnative", "aws-native")
 }
 
+#[test]
+fn cyclic_types() -> Result<()> {
+    run_pulumi_generator_test("cyclic-types", "example")
+}
+
 // provider_name is `name` from yaml file
 fn run_pulumi_generator_test(test_name: &str, provider_name: &str) -> Result<()> {
     let root_path = format!("tests/output/pulumi_{test_name}");
     let root = Path::new(&root_path);
     let provider_output_path = root.join("provider");
     let output = Path::new(&provider_output_path);
+    fs::create_dir_all(output)?;
 
     let schema = find_schema_files(test_name);
 

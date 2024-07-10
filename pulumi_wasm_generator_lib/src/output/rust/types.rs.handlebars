@@ -4,7 +4,7 @@
 pub struct {{type.struct_name}} {
     {{#each type.fields as |field|}}
     #[serde(rename = "{{field.original_name}}")]
-    pub r#{{field.name}}: {{&field.type_}},
+    pub r#{{field.name}}: Box<{{&field.type_}}>,
     {{/each}}
 }
 

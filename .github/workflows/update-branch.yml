@@ -25,6 +25,7 @@ jobs:
           ./
           pulumi_wasm_generator_lib/tests/output/command_provider/
           pulumi_wasm_generator_lib/tests/output/docker_provider/
+          pulumi_wasm_generator_lib/tests/output/pulumi_cyclic-types/
           pulumi_wasm_generator_lib/tests/output/pulumi_mini-awsnative/
           pulumi_wasm_generator_lib/tests/output/random_provider/
     - uses: actions/setup-go@v5

@@ -1,0 +1,42 @@
+package component:pulumi-wasm@0.1.0;
+
+interface output-interface {
+
+    resource output {
+        constructor(value: string);
+        map: func(function-name: string) -> output;
+        duplicate: func() -> output;
+    }
+}
+
+
+interface register-interface {
+    use output-interface.{output};
+
+    record object-field {
+        name: string,
+        value: borrow<output>
+    }
+
+    record result-field {
+        name: string
+    }
+
+    record register-resource-result-field {
+        name: string,
+        output: output
+    }
+
+    record register-resource-request {
+        %type: string,
+        name: string,
+        object: list<object-field>,
+        results: list<result-field>
+    }
+
+    record register-resource-result {
+        fields: list<register-resource-result-field>
+    }
+
+    register: func(request: register-resource-request) -> register-resource-result;
+}

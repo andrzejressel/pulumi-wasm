@@ -1,0 +1,9 @@
+package pulumi:%example@0.0.1;
+
+world %example-pulumi {
+    import component:pulumi-wasm/register-interface@0.1.0;
+}
+
+world %example-pulumi-client {
+}
+
