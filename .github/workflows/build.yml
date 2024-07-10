@@ -61,6 +61,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - uses: cargo-bins/cargo-binstall@main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Regenerate provider list
       run: just regenerate-provider-list
     - name: Install requirements
