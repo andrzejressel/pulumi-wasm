@@ -1,6 +1,0 @@
-[test-groups]
-serial-integration = { max-threads = 1 }
-
-[[profile.default.overrides]]
-filter = 'package(pulumi_wasm_generator_lib)'
-test-group = 'serial-integration'
