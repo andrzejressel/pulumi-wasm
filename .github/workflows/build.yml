@@ -37,11 +37,11 @@ jobs:
       with:
         workspaces: |
           ./
-          pulumi_wasm_generator_lib/tests/output/command_provider/
-          pulumi_wasm_generator_lib/tests/output/docker_provider/
-          pulumi_wasm_generator_lib/tests/output/pulumi_cyclic-types/
-          pulumi_wasm_generator_lib/tests/output/pulumi_mini-awsnative/
-          pulumi_wasm_generator_lib/tests/output/random_provider/
+          pulumi_wasm_generator_lib/tests/output/pulumi_providers/command/
+          pulumi_wasm_generator_lib/tests/output/pulumi_providers/docker/
+          pulumi_wasm_generator_lib/tests/output/pulumi_providers/random/
+          pulumi_wasm_generator_lib/tests/output/pulumi_tests/cyclic-types/
+          pulumi_wasm_generator_lib/tests/output/pulumi_tests/mini-awsnative/
     - uses: actions/setup-go@v5
       with:
         go-version: '^1.22.0'
@@ -89,4 +89,4 @@ jobs:
         fail_on_unmatched_files: true
         prerelease: true
         files: |
-          pulumi_wasm_generator_lib/**/wasm32-wasip1/debug/*_provider.wasm
+          pulumi_wasm_generator_lib/**/pulumi_providers/**/wasm32-wasip1/debug/*_provider.wasm

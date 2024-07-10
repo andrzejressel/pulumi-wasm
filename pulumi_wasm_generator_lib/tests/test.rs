@@ -9,17 +9,17 @@ const REGENERATE_TESTS: bool = false;
 
 #[test]
 fn random() -> Result<()> {
-    run_test("random")
+    run_real_provider_test("random")
 }
 
 #[test]
 fn command() -> Result<()> {
-    run_test("command")
+    run_real_provider_test("command")
 }
 
 #[test]
 fn docker() -> Result<()> {
-    run_test("docker")
+    run_real_provider_test("docker")
 }
 
 #[test]
@@ -34,11 +34,11 @@ fn cyclic_types() -> Result<()> {
 
 // provider_name is `name` from yaml file
 fn run_pulumi_generator_test(test_name: &str, provider_name: &str) -> Result<()> {
-    let root_path = format!("tests/output/pulumi_{test_name}");
+    let root_path = format!("tests/output/pulumi_tests/{test_name}");
     let root = Path::new(&root_path);
     let provider_output_path = root.join("provider");
     let output = Path::new(&provider_output_path);
-    fs::create_dir_all(output)?;
+    fs::create_dir_all(&root.join("lib"))?;
 
     let schema = find_schema_files(test_name);
 
@@ -51,7 +51,7 @@ fn run_pulumi_generator_test(test_name: &str, provider_name: &str) -> Result<()>
 
     fs::copy(
         "tests/input/Cargo.toml",
-        format!("tests/output/pulumi_{test_name}/Cargo.toml"),
+        format!("tests/output/pulumi_tests/{test_name}/Cargo.toml"),
     )?;
     fs::create_dir_all(root.join("src"))?;
     fs::write(root.join("src/lib.rs"), "")?;
@@ -110,8 +110,8 @@ fn find_schema_files(name: &str) -> PathBuf {
     panic!("No schema file found for provider: {name}");
 }
 
-fn run_test(provider_name: &str) -> Result<()> {
-    let root_path = format!("tests/output/{provider_name}_provider");
+fn run_real_provider_test(provider_name: &str) -> Result<()> {
+    let root_path = format!("tests/output/pulumi_providers/{provider_name}");
     let root = Path::new(&root_path);
     let provider_output_path = root.join("provider");
     let output = Path::new(&provider_output_path);
@@ -130,7 +130,7 @@ fn run_test(provider_name: &str) -> Result<()> {
 
     fs::copy(
         "tests/input/Cargo.toml",
-        format!("tests/output/{provider_name}_provider/Cargo.toml"),
+        format!("tests/output/pulumi_providers/{provider_name}/Cargo.toml"),
     )?;
     fs::create_dir_all(root.join("src"))?;
     fs::write(root.join("src/lib.rs"), "")?;
