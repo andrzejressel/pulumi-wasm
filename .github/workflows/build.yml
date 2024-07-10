@@ -65,6 +65,8 @@ jobs:
       run: just regenerate-provider-list
     - name: Install requirements
       run: just install-requirements
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Check
       run: just check
     - name: Build
