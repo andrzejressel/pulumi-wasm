@@ -93,6 +93,10 @@ jobs:
       with:
         name: wasm_artefacts
         path: artefacts
+    - uses: benjlevesque/short-sha@v3.0
+      id: short-sha
+      with:
+        length: 7
     - name: Release
       uses: softprops/action-gh-release@v2.0.6
       if: github.ref == 'refs/heads/deploy-from-main' && runner.os == 'Linux'
