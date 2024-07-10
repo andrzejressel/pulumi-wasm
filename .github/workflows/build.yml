@@ -119,5 +119,6 @@ jobs:
         tag_name: main-${{ steps.short-sha.outputs.sha }}
         fail_on_unmatched_files: true
         prerelease: true
+        body: ""
         files: |
           artefacts/**/*
