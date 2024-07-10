@@ -79,7 +79,7 @@ jobs:
         length: 7
     - name: Release
       uses: softprops/action-gh-release@v2
-      if: github.ref == 'refs/heads/deploy-from-main' && runner.os == 'Ubuntu'
+      if: github.ref == 'refs/heads/deploy-from-main' && runner.os == 'Linux'
       with:
         name: ${{ steps.short-sha.outputs.sha }}
         prerelease: true
