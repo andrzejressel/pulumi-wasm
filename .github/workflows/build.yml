@@ -2,9 +2,9 @@ name: Build
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "deploy-from-main" ]
+#  pull_request:
+#    branches: [ "main" ]
 
 env:
   CARGO_TERM_COLOR: always
@@ -90,3 +90,4 @@ jobs:
         prerelease: true
         files: |
           pulumi_wasm_generator_lib/**/pulumi_providers/**/wasm32-wasip1/debug/*_provider.wasm
+          target/wasm32-wasip1/debug/pulumi_wasm.wasm
