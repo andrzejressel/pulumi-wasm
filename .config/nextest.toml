@@ -1,0 +1,11 @@
+[test-groups]
+pulumi-wasm-generator-lib = { max-threads = 1 }
+pulumi-wasm-example = { max-threads = 1 }
+
+[[profile.default.overrides]]
+filter = 'package(pulumi_wasm_generator_lib)'
+test-group = 'pulumi-wasm-generator-lib'
+
+[[profile.default.overrides]]
+filter = 'package(pulumi_wasm_example_*)'
+test-group = 'pulumi-wasm-example'
