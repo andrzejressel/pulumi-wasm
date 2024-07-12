@@ -1,15 +1,18 @@
 use crate::model::MaybeNodeValue::{NotYetCalculated, Set};
+use crate::model::NodeValue::Nothing;
 use crate::model::{FieldName, FunctionName, MaybeNodeValue, NodeValue, OutputId};
 use crate::pulumi::service::{RegisterResourceRequest, RegisterResourceResponse};
 use log::error;
 use serde_json::Value;
 use std::collections::{HashMap, HashSet};
+use std::ops::Index;
 
 #[derive(Clone, Debug, PartialEq)]
 pub(crate) enum Callback {
     CreateResource(OutputId, FieldName),
     ExtractField(OutputId),
     NativeFunction(OutputId),
+    CombineOutputs(OutputId, u32),
 }
 
 impl Callback {
@@ -23,6 +26,9 @@ impl Callback {
 
     pub(crate) fn native_function(output_id: OutputId) -> Self {
         Self::NativeFunction(output_id)
+    }
+    pub(crate) fn combine_outputs(output_id: OutputId, count: u32) -> Self {
+        Self::CombineOutputs(output_id, count)
     }
 }
 
@@ -291,6 +297,57 @@ impl ExtractFieldNode {
     }
 }
 
+#[derive(Debug, PartialEq)]
+pub(crate) struct CombineOutputsNode {
+    value: MaybeNodeValue,
+    inputs: Vec<Option<Value>>,
+    inputs_set: u32,
+    callbacks: Vec<Callback>,
+}
+
+impl CombineOutputsNode {
+    pub(crate) fn new(number_of_inputs: u32) -> Self {
+        Self {
+            value: NotYetCalculated,
+            inputs: vec![None; number_of_inputs as usize],
+            inputs_set: 0,
+            callbacks: Vec::new(),
+        }
+    }
+
+    pub(crate) fn set_node_value(&mut self, index: u32, value: NodeValue) -> Option<NodeValue> {
+        self.inputs[index as usize] = match value {
+            Nothing => None,
+            NodeValue::Exists(v) => Some(v),
+        };
+        self.inputs_set += 1;
+        if (self.inputs_set == self.inputs.len() as u32) {
+            let set_inputs: Vec<_> = self.inputs.iter().filter_map(|v| v.clone()).collect();
+            let value: NodeValue = if set_inputs.len() != self.inputs.len() {
+                Nothing
+            } else {
+                let list: Value = set_inputs.into();
+                list.clone().into()
+            };
+            self.value = Set(value.clone());
+            Some(value)
+        } else {
+            None
+        }
+    }
+
+    pub(crate) fn get_value(&self) -> &MaybeNodeValue {
+        &self.value
+    }
+
+    pub(crate) fn add_callback(&mut self, callback: Callback) {
+        self.callbacks.push(callback);
+    }
+    pub(crate) fn get_callbacks(&self) -> &Vec<Callback> {
+        &self.callbacks
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use std::collections::HashMap;
@@ -333,6 +390,42 @@ mod tests {
                     expected_results: HashSet::from(["output".into()]),
                 })
             );
+        }
+    }
+
+    mod combine_outputs_node {
+        use super::*;
+        use crate::model::MaybeNodeValue::{NotYetCalculated, Set};
+        use crate::model::NodeValue;
+        use crate::nodes::CombineOutputsNode;
+        use crate::pulumi::service::RegisterResourceRequest;
+        use serde_json::json;
+        use std::collections::HashSet;
+
+        #[test]
+        fn set_inputs() {
+            let mut node = CombineOutputsNode::new(2);
+
+            let result = node.set_node_value(0, Exists(0.into()));
+            assert_eq!(result, None);
+            assert_eq!(node.value, NotYetCalculated);
+
+            let result = node.set_node_value(1, Exists("123".into()).into());
+            assert_eq!(result, Some(json!([0, "123"]).into()));
+            assert_eq!(node.value, json!([0, "123"]).into());
+        }
+
+        #[test]
+        fn set_unknown_inputs() {
+            let mut node = CombineOutputsNode::new(2);
+
+            let result = node.set_node_value(0, Exists(0.into()));
+            assert_eq!(result, None);
+            assert_eq!(node.get_value(), &NotYetCalculated);
+
+            let result = node.set_node_value(1, Nothing);
+            assert_eq!(result, Some(Nothing));
+            assert_eq!(node.get_value(), &Set(Nothing));
         }
     }
 }

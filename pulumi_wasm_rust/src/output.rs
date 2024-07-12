@@ -96,3 +96,15 @@ impl<T> Output<T> {
         crate::bindings::component::pulumi_wasm::stack_interface::add_export(name, &self.future);
     }
 }
+
+pub struct Outputs;
+
+impl Outputs {
+    pub fn combine<A, B>(a: Output<A>, b: Output<B>) -> Output<(A, B)> {
+        let output_id = output_interface::combine(vec![a.future, b.future]);
+        Output {
+            phantom: PhantomData,
+            future: output_id,
+        }
+    }
+}

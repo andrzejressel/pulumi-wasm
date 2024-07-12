@@ -91,6 +91,18 @@ impl stack_interface::Guest for Component {
 
 impl output_interface::Guest for Component {
     type Output = CustomOutputId;
+
+    fn combine(outputs: Vec<Output>) -> Output {
+        wasm_common::setup_logger();
+        let refcell: &RefCell<Engine> = &get_pulumi_engine();
+        let output_id = refcell.borrow_mut().create_combine_outputs(
+            outputs
+                .into_iter()
+                .map(|output| output.get::<CustomOutputId>().0)
+                .collect(),
+        );
+        Output::new::<CustomOutputId>(output_id.into())
+    }
 }
 
 impl register_interface::Guest for Component {

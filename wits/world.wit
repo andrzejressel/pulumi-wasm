@@ -83,6 +83,7 @@ interface output-interface {
         map: func(function-name: string) -> output;
         duplicate: func() -> output;
     }
+    combine: func(outputs: list<output>) -> output;
 }
 
 interface stack-interface {

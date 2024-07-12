@@ -1,7 +1,7 @@
 use anyhow::Error;
 use pulumi_wasm_random::resource::random_string::{random_string, RandomStringArgs};
-use pulumi_wasm_rust::Output;
 use pulumi_wasm_rust::{add_export, pulumi_main};
+use pulumi_wasm_rust::{Output, Outputs};
 
 #[pulumi_main]
 fn test_main() -> Result<(), Error> {
@@ -30,8 +30,14 @@ fn test_main() -> Result<(), Error> {
     // Tests number mapping
     let number = random_string.min_upper.map(|i| i * 2);
 
+    let val1: Output<i32> = Output::new(&1);
+    let val2: Output<String> = Output::new(&"abc");
+    let combined = Outputs::combine(val1, val2);
+    let combined_string = combined.map(|values| format!("Values: {values:?}"));
+
     add_export("result", &random_string.result);
     add_export("transformed_result", &t);
     add_export("number", &number);
+    add_export("combined_string", &combined_string);
     Ok(())
 }

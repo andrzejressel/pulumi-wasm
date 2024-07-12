@@ -8,8 +8,10 @@ use uuid::Uuid;
 
 use crate::model::NodeValue::Exists;
 use crate::model::{FieldName, FunctionName, MaybeNodeValue, NodeValue, OutputId};
+use crate::nodes::Callback::CombineOutputs;
 use crate::nodes::{
-    Callback, DoneNode, ExtractFieldNode, NativeFunctionNode, RegisterResourceNode,
+    Callback, CombineOutputsNode, DoneNode, ExtractFieldNode, NativeFunctionNode,
+    RegisterResourceNode,
 };
 use crate::pulumi::service::PulumiService;
 
@@ -25,6 +27,7 @@ enum EngineNode {
     NativeFunction(NativeFunctionNode),
     RegisterResource(RegisterResourceNode),
     ExtractField(ExtractFieldNode),
+    CombineOutputs(CombineOutputsNode),
 }
 
 pub(crate) struct Holder<A: ?Sized>(RefCell<A>);
@@ -151,6 +154,7 @@ impl Engine {
                     EngineNode::NativeFunction(node) => node.get_value().clone(),
                     EngineNode::RegisterResource(node) => node.get_value().clone(),
                     EngineNode::ExtractField(node) => node.get_value().clone(),
+                    EngineNode::CombineOutputs(node) => node.get_value().clone(),
                 };
 
                 match ndv {
@@ -266,6 +270,9 @@ impl Engine {
             Callback::NativeFunction(output_id) => {
                 Self::handle_native_function_callback(value, nodes, sets, output_id);
             }
+            Callback::CombineOutputs(output_id, idx) => {
+                Self::handle_combine_outputs_callback(value, nodes, sets, output_id, *idx);
+            }
         }
     }
 
@@ -305,6 +312,23 @@ impl Engine {
             }
             Exists(_) => {
                 sets.ready_foreign_function_ids.insert(*output_id);
+            }
+        }
+    }
+
+    fn handle_combine_outputs_callback(
+        value: &NodeValue,
+        nodes: &NodesMap,
+        sets: &mut EngineView,
+        output_id: &OutputId,
+        idx: u32,
+    ) {
+        let mut node = Self::get_combine_outputs_free_mut(nodes, *output_id);
+        let result = node.set_node_value(idx, value.clone());
+        match result {
+            None => {}
+            Some(v) => {
+                Self::run_callbacks(node.get_callbacks(), &v, nodes, sets);
             }
         }
     }
@@ -353,6 +377,10 @@ impl Engine {
                     error!("Node with id [{}] is extract field, not done", output_id);
                     panic!("Node with id [{}] is extract field, not done", output_id)
                 }
+                EngineNode::CombineOutputs(_) => {
+                    error!("Node with id [{}] is combine outputs, not done", output_id);
+                    panic!("Node with id [{}] is combine outputs, not done", output_id)
+                }
             }),
         }
     }
@@ -395,6 +423,16 @@ impl Engine {
                         output_id
                     )
                 }
+                EngineNode::CombineOutputs(_) => {
+                    error!(
+                        "Node with id [{}] is combine outputs, not native function",
+                        output_id
+                    );
+                    panic!(
+                        "Node with id [{}] is combine outputs, not native function",
+                        output_id
+                    )
+                }
             }),
         }
     }
@@ -433,6 +471,16 @@ impl Engine {
                     );
                     panic!(
                         "Node with id [{}] is extract field, not native function",
+                        output_id
+                    )
+                }
+                EngineNode::CombineOutputs(_) => {
+                    error!(
+                        "Node with id [{}] is combine outputs, not native function",
+                        output_id
+                    );
+                    panic!(
+                        "Node with id [{}] is combine outputs, not native function",
                         output_id
                     )
                 }
@@ -480,6 +528,16 @@ impl Engine {
                         output_id
                     )
                 }
+                EngineNode::CombineOutputs(_) => {
+                    error!(
+                        "Node with id [{}] is combine outputs, not extract field",
+                        output_id
+                    );
+                    panic!(
+                        "Node with id [{}] is combine outputs, not extract field",
+                        output_id
+                    )
+                }
             }),
         }
     }
@@ -523,6 +581,67 @@ impl Engine {
                     );
                     panic!(
                         "Node with id [{}] is register resource, not extract field",
+                        output_id
+                    )
+                }
+                EngineNode::CombineOutputs(_) => {
+                    error!(
+                        "Node with id [{}] is combine outputs, not extract field",
+                        output_id
+                    );
+                    panic!(
+                        "Node with id [{}] is combine outputs, not extract field",
+                        output_id
+                    )
+                }
+            }),
+        }
+    }
+
+    fn get_combine_outputs_free_mut(
+        nodes: &NodesMap,
+        output_id: OutputId,
+    ) -> RefMut<CombineOutputsNode> {
+        match nodes.get(&output_id) {
+            None => {
+                error!("Cannot find node with id {}", output_id);
+                panic!("Cannot find node with id {}", output_id)
+                // Maybe in the future?
+                // unsafe { unreachable_unchecked() }
+            }
+            Some(r) => r.map_mut(|t| match t {
+                EngineNode::CombineOutputs(node) => node,
+                EngineNode::NativeFunction(_) => {
+                    error!(
+                        "Node with id [{}] is native function, not combine outputs",
+                        output_id
+                    );
+                    panic!(
+                        "Node with id [{}] is native function, not combine outputs",
+                        output_id
+                    )
+                }
+                EngineNode::Done(_) => {
+                    error!("Node with id [{}] is done, not combine outputs", output_id);
+                    panic!("Node with id [{}] is done, not combine outputs", output_id)
+                }
+                EngineNode::RegisterResource(_) => {
+                    error!(
+                        "Node with id [{}] is register resource, not combine outputs",
+                        output_id
+                    );
+                    panic!(
+                        "Node with id [{}] is register resource, not combine outputs",
+                        output_id
+                    )
+                }
+                EngineNode::ExtractField(_) => {
+                    error!(
+                        "Node with id [{}] is extract field, not combine outputs",
+                        output_id
+                    );
+                    panic!(
+                        "Node with id [{}] is extract field, not combine outputs",
                         output_id
                     )
                 }
@@ -574,6 +693,16 @@ impl Engine {
                         output_id
                     )
                 }
+                EngineNode::CombineOutputs(_) => {
+                    error!(
+                        "Node with id [{}] is combine outputs, not create resource",
+                        output_id
+                    );
+                    panic!(
+                        "Node with id [{}] is combine outputs, not create resource",
+                        output_id
+                    )
+                }
             }),
         }
     }
@@ -616,6 +745,16 @@ impl Engine {
                         output_id
                     )
                 }
+                EngineNode::CombineOutputs(_) => {
+                    error!(
+                        "Node with id [{}] is combine outputs, not create resource",
+                        output_id
+                    );
+                    panic!(
+                        "Node with id [{}] is combine outputs, not create resource",
+                        output_id
+                    )
+                }
             }),
         }
     }
@@ -635,6 +774,7 @@ impl Engine {
                         EngineNode::NativeFunction(node) => node.add_callback(callback),
                         EngineNode::RegisterResource(node) => node.add_callback(callback),
                         EngineNode::ExtractField(node) => node.add_callback(callback),
+                        EngineNode::CombineOutputs(node) => node.add_callback(callback),
                     };
                 });
             }
@@ -706,6 +846,22 @@ impl Engine {
         self.nodes
             .insert(output_id, EngineNode::ExtractField(node).into());
         self.add_callback(source_output_id, callback);
+        output_id
+    }
+
+    pub fn create_combine_outputs(&mut self, outputs: Vec<OutputId>) -> OutputId {
+        let output_id = Uuid::now_v7().into();
+        let node = CombineOutputsNode::new(outputs.len() as u32);
+
+        outputs
+            .iter()
+            .enumerate()
+            .for_each(|(index, source_output_id)| {
+                let callback = Callback::combine_outputs(output_id, index as u32);
+                self.add_callback(*source_output_id, callback);
+            });
+        self.nodes
+            .insert(output_id, EngineNode::CombineOutputs(node).into());
         output_id
     }
 }
@@ -1029,6 +1185,38 @@ mod tests {
 
             let output_node = engine.get_extract_field(*outputs.get(&"output".into()).unwrap());
             assert_eq!(output_node.get_value(), &Value::Bool(true).into());
+        }
+    }
+
+    mod combine_outputs {
+        use super::*;
+        use serde_json::json;
+
+        #[test]
+        fn combine_outputs_with_done_node() {
+            let mut engine = Engine::new(MockPulumiService::new());
+            let value1 = engine.create_done_node("key".into());
+            let value2 = engine.create_done_node(1.into());
+
+            let combined = engine.create_combine_outputs(vec![value1, value2]);
+
+            let native_function_node_output_id =
+                engine.create_native_function_node("func".into(), combined);
+
+            let result = engine.run(HashMap::new());
+
+            assert_eq!(
+                engine.ready_foreign_function_ids,
+                [native_function_node_output_id].into()
+            );
+            assert_eq!(
+                result,
+                Some(vec![ForeignFunctionToInvoke {
+                    output_id: native_function_node_output_id,
+                    function_name: "func".into(),
+                    value: json!(["key", 1])
+                }])
+            );
         }
     }
 
