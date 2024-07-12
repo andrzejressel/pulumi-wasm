@@ -5,7 +5,6 @@ use crate::pulumi::service::{RegisterResourceRequest, RegisterResourceResponse};
 use log::error;
 use serde_json::Value;
 use std::collections::{HashMap, HashSet};
-use std::ops::Index;
 
 #[derive(Clone, Debug, PartialEq)]
 pub(crate) enum Callback {
@@ -321,7 +320,7 @@ impl CombineOutputsNode {
             NodeValue::Exists(v) => Some(v),
         };
         self.inputs_set += 1;
-        if (self.inputs_set == self.inputs.len() as u32) {
+        if self.inputs_set == self.inputs.len() as u32 {
             let set_inputs: Vec<_> = self.inputs.iter().filter_map(|v| v.clone()).collect();
             let value: NodeValue = if set_inputs.len() != self.inputs.len() {
                 Nothing
@@ -396,11 +395,8 @@ mod tests {
     mod combine_outputs_node {
         use super::*;
         use crate::model::MaybeNodeValue::{NotYetCalculated, Set};
-        use crate::model::NodeValue;
         use crate::nodes::CombineOutputsNode;
-        use crate::pulumi::service::RegisterResourceRequest;
         use serde_json::json;
-        use std::collections::HashSet;
 
         #[test]
         fn set_inputs() {
@@ -410,7 +406,7 @@ mod tests {
             assert_eq!(result, None);
             assert_eq!(node.value, NotYetCalculated);
 
-            let result = node.set_node_value(1, Exists("123".into()).into());
+            let result = node.set_node_value(1, Exists("123".into()));
             assert_eq!(result, Some(json!([0, "123"]).into()));
             assert_eq!(node.value, json!([0, "123"]).into());
         }

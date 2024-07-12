@@ -8,7 +8,6 @@ use uuid::Uuid;
 
 use crate::model::NodeValue::Exists;
 use crate::model::{FieldName, FunctionName, MaybeNodeValue, NodeValue, OutputId};
-use crate::nodes::Callback::CombineOutputs;
 use crate::nodes::{
     Callback, CombineOutputsNode, DoneNode, ExtractFieldNode, NativeFunctionNode,
     RegisterResourceNode,

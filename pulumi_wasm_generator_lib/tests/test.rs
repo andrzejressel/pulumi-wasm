@@ -38,7 +38,7 @@ fn run_pulumi_generator_test(test_name: &str, provider_name: &str) -> Result<()>
     let root = Path::new(&root_path);
     let provider_output_path = root.join("provider");
     let output = Path::new(&provider_output_path);
-    fs::create_dir_all(&root.join("lib"))?;
+    fs::create_dir_all(root.join("lib"))?;
 
     let schema = find_schema_files(test_name);
 
