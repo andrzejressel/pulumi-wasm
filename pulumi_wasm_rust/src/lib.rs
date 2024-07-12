@@ -1,7 +1,6 @@
 pub use pulumi_wasm_rust_macro::pulumi_main;
 mod output;
 pub use output::Output;
-pub use output::Outputs;
 
 #[allow(clippy::all)]
 #[allow(dead_code)]

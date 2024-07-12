@@ -21,7 +21,7 @@ impl<T: serde::Serialize> From<T> for Output<T> {
 
 impl<T: serde::Serialize> From<T> for Output<Option<T>> {
     fn from(value: T) -> Self {
-        Output::new(&Some(&value))
+        Output::new(&Some(value))
     }
 }
 
@@ -53,15 +53,6 @@ impl<T> Output<T> {
         Output {
             phantom: PhantomData::<F>,
             future: output,
-        }
-    }
-
-    pub fn new<F: serde::Serialize>(value: &F) -> Self {
-        let binding = serde_json::to_string(value).unwrap();
-        let resource = output_interface::Output::new(binding.as_str());
-        Output {
-            phantom: PhantomData,
-            future: resource,
         }
     }
 
@@ -97,10 +88,19 @@ impl<T> Output<T> {
     }
 }
 
-pub struct Outputs;
+impl<T: serde::Serialize> Output<T> {
+    pub fn new(value: &T) -> Self {
+        let binding = serde_json::to_string(&value).unwrap();
+        let resource = output_interface::Output::new(binding.as_str());
+        Output {
+            phantom: PhantomData,
+            future: resource,
+        }
+    }
+}
 
-impl Outputs {
-    pub fn combine<A, B>(a: Output<A>, b: Output<B>) -> Output<(A, B)> {
+impl<A, B> Output<(A, B)> {
+    pub fn combine(a: Output<A>, b: Output<B>) -> Self {
         let output_id = output_interface::combine(vec![a.future, b.future]);
         Output {
             phantom: PhantomData,
