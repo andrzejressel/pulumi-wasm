@@ -98,7 +98,7 @@ jobs:
     - uses: actions/upload-artifact@v4
       if: runner.os == 'Linux'
       with:
-        name: wasm_artefacts
+        name: "wasm_artefacts_${{ runner.os }}"
         if-no-files-found: error
         path: |
           pulumi_wasm_generator_lib/**/pulumi_providers/**/wasm32-wasip1/debug/*_provider.wasm
