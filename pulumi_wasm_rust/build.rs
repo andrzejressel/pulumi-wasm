@@ -1,5 +1,4 @@
-use quote::{format_ident, quote, IdentFragment};
-use std::io::Write;
+use quote::{format_ident, quote};
 use std::path::Path;
 use std::{env, fs};
 use syn::Ident;
