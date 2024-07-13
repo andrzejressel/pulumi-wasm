@@ -29,14 +29,14 @@ build-wasm-components:
                           -p pulumi_wasm_example_simple \
                           -p pulumi_wasm_example_docker \
                           -p pulumi_wasm_example_dependencies \
-                          -p pulumi_wasm_example_multiple_providers
+                          -p pulumi_wasm_example_multiple_providers --timings
     # DO NOT EDIT - BUILD-WASM-COMPONENTS - START
     cargo component build \
       -p pulumi_wasm_docker_provider \
       -p pulumi_wasm_random_provider \
+      --timings
     # DO NOT EDIT - BUILD-WASM-COMPONENTS - END
-    cargo build -p pulumi_wasm_runner
-    cargo test --no-run --all
+    cargo build -p pulumi_wasm_runner --timings
 
 check:
     cargo fmt --all -- --check
@@ -61,7 +61,7 @@ regenerate-providers:
 # DO NOT EDIT - REGENERATE-PROVIDERS - END
 
 test:
-    cargo nextest run --workspace
+    cargo nextest run --workspace --timings
 
 docs:
     docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material

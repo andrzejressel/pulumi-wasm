@@ -80,6 +80,10 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         RUST_BACKTRACE: "full"
+    - uses: actions/download-artifact@v4
+      with:
+        name: timings
+        path: target/cargo-timings
     - name: Ensure no files have changed
       run: git diff --exit-code
     - uses: benjlevesque/short-sha@v3.0

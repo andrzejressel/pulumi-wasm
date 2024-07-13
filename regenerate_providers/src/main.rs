@@ -53,7 +53,6 @@ fn update_cargo_toml(providers: &[Provider]) {
             provider.name
         ));
     }
-
     let start_marker = "# DO NOT EDIT - START";
     let end_marker = "# DO NOT EDIT - END";
     let new_content = replace_between_markers(&content, start_marker, end_marker, &replacement);
@@ -89,7 +88,7 @@ fn replace_build_wasm_components(providers: &[Provider], content: &str) -> Strin
             provider.name
         ));
     }
-
+    replacement.push_str("      --timings\n");
     let start_marker =
         "    # DO NOT EDIT - BUILD-WASM-COMPONENTS - START\n    cargo component build \\";
     let end_marker = "    # DO NOT EDIT - BUILD-WASM-COMPONENTS - END";
