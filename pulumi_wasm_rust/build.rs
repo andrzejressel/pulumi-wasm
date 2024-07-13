@@ -26,6 +26,7 @@ fn main() {
 
         let output = quote! {
             impl<#(#idents_generic),*> Output<(#(#idents_generic),*)> {
+                #[allow(clippy::too_many_arguments)]
                 pub fn #function_name(#(#idents: Output<#idents_generic>),*) -> Self {
                     let output_id = output_interface::combine(vec![#(#idents.future),*]);
                     Output {
