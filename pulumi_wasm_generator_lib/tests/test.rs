@@ -142,6 +142,7 @@ fn run_real_provider_test(provider_name: &str) -> Result<()> {
             "build",
             "-p",
             format!("pulumi_wasm_{provider_name}_provider").as_str(),
+            "--timings"
         ])
         .current_dir(root)
         .assert()
@@ -152,6 +153,7 @@ fn run_real_provider_test(provider_name: &str) -> Result<()> {
             "build",
             "-p",
             format!("pulumi_wasm_{provider_name}").as_str(),
+            "--timings"
         ])
         .current_dir(root)
         .assert()

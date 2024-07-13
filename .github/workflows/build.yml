@@ -85,6 +85,7 @@ jobs:
         name: timings
         path: |
           target/cargo-timings/cargo-timing-*.html
+          pulumi_wasm_generator_lib/tests/**/target/cargo-timings/cargo-timing-*.html
     - name: Ensure no files have changed
       run: git diff --exit-code
     - uses: benjlevesque/short-sha@v3.0
