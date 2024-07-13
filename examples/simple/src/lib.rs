@@ -32,7 +32,7 @@ fn test_main() -> Result<(), Error> {
 
     let val1 = Output::new(&1);
     let val2 = Output::new(&"abc".to_string());
-    let combined = Output::combine(val1, val2);
+    let combined = Output::combine2(val1, val2);
     let combined_string = combined.map(|values| format!("Values: {values:?}"));
 
     add_export("result", &random_string.result);

@@ -8,6 +8,11 @@ related_crate = "pulumi_wasm"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[build-dependencies]
+quote.workspace = true
+syn.workspace = true
+prettyplease.workspace = true
+
 [dependencies]
 uuid.workspace = true
 bitflags.workspace = true

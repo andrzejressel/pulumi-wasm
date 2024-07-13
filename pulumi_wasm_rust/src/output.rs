@@ -99,12 +99,4 @@ impl<T: serde::Serialize> Output<T> {
     }
 }
 
-impl<A, B> Output<(A, B)> {
-    pub fn combine(a: Output<A>, b: Output<B>) -> Self {
-        let output_id = output_interface::combine(vec![a.future, b.future]);
-        Output {
-            phantom: PhantomData,
-            future: output_id,
-        }
-    }
-}
+include!(concat!(env!("OUT_DIR"), "/outputs.rs"));
