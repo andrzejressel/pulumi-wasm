@@ -2,6 +2,7 @@ use quote::{format_ident, quote, IdentFragment};
 use std::io::Write;
 use std::path::Path;
 use std::{env, fs};
+use syn::Ident;
 
 fn main() {
     let letter_range: Vec<char> = ('a'..='z').collect();
@@ -9,15 +10,15 @@ fn main() {
 
     for i in 2..=letter_range.len() {
         let current_letters: Vec<&char> = letter_range.iter().take(i).collect();
-        let current_letters_upper: Vec<_> = current_letters
+        let current_letters_upper: Vec<char> = current_letters
             .iter()
-            .map(|c| c.to_ascii_uppercase().clone())
+            .map(|c| c.to_ascii_uppercase())
             .collect();
-        let idents: Vec<_> = current_letters
+        let idents: Vec<Ident> = current_letters
             .iter()
             .map(|c| format_ident!("{}", c))
             .collect();
-        let idents_generic: Vec<_> = current_letters_upper
+        let idents_generic: Vec<Ident> = current_letters_upper
             .iter()
             .map(|c| format_ident!("{}", c))
             .collect();
