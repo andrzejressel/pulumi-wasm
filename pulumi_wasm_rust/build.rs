@@ -1,18 +1,26 @@
-use std::{env, fs};
+use quote::{format_ident, quote, IdentFragment};
 use std::io::Write;
 use std::path::Path;
-use quote::{format_ident, IdentFragment, quote};
+use std::{env, fs};
 
 fn main() {
     let letter_range: Vec<char> = ('a'..='z').collect();
     let mut items: Vec<syn::Item> = Vec::new();
 
     for i in 2..=letter_range.len() {
-
         let current_letters: Vec<&char> = letter_range.iter().take(i).collect();
-        let current_letters_upper: Vec<_> = current_letters.iter().map(|c| c.to_ascii_uppercase().clone()).collect();
-        let idents:Vec<_> = current_letters.iter().map(|c| format_ident!("{}", c)).collect();
-        let idents_generic:Vec<_> = current_letters_upper.iter().map(|c| format_ident!("{}", c)).collect();
+        let current_letters_upper: Vec<_> = current_letters
+            .iter()
+            .map(|c| c.to_ascii_uppercase().clone())
+            .collect();
+        let idents: Vec<_> = current_letters
+            .iter()
+            .map(|c| format_ident!("{}", c))
+            .collect();
+        let idents_generic: Vec<_> = current_letters_upper
+            .iter()
+            .map(|c| format_ident!("{}", c))
+            .collect();
 
         let function_name = format_ident!("combine{}", i);
 
@@ -42,5 +50,4 @@ fn main() {
     let out_dir = env::var_os("OUT_DIR").unwrap();
     let dest_path = Path::new(&out_dir).join("outputs.rs");
     fs::write(dest_path, formatted).unwrap();
-
 }
