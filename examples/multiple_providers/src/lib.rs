@@ -56,7 +56,7 @@ fn test_main() -> Result<(), Error> {
             healthcheck: None.into(),
             hostname: None.into(),
             hosts: None.into(),
-            image: "ubuntu".to_string().into(),
+            image: "public.ecr.aws/ubuntu/ubuntu:latest".to_string().into(),
             init: None.into(),
             ipc_mode: None.into(),
             labels: None.into(),
