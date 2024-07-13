@@ -69,8 +69,6 @@ jobs:
       run: just install-requirements
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Check
-      run: just check
     - name: Build
       run: just build
       env:
@@ -80,6 +78,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         RUST_BACKTRACE: "full"
+    - name: Check
+      run: just check
     - name: Ensure no files have changed
       run: git diff --exit-code
     - uses: benjlevesque/short-sha@v3.0
