@@ -82,7 +82,7 @@ jobs:
         RUST_BACKTRACE: "full"
     - uses: actions/upload-artifact@v4
       with:
-        name: timings
+        name: "timings_${{ runner.os }}"
         path: |
           target/cargo-timings/cargo-timing-*.html
           pulumi_wasm_generator_lib/tests/**/target/cargo-timings/cargo-timing-*.html
@@ -98,7 +98,7 @@ jobs:
     - uses: actions/upload-artifact@v4
       if: runner.os == 'Linux'
       with:
-        name: "wasm_artefacts_${{ runner.os }}"
+        name: wasm_artefacts
         if-no-files-found: error
         path: |
           pulumi_wasm_generator_lib/**/pulumi_providers/**/wasm32-wasip1/debug/*_provider.wasm
