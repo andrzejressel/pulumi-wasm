@@ -20,7 +20,7 @@ struct Component {}
 
 impl container::Guest for Component {
     fn invoke(name: String, args: container::Args) -> container::Res {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "docker:index/container:Container".into(),
             name,
@@ -940,7 +940,7 @@ impl container::Guest for Component {
 }
 impl image::Guest for Component {
     fn invoke(name: String, args: image::Args) -> image::Res {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "docker:index/image:Image".into(),
             name,
@@ -1048,7 +1048,7 @@ impl image::Guest for Component {
 }
 impl network::Guest for Component {
     fn invoke(name: String, args: network::Args) -> network::Res {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "docker:index/network:Network".into(),
             name,
@@ -1244,7 +1244,7 @@ impl network::Guest for Component {
 }
 impl plugin::Guest for Component {
     fn invoke(name: String, args: plugin::Args) -> plugin::Res {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "docker:index/plugin:Plugin".into(),
             name,
@@ -1398,7 +1398,7 @@ impl plugin::Guest for Component {
 }
 impl registry_image::Guest for Component {
     fn invoke(name: String, args: registry_image::Args) -> registry_image::Res {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "docker:index/registryImage:RegistryImage".into(),
             name,
@@ -1482,7 +1482,7 @@ impl registry_image::Guest for Component {
 }
 impl remote_image::Guest for Component {
     fn invoke(name: String, args: remote_image::Args) -> remote_image::Res {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "docker:index/remoteImage:RemoteImage".into(),
             name,
@@ -1618,7 +1618,7 @@ impl remote_image::Guest for Component {
 }
 impl secret::Guest for Component {
     fn invoke(name: String, args: secret::Args) -> secret::Res {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "docker:index/secret:Secret".into(),
             name,
@@ -1678,7 +1678,7 @@ impl secret::Guest for Component {
 }
 impl service::Guest for Component {
     fn invoke(name: String, args: service::Args) -> service::Res {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "docker:index/service:Service".into(),
             name,
@@ -1822,7 +1822,7 @@ impl service::Guest for Component {
 }
 impl service_config::Guest for Component {
     fn invoke(name: String, args: service_config::Args) -> service_config::Res {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "docker:index/serviceConfig:ServiceConfig".into(),
             name,
@@ -1868,7 +1868,7 @@ impl service_config::Guest for Component {
 }
 impl tag::Guest for Component {
     fn invoke(name: String, args: tag::Args) -> tag::Res {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "docker:index/tag:Tag".into(),
             name,
@@ -1924,7 +1924,7 @@ impl tag::Guest for Component {
 }
 impl volume::Guest for Component {
     fn invoke(name: String, args: volume::Args) -> volume::Res {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "docker:index/volume:Volume".into(),
             name,

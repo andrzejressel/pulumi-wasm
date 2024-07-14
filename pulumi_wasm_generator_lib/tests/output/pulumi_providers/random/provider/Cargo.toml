@@ -10,7 +10,7 @@ crate-type = ["cdylib"]
 
 [dependencies]
 wit-bindgen-rt.workspace = true
-wasm_common.workspace = true
+pulumi_wasm_common.workspace = true
 
 [package.metadata.component]
 package = "pulumi:random"

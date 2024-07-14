@@ -6,20 +6,13 @@ use log4rs::append::file::FileAppender;
 use log4rs::config::{Appender, Root};
 use log4rs::encode::json::JsonEncoder;
 use log4rs::Config;
+use pulumi_wasm_proto::grpc;
 use std::path::PathBuf;
 
 mod create_final_component;
 mod model;
 mod pulumi;
 mod pulumi_state;
-
-mod grpc {
-    #![allow(clippy::all)]
-    #![allow(clippy::pedantic)]
-    // https://github.com/hyperium/tonic/issues/1783
-    include!(concat!(env!("OUT_DIR"), concat!("/", "pulumirpc", ".rs")));
-    // tonic::include_proto!("pulumirpc");
-}
 
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]

@@ -7,7 +7,7 @@ Main WASM component. Currently implements Output handling, send and handles requ
 ### Pulumi WASM runner
 
 x64 application that runs the WASM component. 
-Implements `component:pulumi-wasm@0.1.0/external-world` and `component:pulumi-wasm@0.1.0/log` interfaces.
+Implements `component:pulumi-wasm@0.0.0/external-world` and `component:pulumi-wasm@0.0.0/log` interfaces.
 
 ### Pulumi WASM Rust
 

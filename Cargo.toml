@@ -11,35 +11,39 @@ members = [
     "examples/docker",
     "examples/multiple_providers",
     "examples/simple",
-# DO NOT EDIT - START
+    # DO NOT EDIT - START
     "providers/pulumi_wasm_provider_docker",
     "providers/pulumi_wasm_provider_docker_rust",
     "providers/pulumi_wasm_provider_random",
     "providers/pulumi_wasm_provider_random_rust",
-# DO NOT EDIT - END
+    # DO NOT EDIT - END
     "pulumi_wasm",
+    "pulumi_wasm_common",
     "pulumi_wasm_core",
     "pulumi_wasm_generator",
     "pulumi_wasm_generator_lib",
+    "pulumi_wasm_proto",
     "pulumi_wasm_runner",
     "pulumi_wasm_rust",
     "pulumi_wasm_rust_macro",
+    "pulumi_wasm_wit",
     "regenerate_providers",
-    "wasm_common",
 ]
 
 [workspace.package]
-version = "0.1.0"
+version = "0.0.0"
 edition = "2021"
 
 [workspace.dependencies]
-pulumi_wasm_core = { path = "pulumi_wasm_core" }
-pulumi_wasm_docker = { path = "providers/pulumi_wasm_provider_docker_rust" }
-pulumi_wasm_generator_lib = { path = "pulumi_wasm_generator_lib" }
-pulumi_wasm_random = { path = "providers/pulumi_wasm_provider_random_rust" }
-pulumi_wasm_rust = { path = "pulumi_wasm_rust" }
-pulumi_wasm_rust_macro = { path = "pulumi_wasm_rust_macro" }
-wasm_common = { path = "wasm_common" }
+pulumi_wasm_core = { version = "0.0.0", path = "pulumi_wasm_core", registry = "cloudsmith" }
+pulumi_wasm_docker = { version = "4.5.3", path = "providers/pulumi_wasm_provider_docker_rust", registry = "cloudsmith" }
+pulumi_wasm_generator_lib = { version = "0.0.0", path = "pulumi_wasm_generator_lib", registry = "cloudsmith" }
+pulumi_wasm_random = { version = "4.15.0", path = "providers/pulumi_wasm_provider_random_rust", registry = "cloudsmith" }
+pulumi_wasm_rust = { version = "0.0.0", path = "pulumi_wasm_rust", registry = "cloudsmith" }
+pulumi_wasm_rust_macro = { version = "0.0.0", path = "pulumi_wasm_rust_macro", registry = "cloudsmith" }
+pulumi_wasm_common = { version = "0.0.0", path = "pulumi_wasm_common", registry = "cloudsmith" }
+pulumi_wasm_proto = { version = "0.0.0", path = "pulumi_wasm_proto", registry = "cloudsmith" }
+pulumi_wasm_wit = { version = "0.0.0", path = "pulumi_wasm_wit", registry = "cloudsmith" }
 
 anyhow = "1.0.82"
 prost = "0.13.1"

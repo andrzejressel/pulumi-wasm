@@ -55,10 +55,10 @@ pub(crate) fn create(providers: &[PathBuf], pulumi_wasm: &PathBuf, program: &Pat
     .unwrap();
 
     let greet_export = graph
-        .alias_instance_export(main_instance, "component:pulumi-wasm/pulumi-main@0.1.0")
+        .alias_instance_export(main_instance, "component:pulumi-wasm/pulumi-main@0.0.0")
         .unwrap();
     graph
-        .export(greet_export, "component:pulumi-wasm/pulumi-main@0.1.0")
+        .export(greet_export, "component:pulumi-wasm/pulumi-main@0.0.0")
         .unwrap();
 
     graph.encode(EncodeOptions::default()).unwrap()

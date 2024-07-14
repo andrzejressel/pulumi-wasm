@@ -46,7 +46,7 @@ pub mod component {
 
                     #[cfg(target_arch = "wasm32")]
                     {
-                        #[link(wasm_import_module = "component:pulumi-wasm/output-interface@0.1.0")]
+                        #[link(wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0")]
                         extern "C" {
                             #[link_name = "[resource-drop]output"]
                             fn drop(_: u32);
@@ -66,7 +66,7 @@ pub mod component {
                         let len0 = vec0.len();
 
                         #[cfg(target_arch = "wasm32")]
-                        #[link(wasm_import_module = "component:pulumi-wasm/output-interface@0.1.0")]
+                        #[link(wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0")]
                         extern "C" {
                             #[link_name = "[constructor]output"]
                             fn wit_import(_: *mut u8, _: usize) -> i32;
@@ -90,7 +90,7 @@ pub mod component {
                         let len0 = vec0.len();
 
                         #[cfg(target_arch = "wasm32")]
-                        #[link(wasm_import_module = "component:pulumi-wasm/output-interface@0.1.0")]
+                        #[link(wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0")]
                         extern "C" {
                             #[link_name = "[method]output.map"]
                             fn wit_import(_: i32, _: *mut u8, _: usize) -> i32;
@@ -110,7 +110,7 @@ pub mod component {
                 pub fn duplicate(&self) -> Output {
                     unsafe {
                         #[cfg(target_arch = "wasm32")]
-                        #[link(wasm_import_module = "component:pulumi-wasm/output-interface@0.1.0")]
+                        #[link(wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0")]
                         extern "C" {
                             #[link_name = "[method]output.duplicate"]
                             fn wit_import(_: i32) -> i32;
@@ -150,7 +150,7 @@ pub mod component {
                     }
 
                     #[cfg(target_arch = "wasm32")]
-                    #[link(wasm_import_module = "component:pulumi-wasm/output-interface@0.1.0")]
+                    #[link(wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0")]
                     extern "C" {
                         #[link_name = "combine"]
                         fn wit_import(_: *mut u8, _: usize) -> i32;
@@ -313,7 +313,7 @@ pub mod component {
                     }
                     let ptr9 = ret_area.0.as_mut_ptr().cast::<u8>();
                     #[cfg(target_arch = "wasm32")]
-                    #[link(wasm_import_module = "component:pulumi-wasm/register-interface@0.1.0")]
+                    #[link(wasm_import_module = "component:pulumi-wasm/register-interface@0.0.0")]
                     extern "C" {
                         #[link_name = "register"]
                         fn wit_import(
@@ -1649,7 +1649,7 @@ A\x15\x01B\x0c\x04\0\x06output\x03\x01\x01i\0\x01@\x01\x05values\0\x01\x04\0\x13
 [constructor]output\x01\x02\x01h\0\x01@\x02\x04self\x03\x0dfunction-names\0\x01\x04\
 \0\x12[method]output.map\x01\x04\x01@\x01\x04self\x03\0\x01\x04\0\x18[method]out\
 put.duplicate\x01\x05\x01p\x01\x01@\x01\x07outputs\x06\0\x01\x04\0\x07combine\x01\
-\x07\x03\x01,component:pulumi-wasm/output-interface@0.1.0\x05\0\x02\x03\0\0\x06o\
+\x07\x03\x01,component:pulumi-wasm/output-interface@0.0.0\x05\0\x02\x03\0\0\x06o\
 utput\x01B\x13\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x04\
 names\x05value\x02\x04\0\x0cobject-field\x03\0\x03\x01r\x01\x04names\x04\0\x0cre\
 sult-field\x03\0\x05\x01i\x01\x01r\x02\x04names\x06output\x07\x04\0\x1eregister-\
@@ -1657,7 +1657,7 @@ resource-result-field\x03\0\x08\x01p\x04\x01p\x06\x01r\x04\x04types\x04names\x06
 object\x0a\x07results\x0b\x04\0\x19register-resource-request\x03\0\x0c\x01p\x09\x01\
 r\x01\x06fields\x0e\x04\0\x18register-resource-result\x03\0\x0f\x01@\x01\x07requ\
 est\x0d\0\x10\x04\0\x08register\x01\x11\x03\x01.component:pulumi-wasm/register-i\
-nterface@0.1.0\x05\x02\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\
+nterface@0.0.0\x05\x02\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\
 \x01\x01r\x02\x07keepers\x02\x06length\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\
 \x04\x06base64\x05\x03hex\x05\x07keepers\x05\x06length\x05\x04\0\x03res\x03\0\x06\
 \x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01!pulumi:rand\

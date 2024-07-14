@@ -24,13 +24,13 @@ bindings::export!(Component with_types_in bindings);
 #[allow(unused_variables)]
 #[allow(unused_unsafe)]
 mod bindings;
-mod grpc {
-    #![allow(clippy::all)]
-    #![allow(clippy::pedantic)]
-    // https://github.com/hyperium/tonic/issues/1783
-    include!(concat!(env!("OUT_DIR"), concat!("/", "pulumirpc", ".rs")));
-    // tonic::include_proto!("pulumirpc");
-}
+// mod grpc {
+//     #![allow(clippy::all)]
+//     #![allow(clippy::pedantic)]
+//     // https://github.com/hyperium/tonic/issues/1783
+//     include!(concat!(env!("OUT_DIR"), concat!("/", "pulumirpc", ".rs")));
+//     // tonic::include_proto!("pulumirpc");
+// }
 mod globals;
 mod pulumi_connector_impl;
 
@@ -47,7 +47,7 @@ struct Component;
 
 impl stack_interface::Guest for Component {
     fn add_export(name: String, value: OutputBorrow<'_>) {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let refcell: &RefCell<Engine> = &get_pulumi_engine();
         refcell
             .borrow_mut()
@@ -55,7 +55,7 @@ impl stack_interface::Guest for Component {
     }
 
     fn finish(functions: Vec<FunctionInvocationResult>) -> Vec<FunctionInvocationRequest> {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
 
         let refcell: &RefCell<Engine> = &get_pulumi_engine();
 
@@ -93,7 +93,7 @@ impl output_interface::Guest for Component {
     type Output = CustomOutputId;
 
     fn combine(outputs: Vec<Output>) -> Output {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let refcell: &RefCell<Engine> = &get_pulumi_engine();
         let output_id = refcell.borrow_mut().create_combine_outputs(
             outputs
@@ -107,7 +107,7 @@ impl output_interface::Guest for Component {
 
 impl register_interface::Guest for Component {
     fn register(request: RegisterResourceRequest<'_>) -> RegisterResourceResult {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let refcell: &RefCell<Engine> = &get_pulumi_engine();
 
         let outputs = request
@@ -145,7 +145,7 @@ impl register_interface::Guest for Component {
 
 impl GuestOutput for CustomOutputId {
     fn new(value: String) -> CustomOutputId {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let value = serde_json::from_str(&value).unwrap();
         let refcell: &RefCell<Engine> = &get_pulumi_engine();
         let output_id = refcell.borrow_mut().create_done_node(value);
@@ -153,7 +153,7 @@ impl GuestOutput for CustomOutputId {
     }
 
     fn map(&self, function_name: String) -> Output {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let refcell: &RefCell<Engine> = &get_pulumi_engine();
         let output_id = refcell
             .borrow_mut()
@@ -162,7 +162,7 @@ impl GuestOutput for CustomOutputId {
     }
 
     fn duplicate(&self) -> Output {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         Output::new::<CustomOutputId>(self.0.into())
     }
 }

@@ -1,5 +1,5 @@
 [package]
-name = "wasm_common"
+name = "pulumi_wasm_common"
 version.workspace = true
 edition.workspace = true
 
@@ -8,4 +8,4 @@ edition.workspace = true
 [dependencies]
 log.workspace = true
 uuid.workspace = true
-wit-bindgen.workspace = true
+pulumi_wasm_wit = { workspace = true, features = ["logger"] }

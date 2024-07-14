@@ -98,7 +98,7 @@ jobs:
         length: 7
     - name: Package language plugin
       if: runner.os == 'Linux'
-      run: just package-language-plugin "0.1.0-${{ steps.short-sha.outputs.sha }}"
+      run: just package-language-plugin "0.0.0-${{ steps.short-sha.outputs.sha }}"
     - uses: actions/upload-artifact@v4
       if: runner.os == 'Linux'
       with:
@@ -124,8 +124,8 @@ jobs:
     - name: Release
       uses: softprops/action-gh-release@v2.0.6
       with:
-        name: 0.1.0-${{ steps.short-sha.outputs.sha }}
-        tag_name: v0.1.0-${{ steps.short-sha.outputs.sha }}
+        name: 0.0.0-${{ steps.short-sha.outputs.sha }}
+        tag_name: v0.0.0-${{ steps.short-sha.outputs.sha }}
         fail_on_unmatched_files: true
         prerelease: true
         body: ""

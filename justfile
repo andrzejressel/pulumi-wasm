@@ -24,12 +24,13 @@ install-requirements:
     cargo binstall --no-confirm cargo-nextest@{{NEXTEST_VERSION}} --force || cargo-nextest --version
     cargo binstall --no-confirm cargo-component@{{CARGO_COMPONENT_VERSION}} --force || cargo-component --version
 
+# Compiling everything together causes linking issues
 build-wasm-components:
-    cargo component build -p pulumi_wasm \
-                          -p pulumi_wasm_example_simple \
-                          -p pulumi_wasm_example_docker \
-                          -p pulumi_wasm_example_dependencies \
-                          -p pulumi_wasm_example_multiple_providers --timings
+    cargo component build -p pulumi_wasm --timings
+    cargo component build -p pulumi_wasm_example_simple --timings
+    cargo component build -p pulumi_wasm_example_docker --timings
+    cargo component build -p pulumi_wasm_example_dependencies --timings
+    cargo component build -p pulumi_wasm_example_multiple_providers --timings
     # DO NOT EDIT - BUILD-WASM-COMPONENTS - START
     cargo component build \
       -p pulumi_wasm_docker_provider \
@@ -59,6 +60,16 @@ regenerate-providers:
     cargo run -p pulumi_wasm_generator -- gen-provider --remove true --schema providers/random.json --output providers/pulumi_wasm_provider_random
     cargo run -p pulumi_wasm_generator -- gen-rust     --remove true --schema providers/random.json --output providers/pulumi_wasm_provider_random_rust
 # DO NOT EDIT - REGENERATE-PROVIDERS - END
+
+publish:
+    cargo publish -p pulumi_wasm_common --allow-dirty
+    cargo publish -p pulumi_wasm_rust_macro --allow-dirty
+    cargo publish -p pulumi_wasm_rust --allow-dirty
+    cargo publish -p pulumi_wasm_generator_lib --allow-dirty
+    cargo publish -p pulumi_wasm_generator --allow-dirty
+    cargo publish -p pulumi_wasm_core --allow-dirty
+    cargo publish -p pulumi_wasm_docker --allow-dirty
+    cargo publish -p pulumi_wasm_random --allow-dirty
 
 test:
     cargo nextest run --workspace --timings

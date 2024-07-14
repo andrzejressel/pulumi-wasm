@@ -1,7 +1,7 @@
 package pulumi:{{package.name}}@{{package.version}};
 
 world {{package.name}}-pulumi {
-    import component:pulumi-wasm/register-interface@0.1.0;
+    import component:pulumi-wasm/register-interface@0.0.0;
 {{#each package.interfaces}}
     export {{name}};
 {{/each}}
@@ -16,7 +16,7 @@ world {{package.name}}-pulumi-client {
 {{#each package.interfaces}}
 interface {{name}} {
 
-    use component:pulumi-wasm/output-interface@0.1.0.{output};
+    use component:pulumi-wasm/output-interface@0.0.0.{output};
 
     record args {
         {{#each arguments}}

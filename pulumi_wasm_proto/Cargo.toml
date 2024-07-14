@@ -1,0 +1,20 @@
+[package]
+name = "pulumi_wasm_proto"
+version.workspace = true
+edition.workspace = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[features]
+connectivity = ["dep:tonic"]
+
+[dependencies]
+prost.workspace = true
+prost-types.workspace = true
+tonic = { workspace = true, default-features = true, optional = true }
+
+[build-dependencies]
+tonic-build.workspace = true
+
+[dev-dependencies]
+mockall.workspace = true

@@ -10,7 +10,7 @@ struct Component {}
 
 impl local_command::Guest for Component {
     fn invoke(name: String, args: local_command::Args) -> local_command::Res {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "command:local:Command".into(),
             name,
@@ -67,7 +67,7 @@ impl local_command::Guest for Component {
 }
 impl remote_command::Guest for Component {
     fn invoke(name: String, args: remote_command::Args) -> remote_command::Res {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "command:remote:Command".into(),
             name,
@@ -111,7 +111,7 @@ impl remote_command::Guest for Component {
 }
 impl remote_copy_file::Guest for Component {
     fn invoke(name: String, args: remote_copy_file::Args) -> remote_copy_file::Res {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "command:remote:CopyFile".into(),
             name,

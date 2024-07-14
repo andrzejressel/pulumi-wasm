@@ -24,6 +24,4 @@ tokio.workspace = true
 log4rs.workspace = true
 clap.workspace = true
 wac-graph.workspace = true
-
-[build-dependencies]
-tonic-build.workspace = true
+pulumi_wasm_proto = { workspace = true, features = ["connectivity"] }

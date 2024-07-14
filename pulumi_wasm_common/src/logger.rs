@@ -1,6 +1,6 @@
-use crate::bindings;
-use crate::bindings::component::pulumi_wasm::log::Content;
-use bindings::component::pulumi_wasm;
+use crate::bindings_logger;
+use crate::bindings_logger::component::pulumi_wasm::log::Content;
+use bindings_logger::component::pulumi_wasm;
 use log::kv::{Source, VisitSource};
 use log::{Level, Log, Metadata, Record};
 use std::collections::HashMap;

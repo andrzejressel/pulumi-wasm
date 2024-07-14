@@ -13,7 +13,7 @@ struct Component {}
 {{#each package.interfaces}}
 impl {{name}}::Guest for Component {
     fn invoke(name: String, args: {{name}}::Args) -> {{name}}::Res {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "{{type}}".into(),
             name,

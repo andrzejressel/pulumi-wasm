@@ -1,7 +1,7 @@
 package pulumi:%random@4.15.0;
 
 world %random-pulumi {
-    import component:pulumi-wasm/register-interface@0.1.0;
+    import component:pulumi-wasm/register-interface@0.0.0;
     export %random-bytes;
     export %random-id;
     export %random-integer;
@@ -25,7 +25,7 @@ world %random-pulumi-client {
 
 interface %random-bytes {
 
-    use component:pulumi-wasm/output-interface@0.1.0.{output};
+    use component:pulumi-wasm/output-interface@0.0.0.{output};
 
     record args {
         %keepers: borrow<output>,
@@ -45,7 +45,7 @@ interface %random-bytes {
 
 interface %random-id {
 
-    use component:pulumi-wasm/output-interface@0.1.0.{output};
+    use component:pulumi-wasm/output-interface@0.0.0.{output};
 
     record args {
         %byte-length: borrow<output>,
@@ -69,7 +69,7 @@ interface %random-id {
 
 interface %random-integer {
 
-    use component:pulumi-wasm/output-interface@0.1.0.{output};
+    use component:pulumi-wasm/output-interface@0.0.0.{output};
 
     record args {
         %keepers: borrow<output>,
@@ -92,7 +92,7 @@ interface %random-integer {
 
 interface %random-password {
 
-    use component:pulumi-wasm/output-interface@0.1.0.{output};
+    use component:pulumi-wasm/output-interface@0.0.0.{output};
 
     record args {
         %keepers: borrow<output>,
@@ -132,7 +132,7 @@ interface %random-password {
 
 interface %random-pet {
 
-    use component:pulumi-wasm/output-interface@0.1.0.{output};
+    use component:pulumi-wasm/output-interface@0.0.0.{output};
 
     record args {
         %keepers: borrow<output>,
@@ -154,7 +154,7 @@ interface %random-pet {
 
 interface %random-shuffle {
 
-    use component:pulumi-wasm/output-interface@0.1.0.{output};
+    use component:pulumi-wasm/output-interface@0.0.0.{output};
 
     record args {
         %inputs: borrow<output>,
@@ -177,7 +177,7 @@ interface %random-shuffle {
 
 interface %random-string {
 
-    use component:pulumi-wasm/output-interface@0.1.0.{output};
+    use component:pulumi-wasm/output-interface@0.0.0.{output};
 
     record args {
         %keepers: borrow<output>,
@@ -216,7 +216,7 @@ interface %random-string {
 
 interface %random-uuid {
 
-    use component:pulumi-wasm/output-interface@0.1.0.{output};
+    use component:pulumi-wasm/output-interface@0.0.0.{output};
 
     record args {
         %keepers: borrow<output>,

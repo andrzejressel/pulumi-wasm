@@ -1,0 +1,181 @@
+package component:pulumi-wasm@0.0.0;
+
+world import-all {
+    import output-interface;
+    import stack-interface;
+}
+
+world pulumi-wasm {
+    export output-interface;
+    export register-interface;
+    export stack-interface;
+
+    import log;
+    import external-world;
+}
+
+world pulumi-rust {
+    export register-interface;
+    import output-interface;
+}
+
+world main {
+    export pulumi-main;
+    import external-world;
+    import log;
+}
+
+world pulumi-wasm-rust {
+    import output-interface;
+    import stack-interface;
+    export pulumi-main; // Used by macro
+}
+
+world new-main {
+    export pulumi-main;
+}
+
+world pulumi-main-world {
+    export pulumi-main;
+}
+
+world pulumi-provider-random {
+    import output-interface;
+    import register-interface;
+
+    export pulumi-provider-random-interface;
+}
+
+world pulumi-provider-random-client {
+    import pulumi-provider-random-interface;
+}
+
+world logger {
+    import log;
+}
+
+world pulumi-rust-macro {
+    import external-world;
+}
+
+interface log {
+
+    enum level {
+        TRACE,
+        DEBUG,
+        INFO,
+        WARN,
+        ERROR
+    }
+
+    record content {
+        level: level,
+        target: string,
+        args: string,
+        module-path: option<string>,
+        file: option<string>,
+        line: option<u32>,
+        key-values: list<tuple<string, string>>
+    }
+
+    log: func(content: content);
+}
+
+interface output-interface {
+
+    resource output {
+        constructor(value: string);
+        map: func(function-name: string) -> output;
+        duplicate: func() -> output;
+    }
+    combine: func(outputs: list<output>) -> output;
+}
+
+interface stack-interface {
+    use output-interface.{output};
+
+    record function-invocation-request {
+        id: output,
+        function-id: string,
+        value: string,
+    }
+    record function-invocation-result {
+        id: borrow<output>,
+        value: string,
+    }
+    add-export: func(name: string, value: borrow<output>);
+    finish: func(functions: list<function-invocation-result>) -> list<function-invocation-request>;
+}
+
+
+interface register-interface {
+    use output-interface.{output};
+
+    record object-field {
+        name: string,
+        value: borrow<output>
+    }
+
+    record result-field {
+        name: string
+    }
+
+    record register-resource-result-field {
+        name: string,
+        output: output
+    }
+
+    record register-resource-request {
+        %type: string,
+        name: string,
+        object: list<object-field>,
+        results: list<result-field>
+    }
+
+    record register-resource-result {
+        fields: list<register-resource-result-field>
+    }
+
+    register: func(request: register-resource-request) -> register-resource-result;
+}
+
+interface external-world {
+    is-in-preview: func() -> bool;
+    get-root-resource: func() -> string;
+    register-resource-outputs: func(request: list<u8>) -> list<u8>;
+
+    record register-resource-request {
+        output-id: string,
+        body: list<u8>
+    }
+
+    record registered-resource {
+        output-id: string,
+        body: list<u8>
+    }
+
+    register-resource: func(request: register-resource-request);
+    wait-for-registered-resources: func() -> list<registered-resource>;
+}
+
+interface pulumi-provider-random-interface {
+
+    use output-interface.{output};
+
+    record random-string-args {
+        name: string,
+        length: borrow<output>,
+    }
+
+    record random-string-result {
+        %result: output
+    }
+
+    create-random-string: func(args: random-string-args) -> random-string-result;
+
+    handle-functions: func();
+}
+
+interface pulumi-main {
+    main: func();
+}

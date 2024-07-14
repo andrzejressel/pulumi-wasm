@@ -1859,34 +1859,40 @@ dependencies = [
 
 [[package]]
 name = "pulumi-wasm-parent"
-version = "0.1.0"
+version = "0.0.0"
 
 [[package]]
 name = "pulumi_wasm"
-version = "0.1.0"
+version = "0.0.0"
 dependencies = [
  "anyhow",
  "bitflags",
- "futures",
  "lazy_static",
  "log",
  "once_cell",
- "prost",
- "prost-types",
+ "pulumi_wasm_common",
  "pulumi_wasm_core",
  "serde",
  "serde_json",
  "tonic-build",
  "uuid",
- "wasm_common",
  "wasmtime",
  "wasmtime-wasi",
  "wit-bindgen-rt",
 ]
 
 [[package]]
+name = "pulumi_wasm_common"
+version = "0.0.0"
+dependencies = [
+ "log",
+ "pulumi_wasm_wit",
+ "uuid",
+]
+
+[[package]]
 name = "pulumi_wasm_core"
-version = "0.1.0"
+version = "0.0.0"
 dependencies = [
  "anyhow",
  "lazy_static",
@@ -1895,8 +1901,8 @@ dependencies = [
  "once_cell",
  "prost",
  "prost-types",
+ "pulumi_wasm_proto",
  "serde_json",
- "tonic-build",
  "uuid",
 ]
 
@@ -1914,13 +1920,13 @@ dependencies = [
 name = "pulumi_wasm_docker_provider"
 version = "4.5.3"
 dependencies = [
- "wasm_common",
+ "pulumi_wasm_common",
  "wit-bindgen-rt",
 ]
 
 [[package]]
 name = "pulumi_wasm_example_dependencies"
-version = "0.1.0"
+version = "0.0.0"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -1932,7 +1938,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_example_docker"
-version = "0.1.0"
+version = "0.0.0"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -1944,7 +1950,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_example_multiple_providers"
-version = "0.1.0"
+version = "0.0.0"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -1957,7 +1963,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_example_simple"
-version = "0.1.0"
+version = "0.0.0"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -1969,7 +1975,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_generator"
-version = "0.1.0"
+version = "0.0.0"
 dependencies = [
  "anyhow",
  "clap",
@@ -1978,7 +1984,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_generator_lib"
-version = "0.1.0"
+version = "0.0.0"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -1989,6 +1995,17 @@ dependencies = [
  "serde",
  "serde_json",
  "serde_yaml",
+]
+
+[[package]]
+name = "pulumi_wasm_proto"
+version = "0.0.0"
+dependencies = [
+ "mockall",
+ "prost",
+ "prost-types",
+ "tonic",
+ "tonic-build",
 ]
 
 [[package]]
@@ -2005,13 +2022,13 @@ dependencies = [
 name = "pulumi_wasm_random_provider"
 version = "4.15.0"
 dependencies = [
- "wasm_common",
+ "pulumi_wasm_common",
  "wit-bindgen-rt",
 ]
 
 [[package]]
 name = "pulumi_wasm_runner"
-version = "0.1.0"
+version = "0.0.0"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -2021,12 +2038,12 @@ dependencies = [
  "log4rs",
  "prost",
  "prost-types",
+ "pulumi_wasm_proto",
  "regex",
  "serde",
  "serde_json",
  "tokio",
  "tonic",
- "tonic-build",
  "tonic-web",
  "uuid",
  "wac-graph",
@@ -2036,7 +2053,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_rust"
-version = "0.1.0"
+version = "0.0.0"
 dependencies = [
  "anyhow",
  "bitflags",
@@ -2044,23 +2061,31 @@ dependencies = [
  "lazy_static",
  "log",
  "prettyplease",
+ "pulumi_wasm_common",
  "pulumi_wasm_rust_macro",
+ "pulumi_wasm_wit",
  "quote",
  "serde",
  "serde_json",
  "syn 2.0.71",
  "uuid",
- "wasm_common",
  "wit-bindgen",
 ]
 
 [[package]]
 name = "pulumi_wasm_rust_macro"
-version = "0.1.0"
+version = "0.0.0"
 dependencies = [
  "proc-macro2",
  "quote",
  "syn 2.0.71",
+]
+
+[[package]]
+name = "pulumi_wasm_wit"
+version = "0.0.0"
+dependencies = [
+ "wit-bindgen",
 ]
 
 [[package]]
@@ -2157,7 +2182,7 @@ dependencies = [
 
 [[package]]
 name = "regenerate_providers"
-version = "0.1.0"
+version = "0.0.0"
 
 [[package]]
 name = "regex"
@@ -3015,15 +3040,6 @@ dependencies = [
  "spdx",
  "wasm-encoder 0.212.0",
  "wasmparser 0.212.0",
-]
-
-[[package]]
-name = "wasm_common"
-version = "0.1.0"
-dependencies = [
- "log",
- "uuid",
- "wit-bindgen",
 ]
 
 [[package]]

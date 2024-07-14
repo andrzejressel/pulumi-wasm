@@ -10,7 +10,7 @@ where
     F: Fn() -> Result<(), Error>,
 {
     let outer = || {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         f()?;
         run_loop()?;
         Ok(())

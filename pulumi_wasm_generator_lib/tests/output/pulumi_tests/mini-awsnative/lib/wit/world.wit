@@ -1,7 +1,7 @@
 package pulumi:%aws-native@0.0.1;
 
 world %aws-native-pulumi {
-    import component:pulumi-wasm/register-interface@0.1.0;
+    import component:pulumi-wasm/register-interface@0.0.0;
 }
 
 world %aws-native-pulumi-client {

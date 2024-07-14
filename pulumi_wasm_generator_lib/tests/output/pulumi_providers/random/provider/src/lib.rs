@@ -15,7 +15,7 @@ struct Component {}
 
 impl random_bytes::Guest for Component {
     fn invoke(name: String, args: random_bytes::Args) -> random_bytes::Res {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "random:index/randomBytes:RandomBytes".into(),
             name,
@@ -44,7 +44,7 @@ impl random_bytes::Guest for Component {
 }
 impl random_id::Guest for Component {
     fn invoke(name: String, args: random_id::Args) -> random_id::Res {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "random:index/randomId:RandomId".into(),
             name,
@@ -80,7 +80,7 @@ impl random_id::Guest for Component {
 }
 impl random_integer::Guest for Component {
     fn invoke(name: String, args: random_integer::Args) -> random_integer::Res {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "random:index/randomInteger:RandomInteger".into(),
             name,
@@ -113,7 +113,7 @@ impl random_integer::Guest for Component {
 }
 impl random_password::Guest for Component {
     fn invoke(name: String, args: random_password::Args) -> random_password::Res {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "random:index/randomPassword:RandomPassword".into(),
             name,
@@ -172,7 +172,7 @@ impl random_password::Guest for Component {
 }
 impl random_pet::Guest for Component {
     fn invoke(name: String, args: random_pet::Args) -> random_pet::Res {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "random:index/randomPet:RandomPet".into(),
             name,
@@ -203,7 +203,7 @@ impl random_pet::Guest for Component {
 }
 impl random_shuffle::Guest for Component {
     fn invoke(name: String, args: random_shuffle::Args) -> random_shuffle::Res {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "random:index/randomShuffle:RandomShuffle".into(),
             name,
@@ -236,7 +236,7 @@ impl random_shuffle::Guest for Component {
 }
 impl random_string::Guest for Component {
     fn invoke(name: String, args: random_string::Args) -> random_string::Res {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "random:index/randomString:RandomString".into(),
             name,
@@ -293,7 +293,7 @@ impl random_string::Guest for Component {
 }
 impl random_uuid::Guest for Component {
     fn invoke(name: String, args: random_uuid::Args) -> random_uuid::Res {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "random:index/randomUuid:RandomUuid".into(),
             name,

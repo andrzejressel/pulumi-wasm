@@ -5,6 +5,7 @@ use log::{error, warn};
 use prost::Message;
 use prost_types::value::Kind;
 use prost_types::{ListValue, Struct};
+use pulumi_wasm_proto::grpc;
 use serde_json::{Number, Value};
 
 use crate::model::{FieldName, OutputId};
@@ -15,14 +16,6 @@ pub struct PulumiServiceImpl {
     connector: Box<dyn PulumiConnector>,
     expected_results: RefCell<HashMap<OutputId, HashSet<FieldName>>>,
     is_in_preview: bool,
-}
-
-mod grpc {
-    #![allow(clippy::all)]
-    #![allow(clippy::pedantic)]
-    // https://github.com/hyperium/tonic/issues/1783
-    include!(concat!(env!("OUT_DIR"), concat!("/", "pulumirpc", ".rs")));
-    // tonic::include_proto!("pulumirpc");
 }
 
 impl PulumiServiceImpl {

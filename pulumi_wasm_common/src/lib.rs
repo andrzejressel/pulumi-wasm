@@ -2,20 +2,9 @@ use std::sync::atomic::AtomicBool;
 use std::sync::atomic::Ordering::Relaxed;
 
 use crate::logger::Logger;
+use pulumi_wasm_wit::bindings_logger;
 
-#[allow(clippy::all)]
-#[allow(dead_code)]
-#[allow(unused_variables)]
-#[allow(unused_unsafe)]
-mod bindings {
-    wit_bindgen::generate!({
-        // the name of the world in the `*.wit` input file
-        world: "logger",
-        path: "../wits/world.wit"
-    });
-}
-
-pub use bindings::*;
+pub use bindings_logger::*;
 
 mod logger;
 

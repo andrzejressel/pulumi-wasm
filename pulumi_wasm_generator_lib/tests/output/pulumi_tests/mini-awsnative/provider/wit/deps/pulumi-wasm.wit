@@ -1,4 +1,4 @@
-package component:pulumi-wasm@0.1.0;
+package component:pulumi-wasm@0.0.0;
 
 interface output-interface {
 

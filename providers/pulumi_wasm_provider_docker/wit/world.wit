@@ -1,7 +1,7 @@
 package pulumi:%docker@4.5.3;
 
 world %docker-pulumi {
-    import component:pulumi-wasm/register-interface@0.1.0;
+    import component:pulumi-wasm/register-interface@0.0.0;
     export %container;
     export %image;
     export %network;
@@ -31,7 +31,7 @@ world %docker-pulumi-client {
 
 interface %container {
 
-    use component:pulumi-wasm/output-interface@0.1.0.{output};
+    use component:pulumi-wasm/output-interface@0.0.0.{output};
 
     record args {
         %attach: borrow<output>,
@@ -173,7 +173,7 @@ interface %container {
 
 interface %image {
 
-    use component:pulumi-wasm/output-interface@0.1.0.{output};
+    use component:pulumi-wasm/output-interface@0.0.0.{output};
 
     record args {
         %build: borrow<output>,
@@ -199,7 +199,7 @@ interface %image {
 
 interface %network {
 
-    use component:pulumi-wasm/output-interface@0.1.0.{output};
+    use component:pulumi-wasm/output-interface@0.0.0.{output};
 
     record args {
         %attachable: borrow<output>,
@@ -238,7 +238,7 @@ interface %network {
 
 interface %plugin {
 
-    use component:pulumi-wasm/output-interface@0.1.0.{output};
+    use component:pulumi-wasm/output-interface@0.0.0.{output};
 
     record args {
         %alias: borrow<output>,
@@ -271,7 +271,7 @@ interface %plugin {
 
 interface %registry-image {
 
-    use component:pulumi-wasm/output-interface@0.1.0.{output};
+    use component:pulumi-wasm/output-interface@0.0.0.{output};
 
     record args {
         %insecure-skip-verify: borrow<output>,
@@ -294,7 +294,7 @@ interface %registry-image {
 
 interface %remote-image {
 
-    use component:pulumi-wasm/output-interface@0.1.0.{output};
+    use component:pulumi-wasm/output-interface@0.0.0.{output};
 
     record args {
         %build: borrow<output>,
@@ -324,7 +324,7 @@ interface %remote-image {
 
 interface %secret {
 
-    use component:pulumi-wasm/output-interface@0.1.0.{output};
+    use component:pulumi-wasm/output-interface@0.0.0.{output};
 
     record args {
         %data: borrow<output>,
@@ -344,7 +344,7 @@ interface %secret {
 
 interface %service {
 
-    use component:pulumi-wasm/output-interface@0.1.0.{output};
+    use component:pulumi-wasm/output-interface@0.0.0.{output};
 
     record args {
         %auth: borrow<output>,
@@ -376,7 +376,7 @@ interface %service {
 
 interface %service-config {
 
-    use component:pulumi-wasm/output-interface@0.1.0.{output};
+    use component:pulumi-wasm/output-interface@0.0.0.{output};
 
     record args {
         %data: borrow<output>,
@@ -394,7 +394,7 @@ interface %service-config {
 
 interface %tag {
 
-    use component:pulumi-wasm/output-interface@0.1.0.{output};
+    use component:pulumi-wasm/output-interface@0.0.0.{output};
 
     record args {
         %source-image: borrow<output>,
@@ -413,7 +413,7 @@ interface %tag {
 
 interface %volume {
 
-    use component:pulumi-wasm/output-interface@0.1.0.{output};
+    use component:pulumi-wasm/output-interface@0.0.0.{output};
 
     record args {
         %driver: borrow<output>,

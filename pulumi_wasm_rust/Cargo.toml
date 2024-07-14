@@ -22,6 +22,7 @@ serde_json.workspace = true
 futures.workspace = true
 lazy_static.workspace = true
 log.workspace = true
-wit-bindgen.workspace = true
 pulumi_wasm_rust_macro.workspace = true
-wasm_common.workspace = true
+pulumi_wasm_common.workspace = true
+wit-bindgen.workspace = true
+pulumi_wasm_wit = { workspace = true, features = ["pulumi-wasm-rust"] }
