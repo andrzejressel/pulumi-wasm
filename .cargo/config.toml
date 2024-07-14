@@ -1,5 +1,5 @@
-[registries]
-cloudsmith = { index = "https://dl.cloudsmith.io/public/andrzej-ressel-github/pulumi-wasm/cargo/index.git" }
+[registries.cloudsmith]
+index = "sparse+https://cargo.cloudsmith.io/andrzej-ressel-github/pulumi-wasm/"
 
 [registry]
 default = "cloudsmith"
