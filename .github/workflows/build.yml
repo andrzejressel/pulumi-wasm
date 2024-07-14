@@ -33,6 +33,10 @@ jobs:
     - uses: actions/checkout@v4
       with:
         submodules: true
+    - name: Pull required docker images
+      if: runner.os == 'Linux'
+      run: |
+        docker pull public.ecr.aws/ubuntu/ubuntu:latest
     - uses: Swatinem/rust-cache@v2
       with:
         workspaces: |
