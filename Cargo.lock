@@ -2039,6 +2039,7 @@ dependencies = [
  "prost",
  "prost-types",
  "pulumi_wasm_proto",
+ "pulumi_wasm_wit",
  "regex",
  "serde",
  "serde_json",
@@ -2084,6 +2085,7 @@ dependencies = [
 name = "pulumi_wasm_wit"
 version = "0.0.0"
 dependencies = [
+ "wasmtime",
  "wit-bindgen",
 ]
 

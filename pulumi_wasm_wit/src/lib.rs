@@ -21,3 +21,16 @@ pub mod bindings_logger {
         world: "logger",
     });
 }
+
+#[allow(clippy::all)]
+#[allow(dead_code)]
+#[allow(unused_variables)]
+#[allow(unused_unsafe)]
+#[cfg(feature = "server")]
+pub mod bindings_server {
+    wasmtime::component::bindgen!({
+        world: "main",
+        async: true,
+        trappable_imports: true,
+    });
+}

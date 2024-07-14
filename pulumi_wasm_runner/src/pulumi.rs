@@ -17,20 +17,12 @@ use crate::pulumi::server::component::pulumi_wasm::external_world::Host;
 use crate::pulumi::server::component::pulumi_wasm::external_world::RegisteredResource;
 use crate::pulumi::server::Main;
 use crate::pulumi_state::PulumiState;
+use pulumi_wasm_wit::bindings_server as server;
 
 pub struct Pulumi {
     plugin: Main,
     _instance: Instance,
     store: Store<SimplePluginCtx>,
-}
-
-pub(crate) mod server {
-    wasmtime::component::bindgen!({
-        path: "../wits/world.wit",
-        world: "main",
-        async: true,
-        trappable_imports: true,
-    });
 }
 
 struct SimplePluginCtx {

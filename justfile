@@ -62,14 +62,17 @@ regenerate-providers:
 # DO NOT EDIT - REGENERATE-PROVIDERS - END
 
 publish:
-    cargo publish -p pulumi_wasm_common --allow-dirty
-    cargo publish -p pulumi_wasm_rust_macro --allow-dirty
-    cargo publish -p pulumi_wasm_rust --allow-dirty
-    cargo publish -p pulumi_wasm_generator_lib --allow-dirty
-    cargo publish -p pulumi_wasm_generator --allow-dirty
-    cargo publish -p pulumi_wasm_core --allow-dirty
-    cargo publish -p pulumi_wasm_docker --allow-dirty
-    cargo publish -p pulumi_wasm_random --allow-dirty
+    cargo publish -p pulumi_wasm_wit --allow-dirty --all-features
+    cargo publish -p pulumi_wasm_proto --allow-dirty --all-features
+    cargo publish -p pulumi_wasm_common --allow-dirty --all-features
+    cargo publish -p pulumi_wasm_rust_macro --allow-dirty --all-features
+    cargo publish -p pulumi_wasm_rust --allow-dirty --all-features
+    cargo publish -p pulumi_wasm_generator_lib --allow-dirty --all-features
+    cargo publish -p pulumi_wasm_generator --allow-dirty --all-features
+    cargo publish -p pulumi_wasm_core --allow-dirty --all-features
+    cargo publish -p pulumi_wasm_docker --allow-dirty --all-features
+    cargo publish -p pulumi_wasm_random --allow-dirty --all-features
+    cargo publish -p pulumi_wasm_runner --allow-dirty --all-features
 
 test:
     cargo nextest run --workspace --timings

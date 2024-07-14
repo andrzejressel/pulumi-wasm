@@ -8,6 +8,8 @@ edition.workspace = true
 [features]
 pulumi-wasm-rust = []
 logger = []
+server = ["dep:wasmtime"]
 
 [dependencies]
 wit-bindgen.workspace = true
+wasmtime = { workspace = true, optional = true }
