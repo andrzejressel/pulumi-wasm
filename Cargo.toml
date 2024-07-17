@@ -11,12 +11,12 @@ members = [
     "examples/docker",
     "examples/multiple_providers",
     "examples/simple",
-# DO NOT EDIT - START
+    # DO NOT EDIT - START
     "providers/pulumi_wasm_provider_docker",
     "providers/pulumi_wasm_provider_docker_rust",
     "providers/pulumi_wasm_provider_random",
     "providers/pulumi_wasm_provider_random_rust",
-# DO NOT EDIT - END
+    # DO NOT EDIT - END
     "pulumi_wasm",
     "pulumi_wasm_common",
     "pulumi_wasm_core",
