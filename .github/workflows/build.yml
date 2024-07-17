@@ -122,7 +122,7 @@ jobs:
       with:
         length: 7
     - name: Release
-      uses: softprops/action-gh-release@v2.0.6
+      uses: softprops/action-gh-release@v2.0.7
       with:
         name: 0.1.0-${{ steps.short-sha.outputs.sha }}
         tag_name: v0.1.0-${{ steps.short-sha.outputs.sha }}
