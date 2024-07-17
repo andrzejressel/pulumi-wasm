@@ -53,8 +53,8 @@ fn update_cargo_toml(providers: &[Provider]) {
             provider.name
         ));
     }
-    let start_marker = "# DO NOT EDIT - START";
-    let end_marker = "# DO NOT EDIT - END";
+    let start_marker = "    # DO NOT EDIT - START";
+    let end_marker = "    # DO NOT EDIT - END";
     let new_content = replace_between_markers(&content, start_marker, end_marker, &replacement);
 
     fs::write("Cargo.toml", new_content).expect("Failed to write to Cargo.toml");
