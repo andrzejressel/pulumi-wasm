@@ -1,6 +1,6 @@
 [package]
 name = "pulumi_wasm_docker_provider"
-version = "4.5.3"
+version = "4.5.3-0.0.0-DEV"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html

@@ -1,5 +1,5 @@
 use crate::model::ElementId;
-use crate::output::replace_multiple_dashes;
+use crate::output::{get_main_version, replace_multiple_dashes};
 use handlebars::Handlebars;
 use serde::Serialize;
 use serde_json::json;
@@ -30,11 +30,13 @@ struct Interface {
 struct Package {
     name: String,
     interfaces: Vec<Interface>,
+    pulumi_wasm_version: String,
 }
 
 fn convert_model(package: &crate::model::Package) -> Package {
     Package {
         name: package.name.clone(),
+        pulumi_wasm_version: get_main_version().to_string(),
         interfaces: package
             .resources
             .iter()

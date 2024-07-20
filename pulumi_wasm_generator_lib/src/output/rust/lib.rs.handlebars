@@ -11,7 +11,7 @@ mod bindings {
         world: "{{package.name}}-pulumi-client",
 {{#if package.interfaces}}
         with: {
-            "component:pulumi-wasm/output-interface@0.0.0": generate
+            "component:pulumi-wasm/output-interface@{{package.pulumi_wasm_version}}": generate
         }
 {{/if}}
     });

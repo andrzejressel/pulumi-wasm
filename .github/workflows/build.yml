@@ -124,8 +124,8 @@ jobs:
     - name: Release
       uses: softprops/action-gh-release@v2.0.8
       with:
-        name: 0.0.0-${{ steps.short-sha.outputs.sha }}
-        tag_name: v0.0.0-${{ steps.short-sha.outputs.sha }}
+        name: 0.0.0-DEV-${{ steps.short-sha.outputs.sha }}
+        tag_name: v0.0.0-DEV-${{ steps.short-sha.outputs.sha }}
         fail_on_unmatched_files: true
         prerelease: true
         body: ""

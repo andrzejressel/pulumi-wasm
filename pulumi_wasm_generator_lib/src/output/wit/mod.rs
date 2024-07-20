@@ -1,5 +1,5 @@
 use crate::model::ElementId;
-use crate::output::replace_multiple_dashes;
+use crate::output::{get_main_version, get_main_version_stringify, replace_multiple_dashes};
 use handlebars::Handlebars;
 
 use serde::Serialize;
@@ -30,6 +30,8 @@ struct Interface {
 struct Package {
     name: String,
     version: String,
+    pulumi_wasm_version: String,
+    pulumi_wasm_version_stringify: String,
     interfaces: Vec<Interface>,
 }
 
@@ -37,6 +39,8 @@ fn convert_model(package: &crate::model::Package) -> Package {
     Package {
         name: create_valid_id(&package.name),
         version: package.version.clone(),
+        pulumi_wasm_version: get_main_version().to_string(),
+        pulumi_wasm_version_stringify: get_main_version_stringify().to_string(),
         interfaces: package
             .resources
             .iter()

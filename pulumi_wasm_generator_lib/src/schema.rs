@@ -325,7 +325,7 @@ mod test {
     fn object_without_additionalproperties_fails() -> Result<()> {
         let json = json!({
             "name": "test",
-            "version": "0.0.0",
+            "version": "0.0.0-DEV",
             "resources": {
                 "test:index:test_resource": {
                     "description": "test resource",
@@ -361,7 +361,7 @@ mod test {
     fn array_without_items_fails() -> Result<()> {
         let json = json!({
             "name": "test",
-            "version": "0.0.0",
+            "version": "0.0.0-DEV",
             "resources": {
                 "test:index:test_resource": {
                     "description": "test resource",

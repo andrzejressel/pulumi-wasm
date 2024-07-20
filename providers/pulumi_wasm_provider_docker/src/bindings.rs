@@ -46,7 +46,9 @@ pub mod component {
 
                     #[cfg(target_arch = "wasm32")]
                     {
-                        #[link(wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0")]
+                        #[link(
+                            wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0-DEV"
+                        )]
                         extern "C" {
                             #[link_name = "[resource-drop]output"]
                             fn drop(_: u32);
@@ -66,7 +68,9 @@ pub mod component {
                         let len0 = vec0.len();
 
                         #[cfg(target_arch = "wasm32")]
-                        #[link(wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0")]
+                        #[link(
+                            wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0-DEV"
+                        )]
                         extern "C" {
                             #[link_name = "[constructor]output"]
                             fn wit_import(_: *mut u8, _: usize) -> i32;
@@ -90,7 +94,9 @@ pub mod component {
                         let len0 = vec0.len();
 
                         #[cfg(target_arch = "wasm32")]
-                        #[link(wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0")]
+                        #[link(
+                            wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0-DEV"
+                        )]
                         extern "C" {
                             #[link_name = "[method]output.map"]
                             fn wit_import(_: i32, _: *mut u8, _: usize) -> i32;
@@ -110,7 +116,9 @@ pub mod component {
                 pub fn duplicate(&self) -> Output {
                     unsafe {
                         #[cfg(target_arch = "wasm32")]
-                        #[link(wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0")]
+                        #[link(
+                            wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0-DEV"
+                        )]
                         extern "C" {
                             #[link_name = "[method]output.duplicate"]
                             fn wit_import(_: i32) -> i32;
@@ -150,7 +158,7 @@ pub mod component {
                     }
 
                     #[cfg(target_arch = "wasm32")]
-                    #[link(wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0")]
+                    #[link(wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0-DEV")]
                     extern "C" {
                         #[link_name = "combine"]
                         fn wit_import(_: *mut u8, _: usize) -> i32;
@@ -313,7 +321,9 @@ pub mod component {
                     }
                     let ptr9 = ret_area.0.as_mut_ptr().cast::<u8>();
                     #[cfg(target_arch = "wasm32")]
-                    #[link(wasm_import_module = "component:pulumi-wasm/register-interface@0.0.0")]
+                    #[link(
+                        wasm_import_module = "component:pulumi-wasm/register-interface@0.0.0-DEV"
+                    )]
                     extern "C" {
                         #[link_name = "register"]
                         fn wit_import(
@@ -1213,17 +1223,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_docker_container_4_5_3_cabi{
+                macro_rules! __export_pulumi_docker_container_4_5_3_zerozerozero_dev_cabi{
         ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-          #[export_name = "pulumi:docker/container@4.5.3#invoke"]
+          #[export_name = "pulumi:docker/container@4.5.3-ZEROZEROZERO-DEV#invoke"]
           unsafe extern "C" fn export_invoke(arg0: *mut u8,) -> *mut u8 {
             $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0)
           }
         };);
       }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_docker_container_4_5_3_cabi;
+                pub(crate) use __export_pulumi_docker_container_4_5_3_zerozerozero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 264]);
                 static mut _RET_AREA: _RetArea =
@@ -1349,17 +1359,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_docker_image_4_5_3_cabi{
+                macro_rules! __export_pulumi_docker_image_4_5_3_zerozerozero_dev_cabi{
       ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-        #[export_name = "pulumi:docker/image@4.5.3#invoke"]
+        #[export_name = "pulumi:docker/image@4.5.3-ZEROZEROZERO-DEV#invoke"]
         unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,) -> *mut u8 {
           $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6)
         }
       };);
     }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_docker_image_4_5_3_cabi;
+                pub(crate) use __export_pulumi_docker_image_4_5_3_zerozerozero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 28]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 28]);
@@ -1564,17 +1574,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_docker_network_4_5_3_cabi{
+                macro_rules! __export_pulumi_docker_network_4_5_3_zerozerozero_dev_cabi{
     ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-      #[export_name = "pulumi:docker/network@4.5.3#invoke"]
+      #[export_name = "pulumi:docker/network@4.5.3-ZEROZEROZERO-DEV#invoke"]
       unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,arg9: i32,arg10: i32,arg11: i32,arg12: i32,arg13: i32,) -> *mut u8 {
         $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13)
       }
     };);
   }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_docker_network_4_5_3_cabi;
+                pub(crate) use __export_pulumi_docker_network_4_5_3_zerozerozero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 52]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 52]);
@@ -1743,17 +1753,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_docker_plugin_4_5_3_cabi{
+                macro_rules! __export_pulumi_docker_plugin_4_5_3_zerozerozero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:docker/plugin@4.5.3#invoke"]
+    #[export_name = "pulumi:docker/plugin@4.5.3-ZEROZEROZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,arg9: i32,arg10: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_docker_plugin_4_5_3_cabi;
+                pub(crate) use __export_pulumi_docker_plugin_4_5_3_zerozerozero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 40]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 40]);
@@ -1862,17 +1872,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_docker_registry_image_4_5_3_cabi{
+                macro_rules! __export_pulumi_docker_registry_image_4_5_3_zerozerozero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:docker/registry-image@4.5.3#invoke"]
+    #[export_name = "pulumi:docker/registry-image@4.5.3-ZEROZEROZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_docker_registry_image_4_5_3_cabi;
+                pub(crate) use __export_pulumi_docker_registry_image_4_5_3_zerozerozero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
@@ -2021,17 +2031,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_docker_remote_image_4_5_3_cabi{
+                macro_rules! __export_pulumi_docker_remote_image_4_5_3_zerozerozero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:docker/remote-image@4.5.3#invoke"]
+    #[export_name = "pulumi:docker/remote-image@4.5.3-ZEROZEROZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_docker_remote_image_4_5_3_cabi;
+                pub(crate) use __export_pulumi_docker_remote_image_4_5_3_zerozerozero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 36]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 36]);
@@ -2124,17 +2134,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_docker_secret_4_5_3_cabi{
+                macro_rules! __export_pulumi_docker_secret_4_5_3_zerozerozero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:docker/secret@4.5.3#invoke"]
+    #[export_name = "pulumi:docker/secret@4.5.3-ZEROZEROZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_docker_secret_4_5_3_cabi;
+                pub(crate) use __export_pulumi_docker_secret_4_5_3_zerozerozero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
@@ -2299,17 +2309,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_docker_service_4_5_3_cabi{
+                macro_rules! __export_pulumi_docker_service_4_5_3_zerozerozero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:docker/service@4.5.3#invoke"]
+    #[export_name = "pulumi:docker/service@4.5.3-ZEROZEROZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,arg9: i32,arg10: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_docker_service_4_5_3_cabi;
+                pub(crate) use __export_pulumi_docker_service_4_5_3_zerozerozero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 36]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 36]);
@@ -2390,17 +2400,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_docker_service_config_4_5_3_cabi{
+                macro_rules! __export_pulumi_docker_service_config_4_5_3_zerozerozero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:docker/service-config@4.5.3#invoke"]
+    #[export_name = "pulumi:docker/service-config@4.5.3-ZEROZEROZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_docker_service_config_4_5_3_cabi;
+                pub(crate) use __export_pulumi_docker_service_config_4_5_3_zerozerozero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 8]);
@@ -2485,17 +2495,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_docker_tag_4_5_3_cabi{
+                macro_rules! __export_pulumi_docker_tag_4_5_3_zerozerozero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:docker/tag@4.5.3#invoke"]
+    #[export_name = "pulumi:docker/tag@4.5.3-ZEROZEROZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_docker_tag_4_5_3_cabi;
+                pub(crate) use __export_pulumi_docker_tag_4_5_3_zerozerozero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
@@ -2604,17 +2614,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_docker_volume_4_5_3_cabi{
+                macro_rules! __export_pulumi_docker_volume_4_5_3_zerozerozero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:docker/volume@4.5.3#invoke"]
+    #[export_name = "pulumi:docker/volume@4.5.3-ZEROZEROZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_docker_volume_4_5_3_cabi;
+                pub(crate) use __export_pulumi_docker_volume_4_5_3_zerozerozero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
@@ -2765,17 +2775,17 @@ mod _rt {
 macro_rules! __export_docker_pulumi_impl {
   ($ty:ident) => (self::export!($ty with_types_in self););
   ($ty:ident with_types_in $($path_to_types_root:tt)*) => (
-  $($path_to_types_root)*::exports::pulumi::docker::container::__export_pulumi_docker_container_4_5_3_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::docker::container);
-  $($path_to_types_root)*::exports::pulumi::docker::image::__export_pulumi_docker_image_4_5_3_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::docker::image);
-  $($path_to_types_root)*::exports::pulumi::docker::network::__export_pulumi_docker_network_4_5_3_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::docker::network);
-  $($path_to_types_root)*::exports::pulumi::docker::plugin::__export_pulumi_docker_plugin_4_5_3_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::docker::plugin);
-  $($path_to_types_root)*::exports::pulumi::docker::registry_image::__export_pulumi_docker_registry_image_4_5_3_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::docker::registry_image);
-  $($path_to_types_root)*::exports::pulumi::docker::remote_image::__export_pulumi_docker_remote_image_4_5_3_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::docker::remote_image);
-  $($path_to_types_root)*::exports::pulumi::docker::secret::__export_pulumi_docker_secret_4_5_3_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::docker::secret);
-  $($path_to_types_root)*::exports::pulumi::docker::service::__export_pulumi_docker_service_4_5_3_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::docker::service);
-  $($path_to_types_root)*::exports::pulumi::docker::service_config::__export_pulumi_docker_service_config_4_5_3_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::docker::service_config);
-  $($path_to_types_root)*::exports::pulumi::docker::tag::__export_pulumi_docker_tag_4_5_3_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::docker::tag);
-  $($path_to_types_root)*::exports::pulumi::docker::volume::__export_pulumi_docker_volume_4_5_3_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::docker::volume);
+  $($path_to_types_root)*::exports::pulumi::docker::container::__export_pulumi_docker_container_4_5_3_zerozerozero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::docker::container);
+  $($path_to_types_root)*::exports::pulumi::docker::image::__export_pulumi_docker_image_4_5_3_zerozerozero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::docker::image);
+  $($path_to_types_root)*::exports::pulumi::docker::network::__export_pulumi_docker_network_4_5_3_zerozerozero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::docker::network);
+  $($path_to_types_root)*::exports::pulumi::docker::plugin::__export_pulumi_docker_plugin_4_5_3_zerozerozero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::docker::plugin);
+  $($path_to_types_root)*::exports::pulumi::docker::registry_image::__export_pulumi_docker_registry_image_4_5_3_zerozerozero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::docker::registry_image);
+  $($path_to_types_root)*::exports::pulumi::docker::remote_image::__export_pulumi_docker_remote_image_4_5_3_zerozerozero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::docker::remote_image);
+  $($path_to_types_root)*::exports::pulumi::docker::secret::__export_pulumi_docker_secret_4_5_3_zerozerozero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::docker::secret);
+  $($path_to_types_root)*::exports::pulumi::docker::service::__export_pulumi_docker_service_4_5_3_zerozerozero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::docker::service);
+  $($path_to_types_root)*::exports::pulumi::docker::service_config::__export_pulumi_docker_service_config_4_5_3_zerozerozero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::docker::service_config);
+  $($path_to_types_root)*::exports::pulumi::docker::tag::__export_pulumi_docker_tag_4_5_3_zerozerozero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::docker::tag);
+  $($path_to_types_root)*::exports::pulumi::docker::volume::__export_pulumi_docker_volume_4_5_3_zerozerozero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::docker::volume);
   )
 }
 #[doc(inline)]
@@ -2784,109 +2794,112 @@ pub(crate) use __export_docker_pulumi_impl as export;
 #[cfg(target_arch = "wasm32")]
 #[link_section = "component-type:wit-bindgen:0.25.0:docker-pulumi:encoded world"]
 #[doc(hidden)]
-pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 4774] = *b"\
-\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xa2$\x01A\x02\x01A\x1b\
+pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 4986] = *b"\
+\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xf6%\x01A\x02\x01A\x1b\
 \x01B\x0c\x04\0\x06output\x03\x01\x01i\0\x01@\x01\x05values\0\x01\x04\0\x13[cons\
 tructor]output\x01\x02\x01h\0\x01@\x02\x04self\x03\x0dfunction-names\0\x01\x04\0\
 \x12[method]output.map\x01\x04\x01@\x01\x04self\x03\0\x01\x04\0\x18[method]outpu\
 t.duplicate\x01\x05\x01p\x01\x01@\x01\x07outputs\x06\0\x01\x04\0\x07combine\x01\x07\
-\x03\x01,component:pulumi-wasm/output-interface@0.0.0\x05\0\x02\x03\0\0\x06outpu\
-t\x01B\x13\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x04name\
-s\x05value\x02\x04\0\x0cobject-field\x03\0\x03\x01r\x01\x04names\x04\0\x0cresult\
--field\x03\0\x05\x01i\x01\x01r\x02\x04names\x06output\x07\x04\0\x1eregister-reso\
-urce-result-field\x03\0\x08\x01p\x04\x01p\x06\x01r\x04\x04types\x04names\x06obje\
-ct\x0a\x07results\x0b\x04\0\x19register-resource-request\x03\0\x0c\x01p\x09\x01r\
-\x01\x06fields\x0e\x04\0\x18register-resource-result\x03\0\x0f\x01@\x01\x07reque\
-st\x0d\0\x10\x04\0\x08register\x01\x11\x03\x01.component:pulumi-wasm/register-in\
-terface@0.0.0\x05\x02\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
-\x01r>\x06attach\x02\x0ccapabilities\x02\x0dcgroupns-mode\x02\x07command\x02+con\
-tainer-read-refresh-timeout-milliseconds\x02\x07cpu-set\x02\x0acpu-shares\x02\x15\
-destroy-grace-seconds\x02\x07devices\x02\x03dns\x02\x08dns-opts\x02\x0cdns-searc\
-hes\x02\x0adomainname\x02\x0bentrypoints\x02\x04envs\x02\x04gpus\x02\x0agroup-ad\
-ds\x02\x0bhealthcheck\x02\x08hostname\x02\x05hosts\x02\x05image\x02\x04init\x02\x08\
-ipc-mode\x02\x06labels\x02\x0alog-driver\x02\x08log-opts\x02\x04logs\x02\x0fmax-\
-retry-count\x02\x06memory\x02\x0bmemory-swap\x02\x06mounts\x02\x08must-run\x02\x04\
-name\x02\x0cnetwork-mode\x02\x11networks-advanced\x02\x08pid-mode\x02\x05ports\x02\
-\x0aprivileged\x02\x11publish-all-ports\x02\x09read-only\x02\x0eremove-volumes\x02\
-\x07restart\x02\x02rm\x02\x07runtime\x02\x0dsecurity-opts\x02\x08shm-size\x02\x05\
-start\x02\x0astdin-open\x02\x0bstop-signal\x02\x0cstop-timeout\x02\x0cstorage-op\
-ts\x02\x07sysctls\x02\x05tmpfs\x02\x03tty\x02\x07ulimits\x02\x07uploads\x02\x04u\
-ser\x02\x0buserns-mode\x02\x07volumes\x02\x04wait\x02\x0cwait-timeout\x02\x0bwor\
-king-dir\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01rB\x06attach\x05\x06bridge\x05\x0c\
-capabilities\x05\x0dcgroupns-mode\x05\x07command\x05\x0econtainer-logs\x05+conta\
-iner-read-refresh-timeout-milliseconds\x05\x07cpu-set\x05\x0acpu-shares\x05\x15d\
-estroy-grace-seconds\x05\x07devices\x05\x03dns\x05\x08dns-opts\x05\x0cdns-search\
-es\x05\x0adomainname\x05\x0bentrypoints\x05\x04envs\x05\x09exit-code\x05\x04gpus\
-\x05\x0agroup-adds\x05\x0bhealthcheck\x05\x08hostname\x05\x05hosts\x05\x05image\x05\
-\x04init\x05\x08ipc-mode\x05\x06labels\x05\x0alog-driver\x05\x08log-opts\x05\x04\
-logs\x05\x0fmax-retry-count\x05\x06memory\x05\x0bmemory-swap\x05\x06mounts\x05\x08\
-must-run\x05\x04name\x05\x0dnetwork-datas\x05\x0cnetwork-mode\x05\x11networks-ad\
-vanced\x05\x08pid-mode\x05\x05ports\x05\x0aprivileged\x05\x11publish-all-ports\x05\
-\x09read-only\x05\x0eremove-volumes\x05\x07restart\x05\x02rm\x05\x07runtime\x05\x0d\
-security-opts\x05\x08shm-size\x05\x05start\x05\x0astdin-open\x05\x0bstop-signal\x05\
-\x0cstop-timeout\x05\x0cstorage-opts\x05\x07sysctls\x05\x05tmpfs\x05\x03tty\x05\x07\
-ulimits\x05\x07uploads\x05\x04user\x05\x0buserns-mode\x05\x07volumes\x05\x04wait\
-\x05\x0cwait-timeout\x05\x0bworking-dir\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04n\
-ames\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\x1dpulumi:docker/containe\
-r@4.5.3\x05\x03\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
-r\x05\x05build\x02\x10build-on-preview\x02\x0aimage-name\x02\x08registry\x02\x09\
-skip-push\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\x0fbase-image-name\x05\x07\
-context\x05\x0adockerfile\x05\x0aimage-name\x05\x08platform\x05\x0fregistry-serv\
-er\x05\x0brepo-digest\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\
-\x07\x04\0\x06invoke\x01\x08\x04\x01\x19pulumi:docker/image@4.5.3\x05\x04\x01B\x0a\
-\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0c\x0aattachable\x02\
-\x0fcheck-duplicate\x02\x06driver\x02\x07ingress\x02\x08internal\x02\x0cipam-con\
-figs\x02\x0bipam-driver\x02\x0cipam-options\x02\x04ipv6\x02\x06labels\x02\x04nam\
-e\x02\x07options\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0d\x0aattachable\x05\
-\x0fcheck-duplicate\x05\x06driver\x05\x07ingress\x05\x08internal\x05\x0cipam-con\
-figs\x05\x0bipam-driver\x05\x0cipam-options\x05\x04ipv6\x05\x06labels\x05\x04nam\
-e\x05\x07options\x05\x05scope\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04ar\
-gs\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\x1bpulumi:docker/network@4.5.3\x05\x05\
-\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x09\x05alias\
-\x02\x0eenable-timeout\x02\x07enabled\x02\x04envs\x02\x0dforce-destroy\x02\x0dfo\
-rce-disable\x02\x15grant-all-permissions\x02\x11grant-permissions\x02\x04name\x02\
-\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0a\x05alias\x05\x0eenable-timeout\x05\x07\
-enabled\x05\x04envs\x05\x0dforce-destroy\x05\x0dforce-disable\x05\x15grant-all-p\
-ermissions\x05\x11grant-permissions\x05\x04name\x05\x10plugin-reference\x05\x04\0\
-\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\x01\x1apulumi:docker/plugin@4.5.3\x05\x06\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
-output\x03\0\0\x01h\x01\x01r\x04\x14insecure-skip-verify\x02\x0dkeep-remotely\x02\
-\x04name\x02\x08triggers\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x14insecu\
-re-skip-verify\x05\x0dkeep-remotely\x05\x04name\x05\x0dsha256-digest\x05\x08trig\
-gers\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06inv\
-oke\x01\x08\x04\x01\"pulumi:docker/registry-image@4.5.3\x05\x07\x01B\x0a\x02\x03\
-\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x07\x05build\x02\x0cforce-rem\
-ove\x02\x0ckeep-locally\x02\x04name\x02\x08platform\x02\x0dpull-triggers\x02\x08\
-triggers\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x09\x05build\x05\x0cforce-rem\
-ove\x05\x08image-id\x05\x0ckeep-locally\x05\x04name\x05\x08platform\x05\x0dpull-\
-triggers\x05\x0brepo-digest\x05\x08triggers\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04\
-names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\x20pulumi:docker/remote-\
-image@4.5.3\x05\x08\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
-\x01r\x03\x04data\x02\x06labels\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\
-\x01r\x03\x04data\x05\x06labels\x05\x04name\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04\
-names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\x1apulumi:docker/secret@\
-4.5.3\x05\x09\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\
-\x09\x04auth\x02\x0fconverge-config\x02\x0dendpoint-spec\x02\x06labels\x02\x04mo\
-de\x02\x04name\x02\x0frollback-config\x02\x09task-spec\x02\x0dupdate-config\x02\x04\
-\0\x04args\x03\0\x03\x01i\x01\x01r\x09\x04auth\x05\x0fconverge-config\x05\x0dend\
-point-spec\x05\x06labels\x05\x04mode\x05\x04name\x05\x0frollback-config\x05\x09t\
-ask-spec\x05\x0dupdate-config\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04ar\
-gs\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\x1bpulumi:docker/service@4.5.3\x05\x0a\
-\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x04data\x02\
-\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x04data\x05\x04name\x05\x04\
-\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\x01\"pulumi:docker/service-config@4.5.3\x05\x0b\x01B\x0a\x02\x03\x02\x01\x01\x04\
-\0\x06output\x03\0\0\x01h\x01\x01r\x02\x0csource-image\x02\x0ctarget-image\x02\x04\
-\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x0csource-image\x05\x0fsource-image-id\x05\
-\x0ctarget-image\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\
-\0\x06invoke\x01\x08\x04\x01\x17pulumi:docker/tag@4.5.3\x05\x0c\x01B\x0a\x02\x03\
-\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x06driver\x02\x0bdriver-o\
-pts\x02\x06labels\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x06d\
-river\x05\x0bdriver-opts\x05\x06labels\x05\x0amountpoint\x05\x04name\x05\x04\0\x03\
+\x03\x010component:pulumi-wasm/output-interface@0.0.0-DEV\x05\0\x02\x03\0\0\x06o\
+utput\x01B\x13\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x04\
+names\x05value\x02\x04\0\x0cobject-field\x03\0\x03\x01r\x01\x04names\x04\0\x0cre\
+sult-field\x03\0\x05\x01i\x01\x01r\x02\x04names\x06output\x07\x04\0\x1eregister-\
+resource-result-field\x03\0\x08\x01p\x04\x01p\x06\x01r\x04\x04types\x04names\x06\
+object\x0a\x07results\x0b\x04\0\x19register-resource-request\x03\0\x0c\x01p\x09\x01\
+r\x01\x06fields\x0e\x04\0\x18register-resource-result\x03\0\x0f\x01@\x01\x07requ\
+est\x0d\0\x10\x04\0\x08register\x01\x11\x03\x012component:pulumi-wasm/register-i\
+nterface@0.0.0-DEV\x05\x02\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
+h\x01\x01r>\x06attach\x02\x0ccapabilities\x02\x0dcgroupns-mode\x02\x07command\x02\
++container-read-refresh-timeout-milliseconds\x02\x07cpu-set\x02\x0acpu-shares\x02\
+\x15destroy-grace-seconds\x02\x07devices\x02\x03dns\x02\x08dns-opts\x02\x0cdns-s\
+earches\x02\x0adomainname\x02\x0bentrypoints\x02\x04envs\x02\x04gpus\x02\x0agrou\
+p-adds\x02\x0bhealthcheck\x02\x08hostname\x02\x05hosts\x02\x05image\x02\x04init\x02\
+\x08ipc-mode\x02\x06labels\x02\x0alog-driver\x02\x08log-opts\x02\x04logs\x02\x0f\
+max-retry-count\x02\x06memory\x02\x0bmemory-swap\x02\x06mounts\x02\x08must-run\x02\
+\x04name\x02\x0cnetwork-mode\x02\x11networks-advanced\x02\x08pid-mode\x02\x05por\
+ts\x02\x0aprivileged\x02\x11publish-all-ports\x02\x09read-only\x02\x0eremove-vol\
+umes\x02\x07restart\x02\x02rm\x02\x07runtime\x02\x0dsecurity-opts\x02\x08shm-siz\
+e\x02\x05start\x02\x0astdin-open\x02\x0bstop-signal\x02\x0cstop-timeout\x02\x0cs\
+torage-opts\x02\x07sysctls\x02\x05tmpfs\x02\x03tty\x02\x07ulimits\x02\x07uploads\
+\x02\x04user\x02\x0buserns-mode\x02\x07volumes\x02\x04wait\x02\x0cwait-timeout\x02\
+\x0bworking-dir\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01rB\x06attach\x05\x06brid\
+ge\x05\x0ccapabilities\x05\x0dcgroupns-mode\x05\x07command\x05\x0econtainer-logs\
+\x05+container-read-refresh-timeout-milliseconds\x05\x07cpu-set\x05\x0acpu-share\
+s\x05\x15destroy-grace-seconds\x05\x07devices\x05\x03dns\x05\x08dns-opts\x05\x0c\
+dns-searches\x05\x0adomainname\x05\x0bentrypoints\x05\x04envs\x05\x09exit-code\x05\
+\x04gpus\x05\x0agroup-adds\x05\x0bhealthcheck\x05\x08hostname\x05\x05hosts\x05\x05\
+image\x05\x04init\x05\x08ipc-mode\x05\x06labels\x05\x0alog-driver\x05\x08log-opt\
+s\x05\x04logs\x05\x0fmax-retry-count\x05\x06memory\x05\x0bmemory-swap\x05\x06mou\
+nts\x05\x08must-run\x05\x04name\x05\x0dnetwork-datas\x05\x0cnetwork-mode\x05\x11\
+networks-advanced\x05\x08pid-mode\x05\x05ports\x05\x0aprivileged\x05\x11publish-\
+all-ports\x05\x09read-only\x05\x0eremove-volumes\x05\x07restart\x05\x02rm\x05\x07\
+runtime\x05\x0dsecurity-opts\x05\x08shm-size\x05\x05start\x05\x0astdin-open\x05\x0b\
+stop-signal\x05\x0cstop-timeout\x05\x0cstorage-opts\x05\x07sysctls\x05\x05tmpfs\x05\
+\x03tty\x05\x07ulimits\x05\x07uploads\x05\x04user\x05\x0buserns-mode\x05\x07volu\
+mes\x05\x04wait\x05\x0cwait-timeout\x05\x0bworking-dir\x05\x04\0\x03res\x03\0\x06\
+\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01.pulumi:dock\
+er/container@4.5.3-ZEROZEROZERO-DEV\x05\x03\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
+output\x03\0\0\x01h\x01\x01r\x05\x05build\x02\x10build-on-preview\x02\x0aimage-n\
+ame\x02\x08registry\x02\x09skip-push\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\
+\x0fbase-image-name\x05\x07context\x05\x0adockerfile\x05\x0aimage-name\x05\x08pl\
+atform\x05\x0fregistry-server\x05\x0brepo-digest\x05\x04\0\x03res\x03\0\x06\x01@\
+\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01*pulumi:docker/im\
+age@4.5.3-ZEROZEROZERO-DEV\x05\x04\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
+\0\0\x01h\x01\x01r\x0c\x0aattachable\x02\x0fcheck-duplicate\x02\x06driver\x02\x07\
+ingress\x02\x08internal\x02\x0cipam-configs\x02\x0bipam-driver\x02\x0cipam-optio\
+ns\x02\x04ipv6\x02\x06labels\x02\x04name\x02\x07options\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x0d\x0aattachable\x05\x0fcheck-duplicate\x05\x06driver\x05\x07ing\
+ress\x05\x08internal\x05\x0cipam-configs\x05\x0bipam-driver\x05\x0cipam-options\x05\
+\x04ipv6\x05\x06labels\x05\x04name\x05\x07options\x05\x05scope\x05\x04\0\x03res\x03\
+\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01,pulum\
+i:docker/network@4.5.3-ZEROZEROZERO-DEV\x05\x05\x01B\x0a\x02\x03\x02\x01\x01\x04\
+\0\x06output\x03\0\0\x01h\x01\x01r\x09\x05alias\x02\x0eenable-timeout\x02\x07ena\
+bled\x02\x04envs\x02\x0dforce-destroy\x02\x0dforce-disable\x02\x15grant-all-perm\
+issions\x02\x11grant-permissions\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\
+\x01r\x0a\x05alias\x05\x0eenable-timeout\x05\x07enabled\x05\x04envs\x05\x0dforce\
+-destroy\x05\x0dforce-disable\x05\x15grant-all-permissions\x05\x11grant-permissi\
+ons\x05\x04name\x05\x10plugin-reference\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04n\
+ames\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01+pulumi:docker/plugin@4.5.\
+3-ZEROZEROZERO-DEV\x05\x06\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
+h\x01\x01r\x04\x14insecure-skip-verify\x02\x0dkeep-remotely\x02\x04name\x02\x08t\
+riggers\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x14insecure-skip-verify\x05\
+\x0dkeep-remotely\x05\x04name\x05\x0dsha256-digest\x05\x08triggers\x05\x04\0\x03\
 res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\
-\x1apulumi:docker/volume@4.5.3\x05\x0d\x04\x01!pulumi:docker/docker-pulumi@4.5.3\
-\x04\0\x0b\x13\x01\0\x0ddocker-pulumi\x03\0\0\0G\x09producers\x01\x0cprocessed-b\
-y\x02\x0dwit-component\x070.208.1\x10wit-bindgen-rust\x060.25.0";
+3pulumi:docker/registry-image@4.5.3-ZEROZEROZERO-DEV\x05\x07\x01B\x0a\x02\x03\x02\
+\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x07\x05build\x02\x0cforce-remove\x02\
+\x0ckeep-locally\x02\x04name\x02\x08platform\x02\x0dpull-triggers\x02\x08trigger\
+s\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x09\x05build\x05\x0cforce-remove\x05\
+\x08image-id\x05\x0ckeep-locally\x05\x04name\x05\x08platform\x05\x0dpull-trigger\
+s\x05\x0brepo-digest\x05\x08triggers\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04name\
+s\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x011pulumi:docker/remote-image@4\
+.5.3-ZEROZEROZERO-DEV\x05\x08\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\
+\0\x01h\x01\x01r\x03\x04data\x02\x06labels\x02\x04name\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x03\x04data\x05\x06labels\x05\x04name\x05\x04\0\x03res\x03\0\x06\x01\
+@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01+pulumi:docker/s\
+ecret@4.5.3-ZEROZEROZERO-DEV\x05\x09\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06outpu\
+t\x03\0\0\x01h\x01\x01r\x09\x04auth\x02\x0fconverge-config\x02\x0dendpoint-spec\x02\
+\x06labels\x02\x04mode\x02\x04name\x02\x0frollback-config\x02\x09task-spec\x02\x0d\
+update-config\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x09\x04auth\x05\x0fconve\
+rge-config\x05\x0dendpoint-spec\x05\x06labels\x05\x04mode\x05\x04name\x05\x0frol\
+lback-config\x05\x09task-spec\x05\x0dupdate-config\x05\x04\0\x03res\x03\0\x06\x01\
+@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01,pulumi:docker/s\
+ervice@4.5.3-ZEROZEROZERO-DEV\x05\x0a\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06outp\
+ut\x03\0\0\x01h\x01\x01r\x02\x04data\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01\
+i\x01\x01r\x02\x04data\x05\x04name\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
+args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x013pulumi:docker/service-config@4.5.\
+3-ZEROZEROZERO-DEV\x05\x0b\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
+h\x01\x01r\x02\x0csource-image\x02\x0ctarget-image\x02\x04\0\x04args\x03\0\x03\x01\
+i\x01\x01r\x03\x0csource-image\x05\x0fsource-image-id\x05\x0ctarget-image\x05\x04\
+\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
+\x01(pulumi:docker/tag@4.5.3-ZEROZEROZERO-DEV\x05\x0c\x01B\x0a\x02\x03\x02\x01\x01\
+\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x06driver\x02\x0bdriver-opts\x02\x06l\
+abels\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x06driver\x05\x0b\
+driver-opts\x05\x06labels\x05\x0amountpoint\x05\x04name\x05\x04\0\x03res\x03\0\x06\
+\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01+pulumi:dock\
+er/volume@4.5.3-ZEROZEROZERO-DEV\x05\x0d\x04\x012pulumi:docker/docker-pulumi@4.5\
+.3-ZEROZEROZERO-DEV\x04\0\x0b\x13\x01\0\x0ddocker-pulumi\x03\0\0\0G\x09producers\
+\x01\x0cprocessed-by\x02\x0dwit-component\x070.208.1\x10wit-bindgen-rust\x060.25\
+.0";
 
 #[inline(never)]
 #[doc(hidden)]

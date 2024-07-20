@@ -1,3 +1,4 @@
+use std::fmt::format;
 use std::path::PathBuf;
 use wac_graph::types::SubtypeChecker;
 use wac_graph::{types::Package, CompositionGraph, EncodeOptions, NodeId, PackageId};
@@ -54,11 +55,12 @@ pub(crate) fn create(providers: &[PathBuf], pulumi_wasm: &PathBuf, program: &Pat
     )
     .unwrap();
 
-    let greet_export = graph
-        .alias_instance_export(main_instance, "component:pulumi-wasm/pulumi-main@0.0.0")
+    let pulumi_main_component_name = format!("component:pulumi-wasm/pulumi-main@{}", env!("CARGO_PKG_VERSION"));
+    let pulumi_main_export = graph
+        .alias_instance_export(main_instance, pulumi_main_component_name.as_str())
         .unwrap();
     graph
-        .export(greet_export, "component:pulumi-wasm/pulumi-main@0.0.0")
+        .export(pulumi_main_export, pulumi_main_component_name.as_str())
         .unwrap();
 
     graph.encode(EncodeOptions::default()).unwrap()

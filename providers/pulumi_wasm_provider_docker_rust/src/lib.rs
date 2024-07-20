@@ -1,5 +1,5 @@
-use crate::bindings::component::pulumi_wasm::output_interface::Output as WitOutput;
 use pulumi_wasm_rust::Output;
+use crate::bindings::component::pulumi_wasm::output_interface::Output as WitOutput;
 pub mod resource;
 pub mod types;
 
@@ -8,7 +8,7 @@ mod bindings {
         // the name of the world in the `*.wit` input file
         world: "docker-pulumi-client",
         with: {
-            "component:pulumi-wasm/output-interface@0.0.0": generate
+            "component:pulumi-wasm/output-interface@0.0.0-DEV": generate
         }
     });
 }
