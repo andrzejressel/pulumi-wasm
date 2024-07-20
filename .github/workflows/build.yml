@@ -112,6 +112,10 @@ jobs:
     - uses: extractions/setup-just@v2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Install requirements
+      run: just install-requirements
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Replace version
       run: just update-version "0.0.0-${{ steps.short-sha.outputs.sha }}"
@@ -140,10 +144,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Regenerate provider list
       run: just regenerate-provider-list
-    - name: Install requirements
-      run: just install-requirements
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Build
       run: just build
       env:
