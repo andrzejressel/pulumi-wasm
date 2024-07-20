@@ -142,8 +142,6 @@ jobs:
       if: runner.os == 'macOS'
     - run: pulumi version
     - run: pulumi login --local
-    - name: Regenerate provider list
-      run: just regenerate-provider-list
 
     - name: Build
       run: just build
