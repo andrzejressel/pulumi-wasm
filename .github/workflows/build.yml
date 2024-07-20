@@ -102,10 +102,10 @@ jobs:
     needs: build
     if: success() && github.ref == 'refs/heads/update_version'
     steps:
-    - uses: actions/download-artifact@v4
-      with:
-        name: wasm_artefacts
-        path: artefacts
+#    - uses: actions/download-artifact@v4
+#      with:
+#        name: wasm_artefacts
+#        path: artefacts
     - uses: benjlevesque/short-sha@v3.0
       id: short-sha
       with:
@@ -196,7 +196,7 @@ jobs:
       if: runner.os == 'Linux'
       with:
         name: wasm_artefacts
-        if-no-files-found: error
+#        if-no-files-found: error
         path: |
           pulumi_wasm_generator_lib/**/pulumi_providers/**/wasm32-wasip1/debug/*_provider.wasm
           target/wasm32-wasip1/debug/pulumi_wasm.wasm
