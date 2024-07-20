@@ -23,9 +23,9 @@ package-language-plugin VERSION:
 
 install-requirements:
     rustup component add rustfmt
-    cargo binstall --no-confirm cargo-nextest@{{NEXTEST_VERSION}} --force || cargo-nextest --version
-    cargo binstall --no-confirm cargo-component@{{CARGO_COMPONENT_VERSION}} --force || cargo-component --version
-    cargo binstall --no-confirm sd@{{SD_VERSION}} --force || sd --version
+    cargo binstall --no-confirm cargo-nextest@{{NEXTEST_VERSION}}
+    cargo binstall --no-confirm cargo-component@{{CARGO_COMPONENT_VERSION}}
+    cargo binstall --no-confirm sd@{{SD_VERSION}}
 
 # Compiling everything together causes linking issues
 build-wasm-components:
