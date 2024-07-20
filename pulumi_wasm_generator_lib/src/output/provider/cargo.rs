@@ -1,7 +1,7 @@
+use crate::output::get_main_version;
 use handlebars::Handlebars;
 use serde::Serialize;
 use serde_json::json;
-use crate::output::get_main_version;
 
 static TEMPLATE: &str = include_str!("Cargo.toml.handlebars");
 
@@ -9,7 +9,7 @@ static TEMPLATE: &str = include_str!("Cargo.toml.handlebars");
 struct Package {
     name: String,
     version: String,
-    pulumi_wasm_version: String
+    pulumi_wasm_version: String,
 }
 
 fn convert_model(package: &crate::model::Package) -> Package {

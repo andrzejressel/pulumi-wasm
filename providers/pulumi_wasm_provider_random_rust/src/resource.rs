@@ -1,4 +1,3 @@
-
 pub mod random_bytes {
 
     pub struct RandomBytesArgs {
@@ -14,22 +13,26 @@ pub mod random_bytes {
     }
 
     pub fn random_bytes(name: &str, args: RandomBytesArgs) -> RandomBytesResult {
-
-        let result = crate::bindings::pulumi::random::random_bytes::invoke(name, &crate::bindings::pulumi::random::random_bytes::Args {
-            keepers: &crate::clone::<Option<std::collections::HashMap<String, String>>>(args.keepers),
-            length: &crate::clone::<i32>(args.length),
-        });
+        let result = crate::bindings::pulumi::random::random_bytes::invoke(
+            name,
+            &crate::bindings::pulumi::random::random_bytes::Args {
+                keepers: &crate::clone::<Option<std::collections::HashMap<String, String>>>(
+                    args.keepers,
+                ),
+                length: &crate::clone::<i32>(args.length),
+            },
+        );
 
         RandomBytesResult {
             base64: crate::random_to_domain_mapper::<String>(result.base64),
             hex: crate::random_to_domain_mapper::<String>(result.hex),
-            keepers: crate::random_to_domain_mapper::<Option<std::collections::HashMap<String, String>>>(result.keepers),
+            keepers: crate::random_to_domain_mapper::<
+                Option<std::collections::HashMap<String, String>>,
+            >(result.keepers),
             length: crate::random_to_domain_mapper::<i32>(result.length),
         }
     }
-
 }
-
 
 pub mod random_id {
 
@@ -50,12 +53,16 @@ pub mod random_id {
     }
 
     pub fn random_id(name: &str, args: RandomIdArgs) -> RandomIdResult {
-
-        let result = crate::bindings::pulumi::random::random_id::invoke(name, &crate::bindings::pulumi::random::random_id::Args {
-            byte_length: &crate::clone::<i32>(args.byte_length),
-            keepers: &crate::clone::<Option<std::collections::HashMap<String, String>>>(args.keepers),
-            prefix: &crate::clone::<Option<String>>(args.prefix),
-        });
+        let result = crate::bindings::pulumi::random::random_id::invoke(
+            name,
+            &crate::bindings::pulumi::random::random_id::Args {
+                byte_length: &crate::clone::<i32>(args.byte_length),
+                keepers: &crate::clone::<Option<std::collections::HashMap<String, String>>>(
+                    args.keepers,
+                ),
+                prefix: &crate::clone::<Option<String>>(args.prefix),
+            },
+        );
 
         RandomIdResult {
             b64_std: crate::random_to_domain_mapper::<String>(result.b64_std),
@@ -63,13 +70,13 @@ pub mod random_id {
             byte_length: crate::random_to_domain_mapper::<i32>(result.byte_length),
             dec: crate::random_to_domain_mapper::<String>(result.dec),
             hex: crate::random_to_domain_mapper::<String>(result.hex),
-            keepers: crate::random_to_domain_mapper::<Option<std::collections::HashMap<String, String>>>(result.keepers),
+            keepers: crate::random_to_domain_mapper::<
+                Option<std::collections::HashMap<String, String>>,
+            >(result.keepers),
             prefix: crate::random_to_domain_mapper::<Option<String>>(result.prefix),
         }
     }
-
 }
-
 
 pub mod random_integer {
 
@@ -89,25 +96,29 @@ pub mod random_integer {
     }
 
     pub fn random_integer(name: &str, args: RandomIntegerArgs) -> RandomIntegerResult {
-
-        let result = crate::bindings::pulumi::random::random_integer::invoke(name, &crate::bindings::pulumi::random::random_integer::Args {
-            keepers: &crate::clone::<Option<std::collections::HashMap<String, String>>>(args.keepers),
-            max: &crate::clone::<i32>(args.max),
-            min: &crate::clone::<i32>(args.min),
-            seed: &crate::clone::<Option<String>>(args.seed),
-        });
+        let result = crate::bindings::pulumi::random::random_integer::invoke(
+            name,
+            &crate::bindings::pulumi::random::random_integer::Args {
+                keepers: &crate::clone::<Option<std::collections::HashMap<String, String>>>(
+                    args.keepers,
+                ),
+                max: &crate::clone::<i32>(args.max),
+                min: &crate::clone::<i32>(args.min),
+                seed: &crate::clone::<Option<String>>(args.seed),
+            },
+        );
 
         RandomIntegerResult {
-            keepers: crate::random_to_domain_mapper::<Option<std::collections::HashMap<String, String>>>(result.keepers),
+            keepers: crate::random_to_domain_mapper::<
+                Option<std::collections::HashMap<String, String>>,
+            >(result.keepers),
             max: crate::random_to_domain_mapper::<i32>(result.max),
             min: crate::random_to_domain_mapper::<i32>(result.min),
             result: crate::random_to_domain_mapper::<i32>(result.result),
             seed: crate::random_to_domain_mapper::<Option<String>>(result.seed),
         }
     }
-
 }
-
 
 pub mod random_password {
 
@@ -144,25 +155,31 @@ pub mod random_password {
     }
 
     pub fn random_password(name: &str, args: RandomPasswordArgs) -> RandomPasswordResult {
-
-        let result = crate::bindings::pulumi::random::random_password::invoke(name, &crate::bindings::pulumi::random::random_password::Args {
-            keepers: &crate::clone::<Option<std::collections::HashMap<String, String>>>(args.keepers),
-            length: &crate::clone::<i32>(args.length),
-            lower: &crate::clone::<Option<bool>>(args.lower),
-            min_lower: &crate::clone::<Option<i32>>(args.min_lower),
-            min_numeric: &crate::clone::<Option<i32>>(args.min_numeric),
-            min_special: &crate::clone::<Option<i32>>(args.min_special),
-            min_upper: &crate::clone::<Option<i32>>(args.min_upper),
-            number: &crate::clone::<Option<bool>>(args.number),
-            numeric: &crate::clone::<Option<bool>>(args.numeric),
-            override_special: &crate::clone::<Option<String>>(args.override_special),
-            special: &crate::clone::<Option<bool>>(args.special),
-            upper: &crate::clone::<Option<bool>>(args.upper),
-        });
+        let result = crate::bindings::pulumi::random::random_password::invoke(
+            name,
+            &crate::bindings::pulumi::random::random_password::Args {
+                keepers: &crate::clone::<Option<std::collections::HashMap<String, String>>>(
+                    args.keepers,
+                ),
+                length: &crate::clone::<i32>(args.length),
+                lower: &crate::clone::<Option<bool>>(args.lower),
+                min_lower: &crate::clone::<Option<i32>>(args.min_lower),
+                min_numeric: &crate::clone::<Option<i32>>(args.min_numeric),
+                min_special: &crate::clone::<Option<i32>>(args.min_special),
+                min_upper: &crate::clone::<Option<i32>>(args.min_upper),
+                number: &crate::clone::<Option<bool>>(args.number),
+                numeric: &crate::clone::<Option<bool>>(args.numeric),
+                override_special: &crate::clone::<Option<String>>(args.override_special),
+                special: &crate::clone::<Option<bool>>(args.special),
+                upper: &crate::clone::<Option<bool>>(args.upper),
+            },
+        );
 
         RandomPasswordResult {
             bcrypt_hash: crate::random_to_domain_mapper::<String>(result.bcrypt_hash),
-            keepers: crate::random_to_domain_mapper::<Option<std::collections::HashMap<String, String>>>(result.keepers),
+            keepers: crate::random_to_domain_mapper::<
+                Option<std::collections::HashMap<String, String>>,
+            >(result.keepers),
             length: crate::random_to_domain_mapper::<i32>(result.length),
             lower: crate::random_to_domain_mapper::<bool>(result.lower),
             min_lower: crate::random_to_domain_mapper::<i32>(result.min_lower),
@@ -171,15 +188,15 @@ pub mod random_password {
             min_upper: crate::random_to_domain_mapper::<i32>(result.min_upper),
             number: crate::random_to_domain_mapper::<bool>(result.number),
             numeric: crate::random_to_domain_mapper::<bool>(result.numeric),
-            override_special: crate::random_to_domain_mapper::<Option<String>>(result.override_special),
+            override_special: crate::random_to_domain_mapper::<Option<String>>(
+                result.override_special,
+            ),
             result: crate::random_to_domain_mapper::<String>(result.result),
             special: crate::random_to_domain_mapper::<bool>(result.special),
             upper: crate::random_to_domain_mapper::<bool>(result.upper),
         }
     }
-
 }
-
 
 pub mod random_pet {
 
@@ -198,24 +215,28 @@ pub mod random_pet {
     }
 
     pub fn random_pet(name: &str, args: RandomPetArgs) -> RandomPetResult {
-
-        let result = crate::bindings::pulumi::random::random_pet::invoke(name, &crate::bindings::pulumi::random::random_pet::Args {
-            keepers: &crate::clone::<Option<std::collections::HashMap<String, String>>>(args.keepers),
-            length: &crate::clone::<Option<i32>>(args.length),
-            prefix: &crate::clone::<Option<String>>(args.prefix),
-            separator: &crate::clone::<Option<String>>(args.separator),
-        });
+        let result = crate::bindings::pulumi::random::random_pet::invoke(
+            name,
+            &crate::bindings::pulumi::random::random_pet::Args {
+                keepers: &crate::clone::<Option<std::collections::HashMap<String, String>>>(
+                    args.keepers,
+                ),
+                length: &crate::clone::<Option<i32>>(args.length),
+                prefix: &crate::clone::<Option<String>>(args.prefix),
+                separator: &crate::clone::<Option<String>>(args.separator),
+            },
+        );
 
         RandomPetResult {
-            keepers: crate::random_to_domain_mapper::<Option<std::collections::HashMap<String, String>>>(result.keepers),
+            keepers: crate::random_to_domain_mapper::<
+                Option<std::collections::HashMap<String, String>>,
+            >(result.keepers),
             length: crate::random_to_domain_mapper::<i32>(result.length),
             prefix: crate::random_to_domain_mapper::<Option<String>>(result.prefix),
             separator: crate::random_to_domain_mapper::<String>(result.separator),
         }
     }
-
 }
-
 
 pub mod random_shuffle {
 
@@ -235,25 +256,29 @@ pub mod random_shuffle {
     }
 
     pub fn random_shuffle(name: &str, args: RandomShuffleArgs) -> RandomShuffleResult {
-
-        let result = crate::bindings::pulumi::random::random_shuffle::invoke(name, &crate::bindings::pulumi::random::random_shuffle::Args {
-            inputs: &crate::clone::<Vec<String>>(args.inputs),
-            keepers: &crate::clone::<Option<std::collections::HashMap<String, String>>>(args.keepers),
-            result_count: &crate::clone::<Option<i32>>(args.result_count),
-            seed: &crate::clone::<Option<String>>(args.seed),
-        });
+        let result = crate::bindings::pulumi::random::random_shuffle::invoke(
+            name,
+            &crate::bindings::pulumi::random::random_shuffle::Args {
+                inputs: &crate::clone::<Vec<String>>(args.inputs),
+                keepers: &crate::clone::<Option<std::collections::HashMap<String, String>>>(
+                    args.keepers,
+                ),
+                result_count: &crate::clone::<Option<i32>>(args.result_count),
+                seed: &crate::clone::<Option<String>>(args.seed),
+            },
+        );
 
         RandomShuffleResult {
             inputs: crate::random_to_domain_mapper::<Vec<String>>(result.inputs),
-            keepers: crate::random_to_domain_mapper::<Option<std::collections::HashMap<String, String>>>(result.keepers),
+            keepers: crate::random_to_domain_mapper::<
+                Option<std::collections::HashMap<String, String>>,
+            >(result.keepers),
             result_count: crate::random_to_domain_mapper::<Option<i32>>(result.result_count),
             results: crate::random_to_domain_mapper::<Vec<String>>(result.results),
             seed: crate::random_to_domain_mapper::<Option<String>>(result.seed),
         }
     }
-
 }
-
 
 pub mod random_string {
 
@@ -289,24 +314,30 @@ pub mod random_string {
     }
 
     pub fn random_string(name: &str, args: RandomStringArgs) -> RandomStringResult {
-
-        let result = crate::bindings::pulumi::random::random_string::invoke(name, &crate::bindings::pulumi::random::random_string::Args {
-            keepers: &crate::clone::<Option<std::collections::HashMap<String, String>>>(args.keepers),
-            length: &crate::clone::<i32>(args.length),
-            lower: &crate::clone::<Option<bool>>(args.lower),
-            min_lower: &crate::clone::<Option<i32>>(args.min_lower),
-            min_numeric: &crate::clone::<Option<i32>>(args.min_numeric),
-            min_special: &crate::clone::<Option<i32>>(args.min_special),
-            min_upper: &crate::clone::<Option<i32>>(args.min_upper),
-            number: &crate::clone::<Option<bool>>(args.number),
-            numeric: &crate::clone::<Option<bool>>(args.numeric),
-            override_special: &crate::clone::<Option<String>>(args.override_special),
-            special: &crate::clone::<Option<bool>>(args.special),
-            upper: &crate::clone::<Option<bool>>(args.upper),
-        });
+        let result = crate::bindings::pulumi::random::random_string::invoke(
+            name,
+            &crate::bindings::pulumi::random::random_string::Args {
+                keepers: &crate::clone::<Option<std::collections::HashMap<String, String>>>(
+                    args.keepers,
+                ),
+                length: &crate::clone::<i32>(args.length),
+                lower: &crate::clone::<Option<bool>>(args.lower),
+                min_lower: &crate::clone::<Option<i32>>(args.min_lower),
+                min_numeric: &crate::clone::<Option<i32>>(args.min_numeric),
+                min_special: &crate::clone::<Option<i32>>(args.min_special),
+                min_upper: &crate::clone::<Option<i32>>(args.min_upper),
+                number: &crate::clone::<Option<bool>>(args.number),
+                numeric: &crate::clone::<Option<bool>>(args.numeric),
+                override_special: &crate::clone::<Option<String>>(args.override_special),
+                special: &crate::clone::<Option<bool>>(args.special),
+                upper: &crate::clone::<Option<bool>>(args.upper),
+            },
+        );
 
         RandomStringResult {
-            keepers: crate::random_to_domain_mapper::<Option<std::collections::HashMap<String, String>>>(result.keepers),
+            keepers: crate::random_to_domain_mapper::<
+                Option<std::collections::HashMap<String, String>>,
+            >(result.keepers),
             length: crate::random_to_domain_mapper::<i32>(result.length),
             lower: crate::random_to_domain_mapper::<bool>(result.lower),
             min_lower: crate::random_to_domain_mapper::<i32>(result.min_lower),
@@ -315,15 +346,15 @@ pub mod random_string {
             min_upper: crate::random_to_domain_mapper::<i32>(result.min_upper),
             number: crate::random_to_domain_mapper::<bool>(result.number),
             numeric: crate::random_to_domain_mapper::<bool>(result.numeric),
-            override_special: crate::random_to_domain_mapper::<Option<String>>(result.override_special),
+            override_special: crate::random_to_domain_mapper::<Option<String>>(
+                result.override_special,
+            ),
             result: crate::random_to_domain_mapper::<String>(result.result),
             special: crate::random_to_domain_mapper::<bool>(result.special),
             upper: crate::random_to_domain_mapper::<bool>(result.upper),
         }
     }
-
 }
-
 
 pub mod random_uuid {
 
@@ -337,16 +368,20 @@ pub mod random_uuid {
     }
 
     pub fn random_uuid(name: &str, args: RandomUuidArgs) -> RandomUuidResult {
-
-        let result = crate::bindings::pulumi::random::random_uuid::invoke(name, &crate::bindings::pulumi::random::random_uuid::Args {
-            keepers: &crate::clone::<Option<std::collections::HashMap<String, String>>>(args.keepers),
-        });
+        let result = crate::bindings::pulumi::random::random_uuid::invoke(
+            name,
+            &crate::bindings::pulumi::random::random_uuid::Args {
+                keepers: &crate::clone::<Option<std::collections::HashMap<String, String>>>(
+                    args.keepers,
+                ),
+            },
+        );
 
         RandomUuidResult {
-            keepers: crate::random_to_domain_mapper::<Option<std::collections::HashMap<String, String>>>(result.keepers),
+            keepers: crate::random_to_domain_mapper::<
+                Option<std::collections::HashMap<String, String>>,
+            >(result.keepers),
             result: crate::random_to_domain_mapper::<String>(result.result),
         }
     }
-
 }
-
