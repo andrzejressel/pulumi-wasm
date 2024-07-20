@@ -113,17 +113,12 @@ jobs:
       id: short-sha
       with:
         length: 7
-
     - uses: extractions/setup-just@v2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Replace version
-      run: just update-version "0.0.0-${{ steps.short-sha.outputs.sha }}"
 
-
-
-      #    - name: Pull required docker images
+#    - name: Pull required docker images
 #      if: runner.os == 'Linux'
 #      run: |
 #        docker pull public.ecr.aws/ubuntu/ubuntu:latest
@@ -152,15 +147,15 @@ jobs:
 #    - run: pulumi version
 #    - run: pulumi login --local
 
-#    - uses: cargo-bins/cargo-binstall@main
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - uses: cargo-bins/cargo-binstall@main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #    - name: Regenerate provider list
 #      run: just regenerate-provider-list
-#    - name: Install requirements
-#      run: just install-requirements
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Install requirements
+      run: just install-requirements
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #    - name: Check
 #      run: just check
 #    - name: Build
@@ -174,6 +169,9 @@ jobs:
 #        RUST_BACKTRACE: "full"
 
 
+
+    - name: Replace version
+      run: just update-version "0.0.0-${{ steps.short-sha.outputs.sha }}"
     - name: Create commit
       run: |
         git config --local user.name "GitHub Actions"

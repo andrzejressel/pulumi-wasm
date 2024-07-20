@@ -3,6 +3,8 @@ set windows-shell := ["pwsh.exe", "-c"]
 NEXTEST_VERSION := "0.9.72"
 # renovate: datasource=crate depName=cargo-component packageName=cargo-component
 CARGO_COMPONENT_VERSION := "0.14.0"
+# renovate: datasource=crate depName=sd packageName=sd
+SD_VERSION := "1.0.0"
 
 @default: build test
 
@@ -23,6 +25,7 @@ install-requirements:
     rustup component add rustfmt
     cargo binstall --no-confirm cargo-nextest@{{NEXTEST_VERSION}} --force || cargo-nextest --version
     cargo binstall --no-confirm cargo-component@{{CARGO_COMPONENT_VERSION}} --force || cargo-component --version
+    cargo binstall --no-confirm sd@{{SD_VERSION}} --force || sd --version
 
 # Compiling everything together causes linking issues
 build-wasm-components:
