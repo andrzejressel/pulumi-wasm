@@ -65,6 +65,7 @@ jobs:
 
     - uses: Swatinem/rust-cache@v2
       with:
+        shared-key: build
         workspaces: |
           ./
           pulumi_wasm_generator_lib/tests/output/pulumi_providers/command/
@@ -133,6 +134,16 @@ jobs:
     - run: pulumi version
     - run: pulumi login --local
 
+    - uses: Swatinem/rust-cache@v2
+      with:
+        shared-key: build
+        workspaces: |
+          ./
+          pulumi_wasm_generator_lib/tests/output/pulumi_providers/command/
+          pulumi_wasm_generator_lib/tests/output/pulumi_providers/docker/
+          pulumi_wasm_generator_lib/tests/output/pulumi_providers/random/
+          pulumi_wasm_generator_lib/tests/output/pulumi_tests/cyclic-types/
+          pulumi_wasm_generator_lib/tests/output/pulumi_tests/mini-awsnative/
 
     - uses: benjlevesque/short-sha@v3.0
       id: short-sha
