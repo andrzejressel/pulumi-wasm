@@ -1,4 +1,3 @@
-use std::fmt::format;
 use std::path::PathBuf;
 use wac_graph::types::SubtypeChecker;
 use wac_graph::{types::Package, CompositionGraph, EncodeOptions, NodeId, PackageId};

@@ -9,7 +9,7 @@ fn get_main_version() -> String {
 }
 
 fn get_main_version_stringify() -> String {
-    env!("CARGO_PKG_VERSION").replace(".", "DOT")
+    env!("CARGO_PKG_VERSION").replace('.', "DOT")
 }
 
 fn replace_multiple_dashes(s: &str) -> String {
