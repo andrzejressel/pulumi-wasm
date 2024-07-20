@@ -84,4 +84,7 @@ docs:
     docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material
 
 update-version NEW_VERSION:
-    sd "0.0.0-DEV" "{{NEW_VERSION}}" "Cargo.toml" "pulumi_wasm_wit/wit/world.wit" "pulumi_wasm_rust_macro/src/lib.rs"
+    sd "0.0.0-DEV" "{{NEW_VERSION}}" "pulumi_wasm_wit/wit/world.wit" "pulumi_wasm_rust_macro/src/lib.rs" \
+    "providers/pulumi_wasm_provider_docker_rust/Cargo.toml" \
+    "providers/pulumi_wasm_provider_random_rust/Cargo.toml" \
+    "Cargo.toml"
