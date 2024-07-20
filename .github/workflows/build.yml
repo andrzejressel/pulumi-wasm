@@ -85,7 +85,6 @@ jobs:
       run: just test
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        RUST_BACKTRACE: "full"
     - name: Ensure no files have changed
       run: git diff --exit-code
 
@@ -100,6 +99,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     if: success() && github.ref == 'refs/heads/update_version'
+    env:
+      RUST_BACKTRACE: "full"
     steps:
     - uses: actions/checkout@v4
       with:
@@ -161,7 +162,6 @@ jobs:
       run: just test
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        RUST_BACKTRACE: "full"
 
 
     - name: Create commit
