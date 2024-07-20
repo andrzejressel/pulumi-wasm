@@ -192,10 +192,10 @@ jobs:
       with:
         name: 0.0.0-${{ steps.short-sha.outputs.sha }}
         tag_name: v0.0.0-${{ steps.short-sha.outputs.sha }}
-        fail_on_unmatched_files: true
+#        fail_on_unmatched_files: true
         prerelease: true
         body: ""
-        files: |
-          pulumi_wasm_generator_lib/**/pulumi_providers/**/wasm32-wasip1/debug/*_provider.wasm
-          target/wasm32-wasip1/debug/pulumi_wasm.wasm
-          pulumi-language-wasm/*.tar.gz
+#        files: |
+#          pulumi_wasm_generator_lib/**/pulumi_providers/**/wasm32-wasip1/debug/*_provider.wasm
+#          target/wasm32-wasip1/debug/pulumi_wasm.wasm
+#          pulumi-language-wasm/*.tar.gz
