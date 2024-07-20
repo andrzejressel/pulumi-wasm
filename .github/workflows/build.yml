@@ -121,7 +121,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Replace version
-      run: just update-version "0.0.0-NIGHTLY${{ steps.short-sha.outputs.sha }}"
+      run: just update-version "0.0.0-NIGHTLY-${{ steps.short-sha.outputs.sha }}"
 
     - name: Pull required docker images
       if: runner.os == 'Linux'
@@ -161,9 +161,9 @@ jobs:
         git config --local user.name "GitHub Actions"
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git add -A
-        git commit -m "Release v0.0.0-NIGHTLY${{ steps.short-sha.outputs.sha }}"
-        git tag "v0.0.0-NIGHTLY${{ steps.short-sha.outputs.sha }}"
-        git push origin "v0.0.0-NIGHTLY${{ steps.short-sha.outputs.sha }}"
+        git commit -m "Release v0.0.0-NIGHTLY-${{ steps.short-sha.outputs.sha }}"
+        git tag "v0.0.0-NIGHTLY-${{ steps.short-sha.outputs.sha }}"
+        git push origin "v0.0.0-NIGHTLY-${{ steps.short-sha.outputs.sha }}"
     - uses: actions/upload-artifact@v4
       with:
         name: "timings2_${{ runner.os }}"
@@ -172,12 +172,12 @@ jobs:
           pulumi_wasm_generator_lib/tests/**/target/cargo-timings/cargo-timing-*.html
     - name: Package language plugin
       if: runner.os == 'Linux'
-      run: just package-language-plugin "0.0.0-NIGHTLY${{ steps.short-sha.outputs.sha }}"
+      run: just package-language-plugin "0.0.0-NIGHTLY-${{ steps.short-sha.outputs.sha }}"
     - name: Release
       uses: softprops/action-gh-release@v2.0.8
       with:
-        name: 0.0.0-NIGHTLY${{ steps.short-sha.outputs.sha }}
-        tag_name: v0.0.0-NIGHTLY${{ steps.short-sha.outputs.sha }}
+        name: 0.0.0-NIGHTLY-${{ steps.short-sha.outputs.sha }}
+        tag_name: v0.0.0-NIGHTLY-${{ steps.short-sha.outputs.sha }}
         fail_on_unmatched_files: true
         prerelease: true
         body: ""
