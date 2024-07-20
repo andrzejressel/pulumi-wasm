@@ -22,7 +22,7 @@ pub fn generate_rust_library(schema_json: &Path, result_path: &Path) -> Result<(
 
     let mut deps_wit_file =
         File::create(result_path.join("wit").join("deps").join("pulumi-wasm.wit"))?;
-    deps_wit_file.write_all(output::wit::get_dependencies().as_ref())?;
+    deps_wit_file.write_all(output::wit::get_dependencies()?.as_ref())?;
 
     let mut cargo_file = File::create(result_path.join("Cargo.toml"))?;
     cargo_file.write_all(output::rust::cargo::generate_cargo(&package).as_bytes())?;
@@ -54,7 +54,7 @@ pub fn generate_wasm_provider(schema_json: &Path, result_path: &Path) -> Result<
 
     let mut deps_wit_file =
         File::create(result_path.join("wit").join("deps").join("pulumi-wasm.wit"))?;
-    deps_wit_file.write_all(output::wit::get_dependencies().as_ref())?;
+    deps_wit_file.write_all(output::wit::get_dependencies()?.as_ref())?;
 
     let mut cargo_file = File::create(result_path.join("Cargo.toml"))?;
     cargo_file.write_all(output::provider::cargo::generate_cargo(&package).as_bytes())?;

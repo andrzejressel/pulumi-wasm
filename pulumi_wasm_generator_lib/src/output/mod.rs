@@ -10,13 +10,7 @@ fn get_main_version() -> String {
 
 fn get_main_version_stringify() -> String {
     env!("CARGO_PKG_VERSION")
-        .replace(".", "")
-        .replace("0", "ZERO")
-        .replace("1", "ONE")
-        .replace("2", "TWO")
-        .replace("3", "THREE")
-        .replace("4", "FOUR")
-
+        .replace(".", "DOT")
 }
 
 fn replace_multiple_dashes(s: &str) -> String {

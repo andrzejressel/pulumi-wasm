@@ -5,7 +5,7 @@ use handlebars::Handlebars;
 use serde::Serialize;
 
 static TEMPLATE: &str = include_str!("wit.handlebars");
-static DEPENDENCIES: &str = include_str!("dependencies.wit");
+static DEPENDENCIES: &str = include_str!("dependencies.handlebars");
 
 #[derive(Serialize)]
 struct Argument {
@@ -102,6 +102,12 @@ pub(crate) fn generate_wit(package: &crate::model::Package) -> anyhow::Result<St
     Ok(output)
 }
 
-pub(crate) fn get_dependencies() -> &'static str {
-    DEPENDENCIES
+pub(crate) fn get_dependencies() -> anyhow::Result<String> {
+    let mut data = std::collections::BTreeMap::new();
+    data.insert("pulumi_wasm_version", get_main_version());
+
+    let reg = Handlebars::new();
+    let output = reg.render_template(DEPENDENCIES, &data)?;
+
+    Ok(output)
 }
