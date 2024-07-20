@@ -106,6 +106,9 @@ jobs:
 #      with:
 #        name: wasm_artefacts
 #        path: artefacts
+    - uses: actions/checkout@v4
+      with:
+        submodules: true
     - uses: benjlevesque/short-sha@v3.0
       id: short-sha
       with:
