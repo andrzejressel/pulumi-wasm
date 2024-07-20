@@ -5,7 +5,6 @@
 #[cfg(feature = "pulumi-wasm-rust")]
 pub mod bindings {
     wit_bindgen::generate!({
-        // the name of the world in the `*.wit` input file
         world: "pulumi-wasm-rust",
     });
 }
@@ -17,7 +16,6 @@ pub mod bindings {
 #[cfg(feature = "logger")]
 pub mod bindings_logger {
     wit_bindgen::generate!({
-        // the name of the world in the `*.wit` input file
         world: "logger",
     });
 }

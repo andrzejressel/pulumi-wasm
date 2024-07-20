@@ -33,5 +33,5 @@ anyhow.workspace = true
 package = "component:pulumi-wasm"
 
 [package.metadata.component.target]
-path = "../wits/world.wit"
+path = "../pulumi_wasm_wit/wit/world.wit"
 world = "pulumi-wasm"
