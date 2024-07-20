@@ -29,10 +29,10 @@ jobs:
     env:
       RUST_BACKTRACE: "full"
 
-    steps:
-    - uses: actions/checkout@v4
-      with:
-        submodules: true
+    steps: []
+#    - uses: actions/checkout@v4
+#      with:
+#        submodules: true
 #    - name: Pull required docker images
 #      if: runner.os == 'Linux'
 #      run: |
@@ -110,11 +110,17 @@ jobs:
       id: short-sha
       with:
         length: 7
+
+    - uses: extractions/setup-just@v2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Replace version
       run: just update-version "0.0.0-${{ steps.short-sha.outputs.sha }}"
 
 
-#    - name: Pull required docker images
+
+      #    - name: Pull required docker images
 #      if: runner.os == 'Linux'
 #      run: |
 #        docker pull public.ecr.aws/ubuntu/ubuntu:latest
@@ -142,9 +148,7 @@ jobs:
 #      if: runner.os == 'macOS'
 #    - run: pulumi version
 #    - run: pulumi login --local
-#    - uses: extractions/setup-just@v2
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 #    - uses: cargo-bins/cargo-binstall@main
 #      env:
 #        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
