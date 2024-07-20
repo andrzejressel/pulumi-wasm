@@ -102,10 +102,6 @@ jobs:
     needs: build
     if: success() && github.ref == 'refs/heads/update_version'
     steps:
-#    - uses: actions/download-artifact@v4
-#      with:
-#        name: wasm_artefacts
-#        path: artefacts
     - uses: actions/checkout@v4
       with:
         submodules: true
@@ -117,66 +113,53 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+    - name: Replace version
+      run: just update-version "0.0.0-${{ steps.short-sha.outputs.sha }}"
 
-#    - name: Pull required docker images
-#      if: runner.os == 'Linux'
-#      run: |
-#        docker pull public.ecr.aws/ubuntu/ubuntu:latest
-#    - uses: Swatinem/rust-cache@v2
-#      with:
-#        workspaces: |
-#          ./
-#          pulumi_wasm_generator_lib/tests/output/pulumi_providers/command/
-#          pulumi_wasm_generator_lib/tests/output/pulumi_providers/docker/
-#          pulumi_wasm_generator_lib/tests/output/pulumi_providers/random/
-#          pulumi_wasm_generator_lib/tests/output/pulumi_tests/cyclic-types/
-#          pulumi_wasm_generator_lib/tests/output/pulumi_tests/mini-awsnative/
-#    - uses: actions/setup-go@v5
-#      with:
-#        go-version: '^1.22.0'
-#        cache-dependency-path: "**/go.sum"
-#    - run: go version
-#    - name: Install Protoc
-#      uses: arduino/setup-protoc@v3
-#      with:
-#        version: "25.3"
-#        repo-token: ${{ secrets.GITHUB_TOKEN }}
-#    - run: protoc --version
-#    - run: brew install pulumi
-#      if: runner.os == 'macOS'
-#    - run: pulumi version
-#    - run: pulumi login --local
-
+    - name: Pull required docker images
+      if: runner.os == 'Linux'
+      run: |
+        docker pull public.ecr.aws/ubuntu/ubuntu:latest
+    - uses: actions/setup-go@v5
+      with:
+        go-version: '^1.22.0'
+        cache-dependency-path: "**/go.sum"
+    - run: go version
+    - name: Install Protoc
+      uses: arduino/setup-protoc@v3
+      with:
+        version: "25.3"
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+    - run: protoc --version
+    - run: brew install pulumi
+      if: runner.os == 'macOS'
+    - run: pulumi version
+    - run: pulumi login --local
     - uses: cargo-bins/cargo-binstall@main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#    - name: Regenerate provider list
-#      run: just regenerate-provider-list
+    - name: Regenerate provider list
+      run: just regenerate-provider-list
     - name: Install requirements
       run: just install-requirements
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#    - name: Check
-#      run: just check
-#    - name: Build
-#      run: just build
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#    - name: Test
-#      run: just test
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        RUST_BACKTRACE: "full"
+    - name: Build
+      run: just build
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Test
+      run: just test
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        RUST_BACKTRACE: "full"
 
 
-
-    - name: Replace version
-      run: just update-version "0.0.0-${{ steps.short-sha.outputs.sha }}"
     - name: Create commit
       run: |
         git config --local user.name "GitHub Actions"
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git add .
+        git add -A
         git commit -m "Release v0.0.0-${{ steps.short-sha.outputs.sha }}"
         git tag "v0.0.0-${{ steps.short-sha.outputs.sha }}"
         git push origin "v0.0.0-${{ steps.short-sha.outputs.sha }}"
@@ -194,10 +177,10 @@ jobs:
       with:
         name: 0.0.0-${{ steps.short-sha.outputs.sha }}
         tag_name: v0.0.0-${{ steps.short-sha.outputs.sha }}
-#        fail_on_unmatched_files: true
+        fail_on_unmatched_files: true
         prerelease: true
         body: ""
-#        files: |
-#          pulumi_wasm_generator_lib/**/pulumi_providers/**/wasm32-wasip1/debug/*_provider.wasm
-#          target/wasm32-wasip1/debug/pulumi_wasm.wasm
-#          pulumi-language-wasm/*.tar.gz
+        files: |
+          pulumi_wasm_generator_lib/**/pulumi_providers/**/wasm32-wasip1/debug/*_provider.wasm
+          target/wasm32-wasip1/debug/pulumi_wasm.wasm
+          pulumi-language-wasm/*.tar.gz
