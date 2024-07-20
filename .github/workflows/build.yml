@@ -180,10 +180,13 @@ jobs:
         git commit -m "Release v0.0.0-${{ steps.short-sha.outputs.sha }}"
     - uses: actions/upload-artifact@v4
       with:
-        name: "timings_${{ runner.os }}"
+        name: "timings2_${{ runner.os }}"
         path: |
           target/cargo-timings/cargo-timing-*.html
           pulumi_wasm_generator_lib/tests/**/target/cargo-timings/cargo-timing-*.html
+    - name: Package language plugin
+      if: runner.os == 'Linux'
+      run: just package-language-plugin "0.0.0-${{ steps.short-sha.outputs.sha }}"
     - name: Release
       uses: softprops/action-gh-release@v2.0.8
       with:
@@ -193,16 +196,6 @@ jobs:
         prerelease: true
         body: ""
         files: |
-          artefacts/**/*
-    - name: Package language plugin
-      if: runner.os == 'Linux'
-      run: just package-language-plugin "0.0.0-${{ steps.short-sha.outputs.sha }}"
-    - uses: actions/upload-artifact@v4
-      if: runner.os == 'Linux'
-      with:
-        name: wasm_artefacts
-#        if-no-files-found: error
-        path: |
           pulumi_wasm_generator_lib/**/pulumi_providers/**/wasm32-wasip1/debug/*_provider.wasm
           target/wasm32-wasip1/debug/pulumi_wasm.wasm
           pulumi-language-wasm/*.tar.gz
