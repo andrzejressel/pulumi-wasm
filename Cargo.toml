@@ -35,15 +35,15 @@ version = "0.0.0-DEV"
 edition = "2021"
 
 [workspace.dependencies]
-pulumi_wasm_core = { version = "0.0.0-DEV", path = "pulumi_wasm_core", registry = "cloudsmith" }
-pulumi_wasm_docker = { version = "4.5.3-0.0.0-DEV", path = "providers/pulumi_wasm_provider_docker_rust", registry = "cloudsmith" }
-pulumi_wasm_generator_lib = { version = "0.0.0-DEV", path = "pulumi_wasm_generator_lib", registry = "cloudsmith" }
-pulumi_wasm_random = { version = "4.15.0-0.0.0-DEV", path = "providers/pulumi_wasm_provider_random_rust", registry = "cloudsmith" }
-pulumi_wasm_rust = { version = "0.0.0-DEV", path = "pulumi_wasm_rust", registry = "cloudsmith" }
-pulumi_wasm_rust_macro = { version = "0.0.0-DEV", path = "pulumi_wasm_rust_macro", registry = "cloudsmith" }
-pulumi_wasm_common = { version = "0.0.0-DEV", path = "pulumi_wasm_common", registry = "cloudsmith" }
-pulumi_wasm_proto = { version = "0.0.0-DEV", path = "pulumi_wasm_proto", registry = "cloudsmith" }
-pulumi_wasm_wit = { version = "0.0.0-DEV", path = "pulumi_wasm_wit", registry = "cloudsmith" }
+pulumi_wasm_core = { version = "=0.0.0-DEV", path = "pulumi_wasm_core", registry = "cloudsmith" }
+pulumi_wasm_docker = { version = "=4.5.3-0.0.0-DEV", path = "providers/pulumi_wasm_provider_docker_rust", registry = "cloudsmith" }
+pulumi_wasm_generator_lib = { version = "=0.0.0-DEV", path = "pulumi_wasm_generator_lib", registry = "cloudsmith" }
+pulumi_wasm_random = { version = "=4.15.0-0.0.0-DEV", path = "providers/pulumi_wasm_provider_random_rust", registry = "cloudsmith" }
+pulumi_wasm_rust = { version = "=0.0.0-DEV", path = "pulumi_wasm_rust", registry = "cloudsmith" }
+pulumi_wasm_rust_macro = { version = "=0.0.0-DEV", path = "pulumi_wasm_rust_macro", registry = "cloudsmith" }
+pulumi_wasm_common = { version = "=0.0.0-DEV", path = "pulumi_wasm_common", registry = "cloudsmith" }
+pulumi_wasm_proto = { version = "=0.0.0-DEV", path = "pulumi_wasm_proto", registry = "cloudsmith" }
+pulumi_wasm_wit = { version = "=0.0.0-DEV", path = "pulumi_wasm_wit", registry = "cloudsmith" }
 
 anyhow = "1.0.82"
 prost = "0.13.1"
