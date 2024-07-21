@@ -45,8 +45,11 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Pull required docker images
       if: runner.os == 'Linux'
-      run: |
-        docker pull public.ecr.aws/ubuntu/ubuntu:latest
+      uses: nick-fields/retry@v3
+      with:
+        timeout_minutes: 10
+        max_attempts: 10
+        command: docker pull public.ecr.aws/ubuntu/ubuntu:latest
     - uses: actions/setup-go@v5
       with:
         go-version: '^1.22.0'
@@ -117,8 +120,11 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Pull required docker images
       if: runner.os == 'Linux'
-      run: |
-        docker pull public.ecr.aws/ubuntu/ubuntu:latest
+      uses: nick-fields/retry@v3
+      with:
+        timeout_minutes: 10
+        max_attempts: 10
+        command: docker pull public.ecr.aws/ubuntu/ubuntu:latest
     - uses: actions/setup-go@v5
       with:
         go-version: '^1.22.0'
