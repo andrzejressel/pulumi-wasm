@@ -1,7 +1,7 @@
-package pulumi:%example@0.0.1-ZERO.ZERO.ZERO-DEV;
+package pulumi:%example@0.0.1-ZERO.ZERO.ZERO-NIGHTLY-feSEVENNINEFOURbZERO;
 
 world %example-pulumi {
-    import component:pulumi-wasm/register-interface@0.0.0-DEV;
+    import component:pulumi-wasm/register-interface@0.0.0-NIGHTLY-fe794b0;
 }
 
 world %example-pulumi-client {

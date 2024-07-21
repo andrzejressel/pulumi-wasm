@@ -8,7 +8,7 @@ mod bindings {
         // the name of the world in the `*.wit` input file
         world: "random-pulumi-client",
         with: {
-            "component:pulumi-wasm/output-interface@0.0.0-DEV": generate
+            "component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-fe794b0": generate
         }
     });
 }
