@@ -5,7 +5,7 @@ pulumi_wasm := "../../target/wasm32-wasip1/debug/pulumi_wasm.wasm"
 docker := "../../target/wasm32-wasip1/debug/pulumi_wasm_docker_provider.wasm"
 
 run:
-    {{binary}} run --pulumi-wasm "{{pulumi_wasm}}" --provider "{{docker}}" "{{wasm}}"
+    {{binary}} run --pulumi-wasm "{{pulumi_wasm}}" --provider "docker={{docker}}" "{{wasm}}"
 
 [windows]
 local-test:

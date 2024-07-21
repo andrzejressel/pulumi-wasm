@@ -6,7 +6,7 @@ docker := "../../target/wasm32-wasip1/debug/pulumi_wasm_docker_provider.wasm"
 random := "../../target/wasm32-wasip1/debug/pulumi_wasm_random_provider.wasm"
 
 run:
-    {{binary}} run --pulumi-wasm "{{pulumi_wasm}}" --provider "{{docker}}" --provider "{{random}}" "{{wasm}}"
+    {{binary}} run --pulumi-wasm "{{pulumi_wasm}}" --provider "docker={{docker}}" --provider "random={{random}}" "{{wasm}}"
 
 [windows]
 local-test:
