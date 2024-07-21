@@ -1,4 +1,4 @@
-package pulumi:%docker@4.5.3-PW0DOT0DOT0-DEV;
+package pulumi:%docker@4.5.3-ZERO.ZERO.ZERO-DEV;
 
 world %docker-pulumi {
     import component:pulumi-wasm/register-interface@0.0.0-DEV;

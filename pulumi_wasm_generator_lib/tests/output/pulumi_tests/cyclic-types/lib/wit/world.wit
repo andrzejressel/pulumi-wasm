@@ -1,4 +1,4 @@
-package pulumi:%example@0.0.1-PW0DOT0DOT0-DEV;
+package pulumi:%example@0.0.1-ZERO.ZERO.ZERO-DEV;
 
 world %example-pulumi {
     import component:pulumi-wasm/register-interface@0.0.0-DEV;

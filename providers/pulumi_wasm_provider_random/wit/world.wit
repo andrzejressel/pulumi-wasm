@@ -1,4 +1,4 @@
-package pulumi:%random@4.15.0-PW0DOT0DOT0-DEV;
+package pulumi:%random@4.15.0-ZERO.ZERO.ZERO-DEV;
 
 world %random-pulumi {
     import component:pulumi-wasm/register-interface@0.0.0-DEV;
