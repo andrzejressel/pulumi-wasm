@@ -19,16 +19,22 @@ fmt:
     go fmt .
 
 build-language-plugin $GOOS $GOARCH:
-    go build -o pulumi-language-wasm
+    go build
 
 package-language-plugin GOOS GOARCH VERSION:
 	just build-language-plugin {{GOOS}} {{GOARCH}}
 	tar czvf pulumi-language-wasm-v{{VERSION}}-{{GOOS}}-{{GOARCH}}.tar.gz pulumi-language-wasm
+	rm pulumi-language-wasm
+
+package-language-plugin-windows GOOS GOARCH VERSION:
+	just build-language-plugin {{GOOS}} {{GOARCH}}
+	tar czvf pulumi-language-wasm-v{{VERSION}}-{{GOOS}}-{{GOARCH}}.tar.gz pulumi-language-wasm.exe
+	rm pulumi-language-wasm.exe
 
 package-language-plugin-all VERSION:
 	just package-language-plugin darwin arm64 {{VERSION}}
 	just package-language-plugin darwin amd64 {{VERSION}}
 	just package-language-plugin linux arm64 {{VERSION}}
 	just package-language-plugin linux amd64 {{VERSION}}
-	just package-language-plugin windows arm64 {{VERSION}}
-	just package-language-plugin windows amd64 {{VERSION}}
+	just package-language-plugin-windows windows arm64 {{VERSION}}
+	just package-language-plugin-windows windows amd64 {{VERSION}}
