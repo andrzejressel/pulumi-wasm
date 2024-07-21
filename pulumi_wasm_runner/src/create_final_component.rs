@@ -1,13 +1,9 @@
 use anyhow::Context;
 use anyhow::Result;
-use clap::builder::Str;
-use directories::{BaseDirs, ProjectDirs, UserDirs};
+use directories::BaseDirs;
 use futures::{StreamExt, TryFutureExt};
-use regex::{Captures, Regex};
+use regex::Regex;
 use std::collections::{HashMap, HashSet};
-use std::fmt::format;
-use std::fs::File;
-use std::io;
 use std::path::PathBuf;
 use wac_graph::types::SubtypeChecker;
 use wac_graph::{types::Package, CompositionGraph, EncodeOptions, NodeId, PackageId};
@@ -47,7 +43,7 @@ pub(crate) async fn create(
 
     let mut provider_wasm_files = HashMap::new();
 
-    for (provider_name) in &provider_names {
+    for provider_name in &provider_names {
         match providers_paths.get(provider_name) {
             None => {
                 let downloaded =
