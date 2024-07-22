@@ -21,7 +21,6 @@ use pulumi_wasm_wit::bindings_server as server;
 
 pub struct Pulumi {
     plugin: Main,
-    _instance: Instance,
     store: Store<SimplePluginCtx>,
 }
 
@@ -227,13 +226,9 @@ impl Pulumi {
         );
 
         let component = Component::from_binary(&engine, &pulumi_wasm_file)?;
-        let (plugin, instance) = Main::instantiate_async(&mut store, &component, &linker).await?;
+        let plugin = Main::instantiate_async(&mut store, &component, &linker).await?;
 
-        Ok(Pulumi {
-            plugin,
-            _instance: instance,
-            store,
-        })
+        Ok(Pulumi { plugin, store })
     }
 
     pub fn compile(pulumi_wasm_file: &str) -> Result<Vec<u8>, Error> {
