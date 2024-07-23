@@ -2,6 +2,7 @@
 name = "pulumi-wasm-parent"
 version.workspace = true
 edition.workspace = true
+repository.workspace = true
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -33,6 +34,7 @@ members = [
 [workspace.package]
 version = "0.0.0-DEV"
 edition = "2021"
+repository = "https://github.com/andrzejressel/pulumi-wasm"
 
 [workspace.dependencies]
 pulumi_wasm_core = { version = "=0.0.0-DEV", path = "pulumi_wasm_core", registry = "cloudsmith" }
