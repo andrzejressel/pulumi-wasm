@@ -1,5 +1,10 @@
 ## Pulumi support for WASM
 
+![GitHub Release](https://img.shields.io/github/v/release/andrzejressel/pulumi-wasm?include_prereleases&sort=date)
+[![Build](https://github.com/andrzejressel/pulumi-wasm/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/andrzejressel/pulumi-wasm/actions/workflows/build.yml)
+[![Deploy](https://github.com/andrzejressel/pulumi-wasm/actions/workflows/deploy.yaml/badge.svg)](https://github.com/andrzejressel/pulumi-wasm/actions/workflows/deploy.yaml)
+
+
 PoC of Pulumi support for WASM.
 
 Currently, supports very simple code for very simple providers (no complex objects). 
