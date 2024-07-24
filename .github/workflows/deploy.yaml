@@ -79,7 +79,7 @@ jobs:
             pulumi_wasm_generator_lib/tests/output/pulumi_tests/mini-awsnative/
 
       - name: Build
-        run: just build-wasm-components
+        run: just build-wasm-components-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -201,11 +201,11 @@ jobs:
       - name: Add target
         run: rustup target add ${{ matrix.rust-target }}
       - name: Build runner
-        run: cargo build -p pulumi_wasm_runner --target ${{ matrix.rust-target }}
+        run: cargo build -p pulumi_wasm_runner --release --target ${{ matrix.rust-target }}
 
-      - run: mv ./target/${{ matrix.rust-target }}/debug/pulumi_wasm_runner.exe ./target/${{ matrix.rust-target }}/debug/pulumi_wasm_runner-${{ matrix.rust-target }}
+      - run: mv ./target/${{ matrix.rust-target }}/release/pulumi_wasm_runner.exe ./target/${{ matrix.rust-target }}/release/pulumi_wasm_runner-${{ matrix.rust-target }}
         if: matrix.os == 'windows-latest'
-      - run: mv ./target/${{ matrix.rust-target }}/debug/pulumi_wasm_runner ./target/${{ matrix.rust-target }}/debug/pulumi_wasm_runner-${{ matrix.rust-target }}
+      - run: mv ./target/${{ matrix.rust-target }}/release/pulumi_wasm_runner ./target/${{ matrix.rust-target }}/release/pulumi_wasm_runner-${{ matrix.rust-target }}
         if: matrix.os != 'windows-latest'
 
       - name: Release
@@ -217,4 +217,4 @@ jobs:
           prerelease: true
           body: ""
           files: |
-            ./target/${{ matrix.rust-target }}/debug/pulumi_wasm_runner-${{ matrix.rust-target }}
+            ./target/${{ matrix.rust-target }}/release/pulumi_wasm_runner-${{ matrix.rust-target }}

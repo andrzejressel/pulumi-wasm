@@ -42,6 +42,16 @@ build-wasm-components:
     # DO NOT EDIT - BUILD-WASM-COMPONENTS - END
     cargo build -p pulumi_wasm_runner --timings
 
+# Compiling everything together causes linking issues
+build-wasm-components-release:
+    cargo component build -p pulumi_wasm --timings --release
+    # DO NOT EDIT - BUILD-WASM-COMPONENTS RELEASE - START
+    cargo component build \
+      -p pulumi_wasm_docker_provider \
+      -p pulumi_wasm_random_provider \
+      --timings --release
+    # DO NOT EDIT - BUILD-WASM-COMPONENTS RELEASE - END
+
 check:
     cargo fmt --all -- --check
 
