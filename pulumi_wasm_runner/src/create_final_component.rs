@@ -1,7 +1,6 @@
 use anyhow::Context;
 use anyhow::Result;
 use directories::BaseDirs;
-use futures::{StreamExt, TryFutureExt};
 use regex::Regex;
 use std::collections::{HashMap, HashSet};
 use std::path::PathBuf;

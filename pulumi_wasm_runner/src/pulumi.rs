@@ -2,7 +2,7 @@ use anyhow::Error;
 use async_trait::async_trait;
 use log::info;
 use prost::Message;
-use wasmtime::component::{Component, Instance, Linker, ResourceTable};
+use wasmtime::component::{Component, Linker, ResourceTable};
 use wasmtime::Store;
 use wasmtime_wasi::{WasiCtx, WasiCtxBuilder, WasiView};
 
