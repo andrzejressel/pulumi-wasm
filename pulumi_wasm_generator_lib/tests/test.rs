@@ -5,7 +5,6 @@ use pulumi_wasm_generator_lib::{generate_rust_library, generate_wasm_provider};
 use std::fs;
 use std::path::{Path, PathBuf};
 use std::process::Command;
-const REGENERATE_TESTS: bool = false;
 
 #[test]
 fn random() -> Result<()> {
