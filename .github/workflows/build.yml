@@ -2,7 +2,7 @@ name: Build
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "knapsack" ]
   pull_request:
     branches: [ "main" ]
 
@@ -24,7 +24,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest]
 
     env:
       RUST_BACKTRACE: "full"
@@ -41,6 +41,7 @@ jobs:
     - uses: cargo-bins/cargo-binstall@main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - run: cargo binstall --index "sparse+https://cargo.cloudsmith.io/andrzej-ressel-github/cargo-nextest-knapsack/" cargo-nextest-knapsack@0.0.0-NIGHTLY-ab11419
     - name: Install requirements
       run: just install-requirements
       env:
@@ -87,9 +88,9 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Test
-      run: just test
+      run: cargo nextest-knapsack
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        KNAPSACK_PRO_TEST_SUITE_TOKEN: ${{ secrets.KNAPSACK_PRO_LINUX_API_KEY }}
     - name: Ensure no files have changed
       run: git diff --exit-code
 
