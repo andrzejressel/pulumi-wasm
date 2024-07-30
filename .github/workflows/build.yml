@@ -25,6 +25,14 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
+        # Set N number of parallel jobs you want to run tests on.
+        # Use higher number if you have slow tests to split them on more parallel jobs.
+        # Remember to update ci_node_index below to 0..N-1
+        ci_node_total: [2]
+        # set N-1 indexes for parallel jobs
+        # When you run 2 parallel jobs then first job will have index 0,
+        # the second job will have index 1 etc
+        ci_node_index: [0, 1]
 
     env:
       RUST_BACKTRACE: "full"
@@ -91,6 +99,8 @@ jobs:
       run: cargo nextest-knapsack
       env:
         KNAPSACK_PRO_TEST_SUITE_TOKEN: ${{ secrets.KNAPSACK_PRO_LINUX_API_KEY }}
+        KNAPSACK_PRO_CI_NODE_TOTAL: ${{ matrix.ci_node_total }}
+        KNAPSACK_PRO_CI_NODE_INDEX: ${{ matrix.ci_node_index }}
     - name: Ensure no files have changed
       run: git diff --exit-code
 
