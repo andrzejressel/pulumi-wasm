@@ -49,7 +49,7 @@ jobs:
     - uses: cargo-bins/cargo-binstall@main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - run: cargo binstall --index "sparse+https://cargo.cloudsmith.io/andrzej-ressel-github/cargo-nextest-knapsack/" cargo-nextest-knapsack@0.0.0-NIGHTLY-ab11419
+    - run: cargo binstall --no-confirm --index "sparse+https://cargo.cloudsmith.io/andrzej-ressel-github/cargo-nextest-knapsack/" cargo-nextest-knapsack@0.0.0-NIGHTLY-ab11419
     - name: Install requirements
       run: just install-requirements
       env:
