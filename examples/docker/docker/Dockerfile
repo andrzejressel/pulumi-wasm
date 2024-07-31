@@ -1,1 +1,1 @@
-FROM public.ecr.aws/ubuntu/ubuntu:latest
+FROM ubuntu:latest

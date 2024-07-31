@@ -44,7 +44,7 @@ jobs:
       with:
         timeout_minutes: 10
         max_attempts: 10
-        command: docker pull public.ecr.aws/ubuntu/ubuntu:latest
+        command: docker pull ubuntu:latest
     - run: git config --system core.longpaths true
       if: runner.os == 'Windows'
     - uses: actions/checkout@v4
@@ -138,7 +138,7 @@ jobs:
       with:
         timeout_minutes: 10
         max_attempts: 10
-        command: docker pull public.ecr.aws/ubuntu/ubuntu:latest
+        command: docker pull ubuntu:latest
     - uses: actions/setup-go@v5
       with:
         go-version: '^1.22.0'
