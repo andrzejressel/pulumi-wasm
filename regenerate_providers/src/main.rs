@@ -64,6 +64,7 @@ fn update_justfile(providers: &[Provider]) {
     let content = fs::read_to_string("justfile").expect("Failed to read justfile");
     let content = replace_regenerate_providers(providers, &content);
     let content = replace_build_wasm_components(providers, &content);
+    let content = replace_build_wasm_release_components(providers, &content);
 
     fs::write("justfile", content).expect("Failed to write to justfile");
 }
@@ -92,6 +93,21 @@ fn replace_build_wasm_components(providers: &[Provider], content: &str) -> Strin
     let start_marker =
         "    # DO NOT EDIT - BUILD-WASM-COMPONENTS - START\n    cargo component build \\";
     let end_marker = "    # DO NOT EDIT - BUILD-WASM-COMPONENTS - END";
+    replace_between_markers(content, start_marker, end_marker, &replacement)
+}
+
+fn replace_build_wasm_release_components(providers: &[Provider], content: &str) -> String {
+    let mut replacement = String::new();
+    for provider in providers {
+        replacement.push_str(&format!(
+            "      -p pulumi_wasm_{}_provider \\\n",
+            provider.name
+        ));
+    }
+    replacement.push_str("      --timings --release\n");
+    let start_marker =
+        "    # DO NOT EDIT - BUILD-WASM-COMPONENTS RELEASE - START\n    cargo component build \\";
+    let end_marker = "    # DO NOT EDIT - BUILD-WASM-COMPONENTS RELEASE - END";
     replace_between_markers(content, start_marker, end_marker, &replacement)
 }
 
