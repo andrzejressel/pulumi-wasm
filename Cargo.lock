@@ -2004,11 +2004,11 @@ dependencies = [
 
 [[package]]
 name = "pulumi-wasm-parent"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-a4aad5a"
 
 [[package]]
 name = "pulumi_wasm"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-a4aad5a"
 dependencies = [
  "anyhow",
  "bitflags 2.6.0",
@@ -2028,7 +2028,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_common"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-a4aad5a"
 dependencies = [
  "log",
  "pulumi_wasm_wit",
@@ -2037,7 +2037,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_core"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-a4aad5a"
 dependencies = [
  "anyhow",
  "lazy_static",
@@ -2053,7 +2053,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_docker"
-version = "4.5.3-0.0.0-DEV"
+version = "4.5.3-0.0.0-NIGHTLY-a4aad5a"
 dependencies = [
  "automod",
  "pulumi_wasm_rust",
@@ -2063,7 +2063,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_docker_provider"
-version = "4.5.3-0.0.0-DEV"
+version = "4.5.3-0.0.0-NIGHTLY-a4aad5a"
 dependencies = [
  "pulumi_wasm_common",
  "wit-bindgen-rt",
@@ -2071,7 +2071,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_example_dependencies"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-a4aad5a"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -2083,7 +2083,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_example_docker"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-a4aad5a"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -2095,7 +2095,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_example_multiple_providers"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-a4aad5a"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -2108,7 +2108,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_example_simple"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-a4aad5a"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -2120,7 +2120,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_generator"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-a4aad5a"
 dependencies = [
  "anyhow",
  "clap",
@@ -2129,7 +2129,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_generator_lib"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-a4aad5a"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -2144,7 +2144,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_proto"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-a4aad5a"
 dependencies = [
  "mockall",
  "prost",
@@ -2155,7 +2155,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_random"
-version = "4.15.0-0.0.0-DEV"
+version = "4.15.0-0.0.0-NIGHTLY-a4aad5a"
 dependencies = [
  "automod",
  "pulumi_wasm_rust",
@@ -2165,7 +2165,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_random_provider"
-version = "4.15.0-0.0.0-DEV"
+version = "4.15.0-0.0.0-NIGHTLY-a4aad5a"
 dependencies = [
  "pulumi_wasm_common",
  "wit-bindgen-rt",
@@ -2173,7 +2173,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_runner"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-a4aad5a"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -2201,7 +2201,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_rust"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-a4aad5a"
 dependencies = [
  "anyhow",
  "bitflags 2.6.0",
@@ -2221,7 +2221,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_rust_macro"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-a4aad5a"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -2230,7 +2230,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_wit"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-a4aad5a"
 dependencies = [
  "wasmtime",
  "wit-bindgen",
@@ -2330,7 +2330,7 @@ dependencies = [
 
 [[package]]
 name = "regenerate_providers"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-a4aad5a"
 
 [[package]]
 name = "regex"
