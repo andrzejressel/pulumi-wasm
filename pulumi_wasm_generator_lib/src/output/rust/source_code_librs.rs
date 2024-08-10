@@ -1,5 +1,4 @@
-use crate::model::ElementId;
-use crate::output::{get_main_version, replace_multiple_dashes};
+use crate::output::get_main_version;
 use handlebars::Handlebars;
 use serde::Serialize;
 use serde_json::json;

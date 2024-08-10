@@ -6,7 +6,7 @@ pub(crate) fn replace_multiple_dashes(s: &str) -> String {
     result.to_string()
 }
 
-pub(crate) fn escape_wit_identifier<'a>(s: &'a str) -> &'a str {
+pub(crate) fn escape_wit_identifier(s: &str) -> &str {
     match s {
         "result" => "%result",
         s => s,

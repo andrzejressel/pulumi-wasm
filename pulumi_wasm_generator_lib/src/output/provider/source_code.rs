@@ -1,5 +1,3 @@
-use crate::model::{ElementId, Type};
-use crate::output::replace_multiple_dashes;
 use handlebars::Handlebars;
 
 use serde::Serialize;
@@ -17,7 +15,6 @@ struct InputProperty {
 struct OutputProperty {
     name: String,
     arg_name: String,
-    required: bool,
 }
 
 #[derive(Serialize)]
@@ -59,7 +56,6 @@ fn convert_model(package: &crate::model::Package) -> Package {
                     .map(|output_property| OutputProperty {
                         name: output_property.name.clone(),
                         arg_name: output_property.get_rust_argument_name(),
-                        required: !matches!(output_property.r#type, Type::Option(_)),
                     })
                     .collect(),
             })

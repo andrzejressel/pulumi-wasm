@@ -1,5 +1,4 @@
-use crate::model::{ElementId, GlobalType};
-use crate::output::replace_multiple_dashes;
+use crate::model::GlobalType;
 use crate::output::rust::convert_type;
 use convert_case::{Case, Casing};
 use handlebars::Handlebars;

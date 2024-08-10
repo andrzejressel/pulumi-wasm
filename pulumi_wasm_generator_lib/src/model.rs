@@ -167,28 +167,6 @@ impl ElementId {
     }
 }
 
-pub(crate) struct Name(String);
-
-impl Name {
-    fn to_wit_identifier(&self) -> String {
-        "".into()
-    }
-
-    fn to_rust_wit_identifier(&self) -> String {
-        "".into()
-    }
-
-    fn to_rust_identifier(&self) -> String {
-        "".into()
-    }
-}
-
-impl From<String> for Name {
-    fn from(val: String) -> Self {
-        Name(val)
-    }
-}
-
 impl Ref {
     pub(crate) fn new(raw: &str) -> Result<Self> {
         if raw == "pulumi.json#/Archive" {
