@@ -2027,6 +2027,24 @@ dependencies = [
 ]
 
 [[package]]
+name = "pulumi_wasm_cloudflare"
+version = "5.24.1-0.0.0-DEV"
+dependencies = [
+ "automod",
+ "pulumi_wasm_rust",
+ "serde",
+ "wit-bindgen",
+]
+
+[[package]]
+name = "pulumi_wasm_cloudflare_provider"
+version = "5.24.1-0.0.0-DEV"
+dependencies = [
+ "pulumi_wasm_common",
+ "wit-bindgen-rt",
+]
+
+[[package]]
 name = "pulumi_wasm_common"
 version = "0.0.0-DEV"
 dependencies = [

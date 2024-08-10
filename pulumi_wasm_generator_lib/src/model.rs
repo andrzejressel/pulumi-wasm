@@ -1,4 +1,4 @@
-use crate::utils::{escape_wit_identifier, replace_multiple_dashes};
+use crate::utils::{escape_rust_name, escape_wit_identifier, replace_multiple_dashes};
 use anyhow::{Context, Result};
 use convert_case::Case;
 use convert_case::Casing;
@@ -28,7 +28,7 @@ impl InputProperty {
     }
 
     pub(crate) fn get_rust_argument_name(&self) -> String {
-        ElementId::create_valid_wit_rust_id(self.name.as_str())
+        escape_rust_name(ElementId::create_valid_wit_rust_id(self.name.as_str()).as_str()).into()
     }
 }
 
@@ -43,7 +43,7 @@ impl OutputProperty {
         escape_wit_identifier(ElementId::create_valid_wit_id(self.name.as_str()).as_str()).into()
     }
     pub(crate) fn get_rust_argument_name(&self) -> String {
-        ElementId::create_valid_wit_rust_id(self.name.as_str())
+        escape_rust_name(ElementId::create_valid_wit_rust_id(self.name.as_str()).as_str()).into()
     }
 }
 
@@ -120,7 +120,7 @@ impl ElementId {
     pub(crate) fn get_wit_interface_name(&self) -> String {
         let mut vec = self.namespace.clone();
         vec.push(self.name.clone());
-        Self::create_valid_wit_id(&vec.join("-"))
+        escape_wit_identifier(Self::create_valid_wit_id(&vec.join("-")).as_str()).into()
     }
 
     fn create_valid_wit_rust_id(s: &str) -> String {
