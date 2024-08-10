@@ -1,4 +1,7 @@
+use crate::utils::{escape_wit_identifier, replace_multiple_dashes};
 use anyhow::{Context, Result};
+use convert_case::Case;
+use convert_case::Casing;
 use std::collections::BTreeMap;
 
 #[derive(Clone, Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
@@ -19,10 +22,29 @@ pub(crate) struct InputProperty {
     pub(crate) r#type: Type,
 }
 
+impl InputProperty {
+    pub(crate) fn get_wit_argument_name(&self) -> String {
+        escape_wit_identifier(ElementId::create_valid_wit_id(self.name.as_str()).as_str()).into()
+    }
+
+    pub(crate) fn get_rust_argument_name(&self) -> String {
+        ElementId::create_valid_wit_rust_id(self.name.as_str())
+    }
+}
+
 #[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
 pub(crate) struct OutputProperty {
     pub(crate) name: String,
     pub(crate) r#type: Type,
+}
+
+impl OutputProperty {
+    pub(crate) fn get_wit_argument_name(&self) -> String {
+        escape_wit_identifier(ElementId::create_valid_wit_id(self.name.as_str()).as_str()).into()
+    }
+    pub(crate) fn get_rust_argument_name(&self) -> String {
+        ElementId::create_valid_wit_rust_id(self.name.as_str())
+    }
 }
 
 #[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
@@ -57,6 +79,12 @@ pub(crate) struct Package {
     pub(crate) types: BTreeMap<ElementId, GlobalType>,
 }
 
+impl Package {
+    pub(crate) fn get_wit_name(&self) -> String {
+        ElementId::create_valid_wit_id(self.name.as_str())
+    }
+}
+
 #[derive(Clone, Eq, PartialEq, Hash, Ord, PartialOrd, Debug)]
 pub(crate) enum Ref {
     Type(ElementId),
@@ -70,6 +98,73 @@ pub(crate) struct ElementId {
     pub(crate) namespace: Vec<String>,
     pub(crate) name: String,
     pub(crate) raw: String,
+}
+
+impl ElementId {
+    pub(crate) fn get_rust_function_name(&self) -> String {
+        self.name
+            .clone()
+            .from_case(Case::UpperCamel)
+            .to_case(Case::Snake)
+    }
+
+    pub(crate) fn get_rust_namespace_name(&self) -> String {
+        let mut vec = self.namespace.clone();
+        vec.push(self.name.clone());
+        Self::create_valid_id(&vec.join("-"))
+    }
+
+    pub(crate) fn get_wit_argument_name(&self) -> String {
+        Self::create_valid_wit_id(self.name.as_str())
+    }
+    pub(crate) fn get_wit_interface_name(&self) -> String {
+        let mut vec = self.namespace.clone();
+        vec.push(self.name.clone());
+        Self::create_valid_wit_id(&vec.join("-"))
+    }
+
+    fn create_valid_wit_rust_id(s: &str) -> String {
+        Self::create_valid_wit_id(s).replace("-", "_")
+    }
+
+    fn create_valid_wit_id(s: &str) -> String {
+        let result: String = s
+            .chars()
+            .map(|c| {
+                if c.is_uppercase() {
+                    format!("-{}", c.to_lowercase())
+                } else if !c.is_alphanumeric() {
+                    "-".to_string()
+                } else {
+                    c.to_string()
+                }
+            })
+            .collect();
+
+        let result = replace_multiple_dashes(&result);
+        let result = result.trim_matches('-').to_string();
+        result
+    }
+
+    fn create_valid_id(s: &str) -> String {
+        let result: String = s
+            .chars()
+            .map(|c| {
+                if c.is_uppercase() {
+                    format!("-{}", c.to_lowercase())
+                } else if !c.is_alphanumeric() {
+                    "-".to_string()
+                } else {
+                    c.to_string()
+                }
+            })
+            .collect();
+
+        let result = replace_multiple_dashes(&result);
+        let result = result.trim_matches('-').to_string();
+
+        result.replace('-', "_")
+    }
 }
 
 impl Ref {

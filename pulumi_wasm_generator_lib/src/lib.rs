@@ -9,6 +9,7 @@ use anyhow::{Context, Result};
 mod model;
 mod output;
 mod schema;
+mod utils;
 
 pub fn generate_rust_library(schema_json: &Path, result_path: &Path) -> Result<()> {
     let schema_package: schema::Package = extract_schema_from_file(schema_json)?;
