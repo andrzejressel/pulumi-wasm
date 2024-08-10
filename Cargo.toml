@@ -17,6 +17,8 @@ members = [
     "providers/pulumi_wasm_provider_docker_rust",
     "providers/pulumi_wasm_provider_random",
     "providers/pulumi_wasm_provider_random_rust",
+    "providers/pulumi_wasm_provider_cloudflare",
+    "providers/pulumi_wasm_provider_cloudflare_rust",
     # DO NOT EDIT - END
     "pulumi_wasm",
     "pulumi_wasm_common",

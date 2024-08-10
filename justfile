@@ -38,6 +38,7 @@ build-wasm-components:
     cargo component build \
       -p pulumi_wasm_docker_provider \
       -p pulumi_wasm_random_provider \
+      -p pulumi_wasm_cloudflare_provider \
       --timings
     # DO NOT EDIT - BUILD-WASM-COMPONENTS - END
     cargo build -p pulumi_wasm_runner --timings
@@ -62,6 +63,8 @@ regenerate-providers:
     cargo run -p pulumi_wasm_generator -- gen-rust     --remove true --schema providers/docker.json --output providers/pulumi_wasm_provider_docker_rust
     cargo run -p pulumi_wasm_generator -- gen-provider --remove true --schema providers/random.json --output providers/pulumi_wasm_provider_random
     cargo run -p pulumi_wasm_generator -- gen-rust     --remove true --schema providers/random.json --output providers/pulumi_wasm_provider_random_rust
+    cargo run -p pulumi_wasm_generator -- gen-provider --remove true --schema providers/cloudflare.json --output providers/pulumi_wasm_provider_cloudflare
+    cargo run -p pulumi_wasm_generator -- gen-rust     --remove true --schema providers/cloudflare.json --output providers/pulumi_wasm_provider_cloudflare_rust
 # DO NOT EDIT - REGENERATE-PROVIDERS - END
 
 publish:
