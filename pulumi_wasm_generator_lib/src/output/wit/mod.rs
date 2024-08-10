@@ -10,13 +10,11 @@ static DEPENDENCIES: &str = include_str!("dependencies.handlebars");
 #[derive(Serialize)]
 struct Argument {
     name: String,
-    // r#type: String,
 }
 
 #[derive(Serialize)]
 struct Result {
     name: String,
-    // r#type: String,
 }
 
 #[derive(Serialize)]
@@ -37,7 +35,7 @@ struct Package {
 
 fn convert_model(package: &crate::model::Package) -> Package {
     Package {
-        name: create_valid_id(&package.name),
+        name: package.get_wit_name(),
         version: package.version.clone(),
         pulumi_wasm_version: get_main_version().to_string(),
         pulumi_wasm_version_stringify: get_main_version_stringify().to_string(),
@@ -45,51 +43,24 @@ fn convert_model(package: &crate::model::Package) -> Package {
             .resources
             .iter()
             .map(|(element_id, resource)| Interface {
-                name: create_valid_element_id(element_id),
+                name: element_id.get_wit_interface_name(),
                 arguments: resource
                     .input_properties
                     .iter()
                     .map(|input_property| Argument {
-                        name: create_valid_id(&input_property.name),
+                        name: input_property.get_wit_argument_name(),
                     })
                     .collect(),
                 results: resource
                     .output_properties
                     .iter()
                     .map(|output_property| Result {
-                        name: create_valid_id(&output_property.name),
+                        name: output_property.get_wit_argument_name(),
                     })
                     .collect(),
             })
             .collect(),
     }
-}
-
-fn create_valid_element_id(element_id: &ElementId) -> String {
-    let mut vec = element_id.namespace.clone();
-    vec.push(element_id.name.clone());
-    create_valid_id(&vec.join("-"))
-}
-
-fn create_valid_id(s: &str) -> String {
-    let result: String = s
-        .chars()
-        .map(|c| {
-            if c.is_uppercase() {
-                format!("-{}", c.to_lowercase())
-            } else if !c.is_alphanumeric() {
-                "-".to_string()
-            } else {
-                c.to_string()
-            }
-        })
-        .collect();
-
-    let result = replace_multiple_dashes(&result);
-    let result = result.trim_matches('-').to_string();
-    let result = format!("%{result}");
-
-    result
 }
 
 pub(crate) fn generate_wit(package: &crate::model::Package) -> anyhow::Result<String> {

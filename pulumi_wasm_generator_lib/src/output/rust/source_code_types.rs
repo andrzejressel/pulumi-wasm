@@ -17,11 +17,9 @@ struct Property {
 
 #[derive(Serialize)]
 struct RefType {
-    name: String,
+    // name: String,
     fields: Vec<Property>,
     struct_name: String,
-    function_name: String,
-    wit_name: String,
 }
 
 #[derive(Serialize)]
@@ -41,18 +39,13 @@ fn convert_model(package: &crate::model::Package) -> Package {
     let mut real_types = Vec::new();
     let mut aliases = Vec::new();
 
-    package.types.iter().for_each(|(element_id, resource)| {
-        match resource {
+    package
+        .types
+        .iter()
+        .for_each(|(element_id, resource)| match resource {
             GlobalType::Object(properties) => {
                 let ref_type = RefType {
-                    name: create_valid_element_id(element_id),
                     struct_name: element_id.name.clone(),
-                    function_name: element_id
-                        .name
-                        .clone()
-                        .from_case(Case::UpperCamel)
-                        .to_case(Case::Snake),
-                    wit_name: create_valid_wit_element_id(element_id),
                     fields: properties
                         .iter()
                         .map(|global_type_property| Property {
@@ -62,9 +55,7 @@ fn convert_model(package: &crate::model::Package) -> Package {
                                 .from_case(Case::Camel)
                                 .to_case(Case::Snake),
                             original_name: global_type_property.name.clone(),
-                            // arg_name: create_valid_id(&global_type_property.name),
                             type_: convert_type(&global_type_property.r#type),
-                            // wit_name: convert_to_wit_name(&create_valid_wit_id(&global_type_property.name)),
                         })
                         .collect(),
                 };
@@ -86,69 +77,13 @@ fn convert_model(package: &crate::model::Package) -> Package {
                 name: element_id.name.to_string(),
                 type_: "i32".to_string(),
             }),
-        }
-    });
+        });
 
     Package {
         name: package.name.clone(),
         types: real_types,
         aliases,
     }
-}
-
-fn convert_to_wit_name(s: &str) -> String {
-    s.replace('-', "_")
-}
-
-fn create_valid_element_id(element_id: &ElementId) -> String {
-    let mut vec = element_id.namespace.clone();
-    vec.push(element_id.name.clone());
-    create_valid_id(&vec.join("-"))
-}
-
-fn create_valid_id(s: &str) -> String {
-    let result: String = s
-        .chars()
-        .map(|c| {
-            if c.is_uppercase() {
-                format!("-{}", c.to_lowercase())
-            } else if !c.is_alphanumeric() {
-                "-".to_string()
-            } else {
-                c.to_string()
-            }
-        })
-        .collect();
-
-    let result = replace_multiple_dashes(&result);
-    let result = result.trim_matches('-').to_string();
-
-    result.replace('-', "_")
-}
-
-fn create_valid_wit_element_id(element_id: &ElementId) -> String {
-    let mut vec = element_id.namespace.clone();
-    vec.push(element_id.name.clone());
-    create_valid_id(&vec.join("-"))
-}
-
-fn create_valid_wit_id(s: &str) -> String {
-    let result: String = s
-        .chars()
-        .map(|c| {
-            if c.is_uppercase() {
-                format!("-{}", c.to_lowercase())
-            } else if !c.is_alphanumeric() {
-                "-".to_string()
-            } else {
-                c.to_string()
-            }
-        })
-        .collect();
-
-    let result = replace_multiple_dashes(&result);
-    let result = result.trim_matches('-').to_string();
-    result
 }
 
 pub(crate) fn generate_source_code(package: &crate::model::Package) -> String {

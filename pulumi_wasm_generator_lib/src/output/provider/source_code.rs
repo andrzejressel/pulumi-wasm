@@ -43,14 +43,14 @@ fn convert_model(package: &crate::model::Package) -> Package {
             .resources
             .iter()
             .map(|(element_id, resource)| Interface {
-                name: create_valid_element_id(element_id),
+                name: element_id.get_rust_namespace_name(),
                 r#type: element_id.raw.clone(),
                 input_properties: resource
                     .input_properties
                     .iter()
                     .map(|input_property| InputProperty {
                         name: input_property.name.clone(),
-                        arg_name: create_valid_id(&input_property.name),
+                        arg_name: input_property.get_rust_argument_name(),
                     })
                     .collect(),
                 output_properties: resource
@@ -58,7 +58,7 @@ fn convert_model(package: &crate::model::Package) -> Package {
                     .iter()
                     .map(|output_property| OutputProperty {
                         name: output_property.name.clone(),
-                        arg_name: create_valid_id(&output_property.name),
+                        arg_name: output_property.get_rust_argument_name(),
                         required: !matches!(output_property.r#type, Type::Option(_)),
                     })
                     .collect(),
