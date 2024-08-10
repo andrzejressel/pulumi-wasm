@@ -17,6 +17,10 @@ extra:
       find what they're searching for. With your consent, you're helping us to
       make our documentation better.
 
+copyright: >
+  Copyright &copy; 2024 - 2024 Pulumi WASM project –
+  <a href="#__consent">Change cookie settings</a>
+
 markdown_extensions:
   - pymdownx.superfences:
       custom_fences:
