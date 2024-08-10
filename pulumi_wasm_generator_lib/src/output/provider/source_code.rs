@@ -67,32 +67,6 @@ fn convert_model(package: &crate::model::Package) -> Package {
     }
 }
 
-fn create_valid_element_id(element_id: &ElementId) -> String {
-    let mut vec = element_id.namespace.clone();
-    vec.push(element_id.name.clone());
-    create_valid_id(&vec.join("-"))
-}
-
-fn create_valid_id(s: &str) -> String {
-    let result: String = s
-        .chars()
-        .map(|c| {
-            if c.is_uppercase() {
-                format!("-{}", c.to_lowercase())
-            } else if !c.is_alphanumeric() {
-                "-".to_string()
-            } else {
-                c.to_string()
-            }
-        })
-        .collect();
-
-    let result = replace_multiple_dashes(&result);
-    let result = result.trim_matches('-').to_string();
-
-    result.replace('-', "_")
-}
-
 pub(crate) fn generate_source_code(package: &crate::model::Package) -> String {
     let handlebars = Handlebars::new();
     handlebars
