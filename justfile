@@ -34,14 +34,17 @@ build-wasm-components:
     cargo component build -p pulumi_wasm_example_docker --timings
     cargo component build -p pulumi_wasm_example_dependencies --timings
     cargo component build -p pulumi_wasm_example_multiple_providers --timings
-    # DO NOT EDIT - BUILD-WASM-COMPONENTS - START
+    just build-wasm-providers
+    cargo build -p pulumi_wasm_runner --timings
+
+# DO NOT EDIT - BUILD-WASM-COMPONENTS - START
+build-wasm-providers:
     cargo component build \
       -p pulumi_wasm_docker_provider \
       -p pulumi_wasm_random_provider \
       -p pulumi_wasm_cloudflare_provider \
       --timings
-    # DO NOT EDIT - BUILD-WASM-COMPONENTS - END
-    cargo build -p pulumi_wasm_runner --timings
+# DO NOT EDIT - BUILD-WASM-COMPONENTS - END
 
 check:
     cargo fmt --all -- --check
@@ -76,9 +79,15 @@ publish:
     cargo publish -p pulumi_wasm_generator_lib --allow-dirty --all-features
     cargo publish -p pulumi_wasm_generator --allow-dirty --all-features
     cargo publish -p pulumi_wasm_core --allow-dirty --all-features
-    cargo publish -p pulumi_wasm_docker --allow-dirty --all-features
-    cargo publish -p pulumi_wasm_random --allow-dirty --all-features
     cargo publish -p pulumi_wasm_runner --allow-dirty --all-features
+    just publish-providers
+
+# DO NOT EDIT - PUBLISH-PROVIDERS - START
+publish-providers:
+    cargo publish -p pulumi_wasm_docker
+    cargo publish -p pulumi_wasm_random
+    cargo publish -p pulumi_wasm_cloudflare
+# DO NOT EDIT - PUBLISH-PROVIDERS - END
 
 test:
     cargo nextest run --workspace --timings
