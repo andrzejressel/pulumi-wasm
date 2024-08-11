@@ -88,3 +88,16 @@ update-version NEW_VERSION:
     "providers/pulumi_wasm_provider_docker_rust/Cargo.toml" \
     "providers/pulumi_wasm_provider_random_rust/Cargo.toml" \
     "Cargo.toml"
+
+[windows]
+test-knapsack KNAPSACK_API_TOKEN:
+    #!pwsh
+    $env:GITHUB_SHA = "{{uuid()}}"
+    $env:GITHUB_RUN_ID = "{{uuid()}}"
+    $env:GITHUB_REF = "{{uuid()}}"
+    $env:KNAPSACK_PRO_CI_NODE_TOTAL = "2"
+    $env:KNAPSACK_PRO_CI_NODE_INDEX = "0"
+    $env:KNAPSACK_PRO_TEST_SUITE_TOKEN = "{{KNAPSACK_API_TOKEN}}"
+    cargo nextest-knapsack
+    $env:KNAPSACK_PRO_CI_NODE_INDEX = "1"
+    cargo nextest-knapsack
