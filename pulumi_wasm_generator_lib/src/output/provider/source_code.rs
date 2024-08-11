@@ -1,5 +1,3 @@
-use crate::model::{ElementId, Type};
-use crate::output::replace_multiple_dashes;
 use handlebars::Handlebars;
 
 use serde::Serialize;
@@ -17,7 +15,6 @@ struct InputProperty {
 struct OutputProperty {
     name: String,
     arg_name: String,
-    required: bool,
 }
 
 #[derive(Serialize)]
@@ -43,14 +40,14 @@ fn convert_model(package: &crate::model::Package) -> Package {
             .resources
             .iter()
             .map(|(element_id, resource)| Interface {
-                name: create_valid_element_id(element_id),
+                name: element_id.get_rust_namespace_name(),
                 r#type: element_id.raw.clone(),
                 input_properties: resource
                     .input_properties
                     .iter()
                     .map(|input_property| InputProperty {
                         name: input_property.name.clone(),
-                        arg_name: create_valid_id(&input_property.name),
+                        arg_name: input_property.get_rust_argument_name(),
                     })
                     .collect(),
                 output_properties: resource
@@ -58,39 +55,12 @@ fn convert_model(package: &crate::model::Package) -> Package {
                     .iter()
                     .map(|output_property| OutputProperty {
                         name: output_property.name.clone(),
-                        arg_name: create_valid_id(&output_property.name),
-                        required: !matches!(output_property.r#type, Type::Option(_)),
+                        arg_name: output_property.get_rust_argument_name(),
                     })
                     .collect(),
             })
             .collect(),
     }
-}
-
-fn create_valid_element_id(element_id: &ElementId) -> String {
-    let mut vec = element_id.namespace.clone();
-    vec.push(element_id.name.clone());
-    create_valid_id(&vec.join("-"))
-}
-
-fn create_valid_id(s: &str) -> String {
-    let result: String = s
-        .chars()
-        .map(|c| {
-            if c.is_uppercase() {
-                format!("-{}", c.to_lowercase())
-            } else if !c.is_alphanumeric() {
-                "-".to_string()
-            } else {
-                c.to_string()
-            }
-        })
-        .collect();
-
-    let result = replace_multiple_dashes(&result);
-    let result = result.trim_matches('-').to_string();
-
-    result.replace('-', "_")
 }
 
 pub(crate) fn generate_source_code(package: &crate::model::Package) -> String {

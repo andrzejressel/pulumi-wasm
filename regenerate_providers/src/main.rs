@@ -17,6 +17,10 @@ fn main() {
             name: "random",
             version: "4.15.0",
         },
+        Provider {
+            name: "cloudflare",
+            version: "5.24.1",
+        },
     ];
 
     for provider in &providers {
