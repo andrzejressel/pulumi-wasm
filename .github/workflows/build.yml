@@ -107,7 +107,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Ensure no files have changed
-      run: git diff --exit-code
+      run: git add -A && git diff --exit-code
 
     - uses: actions/upload-artifact@v4
       with:
