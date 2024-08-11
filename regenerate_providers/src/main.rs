@@ -68,6 +68,7 @@ fn update_justfile(providers: &[Provider]) {
     let content = fs::read_to_string("justfile").expect("Failed to read justfile");
     let content = replace_regenerate_providers(providers, &content);
     let content = replace_build_wasm_components(providers, &content);
+    let content = replace_publish_wasm_components(providers, &content);
 
     fs::write("justfile", content).expect("Failed to write to justfile");
 }
@@ -86,6 +87,8 @@ fn replace_regenerate_providers(providers: &[Provider], content: &str) -> String
 
 fn replace_build_wasm_components(providers: &[Provider], content: &str) -> String {
     let mut replacement = String::new();
+    replacement.push_str("build-wasm-providers:\n");
+    replacement.push_str("    cargo component build \\\n");
     for provider in providers {
         replacement.push_str(&format!(
             "      -p pulumi_wasm_{}_provider \\\n",
@@ -94,8 +97,23 @@ fn replace_build_wasm_components(providers: &[Provider], content: &str) -> Strin
     }
     replacement.push_str("      --timings\n");
     let start_marker =
-        "    # DO NOT EDIT - BUILD-WASM-COMPONENTS - START\n    cargo component build \\";
-    let end_marker = "    # DO NOT EDIT - BUILD-WASM-COMPONENTS - END";
+        "# DO NOT EDIT - BUILD-WASM-COMPONENTS - START";
+    let end_marker = "# DO NOT EDIT - BUILD-WASM-COMPONENTS - END";
+    replace_between_markers(content, start_marker, end_marker, &replacement)
+}
+
+fn replace_publish_wasm_components(providers: &[Provider], content: &str) -> String {
+    let mut replacement = String::new();
+    replacement.push_str("publish-providers:\n");
+    for provider in providers {
+        replacement.push_str(&format!(
+            "    cargo publish -p pulumi_wasm_{}\n",
+            provider.name
+        ));
+    }
+    let start_marker =
+        "# DO NOT EDIT - PUBLISH-PROVIDERS - START";
+    let end_marker = "# DO NOT EDIT - PUBLISH-PROVIDERS - END";
     replace_between_markers(content, start_marker, end_marker, &replacement)
 }
 
