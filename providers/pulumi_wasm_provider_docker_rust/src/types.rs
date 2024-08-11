@@ -787,7 +787,7 @@ pub struct VolumeLabel {
 }
 
 #[derive(serde::Serialize)]
-pub struct getNetworkIpamConfig {
+pub struct GetNetworkIpamConfig {
     #[serde(rename = "auxAddress")]
     pub r#aux_address: Box<Option<std::collections::HashMap<String, String>>>,
     #[serde(rename = "gateway")]
@@ -799,7 +799,7 @@ pub struct getNetworkIpamConfig {
 }
 
 #[derive(serde::Serialize)]
-pub struct registryAuth {
+pub struct RegistryAuth {
     #[serde(rename = "address")]
     pub r#address: Box<String>,
     #[serde(rename = "authDisabled")]

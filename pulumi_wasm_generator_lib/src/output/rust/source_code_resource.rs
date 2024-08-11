@@ -1,4 +1,3 @@
-use crate::output::rust::convert_type;
 use handlebars::Handlebars;
 use serde::Serialize;
 use serde_json::json;
@@ -50,7 +49,7 @@ fn convert_model(package: &crate::model::Package) -> Package {
                     .map(|input_property| InputProperty {
                         name: input_property.name.clone(),
                         arg_name: input_property.get_rust_argument_name(),
-                        type_: convert_type(&input_property.r#type),
+                        type_: input_property.r#type.get_rust_type(),
                     })
                     .collect(),
                 output_properties: resource
@@ -59,7 +58,7 @@ fn convert_model(package: &crate::model::Package) -> Package {
                     .map(|output_property| OutputProperty {
                         name: output_property.name.clone(),
                         arg_name: output_property.get_rust_argument_name(),
-                        type_: convert_type(&output_property.r#type),
+                        type_: output_property.r#type.get_rust_type(),
                     })
                     .collect(),
             })
