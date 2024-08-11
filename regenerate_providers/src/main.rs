@@ -96,8 +96,7 @@ fn replace_build_wasm_components(providers: &[Provider], content: &str) -> Strin
         ));
     }
     replacement.push_str("      --timings\n");
-    let start_marker =
-        "# DO NOT EDIT - BUILD-WASM-COMPONENTS - START";
+    let start_marker = "# DO NOT EDIT - BUILD-WASM-COMPONENTS - START";
     let end_marker = "# DO NOT EDIT - BUILD-WASM-COMPONENTS - END";
     replace_between_markers(content, start_marker, end_marker, &replacement)
 }
@@ -111,8 +110,7 @@ fn replace_publish_wasm_components(providers: &[Provider], content: &str) -> Str
             provider.name
         ));
     }
-    let start_marker =
-        "# DO NOT EDIT - PUBLISH-PROVIDERS - START";
+    let start_marker = "# DO NOT EDIT - PUBLISH-PROVIDERS - START";
     let end_marker = "# DO NOT EDIT - PUBLISH-PROVIDERS - END";
     replace_between_markers(content, start_marker, end_marker, &replacement)
 }
