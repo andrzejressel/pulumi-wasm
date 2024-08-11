@@ -1,5 +1,4 @@
 use crate::model::GlobalType;
-use crate::output::rust::convert_type;
 use convert_case::{Case, Casing};
 use handlebars::Handlebars;
 use serde::Serialize;
@@ -44,7 +43,7 @@ fn convert_model(package: &crate::model::Package) -> Package {
         .for_each(|(element_id, resource)| match resource {
             GlobalType::Object(properties) => {
                 let ref_type = RefType {
-                    struct_name: element_id.name.clone(),
+                    struct_name: element_id.get_rust_struct_name(),
                     fields: properties
                         .iter()
                         .map(|global_type_property| Property {
@@ -54,7 +53,7 @@ fn convert_model(package: &crate::model::Package) -> Package {
                                 .from_case(Case::Camel)
                                 .to_case(Case::Snake),
                             original_name: global_type_property.name.clone(),
-                            type_: convert_type(&global_type_property.r#type),
+                            type_: global_type_property.r#type.get_rust_type(),
                         })
                         .collect(),
                 };

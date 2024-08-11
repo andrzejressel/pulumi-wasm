@@ -2760,7 +2760,7 @@ pub struct TeamsRuleRuleSettings {
     #[serde(rename = "ipCategories")]
     pub r#ip_categories: Box<Option<bool>>,
     #[serde(rename = "l4override")]
-    pub r#l_4_override: Box<Option<crate::types::TeamsRuleRuleSettingsL4override>>,
+    pub r#l_4_override: Box<Option<crate::types::TeamsRuleRuleSettingsL4Override>>,
     #[serde(rename = "notificationSettings")]
     pub r#notification_settings:
         Box<Option<crate::types::TeamsRuleRuleSettingsNotificationSettings>>,
@@ -2813,7 +2813,7 @@ pub struct TeamsRuleRuleSettingsEgress {
 }
 
 #[derive(serde::Serialize)]
-pub struct TeamsRuleRuleSettingsL4override {
+pub struct TeamsRuleRuleSettingsL4Override {
     #[serde(rename = "ip")]
     pub r#ip: Box<String>,
     #[serde(rename = "port")]
@@ -3414,7 +3414,7 @@ pub struct ZoneSettingsOverrideSettingsSecurityHeader {
 }
 
 #[derive(serde::Serialize)]
-pub struct getAccountRolesRole {
+pub struct GetAccountRolesRole {
     #[serde(rename = "description")]
     pub r#description: Box<Option<String>>,
     #[serde(rename = "id")]
@@ -3424,7 +3424,7 @@ pub struct getAccountRolesRole {
 }
 
 #[derive(serde::Serialize)]
-pub struct getAccountsAccount {
+pub struct GetAccountsAccount {
     #[serde(rename = "enforceTwofactor")]
     pub r#enforce_twofactor: Box<Option<bool>>,
     #[serde(rename = "id")]
@@ -3436,7 +3436,7 @@ pub struct getAccountsAccount {
 }
 
 #[derive(serde::Serialize)]
-pub struct getDevicePostureRulesRule {
+pub struct GetDevicePostureRulesRule {
     #[serde(rename = "description")]
     pub r#description: Box<Option<String>>,
     #[serde(rename = "expiration")]
@@ -3452,7 +3452,7 @@ pub struct getDevicePostureRulesRule {
 }
 
 #[derive(serde::Serialize)]
-pub struct getDevicesDevice {
+pub struct GetDevicesDevice {
     #[serde(rename = "created")]
     pub r#created: Box<Option<String>>,
     #[serde(rename = "deleted")]
@@ -3498,7 +3498,7 @@ pub struct getDevicesDevice {
 }
 
 #[derive(serde::Serialize)]
-pub struct getDlpDatasetsDataset {
+pub struct GetDlpDatasetsDataset {
     #[serde(rename = "description")]
     pub r#description: Box<String>,
     #[serde(rename = "id")]
@@ -3512,7 +3512,7 @@ pub struct getDlpDatasetsDataset {
 }
 
 #[derive(serde::Serialize)]
-pub struct getListsList {
+pub struct GetListsList {
     #[serde(rename = "description")]
     pub r#description: Box<Option<String>>,
     #[serde(rename = "id")]
@@ -3526,13 +3526,13 @@ pub struct getListsList {
 }
 
 #[derive(serde::Serialize)]
-pub struct getLoadBalancerPoolsFilter {
+pub struct GetLoadBalancerPoolsFilter {
     #[serde(rename = "name")]
     pub r#name: Box<Option<String>>,
 }
 
 #[derive(serde::Serialize)]
-pub struct getLoadBalancerPoolsPool {
+pub struct GetLoadBalancerPoolsPool {
     #[serde(rename = "checkRegions")]
     pub r#check_regions: Box<Vec<String>>,
     #[serde(rename = "createdOn")]
@@ -3546,7 +3546,7 @@ pub struct getLoadBalancerPoolsPool {
     #[serde(rename = "latitude")]
     pub r#latitude: Box<f64>,
     #[serde(rename = "loadSheddings")]
-    pub r#load_sheddings: Box<Vec<crate::types::getLoadBalancerPoolsPoolLoadShedding>>,
+    pub r#load_sheddings: Box<Vec<crate::types::GetLoadBalancerPoolsPoolLoadShedding>>,
     #[serde(rename = "longitude")]
     pub r#longitude: Box<f64>,
     #[serde(rename = "minimumOrigins")]
@@ -3560,11 +3560,11 @@ pub struct getLoadBalancerPoolsPool {
     #[serde(rename = "notificationEmail")]
     pub r#notification_email: Box<String>,
     #[serde(rename = "origins")]
-    pub r#origins: Box<Vec<crate::types::getLoadBalancerPoolsPoolOrigin>>,
+    pub r#origins: Box<Vec<crate::types::GetLoadBalancerPoolsPoolOrigin>>,
 }
 
 #[derive(serde::Serialize)]
-pub struct getLoadBalancerPoolsPoolLoadShedding {
+pub struct GetLoadBalancerPoolsPoolLoadShedding {
     #[serde(rename = "defaultPercent")]
     pub r#default_percent: Box<Option<f64>>,
     #[serde(rename = "defaultPolicy")]
@@ -3576,13 +3576,13 @@ pub struct getLoadBalancerPoolsPoolLoadShedding {
 }
 
 #[derive(serde::Serialize)]
-pub struct getLoadBalancerPoolsPoolOrigin {
+pub struct GetLoadBalancerPoolsPoolOrigin {
     #[serde(rename = "address")]
     pub r#address: Box<String>,
     #[serde(rename = "enabled")]
     pub r#enabled: Box<Option<bool>>,
     #[serde(rename = "headers")]
-    pub r#headers: Box<Option<Vec<crate::types::getLoadBalancerPoolsPoolOriginHeader>>>,
+    pub r#headers: Box<Option<Vec<crate::types::GetLoadBalancerPoolsPoolOriginHeader>>>,
     #[serde(rename = "name")]
     pub r#name: Box<String>,
     #[serde(rename = "weight")]
@@ -3590,7 +3590,7 @@ pub struct getLoadBalancerPoolsPoolOrigin {
 }
 
 #[derive(serde::Serialize)]
-pub struct getLoadBalancerPoolsPoolOriginHeader {
+pub struct GetLoadBalancerPoolsPoolOriginHeader {
     #[serde(rename = "header")]
     pub r#header: Box<String>,
     #[serde(rename = "values")]
@@ -3598,7 +3598,7 @@ pub struct getLoadBalancerPoolsPoolOriginHeader {
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsFilter {
+pub struct GetRulesetsFilter {
     #[serde(rename = "id")]
     pub r#id: Box<Option<String>>,
     #[serde(rename = "kind")]
@@ -3612,7 +3612,7 @@ pub struct getRulesetsFilter {
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRuleset {
+pub struct GetRulesetsRuleset {
     #[serde(rename = "description")]
     pub r#description: Box<Option<String>>,
     #[serde(rename = "id")]
@@ -3624,24 +3624,24 @@ pub struct getRulesetsRuleset {
     #[serde(rename = "phase")]
     pub r#phase: Box<String>,
     #[serde(rename = "rules")]
-    pub r#rules: Box<Option<Vec<crate::types::getRulesetsRulesetRule>>>,
+    pub r#rules: Box<Option<Vec<crate::types::GetRulesetsRulesetRule>>>,
     #[serde(rename = "version")]
     pub r#version: Box<String>,
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRule {
+pub struct GetRulesetsRulesetRule {
     #[serde(rename = "action")]
     pub r#action: Box<Option<String>>,
     #[serde(rename = "actionParameters")]
-    pub r#action_parameters: Box<Option<crate::types::getRulesetsRulesetRuleActionParameters>>,
+    pub r#action_parameters: Box<Option<crate::types::GetRulesetsRulesetRuleActionParameters>>,
     #[serde(rename = "description")]
     pub r#description: Box<Option<String>>,
     #[serde(rename = "enabled")]
     pub r#enabled: Box<Option<bool>>,
     #[serde(rename = "exposedCredentialCheck")]
     pub r#exposed_credential_check:
-        Box<Option<crate::types::getRulesetsRulesetRuleExposedCredentialCheck>>,
+        Box<Option<crate::types::GetRulesetsRulesetRuleExposedCredentialCheck>>,
     #[serde(rename = "expression")]
     pub r#expression: Box<String>,
     #[serde(rename = "id")]
@@ -3649,9 +3649,9 @@ pub struct getRulesetsRulesetRule {
     #[serde(rename = "lastUpdated")]
     pub r#last_updated: Box<Option<String>>,
     #[serde(rename = "logging")]
-    pub r#logging: Box<Option<crate::types::getRulesetsRulesetRuleLogging>>,
+    pub r#logging: Box<Option<crate::types::GetRulesetsRulesetRuleLogging>>,
     #[serde(rename = "ratelimit")]
-    pub r#ratelimit: Box<Option<crate::types::getRulesetsRulesetRuleRatelimit>>,
+    pub r#ratelimit: Box<Option<crate::types::GetRulesetsRulesetRuleRatelimit>>,
     #[serde(rename = "ref")]
     pub r#ref: Box<String>,
     #[serde(rename = "version")]
@@ -3659,22 +3659,22 @@ pub struct getRulesetsRulesetRule {
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleActionParameters {
+pub struct GetRulesetsRulesetRuleActionParameters {
     #[serde(rename = "additionalCacheablePorts")]
     pub r#additional_cacheable_ports: Box<Option<Vec<i32>>>,
     #[serde(rename = "automaticHttpsRewrites")]
     pub r#automatic_https_rewrites: Box<Option<bool>>,
     #[serde(rename = "autominifies")]
     pub r#autominifies:
-        Box<Option<Vec<crate::types::getRulesetsRulesetRuleActionParametersAutominify>>>,
+        Box<Option<Vec<crate::types::GetRulesetsRulesetRuleActionParametersAutominify>>>,
     #[serde(rename = "bic")]
     pub r#bic: Box<Option<bool>>,
     #[serde(rename = "browserTtl")]
-    pub r#browser_ttl: Box<Option<crate::types::getRulesetsRulesetRuleActionParametersBrowserTtl>>,
+    pub r#browser_ttl: Box<Option<crate::types::GetRulesetsRulesetRuleActionParametersBrowserTtl>>,
     #[serde(rename = "cache")]
     pub r#cache: Box<Option<bool>>,
     #[serde(rename = "cacheKey")]
-    pub r#cache_key: Box<Option<crate::types::getRulesetsRulesetRuleActionParametersCacheKey>>,
+    pub r#cache_key: Box<Option<crate::types::GetRulesetsRulesetRuleActionParametersCacheKey>>,
     #[serde(rename = "content")]
     pub r#content: Box<Option<String>>,
     #[serde(rename = "contentType")]
@@ -3688,15 +3688,15 @@ pub struct getRulesetsRulesetRuleActionParameters {
     #[serde(rename = "disableZaraz")]
     pub r#disable_zaraz: Box<Option<bool>>,
     #[serde(rename = "edgeTtl")]
-    pub r#edge_ttl: Box<Option<crate::types::getRulesetsRulesetRuleActionParametersEdgeTtl>>,
+    pub r#edge_ttl: Box<Option<crate::types::GetRulesetsRulesetRuleActionParametersEdgeTtl>>,
     #[serde(rename = "emailObfuscation")]
     pub r#email_obfuscation: Box<Option<bool>>,
     #[serde(rename = "fromList")]
-    pub r#from_list: Box<Option<crate::types::getRulesetsRulesetRuleActionParametersFromList>>,
+    pub r#from_list: Box<Option<crate::types::GetRulesetsRulesetRuleActionParametersFromList>>,
     #[serde(rename = "fromValue")]
-    pub r#from_value: Box<Option<crate::types::getRulesetsRulesetRuleActionParametersFromValue>>,
+    pub r#from_value: Box<Option<crate::types::GetRulesetsRulesetRuleActionParametersFromValue>>,
     #[serde(rename = "headers")]
-    pub r#headers: Box<Option<Vec<crate::types::getRulesetsRulesetRuleActionParametersHeader>>>,
+    pub r#headers: Box<Option<Vec<crate::types::GetRulesetsRulesetRuleActionParametersHeader>>>,
     #[serde(rename = "hostHeader")]
     pub r#host_header: Box<Option<String>>,
     #[serde(rename = "hotlinkProtection")]
@@ -3707,19 +3707,19 @@ pub struct getRulesetsRulesetRuleActionParameters {
     pub r#increment: Box<Option<i32>>,
     #[serde(rename = "matchedData")]
     pub r#matched_data:
-        Box<Option<crate::types::getRulesetsRulesetRuleActionParametersMatchedData>>,
+        Box<Option<crate::types::GetRulesetsRulesetRuleActionParametersMatchedData>>,
     #[serde(rename = "mirage")]
     pub r#mirage: Box<Option<bool>>,
     #[serde(rename = "opportunisticEncryption")]
     pub r#opportunistic_encryption: Box<Option<bool>>,
     #[serde(rename = "origin")]
-    pub r#origin: Box<Option<crate::types::getRulesetsRulesetRuleActionParametersOrigin>>,
+    pub r#origin: Box<Option<crate::types::GetRulesetsRulesetRuleActionParametersOrigin>>,
     #[serde(rename = "originCacheControl")]
     pub r#origin_cache_control: Box<Option<bool>>,
     #[serde(rename = "originErrorPagePassthru")]
     pub r#origin_error_page_passthru: Box<Option<bool>>,
     #[serde(rename = "overrides")]
-    pub r#overrides: Box<Option<crate::types::getRulesetsRulesetRuleActionParametersOverrides>>,
+    pub r#overrides: Box<Option<crate::types::GetRulesetsRulesetRuleActionParametersOverrides>>,
     #[serde(rename = "phases")]
     pub r#phases: Box<Option<Vec<String>>>,
     #[serde(rename = "polish")]
@@ -3735,7 +3735,7 @@ pub struct getRulesetsRulesetRuleActionParameters {
     #[serde(rename = "responseFields")]
     pub r#response_fields: Box<Option<Vec<String>>>,
     #[serde(rename = "responses")]
-    pub r#responses: Box<Option<Vec<crate::types::getRulesetsRulesetRuleActionParametersResponse>>>,
+    pub r#responses: Box<Option<Vec<crate::types::GetRulesetsRulesetRuleActionParametersResponse>>>,
     #[serde(rename = "rocketLoader")]
     pub r#rocket_loader: Box<Option<bool>>,
     #[serde(rename = "rules")]
@@ -3747,11 +3747,11 @@ pub struct getRulesetsRulesetRuleActionParameters {
     #[serde(rename = "securityLevel")]
     pub r#security_level: Box<Option<String>>,
     #[serde(rename = "serveStale")]
-    pub r#serve_stale: Box<Option<crate::types::getRulesetsRulesetRuleActionParametersServeStale>>,
+    pub r#serve_stale: Box<Option<crate::types::GetRulesetsRulesetRuleActionParametersServeStale>>,
     #[serde(rename = "serverSideExcludes")]
     pub r#server_side_excludes: Box<Option<bool>>,
     #[serde(rename = "sni")]
-    pub r#sni: Box<Option<crate::types::getRulesetsRulesetRuleActionParametersSni>>,
+    pub r#sni: Box<Option<crate::types::GetRulesetsRulesetRuleActionParametersSni>>,
     #[serde(rename = "ssl")]
     pub r#ssl: Box<Option<String>>,
     #[serde(rename = "statusCode")]
@@ -3759,13 +3759,13 @@ pub struct getRulesetsRulesetRuleActionParameters {
     #[serde(rename = "sxg")]
     pub r#sxg: Box<Option<bool>>,
     #[serde(rename = "uri")]
-    pub r#uri: Box<Option<crate::types::getRulesetsRulesetRuleActionParametersUri>>,
+    pub r#uri: Box<Option<crate::types::GetRulesetsRulesetRuleActionParametersUri>>,
     #[serde(rename = "version")]
     pub r#version: Box<String>,
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleActionParametersAutominify {
+pub struct GetRulesetsRulesetRuleActionParametersAutominify {
     #[serde(rename = "css")]
     pub r#css: Box<Option<bool>>,
     #[serde(rename = "html")]
@@ -3775,7 +3775,7 @@ pub struct getRulesetsRulesetRuleActionParametersAutominify {
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleActionParametersBrowserTtl {
+pub struct GetRulesetsRulesetRuleActionParametersBrowserTtl {
     #[serde(rename = "default")]
     pub r#default: Box<Option<i32>>,
     #[serde(rename = "mode")]
@@ -3783,40 +3783,40 @@ pub struct getRulesetsRulesetRuleActionParametersBrowserTtl {
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleActionParametersCacheKey {
+pub struct GetRulesetsRulesetRuleActionParametersCacheKey {
     #[serde(rename = "cacheByDeviceType")]
     pub r#cache_by_device_type: Box<Option<bool>>,
     #[serde(rename = "cacheDeceptionArmor")]
     pub r#cache_deception_armor: Box<Option<bool>>,
     #[serde(rename = "customKey")]
     pub r#custom_key:
-        Box<Option<crate::types::getRulesetsRulesetRuleActionParametersCacheKeyCustomKey>>,
+        Box<Option<crate::types::GetRulesetsRulesetRuleActionParametersCacheKeyCustomKey>>,
     #[serde(rename = "ignoreQueryStringsOrder")]
     pub r#ignore_query_strings_order: Box<Option<bool>>,
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleActionParametersCacheKeyCustomKey {
+pub struct GetRulesetsRulesetRuleActionParametersCacheKeyCustomKey {
     #[serde(rename = "cookie")]
     pub r#cookie:
-        Box<Option<crate::types::getRulesetsRulesetRuleActionParametersCacheKeyCustomKeyCookie>>,
+        Box<Option<crate::types::GetRulesetsRulesetRuleActionParametersCacheKeyCustomKeyCookie>>,
     #[serde(rename = "header")]
     pub r#header:
-        Box<Option<crate::types::getRulesetsRulesetRuleActionParametersCacheKeyCustomKeyHeader>>,
+        Box<Option<crate::types::GetRulesetsRulesetRuleActionParametersCacheKeyCustomKeyHeader>>,
     #[serde(rename = "host")]
     pub r#host:
-        Box<Option<crate::types::getRulesetsRulesetRuleActionParametersCacheKeyCustomKeyHost>>,
+        Box<Option<crate::types::GetRulesetsRulesetRuleActionParametersCacheKeyCustomKeyHost>>,
     #[serde(rename = "queryString")]
     pub r#query_string: Box<
-        Option<crate::types::getRulesetsRulesetRuleActionParametersCacheKeyCustomKeyQueryString>,
+        Option<crate::types::GetRulesetsRulesetRuleActionParametersCacheKeyCustomKeyQueryString>,
     >,
     #[serde(rename = "user")]
     pub r#user:
-        Box<Option<crate::types::getRulesetsRulesetRuleActionParametersCacheKeyCustomKeyUser>>,
+        Box<Option<crate::types::GetRulesetsRulesetRuleActionParametersCacheKeyCustomKeyUser>>,
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleActionParametersCacheKeyCustomKeyCookie {
+pub struct GetRulesetsRulesetRuleActionParametersCacheKeyCustomKeyCookie {
     #[serde(rename = "checkPresences")]
     pub r#check_presences: Box<Option<Vec<String>>>,
     #[serde(rename = "includes")]
@@ -3824,7 +3824,7 @@ pub struct getRulesetsRulesetRuleActionParametersCacheKeyCustomKeyCookie {
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleActionParametersCacheKeyCustomKeyHeader {
+pub struct GetRulesetsRulesetRuleActionParametersCacheKeyCustomKeyHeader {
     #[serde(rename = "checkPresences")]
     pub r#check_presences: Box<Option<Vec<String>>>,
     #[serde(rename = "excludeOrigin")]
@@ -3834,13 +3834,13 @@ pub struct getRulesetsRulesetRuleActionParametersCacheKeyCustomKeyHeader {
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleActionParametersCacheKeyCustomKeyHost {
+pub struct GetRulesetsRulesetRuleActionParametersCacheKeyCustomKeyHost {
     #[serde(rename = "resolved")]
     pub r#resolved: Box<Option<bool>>,
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleActionParametersCacheKeyCustomKeyQueryString {
+pub struct GetRulesetsRulesetRuleActionParametersCacheKeyCustomKeyQueryString {
     #[serde(rename = "excludes")]
     pub r#excludes: Box<Option<Vec<String>>>,
     #[serde(rename = "includes")]
@@ -3848,7 +3848,7 @@ pub struct getRulesetsRulesetRuleActionParametersCacheKeyCustomKeyQueryString {
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleActionParametersCacheKeyCustomKeyUser {
+pub struct GetRulesetsRulesetRuleActionParametersCacheKeyCustomKeyUser {
     #[serde(rename = "deviceType")]
     pub r#device_type: Box<Option<bool>>,
     #[serde(rename = "geo")]
@@ -3858,28 +3858,28 @@ pub struct getRulesetsRulesetRuleActionParametersCacheKeyCustomKeyUser {
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleActionParametersEdgeTtl {
+pub struct GetRulesetsRulesetRuleActionParametersEdgeTtl {
     #[serde(rename = "default")]
     pub r#default: Box<Option<i32>>,
     #[serde(rename = "mode")]
     pub r#mode: Box<String>,
     #[serde(rename = "statusCodeTtls")]
     pub r#status_code_ttls:
-        Box<Option<Vec<crate::types::getRulesetsRulesetRuleActionParametersEdgeTtlStatusCodeTtl>>>,
+        Box<Option<Vec<crate::types::GetRulesetsRulesetRuleActionParametersEdgeTtlStatusCodeTtl>>>,
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleActionParametersEdgeTtlStatusCodeTtl {
+pub struct GetRulesetsRulesetRuleActionParametersEdgeTtlStatusCodeTtl {
     #[serde(rename = "statusCode")]
     pub r#status_code: Box<Option<i32>>,
     #[serde(rename = "statusCodeRanges")]
-    pub r#status_code_ranges: Box<Option<Vec<crate::types::getRulesetsRulesetRuleActionParametersEdgeTtlStatusCodeTtlStatusCodeRange>>>,
+    pub r#status_code_ranges: Box<Option<Vec<crate::types::GetRulesetsRulesetRuleActionParametersEdgeTtlStatusCodeTtlStatusCodeRange>>>,
     #[serde(rename = "value")]
     pub r#value: Box<i32>,
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleActionParametersEdgeTtlStatusCodeTtlStatusCodeRange {
+pub struct GetRulesetsRulesetRuleActionParametersEdgeTtlStatusCodeTtlStatusCodeRange {
     #[serde(rename = "from")]
     pub r#from: Box<Option<i32>>,
     #[serde(rename = "to")]
@@ -3887,7 +3887,7 @@ pub struct getRulesetsRulesetRuleActionParametersEdgeTtlStatusCodeTtlStatusCodeR
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleActionParametersFromList {
+pub struct GetRulesetsRulesetRuleActionParametersFromList {
     #[serde(rename = "key")]
     pub r#key: Box<String>,
     #[serde(rename = "name")]
@@ -3895,18 +3895,18 @@ pub struct getRulesetsRulesetRuleActionParametersFromList {
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleActionParametersFromValue {
+pub struct GetRulesetsRulesetRuleActionParametersFromValue {
     #[serde(rename = "preserveQueryString")]
     pub r#preserve_query_string: Box<Option<bool>>,
     #[serde(rename = "statusCode")]
     pub r#status_code: Box<Option<i32>>,
     #[serde(rename = "targetUrl")]
     pub r#target_url:
-        Box<Option<crate::types::getRulesetsRulesetRuleActionParametersFromValueTargetUrl>>,
+        Box<Option<crate::types::GetRulesetsRulesetRuleActionParametersFromValueTargetUrl>>,
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleActionParametersFromValueTargetUrl {
+pub struct GetRulesetsRulesetRuleActionParametersFromValueTargetUrl {
     #[serde(rename = "expression")]
     pub r#expression: Box<Option<String>>,
     #[serde(rename = "value")]
@@ -3914,7 +3914,7 @@ pub struct getRulesetsRulesetRuleActionParametersFromValueTargetUrl {
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleActionParametersHeader {
+pub struct GetRulesetsRulesetRuleActionParametersHeader {
     #[serde(rename = "expression")]
     pub r#expression: Box<Option<String>>,
     #[serde(rename = "name")]
@@ -3926,13 +3926,13 @@ pub struct getRulesetsRulesetRuleActionParametersHeader {
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleActionParametersMatchedData {
+pub struct GetRulesetsRulesetRuleActionParametersMatchedData {
     #[serde(rename = "publicKey")]
     pub r#public_key: Box<Option<String>>,
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleActionParametersOrigin {
+pub struct GetRulesetsRulesetRuleActionParametersOrigin {
     #[serde(rename = "host")]
     pub r#host: Box<Option<String>>,
     #[serde(rename = "port")]
@@ -3940,17 +3940,17 @@ pub struct getRulesetsRulesetRuleActionParametersOrigin {
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleActionParametersOverrides {
+pub struct GetRulesetsRulesetRuleActionParametersOverrides {
     #[serde(rename = "action")]
     pub r#action: Box<Option<String>>,
     #[serde(rename = "categories")]
     pub r#categories:
-        Box<Option<Vec<crate::types::getRulesetsRulesetRuleActionParametersOverridesCategory>>>,
+        Box<Option<Vec<crate::types::GetRulesetsRulesetRuleActionParametersOverridesCategory>>>,
     #[serde(rename = "enabled")]
     pub r#enabled: Box<Option<bool>>,
     #[serde(rename = "rules")]
     pub r#rules:
-        Box<Option<Vec<crate::types::getRulesetsRulesetRuleActionParametersOverridesRule>>>,
+        Box<Option<Vec<crate::types::GetRulesetsRulesetRuleActionParametersOverridesRule>>>,
     #[serde(rename = "sensitivityLevel")]
     pub r#sensitivity_level: Box<Option<String>>,
     #[serde(rename = "status")]
@@ -3958,7 +3958,7 @@ pub struct getRulesetsRulesetRuleActionParametersOverrides {
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleActionParametersOverridesCategory {
+pub struct GetRulesetsRulesetRuleActionParametersOverridesCategory {
     #[serde(rename = "action")]
     pub r#action: Box<Option<String>>,
     #[serde(rename = "category")]
@@ -3970,7 +3970,7 @@ pub struct getRulesetsRulesetRuleActionParametersOverridesCategory {
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleActionParametersOverridesRule {
+pub struct GetRulesetsRulesetRuleActionParametersOverridesRule {
     #[serde(rename = "action")]
     pub r#action: Box<Option<String>>,
     #[serde(rename = "enabled")]
@@ -3986,7 +3986,7 @@ pub struct getRulesetsRulesetRuleActionParametersOverridesRule {
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleActionParametersResponse {
+pub struct GetRulesetsRulesetRuleActionParametersResponse {
     #[serde(rename = "content")]
     pub r#content: Box<Option<String>>,
     #[serde(rename = "contentType")]
@@ -3996,29 +3996,29 @@ pub struct getRulesetsRulesetRuleActionParametersResponse {
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleActionParametersServeStale {
+pub struct GetRulesetsRulesetRuleActionParametersServeStale {
     #[serde(rename = "disableStaleWhileUpdating")]
     pub r#disable_stale_while_updating: Box<Option<bool>>,
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleActionParametersSni {
+pub struct GetRulesetsRulesetRuleActionParametersSni {
     #[serde(rename = "value")]
     pub r#value: Box<Option<String>>,
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleActionParametersUri {
+pub struct GetRulesetsRulesetRuleActionParametersUri {
     #[serde(rename = "origin")]
     pub r#origin: Box<Option<bool>>,
     #[serde(rename = "path")]
-    pub r#path: Box<Option<crate::types::getRulesetsRulesetRuleActionParametersUriPath>>,
+    pub r#path: Box<Option<crate::types::GetRulesetsRulesetRuleActionParametersUriPath>>,
     #[serde(rename = "query")]
-    pub r#query: Box<Option<crate::types::getRulesetsRulesetRuleActionParametersUriQuery>>,
+    pub r#query: Box<Option<crate::types::GetRulesetsRulesetRuleActionParametersUriQuery>>,
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleActionParametersUriPath {
+pub struct GetRulesetsRulesetRuleActionParametersUriPath {
     #[serde(rename = "expression")]
     pub r#expression: Box<Option<String>>,
     #[serde(rename = "value")]
@@ -4026,7 +4026,7 @@ pub struct getRulesetsRulesetRuleActionParametersUriPath {
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleActionParametersUriQuery {
+pub struct GetRulesetsRulesetRuleActionParametersUriQuery {
     #[serde(rename = "expression")]
     pub r#expression: Box<Option<String>>,
     #[serde(rename = "value")]
@@ -4034,7 +4034,7 @@ pub struct getRulesetsRulesetRuleActionParametersUriQuery {
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleExposedCredentialCheck {
+pub struct GetRulesetsRulesetRuleExposedCredentialCheck {
     #[serde(rename = "passwordExpression")]
     pub r#password_expression: Box<Option<String>>,
     #[serde(rename = "usernameExpression")]
@@ -4042,7 +4042,7 @@ pub struct getRulesetsRulesetRuleExposedCredentialCheck {
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleLogging {
+pub struct GetRulesetsRulesetRuleLogging {
     #[serde(rename = "enabled")]
     pub r#enabled: Box<Option<bool>>,
     #[serde(rename = "status")]
@@ -4050,7 +4050,7 @@ pub struct getRulesetsRulesetRuleLogging {
 }
 
 #[derive(serde::Serialize)]
-pub struct getRulesetsRulesetRuleRatelimit {
+pub struct GetRulesetsRulesetRuleRatelimit {
     #[serde(rename = "characteristics")]
     pub r#characteristics: Box<Option<Vec<String>>>,
     #[serde(rename = "countingExpression")]
@@ -4070,7 +4070,7 @@ pub struct getRulesetsRulesetRuleRatelimit {
 }
 
 #[derive(serde::Serialize)]
-pub struct getZonesFilter {
+pub struct GetZonesFilter {
     #[serde(rename = "accountId")]
     pub r#account_id: Box<Option<String>>,
     #[serde(rename = "lookupType")]
@@ -4086,7 +4086,7 @@ pub struct getZonesFilter {
 }
 
 #[derive(serde::Serialize)]
-pub struct getZonesZone {
+pub struct GetZonesZone {
     #[serde(rename = "id")]
     pub r#id: Box<Option<String>>,
     #[serde(rename = "name")]
