@@ -36,6 +36,8 @@ jobs:
           python-version: 3.x
       - run: pip install mkdocs-material==9.5.13
       - run: mkdocs build
+        env: # Or as an environment variable
+          GOOGLE_ANALYTICS_TOKEN: ${{ secrets.GOOGLE_ANALYTICS_TOKEN }}
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
