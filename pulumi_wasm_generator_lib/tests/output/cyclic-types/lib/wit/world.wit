@@ -1,0 +1,9 @@
+package pulumi:example@0.0.1-ZERO.ZERO.ZERO-NIGHTLY-eNINESIXEIGHTTHREEdTHREE;
+
+world example-pulumi {
+    import component:pulumi-wasm/register-interface@0.0.0-NIGHTLY-e9683d3;
+}
+
+world example-pulumi-client {
+}
+

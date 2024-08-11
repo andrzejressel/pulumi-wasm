@@ -1,6 +1,6 @@
 [package]
-name = "pulumi_wasm_docker"
-version = "4.5.3-0.0.0-NIGHTLY-e9683d3"
+name = "pulumi_wasm_example"
+version = "0.0.1-0.0.0-NIGHTLY-e9683d3"
 edition = "2021"
 
 [dependencies]
@@ -10,4 +10,4 @@ serde.workspace = true
 automod.workspace = true
 
 [package.metadata.pulumi]
-related_crate = "pulumi_wasm_docker_provider"
+related_crate = "pulumi_wasm_example_provider"

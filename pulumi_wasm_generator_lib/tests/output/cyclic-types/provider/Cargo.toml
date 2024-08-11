@@ -1,5 +1,5 @@
 [package]
-name = "pulumi_wasm_aws-native_provider"
+name = "pulumi_wasm_example_provider"
 version = "0.0.1-0.0.0-NIGHTLY-e9683d3"
 edition = "2021"
 
@@ -13,11 +13,11 @@ wit-bindgen-rt.workspace = true
 pulumi_wasm_common.workspace = true
 
 [package.metadata.component]
-package = "pulumi:aws-native"
+package = "pulumi:example"
 
 [package.metadata.component.target]
 path = "wit"
-world = "aws-native-pulumi"
+world = "example-pulumi"
 
 [package.metadata.component.target.dependencies]
 "component:pulumi-wasm" = { path = "wit/deps/pulumi-wasm.wit" }
