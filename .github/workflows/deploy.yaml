@@ -108,11 +108,8 @@ jobs:
           save-if: false
           workspaces: |
             ./
-            pulumi_wasm_generator_lib/tests/output/pulumi_providers/command/
-            pulumi_wasm_generator_lib/tests/output/pulumi_providers/docker/
-            pulumi_wasm_generator_lib/tests/output/pulumi_providers/random/
-            pulumi_wasm_generator_lib/tests/output/pulumi_tests/cyclic-types/
-            pulumi_wasm_generator_lib/tests/output/pulumi_tests/mini-awsnative/
+            pulumi_wasm_generator_lib/tests/output/cyclic-types/
+            pulumi_wasm_generator_lib/tests/output/mini-awsnative/
 
       - name: Build
         run: just build-wasm-components
@@ -247,11 +244,8 @@ jobs:
           save-if: false
           workspaces: |
             ./
-            pulumi_wasm_generator_lib/tests/output/pulumi_providers/command/
-            pulumi_wasm_generator_lib/tests/output/pulumi_providers/docker/
-            pulumi_wasm_generator_lib/tests/output/pulumi_providers/random/
-            pulumi_wasm_generator_lib/tests/output/pulumi_tests/cyclic-types/
-            pulumi_wasm_generator_lib/tests/output/pulumi_tests/mini-awsnative/
+            pulumi_wasm_generator_lib/tests/output/cyclic-types/
+            pulumi_wasm_generator_lib/tests/output/mini-awsnative/
 
       - name: Add target
         run: rustup target add ${{ matrix.rust-target }}

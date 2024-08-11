@@ -92,11 +92,8 @@ jobs:
         shared-key: build
         workspaces: |
           ./
-          pulumi_wasm_generator_lib/tests/output/pulumi_providers/command/
-          pulumi_wasm_generator_lib/tests/output/pulumi_providers/docker/
-          pulumi_wasm_generator_lib/tests/output/pulumi_providers/random/
-          pulumi_wasm_generator_lib/tests/output/pulumi_tests/cyclic-types/
-          pulumi_wasm_generator_lib/tests/output/pulumi_tests/mini-awsnative/
+          pulumi_wasm_generator_lib/tests/output/cyclic-types/
+          pulumi_wasm_generator_lib/tests/output/mini-awsnative/
     - name: Regenerate provider list
       run: just regenerate-provider-list
     - name: Check
@@ -187,11 +184,8 @@ jobs:
         save-if: false
         workspaces: |
           ./
-          pulumi_wasm_generator_lib/tests/output/pulumi_providers/command/
-          pulumi_wasm_generator_lib/tests/output/pulumi_providers/docker/
-          pulumi_wasm_generator_lib/tests/output/pulumi_providers/random/
-          pulumi_wasm_generator_lib/tests/output/pulumi_tests/cyclic-types/
-          pulumi_wasm_generator_lib/tests/output/pulumi_tests/mini-awsnative/
+          pulumi_wasm_generator_lib/tests/output/cyclic-types/
+          pulumi_wasm_generator_lib/tests/output/mini-awsnative/
 
     - uses: benjlevesque/short-sha@v3.0
       id: short-sha

@@ -147,23 +147,7 @@ impl ElementId {
     }
 
     fn create_valid_id(s: &str) -> String {
-        let result: String = s
-            .chars()
-            .map(|c| {
-                if c.is_uppercase() {
-                    format!("-{}", c.to_lowercase())
-                } else if !c.is_alphanumeric() {
-                    "-".to_string()
-                } else {
-                    c.to_string()
-                }
-            })
-            .collect();
-
-        let result = replace_multiple_dashes(&result);
-        let result = result.trim_matches('-').to_string();
-
-        result.replace('-', "_")
+        Self::create_valid_wit_id(s).replace('-', "_")
     }
 }
 
