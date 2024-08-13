@@ -124,8 +124,8 @@ fn replace_generate_rust_docs(providers: &[Provider], content: &str) -> String {
         replacement.push_str(&format!(" -p pulumi_wasm_{}", provider.name));
     }
     replacement.push('\n');
-    let start_marker = "# DO NOT EXIT - GENERATE-RUST-DOCS - START";
-    let end_marker = "# DO NOT EXIT - GENERATE-RUST-DOCS - END";
+    let start_marker = "# DO NOT EDIT - GENERATE-RUST-DOCS - START";
+    let end_marker = "# DO NOT EDIT - GENERATE-RUST-DOCS - END";
     replace_between_markers(content, start_marker, end_marker, &replacement)
 }
 

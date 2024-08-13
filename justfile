@@ -95,10 +95,10 @@ test:
 docs:
     docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material
 
-# DO NOT EXIT - GENERATE-RUST-DOCS - START
+# DO NOT EDIT - GENERATE-RUST-DOCS - START
 rust-docs:
     cargo doc --no-deps -p pulumi_wasm_rust -p pulumi_wasm_docker -p pulumi_wasm_random -p pulumi_wasm_cloudflare
-# DO NOT EXIT - GENERATE-RUST-DOCS - END
+# DO NOT EDIT - GENERATE-RUST-DOCS - END
 
 update-version NEW_VERSION:
     sd "0.0.0-DEV" "{{NEW_VERSION}}" "pulumi_wasm_wit/wit/world.wit" "pulumi_wasm_rust_macro/src/lib.rs" \
