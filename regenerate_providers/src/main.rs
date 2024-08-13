@@ -126,7 +126,7 @@ fn replace_generate_rust_docs(providers: &[Provider], content: &str) -> String {
             provider.name
         ));
     }
-    replacement.push_str("\n");
+    replacement.push('\n');
     let start_marker = "# DO NOT EXIT - GENERATE-RUST-DOCS - START";
     let end_marker = "# DO NOT EXIT - GENERATE-RUST-DOCS - END";
     replace_between_markers(content, start_marker, end_marker, &replacement)
