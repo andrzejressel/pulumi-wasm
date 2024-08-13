@@ -100,7 +100,6 @@ rust-docs:
     cargo doc --no-deps -p pulumi_wasm_rust -p pulumi_wasm_docker -p pulumi_wasm_random -p pulumi_wasm_cloudflare
 # DO NOT EXIT - GENERATE-RUST-DOCS - END
 
-
 update-version NEW_VERSION:
     sd "0.0.0-DEV" "{{NEW_VERSION}}" "pulumi_wasm_wit/wit/world.wit" "pulumi_wasm_rust_macro/src/lib.rs" \
     "providers/pulumi_wasm_provider_docker_rust/Cargo.toml" \
