@@ -4,6 +4,19 @@ theme:
     scheme: slate
   name: material
   search: true
+  features:
+    - navigation.sections
+
+nav:
+  - index.md
+  - crates.md
+  - rustdoc: "/pulumi-wasm/rust-docs/pulumi_wasm_rust/index.html"
+  - Internal:
+      - Internal/Data passing.md
+      - Internal/Output.md
+      - Internal/Serialization formats.md
+      - Internal/WIT.md
+
 
 extra:
   analytics:
