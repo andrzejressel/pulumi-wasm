@@ -69,6 +69,7 @@ fn update_justfile(providers: &[Provider]) {
     let content = replace_regenerate_providers(providers, &content);
     let content = replace_build_wasm_components(providers, &content);
     let content = replace_publish_wasm_components(providers, &content);
+    let content = replace_generate_rust_docs(providers, &content);
 
     fs::write("justfile", content).expect("Failed to write to justfile");
 }
@@ -112,6 +113,22 @@ fn replace_publish_wasm_components(providers: &[Provider], content: &str) -> Str
     }
     let start_marker = "# DO NOT EDIT - PUBLISH-PROVIDERS - START";
     let end_marker = "# DO NOT EDIT - PUBLISH-PROVIDERS - END";
+    replace_between_markers(content, start_marker, end_marker, &replacement)
+}
+
+fn replace_generate_rust_docs(providers: &[Provider], content: &str) -> String {
+    let mut replacement = String::new();
+    replacement.push_str("rust-docs:\n");
+    replacement.push_str("    cargo doc --no-deps -p pulumi_wasm_rust pulumi_wasm_rust_macro");
+    for provider in providers {
+        replacement.push_str(&format!(
+            " pulumi_wasm_{}",
+            provider.name
+        ));
+    }
+    replacement.push_str("\n");
+    let start_marker = "# DO NOT EXIT - GENERATE-RUST-DOCS - START";
+    let end_marker = "# DO NOT EXIT - GENERATE-RUST-DOCS - END";
     replace_between_markers(content, start_marker, end_marker, &replacement)
 }
 

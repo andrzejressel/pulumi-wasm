@@ -5,6 +5,8 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["deploy-rust-docs"]
+    tags:
+      - '*'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -35,10 +37,13 @@ jobs:
         with:
           python-version: 3.x
       - run: pip install mkdocs-material==9.5.13
+      - uses: extractions/setup-just@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: mkdocs build
         env: # Or as an environment variable
           GOOGLE_ANALYTICS_TOKEN: ${{ secrets.GOOGLE_ANALYTICS_TOKEN }}
-      - run: cargo doc -p pulumi_wasm_rust -p pulumi_wasm_rust_macro -p pulumi_wasm_cloudflare -p pulumi_wasm_docker -p pulumi_wasm_random --no-deps
+      - run: just rust-docs
       - run: cp -R target/doc site/rust-docs
       - name: Setup Pages
         uses: actions/configure-pages@v5
