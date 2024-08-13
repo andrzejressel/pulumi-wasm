@@ -2,7 +2,7 @@ module github.com/andrzejressel/pulumi-wasm/pulumi-language-wasm
 
 go 1.21
 
-toolchain go1.22.6
+toolchain go1.23.0
 
 require (
 	github.com/golang/protobuf v1.5.4
