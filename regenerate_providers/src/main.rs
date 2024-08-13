@@ -121,10 +121,7 @@ fn replace_generate_rust_docs(providers: &[Provider], content: &str) -> String {
     replacement.push_str("rust-docs:\n");
     replacement.push_str("    cargo doc --no-deps -p pulumi_wasm_rust");
     for provider in providers {
-        replacement.push_str(&format!(
-            " -p pulumi_wasm_{}",
-            provider.name
-        ));
+        replacement.push_str(&format!(" -p pulumi_wasm_{}", provider.name));
     }
     replacement.push('\n');
     let start_marker = "# DO NOT EXIT - GENERATE-RUST-DOCS - START";
