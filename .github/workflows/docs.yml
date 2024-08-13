@@ -38,6 +38,8 @@ jobs:
       - run: mkdocs build
         env: # Or as an environment variable
           GOOGLE_ANALYTICS_TOKEN: ${{ secrets.GOOGLE_ANALYTICS_TOKEN }}
+      - run: cargo doc -p pulumi_wasm_rust -p pulumi_wasm_rust_macro -p pulumi_wasm_cloudflare -p pulumi_wasm_docker -p pulumi_wasm_random --no-deps
+      - run: cp -R target/doc site/rust-docs
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
