@@ -16,6 +16,31 @@ pub(crate) enum Type {
     Option(Box<Type>),
 }
 
+impl Type {
+    pub(crate) fn get_rust_type(&self) -> String {
+        match self {
+            Type::Boolean => "bool".into(),
+            Type::Integer => "i32".into(),
+            Type::Number => "f64".into(),
+            Type::String => "String".into(),
+            Type::Array(type_) => format!("Vec<{}>", type_.get_rust_type()),
+            Type::Object(type_) => {
+                format!(
+                    "std::collections::HashMap<String, {}>",
+                    type_.get_rust_type()
+                )
+            }
+            Type::Ref(r) => match r {
+                Ref::Type(tpe) => format!("crate::types::{}", tpe.get_rust_struct_name()),
+                Ref::Archive => "String".to_string(), //FIXME
+                Ref::Asset => "String".to_string(),   //FIXME
+                Ref::Any => "String".to_string(),     //FIXME
+            },
+            Type::Option(type_) => format!("Option<{}>", type_.get_rust_type()),
+        }
+    }
+}
+
 #[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
 pub(crate) struct InputProperty {
     pub(crate) name: String,
@@ -101,6 +126,10 @@ pub(crate) struct ElementId {
 }
 
 impl ElementId {
+    pub(crate) fn get_rust_struct_name(&self) -> String {
+        self.name.clone().to_case(Case::Pascal)
+    }
+
     pub(crate) fn get_rust_function_name(&self) -> String {
         self.name
             .clone()
@@ -114,9 +143,6 @@ impl ElementId {
         Self::create_valid_id(&vec.join("-"))
     }
 
-    pub(crate) fn get_wit_argument_name(&self) -> String {
-        Self::create_valid_wit_id(self.name.as_str())
-    }
     pub(crate) fn get_wit_interface_name(&self) -> String {
         let mut vec = self.namespace.clone();
         vec.push(self.name.clone());

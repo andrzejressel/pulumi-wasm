@@ -34,7 +34,7 @@ fn convert_model(package: &crate::model::Package) -> Package {
         interfaces: package
             .resources
             .iter()
-            .map(|(element_id, resource)| Interface {})
+            .map(|(_, _)| Interface {})
             .collect(),
     }
 }
