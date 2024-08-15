@@ -225,8 +225,11 @@ impl Pulumi {
             },
         );
 
+        info!("Creating WASM component");
         let component = Component::from_binary(&engine, &pulumi_wasm_file)?;
+        info!("Instantiating WASM component");
         let plugin = Runner::instantiate_async(&mut store, &component, &linker).await?;
+        info!("WASM component instantiated");
 
         Ok(Pulumi { plugin, store })
     }
