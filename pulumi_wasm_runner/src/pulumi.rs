@@ -12,15 +12,15 @@ use crate::grpc::{
     GetRootResourceRequest, RegisterResourceOutputsRequest, RegisterResourceRequest,
     RegisterResourceResponse, SetRootResourceRequest,
 };
-use crate::pulumi::server::component::pulumi_wasm::external_world;
-use crate::pulumi::server::component::pulumi_wasm::external_world::Host;
-use crate::pulumi::server::component::pulumi_wasm::external_world::RegisteredResource;
-use crate::pulumi::server::Main;
+use crate::pulumi::runner::component::pulumi_wasm::external_world;
+use crate::pulumi::runner::component::pulumi_wasm::external_world::Host;
+use crate::pulumi::runner::component::pulumi_wasm::external_world::RegisteredResource;
+use crate::pulumi::runner::Runner;
 use crate::pulumi_state::PulumiState;
-use pulumi_wasm_wit::bindings_server as server;
+use pulumi_wasm_wit::bindings_runner as runner;
 
 pub struct Pulumi {
-    plugin: Main,
+    plugin: Runner,
     store: Store<SimplePluginCtx>,
 }
 
@@ -79,21 +79,21 @@ impl Host for MyState {
 }
 
 #[async_trait]
-impl server::component::pulumi_wasm::log::Host for MyState {
+impl runner::component::pulumi_wasm::log::Host for MyState {
     async fn log(
         &mut self,
-        content: server::component::pulumi_wasm::log::Content,
+        content: runner::component::pulumi_wasm::log::Content,
     ) -> wasmtime::Result<()> {
         log::logger().log(
             &log::Record::builder()
                 .metadata(
                     log::Metadata::builder()
                         .level(match content.level {
-                            server::component::pulumi_wasm::log::Level::Trace => log::Level::Trace,
-                            server::component::pulumi_wasm::log::Level::Debug => log::Level::Debug,
-                            server::component::pulumi_wasm::log::Level::Info => log::Level::Info,
-                            server::component::pulumi_wasm::log::Level::Error => log::Level::Error,
-                            server::component::pulumi_wasm::log::Level::Warn => log::Level::Warn,
+                            runner::component::pulumi_wasm::log::Level::Trace => log::Level::Trace,
+                            runner::component::pulumi_wasm::log::Level::Debug => log::Level::Debug,
+                            runner::component::pulumi_wasm::log::Level::Info => log::Level::Info,
+                            runner::component::pulumi_wasm::log::Level::Error => log::Level::Error,
+                            runner::component::pulumi_wasm::log::Level::Warn => log::Level::Warn,
                         })
                         .target(&content.target)
                         .build(),
@@ -196,7 +196,7 @@ impl Pulumi {
         let engine = wasmtime::Engine::new(&engine_config)?;
 
         let mut linker: Linker<SimplePluginCtx> = Linker::new(&engine);
-        Main::add_to_linker(&mut linker, |state: &mut SimplePluginCtx| {
+        Runner::add_to_linker(&mut linker, |state: &mut SimplePluginCtx| {
             &mut state.my_state
         })?;
 
@@ -226,7 +226,7 @@ impl Pulumi {
         );
 
         let component = Component::from_binary(&engine, &pulumi_wasm_file)?;
-        let plugin = Main::instantiate_async(&mut store, &component, &linker).await?;
+        let plugin = Runner::instantiate_async(&mut store, &component, &linker).await?;
 
         Ok(Pulumi { plugin, store })
     }
@@ -241,7 +241,7 @@ impl Pulumi {
         let engine = wasmtime::Engine::new(&engine_config).unwrap();
 
         let mut linker: Linker<SimplePluginCtx> = Linker::new(&engine);
-        Main::add_to_linker(&mut linker, |state: &mut SimplePluginCtx| {
+        Runner::add_to_linker(&mut linker, |state: &mut SimplePluginCtx| {
             &mut state.my_state
         })?;
 

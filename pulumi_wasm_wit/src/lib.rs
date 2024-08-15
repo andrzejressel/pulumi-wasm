@@ -2,10 +2,10 @@
 #[allow(dead_code)]
 #[allow(unused_variables)]
 #[allow(unused_unsafe)]
-#[cfg(feature = "pulumi-wasm-rust")]
-pub mod bindings {
+#[cfg(feature = "client")]
+pub mod client_bindings {
     wit_bindgen::generate!({
-        world: "pulumi-wasm-rust",
+        world: "client",
     });
 }
 
@@ -24,10 +24,10 @@ pub mod bindings_logger {
 #[allow(dead_code)]
 #[allow(unused_variables)]
 #[allow(unused_unsafe)]
-#[cfg(feature = "server")]
-pub mod bindings_server {
+#[cfg(feature = "runner")]
+pub mod bindings_runner {
     wasmtime::component::bindgen!({
-        world: "main",
+        world: "runner",
         async: true,
         trappable_imports: true,
     });

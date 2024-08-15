@@ -2,28 +2,32 @@
 
 ## Types of Output
 
-Pulumi WASM has 4 types of outputs:
+Pulumi WASM has 5 types of outputs (represented as `EngineNode` in `engine.rs`):
 1. Done
-2. Mapped
-3. Func
-4. Unknown
+2. NativeFunction
+3. RegisterResource
+4. ExtractField
+5. CombineOutputs
 
 ### Done
 
-This is output for which value is known. Internally it's represented as MessagePack's `Value`.
+This is output for which value is known. Internally it's represented as JSON's `Value`.
 
-### Mapped
+### NativeFunction
 
 This is output which wait to be mapped by host. More details are in [Mapping](#Mapping) section. Internally it's represented as tuple of function name and output which will values will be it's argument.
 
-### Func
+### RegisterResource
 
-This is output that is a function. As opposed to `Mapped` this function in executed internally in Pulumi WASM. Currently these are
-functions that creates resources. Internally it's tuple of list of outputs and function that handles their values.
+Output that will eventually be sent to Pulumi as register resource instruction. This is internal to pulumi-wasm and is not exposed to user
 
-### Unknown
+### ExtractField
 
-This is output for which value will never be known. This is used in Pulumi's preview stage.
+Step 2 of RegisterResource. This output will take response of register resource and extract one field.
+
+### CombineOutputs
+
+Output that combines N outputs and returns array (in user facing code it should be a tuple)
 
 ## Mapping
 

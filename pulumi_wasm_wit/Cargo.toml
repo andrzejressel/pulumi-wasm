@@ -6,9 +6,9 @@ edition.workspace = true
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [features]
-pulumi-wasm-rust = []
+client = []
 logger = []
-server = ["dep:wasmtime"]
+runner = ["dep:wasmtime"]
 
 [dependencies]
 wit-bindgen.workspace = true

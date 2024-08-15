@@ -12,10 +12,10 @@ nav:
   - crates.md
   - rustdoc: "/pulumi-wasm/rust-docs/pulumi_wasm_rust/index.html"
   - Internal:
-      - Internal/Data passing.md
       - Internal/Output.md
       - Internal/Serialization formats.md
       - Internal/WIT.md
+      - Internal/Supporting new language.md
 
 
 extra:
@@ -40,3 +40,4 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.snippets

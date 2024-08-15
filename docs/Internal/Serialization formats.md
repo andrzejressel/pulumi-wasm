@@ -1,2 +1,2 @@
 - Protobuf - used by Pulumi
-- MessagePack - used in internal communication
+- JSON - used in internal communication
