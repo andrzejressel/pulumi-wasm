@@ -85,8 +85,10 @@ async fn main() -> Result<(), Error> {
         } => {
             let providers: HashMap<String, &PathBuf> =
                 providers.iter().map(|(k, v)| (k.clone(), v)).collect();
+            log::info!("Creating final component");
             let component =
                 create_final_component::create(&providers, pulumi_wasm, program).await?;
+            log::info!("Created final component");
             let wasm = component;
 
             let pulumi_engine_url = std::env::var("PULUMI_ENGINE")?;
@@ -102,7 +104,9 @@ async fn main() -> Result<(), Error> {
                 pulumi_project,
             )
             .await?;
+            log::info!("Creating root stack");
             pulumi.create_root_stack().await?;
+            log::info!("Created root stack. Invoking main");
             pulumi.start().await?;
         }
     }

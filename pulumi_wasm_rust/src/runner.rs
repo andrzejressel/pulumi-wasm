@@ -1,9 +1,9 @@
-use crate::bindings::component::pulumi_wasm::stack_interface::{
-    finish, FunctionInvocationRequest, FunctionInvocationResult,
-};
 use crate::output::HASHMAP;
 use anyhow::{Context, Error, Result};
 use log::{error, info};
+use pulumi_wasm_wit::client_bindings::component::pulumi_wasm::stack_interface::{
+    finish, FunctionInvocationRequest, FunctionInvocationResult,
+};
 
 pub fn run<F>(f: F) -> Result<(), Error>
 where

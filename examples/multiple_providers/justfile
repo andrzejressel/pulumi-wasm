@@ -16,7 +16,9 @@ local-test:
     $PSNativeCommandUseErrorActionPreference = $true
 
     cargo build -p pulumi_wasm_runner
-    cargo component build -p pulumi_wasm_example_multiple_providers -p pulumi_wasm_docker_provider -p pulumi_wasm_random_provider
+    cargo component build -p pulumi_wasm_example_multiple_providers
+    cargo component build -p pulumi_wasm_docker_provider
+    cargo component build -p pulumi_wasm_random_provider
     $env:PULUMI_CONFIG_PASSPHRASE=" "
     pulumi destroy -y
     pulumi up -y

@@ -1,7 +1,8 @@
-use crate::bindings::component::pulumi_wasm::output_interface;
 use anyhow::Error;
 use lazy_static::lazy_static;
 use log::info;
+use pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface;
+use pulumi_wasm_wit::client_bindings::component::pulumi_wasm::stack_interface::add_export;
 use std::collections::HashMap;
 use std::fmt::Debug;
 use std::marker::PhantomData;
@@ -84,7 +85,7 @@ impl<T> Output<T> {
     }
 
     pub(crate) fn add_to_export(&self, name: &str) {
-        crate::bindings::component::pulumi_wasm::stack_interface::add_export(name, &self.future);
+        add_export(name, &self.future);
     }
 }
 

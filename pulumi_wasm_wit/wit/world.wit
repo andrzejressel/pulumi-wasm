@@ -1,10 +1,5 @@
 package component:pulumi-wasm@0.0.0-DEV;
 
-world import-all {
-    import output-interface;
-    import stack-interface;
-}
-
 world pulumi-wasm {
     export output-interface;
     export register-interface;
@@ -14,48 +9,20 @@ world pulumi-wasm {
     import external-world;
 }
 
-world pulumi-rust {
-    export register-interface;
-    import output-interface;
-}
-
-world main {
-    export pulumi-main;
-    import external-world;
-    import log;
-}
-
-world pulumi-wasm-rust {
+world client {
     import output-interface;
     import stack-interface;
     export pulumi-main; // Used by macro
-}
-
-world new-main {
-    export pulumi-main;
-}
-
-world pulumi-main-world {
-    export pulumi-main;
-}
-
-world pulumi-provider-random {
-    import output-interface;
-    import register-interface;
-
-    export pulumi-provider-random-interface;
-}
-
-world pulumi-provider-random-client {
-    import pulumi-provider-random-interface;
 }
 
 world logger {
     import log;
 }
 
-world pulumi-rust-macro {
+world runner {
+    export pulumi-main;
     import external-world;
+    import log;
 }
 
 interface log {
@@ -156,24 +123,6 @@ interface external-world {
 
     register-resource: func(request: register-resource-request);
     wait-for-registered-resources: func() -> list<registered-resource>;
-}
-
-interface pulumi-provider-random-interface {
-
-    use output-interface.{output};
-
-    record random-string-args {
-        name: string,
-        length: borrow<output>,
-    }
-
-    record random-string-result {
-        %result: output
-    }
-
-    create-random-string: func(args: random-string-args) -> random-string-result;
-
-    handle-functions: func();
 }
 
 interface pulumi-main {

@@ -26,6 +26,6 @@ log4rs.workspace = true
 clap.workspace = true
 wac-graph.workspace = true
 pulumi_wasm_proto = { workspace = true, features = ["connectivity"] }
-pulumi_wasm_wit = { workspace = true, features = ["server"] }
+pulumi_wasm_wit = { workspace = true, features = ["runner"] }
 directories.workspace = true
 reqwest.workspace = true

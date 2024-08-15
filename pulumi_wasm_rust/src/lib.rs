@@ -1,7 +1,6 @@
 pub use pulumi_wasm_rust_macro::pulumi_main;
 mod output;
 pub use output::Output;
-use pulumi_wasm_wit::bindings;
 
 pub mod runner;
 
