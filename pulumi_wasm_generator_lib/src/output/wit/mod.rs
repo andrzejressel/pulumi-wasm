@@ -1,4 +1,4 @@
-use crate::output::{get_main_version, get_main_version_stringify};
+use crate::output::get_main_version;
 use handlebars::Handlebars;
 
 use serde::Serialize;
@@ -28,7 +28,6 @@ struct Package {
     name: String,
     version: String,
     pulumi_wasm_version: String,
-    pulumi_wasm_version_stringify: String,
     interfaces: Vec<Interface>,
 }
 
@@ -37,7 +36,6 @@ fn convert_model(package: &crate::model::Package) -> Package {
         name: package.get_wit_name(),
         version: package.version.clone(),
         pulumi_wasm_version: get_main_version().to_string(),
-        pulumi_wasm_version_stringify: get_main_version_stringify().to_string(),
         interfaces: package
             .resources
             .iter()
