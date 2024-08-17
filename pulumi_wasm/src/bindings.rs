@@ -215,7 +215,9 @@ pub mod component {
                 }
             }
         }
-
+    }
+    #[allow(dead_code)]
+    pub mod pulumi_wasm_external {
         #[allow(dead_code, clippy::all)]
         pub mod external_world {
             #[used]
@@ -254,7 +256,9 @@ pub mod component {
             pub fn is_in_preview() -> bool {
                 unsafe {
                     #[cfg(target_arch = "wasm32")]
-                    #[link(wasm_import_module = "component:pulumi-wasm/external-world@0.0.0-DEV")]
+                    #[link(
+                        wasm_import_module = "component:pulumi-wasm-external/external-world@0.0.0-STABLE-DEV"
+                    )]
                     extern "C" {
                         #[link_name = "is-in-preview"]
                         fn wit_import() -> i32;
@@ -276,7 +280,9 @@ pub mod component {
                     let mut ret_area = RetArea([::core::mem::MaybeUninit::uninit(); 8]);
                     let ptr0 = ret_area.0.as_mut_ptr().cast::<u8>();
                     #[cfg(target_arch = "wasm32")]
-                    #[link(wasm_import_module = "component:pulumi-wasm/external-world@0.0.0-DEV")]
+                    #[link(
+                        wasm_import_module = "component:pulumi-wasm-external/external-world@0.0.0-STABLE-DEV"
+                    )]
                     extern "C" {
                         #[link_name = "get-root-resource"]
                         fn wit_import(_: *mut u8);
@@ -305,7 +311,9 @@ pub mod component {
                     let len0 = vec0.len();
                     let ptr1 = ret_area.0.as_mut_ptr().cast::<u8>();
                     #[cfg(target_arch = "wasm32")]
-                    #[link(wasm_import_module = "component:pulumi-wasm/external-world@0.0.0-DEV")]
+                    #[link(
+                        wasm_import_module = "component:pulumi-wasm-external/external-world@0.0.0-STABLE-DEV"
+                    )]
                     extern "C" {
                         #[link_name = "register-resource-outputs"]
                         fn wit_import(_: *mut u8, _: usize, _: *mut u8);
@@ -337,7 +345,9 @@ pub mod component {
                     let len2 = vec2.len();
 
                     #[cfg(target_arch = "wasm32")]
-                    #[link(wasm_import_module = "component:pulumi-wasm/external-world@0.0.0-DEV")]
+                    #[link(
+                        wasm_import_module = "component:pulumi-wasm-external/external-world@0.0.0-STABLE-DEV"
+                    )]
                     extern "C" {
                         #[link_name = "register-resource"]
                         fn wit_import(_: *mut u8, _: usize, _: *mut u8, _: usize);
@@ -358,7 +368,9 @@ pub mod component {
                     let mut ret_area = RetArea([::core::mem::MaybeUninit::uninit(); 8]);
                     let ptr0 = ret_area.0.as_mut_ptr().cast::<u8>();
                     #[cfg(target_arch = "wasm32")]
-                    #[link(wasm_import_module = "component:pulumi-wasm/external-world@0.0.0-DEV")]
+                    #[link(
+                        wasm_import_module = "component:pulumi-wasm-external/external-world@0.0.0-STABLE-DEV"
+                    )]
                     extern "C" {
                         #[link_name = "wait-for-registered-resources"]
                         fn wit_import(_: *mut u8);
@@ -1336,8 +1348,8 @@ pub(crate) use __export_pulumi_wasm_impl as export;
 #[cfg(target_arch = "wasm32")]
 #[link_section = "component-type:wit-bindgen:0.25.0:pulumi-wasm:encoded world"]
 #[doc(hidden)]
-pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 1527] = *b"\
-\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xf5\x0a\x01A\x02\x01\
+pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 1543] = *b"\
+\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\x85\x0b\x01A\x02\x01\
 A\x0b\x01B\x0a\x01m\x05\x05TRACE\x05DEBUG\x04INFO\x04WARN\x05ERROR\x04\0\x05leve\
 l\x03\0\0\x01ks\x01ky\x01o\x02ss\x01p\x04\x01r\x07\x05level\x01\x06targets\x04ar\
 gss\x0bmodule-path\x02\x04file\x02\x04line\x03\x0akey-values\x05\x04\0\x07conten\
@@ -1348,28 +1360,28 @@ t\x03\0\x06\x01@\x01\x07content\x07\x01\0\x04\0\x03log\x01\x08\x03\x01#component
 @\0\0s\x04\0\x11get-root-resource\x01\x06\x01@\x01\x07request\0\0\0\x04\0\x19reg\
 ister-resource-outputs\x01\x07\x01@\x01\x07request\x02\x01\0\x04\0\x11register-r\
 esource\x01\x08\x01p\x04\x01@\0\0\x09\x04\0\x1dwait-for-registered-resources\x01\
-\x0a\x03\x01.component:pulumi-wasm/external-world@0.0.0-DEV\x05\x01\x01B\x0c\x04\
-\0\x06output\x03\x01\x01i\0\x01@\x01\x05values\0\x01\x04\0\x13[constructor]outpu\
-t\x01\x02\x01h\0\x01@\x02\x04self\x03\x0dfunction-names\0\x01\x04\0\x12[method]o\
-utput.map\x01\x04\x01@\x01\x04self\x03\0\x01\x04\0\x18[method]output.duplicate\x01\
-\x05\x01p\x01\x01@\x01\x07outputs\x06\0\x01\x04\0\x07combine\x01\x07\x04\x010com\
-ponent:pulumi-wasm/output-interface@0.0.0-DEV\x05\x02\x02\x03\0\x02\x06output\x01\
-B\x13\x02\x03\x02\x01\x03\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x04names\x05\
-value\x02\x04\0\x0cobject-field\x03\0\x03\x01r\x01\x04names\x04\0\x0cresult-fiel\
-d\x03\0\x05\x01i\x01\x01r\x02\x04names\x06output\x07\x04\0\x1eregister-resource-\
-result-field\x03\0\x08\x01p\x04\x01p\x06\x01r\x04\x04types\x04names\x06object\x0a\
-\x07results\x0b\x04\0\x19register-resource-request\x03\0\x0c\x01p\x09\x01r\x01\x06\
-fields\x0e\x04\0\x18register-resource-result\x03\0\x0f\x01@\x01\x07request\x0d\0\
-\x10\x04\0\x08register\x01\x11\x04\x012component:pulumi-wasm/register-interface@\
-0.0.0-DEV\x05\x04\x01B\x0e\x02\x03\x02\x01\x03\x04\0\x06output\x03\0\0\x01i\x01\x01\
-r\x03\x02id\x02\x0bfunction-ids\x05values\x04\0\x1bfunction-invocation-request\x03\
-\0\x03\x01h\x01\x01r\x02\x02id\x05\x05values\x04\0\x1afunction-invocation-result\
-\x03\0\x06\x01@\x02\x04names\x05value\x05\x01\0\x04\0\x0aadd-export\x01\x08\x01p\
-\x07\x01p\x04\x01@\x01\x09functions\x09\0\x0a\x04\0\x06finish\x01\x0b\x04\x01/co\
-mponent:pulumi-wasm/stack-interface@0.0.0-DEV\x05\x05\x04\x01+component:pulumi-w\
-asm/pulumi-wasm@0.0.0-DEV\x04\0\x0b\x11\x01\0\x0bpulumi-wasm\x03\0\0\0G\x09produ\
-cers\x01\x0cprocessed-by\x02\x0dwit-component\x070.208.1\x10wit-bindgen-rust\x06\
-0.25.0";
+\x0a\x03\x01>component:pulumi-wasm-external/external-world@0.0.0-STABLE-DEV\x05\x01\
+\x01B\x0c\x04\0\x06output\x03\x01\x01i\0\x01@\x01\x05values\0\x01\x04\0\x13[cons\
+tructor]output\x01\x02\x01h\0\x01@\x02\x04self\x03\x0dfunction-names\0\x01\x04\0\
+\x12[method]output.map\x01\x04\x01@\x01\x04self\x03\0\x01\x04\0\x18[method]outpu\
+t.duplicate\x01\x05\x01p\x01\x01@\x01\x07outputs\x06\0\x01\x04\0\x07combine\x01\x07\
+\x04\x010component:pulumi-wasm/output-interface@0.0.0-DEV\x05\x02\x02\x03\0\x02\x06\
+output\x01B\x13\x02\x03\x02\x01\x03\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x04\
+names\x05value\x02\x04\0\x0cobject-field\x03\0\x03\x01r\x01\x04names\x04\0\x0cre\
+sult-field\x03\0\x05\x01i\x01\x01r\x02\x04names\x06output\x07\x04\0\x1eregister-\
+resource-result-field\x03\0\x08\x01p\x04\x01p\x06\x01r\x04\x04types\x04names\x06\
+object\x0a\x07results\x0b\x04\0\x19register-resource-request\x03\0\x0c\x01p\x09\x01\
+r\x01\x06fields\x0e\x04\0\x18register-resource-result\x03\0\x0f\x01@\x01\x07requ\
+est\x0d\0\x10\x04\0\x08register\x01\x11\x04\x012component:pulumi-wasm/register-i\
+nterface@0.0.0-DEV\x05\x04\x01B\x0e\x02\x03\x02\x01\x03\x04\0\x06output\x03\0\0\x01\
+i\x01\x01r\x03\x02id\x02\x0bfunction-ids\x05values\x04\0\x1bfunction-invocation-\
+request\x03\0\x03\x01h\x01\x01r\x02\x02id\x05\x05values\x04\0\x1afunction-invoca\
+tion-result\x03\0\x06\x01@\x02\x04names\x05value\x05\x01\0\x04\0\x0aadd-export\x01\
+\x08\x01p\x07\x01p\x04\x01@\x01\x09functions\x09\0\x0a\x04\0\x06finish\x01\x0b\x04\
+\x01/component:pulumi-wasm/stack-interface@0.0.0-DEV\x05\x05\x04\x01+component:p\
+ulumi-wasm/pulumi-wasm@0.0.0-DEV\x04\0\x0b\x11\x01\0\x0bpulumi-wasm\x03\0\0\0G\x09\
+producers\x01\x0cprocessed-by\x02\x0dwit-component\x070.208.1\x10wit-bindgen-rus\
+t\x060.25.0";
 
 #[inline(never)]
 #[doc(hidden)]
