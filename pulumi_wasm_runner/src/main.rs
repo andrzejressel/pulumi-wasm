@@ -13,7 +13,6 @@ use pulumi_wasm_runner_component_creator::source::{
 use std::collections::BTreeMap;
 use std::fs;
 use std::path::PathBuf;
-use uuid::Uuid;
 
 mod model;
 mod pulumi;
@@ -113,9 +112,6 @@ async fn main() -> Result<(), Error> {
             .await?;
             log::info!("Created final component");
             let wasm = component;
-
-            let uuid = Uuid::now_v7().to_string();
-            fs::write(format!("{uuid}.wasm"), &wasm)?;
 
             let pulumi_engine_url = std::env::var("PULUMI_ENGINE")?;
             let pulumi_monitor_url = std::env::var("PULUMI_MONITOR")?;
