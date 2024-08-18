@@ -29,8 +29,4 @@ pulumi_wasm_proto = { workspace = true, features = ["connectivity"] }
 pulumi_wasm_wit = { workspace = true, features = ["runner"] }
 directories.workspace = true
 reqwest.workspace = true
-
-[dev-dependencies]
-wit-component = { workspace = true, features=["dummy-module"] }
-wit-parser.workspace = true
-wasmprinter.workspace = true
+pulumi_wasm_runner_component_creator.workspace = true

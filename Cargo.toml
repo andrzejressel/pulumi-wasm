@@ -27,6 +27,7 @@ members = [
     "pulumi_wasm_generator_lib",
     "pulumi_wasm_proto",
     "pulumi_wasm_runner",
+    "pulumi_wasm_runner_component_creator",
     "pulumi_wasm_rust",
     "pulumi_wasm_rust_macro",
     "pulumi_wasm_wit",
@@ -48,6 +49,7 @@ pulumi_wasm_rust_macro = { version = "=0.0.0-DEV", path = "pulumi_wasm_rust_macr
 pulumi_wasm_common = { version = "=0.0.0-DEV", path = "pulumi_wasm_common", registry = "cloudsmith" }
 pulumi_wasm_proto = { version = "=0.0.0-DEV", path = "pulumi_wasm_proto", registry = "cloudsmith" }
 pulumi_wasm_wit = { version = "=0.0.0-DEV", path = "pulumi_wasm_wit", registry = "cloudsmith" }
+pulumi_wasm_runner_component_creator = { version = "=0.0.0-DEV", path = "pulumi_wasm_runner_component_creator", registry = "cloudsmith" }
 
 anyhow = "1.0.82"
 prost = "0.13.1"

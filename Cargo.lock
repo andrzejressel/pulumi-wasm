@@ -2207,6 +2207,7 @@ dependencies = [
  "prost",
  "prost-types",
  "pulumi_wasm_proto",
+ "pulumi_wasm_runner_component_creator",
  "pulumi_wasm_wit",
  "regex",
  "reqwest",
@@ -2217,9 +2218,24 @@ dependencies = [
  "tonic-web",
  "uuid",
  "wac-graph",
- "wasmprinter 0.215.0",
  "wasmtime",
  "wasmtime-wasi",
+]
+
+[[package]]
+name = "pulumi_wasm_runner_component_creator"
+version = "0.0.0-DEV"
+dependencies = [
+ "anyhow",
+ "async-trait",
+ "directories",
+ "itertools 0.13.0",
+ "log",
+ "regex",
+ "reqwest",
+ "tokio",
+ "wac-graph",
+ "wasmprinter 0.215.0",
  "wit-component",
  "wit-parser 0.215.0",
 ]
@@ -2897,9 +2913,9 @@ checksum = "1f3ccbac311fea05f86f61904b462b55fb3df8837a366dfc601a0161d0532f20"
 
 [[package]]
 name = "tokio"
-version = "1.39.2"
+version = "1.39.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "daa4fb1bc778bd6f04cbfc4bb2d06a7396a8f299dc33ea1900cedaa316f467b1"
+checksum = "9babc99b9923bfa4804bd74722ff02c0381021eafa4db9949217e3be8e84fff5"
 dependencies = [
  "backtrace",
  "bytes",

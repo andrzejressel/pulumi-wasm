@@ -79,6 +79,7 @@ publish:
     cargo publish -p pulumi_wasm_generator_lib --allow-dirty --all-features
     cargo publish -p pulumi_wasm_generator --allow-dirty --all-features
     cargo publish -p pulumi_wasm_core --allow-dirty --all-features
+    cargo publish -p pulumi_wasm_runner_component_creator --allow-dirty --all-features
     cargo publish -p pulumi_wasm_runner --allow-dirty --all-features
     just publish-providers
 
