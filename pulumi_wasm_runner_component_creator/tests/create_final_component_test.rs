@@ -1,11 +1,7 @@
-// use wit_component;
-
-use anyhow::{bail, Result};
+use anyhow::Result;
 use async_trait::async_trait;
-use pulumi_wasm_runner_component_creator::source::{
-    DefaultProviderSource, ProviderSource, PulumiWasmSource,
-};
-use std::collections::{BTreeMap, HashMap};
+use pulumi_wasm_runner_component_creator::source::{DefaultProviderSource, PulumiWasmSource};
+use std::collections::BTreeMap;
 use wac_graph::types::Package;
 use wac_graph::CompositionGraph;
 use wit_component::{dummy_module, embed_component_metadata, ComponentEncoder, StringEncoding};

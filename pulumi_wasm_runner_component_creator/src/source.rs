@@ -104,7 +104,7 @@ pub struct FileSource(PathBuf);
 
 impl FileSource {
     pub fn new(path_buf: PathBuf) -> Self {
-        Self { 0: path_buf }
+        Self(path_buf)
     }
 }
 
@@ -144,7 +144,7 @@ mod tests {
         async fn should_download_existing_pulumi_wasm() -> Result<()> {
             let source = GithubPulumiWasmSource {};
             let res = source.get(&"0.0.0-NIGHTLY-d1ce7a2".to_string()).await?;
-            assert!(res.len() > 0);
+            assert!(!res.is_empty());
             Ok(())
         }
 
@@ -172,7 +172,7 @@ mod tests {
                     &"0.0.0-NIGHTLY-d1ce7a2".to_string(),
                 )
                 .await?;
-            assert!(res.len() > 0);
+            assert!(!res.is_empty());
             Ok(())
         }
 

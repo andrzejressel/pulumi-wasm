@@ -1,14 +1,10 @@
 use crate::source::{DefaultProviderSource, ProviderSource, PulumiWasmSource};
 use anyhow::{bail, Context};
-use directories::BaseDirs;
 use itertools::Itertools;
 use regex::Regex;
 use std::collections::{BTreeMap, BTreeSet};
-use std::fmt::format;
 use std::hash::Hash;
-use std::iter::Map;
-use std::path::{Iter, PathBuf};
-use wac_graph::types::{ItemKind, Package, SubtypeChecker};
+use wac_graph::types::{Package, SubtypeChecker};
 use wac_graph::{CompositionGraph, EncodeOptions, NodeId, PackageId};
 
 pub mod source;
@@ -37,7 +33,7 @@ pub async fn create(
 
     let all_providers: BTreeMap<_, BTreeSet<_>> = import_names
         .clone()
-        .filter_map(|import| extract_provider_info(import))
+        .filter_map(extract_provider_info)
         .chunk_by(|pi| pi.name.clone())
         .into_iter()
         .map(|(name, providers)| (name, providers.collect()))
@@ -104,10 +100,10 @@ pub async fn create(
         let downloaded = match providers_paths.get(provider_name) {
             None => {
                 default_provider_source
-                    .get_component(provider_name, &provider.version, &pulumi_wasm_version)
+                    .get_component(provider_name, &provider.version, pulumi_wasm_version)
                     .await
             }
-            Some(provider_source) => provider_source.get_component(&pulumi_wasm_version).await,
+            Some(provider_source) => provider_source.get_component(pulumi_wasm_version).await,
         }
         .context(format!("Cannot obtain provider {}", provider_name))?;
         provider_wasm_files.insert(provider_name.clone(), downloaded);
@@ -249,7 +245,7 @@ struct ProviderInfo {
 
 #[cfg(test)]
 mod tests {
-    use super::*;
+
     use anyhow::*;
 
     mod provider_regex {

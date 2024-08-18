@@ -10,8 +10,7 @@ use pulumi_wasm_proto::grpc;
 use pulumi_wasm_runner_component_creator::source::{
     GithubPulumiWasmSource, ProviderSource, PulumiWasmSource,
 };
-use std::collections::{BTreeMap, HashMap};
-use std::fmt::format;
+use std::collections::BTreeMap;
 use std::fs;
 use std::path::PathBuf;
 use uuid::Uuid;
