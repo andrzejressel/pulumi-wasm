@@ -6,29 +6,29 @@ use std::path::PathBuf;
 
 #[async_trait]
 pub trait ProviderSource {
-    async fn get_component(&self, pulumi_wasm_version: &String) -> Result<Vec<u8>>;
+    async fn get_component(&self, pulumi_wasm_version: &str) -> Result<Vec<u8>>;
 }
 
 #[async_trait]
 pub trait DefaultProviderSource {
     async fn get_component(
         &self,
-        provider_name: &String,
-        provider_version: &String,
-        pulumi_wasm_version: &String,
+        provider_name: &str,
+        provider_version: &str,
+        pulumi_wasm_version: &str,
     ) -> Result<Vec<u8>>;
 }
 
 #[async_trait]
 pub trait PulumiWasmSource {
-    async fn get(&self, version: &String) -> Result<Vec<u8>>;
+    async fn get(&self, version: &str) -> Result<Vec<u8>>;
 }
 
 pub struct GithubPulumiWasmSource;
 
 #[async_trait]
 impl PulumiWasmSource for GithubPulumiWasmSource {
-    async fn get(&self, version: &String) -> Result<Vec<u8>> {
+    async fn get(&self, version: &str) -> Result<Vec<u8>> {
         let wasm_location = BaseDirs::new()
             .context("Unable to get user directories")?
             .cache_dir()
@@ -50,9 +50,9 @@ impl PulumiWasmSource for GithubPulumiWasmSource {
 impl DefaultProviderSource for GithubPulumiWasmSource {
     async fn get_component(
         &self,
-        provider_name: &String,
-        provider_version: &String,
-        pulumi_wasm_version: &String,
+        provider_name: &str,
+        provider_version: &str,
+        pulumi_wasm_version: &str,
     ) -> Result<Vec<u8>> {
         let wasm_location = BaseDirs::new()
             .context("Unable to get user directories")?
@@ -112,9 +112,9 @@ impl FileSource {
 impl DefaultProviderSource for FileSource {
     async fn get_component(
         &self,
-        _provider_name: &String,
-        _provider_version: &String,
-        _pulumi_wasm_version: &String,
+        _provider_name: &str,
+        _provider_version: &str,
+        _pulumi_wasm_version: &str,
     ) -> Result<Vec<u8>> {
         Ok(fs::read(&self.0)?)
     }
@@ -122,14 +122,14 @@ impl DefaultProviderSource for FileSource {
 
 #[async_trait]
 impl ProviderSource for FileSource {
-    async fn get_component(&self, _pulumi_wasm_version: &String) -> Result<Vec<u8>> {
+    async fn get_component(&self, _pulumi_wasm_version: &str) -> Result<Vec<u8>> {
         Ok(fs::read(&self.0)?)
     }
 }
 
 #[async_trait]
 impl PulumiWasmSource for FileSource {
-    async fn get(&self, version: &String) -> Result<Vec<u8>> {
+    async fn get(&self, _version: &str) -> Result<Vec<u8>> {
         Ok(fs::read(&self.0)?)
     }
 }

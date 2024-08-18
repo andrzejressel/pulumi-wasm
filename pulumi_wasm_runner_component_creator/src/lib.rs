@@ -65,6 +65,7 @@ pub async fn create(
 
     // Is not getting invoked, because different version are capture before
     // (because of transitive output dependency)
+    //
     // {
     //     let providers_per_pulumi_wasm_version: BTreeMap<_, BTreeSet<_>> = all_providers
     //         .iter()
@@ -95,7 +96,7 @@ pub async fn create(
 
     let mut provider_wasm_files = BTreeMap::new();
 
-    for (_, provider) in &all_providers {
+    for provider in all_providers.values() {
         let provider_name = &provider.name;
         let downloaded = match providers_paths.get(provider_name) {
             None => {
