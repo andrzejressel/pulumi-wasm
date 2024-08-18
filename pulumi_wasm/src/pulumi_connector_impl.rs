@@ -1,5 +1,5 @@
-use crate::bindings::component::pulumi_wasm::external_world;
-use crate::bindings::component::pulumi_wasm::external_world::RegisterResourceRequest;
+use crate::bindings::component::pulumi_wasm_external::external_world;
+use crate::bindings::component::pulumi_wasm_external::external_world::RegisterResourceRequest;
 use pulumi_wasm_core::PulumiConnector;
 
 pub(crate) struct PulumiConnectorImpl {}

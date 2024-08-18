@@ -1,5 +1,5 @@
 use crate::pulumi::Pulumi;
-use anyhow::Error;
+use anyhow::{Context, Error};
 use clap::{arg, Args, Parser, Subcommand};
 use log::LevelFilter;
 use log4rs::append::file::FileAppender;
@@ -7,10 +7,13 @@ use log4rs::config::{Appender, Root};
 use log4rs::encode::json::JsonEncoder;
 use log4rs::Config;
 use pulumi_wasm_proto::grpc;
-use std::collections::HashMap;
+use pulumi_wasm_runner_component_creator::source::{
+    GithubPulumiWasmSource, ProviderSource, PulumiWasmSource,
+};
+use std::collections::BTreeMap;
+use std::fs;
 use std::path::PathBuf;
 
-mod create_final_component;
 mod model;
 mod pulumi;
 mod pulumi_state;
@@ -83,11 +86,30 @@ async fn main() -> Result<(), Error> {
             pulumi_wasm,
             program,
         } => {
-            let providers: HashMap<String, &PathBuf> =
-                providers.iter().map(|(k, v)| (k.clone(), v)).collect();
+            use pulumi_wasm_runner_component_creator::source::FileSource;
+            let providers: BTreeMap<_, _> = providers
+                .iter()
+                .map(|(k, v)| {
+                    (
+                        k.clone(),
+                        Box::new(FileSource::new(v.clone())) as Box<dyn ProviderSource>,
+                    )
+                })
+                .collect();
             log::info!("Creating final component");
-            let component =
-                create_final_component::create(&providers, pulumi_wasm, program).await?;
+            let pulumi_wasm_source: Box<dyn PulumiWasmSource> = match pulumi_wasm {
+                None => Box::new(GithubPulumiWasmSource {}),
+                Some(location) => Box::new(FileSource::new(location.clone())),
+            };
+
+            let component = pulumi_wasm_runner_component_creator::create(
+                providers,
+                &GithubPulumiWasmSource {},
+                pulumi_wasm_source.as_ref(),
+                fs::read(program)
+                    .context(format!("Cannot read program {}", program.to_str().unwrap()))?,
+            )
+            .await?;
             log::info!("Created final component");
             let wasm = component;
 
