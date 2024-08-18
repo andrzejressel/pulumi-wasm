@@ -837,17 +837,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_access_application_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_access_application_5_24_1_divider_zero_zero_zero_dev_cabi{
         ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-          #[export_name = "pulumi:cloudflare/access-application@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+          #[export_name = "pulumi:cloudflare/access-application@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
           unsafe extern "C" fn export_invoke(arg0: *mut u8,) -> *mut u8 {
             $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0)
           }
         };);
       }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_access_application_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_access_application_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 120]);
                 static mut _RET_AREA: _RetArea =
@@ -949,17 +949,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_access_ca_certificate_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_access_ca_certificate_5_24_1_divider_zero_zero_zero_dev_cabi{
       ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-        #[export_name = "pulumi:cloudflare/access-ca-certificate@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+        #[export_name = "pulumi:cloudflare/access-ca-certificate@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
         unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,) -> *mut u8 {
           $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4)
         }
       };);
     }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_access_ca_certificate_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_access_ca_certificate_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
@@ -1088,17 +1088,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_access_custom_page_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_access_custom_page_5_24_1_divider_zero_zero_zero_dev_cabi{
     ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-      #[export_name = "pulumi:cloudflare/access-custom-page@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+      #[export_name = "pulumi:cloudflare/access-custom-page@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
       unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,) -> *mut u8 {
         $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7)
       }
     };);
   }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_access_custom_page_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_access_custom_page_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 24]);
@@ -1227,17 +1227,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_access_group_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_access_group_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/access-group@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/access-group@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_access_group_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_access_group_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 24]);
@@ -1366,17 +1366,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_access_identity_provider_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_access_identity_provider_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/access-identity-provider@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/access-identity-provider@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_access_identity_provider_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_access_identity_provider_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 24]);
@@ -1463,17 +1463,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_access_keys_configuration_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_access_keys_configuration_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/access-keys-configuration@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/access-keys-configuration@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_access_keys_configuration_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_access_keys_configuration_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 8]);
@@ -1594,17 +1594,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_access_mutual_tls_certificate_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_access_mutual_tls_certificate_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/access-mutual-tls-certificate@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/access-mutual-tls-certificate@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_access_mutual_tls_certificate_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_access_mutual_tls_certificate_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 24]);
@@ -1697,17 +1697,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_access_mutual_tls_hostname_settings_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_access_mutual_tls_hostname_settings_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/access-mutual-tls-hostname-settings@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/access-mutual-tls-hostname-settings@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_access_mutual_tls_hostname_settings_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_access_mutual_tls_hostname_settings_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
@@ -1949,17 +1949,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_access_organization_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_access_organization_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/access-organization@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/access-organization@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,arg9: i32,arg10: i32,arg11: i32,arg12: i32,arg13: i32,arg14: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_access_organization_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_access_organization_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 52]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 52]);
@@ -2210,17 +2210,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_access_policy_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_access_policy_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/access-policy@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/access-policy@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_access_policy_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_access_policy_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 60]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 60]);
@@ -2337,17 +2337,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_access_rule_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_access_rule_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/access-rule@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/access-rule@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_access_rule_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_access_rule_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
@@ -2476,17 +2476,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_access_service_token_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_access_service_token_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/access-service-token@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/access-service-token@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_access_service_token_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_access_service_token_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 32]);
@@ -2591,17 +2591,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_access_tag_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_access_tag_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/access-tag@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/access-tag@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_access_tag_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_access_tag_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
@@ -2694,17 +2694,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_account_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_account_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/account@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/account@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_account_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_account_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
@@ -2809,17 +2809,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_account_member_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_account_member_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/account-member@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/account-member@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_account_member_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_account_member_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
@@ -2956,17 +2956,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_address_map_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_address_map_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/address-map@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/address-map@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_address_map_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_address_map_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 32]);
@@ -3047,17 +3047,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_api_shield_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_api_shield_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/api-shield@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/api-shield@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_api_shield_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_api_shield_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 8]);
@@ -3162,17 +3162,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_api_shield_operation_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_api_shield_operation_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/api-shield-operation@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/api-shield-operation@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_api_shield_operation_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_api_shield_operation_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
@@ -3265,17 +3265,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_api_shield_operation_schema_validation_settings_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_api_shield_operation_schema_validation_settings_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/api-shield-operation-schema-validation-settings@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/api-shield-operation-schema-validation-settings@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_api_shield_operation_schema_validation_settings_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_api_shield_operation_schema_validation_settings_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
@@ -3392,17 +3392,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_api_shield_schema_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_api_shield_schema_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/api-shield-schema@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/api-shield-schema@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_api_shield_schema_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_api_shield_schema_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
@@ -3510,17 +3510,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_api_shield_schema_validation_settings_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_api_shield_schema_validation_settings_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/api-shield-schema-validation-settings@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/api-shield-schema-validation-settings@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_api_shield_schema_validation_settings_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_api_shield_schema_validation_settings_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
@@ -3653,17 +3653,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_api_token_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_api_token_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/api-token@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/api-token@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_api_token_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_api_token_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 36]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 36]);
@@ -3756,17 +3756,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_argo_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_argo_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/argo@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/argo@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_argo_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_argo_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
@@ -3879,17 +3879,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_authenticated_origin_pulls_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_authenticated_origin_pulls_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/authenticated-origin-pulls@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/authenticated-origin-pulls@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_authenticated_origin_pulls_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_authenticated_origin_pulls_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
@@ -4018,17 +4018,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_authenticated_origin_pulls_certificate_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_authenticated_origin_pulls_certificate_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/authenticated-origin-pulls-certificate@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/authenticated-origin-pulls-certificate@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_authenticated_origin_pulls_certificate_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_authenticated_origin_pulls_certificate_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 40]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 40]);
@@ -4217,17 +4217,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_bot_management_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_bot_management_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/bot-management@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/bot-management@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,arg9: i32,arg10: i32,arg11: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_bot_management_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_bot_management_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 44]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 44]);
@@ -4332,17 +4332,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_byo_ip_prefix_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_byo_ip_prefix_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/byo-ip-prefix@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/byo-ip-prefix@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_byo_ip_prefix_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_byo_ip_prefix_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
@@ -4519,17 +4519,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_certificate_pack_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_certificate_pack_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/certificate-pack@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/certificate-pack@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,arg9: i32,arg10: i32,arg11: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_certificate_pack_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_certificate_pack_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 40]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 40]);
@@ -4693,17 +4693,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_custom_hostname_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_custom_hostname_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/custom-hostname@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/custom-hostname@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_custom_hostname_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_custom_hostname_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 40]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 40]);
@@ -4788,17 +4788,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_custom_hostname_fallback_origin_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_custom_hostname_fallback_origin_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/custom-hostname-fallback-origin@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/custom-hostname-fallback-origin@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_custom_hostname_fallback_origin_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_custom_hostname_fallback_origin_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
@@ -4915,17 +4915,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_custom_pages_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_custom_pages_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/custom-pages@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/custom-pages@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_custom_pages_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_custom_pages_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
@@ -5050,17 +5050,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_custom_ssl_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_custom_ssl_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/custom-ssl@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/custom-ssl@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_custom_ssl_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_custom_ssl_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 44]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 44]);
@@ -5145,17 +5145,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_d1_database_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_d1_database_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/d1-database@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/d1-database@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_d1_database_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_d1_database_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
@@ -5292,17 +5292,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_device_dex_test_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_device_dex_test_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/device-dex-test@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/device-dex-test@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_device_dex_test_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_device_dex_test_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 32]);
@@ -5407,17 +5407,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_device_managed_networks_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_device_managed_networks_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/device-managed-networks@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/device-managed-networks@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_device_managed_networks_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_device_managed_networks_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
@@ -5498,17 +5498,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_device_policy_certificates_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_device_policy_certificates_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/device-policy-certificates@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/device-policy-certificates@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_device_policy_certificates_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_device_policy_certificates_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 8]);
@@ -5637,17 +5637,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_device_posture_integration_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_device_posture_integration_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/device-posture-integration@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/device-posture-integration@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_device_posture_integration_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_device_posture_integration_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 24]);
@@ -5800,17 +5800,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_device_posture_rule_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_device_posture_rule_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/device-posture-rule@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/device-posture-rule@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,arg9: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_device_posture_rule_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_device_posture_rule_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 32]);
@@ -6083,17 +6083,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_device_settings_policy_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_device_settings_policy_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/device-settings-policy@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/device-settings-policy@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_device_settings_policy_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_device_settings_policy_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 72]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 72]);
@@ -6234,17 +6234,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_dlp_profile_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_dlp_profile_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/dlp-profile@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/dlp-profile@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_dlp_profile_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_dlp_profile_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 28]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 28]);
@@ -6341,17 +6341,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_email_routing_address_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_email_routing_address_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/email-routing-address@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/email-routing-address@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_email_routing_address_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_email_routing_address_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 24]);
@@ -6472,17 +6472,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_email_routing_catch_all_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_email_routing_catch_all_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/email-routing-catch-all@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/email-routing-catch-all@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_email_routing_catch_all_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_email_routing_catch_all_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 24]);
@@ -6615,17 +6615,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_email_routing_rule_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_email_routing_rule_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/email-routing-rule@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/email-routing-rule@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_email_routing_rule_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_email_routing_rule_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 28]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 28]);
@@ -6738,17 +6738,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_email_routing_settings_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_email_routing_settings_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/email-routing-settings@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/email-routing-settings@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_email_routing_settings_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_email_routing_settings_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 32]);
@@ -6841,17 +6841,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_fallback_domain_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_fallback_domain_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/fallback-domain@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/fallback-domain@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_fallback_domain_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_fallback_domain_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
@@ -6968,17 +6968,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_filter_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_filter_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/filter@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/filter@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_filter_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_filter_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
@@ -7119,17 +7119,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_firewall_rule_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_firewall_rule_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/firewall-rule@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/firewall-rule@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_firewall_rule_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_firewall_rule_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 28]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 28]);
@@ -7318,17 +7318,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_gre_tunnel_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_gre_tunnel_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/gre-tunnel@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/gre-tunnel@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,arg9: i32,arg10: i32,arg11: i32,arg12: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_gre_tunnel_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_gre_tunnel_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 44]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 44]);
@@ -7633,17 +7633,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_healthcheck_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_healthcheck_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/healthcheck@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/healthcheck@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_healthcheck_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_healthcheck_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 88]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 88]);
@@ -7756,17 +7756,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_hostname_tls_setting_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_hostname_tls_setting_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/hostname-tls-setting@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/hostname-tls-setting@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_hostname_tls_setting_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_hostname_tls_setting_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 24]);
@@ -7879,17 +7879,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_hostname_tls_setting_ciphers_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_hostname_tls_setting_ciphers_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/hostname-tls-setting-ciphers@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/hostname-tls-setting-ciphers@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_hostname_tls_setting_ciphers_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_hostname_tls_setting_ciphers_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 24]);
@@ -7994,17 +7994,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_hyperdrive_config_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_hyperdrive_config_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/hyperdrive-config@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/hyperdrive-config@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_hyperdrive_config_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_hyperdrive_config_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
@@ -8265,17 +8265,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_ipsec_tunnel_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_ipsec_tunnel_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/ipsec-tunnel@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/ipsec-tunnel@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_ipsec_tunnel_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_ipsec_tunnel_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 68]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 68]);
@@ -8420,17 +8420,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_keyless_certificate_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_keyless_certificate_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/keyless-certificate@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/keyless-certificate@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_keyless_certificate_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_keyless_certificate_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 32]);
@@ -8547,17 +8547,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_list_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_list_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/list@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/list@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_list_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_list_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
@@ -8698,17 +8698,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_list_item_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_list_item_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/list-item@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/list-item@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_list_item_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_list_item_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 28]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 28]);
@@ -9008,17 +9008,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_load_balancer_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_load_balancer_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/load-balancer@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/load-balancer@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_load_balancer_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_load_balancer_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 84]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 84]);
@@ -9287,17 +9287,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_load_balancer_monitor_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_load_balancer_monitor_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/load-balancer-monitor@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/load-balancer-monitor@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_load_balancer_monitor_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_load_balancer_monitor_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 76]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 76]);
@@ -9518,17 +9518,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_load_balancer_pool_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_load_balancer_pool_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/load-balancer-pool@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/load-balancer-pool@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,arg9: i32,arg10: i32,arg11: i32,arg12: i32,arg13: i32,arg14: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_load_balancer_pool_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_load_balancer_pool_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 60]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 60]);
@@ -9609,17 +9609,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_logpull_retention_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_logpull_retention_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/logpull-retention@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/logpull-retention@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_logpull_retention_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_logpull_retention_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 8]);
@@ -9863,17 +9863,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_logpush_job_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_logpush_job_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/logpush-job@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/logpush-job@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_logpush_job_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_logpush_job_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 60]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 60]);
@@ -9974,17 +9974,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_logpush_ownership_challenge_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_logpush_ownership_challenge_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/logpush-ownership-challenge@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/logpush-ownership-challenge@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_logpush_ownership_challenge_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_logpush_ownership_challenge_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
@@ -10089,17 +10089,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_magic_firewall_ruleset_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_magic_firewall_ruleset_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/magic-firewall-ruleset@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/magic-firewall-ruleset@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_magic_firewall_ruleset_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_magic_firewall_ruleset_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
@@ -10192,17 +10192,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_managed_headers_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_managed_headers_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/managed-headers@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/managed-headers@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_managed_headers_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_managed_headers_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
@@ -10339,17 +10339,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_mtls_certificate_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_mtls_certificate_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/mtls-certificate@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/mtls-certificate@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_mtls_certificate_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_mtls_certificate_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 40]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 40]);
@@ -10522,17 +10522,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_notification_policy_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_notification_policy_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/notification-policy@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/notification-policy@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,arg9: i32,arg10: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_notification_policy_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_notification_policy_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 44]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 44]);
@@ -10653,17 +10653,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_notification_policy_webhooks_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_notification_policy_webhooks_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/notification-policy-webhooks@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/notification-policy-webhooks@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_notification_policy_webhooks_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_notification_policy_webhooks_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 32]);
@@ -10768,17 +10768,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_observatory_scheduled_test_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_observatory_scheduled_test_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/observatory-scheduled-test@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/observatory-scheduled-test@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_observatory_scheduled_test_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_observatory_scheduled_test_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
@@ -10903,17 +10903,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_origin_ca_certificate_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_origin_ca_certificate_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/origin-ca-certificate@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/origin-ca-certificate@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_origin_ca_certificate_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_origin_ca_certificate_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 28]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 28]);
@@ -11030,17 +11030,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_page_rule_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_page_rule_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/page-rule@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/page-rule@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_page_rule_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_page_rule_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
@@ -11137,17 +11137,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_pages_domain_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_pages_domain_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/pages-domain@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/pages-domain@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_pages_domain_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_pages_domain_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
@@ -11288,17 +11288,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_pages_project_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_pages_project_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/pages-project@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/pages-project@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_pages_project_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_pages_project_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 36]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 36]);
@@ -11379,17 +11379,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_queue_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_queue_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/queue@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/queue@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_queue_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_queue_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 8]);
@@ -11482,17 +11482,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_r2_bucket_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_r2_bucket_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/r2-bucket@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/r2-bucket@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_r2_bucket_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_r2_bucket_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
@@ -11657,17 +11657,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_rate_limit_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_rate_limit_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/rate-limit@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/rate-limit@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,arg9: i32,arg10: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_rate_limit_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_rate_limit_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 36]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 36]);
@@ -11876,17 +11876,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_record_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_record_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/record@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/record@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,arg9: i32,arg10: i32,arg11: i32,arg12: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_record_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_record_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 64]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 64]);
@@ -11983,17 +11983,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_regional_hostname_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_regional_hostname_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/regional-hostname@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/regional-hostname@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_regional_hostname_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_regional_hostname_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
@@ -12074,17 +12074,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_regional_tiered_cache_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_regional_tiered_cache_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/regional-tiered-cache@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/regional-tiered-cache@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_regional_tiered_cache_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_regional_tiered_cache_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 8]);
@@ -12225,17 +12225,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_ruleset_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_ruleset_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/ruleset@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/ruleset@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_ruleset_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_ruleset_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 28]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 28]);
@@ -12448,17 +12448,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_spectrum_application_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_spectrum_application_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/spectrum-application@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/spectrum-application@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,arg9: i32,arg10: i32,arg11: i32,arg12: i32,arg13: i32,arg14: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_spectrum_application_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_spectrum_application_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 52]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 52]);
@@ -12563,17 +12563,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_split_tunnel_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_split_tunnel_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/split-tunnel@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/split-tunnel@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_split_tunnel_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_split_tunnel_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
@@ -12726,17 +12726,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_static_route_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_static_route_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/static-route@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/static-route@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,arg9: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_static_route_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_static_route_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 32]);
@@ -12995,17 +12995,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_teams_account_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_teams_account_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/teams-account@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/teams-account@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_teams_account_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_teams_account_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 60]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 60]);
@@ -13122,17 +13122,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_teams_list_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_teams_list_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/teams-list@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/teams-list@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_teams_list_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_teams_list_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
@@ -13257,17 +13257,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_teams_location_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_teams_location_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/teams-location@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/teams-location@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_teams_location_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_teams_location_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 36]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 36]);
@@ -13364,17 +13364,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_teams_proxy_endpoint_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_teams_proxy_endpoint_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/teams-proxy-endpoint@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/teams-proxy-endpoint@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_teams_proxy_endpoint_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_teams_proxy_endpoint_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
@@ -13567,17 +13567,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_teams_rule_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_teams_rule_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/teams-rule@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/teams-rule@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,arg9: i32,arg10: i32,arg11: i32,arg12: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_teams_rule_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_teams_rule_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 48]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 48]);
@@ -13658,17 +13658,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_tiered_cache_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_tiered_cache_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/tiered-cache@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/tiered-cache@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_tiered_cache_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_tiered_cache_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 8]);
@@ -13761,17 +13761,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_total_tls_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_total_tls_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/total-tls@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/total-tls@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_total_tls_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_total_tls_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
@@ -13884,17 +13884,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_tunnel_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_tunnel_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/tunnel@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/tunnel@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_tunnel_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_tunnel_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 24]);
@@ -13987,17 +13987,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_tunnel_config_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_tunnel_config_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/tunnel-config@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/tunnel-config@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_tunnel_config_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_tunnel_config_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
@@ -14114,17 +14114,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_tunnel_route_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_tunnel_route_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/tunnel-route@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/tunnel-route@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_tunnel_route_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_tunnel_route_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
@@ -14229,17 +14229,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_tunnel_virtual_network_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_tunnel_virtual_network_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/tunnel-virtual-network@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/tunnel-virtual-network@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_tunnel_virtual_network_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_tunnel_virtual_network_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
@@ -14384,17 +14384,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_turnstile_widget_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_turnstile_widget_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/turnstile-widget@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/turnstile-widget@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_turnstile_widget_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_turnstile_widget_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 32]);
@@ -14487,17 +14487,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_url_normalization_settings_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_url_normalization_settings_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/url-normalization-settings@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/url-normalization-settings@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_url_normalization_settings_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_url_normalization_settings_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
@@ -14614,17 +14614,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_user_agent_blocking_rule_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_user_agent_blocking_rule_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/user-agent-blocking-rule@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/user-agent-blocking-rule@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_user_agent_blocking_rule_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_user_agent_blocking_rule_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
@@ -14898,17 +14898,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_waiting_room_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_waiting_room_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/waiting-room@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/waiting-room@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_waiting_room_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_waiting_room_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 72]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 72]);
@@ -15153,17 +15153,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_waiting_room_event_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_waiting_room_event_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/waiting-room-event@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/waiting-room-event@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_waiting_room_event_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_waiting_room_event_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 68]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 68]);
@@ -15256,17 +15256,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_waiting_room_rules_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_waiting_room_rules_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/waiting-room-rules@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/waiting-room-rules@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_waiting_room_rules_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_waiting_room_rules_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
@@ -15354,17 +15354,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_waiting_room_settings_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_waiting_room_settings_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/waiting-room-settings@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/waiting-room-settings@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_waiting_room_settings_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_waiting_room_settings_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 8]);
@@ -15493,17 +15493,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_web3_hostname_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_web3_hostname_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/web3-hostname@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/web3-hostname@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_web3_hostname_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_web3_hostname_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 32]);
@@ -15632,17 +15632,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_web_analytics_rule_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_web_analytics_rule_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/web-analytics-rule@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/web-analytics-rule@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_web_analytics_rule_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_web_analytics_rule_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 24]);
@@ -15763,17 +15763,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_web_analytics_site_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_web_analytics_site_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/web-analytics-site@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/web-analytics-site@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_web_analytics_site_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_web_analytics_site_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 32]);
@@ -15866,17 +15866,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_worker_cron_trigger_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_worker_cron_trigger_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/worker-cron-trigger@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/worker-cron-trigger@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_worker_cron_trigger_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_worker_cron_trigger_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
@@ -15993,17 +15993,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_worker_domain_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_worker_domain_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/worker-domain@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/worker-domain@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_worker_domain_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_worker_domain_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
@@ -16096,17 +16096,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_worker_route_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_worker_route_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/worker-route@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/worker-route@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_worker_route_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_worker_route_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
@@ -16392,17 +16392,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_worker_script_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_worker_script_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/worker-script@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/worker-script@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_worker_script_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_worker_script_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 76]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 76]);
@@ -16507,17 +16507,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_worker_secret_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_worker_secret_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/worker-secret@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/worker-secret@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_worker_secret_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_worker_secret_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
@@ -16598,17 +16598,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_workers_for_platforms_namespace_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_workers_for_platforms_namespace_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/workers-for-platforms-namespace@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/workers-for-platforms-namespace@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_workers_for_platforms_namespace_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_workers_for_platforms_namespace_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 8]);
@@ -16713,17 +16713,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_workers_kv_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_workers_kv_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/workers-kv@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/workers-kv@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_workers_kv_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_workers_kv_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
@@ -16804,17 +16804,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_workers_kv_namespace_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_workers_kv_namespace_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/workers-kv-namespace@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/workers-kv-namespace@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_workers_kv_namespace_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_workers_kv_namespace_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 8]);
@@ -16963,17 +16963,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_zone_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_zone_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/zone@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/zone@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zone_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zone_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 44]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 44]);
@@ -17054,17 +17054,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_zone_cache_reserve_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_zone_cache_reserve_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/zone-cache-reserve@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/zone-cache-reserve@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zone_cache_reserve_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zone_cache_reserve_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 8]);
@@ -17265,17 +17265,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_zone_cache_variants_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_zone_cache_variants_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/zone-cache-variants@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/zone-cache-variants@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,arg8: i32,arg9: i32,arg10: i32,arg11: i32,arg12: i32,arg13: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zone_cache_variants_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zone_cache_variants_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 48]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 48]);
@@ -17396,17 +17396,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_zone_dnssec_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_zone_dnssec_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/zone-dnssec@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/zone-dnssec@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zone_dnssec_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zone_dnssec_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 48]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 48]);
@@ -17511,17 +17511,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_zone_hold_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_zone_hold_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/zone-hold@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/zone-hold@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zone_hold_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zone_hold_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
@@ -17650,17 +17650,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_zone_lockdown_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_zone_lockdown_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/zone-lockdown@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/zone-lockdown@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,arg4: i32,arg5: i32,arg6: i32,arg7: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zone_lockdown_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zone_lockdown_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 24]);
@@ -17761,17 +17761,17 @@ pub mod exports {
                 }
                 #[doc(hidden)]
 
-                macro_rules! __export_pulumi_cloudflare_zone_settings_override_5_24_1_zero_zero_zero_dev_cabi{
+                macro_rules! __export_pulumi_cloudflare_zone_settings_override_5_24_1_divider_zero_zero_zero_dev_cabi{
   ($ty:ident with_types_in $($path_to_types:tt)*) => (const _: () = {
 
-    #[export_name = "pulumi:cloudflare/zone-settings-override@5.24.1-ZERO.ZERO.ZERO-DEV#invoke"]
+    #[export_name = "pulumi:cloudflare/zone-settings-override@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
     unsafe extern "C" fn export_invoke(arg0: *mut u8,arg1: usize,arg2: i32,arg3: i32,) -> *mut u8 {
       $($path_to_types)*::_export_invoke_cabi::<$ty>(arg0, arg1, arg2, arg3)
     }
   };);
 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zone_settings_override_5_24_1_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zone_settings_override_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 28]);
                 static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 28]);
@@ -17922,124 +17922,124 @@ mod _rt {
 macro_rules! __export_cloudflare_pulumi_impl {
   ($ty:ident) => (self::export!($ty with_types_in self););
   ($ty:ident with_types_in $($path_to_types_root:tt)*) => (
-  $($path_to_types_root)*::exports::pulumi::cloudflare::access_application::__export_pulumi_cloudflare_access_application_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::access_application);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::access_ca_certificate::__export_pulumi_cloudflare_access_ca_certificate_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::access_ca_certificate);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::access_custom_page::__export_pulumi_cloudflare_access_custom_page_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::access_custom_page);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::access_group::__export_pulumi_cloudflare_access_group_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::access_group);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::access_identity_provider::__export_pulumi_cloudflare_access_identity_provider_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::access_identity_provider);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::access_keys_configuration::__export_pulumi_cloudflare_access_keys_configuration_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::access_keys_configuration);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::access_mutual_tls_certificate::__export_pulumi_cloudflare_access_mutual_tls_certificate_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::access_mutual_tls_certificate);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::access_mutual_tls_hostname_settings::__export_pulumi_cloudflare_access_mutual_tls_hostname_settings_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::access_mutual_tls_hostname_settings);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::access_organization::__export_pulumi_cloudflare_access_organization_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::access_organization);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::access_policy::__export_pulumi_cloudflare_access_policy_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::access_policy);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::access_rule::__export_pulumi_cloudflare_access_rule_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::access_rule);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::access_service_token::__export_pulumi_cloudflare_access_service_token_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::access_service_token);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::access_tag::__export_pulumi_cloudflare_access_tag_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::access_tag);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::account::__export_pulumi_cloudflare_account_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::account);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::account_member::__export_pulumi_cloudflare_account_member_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::account_member);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::address_map::__export_pulumi_cloudflare_address_map_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::address_map);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::api_shield::__export_pulumi_cloudflare_api_shield_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::api_shield);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::api_shield_operation::__export_pulumi_cloudflare_api_shield_operation_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::api_shield_operation);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::api_shield_operation_schema_validation_settings::__export_pulumi_cloudflare_api_shield_operation_schema_validation_settings_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::api_shield_operation_schema_validation_settings);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::api_shield_schema::__export_pulumi_cloudflare_api_shield_schema_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::api_shield_schema);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::api_shield_schema_validation_settings::__export_pulumi_cloudflare_api_shield_schema_validation_settings_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::api_shield_schema_validation_settings);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::api_token::__export_pulumi_cloudflare_api_token_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::api_token);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::argo::__export_pulumi_cloudflare_argo_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::argo);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::authenticated_origin_pulls::__export_pulumi_cloudflare_authenticated_origin_pulls_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::authenticated_origin_pulls);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::authenticated_origin_pulls_certificate::__export_pulumi_cloudflare_authenticated_origin_pulls_certificate_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::authenticated_origin_pulls_certificate);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::bot_management::__export_pulumi_cloudflare_bot_management_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::bot_management);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::byo_ip_prefix::__export_pulumi_cloudflare_byo_ip_prefix_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::byo_ip_prefix);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::certificate_pack::__export_pulumi_cloudflare_certificate_pack_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::certificate_pack);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::custom_hostname::__export_pulumi_cloudflare_custom_hostname_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::custom_hostname);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::custom_hostname_fallback_origin::__export_pulumi_cloudflare_custom_hostname_fallback_origin_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::custom_hostname_fallback_origin);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::custom_pages::__export_pulumi_cloudflare_custom_pages_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::custom_pages);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::custom_ssl::__export_pulumi_cloudflare_custom_ssl_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::custom_ssl);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::d1_database::__export_pulumi_cloudflare_d1_database_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::d1_database);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::device_dex_test::__export_pulumi_cloudflare_device_dex_test_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::device_dex_test);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::device_managed_networks::__export_pulumi_cloudflare_device_managed_networks_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::device_managed_networks);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::device_policy_certificates::__export_pulumi_cloudflare_device_policy_certificates_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::device_policy_certificates);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::device_posture_integration::__export_pulumi_cloudflare_device_posture_integration_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::device_posture_integration);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::device_posture_rule::__export_pulumi_cloudflare_device_posture_rule_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::device_posture_rule);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::device_settings_policy::__export_pulumi_cloudflare_device_settings_policy_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::device_settings_policy);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::dlp_profile::__export_pulumi_cloudflare_dlp_profile_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::dlp_profile);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::email_routing_address::__export_pulumi_cloudflare_email_routing_address_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::email_routing_address);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::email_routing_catch_all::__export_pulumi_cloudflare_email_routing_catch_all_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::email_routing_catch_all);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::email_routing_rule::__export_pulumi_cloudflare_email_routing_rule_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::email_routing_rule);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::email_routing_settings::__export_pulumi_cloudflare_email_routing_settings_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::email_routing_settings);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::fallback_domain::__export_pulumi_cloudflare_fallback_domain_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::fallback_domain);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::filter::__export_pulumi_cloudflare_filter_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::filter);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::firewall_rule::__export_pulumi_cloudflare_firewall_rule_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::firewall_rule);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::gre_tunnel::__export_pulumi_cloudflare_gre_tunnel_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::gre_tunnel);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::healthcheck::__export_pulumi_cloudflare_healthcheck_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::healthcheck);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::hostname_tls_setting::__export_pulumi_cloudflare_hostname_tls_setting_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::hostname_tls_setting);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::hostname_tls_setting_ciphers::__export_pulumi_cloudflare_hostname_tls_setting_ciphers_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::hostname_tls_setting_ciphers);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::hyperdrive_config::__export_pulumi_cloudflare_hyperdrive_config_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::hyperdrive_config);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::ipsec_tunnel::__export_pulumi_cloudflare_ipsec_tunnel_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::ipsec_tunnel);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::keyless_certificate::__export_pulumi_cloudflare_keyless_certificate_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::keyless_certificate);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::list::__export_pulumi_cloudflare_list_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::list);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::list_item::__export_pulumi_cloudflare_list_item_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::list_item);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::load_balancer::__export_pulumi_cloudflare_load_balancer_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::load_balancer);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::load_balancer_monitor::__export_pulumi_cloudflare_load_balancer_monitor_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::load_balancer_monitor);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::load_balancer_pool::__export_pulumi_cloudflare_load_balancer_pool_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::load_balancer_pool);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::logpull_retention::__export_pulumi_cloudflare_logpull_retention_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::logpull_retention);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::logpush_job::__export_pulumi_cloudflare_logpush_job_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::logpush_job);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::logpush_ownership_challenge::__export_pulumi_cloudflare_logpush_ownership_challenge_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::logpush_ownership_challenge);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::magic_firewall_ruleset::__export_pulumi_cloudflare_magic_firewall_ruleset_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::magic_firewall_ruleset);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::managed_headers::__export_pulumi_cloudflare_managed_headers_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::managed_headers);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::mtls_certificate::__export_pulumi_cloudflare_mtls_certificate_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::mtls_certificate);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::notification_policy::__export_pulumi_cloudflare_notification_policy_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::notification_policy);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::notification_policy_webhooks::__export_pulumi_cloudflare_notification_policy_webhooks_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::notification_policy_webhooks);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::observatory_scheduled_test::__export_pulumi_cloudflare_observatory_scheduled_test_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::observatory_scheduled_test);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::origin_ca_certificate::__export_pulumi_cloudflare_origin_ca_certificate_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::origin_ca_certificate);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::page_rule::__export_pulumi_cloudflare_page_rule_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::page_rule);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::pages_domain::__export_pulumi_cloudflare_pages_domain_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::pages_domain);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::pages_project::__export_pulumi_cloudflare_pages_project_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::pages_project);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::queue::__export_pulumi_cloudflare_queue_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::queue);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::r2_bucket::__export_pulumi_cloudflare_r2_bucket_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::r2_bucket);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::rate_limit::__export_pulumi_cloudflare_rate_limit_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::rate_limit);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::record::__export_pulumi_cloudflare_record_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::record);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::regional_hostname::__export_pulumi_cloudflare_regional_hostname_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::regional_hostname);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::regional_tiered_cache::__export_pulumi_cloudflare_regional_tiered_cache_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::regional_tiered_cache);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::ruleset::__export_pulumi_cloudflare_ruleset_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::ruleset);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::spectrum_application::__export_pulumi_cloudflare_spectrum_application_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::spectrum_application);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::split_tunnel::__export_pulumi_cloudflare_split_tunnel_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::split_tunnel);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::static_route::__export_pulumi_cloudflare_static_route_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::static_route);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::teams_account::__export_pulumi_cloudflare_teams_account_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::teams_account);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::teams_list::__export_pulumi_cloudflare_teams_list_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::teams_list);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::teams_location::__export_pulumi_cloudflare_teams_location_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::teams_location);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::teams_proxy_endpoint::__export_pulumi_cloudflare_teams_proxy_endpoint_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::teams_proxy_endpoint);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::teams_rule::__export_pulumi_cloudflare_teams_rule_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::teams_rule);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::tiered_cache::__export_pulumi_cloudflare_tiered_cache_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::tiered_cache);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::total_tls::__export_pulumi_cloudflare_total_tls_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::total_tls);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::tunnel::__export_pulumi_cloudflare_tunnel_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::tunnel);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::tunnel_config::__export_pulumi_cloudflare_tunnel_config_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::tunnel_config);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::tunnel_route::__export_pulumi_cloudflare_tunnel_route_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::tunnel_route);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::tunnel_virtual_network::__export_pulumi_cloudflare_tunnel_virtual_network_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::tunnel_virtual_network);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::turnstile_widget::__export_pulumi_cloudflare_turnstile_widget_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::turnstile_widget);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::url_normalization_settings::__export_pulumi_cloudflare_url_normalization_settings_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::url_normalization_settings);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::user_agent_blocking_rule::__export_pulumi_cloudflare_user_agent_blocking_rule_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::user_agent_blocking_rule);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::waiting_room::__export_pulumi_cloudflare_waiting_room_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::waiting_room);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::waiting_room_event::__export_pulumi_cloudflare_waiting_room_event_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::waiting_room_event);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::waiting_room_rules::__export_pulumi_cloudflare_waiting_room_rules_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::waiting_room_rules);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::waiting_room_settings::__export_pulumi_cloudflare_waiting_room_settings_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::waiting_room_settings);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::web3_hostname::__export_pulumi_cloudflare_web3_hostname_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::web3_hostname);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::web_analytics_rule::__export_pulumi_cloudflare_web_analytics_rule_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::web_analytics_rule);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::web_analytics_site::__export_pulumi_cloudflare_web_analytics_site_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::web_analytics_site);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::worker_cron_trigger::__export_pulumi_cloudflare_worker_cron_trigger_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::worker_cron_trigger);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::worker_domain::__export_pulumi_cloudflare_worker_domain_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::worker_domain);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::worker_route::__export_pulumi_cloudflare_worker_route_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::worker_route);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::worker_script::__export_pulumi_cloudflare_worker_script_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::worker_script);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::worker_secret::__export_pulumi_cloudflare_worker_secret_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::worker_secret);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::workers_for_platforms_namespace::__export_pulumi_cloudflare_workers_for_platforms_namespace_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::workers_for_platforms_namespace);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::workers_kv::__export_pulumi_cloudflare_workers_kv_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::workers_kv);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::workers_kv_namespace::__export_pulumi_cloudflare_workers_kv_namespace_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::workers_kv_namespace);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::zone::__export_pulumi_cloudflare_zone_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::zone);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::zone_cache_reserve::__export_pulumi_cloudflare_zone_cache_reserve_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::zone_cache_reserve);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::zone_cache_variants::__export_pulumi_cloudflare_zone_cache_variants_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::zone_cache_variants);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::zone_dnssec::__export_pulumi_cloudflare_zone_dnssec_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::zone_dnssec);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::zone_hold::__export_pulumi_cloudflare_zone_hold_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::zone_hold);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::zone_lockdown::__export_pulumi_cloudflare_zone_lockdown_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::zone_lockdown);
-  $($path_to_types_root)*::exports::pulumi::cloudflare::zone_settings_override::__export_pulumi_cloudflare_zone_settings_override_5_24_1_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::zone_settings_override);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::access_application::__export_pulumi_cloudflare_access_application_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::access_application);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::access_ca_certificate::__export_pulumi_cloudflare_access_ca_certificate_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::access_ca_certificate);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::access_custom_page::__export_pulumi_cloudflare_access_custom_page_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::access_custom_page);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::access_group::__export_pulumi_cloudflare_access_group_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::access_group);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::access_identity_provider::__export_pulumi_cloudflare_access_identity_provider_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::access_identity_provider);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::access_keys_configuration::__export_pulumi_cloudflare_access_keys_configuration_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::access_keys_configuration);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::access_mutual_tls_certificate::__export_pulumi_cloudflare_access_mutual_tls_certificate_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::access_mutual_tls_certificate);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::access_mutual_tls_hostname_settings::__export_pulumi_cloudflare_access_mutual_tls_hostname_settings_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::access_mutual_tls_hostname_settings);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::access_organization::__export_pulumi_cloudflare_access_organization_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::access_organization);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::access_policy::__export_pulumi_cloudflare_access_policy_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::access_policy);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::access_rule::__export_pulumi_cloudflare_access_rule_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::access_rule);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::access_service_token::__export_pulumi_cloudflare_access_service_token_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::access_service_token);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::access_tag::__export_pulumi_cloudflare_access_tag_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::access_tag);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::account::__export_pulumi_cloudflare_account_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::account);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::account_member::__export_pulumi_cloudflare_account_member_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::account_member);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::address_map::__export_pulumi_cloudflare_address_map_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::address_map);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::api_shield::__export_pulumi_cloudflare_api_shield_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::api_shield);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::api_shield_operation::__export_pulumi_cloudflare_api_shield_operation_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::api_shield_operation);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::api_shield_operation_schema_validation_settings::__export_pulumi_cloudflare_api_shield_operation_schema_validation_settings_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::api_shield_operation_schema_validation_settings);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::api_shield_schema::__export_pulumi_cloudflare_api_shield_schema_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::api_shield_schema);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::api_shield_schema_validation_settings::__export_pulumi_cloudflare_api_shield_schema_validation_settings_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::api_shield_schema_validation_settings);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::api_token::__export_pulumi_cloudflare_api_token_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::api_token);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::argo::__export_pulumi_cloudflare_argo_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::argo);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::authenticated_origin_pulls::__export_pulumi_cloudflare_authenticated_origin_pulls_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::authenticated_origin_pulls);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::authenticated_origin_pulls_certificate::__export_pulumi_cloudflare_authenticated_origin_pulls_certificate_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::authenticated_origin_pulls_certificate);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::bot_management::__export_pulumi_cloudflare_bot_management_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::bot_management);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::byo_ip_prefix::__export_pulumi_cloudflare_byo_ip_prefix_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::byo_ip_prefix);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::certificate_pack::__export_pulumi_cloudflare_certificate_pack_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::certificate_pack);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::custom_hostname::__export_pulumi_cloudflare_custom_hostname_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::custom_hostname);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::custom_hostname_fallback_origin::__export_pulumi_cloudflare_custom_hostname_fallback_origin_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::custom_hostname_fallback_origin);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::custom_pages::__export_pulumi_cloudflare_custom_pages_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::custom_pages);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::custom_ssl::__export_pulumi_cloudflare_custom_ssl_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::custom_ssl);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::d1_database::__export_pulumi_cloudflare_d1_database_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::d1_database);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::device_dex_test::__export_pulumi_cloudflare_device_dex_test_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::device_dex_test);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::device_managed_networks::__export_pulumi_cloudflare_device_managed_networks_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::device_managed_networks);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::device_policy_certificates::__export_pulumi_cloudflare_device_policy_certificates_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::device_policy_certificates);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::device_posture_integration::__export_pulumi_cloudflare_device_posture_integration_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::device_posture_integration);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::device_posture_rule::__export_pulumi_cloudflare_device_posture_rule_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::device_posture_rule);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::device_settings_policy::__export_pulumi_cloudflare_device_settings_policy_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::device_settings_policy);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::dlp_profile::__export_pulumi_cloudflare_dlp_profile_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::dlp_profile);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::email_routing_address::__export_pulumi_cloudflare_email_routing_address_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::email_routing_address);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::email_routing_catch_all::__export_pulumi_cloudflare_email_routing_catch_all_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::email_routing_catch_all);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::email_routing_rule::__export_pulumi_cloudflare_email_routing_rule_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::email_routing_rule);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::email_routing_settings::__export_pulumi_cloudflare_email_routing_settings_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::email_routing_settings);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::fallback_domain::__export_pulumi_cloudflare_fallback_domain_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::fallback_domain);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::filter::__export_pulumi_cloudflare_filter_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::filter);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::firewall_rule::__export_pulumi_cloudflare_firewall_rule_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::firewall_rule);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::gre_tunnel::__export_pulumi_cloudflare_gre_tunnel_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::gre_tunnel);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::healthcheck::__export_pulumi_cloudflare_healthcheck_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::healthcheck);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::hostname_tls_setting::__export_pulumi_cloudflare_hostname_tls_setting_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::hostname_tls_setting);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::hostname_tls_setting_ciphers::__export_pulumi_cloudflare_hostname_tls_setting_ciphers_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::hostname_tls_setting_ciphers);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::hyperdrive_config::__export_pulumi_cloudflare_hyperdrive_config_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::hyperdrive_config);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::ipsec_tunnel::__export_pulumi_cloudflare_ipsec_tunnel_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::ipsec_tunnel);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::keyless_certificate::__export_pulumi_cloudflare_keyless_certificate_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::keyless_certificate);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::list::__export_pulumi_cloudflare_list_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::list);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::list_item::__export_pulumi_cloudflare_list_item_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::list_item);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::load_balancer::__export_pulumi_cloudflare_load_balancer_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::load_balancer);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::load_balancer_monitor::__export_pulumi_cloudflare_load_balancer_monitor_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::load_balancer_monitor);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::load_balancer_pool::__export_pulumi_cloudflare_load_balancer_pool_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::load_balancer_pool);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::logpull_retention::__export_pulumi_cloudflare_logpull_retention_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::logpull_retention);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::logpush_job::__export_pulumi_cloudflare_logpush_job_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::logpush_job);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::logpush_ownership_challenge::__export_pulumi_cloudflare_logpush_ownership_challenge_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::logpush_ownership_challenge);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::magic_firewall_ruleset::__export_pulumi_cloudflare_magic_firewall_ruleset_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::magic_firewall_ruleset);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::managed_headers::__export_pulumi_cloudflare_managed_headers_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::managed_headers);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::mtls_certificate::__export_pulumi_cloudflare_mtls_certificate_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::mtls_certificate);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::notification_policy::__export_pulumi_cloudflare_notification_policy_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::notification_policy);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::notification_policy_webhooks::__export_pulumi_cloudflare_notification_policy_webhooks_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::notification_policy_webhooks);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::observatory_scheduled_test::__export_pulumi_cloudflare_observatory_scheduled_test_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::observatory_scheduled_test);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::origin_ca_certificate::__export_pulumi_cloudflare_origin_ca_certificate_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::origin_ca_certificate);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::page_rule::__export_pulumi_cloudflare_page_rule_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::page_rule);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::pages_domain::__export_pulumi_cloudflare_pages_domain_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::pages_domain);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::pages_project::__export_pulumi_cloudflare_pages_project_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::pages_project);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::queue::__export_pulumi_cloudflare_queue_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::queue);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::r2_bucket::__export_pulumi_cloudflare_r2_bucket_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::r2_bucket);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::rate_limit::__export_pulumi_cloudflare_rate_limit_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::rate_limit);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::record::__export_pulumi_cloudflare_record_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::record);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::regional_hostname::__export_pulumi_cloudflare_regional_hostname_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::regional_hostname);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::regional_tiered_cache::__export_pulumi_cloudflare_regional_tiered_cache_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::regional_tiered_cache);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::ruleset::__export_pulumi_cloudflare_ruleset_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::ruleset);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::spectrum_application::__export_pulumi_cloudflare_spectrum_application_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::spectrum_application);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::split_tunnel::__export_pulumi_cloudflare_split_tunnel_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::split_tunnel);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::static_route::__export_pulumi_cloudflare_static_route_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::static_route);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::teams_account::__export_pulumi_cloudflare_teams_account_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::teams_account);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::teams_list::__export_pulumi_cloudflare_teams_list_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::teams_list);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::teams_location::__export_pulumi_cloudflare_teams_location_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::teams_location);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::teams_proxy_endpoint::__export_pulumi_cloudflare_teams_proxy_endpoint_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::teams_proxy_endpoint);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::teams_rule::__export_pulumi_cloudflare_teams_rule_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::teams_rule);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::tiered_cache::__export_pulumi_cloudflare_tiered_cache_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::tiered_cache);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::total_tls::__export_pulumi_cloudflare_total_tls_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::total_tls);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::tunnel::__export_pulumi_cloudflare_tunnel_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::tunnel);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::tunnel_config::__export_pulumi_cloudflare_tunnel_config_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::tunnel_config);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::tunnel_route::__export_pulumi_cloudflare_tunnel_route_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::tunnel_route);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::tunnel_virtual_network::__export_pulumi_cloudflare_tunnel_virtual_network_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::tunnel_virtual_network);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::turnstile_widget::__export_pulumi_cloudflare_turnstile_widget_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::turnstile_widget);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::url_normalization_settings::__export_pulumi_cloudflare_url_normalization_settings_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::url_normalization_settings);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::user_agent_blocking_rule::__export_pulumi_cloudflare_user_agent_blocking_rule_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::user_agent_blocking_rule);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::waiting_room::__export_pulumi_cloudflare_waiting_room_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::waiting_room);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::waiting_room_event::__export_pulumi_cloudflare_waiting_room_event_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::waiting_room_event);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::waiting_room_rules::__export_pulumi_cloudflare_waiting_room_rules_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::waiting_room_rules);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::waiting_room_settings::__export_pulumi_cloudflare_waiting_room_settings_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::waiting_room_settings);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::web3_hostname::__export_pulumi_cloudflare_web3_hostname_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::web3_hostname);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::web_analytics_rule::__export_pulumi_cloudflare_web_analytics_rule_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::web_analytics_rule);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::web_analytics_site::__export_pulumi_cloudflare_web_analytics_site_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::web_analytics_site);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::worker_cron_trigger::__export_pulumi_cloudflare_worker_cron_trigger_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::worker_cron_trigger);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::worker_domain::__export_pulumi_cloudflare_worker_domain_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::worker_domain);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::worker_route::__export_pulumi_cloudflare_worker_route_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::worker_route);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::worker_script::__export_pulumi_cloudflare_worker_script_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::worker_script);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::worker_secret::__export_pulumi_cloudflare_worker_secret_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::worker_secret);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::workers_for_platforms_namespace::__export_pulumi_cloudflare_workers_for_platforms_namespace_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::workers_for_platforms_namespace);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::workers_kv::__export_pulumi_cloudflare_workers_kv_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::workers_kv);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::workers_kv_namespace::__export_pulumi_cloudflare_workers_kv_namespace_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::workers_kv_namespace);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::zone::__export_pulumi_cloudflare_zone_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::zone);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::zone_cache_reserve::__export_pulumi_cloudflare_zone_cache_reserve_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::zone_cache_reserve);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::zone_cache_variants::__export_pulumi_cloudflare_zone_cache_variants_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::zone_cache_variants);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::zone_dnssec::__export_pulumi_cloudflare_zone_dnssec_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::zone_dnssec);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::zone_hold::__export_pulumi_cloudflare_zone_hold_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::zone_hold);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::zone_lockdown::__export_pulumi_cloudflare_zone_lockdown_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::zone_lockdown);
+  $($path_to_types_root)*::exports::pulumi::cloudflare::zone_settings_override::__export_pulumi_cloudflare_zone_settings_override_5_24_1_divider_zero_zero_zero_dev_cabi!($ty with_types_in $($path_to_types_root)*::exports::pulumi::cloudflare::zone_settings_override);
   )
 }
 #[doc(inline)]
@@ -18048,8 +18048,8 @@ pub(crate) use __export_cloudflare_pulumi_impl as export;
 #[cfg(target_arch = "wasm32")]
 #[link_section = "component-type:wit-bindgen:0.25.0:cloudflare-pulumi:encoded world"]
 #[doc(hidden)]
-pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 37493] = *b"\
-\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xec\xa3\x02\x01A\x02\
+pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 38445] = *b"\
+\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xa4\xab\x02\x01A\x02\
 \x01A\xf1\x01\x01B\x0c\x04\0\x06output\x03\x01\x01i\0\x01@\x01\x05values\0\x01\x04\
 \0\x13[constructor]output\x01\x02\x01h\0\x01@\x02\x04self\x03\x0dfunction-names\0\
 \x01\x04\0\x12[method]output.map\x01\x04\x01@\x01\x04self\x03\0\x01\x04\0\x18[me\
@@ -18081,748 +18081,760 @@ header-bg-color\x05\x1ahttp-only-cookie-attribute\x05\x13landing-page-design\x05
 \x08logo-url\x05\x04name\x05\x08saas-app\x05\x1asame-site-cookie-attribute\x05\x13\
 self-hosted-domains\x05\x18service-auth401-redirect\x05\x10session-duration\x05\x11\
 skip-interstitial\x05\x04tags\x05\x04type\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\
-\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01>pulumi:clou\
-dflare/access-application@5.24.1-ZERO.ZERO.ZERO-DEV\x05\x03\x01B\x0a\x02\x03\x02\
-\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x0eapplicat\
-ion-id\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount-i\
-d\x05\x0eapplication-id\x05\x03aud\x05\x0apublic-key\x05\x07zone-id\x05\x04\0\x03\
-res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\
-Apulumi:cloudflare/access-ca-certificate@5.24.1-ZERO.ZERO.ZERO-DEV\x05\x04\x01B\x0a\
-\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\
-\x09app-count\x02\x0bcustom-html\x02\x04name\x02\x04type\x02\x07zone-id\x02\x04\0\
-\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x09app-count\x05\x0bcusto\
-m-html\x05\x04name\x05\x04type\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\
-\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01>pulumi:cloudflare/ac\
-cess-custom-page@5.24.1-ZERO.ZERO.ZERO-DEV\x05\x05\x01B\x0a\x02\x03\x02\x01\x01\x04\
-\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\x08excludes\x02\x08incl\
-udes\x02\x04name\x02\x08requires\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\
-\x01\x01r\x06\x0aaccount-id\x05\x08excludes\x05\x08includes\x05\x04name\x05\x08r\
-equires\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\
-\x07\x04\0\x06invoke\x01\x08\x04\x018pulumi:cloudflare/access-group@5.24.1-ZERO.\
-ZERO.ZERO-DEV\x05\x06\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
-\x01r\x06\x0aaccount-id\x02\x07configs\x02\x04name\x02\x0cscim-configs\x02\x04ty\
-pe\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\
-\x07configs\x05\x04name\x05\x0cscim-configs\x05\x04type\x05\x07zone-id\x05\x04\0\
-\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\x01Dpulumi:cloudflare/access-identity-provider@5.24.1-ZERO.ZERO.ZERO-DEV\x05\x07\
-\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x0aaccou\
-nt-id\x02\x1akey-rotation-interval-days\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
-r\x02\x0aaccount-id\x05\x1akey-rotation-interval-days\x05\x04\0\x03res\x03\0\x06\
-\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Epulumi:clou\
-dflare/access-keys-configuration@5.24.1-ZERO.ZERO.ZERO-DEV\x05\x08\x01B\x0a\x02\x03\
-\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x14asso\
-ciated-hostnames\x02\x0bcertificate\x02\x04name\x02\x07zone-id\x02\x04\0\x04args\
-\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x14associated-hostnames\x05\x0bce\
-rtificate\x05\x0bfingerprint\x05\x04name\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\
-\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Ipulumi:clou\
-dflare/access-mutual-tls-certificate@5.24.1-ZERO.ZERO.ZERO-DEV\x05\x09\x01B\x0a\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x08\
-settings\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x0aaccount\
--id\x05\x08settings\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
-args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Opulumi:cloudflare/access-mutual-t\
-ls-hostname-settings@5.24.1-ZERO.ZERO.ZERO-DEV\x05\x0a\x01B\x0a\x02\x03\x02\x01\x01\
-\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0d\x0aaccount-id\x02\x1ballow-authentica\
-te-via-warp\x02\x0bauth-domain\x02\x19auto-redirect-to-identity\x02\x0ccustom-pa\
-ges\x02\x0fis-ui-read-only\x02\x0dlogin-designs\x02\x04name\x02\x10session-durat\
-ion\x02\x1aui-read-only-toggle-reason\x02\"user-seat-expiration-inactive-time\x02\
-\x1awarp-auth-session-duration\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\
-\x01r\x0d\x0aaccount-id\x05\x1ballow-authenticate-via-warp\x05\x0bauth-domain\x05\
-\x19auto-redirect-to-identity\x05\x0ccustom-pages\x05\x0fis-ui-read-only\x05\x0d\
-login-designs\x05\x04name\x05\x10session-duration\x05\x1aui-read-only-toggle-rea\
-son\x05\"user-seat-expiration-inactive-time\x05\x1awarp-auth-session-duration\x05\
-\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\
-\x06invoke\x01\x08\x04\x01?pulumi:cloudflare/access-organization@5.24.1-ZERO.ZER\
-O.ZERO-DEV\x05\x0b\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
-\x01r\x0f\x0aaccount-id\x02\x0eapplication-id\x02\x0fapproval-groups\x02\x11appr\
-oval-required\x02\x08decision\x02\x08excludes\x02\x08includes\x02\x12isolation-r\
-equired\x02\x04name\x02\x0aprecedence\x02\x1cpurpose-justification-prompt\x02\x1e\
-purpose-justification-required\x02\x08requires\x02\x10session-duration\x02\x07zo\
-ne-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0f\x0aaccount-id\x05\x0eapplica\
-tion-id\x05\x0fapproval-groups\x05\x11approval-required\x05\x08decision\x05\x08e\
-xcludes\x05\x08includes\x05\x12isolation-required\x05\x04name\x05\x0aprecedence\x05\
-\x1cpurpose-justification-prompt\x05\x1epurpose-justification-required\x05\x08re\
-quires\x05\x10session-duration\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\
-\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x019pulumi:cloudflare/ac\
-cess-policy@5.24.1-ZERO.ZERO.ZERO-DEV\x05\x0c\x01B\x0a\x02\x03\x02\x01\x01\x04\0\
-\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x0dconfiguration\x02\x04m\
-ode\x02\x05notes\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0a\
-account-id\x05\x0dconfiguration\x05\x04mode\x05\x05notes\x05\x07zone-id\x05\x04\0\
-\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\x017pulumi:cloudflare/access-rule@5.24.1-ZERO.ZERO.ZERO-DEV\x05\x0d\x01B\x0a\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x08\
-duration\x02\x14min-days-for-renewal\x02\x04name\x02\x07zone-id\x02\x04\0\x04arg\
-s\x03\0\x03\x01i\x01\x01r\x08\x0aaccount-id\x05\x09client-id\x05\x0dclient-secre\
-t\x05\x08duration\x05\x0aexpires-at\x05\x14min-days-for-renewal\x05\x04name\x05\x07\
-zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
-invoke\x01\x08\x04\x01@pulumi:cloudflare/access-service-token@5.24.1-ZERO.ZERO.Z\
-ERO-DEV\x05\x0e\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
-r\x04\x0aaccount-id\x02\x09app-count\x02\x04name\x02\x07zone-id\x02\x04\0\x04arg\
-s\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x09app-count\x05\x04name\x05\x07\
-zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
-invoke\x01\x08\x04\x016pulumi:cloudflare/access-tag@5.24.1-ZERO.ZERO.ZERO-DEV\x05\
-\x0f\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x11e\
-nforce-twofactor\x02\x04name\x02\x04type\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
-r\x03\x11enforce-twofactor\x05\x04name\x05\x04type\x05\x04\0\x03res\x03\0\x06\x01\
-@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x013pulumi:cloudfla\
-re/account@5.24.1-ZERO.ZERO.ZERO-DEV\x05\x10\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
-output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x0demail-address\x02\x08role-\
-ids\x02\x06status\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\
-\x0demail-address\x05\x08role-ids\x05\x06status\x05\x04\0\x03res\x03\0\x06\x01@\x02\
-\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01:pulumi:cloudflare/ac\
-count-member@5.24.1-ZERO.ZERO.ZERO-DEV\x05\x11\x01B\x0a\x02\x03\x02\x01\x01\x04\0\
-\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\x0bdefault-sni\x02\x0bdes\
-cription\x02\x07enabled\x02\x03ips\x02\x0bmemberships\x02\x04\0\x04args\x03\0\x03\
-\x01i\x01\x01r\x08\x0aaccount-id\x05\x0acan-delete\x05\x0ecan-modify-ips\x05\x0b\
-default-sni\x05\x0bdescription\x05\x07enabled\x05\x03ips\x05\x0bmemberships\x05\x04\
+\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Fpulumi:clou\
+dflare/access-application@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x03\x01B\x0a\x02\
+\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x0e\
+application-id\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aa\
+ccount-id\x05\x0eapplication-id\x05\x03aud\x05\x0apublic-key\x05\x07zone-id\x05\x04\
 \0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\x017pulumi:cloudflare/address-map@5.24.1-ZERO.ZERO.ZERO-DEV\x05\x12\x01B\x0a\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x17auth-id-characteri\
-stics\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x17auth-id-ch\
-aracteristics\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04arg\
-s\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x016pulumi:cloudflare/api-shield@5.24.1-\
-ZERO.ZERO.ZERO-DEV\x05\x13\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
-h\x01\x01r\x04\x08endpoint\x02\x04host\x02\x06method\x02\x07zone-id\x02\x04\0\x04\
-args\x03\0\x03\x01i\x01\x01r\x04\x08endpoint\x05\x04host\x05\x06method\x05\x07zo\
-ne-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06in\
-voke\x01\x08\x04\x01@pulumi:cloudflare/api-shield-operation@5.24.1-ZERO.ZERO.ZER\
-O-DEV\x05\x14\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\
-\x03\x11mitigation-action\x02\x0coperation-id\x02\x07zone-id\x02\x04\0\x04args\x03\
-\0\x03\x01i\x01\x01r\x03\x11mitigation-action\x05\x0coperation-id\x05\x07zone-id\
-\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\
-\x08\x04\x01[pulumi:cloudflare/api-shield-operation-schema-validation-settings@5\
-.24.1-ZERO.ZERO.ZERO-DEV\x05\x15\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
-\0\0\x01h\x01\x01r\x05\x04kind\x02\x04name\x02\x06source\x02\x12validation-enabl\
-ed\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x04kind\x05\x04n\
-ame\x05\x06source\x05\x12validation-enabled\x05\x07zone-id\x05\x04\0\x03res\x03\0\
-\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01=pulumi:\
-cloudflare/api-shield-schema@5.24.1-ZERO.ZERO.ZERO-DEV\x05\x16\x01B\x0a\x02\x03\x02\
-\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03$validation-default-mitigation\
--action\x02%validation-override-mitigation-action\x02\x07zone-id\x02\x04\0\x04ar\
-gs\x03\0\x03\x01i\x01\x01r\x03$validation-default-mitigation-action\x05%validati\
-on-override-mitigation-action\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\
-\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Qpulumi:cloudflare/ap\
-i-shield-schema-validation-settings@5.24.1-ZERO.ZERO.ZERO-DEV\x05\x17\x01B\x0a\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x09condition\x02\x0ae\
-xpires-on\x02\x04name\x02\x0anot-before\x02\x08policies\x02\x04\0\x04args\x03\0\x03\
-\x01i\x01\x01r\x09\x09condition\x05\x0aexpires-on\x05\x09issued-on\x05\x0bmodifi\
-ed-on\x05\x04name\x05\x0anot-before\x05\x08policies\x05\x06status\x05\x05value\x05\
-\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
-\x04\x015pulumi:cloudflare/api-token@5.24.1-ZERO.ZERO.ZERO-DEV\x05\x18\x01B\x0a\x02\
+\x01Ipulumi:cloudflare/access-ca-certificate@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\
+\x04\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aa\
+ccount-id\x02\x09app-count\x02\x0bcustom-html\x02\x04name\x02\x04type\x02\x07zon\
+e-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x09app-coun\
+t\x05\x0bcustom-html\x05\x04name\x05\x04type\x05\x07zone-id\x05\x04\0\x03res\x03\
+\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Fpulum\
+i:cloudflare/access-custom-page@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x05\x01B\x0a\
+\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\
+\x08excludes\x02\x08includes\x02\x04name\x02\x08requires\x02\x07zone-id\x02\x04\0\
+\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x08excludes\x05\x08includ\
+es\x05\x04name\x05\x08requires\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\
+\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01@pulumi:cloudflare/ac\
+cess-group@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x06\x01B\x0a\x02\x03\x02\x01\x01\
+\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\x07configs\x02\x04n\
+ame\x02\x0cscim-configs\x02\x04type\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01\
+i\x01\x01r\x06\x0aaccount-id\x05\x07configs\x05\x04name\x05\x0cscim-configs\x05\x04\
+type\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
+\x04\0\x06invoke\x01\x08\x04\x01Lpulumi:cloudflare/access-identity-provider@5.24\
+.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x07\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06outp\
+ut\x03\0\0\x01h\x01\x01r\x02\x0aaccount-id\x02\x1akey-rotation-interval-days\x02\
+\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x0aaccount-id\x05\x1akey-rotation-int\
+erval-days\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
+invoke\x01\x08\x04\x01Mpulumi:cloudflare/access-keys-configuration@5.24.1-DIVIDE\
+R-ZERO.ZERO.ZERO-DEV\x05\x08\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\
+\x01h\x01\x01r\x05\x0aaccount-id\x02\x14associated-hostnames\x02\x0bcertificate\x02\
+\x04name\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount\
+-id\x05\x14associated-hostnames\x05\x0bcertificate\x05\x0bfingerprint\x05\x04nam\
+e\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\
+\0\x06invoke\x01\x08\x04\x01Qpulumi:cloudflare/access-mutual-tls-certificate@5.2\
+4.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x09\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06out\
+put\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x08settings\x02\x07zone-id\x02\x04\
+\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x0aaccount-id\x05\x08settings\x05\x07zone\
+-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invo\
+ke\x01\x08\x04\x01Wpulumi:cloudflare/access-mutual-tls-hostname-settings@5.24.1-\
+DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x0a\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
+\0\0\x01h\x01\x01r\x0d\x0aaccount-id\x02\x1ballow-authenticate-via-warp\x02\x0ba\
+uth-domain\x02\x19auto-redirect-to-identity\x02\x0ccustom-pages\x02\x0fis-ui-rea\
+d-only\x02\x0dlogin-designs\x02\x04name\x02\x10session-duration\x02\x1aui-read-o\
+nly-toggle-reason\x02\"user-seat-expiration-inactive-time\x02\x1awarp-auth-sessi\
+on-duration\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0d\x0aacco\
+unt-id\x05\x1ballow-authenticate-via-warp\x05\x0bauth-domain\x05\x19auto-redirec\
+t-to-identity\x05\x0ccustom-pages\x05\x0fis-ui-read-only\x05\x0dlogin-designs\x05\
+\x04name\x05\x10session-duration\x05\x1aui-read-only-toggle-reason\x05\"user-sea\
+t-expiration-inactive-time\x05\x1awarp-auth-session-duration\x05\x07zone-id\x05\x04\
+\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
+\x01Gpulumi:cloudflare/access-organization@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\
+\x0b\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0f\x0aa\
+ccount-id\x02\x0eapplication-id\x02\x0fapproval-groups\x02\x11approval-required\x02\
+\x08decision\x02\x08excludes\x02\x08includes\x02\x12isolation-required\x02\x04na\
+me\x02\x0aprecedence\x02\x1cpurpose-justification-prompt\x02\x1epurpose-justific\
+ation-required\x02\x08requires\x02\x10session-duration\x02\x07zone-id\x02\x04\0\x04\
+args\x03\0\x03\x01i\x01\x01r\x0f\x0aaccount-id\x05\x0eapplication-id\x05\x0fappr\
+oval-groups\x05\x11approval-required\x05\x08decision\x05\x08excludes\x05\x08incl\
+udes\x05\x12isolation-required\x05\x04name\x05\x0aprecedence\x05\x1cpurpose-just\
+ification-prompt\x05\x1epurpose-justification-required\x05\x08requires\x05\x10se\
+ssion-duration\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04ar\
+gs\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Apulumi:cloudflare/access-policy@5.2\
+4.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x0c\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06out\
+put\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x0dconfiguration\x02\x04mode\x02\
+\x05notes\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aaccoun\
+t-id\x05\x0dconfiguration\x05\x04mode\x05\x05notes\x05\x07zone-id\x05\x04\0\x03r\
+es\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\
+?pulumi:cloudflare/access-rule@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x0d\x01B\x0a\
+\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\
+\x08duration\x02\x14min-days-for-renewal\x02\x04name\x02\x07zone-id\x02\x04\0\x04\
+args\x03\0\x03\x01i\x01\x01r\x08\x0aaccount-id\x05\x09client-id\x05\x0dclient-se\
+cret\x05\x08duration\x05\x0aexpires-at\x05\x14min-days-for-renewal\x05\x04name\x05\
+\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\
+\x06invoke\x01\x08\x04\x01Hpulumi:cloudflare/access-service-token@5.24.1-DIVIDER\
+-ZERO.ZERO.ZERO-DEV\x05\x0e\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\
+\x01h\x01\x01r\x04\x0aaccount-id\x02\x09app-count\x02\x04name\x02\x07zone-id\x02\
+\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x09app-count\x05\x04\
+name\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
+\x04\0\x06invoke\x01\x08\x04\x01>pulumi:cloudflare/access-tag@5.24.1-DIVIDER-ZER\
+O.ZERO.ZERO-DEV\x05\x0f\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
+h\x01\x01r\x03\x11enforce-twofactor\x02\x04name\x02\x04type\x02\x04\0\x04args\x03\
+\0\x03\x01i\x01\x01r\x03\x11enforce-twofactor\x05\x04name\x05\x04type\x05\x04\0\x03\
+res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\
+;pulumi:cloudflare/account@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x10\x01B\x0a\x02\
+\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x0d\
+email-address\x02\x08role-ids\x02\x06status\x02\x04\0\x04args\x03\0\x03\x01i\x01\
+\x01r\x04\x0aaccount-id\x05\x0demail-address\x05\x08role-ids\x05\x06status\x05\x04\
+\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
+\x01Bpulumi:cloudflare/account-member@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x11\x01\
+B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-i\
+d\x02\x0bdefault-sni\x02\x0bdescription\x02\x07enabled\x02\x03ips\x02\x0bmembers\
+hips\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x08\x0aaccount-id\x05\x0acan-dele\
+te\x05\x0ecan-modify-ips\x05\x0bdefault-sni\x05\x0bdescription\x05\x07enabled\x05\
+\x03ips\x05\x0bmemberships\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
+\0\x07\x04\0\x06invoke\x01\x08\x04\x01?pulumi:cloudflare/address-map@5.24.1-DIVI\
+DER-ZERO.ZERO.ZERO-DEV\x05\x12\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\
+\0\x01h\x01\x01r\x02\x17auth-id-characteristics\x02\x07zone-id\x02\x04\0\x04args\
+\x03\0\x03\x01i\x01\x01r\x02\x17auth-id-characteristics\x05\x07zone-id\x05\x04\0\
+\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
+\x01>pulumi:cloudflare/api-shield@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x13\x01B\
+\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x08endpoint\x02\
+\x04host\x02\x06method\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\
+\x08endpoint\x05\x04host\x05\x06method\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\
+\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Hpulumi:clou\
+dflare/api-shield-operation@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x14\x01B\x0a\x02\
+\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x11mitigation-action\x02\
+\x0coperation-id\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x11\
+mitigation-action\x05\x0coperation-id\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01\
+@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01cpulumi:cloudfla\
+re/api-shield-operation-schema-validation-settings@5.24.1-DIVIDER-ZERO.ZERO.ZERO\
+-DEV\x05\x15\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\
+\x04kind\x02\x04name\x02\x06source\x02\x12validation-enabled\x02\x07zone-id\x02\x04\
+\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x04kind\x05\x04name\x05\x06source\x05\x12\
+validation-enabled\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
+args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Epulumi:cloudflare/api-shield-sche\
+ma@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x16\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
+output\x03\0\0\x01h\x01\x01r\x03$validation-default-mitigation-action\x02%valida\
+tion-override-mitigation-action\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\
+\x01r\x03$validation-default-mitigation-action\x05%validation-override-mitigatio\
+n-action\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
+\0\x07\x04\0\x06invoke\x01\x08\x04\x01Ypulumi:cloudflare/api-shield-schema-valid\
+ation-settings@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x17\x01B\x0a\x02\x03\x02\x01\
+\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x09condition\x02\x0aexpires-on\x02\
+\x04name\x02\x0anot-before\x02\x08policies\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
+r\x09\x09condition\x05\x0aexpires-on\x05\x09issued-on\x05\x0bmodified-on\x05\x04\
+name\x05\x0anot-before\x05\x08policies\x05\x06status\x05\x05value\x05\x04\0\x03r\
+es\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\
+=pulumi:cloudflare/api-token@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x18\x01B\x0a\x02\
 \x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0dsmart-routing\x02\x0e\
 tiered-caching\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x0ds\
 mart-routing\x05\x0etiered-caching\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01\
-@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x010pulumi:cloudfla\
-re/argo@5.24.1-ZERO.ZERO.ZERO-DEV\x05\x19\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
-output\x03\0\0\x01h\x01\x01r\x04&authenticated-origin-pulls-certificate\x02\x07e\
-nabled\x02\x08hostname\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\
-&authenticated-origin-pulls-certificate\x05\x07enabled\x05\x08hostname\x05\x07zo\
-ne-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06in\
-voke\x01\x08\x04\x01Fpulumi:cloudflare/authenticated-origin-pulls@5.24.1-ZERO.ZE\
-RO.ZERO-DEV\x05\x1a\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
-\x01r\x04\x0bcertificate\x02\x0bprivate-key\x02\x04type\x02\x07zone-id\x02\x04\0\
-\x04args\x03\0\x03\x01i\x01\x01r\x0a\x0bcertificate\x05\x0aexpires-on\x05\x06iss\
-uer\x05\x0bprivate-key\x05\x0dserial-number\x05\x09signature\x05\x06status\x05\x04\
-type\x05\x0buploaded-on\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04na\
-mes\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Rpulumi:cloudflare/authenti\
-cated-origin-pulls-certificate@5.24.1-ZERO.ZERO.ZERO-DEV\x05\x1b\x01B\x0a\x02\x03\
-\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0a\x11auto-update-model\x02\x09\
-enable-js\x02\x0afight-mode\x02\x12optimize-wordpress\x02\x19sbfm-definitely-aut\
-omated\x02\x15sbfm-likely-automated\x02\x1fsbfm-static-resource-protection\x02\x12\
-sbfm-verified-bots\x02\x16suppress-session-score\x02\x07zone-id\x02\x04\0\x04arg\
-s\x03\0\x03\x01i\x01\x01r\x0b\x11auto-update-model\x05\x09enable-js\x05\x0afight\
--mode\x05\x12optimize-wordpress\x05\x19sbfm-definitely-automated\x05\x15sbfm-lik\
-ely-automated\x05\x1fsbfm-static-resource-protection\x05\x12sbfm-verified-bots\x05\
-\x16suppress-session-score\x05\x12using-latest-model\x05\x07zone-id\x05\x04\0\x03\
-res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\
-:pulumi:cloudflare/bot-management@5.24.1-ZERO.ZERO.ZERO-DEV\x05\x1c\x01B\x0a\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x0d\
-advertisement\x02\x0bdescription\x02\x09prefix-id\x02\x04\0\x04args\x03\0\x03\x01\
-i\x01\x01r\x04\x0aaccount-id\x05\x0dadvertisement\x05\x0bdescription\x05\x09pref\
-ix-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06in\
-voke\x01\x08\x04\x019pulumi:cloudflare/byo-ip-prefix@5.24.1-ZERO.ZERO.ZERO-DEV\x05\
-\x1d\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0a\x15c\
-ertificate-authority\x02\x13cloudflare-branding\x02\x05hosts\x02\x04type\x02\x11\
-validation-errors\x02\x11validation-method\x02\x12validation-records\x02\x0dvali\
-dity-days\x02\x16wait-for-active-status\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\
-\x01i\x01\x01r\x0a\x15certificate-authority\x05\x13cloudflare-branding\x05\x05ho\
-sts\x05\x04type\x05\x11validation-errors\x05\x11validation-method\x05\x12validat\
-ion-records\x05\x0dvalidity-days\x05\x16wait-for-active-status\x05\x07zone-id\x05\
-\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
-\x04\x01<pulumi:cloudflare/certificate-pack@5.24.1-ZERO.ZERO.ZERO-DEV\x05\x1e\x01\
-B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x07\x0fcustom-me\
-tadata\x02\x14custom-origin-server\x02\x11custom-origin-sni\x02\x08hostname\x02\x04\
-ssls\x02\x1fwait-for-ssl-pending-validation\x02\x07zone-id\x02\x04\0\x04args\x03\
-\0\x03\x01i\x01\x01r\x0a\x0fcustom-metadata\x05\x14custom-origin-server\x05\x11c\
-ustom-origin-sni\x05\x08hostname\x05\x16ownership-verification\x05\x1bownership-\
-verification-http\x05\x04ssls\x05\x06status\x05\x1fwait-for-ssl-pending-validati\
-on\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
-\x04\0\x06invoke\x01\x08\x04\x01;pulumi:cloudflare/custom-hostname@5.24.1-ZERO.Z\
-ERO.ZERO-DEV\x05\x1f\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
-\x01r\x02\x06origin\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\
-\x06origin\x05\x06status\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04n\
-ames\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Kpulumi:cloudflare/custom-\
-hostname-fallback-origin@5.24.1-ZERO.ZERO.ZERO-DEV\x05\x20\x01B\x0a\x02\x03\x02\x01\
-\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x05state\x02\x04\
-type\x02\x03url\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0a\
-account-id\x05\x05state\x05\x04type\x05\x03url\x05\x07zone-id\x05\x04\0\x03res\x03\
-\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x018pulum\
-i:cloudflare/custom-pages@5.24.1-ZERO.ZERO.ZERO-DEV\x05!\x01B\x0a\x02\x03\x02\x01\
-\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x12custom-ssl-options\x02\x15cust\
-om-ssl-priorities\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0b\x12\
-custom-ssl-options\x05\x15custom-ssl-priorities\x05\x0aexpires-on\x05\x05hosts\x05\
-\x06issuer\x05\x0bmodified-on\x05\x08priority\x05\x09signature\x05\x06status\x05\
-\x0buploaded-on\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04a\
-rgs\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x016pulumi:cloudflare/custom-ssl@5.24.\
-1-ZERO.ZERO.ZERO-DEV\x05\"\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
-h\x01\x01r\x02\x0aaccount-id\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
-r\x03\x0aaccount-id\x05\x04name\x05\x07version\x05\x04\0\x03res\x03\0\x06\x01@\x02\
-\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x017pulumi:cloudflare/d1\
--database@5.24.1-ZERO.ZERO.ZERO-DEV\x05#\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06o\
-utput\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\x04data\x02\x0bdescription\x02\
+@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x018pulumi:cloudfla\
+re/argo@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x19\x01B\x0a\x02\x03\x02\x01\x01\x04\
+\0\x06output\x03\0\0\x01h\x01\x01r\x04&authenticated-origin-pulls-certificate\x02\
+\x07enabled\x02\x08hostname\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
+r\x04&authenticated-origin-pulls-certificate\x05\x07enabled\x05\x08hostname\x05\x07\
+zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
+invoke\x01\x08\x04\x01Npulumi:cloudflare/authenticated-origin-pulls@5.24.1-DIVID\
+ER-ZERO.ZERO.ZERO-DEV\x05\x1a\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\
+\0\x01h\x01\x01r\x04\x0bcertificate\x02\x0bprivate-key\x02\x04type\x02\x07zone-i\
+d\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0a\x0bcertificate\x05\x0aexpires-on\
+\x05\x06issuer\x05\x0bprivate-key\x05\x0dserial-number\x05\x09signature\x05\x06s\
+tatus\x05\x04type\x05\x0buploaded-on\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01\
+@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Zpulumi:cloudfla\
+re/authenticated-origin-pulls-certificate@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x1b\
+\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0a\x11auto-\
+update-model\x02\x09enable-js\x02\x0afight-mode\x02\x12optimize-wordpress\x02\x19\
+sbfm-definitely-automated\x02\x15sbfm-likely-automated\x02\x1fsbfm-static-resour\
+ce-protection\x02\x12sbfm-verified-bots\x02\x16suppress-session-score\x02\x07zon\
+e-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0b\x11auto-update-model\x05\x09e\
+nable-js\x05\x0afight-mode\x05\x12optimize-wordpress\x05\x19sbfm-definitely-auto\
+mated\x05\x15sbfm-likely-automated\x05\x1fsbfm-static-resource-protection\x05\x12\
+sbfm-verified-bots\x05\x16suppress-session-score\x05\x12using-latest-model\x05\x07\
+zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
+invoke\x01\x08\x04\x01Bpulumi:cloudflare/bot-management@5.24.1-DIVIDER-ZERO.ZERO\
+.ZERO-DEV\x05\x1c\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
+r\x04\x0aaccount-id\x02\x0dadvertisement\x02\x0bdescription\x02\x09prefix-id\x02\
+\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x0dadvertisement\x05\
+\x0bdescription\x05\x09prefix-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
+args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Apulumi:cloudflare/byo-ip-prefix@5\
+.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x1d\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06o\
+utput\x03\0\0\x01h\x01\x01r\x0a\x15certificate-authority\x02\x13cloudflare-brand\
+ing\x02\x05hosts\x02\x04type\x02\x11validation-errors\x02\x11validation-method\x02\
+\x12validation-records\x02\x0dvalidity-days\x02\x16wait-for-active-status\x02\x07\
+zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0a\x15certificate-authority\x05\
+\x13cloudflare-branding\x05\x05hosts\x05\x04type\x05\x11validation-errors\x05\x11\
+validation-method\x05\x12validation-records\x05\x0dvalidity-days\x05\x16wait-for\
+-active-status\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04ar\
+gs\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Dpulumi:cloudflare/certificate-pack@\
+5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x1e\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
+output\x03\0\0\x01h\x01\x01r\x07\x0fcustom-metadata\x02\x14custom-origin-server\x02\
+\x11custom-origin-sni\x02\x08hostname\x02\x04ssls\x02\x1fwait-for-ssl-pending-va\
+lidation\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0a\x0fcustom-\
+metadata\x05\x14custom-origin-server\x05\x11custom-origin-sni\x05\x08hostname\x05\
+\x16ownership-verification\x05\x1bownership-verification-http\x05\x04ssls\x05\x06\
+status\x05\x1fwait-for-ssl-pending-validation\x05\x07zone-id\x05\x04\0\x03res\x03\
+\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Cpulum\
+i:cloudflare/custom-hostname@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x1f\x01B\x0a\x02\
+\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x06origin\x02\x07zone\
+-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x06origin\x05\x06status\x05\x07\
+zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
+invoke\x01\x08\x04\x01Spulumi:cloudflare/custom-hostname-fallback-origin@5.24.1-\
+DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x20\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
+\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x05state\x02\x04type\x02\x03url\x02\x07\
+zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount-id\x05\x05state\
+\x05\x04type\x05\x03url\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04na\
+mes\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01@pulumi:cloudflare/custom-p\
+ages@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05!\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
+output\x03\0\0\x01h\x01\x01r\x03\x12custom-ssl-options\x02\x15custom-ssl-priorit\
+ies\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0b\x12custom-ssl-o\
+ptions\x05\x15custom-ssl-priorities\x05\x0aexpires-on\x05\x05hosts\x05\x06issuer\
+\x05\x0bmodified-on\x05\x08priority\x05\x09signature\x05\x06status\x05\x0bupload\
+ed-on\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
+\x04\0\x06invoke\x01\x08\x04\x01>pulumi:cloudflare/custom-ssl@5.24.1-DIVIDER-ZER\
+O.ZERO.ZERO-DEV\x05\"\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
+\x01r\x02\x0aaccount-id\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\
+\x0aaccount-id\x05\x04name\x05\x07version\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04\
+names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01?pulumi:cloudflare/d1-dat\
+abase@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05#\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
+output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\x04data\x02\x0bdescription\x02\
 \x07enabled\x02\x08interval\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
 r\x08\x0aaccount-id\x05\x07created\x05\x04data\x05\x0bdescription\x05\x07enabled\
 \x05\x08interval\x05\x04name\x05\x07updated\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04\
-names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01;pulumi:cloudflare/device\
--dex-test@5.24.1-ZERO.ZERO.ZERO-DEV\x05$\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06o\
-utput\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x06config\x02\x04name\x02\x04t\
-ype\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x06config\x05\
-\x04name\x05\x04type\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
-\x04\0\x06invoke\x01\x08\x04\x01Cpulumi:cloudflare/device-managed-networks@5.24.\
-1-ZERO.ZERO.ZERO-DEV\x05%\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
-h\x01\x01r\x02\x07enabled\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
-r\x02\x07enabled\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
-args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Fpulumi:cloudflare/device-policy-c\
-ertificates@5.24.1-ZERO.ZERO.ZERO-DEV\x05&\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
-output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\x07configs\x02\x0aidentifier\x02\
-\x08interval\x02\x04name\x02\x04type\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\
-\x0aaccount-id\x05\x07configs\x05\x0aidentifier\x05\x08interval\x05\x04name\x05\x04\
-type\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06inv\
-oke\x01\x08\x04\x01Fpulumi:cloudflare/device-posture-integration@5.24.1-ZERO.ZER\
-O.ZERO-DEV\x05'\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
-r\x08\x0aaccount-id\x02\x0bdescription\x02\x0aexpiration\x02\x06inputs\x02\x07ma\
-tches\x02\x04name\x02\x08schedule\x02\x04type\x02\x04\0\x04args\x03\0\x03\x01i\x01\
-\x01r\x08\x0aaccount-id\x05\x0bdescription\x05\x0aexpiration\x05\x06inputs\x05\x07\
-matches\x05\x04name\x05\x08schedule\x05\x04type\x05\x04\0\x03res\x03\0\x06\x01@\x02\
-\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01?pulumi:cloudflare/de\
-vice-posture-rule@5.24.1-ZERO.ZERO.ZERO-DEV\x05(\x01B\x0a\x02\x03\x02\x01\x01\x04\
-\0\x06output\x03\0\0\x01h\x01\x01r\x12\x0aaccount-id\x02\x11allow-mode-switch\x02\
-\x0dallow-updates\x02\x10allowed-to-leave\x02\x0cauto-connect\x02\x0ecaptive-por\
-tal\x02\x07default\x02\x0bdescription\x02\x15disable-auto-fallback\x02\x07enable\
-d\x02\x12exclude-office-ips\x02\x05match\x02\x04name\x02\x0aprecedence\x02\x14se\
-rvice-mode-v2-mode\x02\x14service-mode-v2-port\x02\x0bsupport-url\x02\x0dswitch-\
-locked\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x12\x0aaccount-id\x05\x11allow-\
-mode-switch\x05\x0dallow-updates\x05\x10allowed-to-leave\x05\x0cauto-connect\x05\
-\x0ecaptive-portal\x05\x07default\x05\x0bdescription\x05\x15disable-auto-fallbac\
-k\x05\x07enabled\x05\x12exclude-office-ips\x05\x05match\x05\x04name\x05\x0aprece\
-dence\x05\x14service-mode-v2-mode\x05\x14service-mode-v2-port\x05\x0bsupport-url\
-\x05\x0dswitch-locked\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\
-\x07\x04\0\x06invoke\x01\x08\x04\x01Bpulumi:cloudflare/device-settings-policy@5.\
-24.1-ZERO.ZERO.ZERO-DEV\x05)\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\
-\x01h\x01\x01r\x07\x0aaccount-id\x02\x13allowed-match-count\x02\x11context-aware\
-ness\x02\x0bdescription\x02\x07entries\x02\x04name\x02\x04type\x02\x04\0\x04args\
-\x03\0\x03\x01i\x01\x01r\x07\x0aaccount-id\x05\x13allowed-match-count\x05\x11con\
-text-awareness\x05\x0bdescription\x05\x07entries\x05\x04name\x05\x04type\x05\x04\
-\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\x017pulumi:cloudflare/dlp-profile@5.24.1-ZERO.ZERO.ZERO-DEV\x05*\x01B\x0a\x02\x03\
-\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x0aaccount-id\x02\x05emai\
-l\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x07created\x05\
-\x05email\x05\x08modified\x05\x03tag\x05\x08verified\x05\x04\0\x03res\x03\0\x06\x01\
-@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Apulumi:cloudfla\
-re/email-routing-address@5.24.1-ZERO.ZERO.ZERO-DEV\x05+\x01B\x0a\x02\x03\x02\x01\
-\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x07actions\x02\x07enabled\x02\x08\
-matchers\x02\x04name\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\
-\x07actions\x05\x07enabled\x05\x08matchers\x05\x04name\x05\x03tag\x05\x07zone-id\
-\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\
-\x08\x04\x01Cpulumi:cloudflare/email-routing-catch-all@5.24.1-ZERO.ZERO.ZERO-DEV\
-\x05,\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x07\
-actions\x02\x07enabled\x02\x08matchers\x02\x04name\x02\x08priority\x02\x07zone-i\
-d\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\x07actions\x05\x07enabled\x05\x08\
-matchers\x05\x04name\x05\x08priority\x05\x03tag\x05\x07zone-id\x05\x04\0\x03res\x03\
-\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01>pulum\
-i:cloudflare/email-routing-rule@5.24.1-ZERO.ZERO.ZERO-DEV\x05-\x01B\x0a\x02\x03\x02\
-\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x07enabled\x02\x0bskip-wizard\
-\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x08\x07created\x05\x07\
-enabled\x05\x08modified\x05\x04name\x05\x0bskip-wizard\x05\x06status\x05\x03tag\x05\
+names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Cpulumi:cloudflare/device\
+-dex-test@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05$\x01B\x0a\x02\x03\x02\x01\x01\x04\
+\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x06config\x02\x04name\x02\
+\x04type\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x06conf\
+ig\x05\x04name\x05\x04type\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
+\0\x07\x04\0\x06invoke\x01\x08\x04\x01Kpulumi:cloudflare/device-managed-networks\
+@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05%\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06ou\
+tput\x03\0\0\x01h\x01\x01r\x02\x07enabled\x02\x07zone-id\x02\x04\0\x04args\x03\0\
+\x03\x01i\x01\x01r\x02\x07enabled\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\
+\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Npulumi:cloudflar\
+e/device-policy-certificates@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05&\x01B\x0a\x02\
+\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\x07\
+configs\x02\x0aidentifier\x02\x08interval\x02\x04name\x02\x04type\x02\x04\0\x04a\
+rgs\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x07configs\x05\x0aidentifier\x05\
+\x08interval\x05\x04name\x05\x04type\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04name\
+s\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Npulumi:cloudflare/device-pos\
+ture-integration@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05'\x01B\x0a\x02\x03\x02\x01\
+\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x08\x0aaccount-id\x02\x0bdescription\x02\
+\x0aexpiration\x02\x06inputs\x02\x07matches\x02\x04name\x02\x08schedule\x02\x04t\
+ype\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x08\x0aaccount-id\x05\x0bdescripti\
+on\x05\x0aexpiration\x05\x06inputs\x05\x07matches\x05\x04name\x05\x08schedule\x05\
+\x04type\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
+invoke\x01\x08\x04\x01Gpulumi:cloudflare/device-posture-rule@5.24.1-DIVIDER-ZERO\
+.ZERO.ZERO-DEV\x05(\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
+\x01r\x12\x0aaccount-id\x02\x11allow-mode-switch\x02\x0dallow-updates\x02\x10all\
+owed-to-leave\x02\x0cauto-connect\x02\x0ecaptive-portal\x02\x07default\x02\x0bde\
+scription\x02\x15disable-auto-fallback\x02\x07enabled\x02\x12exclude-office-ips\x02\
+\x05match\x02\x04name\x02\x0aprecedence\x02\x14service-mode-v2-mode\x02\x14servi\
+ce-mode-v2-port\x02\x0bsupport-url\x02\x0dswitch-locked\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x12\x0aaccount-id\x05\x11allow-mode-switch\x05\x0dallow-updates\x05\
+\x10allowed-to-leave\x05\x0cauto-connect\x05\x0ecaptive-portal\x05\x07default\x05\
+\x0bdescription\x05\x15disable-auto-fallback\x05\x07enabled\x05\x12exclude-offic\
+e-ips\x05\x05match\x05\x04name\x05\x0aprecedence\x05\x14service-mode-v2-mode\x05\
+\x14service-mode-v2-port\x05\x0bsupport-url\x05\x0dswitch-locked\x05\x04\0\x03re\
+s\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01J\
+pulumi:cloudflare/device-settings-policy@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05)\x01\
+B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x07\x0aaccount-i\
+d\x02\x13allowed-match-count\x02\x11context-awareness\x02\x0bdescription\x02\x07\
+entries\x02\x04name\x02\x04type\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\x0a\
+account-id\x05\x13allowed-match-count\x05\x11context-awareness\x05\x0bdescriptio\
+n\x05\x07entries\x05\x04name\x05\x04type\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04\
+names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01?pulumi:cloudflare/dlp-pr\
+ofile@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05*\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
+output\x03\0\0\x01h\x01\x01r\x02\x0aaccount-id\x02\x05email\x02\x04\0\x04args\x03\
+\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x07created\x05\x05email\x05\x08modifi\
+ed\x05\x03tag\x05\x08verified\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04ar\
+gs\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Ipulumi:cloudflare/email-routing-add\
+ress@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05+\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
+output\x03\0\0\x01h\x01\x01r\x05\x07actions\x02\x07enabled\x02\x08matchers\x02\x04\
+name\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x07actions\x05\
+\x07enabled\x05\x08matchers\x05\x04name\x05\x03tag\x05\x07zone-id\x05\x04\0\x03r\
+es\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\
+Kpulumi:cloudflare/email-routing-catch-all@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\
+,\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x07acti\
+ons\x02\x07enabled\x02\x08matchers\x02\x04name\x02\x08priority\x02\x07zone-id\x02\
+\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\x07actions\x05\x07enabled\x05\x08matc\
+hers\x05\x04name\x05\x08priority\x05\x03tag\x05\x07zone-id\x05\x04\0\x03res\x03\0\
+\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Fpulumi:\
+cloudflare/email-routing-rule@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05-\x01B\x0a\x02\
+\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x07enabled\x02\x0bski\
+p-wizard\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x08\x07created\
+\x05\x07enabled\x05\x08modified\x05\x04name\x05\x0bskip-wizard\x05\x06status\x05\
+\x03tag\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\
+\x07\x04\0\x06invoke\x01\x08\x04\x01Jpulumi:cloudflare/email-routing-settings@5.\
+24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05.\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06outpu\
+t\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x07domains\x02\x09policy-id\x02\x04\
+\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x0aaccount-id\x05\x07domains\x05\x09polic\
+y-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06inv\
+oke\x01\x08\x04\x01Cpulumi:cloudflare/fallback-domain@5.24.1-DIVIDER-ZERO.ZERO.Z\
+ERO-DEV\x05/\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\
+\x0bdescription\x02\x0aexpression\x02\x06paused\x02\x03ref\x02\x07zone-id\x02\x04\
+\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0bdescription\x05\x0aexpression\x05\x06p\
+aused\x05\x03ref\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
+args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01:pulumi:cloudflare/filter@5.24.1-D\
+IVIDER-ZERO.ZERO.ZERO-DEV\x050\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\
+\0\x01h\x01\x01r\x07\x06action\x02\x0bdescription\x02\x09filter-id\x02\x06paused\
+\x02\x08priority\x02\x08products\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\
+\x01\x01r\x07\x06action\x05\x0bdescription\x05\x09filter-id\x05\x06paused\x05\x08\
+priority\x05\x08products\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04n\
+ames\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Apulumi:cloudflare/firewal\
+l-rule@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x051\x01B\x0a\x02\x03\x02\x01\x01\x04\0\
+\x06output\x03\0\0\x01h\x01\x01r\x0b\x0aaccount-id\x02\x17cloudflare-gre-endpoin\
+t\x02\x15customer-gre-endpoint\x02\x0bdescription\x02\x14health-check-enabled\x02\
+\x13health-check-target\x02\x11health-check-type\x02\x11interface-address\x02\x03\
+mtu\x02\x04name\x02\x03ttl\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0b\x0aacco\
+unt-id\x05\x17cloudflare-gre-endpoint\x05\x15customer-gre-endpoint\x05\x0bdescri\
+ption\x05\x14health-check-enabled\x05\x13health-check-target\x05\x11health-check\
+-type\x05\x11interface-address\x05\x03mtu\x05\x04name\x05\x03ttl\x05\x04\0\x03re\
+s\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01>\
+pulumi:cloudflare/gre-tunnel@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x052\x01B\x0a\x02\
+\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x14\x07address\x02\x0eall\
+ow-insecure\x02\x0dcheck-regions\x02\x11consecutive-fails\x02\x15consecutive-suc\
+cesses\x02\x0bdescription\x02\x0dexpected-body\x02\x0eexpected-codes\x02\x10foll\
+ow-redirects\x02\x07headers\x02\x08interval\x02\x06method\x02\x04name\x02\x04pat\
+h\x02\x04port\x02\x07retries\x02\x09suspended\x02\x07timeout\x02\x04type\x02\x07\
+zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x16\x07address\x05\x0eallow-in\
+secure\x05\x0dcheck-regions\x05\x11consecutive-fails\x05\x15consecutive-successe\
+s\x05\x0acreated-on\x05\x0bdescription\x05\x0dexpected-body\x05\x0eexpected-code\
+s\x05\x10follow-redirects\x05\x07headers\x05\x08interval\x05\x06method\x05\x0bmo\
+dified-on\x05\x04name\x05\x04path\x05\x04port\x05\x07retries\x05\x09suspended\x05\
+\x07timeout\x05\x04type\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04na\
+mes\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01?pulumi:cloudflare/healthch\
+eck@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x053\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
+output\x03\0\0\x01h\x01\x01r\x04\x08hostname\x02\x07setting\x02\x05value\x02\x07\
+zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0acreated-at\x05\x08hostn\
+ame\x05\x07setting\x05\x0aupdated-at\x05\x05value\x05\x07zone-id\x05\x04\0\x03re\
+s\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01H\
+pulumi:cloudflare/hostname-tls-setting@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x054\x01\
+B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x08hostname\x02\
+\x05ports\x02\x06values\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\
+\x06\x0acreated-at\x05\x08hostname\x05\x05ports\x05\x0aupdated-at\x05\x06values\x05\
 \x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\
-\x06invoke\x01\x08\x04\x01Bpulumi:cloudflare/email-routing-settings@5.24.1-ZERO.\
-ZERO.ZERO-DEV\x05.\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
-\x01r\x03\x0aaccount-id\x02\x07domains\x02\x09policy-id\x02\x04\0\x04args\x03\0\x03\
-\x01i\x01\x01r\x03\x0aaccount-id\x05\x07domains\x05\x09policy-id\x05\x04\0\x03re\
-s\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01;\
-pulumi:cloudflare/fallback-domain@5.24.1-ZERO.ZERO.ZERO-DEV\x05/\x01B\x0a\x02\x03\
-\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0bdescription\x02\x0aexp\
-ression\x02\x06paused\x02\x03ref\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\
-\x01\x01r\x05\x0bdescription\x05\x0aexpression\x05\x06paused\x05\x03ref\x05\x07z\
-one-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06i\
-nvoke\x01\x08\x04\x012pulumi:cloudflare/filter@5.24.1-ZERO.ZERO.ZERO-DEV\x050\x01\
-B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x07\x06action\x02\
-\x0bdescription\x02\x09filter-id\x02\x06paused\x02\x08priority\x02\x08products\x02\
-\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\x06action\x05\x0bdescr\
-iption\x05\x09filter-id\x05\x06paused\x05\x08priority\x05\x08products\x05\x07zon\
-e-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06inv\
-oke\x01\x08\x04\x019pulumi:cloudflare/firewall-rule@5.24.1-ZERO.ZERO.ZERO-DEV\x05\
-1\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0b\x0aacco\
-unt-id\x02\x17cloudflare-gre-endpoint\x02\x15customer-gre-endpoint\x02\x0bdescri\
-ption\x02\x14health-check-enabled\x02\x13health-check-target\x02\x11health-check\
--type\x02\x11interface-address\x02\x03mtu\x02\x04name\x02\x03ttl\x02\x04\0\x04ar\
-gs\x03\0\x03\x01i\x01\x01r\x0b\x0aaccount-id\x05\x17cloudflare-gre-endpoint\x05\x15\
-customer-gre-endpoint\x05\x0bdescription\x05\x14health-check-enabled\x05\x13heal\
-th-check-target\x05\x11health-check-type\x05\x11interface-address\x05\x03mtu\x05\
-\x04name\x05\x03ttl\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
-\x04\0\x06invoke\x01\x08\x04\x016pulumi:cloudflare/gre-tunnel@5.24.1-ZERO.ZERO.Z\
-ERO-DEV\x052\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x14\
-\x07address\x02\x0eallow-insecure\x02\x0dcheck-regions\x02\x11consecutive-fails\x02\
-\x15consecutive-successes\x02\x0bdescription\x02\x0dexpected-body\x02\x0eexpecte\
-d-codes\x02\x10follow-redirects\x02\x07headers\x02\x08interval\x02\x06method\x02\
-\x04name\x02\x04path\x02\x04port\x02\x07retries\x02\x09suspended\x02\x07timeout\x02\
-\x04type\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x16\x07address\
-\x05\x0eallow-insecure\x05\x0dcheck-regions\x05\x11consecutive-fails\x05\x15cons\
-ecutive-successes\x05\x0acreated-on\x05\x0bdescription\x05\x0dexpected-body\x05\x0e\
-expected-codes\x05\x10follow-redirects\x05\x07headers\x05\x08interval\x05\x06met\
-hod\x05\x0bmodified-on\x05\x04name\x05\x04path\x05\x04port\x05\x07retries\x05\x09\
-suspended\x05\x07timeout\x05\x04type\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01\
-@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x017pulumi:cloudfla\
-re/healthcheck@5.24.1-ZERO.ZERO.ZERO-DEV\x053\x01B\x0a\x02\x03\x02\x01\x01\x04\0\
-\x06output\x03\0\0\x01h\x01\x01r\x04\x08hostname\x02\x07setting\x02\x05value\x02\
-\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0acreated-at\x05\x08h\
-ostname\x05\x07setting\x05\x0aupdated-at\x05\x05value\x05\x07zone-id\x05\x04\0\x03\
+\x06invoke\x01\x08\x04\x01Ppulumi:cloudflare/hostname-tls-setting-ciphers@5.24.1\
+-DIVIDER-ZERO.ZERO.ZERO-DEV\x055\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
+\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x07caching\x02\x04name\x02\x06origin\x02\
+\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x07caching\x05\x04n\
+ame\x05\x06origin\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
+\x04\0\x06invoke\x01\x08\x04\x01Epulumi:cloudflare/hyperdrive-config@5.24.1-DIVI\
+DER-ZERO.ZERO.ZERO-DEV\x056\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\
+\x01h\x01\x01r\x11\x0aaccount-id\x02\x11allow-null-cipher\x02\x13cloudflare-endp\
+oint\x02\x11customer-endpoint\x02\x0bdescription\x02\x07fqdn-id\x02\x16health-ch\
+eck-direction\x02\x14health-check-enabled\x02\x11health-check-rate\x02\x13health\
+-check-target\x02\x11health-check-type\x02\x06hex-id\x02\x11interface-address\x02\
+\x04name\x02\x03psk\x02\x09remote-id\x02\x07user-id\x02\x04\0\x04args\x03\0\x03\x01\
+i\x01\x01r\x11\x0aaccount-id\x05\x11allow-null-cipher\x05\x13cloudflare-endpoint\
+\x05\x11customer-endpoint\x05\x0bdescription\x05\x07fqdn-id\x05\x16health-check-\
+direction\x05\x14health-check-enabled\x05\x11health-check-rate\x05\x13health-che\
+ck-target\x05\x11health-check-type\x05\x06hex-id\x05\x11interface-address\x05\x04\
+name\x05\x03psk\x05\x09remote-id\x05\x07user-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\
+\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01@pulumi:cloudflare/ip\
+sec-tunnel@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x057\x01B\x0a\x02\x03\x02\x01\x01\x04\
+\0\x06output\x03\0\0\x01h\x01\x01r\x07\x0dbundle-method\x02\x0bcertificate\x02\x07\
+enabled\x02\x04host\x02\x04name\x02\x04port\x02\x07zone-id\x02\x04\0\x04args\x03\
+\0\x03\x01i\x01\x01r\x08\x0dbundle-method\x05\x0bcertificate\x05\x07enabled\x05\x04\
+host\x05\x04name\x05\x04port\x05\x06status\x05\x07zone-id\x05\x04\0\x03res\x03\0\
+\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Gpulumi:\
+cloudflare/keyless-certificate@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x058\x01B\x0a\x02\
+\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x0b\
+description\x02\x05items\x02\x04kind\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01\
+i\x01\x01r\x05\x0aaccount-id\x05\x0bdescription\x05\x05items\x05\x04kind\x05\x04\
+name\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06inv\
+oke\x01\x08\x04\x018pulumi:cloudflare/list@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\
+9\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x07\x0aacco\
+unt-id\x02\x03asn\x02\x07comment\x02\x08hostname\x02\x02ip\x02\x07list-id\x02\x08\
+redirect\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\x0aaccount-id\x05\x03asn\x05\
+\x07comment\x05\x08hostname\x05\x02ip\x05\x07list-id\x05\x08redirect\x05\x04\0\x03\
 res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\
-@pulumi:cloudflare/hostname-tls-setting@5.24.1-ZERO.ZERO.ZERO-DEV\x054\x01B\x0a\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x08hostname\x02\x05po\
-rts\x02\x06values\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0a\
-created-at\x05\x08hostname\x05\x05ports\x05\x0aupdated-at\x05\x06values\x05\x07z\
-one-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06i\
-nvoke\x01\x08\x04\x01Hpulumi:cloudflare/hostname-tls-setting-ciphers@5.24.1-ZERO\
-.ZERO.ZERO-DEV\x055\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
-\x01r\x04\x0aaccount-id\x02\x07caching\x02\x04name\x02\x06origin\x02\x04\0\x04ar\
-gs\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x07caching\x05\x04name\x05\x06o\
-rigin\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06in\
-voke\x01\x08\x04\x01=pulumi:cloudflare/hyperdrive-config@5.24.1-ZERO.ZERO.ZERO-D\
-EV\x056\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x11\x0a\
-account-id\x02\x11allow-null-cipher\x02\x13cloudflare-endpoint\x02\x11customer-e\
-ndpoint\x02\x0bdescription\x02\x07fqdn-id\x02\x16health-check-direction\x02\x14h\
-ealth-check-enabled\x02\x11health-check-rate\x02\x13health-check-target\x02\x11h\
-ealth-check-type\x02\x06hex-id\x02\x11interface-address\x02\x04name\x02\x03psk\x02\
-\x09remote-id\x02\x07user-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x11\x0aac\
-count-id\x05\x11allow-null-cipher\x05\x13cloudflare-endpoint\x05\x11customer-end\
-point\x05\x0bdescription\x05\x07fqdn-id\x05\x16health-check-direction\x05\x14hea\
-lth-check-enabled\x05\x11health-check-rate\x05\x13health-check-target\x05\x11hea\
-lth-check-type\x05\x06hex-id\x05\x11interface-address\x05\x04name\x05\x03psk\x05\
-\x09remote-id\x05\x07user-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04arg\
-s\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x018pulumi:cloudflare/ipsec-tunnel@5.24.\
-1-ZERO.ZERO.ZERO-DEV\x057\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
-h\x01\x01r\x07\x0dbundle-method\x02\x0bcertificate\x02\x07enabled\x02\x04host\x02\
-\x04name\x02\x04port\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x08\
-\x0dbundle-method\x05\x0bcertificate\x05\x07enabled\x05\x04host\x05\x04name\x05\x04\
-port\x05\x06status\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
-args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01?pulumi:cloudflare/keyless-certifi\
-cate@5.24.1-ZERO.ZERO.ZERO-DEV\x058\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\
-\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x0bdescription\x02\x05items\x02\x04\
-kind\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount-id\x05\
-\x0bdescription\x05\x05items\x05\x04kind\x05\x04name\x05\x04\0\x03res\x03\0\x06\x01\
-@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x010pulumi:cloudfla\
-re/list@5.24.1-ZERO.ZERO.ZERO-DEV\x059\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06out\
-put\x03\0\0\x01h\x01\x01r\x07\x0aaccount-id\x02\x03asn\x02\x07comment\x02\x08hos\
-tname\x02\x02ip\x02\x07list-id\x02\x08redirect\x02\x04\0\x04args\x03\0\x03\x01i\x01\
-\x01r\x07\x0aaccount-id\x05\x03asn\x05\x07comment\x05\x08hostname\x05\x02ip\x05\x07\
-list-id\x05\x08redirect\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
-\0\x07\x04\0\x06invoke\x01\x08\x04\x015pulumi:cloudflare/list-item@5.24.1-ZERO.Z\
-ERO.ZERO-DEV\x05:\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
-r\x13\x11adaptive-routings\x02\x0dcountry-pools\x02\x10default-pool-ids\x02\x0bd\
-escription\x02\x07enabled\x02\x10fallback-pool-id\x02\x13location-strategies\x02\
-\x04name\x02\x09pop-pools\x02\x07proxied\x02\x10random-steerings\x02\x0cregion-p\
-ools\x02\x05rules\x02\x10session-affinity\x02\x1bsession-affinity-attributes\x02\
-\x14session-affinity-ttl\x02\x0fsteering-policy\x02\x03ttl\x02\x07zone-id\x02\x04\
-\0\x04args\x03\0\x03\x01i\x01\x01r\x15\x11adaptive-routings\x05\x0dcountry-pools\
-\x05\x0acreated-on\x05\x10default-pool-ids\x05\x0bdescription\x05\x07enabled\x05\
-\x10fallback-pool-id\x05\x13location-strategies\x05\x0bmodified-on\x05\x04name\x05\
-\x09pop-pools\x05\x07proxied\x05\x10random-steerings\x05\x0cregion-pools\x05\x05\
-rules\x05\x10session-affinity\x05\x1bsession-affinity-attributes\x05\x14session-\
-affinity-ttl\x05\x0fsteering-policy\x05\x03ttl\x05\x07zone-id\x05\x04\0\x03res\x03\
-\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x019pulum\
-i:cloudflare/load-balancer@5.24.1-ZERO.ZERO.ZERO-DEV\x05;\x01B\x0a\x02\x03\x02\x01\
-\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x11\x0aaccount-id\x02\x0eallow-insecu\
-re\x02\x10consecutive-down\x02\x0econsecutive-up\x02\x0bdescription\x02\x0dexpec\
-ted-body\x02\x0eexpected-codes\x02\x10follow-redirects\x02\x07headers\x02\x08int\
-erval\x02\x06method\x02\x04path\x02\x04port\x02\x0aprobe-zone\x02\x07retries\x02\
-\x07timeout\x02\x04type\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x13\x0aaccount\
--id\x05\x0eallow-insecure\x05\x10consecutive-down\x05\x0econsecutive-up\x05\x0ac\
-reated-on\x05\x0bdescription\x05\x0dexpected-body\x05\x0eexpected-codes\x05\x10f\
-ollow-redirects\x05\x07headers\x05\x08interval\x05\x06method\x05\x0bmodified-on\x05\
-\x04path\x05\x04port\x05\x0aprobe-zone\x05\x07retries\x05\x07timeout\x05\x04type\
-\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\
-\x08\x04\x01Apulumi:cloudflare/load-balancer-monitor@5.24.1-ZERO.ZERO.ZERO-DEV\x05\
-<\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0d\x0aacco\
-unt-id\x02\x0dcheck-regions\x02\x0bdescription\x02\x07enabled\x02\x08latitude\x02\
-\x0eload-sheddings\x02\x09longitude\x02\x0fminimum-origins\x02\x07monitor\x02\x04\
-name\x02\x12notification-email\x02\x10origin-steerings\x02\x07origins\x02\x04\0\x04\
-args\x03\0\x03\x01i\x01\x01r\x0f\x0aaccount-id\x05\x0dcheck-regions\x05\x0acreat\
-ed-on\x05\x0bdescription\x05\x07enabled\x05\x08latitude\x05\x0eload-sheddings\x05\
-\x09longitude\x05\x0fminimum-origins\x05\x0bmodified-on\x05\x07monitor\x05\x04na\
-me\x05\x12notification-email\x05\x10origin-steerings\x05\x07origins\x05\x04\0\x03\
-res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\
->pulumi:cloudflare/load-balancer-pool@5.24.1-ZERO.ZERO.ZERO-DEV\x05=\x01B\x0a\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x07enabled\x02\x07zon\
-e-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x07enabled\x05\x07zone-id\x05\
-\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
-\x04\x01=pulumi:cloudflare/logpull-retention@5.24.1-ZERO.ZERO.ZERO-DEV\x05>\x01B\
-\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0f\x0aaccount-id\
-\x02\x07dataset\x02\x10destination-conf\x02\x07enabled\x02\x06filter\x02\x09freq\
-uency\x02\x04kind\x02\x0flogpull-options\x02\x10max-upload-bytes\x02\x1bmax-uplo\
-ad-interval-seconds\x02\x12max-upload-records\x02\x04name\x02\x0eoutput-options\x02\
-\x13ownership-challenge\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\
-\x0f\x0aaccount-id\x05\x07dataset\x05\x10destination-conf\x05\x07enabled\x05\x06\
+=pulumi:cloudflare/list-item@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05:\x01B\x0a\x02\
+\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x13\x11adaptive-routings\x02\
+\x0dcountry-pools\x02\x10default-pool-ids\x02\x0bdescription\x02\x07enabled\x02\x10\
+fallback-pool-id\x02\x13location-strategies\x02\x04name\x02\x09pop-pools\x02\x07\
+proxied\x02\x10random-steerings\x02\x0cregion-pools\x02\x05rules\x02\x10session-\
+affinity\x02\x1bsession-affinity-attributes\x02\x14session-affinity-ttl\x02\x0fs\
+teering-policy\x02\x03ttl\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
+r\x15\x11adaptive-routings\x05\x0dcountry-pools\x05\x0acreated-on\x05\x10default\
+-pool-ids\x05\x0bdescription\x05\x07enabled\x05\x10fallback-pool-id\x05\x13locat\
+ion-strategies\x05\x0bmodified-on\x05\x04name\x05\x09pop-pools\x05\x07proxied\x05\
+\x10random-steerings\x05\x0cregion-pools\x05\x05rules\x05\x10session-affinity\x05\
+\x1bsession-affinity-attributes\x05\x14session-affinity-ttl\x05\x0fsteering-poli\
+cy\x05\x03ttl\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04arg\
+s\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Apulumi:cloudflare/load-balancer@5.24\
+.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05;\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
+\0\0\x01h\x01\x01r\x11\x0aaccount-id\x02\x0eallow-insecure\x02\x10consecutive-do\
+wn\x02\x0econsecutive-up\x02\x0bdescription\x02\x0dexpected-body\x02\x0eexpected\
+-codes\x02\x10follow-redirects\x02\x07headers\x02\x08interval\x02\x06method\x02\x04\
+path\x02\x04port\x02\x0aprobe-zone\x02\x07retries\x02\x07timeout\x02\x04type\x02\
+\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x13\x0aaccount-id\x05\x0eallow-insecure\x05\
+\x10consecutive-down\x05\x0econsecutive-up\x05\x0acreated-on\x05\x0bdescription\x05\
+\x0dexpected-body\x05\x0eexpected-codes\x05\x10follow-redirects\x05\x07headers\x05\
+\x08interval\x05\x06method\x05\x0bmodified-on\x05\x04path\x05\x04port\x05\x0apro\
+be-zone\x05\x07retries\x05\x07timeout\x05\x04type\x05\x04\0\x03res\x03\0\x06\x01\
+@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Ipulumi:cloudfla\
+re/load-balancer-monitor@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05<\x01B\x0a\x02\x03\
+\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0d\x0aaccount-id\x02\x0dchec\
+k-regions\x02\x0bdescription\x02\x07enabled\x02\x08latitude\x02\x0eload-shedding\
+s\x02\x09longitude\x02\x0fminimum-origins\x02\x07monitor\x02\x04name\x02\x12noti\
+fication-email\x02\x10origin-steerings\x02\x07origins\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x0f\x0aaccount-id\x05\x0dcheck-regions\x05\x0acreated-on\x05\x0bd\
+escription\x05\x07enabled\x05\x08latitude\x05\x0eload-sheddings\x05\x09longitude\
+\x05\x0fminimum-origins\x05\x0bmodified-on\x05\x07monitor\x05\x04name\x05\x12not\
+ification-email\x05\x10origin-steerings\x05\x07origins\x05\x04\0\x03res\x03\0\x06\
+\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Fpulumi:clou\
+dflare/load-balancer-pool@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05=\x01B\x0a\x02\x03\
+\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x07enabled\x02\x07zone-id\
+\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x07enabled\x05\x07zone-id\x05\x04\
+\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
+\x01Epulumi:cloudflare/logpull-retention@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05>\x01\
+B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0f\x0aaccount-i\
+d\x02\x07dataset\x02\x10destination-conf\x02\x07enabled\x02\x06filter\x02\x09fre\
+quency\x02\x04kind\x02\x0flogpull-options\x02\x10max-upload-bytes\x02\x1bmax-upl\
+oad-interval-seconds\x02\x12max-upload-records\x02\x04name\x02\x0eoutput-options\
+\x02\x13ownership-challenge\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
+r\x0f\x0aaccount-id\x05\x07dataset\x05\x10destination-conf\x05\x07enabled\x05\x06\
 filter\x05\x09frequency\x05\x04kind\x05\x0flogpull-options\x05\x10max-upload-byt\
 es\x05\x1bmax-upload-interval-seconds\x05\x12max-upload-records\x05\x04name\x05\x0e\
 output-options\x05\x13ownership-challenge\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\
-\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x017pulumi:clou\
-dflare/logpush-job@5.24.1-ZERO.ZERO.ZERO-DEV\x05?\x01B\x0a\x02\x03\x02\x01\x01\x04\
-\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x10destination-conf\x02\
-\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x10d\
-estination-conf\x05\x1cownership-challenge-filename\x05\x07zone-id\x05\x04\0\x03\
-res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\
-Gpulumi:cloudflare/logpush-ownership-challenge@5.24.1-ZERO.ZERO.ZERO-DEV\x05@\x01\
-B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-i\
-d\x02\x0bdescription\x02\x04name\x02\x05rules\x02\x04\0\x04args\x03\0\x03\x01i\x01\
-\x01r\x04\x0aaccount-id\x05\x0bdescription\x05\x04name\x05\x05rules\x05\x04\0\x03\
-res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\
-Bpulumi:cloudflare/magic-firewall-ruleset@5.24.1-ZERO.ZERO.ZERO-DEV\x05A\x01B\x0a\
-\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x17managed-reques\
-t-headers\x02\x18managed-response-headers\x02\x07zone-id\x02\x04\0\x04args\x03\0\
-\x03\x01i\x01\x01r\x03\x17managed-request-headers\x05\x18managed-response-header\
-s\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\
-\0\x06invoke\x01\x08\x04\x01;pulumi:cloudflare/managed-headers@5.24.1-ZERO.ZERO.\
-ZERO-DEV\x05B\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\
-\x05\x0aaccount-id\x02\x02ca\x02\x0ccertificates\x02\x04name\x02\x0bprivate-key\x02\
-\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0a\x0aaccount-id\x05\x02ca\x05\x0ccertif\
-icates\x05\x0aexpires-on\x05\x06issuer\x05\x04name\x05\x0bprivate-key\x05\x0dser\
-ial-number\x05\x09signature\x05\x0buploaded-on\x05\x04\0\x03res\x03\0\x06\x01@\x02\
-\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01<pulumi:cloudflare/mt\
-ls-certificate@5.24.1-ZERO.ZERO.ZERO-DEV\x05C\x01B\x0a\x02\x03\x02\x01\x01\x04\0\
-\x06output\x03\0\0\x01h\x01\x01r\x09\x0aaccount-id\x02\x0aalert-type\x02\x0bdesc\
-ription\x02\x12email-integrations\x02\x07enabled\x02\x07filters\x02\x04name\x02\x16\
-pagerduty-integrations\x02\x15webhooks-integrations\x02\x04\0\x04args\x03\0\x03\x01\
-i\x01\x01r\x0b\x0aaccount-id\x05\x0aalert-type\x05\x07created\x05\x0bdescription\
-\x05\x12email-integrations\x05\x07enabled\x05\x07filters\x05\x08modified\x05\x04\
-name\x05\x16pagerduty-integrations\x05\x15webhooks-integrations\x05\x04\0\x03res\
-\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01?p\
-ulumi:cloudflare/notification-policy@5.24.1-ZERO.ZERO.ZERO-DEV\x05D\x01B\x0a\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x04\
-name\x02\x06secret\x02\x03url\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x08\x0aa\
-ccount-id\x05\x0acreated-at\x05\x0clast-failure\x05\x0clast-success\x05\x04name\x05\
-\x06secret\x05\x04type\x05\x03url\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
-args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Hpulumi:cloudflare/notification-po\
-licy-webhooks@5.24.1-ZERO.ZERO.ZERO-DEV\x05E\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
-output\x03\0\0\x01h\x01\x01r\x04\x09frequency\x02\x06region\x02\x03url\x02\x07zo\
-ne-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x09frequency\x05\x06region\x05\
-\x03url\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\
-\x07\x04\0\x06invoke\x01\x08\x04\x01Fpulumi:cloudflare/observatory-scheduled-tes\
-t@5.24.1-ZERO.ZERO.ZERO-DEV\x05F\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
-\0\0\x01h\x01\x01r\x05\x03csr\x02\x09hostnames\x02\x14min-days-for-renewal\x02\x0c\
-request-type\x02\x12requested-validity\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\
-\x07\x0bcertificate\x05\x03csr\x05\x0aexpires-on\x05\x09hostnames\x05\x14min-day\
-s-for-renewal\x05\x0crequest-type\x05\x12requested-validity\x05\x04\0\x03res\x03\
-\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Apulum\
-i:cloudflare/origin-ca-certificate@5.24.1-ZERO.ZERO.ZERO-DEV\x05G\x01B\x0a\x02\x03\
+\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01?pulumi:clou\
+dflare/logpush-job@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05?\x01B\x0a\x02\x03\x02\x01\
+\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x10destination-\
+conf\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\
+\x10destination-conf\x05\x1cownership-challenge-filename\x05\x07zone-id\x05\x04\0\
+\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
+\x01Opulumi:cloudflare/logpush-ownership-challenge@5.24.1-DIVIDER-ZERO.ZERO.ZERO\
+-DEV\x05@\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\
+\x0aaccount-id\x02\x0bdescription\x02\x04name\x02\x05rules\x02\x04\0\x04args\x03\
+\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x0bdescription\x05\x04name\x05\x05rul\
+es\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invok\
+e\x01\x08\x04\x01Jpulumi:cloudflare/magic-firewall-ruleset@5.24.1-DIVIDER-ZERO.Z\
+ERO.ZERO-DEV\x05A\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
+r\x03\x17managed-request-headers\x02\x18managed-response-headers\x02\x07zone-id\x02\
+\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x17managed-request-headers\x05\x18man\
+aged-response-headers\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04name\
+s\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Cpulumi:cloudflare/managed-he\
+aders@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05B\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
+output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x02ca\x02\x0ccertificates\x02\
+\x04name\x02\x0bprivate-key\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0a\x0aacc\
+ount-id\x05\x02ca\x05\x0ccertificates\x05\x0aexpires-on\x05\x06issuer\x05\x04nam\
+e\x05\x0bprivate-key\x05\x0dserial-number\x05\x09signature\x05\x0buploaded-on\x05\
+\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
+\x04\x01Dpulumi:cloudflare/mtls-certificate@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\
+C\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x09\x0aacco\
+unt-id\x02\x0aalert-type\x02\x0bdescription\x02\x12email-integrations\x02\x07ena\
+bled\x02\x07filters\x02\x04name\x02\x16pagerduty-integrations\x02\x15webhooks-in\
+tegrations\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0b\x0aaccount-id\x05\x0aal\
+ert-type\x05\x07created\x05\x0bdescription\x05\x12email-integrations\x05\x07enab\
+led\x05\x07filters\x05\x08modified\x05\x04name\x05\x16pagerduty-integrations\x05\
+\x15webhooks-integrations\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
+\0\x07\x04\0\x06invoke\x01\x08\x04\x01Gpulumi:cloudflare/notification-policy@5.2\
+4.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05D\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\
+\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x04name\x02\x06secret\x02\x03url\x02\
+\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x08\x0aaccount-id\x05\x0acreated-at\x05\x0c\
+last-failure\x05\x0clast-success\x05\x04name\x05\x06secret\x05\x04type\x05\x03ur\
+l\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\
+\x01\x08\x04\x01Ppulumi:cloudflare/notification-policy-webhooks@5.24.1-DIVIDER-Z\
+ERO.ZERO.ZERO-DEV\x05E\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\
+\x01\x01r\x04\x09frequency\x02\x06region\x02\x03url\x02\x07zone-id\x02\x04\0\x04\
+args\x03\0\x03\x01i\x01\x01r\x04\x09frequency\x05\x06region\x05\x03url\x05\x07zo\
+ne-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06in\
+voke\x01\x08\x04\x01Npulumi:cloudflare/observatory-scheduled-test@5.24.1-DIVIDER\
+-ZERO.ZERO.ZERO-DEV\x05F\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
+h\x01\x01r\x05\x03csr\x02\x09hostnames\x02\x14min-days-for-renewal\x02\x0creques\
+t-type\x02\x12requested-validity\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\x0b\
+certificate\x05\x03csr\x05\x0aexpires-on\x05\x09hostnames\x05\x14min-days-for-re\
+newal\x05\x0crequest-type\x05\x12requested-validity\x05\x04\0\x03res\x03\0\x06\x01\
+@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Ipulumi:cloudfla\
+re/origin-ca-certificate@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05G\x01B\x0a\x02\x03\
 \x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x07actions\x02\x08priorit\
 y\x02\x06status\x02\x06target\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\
 \x01r\x05\x07actions\x05\x08priority\x05\x06status\x05\x06target\x05\x07zone-id\x05\
 \x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
-\x04\x015pulumi:cloudflare/page-rule@5.24.1-ZERO.ZERO.ZERO-DEV\x05H\x01B\x0a\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x06\
-domain\x02\x0cproject-name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aacco\
-unt-id\x05\x06domain\x05\x0cproject-name\x05\x06status\x05\x04\0\x03res\x03\0\x06\
-\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x018pulumi:clou\
-dflare/pages-domain@5.24.1-ZERO.ZERO.ZERO-DEV\x05I\x01B\x0a\x02\x03\x02\x01\x01\x04\
-\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\x0cbuild-config\x02\x12\
-deployment-configs\x02\x04name\x02\x11production-branch\x02\x06source\x02\x04\0\x04\
-args\x03\0\x03\x01i\x01\x01r\x09\x0aaccount-id\x05\x0cbuild-config\x05\x0acreate\
-d-on\x05\x12deployment-configs\x05\x07domains\x05\x04name\x05\x11production-bran\
-ch\x05\x06source\x05\x09subdomain\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
-args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x019pulumi:cloudflare/pages-project@5\
-.24.1-ZERO.ZERO.ZERO-DEV\x05J\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\
-\0\x01h\x01\x01r\x02\x0aaccount-id\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\
-\x01r\x02\x0aaccount-id\x05\x04name\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\
-\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x011pulumi:cloudflare/queue@5.24.\
-1-ZERO.ZERO.ZERO-DEV\x05K\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
-h\x01\x01r\x03\x0aaccount-id\x02\x08location\x02\x04name\x02\x04\0\x04args\x03\0\
-\x03\x01i\x01\x01r\x03\x0aaccount-id\x05\x08location\x05\x04name\x05\x04\0\x03re\
-s\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x015\
-pulumi:cloudflare/r2-bucket@5.24.1-ZERO.ZERO.ZERO-DEV\x05L\x01B\x0a\x02\x03\x02\x01\
-\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x09\x06action\x02\x13bypass-url-patte\
-rns\x02\x09correlate\x02\x0bdescription\x02\x08disabled\x02\x05match\x02\x06peri\
-od\x02\x09threshold\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x09\
-\x06action\x05\x13bypass-url-patterns\x05\x09correlate\x05\x0bdescription\x05\x08\
-disabled\x05\x05match\x05\x06period\x05\x09threshold\x05\x07zone-id\x05\x04\0\x03\
-res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\
-6pulumi:cloudflare/rate-limit@5.24.1-ZERO.ZERO.ZERO-DEV\x05M\x01B\x0a\x02\x03\x02\
-\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0b\x0fallow-overwrite\x02\x07com\
-ment\x02\x04data\x02\x04name\x02\x08priority\x02\x07proxied\x02\x04tags\x02\x03t\
-tl\x02\x04type\x02\x05value\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
-r\x10\x0fallow-overwrite\x05\x07comment\x05\x0acreated-on\x05\x04data\x05\x08hos\
-tname\x05\x08metadata\x05\x0bmodified-on\x05\x04name\x05\x08priority\x05\x09prox\
-iable\x05\x07proxied\x05\x04tags\x05\x03ttl\x05\x04type\x05\x05value\x05\x07zone\
--id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invo\
-ke\x01\x08\x04\x012pulumi:cloudflare/record@5.24.1-ZERO.ZERO.ZERO-DEV\x05N\x01B\x0a\
-\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x08hostname\x02\x0a\
-region-key\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0acreat\
-ed-on\x05\x08hostname\x05\x0aregion-key\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\
-\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01=pulumi:clou\
-dflare/regional-hostname@5.24.1-ZERO.ZERO.ZERO-DEV\x05O\x01B\x0a\x02\x03\x02\x01\
-\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x05value\x02\x07zone-id\x02\x04\0\
-\x04args\x03\0\x03\x01i\x01\x01r\x02\x05value\x05\x07zone-id\x05\x04\0\x03res\x03\
-\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Apulum\
-i:cloudflare/regional-tiered-cache@5.24.1-ZERO.ZERO.ZERO-DEV\x05P\x01B\x0a\x02\x03\
-\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x07\x0aaccount-id\x02\x0bdesc\
-ription\x02\x04kind\x02\x04name\x02\x05phase\x02\x05rules\x02\x07zone-id\x02\x04\
-\0\x04args\x03\0\x03\x01i\x01\x01r\x07\x0aaccount-id\x05\x0bdescription\x05\x04k\
-ind\x05\x04name\x05\x05phase\x05\x05rules\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\
-\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x013pulumi:clou\
-dflare/ruleset@5.24.1-ZERO.ZERO.ZERO-DEV\x05Q\x01B\x0a\x02\x03\x02\x01\x01\x04\0\
-\x06output\x03\0\0\x01h\x01\x01r\x0d\x12argo-smart-routing\x02\x03dns\x02\x08edg\
-e-ips\x02\x0bip-firewall\x02\x0eorigin-directs\x02\x0aorigin-dns\x02\x0borigin-p\
-ort\x02\x11origin-port-range\x02\x08protocol\x02\x0eproxy-protocol\x02\x03tls\x02\
-\x0ctraffic-type\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0d\x12\
-argo-smart-routing\x05\x03dns\x05\x08edge-ips\x05\x0bip-firewall\x05\x0eorigin-d\
-irects\x05\x0aorigin-dns\x05\x0borigin-port\x05\x11origin-port-range\x05\x08prot\
-ocol\x05\x0eproxy-protocol\x05\x03tls\x05\x0ctraffic-type\x05\x07zone-id\x05\x04\
-\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\x01@pulumi:cloudflare/spectrum-application@5.24.1-ZERO.ZERO.ZERO-DEV\x05R\x01B\x0a\
-\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\
-\x04mode\x02\x09policy-id\x02\x07tunnels\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
-r\x04\x0aaccount-id\x05\x04mode\x05\x09policy-id\x05\x07tunnels\x05\x04\0\x03res\
-\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x018p\
-ulumi:cloudflare/split-tunnel@5.24.1-ZERO.ZERO.ZERO-DEV\x05S\x01B\x0a\x02\x03\x02\
+\x04\x01=pulumi:cloudflare/page-rule@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05H\x01B\
+\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\
+\x02\x06domain\x02\x0cproject-name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\
+\x0aaccount-id\x05\x06domain\x05\x0cproject-name\x05\x06status\x05\x04\0\x03res\x03\
+\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01@pulum\
+i:cloudflare/pages-domain@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05I\x01B\x0a\x02\x03\
+\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\x0cbuil\
+d-config\x02\x12deployment-configs\x02\x04name\x02\x11production-branch\x02\x06s\
+ource\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x09\x0aaccount-id\x05\x0cbuild-c\
+onfig\x05\x0acreated-on\x05\x12deployment-configs\x05\x07domains\x05\x04name\x05\
+\x11production-branch\x05\x06source\x05\x09subdomain\x05\x04\0\x03res\x03\0\x06\x01\
+@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Apulumi:cloudfla\
+re/pages-project@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05J\x01B\x0a\x02\x03\x02\x01\
+\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x0aaccount-id\x02\x04name\x02\x04\
+\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x0aaccount-id\x05\x04name\x05\x04\0\x03re\
+s\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x019\
+pulumi:cloudflare/queue@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05K\x01B\x0a\x02\x03\x02\
+\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x08location\
+\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x0aaccount-id\x05\x08\
+location\x05\x04name\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
+\x04\0\x06invoke\x01\x08\x04\x01=pulumi:cloudflare/r2-bucket@5.24.1-DIVIDER-ZERO\
+.ZERO.ZERO-DEV\x05L\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
+\x01r\x09\x06action\x02\x13bypass-url-patterns\x02\x09correlate\x02\x0bdescripti\
+on\x02\x08disabled\x02\x05match\x02\x06period\x02\x09threshold\x02\x07zone-id\x02\
+\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x09\x06action\x05\x13bypass-url-patterns\x05\
+\x09correlate\x05\x0bdescription\x05\x08disabled\x05\x05match\x05\x06period\x05\x09\
+threshold\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
+\0\x07\x04\0\x06invoke\x01\x08\x04\x01>pulumi:cloudflare/rate-limit@5.24.1-DIVID\
+ER-ZERO.ZERO.ZERO-DEV\x05M\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
+h\x01\x01r\x0b\x0fallow-overwrite\x02\x07comment\x02\x04data\x02\x04name\x02\x08\
+priority\x02\x07proxied\x02\x04tags\x02\x03ttl\x02\x04type\x02\x05value\x02\x07z\
+one-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x10\x0fallow-overwrite\x05\x07c\
+omment\x05\x0acreated-on\x05\x04data\x05\x08hostname\x05\x08metadata\x05\x0bmodi\
+fied-on\x05\x04name\x05\x08priority\x05\x09proxiable\x05\x07proxied\x05\x04tags\x05\
+\x03ttl\x05\x04type\x05\x05value\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\
+\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01:pulumi:cloudflare/re\
+cord@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05N\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
+output\x03\0\0\x01h\x01\x01r\x03\x08hostname\x02\x0aregion-key\x02\x07zone-id\x02\
+\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0acreated-on\x05\x08hostname\x05\x0a\
+region-key\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
+\0\x07\x04\0\x06invoke\x01\x08\x04\x01Epulumi:cloudflare/regional-hostname@5.24.\
+1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05O\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
+\0\0\x01h\x01\x01r\x02\x05value\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\
+\x01r\x02\x05value\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
+args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Ipulumi:cloudflare/regional-tiered\
+-cache@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05P\x01B\x0a\x02\x03\x02\x01\x01\x04\0\
+\x06output\x03\0\0\x01h\x01\x01r\x07\x0aaccount-id\x02\x0bdescription\x02\x04kin\
+d\x02\x04name\x02\x05phase\x02\x05rules\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x07\x0aaccount-id\x05\x0bdescription\x05\x04kind\x05\x04name\x05\x05\
+phase\x05\x05rules\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
+args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01;pulumi:cloudflare/ruleset@5.24.1-\
+DIVIDER-ZERO.ZERO.ZERO-DEV\x05Q\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
+\0\0\x01h\x01\x01r\x0d\x12argo-smart-routing\x02\x03dns\x02\x08edge-ips\x02\x0bi\
+p-firewall\x02\x0eorigin-directs\x02\x0aorigin-dns\x02\x0borigin-port\x02\x11ori\
+gin-port-range\x02\x08protocol\x02\x0eproxy-protocol\x02\x03tls\x02\x0ctraffic-t\
+ype\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0d\x12argo-smart-r\
+outing\x05\x03dns\x05\x08edge-ips\x05\x0bip-firewall\x05\x0eorigin-directs\x05\x0a\
+origin-dns\x05\x0borigin-port\x05\x11origin-port-range\x05\x08protocol\x05\x0epr\
+oxy-protocol\x05\x03tls\x05\x0ctraffic-type\x05\x07zone-id\x05\x04\0\x03res\x03\0\
+\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Hpulumi:\
+cloudflare/spectrum-application@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05R\x01B\x0a\x02\
+\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x04\
+mode\x02\x09policy-id\x02\x07tunnels\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\
+\x0aaccount-id\x05\x04mode\x05\x09policy-id\x05\x07tunnels\x05\x04\0\x03res\x03\0\
+\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01@pulumi:\
+cloudflare/split-tunnel@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05S\x01B\x0a\x02\x03\x02\
 \x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x08\x0aaccount-id\x02\x0acolo-nam\
 es\x02\x0ccolo-regions\x02\x0bdescription\x02\x07nexthop\x02\x06prefix\x02\x08pr\
 iority\x02\x06weight\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x08\x0aaccount-id\
 \x05\x0acolo-names\x05\x0ccolo-regions\x05\x0bdescription\x05\x07nexthop\x05\x06\
 prefix\x05\x08priority\x05\x06weight\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04name\
-s\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x018pulumi:cloudflare/static-rou\
-te@5.24.1-ZERO.ZERO.ZERO-DEV\x05T\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
-\0\0\x01h\x01\x01r\x0f\x0aaccount-id\x02\x14activity-log-enabled\x02\x09antiviru\
-s\x02\x0ablock-page\x02\x0dbody-scanning\x02\x17extended-email-matching\x02\x04f\
-ips\x02\x07logging\x02&non-identity-browser-isolation-enabled\x02\x0bpayload-log\
-\x02\x1aprotocol-detection-enabled\x02\x05proxy\x02\x0fssh-session-log\x02\x13tl\
-s-decrypt-enabled\x02\x1durl-browser-isolation-enabled\x02\x04\0\x04args\x03\0\x03\
-\x01i\x01\x01r\x0f\x0aaccount-id\x05\x14activity-log-enabled\x05\x09antivirus\x05\
-\x0ablock-page\x05\x0dbody-scanning\x05\x17extended-email-matching\x05\x04fips\x05\
-\x07logging\x05&non-identity-browser-isolation-enabled\x05\x0bpayload-log\x05\x1a\
-protocol-detection-enabled\x05\x05proxy\x05\x0fssh-session-log\x05\x13tls-decryp\
-t-enabled\x05\x1durl-browser-isolation-enabled\x05\x04\0\x03res\x03\0\x06\x01@\x02\
-\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x019pulumi:cloudflare/te\
-ams-account@5.24.1-ZERO.ZERO.ZERO-DEV\x05U\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
-output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x0bdescription\x02\x05items\x02\
-\x04name\x02\x04type\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount-id\
-\x05\x0bdescription\x05\x05items\x05\x04name\x05\x04type\x05\x04\0\x03res\x03\0\x06\
-\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x016pulumi:clou\
-dflare/teams-list@5.24.1-ZERO.ZERO.ZERO-DEV\x05V\x01B\x0a\x02\x03\x02\x01\x01\x04\
-\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x0eclient-default\x02\x04\
-name\x02\x08networks\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x09\x0aaccount-id\
-\x05\x17anonymized-logs-enabled\x05\x0eclient-default\x05\x0ddoh-subdomain\x05\x02\
-ip\x05\x10ipv4-destination\x05\x04name\x05\x08networks\x05\x0apolicy-ids\x05\x04\
+s\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01@pulumi:cloudflare/static-rou\
+te@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05T\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
+output\x03\0\0\x01h\x01\x01r\x0f\x0aaccount-id\x02\x14activity-log-enabled\x02\x09\
+antivirus\x02\x0ablock-page\x02\x0dbody-scanning\x02\x17extended-email-matching\x02\
+\x04fips\x02\x07logging\x02&non-identity-browser-isolation-enabled\x02\x0bpayloa\
+d-log\x02\x1aprotocol-detection-enabled\x02\x05proxy\x02\x0fssh-session-log\x02\x13\
+tls-decrypt-enabled\x02\x1durl-browser-isolation-enabled\x02\x04\0\x04args\x03\0\
+\x03\x01i\x01\x01r\x0f\x0aaccount-id\x05\x14activity-log-enabled\x05\x09antiviru\
+s\x05\x0ablock-page\x05\x0dbody-scanning\x05\x17extended-email-matching\x05\x04f\
+ips\x05\x07logging\x05&non-identity-browser-isolation-enabled\x05\x0bpayload-log\
+\x05\x1aprotocol-detection-enabled\x05\x05proxy\x05\x0fssh-session-log\x05\x13tl\
+s-decrypt-enabled\x05\x1durl-browser-isolation-enabled\x05\x04\0\x03res\x03\0\x06\
+\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Apulumi:clou\
+dflare/teams-account@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05U\x01B\x0a\x02\x03\x02\
+\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x0bdescript\
+ion\x02\x05items\x02\x04name\x02\x04type\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
+r\x05\x0aaccount-id\x05\x0bdescription\x05\x05items\x05\x04name\x05\x04type\x05\x04\
 \0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\x01:pulumi:cloudflare/teams-location@5.24.1-ZERO.ZERO.ZERO-DEV\x05W\x01B\x0a\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x03\
-ips\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x03\
-ips\x05\x04name\x05\x09subdomain\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
-args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01@pulumi:cloudflare/teams-proxy-end\
-point@5.24.1-ZERO.ZERO.ZERO-DEV\x05X\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06outpu\
-t\x03\0\0\x01h\x01\x01r\x0b\x0aaccount-id\x02\x06action\x02\x0bdescription\x02\x0e\
-device-posture\x02\x07enabled\x02\x07filters\x02\x08identity\x02\x04name\x02\x0a\
-precedence\x02\x0drule-settings\x02\x07traffic\x02\x04\0\x04args\x03\0\x03\x01i\x01\
-\x01r\x0c\x0aaccount-id\x05\x06action\x05\x0bdescription\x05\x0edevice-posture\x05\
-\x07enabled\x05\x07filters\x05\x08identity\x05\x04name\x05\x0aprecedence\x05\x0d\
-rule-settings\x05\x07traffic\x05\x07version\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04\
-names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x016pulumi:cloudflare/teams-\
-rule@5.24.1-ZERO.ZERO.ZERO-DEV\x05Y\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\
-\x03\0\0\x01h\x01\x01r\x02\x0acache-type\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\
-\x01i\x01\x01r\x02\x0acache-type\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\
-\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x018pulumi:cloudflare/ti\
-ered-cache@5.24.1-ZERO.ZERO.ZERO-DEV\x05Z\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
-output\x03\0\0\x01h\x01\x01r\x03\x15certificate-authority\x02\x07enabled\x02\x07\
-zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x15certificate-authority\x05\
-\x07enabled\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
-\0\x07\x04\0\x06invoke\x01\x08\x04\x015pulumi:cloudflare/total-tls@5.24.1-ZERO.Z\
-ERO.ZERO-DEV\x05[\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
-r\x04\x0aaccount-id\x02\x0aconfig-src\x02\x04name\x02\x06secret\x02\x04\0\x04arg\
-s\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x05cname\x05\x0aconfig-src\x05\x04\
+\x01>pulumi:cloudflare/teams-list@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05V\x01B\x0a\
+\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\
+\x0eclient-default\x02\x04name\x02\x08networks\x02\x04\0\x04args\x03\0\x03\x01i\x01\
+\x01r\x09\x0aaccount-id\x05\x17anonymized-logs-enabled\x05\x0eclient-default\x05\
+\x0ddoh-subdomain\x05\x02ip\x05\x10ipv4-destination\x05\x04name\x05\x08networks\x05\
+\x0apolicy-ids\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\
+\0\x06invoke\x01\x08\x04\x01Bpulumi:cloudflare/teams-location@5.24.1-DIVIDER-ZER\
+O.ZERO.ZERO-DEV\x05W\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
+\x01r\x03\x0aaccount-id\x02\x03ips\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\
+\x01r\x04\x0aaccount-id\x05\x03ips\x05\x04name\x05\x09subdomain\x05\x04\0\x03res\
+\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Hp\
+ulumi:cloudflare/teams-proxy-endpoint@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05X\x01\
+B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0b\x0aaccount-i\
+d\x02\x06action\x02\x0bdescription\x02\x0edevice-posture\x02\x07enabled\x02\x07f\
+ilters\x02\x08identity\x02\x04name\x02\x0aprecedence\x02\x0drule-settings\x02\x07\
+traffic\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0c\x0aaccount-id\x05\x06actio\
+n\x05\x0bdescription\x05\x0edevice-posture\x05\x07enabled\x05\x07filters\x05\x08\
+identity\x05\x04name\x05\x0aprecedence\x05\x0drule-settings\x05\x07traffic\x05\x07\
+version\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
+invoke\x01\x08\x04\x01>pulumi:cloudflare/teams-rule@5.24.1-DIVIDER-ZERO.ZERO.ZER\
+O-DEV\x05Y\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\
+\x0acache-type\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x0ac\
+ache-type\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
+\0\x07\x04\0\x06invoke\x01\x08\x04\x01@pulumi:cloudflare/tiered-cache@5.24.1-DIV\
+IDER-ZERO.ZERO.ZERO-DEV\x05Z\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\
+\x01h\x01\x01r\x03\x15certificate-authority\x02\x07enabled\x02\x07zone-id\x02\x04\
+\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x15certificate-authority\x05\x07enabled\x05\
+\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\
+\x06invoke\x01\x08\x04\x01=pulumi:cloudflare/total-tls@5.24.1-DIVIDER-ZERO.ZERO.\
+ZERO-DEV\x05[\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\
+\x04\x0aaccount-id\x02\x0aconfig-src\x02\x04name\x02\x06secret\x02\x04\0\x04args\
+\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x05cname\x05\x0aconfig-src\x05\x04\
 name\x05\x06secret\x05\x0ctunnel-token\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04na\
-mes\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x012pulumi:cloudflare/tunnel@5\
-.24.1-ZERO.ZERO.ZERO-DEV\x05\\\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\
-\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x06config\x02\x09tunnel-id\x02\x04\0\x04a\
-rgs\x03\0\x03\x01i\x01\x01r\x03\x0aaccount-id\x05\x06config\x05\x09tunnel-id\x05\
-\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
-\x04\x019pulumi:cloudflare/tunnel-config@5.24.1-ZERO.ZERO.ZERO-DEV\x05]\x01B\x0a\
-\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\
-\x07comment\x02\x07network\x02\x09tunnel-id\x02\x12virtual-network-id\x02\x04\0\x04\
-args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount-id\x05\x07comment\x05\x07network\x05\
-\x09tunnel-id\x05\x12virtual-network-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04n\
-ames\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x018pulumi:cloudflare/tunnel-\
-route@5.24.1-ZERO.ZERO.ZERO-DEV\x05^\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06outpu\
-t\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x07comment\x02\x12is-default-netwo\
-rk\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x07\
-comment\x05\x12is-default-network\x05\x04name\x05\x04\0\x03res\x03\0\x06\x01@\x02\
-\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Bpulumi:cloudflare/tu\
-nnel-virtual-network@5.24.1-ZERO.ZERO.ZERO-DEV\x05_\x01B\x0a\x02\x03\x02\x01\x01\
-\x04\0\x06output\x03\0\0\x01h\x01\x01r\x07\x0aaccount-id\x02\x0ebot-fight-mode\x02\
-\x07domains\x02\x04mode\x02\x04name\x02\x08offlabel\x02\x06region\x02\x04\0\x04a\
-rgs\x03\0\x03\x01i\x01\x01r\x08\x0aaccount-id\x05\x0ebot-fight-mode\x05\x07domai\
-ns\x05\x04mode\x05\x04name\x05\x08offlabel\x05\x06region\x05\x06secret\x05\x04\0\
-\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\x01<pulumi:cloudflare/turnstile-widget@5.24.1-ZERO.ZERO.ZERO-DEV\x05`\x01B\x0a\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x05scope\x02\x04type\x02\
-\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x05scope\x05\x04type\x05\
-\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\
-\x06invoke\x01\x08\x04\x01Fpulumi:cloudflare/url-normalization-settings@5.24.1-Z\
-ERO.ZERO.ZERO-DEV\x05a\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\
-\x01\x01r\x05\x0dconfiguration\x02\x0bdescription\x02\x04mode\x02\x06paused\x02\x07\
-zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0dconfiguration\x05\x0bde\
-scription\x05\x04mode\x05\x06paused\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01\
-@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Dpulumi:cloudfla\
-re/user-agent-blocking-rule@5.24.1-ZERO.ZERO.ZERO-DEV\x05b\x01B\x0a\x02\x03\x02\x01\
-\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x12\x11additional-routes\x02\x0dcooki\
-e-suffix\x02\x10custom-page-html\x02\x19default-template-language\x02\x0bdescrip\
-tion\x02\x17disable-session-renewal\x02\x04host\x02\x15json-response-enabled\x02\
-\x04name\x02\x14new-users-per-minute\x02\x04path\x02\x09queue-all\x02\x0fqueuein\
-g-method\x02\x14queueing-status-code\x02\x10session-duration\x02\x09suspended\x02\
-\x12total-active-users\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x12\
-\x11additional-routes\x05\x0dcookie-suffix\x05\x10custom-page-html\x05\x19defaul\
-t-template-language\x05\x0bdescription\x05\x17disable-session-renewal\x05\x04hos\
-t\x05\x15json-response-enabled\x05\x04name\x05\x14new-users-per-minute\x05\x04pa\
-th\x05\x09queue-all\x05\x0fqueueing-method\x05\x14queueing-status-code\x05\x10se\
-ssion-duration\x05\x09suspended\x05\x12total-active-users\x05\x07zone-id\x05\x04\
+mes\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01:pulumi:cloudflare/tunnel@5\
+.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\\\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06out\
+put\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x06config\x02\x09tunnel-id\x02\x04\
+\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x0aaccount-id\x05\x06config\x05\x09tunnel\
+-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invo\
+ke\x01\x08\x04\x01Apulumi:cloudflare/tunnel-config@5.24.1-DIVIDER-ZERO.ZERO.ZERO\
+-DEV\x05]\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\
+\x0aaccount-id\x02\x07comment\x02\x07network\x02\x09tunnel-id\x02\x12virtual-net\
+work-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount-id\x05\x07comme\
+nt\x05\x07network\x05\x09tunnel-id\x05\x12virtual-network-id\x05\x04\0\x03res\x03\
+\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01@pulum\
+i:cloudflare/tunnel-route@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05^\x01B\x0a\x02\x03\
+\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x07comm\
+ent\x02\x12is-default-network\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
+r\x04\x0aaccount-id\x05\x07comment\x05\x12is-default-network\x05\x04name\x05\x04\
 \0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\x018pulumi:cloudflare/waiting-room@5.24.1-ZERO.ZERO.ZERO-DEV\x05c\x01B\x0a\x02\x03\
-\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0f\x10custom-page-html\x02\x0b\
-description\x02\x17disable-session-renewal\x02\x0eevent-end-time\x02\x10event-st\
-art-time\x02\x04name\x02\x14new-users-per-minute\x02\x13prequeue-start-time\x02\x0f\
-queueing-method\x02\x10session-duration\x02\x16shuffle-at-event-start\x02\x09sus\
-pended\x02\x12total-active-users\x02\x0fwaiting-room-id\x02\x07zone-id\x02\x04\0\
-\x04args\x03\0\x03\x01i\x01\x01r\x11\x0acreated-on\x05\x10custom-page-html\x05\x0b\
-description\x05\x17disable-session-renewal\x05\x0eevent-end-time\x05\x10event-st\
-art-time\x05\x0bmodified-on\x05\x04name\x05\x14new-users-per-minute\x05\x13prequ\
-eue-start-time\x05\x0fqueueing-method\x05\x10session-duration\x05\x16shuffle-at-\
-event-start\x05\x09suspended\x05\x12total-active-users\x05\x0fwaiting-room-id\x05\
-\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\
-\x06invoke\x01\x08\x04\x01>pulumi:cloudflare/waiting-room-event@5.24.1-ZERO.ZERO\
-.ZERO-DEV\x05d\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
-r\x03\x05rules\x02\x0fwaiting-room-id\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\
-\x01i\x01\x01r\x03\x05rules\x05\x0fwaiting-room-id\x05\x07zone-id\x05\x04\0\x03r\
-es\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\
->pulumi:cloudflare/waiting-room-rules@5.24.1-ZERO.ZERO.ZERO-DEV\x05e\x01B\x0a\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x1csearch-engine-craw\
-ler-bypass\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x1csearc\
-h-engine-crawler-bypass\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04na\
-mes\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Apulumi:cloudflare/waiting-\
-room-settings@5.24.1-ZERO.ZERO.ZERO-DEV\x05f\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
+\x01Jpulumi:cloudflare/tunnel-virtual-network@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\
+_\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x07\x0aacco\
+unt-id\x02\x0ebot-fight-mode\x02\x07domains\x02\x04mode\x02\x04name\x02\x08offla\
+bel\x02\x06region\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x08\x0aaccount-id\x05\
+\x0ebot-fight-mode\x05\x07domains\x05\x04mode\x05\x04name\x05\x08offlabel\x05\x06\
+region\x05\x06secret\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
+\x04\0\x06invoke\x01\x08\x04\x01Dpulumi:cloudflare/turnstile-widget@5.24.1-DIVID\
+ER-ZERO.ZERO.ZERO-DEV\x05`\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
+h\x01\x01r\x03\x05scope\x02\x04type\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01\
+i\x01\x01r\x03\x05scope\x05\x04type\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01\
+@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Npulumi:cloudfla\
+re/url-normalization-settings@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05a\x01B\x0a\x02\
+\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0dconfiguration\x02\x0b\
+description\x02\x04mode\x02\x06paused\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x05\x0dconfiguration\x05\x0bdescription\x05\x04mode\x05\x06paused\
+\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\
+\0\x06invoke\x01\x08\x04\x01Lpulumi:cloudflare/user-agent-blocking-rule@5.24.1-D\
+IVIDER-ZERO.ZERO.ZERO-DEV\x05b\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\
+\0\x01h\x01\x01r\x12\x11additional-routes\x02\x0dcookie-suffix\x02\x10custom-pag\
+e-html\x02\x19default-template-language\x02\x0bdescription\x02\x17disable-sessio\
+n-renewal\x02\x04host\x02\x15json-response-enabled\x02\x04name\x02\x14new-users-\
+per-minute\x02\x04path\x02\x09queue-all\x02\x0fqueueing-method\x02\x14queueing-s\
+tatus-code\x02\x10session-duration\x02\x09suspended\x02\x12total-active-users\x02\
+\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x12\x11additional-routes\x05\
+\x0dcookie-suffix\x05\x10custom-page-html\x05\x19default-template-language\x05\x0b\
+description\x05\x17disable-session-renewal\x05\x04host\x05\x15json-response-enab\
+led\x05\x04name\x05\x14new-users-per-minute\x05\x04path\x05\x09queue-all\x05\x0f\
+queueing-method\x05\x14queueing-status-code\x05\x10session-duration\x05\x09suspe\
+nded\x05\x12total-active-users\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\
+\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01@pulumi:cloudflare/wa\
+iting-room@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05c\x01B\x0a\x02\x03\x02\x01\x01\x04\
+\0\x06output\x03\0\0\x01h\x01\x01r\x0f\x10custom-page-html\x02\x0bdescription\x02\
+\x17disable-session-renewal\x02\x0eevent-end-time\x02\x10event-start-time\x02\x04\
+name\x02\x14new-users-per-minute\x02\x13prequeue-start-time\x02\x0fqueueing-meth\
+od\x02\x10session-duration\x02\x16shuffle-at-event-start\x02\x09suspended\x02\x12\
+total-active-users\x02\x0fwaiting-room-id\x02\x07zone-id\x02\x04\0\x04args\x03\0\
+\x03\x01i\x01\x01r\x11\x0acreated-on\x05\x10custom-page-html\x05\x0bdescription\x05\
+\x17disable-session-renewal\x05\x0eevent-end-time\x05\x10event-start-time\x05\x0b\
+modified-on\x05\x04name\x05\x14new-users-per-minute\x05\x13prequeue-start-time\x05\
+\x0fqueueing-method\x05\x10session-duration\x05\x16shuffle-at-event-start\x05\x09\
+suspended\x05\x12total-active-users\x05\x0fwaiting-room-id\x05\x07zone-id\x05\x04\
+\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
+\x01Fpulumi:cloudflare/waiting-room-event@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05d\
+\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x05rules\
+\x02\x0fwaiting-room-id\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\
+\x03\x05rules\x05\x0fwaiting-room-id\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01\
+@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Fpulumi:cloudfla\
+re/waiting-room-rules@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05e\x01B\x0a\x02\x03\x02\
+\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x1csearch-engine-crawler-bypa\
+ss\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x1csearch-engine\
+-crawler-bypass\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04a\
+rgs\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Ipulumi:cloudflare/waiting-room-set\
+tings@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05f\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
 output\x03\0\0\x01h\x01\x01r\x05\x0bdescription\x02\x07dnslink\x02\x04name\x02\x06\
 target\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x08\x0acreated-o\
 n\x05\x0bdescription\x05\x07dnslink\x05\x0bmodified-on\x05\x04name\x05\x06status\
 \x05\x06target\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04ar\
-gs\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x019pulumi:cloudflare/web3-hostname@5.2\
-4.1-ZERO.ZERO.ZERO-DEV\x05g\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\
-\x01h\x01\x01r\x06\x0aaccount-id\x02\x04host\x02\x09inclusive\x02\x09is-paused\x02\
-\x05paths\x02\x0aruleset-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aacc\
-ount-id\x05\x04host\x05\x09inclusive\x05\x09is-paused\x05\x05paths\x05\x0arulese\
-t-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06inv\
-oke\x01\x08\x04\x01>pulumi:cloudflare/web-analytics-rule@5.24.1-ZERO.ZERO.ZERO-D\
-EV\x05h\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0a\
-account-id\x02\x0cauto-install\x02\x04host\x02\x08zone-tag\x02\x04\0\x04args\x03\
-\0\x03\x01i\x01\x01r\x08\x0aaccount-id\x05\x0cauto-install\x05\x04host\x05\x0aru\
-leset-id\x05\x08site-tag\x05\x0asite-token\x05\x07snippet\x05\x08zone-tag\x05\x04\
-\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\x01>pulumi:cloudflare/web-analytics-site@5.24.1-ZERO.ZERO.ZERO-DEV\x05i\x01B\x0a\
-\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\
-\x09schedules\x02\x0bscript-name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x0a\
-account-id\x05\x09schedules\x05\x0bscript-name\x05\x04\0\x03res\x03\0\x06\x01@\x02\
-\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01?pulumi:cloudflare/wo\
-rker-cron-trigger@5.24.1-ZERO.ZERO.ZERO-DEV\x05j\x01B\x0a\x02\x03\x02\x01\x01\x04\
-\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x0benvironment\x02\x08h\
-ostname\x02\x07service\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\
-\x0aaccount-id\x05\x0benvironment\x05\x08hostname\x05\x07service\x05\x07zone-id\x05\
-\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
-\x04\x019pulumi:cloudflare/worker-domain@5.24.1-ZERO.ZERO.ZERO-DEV\x05k\x01B\x0a\
-\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x07pattern\x02\x0b\
-script-name\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x07patt\
-ern\x05\x0bscript-name\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04nam\
-es\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x018pulumi:cloudflare/worker-ro\
-ute@5.24.1-ZERO.ZERO.ZERO-DEV\x05l\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
-\0\0\x01h\x01\x01r\x13\x0aaccount-id\x02\x19analytics-engine-bindings\x02\x12com\
-patibility-date\x02\x13compatibility-flags\x02\x07content\x02\x14d1-database-bin\
-dings\x02\x12dispatch-namespace\x02\x15kv-namespace-bindings\x02\x07logpush\x02\x06\
-module\x02\x04name\x02\x0aplacements\x02\x13plain-text-bindings\x02\x0equeue-bin\
-dings\x02\x12r2-bucket-bindings\x02\x14secret-text-bindings\x02\x10service-bindi\
-ngs\x02\x04tags\x02\x14webassembly-bindings\x02\x04\0\x04args\x03\0\x03\x01i\x01\
-\x01r\x13\x0aaccount-id\x05\x19analytics-engine-bindings\x05\x12compatibility-da\
-te\x05\x13compatibility-flags\x05\x07content\x05\x14d1-database-bindings\x05\x12\
-dispatch-namespace\x05\x15kv-namespace-bindings\x05\x07logpush\x05\x06module\x05\
-\x04name\x05\x0aplacements\x05\x13plain-text-bindings\x05\x0equeue-bindings\x05\x12\
-r2-bucket-bindings\x05\x14secret-text-bindings\x05\x10service-bindings\x05\x04ta\
-gs\x05\x14webassembly-bindings\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04a\
-rgs\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x019pulumi:cloudflare/worker-script@5.\
-24.1-ZERO.ZERO.ZERO-DEV\x05m\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\
-\x01h\x01\x01r\x04\x0aaccount-id\x02\x04name\x02\x0bscript-name\x02\x0bsecret-te\
-xt\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x04name\x05\x0b\
-script-name\x05\x0bsecret-text\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04a\
-rgs\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x019pulumi:cloudflare/worker-secret@5.\
-24.1-ZERO.ZERO.ZERO-DEV\x05n\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\
-\x01h\x01\x01r\x02\x0aaccount-id\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\
-\x01r\x02\x0aaccount-id\x05\x04name\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\
-\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Kpulumi:cloudflare/workers-for\
--platforms-namespace@5.24.1-ZERO.ZERO.ZERO-DEV\x05o\x01B\x0a\x02\x03\x02\x01\x01\
-\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x03key\x02\x0cnames\
-pace-id\x02\x05value\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\
-\x05\x03key\x05\x0cnamespace-id\x05\x05value\x05\x04\0\x03res\x03\0\x06\x01@\x02\
-\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x016pulumi:cloudflare/wo\
-rkers-kv@5.24.1-ZERO.ZERO.ZERO-DEV\x05p\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06ou\
+gs\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Apulumi:cloudflare/web3-hostname@5.2\
+4.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05g\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\
+\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\x04host\x02\x09inclusive\x02\x09is-\
+paused\x02\x05paths\x02\x0aruleset-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\
+\x0aaccount-id\x05\x04host\x05\x09inclusive\x05\x09is-paused\x05\x05paths\x05\x0a\
+ruleset-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
+invoke\x01\x08\x04\x01Fpulumi:cloudflare/web-analytics-rule@5.24.1-DIVIDER-ZERO.\
+ZERO.ZERO-DEV\x05h\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
+\x01r\x04\x0aaccount-id\x02\x0cauto-install\x02\x04host\x02\x08zone-tag\x02\x04\0\
+\x04args\x03\0\x03\x01i\x01\x01r\x08\x0aaccount-id\x05\x0cauto-install\x05\x04ho\
+st\x05\x0aruleset-id\x05\x08site-tag\x05\x0asite-token\x05\x07snippet\x05\x08zon\
+e-tag\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06in\
+voke\x01\x08\x04\x01Fpulumi:cloudflare/web-analytics-site@5.24.1-DIVIDER-ZERO.ZE\
+RO.ZERO-DEV\x05i\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
+r\x03\x0aaccount-id\x02\x09schedules\x02\x0bscript-name\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x03\x0aaccount-id\x05\x09schedules\x05\x0bscript-name\x05\x04\0\x03\
+res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\
+Gpulumi:cloudflare/worker-cron-trigger@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05j\x01\
+B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-i\
+d\x02\x0benvironment\x02\x08hostname\x02\x07service\x02\x07zone-id\x02\x04\0\x04\
+args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount-id\x05\x0benvironment\x05\x08hostnam\
+e\x05\x07service\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
+args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Apulumi:cloudflare/worker-domain@5\
+.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05k\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06outp\
+ut\x03\0\0\x01h\x01\x01r\x03\x07pattern\x02\x0bscript-name\x02\x07zone-id\x02\x04\
+\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x07pattern\x05\x0bscript-name\x05\x07zone\
+-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invo\
+ke\x01\x08\x04\x01@pulumi:cloudflare/worker-route@5.24.1-DIVIDER-ZERO.ZERO.ZERO-\
+DEV\x05l\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x13\x0a\
+account-id\x02\x19analytics-engine-bindings\x02\x12compatibility-date\x02\x13com\
+patibility-flags\x02\x07content\x02\x14d1-database-bindings\x02\x12dispatch-name\
+space\x02\x15kv-namespace-bindings\x02\x07logpush\x02\x06module\x02\x04name\x02\x0a\
+placements\x02\x13plain-text-bindings\x02\x0equeue-bindings\x02\x12r2-bucket-bin\
+dings\x02\x14secret-text-bindings\x02\x10service-bindings\x02\x04tags\x02\x14web\
+assembly-bindings\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x13\x0aaccount-id\x05\
+\x19analytics-engine-bindings\x05\x12compatibility-date\x05\x13compatibility-fla\
+gs\x05\x07content\x05\x14d1-database-bindings\x05\x12dispatch-namespace\x05\x15k\
+v-namespace-bindings\x05\x07logpush\x05\x06module\x05\x04name\x05\x0aplacements\x05\
+\x13plain-text-bindings\x05\x0equeue-bindings\x05\x12r2-bucket-bindings\x05\x14s\
+ecret-text-bindings\x05\x10service-bindings\x05\x04tags\x05\x14webassembly-bindi\
+ngs\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invo\
+ke\x01\x08\x04\x01Apulumi:cloudflare/worker-script@5.24.1-DIVIDER-ZERO.ZERO.ZERO\
+-DEV\x05m\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\
+\x0aaccount-id\x02\x04name\x02\x0bscript-name\x02\x0bsecret-text\x02\x04\0\x04ar\
+gs\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x04name\x05\x0bscript-name\x05\x0b\
+secret-text\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\
+\x06invoke\x01\x08\x04\x01Apulumi:cloudflare/worker-secret@5.24.1-DIVIDER-ZERO.Z\
+ERO.ZERO-DEV\x05n\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
+r\x02\x0aaccount-id\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x0a\
+account-id\x05\x04name\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\
+\x07\x04\0\x06invoke\x01\x08\x04\x01Spulumi:cloudflare/workers-for-platforms-nam\
+espace@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05o\x01B\x0a\x02\x03\x02\x01\x01\x04\0\
+\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x03key\x02\x0cnamespace-i\
+d\x02\x05value\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x03\
+key\x05\x0cnamespace-id\x05\x05value\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04name\
+s\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01>pulumi:cloudflare/workers-kv\
+@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05p\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06ou\
 tput\x03\0\0\x01h\x01\x01r\x02\x0aaccount-id\x02\x05title\x02\x04\0\x04args\x03\0\
 \x03\x01i\x01\x01r\x02\x0aaccount-id\x05\x05title\x05\x04\0\x03res\x03\0\x06\x01\
-@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01@pulumi:cloudfla\
-re/workers-kv-namespace@5.24.1-ZERO.ZERO.ZERO-DEV\x05q\x01B\x0a\x02\x03\x02\x01\x01\
-\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\x0ajump-start\x02\x06\
-paused\x02\x04plan\x02\x04type\x02\x04zone\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
-r\x0b\x0aaccount-id\x05\x0ajump-start\x05\x04meta\x05\x0cname-servers\x05\x06pau\
-sed\x05\x04plan\x05\x06status\x05\x04type\x05\x13vanity-name-servers\x05\x10veri\
-fication-key\x05\x04zone\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
-\0\x07\x04\0\x06invoke\x01\x08\x04\x010pulumi:cloudflare/zone@5.24.1-ZERO.ZERO.Z\
-ERO-DEV\x05r\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\
-\x07enabled\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x07enab\
-led\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
-\x04\0\x06invoke\x01\x08\x04\x01>pulumi:cloudflare/zone-cache-reserve@5.24.1-ZER\
-O.ZERO.ZERO-DEV\x05s\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
-\x01r\x0c\x05avifs\x02\x04bmps\x02\x04gifs\x02\x04jp2s\x02\x05jpegs\x02\x05jpg2s\
-\x02\x04jpgs\x02\x04pngs\x02\x05tiffs\x02\x04tifs\x02\x05webps\x02\x07zone-id\x02\
-\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0c\x05avifs\x05\x04bmps\x05\x04gifs\x05\x04\
-jp2s\x05\x05jpegs\x05\x05jpg2s\x05\x04jpgs\x05\x04pngs\x05\x05tiffs\x05\x04tifs\x05\
-\x05webps\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
-\0\x07\x04\0\x06invoke\x01\x08\x04\x01?pulumi:cloudflare/zone-cache-variants@5.2\
-4.1-ZERO.ZERO.ZERO-DEV\x05t\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\
-\x01h\x01\x01r\x02\x0bmodified-on\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01\
-i\x01\x01r\x0c\x09algorithm\x05\x06digest\x05\x10digest-algorithm\x05\x0bdigest-\
-type\x05\x02ds\x05\x05flags\x05\x07key-tag\x05\x08key-type\x05\x0bmodified-on\x05\
-\x0apublic-key\x05\x06status\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04\
-names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x017pulumi:cloudflare/zone-d\
-nssec@5.24.1-ZERO.ZERO.ZERO-DEV\x05u\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06outpu\
-t\x03\0\0\x01h\x01\x01r\x04\x04hold\x02\x0ahold-after\x02\x12include-subdomains\x02\
-\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x04hold\x05\x0ahold-af\
-ter\x05\x12include-subdomains\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\
-\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x015pulumi:cloudflare/zo\
-ne-hold@5.24.1-ZERO.ZERO.ZERO-DEV\x05v\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06out\
-put\x03\0\0\x01h\x01\x01r\x06\x0econfigurations\x02\x0bdescription\x02\x06paused\
-\x02\x08priority\x02\x04urls\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\
-\x01r\x06\x0econfigurations\x05\x0bdescription\x05\x06paused\x05\x08priority\x05\
-\x04urls\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
-\0\x07\x04\0\x06invoke\x01\x08\x04\x019pulumi:cloudflare/zone-lockdown@5.24.1-ZE\
-RO.ZERO.ZERO-DEV\x05w\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
-\x01r\x02\x08settings\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\
-\x10initial-settings\x05\x18initial-settings-read-at\x05\x11readonly-settings\x05\
-\x08settings\x05\x07zone-id\x05\x0bzone-status\x05\x09zone-type\x05\x04\0\x03res\
-\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Bp\
-ulumi:cloudflare/zone-settings-override@5.24.1-ZERO.ZERO.ZERO-DEV\x05x\x04\x01=p\
-ulumi:cloudflare/cloudflare-pulumi@5.24.1-ZERO.ZERO.ZERO-DEV\x04\0\x0b\x17\x01\0\
-\x11cloudflare-pulumi\x03\0\0\0G\x09producers\x01\x0cprocessed-by\x02\x0dwit-com\
-ponent\x070.208.1\x10wit-bindgen-rust\x060.25.0";
+@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Hpulumi:cloudfla\
+re/workers-kv-namespace@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05q\x01B\x0a\x02\x03\x02\
+\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\x0ajump-sta\
+rt\x02\x06paused\x02\x04plan\x02\x04type\x02\x04zone\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x0b\x0aaccount-id\x05\x0ajump-start\x05\x04meta\x05\x0cname-serve\
+rs\x05\x06paused\x05\x04plan\x05\x06status\x05\x04type\x05\x13vanity-name-server\
+s\x05\x10verification-key\x05\x04zone\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04nam\
+es\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x018pulumi:cloudflare/zone@5.24\
+.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05r\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
+\0\0\x01h\x01\x01r\x02\x07enabled\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01\
+i\x01\x01r\x02\x07enabled\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04\
+names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Fpulumi:cloudflare/zone-c\
+ache-reserve@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05s\x01B\x0a\x02\x03\x02\x01\x01\
+\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0c\x05avifs\x02\x04bmps\x02\x04gifs\x02\x04\
+jp2s\x02\x05jpegs\x02\x05jpg2s\x02\x04jpgs\x02\x04pngs\x02\x05tiffs\x02\x04tifs\x02\
+\x05webps\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0c\x05avifs\x05\
+\x04bmps\x05\x04gifs\x05\x04jp2s\x05\x05jpegs\x05\x05jpg2s\x05\x04jpgs\x05\x04pn\
+gs\x05\x05tiffs\x05\x04tifs\x05\x05webps\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\
+\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Gpulumi:clou\
+dflare/zone-cache-variants@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05t\x01B\x0a\x02\x03\
+\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x0bmodified-on\x02\x07zon\
+e-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0c\x09algorithm\x05\x06digest\x05\
+\x10digest-algorithm\x05\x0bdigest-type\x05\x02ds\x05\x05flags\x05\x07key-tag\x05\
+\x08key-type\x05\x0bmodified-on\x05\x0apublic-key\x05\x06status\x05\x07zone-id\x05\
+\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
+\x04\x01?pulumi:cloudflare/zone-dnssec@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05u\x01\
+B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x04hold\x02\x0a\
+hold-after\x02\x12include-subdomains\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01\
+i\x01\x01r\x04\x04hold\x05\x0ahold-after\x05\x12include-subdomains\x05\x07zone-i\
+d\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\
+\x01\x08\x04\x01=pulumi:cloudflare/zone-hold@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\
+v\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0econf\
+igurations\x02\x0bdescription\x02\x06paused\x02\x08priority\x02\x04urls\x02\x07z\
+one-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0econfigurations\x05\x0bde\
+scription\x05\x06paused\x05\x08priority\x05\x04urls\x05\x07zone-id\x05\x04\0\x03\
+res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\
+Apulumi:cloudflare/zone-lockdown@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05w\x01B\x0a\
+\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x08settings\x02\x07\
+zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\x10initial-settings\x05\x18\
+initial-settings-read-at\x05\x11readonly-settings\x05\x08settings\x05\x07zone-id\
+\x05\x0bzone-status\x05\x09zone-type\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04name\
+s\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Jpulumi:cloudflare/zone-setti\
+ngs-override@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05x\x04\x01Epulumi:cloudflare/cl\
+oudflare-pulumi@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x04\0\x0b\x17\x01\0\x11cloudfl\
+are-pulumi\x03\0\0\0G\x09producers\x01\x0cprocessed-by\x02\x0dwit-component\x070\
+.208.1\x10wit-bindgen-rust\x060.25.0";
 
 #[inline(never)]
 #[doc(hidden)]

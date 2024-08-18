@@ -12,9 +12,9 @@ use crate::grpc::{
     GetRootResourceRequest, RegisterResourceOutputsRequest, RegisterResourceRequest,
     RegisterResourceResponse, SetRootResourceRequest,
 };
-use crate::pulumi::runner::component::pulumi_wasm::external_world;
-use crate::pulumi::runner::component::pulumi_wasm::external_world::Host;
-use crate::pulumi::runner::component::pulumi_wasm::external_world::RegisteredResource;
+use crate::pulumi::runner::component::pulumi_wasm_external::external_world;
+use crate::pulumi::runner::component::pulumi_wasm_external::external_world::Host;
+use crate::pulumi::runner::component::pulumi_wasm_external::external_world::RegisteredResource;
 use crate::pulumi::runner::Runner;
 use crate::pulumi_state::PulumiState;
 use pulumi_wasm_wit::bindings_runner as runner;

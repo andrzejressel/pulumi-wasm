@@ -6,7 +6,7 @@ world pulumi-wasm {
     export stack-interface;
 
     import log;
-    import external-world;
+    import component:pulumi-wasm-external/external-world@0.0.0-STABLE-DEV;
 }
 
 world client {
@@ -21,7 +21,7 @@ world logger {
 
 world runner {
     export pulumi-main;
-    import external-world;
+    import component:pulumi-wasm-external/external-world@0.0.0-STABLE-DEV;
     import log;
 }
 
@@ -104,25 +104,6 @@ interface register-interface {
     }
 
     register: func(request: register-resource-request) -> register-resource-result;
-}
-
-interface external-world {
-    is-in-preview: func() -> bool;
-    get-root-resource: func() -> string;
-    register-resource-outputs: func(request: list<u8>) -> list<u8>;
-
-    record register-resource-request {
-        output-id: string,
-        body: list<u8>
-    }
-
-    record registered-resource {
-        output-id: string,
-        body: list<u8>
-    }
-
-    register-resource: func(request: register-resource-request);
-    wait-for-registered-resources: func() -> list<registered-resource>;
 }
 
 interface pulumi-main {
