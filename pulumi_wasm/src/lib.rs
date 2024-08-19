@@ -160,9 +160,4 @@ impl GuestOutput for CustomOutputId {
             .create_native_function_node(function_name.into(), self.0);
         Output::new::<CustomOutputId>(output_id.into())
     }
-
-    fn duplicate(&self) -> Output {
-        pulumi_wasm_common::setup_logger();
-        Output::new::<CustomOutputId>(self.0.into())
-    }
 }
