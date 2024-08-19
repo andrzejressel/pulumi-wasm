@@ -197,17 +197,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0c4b4d0bd25bd0b74681c0ad21497610ce1b7c91b1022cd21c80c6fbdd9476b0"
 
 [[package]]
-name = "automod"
-version = "1.0.14"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "edf3ee19dbc0a46d740f6f0926bde8c50f02bdbc7b536842da28f6ac56513a8b"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn 2.0.75",
-]
-
-[[package]]
 name = "axum"
 version = "0.7.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2028,8 +2017,8 @@ dependencies = [
 name = "pulumi_wasm_cloudflare"
 version = "5.24.1-0.0.0-DEV"
 dependencies = [
- "automod",
  "pulumi_wasm_rust",
+ "pulumi_wasm_wit",
  "serde",
  "wit-bindgen",
 ]
@@ -2071,8 +2060,8 @@ dependencies = [
 name = "pulumi_wasm_docker"
 version = "4.5.3-0.0.0-DEV"
 dependencies = [
- "automod",
  "pulumi_wasm_rust",
+ "pulumi_wasm_wit",
  "serde",
  "wit-bindgen",
 ]
@@ -2173,8 +2162,8 @@ dependencies = [
 name = "pulumi_wasm_random"
 version = "4.15.0-0.0.0-DEV"
 dependencies = [
- "automod",
  "pulumi_wasm_rust",
+ "pulumi_wasm_wit",
  "serde",
  "wit-bindgen",
 ]

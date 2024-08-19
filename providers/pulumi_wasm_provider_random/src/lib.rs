@@ -6,6 +6,7 @@ use bindings::exports::pulumi::random::random_pet;
 use bindings::exports::pulumi::random::random_shuffle;
 use bindings::exports::pulumi::random::random_string;
 use bindings::exports::pulumi::random::random_uuid;
+use std::collections::HashMap;
 
 use crate::bindings::component::pulumi_wasm::register_interface::{
     register, ObjectField, RegisterResourceRequest, ResultField,
@@ -47,35 +48,14 @@ impl random_bytes::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         random_bytes::Res {
-            base64: o
-                .fields
-                .iter()
-                .find(|o| o.name == "base64")
-                .unwrap()
-                .output
-                .duplicate(),
-            hex: o
-                .fields
-                .iter()
-                .find(|o| o.name == "hex")
-                .unwrap()
-                .output
-                .duplicate(),
-            keepers: o
-                .fields
-                .iter()
-                .find(|o| o.name == "keepers")
-                .unwrap()
-                .output
-                .duplicate(),
-            length: o
-                .fields
-                .iter()
-                .find(|o| o.name == "length")
-                .unwrap()
-                .output
-                .duplicate(),
+            base64: hashmap.remove("base64").unwrap(),
+            hex: hashmap.remove("hex").unwrap(),
+            keepers: hashmap.remove("keepers").unwrap(),
+            length: hashmap.remove("length").unwrap(),
         }
     }
 }
@@ -122,56 +102,17 @@ impl random_id::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         random_id::Res {
-            b64_std: o
-                .fields
-                .iter()
-                .find(|o| o.name == "b64Std")
-                .unwrap()
-                .output
-                .duplicate(),
-            b64_url: o
-                .fields
-                .iter()
-                .find(|o| o.name == "b64Url")
-                .unwrap()
-                .output
-                .duplicate(),
-            byte_length: o
-                .fields
-                .iter()
-                .find(|o| o.name == "byteLength")
-                .unwrap()
-                .output
-                .duplicate(),
-            dec: o
-                .fields
-                .iter()
-                .find(|o| o.name == "dec")
-                .unwrap()
-                .output
-                .duplicate(),
-            hex: o
-                .fields
-                .iter()
-                .find(|o| o.name == "hex")
-                .unwrap()
-                .output
-                .duplicate(),
-            keepers: o
-                .fields
-                .iter()
-                .find(|o| o.name == "keepers")
-                .unwrap()
-                .output
-                .duplicate(),
-            prefix: o
-                .fields
-                .iter()
-                .find(|o| o.name == "prefix")
-                .unwrap()
-                .output
-                .duplicate(),
+            b64_std: hashmap.remove("b64Std").unwrap(),
+            b64_url: hashmap.remove("b64Url").unwrap(),
+            byte_length: hashmap.remove("byteLength").unwrap(),
+            dec: hashmap.remove("dec").unwrap(),
+            hex: hashmap.remove("hex").unwrap(),
+            keepers: hashmap.remove("keepers").unwrap(),
+            prefix: hashmap.remove("prefix").unwrap(),
         }
     }
 }
@@ -216,42 +157,15 @@ impl random_integer::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         random_integer::Res {
-            keepers: o
-                .fields
-                .iter()
-                .find(|o| o.name == "keepers")
-                .unwrap()
-                .output
-                .duplicate(),
-            max: o
-                .fields
-                .iter()
-                .find(|o| o.name == "max")
-                .unwrap()
-                .output
-                .duplicate(),
-            min: o
-                .fields
-                .iter()
-                .find(|o| o.name == "min")
-                .unwrap()
-                .output
-                .duplicate(),
-            result: o
-                .fields
-                .iter()
-                .find(|o| o.name == "result")
-                .unwrap()
-                .output
-                .duplicate(),
-            seed: o
-                .fields
-                .iter()
-                .find(|o| o.name == "seed")
-                .unwrap()
-                .output
-                .duplicate(),
+            keepers: hashmap.remove("keepers").unwrap(),
+            max: hashmap.remove("max").unwrap(),
+            min: hashmap.remove("min").unwrap(),
+            result: hashmap.remove("result").unwrap(),
+            seed: hashmap.remove("seed").unwrap(),
         }
     }
 }
@@ -359,105 +273,24 @@ impl random_password::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         random_password::Res {
-            bcrypt_hash: o
-                .fields
-                .iter()
-                .find(|o| o.name == "bcryptHash")
-                .unwrap()
-                .output
-                .duplicate(),
-            keepers: o
-                .fields
-                .iter()
-                .find(|o| o.name == "keepers")
-                .unwrap()
-                .output
-                .duplicate(),
-            length: o
-                .fields
-                .iter()
-                .find(|o| o.name == "length")
-                .unwrap()
-                .output
-                .duplicate(),
-            lower: o
-                .fields
-                .iter()
-                .find(|o| o.name == "lower")
-                .unwrap()
-                .output
-                .duplicate(),
-            min_lower: o
-                .fields
-                .iter()
-                .find(|o| o.name == "minLower")
-                .unwrap()
-                .output
-                .duplicate(),
-            min_numeric: o
-                .fields
-                .iter()
-                .find(|o| o.name == "minNumeric")
-                .unwrap()
-                .output
-                .duplicate(),
-            min_special: o
-                .fields
-                .iter()
-                .find(|o| o.name == "minSpecial")
-                .unwrap()
-                .output
-                .duplicate(),
-            min_upper: o
-                .fields
-                .iter()
-                .find(|o| o.name == "minUpper")
-                .unwrap()
-                .output
-                .duplicate(),
-            number: o
-                .fields
-                .iter()
-                .find(|o| o.name == "number")
-                .unwrap()
-                .output
-                .duplicate(),
-            numeric: o
-                .fields
-                .iter()
-                .find(|o| o.name == "numeric")
-                .unwrap()
-                .output
-                .duplicate(),
-            override_special: o
-                .fields
-                .iter()
-                .find(|o| o.name == "overrideSpecial")
-                .unwrap()
-                .output
-                .duplicate(),
-            result: o
-                .fields
-                .iter()
-                .find(|o| o.name == "result")
-                .unwrap()
-                .output
-                .duplicate(),
-            special: o
-                .fields
-                .iter()
-                .find(|o| o.name == "special")
-                .unwrap()
-                .output
-                .duplicate(),
-            upper: o
-                .fields
-                .iter()
-                .find(|o| o.name == "upper")
-                .unwrap()
-                .output
-                .duplicate(),
+            bcrypt_hash: hashmap.remove("bcryptHash").unwrap(),
+            keepers: hashmap.remove("keepers").unwrap(),
+            length: hashmap.remove("length").unwrap(),
+            lower: hashmap.remove("lower").unwrap(),
+            min_lower: hashmap.remove("minLower").unwrap(),
+            min_numeric: hashmap.remove("minNumeric").unwrap(),
+            min_special: hashmap.remove("minSpecial").unwrap(),
+            min_upper: hashmap.remove("minUpper").unwrap(),
+            number: hashmap.remove("number").unwrap(),
+            numeric: hashmap.remove("numeric").unwrap(),
+            override_special: hashmap.remove("overrideSpecial").unwrap(),
+            result: hashmap.remove("result").unwrap(),
+            special: hashmap.remove("special").unwrap(),
+            upper: hashmap.remove("upper").unwrap(),
         }
     }
 }
@@ -503,35 +336,14 @@ impl random_pet::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         random_pet::Res {
-            keepers: o
-                .fields
-                .iter()
-                .find(|o| o.name == "keepers")
-                .unwrap()
-                .output
-                .duplicate(),
-            length: o
-                .fields
-                .iter()
-                .find(|o| o.name == "length")
-                .unwrap()
-                .output
-                .duplicate(),
-            prefix: o
-                .fields
-                .iter()
-                .find(|o| o.name == "prefix")
-                .unwrap()
-                .output
-                .duplicate(),
-            separator: o
-                .fields
-                .iter()
-                .find(|o| o.name == "separator")
-                .unwrap()
-                .output
-                .duplicate(),
+            keepers: hashmap.remove("keepers").unwrap(),
+            length: hashmap.remove("length").unwrap(),
+            prefix: hashmap.remove("prefix").unwrap(),
+            separator: hashmap.remove("separator").unwrap(),
         }
     }
 }
@@ -580,42 +392,15 @@ impl random_shuffle::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         random_shuffle::Res {
-            inputs: o
-                .fields
-                .iter()
-                .find(|o| o.name == "inputs")
-                .unwrap()
-                .output
-                .duplicate(),
-            keepers: o
-                .fields
-                .iter()
-                .find(|o| o.name == "keepers")
-                .unwrap()
-                .output
-                .duplicate(),
-            result_count: o
-                .fields
-                .iter()
-                .find(|o| o.name == "resultCount")
-                .unwrap()
-                .output
-                .duplicate(),
-            results: o
-                .fields
-                .iter()
-                .find(|o| o.name == "results")
-                .unwrap()
-                .output
-                .duplicate(),
-            seed: o
-                .fields
-                .iter()
-                .find(|o| o.name == "seed")
-                .unwrap()
-                .output
-                .duplicate(),
+            inputs: hashmap.remove("inputs").unwrap(),
+            keepers: hashmap.remove("keepers").unwrap(),
+            result_count: hashmap.remove("resultCount").unwrap(),
+            results: hashmap.remove("results").unwrap(),
+            seed: hashmap.remove("seed").unwrap(),
         }
     }
 }
@@ -720,98 +505,23 @@ impl random_string::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         random_string::Res {
-            keepers: o
-                .fields
-                .iter()
-                .find(|o| o.name == "keepers")
-                .unwrap()
-                .output
-                .duplicate(),
-            length: o
-                .fields
-                .iter()
-                .find(|o| o.name == "length")
-                .unwrap()
-                .output
-                .duplicate(),
-            lower: o
-                .fields
-                .iter()
-                .find(|o| o.name == "lower")
-                .unwrap()
-                .output
-                .duplicate(),
-            min_lower: o
-                .fields
-                .iter()
-                .find(|o| o.name == "minLower")
-                .unwrap()
-                .output
-                .duplicate(),
-            min_numeric: o
-                .fields
-                .iter()
-                .find(|o| o.name == "minNumeric")
-                .unwrap()
-                .output
-                .duplicate(),
-            min_special: o
-                .fields
-                .iter()
-                .find(|o| o.name == "minSpecial")
-                .unwrap()
-                .output
-                .duplicate(),
-            min_upper: o
-                .fields
-                .iter()
-                .find(|o| o.name == "minUpper")
-                .unwrap()
-                .output
-                .duplicate(),
-            number: o
-                .fields
-                .iter()
-                .find(|o| o.name == "number")
-                .unwrap()
-                .output
-                .duplicate(),
-            numeric: o
-                .fields
-                .iter()
-                .find(|o| o.name == "numeric")
-                .unwrap()
-                .output
-                .duplicate(),
-            override_special: o
-                .fields
-                .iter()
-                .find(|o| o.name == "overrideSpecial")
-                .unwrap()
-                .output
-                .duplicate(),
-            result: o
-                .fields
-                .iter()
-                .find(|o| o.name == "result")
-                .unwrap()
-                .output
-                .duplicate(),
-            special: o
-                .fields
-                .iter()
-                .find(|o| o.name == "special")
-                .unwrap()
-                .output
-                .duplicate(),
-            upper: o
-                .fields
-                .iter()
-                .find(|o| o.name == "upper")
-                .unwrap()
-                .output
-                .duplicate(),
+            keepers: hashmap.remove("keepers").unwrap(),
+            length: hashmap.remove("length").unwrap(),
+            lower: hashmap.remove("lower").unwrap(),
+            min_lower: hashmap.remove("minLower").unwrap(),
+            min_numeric: hashmap.remove("minNumeric").unwrap(),
+            min_special: hashmap.remove("minSpecial").unwrap(),
+            min_upper: hashmap.remove("minUpper").unwrap(),
+            number: hashmap.remove("number").unwrap(),
+            numeric: hashmap.remove("numeric").unwrap(),
+            override_special: hashmap.remove("overrideSpecial").unwrap(),
+            result: hashmap.remove("result").unwrap(),
+            special: hashmap.remove("special").unwrap(),
+            upper: hashmap.remove("upper").unwrap(),
         }
     }
 }
@@ -837,21 +547,12 @@ impl random_uuid::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         random_uuid::Res {
-            keepers: o
-                .fields
-                .iter()
-                .find(|o| o.name == "keepers")
-                .unwrap()
-                .output
-                .duplicate(),
-            result: o
-                .fields
-                .iter()
-                .find(|o| o.name == "result")
-                .unwrap()
-                .output
-                .duplicate(),
+            keepers: hashmap.remove("keepers").unwrap(),
+            result: hashmap.remove("result").unwrap(),
         }
     }
 }
