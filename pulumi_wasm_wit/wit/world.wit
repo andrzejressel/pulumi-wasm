@@ -5,7 +5,7 @@ world pulumi-wasm {
     export register-interface;
     export stack-interface;
 
-    import log;
+    import component:pulumi-wasm-external/log@0.0.0-STABLE-DEV;
     import component:pulumi-wasm-external/external-world@0.0.0-STABLE-DEV;
 }
 
@@ -16,36 +16,13 @@ world client {
 }
 
 world logger {
-    import log;
+    import component:pulumi-wasm-external/log@0.0.0-STABLE-DEV;
 }
 
 world runner {
     export pulumi-main;
     import component:pulumi-wasm-external/external-world@0.0.0-STABLE-DEV;
-    import log;
-}
-
-interface log {
-
-    enum level {
-        TRACE,
-        DEBUG,
-        INFO,
-        WARN,
-        ERROR
-    }
-
-    record content {
-        level: level,
-        target: string,
-        args: string,
-        module-path: option<string>,
-        file: option<string>,
-        line: option<u32>,
-        key-values: list<tuple<string, string>>
-    }
-
-    log: func(content: content);
+    import component:pulumi-wasm-external/log@0.0.0-STABLE-DEV;
 }
 
 interface output-interface {

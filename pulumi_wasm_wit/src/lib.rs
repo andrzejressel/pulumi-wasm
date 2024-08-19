@@ -17,6 +17,9 @@ pub mod client_bindings {
 pub mod bindings_logger {
     wit_bindgen::generate!({
         world: "logger",
+        with: {
+            "component:pulumi-wasm-external/log@0.0.0-STABLE-DEV": generate
+        }
     });
 }
 
