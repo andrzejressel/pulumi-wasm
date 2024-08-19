@@ -79,21 +79,31 @@ impl Host for MyState {
 }
 
 #[async_trait]
-impl runner::component::pulumi_wasm::log::Host for MyState {
+impl runner::component::pulumi_wasm_external::log::Host for MyState {
     async fn log(
         &mut self,
-        content: runner::component::pulumi_wasm::log::Content,
+        content: runner::component::pulumi_wasm_external::log::Content,
     ) -> wasmtime::Result<()> {
         log::logger().log(
             &log::Record::builder()
                 .metadata(
                     log::Metadata::builder()
                         .level(match content.level {
-                            runner::component::pulumi_wasm::log::Level::Trace => log::Level::Trace,
-                            runner::component::pulumi_wasm::log::Level::Debug => log::Level::Debug,
-                            runner::component::pulumi_wasm::log::Level::Info => log::Level::Info,
-                            runner::component::pulumi_wasm::log::Level::Error => log::Level::Error,
-                            runner::component::pulumi_wasm::log::Level::Warn => log::Level::Warn,
+                            runner::component::pulumi_wasm_external::log::Level::Trace => {
+                                log::Level::Trace
+                            }
+                            runner::component::pulumi_wasm_external::log::Level::Debug => {
+                                log::Level::Debug
+                            }
+                            runner::component::pulumi_wasm_external::log::Level::Info => {
+                                log::Level::Info
+                            }
+                            runner::component::pulumi_wasm_external::log::Level::Error => {
+                                log::Level::Error
+                            }
+                            runner::component::pulumi_wasm_external::log::Level::Warn => {
+                                log::Level::Warn
+                            }
                         })
                         .target(&content.target)
                         .build(),
