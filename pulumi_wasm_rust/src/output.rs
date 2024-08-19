@@ -66,6 +66,7 @@ impl<T> Output<T> {
     pub(crate) fn add_to_export(&self, name: &str) {
         add_export(name, &self.future);
     }
+
     pub fn get_inner(&self) -> &output_interface::Output {
         &self.future
     }
