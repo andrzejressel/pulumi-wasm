@@ -1,7 +1,7 @@
-package pulumi:example@0.0.1-DIVIDER-ZERO.ZERO.ZERO-DEV;
+package pulumi:example@0.0.1-DIVIDER-ZERO.ZERO.ZERO-NIGHTLY-NINEdTHREEcbSEVENf;
 
 world example-pulumi {
-    import component:pulumi-wasm/register-interface@0.0.0-DEV;
+    import component:pulumi-wasm/register-interface@0.0.0-NIGHTLY-9d3cb7f;
 }
 
 world example-pulumi-client {
