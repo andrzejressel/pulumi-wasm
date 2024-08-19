@@ -1,5 +1,5 @@
-use crate::bindings::component::pulumi_wasm::output_interface::Output as WitOutput;
 use pulumi_wasm_rust::Output;
+use pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface::Output as WitOutput;
 pub mod resource;
 pub mod types;
 
@@ -8,22 +8,11 @@ mod bindings {
         // the name of the world in the `*.wit` input file
         world: "docker-pulumi-client",
         with: {
-            "component:pulumi-wasm/output-interface@0.0.0-DEV": generate
+            "component:pulumi-wasm/output-interface@0.0.0-DEV": pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface
         }
     });
 }
 
-fn random_to_domain_mapper<F: serde::Serialize>(random: WitOutput) -> Output<F> {
-    unsafe {
-        let inner = random.take_handle();
-        Output::<F>::new_from_handle(inner)
-    }
-}
-
-fn clone<T>(output: Output<T>) -> WitOutput {
-    unsafe {
-        let inner = output.get_inner();
-        let cloned = inner.duplicate();
-        WitOutput::from_handle(cloned.take_handle())
-    }
+fn into_domain<F: serde::Serialize>(output: WitOutput) -> Output<F> {
+    unsafe { Output::<F>::new_from_handle(output) }
 }

@@ -36,27 +36,6 @@ lazy_static! {
 }
 
 impl<T> Output<T> {
-    ///
-    /// # Safety
-    ///
-    /// Returns handle to inner output representation. Only needed in provider glue code.
-    pub unsafe fn get_inner(&self) -> &output_interface::Output {
-        &self.future
-    }
-
-    ///
-    /// # Safety
-    ///
-    /// Underlying output type must the same as `F` and this Output will take ownership of the handle.
-    /// This means that the handle must not be deallocated by something else.
-    pub unsafe fn new_from_handle<F: serde::Serialize>(handle: u32) -> Output<F> {
-        let output = output_interface::Output::from_handle(handle);
-        Output {
-            phantom: PhantomData::<F>,
-            future: output,
-        }
-    }
-
     pub fn map<B, F>(&self, f: F) -> Output<B>
     where
         F: Fn(T) -> B + Send + 'static,
@@ -86,6 +65,22 @@ impl<T> Output<T> {
 
     pub(crate) fn add_to_export(&self, name: &str) {
         add_export(name, &self.future);
+    }
+    pub fn get_inner(&self) -> &output_interface::Output {
+        &self.future
+    }
+
+    ///
+    /// # Safety
+    ///
+    /// Underlying output must be of type `F`.
+    pub unsafe fn new_from_handle<F: serde::Serialize>(
+        handle: output_interface::Output,
+    ) -> Output<F> {
+        Output {
+            phantom: PhantomData::<F>,
+            future: handle,
+        }
     }
 }
 
