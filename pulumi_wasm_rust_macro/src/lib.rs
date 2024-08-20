@@ -17,7 +17,7 @@ pub fn pulumi_main(_attr: TokenStream, item: TokenStream) -> TokenStream {
         fn #fn_name() #fn_output
             #fn_block
 
-        #[export_name = "component:pulumi-wasm/pulumi-main@0.0.0-DEV#main"]
+        #[export_name = "component:pulumi-wasm/pulumi-main@0.0.0-NIGHTLY-4e49d62#main"]
         unsafe extern "C" fn __exported() {
             pulumi_wasm_rust::runner::run(|| {
                 #fn_name()
