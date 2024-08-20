@@ -1,4 +1,5 @@
 use regex::Regex;
+use itertools::Itertools;
 
 pub(crate) fn replace_multiple_dashes(s: &str) -> String {
     let re = Regex::new("-+").unwrap();
@@ -73,4 +74,19 @@ pub(crate) fn escape_wit_identifier(s: &str) -> &str {
         "type" => "%type",
         s => s,
     }
+}
+
+pub(crate) fn to_lines(s: Option<String>) -> Vec<String> {
+    s.unwrap_or("".to_string()).lines().flat_map(|line| {
+        match line {
+            "{{% examples %}}" | "{{% /examples %}}" | "{{% example %}}" | "{{% /example %}}" => vec![],
+            "```typescript"  => vec!["### Typescript", line],
+            "```python"  => vec!["### Python", line],
+            "```go"  => vec!["### Go", line],
+            "```java"  => vec!["### Java", line],
+            "```yaml"  => vec!["### YAML", line],
+            "```csharp" => vec!["### C#", line],
+            l => vec![l]
+        }
+    }).map(|s| s.to_string()).collect()
 }

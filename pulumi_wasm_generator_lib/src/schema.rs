@@ -25,6 +25,7 @@ pub(crate) enum TypeEnum {
 struct Type {
     #[serde(rename = "type")]
     type_: Option<TypeEnum>,
+    description: Option<String>,
     #[serde(rename = "$ref")]
     ref_: Option<String>,
     items: Option<Box<Type>>,
@@ -171,6 +172,7 @@ fn resource_to_model(
                     Ok(crate::model::InputProperty {
                         name: input_name.clone(),
                         r#type: type_,
+                        description: input_property.r#type.description.clone(),
                     })
                 })
                 .collect::<Result<Vec<_>>>()?,
@@ -198,6 +200,7 @@ fn convert_object_type(
             Ok(crate::model::OutputProperty {
                 name: output_name.clone(),
                 r#type: type_,
+                description: output_property.r#type.description.clone(),
             })
         })
         .collect::<Result<Vec<_>>>()
@@ -227,6 +230,7 @@ pub(crate) fn to_model(package: &Package) -> Result<crate::model::Package> {
                         .map(|p| GlobalTypeProperty {
                             name: p.name.clone(),
                             r#type: p.r#type.clone(),
+                            description: p.description.clone(),
                         })
                         .collect(),
                 )),
