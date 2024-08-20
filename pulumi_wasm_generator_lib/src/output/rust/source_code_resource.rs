@@ -27,7 +27,7 @@ struct Interface {
     output_properties: Vec<OutputProperty>,
     struct_name: String,
     function_name: String,
-    description_lines: Vec<String>
+    description_lines: Vec<String>,
 }
 
 #[derive(Serialize)]
@@ -54,7 +54,9 @@ fn convert_model(package: &crate::model::Package) -> Package {
                         name: input_property.name.clone(),
                         arg_name: input_property.get_rust_argument_name(),
                         type_: input_property.r#type.get_rust_type(),
-                        description_lines: crate::utils::to_lines(input_property.description.clone()),
+                        description_lines: crate::utils::to_lines(
+                            input_property.description.clone(),
+                        ),
                     })
                     .collect(),
                 output_properties: resource
@@ -64,7 +66,9 @@ fn convert_model(package: &crate::model::Package) -> Package {
                         name: output_property.name.clone(),
                         arg_name: output_property.get_rust_argument_name(),
                         type_: output_property.r#type.get_rust_type(),
-                        description_lines: crate::utils::to_lines(output_property.description.clone()),
+                        description_lines: crate::utils::to_lines(
+                            output_property.description.clone(),
+                        ),
                     })
                     .collect(),
             })

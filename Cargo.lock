@@ -2125,6 +2125,7 @@ dependencies = [
  "assert_cmd",
  "convert_case",
  "handlebars",
+ "itertools 0.13.0",
  "predicates",
  "regex",
  "serde",
