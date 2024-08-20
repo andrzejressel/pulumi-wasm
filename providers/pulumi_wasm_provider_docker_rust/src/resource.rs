@@ -142,196 +142,142 @@ pub mod container {
         let result = crate::bindings::pulumi::docker::container::invoke(
             name,
             &crate::bindings::pulumi::docker::container::Args {
-                attach: &crate::clone::<Option<bool>>(args.attach),
-                capabilities: &crate::clone::<Option<crate::types::ContainerCapabilities>>(
-                    args.capabilities,
-                ),
-                cgroupns_mode: &crate::clone::<Option<String>>(args.cgroupns_mode),
-                command: &crate::clone::<Option<Vec<String>>>(args.command),
-                container_read_refresh_timeout_milliseconds: &crate::clone::<Option<i32>>(
-                    args.container_read_refresh_timeout_milliseconds,
-                ),
-                cpu_set: &crate::clone::<Option<String>>(args.cpu_set),
-                cpu_shares: &crate::clone::<Option<i32>>(args.cpu_shares),
-                destroy_grace_seconds: &crate::clone::<Option<i32>>(args.destroy_grace_seconds),
-                devices: &crate::clone::<Option<Vec<crate::types::ContainerDevice>>>(args.devices),
-                dns: &crate::clone::<Option<Vec<String>>>(args.dns),
-                dns_opts: &crate::clone::<Option<Vec<String>>>(args.dns_opts),
-                dns_searches: &crate::clone::<Option<Vec<String>>>(args.dns_searches),
-                domainname: &crate::clone::<Option<String>>(args.domainname),
-                entrypoints: &crate::clone::<Option<Vec<String>>>(args.entrypoints),
-                envs: &crate::clone::<Option<Vec<String>>>(args.envs),
-                gpus: &crate::clone::<Option<String>>(args.gpus),
-                group_adds: &crate::clone::<Option<Vec<String>>>(args.group_adds),
-                healthcheck: &crate::clone::<Option<crate::types::ContainerHealthcheck>>(
-                    args.healthcheck,
-                ),
-                hostname: &crate::clone::<Option<String>>(args.hostname),
-                hosts: &crate::clone::<Option<Vec<crate::types::ContainerHost>>>(args.hosts),
-                image: &crate::clone::<String>(args.image),
-                init: &crate::clone::<Option<bool>>(args.init),
-                ipc_mode: &crate::clone::<Option<String>>(args.ipc_mode),
-                labels: &crate::clone::<Option<Vec<crate::types::ContainerLabel>>>(args.labels),
-                log_driver: &crate::clone::<Option<String>>(args.log_driver),
-                log_opts: &crate::clone::<Option<std::collections::HashMap<String, String>>>(
-                    args.log_opts,
-                ),
-                logs: &crate::clone::<Option<bool>>(args.logs),
-                max_retry_count: &crate::clone::<Option<i32>>(args.max_retry_count),
-                memory: &crate::clone::<Option<i32>>(args.memory),
-                memory_swap: &crate::clone::<Option<i32>>(args.memory_swap),
-                mounts: &crate::clone::<Option<Vec<crate::types::ContainerMount>>>(args.mounts),
-                must_run: &crate::clone::<Option<bool>>(args.must_run),
-                name: &crate::clone::<Option<String>>(args.name),
-                network_mode: &crate::clone::<Option<String>>(args.network_mode),
-                networks_advanced: &crate::clone::<
-                    Option<Vec<crate::types::ContainerNetworksAdvanced>>,
-                >(args.networks_advanced),
-                pid_mode: &crate::clone::<Option<String>>(args.pid_mode),
-                ports: &crate::clone::<Option<Vec<crate::types::ContainerPort>>>(args.ports),
-                privileged: &crate::clone::<Option<bool>>(args.privileged),
-                publish_all_ports: &crate::clone::<Option<bool>>(args.publish_all_ports),
-                read_only: &crate::clone::<Option<bool>>(args.read_only),
-                remove_volumes: &crate::clone::<Option<bool>>(args.remove_volumes),
-                restart: &crate::clone::<Option<String>>(args.restart),
-                rm: &crate::clone::<Option<bool>>(args.rm),
-                runtime: &crate::clone::<Option<String>>(args.runtime),
-                security_opts: &crate::clone::<Option<Vec<String>>>(args.security_opts),
-                shm_size: &crate::clone::<Option<i32>>(args.shm_size),
-                start: &crate::clone::<Option<bool>>(args.start),
-                stdin_open: &crate::clone::<Option<bool>>(args.stdin_open),
-                stop_signal: &crate::clone::<Option<String>>(args.stop_signal),
-                stop_timeout: &crate::clone::<Option<i32>>(args.stop_timeout),
-                storage_opts: &crate::clone::<Option<std::collections::HashMap<String, String>>>(
-                    args.storage_opts,
-                ),
-                sysctls: &crate::clone::<Option<std::collections::HashMap<String, String>>>(
-                    args.sysctls,
-                ),
-                tmpfs: &crate::clone::<Option<std::collections::HashMap<String, String>>>(
-                    args.tmpfs,
-                ),
-                tty: &crate::clone::<Option<bool>>(args.tty),
-                ulimits: &crate::clone::<Option<Vec<crate::types::ContainerUlimit>>>(args.ulimits),
-                uploads: &crate::clone::<Option<Vec<crate::types::ContainerUpload>>>(args.uploads),
-                user: &crate::clone::<Option<String>>(args.user),
-                userns_mode: &crate::clone::<Option<String>>(args.userns_mode),
-                volumes: &crate::clone::<Option<Vec<crate::types::ContainerVolume>>>(args.volumes),
-                wait: &crate::clone::<Option<bool>>(args.wait),
-                wait_timeout: &crate::clone::<Option<i32>>(args.wait_timeout),
-                working_dir: &crate::clone::<Option<String>>(args.working_dir),
+                attach: args.attach.get_inner(),
+                capabilities: args.capabilities.get_inner(),
+                cgroupns_mode: args.cgroupns_mode.get_inner(),
+                command: args.command.get_inner(),
+                container_read_refresh_timeout_milliseconds: args
+                    .container_read_refresh_timeout_milliseconds
+                    .get_inner(),
+                cpu_set: args.cpu_set.get_inner(),
+                cpu_shares: args.cpu_shares.get_inner(),
+                destroy_grace_seconds: args.destroy_grace_seconds.get_inner(),
+                devices: args.devices.get_inner(),
+                dns: args.dns.get_inner(),
+                dns_opts: args.dns_opts.get_inner(),
+                dns_searches: args.dns_searches.get_inner(),
+                domainname: args.domainname.get_inner(),
+                entrypoints: args.entrypoints.get_inner(),
+                envs: args.envs.get_inner(),
+                gpus: args.gpus.get_inner(),
+                group_adds: args.group_adds.get_inner(),
+                healthcheck: args.healthcheck.get_inner(),
+                hostname: args.hostname.get_inner(),
+                hosts: args.hosts.get_inner(),
+                image: args.image.get_inner(),
+                init: args.init.get_inner(),
+                ipc_mode: args.ipc_mode.get_inner(),
+                labels: args.labels.get_inner(),
+                log_driver: args.log_driver.get_inner(),
+                log_opts: args.log_opts.get_inner(),
+                logs: args.logs.get_inner(),
+                max_retry_count: args.max_retry_count.get_inner(),
+                memory: args.memory.get_inner(),
+                memory_swap: args.memory_swap.get_inner(),
+                mounts: args.mounts.get_inner(),
+                must_run: args.must_run.get_inner(),
+                name: args.name.get_inner(),
+                network_mode: args.network_mode.get_inner(),
+                networks_advanced: args.networks_advanced.get_inner(),
+                pid_mode: args.pid_mode.get_inner(),
+                ports: args.ports.get_inner(),
+                privileged: args.privileged.get_inner(),
+                publish_all_ports: args.publish_all_ports.get_inner(),
+                read_only: args.read_only.get_inner(),
+                remove_volumes: args.remove_volumes.get_inner(),
+                restart: args.restart.get_inner(),
+                rm: args.rm.get_inner(),
+                runtime: args.runtime.get_inner(),
+                security_opts: args.security_opts.get_inner(),
+                shm_size: args.shm_size.get_inner(),
+                start: args.start.get_inner(),
+                stdin_open: args.stdin_open.get_inner(),
+                stop_signal: args.stop_signal.get_inner(),
+                stop_timeout: args.stop_timeout.get_inner(),
+                storage_opts: args.storage_opts.get_inner(),
+                sysctls: args.sysctls.get_inner(),
+                tmpfs: args.tmpfs.get_inner(),
+                tty: args.tty.get_inner(),
+                ulimits: args.ulimits.get_inner(),
+                uploads: args.uploads.get_inner(),
+                user: args.user.get_inner(),
+                userns_mode: args.userns_mode.get_inner(),
+                volumes: args.volumes.get_inner(),
+                wait: args.wait.get_inner(),
+                wait_timeout: args.wait_timeout.get_inner(),
+                working_dir: args.working_dir.get_inner(),
             },
         );
 
         ContainerResult {
-            attach: crate::random_to_domain_mapper::<Option<bool>>(result.attach),
-            bridge: crate::random_to_domain_mapper::<String>(result.bridge),
-            capabilities: crate::random_to_domain_mapper::<
-                Option<crate::types::ContainerCapabilities>,
-            >(result.capabilities),
-            cgroupns_mode: crate::random_to_domain_mapper::<Option<String>>(result.cgroupns_mode),
-            command: crate::random_to_domain_mapper::<Vec<String>>(result.command),
-            container_logs: crate::random_to_domain_mapper::<Option<String>>(result.container_logs),
-            container_read_refresh_timeout_milliseconds: crate::random_to_domain_mapper::<
-                Option<i32>,
-            >(
+            attach: crate::into_domain(result.attach),
+            bridge: crate::into_domain(result.bridge),
+            capabilities: crate::into_domain(result.capabilities),
+            cgroupns_mode: crate::into_domain(result.cgroupns_mode),
+            command: crate::into_domain(result.command),
+            container_logs: crate::into_domain(result.container_logs),
+            container_read_refresh_timeout_milliseconds: crate::into_domain(
                 result.container_read_refresh_timeout_milliseconds,
             ),
-            cpu_set: crate::random_to_domain_mapper::<Option<String>>(result.cpu_set),
-            cpu_shares: crate::random_to_domain_mapper::<Option<i32>>(result.cpu_shares),
-            destroy_grace_seconds: crate::random_to_domain_mapper::<Option<i32>>(
-                result.destroy_grace_seconds,
-            ),
-            devices: crate::random_to_domain_mapper::<Option<Vec<crate::types::ContainerDevice>>>(
-                result.devices,
-            ),
-            dns: crate::random_to_domain_mapper::<Option<Vec<String>>>(result.dns),
-            dns_opts: crate::random_to_domain_mapper::<Option<Vec<String>>>(result.dns_opts),
-            dns_searches: crate::random_to_domain_mapper::<Option<Vec<String>>>(
-                result.dns_searches,
-            ),
-            domainname: crate::random_to_domain_mapper::<Option<String>>(result.domainname),
-            entrypoints: crate::random_to_domain_mapper::<Vec<String>>(result.entrypoints),
-            envs: crate::random_to_domain_mapper::<Vec<String>>(result.envs),
-            exit_code: crate::random_to_domain_mapper::<i32>(result.exit_code),
-            gpus: crate::random_to_domain_mapper::<Option<String>>(result.gpus),
-            group_adds: crate::random_to_domain_mapper::<Option<Vec<String>>>(result.group_adds),
-            healthcheck: crate::random_to_domain_mapper::<Option<crate::types::ContainerHealthcheck>>(
-                result.healthcheck,
-            ),
-            hostname: crate::random_to_domain_mapper::<String>(result.hostname),
-            hosts: crate::random_to_domain_mapper::<Option<Vec<crate::types::ContainerHost>>>(
-                result.hosts,
-            ),
-            image: crate::random_to_domain_mapper::<String>(result.image),
-            init: crate::random_to_domain_mapper::<bool>(result.init),
-            ipc_mode: crate::random_to_domain_mapper::<String>(result.ipc_mode),
-            labels: crate::random_to_domain_mapper::<Vec<crate::types::ContainerLabel>>(
-                result.labels,
-            ),
-            log_driver: crate::random_to_domain_mapper::<String>(result.log_driver),
-            log_opts: crate::random_to_domain_mapper::<
-                Option<std::collections::HashMap<String, String>>,
-            >(result.log_opts),
-            logs: crate::random_to_domain_mapper::<Option<bool>>(result.logs),
-            max_retry_count: crate::random_to_domain_mapper::<Option<i32>>(result.max_retry_count),
-            memory: crate::random_to_domain_mapper::<Option<i32>>(result.memory),
-            memory_swap: crate::random_to_domain_mapper::<Option<i32>>(result.memory_swap),
-            mounts: crate::random_to_domain_mapper::<Option<Vec<crate::types::ContainerMount>>>(
-                result.mounts,
-            ),
-            must_run: crate::random_to_domain_mapper::<Option<bool>>(result.must_run),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            network_datas: crate::random_to_domain_mapper::<Vec<crate::types::ContainerNetworkData>>(
-                result.network_datas,
-            ),
-            network_mode: crate::random_to_domain_mapper::<Option<String>>(result.network_mode),
-            networks_advanced: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::ContainerNetworksAdvanced>>,
-            >(result.networks_advanced),
-            pid_mode: crate::random_to_domain_mapper::<Option<String>>(result.pid_mode),
-            ports: crate::random_to_domain_mapper::<Option<Vec<crate::types::ContainerPort>>>(
-                result.ports,
-            ),
-            privileged: crate::random_to_domain_mapper::<Option<bool>>(result.privileged),
-            publish_all_ports: crate::random_to_domain_mapper::<Option<bool>>(
-                result.publish_all_ports,
-            ),
-            read_only: crate::random_to_domain_mapper::<Option<bool>>(result.read_only),
-            remove_volumes: crate::random_to_domain_mapper::<Option<bool>>(result.remove_volumes),
-            restart: crate::random_to_domain_mapper::<Option<String>>(result.restart),
-            rm: crate::random_to_domain_mapper::<Option<bool>>(result.rm),
-            runtime: crate::random_to_domain_mapper::<String>(result.runtime),
-            security_opts: crate::random_to_domain_mapper::<Vec<String>>(result.security_opts),
-            shm_size: crate::random_to_domain_mapper::<i32>(result.shm_size),
-            start: crate::random_to_domain_mapper::<Option<bool>>(result.start),
-            stdin_open: crate::random_to_domain_mapper::<Option<bool>>(result.stdin_open),
-            stop_signal: crate::random_to_domain_mapper::<String>(result.stop_signal),
-            stop_timeout: crate::random_to_domain_mapper::<i32>(result.stop_timeout),
-            storage_opts: crate::random_to_domain_mapper::<
-                Option<std::collections::HashMap<String, String>>,
-            >(result.storage_opts),
-            sysctls: crate::random_to_domain_mapper::<
-                Option<std::collections::HashMap<String, String>>,
-            >(result.sysctls),
-            tmpfs: crate::random_to_domain_mapper::<
-                Option<std::collections::HashMap<String, String>>,
-            >(result.tmpfs),
-            tty: crate::random_to_domain_mapper::<Option<bool>>(result.tty),
-            ulimits: crate::random_to_domain_mapper::<Option<Vec<crate::types::ContainerUlimit>>>(
-                result.ulimits,
-            ),
-            uploads: crate::random_to_domain_mapper::<Option<Vec<crate::types::ContainerUpload>>>(
-                result.uploads,
-            ),
-            user: crate::random_to_domain_mapper::<Option<String>>(result.user),
-            userns_mode: crate::random_to_domain_mapper::<Option<String>>(result.userns_mode),
-            volumes: crate::random_to_domain_mapper::<Option<Vec<crate::types::ContainerVolume>>>(
-                result.volumes,
-            ),
-            wait: crate::random_to_domain_mapper::<Option<bool>>(result.wait),
-            wait_timeout: crate::random_to_domain_mapper::<Option<i32>>(result.wait_timeout),
-            working_dir: crate::random_to_domain_mapper::<Option<String>>(result.working_dir),
+            cpu_set: crate::into_domain(result.cpu_set),
+            cpu_shares: crate::into_domain(result.cpu_shares),
+            destroy_grace_seconds: crate::into_domain(result.destroy_grace_seconds),
+            devices: crate::into_domain(result.devices),
+            dns: crate::into_domain(result.dns),
+            dns_opts: crate::into_domain(result.dns_opts),
+            dns_searches: crate::into_domain(result.dns_searches),
+            domainname: crate::into_domain(result.domainname),
+            entrypoints: crate::into_domain(result.entrypoints),
+            envs: crate::into_domain(result.envs),
+            exit_code: crate::into_domain(result.exit_code),
+            gpus: crate::into_domain(result.gpus),
+            group_adds: crate::into_domain(result.group_adds),
+            healthcheck: crate::into_domain(result.healthcheck),
+            hostname: crate::into_domain(result.hostname),
+            hosts: crate::into_domain(result.hosts),
+            image: crate::into_domain(result.image),
+            init: crate::into_domain(result.init),
+            ipc_mode: crate::into_domain(result.ipc_mode),
+            labels: crate::into_domain(result.labels),
+            log_driver: crate::into_domain(result.log_driver),
+            log_opts: crate::into_domain(result.log_opts),
+            logs: crate::into_domain(result.logs),
+            max_retry_count: crate::into_domain(result.max_retry_count),
+            memory: crate::into_domain(result.memory),
+            memory_swap: crate::into_domain(result.memory_swap),
+            mounts: crate::into_domain(result.mounts),
+            must_run: crate::into_domain(result.must_run),
+            name: crate::into_domain(result.name),
+            network_datas: crate::into_domain(result.network_datas),
+            network_mode: crate::into_domain(result.network_mode),
+            networks_advanced: crate::into_domain(result.networks_advanced),
+            pid_mode: crate::into_domain(result.pid_mode),
+            ports: crate::into_domain(result.ports),
+            privileged: crate::into_domain(result.privileged),
+            publish_all_ports: crate::into_domain(result.publish_all_ports),
+            read_only: crate::into_domain(result.read_only),
+            remove_volumes: crate::into_domain(result.remove_volumes),
+            restart: crate::into_domain(result.restart),
+            rm: crate::into_domain(result.rm),
+            runtime: crate::into_domain(result.runtime),
+            security_opts: crate::into_domain(result.security_opts),
+            shm_size: crate::into_domain(result.shm_size),
+            start: crate::into_domain(result.start),
+            stdin_open: crate::into_domain(result.stdin_open),
+            stop_signal: crate::into_domain(result.stop_signal),
+            stop_timeout: crate::into_domain(result.stop_timeout),
+            storage_opts: crate::into_domain(result.storage_opts),
+            sysctls: crate::into_domain(result.sysctls),
+            tmpfs: crate::into_domain(result.tmpfs),
+            tty: crate::into_domain(result.tty),
+            ulimits: crate::into_domain(result.ulimits),
+            uploads: crate::into_domain(result.uploads),
+            user: crate::into_domain(result.user),
+            userns_mode: crate::into_domain(result.userns_mode),
+            volumes: crate::into_domain(result.volumes),
+            wait: crate::into_domain(result.wait),
+            wait_timeout: crate::into_domain(result.wait_timeout),
+            working_dir: crate::into_domain(result.working_dir),
         }
     }
 }
@@ -360,22 +306,22 @@ pub mod image {
         let result = crate::bindings::pulumi::docker::image::invoke(
             name,
             &crate::bindings::pulumi::docker::image::Args {
-                build: &crate::clone::<Option<crate::types::DockerBuild>>(args.build),
-                build_on_preview: &crate::clone::<Option<bool>>(args.build_on_preview),
-                image_name: &crate::clone::<String>(args.image_name),
-                registry: &crate::clone::<Option<crate::types::Registry>>(args.registry),
-                skip_push: &crate::clone::<Option<bool>>(args.skip_push),
+                build: args.build.get_inner(),
+                build_on_preview: args.build_on_preview.get_inner(),
+                image_name: args.image_name.get_inner(),
+                registry: args.registry.get_inner(),
+                skip_push: args.skip_push.get_inner(),
             },
         );
 
         ImageResult {
-            base_image_name: crate::random_to_domain_mapper::<String>(result.base_image_name),
-            context: crate::random_to_domain_mapper::<String>(result.context),
-            dockerfile: crate::random_to_domain_mapper::<String>(result.dockerfile),
-            image_name: crate::random_to_domain_mapper::<String>(result.image_name),
-            platform: crate::random_to_domain_mapper::<Option<String>>(result.platform),
-            registry_server: crate::random_to_domain_mapper::<String>(result.registry_server),
-            repo_digest: crate::random_to_domain_mapper::<String>(result.repo_digest),
+            base_image_name: crate::into_domain(result.base_image_name),
+            context: crate::into_domain(result.context),
+            dockerfile: crate::into_domain(result.dockerfile),
+            image_name: crate::into_domain(result.image_name),
+            platform: crate::into_domain(result.platform),
+            registry_server: crate::into_domain(result.registry_server),
+            repo_digest: crate::into_domain(result.repo_digest),
         }
     }
 }
@@ -419,49 +365,35 @@ pub mod network {
         let result = crate::bindings::pulumi::docker::network::invoke(
             name,
             &crate::bindings::pulumi::docker::network::Args {
-                attachable: &crate::clone::<Option<bool>>(args.attachable),
-                check_duplicate: &crate::clone::<Option<bool>>(args.check_duplicate),
-                driver: &crate::clone::<Option<String>>(args.driver),
-                ingress: &crate::clone::<Option<bool>>(args.ingress),
-                internal: &crate::clone::<Option<bool>>(args.internal),
-                ipam_configs: &crate::clone::<Option<Vec<crate::types::NetworkIpamConfig>>>(
-                    args.ipam_configs,
-                ),
-                ipam_driver: &crate::clone::<Option<String>>(args.ipam_driver),
-                ipam_options: &crate::clone::<Option<std::collections::HashMap<String, String>>>(
-                    args.ipam_options,
-                ),
-                ipv6: &crate::clone::<Option<bool>>(args.ipv6),
-                labels: &crate::clone::<Option<Vec<crate::types::NetworkLabel>>>(args.labels),
-                name: &crate::clone::<Option<String>>(args.name),
-                options: &crate::clone::<Option<std::collections::HashMap<String, String>>>(
-                    args.options,
-                ),
+                attachable: args.attachable.get_inner(),
+                check_duplicate: args.check_duplicate.get_inner(),
+                driver: args.driver.get_inner(),
+                ingress: args.ingress.get_inner(),
+                internal: args.internal.get_inner(),
+                ipam_configs: args.ipam_configs.get_inner(),
+                ipam_driver: args.ipam_driver.get_inner(),
+                ipam_options: args.ipam_options.get_inner(),
+                ipv6: args.ipv6.get_inner(),
+                labels: args.labels.get_inner(),
+                name: args.name.get_inner(),
+                options: args.options.get_inner(),
             },
         );
 
         NetworkResult {
-            attachable: crate::random_to_domain_mapper::<Option<bool>>(result.attachable),
-            check_duplicate: crate::random_to_domain_mapper::<Option<bool>>(result.check_duplicate),
-            driver: crate::random_to_domain_mapper::<String>(result.driver),
-            ingress: crate::random_to_domain_mapper::<Option<bool>>(result.ingress),
-            internal: crate::random_to_domain_mapper::<bool>(result.internal),
-            ipam_configs: crate::random_to_domain_mapper::<Vec<crate::types::NetworkIpamConfig>>(
-                result.ipam_configs,
-            ),
-            ipam_driver: crate::random_to_domain_mapper::<Option<String>>(result.ipam_driver),
-            ipam_options: crate::random_to_domain_mapper::<
-                Option<std::collections::HashMap<String, String>>,
-            >(result.ipam_options),
-            ipv6: crate::random_to_domain_mapper::<Option<bool>>(result.ipv6),
-            labels: crate::random_to_domain_mapper::<Option<Vec<crate::types::NetworkLabel>>>(
-                result.labels,
-            ),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            options: crate::random_to_domain_mapper::<std::collections::HashMap<String, String>>(
-                result.options,
-            ),
-            scope: crate::random_to_domain_mapper::<String>(result.scope),
+            attachable: crate::into_domain(result.attachable),
+            check_duplicate: crate::into_domain(result.check_duplicate),
+            driver: crate::into_domain(result.driver),
+            ingress: crate::into_domain(result.ingress),
+            internal: crate::into_domain(result.internal),
+            ipam_configs: crate::into_domain(result.ipam_configs),
+            ipam_driver: crate::into_domain(result.ipam_driver),
+            ipam_options: crate::into_domain(result.ipam_options),
+            ipv6: crate::into_domain(result.ipv6),
+            labels: crate::into_domain(result.labels),
+            name: crate::into_domain(result.name),
+            options: crate::into_domain(result.options),
+            scope: crate::into_domain(result.scope),
         }
     }
 }
@@ -499,35 +431,29 @@ pub mod plugin {
         let result = crate::bindings::pulumi::docker::plugin::invoke(
             name,
             &crate::bindings::pulumi::docker::plugin::Args {
-                alias: &crate::clone::<Option<String>>(args.alias),
-                enable_timeout: &crate::clone::<Option<i32>>(args.enable_timeout),
-                enabled: &crate::clone::<Option<bool>>(args.enabled),
-                envs: &crate::clone::<Option<Vec<String>>>(args.envs),
-                force_destroy: &crate::clone::<Option<bool>>(args.force_destroy),
-                force_disable: &crate::clone::<Option<bool>>(args.force_disable),
-                grant_all_permissions: &crate::clone::<Option<bool>>(args.grant_all_permissions),
-                grant_permissions: &crate::clone::<Option<Vec<crate::types::PluginGrantPermission>>>(
-                    args.grant_permissions,
-                ),
-                name: &crate::clone::<Option<String>>(args.name),
+                alias: args.alias.get_inner(),
+                enable_timeout: args.enable_timeout.get_inner(),
+                enabled: args.enabled.get_inner(),
+                envs: args.envs.get_inner(),
+                force_destroy: args.force_destroy.get_inner(),
+                force_disable: args.force_disable.get_inner(),
+                grant_all_permissions: args.grant_all_permissions.get_inner(),
+                grant_permissions: args.grant_permissions.get_inner(),
+                name: args.name.get_inner(),
             },
         );
 
         PluginResult {
-            alias: crate::random_to_domain_mapper::<String>(result.alias),
-            enable_timeout: crate::random_to_domain_mapper::<Option<i32>>(result.enable_timeout),
-            enabled: crate::random_to_domain_mapper::<Option<bool>>(result.enabled),
-            envs: crate::random_to_domain_mapper::<Vec<String>>(result.envs),
-            force_destroy: crate::random_to_domain_mapper::<Option<bool>>(result.force_destroy),
-            force_disable: crate::random_to_domain_mapper::<Option<bool>>(result.force_disable),
-            grant_all_permissions: crate::random_to_domain_mapper::<Option<bool>>(
-                result.grant_all_permissions,
-            ),
-            grant_permissions: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::PluginGrantPermission>>,
-            >(result.grant_permissions),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            plugin_reference: crate::random_to_domain_mapper::<String>(result.plugin_reference),
+            alias: crate::into_domain(result.alias),
+            enable_timeout: crate::into_domain(result.enable_timeout),
+            enabled: crate::into_domain(result.enabled),
+            envs: crate::into_domain(result.envs),
+            force_destroy: crate::into_domain(result.force_destroy),
+            force_disable: crate::into_domain(result.force_disable),
+            grant_all_permissions: crate::into_domain(result.grant_all_permissions),
+            grant_permissions: crate::into_domain(result.grant_permissions),
+            name: crate::into_domain(result.name),
+            plugin_reference: crate::into_domain(result.plugin_reference),
         }
     }
 }
@@ -553,25 +479,19 @@ pub mod registry_image {
         let result = crate::bindings::pulumi::docker::registry_image::invoke(
             name,
             &crate::bindings::pulumi::docker::registry_image::Args {
-                insecure_skip_verify: &crate::clone::<Option<bool>>(args.insecure_skip_verify),
-                keep_remotely: &crate::clone::<Option<bool>>(args.keep_remotely),
-                name: &crate::clone::<Option<String>>(args.name),
-                triggers: &crate::clone::<Option<std::collections::HashMap<String, String>>>(
-                    args.triggers,
-                ),
+                insecure_skip_verify: args.insecure_skip_verify.get_inner(),
+                keep_remotely: args.keep_remotely.get_inner(),
+                name: args.name.get_inner(),
+                triggers: args.triggers.get_inner(),
             },
         );
 
         RegistryImageResult {
-            insecure_skip_verify: crate::random_to_domain_mapper::<Option<bool>>(
-                result.insecure_skip_verify,
-            ),
-            keep_remotely: crate::random_to_domain_mapper::<Option<bool>>(result.keep_remotely),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            sha256_digest: crate::random_to_domain_mapper::<String>(result.sha256_digest),
-            triggers: crate::random_to_domain_mapper::<
-                Option<std::collections::HashMap<String, String>>,
-            >(result.triggers),
+            insecure_skip_verify: crate::into_domain(result.insecure_skip_verify),
+            keep_remotely: crate::into_domain(result.keep_remotely),
+            name: crate::into_domain(result.name),
+            sha256_digest: crate::into_domain(result.sha256_digest),
+            triggers: crate::into_domain(result.triggers),
         }
     }
 }
@@ -604,34 +524,26 @@ pub mod remote_image {
         let result = crate::bindings::pulumi::docker::remote_image::invoke(
             name,
             &crate::bindings::pulumi::docker::remote_image::Args {
-                build: &crate::clone::<Option<crate::types::RemoteImageBuild>>(args.build),
-                force_remove: &crate::clone::<Option<bool>>(args.force_remove),
-                keep_locally: &crate::clone::<Option<bool>>(args.keep_locally),
-                name: &crate::clone::<String>(args.name),
-                platform: &crate::clone::<Option<String>>(args.platform),
-                pull_triggers: &crate::clone::<Option<Vec<String>>>(args.pull_triggers),
-                triggers: &crate::clone::<Option<std::collections::HashMap<String, String>>>(
-                    args.triggers,
-                ),
+                build: args.build.get_inner(),
+                force_remove: args.force_remove.get_inner(),
+                keep_locally: args.keep_locally.get_inner(),
+                name: args.name.get_inner(),
+                platform: args.platform.get_inner(),
+                pull_triggers: args.pull_triggers.get_inner(),
+                triggers: args.triggers.get_inner(),
             },
         );
 
         RemoteImageResult {
-            build: crate::random_to_domain_mapper::<Option<crate::types::RemoteImageBuild>>(
-                result.build,
-            ),
-            force_remove: crate::random_to_domain_mapper::<Option<bool>>(result.force_remove),
-            image_id: crate::random_to_domain_mapper::<String>(result.image_id),
-            keep_locally: crate::random_to_domain_mapper::<Option<bool>>(result.keep_locally),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            platform: crate::random_to_domain_mapper::<Option<String>>(result.platform),
-            pull_triggers: crate::random_to_domain_mapper::<Option<Vec<String>>>(
-                result.pull_triggers,
-            ),
-            repo_digest: crate::random_to_domain_mapper::<String>(result.repo_digest),
-            triggers: crate::random_to_domain_mapper::<
-                Option<std::collections::HashMap<String, String>>,
-            >(result.triggers),
+            build: crate::into_domain(result.build),
+            force_remove: crate::into_domain(result.force_remove),
+            image_id: crate::into_domain(result.image_id),
+            keep_locally: crate::into_domain(result.keep_locally),
+            name: crate::into_domain(result.name),
+            platform: crate::into_domain(result.platform),
+            pull_triggers: crate::into_domain(result.pull_triggers),
+            repo_digest: crate::into_domain(result.repo_digest),
+            triggers: crate::into_domain(result.triggers),
         }
     }
 }
@@ -654,18 +566,16 @@ pub mod secret {
         let result = crate::bindings::pulumi::docker::secret::invoke(
             name,
             &crate::bindings::pulumi::docker::secret::Args {
-                data: &crate::clone::<String>(args.data),
-                labels: &crate::clone::<Option<Vec<crate::types::SecretLabel>>>(args.labels),
-                name: &crate::clone::<Option<String>>(args.name),
+                data: args.data.get_inner(),
+                labels: args.labels.get_inner(),
+                name: args.name.get_inner(),
             },
         );
 
         SecretResult {
-            data: crate::random_to_domain_mapper::<String>(result.data),
-            labels: crate::random_to_domain_mapper::<Option<Vec<crate::types::SecretLabel>>>(
-                result.labels,
-            ),
-            name: crate::random_to_domain_mapper::<String>(result.name),
+            data: crate::into_domain(result.data),
+            labels: crate::into_domain(result.labels),
+            name: crate::into_domain(result.name),
         }
     }
 }
@@ -700,48 +610,28 @@ pub mod service {
         let result = crate::bindings::pulumi::docker::service::invoke(
             name,
             &crate::bindings::pulumi::docker::service::Args {
-                auth: &crate::clone::<Option<crate::types::ServiceAuth>>(args.auth),
-                converge_config: &crate::clone::<Option<crate::types::ServiceConvergeConfig>>(
-                    args.converge_config,
-                ),
-                endpoint_spec: &crate::clone::<Option<crate::types::ServiceEndpointSpec>>(
-                    args.endpoint_spec,
-                ),
-                labels: &crate::clone::<Option<Vec<crate::types::ServiceLabel>>>(args.labels),
-                mode: &crate::clone::<Option<crate::types::ServiceMode>>(args.mode),
-                name: &crate::clone::<Option<String>>(args.name),
-                rollback_config: &crate::clone::<Option<crate::types::ServiceRollbackConfig>>(
-                    args.rollback_config,
-                ),
-                task_spec: &crate::clone::<crate::types::ServiceTaskSpec>(args.task_spec),
-                update_config: &crate::clone::<Option<crate::types::ServiceUpdateConfig>>(
-                    args.update_config,
-                ),
+                auth: args.auth.get_inner(),
+                converge_config: args.converge_config.get_inner(),
+                endpoint_spec: args.endpoint_spec.get_inner(),
+                labels: args.labels.get_inner(),
+                mode: args.mode.get_inner(),
+                name: args.name.get_inner(),
+                rollback_config: args.rollback_config.get_inner(),
+                task_spec: args.task_spec.get_inner(),
+                update_config: args.update_config.get_inner(),
             },
         );
 
         ServiceResult {
-            auth: crate::random_to_domain_mapper::<Option<crate::types::ServiceAuth>>(result.auth),
-            converge_config: crate::random_to_domain_mapper::<
-                Option<crate::types::ServiceConvergeConfig>,
-            >(result.converge_config),
-            endpoint_spec: crate::random_to_domain_mapper::<crate::types::ServiceEndpointSpec>(
-                result.endpoint_spec,
-            ),
-            labels: crate::random_to_domain_mapper::<Vec<crate::types::ServiceLabel>>(
-                result.labels,
-            ),
-            mode: crate::random_to_domain_mapper::<crate::types::ServiceMode>(result.mode),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            rollback_config: crate::random_to_domain_mapper::<
-                Option<crate::types::ServiceRollbackConfig>,
-            >(result.rollback_config),
-            task_spec: crate::random_to_domain_mapper::<crate::types::ServiceTaskSpec>(
-                result.task_spec,
-            ),
-            update_config: crate::random_to_domain_mapper::<
-                Option<crate::types::ServiceUpdateConfig>,
-            >(result.update_config),
+            auth: crate::into_domain(result.auth),
+            converge_config: crate::into_domain(result.converge_config),
+            endpoint_spec: crate::into_domain(result.endpoint_spec),
+            labels: crate::into_domain(result.labels),
+            mode: crate::into_domain(result.mode),
+            name: crate::into_domain(result.name),
+            rollback_config: crate::into_domain(result.rollback_config),
+            task_spec: crate::into_domain(result.task_spec),
+            update_config: crate::into_domain(result.update_config),
         }
     }
 }
@@ -762,14 +652,14 @@ pub mod service_config {
         let result = crate::bindings::pulumi::docker::service_config::invoke(
             name,
             &crate::bindings::pulumi::docker::service_config::Args {
-                data: &crate::clone::<String>(args.data),
-                name: &crate::clone::<Option<String>>(args.name),
+                data: args.data.get_inner(),
+                name: args.name.get_inner(),
             },
         );
 
         ServiceConfigResult {
-            data: crate::random_to_domain_mapper::<String>(result.data),
-            name: crate::random_to_domain_mapper::<String>(result.name),
+            data: crate::into_domain(result.data),
+            name: crate::into_domain(result.name),
         }
     }
 }
@@ -791,15 +681,15 @@ pub mod tag {
         let result = crate::bindings::pulumi::docker::tag::invoke(
             name,
             &crate::bindings::pulumi::docker::tag::Args {
-                source_image: &crate::clone::<String>(args.source_image),
-                target_image: &crate::clone::<String>(args.target_image),
+                source_image: args.source_image.get_inner(),
+                target_image: args.target_image.get_inner(),
             },
         );
 
         TagResult {
-            source_image: crate::random_to_domain_mapper::<String>(result.source_image),
-            source_image_id: crate::random_to_domain_mapper::<String>(result.source_image_id),
-            target_image: crate::random_to_domain_mapper::<String>(result.target_image),
+            source_image: crate::into_domain(result.source_image),
+            source_image_id: crate::into_domain(result.source_image_id),
+            target_image: crate::into_domain(result.target_image),
         }
     }
 }
@@ -827,25 +717,19 @@ pub mod volume {
         let result = crate::bindings::pulumi::docker::volume::invoke(
             name,
             &crate::bindings::pulumi::docker::volume::Args {
-                driver: &crate::clone::<Option<String>>(args.driver),
-                driver_opts: &crate::clone::<Option<std::collections::HashMap<String, String>>>(
-                    args.driver_opts,
-                ),
-                labels: &crate::clone::<Option<Vec<crate::types::VolumeLabel>>>(args.labels),
-                name: &crate::clone::<Option<String>>(args.name),
+                driver: args.driver.get_inner(),
+                driver_opts: args.driver_opts.get_inner(),
+                labels: args.labels.get_inner(),
+                name: args.name.get_inner(),
             },
         );
 
         VolumeResult {
-            driver: crate::random_to_domain_mapper::<String>(result.driver),
-            driver_opts: crate::random_to_domain_mapper::<
-                Option<std::collections::HashMap<String, String>>,
-            >(result.driver_opts),
-            labels: crate::random_to_domain_mapper::<Option<Vec<crate::types::VolumeLabel>>>(
-                result.labels,
-            ),
-            mountpoint: crate::random_to_domain_mapper::<String>(result.mountpoint),
-            name: crate::random_to_domain_mapper::<String>(result.name),
+            driver: crate::into_domain(result.driver),
+            driver_opts: crate::into_domain(result.driver_opts),
+            labels: crate::into_domain(result.labels),
+            mountpoint: crate::into_domain(result.mountpoint),
+            name: crate::into_domain(result.name),
         }
     }
 }

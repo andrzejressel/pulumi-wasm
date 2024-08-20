@@ -75,131 +75,69 @@ pub mod access_application {
         let result = crate::bindings::pulumi::cloudflare::access_application::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::access_application::Args {
-                account_id: &crate::clone::<Option<String>>(args.account_id),
-                allow_authenticate_via_warp: &crate::clone::<Option<bool>>(
-                    args.allow_authenticate_via_warp,
-                ),
-                allowed_idps: &crate::clone::<Option<Vec<String>>>(args.allowed_idps),
-                app_launcher_logo_url: &crate::clone::<Option<String>>(args.app_launcher_logo_url),
-                app_launcher_visible: &crate::clone::<Option<bool>>(args.app_launcher_visible),
-                auto_redirect_to_identity: &crate::clone::<Option<bool>>(
-                    args.auto_redirect_to_identity,
-                ),
-                bg_color: &crate::clone::<Option<String>>(args.bg_color),
-                cors_headers: &crate::clone::<Option<Vec<crate::types::AccessApplicationCorsHeader>>>(
-                    args.cors_headers,
-                ),
-                custom_deny_message: &crate::clone::<Option<String>>(args.custom_deny_message),
-                custom_deny_url: &crate::clone::<Option<String>>(args.custom_deny_url),
-                custom_non_identity_deny_url: &crate::clone::<Option<String>>(
-                    args.custom_non_identity_deny_url,
-                ),
-                custom_pages: &crate::clone::<Option<Vec<String>>>(args.custom_pages),
-                domain: &crate::clone::<Option<String>>(args.domain),
-                enable_binding_cookie: &crate::clone::<Option<bool>>(args.enable_binding_cookie),
-                footer_links: &crate::clone::<Option<Vec<crate::types::AccessApplicationFooterLink>>>(
-                    args.footer_links,
-                ),
-                header_bg_color: &crate::clone::<Option<String>>(args.header_bg_color),
-                http_only_cookie_attribute: &crate::clone::<Option<bool>>(
-                    args.http_only_cookie_attribute,
-                ),
-                landing_page_design: &crate::clone::<
-                    Option<crate::types::AccessApplicationLandingPageDesign>,
-                >(args.landing_page_design),
-                logo_url: &crate::clone::<Option<String>>(args.logo_url),
-                name: &crate::clone::<Option<String>>(args.name),
-                saas_app: &crate::clone::<Option<crate::types::AccessApplicationSaasApp>>(
-                    args.saas_app,
-                ),
-                same_site_cookie_attribute: &crate::clone::<Option<String>>(
-                    args.same_site_cookie_attribute,
-                ),
-                self_hosted_domains: &crate::clone::<Option<Vec<String>>>(args.self_hosted_domains),
-                service_auth401_redirect: &crate::clone::<Option<bool>>(
-                    args.service_auth401_redirect,
-                ),
-                session_duration: &crate::clone::<Option<String>>(args.session_duration),
-                skip_interstitial: &crate::clone::<Option<bool>>(args.skip_interstitial),
-                tags: &crate::clone::<Option<Vec<String>>>(args.tags),
-                type_: &crate::clone::<Option<String>>(args.type_),
-                zone_id: &crate::clone::<Option<String>>(args.zone_id),
+                account_id: args.account_id.get_inner(),
+                allow_authenticate_via_warp: args.allow_authenticate_via_warp.get_inner(),
+                allowed_idps: args.allowed_idps.get_inner(),
+                app_launcher_logo_url: args.app_launcher_logo_url.get_inner(),
+                app_launcher_visible: args.app_launcher_visible.get_inner(),
+                auto_redirect_to_identity: args.auto_redirect_to_identity.get_inner(),
+                bg_color: args.bg_color.get_inner(),
+                cors_headers: args.cors_headers.get_inner(),
+                custom_deny_message: args.custom_deny_message.get_inner(),
+                custom_deny_url: args.custom_deny_url.get_inner(),
+                custom_non_identity_deny_url: args.custom_non_identity_deny_url.get_inner(),
+                custom_pages: args.custom_pages.get_inner(),
+                domain: args.domain.get_inner(),
+                enable_binding_cookie: args.enable_binding_cookie.get_inner(),
+                footer_links: args.footer_links.get_inner(),
+                header_bg_color: args.header_bg_color.get_inner(),
+                http_only_cookie_attribute: args.http_only_cookie_attribute.get_inner(),
+                landing_page_design: args.landing_page_design.get_inner(),
+                logo_url: args.logo_url.get_inner(),
+                name: args.name.get_inner(),
+                saas_app: args.saas_app.get_inner(),
+                same_site_cookie_attribute: args.same_site_cookie_attribute.get_inner(),
+                self_hosted_domains: args.self_hosted_domains.get_inner(),
+                service_auth401_redirect: args.service_auth401_redirect.get_inner(),
+                session_duration: args.session_duration.get_inner(),
+                skip_interstitial: args.skip_interstitial.get_inner(),
+                tags: args.tags.get_inner(),
+                type_: args.type_.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         AccessApplicationResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            allow_authenticate_via_warp: crate::random_to_domain_mapper::<Option<bool>>(
-                result.allow_authenticate_via_warp,
-            ),
-            allowed_idps: crate::random_to_domain_mapper::<Option<Vec<String>>>(
-                result.allowed_idps,
-            ),
-            app_launcher_logo_url: crate::random_to_domain_mapper::<Option<String>>(
-                result.app_launcher_logo_url,
-            ),
-            app_launcher_visible: crate::random_to_domain_mapper::<Option<bool>>(
-                result.app_launcher_visible,
-            ),
-            aud: crate::random_to_domain_mapper::<String>(result.aud),
-            auto_redirect_to_identity: crate::random_to_domain_mapper::<Option<bool>>(
-                result.auto_redirect_to_identity,
-            ),
-            bg_color: crate::random_to_domain_mapper::<Option<String>>(result.bg_color),
-            cors_headers: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::AccessApplicationCorsHeader>>,
-            >(result.cors_headers),
-            custom_deny_message: crate::random_to_domain_mapper::<Option<String>>(
-                result.custom_deny_message,
-            ),
-            custom_deny_url: crate::random_to_domain_mapper::<Option<String>>(
-                result.custom_deny_url,
-            ),
-            custom_non_identity_deny_url: crate::random_to_domain_mapper::<Option<String>>(
-                result.custom_non_identity_deny_url,
-            ),
-            custom_pages: crate::random_to_domain_mapper::<Option<Vec<String>>>(
-                result.custom_pages,
-            ),
-            domain: crate::random_to_domain_mapper::<String>(result.domain),
-            enable_binding_cookie: crate::random_to_domain_mapper::<Option<bool>>(
-                result.enable_binding_cookie,
-            ),
-            footer_links: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::AccessApplicationFooterLink>>,
-            >(result.footer_links),
-            header_bg_color: crate::random_to_domain_mapper::<Option<String>>(
-                result.header_bg_color,
-            ),
-            http_only_cookie_attribute: crate::random_to_domain_mapper::<Option<bool>>(
-                result.http_only_cookie_attribute,
-            ),
-            landing_page_design: crate::random_to_domain_mapper::<
-                Option<crate::types::AccessApplicationLandingPageDesign>,
-            >(result.landing_page_design),
-            logo_url: crate::random_to_domain_mapper::<Option<String>>(result.logo_url),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            saas_app: crate::random_to_domain_mapper::<
-                Option<crate::types::AccessApplicationSaasApp>,
-            >(result.saas_app),
-            same_site_cookie_attribute: crate::random_to_domain_mapper::<Option<String>>(
-                result.same_site_cookie_attribute,
-            ),
-            self_hosted_domains: crate::random_to_domain_mapper::<Option<Vec<String>>>(
-                result.self_hosted_domains,
-            ),
-            service_auth401_redirect: crate::random_to_domain_mapper::<Option<bool>>(
-                result.service_auth401_redirect,
-            ),
-            session_duration: crate::random_to_domain_mapper::<Option<String>>(
-                result.session_duration,
-            ),
-            skip_interstitial: crate::random_to_domain_mapper::<Option<bool>>(
-                result.skip_interstitial,
-            ),
-            tags: crate::random_to_domain_mapper::<Option<Vec<String>>>(result.tags),
-            type_: crate::random_to_domain_mapper::<Option<String>>(result.type_),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            account_id: crate::into_domain(result.account_id),
+            allow_authenticate_via_warp: crate::into_domain(result.allow_authenticate_via_warp),
+            allowed_idps: crate::into_domain(result.allowed_idps),
+            app_launcher_logo_url: crate::into_domain(result.app_launcher_logo_url),
+            app_launcher_visible: crate::into_domain(result.app_launcher_visible),
+            aud: crate::into_domain(result.aud),
+            auto_redirect_to_identity: crate::into_domain(result.auto_redirect_to_identity),
+            bg_color: crate::into_domain(result.bg_color),
+            cors_headers: crate::into_domain(result.cors_headers),
+            custom_deny_message: crate::into_domain(result.custom_deny_message),
+            custom_deny_url: crate::into_domain(result.custom_deny_url),
+            custom_non_identity_deny_url: crate::into_domain(result.custom_non_identity_deny_url),
+            custom_pages: crate::into_domain(result.custom_pages),
+            domain: crate::into_domain(result.domain),
+            enable_binding_cookie: crate::into_domain(result.enable_binding_cookie),
+            footer_links: crate::into_domain(result.footer_links),
+            header_bg_color: crate::into_domain(result.header_bg_color),
+            http_only_cookie_attribute: crate::into_domain(result.http_only_cookie_attribute),
+            landing_page_design: crate::into_domain(result.landing_page_design),
+            logo_url: crate::into_domain(result.logo_url),
+            name: crate::into_domain(result.name),
+            saas_app: crate::into_domain(result.saas_app),
+            same_site_cookie_attribute: crate::into_domain(result.same_site_cookie_attribute),
+            self_hosted_domains: crate::into_domain(result.self_hosted_domains),
+            service_auth401_redirect: crate::into_domain(result.service_auth401_redirect),
+            session_duration: crate::into_domain(result.session_duration),
+            skip_interstitial: crate::into_domain(result.skip_interstitial),
+            tags: crate::into_domain(result.tags),
+            type_: crate::into_domain(result.type_),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -227,18 +165,18 @@ pub mod access_ca_certificate {
         let result = crate::bindings::pulumi::cloudflare::access_ca_certificate::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::access_ca_certificate::Args {
-                account_id: &crate::clone::<Option<String>>(args.account_id),
-                application_id: &crate::clone::<String>(args.application_id),
-                zone_id: &crate::clone::<Option<String>>(args.zone_id),
+                account_id: args.account_id.get_inner(),
+                application_id: args.application_id.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         AccessCaCertificateResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            application_id: crate::random_to_domain_mapper::<String>(result.application_id),
-            aud: crate::random_to_domain_mapper::<String>(result.aud),
-            public_key: crate::random_to_domain_mapper::<String>(result.public_key),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            account_id: crate::into_domain(result.account_id),
+            application_id: crate::into_domain(result.application_id),
+            aud: crate::into_domain(result.aud),
+            public_key: crate::into_domain(result.public_key),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -267,22 +205,22 @@ pub mod access_custom_page {
         let result = crate::bindings::pulumi::cloudflare::access_custom_page::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::access_custom_page::Args {
-                account_id: &crate::clone::<Option<String>>(args.account_id),
-                app_count: &crate::clone::<Option<i32>>(args.app_count),
-                custom_html: &crate::clone::<Option<String>>(args.custom_html),
-                name: &crate::clone::<String>(args.name),
-                type_: &crate::clone::<String>(args.type_),
-                zone_id: &crate::clone::<Option<String>>(args.zone_id),
+                account_id: args.account_id.get_inner(),
+                app_count: args.app_count.get_inner(),
+                custom_html: args.custom_html.get_inner(),
+                name: args.name.get_inner(),
+                type_: args.type_.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         AccessCustomPageResult {
-            account_id: crate::random_to_domain_mapper::<Option<String>>(result.account_id),
-            app_count: crate::random_to_domain_mapper::<Option<i32>>(result.app_count),
-            custom_html: crate::random_to_domain_mapper::<Option<String>>(result.custom_html),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            type_: crate::random_to_domain_mapper::<String>(result.type_),
-            zone_id: crate::random_to_domain_mapper::<Option<String>>(result.zone_id),
+            account_id: crate::into_domain(result.account_id),
+            app_count: crate::into_domain(result.app_count),
+            custom_html: crate::into_domain(result.custom_html),
+            name: crate::into_domain(result.name),
+            type_: crate::into_domain(result.type_),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -311,32 +249,22 @@ pub mod access_group {
         let result = crate::bindings::pulumi::cloudflare::access_group::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::access_group::Args {
-                account_id: &crate::clone::<Option<String>>(args.account_id),
-                excludes: &crate::clone::<Option<Vec<crate::types::AccessGroupExclude>>>(
-                    args.excludes,
-                ),
-                includes: &crate::clone::<Vec<crate::types::AccessGroupInclude>>(args.includes),
-                name: &crate::clone::<String>(args.name),
-                requires: &crate::clone::<Option<Vec<crate::types::AccessGroupRequire>>>(
-                    args.requires,
-                ),
-                zone_id: &crate::clone::<Option<String>>(args.zone_id),
+                account_id: args.account_id.get_inner(),
+                excludes: args.excludes.get_inner(),
+                includes: args.includes.get_inner(),
+                name: args.name.get_inner(),
+                requires: args.requires.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         AccessGroupResult {
-            account_id: crate::random_to_domain_mapper::<Option<String>>(result.account_id),
-            excludes: crate::random_to_domain_mapper::<Option<Vec<crate::types::AccessGroupExclude>>>(
-                result.excludes,
-            ),
-            includes: crate::random_to_domain_mapper::<Vec<crate::types::AccessGroupInclude>>(
-                result.includes,
-            ),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            requires: crate::random_to_domain_mapper::<Option<Vec<crate::types::AccessGroupRequire>>>(
-                result.requires,
-            ),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            account_id: crate::into_domain(result.account_id),
+            excludes: crate::into_domain(result.excludes),
+            includes: crate::into_domain(result.includes),
+            name: crate::into_domain(result.name),
+            requires: crate::into_domain(result.requires),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -371,30 +299,22 @@ pub mod access_identity_provider {
         let result = crate::bindings::pulumi::cloudflare::access_identity_provider::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::access_identity_provider::Args {
-                account_id: &crate::clone::<Option<String>>(args.account_id),
-                configs: &crate::clone::<Option<Vec<crate::types::AccessIdentityProviderConfig>>>(
-                    args.configs,
-                ),
-                name: &crate::clone::<String>(args.name),
-                scim_configs: &crate::clone::<
-                    Option<Vec<crate::types::AccessIdentityProviderScimConfig>>,
-                >(args.scim_configs),
-                type_: &crate::clone::<String>(args.type_),
-                zone_id: &crate::clone::<Option<String>>(args.zone_id),
+                account_id: args.account_id.get_inner(),
+                configs: args.configs.get_inner(),
+                name: args.name.get_inner(),
+                scim_configs: args.scim_configs.get_inner(),
+                type_: args.type_.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         AccessIdentityProviderResult {
-            account_id: crate::random_to_domain_mapper::<Option<String>>(result.account_id),
-            configs: crate::random_to_domain_mapper::<
-                Vec<crate::types::AccessIdentityProviderConfig>,
-            >(result.configs),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            scim_configs: crate::random_to_domain_mapper::<
-                Vec<crate::types::AccessIdentityProviderScimConfig>,
-            >(result.scim_configs),
-            type_: crate::random_to_domain_mapper::<String>(result.type_),
-            zone_id: crate::random_to_domain_mapper::<Option<String>>(result.zone_id),
+            account_id: crate::into_domain(result.account_id),
+            configs: crate::into_domain(result.configs),
+            name: crate::into_domain(result.name),
+            scim_configs: crate::into_domain(result.scim_configs),
+            type_: crate::into_domain(result.type_),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -418,18 +338,14 @@ pub mod access_keys_configuration {
         let result = crate::bindings::pulumi::cloudflare::access_keys_configuration::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::access_keys_configuration::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                key_rotation_interval_days: &crate::clone::<Option<i32>>(
-                    args.key_rotation_interval_days,
-                ),
+                account_id: args.account_id.get_inner(),
+                key_rotation_interval_days: args.key_rotation_interval_days.get_inner(),
             },
         );
 
         AccessKeysConfigurationResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            key_rotation_interval_days: crate::random_to_domain_mapper::<i32>(
-                result.key_rotation_interval_days,
-            ),
+            account_id: crate::into_domain(result.account_id),
+            key_rotation_interval_days: crate::into_domain(result.key_rotation_interval_days),
         }
     }
 }
@@ -460,25 +376,21 @@ pub mod access_mutual_tls_certificate {
         let result = crate::bindings::pulumi::cloudflare::access_mutual_tls_certificate::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::access_mutual_tls_certificate::Args {
-                account_id: &crate::clone::<Option<String>>(args.account_id),
-                associated_hostnames: &crate::clone::<Option<Vec<String>>>(
-                    args.associated_hostnames,
-                ),
-                certificate: &crate::clone::<Option<String>>(args.certificate),
-                name: &crate::clone::<String>(args.name),
-                zone_id: &crate::clone::<Option<String>>(args.zone_id),
+                account_id: args.account_id.get_inner(),
+                associated_hostnames: args.associated_hostnames.get_inner(),
+                certificate: args.certificate.get_inner(),
+                name: args.name.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         AccessMutualTlsCertificateResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            associated_hostnames: crate::random_to_domain_mapper::<Option<Vec<String>>>(
-                result.associated_hostnames,
-            ),
-            certificate: crate::random_to_domain_mapper::<Option<String>>(result.certificate),
-            fingerprint: crate::random_to_domain_mapper::<String>(result.fingerprint),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            account_id: crate::into_domain(result.account_id),
+            associated_hostnames: crate::into_domain(result.associated_hostnames),
+            certificate: crate::into_domain(result.certificate),
+            fingerprint: crate::into_domain(result.fingerprint),
+            name: crate::into_domain(result.name),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -509,20 +421,16 @@ pub mod access_mutual_tls_hostname_settings {
             crate::bindings::pulumi::cloudflare::access_mutual_tls_hostname_settings::invoke(
                 name,
                 &crate::bindings::pulumi::cloudflare::access_mutual_tls_hostname_settings::Args {
-                    account_id: &crate::clone::<Option<String>>(args.account_id),
-                    settings: &crate::clone::<
-                        Option<Vec<crate::types::AccessMutualTlsHostnameSettingsSetting>>,
-                    >(args.settings),
-                    zone_id: &crate::clone::<Option<String>>(args.zone_id),
+                    account_id: args.account_id.get_inner(),
+                    settings: args.settings.get_inner(),
+                    zone_id: args.zone_id.get_inner(),
                 },
             );
 
         AccessMutualTlsHostnameSettingsResult {
-            account_id: crate::random_to_domain_mapper::<Option<String>>(result.account_id),
-            settings: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::AccessMutualTlsHostnameSettingsSetting>>,
-            >(result.settings),
-            zone_id: crate::random_to_domain_mapper::<Option<String>>(result.zone_id),
+            account_id: crate::into_domain(result.account_id),
+            settings: crate::into_domain(result.settings),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -572,66 +480,40 @@ pub mod access_organization {
         let result = crate::bindings::pulumi::cloudflare::access_organization::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::access_organization::Args {
-                account_id: &crate::clone::<Option<String>>(args.account_id),
-                allow_authenticate_via_warp: &crate::clone::<Option<bool>>(
-                    args.allow_authenticate_via_warp,
-                ),
-                auth_domain: &crate::clone::<String>(args.auth_domain),
-                auto_redirect_to_identity: &crate::clone::<Option<bool>>(
-                    args.auto_redirect_to_identity,
-                ),
-                custom_pages: &crate::clone::<
-                    Option<Vec<crate::types::AccessOrganizationCustomPage>>,
-                >(args.custom_pages),
-                is_ui_read_only: &crate::clone::<Option<bool>>(args.is_ui_read_only),
-                login_designs: &crate::clone::<
-                    Option<Vec<crate::types::AccessOrganizationLoginDesign>>,
-                >(args.login_designs),
-                name: &crate::clone::<Option<String>>(args.name),
-                session_duration: &crate::clone::<Option<String>>(args.session_duration),
-                ui_read_only_toggle_reason: &crate::clone::<Option<String>>(
-                    args.ui_read_only_toggle_reason,
-                ),
-                user_seat_expiration_inactive_time: &crate::clone::<Option<String>>(
-                    args.user_seat_expiration_inactive_time,
-                ),
-                warp_auth_session_duration: &crate::clone::<Option<String>>(
-                    args.warp_auth_session_duration,
-                ),
-                zone_id: &crate::clone::<Option<String>>(args.zone_id),
+                account_id: args.account_id.get_inner(),
+                allow_authenticate_via_warp: args.allow_authenticate_via_warp.get_inner(),
+                auth_domain: args.auth_domain.get_inner(),
+                auto_redirect_to_identity: args.auto_redirect_to_identity.get_inner(),
+                custom_pages: args.custom_pages.get_inner(),
+                is_ui_read_only: args.is_ui_read_only.get_inner(),
+                login_designs: args.login_designs.get_inner(),
+                name: args.name.get_inner(),
+                session_duration: args.session_duration.get_inner(),
+                ui_read_only_toggle_reason: args.ui_read_only_toggle_reason.get_inner(),
+                user_seat_expiration_inactive_time: args
+                    .user_seat_expiration_inactive_time
+                    .get_inner(),
+                warp_auth_session_duration: args.warp_auth_session_duration.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         AccessOrganizationResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            allow_authenticate_via_warp: crate::random_to_domain_mapper::<Option<bool>>(
-                result.allow_authenticate_via_warp,
-            ),
-            auth_domain: crate::random_to_domain_mapper::<String>(result.auth_domain),
-            auto_redirect_to_identity: crate::random_to_domain_mapper::<Option<bool>>(
-                result.auto_redirect_to_identity,
-            ),
-            custom_pages: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::AccessOrganizationCustomPage>>,
-            >(result.custom_pages),
-            is_ui_read_only: crate::random_to_domain_mapper::<Option<bool>>(result.is_ui_read_only),
-            login_designs: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::AccessOrganizationLoginDesign>>,
-            >(result.login_designs),
-            name: crate::random_to_domain_mapper::<Option<String>>(result.name),
-            session_duration: crate::random_to_domain_mapper::<Option<String>>(
-                result.session_duration,
-            ),
-            ui_read_only_toggle_reason: crate::random_to_domain_mapper::<Option<String>>(
-                result.ui_read_only_toggle_reason,
-            ),
-            user_seat_expiration_inactive_time: crate::random_to_domain_mapper::<Option<String>>(
+            account_id: crate::into_domain(result.account_id),
+            allow_authenticate_via_warp: crate::into_domain(result.allow_authenticate_via_warp),
+            auth_domain: crate::into_domain(result.auth_domain),
+            auto_redirect_to_identity: crate::into_domain(result.auto_redirect_to_identity),
+            custom_pages: crate::into_domain(result.custom_pages),
+            is_ui_read_only: crate::into_domain(result.is_ui_read_only),
+            login_designs: crate::into_domain(result.login_designs),
+            name: crate::into_domain(result.name),
+            session_duration: crate::into_domain(result.session_duration),
+            ui_read_only_toggle_reason: crate::into_domain(result.ui_read_only_toggle_reason),
+            user_seat_expiration_inactive_time: crate::into_domain(
                 result.user_seat_expiration_inactive_time,
             ),
-            warp_auth_session_duration: crate::random_to_domain_mapper::<Option<String>>(
-                result.warp_auth_session_duration,
-            ),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            warp_auth_session_duration: crate::into_domain(result.warp_auth_session_duration),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -680,68 +562,42 @@ pub mod access_policy {
         let result = crate::bindings::pulumi::cloudflare::access_policy::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::access_policy::Args {
-                account_id: &crate::clone::<Option<String>>(args.account_id),
-                application_id: &crate::clone::<String>(args.application_id),
-                approval_groups: &crate::clone::<
-                    Option<Vec<crate::types::AccessPolicyApprovalGroup>>,
-                >(args.approval_groups),
-                approval_required: &crate::clone::<Option<bool>>(args.approval_required),
-                decision: &crate::clone::<String>(args.decision),
-                excludes: &crate::clone::<Option<Vec<crate::types::AccessPolicyExclude>>>(
-                    args.excludes,
-                ),
-                includes: &crate::clone::<Vec<crate::types::AccessPolicyInclude>>(args.includes),
-                isolation_required: &crate::clone::<Option<bool>>(args.isolation_required),
-                name: &crate::clone::<String>(args.name),
-                precedence: &crate::clone::<i32>(args.precedence),
-                purpose_justification_prompt: &crate::clone::<Option<String>>(
-                    args.purpose_justification_prompt,
-                ),
-                purpose_justification_required: &crate::clone::<Option<bool>>(
-                    args.purpose_justification_required,
-                ),
-                requires: &crate::clone::<Option<Vec<crate::types::AccessPolicyRequire>>>(
-                    args.requires,
-                ),
-                session_duration: &crate::clone::<Option<String>>(args.session_duration),
-                zone_id: &crate::clone::<Option<String>>(args.zone_id),
+                account_id: args.account_id.get_inner(),
+                application_id: args.application_id.get_inner(),
+                approval_groups: args.approval_groups.get_inner(),
+                approval_required: args.approval_required.get_inner(),
+                decision: args.decision.get_inner(),
+                excludes: args.excludes.get_inner(),
+                includes: args.includes.get_inner(),
+                isolation_required: args.isolation_required.get_inner(),
+                name: args.name.get_inner(),
+                precedence: args.precedence.get_inner(),
+                purpose_justification_prompt: args.purpose_justification_prompt.get_inner(),
+                purpose_justification_required: args.purpose_justification_required.get_inner(),
+                requires: args.requires.get_inner(),
+                session_duration: args.session_duration.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         AccessPolicyResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            application_id: crate::random_to_domain_mapper::<String>(result.application_id),
-            approval_groups: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::AccessPolicyApprovalGroup>>,
-            >(result.approval_groups),
-            approval_required: crate::random_to_domain_mapper::<Option<bool>>(
-                result.approval_required,
-            ),
-            decision: crate::random_to_domain_mapper::<String>(result.decision),
-            excludes: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::AccessPolicyExclude>>,
-            >(result.excludes),
-            includes: crate::random_to_domain_mapper::<Vec<crate::types::AccessPolicyInclude>>(
-                result.includes,
-            ),
-            isolation_required: crate::random_to_domain_mapper::<Option<bool>>(
-                result.isolation_required,
-            ),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            precedence: crate::random_to_domain_mapper::<i32>(result.precedence),
-            purpose_justification_prompt: crate::random_to_domain_mapper::<Option<String>>(
-                result.purpose_justification_prompt,
-            ),
-            purpose_justification_required: crate::random_to_domain_mapper::<Option<bool>>(
+            account_id: crate::into_domain(result.account_id),
+            application_id: crate::into_domain(result.application_id),
+            approval_groups: crate::into_domain(result.approval_groups),
+            approval_required: crate::into_domain(result.approval_required),
+            decision: crate::into_domain(result.decision),
+            excludes: crate::into_domain(result.excludes),
+            includes: crate::into_domain(result.includes),
+            isolation_required: crate::into_domain(result.isolation_required),
+            name: crate::into_domain(result.name),
+            precedence: crate::into_domain(result.precedence),
+            purpose_justification_prompt: crate::into_domain(result.purpose_justification_prompt),
+            purpose_justification_required: crate::into_domain(
                 result.purpose_justification_required,
             ),
-            requires: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::AccessPolicyRequire>>,
-            >(result.requires),
-            session_duration: crate::random_to_domain_mapper::<Option<String>>(
-                result.session_duration,
-            ),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            requires: crate::into_domain(result.requires),
+            session_duration: crate::into_domain(result.session_duration),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -768,24 +624,20 @@ pub mod access_rule {
         let result = crate::bindings::pulumi::cloudflare::access_rule::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::access_rule::Args {
-                account_id: &crate::clone::<Option<String>>(args.account_id),
-                configuration: &crate::clone::<crate::types::AccessRuleConfiguration>(
-                    args.configuration,
-                ),
-                mode: &crate::clone::<String>(args.mode),
-                notes: &crate::clone::<Option<String>>(args.notes),
-                zone_id: &crate::clone::<Option<String>>(args.zone_id),
+                account_id: args.account_id.get_inner(),
+                configuration: args.configuration.get_inner(),
+                mode: args.mode.get_inner(),
+                notes: args.notes.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         AccessRuleResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            configuration: crate::random_to_domain_mapper::<crate::types::AccessRuleConfiguration>(
-                result.configuration,
-            ),
-            mode: crate::random_to_domain_mapper::<String>(result.mode),
-            notes: crate::random_to_domain_mapper::<Option<String>>(result.notes),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            account_id: crate::into_domain(result.account_id),
+            configuration: crate::into_domain(result.configuration),
+            mode: crate::into_domain(result.mode),
+            notes: crate::into_domain(result.notes),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -818,25 +670,23 @@ pub mod access_service_token {
         let result = crate::bindings::pulumi::cloudflare::access_service_token::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::access_service_token::Args {
-                account_id: &crate::clone::<Option<String>>(args.account_id),
-                duration: &crate::clone::<Option<String>>(args.duration),
-                min_days_for_renewal: &crate::clone::<Option<i32>>(args.min_days_for_renewal),
-                name: &crate::clone::<String>(args.name),
-                zone_id: &crate::clone::<Option<String>>(args.zone_id),
+                account_id: args.account_id.get_inner(),
+                duration: args.duration.get_inner(),
+                min_days_for_renewal: args.min_days_for_renewal.get_inner(),
+                name: args.name.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         AccessServiceTokenResult {
-            account_id: crate::random_to_domain_mapper::<Option<String>>(result.account_id),
-            client_id: crate::random_to_domain_mapper::<String>(result.client_id),
-            client_secret: crate::random_to_domain_mapper::<String>(result.client_secret),
-            duration: crate::random_to_domain_mapper::<String>(result.duration),
-            expires_at: crate::random_to_domain_mapper::<String>(result.expires_at),
-            min_days_for_renewal: crate::random_to_domain_mapper::<Option<i32>>(
-                result.min_days_for_renewal,
-            ),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            zone_id: crate::random_to_domain_mapper::<Option<String>>(result.zone_id),
+            account_id: crate::into_domain(result.account_id),
+            client_id: crate::into_domain(result.client_id),
+            client_secret: crate::into_domain(result.client_secret),
+            duration: crate::into_domain(result.duration),
+            expires_at: crate::into_domain(result.expires_at),
+            min_days_for_renewal: crate::into_domain(result.min_days_for_renewal),
+            name: crate::into_domain(result.name),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -861,18 +711,18 @@ pub mod access_tag {
         let result = crate::bindings::pulumi::cloudflare::access_tag::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::access_tag::Args {
-                account_id: &crate::clone::<Option<String>>(args.account_id),
-                app_count: &crate::clone::<Option<i32>>(args.app_count),
-                name: &crate::clone::<String>(args.name),
-                zone_id: &crate::clone::<Option<String>>(args.zone_id),
+                account_id: args.account_id.get_inner(),
+                app_count: args.app_count.get_inner(),
+                name: args.name.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         AccessTagResult {
-            account_id: crate::random_to_domain_mapper::<Option<String>>(result.account_id),
-            app_count: crate::random_to_domain_mapper::<i32>(result.app_count),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            zone_id: crate::random_to_domain_mapper::<Option<String>>(result.zone_id),
+            account_id: crate::into_domain(result.account_id),
+            app_count: crate::into_domain(result.app_count),
+            name: crate::into_domain(result.name),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -895,18 +745,16 @@ pub mod account {
         let result = crate::bindings::pulumi::cloudflare::account::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::account::Args {
-                enforce_twofactor: &crate::clone::<Option<bool>>(args.enforce_twofactor),
-                name: &crate::clone::<String>(args.name),
-                type_: &crate::clone::<Option<String>>(args.type_),
+                enforce_twofactor: args.enforce_twofactor.get_inner(),
+                name: args.name.get_inner(),
+                type_: args.type_.get_inner(),
             },
         );
 
         AccountResult {
-            enforce_twofactor: crate::random_to_domain_mapper::<Option<bool>>(
-                result.enforce_twofactor,
-            ),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            type_: crate::random_to_domain_mapper::<Option<String>>(result.type_),
+            enforce_twofactor: crate::into_domain(result.enforce_twofactor),
+            name: crate::into_domain(result.name),
+            type_: crate::into_domain(result.type_),
         }
     }
 }
@@ -931,18 +779,18 @@ pub mod account_member {
         let result = crate::bindings::pulumi::cloudflare::account_member::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::account_member::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                email_address: &crate::clone::<String>(args.email_address),
-                role_ids: &crate::clone::<Vec<String>>(args.role_ids),
-                status: &crate::clone::<Option<String>>(args.status),
+                account_id: args.account_id.get_inner(),
+                email_address: args.email_address.get_inner(),
+                role_ids: args.role_ids.get_inner(),
+                status: args.status.get_inner(),
             },
         );
 
         AccountMemberResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            email_address: crate::random_to_domain_mapper::<String>(result.email_address),
-            role_ids: crate::random_to_domain_mapper::<Vec<String>>(result.role_ids),
-            status: crate::random_to_domain_mapper::<String>(result.status),
+            account_id: crate::into_domain(result.account_id),
+            email_address: crate::into_domain(result.email_address),
+            role_ids: crate::into_domain(result.role_ids),
+            status: crate::into_domain(result.status),
         }
     }
 }
@@ -973,30 +821,24 @@ pub mod address_map {
         let result = crate::bindings::pulumi::cloudflare::address_map::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::address_map::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                default_sni: &crate::clone::<Option<String>>(args.default_sni),
-                description: &crate::clone::<Option<String>>(args.description),
-                enabled: &crate::clone::<bool>(args.enabled),
-                ips: &crate::clone::<Option<Vec<crate::types::AddressMapIp>>>(args.ips),
-                memberships: &crate::clone::<Option<Vec<crate::types::AddressMapMembership>>>(
-                    args.memberships,
-                ),
+                account_id: args.account_id.get_inner(),
+                default_sni: args.default_sni.get_inner(),
+                description: args.description.get_inner(),
+                enabled: args.enabled.get_inner(),
+                ips: args.ips.get_inner(),
+                memberships: args.memberships.get_inner(),
             },
         );
 
         AddressMapResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            can_delete: crate::random_to_domain_mapper::<bool>(result.can_delete),
-            can_modify_ips: crate::random_to_domain_mapper::<bool>(result.can_modify_ips),
-            default_sni: crate::random_to_domain_mapper::<Option<String>>(result.default_sni),
-            description: crate::random_to_domain_mapper::<Option<String>>(result.description),
-            enabled: crate::random_to_domain_mapper::<bool>(result.enabled),
-            ips: crate::random_to_domain_mapper::<Option<Vec<crate::types::AddressMapIp>>>(
-                result.ips,
-            ),
-            memberships: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::AddressMapMembership>>,
-            >(result.memberships),
+            account_id: crate::into_domain(result.account_id),
+            can_delete: crate::into_domain(result.can_delete),
+            can_modify_ips: crate::into_domain(result.can_modify_ips),
+            default_sni: crate::into_domain(result.default_sni),
+            description: crate::into_domain(result.description),
+            enabled: crate::into_domain(result.enabled),
+            ips: crate::into_domain(result.ips),
+            memberships: crate::into_domain(result.memberships),
         }
     }
 }
@@ -1019,18 +861,14 @@ pub mod api_shield {
         let result = crate::bindings::pulumi::cloudflare::api_shield::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::api_shield::Args {
-                auth_id_characteristics: &crate::clone::<
-                    Option<Vec<crate::types::ApiShieldAuthIdCharacteristic>>,
-                >(args.auth_id_characteristics),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                auth_id_characteristics: args.auth_id_characteristics.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         ApiShieldResult {
-            auth_id_characteristics: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::ApiShieldAuthIdCharacteristic>>,
-            >(result.auth_id_characteristics),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            auth_id_characteristics: crate::into_domain(result.auth_id_characteristics),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -1058,18 +896,18 @@ pub mod api_shield_operation {
         let result = crate::bindings::pulumi::cloudflare::api_shield_operation::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::api_shield_operation::Args {
-                endpoint: &crate::clone::<String>(args.endpoint),
-                host: &crate::clone::<String>(args.host),
-                method: &crate::clone::<String>(args.method),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                endpoint: args.endpoint.get_inner(),
+                host: args.host.get_inner(),
+                method: args.method.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         ApiShieldOperationResult {
-            endpoint: crate::random_to_domain_mapper::<String>(result.endpoint),
-            host: crate::random_to_domain_mapper::<String>(result.host),
-            method: crate::random_to_domain_mapper::<String>(result.method),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            endpoint: crate::into_domain(result.endpoint),
+            host: crate::into_domain(result.host),
+            method: crate::into_domain(result.method),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -1093,17 +931,15 @@ pub mod api_shield_operation_schema_validation_settings {
         args: ApiShieldOperationSchemaValidationSettingsArgs,
     ) -> ApiShieldOperationSchemaValidationSettingsResult {
         let result = crate::bindings::pulumi::cloudflare::api_shield_operation_schema_validation_settings::invoke(name, &crate::bindings::pulumi::cloudflare::api_shield_operation_schema_validation_settings::Args {
-            mitigation_action: &crate::clone::<Option<String>>(args.mitigation_action),
-            operation_id: &crate::clone::<String>(args.operation_id),
-            zone_id: &crate::clone::<String>(args.zone_id),
+            mitigation_action: args.mitigation_action.get_inner(),
+            operation_id: args.operation_id.get_inner(),
+            zone_id: args.zone_id.get_inner(),
         });
 
         ApiShieldOperationSchemaValidationSettingsResult {
-            mitigation_action: crate::random_to_domain_mapper::<Option<String>>(
-                result.mitigation_action,
-            ),
-            operation_id: crate::random_to_domain_mapper::<String>(result.operation_id),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            mitigation_action: crate::into_domain(result.mitigation_action),
+            operation_id: crate::into_domain(result.operation_id),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -1130,22 +966,20 @@ pub mod api_shield_schema {
         let result = crate::bindings::pulumi::cloudflare::api_shield_schema::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::api_shield_schema::Args {
-                kind: &crate::clone::<Option<String>>(args.kind),
-                name: &crate::clone::<String>(args.name),
-                source: &crate::clone::<String>(args.source),
-                validation_enabled: &crate::clone::<Option<bool>>(args.validation_enabled),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                kind: args.kind.get_inner(),
+                name: args.name.get_inner(),
+                source: args.source.get_inner(),
+                validation_enabled: args.validation_enabled.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         ApiShieldSchemaResult {
-            kind: crate::random_to_domain_mapper::<Option<String>>(result.kind),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            source: crate::random_to_domain_mapper::<String>(result.source),
-            validation_enabled: crate::random_to_domain_mapper::<Option<bool>>(
-                result.validation_enabled,
-            ),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            kind: crate::into_domain(result.kind),
+            name: crate::into_domain(result.name),
+            source: crate::into_domain(result.source),
+            validation_enabled: crate::into_domain(result.validation_enabled),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -1172,24 +1006,24 @@ pub mod api_shield_schema_validation_settings {
             crate::bindings::pulumi::cloudflare::api_shield_schema_validation_settings::invoke(
                 name,
                 &crate::bindings::pulumi::cloudflare::api_shield_schema_validation_settings::Args {
-                    validation_default_mitigation_action: &crate::clone::<String>(
-                        args.validation_default_mitigation_action,
-                    ),
-                    validation_override_mitigation_action: &crate::clone::<Option<String>>(
-                        args.validation_override_mitigation_action,
-                    ),
-                    zone_id: &crate::clone::<String>(args.zone_id),
+                    validation_default_mitigation_action: args
+                        .validation_default_mitigation_action
+                        .get_inner(),
+                    validation_override_mitigation_action: args
+                        .validation_override_mitigation_action
+                        .get_inner(),
+                    zone_id: args.zone_id.get_inner(),
                 },
             );
 
         ApiShieldSchemaValidationSettingsResult {
-            validation_default_mitigation_action: crate::random_to_domain_mapper::<String>(
+            validation_default_mitigation_action: crate::into_domain(
                 result.validation_default_mitigation_action,
             ),
-            validation_override_mitigation_action: crate::random_to_domain_mapper::<Option<String>>(
+            validation_override_mitigation_action: crate::into_domain(
                 result.validation_override_mitigation_action,
             ),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -1220,28 +1054,24 @@ pub mod api_token {
         let result = crate::bindings::pulumi::cloudflare::api_token::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::api_token::Args {
-                condition: &crate::clone::<Option<crate::types::ApiTokenCondition>>(args.condition),
-                expires_on: &crate::clone::<Option<String>>(args.expires_on),
-                name: &crate::clone::<String>(args.name),
-                not_before: &crate::clone::<Option<String>>(args.not_before),
-                policies: &crate::clone::<Vec<crate::types::ApiTokenPolicy>>(args.policies),
+                condition: args.condition.get_inner(),
+                expires_on: args.expires_on.get_inner(),
+                name: args.name.get_inner(),
+                not_before: args.not_before.get_inner(),
+                policies: args.policies.get_inner(),
             },
         );
 
         ApiTokenResult {
-            condition: crate::random_to_domain_mapper::<Option<crate::types::ApiTokenCondition>>(
-                result.condition,
-            ),
-            expires_on: crate::random_to_domain_mapper::<Option<String>>(result.expires_on),
-            issued_on: crate::random_to_domain_mapper::<String>(result.issued_on),
-            modified_on: crate::random_to_domain_mapper::<String>(result.modified_on),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            not_before: crate::random_to_domain_mapper::<Option<String>>(result.not_before),
-            policies: crate::random_to_domain_mapper::<Vec<crate::types::ApiTokenPolicy>>(
-                result.policies,
-            ),
-            status: crate::random_to_domain_mapper::<String>(result.status),
-            value: crate::random_to_domain_mapper::<String>(result.value),
+            condition: crate::into_domain(result.condition),
+            expires_on: crate::into_domain(result.expires_on),
+            issued_on: crate::into_domain(result.issued_on),
+            modified_on: crate::into_domain(result.modified_on),
+            name: crate::into_domain(result.name),
+            not_before: crate::into_domain(result.not_before),
+            policies: crate::into_domain(result.policies),
+            status: crate::into_domain(result.status),
+            value: crate::into_domain(result.value),
         }
     }
 }
@@ -1264,16 +1094,16 @@ pub mod argo {
         let result = crate::bindings::pulumi::cloudflare::argo::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::argo::Args {
-                smart_routing: &crate::clone::<Option<String>>(args.smart_routing),
-                tiered_caching: &crate::clone::<Option<String>>(args.tiered_caching),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                smart_routing: args.smart_routing.get_inner(),
+                tiered_caching: args.tiered_caching.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         ArgoResult {
-            smart_routing: crate::random_to_domain_mapper::<Option<String>>(result.smart_routing),
-            tiered_caching: crate::random_to_domain_mapper::<Option<String>>(result.tiered_caching),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            smart_routing: crate::into_domain(result.smart_routing),
+            tiered_caching: crate::into_domain(result.tiered_caching),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -1301,22 +1131,22 @@ pub mod authenticated_origin_pulls {
         let result = crate::bindings::pulumi::cloudflare::authenticated_origin_pulls::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::authenticated_origin_pulls::Args {
-                authenticated_origin_pulls_certificate: &crate::clone::<Option<String>>(
-                    args.authenticated_origin_pulls_certificate,
-                ),
-                enabled: &crate::clone::<bool>(args.enabled),
-                hostname: &crate::clone::<Option<String>>(args.hostname),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                authenticated_origin_pulls_certificate: args
+                    .authenticated_origin_pulls_certificate
+                    .get_inner(),
+                enabled: args.enabled.get_inner(),
+                hostname: args.hostname.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         AuthenticatedOriginPullsResult {
-            authenticated_origin_pulls_certificate: crate::random_to_domain_mapper::<Option<String>>(
+            authenticated_origin_pulls_certificate: crate::into_domain(
                 result.authenticated_origin_pulls_certificate,
             ),
-            enabled: crate::random_to_domain_mapper::<bool>(result.enabled),
-            hostname: crate::random_to_domain_mapper::<Option<String>>(result.hostname),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            enabled: crate::into_domain(result.enabled),
+            hostname: crate::into_domain(result.hostname),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -1348,23 +1178,23 @@ pub mod authenticated_origin_pulls_certificate {
         args: AuthenticatedOriginPullsCertificateArgs,
     ) -> AuthenticatedOriginPullsCertificateResult {
         let result = crate::bindings::pulumi::cloudflare::authenticated_origin_pulls_certificate::invoke(name, &crate::bindings::pulumi::cloudflare::authenticated_origin_pulls_certificate::Args {
-            certificate: &crate::clone::<String>(args.certificate),
-            private_key: &crate::clone::<String>(args.private_key),
-            type_: &crate::clone::<String>(args.type_),
-            zone_id: &crate::clone::<String>(args.zone_id),
+            certificate: args.certificate.get_inner(),
+            private_key: args.private_key.get_inner(),
+            type_: args.type_.get_inner(),
+            zone_id: args.zone_id.get_inner(),
         });
 
         AuthenticatedOriginPullsCertificateResult {
-            certificate: crate::random_to_domain_mapper::<String>(result.certificate),
-            expires_on: crate::random_to_domain_mapper::<String>(result.expires_on),
-            issuer: crate::random_to_domain_mapper::<String>(result.issuer),
-            private_key: crate::random_to_domain_mapper::<String>(result.private_key),
-            serial_number: crate::random_to_domain_mapper::<String>(result.serial_number),
-            signature: crate::random_to_domain_mapper::<String>(result.signature),
-            status: crate::random_to_domain_mapper::<String>(result.status),
-            type_: crate::random_to_domain_mapper::<String>(result.type_),
-            uploaded_on: crate::random_to_domain_mapper::<String>(result.uploaded_on),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            certificate: crate::into_domain(result.certificate),
+            expires_on: crate::into_domain(result.expires_on),
+            issuer: crate::into_domain(result.issuer),
+            private_key: crate::into_domain(result.private_key),
+            serial_number: crate::into_domain(result.serial_number),
+            signature: crate::into_domain(result.signature),
+            status: crate::into_domain(result.status),
+            type_: crate::into_domain(result.type_),
+            uploaded_on: crate::into_domain(result.uploaded_on),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -1402,49 +1232,33 @@ pub mod bot_management {
         let result = crate::bindings::pulumi::cloudflare::bot_management::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::bot_management::Args {
-                auto_update_model: &crate::clone::<Option<bool>>(args.auto_update_model),
-                enable_js: &crate::clone::<Option<bool>>(args.enable_js),
-                fight_mode: &crate::clone::<Option<bool>>(args.fight_mode),
-                optimize_wordpress: &crate::clone::<Option<bool>>(args.optimize_wordpress),
-                sbfm_definitely_automated: &crate::clone::<Option<String>>(
-                    args.sbfm_definitely_automated,
-                ),
-                sbfm_likely_automated: &crate::clone::<Option<String>>(args.sbfm_likely_automated),
-                sbfm_static_resource_protection: &crate::clone::<Option<bool>>(
-                    args.sbfm_static_resource_protection,
-                ),
-                sbfm_verified_bots: &crate::clone::<Option<String>>(args.sbfm_verified_bots),
-                suppress_session_score: &crate::clone::<Option<bool>>(args.suppress_session_score),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                auto_update_model: args.auto_update_model.get_inner(),
+                enable_js: args.enable_js.get_inner(),
+                fight_mode: args.fight_mode.get_inner(),
+                optimize_wordpress: args.optimize_wordpress.get_inner(),
+                sbfm_definitely_automated: args.sbfm_definitely_automated.get_inner(),
+                sbfm_likely_automated: args.sbfm_likely_automated.get_inner(),
+                sbfm_static_resource_protection: args.sbfm_static_resource_protection.get_inner(),
+                sbfm_verified_bots: args.sbfm_verified_bots.get_inner(),
+                suppress_session_score: args.suppress_session_score.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         BotManagementResult {
-            auto_update_model: crate::random_to_domain_mapper::<Option<bool>>(
-                result.auto_update_model,
-            ),
-            enable_js: crate::random_to_domain_mapper::<Option<bool>>(result.enable_js),
-            fight_mode: crate::random_to_domain_mapper::<Option<bool>>(result.fight_mode),
-            optimize_wordpress: crate::random_to_domain_mapper::<Option<bool>>(
-                result.optimize_wordpress,
-            ),
-            sbfm_definitely_automated: crate::random_to_domain_mapper::<Option<String>>(
-                result.sbfm_definitely_automated,
-            ),
-            sbfm_likely_automated: crate::random_to_domain_mapper::<Option<String>>(
-                result.sbfm_likely_automated,
-            ),
-            sbfm_static_resource_protection: crate::random_to_domain_mapper::<Option<bool>>(
+            auto_update_model: crate::into_domain(result.auto_update_model),
+            enable_js: crate::into_domain(result.enable_js),
+            fight_mode: crate::into_domain(result.fight_mode),
+            optimize_wordpress: crate::into_domain(result.optimize_wordpress),
+            sbfm_definitely_automated: crate::into_domain(result.sbfm_definitely_automated),
+            sbfm_likely_automated: crate::into_domain(result.sbfm_likely_automated),
+            sbfm_static_resource_protection: crate::into_domain(
                 result.sbfm_static_resource_protection,
             ),
-            sbfm_verified_bots: crate::random_to_domain_mapper::<Option<String>>(
-                result.sbfm_verified_bots,
-            ),
-            suppress_session_score: crate::random_to_domain_mapper::<Option<bool>>(
-                result.suppress_session_score,
-            ),
-            using_latest_model: crate::random_to_domain_mapper::<bool>(result.using_latest_model),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            sbfm_verified_bots: crate::into_domain(result.sbfm_verified_bots),
+            suppress_session_score: crate::into_domain(result.suppress_session_score),
+            using_latest_model: crate::into_domain(result.using_latest_model),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -1469,18 +1283,18 @@ pub mod byo_ip_prefix {
         let result = crate::bindings::pulumi::cloudflare::byo_ip_prefix::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::byo_ip_prefix::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                advertisement: &crate::clone::<Option<String>>(args.advertisement),
-                description: &crate::clone::<Option<String>>(args.description),
-                prefix_id: &crate::clone::<String>(args.prefix_id),
+                account_id: args.account_id.get_inner(),
+                advertisement: args.advertisement.get_inner(),
+                description: args.description.get_inner(),
+                prefix_id: args.prefix_id.get_inner(),
             },
         );
 
         ByoIpPrefixResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            advertisement: crate::random_to_domain_mapper::<String>(result.advertisement),
-            description: crate::random_to_domain_mapper::<String>(result.description),
-            prefix_id: crate::random_to_domain_mapper::<String>(result.prefix_id),
+            account_id: crate::into_domain(result.account_id),
+            advertisement: crate::into_domain(result.advertisement),
+            description: crate::into_domain(result.description),
+            prefix_id: crate::into_domain(result.prefix_id),
         }
     }
 }
@@ -1521,44 +1335,30 @@ pub mod certificate_pack {
         let result = crate::bindings::pulumi::cloudflare::certificate_pack::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::certificate_pack::Args {
-                certificate_authority: &crate::clone::<String>(args.certificate_authority),
-                cloudflare_branding: &crate::clone::<Option<bool>>(args.cloudflare_branding),
-                hosts: &crate::clone::<Vec<String>>(args.hosts),
-                type_: &crate::clone::<String>(args.type_),
-                validation_errors: &crate::clone::<
-                    Option<Vec<crate::types::CertificatePackValidationError>>,
-                >(args.validation_errors),
-                validation_method: &crate::clone::<String>(args.validation_method),
-                validation_records: &crate::clone::<
-                    Option<Vec<crate::types::CertificatePackValidationRecord>>,
-                >(args.validation_records),
-                validity_days: &crate::clone::<i32>(args.validity_days),
-                wait_for_active_status: &crate::clone::<Option<bool>>(args.wait_for_active_status),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                certificate_authority: args.certificate_authority.get_inner(),
+                cloudflare_branding: args.cloudflare_branding.get_inner(),
+                hosts: args.hosts.get_inner(),
+                type_: args.type_.get_inner(),
+                validation_errors: args.validation_errors.get_inner(),
+                validation_method: args.validation_method.get_inner(),
+                validation_records: args.validation_records.get_inner(),
+                validity_days: args.validity_days.get_inner(),
+                wait_for_active_status: args.wait_for_active_status.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         CertificatePackResult {
-            certificate_authority: crate::random_to_domain_mapper::<String>(
-                result.certificate_authority,
-            ),
-            cloudflare_branding: crate::random_to_domain_mapper::<Option<bool>>(
-                result.cloudflare_branding,
-            ),
-            hosts: crate::random_to_domain_mapper::<Vec<String>>(result.hosts),
-            type_: crate::random_to_domain_mapper::<String>(result.type_),
-            validation_errors: crate::random_to_domain_mapper::<
-                Vec<crate::types::CertificatePackValidationError>,
-            >(result.validation_errors),
-            validation_method: crate::random_to_domain_mapper::<String>(result.validation_method),
-            validation_records: crate::random_to_domain_mapper::<
-                Vec<crate::types::CertificatePackValidationRecord>,
-            >(result.validation_records),
-            validity_days: crate::random_to_domain_mapper::<i32>(result.validity_days),
-            wait_for_active_status: crate::random_to_domain_mapper::<Option<bool>>(
-                result.wait_for_active_status,
-            ),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            certificate_authority: crate::into_domain(result.certificate_authority),
+            cloudflare_branding: crate::into_domain(result.cloudflare_branding),
+            hosts: crate::into_domain(result.hosts),
+            type_: crate::into_domain(result.type_),
+            validation_errors: crate::into_domain(result.validation_errors),
+            validation_method: crate::into_domain(result.validation_method),
+            validation_records: crate::into_domain(result.validation_records),
+            validity_days: crate::into_domain(result.validity_days),
+            wait_for_active_status: crate::into_domain(result.wait_for_active_status),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -1596,45 +1396,29 @@ pub mod custom_hostname {
         let result = crate::bindings::pulumi::cloudflare::custom_hostname::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::custom_hostname::Args {
-                custom_metadata: &crate::clone::<Option<std::collections::HashMap<String, String>>>(
-                    args.custom_metadata,
-                ),
-                custom_origin_server: &crate::clone::<Option<String>>(args.custom_origin_server),
-                custom_origin_sni: &crate::clone::<Option<String>>(args.custom_origin_sni),
-                hostname: &crate::clone::<String>(args.hostname),
-                ssls: &crate::clone::<Option<Vec<crate::types::CustomHostnameSsl>>>(args.ssls),
-                wait_for_ssl_pending_validation: &crate::clone::<Option<bool>>(
-                    args.wait_for_ssl_pending_validation,
-                ),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                custom_metadata: args.custom_metadata.get_inner(),
+                custom_origin_server: args.custom_origin_server.get_inner(),
+                custom_origin_sni: args.custom_origin_sni.get_inner(),
+                hostname: args.hostname.get_inner(),
+                ssls: args.ssls.get_inner(),
+                wait_for_ssl_pending_validation: args.wait_for_ssl_pending_validation.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         CustomHostnameResult {
-            custom_metadata: crate::random_to_domain_mapper::<
-                Option<std::collections::HashMap<String, String>>,
-            >(result.custom_metadata),
-            custom_origin_server: crate::random_to_domain_mapper::<Option<String>>(
-                result.custom_origin_server,
-            ),
-            custom_origin_sni: crate::random_to_domain_mapper::<Option<String>>(
-                result.custom_origin_sni,
-            ),
-            hostname: crate::random_to_domain_mapper::<String>(result.hostname),
-            ownership_verification: crate::random_to_domain_mapper::<
-                std::collections::HashMap<String, String>,
-            >(result.ownership_verification),
-            ownership_verification_http: crate::random_to_domain_mapper::<
-                std::collections::HashMap<String, String>,
-            >(result.ownership_verification_http),
-            ssls: crate::random_to_domain_mapper::<Option<Vec<crate::types::CustomHostnameSsl>>>(
-                result.ssls,
-            ),
-            status: crate::random_to_domain_mapper::<String>(result.status),
-            wait_for_ssl_pending_validation: crate::random_to_domain_mapper::<Option<bool>>(
+            custom_metadata: crate::into_domain(result.custom_metadata),
+            custom_origin_server: crate::into_domain(result.custom_origin_server),
+            custom_origin_sni: crate::into_domain(result.custom_origin_sni),
+            hostname: crate::into_domain(result.hostname),
+            ownership_verification: crate::into_domain(result.ownership_verification),
+            ownership_verification_http: crate::into_domain(result.ownership_verification_http),
+            ssls: crate::into_domain(result.ssls),
+            status: crate::into_domain(result.status),
+            wait_for_ssl_pending_validation: crate::into_domain(
                 result.wait_for_ssl_pending_validation,
             ),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -1659,15 +1443,15 @@ pub mod custom_hostname_fallback_origin {
         let result = crate::bindings::pulumi::cloudflare::custom_hostname_fallback_origin::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::custom_hostname_fallback_origin::Args {
-                origin: &crate::clone::<String>(args.origin),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                origin: args.origin.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         CustomHostnameFallbackOriginResult {
-            origin: crate::random_to_domain_mapper::<String>(result.origin),
-            status: crate::random_to_domain_mapper::<String>(result.status),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            origin: crate::into_domain(result.origin),
+            status: crate::into_domain(result.status),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -1694,20 +1478,20 @@ pub mod custom_pages {
         let result = crate::bindings::pulumi::cloudflare::custom_pages::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::custom_pages::Args {
-                account_id: &crate::clone::<Option<String>>(args.account_id),
-                state: &crate::clone::<Option<String>>(args.state),
-                type_: &crate::clone::<String>(args.type_),
-                url: &crate::clone::<String>(args.url),
-                zone_id: &crate::clone::<Option<String>>(args.zone_id),
+                account_id: args.account_id.get_inner(),
+                state: args.state.get_inner(),
+                type_: args.type_.get_inner(),
+                url: args.url.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         CustomPagesResult {
-            account_id: crate::random_to_domain_mapper::<Option<String>>(result.account_id),
-            state: crate::random_to_domain_mapper::<Option<String>>(result.state),
-            type_: crate::random_to_domain_mapper::<String>(result.type_),
-            url: crate::random_to_domain_mapper::<String>(result.url),
-            zone_id: crate::random_to_domain_mapper::<Option<String>>(result.zone_id),
+            account_id: crate::into_domain(result.account_id),
+            state: crate::into_domain(result.state),
+            type_: crate::into_domain(result.type_),
+            url: crate::into_domain(result.url),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -1742,32 +1526,24 @@ pub mod custom_ssl {
         let result = crate::bindings::pulumi::cloudflare::custom_ssl::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::custom_ssl::Args {
-                custom_ssl_options: &crate::clone::<Option<crate::types::CustomSslCustomSslOptions>>(
-                    args.custom_ssl_options,
-                ),
-                custom_ssl_priorities: &crate::clone::<
-                    Option<Vec<crate::types::CustomSslCustomSslPriority>>,
-                >(args.custom_ssl_priorities),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                custom_ssl_options: args.custom_ssl_options.get_inner(),
+                custom_ssl_priorities: args.custom_ssl_priorities.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         CustomSslResult {
-            custom_ssl_options: crate::random_to_domain_mapper::<
-                Option<crate::types::CustomSslCustomSslOptions>,
-            >(result.custom_ssl_options),
-            custom_ssl_priorities: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::CustomSslCustomSslPriority>>,
-            >(result.custom_ssl_priorities),
-            expires_on: crate::random_to_domain_mapper::<String>(result.expires_on),
-            hosts: crate::random_to_domain_mapper::<Vec<String>>(result.hosts),
-            issuer: crate::random_to_domain_mapper::<String>(result.issuer),
-            modified_on: crate::random_to_domain_mapper::<String>(result.modified_on),
-            priority: crate::random_to_domain_mapper::<i32>(result.priority),
-            signature: crate::random_to_domain_mapper::<String>(result.signature),
-            status: crate::random_to_domain_mapper::<String>(result.status),
-            uploaded_on: crate::random_to_domain_mapper::<String>(result.uploaded_on),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            custom_ssl_options: crate::into_domain(result.custom_ssl_options),
+            custom_ssl_priorities: crate::into_domain(result.custom_ssl_priorities),
+            expires_on: crate::into_domain(result.expires_on),
+            hosts: crate::into_domain(result.hosts),
+            issuer: crate::into_domain(result.issuer),
+            modified_on: crate::into_domain(result.modified_on),
+            priority: crate::into_domain(result.priority),
+            signature: crate::into_domain(result.signature),
+            status: crate::into_domain(result.status),
+            uploaded_on: crate::into_domain(result.uploaded_on),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -1789,15 +1565,15 @@ pub mod d1_database {
         let result = crate::bindings::pulumi::cloudflare::d1_database::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::d1_database::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                name: &crate::clone::<String>(args.name),
+                account_id: args.account_id.get_inner(),
+                name: args.name.get_inner(),
             },
         );
 
         D1DatabaseResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            version: crate::random_to_domain_mapper::<String>(result.version),
+            account_id: crate::into_domain(result.account_id),
+            name: crate::into_domain(result.name),
+            version: crate::into_domain(result.version),
         }
     }
 }
@@ -1828,24 +1604,24 @@ pub mod device_dex_test {
         let result = crate::bindings::pulumi::cloudflare::device_dex_test::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::device_dex_test::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                data: &crate::clone::<crate::types::DeviceDexTestData>(args.data),
-                description: &crate::clone::<String>(args.description),
-                enabled: &crate::clone::<bool>(args.enabled),
-                interval: &crate::clone::<String>(args.interval),
-                name: &crate::clone::<String>(args.name),
+                account_id: args.account_id.get_inner(),
+                data: args.data.get_inner(),
+                description: args.description.get_inner(),
+                enabled: args.enabled.get_inner(),
+                interval: args.interval.get_inner(),
+                name: args.name.get_inner(),
             },
         );
 
         DeviceDexTestResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            created: crate::random_to_domain_mapper::<String>(result.created),
-            data: crate::random_to_domain_mapper::<crate::types::DeviceDexTestData>(result.data),
-            description: crate::random_to_domain_mapper::<String>(result.description),
-            enabled: crate::random_to_domain_mapper::<bool>(result.enabled),
-            interval: crate::random_to_domain_mapper::<String>(result.interval),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            updated: crate::random_to_domain_mapper::<String>(result.updated),
+            account_id: crate::into_domain(result.account_id),
+            created: crate::into_domain(result.created),
+            data: crate::into_domain(result.data),
+            description: crate::into_domain(result.description),
+            enabled: crate::into_domain(result.enabled),
+            interval: crate::into_domain(result.interval),
+            name: crate::into_domain(result.name),
+            updated: crate::into_domain(result.updated),
         }
     }
 }
@@ -1873,20 +1649,18 @@ pub mod device_managed_networks {
         let result = crate::bindings::pulumi::cloudflare::device_managed_networks::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::device_managed_networks::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                config: &crate::clone::<crate::types::DeviceManagedNetworksConfig>(args.config),
-                name: &crate::clone::<String>(args.name),
-                type_: &crate::clone::<String>(args.type_),
+                account_id: args.account_id.get_inner(),
+                config: args.config.get_inner(),
+                name: args.name.get_inner(),
+                type_: args.type_.get_inner(),
             },
         );
 
         DeviceManagedNetworksResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            config: crate::random_to_domain_mapper::<crate::types::DeviceManagedNetworksConfig>(
-                result.config,
-            ),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            type_: crate::random_to_domain_mapper::<String>(result.type_),
+            account_id: crate::into_domain(result.account_id),
+            config: crate::into_domain(result.config),
+            name: crate::into_domain(result.name),
+            type_: crate::into_domain(result.type_),
         }
     }
 }
@@ -1910,14 +1684,14 @@ pub mod device_policy_certificates {
         let result = crate::bindings::pulumi::cloudflare::device_policy_certificates::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::device_policy_certificates::Args {
-                enabled: &crate::clone::<bool>(args.enabled),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                enabled: args.enabled.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         DevicePolicyCertificatesResult {
-            enabled: crate::random_to_domain_mapper::<bool>(result.enabled),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            enabled: crate::into_domain(result.enabled),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -1951,26 +1725,22 @@ pub mod device_posture_integration {
         let result = crate::bindings::pulumi::cloudflare::device_posture_integration::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::device_posture_integration::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                configs: &crate::clone::<Option<Vec<crate::types::DevicePostureIntegrationConfig>>>(
-                    args.configs,
-                ),
-                identifier: &crate::clone::<Option<String>>(args.identifier),
-                interval: &crate::clone::<Option<String>>(args.interval),
-                name: &crate::clone::<String>(args.name),
-                type_: &crate::clone::<String>(args.type_),
+                account_id: args.account_id.get_inner(),
+                configs: args.configs.get_inner(),
+                identifier: args.identifier.get_inner(),
+                interval: args.interval.get_inner(),
+                name: args.name.get_inner(),
+                type_: args.type_.get_inner(),
             },
         );
 
         DevicePostureIntegrationResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            configs: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::DevicePostureIntegrationConfig>>,
-            >(result.configs),
-            identifier: crate::random_to_domain_mapper::<Option<String>>(result.identifier),
-            interval: crate::random_to_domain_mapper::<Option<String>>(result.interval),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            type_: crate::random_to_domain_mapper::<String>(result.type_),
+            account_id: crate::into_domain(result.account_id),
+            configs: crate::into_domain(result.configs),
+            identifier: crate::into_domain(result.identifier),
+            interval: crate::into_domain(result.interval),
+            name: crate::into_domain(result.name),
+            type_: crate::into_domain(result.type_),
         }
     }
 }
@@ -2003,34 +1773,26 @@ pub mod device_posture_rule {
         let result = crate::bindings::pulumi::cloudflare::device_posture_rule::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::device_posture_rule::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                description: &crate::clone::<Option<String>>(args.description),
-                expiration: &crate::clone::<Option<String>>(args.expiration),
-                inputs: &crate::clone::<Option<Vec<crate::types::DevicePostureRuleInput>>>(
-                    args.inputs,
-                ),
-                matches: &crate::clone::<Option<Vec<crate::types::DevicePostureRuleMatch>>>(
-                    args.matches,
-                ),
-                name: &crate::clone::<Option<String>>(args.name),
-                schedule: &crate::clone::<Option<String>>(args.schedule),
-                type_: &crate::clone::<String>(args.type_),
+                account_id: args.account_id.get_inner(),
+                description: args.description.get_inner(),
+                expiration: args.expiration.get_inner(),
+                inputs: args.inputs.get_inner(),
+                matches: args.matches.get_inner(),
+                name: args.name.get_inner(),
+                schedule: args.schedule.get_inner(),
+                type_: args.type_.get_inner(),
             },
         );
 
         DevicePostureRuleResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            description: crate::random_to_domain_mapper::<Option<String>>(result.description),
-            expiration: crate::random_to_domain_mapper::<Option<String>>(result.expiration),
-            inputs: crate::random_to_domain_mapper::<Vec<crate::types::DevicePostureRuleInput>>(
-                result.inputs,
-            ),
-            matches: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::DevicePostureRuleMatch>>,
-            >(result.matches),
-            name: crate::random_to_domain_mapper::<Option<String>>(result.name),
-            schedule: crate::random_to_domain_mapper::<Option<String>>(result.schedule),
-            type_: crate::random_to_domain_mapper::<String>(result.type_),
+            account_id: crate::into_domain(result.account_id),
+            description: crate::into_domain(result.description),
+            expiration: crate::into_domain(result.expiration),
+            inputs: crate::into_domain(result.inputs),
+            matches: crate::into_domain(result.matches),
+            name: crate::into_domain(result.name),
+            schedule: crate::into_domain(result.schedule),
+            type_: crate::into_domain(result.type_),
         }
     }
 }
@@ -2086,58 +1848,46 @@ pub mod device_settings_policy {
         let result = crate::bindings::pulumi::cloudflare::device_settings_policy::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::device_settings_policy::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                allow_mode_switch: &crate::clone::<Option<bool>>(args.allow_mode_switch),
-                allow_updates: &crate::clone::<Option<bool>>(args.allow_updates),
-                allowed_to_leave: &crate::clone::<Option<bool>>(args.allowed_to_leave),
-                auto_connect: &crate::clone::<Option<i32>>(args.auto_connect),
-                captive_portal: &crate::clone::<Option<i32>>(args.captive_portal),
-                default: &crate::clone::<Option<bool>>(args.default),
-                description: &crate::clone::<String>(args.description),
-                disable_auto_fallback: &crate::clone::<Option<bool>>(args.disable_auto_fallback),
-                enabled: &crate::clone::<Option<bool>>(args.enabled),
-                exclude_office_ips: &crate::clone::<Option<bool>>(args.exclude_office_ips),
-                match_: &crate::clone::<Option<String>>(args.match_),
-                name: &crate::clone::<String>(args.name),
-                precedence: &crate::clone::<Option<i32>>(args.precedence),
-                service_mode_v2_mode: &crate::clone::<Option<String>>(args.service_mode_v2_mode),
-                service_mode_v2_port: &crate::clone::<Option<i32>>(args.service_mode_v2_port),
-                support_url: &crate::clone::<Option<String>>(args.support_url),
-                switch_locked: &crate::clone::<Option<bool>>(args.switch_locked),
+                account_id: args.account_id.get_inner(),
+                allow_mode_switch: args.allow_mode_switch.get_inner(),
+                allow_updates: args.allow_updates.get_inner(),
+                allowed_to_leave: args.allowed_to_leave.get_inner(),
+                auto_connect: args.auto_connect.get_inner(),
+                captive_portal: args.captive_portal.get_inner(),
+                default: args.default.get_inner(),
+                description: args.description.get_inner(),
+                disable_auto_fallback: args.disable_auto_fallback.get_inner(),
+                enabled: args.enabled.get_inner(),
+                exclude_office_ips: args.exclude_office_ips.get_inner(),
+                match_: args.match_.get_inner(),
+                name: args.name.get_inner(),
+                precedence: args.precedence.get_inner(),
+                service_mode_v2_mode: args.service_mode_v2_mode.get_inner(),
+                service_mode_v2_port: args.service_mode_v2_port.get_inner(),
+                support_url: args.support_url.get_inner(),
+                switch_locked: args.switch_locked.get_inner(),
             },
         );
 
         DeviceSettingsPolicyResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            allow_mode_switch: crate::random_to_domain_mapper::<Option<bool>>(
-                result.allow_mode_switch,
-            ),
-            allow_updates: crate::random_to_domain_mapper::<Option<bool>>(result.allow_updates),
-            allowed_to_leave: crate::random_to_domain_mapper::<Option<bool>>(
-                result.allowed_to_leave,
-            ),
-            auto_connect: crate::random_to_domain_mapper::<Option<i32>>(result.auto_connect),
-            captive_portal: crate::random_to_domain_mapper::<Option<i32>>(result.captive_portal),
-            default: crate::random_to_domain_mapper::<Option<bool>>(result.default),
-            description: crate::random_to_domain_mapper::<String>(result.description),
-            disable_auto_fallback: crate::random_to_domain_mapper::<Option<bool>>(
-                result.disable_auto_fallback,
-            ),
-            enabled: crate::random_to_domain_mapper::<Option<bool>>(result.enabled),
-            exclude_office_ips: crate::random_to_domain_mapper::<Option<bool>>(
-                result.exclude_office_ips,
-            ),
-            match_: crate::random_to_domain_mapper::<Option<String>>(result.match_),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            precedence: crate::random_to_domain_mapper::<Option<i32>>(result.precedence),
-            service_mode_v2_mode: crate::random_to_domain_mapper::<Option<String>>(
-                result.service_mode_v2_mode,
-            ),
-            service_mode_v2_port: crate::random_to_domain_mapper::<Option<i32>>(
-                result.service_mode_v2_port,
-            ),
-            support_url: crate::random_to_domain_mapper::<Option<String>>(result.support_url),
-            switch_locked: crate::random_to_domain_mapper::<Option<bool>>(result.switch_locked),
+            account_id: crate::into_domain(result.account_id),
+            allow_mode_switch: crate::into_domain(result.allow_mode_switch),
+            allow_updates: crate::into_domain(result.allow_updates),
+            allowed_to_leave: crate::into_domain(result.allowed_to_leave),
+            auto_connect: crate::into_domain(result.auto_connect),
+            captive_portal: crate::into_domain(result.captive_portal),
+            default: crate::into_domain(result.default),
+            description: crate::into_domain(result.description),
+            disable_auto_fallback: crate::into_domain(result.disable_auto_fallback),
+            enabled: crate::into_domain(result.enabled),
+            exclude_office_ips: crate::into_domain(result.exclude_office_ips),
+            match_: crate::into_domain(result.match_),
+            name: crate::into_domain(result.name),
+            precedence: crate::into_domain(result.precedence),
+            service_mode_v2_mode: crate::into_domain(result.service_mode_v2_mode),
+            service_mode_v2_port: crate::into_domain(result.service_mode_v2_port),
+            support_url: crate::into_domain(result.support_url),
+            switch_locked: crate::into_domain(result.switch_locked),
         }
     }
 }
@@ -2169,30 +1919,24 @@ pub mod dlp_profile {
         let result = crate::bindings::pulumi::cloudflare::dlp_profile::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::dlp_profile::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                allowed_match_count: &crate::clone::<i32>(args.allowed_match_count),
-                context_awareness: &crate::clone::<Option<crate::types::DlpProfileContextAwareness>>(
-                    args.context_awareness,
-                ),
-                description: &crate::clone::<Option<String>>(args.description),
-                entries: &crate::clone::<Vec<crate::types::DlpProfileEntry>>(args.entries),
-                name: &crate::clone::<String>(args.name),
-                type_: &crate::clone::<String>(args.type_),
+                account_id: args.account_id.get_inner(),
+                allowed_match_count: args.allowed_match_count.get_inner(),
+                context_awareness: args.context_awareness.get_inner(),
+                description: args.description.get_inner(),
+                entries: args.entries.get_inner(),
+                name: args.name.get_inner(),
+                type_: args.type_.get_inner(),
             },
         );
 
         DlpProfileResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            allowed_match_count: crate::random_to_domain_mapper::<i32>(result.allowed_match_count),
-            context_awareness: crate::random_to_domain_mapper::<
-                crate::types::DlpProfileContextAwareness,
-            >(result.context_awareness),
-            description: crate::random_to_domain_mapper::<Option<String>>(result.description),
-            entries: crate::random_to_domain_mapper::<Vec<crate::types::DlpProfileEntry>>(
-                result.entries,
-            ),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            type_: crate::random_to_domain_mapper::<String>(result.type_),
+            account_id: crate::into_domain(result.account_id),
+            allowed_match_count: crate::into_domain(result.allowed_match_count),
+            context_awareness: crate::into_domain(result.context_awareness),
+            description: crate::into_domain(result.description),
+            entries: crate::into_domain(result.entries),
+            name: crate::into_domain(result.name),
+            type_: crate::into_domain(result.type_),
         }
     }
 }
@@ -2220,18 +1964,18 @@ pub mod email_routing_address {
         let result = crate::bindings::pulumi::cloudflare::email_routing_address::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::email_routing_address::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                email: &crate::clone::<String>(args.email),
+                account_id: args.account_id.get_inner(),
+                email: args.email.get_inner(),
             },
         );
 
         EmailRoutingAddressResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            created: crate::random_to_domain_mapper::<String>(result.created),
-            email: crate::random_to_domain_mapper::<String>(result.email),
-            modified: crate::random_to_domain_mapper::<String>(result.modified),
-            tag: crate::random_to_domain_mapper::<String>(result.tag),
-            verified: crate::random_to_domain_mapper::<String>(result.verified),
+            account_id: crate::into_domain(result.account_id),
+            created: crate::into_domain(result.created),
+            email: crate::into_domain(result.email),
+            modified: crate::into_domain(result.modified),
+            tag: crate::into_domain(result.tag),
+            verified: crate::into_domain(result.verified),
         }
     }
 }
@@ -2262,29 +2006,21 @@ pub mod email_routing_catch_all {
         let result = crate::bindings::pulumi::cloudflare::email_routing_catch_all::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::email_routing_catch_all::Args {
-                actions: &crate::clone::<Vec<crate::types::EmailRoutingCatchAllAction>>(
-                    args.actions,
-                ),
-                enabled: &crate::clone::<Option<bool>>(args.enabled),
-                matchers: &crate::clone::<Vec<crate::types::EmailRoutingCatchAllMatcher>>(
-                    args.matchers,
-                ),
-                name: &crate::clone::<String>(args.name),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                actions: args.actions.get_inner(),
+                enabled: args.enabled.get_inner(),
+                matchers: args.matchers.get_inner(),
+                name: args.name.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         EmailRoutingCatchAllResult {
-            actions: crate::random_to_domain_mapper::<Vec<crate::types::EmailRoutingCatchAllAction>>(
-                result.actions,
-            ),
-            enabled: crate::random_to_domain_mapper::<Option<bool>>(result.enabled),
-            matchers: crate::random_to_domain_mapper::<
-                Vec<crate::types::EmailRoutingCatchAllMatcher>,
-            >(result.matchers),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            tag: crate::random_to_domain_mapper::<String>(result.tag),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            actions: crate::into_domain(result.actions),
+            enabled: crate::into_domain(result.enabled),
+            matchers: crate::into_domain(result.matchers),
+            name: crate::into_domain(result.name),
+            tag: crate::into_domain(result.tag),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -2314,31 +2050,23 @@ pub mod email_routing_rule {
         let result = crate::bindings::pulumi::cloudflare::email_routing_rule::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::email_routing_rule::Args {
-                actions: &crate::clone::<Option<Vec<crate::types::EmailRoutingRuleAction>>>(
-                    args.actions,
-                ),
-                enabled: &crate::clone::<Option<bool>>(args.enabled),
-                matchers: &crate::clone::<Option<Vec<crate::types::EmailRoutingRuleMatcher>>>(
-                    args.matchers,
-                ),
-                name: &crate::clone::<String>(args.name),
-                priority: &crate::clone::<Option<i32>>(args.priority),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                actions: args.actions.get_inner(),
+                enabled: args.enabled.get_inner(),
+                matchers: args.matchers.get_inner(),
+                name: args.name.get_inner(),
+                priority: args.priority.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         EmailRoutingRuleResult {
-            actions: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::EmailRoutingRuleAction>>,
-            >(result.actions),
-            enabled: crate::random_to_domain_mapper::<Option<bool>>(result.enabled),
-            matchers: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::EmailRoutingRuleMatcher>>,
-            >(result.matchers),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            priority: crate::random_to_domain_mapper::<i32>(result.priority),
-            tag: crate::random_to_domain_mapper::<String>(result.tag),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            actions: crate::into_domain(result.actions),
+            enabled: crate::into_domain(result.enabled),
+            matchers: crate::into_domain(result.matchers),
+            name: crate::into_domain(result.name),
+            priority: crate::into_domain(result.priority),
+            tag: crate::into_domain(result.tag),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -2369,21 +2097,21 @@ pub mod email_routing_settings {
         let result = crate::bindings::pulumi::cloudflare::email_routing_settings::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::email_routing_settings::Args {
-                enabled: &crate::clone::<bool>(args.enabled),
-                skip_wizard: &crate::clone::<Option<bool>>(args.skip_wizard),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                enabled: args.enabled.get_inner(),
+                skip_wizard: args.skip_wizard.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         EmailRoutingSettingsResult {
-            created: crate::random_to_domain_mapper::<String>(result.created),
-            enabled: crate::random_to_domain_mapper::<bool>(result.enabled),
-            modified: crate::random_to_domain_mapper::<String>(result.modified),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            skip_wizard: crate::random_to_domain_mapper::<bool>(result.skip_wizard),
-            status: crate::random_to_domain_mapper::<String>(result.status),
-            tag: crate::random_to_domain_mapper::<String>(result.tag),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            created: crate::into_domain(result.created),
+            enabled: crate::into_domain(result.enabled),
+            modified: crate::into_domain(result.modified),
+            name: crate::into_domain(result.name),
+            skip_wizard: crate::into_domain(result.skip_wizard),
+            status: crate::into_domain(result.status),
+            tag: crate::into_domain(result.tag),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -2406,18 +2134,16 @@ pub mod fallback_domain {
         let result = crate::bindings::pulumi::cloudflare::fallback_domain::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::fallback_domain::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                domains: &crate::clone::<Vec<crate::types::FallbackDomainDomain>>(args.domains),
-                policy_id: &crate::clone::<Option<String>>(args.policy_id),
+                account_id: args.account_id.get_inner(),
+                domains: args.domains.get_inner(),
+                policy_id: args.policy_id.get_inner(),
             },
         );
 
         FallbackDomainResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            domains: crate::random_to_domain_mapper::<Vec<crate::types::FallbackDomainDomain>>(
-                result.domains,
-            ),
-            policy_id: crate::random_to_domain_mapper::<Option<String>>(result.policy_id),
+            account_id: crate::into_domain(result.account_id),
+            domains: crate::into_domain(result.domains),
+            policy_id: crate::into_domain(result.policy_id),
         }
     }
 }
@@ -2444,20 +2170,20 @@ pub mod filter {
         let result = crate::bindings::pulumi::cloudflare::filter::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::filter::Args {
-                description: &crate::clone::<Option<String>>(args.description),
-                expression: &crate::clone::<String>(args.expression),
-                paused: &crate::clone::<Option<bool>>(args.paused),
-                ref_: &crate::clone::<Option<String>>(args.ref_),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                description: args.description.get_inner(),
+                expression: args.expression.get_inner(),
+                paused: args.paused.get_inner(),
+                ref_: args.ref_.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         FilterResult {
-            description: crate::random_to_domain_mapper::<Option<String>>(result.description),
-            expression: crate::random_to_domain_mapper::<String>(result.expression),
-            paused: crate::random_to_domain_mapper::<Option<bool>>(result.paused),
-            ref_: crate::random_to_domain_mapper::<Option<String>>(result.ref_),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            description: crate::into_domain(result.description),
+            expression: crate::into_domain(result.expression),
+            paused: crate::into_domain(result.paused),
+            ref_: crate::into_domain(result.ref_),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -2488,24 +2214,24 @@ pub mod firewall_rule {
         let result = crate::bindings::pulumi::cloudflare::firewall_rule::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::firewall_rule::Args {
-                action: &crate::clone::<String>(args.action),
-                description: &crate::clone::<Option<String>>(args.description),
-                filter_id: &crate::clone::<String>(args.filter_id),
-                paused: &crate::clone::<Option<bool>>(args.paused),
-                priority: &crate::clone::<Option<i32>>(args.priority),
-                products: &crate::clone::<Option<Vec<String>>>(args.products),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                action: args.action.get_inner(),
+                description: args.description.get_inner(),
+                filter_id: args.filter_id.get_inner(),
+                paused: args.paused.get_inner(),
+                priority: args.priority.get_inner(),
+                products: args.products.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         FirewallRuleResult {
-            action: crate::random_to_domain_mapper::<String>(result.action),
-            description: crate::random_to_domain_mapper::<Option<String>>(result.description),
-            filter_id: crate::random_to_domain_mapper::<String>(result.filter_id),
-            paused: crate::random_to_domain_mapper::<Option<bool>>(result.paused),
-            priority: crate::random_to_domain_mapper::<Option<i32>>(result.priority),
-            products: crate::random_to_domain_mapper::<Option<Vec<String>>>(result.products),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            action: crate::into_domain(result.action),
+            description: crate::into_domain(result.description),
+            filter_id: crate::into_domain(result.filter_id),
+            paused: crate::into_domain(result.paused),
+            priority: crate::into_domain(result.priority),
+            products: crate::into_domain(result.products),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -2544,40 +2270,32 @@ pub mod gre_tunnel {
         let result = crate::bindings::pulumi::cloudflare::gre_tunnel::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::gre_tunnel::Args {
-                account_id: &crate::clone::<Option<String>>(args.account_id),
-                cloudflare_gre_endpoint: &crate::clone::<String>(args.cloudflare_gre_endpoint),
-                customer_gre_endpoint: &crate::clone::<String>(args.customer_gre_endpoint),
-                description: &crate::clone::<Option<String>>(args.description),
-                health_check_enabled: &crate::clone::<Option<bool>>(args.health_check_enabled),
-                health_check_target: &crate::clone::<Option<String>>(args.health_check_target),
-                health_check_type: &crate::clone::<Option<String>>(args.health_check_type),
-                interface_address: &crate::clone::<String>(args.interface_address),
-                mtu: &crate::clone::<Option<i32>>(args.mtu),
-                name: &crate::clone::<String>(args.name),
-                ttl: &crate::clone::<Option<i32>>(args.ttl),
+                account_id: args.account_id.get_inner(),
+                cloudflare_gre_endpoint: args.cloudflare_gre_endpoint.get_inner(),
+                customer_gre_endpoint: args.customer_gre_endpoint.get_inner(),
+                description: args.description.get_inner(),
+                health_check_enabled: args.health_check_enabled.get_inner(),
+                health_check_target: args.health_check_target.get_inner(),
+                health_check_type: args.health_check_type.get_inner(),
+                interface_address: args.interface_address.get_inner(),
+                mtu: args.mtu.get_inner(),
+                name: args.name.get_inner(),
+                ttl: args.ttl.get_inner(),
             },
         );
 
         GreTunnelResult {
-            account_id: crate::random_to_domain_mapper::<Option<String>>(result.account_id),
-            cloudflare_gre_endpoint: crate::random_to_domain_mapper::<String>(
-                result.cloudflare_gre_endpoint,
-            ),
-            customer_gre_endpoint: crate::random_to_domain_mapper::<String>(
-                result.customer_gre_endpoint,
-            ),
-            description: crate::random_to_domain_mapper::<Option<String>>(result.description),
-            health_check_enabled: crate::random_to_domain_mapper::<bool>(
-                result.health_check_enabled,
-            ),
-            health_check_target: crate::random_to_domain_mapper::<String>(
-                result.health_check_target,
-            ),
-            health_check_type: crate::random_to_domain_mapper::<String>(result.health_check_type),
-            interface_address: crate::random_to_domain_mapper::<String>(result.interface_address),
-            mtu: crate::random_to_domain_mapper::<i32>(result.mtu),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            ttl: crate::random_to_domain_mapper::<i32>(result.ttl),
+            account_id: crate::into_domain(result.account_id),
+            cloudflare_gre_endpoint: crate::into_domain(result.cloudflare_gre_endpoint),
+            customer_gre_endpoint: crate::into_domain(result.customer_gre_endpoint),
+            description: crate::into_domain(result.description),
+            health_check_enabled: crate::into_domain(result.health_check_enabled),
+            health_check_target: crate::into_domain(result.health_check_target),
+            health_check_type: crate::into_domain(result.health_check_type),
+            interface_address: crate::into_domain(result.interface_address),
+            mtu: crate::into_domain(result.mtu),
+            name: crate::into_domain(result.name),
+            ttl: crate::into_domain(result.ttl),
         }
     }
 }
@@ -2636,64 +2354,52 @@ pub mod healthcheck {
         let result = crate::bindings::pulumi::cloudflare::healthcheck::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::healthcheck::Args {
-                address: &crate::clone::<String>(args.address),
-                allow_insecure: &crate::clone::<Option<bool>>(args.allow_insecure),
-                check_regions: &crate::clone::<Option<Vec<String>>>(args.check_regions),
-                consecutive_fails: &crate::clone::<Option<i32>>(args.consecutive_fails),
-                consecutive_successes: &crate::clone::<Option<i32>>(args.consecutive_successes),
-                description: &crate::clone::<Option<String>>(args.description),
-                expected_body: &crate::clone::<Option<String>>(args.expected_body),
-                expected_codes: &crate::clone::<Option<Vec<String>>>(args.expected_codes),
-                follow_redirects: &crate::clone::<Option<bool>>(args.follow_redirects),
-                headers: &crate::clone::<Option<Vec<crate::types::HealthcheckHeader>>>(
-                    args.headers,
-                ),
-                interval: &crate::clone::<Option<i32>>(args.interval),
-                method: &crate::clone::<Option<String>>(args.method),
-                name: &crate::clone::<String>(args.name),
-                path: &crate::clone::<Option<String>>(args.path),
-                port: &crate::clone::<Option<i32>>(args.port),
-                retries: &crate::clone::<Option<i32>>(args.retries),
-                suspended: &crate::clone::<Option<bool>>(args.suspended),
-                timeout: &crate::clone::<Option<i32>>(args.timeout),
-                type_: &crate::clone::<String>(args.type_),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                address: args.address.get_inner(),
+                allow_insecure: args.allow_insecure.get_inner(),
+                check_regions: args.check_regions.get_inner(),
+                consecutive_fails: args.consecutive_fails.get_inner(),
+                consecutive_successes: args.consecutive_successes.get_inner(),
+                description: args.description.get_inner(),
+                expected_body: args.expected_body.get_inner(),
+                expected_codes: args.expected_codes.get_inner(),
+                follow_redirects: args.follow_redirects.get_inner(),
+                headers: args.headers.get_inner(),
+                interval: args.interval.get_inner(),
+                method: args.method.get_inner(),
+                name: args.name.get_inner(),
+                path: args.path.get_inner(),
+                port: args.port.get_inner(),
+                retries: args.retries.get_inner(),
+                suspended: args.suspended.get_inner(),
+                timeout: args.timeout.get_inner(),
+                type_: args.type_.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         HealthcheckResult {
-            address: crate::random_to_domain_mapper::<String>(result.address),
-            allow_insecure: crate::random_to_domain_mapper::<Option<bool>>(result.allow_insecure),
-            check_regions: crate::random_to_domain_mapper::<Vec<String>>(result.check_regions),
-            consecutive_fails: crate::random_to_domain_mapper::<Option<i32>>(
-                result.consecutive_fails,
-            ),
-            consecutive_successes: crate::random_to_domain_mapper::<Option<i32>>(
-                result.consecutive_successes,
-            ),
-            created_on: crate::random_to_domain_mapper::<String>(result.created_on),
-            description: crate::random_to_domain_mapper::<Option<String>>(result.description),
-            expected_body: crate::random_to_domain_mapper::<Option<String>>(result.expected_body),
-            expected_codes: crate::random_to_domain_mapper::<Option<Vec<String>>>(
-                result.expected_codes,
-            ),
-            follow_redirects: crate::random_to_domain_mapper::<Option<bool>>(
-                result.follow_redirects,
-            ),
-            headers: crate::random_to_domain_mapper::<Option<Vec<crate::types::HealthcheckHeader>>>(
-                result.headers,
-            ),
-            interval: crate::random_to_domain_mapper::<Option<i32>>(result.interval),
-            method: crate::random_to_domain_mapper::<String>(result.method),
-            modified_on: crate::random_to_domain_mapper::<String>(result.modified_on),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            path: crate::random_to_domain_mapper::<Option<String>>(result.path),
-            port: crate::random_to_domain_mapper::<Option<i32>>(result.port),
-            retries: crate::random_to_domain_mapper::<Option<i32>>(result.retries),
-            suspended: crate::random_to_domain_mapper::<Option<bool>>(result.suspended),
-            timeout: crate::random_to_domain_mapper::<Option<i32>>(result.timeout),
-            type_: crate::random_to_domain_mapper::<String>(result.type_),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            address: crate::into_domain(result.address),
+            allow_insecure: crate::into_domain(result.allow_insecure),
+            check_regions: crate::into_domain(result.check_regions),
+            consecutive_fails: crate::into_domain(result.consecutive_fails),
+            consecutive_successes: crate::into_domain(result.consecutive_successes),
+            created_on: crate::into_domain(result.created_on),
+            description: crate::into_domain(result.description),
+            expected_body: crate::into_domain(result.expected_body),
+            expected_codes: crate::into_domain(result.expected_codes),
+            follow_redirects: crate::into_domain(result.follow_redirects),
+            headers: crate::into_domain(result.headers),
+            interval: crate::into_domain(result.interval),
+            method: crate::into_domain(result.method),
+            modified_on: crate::into_domain(result.modified_on),
+            name: crate::into_domain(result.name),
+            path: crate::into_domain(result.path),
+            port: crate::into_domain(result.port),
+            retries: crate::into_domain(result.retries),
+            suspended: crate::into_domain(result.suspended),
+            timeout: crate::into_domain(result.timeout),
+            type_: crate::into_domain(result.type_),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -2723,20 +2429,20 @@ pub mod hostname_tls_setting {
         let result = crate::bindings::pulumi::cloudflare::hostname_tls_setting::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::hostname_tls_setting::Args {
-                hostname: &crate::clone::<String>(args.hostname),
-                setting: &crate::clone::<String>(args.setting),
-                value: &crate::clone::<String>(args.value),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                hostname: args.hostname.get_inner(),
+                setting: args.setting.get_inner(),
+                value: args.value.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         HostnameTlsSettingResult {
-            created_at: crate::random_to_domain_mapper::<String>(result.created_at),
-            hostname: crate::random_to_domain_mapper::<String>(result.hostname),
-            setting: crate::random_to_domain_mapper::<String>(result.setting),
-            updated_at: crate::random_to_domain_mapper::<String>(result.updated_at),
-            value: crate::random_to_domain_mapper::<String>(result.value),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            created_at: crate::into_domain(result.created_at),
+            hostname: crate::into_domain(result.hostname),
+            setting: crate::into_domain(result.setting),
+            updated_at: crate::into_domain(result.updated_at),
+            value: crate::into_domain(result.value),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -2766,20 +2472,20 @@ pub mod hostname_tls_setting_ciphers {
         let result = crate::bindings::pulumi::cloudflare::hostname_tls_setting_ciphers::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::hostname_tls_setting_ciphers::Args {
-                hostname: &crate::clone::<String>(args.hostname),
-                ports: &crate::clone::<Option<Vec<i32>>>(args.ports),
-                values: &crate::clone::<Vec<String>>(args.values),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                hostname: args.hostname.get_inner(),
+                ports: args.ports.get_inner(),
+                values: args.values.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         HostnameTlsSettingCiphersResult {
-            created_at: crate::random_to_domain_mapper::<String>(result.created_at),
-            hostname: crate::random_to_domain_mapper::<String>(result.hostname),
-            ports: crate::random_to_domain_mapper::<Option<Vec<i32>>>(result.ports),
-            updated_at: crate::random_to_domain_mapper::<String>(result.updated_at),
-            values: crate::random_to_domain_mapper::<Vec<String>>(result.values),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            created_at: crate::into_domain(result.created_at),
+            hostname: crate::into_domain(result.hostname),
+            ports: crate::into_domain(result.ports),
+            updated_at: crate::into_domain(result.updated_at),
+            values: crate::into_domain(result.values),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -2804,24 +2510,18 @@ pub mod hyperdrive_config {
         let result = crate::bindings::pulumi::cloudflare::hyperdrive_config::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::hyperdrive_config::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                caching: &crate::clone::<Option<crate::types::HyperdriveConfigCaching>>(
-                    args.caching,
-                ),
-                name: &crate::clone::<String>(args.name),
-                origin: &crate::clone::<crate::types::HyperdriveConfigOrigin>(args.origin),
+                account_id: args.account_id.get_inner(),
+                caching: args.caching.get_inner(),
+                name: args.name.get_inner(),
+                origin: args.origin.get_inner(),
             },
         );
 
         HyperdriveConfigResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            caching: crate::random_to_domain_mapper::<crate::types::HyperdriveConfigCaching>(
-                result.caching,
-            ),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            origin: crate::random_to_domain_mapper::<crate::types::HyperdriveConfigOrigin>(
-                result.origin,
-            ),
+            account_id: crate::into_domain(result.account_id),
+            caching: crate::into_domain(result.caching),
+            name: crate::into_domain(result.name),
+            origin: crate::into_domain(result.origin),
         }
     }
 }
@@ -2872,56 +2572,44 @@ pub mod ipsec_tunnel {
         let result = crate::bindings::pulumi::cloudflare::ipsec_tunnel::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::ipsec_tunnel::Args {
-                account_id: &crate::clone::<Option<String>>(args.account_id),
-                allow_null_cipher: &crate::clone::<Option<bool>>(args.allow_null_cipher),
-                cloudflare_endpoint: &crate::clone::<String>(args.cloudflare_endpoint),
-                customer_endpoint: &crate::clone::<String>(args.customer_endpoint),
-                description: &crate::clone::<Option<String>>(args.description),
-                fqdn_id: &crate::clone::<Option<String>>(args.fqdn_id),
-                health_check_direction: &crate::clone::<Option<String>>(
-                    args.health_check_direction,
-                ),
-                health_check_enabled: &crate::clone::<Option<bool>>(args.health_check_enabled),
-                health_check_rate: &crate::clone::<Option<String>>(args.health_check_rate),
-                health_check_target: &crate::clone::<Option<String>>(args.health_check_target),
-                health_check_type: &crate::clone::<Option<String>>(args.health_check_type),
-                hex_id: &crate::clone::<Option<String>>(args.hex_id),
-                interface_address: &crate::clone::<String>(args.interface_address),
-                name: &crate::clone::<String>(args.name),
-                psk: &crate::clone::<Option<String>>(args.psk),
-                remote_id: &crate::clone::<Option<String>>(args.remote_id),
-                user_id: &crate::clone::<Option<String>>(args.user_id),
+                account_id: args.account_id.get_inner(),
+                allow_null_cipher: args.allow_null_cipher.get_inner(),
+                cloudflare_endpoint: args.cloudflare_endpoint.get_inner(),
+                customer_endpoint: args.customer_endpoint.get_inner(),
+                description: args.description.get_inner(),
+                fqdn_id: args.fqdn_id.get_inner(),
+                health_check_direction: args.health_check_direction.get_inner(),
+                health_check_enabled: args.health_check_enabled.get_inner(),
+                health_check_rate: args.health_check_rate.get_inner(),
+                health_check_target: args.health_check_target.get_inner(),
+                health_check_type: args.health_check_type.get_inner(),
+                hex_id: args.hex_id.get_inner(),
+                interface_address: args.interface_address.get_inner(),
+                name: args.name.get_inner(),
+                psk: args.psk.get_inner(),
+                remote_id: args.remote_id.get_inner(),
+                user_id: args.user_id.get_inner(),
             },
         );
 
         IpsecTunnelResult {
-            account_id: crate::random_to_domain_mapper::<Option<String>>(result.account_id),
-            allow_null_cipher: crate::random_to_domain_mapper::<Option<bool>>(
-                result.allow_null_cipher,
-            ),
-            cloudflare_endpoint: crate::random_to_domain_mapper::<String>(
-                result.cloudflare_endpoint,
-            ),
-            customer_endpoint: crate::random_to_domain_mapper::<String>(result.customer_endpoint),
-            description: crate::random_to_domain_mapper::<Option<String>>(result.description),
-            fqdn_id: crate::random_to_domain_mapper::<String>(result.fqdn_id),
-            health_check_direction: crate::random_to_domain_mapper::<String>(
-                result.health_check_direction,
-            ),
-            health_check_enabled: crate::random_to_domain_mapper::<bool>(
-                result.health_check_enabled,
-            ),
-            health_check_rate: crate::random_to_domain_mapper::<String>(result.health_check_rate),
-            health_check_target: crate::random_to_domain_mapper::<String>(
-                result.health_check_target,
-            ),
-            health_check_type: crate::random_to_domain_mapper::<String>(result.health_check_type),
-            hex_id: crate::random_to_domain_mapper::<String>(result.hex_id),
-            interface_address: crate::random_to_domain_mapper::<String>(result.interface_address),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            psk: crate::random_to_domain_mapper::<String>(result.psk),
-            remote_id: crate::random_to_domain_mapper::<String>(result.remote_id),
-            user_id: crate::random_to_domain_mapper::<String>(result.user_id),
+            account_id: crate::into_domain(result.account_id),
+            allow_null_cipher: crate::into_domain(result.allow_null_cipher),
+            cloudflare_endpoint: crate::into_domain(result.cloudflare_endpoint),
+            customer_endpoint: crate::into_domain(result.customer_endpoint),
+            description: crate::into_domain(result.description),
+            fqdn_id: crate::into_domain(result.fqdn_id),
+            health_check_direction: crate::into_domain(result.health_check_direction),
+            health_check_enabled: crate::into_domain(result.health_check_enabled),
+            health_check_rate: crate::into_domain(result.health_check_rate),
+            health_check_target: crate::into_domain(result.health_check_target),
+            health_check_type: crate::into_domain(result.health_check_type),
+            hex_id: crate::into_domain(result.hex_id),
+            interface_address: crate::into_domain(result.interface_address),
+            name: crate::into_domain(result.name),
+            psk: crate::into_domain(result.psk),
+            remote_id: crate::into_domain(result.remote_id),
+            user_id: crate::into_domain(result.user_id),
         }
     }
 }
@@ -2956,25 +2644,25 @@ pub mod keyless_certificate {
         let result = crate::bindings::pulumi::cloudflare::keyless_certificate::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::keyless_certificate::Args {
-                bundle_method: &crate::clone::<Option<String>>(args.bundle_method),
-                certificate: &crate::clone::<String>(args.certificate),
-                enabled: &crate::clone::<Option<bool>>(args.enabled),
-                host: &crate::clone::<String>(args.host),
-                name: &crate::clone::<Option<String>>(args.name),
-                port: &crate::clone::<Option<i32>>(args.port),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                bundle_method: args.bundle_method.get_inner(),
+                certificate: args.certificate.get_inner(),
+                enabled: args.enabled.get_inner(),
+                host: args.host.get_inner(),
+                name: args.name.get_inner(),
+                port: args.port.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         KeylessCertificateResult {
-            bundle_method: crate::random_to_domain_mapper::<Option<String>>(result.bundle_method),
-            certificate: crate::random_to_domain_mapper::<String>(result.certificate),
-            enabled: crate::random_to_domain_mapper::<Option<bool>>(result.enabled),
-            host: crate::random_to_domain_mapper::<String>(result.host),
-            name: crate::random_to_domain_mapper::<Option<String>>(result.name),
-            port: crate::random_to_domain_mapper::<Option<i32>>(result.port),
-            status: crate::random_to_domain_mapper::<String>(result.status),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            bundle_method: crate::into_domain(result.bundle_method),
+            certificate: crate::into_domain(result.certificate),
+            enabled: crate::into_domain(result.enabled),
+            host: crate::into_domain(result.host),
+            name: crate::into_domain(result.name),
+            port: crate::into_domain(result.port),
+            status: crate::into_domain(result.status),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -3001,22 +2689,20 @@ pub mod list {
         let result = crate::bindings::pulumi::cloudflare::list::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::list::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                description: &crate::clone::<Option<String>>(args.description),
-                items: &crate::clone::<Option<Vec<crate::types::ListItem>>>(args.items),
-                kind: &crate::clone::<String>(args.kind),
-                name: &crate::clone::<String>(args.name),
+                account_id: args.account_id.get_inner(),
+                description: args.description.get_inner(),
+                items: args.items.get_inner(),
+                kind: args.kind.get_inner(),
+                name: args.name.get_inner(),
             },
         );
 
         ListResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            description: crate::random_to_domain_mapper::<Option<String>>(result.description),
-            items: crate::random_to_domain_mapper::<Option<Vec<crate::types::ListItem>>>(
-                result.items,
-            ),
-            kind: crate::random_to_domain_mapper::<String>(result.kind),
-            name: crate::random_to_domain_mapper::<String>(result.name),
+            account_id: crate::into_domain(result.account_id),
+            description: crate::into_domain(result.description),
+            items: crate::into_domain(result.items),
+            kind: crate::into_domain(result.kind),
+            name: crate::into_domain(result.name),
         }
     }
 }
@@ -3047,28 +2733,24 @@ pub mod list_item {
         let result = crate::bindings::pulumi::cloudflare::list_item::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::list_item::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                asn: &crate::clone::<Option<i32>>(args.asn),
-                comment: &crate::clone::<Option<String>>(args.comment),
-                hostname: &crate::clone::<Option<crate::types::ListItemHostname>>(args.hostname),
-                ip: &crate::clone::<Option<String>>(args.ip),
-                list_id: &crate::clone::<String>(args.list_id),
-                redirect: &crate::clone::<Option<crate::types::ListItemRedirect>>(args.redirect),
+                account_id: args.account_id.get_inner(),
+                asn: args.asn.get_inner(),
+                comment: args.comment.get_inner(),
+                hostname: args.hostname.get_inner(),
+                ip: args.ip.get_inner(),
+                list_id: args.list_id.get_inner(),
+                redirect: args.redirect.get_inner(),
             },
         );
 
         ListItemResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            asn: crate::random_to_domain_mapper::<Option<i32>>(result.asn),
-            comment: crate::random_to_domain_mapper::<Option<String>>(result.comment),
-            hostname: crate::random_to_domain_mapper::<Option<crate::types::ListItemHostname>>(
-                result.hostname,
-            ),
-            ip: crate::random_to_domain_mapper::<Option<String>>(result.ip),
-            list_id: crate::random_to_domain_mapper::<String>(result.list_id),
-            redirect: crate::random_to_domain_mapper::<Option<crate::types::ListItemRedirect>>(
-                result.redirect,
-            ),
+            account_id: crate::into_domain(result.account_id),
+            asn: crate::into_domain(result.asn),
+            comment: crate::into_domain(result.comment),
+            hostname: crate::into_domain(result.hostname),
+            ip: crate::into_domain(result.ip),
+            list_id: crate::into_domain(result.list_id),
+            redirect: crate::into_domain(result.redirect),
         }
     }
 }
@@ -3139,86 +2821,50 @@ pub mod load_balancer {
         let result = crate::bindings::pulumi::cloudflare::load_balancer::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::load_balancer::Args {
-                adaptive_routings: &crate::clone::<
-                    Option<Vec<crate::types::LoadBalancerAdaptiveRouting>>,
-                >(args.adaptive_routings),
-                country_pools: &crate::clone::<Option<Vec<crate::types::LoadBalancerCountryPool>>>(
-                    args.country_pools,
-                ),
-                default_pool_ids: &crate::clone::<Vec<String>>(args.default_pool_ids),
-                description: &crate::clone::<Option<String>>(args.description),
-                enabled: &crate::clone::<Option<bool>>(args.enabled),
-                fallback_pool_id: &crate::clone::<String>(args.fallback_pool_id),
-                location_strategies: &crate::clone::<
-                    Option<Vec<crate::types::LoadBalancerLocationStrategy>>,
-                >(args.location_strategies),
-                name: &crate::clone::<String>(args.name),
-                pop_pools: &crate::clone::<Option<Vec<crate::types::LoadBalancerPopPool>>>(
-                    args.pop_pools,
-                ),
-                proxied: &crate::clone::<Option<bool>>(args.proxied),
-                random_steerings: &crate::clone::<
-                    Option<Vec<crate::types::LoadBalancerRandomSteering>>,
-                >(args.random_steerings),
-                region_pools: &crate::clone::<Option<Vec<crate::types::LoadBalancerRegionPool>>>(
-                    args.region_pools,
-                ),
-                rules: &crate::clone::<Option<Vec<crate::types::LoadBalancerRule>>>(args.rules),
-                session_affinity: &crate::clone::<Option<String>>(args.session_affinity),
-                session_affinity_attributes: &crate::clone::<
-                    Option<Vec<crate::types::LoadBalancerSessionAffinityAttribute>>,
-                >(args.session_affinity_attributes),
-                session_affinity_ttl: &crate::clone::<Option<i32>>(args.session_affinity_ttl),
-                steering_policy: &crate::clone::<Option<String>>(args.steering_policy),
-                ttl: &crate::clone::<Option<i32>>(args.ttl),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                adaptive_routings: args.adaptive_routings.get_inner(),
+                country_pools: args.country_pools.get_inner(),
+                default_pool_ids: args.default_pool_ids.get_inner(),
+                description: args.description.get_inner(),
+                enabled: args.enabled.get_inner(),
+                fallback_pool_id: args.fallback_pool_id.get_inner(),
+                location_strategies: args.location_strategies.get_inner(),
+                name: args.name.get_inner(),
+                pop_pools: args.pop_pools.get_inner(),
+                proxied: args.proxied.get_inner(),
+                random_steerings: args.random_steerings.get_inner(),
+                region_pools: args.region_pools.get_inner(),
+                rules: args.rules.get_inner(),
+                session_affinity: args.session_affinity.get_inner(),
+                session_affinity_attributes: args.session_affinity_attributes.get_inner(),
+                session_affinity_ttl: args.session_affinity_ttl.get_inner(),
+                steering_policy: args.steering_policy.get_inner(),
+                ttl: args.ttl.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         LoadBalancerResult {
-            adaptive_routings: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::LoadBalancerAdaptiveRouting>>,
-            >(result.adaptive_routings),
-            country_pools: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::LoadBalancerCountryPool>>,
-            >(result.country_pools),
-            created_on: crate::random_to_domain_mapper::<String>(result.created_on),
-            default_pool_ids: crate::random_to_domain_mapper::<Vec<String>>(
-                result.default_pool_ids,
-            ),
-            description: crate::random_to_domain_mapper::<Option<String>>(result.description),
-            enabled: crate::random_to_domain_mapper::<Option<bool>>(result.enabled),
-            fallback_pool_id: crate::random_to_domain_mapper::<String>(result.fallback_pool_id),
-            location_strategies: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::LoadBalancerLocationStrategy>>,
-            >(result.location_strategies),
-            modified_on: crate::random_to_domain_mapper::<String>(result.modified_on),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            pop_pools: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::LoadBalancerPopPool>>,
-            >(result.pop_pools),
-            proxied: crate::random_to_domain_mapper::<Option<bool>>(result.proxied),
-            random_steerings: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::LoadBalancerRandomSteering>>,
-            >(result.random_steerings),
-            region_pools: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::LoadBalancerRegionPool>>,
-            >(result.region_pools),
-            rules: crate::random_to_domain_mapper::<Option<Vec<crate::types::LoadBalancerRule>>>(
-                result.rules,
-            ),
-            session_affinity: crate::random_to_domain_mapper::<Option<String>>(
-                result.session_affinity,
-            ),
-            session_affinity_attributes: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::LoadBalancerSessionAffinityAttribute>>,
-            >(result.session_affinity_attributes),
-            session_affinity_ttl: crate::random_to_domain_mapper::<Option<i32>>(
-                result.session_affinity_ttl,
-            ),
-            steering_policy: crate::random_to_domain_mapper::<String>(result.steering_policy),
-            ttl: crate::random_to_domain_mapper::<i32>(result.ttl),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            adaptive_routings: crate::into_domain(result.adaptive_routings),
+            country_pools: crate::into_domain(result.country_pools),
+            created_on: crate::into_domain(result.created_on),
+            default_pool_ids: crate::into_domain(result.default_pool_ids),
+            description: crate::into_domain(result.description),
+            enabled: crate::into_domain(result.enabled),
+            fallback_pool_id: crate::into_domain(result.fallback_pool_id),
+            location_strategies: crate::into_domain(result.location_strategies),
+            modified_on: crate::into_domain(result.modified_on),
+            name: crate::into_domain(result.name),
+            pop_pools: crate::into_domain(result.pop_pools),
+            proxied: crate::into_domain(result.proxied),
+            random_steerings: crate::into_domain(result.random_steerings),
+            region_pools: crate::into_domain(result.region_pools),
+            rules: crate::into_domain(result.rules),
+            session_affinity: crate::into_domain(result.session_affinity),
+            session_affinity_attributes: crate::into_domain(result.session_affinity_attributes),
+            session_affinity_ttl: crate::into_domain(result.session_affinity_ttl),
+            steering_policy: crate::into_domain(result.steering_policy),
+            ttl: crate::into_domain(result.ttl),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -3274,54 +2920,46 @@ pub mod load_balancer_monitor {
         let result = crate::bindings::pulumi::cloudflare::load_balancer_monitor::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::load_balancer_monitor::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                allow_insecure: &crate::clone::<Option<bool>>(args.allow_insecure),
-                consecutive_down: &crate::clone::<Option<i32>>(args.consecutive_down),
-                consecutive_up: &crate::clone::<Option<i32>>(args.consecutive_up),
-                description: &crate::clone::<Option<String>>(args.description),
-                expected_body: &crate::clone::<Option<String>>(args.expected_body),
-                expected_codes: &crate::clone::<Option<String>>(args.expected_codes),
-                follow_redirects: &crate::clone::<Option<bool>>(args.follow_redirects),
-                headers: &crate::clone::<Option<Vec<crate::types::LoadBalancerMonitorHeader>>>(
-                    args.headers,
-                ),
-                interval: &crate::clone::<Option<i32>>(args.interval),
-                method: &crate::clone::<Option<String>>(args.method),
-                path: &crate::clone::<Option<String>>(args.path),
-                port: &crate::clone::<Option<i32>>(args.port),
-                probe_zone: &crate::clone::<Option<String>>(args.probe_zone),
-                retries: &crate::clone::<Option<i32>>(args.retries),
-                timeout: &crate::clone::<Option<i32>>(args.timeout),
-                type_: &crate::clone::<Option<String>>(args.type_),
+                account_id: args.account_id.get_inner(),
+                allow_insecure: args.allow_insecure.get_inner(),
+                consecutive_down: args.consecutive_down.get_inner(),
+                consecutive_up: args.consecutive_up.get_inner(),
+                description: args.description.get_inner(),
+                expected_body: args.expected_body.get_inner(),
+                expected_codes: args.expected_codes.get_inner(),
+                follow_redirects: args.follow_redirects.get_inner(),
+                headers: args.headers.get_inner(),
+                interval: args.interval.get_inner(),
+                method: args.method.get_inner(),
+                path: args.path.get_inner(),
+                port: args.port.get_inner(),
+                probe_zone: args.probe_zone.get_inner(),
+                retries: args.retries.get_inner(),
+                timeout: args.timeout.get_inner(),
+                type_: args.type_.get_inner(),
             },
         );
 
         LoadBalancerMonitorResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            allow_insecure: crate::random_to_domain_mapper::<Option<bool>>(result.allow_insecure),
-            consecutive_down: crate::random_to_domain_mapper::<Option<i32>>(
-                result.consecutive_down,
-            ),
-            consecutive_up: crate::random_to_domain_mapper::<Option<i32>>(result.consecutive_up),
-            created_on: crate::random_to_domain_mapper::<String>(result.created_on),
-            description: crate::random_to_domain_mapper::<Option<String>>(result.description),
-            expected_body: crate::random_to_domain_mapper::<Option<String>>(result.expected_body),
-            expected_codes: crate::random_to_domain_mapper::<Option<String>>(result.expected_codes),
-            follow_redirects: crate::random_to_domain_mapper::<Option<bool>>(
-                result.follow_redirects,
-            ),
-            headers: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::LoadBalancerMonitorHeader>>,
-            >(result.headers),
-            interval: crate::random_to_domain_mapper::<Option<i32>>(result.interval),
-            method: crate::random_to_domain_mapper::<String>(result.method),
-            modified_on: crate::random_to_domain_mapper::<String>(result.modified_on),
-            path: crate::random_to_domain_mapper::<String>(result.path),
-            port: crate::random_to_domain_mapper::<Option<i32>>(result.port),
-            probe_zone: crate::random_to_domain_mapper::<Option<String>>(result.probe_zone),
-            retries: crate::random_to_domain_mapper::<Option<i32>>(result.retries),
-            timeout: crate::random_to_domain_mapper::<Option<i32>>(result.timeout),
-            type_: crate::random_to_domain_mapper::<Option<String>>(result.type_),
+            account_id: crate::into_domain(result.account_id),
+            allow_insecure: crate::into_domain(result.allow_insecure),
+            consecutive_down: crate::into_domain(result.consecutive_down),
+            consecutive_up: crate::into_domain(result.consecutive_up),
+            created_on: crate::into_domain(result.created_on),
+            description: crate::into_domain(result.description),
+            expected_body: crate::into_domain(result.expected_body),
+            expected_codes: crate::into_domain(result.expected_codes),
+            follow_redirects: crate::into_domain(result.follow_redirects),
+            headers: crate::into_domain(result.headers),
+            interval: crate::into_domain(result.interval),
+            method: crate::into_domain(result.method),
+            modified_on: crate::into_domain(result.modified_on),
+            path: crate::into_domain(result.path),
+            port: crate::into_domain(result.port),
+            probe_zone: crate::into_domain(result.probe_zone),
+            retries: crate::into_domain(result.retries),
+            timeout: crate::into_domain(result.timeout),
+            type_: crate::into_domain(result.type_),
         }
     }
 }
@@ -3370,50 +3008,38 @@ pub mod load_balancer_pool {
         let result = crate::bindings::pulumi::cloudflare::load_balancer_pool::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::load_balancer_pool::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                check_regions: &crate::clone::<Option<Vec<String>>>(args.check_regions),
-                description: &crate::clone::<Option<String>>(args.description),
-                enabled: &crate::clone::<Option<bool>>(args.enabled),
-                latitude: &crate::clone::<Option<f64>>(args.latitude),
-                load_sheddings: &crate::clone::<
-                    Option<Vec<crate::types::LoadBalancerPoolLoadShedding>>,
-                >(args.load_sheddings),
-                longitude: &crate::clone::<Option<f64>>(args.longitude),
-                minimum_origins: &crate::clone::<Option<i32>>(args.minimum_origins),
-                monitor: &crate::clone::<Option<String>>(args.monitor),
-                name: &crate::clone::<String>(args.name),
-                notification_email: &crate::clone::<Option<String>>(args.notification_email),
-                origin_steerings: &crate::clone::<
-                    Option<Vec<crate::types::LoadBalancerPoolOriginSteering>>,
-                >(args.origin_steerings),
-                origins: &crate::clone::<Vec<crate::types::LoadBalancerPoolOrigin>>(args.origins),
+                account_id: args.account_id.get_inner(),
+                check_regions: args.check_regions.get_inner(),
+                description: args.description.get_inner(),
+                enabled: args.enabled.get_inner(),
+                latitude: args.latitude.get_inner(),
+                load_sheddings: args.load_sheddings.get_inner(),
+                longitude: args.longitude.get_inner(),
+                minimum_origins: args.minimum_origins.get_inner(),
+                monitor: args.monitor.get_inner(),
+                name: args.name.get_inner(),
+                notification_email: args.notification_email.get_inner(),
+                origin_steerings: args.origin_steerings.get_inner(),
+                origins: args.origins.get_inner(),
             },
         );
 
         LoadBalancerPoolResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            check_regions: crate::random_to_domain_mapper::<Vec<String>>(result.check_regions),
-            created_on: crate::random_to_domain_mapper::<String>(result.created_on),
-            description: crate::random_to_domain_mapper::<Option<String>>(result.description),
-            enabled: crate::random_to_domain_mapper::<Option<bool>>(result.enabled),
-            latitude: crate::random_to_domain_mapper::<Option<f64>>(result.latitude),
-            load_sheddings: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::LoadBalancerPoolLoadShedding>>,
-            >(result.load_sheddings),
-            longitude: crate::random_to_domain_mapper::<Option<f64>>(result.longitude),
-            minimum_origins: crate::random_to_domain_mapper::<Option<i32>>(result.minimum_origins),
-            modified_on: crate::random_to_domain_mapper::<String>(result.modified_on),
-            monitor: crate::random_to_domain_mapper::<Option<String>>(result.monitor),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            notification_email: crate::random_to_domain_mapper::<Option<String>>(
-                result.notification_email,
-            ),
-            origin_steerings: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::LoadBalancerPoolOriginSteering>>,
-            >(result.origin_steerings),
-            origins: crate::random_to_domain_mapper::<Vec<crate::types::LoadBalancerPoolOrigin>>(
-                result.origins,
-            ),
+            account_id: crate::into_domain(result.account_id),
+            check_regions: crate::into_domain(result.check_regions),
+            created_on: crate::into_domain(result.created_on),
+            description: crate::into_domain(result.description),
+            enabled: crate::into_domain(result.enabled),
+            latitude: crate::into_domain(result.latitude),
+            load_sheddings: crate::into_domain(result.load_sheddings),
+            longitude: crate::into_domain(result.longitude),
+            minimum_origins: crate::into_domain(result.minimum_origins),
+            modified_on: crate::into_domain(result.modified_on),
+            monitor: crate::into_domain(result.monitor),
+            name: crate::into_domain(result.name),
+            notification_email: crate::into_domain(result.notification_email),
+            origin_steerings: crate::into_domain(result.origin_steerings),
+            origins: crate::into_domain(result.origins),
         }
     }
 }
@@ -3434,14 +3060,14 @@ pub mod logpull_retention {
         let result = crate::bindings::pulumi::cloudflare::logpull_retention::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::logpull_retention::Args {
-                enabled: &crate::clone::<bool>(args.enabled),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                enabled: args.enabled.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         LogpullRetentionResult {
-            enabled: crate::random_to_domain_mapper::<bool>(result.enabled),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            enabled: crate::into_domain(result.enabled),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -3488,56 +3114,40 @@ pub mod logpush_job {
         let result = crate::bindings::pulumi::cloudflare::logpush_job::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::logpush_job::Args {
-                account_id: &crate::clone::<Option<String>>(args.account_id),
-                dataset: &crate::clone::<String>(args.dataset),
-                destination_conf: &crate::clone::<String>(args.destination_conf),
-                enabled: &crate::clone::<Option<bool>>(args.enabled),
-                filter: &crate::clone::<Option<String>>(args.filter),
-                frequency: &crate::clone::<Option<String>>(args.frequency),
-                kind: &crate::clone::<Option<String>>(args.kind),
-                logpull_options: &crate::clone::<Option<String>>(args.logpull_options),
-                max_upload_bytes: &crate::clone::<Option<i32>>(args.max_upload_bytes),
-                max_upload_interval_seconds: &crate::clone::<Option<i32>>(
-                    args.max_upload_interval_seconds,
-                ),
-                max_upload_records: &crate::clone::<Option<i32>>(args.max_upload_records),
-                name: &crate::clone::<Option<String>>(args.name),
-                output_options: &crate::clone::<Option<crate::types::LogpushJobOutputOptions>>(
-                    args.output_options,
-                ),
-                ownership_challenge: &crate::clone::<Option<String>>(args.ownership_challenge),
-                zone_id: &crate::clone::<Option<String>>(args.zone_id),
+                account_id: args.account_id.get_inner(),
+                dataset: args.dataset.get_inner(),
+                destination_conf: args.destination_conf.get_inner(),
+                enabled: args.enabled.get_inner(),
+                filter: args.filter.get_inner(),
+                frequency: args.frequency.get_inner(),
+                kind: args.kind.get_inner(),
+                logpull_options: args.logpull_options.get_inner(),
+                max_upload_bytes: args.max_upload_bytes.get_inner(),
+                max_upload_interval_seconds: args.max_upload_interval_seconds.get_inner(),
+                max_upload_records: args.max_upload_records.get_inner(),
+                name: args.name.get_inner(),
+                output_options: args.output_options.get_inner(),
+                ownership_challenge: args.ownership_challenge.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         LogpushJobResult {
-            account_id: crate::random_to_domain_mapper::<Option<String>>(result.account_id),
-            dataset: crate::random_to_domain_mapper::<String>(result.dataset),
-            destination_conf: crate::random_to_domain_mapper::<String>(result.destination_conf),
-            enabled: crate::random_to_domain_mapper::<Option<bool>>(result.enabled),
-            filter: crate::random_to_domain_mapper::<Option<String>>(result.filter),
-            frequency: crate::random_to_domain_mapper::<Option<String>>(result.frequency),
-            kind: crate::random_to_domain_mapper::<Option<String>>(result.kind),
-            logpull_options: crate::random_to_domain_mapper::<Option<String>>(
-                result.logpull_options,
-            ),
-            max_upload_bytes: crate::random_to_domain_mapper::<Option<i32>>(
-                result.max_upload_bytes,
-            ),
-            max_upload_interval_seconds: crate::random_to_domain_mapper::<Option<i32>>(
-                result.max_upload_interval_seconds,
-            ),
-            max_upload_records: crate::random_to_domain_mapper::<Option<i32>>(
-                result.max_upload_records,
-            ),
-            name: crate::random_to_domain_mapper::<Option<String>>(result.name),
-            output_options: crate::random_to_domain_mapper::<
-                Option<crate::types::LogpushJobOutputOptions>,
-            >(result.output_options),
-            ownership_challenge: crate::random_to_domain_mapper::<Option<String>>(
-                result.ownership_challenge,
-            ),
-            zone_id: crate::random_to_domain_mapper::<Option<String>>(result.zone_id),
+            account_id: crate::into_domain(result.account_id),
+            dataset: crate::into_domain(result.dataset),
+            destination_conf: crate::into_domain(result.destination_conf),
+            enabled: crate::into_domain(result.enabled),
+            filter: crate::into_domain(result.filter),
+            frequency: crate::into_domain(result.frequency),
+            kind: crate::into_domain(result.kind),
+            logpull_options: crate::into_domain(result.logpull_options),
+            max_upload_bytes: crate::into_domain(result.max_upload_bytes),
+            max_upload_interval_seconds: crate::into_domain(result.max_upload_interval_seconds),
+            max_upload_records: crate::into_domain(result.max_upload_records),
+            name: crate::into_domain(result.name),
+            output_options: crate::into_domain(result.output_options),
+            ownership_challenge: crate::into_domain(result.ownership_challenge),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -3564,19 +3174,17 @@ pub mod logpush_ownership_challenge {
         let result = crate::bindings::pulumi::cloudflare::logpush_ownership_challenge::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::logpush_ownership_challenge::Args {
-                account_id: &crate::clone::<Option<String>>(args.account_id),
-                destination_conf: &crate::clone::<String>(args.destination_conf),
-                zone_id: &crate::clone::<Option<String>>(args.zone_id),
+                account_id: args.account_id.get_inner(),
+                destination_conf: args.destination_conf.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         LogpushOwnershipChallengeResult {
-            account_id: crate::random_to_domain_mapper::<Option<String>>(result.account_id),
-            destination_conf: crate::random_to_domain_mapper::<String>(result.destination_conf),
-            ownership_challenge_filename: crate::random_to_domain_mapper::<String>(
-                result.ownership_challenge_filename,
-            ),
-            zone_id: crate::random_to_domain_mapper::<Option<String>>(result.zone_id),
+            account_id: crate::into_domain(result.account_id),
+            destination_conf: crate::into_domain(result.destination_conf),
+            ownership_challenge_filename: crate::into_domain(result.ownership_challenge_filename),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -3604,22 +3212,18 @@ pub mod magic_firewall_ruleset {
         let result = crate::bindings::pulumi::cloudflare::magic_firewall_ruleset::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::magic_firewall_ruleset::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                description: &crate::clone::<Option<String>>(args.description),
-                name: &crate::clone::<String>(args.name),
-                rules: &crate::clone::<Option<Vec<std::collections::HashMap<String, String>>>>(
-                    args.rules,
-                ),
+                account_id: args.account_id.get_inner(),
+                description: args.description.get_inner(),
+                name: args.name.get_inner(),
+                rules: args.rules.get_inner(),
             },
         );
 
         MagicFirewallRulesetResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            description: crate::random_to_domain_mapper::<Option<String>>(result.description),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            rules: crate::random_to_domain_mapper::<
-                Option<Vec<std::collections::HashMap<String, String>>>,
-            >(result.rules),
+            account_id: crate::into_domain(result.account_id),
+            description: crate::into_domain(result.description),
+            name: crate::into_domain(result.name),
+            rules: crate::into_domain(result.rules),
         }
     }
 }
@@ -3648,24 +3252,16 @@ pub mod managed_headers {
         let result = crate::bindings::pulumi::cloudflare::managed_headers::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::managed_headers::Args {
-                managed_request_headers: &crate::clone::<
-                    Option<Vec<crate::types::ManagedHeadersManagedRequestHeader>>,
-                >(args.managed_request_headers),
-                managed_response_headers: &crate::clone::<
-                    Option<Vec<crate::types::ManagedHeadersManagedResponseHeader>>,
-                >(args.managed_response_headers),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                managed_request_headers: args.managed_request_headers.get_inner(),
+                managed_response_headers: args.managed_response_headers.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         ManagedHeadersResult {
-            managed_request_headers: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::ManagedHeadersManagedRequestHeader>>,
-            >(result.managed_request_headers),
-            managed_response_headers: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::ManagedHeadersManagedResponseHeader>>,
-            >(result.managed_response_headers),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            managed_request_headers: crate::into_domain(result.managed_request_headers),
+            managed_response_headers: crate::into_domain(result.managed_response_headers),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -3697,25 +3293,25 @@ pub mod mtls_certificate {
         let result = crate::bindings::pulumi::cloudflare::mtls_certificate::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::mtls_certificate::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                ca: &crate::clone::<bool>(args.ca),
-                certificates: &crate::clone::<String>(args.certificates),
-                name: &crate::clone::<Option<String>>(args.name),
-                private_key: &crate::clone::<Option<String>>(args.private_key),
+                account_id: args.account_id.get_inner(),
+                ca: args.ca.get_inner(),
+                certificates: args.certificates.get_inner(),
+                name: args.name.get_inner(),
+                private_key: args.private_key.get_inner(),
             },
         );
 
         MtlsCertificateResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            ca: crate::random_to_domain_mapper::<bool>(result.ca),
-            certificates: crate::random_to_domain_mapper::<String>(result.certificates),
-            expires_on: crate::random_to_domain_mapper::<String>(result.expires_on),
-            issuer: crate::random_to_domain_mapper::<String>(result.issuer),
-            name: crate::random_to_domain_mapper::<Option<String>>(result.name),
-            private_key: crate::random_to_domain_mapper::<Option<String>>(result.private_key),
-            serial_number: crate::random_to_domain_mapper::<String>(result.serial_number),
-            signature: crate::random_to_domain_mapper::<String>(result.signature),
-            uploaded_on: crate::random_to_domain_mapper::<String>(result.uploaded_on),
+            account_id: crate::into_domain(result.account_id),
+            ca: crate::into_domain(result.ca),
+            certificates: crate::into_domain(result.certificates),
+            expires_on: crate::into_domain(result.expires_on),
+            issuer: crate::into_domain(result.issuer),
+            name: crate::into_domain(result.name),
+            private_key: crate::into_domain(result.private_key),
+            serial_number: crate::into_domain(result.serial_number),
+            signature: crate::into_domain(result.signature),
+            uploaded_on: crate::into_domain(result.uploaded_on),
         }
     }
 }
@@ -3765,46 +3361,30 @@ pub mod notification_policy {
         let result = crate::bindings::pulumi::cloudflare::notification_policy::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::notification_policy::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                alert_type: &crate::clone::<String>(args.alert_type),
-                description: &crate::clone::<Option<String>>(args.description),
-                email_integrations: &crate::clone::<
-                    Option<Vec<crate::types::NotificationPolicyEmailIntegration>>,
-                >(args.email_integrations),
-                enabled: &crate::clone::<bool>(args.enabled),
-                filters: &crate::clone::<Option<crate::types::NotificationPolicyFilters>>(
-                    args.filters,
-                ),
-                name: &crate::clone::<String>(args.name),
-                pagerduty_integrations: &crate::clone::<
-                    Option<Vec<crate::types::NotificationPolicyPagerdutyIntegration>>,
-                >(args.pagerduty_integrations),
-                webhooks_integrations: &crate::clone::<
-                    Option<Vec<crate::types::NotificationPolicyWebhooksIntegration>>,
-                >(args.webhooks_integrations),
+                account_id: args.account_id.get_inner(),
+                alert_type: args.alert_type.get_inner(),
+                description: args.description.get_inner(),
+                email_integrations: args.email_integrations.get_inner(),
+                enabled: args.enabled.get_inner(),
+                filters: args.filters.get_inner(),
+                name: args.name.get_inner(),
+                pagerduty_integrations: args.pagerduty_integrations.get_inner(),
+                webhooks_integrations: args.webhooks_integrations.get_inner(),
             },
         );
 
         NotificationPolicyResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            alert_type: crate::random_to_domain_mapper::<String>(result.alert_type),
-            created: crate::random_to_domain_mapper::<String>(result.created),
-            description: crate::random_to_domain_mapper::<Option<String>>(result.description),
-            email_integrations: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::NotificationPolicyEmailIntegration>>,
-            >(result.email_integrations),
-            enabled: crate::random_to_domain_mapper::<bool>(result.enabled),
-            filters: crate::random_to_domain_mapper::<
-                Option<crate::types::NotificationPolicyFilters>,
-            >(result.filters),
-            modified: crate::random_to_domain_mapper::<String>(result.modified),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            pagerduty_integrations: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::NotificationPolicyPagerdutyIntegration>>,
-            >(result.pagerduty_integrations),
-            webhooks_integrations: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::NotificationPolicyWebhooksIntegration>>,
-            >(result.webhooks_integrations),
+            account_id: crate::into_domain(result.account_id),
+            alert_type: crate::into_domain(result.alert_type),
+            created: crate::into_domain(result.created),
+            description: crate::into_domain(result.description),
+            email_integrations: crate::into_domain(result.email_integrations),
+            enabled: crate::into_domain(result.enabled),
+            filters: crate::into_domain(result.filters),
+            modified: crate::into_domain(result.modified),
+            name: crate::into_domain(result.name),
+            pagerduty_integrations: crate::into_domain(result.pagerduty_integrations),
+            webhooks_integrations: crate::into_domain(result.webhooks_integrations),
         }
     }
 }
@@ -3836,22 +3416,22 @@ pub mod notification_policy_webhooks {
         let result = crate::bindings::pulumi::cloudflare::notification_policy_webhooks::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::notification_policy_webhooks::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                name: &crate::clone::<String>(args.name),
-                secret: &crate::clone::<Option<String>>(args.secret),
-                url: &crate::clone::<Option<String>>(args.url),
+                account_id: args.account_id.get_inner(),
+                name: args.name.get_inner(),
+                secret: args.secret.get_inner(),
+                url: args.url.get_inner(),
             },
         );
 
         NotificationPolicyWebhooksResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            created_at: crate::random_to_domain_mapper::<String>(result.created_at),
-            last_failure: crate::random_to_domain_mapper::<String>(result.last_failure),
-            last_success: crate::random_to_domain_mapper::<String>(result.last_success),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            secret: crate::random_to_domain_mapper::<Option<String>>(result.secret),
-            type_: crate::random_to_domain_mapper::<String>(result.type_),
-            url: crate::random_to_domain_mapper::<Option<String>>(result.url),
+            account_id: crate::into_domain(result.account_id),
+            created_at: crate::into_domain(result.created_at),
+            last_failure: crate::into_domain(result.last_failure),
+            last_success: crate::into_domain(result.last_success),
+            name: crate::into_domain(result.name),
+            secret: crate::into_domain(result.secret),
+            type_: crate::into_domain(result.type_),
+            url: crate::into_domain(result.url),
         }
     }
 }
@@ -3879,18 +3459,18 @@ pub mod observatory_scheduled_test {
         let result = crate::bindings::pulumi::cloudflare::observatory_scheduled_test::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::observatory_scheduled_test::Args {
-                frequency: &crate::clone::<String>(args.frequency),
-                region: &crate::clone::<String>(args.region),
-                url: &crate::clone::<String>(args.url),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                frequency: args.frequency.get_inner(),
+                region: args.region.get_inner(),
+                url: args.url.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         ObservatoryScheduledTestResult {
-            frequency: crate::random_to_domain_mapper::<String>(result.frequency),
-            region: crate::random_to_domain_mapper::<String>(result.region),
-            url: crate::random_to_domain_mapper::<String>(result.url),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            frequency: crate::into_domain(result.frequency),
+            region: crate::into_domain(result.region),
+            url: crate::into_domain(result.url),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -3922,24 +3502,22 @@ pub mod origin_ca_certificate {
         let result = crate::bindings::pulumi::cloudflare::origin_ca_certificate::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::origin_ca_certificate::Args {
-                csr: &crate::clone::<String>(args.csr),
-                hostnames: &crate::clone::<Vec<String>>(args.hostnames),
-                min_days_for_renewal: &crate::clone::<Option<i32>>(args.min_days_for_renewal),
-                request_type: &crate::clone::<String>(args.request_type),
-                requested_validity: &crate::clone::<Option<i32>>(args.requested_validity),
+                csr: args.csr.get_inner(),
+                hostnames: args.hostnames.get_inner(),
+                min_days_for_renewal: args.min_days_for_renewal.get_inner(),
+                request_type: args.request_type.get_inner(),
+                requested_validity: args.requested_validity.get_inner(),
             },
         );
 
         OriginCaCertificateResult {
-            certificate: crate::random_to_domain_mapper::<String>(result.certificate),
-            csr: crate::random_to_domain_mapper::<String>(result.csr),
-            expires_on: crate::random_to_domain_mapper::<String>(result.expires_on),
-            hostnames: crate::random_to_domain_mapper::<Vec<String>>(result.hostnames),
-            min_days_for_renewal: crate::random_to_domain_mapper::<Option<i32>>(
-                result.min_days_for_renewal,
-            ),
-            request_type: crate::random_to_domain_mapper::<String>(result.request_type),
-            requested_validity: crate::random_to_domain_mapper::<i32>(result.requested_validity),
+            certificate: crate::into_domain(result.certificate),
+            csr: crate::into_domain(result.csr),
+            expires_on: crate::into_domain(result.expires_on),
+            hostnames: crate::into_domain(result.hostnames),
+            min_days_for_renewal: crate::into_domain(result.min_days_for_renewal),
+            request_type: crate::into_domain(result.request_type),
+            requested_validity: crate::into_domain(result.requested_validity),
         }
     }
 }
@@ -3966,22 +3544,20 @@ pub mod page_rule {
         let result = crate::bindings::pulumi::cloudflare::page_rule::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::page_rule::Args {
-                actions: &crate::clone::<crate::types::PageRuleActions>(args.actions),
-                priority: &crate::clone::<Option<i32>>(args.priority),
-                status: &crate::clone::<Option<String>>(args.status),
-                target: &crate::clone::<String>(args.target),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                actions: args.actions.get_inner(),
+                priority: args.priority.get_inner(),
+                status: args.status.get_inner(),
+                target: args.target.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         PageRuleResult {
-            actions: crate::random_to_domain_mapper::<crate::types::PageRuleActions>(
-                result.actions,
-            ),
-            priority: crate::random_to_domain_mapper::<Option<i32>>(result.priority),
-            status: crate::random_to_domain_mapper::<Option<String>>(result.status),
-            target: crate::random_to_domain_mapper::<String>(result.target),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            actions: crate::into_domain(result.actions),
+            priority: crate::into_domain(result.priority),
+            status: crate::into_domain(result.status),
+            target: crate::into_domain(result.target),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -4005,17 +3581,17 @@ pub mod pages_domain {
         let result = crate::bindings::pulumi::cloudflare::pages_domain::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::pages_domain::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                domain: &crate::clone::<String>(args.domain),
-                project_name: &crate::clone::<String>(args.project_name),
+                account_id: args.account_id.get_inner(),
+                domain: args.domain.get_inner(),
+                project_name: args.project_name.get_inner(),
             },
         );
 
         PagesDomainResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            domain: crate::random_to_domain_mapper::<String>(result.domain),
-            project_name: crate::random_to_domain_mapper::<String>(result.project_name),
-            status: crate::random_to_domain_mapper::<String>(result.status),
+            account_id: crate::into_domain(result.account_id),
+            domain: crate::into_domain(result.domain),
+            project_name: crate::into_domain(result.project_name),
+            status: crate::into_domain(result.status),
         }
     }
 }
@@ -4049,35 +3625,25 @@ pub mod pages_project {
         let result = crate::bindings::pulumi::cloudflare::pages_project::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::pages_project::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                build_config: &crate::clone::<Option<crate::types::PagesProjectBuildConfig>>(
-                    args.build_config,
-                ),
-                deployment_configs: &crate::clone::<
-                    Option<crate::types::PagesProjectDeploymentConfigs>,
-                >(args.deployment_configs),
-                name: &crate::clone::<String>(args.name),
-                production_branch: &crate::clone::<String>(args.production_branch),
-                source: &crate::clone::<Option<crate::types::PagesProjectSource>>(args.source),
+                account_id: args.account_id.get_inner(),
+                build_config: args.build_config.get_inner(),
+                deployment_configs: args.deployment_configs.get_inner(),
+                name: args.name.get_inner(),
+                production_branch: args.production_branch.get_inner(),
+                source: args.source.get_inner(),
             },
         );
 
         PagesProjectResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            build_config: crate::random_to_domain_mapper::<
-                Option<crate::types::PagesProjectBuildConfig>,
-            >(result.build_config),
-            created_on: crate::random_to_domain_mapper::<String>(result.created_on),
-            deployment_configs: crate::random_to_domain_mapper::<
-                crate::types::PagesProjectDeploymentConfigs,
-            >(result.deployment_configs),
-            domains: crate::random_to_domain_mapper::<Vec<String>>(result.domains),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            production_branch: crate::random_to_domain_mapper::<String>(result.production_branch),
-            source: crate::random_to_domain_mapper::<Option<crate::types::PagesProjectSource>>(
-                result.source,
-            ),
-            subdomain: crate::random_to_domain_mapper::<String>(result.subdomain),
+            account_id: crate::into_domain(result.account_id),
+            build_config: crate::into_domain(result.build_config),
+            created_on: crate::into_domain(result.created_on),
+            deployment_configs: crate::into_domain(result.deployment_configs),
+            domains: crate::into_domain(result.domains),
+            name: crate::into_domain(result.name),
+            production_branch: crate::into_domain(result.production_branch),
+            source: crate::into_domain(result.source),
+            subdomain: crate::into_domain(result.subdomain),
         }
     }
 }
@@ -4098,14 +3664,14 @@ pub mod queue {
         let result = crate::bindings::pulumi::cloudflare::queue::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::queue::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                name: &crate::clone::<String>(args.name),
+                account_id: args.account_id.get_inner(),
+                name: args.name.get_inner(),
             },
         );
 
         QueueResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            name: crate::random_to_domain_mapper::<String>(result.name),
+            account_id: crate::into_domain(result.account_id),
+            name: crate::into_domain(result.name),
         }
     }
 }
@@ -4128,16 +3694,16 @@ pub mod r2_bucket {
         let result = crate::bindings::pulumi::cloudflare::r2_bucket::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::r2_bucket::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                location: &crate::clone::<Option<String>>(args.location),
-                name: &crate::clone::<String>(args.name),
+                account_id: args.account_id.get_inner(),
+                location: args.location.get_inner(),
+                name: args.name.get_inner(),
             },
         );
 
         R2BucketResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            location: crate::random_to_domain_mapper::<String>(result.location),
-            name: crate::random_to_domain_mapper::<String>(result.name),
+            account_id: crate::into_domain(result.account_id),
+            location: crate::into_domain(result.location),
+            name: crate::into_domain(result.name),
         }
     }
 }
@@ -4172,34 +3738,28 @@ pub mod rate_limit {
         let result = crate::bindings::pulumi::cloudflare::rate_limit::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::rate_limit::Args {
-                action: &crate::clone::<crate::types::RateLimitAction>(args.action),
-                bypass_url_patterns: &crate::clone::<Option<Vec<String>>>(args.bypass_url_patterns),
-                correlate: &crate::clone::<Option<crate::types::RateLimitCorrelate>>(
-                    args.correlate,
-                ),
-                description: &crate::clone::<Option<String>>(args.description),
-                disabled: &crate::clone::<Option<bool>>(args.disabled),
-                match_: &crate::clone::<Option<crate::types::RateLimitMatch>>(args.match_),
-                period: &crate::clone::<i32>(args.period),
-                threshold: &crate::clone::<i32>(args.threshold),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                action: args.action.get_inner(),
+                bypass_url_patterns: args.bypass_url_patterns.get_inner(),
+                correlate: args.correlate.get_inner(),
+                description: args.description.get_inner(),
+                disabled: args.disabled.get_inner(),
+                match_: args.match_.get_inner(),
+                period: args.period.get_inner(),
+                threshold: args.threshold.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         RateLimitResult {
-            action: crate::random_to_domain_mapper::<crate::types::RateLimitAction>(result.action),
-            bypass_url_patterns: crate::random_to_domain_mapper::<Option<Vec<String>>>(
-                result.bypass_url_patterns,
-            ),
-            correlate: crate::random_to_domain_mapper::<Option<crate::types::RateLimitCorrelate>>(
-                result.correlate,
-            ),
-            description: crate::random_to_domain_mapper::<Option<String>>(result.description),
-            disabled: crate::random_to_domain_mapper::<Option<bool>>(result.disabled),
-            match_: crate::random_to_domain_mapper::<crate::types::RateLimitMatch>(result.match_),
-            period: crate::random_to_domain_mapper::<i32>(result.period),
-            threshold: crate::random_to_domain_mapper::<i32>(result.threshold),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            action: crate::into_domain(result.action),
+            bypass_url_patterns: crate::into_domain(result.bypass_url_patterns),
+            correlate: crate::into_domain(result.correlate),
+            description: crate::into_domain(result.description),
+            disabled: crate::into_domain(result.disabled),
+            match_: crate::into_domain(result.match_),
+            period: crate::into_domain(result.period),
+            threshold: crate::into_domain(result.threshold),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -4243,39 +3803,37 @@ pub mod record {
         let result = crate::bindings::pulumi::cloudflare::record::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::record::Args {
-                allow_overwrite: &crate::clone::<Option<bool>>(args.allow_overwrite),
-                comment: &crate::clone::<Option<String>>(args.comment),
-                data: &crate::clone::<Option<crate::types::RecordData>>(args.data),
-                name: &crate::clone::<String>(args.name),
-                priority: &crate::clone::<Option<i32>>(args.priority),
-                proxied: &crate::clone::<Option<bool>>(args.proxied),
-                tags: &crate::clone::<Option<Vec<String>>>(args.tags),
-                ttl: &crate::clone::<Option<i32>>(args.ttl),
-                type_: &crate::clone::<String>(args.type_),
-                value: &crate::clone::<Option<String>>(args.value),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                allow_overwrite: args.allow_overwrite.get_inner(),
+                comment: args.comment.get_inner(),
+                data: args.data.get_inner(),
+                name: args.name.get_inner(),
+                priority: args.priority.get_inner(),
+                proxied: args.proxied.get_inner(),
+                tags: args.tags.get_inner(),
+                ttl: args.ttl.get_inner(),
+                type_: args.type_.get_inner(),
+                value: args.value.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         RecordResult {
-            allow_overwrite: crate::random_to_domain_mapper::<Option<bool>>(result.allow_overwrite),
-            comment: crate::random_to_domain_mapper::<Option<String>>(result.comment),
-            created_on: crate::random_to_domain_mapper::<String>(result.created_on),
-            data: crate::random_to_domain_mapper::<Option<crate::types::RecordData>>(result.data),
-            hostname: crate::random_to_domain_mapper::<String>(result.hostname),
-            metadata: crate::random_to_domain_mapper::<std::collections::HashMap<String, String>>(
-                result.metadata,
-            ),
-            modified_on: crate::random_to_domain_mapper::<String>(result.modified_on),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            priority: crate::random_to_domain_mapper::<Option<i32>>(result.priority),
-            proxiable: crate::random_to_domain_mapper::<bool>(result.proxiable),
-            proxied: crate::random_to_domain_mapper::<Option<bool>>(result.proxied),
-            tags: crate::random_to_domain_mapper::<Option<Vec<String>>>(result.tags),
-            ttl: crate::random_to_domain_mapper::<i32>(result.ttl),
-            type_: crate::random_to_domain_mapper::<String>(result.type_),
-            value: crate::random_to_domain_mapper::<String>(result.value),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            allow_overwrite: crate::into_domain(result.allow_overwrite),
+            comment: crate::into_domain(result.comment),
+            created_on: crate::into_domain(result.created_on),
+            data: crate::into_domain(result.data),
+            hostname: crate::into_domain(result.hostname),
+            metadata: crate::into_domain(result.metadata),
+            modified_on: crate::into_domain(result.modified_on),
+            name: crate::into_domain(result.name),
+            priority: crate::into_domain(result.priority),
+            proxiable: crate::into_domain(result.proxiable),
+            proxied: crate::into_domain(result.proxied),
+            tags: crate::into_domain(result.tags),
+            ttl: crate::into_domain(result.ttl),
+            type_: crate::into_domain(result.type_),
+            value: crate::into_domain(result.value),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -4299,17 +3857,17 @@ pub mod regional_hostname {
         let result = crate::bindings::pulumi::cloudflare::regional_hostname::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::regional_hostname::Args {
-                hostname: &crate::clone::<String>(args.hostname),
-                region_key: &crate::clone::<String>(args.region_key),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                hostname: args.hostname.get_inner(),
+                region_key: args.region_key.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         RegionalHostnameResult {
-            created_on: crate::random_to_domain_mapper::<String>(result.created_on),
-            hostname: crate::random_to_domain_mapper::<String>(result.hostname),
-            region_key: crate::random_to_domain_mapper::<String>(result.region_key),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            created_on: crate::into_domain(result.created_on),
+            hostname: crate::into_domain(result.hostname),
+            region_key: crate::into_domain(result.region_key),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -4333,14 +3891,14 @@ pub mod regional_tiered_cache {
         let result = crate::bindings::pulumi::cloudflare::regional_tiered_cache::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::regional_tiered_cache::Args {
-                value: &crate::clone::<String>(args.value),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                value: args.value.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         RegionalTieredCacheResult {
-            value: crate::random_to_domain_mapper::<String>(result.value),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            value: crate::into_domain(result.value),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -4371,26 +3929,24 @@ pub mod ruleset {
         let result = crate::bindings::pulumi::cloudflare::ruleset::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::ruleset::Args {
-                account_id: &crate::clone::<Option<String>>(args.account_id),
-                description: &crate::clone::<Option<String>>(args.description),
-                kind: &crate::clone::<String>(args.kind),
-                name: &crate::clone::<String>(args.name),
-                phase: &crate::clone::<String>(args.phase),
-                rules: &crate::clone::<Option<Vec<crate::types::RulesetRule>>>(args.rules),
-                zone_id: &crate::clone::<Option<String>>(args.zone_id),
+                account_id: args.account_id.get_inner(),
+                description: args.description.get_inner(),
+                kind: args.kind.get_inner(),
+                name: args.name.get_inner(),
+                phase: args.phase.get_inner(),
+                rules: args.rules.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         RulesetResult {
-            account_id: crate::random_to_domain_mapper::<Option<String>>(result.account_id),
-            description: crate::random_to_domain_mapper::<String>(result.description),
-            kind: crate::random_to_domain_mapper::<String>(result.kind),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            phase: crate::random_to_domain_mapper::<String>(result.phase),
-            rules: crate::random_to_domain_mapper::<Option<Vec<crate::types::RulesetRule>>>(
-                result.rules,
-            ),
-            zone_id: crate::random_to_domain_mapper::<Option<String>>(result.zone_id),
+            account_id: crate::into_domain(result.account_id),
+            description: crate::into_domain(result.description),
+            kind: crate::into_domain(result.kind),
+            name: crate::into_domain(result.name),
+            phase: crate::into_domain(result.phase),
+            rules: crate::into_domain(result.rules),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -4440,50 +3996,36 @@ pub mod spectrum_application {
         let result = crate::bindings::pulumi::cloudflare::spectrum_application::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::spectrum_application::Args {
-                argo_smart_routing: &crate::clone::<Option<bool>>(args.argo_smart_routing),
-                dns: &crate::clone::<crate::types::SpectrumApplicationDns>(args.dns),
-                edge_ips: &crate::clone::<Option<crate::types::SpectrumApplicationEdgeIps>>(
-                    args.edge_ips,
-                ),
-                ip_firewall: &crate::clone::<Option<bool>>(args.ip_firewall),
-                origin_directs: &crate::clone::<Option<Vec<String>>>(args.origin_directs),
-                origin_dns: &crate::clone::<Option<crate::types::SpectrumApplicationOriginDns>>(
-                    args.origin_dns,
-                ),
-                origin_port: &crate::clone::<Option<i32>>(args.origin_port),
-                origin_port_range: &crate::clone::<
-                    Option<crate::types::SpectrumApplicationOriginPortRange>,
-                >(args.origin_port_range),
-                protocol: &crate::clone::<String>(args.protocol),
-                proxy_protocol: &crate::clone::<Option<String>>(args.proxy_protocol),
-                tls: &crate::clone::<Option<String>>(args.tls),
-                traffic_type: &crate::clone::<Option<String>>(args.traffic_type),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                argo_smart_routing: args.argo_smart_routing.get_inner(),
+                dns: args.dns.get_inner(),
+                edge_ips: args.edge_ips.get_inner(),
+                ip_firewall: args.ip_firewall.get_inner(),
+                origin_directs: args.origin_directs.get_inner(),
+                origin_dns: args.origin_dns.get_inner(),
+                origin_port: args.origin_port.get_inner(),
+                origin_port_range: args.origin_port_range.get_inner(),
+                protocol: args.protocol.get_inner(),
+                proxy_protocol: args.proxy_protocol.get_inner(),
+                tls: args.tls.get_inner(),
+                traffic_type: args.traffic_type.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         SpectrumApplicationResult {
-            argo_smart_routing: crate::random_to_domain_mapper::<bool>(result.argo_smart_routing),
-            dns: crate::random_to_domain_mapper::<crate::types::SpectrumApplicationDns>(result.dns),
-            edge_ips: crate::random_to_domain_mapper::<crate::types::SpectrumApplicationEdgeIps>(
-                result.edge_ips,
-            ),
-            ip_firewall: crate::random_to_domain_mapper::<bool>(result.ip_firewall),
-            origin_directs: crate::random_to_domain_mapper::<Option<Vec<String>>>(
-                result.origin_directs,
-            ),
-            origin_dns: crate::random_to_domain_mapper::<
-                Option<crate::types::SpectrumApplicationOriginDns>,
-            >(result.origin_dns),
-            origin_port: crate::random_to_domain_mapper::<Option<i32>>(result.origin_port),
-            origin_port_range: crate::random_to_domain_mapper::<
-                Option<crate::types::SpectrumApplicationOriginPortRange>,
-            >(result.origin_port_range),
-            protocol: crate::random_to_domain_mapper::<String>(result.protocol),
-            proxy_protocol: crate::random_to_domain_mapper::<String>(result.proxy_protocol),
-            tls: crate::random_to_domain_mapper::<String>(result.tls),
-            traffic_type: crate::random_to_domain_mapper::<String>(result.traffic_type),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            argo_smart_routing: crate::into_domain(result.argo_smart_routing),
+            dns: crate::into_domain(result.dns),
+            edge_ips: crate::into_domain(result.edge_ips),
+            ip_firewall: crate::into_domain(result.ip_firewall),
+            origin_directs: crate::into_domain(result.origin_directs),
+            origin_dns: crate::into_domain(result.origin_dns),
+            origin_port: crate::into_domain(result.origin_port),
+            origin_port_range: crate::into_domain(result.origin_port_range),
+            protocol: crate::into_domain(result.protocol),
+            proxy_protocol: crate::into_domain(result.proxy_protocol),
+            tls: crate::into_domain(result.tls),
+            traffic_type: crate::into_domain(result.traffic_type),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -4508,20 +4050,18 @@ pub mod split_tunnel {
         let result = crate::bindings::pulumi::cloudflare::split_tunnel::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::split_tunnel::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                mode: &crate::clone::<String>(args.mode),
-                policy_id: &crate::clone::<Option<String>>(args.policy_id),
-                tunnels: &crate::clone::<Vec<crate::types::SplitTunnelTunnel>>(args.tunnels),
+                account_id: args.account_id.get_inner(),
+                mode: args.mode.get_inner(),
+                policy_id: args.policy_id.get_inner(),
+                tunnels: args.tunnels.get_inner(),
             },
         );
 
         SplitTunnelResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            mode: crate::random_to_domain_mapper::<String>(result.mode),
-            policy_id: crate::random_to_domain_mapper::<Option<String>>(result.policy_id),
-            tunnels: crate::random_to_domain_mapper::<Vec<crate::types::SplitTunnelTunnel>>(
-                result.tunnels,
-            ),
+            account_id: crate::into_domain(result.account_id),
+            mode: crate::into_domain(result.mode),
+            policy_id: crate::into_domain(result.policy_id),
+            tunnels: crate::into_domain(result.tunnels),
         }
     }
 }
@@ -4554,28 +4094,26 @@ pub mod static_route {
         let result = crate::bindings::pulumi::cloudflare::static_route::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::static_route::Args {
-                account_id: &crate::clone::<Option<String>>(args.account_id),
-                colo_names: &crate::clone::<Option<Vec<String>>>(args.colo_names),
-                colo_regions: &crate::clone::<Option<Vec<String>>>(args.colo_regions),
-                description: &crate::clone::<Option<String>>(args.description),
-                nexthop: &crate::clone::<String>(args.nexthop),
-                prefix: &crate::clone::<String>(args.prefix),
-                priority: &crate::clone::<i32>(args.priority),
-                weight: &crate::clone::<Option<i32>>(args.weight),
+                account_id: args.account_id.get_inner(),
+                colo_names: args.colo_names.get_inner(),
+                colo_regions: args.colo_regions.get_inner(),
+                description: args.description.get_inner(),
+                nexthop: args.nexthop.get_inner(),
+                prefix: args.prefix.get_inner(),
+                priority: args.priority.get_inner(),
+                weight: args.weight.get_inner(),
             },
         );
 
         StaticRouteResult {
-            account_id: crate::random_to_domain_mapper::<Option<String>>(result.account_id),
-            colo_names: crate::random_to_domain_mapper::<Option<Vec<String>>>(result.colo_names),
-            colo_regions: crate::random_to_domain_mapper::<Option<Vec<String>>>(
-                result.colo_regions,
-            ),
-            description: crate::random_to_domain_mapper::<Option<String>>(result.description),
-            nexthop: crate::random_to_domain_mapper::<String>(result.nexthop),
-            prefix: crate::random_to_domain_mapper::<String>(result.prefix),
-            priority: crate::random_to_domain_mapper::<i32>(result.priority),
-            weight: crate::random_to_domain_mapper::<Option<i32>>(result.weight),
+            account_id: crate::into_domain(result.account_id),
+            colo_names: crate::into_domain(result.colo_names),
+            colo_regions: crate::into_domain(result.colo_regions),
+            description: crate::into_domain(result.description),
+            nexthop: crate::into_domain(result.nexthop),
+            prefix: crate::into_domain(result.prefix),
+            priority: crate::into_domain(result.priority),
+            weight: crate::into_domain(result.weight),
         }
     }
 }
@@ -4626,86 +4164,44 @@ pub mod teams_account {
         let result = crate::bindings::pulumi::cloudflare::teams_account::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::teams_account::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                activity_log_enabled: &crate::clone::<Option<bool>>(args.activity_log_enabled),
-                antivirus: &crate::clone::<Option<crate::types::TeamsAccountAntivirus>>(
-                    args.antivirus,
-                ),
-                block_page: &crate::clone::<Option<crate::types::TeamsAccountBlockPage>>(
-                    args.block_page,
-                ),
-                body_scanning: &crate::clone::<Option<crate::types::TeamsAccountBodyScanning>>(
-                    args.body_scanning,
-                ),
-                extended_email_matching: &crate::clone::<
-                    Option<crate::types::TeamsAccountExtendedEmailMatching>,
-                >(args.extended_email_matching),
-                fips: &crate::clone::<Option<crate::types::TeamsAccountFips>>(args.fips),
-                logging: &crate::clone::<Option<crate::types::TeamsAccountLogging>>(args.logging),
-                non_identity_browser_isolation_enabled: &crate::clone::<Option<bool>>(
-                    args.non_identity_browser_isolation_enabled,
-                ),
-                payload_log: &crate::clone::<Option<crate::types::TeamsAccountPayloadLog>>(
-                    args.payload_log,
-                ),
-                protocol_detection_enabled: &crate::clone::<Option<bool>>(
-                    args.protocol_detection_enabled,
-                ),
-                proxy: &crate::clone::<Option<crate::types::TeamsAccountProxy>>(args.proxy),
-                ssh_session_log: &crate::clone::<Option<crate::types::TeamsAccountSshSessionLog>>(
-                    args.ssh_session_log,
-                ),
-                tls_decrypt_enabled: &crate::clone::<Option<bool>>(args.tls_decrypt_enabled),
-                url_browser_isolation_enabled: &crate::clone::<Option<bool>>(
-                    args.url_browser_isolation_enabled,
-                ),
+                account_id: args.account_id.get_inner(),
+                activity_log_enabled: args.activity_log_enabled.get_inner(),
+                antivirus: args.antivirus.get_inner(),
+                block_page: args.block_page.get_inner(),
+                body_scanning: args.body_scanning.get_inner(),
+                extended_email_matching: args.extended_email_matching.get_inner(),
+                fips: args.fips.get_inner(),
+                logging: args.logging.get_inner(),
+                non_identity_browser_isolation_enabled: args
+                    .non_identity_browser_isolation_enabled
+                    .get_inner(),
+                payload_log: args.payload_log.get_inner(),
+                protocol_detection_enabled: args.protocol_detection_enabled.get_inner(),
+                proxy: args.proxy.get_inner(),
+                ssh_session_log: args.ssh_session_log.get_inner(),
+                tls_decrypt_enabled: args.tls_decrypt_enabled.get_inner(),
+                url_browser_isolation_enabled: args.url_browser_isolation_enabled.get_inner(),
             },
         );
 
         TeamsAccountResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            activity_log_enabled: crate::random_to_domain_mapper::<Option<bool>>(
-                result.activity_log_enabled,
-            ),
-            antivirus: crate::random_to_domain_mapper::<Option<crate::types::TeamsAccountAntivirus>>(
-                result.antivirus,
-            ),
-            block_page: crate::random_to_domain_mapper::<Option<crate::types::TeamsAccountBlockPage>>(
-                result.block_page,
-            ),
-            body_scanning: crate::random_to_domain_mapper::<
-                Option<crate::types::TeamsAccountBodyScanning>,
-            >(result.body_scanning),
-            extended_email_matching: crate::random_to_domain_mapper::<
-                Option<crate::types::TeamsAccountExtendedEmailMatching>,
-            >(result.extended_email_matching),
-            fips: crate::random_to_domain_mapper::<Option<crate::types::TeamsAccountFips>>(
-                result.fips,
-            ),
-            logging: crate::random_to_domain_mapper::<Option<crate::types::TeamsAccountLogging>>(
-                result.logging,
-            ),
-            non_identity_browser_isolation_enabled: crate::random_to_domain_mapper::<Option<bool>>(
+            account_id: crate::into_domain(result.account_id),
+            activity_log_enabled: crate::into_domain(result.activity_log_enabled),
+            antivirus: crate::into_domain(result.antivirus),
+            block_page: crate::into_domain(result.block_page),
+            body_scanning: crate::into_domain(result.body_scanning),
+            extended_email_matching: crate::into_domain(result.extended_email_matching),
+            fips: crate::into_domain(result.fips),
+            logging: crate::into_domain(result.logging),
+            non_identity_browser_isolation_enabled: crate::into_domain(
                 result.non_identity_browser_isolation_enabled,
             ),
-            payload_log: crate::random_to_domain_mapper::<
-                Option<crate::types::TeamsAccountPayloadLog>,
-            >(result.payload_log),
-            protocol_detection_enabled: crate::random_to_domain_mapper::<Option<bool>>(
-                result.protocol_detection_enabled,
-            ),
-            proxy: crate::random_to_domain_mapper::<Option<crate::types::TeamsAccountProxy>>(
-                result.proxy,
-            ),
-            ssh_session_log: crate::random_to_domain_mapper::<
-                Option<crate::types::TeamsAccountSshSessionLog>,
-            >(result.ssh_session_log),
-            tls_decrypt_enabled: crate::random_to_domain_mapper::<Option<bool>>(
-                result.tls_decrypt_enabled,
-            ),
-            url_browser_isolation_enabled: crate::random_to_domain_mapper::<Option<bool>>(
-                result.url_browser_isolation_enabled,
-            ),
+            payload_log: crate::into_domain(result.payload_log),
+            protocol_detection_enabled: crate::into_domain(result.protocol_detection_enabled),
+            proxy: crate::into_domain(result.proxy),
+            ssh_session_log: crate::into_domain(result.ssh_session_log),
+            tls_decrypt_enabled: crate::into_domain(result.tls_decrypt_enabled),
+            url_browser_isolation_enabled: crate::into_domain(result.url_browser_isolation_enabled),
         }
     }
 }
@@ -4732,20 +4228,20 @@ pub mod teams_list {
         let result = crate::bindings::pulumi::cloudflare::teams_list::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::teams_list::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                description: &crate::clone::<Option<String>>(args.description),
-                items: &crate::clone::<Option<Vec<String>>>(args.items),
-                name: &crate::clone::<String>(args.name),
-                type_: &crate::clone::<String>(args.type_),
+                account_id: args.account_id.get_inner(),
+                description: args.description.get_inner(),
+                items: args.items.get_inner(),
+                name: args.name.get_inner(),
+                type_: args.type_.get_inner(),
             },
         );
 
         TeamsListResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            description: crate::random_to_domain_mapper::<Option<String>>(result.description),
-            items: crate::random_to_domain_mapper::<Option<Vec<String>>>(result.items),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            type_: crate::random_to_domain_mapper::<String>(result.type_),
+            account_id: crate::into_domain(result.account_id),
+            description: crate::into_domain(result.description),
+            items: crate::into_domain(result.items),
+            name: crate::into_domain(result.name),
+            type_: crate::into_domain(result.type_),
         }
     }
 }
@@ -4775,29 +4271,23 @@ pub mod teams_location {
         let result = crate::bindings::pulumi::cloudflare::teams_location::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::teams_location::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                client_default: &crate::clone::<Option<bool>>(args.client_default),
-                name: &crate::clone::<String>(args.name),
-                networks: &crate::clone::<Option<Vec<crate::types::TeamsLocationNetwork>>>(
-                    args.networks,
-                ),
+                account_id: args.account_id.get_inner(),
+                client_default: args.client_default.get_inner(),
+                name: args.name.get_inner(),
+                networks: args.networks.get_inner(),
             },
         );
 
         TeamsLocationResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            anonymized_logs_enabled: crate::random_to_domain_mapper::<bool>(
-                result.anonymized_logs_enabled,
-            ),
-            client_default: crate::random_to_domain_mapper::<Option<bool>>(result.client_default),
-            doh_subdomain: crate::random_to_domain_mapper::<String>(result.doh_subdomain),
-            ip: crate::random_to_domain_mapper::<String>(result.ip),
-            ipv4_destination: crate::random_to_domain_mapper::<String>(result.ipv4_destination),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            networks: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::TeamsLocationNetwork>>,
-            >(result.networks),
-            policy_ids: crate::random_to_domain_mapper::<Vec<String>>(result.policy_ids),
+            account_id: crate::into_domain(result.account_id),
+            anonymized_logs_enabled: crate::into_domain(result.anonymized_logs_enabled),
+            client_default: crate::into_domain(result.client_default),
+            doh_subdomain: crate::into_domain(result.doh_subdomain),
+            ip: crate::into_domain(result.ip),
+            ipv4_destination: crate::into_domain(result.ipv4_destination),
+            name: crate::into_domain(result.name),
+            networks: crate::into_domain(result.networks),
+            policy_ids: crate::into_domain(result.policy_ids),
         }
     }
 }
@@ -4824,17 +4314,17 @@ pub mod teams_proxy_endpoint {
         let result = crate::bindings::pulumi::cloudflare::teams_proxy_endpoint::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::teams_proxy_endpoint::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                ips: &crate::clone::<Vec<String>>(args.ips),
-                name: &crate::clone::<String>(args.name),
+                account_id: args.account_id.get_inner(),
+                ips: args.ips.get_inner(),
+                name: args.name.get_inner(),
             },
         );
 
         TeamsProxyEndpointResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            ips: crate::random_to_domain_mapper::<Vec<String>>(result.ips),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            subdomain: crate::random_to_domain_mapper::<String>(result.subdomain),
+            account_id: crate::into_domain(result.account_id),
+            ips: crate::into_domain(result.ips),
+            name: crate::into_domain(result.name),
+            subdomain: crate::into_domain(result.subdomain),
         }
     }
 }
@@ -4874,37 +4364,33 @@ pub mod teams_rule {
         let result = crate::bindings::pulumi::cloudflare::teams_rule::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::teams_rule::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                action: &crate::clone::<String>(args.action),
-                description: &crate::clone::<String>(args.description),
-                device_posture: &crate::clone::<Option<String>>(args.device_posture),
-                enabled: &crate::clone::<Option<bool>>(args.enabled),
-                filters: &crate::clone::<Option<Vec<String>>>(args.filters),
-                identity: &crate::clone::<Option<String>>(args.identity),
-                name: &crate::clone::<String>(args.name),
-                precedence: &crate::clone::<i32>(args.precedence),
-                rule_settings: &crate::clone::<Option<crate::types::TeamsRuleRuleSettings>>(
-                    args.rule_settings,
-                ),
-                traffic: &crate::clone::<Option<String>>(args.traffic),
+                account_id: args.account_id.get_inner(),
+                action: args.action.get_inner(),
+                description: args.description.get_inner(),
+                device_posture: args.device_posture.get_inner(),
+                enabled: args.enabled.get_inner(),
+                filters: args.filters.get_inner(),
+                identity: args.identity.get_inner(),
+                name: args.name.get_inner(),
+                precedence: args.precedence.get_inner(),
+                rule_settings: args.rule_settings.get_inner(),
+                traffic: args.traffic.get_inner(),
             },
         );
 
         TeamsRuleResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            action: crate::random_to_domain_mapper::<String>(result.action),
-            description: crate::random_to_domain_mapper::<String>(result.description),
-            device_posture: crate::random_to_domain_mapper::<Option<String>>(result.device_posture),
-            enabled: crate::random_to_domain_mapper::<Option<bool>>(result.enabled),
-            filters: crate::random_to_domain_mapper::<Option<Vec<String>>>(result.filters),
-            identity: crate::random_to_domain_mapper::<Option<String>>(result.identity),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            precedence: crate::random_to_domain_mapper::<i32>(result.precedence),
-            rule_settings: crate::random_to_domain_mapper::<
-                Option<crate::types::TeamsRuleRuleSettings>,
-            >(result.rule_settings),
-            traffic: crate::random_to_domain_mapper::<Option<String>>(result.traffic),
-            version: crate::random_to_domain_mapper::<i32>(result.version),
+            account_id: crate::into_domain(result.account_id),
+            action: crate::into_domain(result.action),
+            description: crate::into_domain(result.description),
+            device_posture: crate::into_domain(result.device_posture),
+            enabled: crate::into_domain(result.enabled),
+            filters: crate::into_domain(result.filters),
+            identity: crate::into_domain(result.identity),
+            name: crate::into_domain(result.name),
+            precedence: crate::into_domain(result.precedence),
+            rule_settings: crate::into_domain(result.rule_settings),
+            traffic: crate::into_domain(result.traffic),
+            version: crate::into_domain(result.version),
         }
     }
 }
@@ -4925,14 +4411,14 @@ pub mod tiered_cache {
         let result = crate::bindings::pulumi::cloudflare::tiered_cache::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::tiered_cache::Args {
-                cache_type: &crate::clone::<String>(args.cache_type),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                cache_type: args.cache_type.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         TieredCacheResult {
-            cache_type: crate::random_to_domain_mapper::<String>(result.cache_type),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            cache_type: crate::into_domain(result.cache_type),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -4955,18 +4441,16 @@ pub mod total_tls {
         let result = crate::bindings::pulumi::cloudflare::total_tls::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::total_tls::Args {
-                certificate_authority: &crate::clone::<Option<String>>(args.certificate_authority),
-                enabled: &crate::clone::<bool>(args.enabled),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                certificate_authority: args.certificate_authority.get_inner(),
+                enabled: args.enabled.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         TotalTlsResult {
-            certificate_authority: crate::random_to_domain_mapper::<Option<String>>(
-                result.certificate_authority,
-            ),
-            enabled: crate::random_to_domain_mapper::<bool>(result.enabled),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            certificate_authority: crate::into_domain(result.certificate_authority),
+            enabled: crate::into_domain(result.enabled),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -4993,20 +4477,20 @@ pub mod tunnel {
         let result = crate::bindings::pulumi::cloudflare::tunnel::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::tunnel::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                config_src: &crate::clone::<Option<String>>(args.config_src),
-                name: &crate::clone::<String>(args.name),
-                secret: &crate::clone::<String>(args.secret),
+                account_id: args.account_id.get_inner(),
+                config_src: args.config_src.get_inner(),
+                name: args.name.get_inner(),
+                secret: args.secret.get_inner(),
             },
         );
 
         TunnelResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            cname: crate::random_to_domain_mapper::<String>(result.cname),
-            config_src: crate::random_to_domain_mapper::<Option<String>>(result.config_src),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            secret: crate::random_to_domain_mapper::<String>(result.secret),
-            tunnel_token: crate::random_to_domain_mapper::<String>(result.tunnel_token),
+            account_id: crate::into_domain(result.account_id),
+            cname: crate::into_domain(result.cname),
+            config_src: crate::into_domain(result.config_src),
+            name: crate::into_domain(result.name),
+            secret: crate::into_domain(result.secret),
+            tunnel_token: crate::into_domain(result.tunnel_token),
         }
     }
 }
@@ -5029,18 +4513,16 @@ pub mod tunnel_config {
         let result = crate::bindings::pulumi::cloudflare::tunnel_config::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::tunnel_config::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                config: &crate::clone::<crate::types::TunnelConfigConfig>(args.config),
-                tunnel_id: &crate::clone::<String>(args.tunnel_id),
+                account_id: args.account_id.get_inner(),
+                config: args.config.get_inner(),
+                tunnel_id: args.tunnel_id.get_inner(),
             },
         );
 
         TunnelConfigResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            config: crate::random_to_domain_mapper::<crate::types::TunnelConfigConfig>(
-                result.config,
-            ),
-            tunnel_id: crate::random_to_domain_mapper::<String>(result.tunnel_id),
+            account_id: crate::into_domain(result.account_id),
+            config: crate::into_domain(result.config),
+            tunnel_id: crate::into_domain(result.tunnel_id),
         }
     }
 }
@@ -5067,22 +4549,20 @@ pub mod tunnel_route {
         let result = crate::bindings::pulumi::cloudflare::tunnel_route::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::tunnel_route::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                comment: &crate::clone::<Option<String>>(args.comment),
-                network: &crate::clone::<String>(args.network),
-                tunnel_id: &crate::clone::<String>(args.tunnel_id),
-                virtual_network_id: &crate::clone::<Option<String>>(args.virtual_network_id),
+                account_id: args.account_id.get_inner(),
+                comment: args.comment.get_inner(),
+                network: args.network.get_inner(),
+                tunnel_id: args.tunnel_id.get_inner(),
+                virtual_network_id: args.virtual_network_id.get_inner(),
             },
         );
 
         TunnelRouteResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            comment: crate::random_to_domain_mapper::<Option<String>>(result.comment),
-            network: crate::random_to_domain_mapper::<String>(result.network),
-            tunnel_id: crate::random_to_domain_mapper::<String>(result.tunnel_id),
-            virtual_network_id: crate::random_to_domain_mapper::<Option<String>>(
-                result.virtual_network_id,
-            ),
+            account_id: crate::into_domain(result.account_id),
+            comment: crate::into_domain(result.comment),
+            network: crate::into_domain(result.network),
+            tunnel_id: crate::into_domain(result.tunnel_id),
+            virtual_network_id: crate::into_domain(result.virtual_network_id),
         }
     }
 }
@@ -5110,20 +4590,18 @@ pub mod tunnel_virtual_network {
         let result = crate::bindings::pulumi::cloudflare::tunnel_virtual_network::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::tunnel_virtual_network::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                comment: &crate::clone::<Option<String>>(args.comment),
-                is_default_network: &crate::clone::<Option<bool>>(args.is_default_network),
-                name: &crate::clone::<String>(args.name),
+                account_id: args.account_id.get_inner(),
+                comment: args.comment.get_inner(),
+                is_default_network: args.is_default_network.get_inner(),
+                name: args.name.get_inner(),
             },
         );
 
         TunnelVirtualNetworkResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            comment: crate::random_to_domain_mapper::<Option<String>>(result.comment),
-            is_default_network: crate::random_to_domain_mapper::<Option<bool>>(
-                result.is_default_network,
-            ),
-            name: crate::random_to_domain_mapper::<String>(result.name),
+            account_id: crate::into_domain(result.account_id),
+            comment: crate::into_domain(result.comment),
+            is_default_network: crate::into_domain(result.is_default_network),
+            name: crate::into_domain(result.name),
         }
     }
 }
@@ -5155,25 +4633,25 @@ pub mod turnstile_widget {
         let result = crate::bindings::pulumi::cloudflare::turnstile_widget::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::turnstile_widget::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                bot_fight_mode: &crate::clone::<Option<bool>>(args.bot_fight_mode),
-                domains: &crate::clone::<Vec<String>>(args.domains),
-                mode: &crate::clone::<String>(args.mode),
-                name: &crate::clone::<String>(args.name),
-                offlabel: &crate::clone::<Option<bool>>(args.offlabel),
-                region: &crate::clone::<Option<String>>(args.region),
+                account_id: args.account_id.get_inner(),
+                bot_fight_mode: args.bot_fight_mode.get_inner(),
+                domains: args.domains.get_inner(),
+                mode: args.mode.get_inner(),
+                name: args.name.get_inner(),
+                offlabel: args.offlabel.get_inner(),
+                region: args.region.get_inner(),
             },
         );
 
         TurnstileWidgetResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            bot_fight_mode: crate::random_to_domain_mapper::<bool>(result.bot_fight_mode),
-            domains: crate::random_to_domain_mapper::<Vec<String>>(result.domains),
-            mode: crate::random_to_domain_mapper::<String>(result.mode),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            offlabel: crate::random_to_domain_mapper::<bool>(result.offlabel),
-            region: crate::random_to_domain_mapper::<String>(result.region),
-            secret: crate::random_to_domain_mapper::<String>(result.secret),
+            account_id: crate::into_domain(result.account_id),
+            bot_fight_mode: crate::into_domain(result.bot_fight_mode),
+            domains: crate::into_domain(result.domains),
+            mode: crate::into_domain(result.mode),
+            name: crate::into_domain(result.name),
+            offlabel: crate::into_domain(result.offlabel),
+            region: crate::into_domain(result.region),
+            secret: crate::into_domain(result.secret),
         }
     }
 }
@@ -5199,16 +4677,16 @@ pub mod url_normalization_settings {
         let result = crate::bindings::pulumi::cloudflare::url_normalization_settings::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::url_normalization_settings::Args {
-                scope: &crate::clone::<String>(args.scope),
-                type_: &crate::clone::<String>(args.type_),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                scope: args.scope.get_inner(),
+                type_: args.type_.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         UrlNormalizationSettingsResult {
-            scope: crate::random_to_domain_mapper::<String>(result.scope),
-            type_: crate::random_to_domain_mapper::<String>(result.type_),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            scope: crate::into_domain(result.scope),
+            type_: crate::into_domain(result.type_),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -5240,24 +4718,20 @@ pub mod user_agent_blocking_rule {
         let result = crate::bindings::pulumi::cloudflare::user_agent_blocking_rule::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::user_agent_blocking_rule::Args {
-                configuration: &crate::clone::<crate::types::UserAgentBlockingRuleConfiguration>(
-                    args.configuration,
-                ),
-                description: &crate::clone::<String>(args.description),
-                mode: &crate::clone::<String>(args.mode),
-                paused: &crate::clone::<bool>(args.paused),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                configuration: args.configuration.get_inner(),
+                description: args.description.get_inner(),
+                mode: args.mode.get_inner(),
+                paused: args.paused.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         UserAgentBlockingRuleResult {
-            configuration: crate::random_to_domain_mapper::<
-                crate::types::UserAgentBlockingRuleConfiguration,
-            >(result.configuration),
-            description: crate::random_to_domain_mapper::<String>(result.description),
-            mode: crate::random_to_domain_mapper::<String>(result.mode),
-            paused: crate::random_to_domain_mapper::<bool>(result.paused),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            configuration: crate::into_domain(result.configuration),
+            description: crate::into_domain(result.description),
+            mode: crate::into_domain(result.mode),
+            paused: crate::into_domain(result.paused),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -5312,70 +4786,46 @@ pub mod waiting_room {
         let result = crate::bindings::pulumi::cloudflare::waiting_room::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::waiting_room::Args {
-                additional_routes: &crate::clone::<
-                    Option<Vec<crate::types::WaitingRoomAdditionalRoute>>,
-                >(args.additional_routes),
-                cookie_suffix: &crate::clone::<Option<String>>(args.cookie_suffix),
-                custom_page_html: &crate::clone::<Option<String>>(args.custom_page_html),
-                default_template_language: &crate::clone::<Option<String>>(
-                    args.default_template_language,
-                ),
-                description: &crate::clone::<Option<String>>(args.description),
-                disable_session_renewal: &crate::clone::<Option<bool>>(
-                    args.disable_session_renewal,
-                ),
-                host: &crate::clone::<String>(args.host),
-                json_response_enabled: &crate::clone::<Option<bool>>(args.json_response_enabled),
-                name: &crate::clone::<String>(args.name),
-                new_users_per_minute: &crate::clone::<i32>(args.new_users_per_minute),
-                path: &crate::clone::<Option<String>>(args.path),
-                queue_all: &crate::clone::<Option<bool>>(args.queue_all),
-                queueing_method: &crate::clone::<Option<String>>(args.queueing_method),
-                queueing_status_code: &crate::clone::<Option<i32>>(args.queueing_status_code),
-                session_duration: &crate::clone::<Option<i32>>(args.session_duration),
-                suspended: &crate::clone::<Option<bool>>(args.suspended),
-                total_active_users: &crate::clone::<i32>(args.total_active_users),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                additional_routes: args.additional_routes.get_inner(),
+                cookie_suffix: args.cookie_suffix.get_inner(),
+                custom_page_html: args.custom_page_html.get_inner(),
+                default_template_language: args.default_template_language.get_inner(),
+                description: args.description.get_inner(),
+                disable_session_renewal: args.disable_session_renewal.get_inner(),
+                host: args.host.get_inner(),
+                json_response_enabled: args.json_response_enabled.get_inner(),
+                name: args.name.get_inner(),
+                new_users_per_minute: args.new_users_per_minute.get_inner(),
+                path: args.path.get_inner(),
+                queue_all: args.queue_all.get_inner(),
+                queueing_method: args.queueing_method.get_inner(),
+                queueing_status_code: args.queueing_status_code.get_inner(),
+                session_duration: args.session_duration.get_inner(),
+                suspended: args.suspended.get_inner(),
+                total_active_users: args.total_active_users.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         WaitingRoomResult {
-            additional_routes: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::WaitingRoomAdditionalRoute>>,
-            >(result.additional_routes),
-            cookie_suffix: crate::random_to_domain_mapper::<Option<String>>(result.cookie_suffix),
-            custom_page_html: crate::random_to_domain_mapper::<Option<String>>(
-                result.custom_page_html,
-            ),
-            default_template_language: crate::random_to_domain_mapper::<Option<String>>(
-                result.default_template_language,
-            ),
-            description: crate::random_to_domain_mapper::<Option<String>>(result.description),
-            disable_session_renewal: crate::random_to_domain_mapper::<Option<bool>>(
-                result.disable_session_renewal,
-            ),
-            host: crate::random_to_domain_mapper::<String>(result.host),
-            json_response_enabled: crate::random_to_domain_mapper::<Option<bool>>(
-                result.json_response_enabled,
-            ),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            new_users_per_minute: crate::random_to_domain_mapper::<i32>(
-                result.new_users_per_minute,
-            ),
-            path: crate::random_to_domain_mapper::<Option<String>>(result.path),
-            queue_all: crate::random_to_domain_mapper::<Option<bool>>(result.queue_all),
-            queueing_method: crate::random_to_domain_mapper::<Option<String>>(
-                result.queueing_method,
-            ),
-            queueing_status_code: crate::random_to_domain_mapper::<Option<i32>>(
-                result.queueing_status_code,
-            ),
-            session_duration: crate::random_to_domain_mapper::<Option<i32>>(
-                result.session_duration,
-            ),
-            suspended: crate::random_to_domain_mapper::<Option<bool>>(result.suspended),
-            total_active_users: crate::random_to_domain_mapper::<i32>(result.total_active_users),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            additional_routes: crate::into_domain(result.additional_routes),
+            cookie_suffix: crate::into_domain(result.cookie_suffix),
+            custom_page_html: crate::into_domain(result.custom_page_html),
+            default_template_language: crate::into_domain(result.default_template_language),
+            description: crate::into_domain(result.description),
+            disable_session_renewal: crate::into_domain(result.disable_session_renewal),
+            host: crate::into_domain(result.host),
+            json_response_enabled: crate::into_domain(result.json_response_enabled),
+            name: crate::into_domain(result.name),
+            new_users_per_minute: crate::into_domain(result.new_users_per_minute),
+            path: crate::into_domain(result.path),
+            queue_all: crate::into_domain(result.queue_all),
+            queueing_method: crate::into_domain(result.queueing_method),
+            queueing_status_code: crate::into_domain(result.queueing_status_code),
+            session_duration: crate::into_domain(result.session_duration),
+            suspended: crate::into_domain(result.suspended),
+            total_active_users: crate::into_domain(result.total_active_users),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -5424,60 +4874,42 @@ pub mod waiting_room_event {
         let result = crate::bindings::pulumi::cloudflare::waiting_room_event::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::waiting_room_event::Args {
-                custom_page_html: &crate::clone::<Option<String>>(args.custom_page_html),
-                description: &crate::clone::<Option<String>>(args.description),
-                disable_session_renewal: &crate::clone::<Option<bool>>(
-                    args.disable_session_renewal,
-                ),
-                event_end_time: &crate::clone::<String>(args.event_end_time),
-                event_start_time: &crate::clone::<String>(args.event_start_time),
-                name: &crate::clone::<String>(args.name),
-                new_users_per_minute: &crate::clone::<Option<i32>>(args.new_users_per_minute),
-                prequeue_start_time: &crate::clone::<Option<String>>(args.prequeue_start_time),
-                queueing_method: &crate::clone::<Option<String>>(args.queueing_method),
-                session_duration: &crate::clone::<Option<i32>>(args.session_duration),
-                shuffle_at_event_start: &crate::clone::<Option<bool>>(args.shuffle_at_event_start),
-                suspended: &crate::clone::<Option<bool>>(args.suspended),
-                total_active_users: &crate::clone::<Option<i32>>(args.total_active_users),
-                waiting_room_id: &crate::clone::<String>(args.waiting_room_id),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                custom_page_html: args.custom_page_html.get_inner(),
+                description: args.description.get_inner(),
+                disable_session_renewal: args.disable_session_renewal.get_inner(),
+                event_end_time: args.event_end_time.get_inner(),
+                event_start_time: args.event_start_time.get_inner(),
+                name: args.name.get_inner(),
+                new_users_per_minute: args.new_users_per_minute.get_inner(),
+                prequeue_start_time: args.prequeue_start_time.get_inner(),
+                queueing_method: args.queueing_method.get_inner(),
+                session_duration: args.session_duration.get_inner(),
+                shuffle_at_event_start: args.shuffle_at_event_start.get_inner(),
+                suspended: args.suspended.get_inner(),
+                total_active_users: args.total_active_users.get_inner(),
+                waiting_room_id: args.waiting_room_id.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         WaitingRoomEventResult {
-            created_on: crate::random_to_domain_mapper::<String>(result.created_on),
-            custom_page_html: crate::random_to_domain_mapper::<Option<String>>(
-                result.custom_page_html,
-            ),
-            description: crate::random_to_domain_mapper::<Option<String>>(result.description),
-            disable_session_renewal: crate::random_to_domain_mapper::<Option<bool>>(
-                result.disable_session_renewal,
-            ),
-            event_end_time: crate::random_to_domain_mapper::<String>(result.event_end_time),
-            event_start_time: crate::random_to_domain_mapper::<String>(result.event_start_time),
-            modified_on: crate::random_to_domain_mapper::<String>(result.modified_on),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            new_users_per_minute: crate::random_to_domain_mapper::<Option<i32>>(
-                result.new_users_per_minute,
-            ),
-            prequeue_start_time: crate::random_to_domain_mapper::<Option<String>>(
-                result.prequeue_start_time,
-            ),
-            queueing_method: crate::random_to_domain_mapper::<Option<String>>(
-                result.queueing_method,
-            ),
-            session_duration: crate::random_to_domain_mapper::<Option<i32>>(
-                result.session_duration,
-            ),
-            shuffle_at_event_start: crate::random_to_domain_mapper::<Option<bool>>(
-                result.shuffle_at_event_start,
-            ),
-            suspended: crate::random_to_domain_mapper::<Option<bool>>(result.suspended),
-            total_active_users: crate::random_to_domain_mapper::<Option<i32>>(
-                result.total_active_users,
-            ),
-            waiting_room_id: crate::random_to_domain_mapper::<String>(result.waiting_room_id),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            created_on: crate::into_domain(result.created_on),
+            custom_page_html: crate::into_domain(result.custom_page_html),
+            description: crate::into_domain(result.description),
+            disable_session_renewal: crate::into_domain(result.disable_session_renewal),
+            event_end_time: crate::into_domain(result.event_end_time),
+            event_start_time: crate::into_domain(result.event_start_time),
+            modified_on: crate::into_domain(result.modified_on),
+            name: crate::into_domain(result.name),
+            new_users_per_minute: crate::into_domain(result.new_users_per_minute),
+            prequeue_start_time: crate::into_domain(result.prequeue_start_time),
+            queueing_method: crate::into_domain(result.queueing_method),
+            session_duration: crate::into_domain(result.session_duration),
+            shuffle_at_event_start: crate::into_domain(result.shuffle_at_event_start),
+            suspended: crate::into_domain(result.suspended),
+            total_active_users: crate::into_domain(result.total_active_users),
+            waiting_room_id: crate::into_domain(result.waiting_room_id),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -5500,18 +4932,16 @@ pub mod waiting_room_rules {
         let result = crate::bindings::pulumi::cloudflare::waiting_room_rules::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::waiting_room_rules::Args {
-                rules: &crate::clone::<Option<Vec<crate::types::WaitingRoomRulesRule>>>(args.rules),
-                waiting_room_id: &crate::clone::<String>(args.waiting_room_id),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                rules: args.rules.get_inner(),
+                waiting_room_id: args.waiting_room_id.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         WaitingRoomRulesResult {
-            rules: crate::random_to_domain_mapper::<Option<Vec<crate::types::WaitingRoomRulesRule>>>(
-                result.rules,
-            ),
-            waiting_room_id: crate::random_to_domain_mapper::<String>(result.waiting_room_id),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            rules: crate::into_domain(result.rules),
+            waiting_room_id: crate::into_domain(result.waiting_room_id),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -5535,18 +4965,14 @@ pub mod waiting_room_settings {
         let result = crate::bindings::pulumi::cloudflare::waiting_room_settings::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::waiting_room_settings::Args {
-                search_engine_crawler_bypass: &crate::clone::<Option<bool>>(
-                    args.search_engine_crawler_bypass,
-                ),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                search_engine_crawler_bypass: args.search_engine_crawler_bypass.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         WaitingRoomSettingsResult {
-            search_engine_crawler_bypass: crate::random_to_domain_mapper::<Option<bool>>(
-                result.search_engine_crawler_bypass,
-            ),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            search_engine_crawler_bypass: crate::into_domain(result.search_engine_crawler_bypass),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -5576,23 +5002,23 @@ pub mod web3_hostname {
         let result = crate::bindings::pulumi::cloudflare::web3_hostname::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::web3_hostname::Args {
-                description: &crate::clone::<Option<String>>(args.description),
-                dnslink: &crate::clone::<Option<String>>(args.dnslink),
-                name: &crate::clone::<String>(args.name),
-                target: &crate::clone::<String>(args.target),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                description: args.description.get_inner(),
+                dnslink: args.dnslink.get_inner(),
+                name: args.name.get_inner(),
+                target: args.target.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         Web3HostnameResult {
-            created_on: crate::random_to_domain_mapper::<String>(result.created_on),
-            description: crate::random_to_domain_mapper::<Option<String>>(result.description),
-            dnslink: crate::random_to_domain_mapper::<Option<String>>(result.dnslink),
-            modified_on: crate::random_to_domain_mapper::<String>(result.modified_on),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            status: crate::random_to_domain_mapper::<String>(result.status),
-            target: crate::random_to_domain_mapper::<String>(result.target),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            created_on: crate::into_domain(result.created_on),
+            description: crate::into_domain(result.description),
+            dnslink: crate::into_domain(result.dnslink),
+            modified_on: crate::into_domain(result.modified_on),
+            name: crate::into_domain(result.name),
+            status: crate::into_domain(result.status),
+            target: crate::into_domain(result.target),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -5621,22 +5047,22 @@ pub mod web_analytics_rule {
         let result = crate::bindings::pulumi::cloudflare::web_analytics_rule::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::web_analytics_rule::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                host: &crate::clone::<String>(args.host),
-                inclusive: &crate::clone::<bool>(args.inclusive),
-                is_paused: &crate::clone::<bool>(args.is_paused),
-                paths: &crate::clone::<Vec<String>>(args.paths),
-                ruleset_id: &crate::clone::<String>(args.ruleset_id),
+                account_id: args.account_id.get_inner(),
+                host: args.host.get_inner(),
+                inclusive: args.inclusive.get_inner(),
+                is_paused: args.is_paused.get_inner(),
+                paths: args.paths.get_inner(),
+                ruleset_id: args.ruleset_id.get_inner(),
             },
         );
 
         WebAnalyticsRuleResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            host: crate::random_to_domain_mapper::<String>(result.host),
-            inclusive: crate::random_to_domain_mapper::<bool>(result.inclusive),
-            is_paused: crate::random_to_domain_mapper::<bool>(result.is_paused),
-            paths: crate::random_to_domain_mapper::<Vec<String>>(result.paths),
-            ruleset_id: crate::random_to_domain_mapper::<String>(result.ruleset_id),
+            account_id: crate::into_domain(result.account_id),
+            host: crate::into_domain(result.host),
+            inclusive: crate::into_domain(result.inclusive),
+            is_paused: crate::into_domain(result.is_paused),
+            paths: crate::into_domain(result.paths),
+            ruleset_id: crate::into_domain(result.ruleset_id),
         }
     }
 }
@@ -5665,22 +5091,22 @@ pub mod web_analytics_site {
         let result = crate::bindings::pulumi::cloudflare::web_analytics_site::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::web_analytics_site::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                auto_install: &crate::clone::<bool>(args.auto_install),
-                host: &crate::clone::<Option<String>>(args.host),
-                zone_tag: &crate::clone::<Option<String>>(args.zone_tag),
+                account_id: args.account_id.get_inner(),
+                auto_install: args.auto_install.get_inner(),
+                host: args.host.get_inner(),
+                zone_tag: args.zone_tag.get_inner(),
             },
         );
 
         WebAnalyticsSiteResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            auto_install: crate::random_to_domain_mapper::<bool>(result.auto_install),
-            host: crate::random_to_domain_mapper::<Option<String>>(result.host),
-            ruleset_id: crate::random_to_domain_mapper::<String>(result.ruleset_id),
-            site_tag: crate::random_to_domain_mapper::<String>(result.site_tag),
-            site_token: crate::random_to_domain_mapper::<String>(result.site_token),
-            snippet: crate::random_to_domain_mapper::<String>(result.snippet),
-            zone_tag: crate::random_to_domain_mapper::<Option<String>>(result.zone_tag),
+            account_id: crate::into_domain(result.account_id),
+            auto_install: crate::into_domain(result.auto_install),
+            host: crate::into_domain(result.host),
+            ruleset_id: crate::into_domain(result.ruleset_id),
+            site_tag: crate::into_domain(result.site_tag),
+            site_token: crate::into_domain(result.site_token),
+            snippet: crate::into_domain(result.snippet),
+            zone_tag: crate::into_domain(result.zone_tag),
         }
     }
 }
@@ -5703,16 +5129,16 @@ pub mod worker_cron_trigger {
         let result = crate::bindings::pulumi::cloudflare::worker_cron_trigger::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::worker_cron_trigger::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                schedules: &crate::clone::<Vec<String>>(args.schedules),
-                script_name: &crate::clone::<String>(args.script_name),
+                account_id: args.account_id.get_inner(),
+                schedules: args.schedules.get_inner(),
+                script_name: args.script_name.get_inner(),
             },
         );
 
         WorkerCronTriggerResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            schedules: crate::random_to_domain_mapper::<Vec<String>>(result.schedules),
-            script_name: crate::random_to_domain_mapper::<String>(result.script_name),
+            account_id: crate::into_domain(result.account_id),
+            schedules: crate::into_domain(result.schedules),
+            script_name: crate::into_domain(result.script_name),
         }
     }
 }
@@ -5739,20 +5165,20 @@ pub mod worker_domain {
         let result = crate::bindings::pulumi::cloudflare::worker_domain::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::worker_domain::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                environment: &crate::clone::<Option<String>>(args.environment),
-                hostname: &crate::clone::<String>(args.hostname),
-                service: &crate::clone::<String>(args.service),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                account_id: args.account_id.get_inner(),
+                environment: args.environment.get_inner(),
+                hostname: args.hostname.get_inner(),
+                service: args.service.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         WorkerDomainResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            environment: crate::random_to_domain_mapper::<Option<String>>(result.environment),
-            hostname: crate::random_to_domain_mapper::<String>(result.hostname),
-            service: crate::random_to_domain_mapper::<String>(result.service),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            account_id: crate::into_domain(result.account_id),
+            environment: crate::into_domain(result.environment),
+            hostname: crate::into_domain(result.hostname),
+            service: crate::into_domain(result.service),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -5775,16 +5201,16 @@ pub mod worker_route {
         let result = crate::bindings::pulumi::cloudflare::worker_route::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::worker_route::Args {
-                pattern: &crate::clone::<String>(args.pattern),
-                script_name: &crate::clone::<Option<String>>(args.script_name),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                pattern: args.pattern.get_inner(),
+                script_name: args.script_name.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         WorkerRouteResult {
-            pattern: crate::random_to_domain_mapper::<String>(result.pattern),
-            script_name: crate::random_to_domain_mapper::<Option<String>>(result.script_name),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            pattern: crate::into_domain(result.pattern),
+            script_name: crate::into_domain(result.script_name),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -5857,94 +5283,48 @@ pub mod worker_script {
         let result = crate::bindings::pulumi::cloudflare::worker_script::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::worker_script::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                analytics_engine_bindings: &crate::clone::<
-                    Option<Vec<crate::types::WorkerScriptAnalyticsEngineBinding>>,
-                >(args.analytics_engine_bindings),
-                compatibility_date: &crate::clone::<Option<String>>(args.compatibility_date),
-                compatibility_flags: &crate::clone::<Option<Vec<String>>>(args.compatibility_flags),
-                content: &crate::clone::<String>(args.content),
-                d1_database_bindings: &crate::clone::<
-                    Option<Vec<crate::types::WorkerScriptD1DatabaseBinding>>,
-                >(args.d1_database_bindings),
-                dispatch_namespace: &crate::clone::<Option<String>>(args.dispatch_namespace),
-                kv_namespace_bindings: &crate::clone::<
-                    Option<Vec<crate::types::WorkerScriptKvNamespaceBinding>>,
-                >(args.kv_namespace_bindings),
-                logpush: &crate::clone::<Option<bool>>(args.logpush),
-                module: &crate::clone::<Option<bool>>(args.module),
-                name: &crate::clone::<String>(args.name),
-                placements: &crate::clone::<Option<Vec<crate::types::WorkerScriptPlacement>>>(
-                    args.placements,
-                ),
-                plain_text_bindings: &crate::clone::<
-                    Option<Vec<crate::types::WorkerScriptPlainTextBinding>>,
-                >(args.plain_text_bindings),
-                queue_bindings: &crate::clone::<Option<Vec<crate::types::WorkerScriptQueueBinding>>>(
-                    args.queue_bindings,
-                ),
-                r2_bucket_bindings: &crate::clone::<
-                    Option<Vec<crate::types::WorkerScriptR2BucketBinding>>,
-                >(args.r2_bucket_bindings),
-                secret_text_bindings: &crate::clone::<
-                    Option<Vec<crate::types::WorkerScriptSecretTextBinding>>,
-                >(args.secret_text_bindings),
-                service_bindings: &crate::clone::<
-                    Option<Vec<crate::types::WorkerScriptServiceBinding>>,
-                >(args.service_bindings),
-                tags: &crate::clone::<Option<Vec<String>>>(args.tags),
-                webassembly_bindings: &crate::clone::<
-                    Option<Vec<crate::types::WorkerScriptWebassemblyBinding>>,
-                >(args.webassembly_bindings),
+                account_id: args.account_id.get_inner(),
+                analytics_engine_bindings: args.analytics_engine_bindings.get_inner(),
+                compatibility_date: args.compatibility_date.get_inner(),
+                compatibility_flags: args.compatibility_flags.get_inner(),
+                content: args.content.get_inner(),
+                d1_database_bindings: args.d1_database_bindings.get_inner(),
+                dispatch_namespace: args.dispatch_namespace.get_inner(),
+                kv_namespace_bindings: args.kv_namespace_bindings.get_inner(),
+                logpush: args.logpush.get_inner(),
+                module: args.module.get_inner(),
+                name: args.name.get_inner(),
+                placements: args.placements.get_inner(),
+                plain_text_bindings: args.plain_text_bindings.get_inner(),
+                queue_bindings: args.queue_bindings.get_inner(),
+                r2_bucket_bindings: args.r2_bucket_bindings.get_inner(),
+                secret_text_bindings: args.secret_text_bindings.get_inner(),
+                service_bindings: args.service_bindings.get_inner(),
+                tags: args.tags.get_inner(),
+                webassembly_bindings: args.webassembly_bindings.get_inner(),
             },
         );
 
         WorkerScriptResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            analytics_engine_bindings: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::WorkerScriptAnalyticsEngineBinding>>,
-            >(result.analytics_engine_bindings),
-            compatibility_date: crate::random_to_domain_mapper::<Option<String>>(
-                result.compatibility_date,
-            ),
-            compatibility_flags: crate::random_to_domain_mapper::<Vec<String>>(
-                result.compatibility_flags,
-            ),
-            content: crate::random_to_domain_mapper::<String>(result.content),
-            d1_database_bindings: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::WorkerScriptD1DatabaseBinding>>,
-            >(result.d1_database_bindings),
-            dispatch_namespace: crate::random_to_domain_mapper::<Option<String>>(
-                result.dispatch_namespace,
-            ),
-            kv_namespace_bindings: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::WorkerScriptKvNamespaceBinding>>,
-            >(result.kv_namespace_bindings),
-            logpush: crate::random_to_domain_mapper::<Option<bool>>(result.logpush),
-            module: crate::random_to_domain_mapper::<Option<bool>>(result.module),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            placements: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::WorkerScriptPlacement>>,
-            >(result.placements),
-            plain_text_bindings: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::WorkerScriptPlainTextBinding>>,
-            >(result.plain_text_bindings),
-            queue_bindings: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::WorkerScriptQueueBinding>>,
-            >(result.queue_bindings),
-            r2_bucket_bindings: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::WorkerScriptR2BucketBinding>>,
-            >(result.r2_bucket_bindings),
-            secret_text_bindings: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::WorkerScriptSecretTextBinding>>,
-            >(result.secret_text_bindings),
-            service_bindings: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::WorkerScriptServiceBinding>>,
-            >(result.service_bindings),
-            tags: crate::random_to_domain_mapper::<Vec<String>>(result.tags),
-            webassembly_bindings: crate::random_to_domain_mapper::<
-                Option<Vec<crate::types::WorkerScriptWebassemblyBinding>>,
-            >(result.webassembly_bindings),
+            account_id: crate::into_domain(result.account_id),
+            analytics_engine_bindings: crate::into_domain(result.analytics_engine_bindings),
+            compatibility_date: crate::into_domain(result.compatibility_date),
+            compatibility_flags: crate::into_domain(result.compatibility_flags),
+            content: crate::into_domain(result.content),
+            d1_database_bindings: crate::into_domain(result.d1_database_bindings),
+            dispatch_namespace: crate::into_domain(result.dispatch_namespace),
+            kv_namespace_bindings: crate::into_domain(result.kv_namespace_bindings),
+            logpush: crate::into_domain(result.logpush),
+            module: crate::into_domain(result.module),
+            name: crate::into_domain(result.name),
+            placements: crate::into_domain(result.placements),
+            plain_text_bindings: crate::into_domain(result.plain_text_bindings),
+            queue_bindings: crate::into_domain(result.queue_bindings),
+            r2_bucket_bindings: crate::into_domain(result.r2_bucket_bindings),
+            secret_text_bindings: crate::into_domain(result.secret_text_bindings),
+            service_bindings: crate::into_domain(result.service_bindings),
+            tags: crate::into_domain(result.tags),
+            webassembly_bindings: crate::into_domain(result.webassembly_bindings),
         }
     }
 }
@@ -5969,18 +5349,18 @@ pub mod worker_secret {
         let result = crate::bindings::pulumi::cloudflare::worker_secret::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::worker_secret::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                name: &crate::clone::<String>(args.name),
-                script_name: &crate::clone::<String>(args.script_name),
-                secret_text: &crate::clone::<String>(args.secret_text),
+                account_id: args.account_id.get_inner(),
+                name: args.name.get_inner(),
+                script_name: args.script_name.get_inner(),
+                secret_text: args.secret_text.get_inner(),
             },
         );
 
         WorkerSecretResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            name: crate::random_to_domain_mapper::<String>(result.name),
-            script_name: crate::random_to_domain_mapper::<String>(result.script_name),
-            secret_text: crate::random_to_domain_mapper::<String>(result.secret_text),
+            account_id: crate::into_domain(result.account_id),
+            name: crate::into_domain(result.name),
+            script_name: crate::into_domain(result.script_name),
+            secret_text: crate::into_domain(result.secret_text),
         }
     }
 }
@@ -6004,14 +5384,14 @@ pub mod workers_for_platforms_namespace {
         let result = crate::bindings::pulumi::cloudflare::workers_for_platforms_namespace::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::workers_for_platforms_namespace::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                name: &crate::clone::<String>(args.name),
+                account_id: args.account_id.get_inner(),
+                name: args.name.get_inner(),
             },
         );
 
         WorkersForPlatformsNamespaceResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            name: crate::random_to_domain_mapper::<String>(result.name),
+            account_id: crate::into_domain(result.account_id),
+            name: crate::into_domain(result.name),
         }
     }
 }
@@ -6036,18 +5416,18 @@ pub mod workers_kv {
         let result = crate::bindings::pulumi::cloudflare::workers_kv::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::workers_kv::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                key: &crate::clone::<String>(args.key),
-                namespace_id: &crate::clone::<String>(args.namespace_id),
-                value: &crate::clone::<String>(args.value),
+                account_id: args.account_id.get_inner(),
+                key: args.key.get_inner(),
+                namespace_id: args.namespace_id.get_inner(),
+                value: args.value.get_inner(),
             },
         );
 
         WorkersKvResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            key: crate::random_to_domain_mapper::<String>(result.key),
-            namespace_id: crate::random_to_domain_mapper::<String>(result.namespace_id),
-            value: crate::random_to_domain_mapper::<String>(result.value),
+            account_id: crate::into_domain(result.account_id),
+            key: crate::into_domain(result.key),
+            namespace_id: crate::into_domain(result.namespace_id),
+            value: crate::into_domain(result.value),
         }
     }
 }
@@ -6071,14 +5451,14 @@ pub mod workers_kv_namespace {
         let result = crate::bindings::pulumi::cloudflare::workers_kv_namespace::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::workers_kv_namespace::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                title: &crate::clone::<String>(args.title),
+                account_id: args.account_id.get_inner(),
+                title: args.title.get_inner(),
             },
         );
 
         WorkersKvNamespaceResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            title: crate::random_to_domain_mapper::<String>(result.title),
+            account_id: crate::into_domain(result.account_id),
+            title: crate::into_domain(result.title),
         }
     }
 }
@@ -6112,31 +5492,27 @@ pub mod zone {
         let result = crate::bindings::pulumi::cloudflare::zone::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::zone::Args {
-                account_id: &crate::clone::<String>(args.account_id),
-                jump_start: &crate::clone::<Option<bool>>(args.jump_start),
-                paused: &crate::clone::<Option<bool>>(args.paused),
-                plan: &crate::clone::<Option<String>>(args.plan),
-                type_: &crate::clone::<Option<String>>(args.type_),
-                zone: &crate::clone::<String>(args.zone),
+                account_id: args.account_id.get_inner(),
+                jump_start: args.jump_start.get_inner(),
+                paused: args.paused.get_inner(),
+                plan: args.plan.get_inner(),
+                type_: args.type_.get_inner(),
+                zone: args.zone.get_inner(),
             },
         );
 
         ZoneResult {
-            account_id: crate::random_to_domain_mapper::<String>(result.account_id),
-            jump_start: crate::random_to_domain_mapper::<Option<bool>>(result.jump_start),
-            meta: crate::random_to_domain_mapper::<std::collections::HashMap<String, bool>>(
-                result.meta,
-            ),
-            name_servers: crate::random_to_domain_mapper::<Vec<String>>(result.name_servers),
-            paused: crate::random_to_domain_mapper::<Option<bool>>(result.paused),
-            plan: crate::random_to_domain_mapper::<String>(result.plan),
-            status: crate::random_to_domain_mapper::<String>(result.status),
-            type_: crate::random_to_domain_mapper::<Option<String>>(result.type_),
-            vanity_name_servers: crate::random_to_domain_mapper::<Vec<String>>(
-                result.vanity_name_servers,
-            ),
-            verification_key: crate::random_to_domain_mapper::<String>(result.verification_key),
-            zone: crate::random_to_domain_mapper::<String>(result.zone),
+            account_id: crate::into_domain(result.account_id),
+            jump_start: crate::into_domain(result.jump_start),
+            meta: crate::into_domain(result.meta),
+            name_servers: crate::into_domain(result.name_servers),
+            paused: crate::into_domain(result.paused),
+            plan: crate::into_domain(result.plan),
+            status: crate::into_domain(result.status),
+            type_: crate::into_domain(result.type_),
+            vanity_name_servers: crate::into_domain(result.vanity_name_servers),
+            verification_key: crate::into_domain(result.verification_key),
+            zone: crate::into_domain(result.zone),
         }
     }
 }
@@ -6157,14 +5533,14 @@ pub mod zone_cache_reserve {
         let result = crate::bindings::pulumi::cloudflare::zone_cache_reserve::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::zone_cache_reserve::Args {
-                enabled: &crate::clone::<bool>(args.enabled),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                enabled: args.enabled.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         ZoneCacheReserveResult {
-            enabled: crate::random_to_domain_mapper::<bool>(result.enabled),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            enabled: crate::into_domain(result.enabled),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -6205,34 +5581,34 @@ pub mod zone_cache_variants {
         let result = crate::bindings::pulumi::cloudflare::zone_cache_variants::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::zone_cache_variants::Args {
-                avifs: &crate::clone::<Option<Vec<String>>>(args.avifs),
-                bmps: &crate::clone::<Option<Vec<String>>>(args.bmps),
-                gifs: &crate::clone::<Option<Vec<String>>>(args.gifs),
-                jp2s: &crate::clone::<Option<Vec<String>>>(args.jp2s),
-                jpegs: &crate::clone::<Option<Vec<String>>>(args.jpegs),
-                jpg2s: &crate::clone::<Option<Vec<String>>>(args.jpg2s),
-                jpgs: &crate::clone::<Option<Vec<String>>>(args.jpgs),
-                pngs: &crate::clone::<Option<Vec<String>>>(args.pngs),
-                tiffs: &crate::clone::<Option<Vec<String>>>(args.tiffs),
-                tifs: &crate::clone::<Option<Vec<String>>>(args.tifs),
-                webps: &crate::clone::<Option<Vec<String>>>(args.webps),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                avifs: args.avifs.get_inner(),
+                bmps: args.bmps.get_inner(),
+                gifs: args.gifs.get_inner(),
+                jp2s: args.jp2s.get_inner(),
+                jpegs: args.jpegs.get_inner(),
+                jpg2s: args.jpg2s.get_inner(),
+                jpgs: args.jpgs.get_inner(),
+                pngs: args.pngs.get_inner(),
+                tiffs: args.tiffs.get_inner(),
+                tifs: args.tifs.get_inner(),
+                webps: args.webps.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         ZoneCacheVariantsResult {
-            avifs: crate::random_to_domain_mapper::<Option<Vec<String>>>(result.avifs),
-            bmps: crate::random_to_domain_mapper::<Option<Vec<String>>>(result.bmps),
-            gifs: crate::random_to_domain_mapper::<Option<Vec<String>>>(result.gifs),
-            jp2s: crate::random_to_domain_mapper::<Option<Vec<String>>>(result.jp2s),
-            jpegs: crate::random_to_domain_mapper::<Option<Vec<String>>>(result.jpegs),
-            jpg2s: crate::random_to_domain_mapper::<Option<Vec<String>>>(result.jpg2s),
-            jpgs: crate::random_to_domain_mapper::<Option<Vec<String>>>(result.jpgs),
-            pngs: crate::random_to_domain_mapper::<Option<Vec<String>>>(result.pngs),
-            tiffs: crate::random_to_domain_mapper::<Option<Vec<String>>>(result.tiffs),
-            tifs: crate::random_to_domain_mapper::<Option<Vec<String>>>(result.tifs),
-            webps: crate::random_to_domain_mapper::<Option<Vec<String>>>(result.webps),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            avifs: crate::into_domain(result.avifs),
+            bmps: crate::into_domain(result.bmps),
+            gifs: crate::into_domain(result.gifs),
+            jp2s: crate::into_domain(result.jp2s),
+            jpegs: crate::into_domain(result.jpegs),
+            jpg2s: crate::into_domain(result.jpg2s),
+            jpgs: crate::into_domain(result.jpgs),
+            pngs: crate::into_domain(result.pngs),
+            tiffs: crate::into_domain(result.tiffs),
+            tifs: crate::into_domain(result.tifs),
+            webps: crate::into_domain(result.webps),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -6263,24 +5639,24 @@ pub mod zone_dnssec {
         let result = crate::bindings::pulumi::cloudflare::zone_dnssec::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::zone_dnssec::Args {
-                modified_on: &crate::clone::<Option<String>>(args.modified_on),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                modified_on: args.modified_on.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         ZoneDnssecResult {
-            algorithm: crate::random_to_domain_mapper::<String>(result.algorithm),
-            digest: crate::random_to_domain_mapper::<String>(result.digest),
-            digest_algorithm: crate::random_to_domain_mapper::<String>(result.digest_algorithm),
-            digest_type: crate::random_to_domain_mapper::<String>(result.digest_type),
-            ds: crate::random_to_domain_mapper::<String>(result.ds),
-            flags: crate::random_to_domain_mapper::<i32>(result.flags),
-            key_tag: crate::random_to_domain_mapper::<i32>(result.key_tag),
-            key_type: crate::random_to_domain_mapper::<String>(result.key_type),
-            modified_on: crate::random_to_domain_mapper::<String>(result.modified_on),
-            public_key: crate::random_to_domain_mapper::<String>(result.public_key),
-            status: crate::random_to_domain_mapper::<String>(result.status),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            algorithm: crate::into_domain(result.algorithm),
+            digest: crate::into_domain(result.digest),
+            digest_algorithm: crate::into_domain(result.digest_algorithm),
+            digest_type: crate::into_domain(result.digest_type),
+            ds: crate::into_domain(result.ds),
+            flags: crate::into_domain(result.flags),
+            key_tag: crate::into_domain(result.key_tag),
+            key_type: crate::into_domain(result.key_type),
+            modified_on: crate::into_domain(result.modified_on),
+            public_key: crate::into_domain(result.public_key),
+            status: crate::into_domain(result.status),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -6305,20 +5681,18 @@ pub mod zone_hold {
         let result = crate::bindings::pulumi::cloudflare::zone_hold::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::zone_hold::Args {
-                hold: &crate::clone::<bool>(args.hold),
-                hold_after: &crate::clone::<Option<String>>(args.hold_after),
-                include_subdomains: &crate::clone::<Option<bool>>(args.include_subdomains),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                hold: args.hold.get_inner(),
+                hold_after: args.hold_after.get_inner(),
+                include_subdomains: args.include_subdomains.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         ZoneHoldResult {
-            hold: crate::random_to_domain_mapper::<bool>(result.hold),
-            hold_after: crate::random_to_domain_mapper::<String>(result.hold_after),
-            include_subdomains: crate::random_to_domain_mapper::<Option<bool>>(
-                result.include_subdomains,
-            ),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            hold: crate::into_domain(result.hold),
+            hold_after: crate::into_domain(result.hold_after),
+            include_subdomains: crate::into_domain(result.include_subdomains),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -6347,26 +5721,22 @@ pub mod zone_lockdown {
         let result = crate::bindings::pulumi::cloudflare::zone_lockdown::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::zone_lockdown::Args {
-                configurations: &crate::clone::<Vec<crate::types::ZoneLockdownConfiguration>>(
-                    args.configurations,
-                ),
-                description: &crate::clone::<Option<String>>(args.description),
-                paused: &crate::clone::<Option<bool>>(args.paused),
-                priority: &crate::clone::<Option<i32>>(args.priority),
-                urls: &crate::clone::<Vec<String>>(args.urls),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                configurations: args.configurations.get_inner(),
+                description: args.description.get_inner(),
+                paused: args.paused.get_inner(),
+                priority: args.priority.get_inner(),
+                urls: args.urls.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         ZoneLockdownResult {
-            configurations: crate::random_to_domain_mapper::<
-                Vec<crate::types::ZoneLockdownConfiguration>,
-            >(result.configurations),
-            description: crate::random_to_domain_mapper::<Option<String>>(result.description),
-            paused: crate::random_to_domain_mapper::<Option<bool>>(result.paused),
-            priority: crate::random_to_domain_mapper::<Option<i32>>(result.priority),
-            urls: crate::random_to_domain_mapper::<Vec<String>>(result.urls),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
+            configurations: crate::into_domain(result.configurations),
+            description: crate::into_domain(result.description),
+            paused: crate::into_domain(result.paused),
+            priority: crate::into_domain(result.priority),
+            urls: crate::into_domain(result.urls),
+            zone_id: crate::into_domain(result.zone_id),
         }
     }
 }
@@ -6396,29 +5766,19 @@ pub mod zone_settings_override {
         let result = crate::bindings::pulumi::cloudflare::zone_settings_override::invoke(
             name,
             &crate::bindings::pulumi::cloudflare::zone_settings_override::Args {
-                settings: &crate::clone::<Option<crate::types::ZoneSettingsOverrideSettings>>(
-                    args.settings,
-                ),
-                zone_id: &crate::clone::<String>(args.zone_id),
+                settings: args.settings.get_inner(),
+                zone_id: args.zone_id.get_inner(),
             },
         );
 
         ZoneSettingsOverrideResult {
-            initial_settings: crate::random_to_domain_mapper::<
-                Vec<crate::types::ZoneSettingsOverrideInitialSetting>,
-            >(result.initial_settings),
-            initial_settings_read_at: crate::random_to_domain_mapper::<String>(
-                result.initial_settings_read_at,
-            ),
-            readonly_settings: crate::random_to_domain_mapper::<Vec<String>>(
-                result.readonly_settings,
-            ),
-            settings: crate::random_to_domain_mapper::<crate::types::ZoneSettingsOverrideSettings>(
-                result.settings,
-            ),
-            zone_id: crate::random_to_domain_mapper::<String>(result.zone_id),
-            zone_status: crate::random_to_domain_mapper::<String>(result.zone_status),
-            zone_type: crate::random_to_domain_mapper::<String>(result.zone_type),
+            initial_settings: crate::into_domain(result.initial_settings),
+            initial_settings_read_at: crate::into_domain(result.initial_settings_read_at),
+            readonly_settings: crate::into_domain(result.readonly_settings),
+            settings: crate::into_domain(result.settings),
+            zone_id: crate::into_domain(result.zone_id),
+            zone_status: crate::into_domain(result.zone_status),
+            zone_type: crate::into_domain(result.zone_type),
         }
     }
 }

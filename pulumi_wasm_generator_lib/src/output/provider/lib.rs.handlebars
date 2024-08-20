@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 {{#each package.interfaces}}
 use bindings::exports::pulumi::{{@root.package.name_escaped}}::{{name}};
 {{/each}}
@@ -31,9 +32,11 @@ impl {{name}}::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         {{name}}::Res {
             {{#each output_properties}}
-            {{arg_name}}: o.fields.iter().find(|o| o.name == "{{name}}").unwrap().output.duplicate(),
+            {{arg_name}}: hashmap.remove("{{name}}").unwrap(),
             {{/each}}
         }
 

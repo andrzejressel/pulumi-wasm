@@ -111,28 +111,6 @@ pub mod component {
                     }
                 }
             }
-            impl Output {
-                #[allow(unused_unsafe, clippy::all)]
-                pub fn duplicate(&self) -> Output {
-                    unsafe {
-                        #[cfg(target_arch = "wasm32")]
-                        #[link(
-                            wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0-DEV"
-                        )]
-                        extern "C" {
-                            #[link_name = "[method]output.duplicate"]
-                            fn wit_import(_: i32) -> i32;
-                        }
-
-                        #[cfg(not(target_arch = "wasm32"))]
-                        fn wit_import(_: i32) -> i32 {
-                            unreachable!()
-                        }
-                        let ret = wit_import((self).handle() as i32);
-                        Output::from_handle(ret as u32)
-                    }
-                }
-            }
             #[allow(unused_unsafe, clippy::all)]
             pub fn combine(outputs: _rt::Vec<Output>) -> Output {
                 unsafe {
@@ -18048,29 +18026,28 @@ pub(crate) use __export_cloudflare_pulumi_impl as export;
 #[cfg(target_arch = "wasm32")]
 #[link_section = "component-type:wit-bindgen:0.25.0:cloudflare-pulumi:encoded world"]
 #[doc(hidden)]
-pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 38445] = *b"\
-\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xa4\xab\x02\x01A\x02\
-\x01A\xf1\x01\x01B\x0c\x04\0\x06output\x03\x01\x01i\0\x01@\x01\x05values\0\x01\x04\
+pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 38405] = *b"\
+\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xfc\xaa\x02\x01A\x02\
+\x01A\xf1\x01\x01B\x0a\x04\0\x06output\x03\x01\x01i\0\x01@\x01\x05values\0\x01\x04\
 \0\x13[constructor]output\x01\x02\x01h\0\x01@\x02\x04self\x03\x0dfunction-names\0\
-\x01\x04\0\x12[method]output.map\x01\x04\x01@\x01\x04self\x03\0\x01\x04\0\x18[me\
-thod]output.duplicate\x01\x05\x01p\x01\x01@\x01\x07outputs\x06\0\x01\x04\0\x07co\
-mbine\x01\x07\x03\x010component:pulumi-wasm/output-interface@0.0.0-DEV\x05\0\x02\
-\x03\0\0\x06output\x01B\x13\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
-\x01r\x02\x04names\x05value\x02\x04\0\x0cobject-field\x03\0\x03\x01r\x01\x04name\
-s\x04\0\x0cresult-field\x03\0\x05\x01i\x01\x01r\x02\x04names\x06output\x07\x04\0\
-\x1eregister-resource-result-field\x03\0\x08\x01p\x04\x01p\x06\x01r\x04\x04types\
-\x04names\x06object\x0a\x07results\x0b\x04\0\x19register-resource-request\x03\0\x0c\
-\x01p\x09\x01r\x01\x06fields\x0e\x04\0\x18register-resource-result\x03\0\x0f\x01\
-@\x01\x07request\x0d\0\x10\x04\0\x08register\x01\x11\x03\x012component:pulumi-wa\
-sm/register-interface@0.0.0-DEV\x05\x02\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06ou\
-tput\x03\0\0\x01h\x01\x01r\x1d\x0aaccount-id\x02\x1ballow-authenticate-via-warp\x02\
-\x0callowed-idps\x02\x15app-launcher-logo-url\x02\x14app-launcher-visible\x02\x19\
-auto-redirect-to-identity\x02\x08bg-color\x02\x0ccors-headers\x02\x13custom-deny\
--message\x02\x0fcustom-deny-url\x02\x1ccustom-non-identity-deny-url\x02\x0ccusto\
-m-pages\x02\x06domain\x02\x15enable-binding-cookie\x02\x0cfooter-links\x02\x0fhe\
-ader-bg-color\x02\x1ahttp-only-cookie-attribute\x02\x13landing-page-design\x02\x08\
-logo-url\x02\x04name\x02\x08saas-app\x02\x1asame-site-cookie-attribute\x02\x13se\
-lf-hosted-domains\x02\x18service-auth401-redirect\x02\x10session-duration\x02\x11\
+\x01\x04\0\x12[method]output.map\x01\x04\x01p\x01\x01@\x01\x07outputs\x05\0\x01\x04\
+\0\x07combine\x01\x06\x03\x010component:pulumi-wasm/output-interface@0.0.0-DEV\x05\
+\0\x02\x03\0\0\x06output\x01B\x13\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
+h\x01\x01r\x02\x04names\x05value\x02\x04\0\x0cobject-field\x03\0\x03\x01r\x01\x04\
+names\x04\0\x0cresult-field\x03\0\x05\x01i\x01\x01r\x02\x04names\x06output\x07\x04\
+\0\x1eregister-resource-result-field\x03\0\x08\x01p\x04\x01p\x06\x01r\x04\x04typ\
+es\x04names\x06object\x0a\x07results\x0b\x04\0\x19register-resource-request\x03\0\
+\x0c\x01p\x09\x01r\x01\x06fields\x0e\x04\0\x18register-resource-result\x03\0\x0f\
+\x01@\x01\x07request\x0d\0\x10\x04\0\x08register\x01\x11\x03\x012component:pulum\
+i-wasm/register-interface@0.0.0-DEV\x05\x02\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
+output\x03\0\0\x01h\x01\x01r\x1d\x0aaccount-id\x02\x1ballow-authenticate-via-war\
+p\x02\x0callowed-idps\x02\x15app-launcher-logo-url\x02\x14app-launcher-visible\x02\
+\x19auto-redirect-to-identity\x02\x08bg-color\x02\x0ccors-headers\x02\x13custom-\
+deny-message\x02\x0fcustom-deny-url\x02\x1ccustom-non-identity-deny-url\x02\x0cc\
+ustom-pages\x02\x06domain\x02\x15enable-binding-cookie\x02\x0cfooter-links\x02\x0f\
+header-bg-color\x02\x1ahttp-only-cookie-attribute\x02\x13landing-page-design\x02\
+\x08logo-url\x02\x04name\x02\x08saas-app\x02\x1asame-site-cookie-attribute\x02\x13\
+self-hosted-domains\x02\x18service-auth401-redirect\x02\x10session-duration\x02\x11\
 skip-interstitial\x02\x04tags\x02\x04type\x02\x07zone-id\x02\x04\0\x04args\x03\0\
 \x03\x01i\x01\x01r\x1e\x0aaccount-id\x05\x1ballow-authenticate-via-warp\x05\x0ca\
 llowed-idps\x05\x15app-launcher-logo-url\x05\x14app-launcher-visible\x05\x03aud\x05\

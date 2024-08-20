@@ -116,6 +116,7 @@ use bindings::exports::pulumi::cloudflare::zone_dnssec;
 use bindings::exports::pulumi::cloudflare::zone_hold;
 use bindings::exports::pulumi::cloudflare::zone_lockdown;
 use bindings::exports::pulumi::cloudflare::zone_settings_override;
+use std::collections::HashMap;
 
 use crate::bindings::component::pulumi_wasm::register_interface::{
     register, ObjectField, RegisterResourceRequest, ResultField,
@@ -343,217 +344,40 @@ impl access_application::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         access_application::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            allow_authenticate_via_warp: o
-                .fields
-                .iter()
-                .find(|o| o.name == "allowAuthenticateViaWarp")
-                .unwrap()
-                .output
-                .duplicate(),
-            allowed_idps: o
-                .fields
-                .iter()
-                .find(|o| o.name == "allowedIdps")
-                .unwrap()
-                .output
-                .duplicate(),
-            app_launcher_logo_url: o
-                .fields
-                .iter()
-                .find(|o| o.name == "appLauncherLogoUrl")
-                .unwrap()
-                .output
-                .duplicate(),
-            app_launcher_visible: o
-                .fields
-                .iter()
-                .find(|o| o.name == "appLauncherVisible")
-                .unwrap()
-                .output
-                .duplicate(),
-            aud: o
-                .fields
-                .iter()
-                .find(|o| o.name == "aud")
-                .unwrap()
-                .output
-                .duplicate(),
-            auto_redirect_to_identity: o
-                .fields
-                .iter()
-                .find(|o| o.name == "autoRedirectToIdentity")
-                .unwrap()
-                .output
-                .duplicate(),
-            bg_color: o
-                .fields
-                .iter()
-                .find(|o| o.name == "bgColor")
-                .unwrap()
-                .output
-                .duplicate(),
-            cors_headers: o
-                .fields
-                .iter()
-                .find(|o| o.name == "corsHeaders")
-                .unwrap()
-                .output
-                .duplicate(),
-            custom_deny_message: o
-                .fields
-                .iter()
-                .find(|o| o.name == "customDenyMessage")
-                .unwrap()
-                .output
-                .duplicate(),
-            custom_deny_url: o
-                .fields
-                .iter()
-                .find(|o| o.name == "customDenyUrl")
-                .unwrap()
-                .output
-                .duplicate(),
-            custom_non_identity_deny_url: o
-                .fields
-                .iter()
-                .find(|o| o.name == "customNonIdentityDenyUrl")
-                .unwrap()
-                .output
-                .duplicate(),
-            custom_pages: o
-                .fields
-                .iter()
-                .find(|o| o.name == "customPages")
-                .unwrap()
-                .output
-                .duplicate(),
-            domain: o
-                .fields
-                .iter()
-                .find(|o| o.name == "domain")
-                .unwrap()
-                .output
-                .duplicate(),
-            enable_binding_cookie: o
-                .fields
-                .iter()
-                .find(|o| o.name == "enableBindingCookie")
-                .unwrap()
-                .output
-                .duplicate(),
-            footer_links: o
-                .fields
-                .iter()
-                .find(|o| o.name == "footerLinks")
-                .unwrap()
-                .output
-                .duplicate(),
-            header_bg_color: o
-                .fields
-                .iter()
-                .find(|o| o.name == "headerBgColor")
-                .unwrap()
-                .output
-                .duplicate(),
-            http_only_cookie_attribute: o
-                .fields
-                .iter()
-                .find(|o| o.name == "httpOnlyCookieAttribute")
-                .unwrap()
-                .output
-                .duplicate(),
-            landing_page_design: o
-                .fields
-                .iter()
-                .find(|o| o.name == "landingPageDesign")
-                .unwrap()
-                .output
-                .duplicate(),
-            logo_url: o
-                .fields
-                .iter()
-                .find(|o| o.name == "logoUrl")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            saas_app: o
-                .fields
-                .iter()
-                .find(|o| o.name == "saasApp")
-                .unwrap()
-                .output
-                .duplicate(),
-            same_site_cookie_attribute: o
-                .fields
-                .iter()
-                .find(|o| o.name == "sameSiteCookieAttribute")
-                .unwrap()
-                .output
-                .duplicate(),
-            self_hosted_domains: o
-                .fields
-                .iter()
-                .find(|o| o.name == "selfHostedDomains")
-                .unwrap()
-                .output
-                .duplicate(),
-            service_auth401_redirect: o
-                .fields
-                .iter()
-                .find(|o| o.name == "serviceAuth401Redirect")
-                .unwrap()
-                .output
-                .duplicate(),
-            session_duration: o
-                .fields
-                .iter()
-                .find(|o| o.name == "sessionDuration")
-                .unwrap()
-                .output
-                .duplicate(),
-            skip_interstitial: o
-                .fields
-                .iter()
-                .find(|o| o.name == "skipInterstitial")
-                .unwrap()
-                .output
-                .duplicate(),
-            tags: o
-                .fields
-                .iter()
-                .find(|o| o.name == "tags")
-                .unwrap()
-                .output
-                .duplicate(),
-            type_: o
-                .fields
-                .iter()
-                .find(|o| o.name == "type")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            allow_authenticate_via_warp: hashmap.remove("allowAuthenticateViaWarp").unwrap(),
+            allowed_idps: hashmap.remove("allowedIdps").unwrap(),
+            app_launcher_logo_url: hashmap.remove("appLauncherLogoUrl").unwrap(),
+            app_launcher_visible: hashmap.remove("appLauncherVisible").unwrap(),
+            aud: hashmap.remove("aud").unwrap(),
+            auto_redirect_to_identity: hashmap.remove("autoRedirectToIdentity").unwrap(),
+            bg_color: hashmap.remove("bgColor").unwrap(),
+            cors_headers: hashmap.remove("corsHeaders").unwrap(),
+            custom_deny_message: hashmap.remove("customDenyMessage").unwrap(),
+            custom_deny_url: hashmap.remove("customDenyUrl").unwrap(),
+            custom_non_identity_deny_url: hashmap.remove("customNonIdentityDenyUrl").unwrap(),
+            custom_pages: hashmap.remove("customPages").unwrap(),
+            domain: hashmap.remove("domain").unwrap(),
+            enable_binding_cookie: hashmap.remove("enableBindingCookie").unwrap(),
+            footer_links: hashmap.remove("footerLinks").unwrap(),
+            header_bg_color: hashmap.remove("headerBgColor").unwrap(),
+            http_only_cookie_attribute: hashmap.remove("httpOnlyCookieAttribute").unwrap(),
+            landing_page_design: hashmap.remove("landingPageDesign").unwrap(),
+            logo_url: hashmap.remove("logoUrl").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            saas_app: hashmap.remove("saasApp").unwrap(),
+            same_site_cookie_attribute: hashmap.remove("sameSiteCookieAttribute").unwrap(),
+            self_hosted_domains: hashmap.remove("selfHostedDomains").unwrap(),
+            service_auth401_redirect: hashmap.remove("serviceAuth401Redirect").unwrap(),
+            session_duration: hashmap.remove("sessionDuration").unwrap(),
+            skip_interstitial: hashmap.remove("skipInterstitial").unwrap(),
+            tags: hashmap.remove("tags").unwrap(),
+            type_: hashmap.remove("type").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -596,42 +420,15 @@ impl access_ca_certificate::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         access_ca_certificate::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            application_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "applicationId")
-                .unwrap()
-                .output
-                .duplicate(),
-            aud: o
-                .fields
-                .iter()
-                .find(|o| o.name == "aud")
-                .unwrap()
-                .output
-                .duplicate(),
-            public_key: o
-                .fields
-                .iter()
-                .find(|o| o.name == "publicKey")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            application_id: hashmap.remove("applicationId").unwrap(),
+            aud: hashmap.remove("aud").unwrap(),
+            public_key: hashmap.remove("publicKey").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -691,49 +488,16 @@ impl access_custom_page::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         access_custom_page::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            app_count: o
-                .fields
-                .iter()
-                .find(|o| o.name == "appCount")
-                .unwrap()
-                .output
-                .duplicate(),
-            custom_html: o
-                .fields
-                .iter()
-                .find(|o| o.name == "customHtml")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            type_: o
-                .fields
-                .iter()
-                .find(|o| o.name == "type")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            app_count: hashmap.remove("appCount").unwrap(),
+            custom_html: hashmap.remove("customHtml").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            type_: hashmap.remove("type").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -793,49 +557,16 @@ impl access_group::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         access_group::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            excludes: o
-                .fields
-                .iter()
-                .find(|o| o.name == "excludes")
-                .unwrap()
-                .output
-                .duplicate(),
-            includes: o
-                .fields
-                .iter()
-                .find(|o| o.name == "includes")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            requires: o
-                .fields
-                .iter()
-                .find(|o| o.name == "requires")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            excludes: hashmap.remove("excludes").unwrap(),
+            includes: hashmap.remove("includes").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            requires: hashmap.remove("requires").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -895,49 +626,16 @@ impl access_identity_provider::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         access_identity_provider::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            configs: o
-                .fields
-                .iter()
-                .find(|o| o.name == "configs")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            scim_configs: o
-                .fields
-                .iter()
-                .find(|o| o.name == "scimConfigs")
-                .unwrap()
-                .output
-                .duplicate(),
-            type_: o
-                .fields
-                .iter()
-                .find(|o| o.name == "type")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            configs: hashmap.remove("configs").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            scim_configs: hashmap.remove("scimConfigs").unwrap(),
+            type_: hashmap.remove("type").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -972,21 +670,12 @@ impl access_keys_configuration::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         access_keys_configuration::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            key_rotation_interval_days: o
-                .fields
-                .iter()
-                .find(|o| o.name == "keyRotationIntervalDays")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            key_rotation_interval_days: hashmap.remove("keyRotationIntervalDays").unwrap(),
         }
     }
 }
@@ -1045,49 +734,16 @@ impl access_mutual_tls_certificate::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         access_mutual_tls_certificate::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            associated_hostnames: o
-                .fields
-                .iter()
-                .find(|o| o.name == "associatedHostnames")
-                .unwrap()
-                .output
-                .duplicate(),
-            certificate: o
-                .fields
-                .iter()
-                .find(|o| o.name == "certificate")
-                .unwrap()
-                .output
-                .duplicate(),
-            fingerprint: o
-                .fields
-                .iter()
-                .find(|o| o.name == "fingerprint")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            associated_hostnames: hashmap.remove("associatedHostnames").unwrap(),
+            certificate: hashmap.remove("certificate").unwrap(),
+            fingerprint: hashmap.remove("fingerprint").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -1131,28 +787,13 @@ impl access_mutual_tls_hostname_settings::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         access_mutual_tls_hostname_settings::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            settings: o
-                .fields
-                .iter()
-                .find(|o| o.name == "settings")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            settings: hashmap.remove("settings").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -1261,98 +902,25 @@ impl access_organization::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         access_organization::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            allow_authenticate_via_warp: o
-                .fields
-                .iter()
-                .find(|o| o.name == "allowAuthenticateViaWarp")
-                .unwrap()
-                .output
-                .duplicate(),
-            auth_domain: o
-                .fields
-                .iter()
-                .find(|o| o.name == "authDomain")
-                .unwrap()
-                .output
-                .duplicate(),
-            auto_redirect_to_identity: o
-                .fields
-                .iter()
-                .find(|o| o.name == "autoRedirectToIdentity")
-                .unwrap()
-                .output
-                .duplicate(),
-            custom_pages: o
-                .fields
-                .iter()
-                .find(|o| o.name == "customPages")
-                .unwrap()
-                .output
-                .duplicate(),
-            is_ui_read_only: o
-                .fields
-                .iter()
-                .find(|o| o.name == "isUiReadOnly")
-                .unwrap()
-                .output
-                .duplicate(),
-            login_designs: o
-                .fields
-                .iter()
-                .find(|o| o.name == "loginDesigns")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            session_duration: o
-                .fields
-                .iter()
-                .find(|o| o.name == "sessionDuration")
-                .unwrap()
-                .output
-                .duplicate(),
-            ui_read_only_toggle_reason: o
-                .fields
-                .iter()
-                .find(|o| o.name == "uiReadOnlyToggleReason")
-                .unwrap()
-                .output
-                .duplicate(),
-            user_seat_expiration_inactive_time: o
-                .fields
-                .iter()
-                .find(|o| o.name == "userSeatExpirationInactiveTime")
-                .unwrap()
-                .output
-                .duplicate(),
-            warp_auth_session_duration: o
-                .fields
-                .iter()
-                .find(|o| o.name == "warpAuthSessionDuration")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            allow_authenticate_via_warp: hashmap.remove("allowAuthenticateViaWarp").unwrap(),
+            auth_domain: hashmap.remove("authDomain").unwrap(),
+            auto_redirect_to_identity: hashmap.remove("autoRedirectToIdentity").unwrap(),
+            custom_pages: hashmap.remove("customPages").unwrap(),
+            is_ui_read_only: hashmap.remove("isUiReadOnly").unwrap(),
+            login_designs: hashmap.remove("loginDesigns").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            session_duration: hashmap.remove("sessionDuration").unwrap(),
+            ui_read_only_toggle_reason: hashmap.remove("uiReadOnlyToggleReason").unwrap(),
+            user_seat_expiration_inactive_time: hashmap
+                .remove("userSeatExpirationInactiveTime")
+                .unwrap(),
+            warp_auth_session_duration: hashmap.remove("warpAuthSessionDuration").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -1475,112 +1043,25 @@ impl access_policy::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         access_policy::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            application_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "applicationId")
-                .unwrap()
-                .output
-                .duplicate(),
-            approval_groups: o
-                .fields
-                .iter()
-                .find(|o| o.name == "approvalGroups")
-                .unwrap()
-                .output
-                .duplicate(),
-            approval_required: o
-                .fields
-                .iter()
-                .find(|o| o.name == "approvalRequired")
-                .unwrap()
-                .output
-                .duplicate(),
-            decision: o
-                .fields
-                .iter()
-                .find(|o| o.name == "decision")
-                .unwrap()
-                .output
-                .duplicate(),
-            excludes: o
-                .fields
-                .iter()
-                .find(|o| o.name == "excludes")
-                .unwrap()
-                .output
-                .duplicate(),
-            includes: o
-                .fields
-                .iter()
-                .find(|o| o.name == "includes")
-                .unwrap()
-                .output
-                .duplicate(),
-            isolation_required: o
-                .fields
-                .iter()
-                .find(|o| o.name == "isolationRequired")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            precedence: o
-                .fields
-                .iter()
-                .find(|o| o.name == "precedence")
-                .unwrap()
-                .output
-                .duplicate(),
-            purpose_justification_prompt: o
-                .fields
-                .iter()
-                .find(|o| o.name == "purposeJustificationPrompt")
-                .unwrap()
-                .output
-                .duplicate(),
-            purpose_justification_required: o
-                .fields
-                .iter()
-                .find(|o| o.name == "purposeJustificationRequired")
-                .unwrap()
-                .output
-                .duplicate(),
-            requires: o
-                .fields
-                .iter()
-                .find(|o| o.name == "requires")
-                .unwrap()
-                .output
-                .duplicate(),
-            session_duration: o
-                .fields
-                .iter()
-                .find(|o| o.name == "sessionDuration")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            application_id: hashmap.remove("applicationId").unwrap(),
+            approval_groups: hashmap.remove("approvalGroups").unwrap(),
+            approval_required: hashmap.remove("approvalRequired").unwrap(),
+            decision: hashmap.remove("decision").unwrap(),
+            excludes: hashmap.remove("excludes").unwrap(),
+            includes: hashmap.remove("includes").unwrap(),
+            isolation_required: hashmap.remove("isolationRequired").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            precedence: hashmap.remove("precedence").unwrap(),
+            purpose_justification_prompt: hashmap.remove("purposeJustificationPrompt").unwrap(),
+            purpose_justification_required: hashmap.remove("purposeJustificationRequired").unwrap(),
+            requires: hashmap.remove("requires").unwrap(),
+            session_duration: hashmap.remove("sessionDuration").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -1633,42 +1114,15 @@ impl access_rule::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         access_rule::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            configuration: o
-                .fields
-                .iter()
-                .find(|o| o.name == "configuration")
-                .unwrap()
-                .output
-                .duplicate(),
-            mode: o
-                .fields
-                .iter()
-                .find(|o| o.name == "mode")
-                .unwrap()
-                .output
-                .duplicate(),
-            notes: o
-                .fields
-                .iter()
-                .find(|o| o.name == "notes")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            configuration: hashmap.remove("configuration").unwrap(),
+            mode: hashmap.remove("mode").unwrap(),
+            notes: hashmap.remove("notes").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -1730,63 +1184,18 @@ impl access_service_token::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         access_service_token::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            client_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "clientId")
-                .unwrap()
-                .output
-                .duplicate(),
-            client_secret: o
-                .fields
-                .iter()
-                .find(|o| o.name == "clientSecret")
-                .unwrap()
-                .output
-                .duplicate(),
-            duration: o
-                .fields
-                .iter()
-                .find(|o| o.name == "duration")
-                .unwrap()
-                .output
-                .duplicate(),
-            expires_at: o
-                .fields
-                .iter()
-                .find(|o| o.name == "expiresAt")
-                .unwrap()
-                .output
-                .duplicate(),
-            min_days_for_renewal: o
-                .fields
-                .iter()
-                .find(|o| o.name == "minDaysForRenewal")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            client_id: hashmap.remove("clientId").unwrap(),
+            client_secret: hashmap.remove("clientSecret").unwrap(),
+            duration: hashmap.remove("duration").unwrap(),
+            expires_at: hashmap.remove("expiresAt").unwrap(),
+            min_days_for_renewal: hashmap.remove("minDaysForRenewal").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -1832,35 +1241,14 @@ impl access_tag::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         access_tag::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            app_count: o
-                .fields
-                .iter()
-                .find(|o| o.name == "appCount")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            app_count: hashmap.remove("appCount").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -1899,28 +1287,13 @@ impl account::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         account::Res {
-            enforce_twofactor: o
-                .fields
-                .iter()
-                .find(|o| o.name == "enforceTwofactor")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            type_: o
-                .fields
-                .iter()
-                .find(|o| o.name == "type")
-                .unwrap()
-                .output
-                .duplicate(),
+            enforce_twofactor: hashmap.remove("enforceTwofactor").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            type_: hashmap.remove("type").unwrap(),
         }
     }
 }
@@ -1966,35 +1339,14 @@ impl account_member::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         account_member::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            email_address: o
-                .fields
-                .iter()
-                .find(|o| o.name == "emailAddress")
-                .unwrap()
-                .output
-                .duplicate(),
-            role_ids: o
-                .fields
-                .iter()
-                .find(|o| o.name == "roleIds")
-                .unwrap()
-                .output
-                .duplicate(),
-            status: o
-                .fields
-                .iter()
-                .find(|o| o.name == "status")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            email_address: hashmap.remove("emailAddress").unwrap(),
+            role_ids: hashmap.remove("roleIds").unwrap(),
+            status: hashmap.remove("status").unwrap(),
         }
     }
 }
@@ -2058,63 +1410,18 @@ impl address_map::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         address_map::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            can_delete: o
-                .fields
-                .iter()
-                .find(|o| o.name == "canDelete")
-                .unwrap()
-                .output
-                .duplicate(),
-            can_modify_ips: o
-                .fields
-                .iter()
-                .find(|o| o.name == "canModifyIps")
-                .unwrap()
-                .output
-                .duplicate(),
-            default_sni: o
-                .fields
-                .iter()
-                .find(|o| o.name == "defaultSni")
-                .unwrap()
-                .output
-                .duplicate(),
-            description: o
-                .fields
-                .iter()
-                .find(|o| o.name == "description")
-                .unwrap()
-                .output
-                .duplicate(),
-            enabled: o
-                .fields
-                .iter()
-                .find(|o| o.name == "enabled")
-                .unwrap()
-                .output
-                .duplicate(),
-            ips: o
-                .fields
-                .iter()
-                .find(|o| o.name == "ips")
-                .unwrap()
-                .output
-                .duplicate(),
-            memberships: o
-                .fields
-                .iter()
-                .find(|o| o.name == "memberships")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            can_delete: hashmap.remove("canDelete").unwrap(),
+            can_modify_ips: hashmap.remove("canModifyIps").unwrap(),
+            default_sni: hashmap.remove("defaultSni").unwrap(),
+            description: hashmap.remove("description").unwrap(),
+            enabled: hashmap.remove("enabled").unwrap(),
+            ips: hashmap.remove("ips").unwrap(),
+            memberships: hashmap.remove("memberships").unwrap(),
         }
     }
 }
@@ -2146,21 +1453,12 @@ impl api_shield::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         api_shield::Res {
-            auth_id_characteristics: o
-                .fields
-                .iter()
-                .find(|o| o.name == "authIdCharacteristics")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            auth_id_characteristics: hashmap.remove("authIdCharacteristics").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -2206,35 +1504,14 @@ impl api_shield_operation::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         api_shield_operation::Res {
-            endpoint: o
-                .fields
-                .iter()
-                .find(|o| o.name == "endpoint")
-                .unwrap()
-                .output
-                .duplicate(),
-            host: o
-                .fields
-                .iter()
-                .find(|o| o.name == "host")
-                .unwrap()
-                .output
-                .duplicate(),
-            method: o
-                .fields
-                .iter()
-                .find(|o| o.name == "method")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            endpoint: hashmap.remove("endpoint").unwrap(),
+            host: hashmap.remove("host").unwrap(),
+            method: hashmap.remove("method").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -2261,28 +1538,13 @@ impl api_shield_operation_schema_validation_settings::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         api_shield_operation_schema_validation_settings::Res {
-            mitigation_action: o
-                .fields
-                .iter()
-                .find(|o| o.name == "mitigationAction")
-                .unwrap()
-                .output
-                .duplicate(),
-            operation_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "operationId")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            mitigation_action: hashmap.remove("mitigationAction").unwrap(),
+            operation_id: hashmap.remove("operationId").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -2335,42 +1597,15 @@ impl api_shield_schema::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         api_shield_schema::Res {
-            kind: o
-                .fields
-                .iter()
-                .find(|o| o.name == "kind")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            source: o
-                .fields
-                .iter()
-                .find(|o| o.name == "source")
-                .unwrap()
-                .output
-                .duplicate(),
-            validation_enabled: o
-                .fields
-                .iter()
-                .find(|o| o.name == "validationEnabled")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            kind: hashmap.remove("kind").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            source: hashmap.remove("source").unwrap(),
+            validation_enabled: hashmap.remove("validationEnabled").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -2397,28 +1632,17 @@ impl api_shield_schema_validation_settings::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         api_shield_schema_validation_settings::Res {
-            validation_default_mitigation_action: o
-                .fields
-                .iter()
-                .find(|o| o.name == "validationDefaultMitigationAction")
-                .unwrap()
-                .output
-                .duplicate(),
-            validation_override_mitigation_action: o
-                .fields
-                .iter()
-                .find(|o| o.name == "validationOverrideMitigationAction")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            validation_default_mitigation_action: hashmap
+                .remove("validationDefaultMitigationAction")
+                .unwrap(),
+            validation_override_mitigation_action: hashmap
+                .remove("validationOverrideMitigationAction")
+                .unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -2483,70 +1707,19 @@ impl api_token::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         api_token::Res {
-            condition: o
-                .fields
-                .iter()
-                .find(|o| o.name == "condition")
-                .unwrap()
-                .output
-                .duplicate(),
-            expires_on: o
-                .fields
-                .iter()
-                .find(|o| o.name == "expiresOn")
-                .unwrap()
-                .output
-                .duplicate(),
-            issued_on: o
-                .fields
-                .iter()
-                .find(|o| o.name == "issuedOn")
-                .unwrap()
-                .output
-                .duplicate(),
-            modified_on: o
-                .fields
-                .iter()
-                .find(|o| o.name == "modifiedOn")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            not_before: o
-                .fields
-                .iter()
-                .find(|o| o.name == "notBefore")
-                .unwrap()
-                .output
-                .duplicate(),
-            policies: o
-                .fields
-                .iter()
-                .find(|o| o.name == "policies")
-                .unwrap()
-                .output
-                .duplicate(),
-            status: o
-                .fields
-                .iter()
-                .find(|o| o.name == "status")
-                .unwrap()
-                .output
-                .duplicate(),
-            value: o
-                .fields
-                .iter()
-                .find(|o| o.name == "value")
-                .unwrap()
-                .output
-                .duplicate(),
+            condition: hashmap.remove("condition").unwrap(),
+            expires_on: hashmap.remove("expiresOn").unwrap(),
+            issued_on: hashmap.remove("issuedOn").unwrap(),
+            modified_on: hashmap.remove("modifiedOn").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            not_before: hashmap.remove("notBefore").unwrap(),
+            policies: hashmap.remove("policies").unwrap(),
+            status: hashmap.remove("status").unwrap(),
+            value: hashmap.remove("value").unwrap(),
         }
     }
 }
@@ -2585,28 +1758,13 @@ impl argo::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         argo::Res {
-            smart_routing: o
-                .fields
-                .iter()
-                .find(|o| o.name == "smartRouting")
-                .unwrap()
-                .output
-                .duplicate(),
-            tiered_caching: o
-                .fields
-                .iter()
-                .find(|o| o.name == "tieredCaching")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            smart_routing: hashmap.remove("smartRouting").unwrap(),
+            tiered_caching: hashmap.remove("tieredCaching").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -2655,35 +1813,16 @@ impl authenticated_origin_pulls::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         authenticated_origin_pulls::Res {
-            authenticated_origin_pulls_certificate: o
-                .fields
-                .iter()
-                .find(|o| o.name == "authenticatedOriginPullsCertificate")
-                .unwrap()
-                .output
-                .duplicate(),
-            enabled: o
-                .fields
-                .iter()
-                .find(|o| o.name == "enabled")
-                .unwrap()
-                .output
-                .duplicate(),
-            hostname: o
-                .fields
-                .iter()
-                .find(|o| o.name == "hostname")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            authenticated_origin_pulls_certificate: hashmap
+                .remove("authenticatedOriginPullsCertificate")
+                .unwrap(),
+            enabled: hashmap.remove("enabled").unwrap(),
+            hostname: hashmap.remove("hostname").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -2718,77 +1857,20 @@ impl authenticated_origin_pulls_certificate::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         authenticated_origin_pulls_certificate::Res {
-            certificate: o
-                .fields
-                .iter()
-                .find(|o| o.name == "certificate")
-                .unwrap()
-                .output
-                .duplicate(),
-            expires_on: o
-                .fields
-                .iter()
-                .find(|o| o.name == "expiresOn")
-                .unwrap()
-                .output
-                .duplicate(),
-            issuer: o
-                .fields
-                .iter()
-                .find(|o| o.name == "issuer")
-                .unwrap()
-                .output
-                .duplicate(),
-            private_key: o
-                .fields
-                .iter()
-                .find(|o| o.name == "privateKey")
-                .unwrap()
-                .output
-                .duplicate(),
-            serial_number: o
-                .fields
-                .iter()
-                .find(|o| o.name == "serialNumber")
-                .unwrap()
-                .output
-                .duplicate(),
-            signature: o
-                .fields
-                .iter()
-                .find(|o| o.name == "signature")
-                .unwrap()
-                .output
-                .duplicate(),
-            status: o
-                .fields
-                .iter()
-                .find(|o| o.name == "status")
-                .unwrap()
-                .output
-                .duplicate(),
-            type_: o
-                .fields
-                .iter()
-                .find(|o| o.name == "type")
-                .unwrap()
-                .output
-                .duplicate(),
-            uploaded_on: o
-                .fields
-                .iter()
-                .find(|o| o.name == "uploadedOn")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            certificate: hashmap.remove("certificate").unwrap(),
+            expires_on: hashmap.remove("expiresOn").unwrap(),
+            issuer: hashmap.remove("issuer").unwrap(),
+            private_key: hashmap.remove("privateKey").unwrap(),
+            serial_number: hashmap.remove("serialNumber").unwrap(),
+            signature: hashmap.remove("signature").unwrap(),
+            status: hashmap.remove("status").unwrap(),
+            type_: hashmap.remove("type").unwrap(),
+            uploaded_on: hashmap.remove("uploadedOn").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -2879,84 +1961,23 @@ impl bot_management::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         bot_management::Res {
-            auto_update_model: o
-                .fields
-                .iter()
-                .find(|o| o.name == "autoUpdateModel")
-                .unwrap()
-                .output
-                .duplicate(),
-            enable_js: o
-                .fields
-                .iter()
-                .find(|o| o.name == "enableJs")
-                .unwrap()
-                .output
-                .duplicate(),
-            fight_mode: o
-                .fields
-                .iter()
-                .find(|o| o.name == "fightMode")
-                .unwrap()
-                .output
-                .duplicate(),
-            optimize_wordpress: o
-                .fields
-                .iter()
-                .find(|o| o.name == "optimizeWordpress")
-                .unwrap()
-                .output
-                .duplicate(),
-            sbfm_definitely_automated: o
-                .fields
-                .iter()
-                .find(|o| o.name == "sbfmDefinitelyAutomated")
-                .unwrap()
-                .output
-                .duplicate(),
-            sbfm_likely_automated: o
-                .fields
-                .iter()
-                .find(|o| o.name == "sbfmLikelyAutomated")
-                .unwrap()
-                .output
-                .duplicate(),
-            sbfm_static_resource_protection: o
-                .fields
-                .iter()
-                .find(|o| o.name == "sbfmStaticResourceProtection")
-                .unwrap()
-                .output
-                .duplicate(),
-            sbfm_verified_bots: o
-                .fields
-                .iter()
-                .find(|o| o.name == "sbfmVerifiedBots")
-                .unwrap()
-                .output
-                .duplicate(),
-            suppress_session_score: o
-                .fields
-                .iter()
-                .find(|o| o.name == "suppressSessionScore")
-                .unwrap()
-                .output
-                .duplicate(),
-            using_latest_model: o
-                .fields
-                .iter()
-                .find(|o| o.name == "usingLatestModel")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            auto_update_model: hashmap.remove("autoUpdateModel").unwrap(),
+            enable_js: hashmap.remove("enableJs").unwrap(),
+            fight_mode: hashmap.remove("fightMode").unwrap(),
+            optimize_wordpress: hashmap.remove("optimizeWordpress").unwrap(),
+            sbfm_definitely_automated: hashmap.remove("sbfmDefinitelyAutomated").unwrap(),
+            sbfm_likely_automated: hashmap.remove("sbfmLikelyAutomated").unwrap(),
+            sbfm_static_resource_protection: hashmap
+                .remove("sbfmStaticResourceProtection")
+                .unwrap(),
+            sbfm_verified_bots: hashmap.remove("sbfmVerifiedBots").unwrap(),
+            suppress_session_score: hashmap.remove("suppressSessionScore").unwrap(),
+            using_latest_model: hashmap.remove("usingLatestModel").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -3002,35 +2023,14 @@ impl byo_ip_prefix::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         byo_ip_prefix::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            advertisement: o
-                .fields
-                .iter()
-                .find(|o| o.name == "advertisement")
-                .unwrap()
-                .output
-                .duplicate(),
-            description: o
-                .fields
-                .iter()
-                .find(|o| o.name == "description")
-                .unwrap()
-                .output
-                .duplicate(),
-            prefix_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "prefixId")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            advertisement: hashmap.remove("advertisement").unwrap(),
+            description: hashmap.remove("description").unwrap(),
+            prefix_id: hashmap.remove("prefixId").unwrap(),
         }
     }
 }
@@ -3118,77 +2118,20 @@ impl certificate_pack::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         certificate_pack::Res {
-            certificate_authority: o
-                .fields
-                .iter()
-                .find(|o| o.name == "certificateAuthority")
-                .unwrap()
-                .output
-                .duplicate(),
-            cloudflare_branding: o
-                .fields
-                .iter()
-                .find(|o| o.name == "cloudflareBranding")
-                .unwrap()
-                .output
-                .duplicate(),
-            hosts: o
-                .fields
-                .iter()
-                .find(|o| o.name == "hosts")
-                .unwrap()
-                .output
-                .duplicate(),
-            type_: o
-                .fields
-                .iter()
-                .find(|o| o.name == "type")
-                .unwrap()
-                .output
-                .duplicate(),
-            validation_errors: o
-                .fields
-                .iter()
-                .find(|o| o.name == "validationErrors")
-                .unwrap()
-                .output
-                .duplicate(),
-            validation_method: o
-                .fields
-                .iter()
-                .find(|o| o.name == "validationMethod")
-                .unwrap()
-                .output
-                .duplicate(),
-            validation_records: o
-                .fields
-                .iter()
-                .find(|o| o.name == "validationRecords")
-                .unwrap()
-                .output
-                .duplicate(),
-            validity_days: o
-                .fields
-                .iter()
-                .find(|o| o.name == "validityDays")
-                .unwrap()
-                .output
-                .duplicate(),
-            wait_for_active_status: o
-                .fields
-                .iter()
-                .find(|o| o.name == "waitForActiveStatus")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            certificate_authority: hashmap.remove("certificateAuthority").unwrap(),
+            cloudflare_branding: hashmap.remove("cloudflareBranding").unwrap(),
+            hosts: hashmap.remove("hosts").unwrap(),
+            type_: hashmap.remove("type").unwrap(),
+            validation_errors: hashmap.remove("validationErrors").unwrap(),
+            validation_method: hashmap.remove("validationMethod").unwrap(),
+            validation_records: hashmap.remove("validationRecords").unwrap(),
+            validity_days: hashmap.remove("validityDays").unwrap(),
+            wait_for_active_status: hashmap.remove("waitForActiveStatus").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -3264,77 +2207,20 @@ impl custom_hostname::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         custom_hostname::Res {
-            custom_metadata: o
-                .fields
-                .iter()
-                .find(|o| o.name == "customMetadata")
-                .unwrap()
-                .output
-                .duplicate(),
-            custom_origin_server: o
-                .fields
-                .iter()
-                .find(|o| o.name == "customOriginServer")
-                .unwrap()
-                .output
-                .duplicate(),
-            custom_origin_sni: o
-                .fields
-                .iter()
-                .find(|o| o.name == "customOriginSni")
-                .unwrap()
-                .output
-                .duplicate(),
-            hostname: o
-                .fields
-                .iter()
-                .find(|o| o.name == "hostname")
-                .unwrap()
-                .output
-                .duplicate(),
-            ownership_verification: o
-                .fields
-                .iter()
-                .find(|o| o.name == "ownershipVerification")
-                .unwrap()
-                .output
-                .duplicate(),
-            ownership_verification_http: o
-                .fields
-                .iter()
-                .find(|o| o.name == "ownershipVerificationHttp")
-                .unwrap()
-                .output
-                .duplicate(),
-            ssls: o
-                .fields
-                .iter()
-                .find(|o| o.name == "ssls")
-                .unwrap()
-                .output
-                .duplicate(),
-            status: o
-                .fields
-                .iter()
-                .find(|o| o.name == "status")
-                .unwrap()
-                .output
-                .duplicate(),
-            wait_for_ssl_pending_validation: o
-                .fields
-                .iter()
-                .find(|o| o.name == "waitForSslPendingValidation")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            custom_metadata: hashmap.remove("customMetadata").unwrap(),
+            custom_origin_server: hashmap.remove("customOriginServer").unwrap(),
+            custom_origin_sni: hashmap.remove("customOriginSni").unwrap(),
+            hostname: hashmap.remove("hostname").unwrap(),
+            ownership_verification: hashmap.remove("ownershipVerification").unwrap(),
+            ownership_verification_http: hashmap.remove("ownershipVerificationHttp").unwrap(),
+            ssls: hashmap.remove("ssls").unwrap(),
+            status: hashmap.remove("status").unwrap(),
+            wait_for_ssl_pending_validation: hashmap.remove("waitForSslPendingValidation").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -3373,28 +2259,13 @@ impl custom_hostname_fallback_origin::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         custom_hostname_fallback_origin::Res {
-            origin: o
-                .fields
-                .iter()
-                .find(|o| o.name == "origin")
-                .unwrap()
-                .output
-                .duplicate(),
-            status: o
-                .fields
-                .iter()
-                .find(|o| o.name == "status")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            origin: hashmap.remove("origin").unwrap(),
+            status: hashmap.remove("status").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -3445,42 +2316,15 @@ impl custom_pages::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         custom_pages::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            state: o
-                .fields
-                .iter()
-                .find(|o| o.name == "state")
-                .unwrap()
-                .output
-                .duplicate(),
-            type_: o
-                .fields
-                .iter()
-                .find(|o| o.name == "type")
-                .unwrap()
-                .output
-                .duplicate(),
-            url: o
-                .fields
-                .iter()
-                .find(|o| o.name == "url")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            state: hashmap.remove("state").unwrap(),
+            type_: hashmap.remove("type").unwrap(),
+            url: hashmap.remove("url").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -3543,84 +2387,21 @@ impl custom_ssl::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         custom_ssl::Res {
-            custom_ssl_options: o
-                .fields
-                .iter()
-                .find(|o| o.name == "customSslOptions")
-                .unwrap()
-                .output
-                .duplicate(),
-            custom_ssl_priorities: o
-                .fields
-                .iter()
-                .find(|o| o.name == "customSslPriorities")
-                .unwrap()
-                .output
-                .duplicate(),
-            expires_on: o
-                .fields
-                .iter()
-                .find(|o| o.name == "expiresOn")
-                .unwrap()
-                .output
-                .duplicate(),
-            hosts: o
-                .fields
-                .iter()
-                .find(|o| o.name == "hosts")
-                .unwrap()
-                .output
-                .duplicate(),
-            issuer: o
-                .fields
-                .iter()
-                .find(|o| o.name == "issuer")
-                .unwrap()
-                .output
-                .duplicate(),
-            modified_on: o
-                .fields
-                .iter()
-                .find(|o| o.name == "modifiedOn")
-                .unwrap()
-                .output
-                .duplicate(),
-            priority: o
-                .fields
-                .iter()
-                .find(|o| o.name == "priority")
-                .unwrap()
-                .output
-                .duplicate(),
-            signature: o
-                .fields
-                .iter()
-                .find(|o| o.name == "signature")
-                .unwrap()
-                .output
-                .duplicate(),
-            status: o
-                .fields
-                .iter()
-                .find(|o| o.name == "status")
-                .unwrap()
-                .output
-                .duplicate(),
-            uploaded_on: o
-                .fields
-                .iter()
-                .find(|o| o.name == "uploadedOn")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            custom_ssl_options: hashmap.remove("customSslOptions").unwrap(),
+            custom_ssl_priorities: hashmap.remove("customSslPriorities").unwrap(),
+            expires_on: hashmap.remove("expiresOn").unwrap(),
+            hosts: hashmap.remove("hosts").unwrap(),
+            issuer: hashmap.remove("issuer").unwrap(),
+            modified_on: hashmap.remove("modifiedOn").unwrap(),
+            priority: hashmap.remove("priority").unwrap(),
+            signature: hashmap.remove("signature").unwrap(),
+            status: hashmap.remove("status").unwrap(),
+            uploaded_on: hashmap.remove("uploadedOn").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -3655,28 +2436,13 @@ impl d1_database::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         d1_database::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            version: o
-                .fields
-                .iter()
-                .find(|o| o.name == "version")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            version: hashmap.remove("version").unwrap(),
         }
     }
 }
@@ -3742,63 +2508,18 @@ impl device_dex_test::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         device_dex_test::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            created: o
-                .fields
-                .iter()
-                .find(|o| o.name == "created")
-                .unwrap()
-                .output
-                .duplicate(),
-            data: o
-                .fields
-                .iter()
-                .find(|o| o.name == "data")
-                .unwrap()
-                .output
-                .duplicate(),
-            description: o
-                .fields
-                .iter()
-                .find(|o| o.name == "description")
-                .unwrap()
-                .output
-                .duplicate(),
-            enabled: o
-                .fields
-                .iter()
-                .find(|o| o.name == "enabled")
-                .unwrap()
-                .output
-                .duplicate(),
-            interval: o
-                .fields
-                .iter()
-                .find(|o| o.name == "interval")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            updated: o
-                .fields
-                .iter()
-                .find(|o| o.name == "updated")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            created: hashmap.remove("created").unwrap(),
+            data: hashmap.remove("data").unwrap(),
+            description: hashmap.remove("description").unwrap(),
+            enabled: hashmap.remove("enabled").unwrap(),
+            interval: hashmap.remove("interval").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            updated: hashmap.remove("updated").unwrap(),
         }
     }
 }
@@ -3844,35 +2565,14 @@ impl device_managed_networks::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         device_managed_networks::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            config: o
-                .fields
-                .iter()
-                .find(|o| o.name == "config")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            type_: o
-                .fields
-                .iter()
-                .find(|o| o.name == "type")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            config: hashmap.remove("config").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            type_: hashmap.remove("type").unwrap(),
         }
     }
 }
@@ -3907,21 +2607,12 @@ impl device_policy_certificates::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         device_policy_certificates::Res {
-            enabled: o
-                .fields
-                .iter()
-                .find(|o| o.name == "enabled")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            enabled: hashmap.remove("enabled").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -3984,49 +2675,16 @@ impl device_posture_integration::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         device_posture_integration::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            configs: o
-                .fields
-                .iter()
-                .find(|o| o.name == "configs")
-                .unwrap()
-                .output
-                .duplicate(),
-            identifier: o
-                .fields
-                .iter()
-                .find(|o| o.name == "identifier")
-                .unwrap()
-                .output
-                .duplicate(),
-            interval: o
-                .fields
-                .iter()
-                .find(|o| o.name == "interval")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            type_: o
-                .fields
-                .iter()
-                .find(|o| o.name == "type")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            configs: hashmap.remove("configs").unwrap(),
+            identifier: hashmap.remove("identifier").unwrap(),
+            interval: hashmap.remove("interval").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            type_: hashmap.remove("type").unwrap(),
         }
     }
 }
@@ -4100,63 +2758,18 @@ impl device_posture_rule::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         device_posture_rule::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            description: o
-                .fields
-                .iter()
-                .find(|o| o.name == "description")
-                .unwrap()
-                .output
-                .duplicate(),
-            expiration: o
-                .fields
-                .iter()
-                .find(|o| o.name == "expiration")
-                .unwrap()
-                .output
-                .duplicate(),
-            inputs: o
-                .fields
-                .iter()
-                .find(|o| o.name == "inputs")
-                .unwrap()
-                .output
-                .duplicate(),
-            matches: o
-                .fields
-                .iter()
-                .find(|o| o.name == "matches")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            schedule: o
-                .fields
-                .iter()
-                .find(|o| o.name == "schedule")
-                .unwrap()
-                .output
-                .duplicate(),
-            type_: o
-                .fields
-                .iter()
-                .find(|o| o.name == "type")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            description: hashmap.remove("description").unwrap(),
+            expiration: hashmap.remove("expiration").unwrap(),
+            inputs: hashmap.remove("inputs").unwrap(),
+            matches: hashmap.remove("matches").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            schedule: hashmap.remove("schedule").unwrap(),
+            type_: hashmap.remove("type").unwrap(),
         }
     }
 }
@@ -4300,133 +2913,28 @@ impl device_settings_policy::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         device_settings_policy::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            allow_mode_switch: o
-                .fields
-                .iter()
-                .find(|o| o.name == "allowModeSwitch")
-                .unwrap()
-                .output
-                .duplicate(),
-            allow_updates: o
-                .fields
-                .iter()
-                .find(|o| o.name == "allowUpdates")
-                .unwrap()
-                .output
-                .duplicate(),
-            allowed_to_leave: o
-                .fields
-                .iter()
-                .find(|o| o.name == "allowedToLeave")
-                .unwrap()
-                .output
-                .duplicate(),
-            auto_connect: o
-                .fields
-                .iter()
-                .find(|o| o.name == "autoConnect")
-                .unwrap()
-                .output
-                .duplicate(),
-            captive_portal: o
-                .fields
-                .iter()
-                .find(|o| o.name == "captivePortal")
-                .unwrap()
-                .output
-                .duplicate(),
-            default: o
-                .fields
-                .iter()
-                .find(|o| o.name == "default")
-                .unwrap()
-                .output
-                .duplicate(),
-            description: o
-                .fields
-                .iter()
-                .find(|o| o.name == "description")
-                .unwrap()
-                .output
-                .duplicate(),
-            disable_auto_fallback: o
-                .fields
-                .iter()
-                .find(|o| o.name == "disableAutoFallback")
-                .unwrap()
-                .output
-                .duplicate(),
-            enabled: o
-                .fields
-                .iter()
-                .find(|o| o.name == "enabled")
-                .unwrap()
-                .output
-                .duplicate(),
-            exclude_office_ips: o
-                .fields
-                .iter()
-                .find(|o| o.name == "excludeOfficeIps")
-                .unwrap()
-                .output
-                .duplicate(),
-            match_: o
-                .fields
-                .iter()
-                .find(|o| o.name == "match")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            precedence: o
-                .fields
-                .iter()
-                .find(|o| o.name == "precedence")
-                .unwrap()
-                .output
-                .duplicate(),
-            service_mode_v2_mode: o
-                .fields
-                .iter()
-                .find(|o| o.name == "serviceModeV2Mode")
-                .unwrap()
-                .output
-                .duplicate(),
-            service_mode_v2_port: o
-                .fields
-                .iter()
-                .find(|o| o.name == "serviceModeV2Port")
-                .unwrap()
-                .output
-                .duplicate(),
-            support_url: o
-                .fields
-                .iter()
-                .find(|o| o.name == "supportUrl")
-                .unwrap()
-                .output
-                .duplicate(),
-            switch_locked: o
-                .fields
-                .iter()
-                .find(|o| o.name == "switchLocked")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            allow_mode_switch: hashmap.remove("allowModeSwitch").unwrap(),
+            allow_updates: hashmap.remove("allowUpdates").unwrap(),
+            allowed_to_leave: hashmap.remove("allowedToLeave").unwrap(),
+            auto_connect: hashmap.remove("autoConnect").unwrap(),
+            captive_portal: hashmap.remove("captivePortal").unwrap(),
+            default: hashmap.remove("default").unwrap(),
+            description: hashmap.remove("description").unwrap(),
+            disable_auto_fallback: hashmap.remove("disableAutoFallback").unwrap(),
+            enabled: hashmap.remove("enabled").unwrap(),
+            exclude_office_ips: hashmap.remove("excludeOfficeIps").unwrap(),
+            match_: hashmap.remove("match").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            precedence: hashmap.remove("precedence").unwrap(),
+            service_mode_v2_mode: hashmap.remove("serviceModeV2Mode").unwrap(),
+            service_mode_v2_port: hashmap.remove("serviceModeV2Port").unwrap(),
+            support_url: hashmap.remove("supportUrl").unwrap(),
+            switch_locked: hashmap.remove("switchLocked").unwrap(),
         }
     }
 }
@@ -4493,56 +3001,17 @@ impl dlp_profile::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         dlp_profile::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            allowed_match_count: o
-                .fields
-                .iter()
-                .find(|o| o.name == "allowedMatchCount")
-                .unwrap()
-                .output
-                .duplicate(),
-            context_awareness: o
-                .fields
-                .iter()
-                .find(|o| o.name == "contextAwareness")
-                .unwrap()
-                .output
-                .duplicate(),
-            description: o
-                .fields
-                .iter()
-                .find(|o| o.name == "description")
-                .unwrap()
-                .output
-                .duplicate(),
-            entries: o
-                .fields
-                .iter()
-                .find(|o| o.name == "entries")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            type_: o
-                .fields
-                .iter()
-                .find(|o| o.name == "type")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            allowed_match_count: hashmap.remove("allowedMatchCount").unwrap(),
+            context_awareness: hashmap.remove("contextAwareness").unwrap(),
+            description: hashmap.remove("description").unwrap(),
+            entries: hashmap.remove("entries").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            type_: hashmap.remove("type").unwrap(),
         }
     }
 }
@@ -4584,49 +3053,16 @@ impl email_routing_address::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         email_routing_address::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            created: o
-                .fields
-                .iter()
-                .find(|o| o.name == "created")
-                .unwrap()
-                .output
-                .duplicate(),
-            email: o
-                .fields
-                .iter()
-                .find(|o| o.name == "email")
-                .unwrap()
-                .output
-                .duplicate(),
-            modified: o
-                .fields
-                .iter()
-                .find(|o| o.name == "modified")
-                .unwrap()
-                .output
-                .duplicate(),
-            tag: o
-                .fields
-                .iter()
-                .find(|o| o.name == "tag")
-                .unwrap()
-                .output
-                .duplicate(),
-            verified: o
-                .fields
-                .iter()
-                .find(|o| o.name == "verified")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            created: hashmap.remove("created").unwrap(),
+            email: hashmap.remove("email").unwrap(),
+            modified: hashmap.remove("modified").unwrap(),
+            tag: hashmap.remove("tag").unwrap(),
+            verified: hashmap.remove("verified").unwrap(),
         }
     }
 }
@@ -4680,49 +3116,16 @@ impl email_routing_catch_all::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         email_routing_catch_all::Res {
-            actions: o
-                .fields
-                .iter()
-                .find(|o| o.name == "actions")
-                .unwrap()
-                .output
-                .duplicate(),
-            enabled: o
-                .fields
-                .iter()
-                .find(|o| o.name == "enabled")
-                .unwrap()
-                .output
-                .duplicate(),
-            matchers: o
-                .fields
-                .iter()
-                .find(|o| o.name == "matchers")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            tag: o
-                .fields
-                .iter()
-                .find(|o| o.name == "tag")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            actions: hashmap.remove("actions").unwrap(),
+            enabled: hashmap.remove("enabled").unwrap(),
+            matchers: hashmap.remove("matchers").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            tag: hashmap.remove("tag").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -4783,56 +3186,17 @@ impl email_routing_rule::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         email_routing_rule::Res {
-            actions: o
-                .fields
-                .iter()
-                .find(|o| o.name == "actions")
-                .unwrap()
-                .output
-                .duplicate(),
-            enabled: o
-                .fields
-                .iter()
-                .find(|o| o.name == "enabled")
-                .unwrap()
-                .output
-                .duplicate(),
-            matchers: o
-                .fields
-                .iter()
-                .find(|o| o.name == "matchers")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            priority: o
-                .fields
-                .iter()
-                .find(|o| o.name == "priority")
-                .unwrap()
-                .output
-                .duplicate(),
-            tag: o
-                .fields
-                .iter()
-                .find(|o| o.name == "tag")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            actions: hashmap.remove("actions").unwrap(),
+            enabled: hashmap.remove("enabled").unwrap(),
+            matchers: hashmap.remove("matchers").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            priority: hashmap.remove("priority").unwrap(),
+            tag: hashmap.remove("tag").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -4884,63 +3248,18 @@ impl email_routing_settings::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         email_routing_settings::Res {
-            created: o
-                .fields
-                .iter()
-                .find(|o| o.name == "created")
-                .unwrap()
-                .output
-                .duplicate(),
-            enabled: o
-                .fields
-                .iter()
-                .find(|o| o.name == "enabled")
-                .unwrap()
-                .output
-                .duplicate(),
-            modified: o
-                .fields
-                .iter()
-                .find(|o| o.name == "modified")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            skip_wizard: o
-                .fields
-                .iter()
-                .find(|o| o.name == "skipWizard")
-                .unwrap()
-                .output
-                .duplicate(),
-            status: o
-                .fields
-                .iter()
-                .find(|o| o.name == "status")
-                .unwrap()
-                .output
-                .duplicate(),
-            tag: o
-                .fields
-                .iter()
-                .find(|o| o.name == "tag")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            created: hashmap.remove("created").unwrap(),
+            enabled: hashmap.remove("enabled").unwrap(),
+            modified: hashmap.remove("modified").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            skip_wizard: hashmap.remove("skipWizard").unwrap(),
+            status: hashmap.remove("status").unwrap(),
+            tag: hashmap.remove("tag").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -4979,28 +3298,13 @@ impl fallback_domain::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         fallback_domain::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            domains: o
-                .fields
-                .iter()
-                .find(|o| o.name == "domains")
-                .unwrap()
-                .output
-                .duplicate(),
-            policy_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "policyId")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            domains: hashmap.remove("domains").unwrap(),
+            policy_id: hashmap.remove("policyId").unwrap(),
         }
     }
 }
@@ -5051,42 +3355,15 @@ impl filter::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         filter::Res {
-            description: o
-                .fields
-                .iter()
-                .find(|o| o.name == "description")
-                .unwrap()
-                .output
-                .duplicate(),
-            expression: o
-                .fields
-                .iter()
-                .find(|o| o.name == "expression")
-                .unwrap()
-                .output
-                .duplicate(),
-            paused: o
-                .fields
-                .iter()
-                .find(|o| o.name == "paused")
-                .unwrap()
-                .output
-                .duplicate(),
-            ref_: o
-                .fields
-                .iter()
-                .find(|o| o.name == "ref")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            description: hashmap.remove("description").unwrap(),
+            expression: hashmap.remove("expression").unwrap(),
+            paused: hashmap.remove("paused").unwrap(),
+            ref_: hashmap.remove("ref").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -5153,56 +3430,17 @@ impl firewall_rule::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         firewall_rule::Res {
-            action: o
-                .fields
-                .iter()
-                .find(|o| o.name == "action")
-                .unwrap()
-                .output
-                .duplicate(),
-            description: o
-                .fields
-                .iter()
-                .find(|o| o.name == "description")
-                .unwrap()
-                .output
-                .duplicate(),
-            filter_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "filterId")
-                .unwrap()
-                .output
-                .duplicate(),
-            paused: o
-                .fields
-                .iter()
-                .find(|o| o.name == "paused")
-                .unwrap()
-                .output
-                .duplicate(),
-            priority: o
-                .fields
-                .iter()
-                .find(|o| o.name == "priority")
-                .unwrap()
-                .output
-                .duplicate(),
-            products: o
-                .fields
-                .iter()
-                .find(|o| o.name == "products")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            action: hashmap.remove("action").unwrap(),
+            description: hashmap.remove("description").unwrap(),
+            filter_id: hashmap.remove("filterId").unwrap(),
+            paused: hashmap.remove("paused").unwrap(),
+            priority: hashmap.remove("priority").unwrap(),
+            products: hashmap.remove("products").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -5293,84 +3531,21 @@ impl gre_tunnel::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         gre_tunnel::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            cloudflare_gre_endpoint: o
-                .fields
-                .iter()
-                .find(|o| o.name == "cloudflareGreEndpoint")
-                .unwrap()
-                .output
-                .duplicate(),
-            customer_gre_endpoint: o
-                .fields
-                .iter()
-                .find(|o| o.name == "customerGreEndpoint")
-                .unwrap()
-                .output
-                .duplicate(),
-            description: o
-                .fields
-                .iter()
-                .find(|o| o.name == "description")
-                .unwrap()
-                .output
-                .duplicate(),
-            health_check_enabled: o
-                .fields
-                .iter()
-                .find(|o| o.name == "healthCheckEnabled")
-                .unwrap()
-                .output
-                .duplicate(),
-            health_check_target: o
-                .fields
-                .iter()
-                .find(|o| o.name == "healthCheckTarget")
-                .unwrap()
-                .output
-                .duplicate(),
-            health_check_type: o
-                .fields
-                .iter()
-                .find(|o| o.name == "healthCheckType")
-                .unwrap()
-                .output
-                .duplicate(),
-            interface_address: o
-                .fields
-                .iter()
-                .find(|o| o.name == "interfaceAddress")
-                .unwrap()
-                .output
-                .duplicate(),
-            mtu: o
-                .fields
-                .iter()
-                .find(|o| o.name == "mtu")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            ttl: o
-                .fields
-                .iter()
-                .find(|o| o.name == "ttl")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            cloudflare_gre_endpoint: hashmap.remove("cloudflareGreEndpoint").unwrap(),
+            customer_gre_endpoint: hashmap.remove("customerGreEndpoint").unwrap(),
+            description: hashmap.remove("description").unwrap(),
+            health_check_enabled: hashmap.remove("healthCheckEnabled").unwrap(),
+            health_check_target: hashmap.remove("healthCheckTarget").unwrap(),
+            health_check_type: hashmap.remove("healthCheckType").unwrap(),
+            interface_address: hashmap.remove("interfaceAddress").unwrap(),
+            mtu: hashmap.remove("mtu").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            ttl: hashmap.remove("ttl").unwrap(),
         }
     }
 }
@@ -5534,161 +3709,32 @@ impl healthcheck::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         healthcheck::Res {
-            address: o
-                .fields
-                .iter()
-                .find(|o| o.name == "address")
-                .unwrap()
-                .output
-                .duplicate(),
-            allow_insecure: o
-                .fields
-                .iter()
-                .find(|o| o.name == "allowInsecure")
-                .unwrap()
-                .output
-                .duplicate(),
-            check_regions: o
-                .fields
-                .iter()
-                .find(|o| o.name == "checkRegions")
-                .unwrap()
-                .output
-                .duplicate(),
-            consecutive_fails: o
-                .fields
-                .iter()
-                .find(|o| o.name == "consecutiveFails")
-                .unwrap()
-                .output
-                .duplicate(),
-            consecutive_successes: o
-                .fields
-                .iter()
-                .find(|o| o.name == "consecutiveSuccesses")
-                .unwrap()
-                .output
-                .duplicate(),
-            created_on: o
-                .fields
-                .iter()
-                .find(|o| o.name == "createdOn")
-                .unwrap()
-                .output
-                .duplicate(),
-            description: o
-                .fields
-                .iter()
-                .find(|o| o.name == "description")
-                .unwrap()
-                .output
-                .duplicate(),
-            expected_body: o
-                .fields
-                .iter()
-                .find(|o| o.name == "expectedBody")
-                .unwrap()
-                .output
-                .duplicate(),
-            expected_codes: o
-                .fields
-                .iter()
-                .find(|o| o.name == "expectedCodes")
-                .unwrap()
-                .output
-                .duplicate(),
-            follow_redirects: o
-                .fields
-                .iter()
-                .find(|o| o.name == "followRedirects")
-                .unwrap()
-                .output
-                .duplicate(),
-            headers: o
-                .fields
-                .iter()
-                .find(|o| o.name == "headers")
-                .unwrap()
-                .output
-                .duplicate(),
-            interval: o
-                .fields
-                .iter()
-                .find(|o| o.name == "interval")
-                .unwrap()
-                .output
-                .duplicate(),
-            method: o
-                .fields
-                .iter()
-                .find(|o| o.name == "method")
-                .unwrap()
-                .output
-                .duplicate(),
-            modified_on: o
-                .fields
-                .iter()
-                .find(|o| o.name == "modifiedOn")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            path: o
-                .fields
-                .iter()
-                .find(|o| o.name == "path")
-                .unwrap()
-                .output
-                .duplicate(),
-            port: o
-                .fields
-                .iter()
-                .find(|o| o.name == "port")
-                .unwrap()
-                .output
-                .duplicate(),
-            retries: o
-                .fields
-                .iter()
-                .find(|o| o.name == "retries")
-                .unwrap()
-                .output
-                .duplicate(),
-            suspended: o
-                .fields
-                .iter()
-                .find(|o| o.name == "suspended")
-                .unwrap()
-                .output
-                .duplicate(),
-            timeout: o
-                .fields
-                .iter()
-                .find(|o| o.name == "timeout")
-                .unwrap()
-                .output
-                .duplicate(),
-            type_: o
-                .fields
-                .iter()
-                .find(|o| o.name == "type")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            address: hashmap.remove("address").unwrap(),
+            allow_insecure: hashmap.remove("allowInsecure").unwrap(),
+            check_regions: hashmap.remove("checkRegions").unwrap(),
+            consecutive_fails: hashmap.remove("consecutiveFails").unwrap(),
+            consecutive_successes: hashmap.remove("consecutiveSuccesses").unwrap(),
+            created_on: hashmap.remove("createdOn").unwrap(),
+            description: hashmap.remove("description").unwrap(),
+            expected_body: hashmap.remove("expectedBody").unwrap(),
+            expected_codes: hashmap.remove("expectedCodes").unwrap(),
+            follow_redirects: hashmap.remove("followRedirects").unwrap(),
+            headers: hashmap.remove("headers").unwrap(),
+            interval: hashmap.remove("interval").unwrap(),
+            method: hashmap.remove("method").unwrap(),
+            modified_on: hashmap.remove("modifiedOn").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            path: hashmap.remove("path").unwrap(),
+            port: hashmap.remove("port").unwrap(),
+            retries: hashmap.remove("retries").unwrap(),
+            suspended: hashmap.remove("suspended").unwrap(),
+            timeout: hashmap.remove("timeout").unwrap(),
+            type_: hashmap.remove("type").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -5740,49 +3786,16 @@ impl hostname_tls_setting::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         hostname_tls_setting::Res {
-            created_at: o
-                .fields
-                .iter()
-                .find(|o| o.name == "createdAt")
-                .unwrap()
-                .output
-                .duplicate(),
-            hostname: o
-                .fields
-                .iter()
-                .find(|o| o.name == "hostname")
-                .unwrap()
-                .output
-                .duplicate(),
-            setting: o
-                .fields
-                .iter()
-                .find(|o| o.name == "setting")
-                .unwrap()
-                .output
-                .duplicate(),
-            updated_at: o
-                .fields
-                .iter()
-                .find(|o| o.name == "updatedAt")
-                .unwrap()
-                .output
-                .duplicate(),
-            value: o
-                .fields
-                .iter()
-                .find(|o| o.name == "value")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            created_at: hashmap.remove("createdAt").unwrap(),
+            hostname: hashmap.remove("hostname").unwrap(),
+            setting: hashmap.remove("setting").unwrap(),
+            updated_at: hashmap.remove("updatedAt").unwrap(),
+            value: hashmap.remove("value").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -5837,49 +3850,16 @@ impl hostname_tls_setting_ciphers::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         hostname_tls_setting_ciphers::Res {
-            created_at: o
-                .fields
-                .iter()
-                .find(|o| o.name == "createdAt")
-                .unwrap()
-                .output
-                .duplicate(),
-            hostname: o
-                .fields
-                .iter()
-                .find(|o| o.name == "hostname")
-                .unwrap()
-                .output
-                .duplicate(),
-            ports: o
-                .fields
-                .iter()
-                .find(|o| o.name == "ports")
-                .unwrap()
-                .output
-                .duplicate(),
-            updated_at: o
-                .fields
-                .iter()
-                .find(|o| o.name == "updatedAt")
-                .unwrap()
-                .output
-                .duplicate(),
-            values: o
-                .fields
-                .iter()
-                .find(|o| o.name == "values")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            created_at: hashmap.remove("createdAt").unwrap(),
+            hostname: hashmap.remove("hostname").unwrap(),
+            ports: hashmap.remove("ports").unwrap(),
+            updated_at: hashmap.remove("updatedAt").unwrap(),
+            values: hashmap.remove("values").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -5925,35 +3905,14 @@ impl hyperdrive_config::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         hyperdrive_config::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            caching: o
-                .fields
-                .iter()
-                .find(|o| o.name == "caching")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            origin: o
-                .fields
-                .iter()
-                .find(|o| o.name == "origin")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            caching: hashmap.remove("caching").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            origin: hashmap.remove("origin").unwrap(),
         }
     }
 }
@@ -6088,126 +4047,27 @@ impl ipsec_tunnel::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         ipsec_tunnel::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            allow_null_cipher: o
-                .fields
-                .iter()
-                .find(|o| o.name == "allowNullCipher")
-                .unwrap()
-                .output
-                .duplicate(),
-            cloudflare_endpoint: o
-                .fields
-                .iter()
-                .find(|o| o.name == "cloudflareEndpoint")
-                .unwrap()
-                .output
-                .duplicate(),
-            customer_endpoint: o
-                .fields
-                .iter()
-                .find(|o| o.name == "customerEndpoint")
-                .unwrap()
-                .output
-                .duplicate(),
-            description: o
-                .fields
-                .iter()
-                .find(|o| o.name == "description")
-                .unwrap()
-                .output
-                .duplicate(),
-            fqdn_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "fqdnId")
-                .unwrap()
-                .output
-                .duplicate(),
-            health_check_direction: o
-                .fields
-                .iter()
-                .find(|o| o.name == "healthCheckDirection")
-                .unwrap()
-                .output
-                .duplicate(),
-            health_check_enabled: o
-                .fields
-                .iter()
-                .find(|o| o.name == "healthCheckEnabled")
-                .unwrap()
-                .output
-                .duplicate(),
-            health_check_rate: o
-                .fields
-                .iter()
-                .find(|o| o.name == "healthCheckRate")
-                .unwrap()
-                .output
-                .duplicate(),
-            health_check_target: o
-                .fields
-                .iter()
-                .find(|o| o.name == "healthCheckTarget")
-                .unwrap()
-                .output
-                .duplicate(),
-            health_check_type: o
-                .fields
-                .iter()
-                .find(|o| o.name == "healthCheckType")
-                .unwrap()
-                .output
-                .duplicate(),
-            hex_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "hexId")
-                .unwrap()
-                .output
-                .duplicate(),
-            interface_address: o
-                .fields
-                .iter()
-                .find(|o| o.name == "interfaceAddress")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            psk: o
-                .fields
-                .iter()
-                .find(|o| o.name == "psk")
-                .unwrap()
-                .output
-                .duplicate(),
-            remote_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "remoteId")
-                .unwrap()
-                .output
-                .duplicate(),
-            user_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "userId")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            allow_null_cipher: hashmap.remove("allowNullCipher").unwrap(),
+            cloudflare_endpoint: hashmap.remove("cloudflareEndpoint").unwrap(),
+            customer_endpoint: hashmap.remove("customerEndpoint").unwrap(),
+            description: hashmap.remove("description").unwrap(),
+            fqdn_id: hashmap.remove("fqdnId").unwrap(),
+            health_check_direction: hashmap.remove("healthCheckDirection").unwrap(),
+            health_check_enabled: hashmap.remove("healthCheckEnabled").unwrap(),
+            health_check_rate: hashmap.remove("healthCheckRate").unwrap(),
+            health_check_target: hashmap.remove("healthCheckTarget").unwrap(),
+            health_check_type: hashmap.remove("healthCheckType").unwrap(),
+            hex_id: hashmap.remove("hexId").unwrap(),
+            interface_address: hashmap.remove("interfaceAddress").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            psk: hashmap.remove("psk").unwrap(),
+            remote_id: hashmap.remove("remoteId").unwrap(),
+            user_id: hashmap.remove("userId").unwrap(),
         }
     }
 }
@@ -6277,63 +4137,18 @@ impl keyless_certificate::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         keyless_certificate::Res {
-            bundle_method: o
-                .fields
-                .iter()
-                .find(|o| o.name == "bundleMethod")
-                .unwrap()
-                .output
-                .duplicate(),
-            certificate: o
-                .fields
-                .iter()
-                .find(|o| o.name == "certificate")
-                .unwrap()
-                .output
-                .duplicate(),
-            enabled: o
-                .fields
-                .iter()
-                .find(|o| o.name == "enabled")
-                .unwrap()
-                .output
-                .duplicate(),
-            host: o
-                .fields
-                .iter()
-                .find(|o| o.name == "host")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            port: o
-                .fields
-                .iter()
-                .find(|o| o.name == "port")
-                .unwrap()
-                .output
-                .duplicate(),
-            status: o
-                .fields
-                .iter()
-                .find(|o| o.name == "status")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            bundle_method: hashmap.remove("bundleMethod").unwrap(),
+            certificate: hashmap.remove("certificate").unwrap(),
+            enabled: hashmap.remove("enabled").unwrap(),
+            host: hashmap.remove("host").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            port: hashmap.remove("port").unwrap(),
+            status: hashmap.remove("status").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -6386,42 +4201,15 @@ impl list::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         list::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            description: o
-                .fields
-                .iter()
-                .find(|o| o.name == "description")
-                .unwrap()
-                .output
-                .duplicate(),
-            items: o
-                .fields
-                .iter()
-                .find(|o| o.name == "items")
-                .unwrap()
-                .output
-                .duplicate(),
-            kind: o
-                .fields
-                .iter()
-                .find(|o| o.name == "kind")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            description: hashmap.remove("description").unwrap(),
+            items: hashmap.remove("items").unwrap(),
+            kind: hashmap.remove("kind").unwrap(),
+            name: hashmap.remove("name").unwrap(),
         }
     }
 }
@@ -6484,56 +4272,17 @@ impl list_item::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         list_item::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            asn: o
-                .fields
-                .iter()
-                .find(|o| o.name == "asn")
-                .unwrap()
-                .output
-                .duplicate(),
-            comment: o
-                .fields
-                .iter()
-                .find(|o| o.name == "comment")
-                .unwrap()
-                .output
-                .duplicate(),
-            hostname: o
-                .fields
-                .iter()
-                .find(|o| o.name == "hostname")
-                .unwrap()
-                .output
-                .duplicate(),
-            ip: o
-                .fields
-                .iter()
-                .find(|o| o.name == "ip")
-                .unwrap()
-                .output
-                .duplicate(),
-            list_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "listId")
-                .unwrap()
-                .output
-                .duplicate(),
-            redirect: o
-                .fields
-                .iter()
-                .find(|o| o.name == "redirect")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            asn: hashmap.remove("asn").unwrap(),
+            comment: hashmap.remove("comment").unwrap(),
+            hostname: hashmap.remove("hostname").unwrap(),
+            ip: hashmap.remove("ip").unwrap(),
+            list_id: hashmap.remove("listId").unwrap(),
+            redirect: hashmap.remove("redirect").unwrap(),
         }
     }
 }
@@ -6688,154 +4437,31 @@ impl load_balancer::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         load_balancer::Res {
-            adaptive_routings: o
-                .fields
-                .iter()
-                .find(|o| o.name == "adaptiveRoutings")
-                .unwrap()
-                .output
-                .duplicate(),
-            country_pools: o
-                .fields
-                .iter()
-                .find(|o| o.name == "countryPools")
-                .unwrap()
-                .output
-                .duplicate(),
-            created_on: o
-                .fields
-                .iter()
-                .find(|o| o.name == "createdOn")
-                .unwrap()
-                .output
-                .duplicate(),
-            default_pool_ids: o
-                .fields
-                .iter()
-                .find(|o| o.name == "defaultPoolIds")
-                .unwrap()
-                .output
-                .duplicate(),
-            description: o
-                .fields
-                .iter()
-                .find(|o| o.name == "description")
-                .unwrap()
-                .output
-                .duplicate(),
-            enabled: o
-                .fields
-                .iter()
-                .find(|o| o.name == "enabled")
-                .unwrap()
-                .output
-                .duplicate(),
-            fallback_pool_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "fallbackPoolId")
-                .unwrap()
-                .output
-                .duplicate(),
-            location_strategies: o
-                .fields
-                .iter()
-                .find(|o| o.name == "locationStrategies")
-                .unwrap()
-                .output
-                .duplicate(),
-            modified_on: o
-                .fields
-                .iter()
-                .find(|o| o.name == "modifiedOn")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            pop_pools: o
-                .fields
-                .iter()
-                .find(|o| o.name == "popPools")
-                .unwrap()
-                .output
-                .duplicate(),
-            proxied: o
-                .fields
-                .iter()
-                .find(|o| o.name == "proxied")
-                .unwrap()
-                .output
-                .duplicate(),
-            random_steerings: o
-                .fields
-                .iter()
-                .find(|o| o.name == "randomSteerings")
-                .unwrap()
-                .output
-                .duplicate(),
-            region_pools: o
-                .fields
-                .iter()
-                .find(|o| o.name == "regionPools")
-                .unwrap()
-                .output
-                .duplicate(),
-            rules: o
-                .fields
-                .iter()
-                .find(|o| o.name == "rules")
-                .unwrap()
-                .output
-                .duplicate(),
-            session_affinity: o
-                .fields
-                .iter()
-                .find(|o| o.name == "sessionAffinity")
-                .unwrap()
-                .output
-                .duplicate(),
-            session_affinity_attributes: o
-                .fields
-                .iter()
-                .find(|o| o.name == "sessionAffinityAttributes")
-                .unwrap()
-                .output
-                .duplicate(),
-            session_affinity_ttl: o
-                .fields
-                .iter()
-                .find(|o| o.name == "sessionAffinityTtl")
-                .unwrap()
-                .output
-                .duplicate(),
-            steering_policy: o
-                .fields
-                .iter()
-                .find(|o| o.name == "steeringPolicy")
-                .unwrap()
-                .output
-                .duplicate(),
-            ttl: o
-                .fields
-                .iter()
-                .find(|o| o.name == "ttl")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            adaptive_routings: hashmap.remove("adaptiveRoutings").unwrap(),
+            country_pools: hashmap.remove("countryPools").unwrap(),
+            created_on: hashmap.remove("createdOn").unwrap(),
+            default_pool_ids: hashmap.remove("defaultPoolIds").unwrap(),
+            description: hashmap.remove("description").unwrap(),
+            enabled: hashmap.remove("enabled").unwrap(),
+            fallback_pool_id: hashmap.remove("fallbackPoolId").unwrap(),
+            location_strategies: hashmap.remove("locationStrategies").unwrap(),
+            modified_on: hashmap.remove("modifiedOn").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            pop_pools: hashmap.remove("popPools").unwrap(),
+            proxied: hashmap.remove("proxied").unwrap(),
+            random_steerings: hashmap.remove("randomSteerings").unwrap(),
+            region_pools: hashmap.remove("regionPools").unwrap(),
+            rules: hashmap.remove("rules").unwrap(),
+            session_affinity: hashmap.remove("sessionAffinity").unwrap(),
+            session_affinity_attributes: hashmap.remove("sessionAffinityAttributes").unwrap(),
+            session_affinity_ttl: hashmap.remove("sessionAffinityTtl").unwrap(),
+            steering_policy: hashmap.remove("steeringPolicy").unwrap(),
+            ttl: hashmap.remove("ttl").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -6978,140 +4604,29 @@ impl load_balancer_monitor::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         load_balancer_monitor::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            allow_insecure: o
-                .fields
-                .iter()
-                .find(|o| o.name == "allowInsecure")
-                .unwrap()
-                .output
-                .duplicate(),
-            consecutive_down: o
-                .fields
-                .iter()
-                .find(|o| o.name == "consecutiveDown")
-                .unwrap()
-                .output
-                .duplicate(),
-            consecutive_up: o
-                .fields
-                .iter()
-                .find(|o| o.name == "consecutiveUp")
-                .unwrap()
-                .output
-                .duplicate(),
-            created_on: o
-                .fields
-                .iter()
-                .find(|o| o.name == "createdOn")
-                .unwrap()
-                .output
-                .duplicate(),
-            description: o
-                .fields
-                .iter()
-                .find(|o| o.name == "description")
-                .unwrap()
-                .output
-                .duplicate(),
-            expected_body: o
-                .fields
-                .iter()
-                .find(|o| o.name == "expectedBody")
-                .unwrap()
-                .output
-                .duplicate(),
-            expected_codes: o
-                .fields
-                .iter()
-                .find(|o| o.name == "expectedCodes")
-                .unwrap()
-                .output
-                .duplicate(),
-            follow_redirects: o
-                .fields
-                .iter()
-                .find(|o| o.name == "followRedirects")
-                .unwrap()
-                .output
-                .duplicate(),
-            headers: o
-                .fields
-                .iter()
-                .find(|o| o.name == "headers")
-                .unwrap()
-                .output
-                .duplicate(),
-            interval: o
-                .fields
-                .iter()
-                .find(|o| o.name == "interval")
-                .unwrap()
-                .output
-                .duplicate(),
-            method: o
-                .fields
-                .iter()
-                .find(|o| o.name == "method")
-                .unwrap()
-                .output
-                .duplicate(),
-            modified_on: o
-                .fields
-                .iter()
-                .find(|o| o.name == "modifiedOn")
-                .unwrap()
-                .output
-                .duplicate(),
-            path: o
-                .fields
-                .iter()
-                .find(|o| o.name == "path")
-                .unwrap()
-                .output
-                .duplicate(),
-            port: o
-                .fields
-                .iter()
-                .find(|o| o.name == "port")
-                .unwrap()
-                .output
-                .duplicate(),
-            probe_zone: o
-                .fields
-                .iter()
-                .find(|o| o.name == "probeZone")
-                .unwrap()
-                .output
-                .duplicate(),
-            retries: o
-                .fields
-                .iter()
-                .find(|o| o.name == "retries")
-                .unwrap()
-                .output
-                .duplicate(),
-            timeout: o
-                .fields
-                .iter()
-                .find(|o| o.name == "timeout")
-                .unwrap()
-                .output
-                .duplicate(),
-            type_: o
-                .fields
-                .iter()
-                .find(|o| o.name == "type")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            allow_insecure: hashmap.remove("allowInsecure").unwrap(),
+            consecutive_down: hashmap.remove("consecutiveDown").unwrap(),
+            consecutive_up: hashmap.remove("consecutiveUp").unwrap(),
+            created_on: hashmap.remove("createdOn").unwrap(),
+            description: hashmap.remove("description").unwrap(),
+            expected_body: hashmap.remove("expectedBody").unwrap(),
+            expected_codes: hashmap.remove("expectedCodes").unwrap(),
+            follow_redirects: hashmap.remove("followRedirects").unwrap(),
+            headers: hashmap.remove("headers").unwrap(),
+            interval: hashmap.remove("interval").unwrap(),
+            method: hashmap.remove("method").unwrap(),
+            modified_on: hashmap.remove("modifiedOn").unwrap(),
+            path: hashmap.remove("path").unwrap(),
+            port: hashmap.remove("port").unwrap(),
+            probe_zone: hashmap.remove("probeZone").unwrap(),
+            retries: hashmap.remove("retries").unwrap(),
+            timeout: hashmap.remove("timeout").unwrap(),
+            type_: hashmap.remove("type").unwrap(),
         }
     }
 }
@@ -7226,112 +4741,25 @@ impl load_balancer_pool::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         load_balancer_pool::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            check_regions: o
-                .fields
-                .iter()
-                .find(|o| o.name == "checkRegions")
-                .unwrap()
-                .output
-                .duplicate(),
-            created_on: o
-                .fields
-                .iter()
-                .find(|o| o.name == "createdOn")
-                .unwrap()
-                .output
-                .duplicate(),
-            description: o
-                .fields
-                .iter()
-                .find(|o| o.name == "description")
-                .unwrap()
-                .output
-                .duplicate(),
-            enabled: o
-                .fields
-                .iter()
-                .find(|o| o.name == "enabled")
-                .unwrap()
-                .output
-                .duplicate(),
-            latitude: o
-                .fields
-                .iter()
-                .find(|o| o.name == "latitude")
-                .unwrap()
-                .output
-                .duplicate(),
-            load_sheddings: o
-                .fields
-                .iter()
-                .find(|o| o.name == "loadSheddings")
-                .unwrap()
-                .output
-                .duplicate(),
-            longitude: o
-                .fields
-                .iter()
-                .find(|o| o.name == "longitude")
-                .unwrap()
-                .output
-                .duplicate(),
-            minimum_origins: o
-                .fields
-                .iter()
-                .find(|o| o.name == "minimumOrigins")
-                .unwrap()
-                .output
-                .duplicate(),
-            modified_on: o
-                .fields
-                .iter()
-                .find(|o| o.name == "modifiedOn")
-                .unwrap()
-                .output
-                .duplicate(),
-            monitor: o
-                .fields
-                .iter()
-                .find(|o| o.name == "monitor")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            notification_email: o
-                .fields
-                .iter()
-                .find(|o| o.name == "notificationEmail")
-                .unwrap()
-                .output
-                .duplicate(),
-            origin_steerings: o
-                .fields
-                .iter()
-                .find(|o| o.name == "originSteerings")
-                .unwrap()
-                .output
-                .duplicate(),
-            origins: o
-                .fields
-                .iter()
-                .find(|o| o.name == "origins")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            check_regions: hashmap.remove("checkRegions").unwrap(),
+            created_on: hashmap.remove("createdOn").unwrap(),
+            description: hashmap.remove("description").unwrap(),
+            enabled: hashmap.remove("enabled").unwrap(),
+            latitude: hashmap.remove("latitude").unwrap(),
+            load_sheddings: hashmap.remove("loadSheddings").unwrap(),
+            longitude: hashmap.remove("longitude").unwrap(),
+            minimum_origins: hashmap.remove("minimumOrigins").unwrap(),
+            modified_on: hashmap.remove("modifiedOn").unwrap(),
+            monitor: hashmap.remove("monitor").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            notification_email: hashmap.remove("notificationEmail").unwrap(),
+            origin_steerings: hashmap.remove("originSteerings").unwrap(),
+            origins: hashmap.remove("origins").unwrap(),
         }
     }
 }
@@ -7363,21 +4791,12 @@ impl logpull_retention::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         logpull_retention::Res {
-            enabled: o
-                .fields
-                .iter()
-                .find(|o| o.name == "enabled")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            enabled: hashmap.remove("enabled").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -7500,112 +4919,25 @@ impl logpush_job::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         logpush_job::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            dataset: o
-                .fields
-                .iter()
-                .find(|o| o.name == "dataset")
-                .unwrap()
-                .output
-                .duplicate(),
-            destination_conf: o
-                .fields
-                .iter()
-                .find(|o| o.name == "destinationConf")
-                .unwrap()
-                .output
-                .duplicate(),
-            enabled: o
-                .fields
-                .iter()
-                .find(|o| o.name == "enabled")
-                .unwrap()
-                .output
-                .duplicate(),
-            filter: o
-                .fields
-                .iter()
-                .find(|o| o.name == "filter")
-                .unwrap()
-                .output
-                .duplicate(),
-            frequency: o
-                .fields
-                .iter()
-                .find(|o| o.name == "frequency")
-                .unwrap()
-                .output
-                .duplicate(),
-            kind: o
-                .fields
-                .iter()
-                .find(|o| o.name == "kind")
-                .unwrap()
-                .output
-                .duplicate(),
-            logpull_options: o
-                .fields
-                .iter()
-                .find(|o| o.name == "logpullOptions")
-                .unwrap()
-                .output
-                .duplicate(),
-            max_upload_bytes: o
-                .fields
-                .iter()
-                .find(|o| o.name == "maxUploadBytes")
-                .unwrap()
-                .output
-                .duplicate(),
-            max_upload_interval_seconds: o
-                .fields
-                .iter()
-                .find(|o| o.name == "maxUploadIntervalSeconds")
-                .unwrap()
-                .output
-                .duplicate(),
-            max_upload_records: o
-                .fields
-                .iter()
-                .find(|o| o.name == "maxUploadRecords")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            output_options: o
-                .fields
-                .iter()
-                .find(|o| o.name == "outputOptions")
-                .unwrap()
-                .output
-                .duplicate(),
-            ownership_challenge: o
-                .fields
-                .iter()
-                .find(|o| o.name == "ownershipChallenge")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            dataset: hashmap.remove("dataset").unwrap(),
+            destination_conf: hashmap.remove("destinationConf").unwrap(),
+            enabled: hashmap.remove("enabled").unwrap(),
+            filter: hashmap.remove("filter").unwrap(),
+            frequency: hashmap.remove("frequency").unwrap(),
+            kind: hashmap.remove("kind").unwrap(),
+            logpull_options: hashmap.remove("logpullOptions").unwrap(),
+            max_upload_bytes: hashmap.remove("maxUploadBytes").unwrap(),
+            max_upload_interval_seconds: hashmap.remove("maxUploadIntervalSeconds").unwrap(),
+            max_upload_records: hashmap.remove("maxUploadRecords").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            output_options: hashmap.remove("outputOptions").unwrap(),
+            ownership_challenge: hashmap.remove("ownershipChallenge").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -7650,35 +4982,14 @@ impl logpush_ownership_challenge::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         logpush_ownership_challenge::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            destination_conf: o
-                .fields
-                .iter()
-                .find(|o| o.name == "destinationConf")
-                .unwrap()
-                .output
-                .duplicate(),
-            ownership_challenge_filename: o
-                .fields
-                .iter()
-                .find(|o| o.name == "ownershipChallengeFilename")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            destination_conf: hashmap.remove("destinationConf").unwrap(),
+            ownership_challenge_filename: hashmap.remove("ownershipChallengeFilename").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -7724,35 +5035,14 @@ impl magic_firewall_ruleset::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         magic_firewall_ruleset::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            description: o
-                .fields
-                .iter()
-                .find(|o| o.name == "description")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            rules: o
-                .fields
-                .iter()
-                .find(|o| o.name == "rules")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            description: hashmap.remove("description").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            rules: hashmap.remove("rules").unwrap(),
         }
     }
 }
@@ -7791,28 +5081,13 @@ impl managed_headers::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         managed_headers::Res {
-            managed_request_headers: o
-                .fields
-                .iter()
-                .find(|o| o.name == "managedRequestHeaders")
-                .unwrap()
-                .output
-                .duplicate(),
-            managed_response_headers: o
-                .fields
-                .iter()
-                .find(|o| o.name == "managedResponseHeaders")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            managed_request_headers: hashmap.remove("managedRequestHeaders").unwrap(),
+            managed_response_headers: hashmap.remove("managedResponseHeaders").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -7878,77 +5153,20 @@ impl mtls_certificate::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         mtls_certificate::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            ca: o
-                .fields
-                .iter()
-                .find(|o| o.name == "ca")
-                .unwrap()
-                .output
-                .duplicate(),
-            certificates: o
-                .fields
-                .iter()
-                .find(|o| o.name == "certificates")
-                .unwrap()
-                .output
-                .duplicate(),
-            expires_on: o
-                .fields
-                .iter()
-                .find(|o| o.name == "expiresOn")
-                .unwrap()
-                .output
-                .duplicate(),
-            issuer: o
-                .fields
-                .iter()
-                .find(|o| o.name == "issuer")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            private_key: o
-                .fields
-                .iter()
-                .find(|o| o.name == "privateKey")
-                .unwrap()
-                .output
-                .duplicate(),
-            serial_number: o
-                .fields
-                .iter()
-                .find(|o| o.name == "serialNumber")
-                .unwrap()
-                .output
-                .duplicate(),
-            signature: o
-                .fields
-                .iter()
-                .find(|o| o.name == "signature")
-                .unwrap()
-                .output
-                .duplicate(),
-            uploaded_on: o
-                .fields
-                .iter()
-                .find(|o| o.name == "uploadedOn")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            ca: hashmap.remove("ca").unwrap(),
+            certificates: hashmap.remove("certificates").unwrap(),
+            expires_on: hashmap.remove("expiresOn").unwrap(),
+            issuer: hashmap.remove("issuer").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            private_key: hashmap.remove("privateKey").unwrap(),
+            serial_number: hashmap.remove("serialNumber").unwrap(),
+            signature: hashmap.remove("signature").unwrap(),
+            uploaded_on: hashmap.remove("uploadedOn").unwrap(),
         }
     }
 }
@@ -8035,84 +5253,21 @@ impl notification_policy::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         notification_policy::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            alert_type: o
-                .fields
-                .iter()
-                .find(|o| o.name == "alertType")
-                .unwrap()
-                .output
-                .duplicate(),
-            created: o
-                .fields
-                .iter()
-                .find(|o| o.name == "created")
-                .unwrap()
-                .output
-                .duplicate(),
-            description: o
-                .fields
-                .iter()
-                .find(|o| o.name == "description")
-                .unwrap()
-                .output
-                .duplicate(),
-            email_integrations: o
-                .fields
-                .iter()
-                .find(|o| o.name == "emailIntegrations")
-                .unwrap()
-                .output
-                .duplicate(),
-            enabled: o
-                .fields
-                .iter()
-                .find(|o| o.name == "enabled")
-                .unwrap()
-                .output
-                .duplicate(),
-            filters: o
-                .fields
-                .iter()
-                .find(|o| o.name == "filters")
-                .unwrap()
-                .output
-                .duplicate(),
-            modified: o
-                .fields
-                .iter()
-                .find(|o| o.name == "modified")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            pagerduty_integrations: o
-                .fields
-                .iter()
-                .find(|o| o.name == "pagerdutyIntegrations")
-                .unwrap()
-                .output
-                .duplicate(),
-            webhooks_integrations: o
-                .fields
-                .iter()
-                .find(|o| o.name == "webhooksIntegrations")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            alert_type: hashmap.remove("alertType").unwrap(),
+            created: hashmap.remove("created").unwrap(),
+            description: hashmap.remove("description").unwrap(),
+            email_integrations: hashmap.remove("emailIntegrations").unwrap(),
+            enabled: hashmap.remove("enabled").unwrap(),
+            filters: hashmap.remove("filters").unwrap(),
+            modified: hashmap.remove("modified").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            pagerduty_integrations: hashmap.remove("pagerdutyIntegrations").unwrap(),
+            webhooks_integrations: hashmap.remove("webhooksIntegrations").unwrap(),
         }
     }
 }
@@ -8171,63 +5326,18 @@ impl notification_policy_webhooks::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         notification_policy_webhooks::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            created_at: o
-                .fields
-                .iter()
-                .find(|o| o.name == "createdAt")
-                .unwrap()
-                .output
-                .duplicate(),
-            last_failure: o
-                .fields
-                .iter()
-                .find(|o| o.name == "lastFailure")
-                .unwrap()
-                .output
-                .duplicate(),
-            last_success: o
-                .fields
-                .iter()
-                .find(|o| o.name == "lastSuccess")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            secret: o
-                .fields
-                .iter()
-                .find(|o| o.name == "secret")
-                .unwrap()
-                .output
-                .duplicate(),
-            type_: o
-                .fields
-                .iter()
-                .find(|o| o.name == "type")
-                .unwrap()
-                .output
-                .duplicate(),
-            url: o
-                .fields
-                .iter()
-                .find(|o| o.name == "url")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            created_at: hashmap.remove("createdAt").unwrap(),
+            last_failure: hashmap.remove("lastFailure").unwrap(),
+            last_success: hashmap.remove("lastSuccess").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            secret: hashmap.remove("secret").unwrap(),
+            type_: hashmap.remove("type").unwrap(),
+            url: hashmap.remove("url").unwrap(),
         }
     }
 }
@@ -8274,35 +5384,14 @@ impl observatory_scheduled_test::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         observatory_scheduled_test::Res {
-            frequency: o
-                .fields
-                .iter()
-                .find(|o| o.name == "frequency")
-                .unwrap()
-                .output
-                .duplicate(),
-            region: o
-                .fields
-                .iter()
-                .find(|o| o.name == "region")
-                .unwrap()
-                .output
-                .duplicate(),
-            url: o
-                .fields
-                .iter()
-                .find(|o| o.name == "url")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            frequency: hashmap.remove("frequency").unwrap(),
+            region: hashmap.remove("region").unwrap(),
+            url: hashmap.remove("url").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -8359,56 +5448,17 @@ impl origin_ca_certificate::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         origin_ca_certificate::Res {
-            certificate: o
-                .fields
-                .iter()
-                .find(|o| o.name == "certificate")
-                .unwrap()
-                .output
-                .duplicate(),
-            csr: o
-                .fields
-                .iter()
-                .find(|o| o.name == "csr")
-                .unwrap()
-                .output
-                .duplicate(),
-            expires_on: o
-                .fields
-                .iter()
-                .find(|o| o.name == "expiresOn")
-                .unwrap()
-                .output
-                .duplicate(),
-            hostnames: o
-                .fields
-                .iter()
-                .find(|o| o.name == "hostnames")
-                .unwrap()
-                .output
-                .duplicate(),
-            min_days_for_renewal: o
-                .fields
-                .iter()
-                .find(|o| o.name == "minDaysForRenewal")
-                .unwrap()
-                .output
-                .duplicate(),
-            request_type: o
-                .fields
-                .iter()
-                .find(|o| o.name == "requestType")
-                .unwrap()
-                .output
-                .duplicate(),
-            requested_validity: o
-                .fields
-                .iter()
-                .find(|o| o.name == "requestedValidity")
-                .unwrap()
-                .output
-                .duplicate(),
+            certificate: hashmap.remove("certificate").unwrap(),
+            csr: hashmap.remove("csr").unwrap(),
+            expires_on: hashmap.remove("expiresOn").unwrap(),
+            hostnames: hashmap.remove("hostnames").unwrap(),
+            min_days_for_renewal: hashmap.remove("minDaysForRenewal").unwrap(),
+            request_type: hashmap.remove("requestType").unwrap(),
+            requested_validity: hashmap.remove("requestedValidity").unwrap(),
         }
     }
 }
@@ -8461,42 +5511,15 @@ impl page_rule::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         page_rule::Res {
-            actions: o
-                .fields
-                .iter()
-                .find(|o| o.name == "actions")
-                .unwrap()
-                .output
-                .duplicate(),
-            priority: o
-                .fields
-                .iter()
-                .find(|o| o.name == "priority")
-                .unwrap()
-                .output
-                .duplicate(),
-            status: o
-                .fields
-                .iter()
-                .find(|o| o.name == "status")
-                .unwrap()
-                .output
-                .duplicate(),
-            target: o
-                .fields
-                .iter()
-                .find(|o| o.name == "target")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            actions: hashmap.remove("actions").unwrap(),
+            priority: hashmap.remove("priority").unwrap(),
+            status: hashmap.remove("status").unwrap(),
+            target: hashmap.remove("target").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -8538,35 +5561,14 @@ impl pages_domain::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         pages_domain::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            domain: o
-                .fields
-                .iter()
-                .find(|o| o.name == "domain")
-                .unwrap()
-                .output
-                .duplicate(),
-            project_name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "projectName")
-                .unwrap()
-                .output
-                .duplicate(),
-            status: o
-                .fields
-                .iter()
-                .find(|o| o.name == "status")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            domain: hashmap.remove("domain").unwrap(),
+            project_name: hashmap.remove("projectName").unwrap(),
+            status: hashmap.remove("status").unwrap(),
         }
     }
 }
@@ -8635,70 +5637,19 @@ impl pages_project::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         pages_project::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            build_config: o
-                .fields
-                .iter()
-                .find(|o| o.name == "buildConfig")
-                .unwrap()
-                .output
-                .duplicate(),
-            created_on: o
-                .fields
-                .iter()
-                .find(|o| o.name == "createdOn")
-                .unwrap()
-                .output
-                .duplicate(),
-            deployment_configs: o
-                .fields
-                .iter()
-                .find(|o| o.name == "deploymentConfigs")
-                .unwrap()
-                .output
-                .duplicate(),
-            domains: o
-                .fields
-                .iter()
-                .find(|o| o.name == "domains")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            production_branch: o
-                .fields
-                .iter()
-                .find(|o| o.name == "productionBranch")
-                .unwrap()
-                .output
-                .duplicate(),
-            source: o
-                .fields
-                .iter()
-                .find(|o| o.name == "source")
-                .unwrap()
-                .output
-                .duplicate(),
-            subdomain: o
-                .fields
-                .iter()
-                .find(|o| o.name == "subdomain")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            build_config: hashmap.remove("buildConfig").unwrap(),
+            created_on: hashmap.remove("createdOn").unwrap(),
+            deployment_configs: hashmap.remove("deploymentConfigs").unwrap(),
+            domains: hashmap.remove("domains").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            production_branch: hashmap.remove("productionBranch").unwrap(),
+            source: hashmap.remove("source").unwrap(),
+            subdomain: hashmap.remove("subdomain").unwrap(),
         }
     }
 }
@@ -8730,21 +5681,12 @@ impl queue::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         queue::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            name: hashmap.remove("name").unwrap(),
         }
     }
 }
@@ -8783,28 +5725,13 @@ impl r2_bucket::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         r2_bucket::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            location: o
-                .fields
-                .iter()
-                .find(|o| o.name == "location")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            location: hashmap.remove("location").unwrap(),
+            name: hashmap.remove("name").unwrap(),
         }
     }
 }
@@ -8885,70 +5812,19 @@ impl rate_limit::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         rate_limit::Res {
-            action: o
-                .fields
-                .iter()
-                .find(|o| o.name == "action")
-                .unwrap()
-                .output
-                .duplicate(),
-            bypass_url_patterns: o
-                .fields
-                .iter()
-                .find(|o| o.name == "bypassUrlPatterns")
-                .unwrap()
-                .output
-                .duplicate(),
-            correlate: o
-                .fields
-                .iter()
-                .find(|o| o.name == "correlate")
-                .unwrap()
-                .output
-                .duplicate(),
-            description: o
-                .fields
-                .iter()
-                .find(|o| o.name == "description")
-                .unwrap()
-                .output
-                .duplicate(),
-            disabled: o
-                .fields
-                .iter()
-                .find(|o| o.name == "disabled")
-                .unwrap()
-                .output
-                .duplicate(),
-            match_: o
-                .fields
-                .iter()
-                .find(|o| o.name == "match")
-                .unwrap()
-                .output
-                .duplicate(),
-            period: o
-                .fields
-                .iter()
-                .find(|o| o.name == "period")
-                .unwrap()
-                .output
-                .duplicate(),
-            threshold: o
-                .fields
-                .iter()
-                .find(|o| o.name == "threshold")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            action: hashmap.remove("action").unwrap(),
+            bypass_url_patterns: hashmap.remove("bypassUrlPatterns").unwrap(),
+            correlate: hashmap.remove("correlate").unwrap(),
+            description: hashmap.remove("description").unwrap(),
+            disabled: hashmap.remove("disabled").unwrap(),
+            match_: hashmap.remove("match").unwrap(),
+            period: hashmap.remove("period").unwrap(),
+            threshold: hashmap.remove("threshold").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -9056,119 +5932,26 @@ impl record::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         record::Res {
-            allow_overwrite: o
-                .fields
-                .iter()
-                .find(|o| o.name == "allowOverwrite")
-                .unwrap()
-                .output
-                .duplicate(),
-            comment: o
-                .fields
-                .iter()
-                .find(|o| o.name == "comment")
-                .unwrap()
-                .output
-                .duplicate(),
-            created_on: o
-                .fields
-                .iter()
-                .find(|o| o.name == "createdOn")
-                .unwrap()
-                .output
-                .duplicate(),
-            data: o
-                .fields
-                .iter()
-                .find(|o| o.name == "data")
-                .unwrap()
-                .output
-                .duplicate(),
-            hostname: o
-                .fields
-                .iter()
-                .find(|o| o.name == "hostname")
-                .unwrap()
-                .output
-                .duplicate(),
-            metadata: o
-                .fields
-                .iter()
-                .find(|o| o.name == "metadata")
-                .unwrap()
-                .output
-                .duplicate(),
-            modified_on: o
-                .fields
-                .iter()
-                .find(|o| o.name == "modifiedOn")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            priority: o
-                .fields
-                .iter()
-                .find(|o| o.name == "priority")
-                .unwrap()
-                .output
-                .duplicate(),
-            proxiable: o
-                .fields
-                .iter()
-                .find(|o| o.name == "proxiable")
-                .unwrap()
-                .output
-                .duplicate(),
-            proxied: o
-                .fields
-                .iter()
-                .find(|o| o.name == "proxied")
-                .unwrap()
-                .output
-                .duplicate(),
-            tags: o
-                .fields
-                .iter()
-                .find(|o| o.name == "tags")
-                .unwrap()
-                .output
-                .duplicate(),
-            ttl: o
-                .fields
-                .iter()
-                .find(|o| o.name == "ttl")
-                .unwrap()
-                .output
-                .duplicate(),
-            type_: o
-                .fields
-                .iter()
-                .find(|o| o.name == "type")
-                .unwrap()
-                .output
-                .duplicate(),
-            value: o
-                .fields
-                .iter()
-                .find(|o| o.name == "value")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            allow_overwrite: hashmap.remove("allowOverwrite").unwrap(),
+            comment: hashmap.remove("comment").unwrap(),
+            created_on: hashmap.remove("createdOn").unwrap(),
+            data: hashmap.remove("data").unwrap(),
+            hostname: hashmap.remove("hostname").unwrap(),
+            metadata: hashmap.remove("metadata").unwrap(),
+            modified_on: hashmap.remove("modifiedOn").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            priority: hashmap.remove("priority").unwrap(),
+            proxiable: hashmap.remove("proxiable").unwrap(),
+            proxied: hashmap.remove("proxied").unwrap(),
+            tags: hashmap.remove("tags").unwrap(),
+            ttl: hashmap.remove("ttl").unwrap(),
+            type_: hashmap.remove("type").unwrap(),
+            value: hashmap.remove("value").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -9210,35 +5993,14 @@ impl regional_hostname::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         regional_hostname::Res {
-            created_on: o
-                .fields
-                .iter()
-                .find(|o| o.name == "createdOn")
-                .unwrap()
-                .output
-                .duplicate(),
-            hostname: o
-                .fields
-                .iter()
-                .find(|o| o.name == "hostname")
-                .unwrap()
-                .output
-                .duplicate(),
-            region_key: o
-                .fields
-                .iter()
-                .find(|o| o.name == "regionKey")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            created_on: hashmap.remove("createdOn").unwrap(),
+            hostname: hashmap.remove("hostname").unwrap(),
+            region_key: hashmap.remove("regionKey").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -9270,21 +6032,12 @@ impl regional_tiered_cache::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         regional_tiered_cache::Res {
-            value: o
-                .fields
-                .iter()
-                .find(|o| o.name == "value")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            value: hashmap.remove("value").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -9351,56 +6104,17 @@ impl ruleset::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         ruleset::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            description: o
-                .fields
-                .iter()
-                .find(|o| o.name == "description")
-                .unwrap()
-                .output
-                .duplicate(),
-            kind: o
-                .fields
-                .iter()
-                .find(|o| o.name == "kind")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            phase: o
-                .fields
-                .iter()
-                .find(|o| o.name == "phase")
-                .unwrap()
-                .output
-                .duplicate(),
-            rules: o
-                .fields
-                .iter()
-                .find(|o| o.name == "rules")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            description: hashmap.remove("description").unwrap(),
+            kind: hashmap.remove("kind").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            phase: hashmap.remove("phase").unwrap(),
+            rules: hashmap.remove("rules").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -9505,98 +6219,23 @@ impl spectrum_application::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         spectrum_application::Res {
-            argo_smart_routing: o
-                .fields
-                .iter()
-                .find(|o| o.name == "argoSmartRouting")
-                .unwrap()
-                .output
-                .duplicate(),
-            dns: o
-                .fields
-                .iter()
-                .find(|o| o.name == "dns")
-                .unwrap()
-                .output
-                .duplicate(),
-            edge_ips: o
-                .fields
-                .iter()
-                .find(|o| o.name == "edgeIps")
-                .unwrap()
-                .output
-                .duplicate(),
-            ip_firewall: o
-                .fields
-                .iter()
-                .find(|o| o.name == "ipFirewall")
-                .unwrap()
-                .output
-                .duplicate(),
-            origin_directs: o
-                .fields
-                .iter()
-                .find(|o| o.name == "originDirects")
-                .unwrap()
-                .output
-                .duplicate(),
-            origin_dns: o
-                .fields
-                .iter()
-                .find(|o| o.name == "originDns")
-                .unwrap()
-                .output
-                .duplicate(),
-            origin_port: o
-                .fields
-                .iter()
-                .find(|o| o.name == "originPort")
-                .unwrap()
-                .output
-                .duplicate(),
-            origin_port_range: o
-                .fields
-                .iter()
-                .find(|o| o.name == "originPortRange")
-                .unwrap()
-                .output
-                .duplicate(),
-            protocol: o
-                .fields
-                .iter()
-                .find(|o| o.name == "protocol")
-                .unwrap()
-                .output
-                .duplicate(),
-            proxy_protocol: o
-                .fields
-                .iter()
-                .find(|o| o.name == "proxyProtocol")
-                .unwrap()
-                .output
-                .duplicate(),
-            tls: o
-                .fields
-                .iter()
-                .find(|o| o.name == "tls")
-                .unwrap()
-                .output
-                .duplicate(),
-            traffic_type: o
-                .fields
-                .iter()
-                .find(|o| o.name == "trafficType")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            argo_smart_routing: hashmap.remove("argoSmartRouting").unwrap(),
+            dns: hashmap.remove("dns").unwrap(),
+            edge_ips: hashmap.remove("edgeIps").unwrap(),
+            ip_firewall: hashmap.remove("ipFirewall").unwrap(),
+            origin_directs: hashmap.remove("originDirects").unwrap(),
+            origin_dns: hashmap.remove("originDns").unwrap(),
+            origin_port: hashmap.remove("originPort").unwrap(),
+            origin_port_range: hashmap.remove("originPortRange").unwrap(),
+            protocol: hashmap.remove("protocol").unwrap(),
+            proxy_protocol: hashmap.remove("proxyProtocol").unwrap(),
+            tls: hashmap.remove("tls").unwrap(),
+            traffic_type: hashmap.remove("trafficType").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -9642,35 +6281,14 @@ impl split_tunnel::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         split_tunnel::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            mode: o
-                .fields
-                .iter()
-                .find(|o| o.name == "mode")
-                .unwrap()
-                .output
-                .duplicate(),
-            policy_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "policyId")
-                .unwrap()
-                .output
-                .duplicate(),
-            tunnels: o
-                .fields
-                .iter()
-                .find(|o| o.name == "tunnels")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            mode: hashmap.remove("mode").unwrap(),
+            policy_id: hashmap.remove("policyId").unwrap(),
+            tunnels: hashmap.remove("tunnels").unwrap(),
         }
     }
 }
@@ -9744,63 +6362,18 @@ impl static_route::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         static_route::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            colo_names: o
-                .fields
-                .iter()
-                .find(|o| o.name == "coloNames")
-                .unwrap()
-                .output
-                .duplicate(),
-            colo_regions: o
-                .fields
-                .iter()
-                .find(|o| o.name == "coloRegions")
-                .unwrap()
-                .output
-                .duplicate(),
-            description: o
-                .fields
-                .iter()
-                .find(|o| o.name == "description")
-                .unwrap()
-                .output
-                .duplicate(),
-            nexthop: o
-                .fields
-                .iter()
-                .find(|o| o.name == "nexthop")
-                .unwrap()
-                .output
-                .duplicate(),
-            prefix: o
-                .fields
-                .iter()
-                .find(|o| o.name == "prefix")
-                .unwrap()
-                .output
-                .duplicate(),
-            priority: o
-                .fields
-                .iter()
-                .find(|o| o.name == "priority")
-                .unwrap()
-                .output
-                .duplicate(),
-            weight: o
-                .fields
-                .iter()
-                .find(|o| o.name == "weight")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            colo_names: hashmap.remove("coloNames").unwrap(),
+            colo_regions: hashmap.remove("coloRegions").unwrap(),
+            description: hashmap.remove("description").unwrap(),
+            nexthop: hashmap.remove("nexthop").unwrap(),
+            prefix: hashmap.remove("prefix").unwrap(),
+            priority: hashmap.remove("priority").unwrap(),
+            weight: hashmap.remove("weight").unwrap(),
         }
     }
 }
@@ -9923,112 +6496,27 @@ impl teams_account::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         teams_account::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            activity_log_enabled: o
-                .fields
-                .iter()
-                .find(|o| o.name == "activityLogEnabled")
-                .unwrap()
-                .output
-                .duplicate(),
-            antivirus: o
-                .fields
-                .iter()
-                .find(|o| o.name == "antivirus")
-                .unwrap()
-                .output
-                .duplicate(),
-            block_page: o
-                .fields
-                .iter()
-                .find(|o| o.name == "blockPage")
-                .unwrap()
-                .output
-                .duplicate(),
-            body_scanning: o
-                .fields
-                .iter()
-                .find(|o| o.name == "bodyScanning")
-                .unwrap()
-                .output
-                .duplicate(),
-            extended_email_matching: o
-                .fields
-                .iter()
-                .find(|o| o.name == "extendedEmailMatching")
-                .unwrap()
-                .output
-                .duplicate(),
-            fips: o
-                .fields
-                .iter()
-                .find(|o| o.name == "fips")
-                .unwrap()
-                .output
-                .duplicate(),
-            logging: o
-                .fields
-                .iter()
-                .find(|o| o.name == "logging")
-                .unwrap()
-                .output
-                .duplicate(),
-            non_identity_browser_isolation_enabled: o
-                .fields
-                .iter()
-                .find(|o| o.name == "nonIdentityBrowserIsolationEnabled")
-                .unwrap()
-                .output
-                .duplicate(),
-            payload_log: o
-                .fields
-                .iter()
-                .find(|o| o.name == "payloadLog")
-                .unwrap()
-                .output
-                .duplicate(),
-            protocol_detection_enabled: o
-                .fields
-                .iter()
-                .find(|o| o.name == "protocolDetectionEnabled")
-                .unwrap()
-                .output
-                .duplicate(),
-            proxy: o
-                .fields
-                .iter()
-                .find(|o| o.name == "proxy")
-                .unwrap()
-                .output
-                .duplicate(),
-            ssh_session_log: o
-                .fields
-                .iter()
-                .find(|o| o.name == "sshSessionLog")
-                .unwrap()
-                .output
-                .duplicate(),
-            tls_decrypt_enabled: o
-                .fields
-                .iter()
-                .find(|o| o.name == "tlsDecryptEnabled")
-                .unwrap()
-                .output
-                .duplicate(),
-            url_browser_isolation_enabled: o
-                .fields
-                .iter()
-                .find(|o| o.name == "urlBrowserIsolationEnabled")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            activity_log_enabled: hashmap.remove("activityLogEnabled").unwrap(),
+            antivirus: hashmap.remove("antivirus").unwrap(),
+            block_page: hashmap.remove("blockPage").unwrap(),
+            body_scanning: hashmap.remove("bodyScanning").unwrap(),
+            extended_email_matching: hashmap.remove("extendedEmailMatching").unwrap(),
+            fips: hashmap.remove("fips").unwrap(),
+            logging: hashmap.remove("logging").unwrap(),
+            non_identity_browser_isolation_enabled: hashmap
+                .remove("nonIdentityBrowserIsolationEnabled")
+                .unwrap(),
+            payload_log: hashmap.remove("payloadLog").unwrap(),
+            protocol_detection_enabled: hashmap.remove("protocolDetectionEnabled").unwrap(),
+            proxy: hashmap.remove("proxy").unwrap(),
+            ssh_session_log: hashmap.remove("sshSessionLog").unwrap(),
+            tls_decrypt_enabled: hashmap.remove("tlsDecryptEnabled").unwrap(),
+            url_browser_isolation_enabled: hashmap.remove("urlBrowserIsolationEnabled").unwrap(),
         }
     }
 }
@@ -10081,42 +6569,15 @@ impl teams_list::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         teams_list::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            description: o
-                .fields
-                .iter()
-                .find(|o| o.name == "description")
-                .unwrap()
-                .output
-                .duplicate(),
-            items: o
-                .fields
-                .iter()
-                .find(|o| o.name == "items")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            type_: o
-                .fields
-                .iter()
-                .find(|o| o.name == "type")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            description: hashmap.remove("description").unwrap(),
+            items: hashmap.remove("items").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            type_: hashmap.remove("type").unwrap(),
         }
     }
 }
@@ -10175,70 +6636,19 @@ impl teams_location::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         teams_location::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            anonymized_logs_enabled: o
-                .fields
-                .iter()
-                .find(|o| o.name == "anonymizedLogsEnabled")
-                .unwrap()
-                .output
-                .duplicate(),
-            client_default: o
-                .fields
-                .iter()
-                .find(|o| o.name == "clientDefault")
-                .unwrap()
-                .output
-                .duplicate(),
-            doh_subdomain: o
-                .fields
-                .iter()
-                .find(|o| o.name == "dohSubdomain")
-                .unwrap()
-                .output
-                .duplicate(),
-            ip: o
-                .fields
-                .iter()
-                .find(|o| o.name == "ip")
-                .unwrap()
-                .output
-                .duplicate(),
-            ipv4_destination: o
-                .fields
-                .iter()
-                .find(|o| o.name == "ipv4Destination")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            networks: o
-                .fields
-                .iter()
-                .find(|o| o.name == "networks")
-                .unwrap()
-                .output
-                .duplicate(),
-            policy_ids: o
-                .fields
-                .iter()
-                .find(|o| o.name == "policyIds")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            anonymized_logs_enabled: hashmap.remove("anonymizedLogsEnabled").unwrap(),
+            client_default: hashmap.remove("clientDefault").unwrap(),
+            doh_subdomain: hashmap.remove("dohSubdomain").unwrap(),
+            ip: hashmap.remove("ip").unwrap(),
+            ipv4_destination: hashmap.remove("ipv4Destination").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            networks: hashmap.remove("networks").unwrap(),
+            policy_ids: hashmap.remove("policyIds").unwrap(),
         }
     }
 }
@@ -10278,35 +6688,14 @@ impl teams_proxy_endpoint::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         teams_proxy_endpoint::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            ips: o
-                .fields
-                .iter()
-                .find(|o| o.name == "ips")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            subdomain: o
-                .fields
-                .iter()
-                .find(|o| o.name == "subdomain")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            ips: hashmap.remove("ips").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            subdomain: hashmap.remove("subdomain").unwrap(),
         }
     }
 }
@@ -10404,91 +6793,22 @@ impl teams_rule::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         teams_rule::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            action: o
-                .fields
-                .iter()
-                .find(|o| o.name == "action")
-                .unwrap()
-                .output
-                .duplicate(),
-            description: o
-                .fields
-                .iter()
-                .find(|o| o.name == "description")
-                .unwrap()
-                .output
-                .duplicate(),
-            device_posture: o
-                .fields
-                .iter()
-                .find(|o| o.name == "devicePosture")
-                .unwrap()
-                .output
-                .duplicate(),
-            enabled: o
-                .fields
-                .iter()
-                .find(|o| o.name == "enabled")
-                .unwrap()
-                .output
-                .duplicate(),
-            filters: o
-                .fields
-                .iter()
-                .find(|o| o.name == "filters")
-                .unwrap()
-                .output
-                .duplicate(),
-            identity: o
-                .fields
-                .iter()
-                .find(|o| o.name == "identity")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            precedence: o
-                .fields
-                .iter()
-                .find(|o| o.name == "precedence")
-                .unwrap()
-                .output
-                .duplicate(),
-            rule_settings: o
-                .fields
-                .iter()
-                .find(|o| o.name == "ruleSettings")
-                .unwrap()
-                .output
-                .duplicate(),
-            traffic: o
-                .fields
-                .iter()
-                .find(|o| o.name == "traffic")
-                .unwrap()
-                .output
-                .duplicate(),
-            version: o
-                .fields
-                .iter()
-                .find(|o| o.name == "version")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            action: hashmap.remove("action").unwrap(),
+            description: hashmap.remove("description").unwrap(),
+            device_posture: hashmap.remove("devicePosture").unwrap(),
+            enabled: hashmap.remove("enabled").unwrap(),
+            filters: hashmap.remove("filters").unwrap(),
+            identity: hashmap.remove("identity").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            precedence: hashmap.remove("precedence").unwrap(),
+            rule_settings: hashmap.remove("ruleSettings").unwrap(),
+            traffic: hashmap.remove("traffic").unwrap(),
+            version: hashmap.remove("version").unwrap(),
         }
     }
 }
@@ -10520,21 +6840,12 @@ impl tiered_cache::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         tiered_cache::Res {
-            cache_type: o
-                .fields
-                .iter()
-                .find(|o| o.name == "cacheType")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            cache_type: hashmap.remove("cacheType").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -10573,28 +6884,13 @@ impl total_tls::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         total_tls::Res {
-            certificate_authority: o
-                .fields
-                .iter()
-                .find(|o| o.name == "certificateAuthority")
-                .unwrap()
-                .output
-                .duplicate(),
-            enabled: o
-                .fields
-                .iter()
-                .find(|o| o.name == "enabled")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            certificate_authority: hashmap.remove("certificateAuthority").unwrap(),
+            enabled: hashmap.remove("enabled").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -10646,49 +6942,16 @@ impl tunnel::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         tunnel::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            cname: o
-                .fields
-                .iter()
-                .find(|o| o.name == "cname")
-                .unwrap()
-                .output
-                .duplicate(),
-            config_src: o
-                .fields
-                .iter()
-                .find(|o| o.name == "configSrc")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            secret: o
-                .fields
-                .iter()
-                .find(|o| o.name == "secret")
-                .unwrap()
-                .output
-                .duplicate(),
-            tunnel_token: o
-                .fields
-                .iter()
-                .find(|o| o.name == "tunnelToken")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            cname: hashmap.remove("cname").unwrap(),
+            config_src: hashmap.remove("configSrc").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            secret: hashmap.remove("secret").unwrap(),
+            tunnel_token: hashmap.remove("tunnelToken").unwrap(),
         }
     }
 }
@@ -10727,28 +6990,13 @@ impl tunnel_config::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         tunnel_config::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            config: o
-                .fields
-                .iter()
-                .find(|o| o.name == "config")
-                .unwrap()
-                .output
-                .duplicate(),
-            tunnel_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "tunnelId")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            config: hashmap.remove("config").unwrap(),
+            tunnel_id: hashmap.remove("tunnelId").unwrap(),
         }
     }
 }
@@ -10801,42 +7049,15 @@ impl tunnel_route::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         tunnel_route::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            comment: o
-                .fields
-                .iter()
-                .find(|o| o.name == "comment")
-                .unwrap()
-                .output
-                .duplicate(),
-            network: o
-                .fields
-                .iter()
-                .find(|o| o.name == "network")
-                .unwrap()
-                .output
-                .duplicate(),
-            tunnel_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "tunnelId")
-                .unwrap()
-                .output
-                .duplicate(),
-            virtual_network_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "virtualNetworkId")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            comment: hashmap.remove("comment").unwrap(),
+            network: hashmap.remove("network").unwrap(),
+            tunnel_id: hashmap.remove("tunnelId").unwrap(),
+            virtual_network_id: hashmap.remove("virtualNetworkId").unwrap(),
         }
     }
 }
@@ -10882,35 +7103,14 @@ impl tunnel_virtual_network::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         tunnel_virtual_network::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            comment: o
-                .fields
-                .iter()
-                .find(|o| o.name == "comment")
-                .unwrap()
-                .output
-                .duplicate(),
-            is_default_network: o
-                .fields
-                .iter()
-                .find(|o| o.name == "isDefaultNetwork")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            comment: hashmap.remove("comment").unwrap(),
+            is_default_network: hashmap.remove("isDefaultNetwork").unwrap(),
+            name: hashmap.remove("name").unwrap(),
         }
     }
 }
@@ -10980,63 +7180,18 @@ impl turnstile_widget::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         turnstile_widget::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            bot_fight_mode: o
-                .fields
-                .iter()
-                .find(|o| o.name == "botFightMode")
-                .unwrap()
-                .output
-                .duplicate(),
-            domains: o
-                .fields
-                .iter()
-                .find(|o| o.name == "domains")
-                .unwrap()
-                .output
-                .duplicate(),
-            mode: o
-                .fields
-                .iter()
-                .find(|o| o.name == "mode")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            offlabel: o
-                .fields
-                .iter()
-                .find(|o| o.name == "offlabel")
-                .unwrap()
-                .output
-                .duplicate(),
-            region: o
-                .fields
-                .iter()
-                .find(|o| o.name == "region")
-                .unwrap()
-                .output
-                .duplicate(),
-            secret: o
-                .fields
-                .iter()
-                .find(|o| o.name == "secret")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            bot_fight_mode: hashmap.remove("botFightMode").unwrap(),
+            domains: hashmap.remove("domains").unwrap(),
+            mode: hashmap.remove("mode").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            offlabel: hashmap.remove("offlabel").unwrap(),
+            region: hashmap.remove("region").unwrap(),
+            secret: hashmap.remove("secret").unwrap(),
         }
     }
 }
@@ -11078,28 +7233,13 @@ impl url_normalization_settings::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         url_normalization_settings::Res {
-            scope: o
-                .fields
-                .iter()
-                .find(|o| o.name == "scope")
-                .unwrap()
-                .output
-                .duplicate(),
-            type_: o
-                .fields
-                .iter()
-                .find(|o| o.name == "type")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            scope: hashmap.remove("scope").unwrap(),
+            type_: hashmap.remove("type").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -11152,42 +7292,15 @@ impl user_agent_blocking_rule::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         user_agent_blocking_rule::Res {
-            configuration: o
-                .fields
-                .iter()
-                .find(|o| o.name == "configuration")
-                .unwrap()
-                .output
-                .duplicate(),
-            description: o
-                .fields
-                .iter()
-                .find(|o| o.name == "description")
-                .unwrap()
-                .output
-                .duplicate(),
-            mode: o
-                .fields
-                .iter()
-                .find(|o| o.name == "mode")
-                .unwrap()
-                .output
-                .duplicate(),
-            paused: o
-                .fields
-                .iter()
-                .find(|o| o.name == "paused")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            configuration: hashmap.remove("configuration").unwrap(),
+            description: hashmap.remove("description").unwrap(),
+            mode: hashmap.remove("mode").unwrap(),
+            paused: hashmap.remove("paused").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -11331,133 +7444,28 @@ impl waiting_room::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         waiting_room::Res {
-            additional_routes: o
-                .fields
-                .iter()
-                .find(|o| o.name == "additionalRoutes")
-                .unwrap()
-                .output
-                .duplicate(),
-            cookie_suffix: o
-                .fields
-                .iter()
-                .find(|o| o.name == "cookieSuffix")
-                .unwrap()
-                .output
-                .duplicate(),
-            custom_page_html: o
-                .fields
-                .iter()
-                .find(|o| o.name == "customPageHtml")
-                .unwrap()
-                .output
-                .duplicate(),
-            default_template_language: o
-                .fields
-                .iter()
-                .find(|o| o.name == "defaultTemplateLanguage")
-                .unwrap()
-                .output
-                .duplicate(),
-            description: o
-                .fields
-                .iter()
-                .find(|o| o.name == "description")
-                .unwrap()
-                .output
-                .duplicate(),
-            disable_session_renewal: o
-                .fields
-                .iter()
-                .find(|o| o.name == "disableSessionRenewal")
-                .unwrap()
-                .output
-                .duplicate(),
-            host: o
-                .fields
-                .iter()
-                .find(|o| o.name == "host")
-                .unwrap()
-                .output
-                .duplicate(),
-            json_response_enabled: o
-                .fields
-                .iter()
-                .find(|o| o.name == "jsonResponseEnabled")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            new_users_per_minute: o
-                .fields
-                .iter()
-                .find(|o| o.name == "newUsersPerMinute")
-                .unwrap()
-                .output
-                .duplicate(),
-            path: o
-                .fields
-                .iter()
-                .find(|o| o.name == "path")
-                .unwrap()
-                .output
-                .duplicate(),
-            queue_all: o
-                .fields
-                .iter()
-                .find(|o| o.name == "queueAll")
-                .unwrap()
-                .output
-                .duplicate(),
-            queueing_method: o
-                .fields
-                .iter()
-                .find(|o| o.name == "queueingMethod")
-                .unwrap()
-                .output
-                .duplicate(),
-            queueing_status_code: o
-                .fields
-                .iter()
-                .find(|o| o.name == "queueingStatusCode")
-                .unwrap()
-                .output
-                .duplicate(),
-            session_duration: o
-                .fields
-                .iter()
-                .find(|o| o.name == "sessionDuration")
-                .unwrap()
-                .output
-                .duplicate(),
-            suspended: o
-                .fields
-                .iter()
-                .find(|o| o.name == "suspended")
-                .unwrap()
-                .output
-                .duplicate(),
-            total_active_users: o
-                .fields
-                .iter()
-                .find(|o| o.name == "totalActiveUsers")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            additional_routes: hashmap.remove("additionalRoutes").unwrap(),
+            cookie_suffix: hashmap.remove("cookieSuffix").unwrap(),
+            custom_page_html: hashmap.remove("customPageHtml").unwrap(),
+            default_template_language: hashmap.remove("defaultTemplateLanguage").unwrap(),
+            description: hashmap.remove("description").unwrap(),
+            disable_session_renewal: hashmap.remove("disableSessionRenewal").unwrap(),
+            host: hashmap.remove("host").unwrap(),
+            json_response_enabled: hashmap.remove("jsonResponseEnabled").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            new_users_per_minute: hashmap.remove("newUsersPerMinute").unwrap(),
+            path: hashmap.remove("path").unwrap(),
+            queue_all: hashmap.remove("queueAll").unwrap(),
+            queueing_method: hashmap.remove("queueingMethod").unwrap(),
+            queueing_status_code: hashmap.remove("queueingStatusCode").unwrap(),
+            session_duration: hashmap.remove("sessionDuration").unwrap(),
+            suspended: hashmap.remove("suspended").unwrap(),
+            total_active_users: hashmap.remove("totalActiveUsers").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -11586,126 +7594,27 @@ impl waiting_room_event::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         waiting_room_event::Res {
-            created_on: o
-                .fields
-                .iter()
-                .find(|o| o.name == "createdOn")
-                .unwrap()
-                .output
-                .duplicate(),
-            custom_page_html: o
-                .fields
-                .iter()
-                .find(|o| o.name == "customPageHtml")
-                .unwrap()
-                .output
-                .duplicate(),
-            description: o
-                .fields
-                .iter()
-                .find(|o| o.name == "description")
-                .unwrap()
-                .output
-                .duplicate(),
-            disable_session_renewal: o
-                .fields
-                .iter()
-                .find(|o| o.name == "disableSessionRenewal")
-                .unwrap()
-                .output
-                .duplicate(),
-            event_end_time: o
-                .fields
-                .iter()
-                .find(|o| o.name == "eventEndTime")
-                .unwrap()
-                .output
-                .duplicate(),
-            event_start_time: o
-                .fields
-                .iter()
-                .find(|o| o.name == "eventStartTime")
-                .unwrap()
-                .output
-                .duplicate(),
-            modified_on: o
-                .fields
-                .iter()
-                .find(|o| o.name == "modifiedOn")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            new_users_per_minute: o
-                .fields
-                .iter()
-                .find(|o| o.name == "newUsersPerMinute")
-                .unwrap()
-                .output
-                .duplicate(),
-            prequeue_start_time: o
-                .fields
-                .iter()
-                .find(|o| o.name == "prequeueStartTime")
-                .unwrap()
-                .output
-                .duplicate(),
-            queueing_method: o
-                .fields
-                .iter()
-                .find(|o| o.name == "queueingMethod")
-                .unwrap()
-                .output
-                .duplicate(),
-            session_duration: o
-                .fields
-                .iter()
-                .find(|o| o.name == "sessionDuration")
-                .unwrap()
-                .output
-                .duplicate(),
-            shuffle_at_event_start: o
-                .fields
-                .iter()
-                .find(|o| o.name == "shuffleAtEventStart")
-                .unwrap()
-                .output
-                .duplicate(),
-            suspended: o
-                .fields
-                .iter()
-                .find(|o| o.name == "suspended")
-                .unwrap()
-                .output
-                .duplicate(),
-            total_active_users: o
-                .fields
-                .iter()
-                .find(|o| o.name == "totalActiveUsers")
-                .unwrap()
-                .output
-                .duplicate(),
-            waiting_room_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "waitingRoomId")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            created_on: hashmap.remove("createdOn").unwrap(),
+            custom_page_html: hashmap.remove("customPageHtml").unwrap(),
+            description: hashmap.remove("description").unwrap(),
+            disable_session_renewal: hashmap.remove("disableSessionRenewal").unwrap(),
+            event_end_time: hashmap.remove("eventEndTime").unwrap(),
+            event_start_time: hashmap.remove("eventStartTime").unwrap(),
+            modified_on: hashmap.remove("modifiedOn").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            new_users_per_minute: hashmap.remove("newUsersPerMinute").unwrap(),
+            prequeue_start_time: hashmap.remove("prequeueStartTime").unwrap(),
+            queueing_method: hashmap.remove("queueingMethod").unwrap(),
+            session_duration: hashmap.remove("sessionDuration").unwrap(),
+            shuffle_at_event_start: hashmap.remove("shuffleAtEventStart").unwrap(),
+            suspended: hashmap.remove("suspended").unwrap(),
+            total_active_users: hashmap.remove("totalActiveUsers").unwrap(),
+            waiting_room_id: hashmap.remove("waitingRoomId").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -11744,28 +7653,13 @@ impl waiting_room_rules::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         waiting_room_rules::Res {
-            rules: o
-                .fields
-                .iter()
-                .find(|o| o.name == "rules")
-                .unwrap()
-                .output
-                .duplicate(),
-            waiting_room_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "waitingRoomId")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            rules: hashmap.remove("rules").unwrap(),
+            waiting_room_id: hashmap.remove("waitingRoomId").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -11797,21 +7691,12 @@ impl waiting_room_settings::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         waiting_room_settings::Res {
-            search_engine_crawler_bypass: o
-                .fields
-                .iter()
-                .find(|o| o.name == "searchEngineCrawlerBypass")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            search_engine_crawler_bypass: hashmap.remove("searchEngineCrawlerBypass").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -11873,63 +7758,18 @@ impl web3_hostname::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         web3_hostname::Res {
-            created_on: o
-                .fields
-                .iter()
-                .find(|o| o.name == "createdOn")
-                .unwrap()
-                .output
-                .duplicate(),
-            description: o
-                .fields
-                .iter()
-                .find(|o| o.name == "description")
-                .unwrap()
-                .output
-                .duplicate(),
-            dnslink: o
-                .fields
-                .iter()
-                .find(|o| o.name == "dnslink")
-                .unwrap()
-                .output
-                .duplicate(),
-            modified_on: o
-                .fields
-                .iter()
-                .find(|o| o.name == "modifiedOn")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            status: o
-                .fields
-                .iter()
-                .find(|o| o.name == "status")
-                .unwrap()
-                .output
-                .duplicate(),
-            target: o
-                .fields
-                .iter()
-                .find(|o| o.name == "target")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            created_on: hashmap.remove("createdOn").unwrap(),
+            description: hashmap.remove("description").unwrap(),
+            dnslink: hashmap.remove("dnslink").unwrap(),
+            modified_on: hashmap.remove("modifiedOn").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            status: hashmap.remove("status").unwrap(),
+            target: hashmap.remove("target").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -11989,49 +7829,16 @@ impl web_analytics_rule::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         web_analytics_rule::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            host: o
-                .fields
-                .iter()
-                .find(|o| o.name == "host")
-                .unwrap()
-                .output
-                .duplicate(),
-            inclusive: o
-                .fields
-                .iter()
-                .find(|o| o.name == "inclusive")
-                .unwrap()
-                .output
-                .duplicate(),
-            is_paused: o
-                .fields
-                .iter()
-                .find(|o| o.name == "isPaused")
-                .unwrap()
-                .output
-                .duplicate(),
-            paths: o
-                .fields
-                .iter()
-                .find(|o| o.name == "paths")
-                .unwrap()
-                .output
-                .duplicate(),
-            ruleset_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "rulesetId")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            host: hashmap.remove("host").unwrap(),
+            inclusive: hashmap.remove("inclusive").unwrap(),
+            is_paused: hashmap.remove("isPaused").unwrap(),
+            paths: hashmap.remove("paths").unwrap(),
+            ruleset_id: hashmap.remove("rulesetId").unwrap(),
         }
     }
 }
@@ -12089,63 +7896,18 @@ impl web_analytics_site::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         web_analytics_site::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            auto_install: o
-                .fields
-                .iter()
-                .find(|o| o.name == "autoInstall")
-                .unwrap()
-                .output
-                .duplicate(),
-            host: o
-                .fields
-                .iter()
-                .find(|o| o.name == "host")
-                .unwrap()
-                .output
-                .duplicate(),
-            ruleset_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "rulesetId")
-                .unwrap()
-                .output
-                .duplicate(),
-            site_tag: o
-                .fields
-                .iter()
-                .find(|o| o.name == "siteTag")
-                .unwrap()
-                .output
-                .duplicate(),
-            site_token: o
-                .fields
-                .iter()
-                .find(|o| o.name == "siteToken")
-                .unwrap()
-                .output
-                .duplicate(),
-            snippet: o
-                .fields
-                .iter()
-                .find(|o| o.name == "snippet")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_tag: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneTag")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            auto_install: hashmap.remove("autoInstall").unwrap(),
+            host: hashmap.remove("host").unwrap(),
+            ruleset_id: hashmap.remove("rulesetId").unwrap(),
+            site_tag: hashmap.remove("siteTag").unwrap(),
+            site_token: hashmap.remove("siteToken").unwrap(),
+            snippet: hashmap.remove("snippet").unwrap(),
+            zone_tag: hashmap.remove("zoneTag").unwrap(),
         }
     }
 }
@@ -12184,28 +7946,13 @@ impl worker_cron_trigger::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         worker_cron_trigger::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            schedules: o
-                .fields
-                .iter()
-                .find(|o| o.name == "schedules")
-                .unwrap()
-                .output
-                .duplicate(),
-            script_name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "scriptName")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            schedules: hashmap.remove("schedules").unwrap(),
+            script_name: hashmap.remove("scriptName").unwrap(),
         }
     }
 }
@@ -12258,42 +8005,15 @@ impl worker_domain::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         worker_domain::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            environment: o
-                .fields
-                .iter()
-                .find(|o| o.name == "environment")
-                .unwrap()
-                .output
-                .duplicate(),
-            hostname: o
-                .fields
-                .iter()
-                .find(|o| o.name == "hostname")
-                .unwrap()
-                .output
-                .duplicate(),
-            service: o
-                .fields
-                .iter()
-                .find(|o| o.name == "service")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            environment: hashmap.remove("environment").unwrap(),
+            hostname: hashmap.remove("hostname").unwrap(),
+            service: hashmap.remove("service").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -12332,28 +8052,13 @@ impl worker_route::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         worker_route::Res {
-            pattern: o
-                .fields
-                .iter()
-                .find(|o| o.name == "pattern")
-                .unwrap()
-                .output
-                .duplicate(),
-            script_name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "scriptName")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            pattern: hashmap.remove("pattern").unwrap(),
+            script_name: hashmap.remove("scriptName").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -12504,140 +8209,29 @@ impl worker_script::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         worker_script::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            analytics_engine_bindings: o
-                .fields
-                .iter()
-                .find(|o| o.name == "analyticsEngineBindings")
-                .unwrap()
-                .output
-                .duplicate(),
-            compatibility_date: o
-                .fields
-                .iter()
-                .find(|o| o.name == "compatibilityDate")
-                .unwrap()
-                .output
-                .duplicate(),
-            compatibility_flags: o
-                .fields
-                .iter()
-                .find(|o| o.name == "compatibilityFlags")
-                .unwrap()
-                .output
-                .duplicate(),
-            content: o
-                .fields
-                .iter()
-                .find(|o| o.name == "content")
-                .unwrap()
-                .output
-                .duplicate(),
-            d1_database_bindings: o
-                .fields
-                .iter()
-                .find(|o| o.name == "d1DatabaseBindings")
-                .unwrap()
-                .output
-                .duplicate(),
-            dispatch_namespace: o
-                .fields
-                .iter()
-                .find(|o| o.name == "dispatchNamespace")
-                .unwrap()
-                .output
-                .duplicate(),
-            kv_namespace_bindings: o
-                .fields
-                .iter()
-                .find(|o| o.name == "kvNamespaceBindings")
-                .unwrap()
-                .output
-                .duplicate(),
-            logpush: o
-                .fields
-                .iter()
-                .find(|o| o.name == "logpush")
-                .unwrap()
-                .output
-                .duplicate(),
-            module: o
-                .fields
-                .iter()
-                .find(|o| o.name == "module")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            placements: o
-                .fields
-                .iter()
-                .find(|o| o.name == "placements")
-                .unwrap()
-                .output
-                .duplicate(),
-            plain_text_bindings: o
-                .fields
-                .iter()
-                .find(|o| o.name == "plainTextBindings")
-                .unwrap()
-                .output
-                .duplicate(),
-            queue_bindings: o
-                .fields
-                .iter()
-                .find(|o| o.name == "queueBindings")
-                .unwrap()
-                .output
-                .duplicate(),
-            r2_bucket_bindings: o
-                .fields
-                .iter()
-                .find(|o| o.name == "r2BucketBindings")
-                .unwrap()
-                .output
-                .duplicate(),
-            secret_text_bindings: o
-                .fields
-                .iter()
-                .find(|o| o.name == "secretTextBindings")
-                .unwrap()
-                .output
-                .duplicate(),
-            service_bindings: o
-                .fields
-                .iter()
-                .find(|o| o.name == "serviceBindings")
-                .unwrap()
-                .output
-                .duplicate(),
-            tags: o
-                .fields
-                .iter()
-                .find(|o| o.name == "tags")
-                .unwrap()
-                .output
-                .duplicate(),
-            webassembly_bindings: o
-                .fields
-                .iter()
-                .find(|o| o.name == "webassemblyBindings")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            analytics_engine_bindings: hashmap.remove("analyticsEngineBindings").unwrap(),
+            compatibility_date: hashmap.remove("compatibilityDate").unwrap(),
+            compatibility_flags: hashmap.remove("compatibilityFlags").unwrap(),
+            content: hashmap.remove("content").unwrap(),
+            d1_database_bindings: hashmap.remove("d1DatabaseBindings").unwrap(),
+            dispatch_namespace: hashmap.remove("dispatchNamespace").unwrap(),
+            kv_namespace_bindings: hashmap.remove("kvNamespaceBindings").unwrap(),
+            logpush: hashmap.remove("logpush").unwrap(),
+            module: hashmap.remove("module").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            placements: hashmap.remove("placements").unwrap(),
+            plain_text_bindings: hashmap.remove("plainTextBindings").unwrap(),
+            queue_bindings: hashmap.remove("queueBindings").unwrap(),
+            r2_bucket_bindings: hashmap.remove("r2BucketBindings").unwrap(),
+            secret_text_bindings: hashmap.remove("secretTextBindings").unwrap(),
+            service_bindings: hashmap.remove("serviceBindings").unwrap(),
+            tags: hashmap.remove("tags").unwrap(),
+            webassembly_bindings: hashmap.remove("webassemblyBindings").unwrap(),
         }
     }
 }
@@ -12683,35 +8277,14 @@ impl worker_secret::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         worker_secret::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
-            script_name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "scriptName")
-                .unwrap()
-                .output
-                .duplicate(),
-            secret_text: o
-                .fields
-                .iter()
-                .find(|o| o.name == "secretText")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            script_name: hashmap.remove("scriptName").unwrap(),
+            secret_text: hashmap.remove("secretText").unwrap(),
         }
     }
 }
@@ -12747,21 +8320,12 @@ impl workers_for_platforms_namespace::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         workers_for_platforms_namespace::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            name: o
-                .fields
-                .iter()
-                .find(|o| o.name == "name")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            name: hashmap.remove("name").unwrap(),
         }
     }
 }
@@ -12805,35 +8369,14 @@ impl workers_kv::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         workers_kv::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            key: o
-                .fields
-                .iter()
-                .find(|o| o.name == "key")
-                .unwrap()
-                .output
-                .duplicate(),
-            namespace_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "namespaceId")
-                .unwrap()
-                .output
-                .duplicate(),
-            value: o
-                .fields
-                .iter()
-                .find(|o| o.name == "value")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            key: hashmap.remove("key").unwrap(),
+            namespace_id: hashmap.remove("namespaceId").unwrap(),
+            value: hashmap.remove("value").unwrap(),
         }
     }
 }
@@ -12865,21 +8408,12 @@ impl workers_kv_namespace::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         workers_kv_namespace::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            title: o
-                .fields
-                .iter()
-                .find(|o| o.name == "title")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            title: hashmap.remove("title").unwrap(),
         }
     }
 }
@@ -12954,84 +8488,21 @@ impl zone::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         zone::Res {
-            account_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "accountId")
-                .unwrap()
-                .output
-                .duplicate(),
-            jump_start: o
-                .fields
-                .iter()
-                .find(|o| o.name == "jumpStart")
-                .unwrap()
-                .output
-                .duplicate(),
-            meta: o
-                .fields
-                .iter()
-                .find(|o| o.name == "meta")
-                .unwrap()
-                .output
-                .duplicate(),
-            name_servers: o
-                .fields
-                .iter()
-                .find(|o| o.name == "nameServers")
-                .unwrap()
-                .output
-                .duplicate(),
-            paused: o
-                .fields
-                .iter()
-                .find(|o| o.name == "paused")
-                .unwrap()
-                .output
-                .duplicate(),
-            plan: o
-                .fields
-                .iter()
-                .find(|o| o.name == "plan")
-                .unwrap()
-                .output
-                .duplicate(),
-            status: o
-                .fields
-                .iter()
-                .find(|o| o.name == "status")
-                .unwrap()
-                .output
-                .duplicate(),
-            type_: o
-                .fields
-                .iter()
-                .find(|o| o.name == "type")
-                .unwrap()
-                .output
-                .duplicate(),
-            vanity_name_servers: o
-                .fields
-                .iter()
-                .find(|o| o.name == "vanityNameServers")
-                .unwrap()
-                .output
-                .duplicate(),
-            verification_key: o
-                .fields
-                .iter()
-                .find(|o| o.name == "verificationKey")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zone")
-                .unwrap()
-                .output
-                .duplicate(),
+            account_id: hashmap.remove("accountId").unwrap(),
+            jump_start: hashmap.remove("jumpStart").unwrap(),
+            meta: hashmap.remove("meta").unwrap(),
+            name_servers: hashmap.remove("nameServers").unwrap(),
+            paused: hashmap.remove("paused").unwrap(),
+            plan: hashmap.remove("plan").unwrap(),
+            status: hashmap.remove("status").unwrap(),
+            type_: hashmap.remove("type").unwrap(),
+            vanity_name_servers: hashmap.remove("vanityNameServers").unwrap(),
+            verification_key: hashmap.remove("verificationKey").unwrap(),
+            zone: hashmap.remove("zone").unwrap(),
         }
     }
 }
@@ -13063,21 +8534,12 @@ impl zone_cache_reserve::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         zone_cache_reserve::Res {
-            enabled: o
-                .fields
-                .iter()
-                .find(|o| o.name == "enabled")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            enabled: hashmap.remove("enabled").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -13179,91 +8641,22 @@ impl zone_cache_variants::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         zone_cache_variants::Res {
-            avifs: o
-                .fields
-                .iter()
-                .find(|o| o.name == "avifs")
-                .unwrap()
-                .output
-                .duplicate(),
-            bmps: o
-                .fields
-                .iter()
-                .find(|o| o.name == "bmps")
-                .unwrap()
-                .output
-                .duplicate(),
-            gifs: o
-                .fields
-                .iter()
-                .find(|o| o.name == "gifs")
-                .unwrap()
-                .output
-                .duplicate(),
-            jp2s: o
-                .fields
-                .iter()
-                .find(|o| o.name == "jp2s")
-                .unwrap()
-                .output
-                .duplicate(),
-            jpegs: o
-                .fields
-                .iter()
-                .find(|o| o.name == "jpegs")
-                .unwrap()
-                .output
-                .duplicate(),
-            jpg2s: o
-                .fields
-                .iter()
-                .find(|o| o.name == "jpg2s")
-                .unwrap()
-                .output
-                .duplicate(),
-            jpgs: o
-                .fields
-                .iter()
-                .find(|o| o.name == "jpgs")
-                .unwrap()
-                .output
-                .duplicate(),
-            pngs: o
-                .fields
-                .iter()
-                .find(|o| o.name == "pngs")
-                .unwrap()
-                .output
-                .duplicate(),
-            tiffs: o
-                .fields
-                .iter()
-                .find(|o| o.name == "tiffs")
-                .unwrap()
-                .output
-                .duplicate(),
-            tifs: o
-                .fields
-                .iter()
-                .find(|o| o.name == "tifs")
-                .unwrap()
-                .output
-                .duplicate(),
-            webps: o
-                .fields
-                .iter()
-                .find(|o| o.name == "webps")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            avifs: hashmap.remove("avifs").unwrap(),
+            bmps: hashmap.remove("bmps").unwrap(),
+            gifs: hashmap.remove("gifs").unwrap(),
+            jp2s: hashmap.remove("jp2s").unwrap(),
+            jpegs: hashmap.remove("jpegs").unwrap(),
+            jpg2s: hashmap.remove("jpg2s").unwrap(),
+            jpgs: hashmap.remove("jpgs").unwrap(),
+            pngs: hashmap.remove("pngs").unwrap(),
+            tiffs: hashmap.remove("tiffs").unwrap(),
+            tifs: hashmap.remove("tifs").unwrap(),
+            webps: hashmap.remove("webps").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -13323,91 +8716,22 @@ impl zone_dnssec::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         zone_dnssec::Res {
-            algorithm: o
-                .fields
-                .iter()
-                .find(|o| o.name == "algorithm")
-                .unwrap()
-                .output
-                .duplicate(),
-            digest: o
-                .fields
-                .iter()
-                .find(|o| o.name == "digest")
-                .unwrap()
-                .output
-                .duplicate(),
-            digest_algorithm: o
-                .fields
-                .iter()
-                .find(|o| o.name == "digestAlgorithm")
-                .unwrap()
-                .output
-                .duplicate(),
-            digest_type: o
-                .fields
-                .iter()
-                .find(|o| o.name == "digestType")
-                .unwrap()
-                .output
-                .duplicate(),
-            ds: o
-                .fields
-                .iter()
-                .find(|o| o.name == "ds")
-                .unwrap()
-                .output
-                .duplicate(),
-            flags: o
-                .fields
-                .iter()
-                .find(|o| o.name == "flags")
-                .unwrap()
-                .output
-                .duplicate(),
-            key_tag: o
-                .fields
-                .iter()
-                .find(|o| o.name == "keyTag")
-                .unwrap()
-                .output
-                .duplicate(),
-            key_type: o
-                .fields
-                .iter()
-                .find(|o| o.name == "keyType")
-                .unwrap()
-                .output
-                .duplicate(),
-            modified_on: o
-                .fields
-                .iter()
-                .find(|o| o.name == "modifiedOn")
-                .unwrap()
-                .output
-                .duplicate(),
-            public_key: o
-                .fields
-                .iter()
-                .find(|o| o.name == "publicKey")
-                .unwrap()
-                .output
-                .duplicate(),
-            status: o
-                .fields
-                .iter()
-                .find(|o| o.name == "status")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            algorithm: hashmap.remove("algorithm").unwrap(),
+            digest: hashmap.remove("digest").unwrap(),
+            digest_algorithm: hashmap.remove("digestAlgorithm").unwrap(),
+            digest_type: hashmap.remove("digestType").unwrap(),
+            ds: hashmap.remove("ds").unwrap(),
+            flags: hashmap.remove("flags").unwrap(),
+            key_tag: hashmap.remove("keyTag").unwrap(),
+            key_type: hashmap.remove("keyType").unwrap(),
+            modified_on: hashmap.remove("modifiedOn").unwrap(),
+            public_key: hashmap.remove("publicKey").unwrap(),
+            status: hashmap.remove("status").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -13453,35 +8777,14 @@ impl zone_hold::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         zone_hold::Res {
-            hold: o
-                .fields
-                .iter()
-                .find(|o| o.name == "hold")
-                .unwrap()
-                .output
-                .duplicate(),
-            hold_after: o
-                .fields
-                .iter()
-                .find(|o| o.name == "holdAfter")
-                .unwrap()
-                .output
-                .duplicate(),
-            include_subdomains: o
-                .fields
-                .iter()
-                .find(|o| o.name == "includeSubdomains")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            hold: hashmap.remove("hold").unwrap(),
+            hold_after: hashmap.remove("holdAfter").unwrap(),
+            include_subdomains: hashmap.remove("includeSubdomains").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -13541,49 +8844,16 @@ impl zone_lockdown::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         zone_lockdown::Res {
-            configurations: o
-                .fields
-                .iter()
-                .find(|o| o.name == "configurations")
-                .unwrap()
-                .output
-                .duplicate(),
-            description: o
-                .fields
-                .iter()
-                .find(|o| o.name == "description")
-                .unwrap()
-                .output
-                .duplicate(),
-            paused: o
-                .fields
-                .iter()
-                .find(|o| o.name == "paused")
-                .unwrap()
-                .output
-                .duplicate(),
-            priority: o
-                .fields
-                .iter()
-                .find(|o| o.name == "priority")
-                .unwrap()
-                .output
-                .duplicate(),
-            urls: o
-                .fields
-                .iter()
-                .find(|o| o.name == "urls")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
+            configurations: hashmap.remove("configurations").unwrap(),
+            description: hashmap.remove("description").unwrap(),
+            paused: hashmap.remove("paused").unwrap(),
+            priority: hashmap.remove("priority").unwrap(),
+            urls: hashmap.remove("urls").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
         }
     }
 }
@@ -13630,56 +8900,17 @@ impl zone_settings_override::Guest for Component {
 
         let o = register(&request);
 
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
         zone_settings_override::Res {
-            initial_settings: o
-                .fields
-                .iter()
-                .find(|o| o.name == "initialSettings")
-                .unwrap()
-                .output
-                .duplicate(),
-            initial_settings_read_at: o
-                .fields
-                .iter()
-                .find(|o| o.name == "initialSettingsReadAt")
-                .unwrap()
-                .output
-                .duplicate(),
-            readonly_settings: o
-                .fields
-                .iter()
-                .find(|o| o.name == "readonlySettings")
-                .unwrap()
-                .output
-                .duplicate(),
-            settings: o
-                .fields
-                .iter()
-                .find(|o| o.name == "settings")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_id: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneId")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_status: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneStatus")
-                .unwrap()
-                .output
-                .duplicate(),
-            zone_type: o
-                .fields
-                .iter()
-                .find(|o| o.name == "zoneType")
-                .unwrap()
-                .output
-                .duplicate(),
+            initial_settings: hashmap.remove("initialSettings").unwrap(),
+            initial_settings_read_at: hashmap.remove("initialSettingsReadAt").unwrap(),
+            readonly_settings: hashmap.remove("readonlySettings").unwrap(),
+            settings: hashmap.remove("settings").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
+            zone_status: hashmap.remove("zoneStatus").unwrap(),
+            zone_type: hashmap.remove("zoneType").unwrap(),
         }
     }
 }
