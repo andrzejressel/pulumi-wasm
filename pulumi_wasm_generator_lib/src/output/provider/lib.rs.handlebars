@@ -1,45 +1,10 @@
-use std::collections::HashMap;
 {{#each package.interfaces}}
-use bindings::exports::pulumi::{{@root.package.name_escaped}}::{{name}};
+mod {{name}};
 {{/each}}
 
 {{#if package.interfaces}}
-use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
 mod bindings;
 bindings::export!(Component with_types_in bindings);
 {{/if}}
 
 struct Component {}
-
-{{#each package.interfaces}}
-impl {{name}}::Guest for Component {
-    fn invoke(name: String, args: {{name}}::Args) -> {{name}}::Res {
-        pulumi_wasm_common::setup_logger();
-        let request = RegisterResourceRequest {
-            type_: "{{type}}".into(),
-            name,
-            object: vec![
-                {{#each input_properties}}
-                ObjectField { name: "{{name}}".into(), value: args.{{arg_name}} },
-                {{/each}}
-            ],
-            results: vec![
-                {{#each output_properties}}
-                ResultField { name: "{{name}}".into() },
-                {{/each}}
-            ],
-        };
-
-        let o = register(&request);
-
-        let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
-        {{name}}::Res {
-            {{#each output_properties}}
-            {{arg_name}}: hashmap.remove("{{name}}").unwrap(),
-            {{/each}}
-        }
-
-    }
-}
-{{/each}}

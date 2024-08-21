@@ -61,7 +61,16 @@ pub fn generate_wasm_provider(schema_json: &Path, result_path: &Path) -> Result<
     cargo_file.write_all(output::provider::cargo::generate_cargo(&package).as_bytes())?;
 
     let mut lib_file = File::create(result_path.join("src").join("lib.rs"))?;
-    lib_file.write_all(output::provider::source_code::generate_source_code(&package).as_bytes())?;
+    lib_file.write_all(
+        output::provider::source_code_librs::generate_source_code(&package).as_bytes(),
+    )?;
+
+    output::provider::source_code_resource::generate_source_code(&package)
+        .iter()
+        .for_each(|(path, content)| {
+            let mut lib_file = File::create(result_path.join("src").join(path)).unwrap();
+            lib_file.write_all(content.as_bytes()).unwrap();
+        });
 
     Ok(())
 }
