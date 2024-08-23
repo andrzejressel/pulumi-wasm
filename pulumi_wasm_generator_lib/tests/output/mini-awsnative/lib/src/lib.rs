@@ -1,6 +1,8 @@
 use pulumi_wasm_rust::Output;
-pub mod resource;
-pub mod types;
+mod types;
+pub use types::*;
+mod resource;
+pub use resource::*;
 
 mod bindings {
     wit_bindgen::generate!({

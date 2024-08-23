@@ -1,0 +1,76 @@
+pub struct LogpushJobArgs {
+    pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+    pub dataset: pulumi_wasm_rust::Output<String>,
+    pub destination_conf: pulumi_wasm_rust::Output<String>,
+    pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+    pub filter: pulumi_wasm_rust::Output<Option<String>>,
+    pub frequency: pulumi_wasm_rust::Output<Option<String>>,
+    pub kind: pulumi_wasm_rust::Output<Option<String>>,
+    pub logpull_options: pulumi_wasm_rust::Output<Option<String>>,
+    pub max_upload_bytes: pulumi_wasm_rust::Output<Option<i32>>,
+    pub max_upload_interval_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+    pub max_upload_records: pulumi_wasm_rust::Output<Option<i32>>,
+    pub name: pulumi_wasm_rust::Output<Option<String>>,
+    pub output_options: pulumi_wasm_rust::Output<Option<crate::types::LogpushJobOutputOptions>>,
+    pub ownership_challenge: pulumi_wasm_rust::Output<Option<String>>,
+    pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
+}
+
+pub struct LogpushJobResult {
+    pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+    pub dataset: pulumi_wasm_rust::Output<String>,
+    pub destination_conf: pulumi_wasm_rust::Output<String>,
+    pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+    pub filter: pulumi_wasm_rust::Output<Option<String>>,
+    pub frequency: pulumi_wasm_rust::Output<Option<String>>,
+    pub kind: pulumi_wasm_rust::Output<Option<String>>,
+    pub logpull_options: pulumi_wasm_rust::Output<Option<String>>,
+    pub max_upload_bytes: pulumi_wasm_rust::Output<Option<i32>>,
+    pub max_upload_interval_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+    pub max_upload_records: pulumi_wasm_rust::Output<Option<i32>>,
+    pub name: pulumi_wasm_rust::Output<Option<String>>,
+    pub output_options: pulumi_wasm_rust::Output<Option<crate::types::LogpushJobOutputOptions>>,
+    pub ownership_challenge: pulumi_wasm_rust::Output<Option<String>>,
+    pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
+}
+
+pub fn create(name: &str, args: LogpushJobArgs) -> LogpushJobResult {
+    let result = crate::bindings::pulumi::cloudflare::logpush_job::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::logpush_job::Args {
+            account_id: args.account_id.get_inner(),
+            dataset: args.dataset.get_inner(),
+            destination_conf: args.destination_conf.get_inner(),
+            enabled: args.enabled.get_inner(),
+            filter: args.filter.get_inner(),
+            frequency: args.frequency.get_inner(),
+            kind: args.kind.get_inner(),
+            logpull_options: args.logpull_options.get_inner(),
+            max_upload_bytes: args.max_upload_bytes.get_inner(),
+            max_upload_interval_seconds: args.max_upload_interval_seconds.get_inner(),
+            max_upload_records: args.max_upload_records.get_inner(),
+            name: args.name.get_inner(),
+            output_options: args.output_options.get_inner(),
+            ownership_challenge: args.ownership_challenge.get_inner(),
+            zone_id: args.zone_id.get_inner(),
+        },
+    );
+
+    LogpushJobResult {
+        account_id: crate::into_domain(result.account_id),
+        dataset: crate::into_domain(result.dataset),
+        destination_conf: crate::into_domain(result.destination_conf),
+        enabled: crate::into_domain(result.enabled),
+        filter: crate::into_domain(result.filter),
+        frequency: crate::into_domain(result.frequency),
+        kind: crate::into_domain(result.kind),
+        logpull_options: crate::into_domain(result.logpull_options),
+        max_upload_bytes: crate::into_domain(result.max_upload_bytes),
+        max_upload_interval_seconds: crate::into_domain(result.max_upload_interval_seconds),
+        max_upload_records: crate::into_domain(result.max_upload_records),
+        name: crate::into_domain(result.name),
+        output_options: crate::into_domain(result.output_options),
+        ownership_challenge: crate::into_domain(result.ownership_challenge),
+        zone_id: crate::into_domain(result.zone_id),
+    }
+}

@@ -1,0 +1,262 @@
+use crate::bindings::component::pulumi_wasm::register_interface::{
+    register, ObjectField, RegisterResourceRequest, ResultField,
+};
+use crate::bindings::exports::pulumi::cloudflare::access_application;
+use crate::Component;
+use std::collections::HashMap;
+
+impl access_application::Guest for Component {
+    fn invoke(name: String, args: access_application::Args) -> access_application::Res {
+        pulumi_wasm_common::setup_logger();
+        let request = RegisterResourceRequest {
+            type_: "cloudflare:index/accessApplication:AccessApplication".into(),
+            name,
+            object: vec![
+                ObjectField {
+                    name: "accountId".into(),
+                    value: args.account_id,
+                },
+                ObjectField {
+                    name: "allowAuthenticateViaWarp".into(),
+                    value: args.allow_authenticate_via_warp,
+                },
+                ObjectField {
+                    name: "allowedIdps".into(),
+                    value: args.allowed_idps,
+                },
+                ObjectField {
+                    name: "appLauncherLogoUrl".into(),
+                    value: args.app_launcher_logo_url,
+                },
+                ObjectField {
+                    name: "appLauncherVisible".into(),
+                    value: args.app_launcher_visible,
+                },
+                ObjectField {
+                    name: "autoRedirectToIdentity".into(),
+                    value: args.auto_redirect_to_identity,
+                },
+                ObjectField {
+                    name: "bgColor".into(),
+                    value: args.bg_color,
+                },
+                ObjectField {
+                    name: "corsHeaders".into(),
+                    value: args.cors_headers,
+                },
+                ObjectField {
+                    name: "customDenyMessage".into(),
+                    value: args.custom_deny_message,
+                },
+                ObjectField {
+                    name: "customDenyUrl".into(),
+                    value: args.custom_deny_url,
+                },
+                ObjectField {
+                    name: "customNonIdentityDenyUrl".into(),
+                    value: args.custom_non_identity_deny_url,
+                },
+                ObjectField {
+                    name: "customPages".into(),
+                    value: args.custom_pages,
+                },
+                ObjectField {
+                    name: "domain".into(),
+                    value: args.domain,
+                },
+                ObjectField {
+                    name: "enableBindingCookie".into(),
+                    value: args.enable_binding_cookie,
+                },
+                ObjectField {
+                    name: "footerLinks".into(),
+                    value: args.footer_links,
+                },
+                ObjectField {
+                    name: "headerBgColor".into(),
+                    value: args.header_bg_color,
+                },
+                ObjectField {
+                    name: "httpOnlyCookieAttribute".into(),
+                    value: args.http_only_cookie_attribute,
+                },
+                ObjectField {
+                    name: "landingPageDesign".into(),
+                    value: args.landing_page_design,
+                },
+                ObjectField {
+                    name: "logoUrl".into(),
+                    value: args.logo_url,
+                },
+                ObjectField {
+                    name: "name".into(),
+                    value: args.name,
+                },
+                ObjectField {
+                    name: "saasApp".into(),
+                    value: args.saas_app,
+                },
+                ObjectField {
+                    name: "sameSiteCookieAttribute".into(),
+                    value: args.same_site_cookie_attribute,
+                },
+                ObjectField {
+                    name: "selfHostedDomains".into(),
+                    value: args.self_hosted_domains,
+                },
+                ObjectField {
+                    name: "serviceAuth401Redirect".into(),
+                    value: args.service_auth401_redirect,
+                },
+                ObjectField {
+                    name: "sessionDuration".into(),
+                    value: args.session_duration,
+                },
+                ObjectField {
+                    name: "skipInterstitial".into(),
+                    value: args.skip_interstitial,
+                },
+                ObjectField {
+                    name: "tags".into(),
+                    value: args.tags,
+                },
+                ObjectField {
+                    name: "type".into(),
+                    value: args.type_,
+                },
+                ObjectField {
+                    name: "zoneId".into(),
+                    value: args.zone_id,
+                },
+            ],
+            results: vec![
+                ResultField {
+                    name: "accountId".into(),
+                },
+                ResultField {
+                    name: "allowAuthenticateViaWarp".into(),
+                },
+                ResultField {
+                    name: "allowedIdps".into(),
+                },
+                ResultField {
+                    name: "appLauncherLogoUrl".into(),
+                },
+                ResultField {
+                    name: "appLauncherVisible".into(),
+                },
+                ResultField { name: "aud".into() },
+                ResultField {
+                    name: "autoRedirectToIdentity".into(),
+                },
+                ResultField {
+                    name: "bgColor".into(),
+                },
+                ResultField {
+                    name: "corsHeaders".into(),
+                },
+                ResultField {
+                    name: "customDenyMessage".into(),
+                },
+                ResultField {
+                    name: "customDenyUrl".into(),
+                },
+                ResultField {
+                    name: "customNonIdentityDenyUrl".into(),
+                },
+                ResultField {
+                    name: "customPages".into(),
+                },
+                ResultField {
+                    name: "domain".into(),
+                },
+                ResultField {
+                    name: "enableBindingCookie".into(),
+                },
+                ResultField {
+                    name: "footerLinks".into(),
+                },
+                ResultField {
+                    name: "headerBgColor".into(),
+                },
+                ResultField {
+                    name: "httpOnlyCookieAttribute".into(),
+                },
+                ResultField {
+                    name: "landingPageDesign".into(),
+                },
+                ResultField {
+                    name: "logoUrl".into(),
+                },
+                ResultField {
+                    name: "name".into(),
+                },
+                ResultField {
+                    name: "saasApp".into(),
+                },
+                ResultField {
+                    name: "sameSiteCookieAttribute".into(),
+                },
+                ResultField {
+                    name: "selfHostedDomains".into(),
+                },
+                ResultField {
+                    name: "serviceAuth401Redirect".into(),
+                },
+                ResultField {
+                    name: "sessionDuration".into(),
+                },
+                ResultField {
+                    name: "skipInterstitial".into(),
+                },
+                ResultField {
+                    name: "tags".into(),
+                },
+                ResultField {
+                    name: "type".into(),
+                },
+                ResultField {
+                    name: "zoneId".into(),
+                },
+            ],
+        };
+
+        let o = register(&request);
+
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+
+        access_application::Res {
+            account_id: hashmap.remove("accountId").unwrap(),
+            allow_authenticate_via_warp: hashmap.remove("allowAuthenticateViaWarp").unwrap(),
+            allowed_idps: hashmap.remove("allowedIdps").unwrap(),
+            app_launcher_logo_url: hashmap.remove("appLauncherLogoUrl").unwrap(),
+            app_launcher_visible: hashmap.remove("appLauncherVisible").unwrap(),
+            aud: hashmap.remove("aud").unwrap(),
+            auto_redirect_to_identity: hashmap.remove("autoRedirectToIdentity").unwrap(),
+            bg_color: hashmap.remove("bgColor").unwrap(),
+            cors_headers: hashmap.remove("corsHeaders").unwrap(),
+            custom_deny_message: hashmap.remove("customDenyMessage").unwrap(),
+            custom_deny_url: hashmap.remove("customDenyUrl").unwrap(),
+            custom_non_identity_deny_url: hashmap.remove("customNonIdentityDenyUrl").unwrap(),
+            custom_pages: hashmap.remove("customPages").unwrap(),
+            domain: hashmap.remove("domain").unwrap(),
+            enable_binding_cookie: hashmap.remove("enableBindingCookie").unwrap(),
+            footer_links: hashmap.remove("footerLinks").unwrap(),
+            header_bg_color: hashmap.remove("headerBgColor").unwrap(),
+            http_only_cookie_attribute: hashmap.remove("httpOnlyCookieAttribute").unwrap(),
+            landing_page_design: hashmap.remove("landingPageDesign").unwrap(),
+            logo_url: hashmap.remove("logoUrl").unwrap(),
+            name: hashmap.remove("name").unwrap(),
+            saas_app: hashmap.remove("saasApp").unwrap(),
+            same_site_cookie_attribute: hashmap.remove("sameSiteCookieAttribute").unwrap(),
+            self_hosted_domains: hashmap.remove("selfHostedDomains").unwrap(),
+            service_auth401_redirect: hashmap.remove("serviceAuth401Redirect").unwrap(),
+            session_duration: hashmap.remove("sessionDuration").unwrap(),
+            skip_interstitial: hashmap.remove("skipInterstitial").unwrap(),
+            tags: hashmap.remove("tags").unwrap(),
+            type_: hashmap.remove("type").unwrap(),
+            zone_id: hashmap.remove("zoneId").unwrap(),
+        }
+    }
+}
