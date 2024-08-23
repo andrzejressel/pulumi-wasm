@@ -1,14 +1,11 @@
 use anyhow::Error;
 
-use pulumi_wasm_docker::resource::container;
-use pulumi_wasm_docker::resource::container::container;
-use pulumi_wasm_docker::resource::image;
-use pulumi_wasm_docker::types::DockerBuild;
+use pulumi_wasm_docker::{container, image, DockerBuild};
 use pulumi_wasm_rust::{add_export, pulumi_main};
 
 #[pulumi_main]
 fn test_main() -> Result<(), Error> {
-    let cont = container(
+    let cont = container::create(
         "container",
         container::ContainerArgs {
             attach: true.into(),
@@ -76,7 +73,7 @@ fn test_main() -> Result<(), Error> {
         },
     );
 
-    let image = image::image(
+    let image = image::create(
         "image",
         image::ImageArgs {
             build: DockerBuild {
