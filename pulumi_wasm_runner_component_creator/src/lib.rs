@@ -251,13 +251,10 @@ mod tests {
 
     mod provider_regex {
         use super::*;
-        use crate::{extract_provider_info, ProviderInfo, PROVIDER_REGEX};
-        use regex::Regex;
+        use crate::{extract_provider_info, ProviderInfo};
 
         #[test]
         fn provider_regex_should_work() -> Result<()> {
-            let provider_name_regex: Regex = Regex::new(PROVIDER_REGEX)?;
-
             assert_eq!(
                 extract_provider_info("pulumi:docker/container@4.5.3-DIVIDER-0.0.0-DEV"),
                 Some(ProviderInfo {
@@ -272,8 +269,6 @@ mod tests {
 
         #[test]
         fn extract_provider_info_return_none_if_does_not_match() -> Result<()> {
-            let provider_name_regex: Regex = Regex::new(PROVIDER_REGEX)?;
-
             assert_eq!(extract_provider_info("test"), None);
 
             Ok(())

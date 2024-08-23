@@ -143,7 +143,7 @@ mod tests {
         #[tokio::test]
         async fn should_download_existing_pulumi_wasm() -> Result<()> {
             let source = GithubPulumiWasmSource {};
-            let res = source.get(&"0.0.0-NIGHTLY-d1ce7a2".to_string()).await?;
+            let res = source.get("0.0.0-NIGHTLY-d1ce7a2").await?;
             assert!(!res.is_empty());
             Ok(())
         }
@@ -152,7 +152,7 @@ mod tests {
         async fn should_fail_on_noexisting_version() -> Result<()> {
             let source = GithubPulumiWasmSource {};
             let err = source
-                .get(&"0.0.0-NIGHTLY-nonexistent".to_string())
+                .get("0.0.0-NIGHTLY-nonexistent")
                 .await
                 .expect_err("Expected error");
             assert_eq!(
@@ -167,9 +167,9 @@ mod tests {
             let source = GithubPulumiWasmSource {};
             let res = source
                 .get_component(
-                    &"cloudflare".to_string(),
-                    &"0.0.0-NIGHTLY-d1ce7a2".to_string(),
-                    &"0.0.0-NIGHTLY-d1ce7a2".to_string(),
+                    "cloudflare",
+                    "0.0.0-NIGHTLY-d1ce7a2",
+                    "0.0.0-NIGHTLY-d1ce7a2",
                 )
                 .await?;
             assert!(!res.is_empty());
@@ -180,11 +180,7 @@ mod tests {
         async fn should_fail_on_nonexisting_provider() -> Result<()> {
             let source = GithubPulumiWasmSource {};
             let err = source
-                .get_component(
-                    &"cloudflare".to_string(),
-                    &"0.0.0".to_string(),
-                    &"1.1.1".to_string(),
-                )
+                .get_component("cloudflare", "0.0.0", "1.1.1")
                 .await
                 .expect_err("Expected error");
             assert_eq!(

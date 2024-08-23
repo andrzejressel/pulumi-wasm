@@ -21,9 +21,3 @@ fn get_main_version_stringify() -> String {
         .replace('8', "EIGHT")
         .replace('9', "NINE")
 }
-
-fn replace_multiple_dashes(s: &str) -> String {
-    let re = Regex::new("-+").unwrap();
-    let result = re.replace_all(s, "-");
-    result.to_string()
-}

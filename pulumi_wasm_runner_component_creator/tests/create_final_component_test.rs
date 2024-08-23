@@ -222,9 +222,9 @@ async fn return_error_when_multiple_versions_of_pulumi_wasm_in_providers_is_foun
     Ok(())
 }
 
-fn assert_component_only_exports_main(result: &Vec<u8>) -> Result<()> {
+fn assert_component_only_exports_main(result: &[u8]) -> Result<()> {
     let mut graph = CompositionGraph::new();
-    let main = Package::from_bytes("main", None, result.clone(), graph.types_mut()).unwrap();
+    let main = Package::from_bytes("main", None, result, graph.types_mut()).unwrap();
     let main_package_id = graph.register_package(main.clone()).unwrap();
 
     let exports_names: Vec<String> = graph.types()[graph[main_package_id].ty()]
