@@ -1,6 +1,5 @@
 use handlebars::Handlebars;
 use std::collections::HashMap;
-use std::fmt::format;
 use std::path::PathBuf;
 
 use serde::Serialize;
