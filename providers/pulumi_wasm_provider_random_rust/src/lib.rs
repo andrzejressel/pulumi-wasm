@@ -1,8 +1,7 @@
 use pulumi_wasm_rust::Output;
 use pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface::Output as WitOutput;
-mod types;
-pub use types::*;
 mod resource;
+mod types;
 pub use resource::*;
 
 mod bindings {
