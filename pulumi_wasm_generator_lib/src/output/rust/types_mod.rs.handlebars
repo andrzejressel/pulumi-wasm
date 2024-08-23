@@ -1,13 +1,6 @@
 {{#each package.types as |type|}}
-
-#[derive(serde::Serialize)]
-pub struct {{type.struct_name}} {
-    {{#each type.fields as |field|}}
-    #[serde(rename = "{{field.original_name}}")]
-    pub r#{{field.name}}: Box<{{&field.type_}}>,
-    {{/each}}
-}
-
+mod {{file_name}};
+pub use {{file_name}}::*;
 {{/each}}
 
 {{#each package.aliases as |alias|}}

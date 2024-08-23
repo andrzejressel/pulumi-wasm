@@ -1,10 +1,10 @@
-use std::collections::HashMap;
-use std::path::PathBuf;
 use handlebars::Handlebars;
 use serde::Serialize;
 use serde_json::json;
+use std::collections::HashMap;
+use std::path::PathBuf;
 
-static TEMPLATE: &str = include_str!("resource_mod.rs.handlebars");
+static TEMPLATE: &str = include_str!("resource_code.rs.handlebars");
 
 #[derive(Serialize)]
 struct InputProperty {
@@ -72,11 +72,15 @@ pub(crate) fn generate_source_code(package: &crate::model::Package) -> HashMap<P
     let handlebars = Handlebars::new();
     let package = convert_model(package);
 
-    package.interfaces
+    package
+        .interfaces
         .iter()
         .map(|interface| {
             let rendered_file = handlebars
-                .render_template(TEMPLATE, &json!({"interface": interface}))
+                .render_template(
+                    TEMPLATE,
+                    &json!({"package_name": package.name, "interface": interface}),
+                )
                 .unwrap();
             (
                 PathBuf::from(format!("{}.rs", interface.name)),

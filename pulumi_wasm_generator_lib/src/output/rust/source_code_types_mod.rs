@@ -4,7 +4,7 @@ use handlebars::Handlebars;
 use serde::Serialize;
 use serde_json::json;
 
-static TEMPLATE: &str = include_str!("types.rs.handlebars");
+static TEMPLATE: &str = include_str!("types_mod.rs.handlebars");
 
 #[derive(Serialize)]
 struct Property {
@@ -15,9 +15,7 @@ struct Property {
 
 #[derive(Serialize)]
 struct RefType {
-    // name: String,
-    fields: Vec<Property>,
-    struct_name: String,
+    file_name: String,
 }
 
 #[derive(Serialize)]
@@ -28,7 +26,6 @@ struct AliasType {
 
 #[derive(Serialize)]
 struct Package {
-    name: String,
     types: Vec<RefType>,
     aliases: Vec<AliasType>,
 }
@@ -41,21 +38,9 @@ fn convert_model(package: &crate::model::Package) -> Package {
         .types
         .iter()
         .for_each(|(element_id, resource)| match resource {
-            GlobalType::Object(properties) => {
+            GlobalType::Object(_properties) => {
                 let ref_type = RefType {
-                    struct_name: element_id.get_rust_struct_name(),
-                    fields: properties
-                        .iter()
-                        .map(|global_type_property| Property {
-                            name: global_type_property
-                                .name
-                                .clone()
-                                .from_case(Case::Camel)
-                                .to_case(Case::Snake),
-                            original_name: global_type_property.name.clone(),
-                            type_: global_type_property.r#type.get_rust_type(),
-                        })
-                        .collect(),
+                    file_name: element_id.get_rust_struct_name().to_case(Case::Snake),
                 };
                 real_types.push(ref_type);
             }
@@ -78,7 +63,6 @@ fn convert_model(package: &crate::model::Package) -> Package {
         });
 
     Package {
-        name: package.name.clone(),
         types: real_types,
         aliases,
     }

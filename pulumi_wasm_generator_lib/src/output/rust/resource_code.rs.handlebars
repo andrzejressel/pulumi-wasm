@@ -1,30 +1,26 @@
-pub mod {{interface.name}} {
+pub struct {{interface.struct_name}}Args {
+{{#each interface.input_properties}}
+    pub {{arg_name}}: pulumi_wasm_rust::Output<{{&type_}}>,
+{{/each}}
+}
 
-    pub struct {{interface.struct_name}}Args {
-    {{#each interface.input_properties}}
-        pub {{arg_name}}: pulumi_wasm_rust::Output<{{&type_}}>,
-    {{/each}}
-    }
+pub struct {{interface.struct_name}}Result {
+{{#each interface.output_properties}}
+    pub {{arg_name}}: pulumi_wasm_rust::Output<{{&type_}}>,
+{{/each}}
+}
 
-    pub struct {{interface.struct_name}}Result {
+pub fn create(name: &str, args: {{interface.struct_name}}Args) -> {{interface.struct_name}}Result {
+
+    let result = crate::bindings::pulumi::{{package_name}}::{{interface.name}}::invoke(name, &crate::bindings::pulumi::{{package_name}}::{{interface.name}}::Args {
+{{#each interface.input_properties}}
+        {{arg_name}}: args.{{arg_name}}.get_inner(),
+{{/each}}
+    });
+
+    {{interface.struct_name}}Result {
     {{#each interface.output_properties}}
-        pub {{arg_name}}: pulumi_wasm_rust::Output<{{&type_}}>,
+        {{arg_name}}: crate::into_domain(result.{{arg_name}}),
     {{/each}}
     }
-
-    pub fn {{interface.function_name}}(name: &str, args: {{interface.struct_name}}Args) -> {{interface.struct_name}}Result {
-
-        let result = crate::bindings::pulumi::{{@root.package.name}}::{{interface.name}}::invoke(name, &crate::bindings::pulumi::{{@root.package.name}}::{{interface.name}}::Args {
-    {{#each interface.input_properties}}
-            {{arg_name}}: args.{{arg_name}}.get_inner(),
-    {{/each}}
-        });
-
-        {{interface.struct_name}}Result {
-        {{#each interface.output_properties}}
-            {{arg_name}}: crate::into_domain(result.{{arg_name}}),
-        {{/each}}
-        }
-    }
-
 }

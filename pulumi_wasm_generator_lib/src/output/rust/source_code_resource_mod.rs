@@ -2,7 +2,7 @@ use handlebars::Handlebars;
 use serde::Serialize;
 use serde_json::json;
 
-static TEMPLATE: &str = include_str!("resource.rs.handlebars");
+static TEMPLATE: &str = include_str!("resource_mod.rs.handlebars");
 
 #[derive(Serialize)]
 struct InputProperty {

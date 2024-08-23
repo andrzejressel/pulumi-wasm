@@ -1,5 +1,3 @@
-{{#each package.types as |type|}}
-
 #[derive(serde::Serialize)]
 pub struct {{type.struct_name}} {
     {{#each type.fields as |field|}}
@@ -7,9 +5,3 @@ pub struct {{type.struct_name}} {
     pub r#{{field.name}}: Box<{{&field.type_}}>,
     {{/each}}
 }
-
-{{/each}}
-
-{{#each package.aliases as |alias|}}
-pub type {{alias.name}} = {{&alias.type_}};
-{{/each}}

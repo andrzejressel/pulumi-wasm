@@ -67,7 +67,6 @@ pub(crate) fn generate_source_code(package: &crate::model::Package) -> HashMap<P
             let rendered_file = handlebars
                 .render_template(TEMPLATE, &json!({"interface": interface}))
                 .unwrap();
-
             (
                 PathBuf::from(format!("{}.rs", interface.name)),
                 rendered_file,

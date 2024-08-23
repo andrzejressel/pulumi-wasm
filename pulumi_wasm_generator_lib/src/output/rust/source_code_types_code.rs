@@ -3,8 +3,10 @@ use convert_case::{Case, Casing};
 use handlebars::Handlebars;
 use serde::Serialize;
 use serde_json::json;
+use std::collections::HashMap;
+use std::path::PathBuf;
 
-static TEMPLATE: &str = include_str!("types.rs.handlebars");
+static TEMPLATE: &str = include_str!("types_code.rs.handlebars");
 
 #[derive(Serialize)]
 struct Property {
@@ -18,6 +20,7 @@ struct RefType {
     // name: String,
     fields: Vec<Property>,
     struct_name: String,
+    file_name: String,
 }
 
 #[derive(Serialize)]
@@ -44,6 +47,7 @@ fn convert_model(package: &crate::model::Package) -> Package {
             GlobalType::Object(properties) => {
                 let ref_type = RefType {
                     struct_name: element_id.get_rust_struct_name(),
+                    file_name: element_id.get_rust_struct_name().to_case(Case::Snake),
                     fields: properties
                         .iter()
                         .map(|global_type_property| Property {
@@ -84,15 +88,21 @@ fn convert_model(package: &crate::model::Package) -> Package {
     }
 }
 
-pub(crate) fn generate_source_code(package: &crate::model::Package) -> String {
+pub(crate) fn generate_source_code(package: &crate::model::Package) -> HashMap<PathBuf, String> {
+    let handlebars = Handlebars::new();
     let package = convert_model(package);
 
-    let content = {
-        let handlebars = Handlebars::new();
-        handlebars
-            .render_template(TEMPLATE, &json!({"package": &package}))
-            .unwrap()
-    };
-
-    content
+    package
+        .types
+        .iter()
+        .map(|type_| {
+            let rendered_file = handlebars
+                .render_template(TEMPLATE, &json!({"type": type_}))
+                .unwrap();
+            (
+                PathBuf::from(format!("{}.rs", type_.file_name)),
+                rendered_file,
+            )
+        })
+        .collect()
 }
