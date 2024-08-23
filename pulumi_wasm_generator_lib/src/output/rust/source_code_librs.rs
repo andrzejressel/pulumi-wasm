@@ -6,18 +6,6 @@ use serde_json::json;
 static TEMPLATE: &str = include_str!("lib.rs.handlebars");
 
 #[derive(Serialize)]
-struct InputProperty {
-    name: String,
-    arg_name: String,
-}
-
-#[derive(Serialize)]
-struct OutputProperty {
-    name: String,
-    arg_name: String,
-}
-
-#[derive(Serialize)]
 struct Interface {}
 
 #[derive(Serialize)]

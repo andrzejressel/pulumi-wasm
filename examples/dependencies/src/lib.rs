@@ -1,12 +1,13 @@
 use anyhow::Error;
-use pulumi_wasm_random::resource::random_string::{random_string, RandomStringArgs};
+use pulumi_wasm_random::random_string;
+use pulumi_wasm_random::random_string::RandomStringArgs;
 use pulumi_wasm_rust::Output;
 use pulumi_wasm_rust::{add_export, pulumi_main};
 
 #[pulumi_main]
 fn test_main() -> Result<(), Error> {
     let length: Output<i32> = Output::new(&4);
-    let random_string_1 = random_string(
+    let random_string_1 = random_string::create(
         "test_1",
         RandomStringArgs {
             keepers: None.into(),
@@ -26,7 +27,7 @@ fn test_main() -> Result<(), Error> {
 
     let new_length = random_string_1.result.map(|s| s.len() as i32);
 
-    let random_string_2 = random_string(
+    let random_string_2 = random_string::create(
         "test_2",
         RandomStringArgs {
             keepers: None.into(),
@@ -44,7 +45,7 @@ fn test_main() -> Result<(), Error> {
         },
     );
 
-    let random_string_3 = random_string(
+    let random_string_3 = random_string::create(
         "test_3",
         RandomStringArgs {
             keepers: None.into(),
