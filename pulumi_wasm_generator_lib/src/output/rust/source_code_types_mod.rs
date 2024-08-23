@@ -7,13 +7,6 @@ use serde_json::json;
 static TEMPLATE: &str = include_str!("types_mod.rs.handlebars");
 
 #[derive(Serialize)]
-struct Property {
-    name: String,
-    original_name: String,
-    type_: String,
-}
-
-#[derive(Serialize)]
 struct RefType {
     file_name: String,
 }
