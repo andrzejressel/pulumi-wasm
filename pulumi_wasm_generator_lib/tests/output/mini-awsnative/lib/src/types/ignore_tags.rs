@@ -1,4 +1,3 @@
-
 #[derive(serde::Serialize)]
 pub struct IgnoreTags {
     #[serde(rename = "keyPrefixes")]
@@ -6,6 +5,3 @@ pub struct IgnoreTags {
     #[serde(rename = "keys")]
     pub r#keys: Box<Option<Vec<String>>>,
 }
-
-
-pub type Region = String;
