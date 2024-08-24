@@ -149,8 +149,8 @@ pub fn create(name: &str, args: ApiShieldArgs) -> ApiShieldResult {
     let result = crate::bindings::pulumi::cloudflare::api_shield::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::api_shield::Args {
-            auth_id_characteristics: args.auth_id_characteristics.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            auth_id_characteristics: &args.auth_id_characteristics.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

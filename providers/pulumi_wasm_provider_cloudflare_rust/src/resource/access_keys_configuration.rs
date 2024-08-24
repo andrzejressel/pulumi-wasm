@@ -22,8 +22,8 @@ pub fn create(name: &str, args: AccessKeysConfigurationArgs) -> AccessKeysConfig
     let result = crate::bindings::pulumi::cloudflare::access_keys_configuration::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::access_keys_configuration::Args {
-            account_id: args.account_id.get_inner(),
-            key_rotation_interval_days: args.key_rotation_interval_days.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            key_rotation_interval_days: &args.key_rotation_interval_days.get_inner(),
         },
     );
 

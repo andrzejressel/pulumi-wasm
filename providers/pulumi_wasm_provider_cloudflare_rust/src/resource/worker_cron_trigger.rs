@@ -211,9 +211,9 @@ pub fn create(name: &str, args: WorkerCronTriggerArgs) -> WorkerCronTriggerResul
     let result = crate::bindings::pulumi::cloudflare::worker_cron_trigger::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::worker_cron_trigger::Args {
-            account_id: args.account_id.get_inner(),
-            schedules: args.schedules.get_inner(),
-            script_name: args.script_name.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            schedules: &args.schedules.get_inner(),
+            script_name: &args.script_name.get_inner(),
         },
     );
 

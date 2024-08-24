@@ -501,15 +501,15 @@ pub fn create(name: &str, args: RateLimitArgs) -> RateLimitResult {
     let result = crate::bindings::pulumi::cloudflare::rate_limit::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::rate_limit::Args {
-            action: args.action.get_inner(),
-            bypass_url_patterns: args.bypass_url_patterns.get_inner(),
-            correlate: args.correlate.get_inner(),
-            description: args.description.get_inner(),
-            disabled: args.disabled.get_inner(),
-            match_: args.match_.get_inner(),
-            period: args.period.get_inner(),
-            threshold: args.threshold.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            action: &args.action.get_inner(),
+            bypass_url_patterns: &args.bypass_url_patterns.get_inner(),
+            correlate: &args.correlate.get_inner(),
+            description: &args.description.get_inner(),
+            disabled: &args.disabled.get_inner(),
+            match_: &args.match_.get_inner(),
+            period: &args.period.get_inner(),
+            threshold: &args.threshold.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

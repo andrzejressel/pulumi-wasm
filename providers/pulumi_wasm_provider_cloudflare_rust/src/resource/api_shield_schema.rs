@@ -168,11 +168,11 @@ pub fn create(name: &str, args: ApiShieldSchemaArgs) -> ApiShieldSchemaResult {
     let result = crate::bindings::pulumi::cloudflare::api_shield_schema::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::api_shield_schema::Args {
-            kind: args.kind.get_inner(),
-            name: args.name.get_inner(),
-            source: args.source.get_inner(),
-            validation_enabled: args.validation_enabled.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            kind: &args.kind.get_inner(),
+            name: &args.name.get_inner(),
+            source: &args.source.get_inner(),
+            validation_enabled: &args.validation_enabled.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

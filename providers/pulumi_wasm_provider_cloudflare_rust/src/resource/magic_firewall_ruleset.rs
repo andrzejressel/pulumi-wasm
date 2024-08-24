@@ -226,10 +226,10 @@ pub fn create(name: &str, args: MagicFirewallRulesetArgs) -> MagicFirewallRulese
     let result = crate::bindings::pulumi::cloudflare::magic_firewall_ruleset::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::magic_firewall_ruleset::Args {
-            account_id: args.account_id.get_inner(),
-            description: args.description.get_inner(),
-            name: args.name.get_inner(),
-            rules: args.rules.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            description: &args.description.get_inner(),
+            name: &args.name.get_inner(),
+            rules: &args.rules.get_inner(),
         },
     );
 

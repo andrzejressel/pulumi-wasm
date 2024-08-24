@@ -152,10 +152,10 @@ pub fn create(name: &str, args: WebAnalyticsSiteArgs) -> WebAnalyticsSiteResult 
     let result = crate::bindings::pulumi::cloudflare::web_analytics_site::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::web_analytics_site::Args {
-            account_id: args.account_id.get_inner(),
-            auto_install: args.auto_install.get_inner(),
-            host: args.host.get_inner(),
-            zone_tag: args.zone_tag.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            auto_install: &args.auto_install.get_inner(),
+            host: &args.host.get_inner(),
+            zone_tag: &args.zone_tag.get_inner(),
         },
     );
 

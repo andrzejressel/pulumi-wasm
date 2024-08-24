@@ -187,10 +187,10 @@ pub fn create(name: &str, args: HyperdriveConfigArgs) -> HyperdriveConfigResult 
     let result = crate::bindings::pulumi::cloudflare::hyperdrive_config::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::hyperdrive_config::Args {
-            account_id: args.account_id.get_inner(),
-            caching: args.caching.get_inner(),
-            name: args.name.get_inner(),
-            origin: args.origin.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            caching: &args.caching.get_inner(),
+            name: &args.name.get_inner(),
+            origin: &args.origin.get_inner(),
         },
     );
 

@@ -203,8 +203,8 @@ pub fn create(
     let result = crate::bindings::pulumi::cloudflare::workers_for_platforms_namespace::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::workers_for_platforms_namespace::Args {
-            account_id: args.account_id.get_inner(),
-            name: args.name.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            name: &args.name.get_inner(),
         },
     );
 

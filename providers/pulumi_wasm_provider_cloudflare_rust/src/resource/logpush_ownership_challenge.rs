@@ -132,9 +132,9 @@ pub fn create(name: &str, args: LogpushOwnershipChallengeArgs) -> LogpushOwnersh
     let result = crate::bindings::pulumi::cloudflare::logpush_ownership_challenge::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::logpush_ownership_challenge::Args {
-            account_id: args.account_id.get_inner(),
-            destination_conf: args.destination_conf.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            destination_conf: &args.destination_conf.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

@@ -182,13 +182,13 @@ pub fn create(name: &str, args: KeylessCertificateArgs) -> KeylessCertificateRes
     let result = crate::bindings::pulumi::cloudflare::keyless_certificate::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::keyless_certificate::Args {
-            bundle_method: args.bundle_method.get_inner(),
-            certificate: args.certificate.get_inner(),
-            enabled: args.enabled.get_inner(),
-            host: args.host.get_inner(),
-            name: args.name.get_inner(),
-            port: args.port.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            bundle_method: &args.bundle_method.get_inner(),
+            certificate: &args.certificate.get_inner(),
+            enabled: &args.enabled.get_inner(),
+            host: &args.host.get_inner(),
+            name: &args.name.get_inner(),
+            port: &args.port.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

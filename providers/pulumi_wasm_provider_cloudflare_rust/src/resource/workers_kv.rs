@@ -182,10 +182,10 @@ pub fn create(name: &str, args: WorkersKvArgs) -> WorkersKvResult {
     let result = crate::bindings::pulumi::cloudflare::workers_kv::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::workers_kv::Args {
-            account_id: args.account_id.get_inner(),
-            key: args.key.get_inner(),
-            namespace_id: args.namespace_id.get_inner(),
-            value: args.value.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            key: &args.key.get_inner(),
+            namespace_id: &args.namespace_id.get_inner(),
+            value: &args.value.get_inner(),
         },
     );
 

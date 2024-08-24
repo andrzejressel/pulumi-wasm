@@ -223,16 +223,16 @@ pub fn create(name: &str, args: CertificatePackArgs) -> CertificatePackResult {
     let result = crate::bindings::pulumi::cloudflare::certificate_pack::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::certificate_pack::Args {
-            certificate_authority: args.certificate_authority.get_inner(),
-            cloudflare_branding: args.cloudflare_branding.get_inner(),
-            hosts: args.hosts.get_inner(),
-            type_: args.type_.get_inner(),
-            validation_errors: args.validation_errors.get_inner(),
-            validation_method: args.validation_method.get_inner(),
-            validation_records: args.validation_records.get_inner(),
-            validity_days: args.validity_days.get_inner(),
-            wait_for_active_status: args.wait_for_active_status.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            certificate_authority: &args.certificate_authority.get_inner(),
+            cloudflare_branding: &args.cloudflare_branding.get_inner(),
+            hosts: &args.hosts.get_inner(),
+            type_: &args.type_.get_inner(),
+            validation_errors: &args.validation_errors.get_inner(),
+            validation_method: &args.validation_method.get_inner(),
+            validation_records: &args.validation_records.get_inner(),
+            validity_days: &args.validity_days.get_inner(),
+            wait_for_active_status: &args.wait_for_active_status.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

@@ -196,9 +196,9 @@ pub fn create(name: &str, args: AccessCaCertificateArgs) -> AccessCaCertificateR
     let result = crate::bindings::pulumi::cloudflare::access_ca_certificate::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::access_ca_certificate::Args {
-            account_id: args.account_id.get_inner(),
-            application_id: args.application_id.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            application_id: &args.application_id.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

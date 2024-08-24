@@ -178,9 +178,9 @@ pub fn create(
     args: ApiShieldOperationSchemaValidationSettingsArgs,
 ) -> ApiShieldOperationSchemaValidationSettingsResult {
     let result = crate::bindings::pulumi::cloudflare::api_shield_operation_schema_validation_settings::invoke(name, &crate::bindings::pulumi::cloudflare::api_shield_operation_schema_validation_settings::Args {
-        mitigation_action: args.mitigation_action.get_inner(),
-        operation_id: args.operation_id.get_inner(),
-        zone_id: args.zone_id.get_inner(),
+        mitigation_action: &args.mitigation_action.get_inner(),
+        operation_id: &args.operation_id.get_inner(),
+        zone_id: &args.zone_id.get_inner(),
     });
 
     ApiShieldOperationSchemaValidationSettingsResult {

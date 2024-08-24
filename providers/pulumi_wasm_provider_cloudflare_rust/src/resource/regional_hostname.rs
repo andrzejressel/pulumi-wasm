@@ -209,9 +209,9 @@ pub fn create(name: &str, args: RegionalHostnameArgs) -> RegionalHostnameResult 
     let result = crate::bindings::pulumi::cloudflare::regional_hostname::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::regional_hostname::Args {
-            hostname: args.hostname.get_inner(),
-            region_key: args.region_key.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            hostname: &args.hostname.get_inner(),
+            region_key: &args.region_key.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

@@ -157,11 +157,11 @@ pub fn create(name: &str, args: FilterArgs) -> FilterResult {
     let result = crate::bindings::pulumi::cloudflare::filter::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::filter::Args {
-            description: args.description.get_inner(),
-            expression: args.expression.get_inner(),
-            paused: args.paused.get_inner(),
-            ref_: args.ref_.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            description: &args.description.get_inner(),
+            expression: &args.expression.get_inner(),
+            paused: &args.paused.get_inner(),
+            ref_: &args.ref_.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

@@ -204,14 +204,14 @@ pub fn create(name: &str, args: StaticRouteArgs) -> StaticRouteResult {
     let result = crate::bindings::pulumi::cloudflare::static_route::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::static_route::Args {
-            account_id: args.account_id.get_inner(),
-            colo_names: args.colo_names.get_inner(),
-            colo_regions: args.colo_regions.get_inner(),
-            description: args.description.get_inner(),
-            nexthop: args.nexthop.get_inner(),
-            prefix: args.prefix.get_inner(),
-            priority: args.priority.get_inner(),
-            weight: args.weight.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            colo_names: &args.colo_names.get_inner(),
+            colo_regions: &args.colo_regions.get_inner(),
+            description: &args.description.get_inner(),
+            nexthop: &args.nexthop.get_inner(),
+            prefix: &args.prefix.get_inner(),
+            priority: &args.priority.get_inner(),
+            weight: &args.weight.get_inner(),
         },
     );
 

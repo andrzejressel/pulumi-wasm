@@ -169,10 +169,10 @@ pub fn create(name: &str, args: DeviceManagedNetworksArgs) -> DeviceManagedNetwo
     let result = crate::bindings::pulumi::cloudflare::device_managed_networks::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::device_managed_networks::Args {
-            account_id: args.account_id.get_inner(),
-            config: args.config.get_inner(),
-            name: args.name.get_inner(),
-            type_: args.type_.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            config: &args.config.get_inner(),
+            name: &args.name.get_inner(),
+            type_: &args.type_.get_inner(),
         },
     );
 

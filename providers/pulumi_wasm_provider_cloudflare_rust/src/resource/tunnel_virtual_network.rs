@@ -147,10 +147,10 @@ pub fn create(name: &str, args: TunnelVirtualNetworkArgs) -> TunnelVirtualNetwor
     let result = crate::bindings::pulumi::cloudflare::tunnel_virtual_network::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::tunnel_virtual_network::Args {
-            account_id: args.account_id.get_inner(),
-            comment: args.comment.get_inner(),
-            is_default_network: args.is_default_network.get_inner(),
-            name: args.name.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            comment: &args.comment.get_inner(),
+            is_default_network: &args.is_default_network.get_inner(),
+            name: &args.name.get_inner(),
         },
     );
 

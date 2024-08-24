@@ -152,10 +152,10 @@ pub fn create(name: &str, args: HostnameTlsSettingArgs) -> HostnameTlsSettingRes
     let result = crate::bindings::pulumi::cloudflare::hostname_tls_setting::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::hostname_tls_setting::Args {
-            hostname: args.hostname.get_inner(),
-            setting: args.setting.get_inner(),
-            value: args.value.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            hostname: &args.hostname.get_inner(),
+            setting: &args.setting.get_inner(),
+            value: &args.value.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

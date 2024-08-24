@@ -110,11 +110,11 @@ pub fn create(name: &str, args: ListArgs) -> ListResult {
     let result = crate::bindings::pulumi::cloudflare::list::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::list::Args {
-            account_id: args.account_id.get_inner(),
-            description: args.description.get_inner(),
-            items: args.items.get_inner(),
-            kind: args.kind.get_inner(),
-            name: args.name.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            description: &args.description.get_inner(),
+            items: &args.items.get_inner(),
+            kind: &args.kind.get_inner(),
+            name: &args.name.get_inner(),
         },
     );
 

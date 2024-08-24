@@ -201,15 +201,15 @@ pub fn create(name: &str, args: PluginArgs) -> PluginResult {
     let result = crate::bindings::pulumi::docker::plugin::invoke(
         name,
         &crate::bindings::pulumi::docker::plugin::Args {
-            alias: args.alias.get_inner(),
-            enable_timeout: args.enable_timeout.get_inner(),
-            enabled: args.enabled.get_inner(),
-            envs: args.envs.get_inner(),
-            force_destroy: args.force_destroy.get_inner(),
-            force_disable: args.force_disable.get_inner(),
-            grant_all_permissions: args.grant_all_permissions.get_inner(),
-            grant_permissions: args.grant_permissions.get_inner(),
-            name: args.name.get_inner(),
+            alias: &args.alias.get_inner(),
+            enable_timeout: &args.enable_timeout.get_inner(),
+            enabled: &args.enabled.get_inner(),
+            envs: &args.envs.get_inner(),
+            force_destroy: &args.force_destroy.get_inner(),
+            force_disable: &args.force_disable.get_inner(),
+            grant_all_permissions: &args.grant_all_permissions.get_inner(),
+            grant_permissions: &args.grant_permissions.get_inner(),
+            name: &args.name.get_inner(),
         },
     );
 

@@ -137,9 +137,9 @@ pub fn create(name: &str, args: EmailRoutingSettingsArgs) -> EmailRoutingSetting
     let result = crate::bindings::pulumi::cloudflare::email_routing_settings::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::email_routing_settings::Args {
-            enabled: args.enabled.get_inner(),
-            skip_wizard: args.skip_wizard.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            enabled: &args.enabled.get_inner(),
+            skip_wizard: &args.skip_wizard.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

@@ -112,9 +112,9 @@ pub mod component {
                 }
             }
             #[allow(unused_unsafe, clippy::all)]
-            pub fn combine(outputs: _rt::Vec<Output>) -> Output {
+            pub fn combine(outputs: &[&Output]) -> Output {
                 unsafe {
-                    let vec0 = &outputs;
+                    let vec0 = outputs;
                     let len0 = vec0.len();
                     let layout0 = _rt::alloc::Layout::from_size_align_unchecked(vec0.len() * 4, 4);
                     let result0 = if layout0.size() != 0 {
@@ -131,7 +131,7 @@ pub mod component {
                     for (i, e) in vec0.into_iter().enumerate() {
                         let base = result0.add(i * 4);
                         {
-                            *base.add(0).cast::<i32>() = (e).take_handle() as i32;
+                            *base.add(0).cast::<i32>() = (e).handle() as i32;
                         }
                     }
 
@@ -18030,7 +18030,7 @@ pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 38405] = *b"\
 \0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xfc\xaa\x02\x01A\x02\
 \x01A\xf1\x01\x01B\x0a\x04\0\x06output\x03\x01\x01i\0\x01@\x01\x05values\0\x01\x04\
 \0\x13[constructor]output\x01\x02\x01h\0\x01@\x02\x04self\x03\x0dfunction-names\0\
-\x01\x04\0\x12[method]output.map\x01\x04\x01p\x01\x01@\x01\x07outputs\x05\0\x01\x04\
+\x01\x04\0\x12[method]output.map\x01\x04\x01p\x03\x01@\x01\x07outputs\x05\0\x01\x04\
 \0\x07combine\x01\x06\x03\x010component:pulumi-wasm/output-interface@0.0.0-DEV\x05\
 \0\x02\x03\0\0\x06output\x01B\x13\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
 h\x01\x01r\x02\x04names\x05value\x02\x04\0\x0cobject-field\x03\0\x03\x01r\x01\x04\

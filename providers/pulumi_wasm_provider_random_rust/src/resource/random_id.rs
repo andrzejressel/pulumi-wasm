@@ -237,9 +237,9 @@ pub fn create(name: &str, args: RandomIdArgs) -> RandomIdResult {
     let result = crate::bindings::pulumi::random::random_id::invoke(
         name,
         &crate::bindings::pulumi::random::random_id::Args {
-            byte_length: args.byte_length.get_inner(),
-            keepers: args.keepers.get_inner(),
-            prefix: args.prefix.get_inner(),
+            byte_length: &args.byte_length.get_inner(),
+            keepers: &args.keepers.get_inner(),
+            prefix: &args.prefix.get_inner(),
         },
     );
 

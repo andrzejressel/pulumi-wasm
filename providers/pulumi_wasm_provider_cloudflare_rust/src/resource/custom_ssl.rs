@@ -181,9 +181,9 @@ pub fn create(name: &str, args: CustomSslArgs) -> CustomSslResult {
     let result = crate::bindings::pulumi::cloudflare::custom_ssl::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::custom_ssl::Args {
-            custom_ssl_options: args.custom_ssl_options.get_inner(),
-            custom_ssl_priorities: args.custom_ssl_priorities.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            custom_ssl_options: &args.custom_ssl_options.get_inner(),
+            custom_ssl_priorities: &args.custom_ssl_priorities.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

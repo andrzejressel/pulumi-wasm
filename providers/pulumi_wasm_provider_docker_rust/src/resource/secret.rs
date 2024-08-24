@@ -32,9 +32,9 @@ pub fn create(name: &str, args: SecretArgs) -> SecretResult {
     let result = crate::bindings::pulumi::docker::secret::invoke(
         name,
         &crate::bindings::pulumi::docker::secret::Args {
-            data: args.data.get_inner(),
-            labels: args.labels.get_inner(),
-            name: args.name.get_inner(),
+            data: &args.data.get_inner(),
+            labels: &args.labels.get_inner(),
+            name: &args.name.get_inner(),
         },
     );
 

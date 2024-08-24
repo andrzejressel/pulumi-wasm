@@ -164,8 +164,8 @@ pub fn create(name: &str, args: ZoneDnssecArgs) -> ZoneDnssecResult {
     let result = crate::bindings::pulumi::cloudflare::zone_dnssec::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::zone_dnssec::Args {
-            modified_on: args.modified_on.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            modified_on: &args.modified_on.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

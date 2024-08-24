@@ -145,9 +145,9 @@ pub fn create(name: &str, args: PagesDomainArgs) -> PagesDomainResult {
     let result = crate::bindings::pulumi::cloudflare::pages_domain::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::pages_domain::Args {
-            account_id: args.account_id.get_inner(),
-            domain: args.domain.get_inner(),
-            project_name: args.project_name.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            domain: &args.domain.get_inner(),
+            project_name: &args.project_name.get_inner(),
         },
     );
 

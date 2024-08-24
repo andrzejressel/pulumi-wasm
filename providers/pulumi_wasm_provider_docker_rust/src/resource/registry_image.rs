@@ -174,10 +174,10 @@ pub fn create(name: &str, args: RegistryImageArgs) -> RegistryImageResult {
     let result = crate::bindings::pulumi::docker::registry_image::invoke(
         name,
         &crate::bindings::pulumi::docker::registry_image::Args {
-            insecure_skip_verify: args.insecure_skip_verify.get_inner(),
-            keep_remotely: args.keep_remotely.get_inner(),
-            name: args.name.get_inner(),
-            triggers: args.triggers.get_inner(),
+            insecure_skip_verify: &args.insecure_skip_verify.get_inner(),
+            keep_remotely: &args.keep_remotely.get_inner(),
+            name: &args.name.get_inner(),
+            triggers: &args.triggers.get_inner(),
         },
     );
 

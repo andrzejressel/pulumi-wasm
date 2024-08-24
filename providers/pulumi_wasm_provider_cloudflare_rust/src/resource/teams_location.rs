@@ -200,10 +200,10 @@ pub fn create(name: &str, args: TeamsLocationArgs) -> TeamsLocationResult {
     let result = crate::bindings::pulumi::cloudflare::teams_location::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::teams_location::Args {
-            account_id: args.account_id.get_inner(),
-            client_default: args.client_default.get_inner(),
-            name: args.name.get_inner(),
-            networks: args.networks.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            client_default: &args.client_default.get_inner(),
+            name: &args.name.get_inner(),
+            networks: &args.networks.get_inner(),
         },
     );
 

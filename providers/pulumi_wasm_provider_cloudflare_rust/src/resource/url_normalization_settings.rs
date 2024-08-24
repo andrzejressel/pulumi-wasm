@@ -133,9 +133,9 @@ pub fn create(name: &str, args: UrlNormalizationSettingsArgs) -> UrlNormalizatio
     let result = crate::bindings::pulumi::cloudflare::url_normalization_settings::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::url_normalization_settings::Args {
-            scope: args.scope.get_inner(),
-            type_: args.type_.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            scope: &args.scope.get_inner(),
+            type_: &args.type_.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

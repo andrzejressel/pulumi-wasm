@@ -152,12 +152,12 @@ pub fn create(name: &str, args: AccessCustomPageArgs) -> AccessCustomPageResult 
     let result = crate::bindings::pulumi::cloudflare::access_custom_page::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::access_custom_page::Args {
-            account_id: args.account_id.get_inner(),
-            app_count: args.app_count.get_inner(),
-            custom_html: args.custom_html.get_inner(),
-            name: args.name.get_inner(),
-            type_: args.type_.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            app_count: &args.app_count.get_inner(),
+            custom_html: &args.custom_html.get_inner(),
+            name: &args.name.get_inner(),
+            type_: &args.type_.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

@@ -202,12 +202,12 @@ pub fn create(name: &str, args: ZoneLockdownArgs) -> ZoneLockdownResult {
     let result = crate::bindings::pulumi::cloudflare::zone_lockdown::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::zone_lockdown::Args {
-            configurations: args.configurations.get_inner(),
-            description: args.description.get_inner(),
-            paused: args.paused.get_inner(),
-            priority: args.priority.get_inner(),
-            urls: args.urls.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            configurations: &args.configurations.get_inner(),
+            description: &args.description.get_inner(),
+            paused: &args.paused.get_inner(),
+            priority: &args.priority.get_inner(),
+            urls: &args.urls.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

@@ -152,10 +152,10 @@ pub fn create(name: &str, args: HostnameTlsSettingCiphersArgs) -> HostnameTlsSet
     let result = crate::bindings::pulumi::cloudflare::hostname_tls_setting_ciphers::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::hostname_tls_setting_ciphers::Args {
-            hostname: args.hostname.get_inner(),
-            ports: args.ports.get_inner(),
-            values: args.values.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            hostname: &args.hostname.get_inner(),
+            ports: &args.ports.get_inner(),
+            values: &args.values.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

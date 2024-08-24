@@ -150,9 +150,9 @@ pub fn create(name: &str, args: TeamsProxyEndpointArgs) -> TeamsProxyEndpointRes
     let result = crate::bindings::pulumi::cloudflare::teams_proxy_endpoint::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::teams_proxy_endpoint::Args {
-            account_id: args.account_id.get_inner(),
-            ips: args.ips.get_inner(),
-            name: args.name.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            ips: &args.ips.get_inner(),
+            name: &args.name.get_inner(),
         },
     );
 

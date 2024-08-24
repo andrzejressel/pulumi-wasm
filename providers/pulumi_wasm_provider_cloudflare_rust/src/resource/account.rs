@@ -141,9 +141,9 @@ pub fn create(name: &str, args: AccountArgs) -> AccountResult {
     let result = crate::bindings::pulumi::cloudflare::account::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::account::Args {
-            enforce_twofactor: args.enforce_twofactor.get_inner(),
-            name: args.name.get_inner(),
-            type_: args.type_.get_inner(),
+            enforce_twofactor: &args.enforce_twofactor.get_inner(),
+            name: &args.name.get_inner(),
+            type_: &args.type_.get_inner(),
         },
     );
 
