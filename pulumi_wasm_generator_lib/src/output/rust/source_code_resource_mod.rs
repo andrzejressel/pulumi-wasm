@@ -5,28 +5,8 @@ use serde_json::json;
 static TEMPLATE: &str = include_str!("resource_mod.rs.handlebars");
 
 #[derive(Serialize)]
-struct InputProperty {
-    name: String,
-    arg_name: String,
-    type_: String,
-    description_lines: Vec<String>,
-}
-
-#[derive(Serialize)]
-struct OutputProperty {
-    name: String,
-    arg_name: String,
-    type_: String,
-    description_lines: Vec<String>,
-}
-
-#[derive(Serialize)]
 struct Interface {
     name: String,
-    input_properties: Vec<InputProperty>,
-    output_properties: Vec<OutputProperty>,
-    struct_name: String,
-    function_name: String,
     description_lines: Vec<String>,
 }
 
@@ -44,33 +24,7 @@ fn convert_model(package: &crate::model::Package) -> Package {
             .iter()
             .map(|(element_id, resource)| Interface {
                 name: element_id.get_rust_namespace_name(),
-                struct_name: element_id.name.clone(),
-                function_name: element_id.get_rust_function_name(),
                 description_lines: crate::utils::to_lines(resource.description.clone()),
-                input_properties: resource
-                    .input_properties
-                    .iter()
-                    .map(|input_property| InputProperty {
-                        name: input_property.name.clone(),
-                        arg_name: input_property.get_rust_argument_name(),
-                        type_: input_property.r#type.get_rust_type(),
-                        description_lines: crate::utils::to_lines(
-                            input_property.description.clone(),
-                        ),
-                    })
-                    .collect(),
-                output_properties: resource
-                    .output_properties
-                    .iter()
-                    .map(|output_property| OutputProperty {
-                        name: output_property.name.clone(),
-                        arg_name: output_property.get_rust_argument_name(),
-                        type_: output_property.r#type.get_rust_type(),
-                        description_lines: crate::utils::to_lines(
-                            output_property.description.clone(),
-                        ),
-                    })
-                    .collect(),
             })
             .collect(),
     }

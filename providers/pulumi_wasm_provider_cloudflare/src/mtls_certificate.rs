@@ -1,9 +1,7 @@
-use crate::bindings::component::pulumi_wasm::register_interface::{
-    register, ObjectField, RegisterResourceRequest, ResultField,
-};
-use crate::bindings::exports::pulumi::cloudflare::mtls_certificate;
-use crate::Component;
 use std::collections::HashMap;
+use crate::bindings::exports::pulumi::cloudflare::mtls_certificate;
+use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
+use crate::Component;
 
 impl mtls_certificate::Guest for Component {
     fn invoke(name: String, args: mtls_certificate::Args) -> mtls_certificate::Res {
@@ -12,63 +10,29 @@ impl mtls_certificate::Guest for Component {
             type_: "cloudflare:index/mtlsCertificate:MtlsCertificate".into(),
             name,
             object: vec![
-                ObjectField {
-                    name: "accountId".into(),
-                    value: args.account_id,
-                },
-                ObjectField {
-                    name: "ca".into(),
-                    value: args.ca,
-                },
-                ObjectField {
-                    name: "certificates".into(),
-                    value: args.certificates,
-                },
-                ObjectField {
-                    name: "name".into(),
-                    value: args.name,
-                },
-                ObjectField {
-                    name: "privateKey".into(),
-                    value: args.private_key,
-                },
+                ObjectField { name: "accountId".into(), value: args.account_id },
+                ObjectField { name: "ca".into(), value: args.ca },
+                ObjectField { name: "certificates".into(), value: args.certificates },
+                ObjectField { name: "name".into(), value: args.name },
+                ObjectField { name: "privateKey".into(), value: args.private_key },
             ],
             results: vec![
-                ResultField {
-                    name: "accountId".into(),
-                },
+                ResultField { name: "accountId".into() },
                 ResultField { name: "ca".into() },
-                ResultField {
-                    name: "certificates".into(),
-                },
-                ResultField {
-                    name: "expiresOn".into(),
-                },
-                ResultField {
-                    name: "issuer".into(),
-                },
-                ResultField {
-                    name: "name".into(),
-                },
-                ResultField {
-                    name: "privateKey".into(),
-                },
-                ResultField {
-                    name: "serialNumber".into(),
-                },
-                ResultField {
-                    name: "signature".into(),
-                },
-                ResultField {
-                    name: "uploadedOn".into(),
-                },
+                ResultField { name: "certificates".into() },
+                ResultField { name: "expiresOn".into() },
+                ResultField { name: "issuer".into() },
+                ResultField { name: "name".into() },
+                ResultField { name: "privateKey".into() },
+                ResultField { name: "serialNumber".into() },
+                ResultField { name: "signature".into() },
+                ResultField { name: "uploadedOn".into() },
             ],
         };
 
         let o = register(&request);
 
-        let mut hashmap: HashMap<String, _> =
-            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+        let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
 
         mtls_certificate::Res {
             account_id: hashmap.remove("accountId").unwrap(),
@@ -82,5 +46,6 @@ impl mtls_certificate::Guest for Component {
             signature: hashmap.remove("signature").unwrap(),
             uploaded_on: hashmap.remove("uploadedOn").unwrap(),
         }
+
     }
 }

@@ -1,9 +1,7 @@
-use crate::bindings::component::pulumi_wasm::register_interface::{
-    register, ObjectField, RegisterResourceRequest, ResultField,
-};
-use crate::bindings::exports::pulumi::cloudflare::teams_location;
-use crate::Component;
 use std::collections::HashMap;
+use crate::bindings::exports::pulumi::cloudflare::teams_location;
+use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
+use crate::Component;
 
 impl teams_location::Guest for Component {
     fn invoke(name: String, args: teams_location::Args) -> teams_location::Res {
@@ -12,56 +10,27 @@ impl teams_location::Guest for Component {
             type_: "cloudflare:index/teamsLocation:TeamsLocation".into(),
             name,
             object: vec![
-                ObjectField {
-                    name: "accountId".into(),
-                    value: args.account_id,
-                },
-                ObjectField {
-                    name: "clientDefault".into(),
-                    value: args.client_default,
-                },
-                ObjectField {
-                    name: "name".into(),
-                    value: args.name,
-                },
-                ObjectField {
-                    name: "networks".into(),
-                    value: args.networks,
-                },
+                ObjectField { name: "accountId".into(), value: args.account_id },
+                ObjectField { name: "clientDefault".into(), value: args.client_default },
+                ObjectField { name: "name".into(), value: args.name },
+                ObjectField { name: "networks".into(), value: args.networks },
             ],
             results: vec![
-                ResultField {
-                    name: "accountId".into(),
-                },
-                ResultField {
-                    name: "anonymizedLogsEnabled".into(),
-                },
-                ResultField {
-                    name: "clientDefault".into(),
-                },
-                ResultField {
-                    name: "dohSubdomain".into(),
-                },
+                ResultField { name: "accountId".into() },
+                ResultField { name: "anonymizedLogsEnabled".into() },
+                ResultField { name: "clientDefault".into() },
+                ResultField { name: "dohSubdomain".into() },
                 ResultField { name: "ip".into() },
-                ResultField {
-                    name: "ipv4Destination".into(),
-                },
-                ResultField {
-                    name: "name".into(),
-                },
-                ResultField {
-                    name: "networks".into(),
-                },
-                ResultField {
-                    name: "policyIds".into(),
-                },
+                ResultField { name: "ipv4Destination".into() },
+                ResultField { name: "name".into() },
+                ResultField { name: "networks".into() },
+                ResultField { name: "policyIds".into() },
             ],
         };
 
         let o = register(&request);
 
-        let mut hashmap: HashMap<String, _> =
-            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+        let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
 
         teams_location::Res {
             account_id: hashmap.remove("accountId").unwrap(),
@@ -74,5 +43,6 @@ impl teams_location::Guest for Component {
             networks: hashmap.remove("networks").unwrap(),
             policy_ids: hashmap.remove("policyIds").unwrap(),
         }
+
     }
 }

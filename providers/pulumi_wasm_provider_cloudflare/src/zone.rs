@@ -1,9 +1,7 @@
-use crate::bindings::component::pulumi_wasm::register_interface::{
-    register, ObjectField, RegisterResourceRequest, ResultField,
-};
-use crate::bindings::exports::pulumi::cloudflare::zone;
-use crate::Component;
 use std::collections::HashMap;
+use crate::bindings::exports::pulumi::cloudflare::zone;
+use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
+use crate::Component;
 
 impl zone::Guest for Component {
     fn invoke(name: String, args: zone::Args) -> zone::Res {
@@ -12,72 +10,31 @@ impl zone::Guest for Component {
             type_: "cloudflare:index/zone:Zone".into(),
             name,
             object: vec![
-                ObjectField {
-                    name: "accountId".into(),
-                    value: args.account_id,
-                },
-                ObjectField {
-                    name: "jumpStart".into(),
-                    value: args.jump_start,
-                },
-                ObjectField {
-                    name: "paused".into(),
-                    value: args.paused,
-                },
-                ObjectField {
-                    name: "plan".into(),
-                    value: args.plan,
-                },
-                ObjectField {
-                    name: "type".into(),
-                    value: args.type_,
-                },
-                ObjectField {
-                    name: "zone".into(),
-                    value: args.zone,
-                },
+                ObjectField { name: "accountId".into(), value: args.account_id },
+                ObjectField { name: "jumpStart".into(), value: args.jump_start },
+                ObjectField { name: "paused".into(), value: args.paused },
+                ObjectField { name: "plan".into(), value: args.plan },
+                ObjectField { name: "type".into(), value: args.type_ },
+                ObjectField { name: "zone".into(), value: args.zone },
             ],
             results: vec![
-                ResultField {
-                    name: "accountId".into(),
-                },
-                ResultField {
-                    name: "jumpStart".into(),
-                },
-                ResultField {
-                    name: "meta".into(),
-                },
-                ResultField {
-                    name: "nameServers".into(),
-                },
-                ResultField {
-                    name: "paused".into(),
-                },
-                ResultField {
-                    name: "plan".into(),
-                },
-                ResultField {
-                    name: "status".into(),
-                },
-                ResultField {
-                    name: "type".into(),
-                },
-                ResultField {
-                    name: "vanityNameServers".into(),
-                },
-                ResultField {
-                    name: "verificationKey".into(),
-                },
-                ResultField {
-                    name: "zone".into(),
-                },
+                ResultField { name: "accountId".into() },
+                ResultField { name: "jumpStart".into() },
+                ResultField { name: "meta".into() },
+                ResultField { name: "nameServers".into() },
+                ResultField { name: "paused".into() },
+                ResultField { name: "plan".into() },
+                ResultField { name: "status".into() },
+                ResultField { name: "type".into() },
+                ResultField { name: "vanityNameServers".into() },
+                ResultField { name: "verificationKey".into() },
+                ResultField { name: "zone".into() },
             ],
         };
 
         let o = register(&request);
 
-        let mut hashmap: HashMap<String, _> =
-            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+        let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
 
         zone::Res {
             account_id: hashmap.remove("accountId").unwrap(),
@@ -92,5 +49,6 @@ impl zone::Guest for Component {
             verification_key: hashmap.remove("verificationKey").unwrap(),
             zone: hashmap.remove("zone").unwrap(),
         }
+
     }
 }

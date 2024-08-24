@@ -30,8 +30,10 @@ pub struct AccessGroupRequire {
     pub r#groups: Box<Option<Vec<String>>>,
     #[serde(rename = "gsuites")]
     pub r#gsuites: Box<Option<Vec<crate::types::AccessGroupRequireGsuite>>>,
+    /// The ID of an existing IP list to reference.
     #[serde(rename = "ipLists")]
     pub r#ip_lists: Box<Option<Vec<String>>>,
+    /// An IPv4 or IPv6 CIDR block.
     #[serde(rename = "ips")]
     pub r#ips: Box<Option<Vec<String>>>,
     #[serde(rename = "loginMethods")]

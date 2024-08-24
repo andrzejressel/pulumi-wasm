@@ -1,9 +1,7 @@
-use crate::bindings::component::pulumi_wasm::register_interface::{
-    register, ObjectField, RegisterResourceRequest, ResultField,
-};
-use crate::bindings::exports::pulumi::docker::volume;
-use crate::Component;
 use std::collections::HashMap;
+use crate::bindings::exports::pulumi::docker::volume;
+use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
+use crate::Component;
 
 impl volume::Guest for Component {
     fn invoke(name: String, args: volume::Args) -> volume::Res {
@@ -12,46 +10,23 @@ impl volume::Guest for Component {
             type_: "docker:index/volume:Volume".into(),
             name,
             object: vec![
-                ObjectField {
-                    name: "driver".into(),
-                    value: args.driver,
-                },
-                ObjectField {
-                    name: "driverOpts".into(),
-                    value: args.driver_opts,
-                },
-                ObjectField {
-                    name: "labels".into(),
-                    value: args.labels,
-                },
-                ObjectField {
-                    name: "name".into(),
-                    value: args.name,
-                },
+                ObjectField { name: "driver".into(), value: args.driver },
+                ObjectField { name: "driverOpts".into(), value: args.driver_opts },
+                ObjectField { name: "labels".into(), value: args.labels },
+                ObjectField { name: "name".into(), value: args.name },
             ],
             results: vec![
-                ResultField {
-                    name: "driver".into(),
-                },
-                ResultField {
-                    name: "driverOpts".into(),
-                },
-                ResultField {
-                    name: "labels".into(),
-                },
-                ResultField {
-                    name: "mountpoint".into(),
-                },
-                ResultField {
-                    name: "name".into(),
-                },
+                ResultField { name: "driver".into() },
+                ResultField { name: "driverOpts".into() },
+                ResultField { name: "labels".into() },
+                ResultField { name: "mountpoint".into() },
+                ResultField { name: "name".into() },
             ],
         };
 
         let o = register(&request);
 
-        let mut hashmap: HashMap<String, _> =
-            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+        let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
 
         volume::Res {
             driver: hashmap.remove("driver").unwrap(),
@@ -60,5 +35,6 @@ impl volume::Guest for Component {
             mountpoint: hashmap.remove("mountpoint").unwrap(),
             name: hashmap.remove("name").unwrap(),
         }
+
     }
 }

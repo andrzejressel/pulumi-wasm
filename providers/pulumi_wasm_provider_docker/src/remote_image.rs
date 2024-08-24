@@ -1,9 +1,7 @@
-use crate::bindings::component::pulumi_wasm::register_interface::{
-    register, ObjectField, RegisterResourceRequest, ResultField,
-};
-use crate::bindings::exports::pulumi::docker::remote_image;
-use crate::Component;
 use std::collections::HashMap;
+use crate::bindings::exports::pulumi::docker::remote_image;
+use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
+use crate::Component;
 
 impl remote_image::Guest for Component {
     fn invoke(name: String, args: remote_image::Args) -> remote_image::Res {
@@ -12,70 +10,30 @@ impl remote_image::Guest for Component {
             type_: "docker:index/remoteImage:RemoteImage".into(),
             name,
             object: vec![
-                ObjectField {
-                    name: "build".into(),
-                    value: args.build,
-                },
-                ObjectField {
-                    name: "forceRemove".into(),
-                    value: args.force_remove,
-                },
-                ObjectField {
-                    name: "keepLocally".into(),
-                    value: args.keep_locally,
-                },
-                ObjectField {
-                    name: "name".into(),
-                    value: args.name,
-                },
-                ObjectField {
-                    name: "platform".into(),
-                    value: args.platform,
-                },
-                ObjectField {
-                    name: "pullTriggers".into(),
-                    value: args.pull_triggers,
-                },
-                ObjectField {
-                    name: "triggers".into(),
-                    value: args.triggers,
-                },
+                ObjectField { name: "build".into(), value: args.build },
+                ObjectField { name: "forceRemove".into(), value: args.force_remove },
+                ObjectField { name: "keepLocally".into(), value: args.keep_locally },
+                ObjectField { name: "name".into(), value: args.name },
+                ObjectField { name: "platform".into(), value: args.platform },
+                ObjectField { name: "pullTriggers".into(), value: args.pull_triggers },
+                ObjectField { name: "triggers".into(), value: args.triggers },
             ],
             results: vec![
-                ResultField {
-                    name: "build".into(),
-                },
-                ResultField {
-                    name: "forceRemove".into(),
-                },
-                ResultField {
-                    name: "imageId".into(),
-                },
-                ResultField {
-                    name: "keepLocally".into(),
-                },
-                ResultField {
-                    name: "name".into(),
-                },
-                ResultField {
-                    name: "platform".into(),
-                },
-                ResultField {
-                    name: "pullTriggers".into(),
-                },
-                ResultField {
-                    name: "repoDigest".into(),
-                },
-                ResultField {
-                    name: "triggers".into(),
-                },
+                ResultField { name: "build".into() },
+                ResultField { name: "forceRemove".into() },
+                ResultField { name: "imageId".into() },
+                ResultField { name: "keepLocally".into() },
+                ResultField { name: "name".into() },
+                ResultField { name: "platform".into() },
+                ResultField { name: "pullTriggers".into() },
+                ResultField { name: "repoDigest".into() },
+                ResultField { name: "triggers".into() },
             ],
         };
 
         let o = register(&request);
 
-        let mut hashmap: HashMap<String, _> =
-            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+        let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
 
         remote_image::Res {
             build: hashmap.remove("build").unwrap(),
@@ -88,5 +46,6 @@ impl remote_image::Guest for Component {
             repo_digest: hashmap.remove("repoDigest").unwrap(),
             triggers: hashmap.remove("triggers").unwrap(),
         }
+
     }
 }
