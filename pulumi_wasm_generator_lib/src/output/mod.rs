@@ -1,5 +1,3 @@
-use regex::Regex;
-
 pub(crate) mod provider;
 pub(crate) mod rust;
 pub(crate) mod wit;

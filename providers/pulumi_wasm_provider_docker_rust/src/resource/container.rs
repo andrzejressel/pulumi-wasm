@@ -1,139 +1,444 @@
+//! <!-- Bug: Type and Name are switched -->
+//! Manages the lifecycle of a Docker container.
+//!
+//! ## Example Usage
+//!
+//! <!--Start PulumiCodeChooser -->
+//! ### Typescript
+//! ```typescript
+//! import * as pulumi from "@pulumi/pulumi";
+//! import * as docker from "@pulumi/docker";
+//!
+//! // Find the latest Ubuntu precise image.
+//! const ubuntuRemoteImage = new docker.RemoteImage("ubuntuRemoteImage", {name: "ubuntu:precise"});
+//! // Start a container
+//! const ubuntuContainer = new docker.Container("ubuntuContainer", {image: ubuntuRemoteImage.imageId});
+//! ```
+//! ### Python
+//! ```python
+//! import pulumi
+//! import pulumi_docker as docker
+//!
+//! # Find the latest Ubuntu precise image.
+//! ubuntu_remote_image = docker.RemoteImage("ubuntuRemoteImage", name="ubuntu:precise")
+//! # Start a container
+//! ubuntu_container = docker.Container("ubuntuContainer", image=ubuntu_remote_image.image_id)
+//! ```
+//! ### C#
+//! ```csharp
+//! using System.Collections.Generic;
+//! using System.Linq;
+//! using Pulumi;
+//! using Docker = Pulumi.Docker;
+//!
+//! return await Deployment.RunAsync(() =>
+//! {
+//!     // Find the latest Ubuntu precise image.
+//!     var ubuntuRemoteImage = new Docker.RemoteImage("ubuntuRemoteImage", new()
+//!     {
+//!         Name = "ubuntu:precise",
+//!     });
+//!
+//!     // Start a container
+//!     var ubuntuContainer = new Docker.Container("ubuntuContainer", new()
+//!     {
+//!         Image = ubuntuRemoteImage.ImageId,
+//!     });
+//!
+//! });
+//! ```
+//! ### Go
+//! ```go
+//! package main
+//!
+//! import (
+//! 	"github.com/pulumi/pulumi-docker/sdk/v4/go/docker"
+//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//! )
+//!
+//! func main() {
+//! 	pulumi.Run(func(ctx *pulumi.Context) error {
+//! 		// Find the latest Ubuntu precise image.
+//! 		ubuntuRemoteImage, err := docker.NewRemoteImage(ctx, "ubuntuRemoteImage", &docker.RemoteImageArgs{
+//! 			Name: pulumi.String("ubuntu:precise"),
+//! 		})
+//! 		if err != nil {
+//! 			return err
+//! 		}
+//! 		// Start a container
+//! 		_, err = docker.NewContainer(ctx, "ubuntuContainer", &docker.ContainerArgs{
+//! 			Image: ubuntuRemoteImage.ImageId,
+//! 		})
+//! 		if err != nil {
+//! 			return err
+//! 		}
+//! 		return nil
+//! 	})
+//! }
+//! ```
+//! ### Java
+//! ```java
+//! package generated_program;
+//!
+//! import com.pulumi.Context;
+//! import com.pulumi.Pulumi;
+//! import com.pulumi.core.Output;
+//! import com.pulumi.docker.RemoteImage;
+//! import com.pulumi.docker.RemoteImageArgs;
+//! import com.pulumi.docker.Container;
+//! import com.pulumi.docker.ContainerArgs;
+//! import java.util.List;
+//! import java.util.ArrayList;
+//! import java.util.Map;
+//! import java.io.File;
+//! import java.nio.file.Files;
+//! import java.nio.file.Paths;
+//!
+//! public class App {
+//!     public static void main(String[] args) {
+//!         Pulumi.run(App::stack);
+//!     }
+//!
+//!     public static void stack(Context ctx) {
+//!         var ubuntuRemoteImage = new RemoteImage("ubuntuRemoteImage", RemoteImageArgs.builder()        
+//!             .name("ubuntu:precise")
+//!             .build());
+//!
+//!         var ubuntuContainer = new Container("ubuntuContainer", ContainerArgs.builder()        
+//!             .image(ubuntuRemoteImage.imageId())
+//!             .build());
+//!
+//!     }
+//! }
+//! ```
+//! ### YAML
+//! ```yaml
+//! resources:
+//!   # Start a container
+//!   ubuntuContainer:
+//!     type: docker:Container
+//!     properties:
+//!       image: ${ubuntuRemoteImage.imageId}
+//!   # Find the latest Ubuntu precise image.
+//!   ubuntuRemoteImage:
+//!     type: docker:RemoteImage
+//!     properties:
+//!       name: ubuntu:precise
+//! ```
+//! <!--End PulumiCodeChooser -->
+//!
+//! ## Import
+//!
+//! ### Example
+//!
+//! Assuming you created a `container` as follows
+//!
+//! #!/bin/bash
+//!
+//! docker run --name foo -p8080:80 -d nginx
+//!
+//! prints the container ID
+//!
+//! 9a550c0f0163d39d77222d3efd58701b625d47676c25c686c95b5b92d1cba6fd
+//!
+//! you provide the definition for the resource as follows
+//!
+//! terraform
+//!
+//! resource "docker_container" "foo" {
+//!
+//!   name  = "foo"
+//!
+//!   image = "nginx"
+//!
+//!   ports {
+//!
+//!     internal = "80"
+//!
+//!     external = "8080"
+//!
+//!   }
+//!
+//! }
+//!
+//! then the import command is as follows
+//!
+//! #!/bin/bash
+//!
+//! ```sh
+//! $ pulumi import docker:index/container:Container foo 9a550c0f0163d39d77222d3efd58701b625d47676c25c686c95b5b92d1cba6fd
+//! ```
+//!
+
 pub struct ContainerArgs {
+    /// If `true` attach to the container after its creation and waits the end of its execution. Defaults to `false`.
     pub attach: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Add or drop certrain linux capabilities.
     pub capabilities: pulumi_wasm_rust::Output<Option<crate::types::ContainerCapabilities>>,
+    /// Cgroup namespace mode to use for the container. Possible values are: `private`, `host`.
     pub cgroupns_mode: pulumi_wasm_rust::Output<Option<String>>,
+    /// The command to use to start the container. For example, to run `/usr/bin/myprogram -f baz.conf` set the command to be `["/usr/bin/myprogram","-f","baz.con"]`.
     pub command: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+    /// The total number of milliseconds to wait for the container to reach status 'running'
     pub container_read_refresh_timeout_milliseconds: pulumi_wasm_rust::Output<Option<i32>>,
+    /// A comma-separated list or hyphen-separated range of CPUs a container can use, e.g. `0-1`.
     pub cpu_set: pulumi_wasm_rust::Output<Option<String>>,
+    /// CPU shares (relative weight) for the container.
     pub cpu_shares: pulumi_wasm_rust::Output<Option<i32>>,
+    /// If defined will attempt to stop the container before destroying. Container will be destroyed after `n` seconds or on successful stop.
     pub destroy_grace_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+    /// Bind devices to the container.
     pub devices: pulumi_wasm_rust::Output<Option<Vec<crate::types::ContainerDevice>>>,
+    /// DNS servers to use.
     pub dns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+    /// DNS options used by the DNS provider(s), see `resolv.conf` documentation for valid list of options.
     pub dns_opts: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+    /// DNS search domains that are used when bare unqualified hostnames are used inside of the container.
     pub dns_searches: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+    /// Domain name of the container.
     pub domainname: pulumi_wasm_rust::Output<Option<String>>,
+    /// The command to use as the Entrypoint for the container. The Entrypoint allows you to configure a container to run as an executable. For example, to run `/usr/bin/myprogram` when starting a container, set the entrypoint to be `"/usr/bin/myprogra"]`.
     pub entrypoints: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+    /// Environment variables to set in the form of `KEY=VALUE`, e.g. `DEBUG=0`
     pub envs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+    /// GPU devices to add to the container. Currently, only the value `all` is supported. Passing any other value will result in unexpected behavior.
     pub gpus: pulumi_wasm_rust::Output<Option<String>>,
+    /// Additional groups for the container user
     pub group_adds: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+    /// A test to perform to check that the container is healthy
     pub healthcheck: pulumi_wasm_rust::Output<Option<crate::types::ContainerHealthcheck>>,
+    /// Hostname of the container.
     pub hostname: pulumi_wasm_rust::Output<Option<String>>,
+    /// Hostname to add
     pub hosts: pulumi_wasm_rust::Output<Option<Vec<crate::types::ContainerHost>>>,
+    /// The ID of the image to back this container. The easiest way to get this value is to use the `docker.RemoteImage` resource as is shown in the example.
     pub image: pulumi_wasm_rust::Output<String>,
+    /// Configured whether an init process should be injected for this container. If unset this will default to the `dockerd` defaults.
     pub init: pulumi_wasm_rust::Output<Option<bool>>,
+    /// IPC sharing mode for the container. Possible values are: `none`, `private`, `shareable`, `container:<name|id>` or `host`.
     pub ipc_mode: pulumi_wasm_rust::Output<Option<String>>,
+    /// User-defined key/value metadata.
     pub labels: pulumi_wasm_rust::Output<Option<Vec<crate::types::ContainerLabel>>>,
+    /// The logging driver to use for the container.
     pub log_driver: pulumi_wasm_rust::Output<Option<String>>,
+    /// Key/value pairs to use as options for the logging driver.
     pub log_opts: pulumi_wasm_rust::Output<Option<std::collections::HashMap<String, String>>>,
+    /// Save the container logs (`attach` must be enabled). Defaults to `false`.
     pub logs: pulumi_wasm_rust::Output<Option<bool>>,
+    /// The maximum amount of times to an attempt a restart when `restart` is set to 'on-failure'.
     pub max_retry_count: pulumi_wasm_rust::Output<Option<i32>>,
+    /// The memory limit for the container in MBs.
     pub memory: pulumi_wasm_rust::Output<Option<i32>>,
+    /// The total memory limit (memory + swap) for the container in MBs. This setting may compute to `-1` after `pulumi up` if the target host doesn't support memory swap, when that is the case docker will use a soft limitation.
     pub memory_swap: pulumi_wasm_rust::Output<Option<i32>>,
+    /// Specification for mounts to be added to containers created as part of the service.
     pub mounts: pulumi_wasm_rust::Output<Option<Vec<crate::types::ContainerMount>>>,
+    /// If `true`, then the Docker container will be kept running. If `false`, then as long as the container exists, Terraform
+    /// assumes it is successful. Defaults to `true`.
     pub must_run: pulumi_wasm_rust::Output<Option<bool>>,
+    /// The name or id of the network to use. You can use `name` or `id` attribute from a `docker.Network` resource.
     pub name: pulumi_wasm_rust::Output<Option<String>>,
+    /// Network mode of the container.
     pub network_mode: pulumi_wasm_rust::Output<Option<String>>,
+    /// The networks the container is attached to
     pub networks_advanced:
         pulumi_wasm_rust::Output<Option<Vec<crate::types::ContainerNetworksAdvanced>>>,
+    /// he PID (Process) Namespace mode for the container. Either `container:<name|id>` or `host`.
     pub pid_mode: pulumi_wasm_rust::Output<Option<String>>,
+    /// Publish a container's port(s) to the host.
     pub ports: pulumi_wasm_rust::Output<Option<Vec<crate::types::ContainerPort>>>,
+    /// If `true`, the container runs in privileged mode.
     pub privileged: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Publish all ports of the container.
     pub publish_all_ports: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Whether the mount should be read-only.
     pub read_only: pulumi_wasm_rust::Output<Option<bool>>,
+    /// If `true`, it will remove anonymous volumes associated with the container. Defaults to `true`.
     pub remove_volumes: pulumi_wasm_rust::Output<Option<bool>>,
+    /// The restart policy for the container. Must be one of 'no', 'on-failure', 'always', 'unless-stopped'. Defaults to `no`.
     pub restart: pulumi_wasm_rust::Output<Option<String>>,
+    /// If `true`, then the container will be automatically removed when it exits. Defaults to `false`.
     pub rm: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Runtime to use for the container.
     pub runtime: pulumi_wasm_rust::Output<Option<String>>,
+    /// List of string values to customize labels for MLS systems, such as SELinux. See https://docs.docker.com/engine/reference/run/#security-configuration.
     pub security_opts: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+    /// Size of `/dev/shm` in MBs.
     pub shm_size: pulumi_wasm_rust::Output<Option<i32>>,
+    /// If `true`, then the Docker container will be started after creation. If `false`, then the container is only created. Defaults to `true`.
     pub start: pulumi_wasm_rust::Output<Option<bool>>,
+    /// If `true`, keep STDIN open even if not attached (`docker run -i`). Defaults to `false`.
     pub stdin_open: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Signal to stop a container (default `SIGTERM`).
     pub stop_signal: pulumi_wasm_rust::Output<Option<String>>,
+    /// Timeout (in seconds) to stop a container.
     pub stop_timeout: pulumi_wasm_rust::Output<Option<i32>>,
+    /// Key/value pairs for the storage driver options, e.g. `size`: `120G`
     pub storage_opts: pulumi_wasm_rust::Output<Option<std::collections::HashMap<String, String>>>,
+    /// A map of kernel parameters (sysctls) to set in the container.
     pub sysctls: pulumi_wasm_rust::Output<Option<std::collections::HashMap<String, String>>>,
+    /// A map of container directories which should be replaced by `tmpfs mounts`, and their corresponding mount options.
     pub tmpfs: pulumi_wasm_rust::Output<Option<std::collections::HashMap<String, String>>>,
+    /// If `true`, allocate a pseudo-tty (`docker run -t`). Defaults to `false`.
     pub tty: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Ulimit options to add.
     pub ulimits: pulumi_wasm_rust::Output<Option<Vec<crate::types::ContainerUlimit>>>,
+    /// Specifies files to upload to the container before starting it. Only one of `content` or `content_base64` can be set and at least one of them has to be set.
     pub uploads: pulumi_wasm_rust::Output<Option<Vec<crate::types::ContainerUpload>>>,
+    /// User used for run the first process. Format is `user` or `user:group` which user and group can be passed literraly or by name.
     pub user: pulumi_wasm_rust::Output<Option<String>>,
+    /// Sets the usernamespace mode for the container when usernamespace remapping option is enabled.
     pub userns_mode: pulumi_wasm_rust::Output<Option<String>>,
+    /// Spec for mounting volumes in the container.
     pub volumes: pulumi_wasm_rust::Output<Option<Vec<crate::types::ContainerVolume>>>,
+    /// If `true`, then the Docker container is waited for being healthy state after creation. If `false`, then the container health state is not checked. Defaults to `false`.
     pub wait: pulumi_wasm_rust::Output<Option<bool>>,
+    /// The timeout in seconds to wait the container to be healthy after creation. Defaults to `60`.
     pub wait_timeout: pulumi_wasm_rust::Output<Option<i32>>,
+    /// The working directory for commands to run in.
     pub working_dir: pulumi_wasm_rust::Output<Option<String>>,
 }
 
 pub struct ContainerResult {
+    /// If `true` attach to the container after its creation and waits the end of its execution. Defaults to `false`.
     pub attach: pulumi_wasm_rust::Output<Option<bool>>,
+    /// The network bridge of the container as read from its NetworkSettings.
     pub bridge: pulumi_wasm_rust::Output<String>,
+    /// Add or drop certrain linux capabilities.
     pub capabilities: pulumi_wasm_rust::Output<Option<crate::types::ContainerCapabilities>>,
+    /// Cgroup namespace mode to use for the container. Possible values are: `private`, `host`.
     pub cgroupns_mode: pulumi_wasm_rust::Output<Option<String>>,
+    /// The command to use to start the container. For example, to run `/usr/bin/myprogram -f baz.conf` set the command to be `["/usr/bin/myprogram","-f","baz.con"]`.
     pub command: pulumi_wasm_rust::Output<Vec<String>>,
+    /// The logs of the container if its execution is done (`attach` must be disabled).
     pub container_logs: pulumi_wasm_rust::Output<Option<String>>,
+    /// The total number of milliseconds to wait for the container to reach status 'running'
     pub container_read_refresh_timeout_milliseconds: pulumi_wasm_rust::Output<Option<i32>>,
+    /// A comma-separated list or hyphen-separated range of CPUs a container can use, e.g. `0-1`.
     pub cpu_set: pulumi_wasm_rust::Output<Option<String>>,
+    /// CPU shares (relative weight) for the container.
     pub cpu_shares: pulumi_wasm_rust::Output<Option<i32>>,
+    /// If defined will attempt to stop the container before destroying. Container will be destroyed after `n` seconds or on successful stop.
     pub destroy_grace_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+    /// Bind devices to the container.
     pub devices: pulumi_wasm_rust::Output<Option<Vec<crate::types::ContainerDevice>>>,
+    /// DNS servers to use.
     pub dns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+    /// DNS options used by the DNS provider(s), see `resolv.conf` documentation for valid list of options.
     pub dns_opts: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+    /// DNS search domains that are used when bare unqualified hostnames are used inside of the container.
     pub dns_searches: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+    /// Domain name of the container.
     pub domainname: pulumi_wasm_rust::Output<Option<String>>,
+    /// The command to use as the Entrypoint for the container. The Entrypoint allows you to configure a container to run as an executable. For example, to run `/usr/bin/myprogram` when starting a container, set the entrypoint to be `"/usr/bin/myprogra"]`.
     pub entrypoints: pulumi_wasm_rust::Output<Vec<String>>,
+    /// Environment variables to set in the form of `KEY=VALUE`, e.g. `DEBUG=0`
     pub envs: pulumi_wasm_rust::Output<Vec<String>>,
+    /// The exit code of the container if its execution is done (`must_run` must be disabled).
     pub exit_code: pulumi_wasm_rust::Output<i32>,
+    /// GPU devices to add to the container. Currently, only the value `all` is supported. Passing any other value will result in unexpected behavior.
     pub gpus: pulumi_wasm_rust::Output<Option<String>>,
+    /// Additional groups for the container user
     pub group_adds: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+    /// A test to perform to check that the container is healthy
     pub healthcheck: pulumi_wasm_rust::Output<Option<crate::types::ContainerHealthcheck>>,
+    /// Hostname of the container.
     pub hostname: pulumi_wasm_rust::Output<String>,
+    /// Hostname to add
     pub hosts: pulumi_wasm_rust::Output<Option<Vec<crate::types::ContainerHost>>>,
+    /// The ID of the image to back this container. The easiest way to get this value is to use the `docker.RemoteImage` resource as is shown in the example.
     pub image: pulumi_wasm_rust::Output<String>,
+    /// Configured whether an init process should be injected for this container. If unset this will default to the `dockerd` defaults.
     pub init: pulumi_wasm_rust::Output<bool>,
+    /// IPC sharing mode for the container. Possible values are: `none`, `private`, `shareable`, `container:<name|id>` or `host`.
     pub ipc_mode: pulumi_wasm_rust::Output<String>,
+    /// User-defined key/value metadata.
     pub labels: pulumi_wasm_rust::Output<Vec<crate::types::ContainerLabel>>,
+    /// The logging driver to use for the container.
     pub log_driver: pulumi_wasm_rust::Output<String>,
+    /// Key/value pairs to use as options for the logging driver.
     pub log_opts: pulumi_wasm_rust::Output<Option<std::collections::HashMap<String, String>>>,
+    /// Save the container logs (`attach` must be enabled). Defaults to `false`.
     pub logs: pulumi_wasm_rust::Output<Option<bool>>,
+    /// The maximum amount of times to an attempt a restart when `restart` is set to 'on-failure'.
     pub max_retry_count: pulumi_wasm_rust::Output<Option<i32>>,
+    /// The memory limit for the container in MBs.
     pub memory: pulumi_wasm_rust::Output<Option<i32>>,
+    /// The total memory limit (memory + swap) for the container in MBs. This setting may compute to `-1` after `pulumi up` if the target host doesn't support memory swap, when that is the case docker will use a soft limitation.
     pub memory_swap: pulumi_wasm_rust::Output<Option<i32>>,
+    /// Specification for mounts to be added to containers created as part of the service.
     pub mounts: pulumi_wasm_rust::Output<Option<Vec<crate::types::ContainerMount>>>,
+    /// If `true`, then the Docker container will be kept running. If `false`, then as long as the container exists, Terraform
+    /// assumes it is successful. Defaults to `true`.
     pub must_run: pulumi_wasm_rust::Output<Option<bool>>,
+    /// The name or id of the network to use. You can use `name` or `id` attribute from a `docker.Network` resource.
     pub name: pulumi_wasm_rust::Output<String>,
+    /// The data of the networks the container is connected to.
     pub network_datas: pulumi_wasm_rust::Output<Vec<crate::types::ContainerNetworkData>>,
+    /// Network mode of the container.
     pub network_mode: pulumi_wasm_rust::Output<Option<String>>,
+    /// The networks the container is attached to
     pub networks_advanced:
         pulumi_wasm_rust::Output<Option<Vec<crate::types::ContainerNetworksAdvanced>>>,
+    /// he PID (Process) Namespace mode for the container. Either `container:<name|id>` or `host`.
     pub pid_mode: pulumi_wasm_rust::Output<Option<String>>,
+    /// Publish a container's port(s) to the host.
     pub ports: pulumi_wasm_rust::Output<Option<Vec<crate::types::ContainerPort>>>,
+    /// If `true`, the container runs in privileged mode.
     pub privileged: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Publish all ports of the container.
     pub publish_all_ports: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Whether the mount should be read-only.
     pub read_only: pulumi_wasm_rust::Output<Option<bool>>,
+    /// If `true`, it will remove anonymous volumes associated with the container. Defaults to `true`.
     pub remove_volumes: pulumi_wasm_rust::Output<Option<bool>>,
+    /// The restart policy for the container. Must be one of 'no', 'on-failure', 'always', 'unless-stopped'. Defaults to `no`.
     pub restart: pulumi_wasm_rust::Output<Option<String>>,
+    /// If `true`, then the container will be automatically removed when it exits. Defaults to `false`.
     pub rm: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Runtime to use for the container.
     pub runtime: pulumi_wasm_rust::Output<String>,
+    /// List of string values to customize labels for MLS systems, such as SELinux. See https://docs.docker.com/engine/reference/run/#security-configuration.
     pub security_opts: pulumi_wasm_rust::Output<Vec<String>>,
+    /// Size of `/dev/shm` in MBs.
     pub shm_size: pulumi_wasm_rust::Output<i32>,
+    /// If `true`, then the Docker container will be started after creation. If `false`, then the container is only created. Defaults to `true`.
     pub start: pulumi_wasm_rust::Output<Option<bool>>,
+    /// If `true`, keep STDIN open even if not attached (`docker run -i`). Defaults to `false`.
     pub stdin_open: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Signal to stop a container (default `SIGTERM`).
     pub stop_signal: pulumi_wasm_rust::Output<String>,
+    /// Timeout (in seconds) to stop a container.
     pub stop_timeout: pulumi_wasm_rust::Output<i32>,
+    /// Key/value pairs for the storage driver options, e.g. `size`: `120G`
     pub storage_opts: pulumi_wasm_rust::Output<Option<std::collections::HashMap<String, String>>>,
+    /// A map of kernel parameters (sysctls) to set in the container.
     pub sysctls: pulumi_wasm_rust::Output<Option<std::collections::HashMap<String, String>>>,
+    /// A map of container directories which should be replaced by `tmpfs mounts`, and their corresponding mount options.
     pub tmpfs: pulumi_wasm_rust::Output<Option<std::collections::HashMap<String, String>>>,
+    /// If `true`, allocate a pseudo-tty (`docker run -t`). Defaults to `false`.
     pub tty: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Ulimit options to add.
     pub ulimits: pulumi_wasm_rust::Output<Option<Vec<crate::types::ContainerUlimit>>>,
+    /// Specifies files to upload to the container before starting it. Only one of `content` or `content_base64` can be set and at least one of them has to be set.
     pub uploads: pulumi_wasm_rust::Output<Option<Vec<crate::types::ContainerUpload>>>,
+    /// User used for run the first process. Format is `user` or `user:group` which user and group can be passed literraly or by name.
     pub user: pulumi_wasm_rust::Output<Option<String>>,
+    /// Sets the usernamespace mode for the container when usernamespace remapping option is enabled.
     pub userns_mode: pulumi_wasm_rust::Output<Option<String>>,
+    /// Spec for mounting volumes in the container.
     pub volumes: pulumi_wasm_rust::Output<Option<Vec<crate::types::ContainerVolume>>>,
+    /// If `true`, then the Docker container is waited for being healthy state after creation. If `false`, then the container health state is not checked. Defaults to `false`.
     pub wait: pulumi_wasm_rust::Output<Option<bool>>,
+    /// The timeout in seconds to wait the container to be healthy after creation. Defaults to `60`.
     pub wait_timeout: pulumi_wasm_rust::Output<Option<i32>>,
+    /// The working directory for commands to run in.
     pub working_dir: pulumi_wasm_rust::Output<Option<String>>,
 }
 
+///
+/// Registers a new resource with the given unique name and arguments
+///
 pub fn create(name: &str, args: ContainerArgs) -> ContainerResult {
     let result = crate::bindings::pulumi::docker::container::invoke(
         name,

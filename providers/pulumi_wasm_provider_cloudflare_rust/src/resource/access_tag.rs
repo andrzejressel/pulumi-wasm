@@ -1,17 +1,31 @@
+//! Provides a resource to customize the pages your end users will see
+//! when trying to reach applications behind Cloudflare Access.
+
 pub struct AccessTagArgs {
+    /// The account identifier to target for the resource. Conflicts with `zone_id`. **Modifying this attribute will force creation of a new resource.**
     pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+    /// Number of apps associated with the tag.
     pub app_count: pulumi_wasm_rust::Output<Option<i32>>,
+    /// Friendly name of the Access Tag.
     pub name: pulumi_wasm_rust::Output<String>,
+    /// The zone identifier to target for the resource. Conflicts with `account_id`. **Modifying this attribute will force creation of a new resource.**
     pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 
 pub struct AccessTagResult {
+    /// The account identifier to target for the resource. Conflicts with `zone_id`. **Modifying this attribute will force creation of a new resource.**
     pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+    /// Number of apps associated with the tag.
     pub app_count: pulumi_wasm_rust::Output<i32>,
+    /// Friendly name of the Access Tag.
     pub name: pulumi_wasm_rust::Output<String>,
+    /// The zone identifier to target for the resource. Conflicts with `account_id`. **Modifying this attribute will force creation of a new resource.**
     pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 
+///
+/// Registers a new resource with the given unique name and arguments
+///
 pub fn create(name: &str, args: AccessTagArgs) -> AccessTagResult {
     let result = crate::bindings::pulumi::cloudflare::access_tag::invoke(
         name,

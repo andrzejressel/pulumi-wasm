@@ -1,13 +1,23 @@
+//! Access Keys Configuration defines the rotation policy for the keys
+//! that access will use to sign data.
+
 pub struct AccessKeysConfigurationArgs {
+    /// The account identifier to target for the resource.
     pub account_id: pulumi_wasm_rust::Output<String>,
+    /// Number of days to trigger a rotation of the keys.
     pub key_rotation_interval_days: pulumi_wasm_rust::Output<Option<i32>>,
 }
 
 pub struct AccessKeysConfigurationResult {
+    /// The account identifier to target for the resource.
     pub account_id: pulumi_wasm_rust::Output<String>,
+    /// Number of days to trigger a rotation of the keys.
     pub key_rotation_interval_days: pulumi_wasm_rust::Output<i32>,
 }
 
+///
+/// Registers a new resource with the given unique name and arguments
+///
 pub fn create(name: &str, args: AccessKeysConfigurationArgs) -> AccessKeysConfigurationResult {
     let result = crate::bindings::pulumi::cloudflare::access_keys_configuration::invoke(
         name,

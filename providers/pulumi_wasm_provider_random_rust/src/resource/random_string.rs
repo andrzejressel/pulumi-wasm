@@ -1,34 +1,187 @@
+//! The resource `random.RandomString` generates a random permutation of alphanumeric characters and optionally special characters.
+//!
+//! This resource *does* use a cryptographic random number generator.
+//!
+//! Historically this resource's intended usage has been ambiguous as the original example used it in a password. For backwards compatibility it will continue to exist. For unique ids please use random_id, for sensitive random values please use random_password.
+//!
+//! ## Example Usage
+//!
+//! ### Typescript
+//! ```typescript
+//! import * as pulumi from "@pulumi/pulumi";
+//! import * as random from "@pulumi/random";
+//!
+//! const random = new random.RandomString("random", {
+//!     length: 16,
+//!     overrideSpecial: "/@£$",
+//!     special: true,
+//! });
+//! ```
+//! ### Python
+//! ```python
+//! import pulumi
+//! import pulumi_random as random
+//!
+//! random = random.RandomString("random",
+//!     length=16,
+//!     override_special="/@£$",
+//!     special=True)
+//! ```
+//! ### C#
+//! ```csharp
+//! using System.Collections.Generic;
+//! using System.Linq;
+//! using Pulumi;
+//! using Random = Pulumi.Random;
+//!
+//! return await Deployment.RunAsync(() =>
+//! {
+//!     var random = new Random.RandomString("random", new()
+//!     {
+//!         Length = 16,
+//!         OverrideSpecial = "/@£$",
+//!         Special = true,
+//!     });
+//!
+//! });
+//! ```
+//! ### Go
+//! ```go
+//! package main
+//!
+//! import (
+//! 	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
+//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//! )
+//!
+//! func main() {
+//! 	pulumi.Run(func(ctx *pulumi.Context) error {
+//! 		_, err := random.NewRandomString(ctx, "random", &random.RandomStringArgs{
+//! 			Length:          pulumi.Int(16),
+//! 			OverrideSpecial: pulumi.String("/@£$"),
+//! 			Special:         pulumi.Bool(true),
+//! 		})
+//! 		if err != nil {
+//! 			return err
+//! 		}
+//! 		return nil
+//! 	})
+//! }
+//! ```
+//! ### Java
+//! ```java
+//! package generated_program;
+//!
+//! import com.pulumi.Context;
+//! import com.pulumi.Pulumi;
+//! import com.pulumi.core.Output;
+//! import com.pulumi.random.RandomString;
+//! import com.pulumi.random.RandomStringArgs;
+//! import java.util.List;
+//! import java.util.ArrayList;
+//! import java.util.Map;
+//! import java.io.File;
+//! import java.nio.file.Files;
+//! import java.nio.file.Paths;
+//!
+//! public class App {
+//!     public static void main(String[] args) {
+//!         Pulumi.run(App::stack);
+//!     }
+//!
+//!     public static void stack(Context ctx) {
+//!         var random = new RandomString("random", RandomStringArgs.builder()        
+//!             .length(16)
+//!             .overrideSpecial("/@£$")
+//!             .special(true)
+//!             .build());
+//!
+//!     }
+//! }
+//! ```
+//! ### YAML
+//! ```yaml
+//! resources:
+//!   random:
+//!     type: random:RandomString
+//!     properties:
+//!       length: 16
+//!       overrideSpecial: /@£$
+//!       special: true
+//! ```
+//!
+//! ## Import
+//!
+//! You can import external strings into your Pulumi programs as RandomString resources as follows:
+//!
+//! ```sh
+//!  $ import random:index/randomString:RandomString newString myspecialdata
+//! ```
+//!
+//! This command will encode the `myspecialdata` token in Pulumi state and generate a code suggestion to include a new RandomString resource in your Pulumi program. Include the suggested code and do a `pulumi up`. Your data is now stored in Pulumi, and you can reference it in your Pulumi program as `newString.result`.
+//!
+//! If the data needs to be stored securily as a secret, consider using the RandomPassword resource instead.
+//!
+
 pub struct RandomStringArgs {
+    /// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
     pub keepers: pulumi_wasm_rust::Output<Option<std::collections::HashMap<String, String>>>,
+    /// The length of the string desired. The minimum value for length is 1 and, length must also be >= (`min_upper` + `min_lower` + `min_numeric` + `min_special`).
     pub length: pulumi_wasm_rust::Output<i32>,
+    /// Include lowercase alphabet characters in the result. Default value is `true`.
     pub lower: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Minimum number of lowercase alphabet characters in the result. Default value is `0`.
     pub min_lower: pulumi_wasm_rust::Output<Option<i32>>,
+    /// Minimum number of numeric characters in the result. Default value is `0`.
     pub min_numeric: pulumi_wasm_rust::Output<Option<i32>>,
+    /// Minimum number of special characters in the result. Default value is `0`.
     pub min_special: pulumi_wasm_rust::Output<Option<i32>>,
+    /// Minimum number of uppercase alphabet characters in the result. Default value is `0`.
     pub min_upper: pulumi_wasm_rust::Output<Option<i32>>,
+    /// Include numeric characters in the result. Default value is `true`. **NOTE**: This is deprecated, use `numeric` instead.
     pub number: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Include numeric characters in the result. Default value is `true`.
     pub numeric: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Supply your own list of special characters to use for string generation.  This overrides the default character list in the special argument.  The `special` argument must still be set to true for any overwritten characters to be used in generation.
     pub override_special: pulumi_wasm_rust::Output<Option<String>>,
+    /// Include special characters in the result. These are `!@#$%&*()-_=+[]{}<>:?`. Default value is `true`.
     pub special: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Include uppercase alphabet characters in the result. Default value is `true`.
     pub upper: pulumi_wasm_rust::Output<Option<bool>>,
 }
 
 pub struct RandomStringResult {
+    /// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
     pub keepers: pulumi_wasm_rust::Output<Option<std::collections::HashMap<String, String>>>,
+    /// The length of the string desired. The minimum value for length is 1 and, length must also be >= (`min_upper` + `min_lower` + `min_numeric` + `min_special`).
     pub length: pulumi_wasm_rust::Output<i32>,
+    /// Include lowercase alphabet characters in the result. Default value is `true`.
     pub lower: pulumi_wasm_rust::Output<bool>,
+    /// Minimum number of lowercase alphabet characters in the result. Default value is `0`.
     pub min_lower: pulumi_wasm_rust::Output<i32>,
+    /// Minimum number of numeric characters in the result. Default value is `0`.
     pub min_numeric: pulumi_wasm_rust::Output<i32>,
+    /// Minimum number of special characters in the result. Default value is `0`.
     pub min_special: pulumi_wasm_rust::Output<i32>,
+    /// Minimum number of uppercase alphabet characters in the result. Default value is `0`.
     pub min_upper: pulumi_wasm_rust::Output<i32>,
+    /// Include numeric characters in the result. Default value is `true`. **NOTE**: This is deprecated, use `numeric` instead.
     pub number: pulumi_wasm_rust::Output<bool>,
+    /// Include numeric characters in the result. Default value is `true`.
     pub numeric: pulumi_wasm_rust::Output<bool>,
+    /// Supply your own list of special characters to use for string generation.  This overrides the default character list in the special argument.  The `special` argument must still be set to true for any overwritten characters to be used in generation.
     pub override_special: pulumi_wasm_rust::Output<Option<String>>,
+    /// The generated random string.
     pub result: pulumi_wasm_rust::Output<String>,
+    /// Include special characters in the result. These are `!@#$%&*()-_=+[]{}<>:?`. Default value is `true`.
     pub special: pulumi_wasm_rust::Output<bool>,
+    /// Include uppercase alphabet characters in the result. Default value is `true`.
     pub upper: pulumi_wasm_rust::Output<bool>,
 }
 
+///
+/// Registers a new resource with the given unique name and arguments
+///
 pub fn create(name: &str, args: RandomStringArgs) -> RandomStringResult {
     let result = crate::bindings::pulumi::random::random_string::invoke(
         name,

@@ -1,43 +1,245 @@
+//! Provides a resource, that manages IPsec tunnels for Magic Transit.
+//!
+//! ## Example Usage
+//!
+//! <!--Start PulumiCodeChooser -->
+//! ### Typescript
+//! ```typescript
+//! import * as pulumi from "@pulumi/pulumi";
+//! import * as cloudflare from "@pulumi/cloudflare";
+//!
+//! const example = new cloudflare.IpsecTunnel("example", {
+//!     accountId: "f037e56e89293a057740de681ac9abbe",
+//!     allowNullCipher: false,
+//!     cloudflareEndpoint: "203.0.113.1",
+//!     customerEndpoint: "203.0.113.1",
+//!     description: "Tunnel for ISP X",
+//!     healthCheckEnabled: true,
+//!     healthCheckTarget: "203.0.113.1",
+//!     healthCheckType: "reply",
+//!     interfaceAddress: "192.0.2.0/31",
+//!     name: "IPsec_1",
+//!     psk: "asdf12341234",
+//! });
+//! ```
+//! ### Python
+//! ```python
+//! import pulumi
+//! import pulumi_cloudflare as cloudflare
+//!
+//! example = cloudflare.IpsecTunnel("example",
+//!     account_id="f037e56e89293a057740de681ac9abbe",
+//!     allow_null_cipher=False,
+//!     cloudflare_endpoint="203.0.113.1",
+//!     customer_endpoint="203.0.113.1",
+//!     description="Tunnel for ISP X",
+//!     health_check_enabled=True,
+//!     health_check_target="203.0.113.1",
+//!     health_check_type="reply",
+//!     interface_address="192.0.2.0/31",
+//!     name="IPsec_1",
+//!     psk="asdf12341234")
+//! ```
+//! ### C#
+//! ```csharp
+//! using System.Collections.Generic;
+//! using System.Linq;
+//! using Pulumi;
+//! using Cloudflare = Pulumi.Cloudflare;
+//!
+//! return await Deployment.RunAsync(() =>
+//! {
+//!     var example = new Cloudflare.IpsecTunnel("example", new()
+//!     {
+//!         AccountId = "f037e56e89293a057740de681ac9abbe",
+//!         AllowNullCipher = false,
+//!         CloudflareEndpoint = "203.0.113.1",
+//!         CustomerEndpoint = "203.0.113.1",
+//!         Description = "Tunnel for ISP X",
+//!         HealthCheckEnabled = true,
+//!         HealthCheckTarget = "203.0.113.1",
+//!         HealthCheckType = "reply",
+//!         InterfaceAddress = "192.0.2.0/31",
+//!         Name = "IPsec_1",
+//!         Psk = "asdf12341234",
+//!     });
+//!
+//! });
+//! ```
+//! ### Go
+//! ```go
+//! package main
+//!
+//! import (
+//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
+//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//! )
+//!
+//! func main() {
+//! 	pulumi.Run(func(ctx *pulumi.Context) error {
+//! 		_, err := cloudflare.NewIpsecTunnel(ctx, "example", &cloudflare.IpsecTunnelArgs{
+//! 			AccountId:          pulumi.String("f037e56e89293a057740de681ac9abbe"),
+//! 			AllowNullCipher:    pulumi.Bool(false),
+//! 			CloudflareEndpoint: pulumi.String("203.0.113.1"),
+//! 			CustomerEndpoint:   pulumi.String("203.0.113.1"),
+//! 			Description:        pulumi.String("Tunnel for ISP X"),
+//! 			HealthCheckEnabled: pulumi.Bool(true),
+//! 			HealthCheckTarget:  pulumi.String("203.0.113.1"),
+//! 			HealthCheckType:    pulumi.String("reply"),
+//! 			InterfaceAddress:   pulumi.String("192.0.2.0/31"),
+//! 			Name:               pulumi.String("IPsec_1"),
+//! 			Psk:                pulumi.String("asdf12341234"),
+//! 		})
+//! 		if err != nil {
+//! 			return err
+//! 		}
+//! 		return nil
+//! 	})
+//! }
+//! ```
+//! ### Java
+//! ```java
+//! package generated_program;
+//!
+//! import com.pulumi.Context;
+//! import com.pulumi.Pulumi;
+//! import com.pulumi.core.Output;
+//! import com.pulumi.cloudflare.IpsecTunnel;
+//! import com.pulumi.cloudflare.IpsecTunnelArgs;
+//! import java.util.List;
+//! import java.util.ArrayList;
+//! import java.util.Map;
+//! import java.io.File;
+//! import java.nio.file.Files;
+//! import java.nio.file.Paths;
+//!
+//! public class App {
+//!     public static void main(String[] args) {
+//!         Pulumi.run(App::stack);
+//!     }
+//!
+//!     public static void stack(Context ctx) {
+//!         var example = new IpsecTunnel("example", IpsecTunnelArgs.builder()        
+//!             .accountId("f037e56e89293a057740de681ac9abbe")
+//!             .allowNullCipher(false)
+//!             .cloudflareEndpoint("203.0.113.1")
+//!             .customerEndpoint("203.0.113.1")
+//!             .description("Tunnel for ISP X")
+//!             .healthCheckEnabled(true)
+//!             .healthCheckTarget("203.0.113.1")
+//!             .healthCheckType("reply")
+//!             .interfaceAddress("192.0.2.0/31")
+//!             .name("IPsec_1")
+//!             .psk("asdf12341234")
+//!             .build());
+//!
+//!     }
+//! }
+//! ```
+//! ### YAML
+//! ```yaml
+//! resources:
+//!   example:
+//!     type: cloudflare:IpsecTunnel
+//!     properties:
+//!       accountId: f037e56e89293a057740de681ac9abbe
+//!       allowNullCipher: false
+//!       cloudflareEndpoint: 203.0.113.1
+//!       customerEndpoint: 203.0.113.1
+//!       description: Tunnel for ISP X
+//!       healthCheckEnabled: true
+//!       healthCheckTarget: 203.0.113.1
+//!       healthCheckType: reply
+//!       interfaceAddress: 192.0.2.0/31
+//!       name: IPsec_1
+//!       psk: asdf12341234
+//! ```
+//! <!--End PulumiCodeChooser -->
+//!
+//! ## Import
+//!
+//! ```sh
+//! $ pulumi import cloudflare:index/ipsecTunnel:IpsecTunnel example <account_id>/<tunnel_id>
+//! ```
+//!
+
 pub struct IpsecTunnelArgs {
+    /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
     pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+    /// Specifies if this tunnel may use a null cipher (ENCR_NULL) in Phase 2. Defaults to `false`.
     pub allow_null_cipher: pulumi_wasm_rust::Output<Option<bool>>,
+    /// IP address assigned to the Cloudflare side of the IPsec tunnel.
     pub cloudflare_endpoint: pulumi_wasm_rust::Output<String>,
+    /// IP address assigned to the customer side of the IPsec tunnel.
     pub customer_endpoint: pulumi_wasm_rust::Output<String>,
+    /// An optional description of the IPsec tunnel.
     pub description: pulumi_wasm_rust::Output<Option<String>>,
+    /// `remote_id` in the form of a fqdn. This value is generated by cloudflare.
     pub fqdn_id: pulumi_wasm_rust::Output<Option<String>>,
+    /// Specifies the direction for the health check. Available values: `unidirectional`, `bidirectional` Default: `unidirectional`.
     pub health_check_direction: pulumi_wasm_rust::Output<Option<String>>,
+    /// Specifies if ICMP tunnel health checks are enabled. Default: `true`.
     pub health_check_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Specifies the ICMP rate for the health check. Available values: `low`, `mid`, `high` Default: `mid`.
     pub health_check_rate: pulumi_wasm_rust::Output<Option<String>>,
+    /// The IP address of the customer endpoint that will receive tunnel health checks. Default: `<customer_gre_endpoint>`.
     pub health_check_target: pulumi_wasm_rust::Output<Option<String>>,
+    /// Specifies the ICMP echo type for the health check (`request` or `reply`). Available values: `request`, `reply` Default: `reply`.
     pub health_check_type: pulumi_wasm_rust::Output<Option<String>>,
+    /// `remote_id` as a hex string. This value is generated by cloudflare.
     pub hex_id: pulumi_wasm_rust::Output<Option<String>>,
+    /// 31-bit prefix (/31 in CIDR notation) supporting 2 hosts, one for each side of the tunnel.
     pub interface_address: pulumi_wasm_rust::Output<String>,
+    /// Name of the IPsec tunnel.
     pub name: pulumi_wasm_rust::Output<String>,
+    /// Pre shared key to be used with the IPsec tunnel. If left unset, it will be autogenerated.
     pub psk: pulumi_wasm_rust::Output<Option<String>>,
+    /// ID to be used while setting up the IPsec tunnel. This value is generated by cloudflare.
     pub remote_id: pulumi_wasm_rust::Output<Option<String>>,
+    /// `remote_id` in the form of an email address. This value is generated by cloudflare.
     pub user_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 
 pub struct IpsecTunnelResult {
+    /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
     pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+    /// Specifies if this tunnel may use a null cipher (ENCR_NULL) in Phase 2. Defaults to `false`.
     pub allow_null_cipher: pulumi_wasm_rust::Output<Option<bool>>,
+    /// IP address assigned to the Cloudflare side of the IPsec tunnel.
     pub cloudflare_endpoint: pulumi_wasm_rust::Output<String>,
+    /// IP address assigned to the customer side of the IPsec tunnel.
     pub customer_endpoint: pulumi_wasm_rust::Output<String>,
+    /// An optional description of the IPsec tunnel.
     pub description: pulumi_wasm_rust::Output<Option<String>>,
+    /// `remote_id` in the form of a fqdn. This value is generated by cloudflare.
     pub fqdn_id: pulumi_wasm_rust::Output<String>,
+    /// Specifies the direction for the health check. Available values: `unidirectional`, `bidirectional` Default: `unidirectional`.
     pub health_check_direction: pulumi_wasm_rust::Output<String>,
+    /// Specifies if ICMP tunnel health checks are enabled. Default: `true`.
     pub health_check_enabled: pulumi_wasm_rust::Output<bool>,
+    /// Specifies the ICMP rate for the health check. Available values: `low`, `mid`, `high` Default: `mid`.
     pub health_check_rate: pulumi_wasm_rust::Output<String>,
+    /// The IP address of the customer endpoint that will receive tunnel health checks. Default: `<customer_gre_endpoint>`.
     pub health_check_target: pulumi_wasm_rust::Output<String>,
+    /// Specifies the ICMP echo type for the health check (`request` or `reply`). Available values: `request`, `reply` Default: `reply`.
     pub health_check_type: pulumi_wasm_rust::Output<String>,
+    /// `remote_id` as a hex string. This value is generated by cloudflare.
     pub hex_id: pulumi_wasm_rust::Output<String>,
+    /// 31-bit prefix (/31 in CIDR notation) supporting 2 hosts, one for each side of the tunnel.
     pub interface_address: pulumi_wasm_rust::Output<String>,
+    /// Name of the IPsec tunnel.
     pub name: pulumi_wasm_rust::Output<String>,
+    /// Pre shared key to be used with the IPsec tunnel. If left unset, it will be autogenerated.
     pub psk: pulumi_wasm_rust::Output<String>,
+    /// ID to be used while setting up the IPsec tunnel. This value is generated by cloudflare.
     pub remote_id: pulumi_wasm_rust::Output<String>,
+    /// `remote_id` in the form of an email address. This value is generated by cloudflare.
     pub user_id: pulumi_wasm_rust::Output<String>,
 }
 
+///
+/// Registers a new resource with the given unique name and arguments
+///
 pub fn create(name: &str, args: IpsecTunnelArgs) -> IpsecTunnelResult {
     let result = crate::bindings::pulumi::cloudflare::ipsec_tunnel::invoke(
         name,

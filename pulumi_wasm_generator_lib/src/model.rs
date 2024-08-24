@@ -45,6 +45,7 @@ impl Type {
 pub(crate) struct InputProperty {
     pub(crate) name: String,
     pub(crate) r#type: Type,
+    pub(crate) description: Option<String>,
 }
 
 impl InputProperty {
@@ -61,6 +62,7 @@ impl InputProperty {
 pub(crate) struct OutputProperty {
     pub(crate) name: String,
     pub(crate) r#type: Type,
+    pub(crate) description: Option<String>,
 }
 
 impl OutputProperty {
@@ -76,6 +78,7 @@ impl OutputProperty {
 pub(crate) struct GlobalTypeProperty {
     pub(crate) name: String,
     pub(crate) r#type: Type,
+    pub(crate) description: Option<String>,
 }
 
 #[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]

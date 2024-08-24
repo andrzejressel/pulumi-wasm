@@ -1,45 +1,293 @@
+//! Provides a Cloudflare Device Settings Policy resource. Device policies configure settings applied to WARP devices.
+//!
+//! ## Example Usage
+//!
+//! <!--Start PulumiCodeChooser -->
+//! ### Typescript
+//! ```typescript
+//! import * as pulumi from "@pulumi/pulumi";
+//! import * as cloudflare from "@pulumi/cloudflare";
+//!
+//! const developerWarpPolicy = new cloudflare.DeviceSettingsPolicy("developerWarpPolicy", {
+//!     accountId: "f037e56e89293a057740de681ac9abbe",
+//!     allowModeSwitch: true,
+//!     allowUpdates: true,
+//!     allowedToLeave: true,
+//!     autoConnect: 0,
+//!     captivePortal: 5,
+//!     "default": false,
+//!     description: "Developers WARP settings policy description",
+//!     disableAutoFallback: true,
+//!     enabled: true,
+//!     excludeOfficeIps: false,
+//!     match: "any(identity.groups.name[*] in {\"Developers\"})",
+//!     name: "Developers WARP settings policy",
+//!     precedence: 10,
+//!     serviceModeV2Mode: "warp",
+//!     serviceModeV2Port: 3000,
+//!     supportUrl: "https://cloudflare.com",
+//!     switchLocked: true,
+//! });
+//! ```
+//! ### Python
+//! ```python
+//! import pulumi
+//! import pulumi_cloudflare as cloudflare
+//!
+//! developer_warp_policy = cloudflare.DeviceSettingsPolicy("developerWarpPolicy",
+//!     account_id="f037e56e89293a057740de681ac9abbe",
+//!     allow_mode_switch=True,
+//!     allow_updates=True,
+//!     allowed_to_leave=True,
+//!     auto_connect=0,
+//!     captive_portal=5,
+//!     default=False,
+//!     description="Developers WARP settings policy description",
+//!     disable_auto_fallback=True,
+//!     enabled=True,
+//!     exclude_office_ips=False,
+//!     match="any(identity.groups.name[*] in {\"Developers\"})",
+//!     name="Developers WARP settings policy",
+//!     precedence=10,
+//!     service_mode_v2_mode="warp",
+//!     service_mode_v2_port=3000,
+//!     support_url="https://cloudflare.com",
+//!     switch_locked=True)
+//! ```
+//! ### C#
+//! ```csharp
+//! using System.Collections.Generic;
+//! using System.Linq;
+//! using Pulumi;
+//! using Cloudflare = Pulumi.Cloudflare;
+//!
+//! return await Deployment.RunAsync(() =>
+//! {
+//!     var developerWarpPolicy = new Cloudflare.DeviceSettingsPolicy("developerWarpPolicy", new()
+//!     {
+//!         AccountId = "f037e56e89293a057740de681ac9abbe",
+//!         AllowModeSwitch = true,
+//!         AllowUpdates = true,
+//!         AllowedToLeave = true,
+//!         AutoConnect = 0,
+//!         CaptivePortal = 5,
+//!         Default = false,
+//!         Description = "Developers WARP settings policy description",
+//!         DisableAutoFallback = true,
+//!         Enabled = true,
+//!         ExcludeOfficeIps = false,
+//!         Match = "any(identity.groups.name[*] in {\"Developers\"})",
+//!         Name = "Developers WARP settings policy",
+//!         Precedence = 10,
+//!         ServiceModeV2Mode = "warp",
+//!         ServiceModeV2Port = 3000,
+//!         SupportUrl = "https://cloudflare.com",
+//!         SwitchLocked = true,
+//!     });
+//!
+//! });
+//! ```
+//! ### Go
+//! ```go
+//! package main
+//!
+//! import (
+//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
+//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//! )
+//!
+//! func main() {
+//! 	pulumi.Run(func(ctx *pulumi.Context) error {
+//! 		_, err := cloudflare.NewDeviceSettingsPolicy(ctx, "developerWarpPolicy", &cloudflare.DeviceSettingsPolicyArgs{
+//! 			AccountId:           pulumi.String("f037e56e89293a057740de681ac9abbe"),
+//! 			AllowModeSwitch:     pulumi.Bool(true),
+//! 			AllowUpdates:        pulumi.Bool(true),
+//! 			AllowedToLeave:      pulumi.Bool(true),
+//! 			AutoConnect:         pulumi.Int(0),
+//! 			CaptivePortal:       pulumi.Int(5),
+//! 			Default:             pulumi.Bool(false),
+//! 			Description:         pulumi.String("Developers WARP settings policy description"),
+//! 			DisableAutoFallback: pulumi.Bool(true),
+//! 			Enabled:             pulumi.Bool(true),
+//! 			ExcludeOfficeIps:    pulumi.Bool(false),
+//! 			Match:               pulumi.String("any(identity.groups.name[*] in {\"Developers\"})"),
+//! 			Name:                pulumi.String("Developers WARP settings policy"),
+//! 			Precedence:          pulumi.Int(10),
+//! 			ServiceModeV2Mode:   pulumi.String("warp"),
+//! 			ServiceModeV2Port:   pulumi.Int(3000),
+//! 			SupportUrl:          pulumi.String("https://cloudflare.com"),
+//! 			SwitchLocked:        pulumi.Bool(true),
+//! 		})
+//! 		if err != nil {
+//! 			return err
+//! 		}
+//! 		return nil
+//! 	})
+//! }
+//! ```
+//! ### Java
+//! ```java
+//! package generated_program;
+//!
+//! import com.pulumi.Context;
+//! import com.pulumi.Pulumi;
+//! import com.pulumi.core.Output;
+//! import com.pulumi.cloudflare.DeviceSettingsPolicy;
+//! import com.pulumi.cloudflare.DeviceSettingsPolicyArgs;
+//! import java.util.List;
+//! import java.util.ArrayList;
+//! import java.util.Map;
+//! import java.io.File;
+//! import java.nio.file.Files;
+//! import java.nio.file.Paths;
+//!
+//! public class App {
+//!     public static void main(String[] args) {
+//!         Pulumi.run(App::stack);
+//!     }
+//!
+//!     public static void stack(Context ctx) {
+//!         var developerWarpPolicy = new DeviceSettingsPolicy("developerWarpPolicy", DeviceSettingsPolicyArgs.builder()        
+//!             .accountId("f037e56e89293a057740de681ac9abbe")
+//!             .allowModeSwitch(true)
+//!             .allowUpdates(true)
+//!             .allowedToLeave(true)
+//!             .autoConnect(0)
+//!             .captivePortal(5)
+//!             .default_(false)
+//!             .description("Developers WARP settings policy description")
+//!             .disableAutoFallback(true)
+//!             .enabled(true)
+//!             .excludeOfficeIps(false)
+//!             .match("any(identity.groups.name[*] in {\"Developers\"})")
+//!             .name("Developers WARP settings policy")
+//!             .precedence(10)
+//!             .serviceModeV2Mode("warp")
+//!             .serviceModeV2Port(3000)
+//!             .supportUrl("https://cloudflare.com")
+//!             .switchLocked(true)
+//!             .build());
+//!
+//!     }
+//! }
+//! ```
+//! ### YAML
+//! ```yaml
+//! resources:
+//!   developerWarpPolicy:
+//!     type: cloudflare:DeviceSettingsPolicy
+//!     properties:
+//!       accountId: f037e56e89293a057740de681ac9abbe
+//!       allowModeSwitch: true
+//!       allowUpdates: true
+//!       allowedToLeave: true
+//!       autoConnect: 0
+//!       captivePortal: 5
+//!       default: false
+//!       description: Developers WARP settings policy description
+//!       disableAutoFallback: true
+//!       enabled: true
+//!       excludeOfficeIps: false
+//!       match: any(identity.groups.name[*] in {"Developers"})
+//!       name: Developers WARP settings policy
+//!       precedence: 10
+//!       serviceModeV2Mode: warp
+//!       serviceModeV2Port: 3000
+//!       supportUrl: https://cloudflare.com
+//!       switchLocked: true
+//! ```
+//! <!--End PulumiCodeChooser -->
+//!
+//! ## Import
+//!
+//! For default device settings policies you must use "default" as the policy ID.
+//!
+//! ```sh
+//! $ pulumi import cloudflare:index/deviceSettingsPolicy:DeviceSettingsPolicy example <account_id>/<device_policy_id>
+//! ```
+//!
+
 pub struct DeviceSettingsPolicyArgs {
+    /// The account identifier to target for the resource.
     pub account_id: pulumi_wasm_rust::Output<String>,
+    /// Whether to allow mode switch for this policy.
     pub allow_mode_switch: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Whether to allow updates under this policy.
     pub allow_updates: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Whether to allow devices to leave the organization. Defaults to `true`.
     pub allowed_to_leave: pulumi_wasm_rust::Output<Option<bool>>,
+    /// The amount of time in seconds to reconnect after having been disabled.
     pub auto_connect: pulumi_wasm_rust::Output<Option<i32>>,
+    /// The captive portal value for this policy. Defaults to `180`.
     pub captive_portal: pulumi_wasm_rust::Output<Option<i32>>,
+    /// Whether the policy refers to the default account policy.
     pub default: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Description of Policy.
     pub description: pulumi_wasm_rust::Output<String>,
+    /// Whether to disable auto fallback for this policy.
     pub disable_auto_fallback: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Whether the policy is enabled (cannot be set for default policies). Defaults to `true`.
     pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Whether to add Microsoft IPs to split tunnel exclusions.
     pub exclude_office_ips: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Wirefilter expression to match a device against when evaluating whether this policy should take effect for that device.
     pub match_: pulumi_wasm_rust::Output<Option<String>>,
+    /// Name of the policy.
     pub name: pulumi_wasm_rust::Output<String>,
+    /// The precedence of the policy. Lower values indicate higher precedence.
     pub precedence: pulumi_wasm_rust::Output<Option<i32>>,
+    /// The service mode. Available values: `1dot1`, `warp`, `proxy`, `posture_only`, `warp_tunnel_only`. Defaults to `warp`.
     pub service_mode_v2_mode: pulumi_wasm_rust::Output<Option<String>>,
+    /// The port to use for the proxy service mode. Required when using `service_mode_v2_mode`.
     pub service_mode_v2_port: pulumi_wasm_rust::Output<Option<i32>>,
+    /// The support URL that will be opened when sending feedback.
     pub support_url: pulumi_wasm_rust::Output<Option<String>>,
+    /// Enablement of the ZT client switch lock.
     pub switch_locked: pulumi_wasm_rust::Output<Option<bool>>,
 }
 
 pub struct DeviceSettingsPolicyResult {
+    /// The account identifier to target for the resource.
     pub account_id: pulumi_wasm_rust::Output<String>,
+    /// Whether to allow mode switch for this policy.
     pub allow_mode_switch: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Whether to allow updates under this policy.
     pub allow_updates: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Whether to allow devices to leave the organization. Defaults to `true`.
     pub allowed_to_leave: pulumi_wasm_rust::Output<Option<bool>>,
+    /// The amount of time in seconds to reconnect after having been disabled.
     pub auto_connect: pulumi_wasm_rust::Output<Option<i32>>,
+    /// The captive portal value for this policy. Defaults to `180`.
     pub captive_portal: pulumi_wasm_rust::Output<Option<i32>>,
+    /// Whether the policy refers to the default account policy.
     pub default: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Description of Policy.
     pub description: pulumi_wasm_rust::Output<String>,
+    /// Whether to disable auto fallback for this policy.
     pub disable_auto_fallback: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Whether the policy is enabled (cannot be set for default policies). Defaults to `true`.
     pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Whether to add Microsoft IPs to split tunnel exclusions.
     pub exclude_office_ips: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Wirefilter expression to match a device against when evaluating whether this policy should take effect for that device.
     pub match_: pulumi_wasm_rust::Output<Option<String>>,
+    /// Name of the policy.
     pub name: pulumi_wasm_rust::Output<String>,
+    /// The precedence of the policy. Lower values indicate higher precedence.
     pub precedence: pulumi_wasm_rust::Output<Option<i32>>,
+    /// The service mode. Available values: `1dot1`, `warp`, `proxy`, `posture_only`, `warp_tunnel_only`. Defaults to `warp`.
     pub service_mode_v2_mode: pulumi_wasm_rust::Output<Option<String>>,
+    /// The port to use for the proxy service mode. Required when using `service_mode_v2_mode`.
     pub service_mode_v2_port: pulumi_wasm_rust::Output<Option<i32>>,
+    /// The support URL that will be opened when sending feedback.
     pub support_url: pulumi_wasm_rust::Output<Option<String>>,
+    /// Enablement of the ZT client switch lock.
     pub switch_locked: pulumi_wasm_rust::Output<Option<bool>>,
 }
 
+///
+/// Registers a new resource with the given unique name and arguments
+///
 pub fn create(name: &str, args: DeviceSettingsPolicyArgs) -> DeviceSettingsPolicyResult {
     let result = crate::bindings::pulumi::cloudflare::device_settings_policy::invoke(
         name,

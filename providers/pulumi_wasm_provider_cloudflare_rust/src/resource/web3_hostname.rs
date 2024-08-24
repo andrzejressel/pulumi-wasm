@@ -1,22 +1,40 @@
+//! Manages Web3 hostnames for IPFS and Ethereum gateways.
+
 pub struct Web3HostnameArgs {
+    /// An optional description of the hostname.
     pub description: pulumi_wasm_rust::Output<Option<String>>,
+    /// DNSLink value used if the target is ipfs.
     pub dnslink: pulumi_wasm_rust::Output<Option<String>>,
+    /// The hostname that will point to the target gateway via CNAME.
     pub name: pulumi_wasm_rust::Output<String>,
+    /// Target gateway of the hostname.
     pub target: pulumi_wasm_rust::Output<String>,
+    /// The zone identifier to target for the resource.
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 
 pub struct Web3HostnameResult {
+    /// Creation time.
     pub created_on: pulumi_wasm_rust::Output<String>,
+    /// An optional description of the hostname.
     pub description: pulumi_wasm_rust::Output<Option<String>>,
+    /// DNSLink value used if the target is ipfs.
     pub dnslink: pulumi_wasm_rust::Output<Option<String>>,
+    /// Last modification time.
     pub modified_on: pulumi_wasm_rust::Output<String>,
+    /// The hostname that will point to the target gateway via CNAME.
     pub name: pulumi_wasm_rust::Output<String>,
+    /// Status of the hostname's activation.
     pub status: pulumi_wasm_rust::Output<String>,
+    /// Target gateway of the hostname.
     pub target: pulumi_wasm_rust::Output<String>,
+    /// The zone identifier to target for the resource.
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 
+///
+/// Registers a new resource with the given unique name and arguments
+///
 pub fn create(name: &str, args: Web3HostnameArgs) -> Web3HostnameResult {
     let result = crate::bindings::pulumi::cloudflare::web3_hostname::invoke(
         name,
