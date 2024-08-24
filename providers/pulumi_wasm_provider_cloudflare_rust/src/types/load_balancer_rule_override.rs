@@ -2,7 +2,8 @@
 pub struct LoadBalancerRuleOverride {
     /// Controls features that modify the routing of requests to pools and origins in response to dynamic conditions, such as during the interval between active health monitoring requests.
     #[serde(rename = "adaptiveRoutings")]
-    pub r#adaptive_routings: Box<Option<Vec<crate::types::LoadBalancerRuleOverrideAdaptiveRouting>>>,
+    pub r#adaptive_routings:
+        Box<Option<Vec<crate::types::LoadBalancerRuleOverrideAdaptiveRouting>>>,
     /// A set containing mappings of country codes to a list of pool IDs (ordered by their failover priority) for the given country.
     #[serde(rename = "countryPools")]
     pub r#country_pools: Box<Option<Vec<crate::types::LoadBalancerRuleOverrideCountryPool>>>,
@@ -14,7 +15,8 @@ pub struct LoadBalancerRuleOverride {
     pub r#fallback_pool: Box<Option<String>>,
     /// Controls location-based steering for non-proxied requests.
     #[serde(rename = "locationStrategies")]
-    pub r#location_strategies: Box<Option<Vec<crate::types::LoadBalancerRuleOverrideLocationStrategy>>>,
+    pub r#location_strategies:
+        Box<Option<Vec<crate::types::LoadBalancerRuleOverrideLocationStrategy>>>,
     /// A set containing mappings of Cloudflare Point-of-Presence (PoP) identifiers to a list of pool IDs (ordered by their failover priority) for the PoP (datacenter). This feature is only available to enterprise customers.
     #[serde(rename = "popPools")]
     pub r#pop_pools: Box<Option<Vec<crate::types::LoadBalancerRuleOverridePopPool>>>,
@@ -29,7 +31,8 @@ pub struct LoadBalancerRuleOverride {
     pub r#session_affinity: Box<Option<String>>,
     /// Configure attributes for session affinity. Note that the property `drain_duration` is not currently supported as a rule override.
     #[serde(rename = "sessionAffinityAttributes")]
-    pub r#session_affinity_attributes: Box<Option<Vec<crate::types::LoadBalancerRuleOverrideSessionAffinityAttribute>>>,
+    pub r#session_affinity_attributes:
+        Box<Option<Vec<crate::types::LoadBalancerRuleOverrideSessionAffinityAttribute>>>,
     /// Time, in seconds, until this load balancer's session affinity cookie expires after being created. This parameter is ignored unless a supported session affinity policy is set. The current default of `82800` (23 hours) will be used unless `session_affinity_ttl` is explicitly set. Once the expiry time has been reached, subsequent requests may get sent to a different origin server. Valid values are between `1800` and `604800`.
     #[serde(rename = "sessionAffinityTtl")]
     pub r#session_affinity_ttl: Box<Option<i32>>,

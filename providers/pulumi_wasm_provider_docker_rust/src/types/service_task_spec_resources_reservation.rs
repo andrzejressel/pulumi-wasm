@@ -2,7 +2,8 @@
 pub struct ServiceTaskSpecResourcesReservation {
     /// User-defined resources can be either Integer resources (e.g, `SSD=3`) or String resources (e.g, GPU=UUID1)
     #[serde(rename = "genericResources")]
-    pub r#generic_resources: Box<Option<crate::types::ServiceTaskSpecResourcesReservationGenericResources>>,
+    pub r#generic_resources:
+        Box<Option<crate::types::ServiceTaskSpecResourcesReservationGenericResources>>,
     /// The amounf of memory in bytes the container allocates
     #[serde(rename = "memoryBytes")]
     pub r#memory_bytes: Box<Option<i32>>,

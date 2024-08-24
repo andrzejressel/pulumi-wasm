@@ -35,7 +35,8 @@ pub struct PagesProjectDeploymentConfigsProduction {
     pub r#secrets: Box<Option<std::collections::HashMap<String, String>>>,
     /// Services used for Pages Functions.
     #[serde(rename = "serviceBindings")]
-    pub r#service_bindings: Box<Option<Vec<crate::types::PagesProjectDeploymentConfigsProductionServiceBinding>>>,
+    pub r#service_bindings:
+        Box<Option<Vec<crate::types::PagesProjectDeploymentConfigsProductionServiceBinding>>>,
     /// Usage model used for Pages Functions. Available values: `unbound`, `bundled`, `standard`. Defaults to `bundled`.
     #[serde(rename = "usageModel")]
     pub r#usage_model: Box<Option<String>>,

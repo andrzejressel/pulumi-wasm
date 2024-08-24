@@ -8,5 +8,6 @@ pub struct RulesetRuleActionParametersEdgeTtl {
     pub r#mode: Box<String>,
     /// Edge TTL for the status codes.
     #[serde(rename = "statusCodeTtls")]
-    pub r#status_code_ttls: Box<Option<Vec<crate::types::RulesetRuleActionParametersEdgeTtlStatusCodeTtl>>>,
+    pub r#status_code_ttls:
+        Box<Option<Vec<crate::types::RulesetRuleActionParametersEdgeTtlStatusCodeTtl>>>,
 }

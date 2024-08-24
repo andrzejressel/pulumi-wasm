@@ -57,7 +57,8 @@ pub struct ZoneSettingsOverrideInitialSetting {
     #[serde(rename = "mirage")]
     pub r#mirage: Box<Option<String>>,
     #[serde(rename = "mobileRedirect")]
-    pub r#mobile_redirect: Box<Option<crate::types::ZoneSettingsOverrideInitialSettingMobileRedirect>>,
+    pub r#mobile_redirect:
+        Box<Option<crate::types::ZoneSettingsOverrideInitialSettingMobileRedirect>>,
     #[serde(rename = "opportunisticEncryption")]
     pub r#opportunistic_encryption: Box<Option<String>>,
     #[serde(rename = "opportunisticOnion")]
@@ -83,7 +84,8 @@ pub struct ZoneSettingsOverrideInitialSetting {
     #[serde(rename = "rocketLoader")]
     pub r#rocket_loader: Box<Option<String>>,
     #[serde(rename = "securityHeader")]
-    pub r#security_header: Box<Option<crate::types::ZoneSettingsOverrideInitialSettingSecurityHeader>>,
+    pub r#security_header:
+        Box<Option<crate::types::ZoneSettingsOverrideInitialSettingSecurityHeader>>,
     #[serde(rename = "securityLevel")]
     pub r#security_level: Box<Option<String>>,
     #[serde(rename = "serverSideExclude")]

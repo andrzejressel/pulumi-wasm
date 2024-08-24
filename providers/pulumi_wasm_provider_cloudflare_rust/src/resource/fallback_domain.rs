@@ -2,15 +2,15 @@
 //! used to ignore DNS requests to a given list of domains. These DNS
 //! requests will be passed back to other DNS servers configured on
 //! existing network interfaces on the device.
-//! 
+//!
 //! ## Import
-//! 
+//!
 //! Fallback Domains for default device policies must use "default" as the policy ID.
-//! 
+//!
 //! ```sh
 //! $ pulumi import cloudflare:index/fallbackDomain:FallbackDomain example <account_id>/<policy_id>
 //! ```
-//! 
+//!
 
 pub struct FallbackDomainArgs {
     /// The account identifier to target for the resource.
@@ -32,12 +32,14 @@ pub struct FallbackDomainResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: FallbackDomainArgs) -> FallbackDomainResult {
-
-    let result = crate::bindings::pulumi::cloudflare::fallback_domain::invoke(name, &crate::bindings::pulumi::cloudflare::fallback_domain::Args {
-        account_id: args.account_id.get_inner(),
-        domains: args.domains.get_inner(),
-        policy_id: args.policy_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::fallback_domain::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::fallback_domain::Args {
+            account_id: args.account_id.get_inner(),
+            domains: args.domains.get_inner(),
+            policy_id: args.policy_id.get_inner(),
+        },
+    );
 
     FallbackDomainResult {
         account_id: crate::into_domain(result.account_id),

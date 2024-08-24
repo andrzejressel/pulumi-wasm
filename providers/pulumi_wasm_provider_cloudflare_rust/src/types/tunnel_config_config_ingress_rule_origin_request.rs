@@ -23,7 +23,8 @@ pub struct TunnelConfigConfigIngressRuleOriginRequest {
     pub r#http_host_header: Box<Option<String>>,
     /// IP rules for the proxy service.
     #[serde(rename = "ipRules")]
-    pub r#ip_rules: Box<Option<Vec<crate::types::TunnelConfigConfigIngressRuleOriginRequestIpRule>>>,
+    pub r#ip_rules:
+        Box<Option<Vec<crate::types::TunnelConfigConfigIngressRuleOriginRequestIpRule>>>,
     /// Maximum number of idle keepalive connections between Tunnel and your origin. This does not restrict the total number of concurrent connections. Defaults to `100`.
     #[serde(rename = "keepAliveConnections")]
     pub r#keep_alive_connections: Box<Option<i32>>,

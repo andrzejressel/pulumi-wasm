@@ -1,21 +1,21 @@
 //! Provides a Cloudflare Access Policy resource. Access Policies are
 //! used in conjunction with Access Applications to restrict access to
 //! a particular resource.
-//! 
+//!
 //! > It's required that an `account_id` or `zone_id` is provided and in
 //!    most cases using either is fine. However, if you're using a scoped
 //!    access token, you must provide the argument that matches the token's
 //!    scope. For example, an access token that is scoped to the "example.com"
 //!    zone needs to use the `zone_id` argument.
-//! 
+//!
 //! ## Example Usage
-//! 
+//!
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//! 
+//!
 //! // Allowing access to `test@example.com` email address only
 //! const testPolicyAccessPolicy = new cloudflare.AccessPolicy("testPolicyAccessPolicy", {
 //!     applicationId: "cb029e245cfdd66dc8d2e570d5dd3322",
@@ -50,7 +50,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//! 
+//!
 //! # Allowing access to `test@example.com` email address only
 //! test_policy_access_policy = cloudflare.AccessPolicy("testPolicyAccessPolicy",
 //!     application_id="cb029e245cfdd66dc8d2e570d5dd3322",
@@ -85,8 +85,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
+//!
+//! return await Deployment.RunAsync(() =>
 //! {
 //!     // Allowing access to `test@example.com` email address only
 //!     var testPolicyAccessPolicy = new Cloudflare.AccessPolicy("testPolicyAccessPolicy", new()
@@ -117,7 +117,7 @@
 //!             },
 //!         },
 //!     });
-//! 
+//!
 //!     // Allowing `test@example.com` to access but only when coming from a
 //!     // specific IP.
 //!     var testPolicyIndex_accessPolicyAccessPolicy = new Cloudflare.AccessPolicy("testPolicyIndex/accessPolicyAccessPolicy", new()
@@ -148,18 +148,18 @@
 //!             },
 //!         },
 //!     });
-//! 
+//!
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//! 
+//!
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//! 
+//!
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		// Allowing access to `test@example.com` email address only
@@ -220,7 +220,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//! 
+//!
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -234,12 +234,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//! 
+//!
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//! 
+//!
 //!     public static void stack(Context ctx) {
 //!         // Allowing access to `test@example.com` email address only
 //!         var testPolicyAccessPolicy = new AccessPolicy("testPolicyAccessPolicy", AccessPolicyArgs.builder()        
@@ -255,7 +255,7 @@
 //!                 .emails("test@example.com")
 //!                 .build())
 //!             .build());
-//! 
+//!
 //!         // Allowing `test@example.com` to access but only when coming from a
 //!         // specific IP.
 //!         var testPolicyIndex_accessPolicyAccessPolicy = new AccessPolicy("testPolicyIndex/accessPolicyAccessPolicy", AccessPolicyArgs.builder()        
@@ -271,7 +271,7 @@
 //!                 .ips(var_.office_ip())
 //!                 .build())
 //!             .build());
-//! 
+//!
 //!     }
 //! }
 //! ```
@@ -311,28 +311,29 @@
 //!             - ${var.office_ip}
 //! ```
 //! <!--End PulumiCodeChooser -->
-//! 
+//!
 //! ## Import
-//! 
+//!
 //! Account level import.
-//! 
+//!
 //! ```sh
 //! $ pulumi import cloudflare:index/accessPolicy:AccessPolicy example account/<account_id>/<application_id>/<policy_id>
 //! ```
-//! 
+//!
 //! Zone level import.
-//! 
+//!
 //! ```sh
 //! $ pulumi import cloudflare:index/accessPolicy:AccessPolicy example zone/<zone_id>/<application_id>/<policy_id>
 //! ```
-//! 
+//!
 
 pub struct AccessPolicyArgs {
     /// The account identifier to target for the resource. Conflicts with `zone_id`.
     pub account_id: pulumi_wasm_rust::Output<Option<String>>,
     /// The ID of the application the policy is associated with.
     pub application_id: pulumi_wasm_rust::Output<String>,
-    pub approval_groups: pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessPolicyApprovalGroup>>>,
+    pub approval_groups:
+        pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessPolicyApprovalGroup>>>,
     pub approval_required: pulumi_wasm_rust::Output<Option<bool>>,
     /// Defines the action Access will take if the policy matches the user. Available values: `allow`, `deny`, `non_identity`, `bypass`.
     pub decision: pulumi_wasm_rust::Output<String>,
@@ -363,7 +364,8 @@ pub struct AccessPolicyResult {
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// The ID of the application the policy is associated with.
     pub application_id: pulumi_wasm_rust::Output<String>,
-    pub approval_groups: pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessPolicyApprovalGroup>>>,
+    pub approval_groups:
+        pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessPolicyApprovalGroup>>>,
     pub approval_required: pulumi_wasm_rust::Output<Option<bool>>,
     /// Defines the action Access will take if the policy matches the user. Available values: `allow`, `deny`, `non_identity`, `bypass`.
     pub decision: pulumi_wasm_rust::Output<String>,
@@ -393,24 +395,26 @@ pub struct AccessPolicyResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: AccessPolicyArgs) -> AccessPolicyResult {
-
-    let result = crate::bindings::pulumi::cloudflare::access_policy::invoke(name, &crate::bindings::pulumi::cloudflare::access_policy::Args {
-        account_id: args.account_id.get_inner(),
-        application_id: args.application_id.get_inner(),
-        approval_groups: args.approval_groups.get_inner(),
-        approval_required: args.approval_required.get_inner(),
-        decision: args.decision.get_inner(),
-        excludes: args.excludes.get_inner(),
-        includes: args.includes.get_inner(),
-        isolation_required: args.isolation_required.get_inner(),
-        name: args.name.get_inner(),
-        precedence: args.precedence.get_inner(),
-        purpose_justification_prompt: args.purpose_justification_prompt.get_inner(),
-        purpose_justification_required: args.purpose_justification_required.get_inner(),
-        requires: args.requires.get_inner(),
-        session_duration: args.session_duration.get_inner(),
-        zone_id: args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::access_policy::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::access_policy::Args {
+            account_id: args.account_id.get_inner(),
+            application_id: args.application_id.get_inner(),
+            approval_groups: args.approval_groups.get_inner(),
+            approval_required: args.approval_required.get_inner(),
+            decision: args.decision.get_inner(),
+            excludes: args.excludes.get_inner(),
+            includes: args.includes.get_inner(),
+            isolation_required: args.isolation_required.get_inner(),
+            name: args.name.get_inner(),
+            precedence: args.precedence.get_inner(),
+            purpose_justification_prompt: args.purpose_justification_prompt.get_inner(),
+            purpose_justification_required: args.purpose_justification_required.get_inner(),
+            requires: args.requires.get_inner(),
+            session_duration: args.session_duration.get_inner(),
+            zone_id: args.zone_id.get_inner(),
+        },
+    );
 
     AccessPolicyResult {
         account_id: crate::into_domain(result.account_id),

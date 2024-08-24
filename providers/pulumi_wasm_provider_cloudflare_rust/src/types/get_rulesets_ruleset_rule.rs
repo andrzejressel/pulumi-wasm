@@ -14,7 +14,8 @@ pub struct GetRulesetsRulesetRule {
     pub r#enabled: Box<Option<bool>>,
     /// List of parameters that configure exposed credential checks.
     #[serde(rename = "exposedCredentialCheck")]
-    pub r#exposed_credential_check: Box<Option<crate::types::GetRulesetsRulesetRuleExposedCredentialCheck>>,
+    pub r#exposed_credential_check:
+        Box<Option<crate::types::GetRulesetsRulesetRuleExposedCredentialCheck>>,
     /// Criteria for an HTTP request to trigger the ruleset rule action. Uses the Firewall Rules expression language based on Wireshark display filters. Refer to the [Firewall Rules language](https://developers.cloudflare.com/firewall/cf-firewall-language) documentation for all available fields, operators, and functions
     #[serde(rename = "expression")]
     pub r#expression: Box<String>,

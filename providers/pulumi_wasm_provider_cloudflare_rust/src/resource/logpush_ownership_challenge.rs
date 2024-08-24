@@ -2,15 +2,15 @@
 //! challenges to use in a Logpush Job. On it's own, doesn't do much
 //! however this resource should be used in conjunction to create
 //! Logpush jobs.
-//! 
+//!
 //! ## Example Usage
-//! 
+//!
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//! 
+//!
 //! const example = new cloudflare.LogpushOwnershipChallenge("example", {
 //!     destinationConf: "s3://my-bucket-path?region=us-west-2",
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
@@ -20,7 +20,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//! 
+//!
 //! example = cloudflare.LogpushOwnershipChallenge("example",
 //!     destination_conf="s3://my-bucket-path?region=us-west-2",
 //!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
@@ -31,26 +31,26 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
+//!
+//! return await Deployment.RunAsync(() =>
 //! {
 //!     var example = new Cloudflare.LogpushOwnershipChallenge("example", new()
 //!     {
 //!         DestinationConf = "s3://my-bucket-path?region=us-west-2",
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
-//! 
+//!
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//! 
+//!
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//! 
+//!
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewLogpushOwnershipChallenge(ctx, "example", &cloudflare.LogpushOwnershipChallengeArgs{
@@ -67,7 +67,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//! 
+//!
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -79,18 +79,18 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//! 
+//!
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//! 
+//!
 //!     public static void stack(Context ctx) {
 //!         var example = new LogpushOwnershipChallenge("example", LogpushOwnershipChallengeArgs.builder()        
 //!             .destinationConf("s3://my-bucket-path?region=us-west-2")
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
-//! 
+//!
 //!     }
 //! }
 //! ```
@@ -129,12 +129,14 @@ pub struct LogpushOwnershipChallengeResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: LogpushOwnershipChallengeArgs) -> LogpushOwnershipChallengeResult {
-
-    let result = crate::bindings::pulumi::cloudflare::logpush_ownership_challenge::invoke(name, &crate::bindings::pulumi::cloudflare::logpush_ownership_challenge::Args {
-        account_id: args.account_id.get_inner(),
-        destination_conf: args.destination_conf.get_inner(),
-        zone_id: args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::logpush_ownership_challenge::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::logpush_ownership_challenge::Args {
+            account_id: args.account_id.get_inner(),
+            destination_conf: args.destination_conf.get_inner(),
+            zone_id: args.zone_id.get_inner(),
+        },
+    );
 
     LogpushOwnershipChallengeResult {
         account_id: crate::into_domain(result.account_id),

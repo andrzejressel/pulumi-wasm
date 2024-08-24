@@ -1,15 +1,15 @@
 //! Provides a resource, that manages Cloudflare tunnel routes for Zero
 //! Trust. Tunnel routes are used to direct IP traffic through
 //! Cloudflare Tunnels.
-//! 
+//!
 //! ## Example Usage
-//! 
+//!
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//! 
+//!
 //! // Tunnel route
 //! const exampleTunnelRoute = new cloudflare.TunnelRoute("exampleTunnelRoute", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
@@ -36,7 +36,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//! 
+//!
 //! # Tunnel route
 //! example_tunnel_route = cloudflare.TunnelRoute("exampleTunnelRoute",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
@@ -62,8 +62,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
+//!
+//! return await Deployment.RunAsync(() =>
 //! {
 //!     // Tunnel route
 //!     var exampleTunnelRoute = new Cloudflare.TunnelRoute("exampleTunnelRoute", new()
@@ -74,7 +74,7 @@
 //!         Comment = "New tunnel route for documentation",
 //!         VirtualNetworkId = "bdc39a3c-3104-4c23-8ac0-9f455dda691a",
 //!     });
-//! 
+//!
 //!     // Tunnel with tunnel route
 //!     var tunnel = new Cloudflare.Tunnel("tunnel", new()
 //!     {
@@ -82,7 +82,7 @@
 //!         Name = "my_tunnel",
 //!         Secret = "AQIDBAUGBwgBAgMEBQYHCAECAwQFBgcIAQIDBAUGBwg=",
 //!     });
-//! 
+//!
 //!     var exampleIndex_tunnelRouteTunnelRoute = new Cloudflare.TunnelRoute("exampleIndex/tunnelRouteTunnelRoute", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
@@ -91,18 +91,18 @@
 //!         Comment = "New tunnel route for documentation",
 //!         VirtualNetworkId = "bdc39a3c-3104-4c23-8ac0-9f455dda691a",
 //!     });
-//! 
+//!
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//! 
+//!
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//! 
+//!
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		// Tunnel route
@@ -142,7 +142,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//! 
+//!
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -156,12 +156,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//! 
+//!
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//! 
+//!
 //!     public static void stack(Context ctx) {
 //!         // Tunnel route
 //!         var exampleTunnelRoute = new TunnelRoute("exampleTunnelRoute", TunnelRouteArgs.builder()        
@@ -171,14 +171,14 @@
 //!             .comment("New tunnel route for documentation")
 //!             .virtualNetworkId("bdc39a3c-3104-4c23-8ac0-9f455dda691a")
 //!             .build());
-//! 
+//!
 //!         // Tunnel with tunnel route
 //!         var tunnel = new Tunnel("tunnel", TunnelArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
 //!             .name("my_tunnel")
 //!             .secret("AQIDBAUGBwgBAgMEBQYHCAECAwQFBgcIAQIDBAUGBwg=")
 //!             .build());
-//! 
+//!
 //!         var exampleIndex_tunnelRouteTunnelRoute = new TunnelRoute("exampleIndex/tunnelRouteTunnelRoute", TunnelRouteArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
 //!             .tunnelId(tunnel.id())
@@ -186,7 +186,7 @@
 //!             .comment("New tunnel route for documentation")
 //!             .virtualNetworkId("bdc39a3c-3104-4c23-8ac0-9f455dda691a")
 //!             .build());
-//! 
+//!
 //!     }
 //! }
 //! ```
@@ -219,13 +219,13 @@
 //!       virtualNetworkId: bdc39a3c-3104-4c23-8ac0-9f455dda691a
 //! ```
 //! <!--End PulumiCodeChooser -->
-//! 
+//!
 //! ## Import
-//! 
+//!
 //! ```sh
 //! $ pulumi import cloudflare:index/tunnelRoute:TunnelRoute example <account_id>/<network_cidr>/<virtual_network_id>
 //! ```
-//! 
+//!
 
 pub struct TunnelRouteArgs {
     /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
@@ -257,14 +257,16 @@ pub struct TunnelRouteResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: TunnelRouteArgs) -> TunnelRouteResult {
-
-    let result = crate::bindings::pulumi::cloudflare::tunnel_route::invoke(name, &crate::bindings::pulumi::cloudflare::tunnel_route::Args {
-        account_id: args.account_id.get_inner(),
-        comment: args.comment.get_inner(),
-        network: args.network.get_inner(),
-        tunnel_id: args.tunnel_id.get_inner(),
-        virtual_network_id: args.virtual_network_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::tunnel_route::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::tunnel_route::Args {
+            account_id: args.account_id.get_inner(),
+            comment: args.comment.get_inner(),
+            network: args.network.get_inner(),
+            tunnel_id: args.tunnel_id.get_inner(),
+            virtual_network_id: args.virtual_network_id.get_inner(),
+        },
+    );
 
     TunnelRouteResult {
         account_id: crate::into_domain(result.account_id),

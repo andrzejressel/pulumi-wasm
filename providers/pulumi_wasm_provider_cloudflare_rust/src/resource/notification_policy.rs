@@ -1,15 +1,15 @@
 //! Provides a resource, that manages a notification policy for
 //! Cloudflare's products. The delivery mechanisms supported are email,
 //! webhooks, and PagerDuty.
-//! 
+//!
 //! ## Example Usage
-//! 
+//!
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//! 
+//!
 //! //## With Filters
 //! const example = new cloudflare.NotificationPolicy("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
@@ -36,7 +36,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//! 
+//!
 //! ### With Filters
 //! example = cloudflare.NotificationPolicy("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
@@ -64,8 +64,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
+//!
+//! return await Deployment.RunAsync(() =>
 //! {
 //!     //## With Filters
 //!     var example = new Cloudflare.NotificationPolicy("example", new()
@@ -108,18 +108,18 @@
 //!             },
 //!         },
 //!     });
-//! 
+//!
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//! 
+//!
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//! 
+//!
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		// ## With Filters
@@ -163,7 +163,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//! 
+//!
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -179,12 +179,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//! 
+//!
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//! 
+//!
 //!     public static void stack(Context ctx) {
 //!         //## With Filters
 //!         var example = new NotificationPolicy("example", NotificationPolicyArgs.builder()        
@@ -207,7 +207,7 @@
 //!                 .id("1860572c5d964d27aa0f379d13645940")
 //!                 .build())
 //!             .build());
-//! 
+//!
 //!     }
 //! }
 //! ```
@@ -236,13 +236,13 @@
 //!         - id: 1860572c5d964d27aa0f379d13645940
 //! ```
 //! <!--End PulumiCodeChooser -->
-//! 
+//!
 //! ## Import
-//! 
+//!
 //! ```sh
 //! $ pulumi import cloudflare:index/notificationPolicy:NotificationPolicy example <account_id>/<policy_id>
 //! ```
-//! 
+//!
 
 pub struct NotificationPolicyArgs {
     /// The account identifier to target for the resource.
@@ -252,7 +252,8 @@ pub struct NotificationPolicyArgs {
     /// Description of the notification policy.
     pub description: pulumi_wasm_rust::Output<Option<String>>,
     /// The email ID to which the notification should be dispatched.
-    pub email_integrations: pulumi_wasm_rust::Output<Option<Vec<crate::types::NotificationPolicyEmailIntegration>>>,
+    pub email_integrations:
+        pulumi_wasm_rust::Output<Option<Vec<crate::types::NotificationPolicyEmailIntegration>>>,
     /// State of the pool to alert on.
     pub enabled: pulumi_wasm_rust::Output<bool>,
     /// An optional nested block of filters that applies to the selected `alert_type`. A key-value map that specifies the type of filter and the values to match against (refer to the alert type block for available fields).
@@ -260,9 +261,11 @@ pub struct NotificationPolicyArgs {
     /// The name of the notification policy.
     pub name: pulumi_wasm_rust::Output<String>,
     /// The unique ID of a configured pagerduty endpoint to which the notification should be dispatched.
-    pub pagerduty_integrations: pulumi_wasm_rust::Output<Option<Vec<crate::types::NotificationPolicyPagerdutyIntegration>>>,
+    pub pagerduty_integrations:
+        pulumi_wasm_rust::Output<Option<Vec<crate::types::NotificationPolicyPagerdutyIntegration>>>,
     /// The unique ID of a configured webhooks endpoint to which the notification should be dispatched.
-    pub webhooks_integrations: pulumi_wasm_rust::Output<Option<Vec<crate::types::NotificationPolicyWebhooksIntegration>>>,
+    pub webhooks_integrations:
+        pulumi_wasm_rust::Output<Option<Vec<crate::types::NotificationPolicyWebhooksIntegration>>>,
 }
 
 pub struct NotificationPolicyResult {
@@ -275,7 +278,8 @@ pub struct NotificationPolicyResult {
     /// Description of the notification policy.
     pub description: pulumi_wasm_rust::Output<Option<String>>,
     /// The email ID to which the notification should be dispatched.
-    pub email_integrations: pulumi_wasm_rust::Output<Option<Vec<crate::types::NotificationPolicyEmailIntegration>>>,
+    pub email_integrations:
+        pulumi_wasm_rust::Output<Option<Vec<crate::types::NotificationPolicyEmailIntegration>>>,
     /// State of the pool to alert on.
     pub enabled: pulumi_wasm_rust::Output<bool>,
     /// An optional nested block of filters that applies to the selected `alert_type`. A key-value map that specifies the type of filter and the values to match against (refer to the alert type block for available fields).
@@ -285,27 +289,31 @@ pub struct NotificationPolicyResult {
     /// The name of the notification policy.
     pub name: pulumi_wasm_rust::Output<String>,
     /// The unique ID of a configured pagerduty endpoint to which the notification should be dispatched.
-    pub pagerduty_integrations: pulumi_wasm_rust::Output<Option<Vec<crate::types::NotificationPolicyPagerdutyIntegration>>>,
+    pub pagerduty_integrations:
+        pulumi_wasm_rust::Output<Option<Vec<crate::types::NotificationPolicyPagerdutyIntegration>>>,
     /// The unique ID of a configured webhooks endpoint to which the notification should be dispatched.
-    pub webhooks_integrations: pulumi_wasm_rust::Output<Option<Vec<crate::types::NotificationPolicyWebhooksIntegration>>>,
+    pub webhooks_integrations:
+        pulumi_wasm_rust::Output<Option<Vec<crate::types::NotificationPolicyWebhooksIntegration>>>,
 }
 
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: NotificationPolicyArgs) -> NotificationPolicyResult {
-
-    let result = crate::bindings::pulumi::cloudflare::notification_policy::invoke(name, &crate::bindings::pulumi::cloudflare::notification_policy::Args {
-        account_id: args.account_id.get_inner(),
-        alert_type: args.alert_type.get_inner(),
-        description: args.description.get_inner(),
-        email_integrations: args.email_integrations.get_inner(),
-        enabled: args.enabled.get_inner(),
-        filters: args.filters.get_inner(),
-        name: args.name.get_inner(),
-        pagerduty_integrations: args.pagerduty_integrations.get_inner(),
-        webhooks_integrations: args.webhooks_integrations.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::notification_policy::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::notification_policy::Args {
+            account_id: args.account_id.get_inner(),
+            alert_type: args.alert_type.get_inner(),
+            description: args.description.get_inner(),
+            email_integrations: args.email_integrations.get_inner(),
+            enabled: args.enabled.get_inner(),
+            filters: args.filters.get_inner(),
+            name: args.name.get_inner(),
+            pagerduty_integrations: args.pagerduty_integrations.get_inner(),
+            webhooks_integrations: args.webhooks_integrations.get_inner(),
+        },
+    );
 
     NotificationPolicyResult {
         account_id: crate::into_domain(result.account_id),

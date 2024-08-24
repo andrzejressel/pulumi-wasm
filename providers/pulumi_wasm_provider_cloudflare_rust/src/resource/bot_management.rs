@@ -1,19 +1,19 @@
 //! Provides a resource to configure Bot Management.
-//! 
+//!
 //! Specifically, this resource can be used to manage:
-//! 
+//!
 //! - **Bot Fight Mode**
 //! - **Super Bot Fight Mode**
 //! - **Bot Management for Enterprise**
-//! 
+//!
 //! ## Example Usage
-//! 
+//!
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//! 
+//!
 //! const example = new cloudflare.BotManagement("example", {
 //!     enableJs: true,
 //!     optimizeWordpress: true,
@@ -28,7 +28,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//! 
+//!
 //! example = cloudflare.BotManagement("example",
 //!     enable_js=True,
 //!     optimize_wordpress=True,
@@ -44,8 +44,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
+//!
+//! return await Deployment.RunAsync(() =>
 //! {
 //!     var example = new Cloudflare.BotManagement("example", new()
 //!     {
@@ -57,18 +57,18 @@
 //!         SbfmVerifiedBots = "allow",
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
-//! 
+//!
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//! 
+//!
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//! 
+//!
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewBotManagement(ctx, "example", &cloudflare.BotManagementArgs{
@@ -90,7 +90,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//! 
+//!
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -102,12 +102,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//! 
+//!
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//! 
+//!
 //!     public static void stack(Context ctx) {
 //!         var example = new BotManagement("example", BotManagementArgs.builder()        
 //!             .enableJs(true)
@@ -118,7 +118,7 @@
 //!             .sbfmVerifiedBots("allow")
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
-//! 
+//!
 //!     }
 //! }
 //! ```
@@ -137,13 +137,13 @@
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //! ```
 //! <!--End PulumiCodeChooser -->
-//! 
+//!
 //! ## Import
-//! 
+//!
 //! ```sh
 //! $ pulumi import cloudflare:index/botManagement:BotManagement example <zone_id>
 //! ```
-//! 
+//!
 
 pub struct BotManagementArgs {
     /// Automatically update to the newest bot detection models created by Cloudflare as they are released. [Learn more.](https://developers.cloudflare.com/bots/reference/machine-learning-models#model-versions-and-release-notes).
@@ -197,19 +197,21 @@ pub struct BotManagementResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: BotManagementArgs) -> BotManagementResult {
-
-    let result = crate::bindings::pulumi::cloudflare::bot_management::invoke(name, &crate::bindings::pulumi::cloudflare::bot_management::Args {
-        auto_update_model: args.auto_update_model.get_inner(),
-        enable_js: args.enable_js.get_inner(),
-        fight_mode: args.fight_mode.get_inner(),
-        optimize_wordpress: args.optimize_wordpress.get_inner(),
-        sbfm_definitely_automated: args.sbfm_definitely_automated.get_inner(),
-        sbfm_likely_automated: args.sbfm_likely_automated.get_inner(),
-        sbfm_static_resource_protection: args.sbfm_static_resource_protection.get_inner(),
-        sbfm_verified_bots: args.sbfm_verified_bots.get_inner(),
-        suppress_session_score: args.suppress_session_score.get_inner(),
-        zone_id: args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::bot_management::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::bot_management::Args {
+            auto_update_model: args.auto_update_model.get_inner(),
+            enable_js: args.enable_js.get_inner(),
+            fight_mode: args.fight_mode.get_inner(),
+            optimize_wordpress: args.optimize_wordpress.get_inner(),
+            sbfm_definitely_automated: args.sbfm_definitely_automated.get_inner(),
+            sbfm_likely_automated: args.sbfm_likely_automated.get_inner(),
+            sbfm_static_resource_protection: args.sbfm_static_resource_protection.get_inner(),
+            sbfm_verified_bots: args.sbfm_verified_bots.get_inner(),
+            suppress_session_score: args.suppress_session_score.get_inner(),
+            zone_id: args.zone_id.get_inner(),
+        },
+    );
 
     BotManagementResult {
         auto_update_model: crate::into_domain(result.auto_update_model),

@@ -1,15 +1,15 @@
 //! The resource `random.RandomPet` generates random pet names that are intended to be used as unique identifiers for other resources.
-//! 
+//!
 //! This resource can be used in conjunction with resources that have the `create_before_destroy` lifecycle flag set, to avoid conflicts with unique names during the brief period where both the old and new resources exist concurrently.
-//! 
+//!
 //! ## Example Usage
-//! 
+//!
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as aws from "@pulumi/aws";
 //! import * as random from "@pulumi/random";
-//! 
+//!
 //! // The following example shows how to generate a unique pet name
 //! // for an AWS EC2 instance that changes each time a new AMI id is
 //! // selected.
@@ -29,7 +29,7 @@
 //! import pulumi
 //! import pulumi_aws as aws
 //! import pulumi_random as random
-//! 
+//!
 //! # The following example shows how to generate a unique pet name
 //! # for an AWS EC2 instance that changes each time a new AMI id is
 //! # selected.
@@ -50,44 +50,44 @@
 //! using Pulumi;
 //! using Aws = Pulumi.Aws;
 //! using Random = Pulumi.Random;
-//! 
-//! return await Deployment.RunAsync(() => 
+//!
+//! return await Deployment.RunAsync(() =>
 //! {
 //!     // The following example shows how to generate a unique pet name
 //!     // for an AWS EC2 instance that changes each time a new AMI id is
 //!     // selected.
 //!     var serverRandomPet = new Random.RandomPet("serverRandomPet", new()
 //!     {
-//!         Keepers = 
+//!         Keepers =
 //!         {
 //!             { "ami_id", @var.Ami_id },
 //!         },
 //!     });
-//! 
+//!
 //!     var serverInstance = new Aws.Ec2.Instance("serverInstance", new()
 //!     {
-//!         Tags = 
+//!         Tags =
 //!         {
 //!             { "Name", serverRandomPet.Id.Apply(id => $"web-server-{id}") },
 //!         },
 //!         Ami = serverRandomPet.Keepers.Apply(keepers => keepers?.AmiId),
 //!     });
-//! 
+//!
 //!     // ... (other aws_instance arguments) ...
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//! 
+//!
 //! import (
 //! 	"fmt"
-//! 
+//!
 //! 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
 //! 	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//! 
+//!
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		serverRandomPet, err := random.NewRandomPet(ctx, "serverRandomPet", &random.RandomPetArgs{
@@ -118,7 +118,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//! 
+//!
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -132,22 +132,22 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//! 
+//!
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//! 
+//!
 //!     public static void stack(Context ctx) {
 //!         var serverRandomPet = new RandomPet("serverRandomPet", RandomPetArgs.builder()        
 //!             .keepers(Map.of("ami_id", var_.ami_id()))
 //!             .build());
-//! 
+//!
 //!         var serverInstance = new Instance("serverInstance", InstanceArgs.builder()        
 //!             .tags(Map.of("Name", serverRandomPet.id().applyValue(id -> String.format("web-server-%s", id))))
 //!             .ami(serverRandomPet.keepers().applyValue(keepers -> keepers.amiId()))
 //!             .build());
-//! 
+//!
 //!     }
 //! }
 //! ```
@@ -198,13 +198,15 @@ pub struct RandomPetResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: RandomPetArgs) -> RandomPetResult {
-
-    let result = crate::bindings::pulumi::random::random_pet::invoke(name, &crate::bindings::pulumi::random::random_pet::Args {
-        keepers: args.keepers.get_inner(),
-        length: args.length.get_inner(),
-        prefix: args.prefix.get_inner(),
-        separator: args.separator.get_inner(),
-    });
+    let result = crate::bindings::pulumi::random::random_pet::invoke(
+        name,
+        &crate::bindings::pulumi::random::random_pet::Args {
+            keepers: args.keepers.get_inner(),
+            length: args.length.get_inner(),
+            prefix: args.prefix.get_inner(),
+            separator: args.separator.get_inner(),
+        },
+    );
 
     RandomPetResult {
         keepers: crate::into_domain(result.keepers),

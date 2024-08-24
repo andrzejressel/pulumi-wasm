@@ -2,61 +2,61 @@
 //! This resource manages the lifecycle of a Docker service. By default, the creation, update and delete of services are detached.
 //!  With the Converge Config Name of the service
 //! - `task_spec` (Block List, Min: 1, Max: 1) User modifiable task configuration (see below for nested schema)
-//! 
+//!
 //! ## Import
-//! 
+//!
 //! ### Example
-//! 
+//!
 //! Assuming you created a `service` as follows
-//! 
+//!
 //! #!/bin/bash
-//! 
+//!
 //! docker service create --name foo -p 8080:80 nginx
-//! 
+//!
 //! prints th ID
-//! 
+//!
 //! 4pcphbxkfn2rffhbhe6czytgi
-//! 
+//!
 //! you provide the definition for the resource as follows
-//! 
+//!
 //! terraform
-//! 
+//!
 //! resource "docker_service" "foo" {
-//! 
+//!
 //!   name = "foo"
-//! 
+//!
 //!   task_spec {
-//! 
+//!
 //!     container_spec {
-//! 
+//!
 //!       image = "nginx"
-//! 
+//!
 //!     }
-//! 
+//!
 //!   }
-//! 
+//!
 //!   endpoint_spec {
-//! 
+//!
 //!     ports {
-//! 
+//!
 //!       target_port    = "80"
-//! 
+//!
 //!       published_port = "8080"
-//! 
+//!
 //!     }
-//! 
+//!
 //!   }
-//! 
+//!
 //! }
-//! 
+//!
 //! then the import command is as follows
-//! 
+//!
 //! #!/bin/bash
-//! 
+//!
 //! ```sh
 //! $ pulumi import docker:index/service:Service foo 4pcphbxkfn2rffhbhe6czytgi
 //! ```
-//! 
+//!
 
 pub struct ServiceArgs {
     /// Configuration for the authentication for pulling the images of the service
@@ -104,18 +104,20 @@ pub struct ServiceResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: ServiceArgs) -> ServiceResult {
-
-    let result = crate::bindings::pulumi::docker::service::invoke(name, &crate::bindings::pulumi::docker::service::Args {
-        auth: args.auth.get_inner(),
-        converge_config: args.converge_config.get_inner(),
-        endpoint_spec: args.endpoint_spec.get_inner(),
-        labels: args.labels.get_inner(),
-        mode: args.mode.get_inner(),
-        name: args.name.get_inner(),
-        rollback_config: args.rollback_config.get_inner(),
-        task_spec: args.task_spec.get_inner(),
-        update_config: args.update_config.get_inner(),
-    });
+    let result = crate::bindings::pulumi::docker::service::invoke(
+        name,
+        &crate::bindings::pulumi::docker::service::Args {
+            auth: args.auth.get_inner(),
+            converge_config: args.converge_config.get_inner(),
+            endpoint_spec: args.endpoint_spec.get_inner(),
+            labels: args.labels.get_inner(),
+            mode: args.mode.get_inner(),
+            name: args.name.get_inner(),
+            rollback_config: args.rollback_config.get_inner(),
+            task_spec: args.task_spec.get_inner(),
+            update_config: args.update_config.get_inner(),
+        },
+    );
 
     ServiceResult {
         auth: crate::into_domain(result.auth),

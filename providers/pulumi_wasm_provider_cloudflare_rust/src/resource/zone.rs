@@ -1,17 +1,17 @@
 //! Provides a Cloudflare Zone resource. Zone is the basic resource for
 //! working with Cloudflare and is roughly equivalent to a domain name
 //! that the user purchases.
-//! 
+//!
 //! > If you are attempting to sign up a subdomain of a zone you must first have Subdomain Support entitlement for your account.
-//! 
+//!
 //! ## Example Usage
-//! 
+//!
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//! 
+//!
 //! const example = new cloudflare.Zone("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
 //!     zone: "example.com",
@@ -21,7 +21,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//! 
+//!
 //! example = cloudflare.Zone("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
 //!     zone="example.com")
@@ -32,26 +32,26 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
+//!
+//! return await Deployment.RunAsync(() =>
 //! {
 //!     var example = new Cloudflare.Zone("example", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
 //!         ZoneName = "example.com",
 //!     });
-//! 
+//!
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//! 
+//!
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//! 
+//!
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewZone(ctx, "example", &cloudflare.ZoneArgs{
@@ -68,7 +68,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//! 
+//!
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -80,18 +80,18 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//! 
+//!
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//! 
+//!
 //!     public static void stack(Context ctx) {
 //!         var example = new Zone("example", ZoneArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
 //!             .zone("example.com")
 //!             .build());
-//! 
+//!
 //!     }
 //! }
 //! ```
@@ -105,13 +105,13 @@
 //!       zone: example.com
 //! ```
 //! <!--End PulumiCodeChooser -->
-//! 
+//!
 //! ## Import
-//! 
+//!
 //! ```sh
 //! $ pulumi import cloudflare:index/zone:Zone example <zone_id>
 //! ```
-//! 
+//!
 
 pub struct ZoneArgs {
     /// Account ID to manage the zone resource in.
@@ -156,15 +156,17 @@ pub struct ZoneResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: ZoneArgs) -> ZoneResult {
-
-    let result = crate::bindings::pulumi::cloudflare::zone::invoke(name, &crate::bindings::pulumi::cloudflare::zone::Args {
-        account_id: args.account_id.get_inner(),
-        jump_start: args.jump_start.get_inner(),
-        paused: args.paused.get_inner(),
-        plan: args.plan.get_inner(),
-        type_: args.type_.get_inner(),
-        zone: args.zone.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::zone::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::zone::Args {
+            account_id: args.account_id.get_inner(),
+            jump_start: args.jump_start.get_inner(),
+            paused: args.paused.get_inner(),
+            plan: args.plan.get_inner(),
+            type_: args.type_.get_inner(),
+            zone: args.zone.get_inner(),
+        },
+    );
 
     ZoneResult {
         account_id: crate::into_domain(result.account_id),

@@ -1,19 +1,19 @@
 //! ## Example Usage
-//! 
+//!
 //! ## Import
-//! 
+//!
 //! Import an account-scoped job.
-//! 
+//!
 //! ```sh
 //! $ pulumi import cloudflare:index/logpushJob:LogpushJob example account/<account_id>/<job_id>
 //! ```
-//! 
+//!
 //! Import a zone-scoped job.
-//! 
+//!
 //! ```sh
 //! $ pulumi import cloudflare:index/logpushJob:LogpushJob example zone/<zone_id>/<job_id>
 //! ```
-//! 
+//!
 
 pub struct LogpushJobArgs {
     /// The account identifier to target for the resource. Must provide only one of `account_id`, `zone_id`.
@@ -85,24 +85,26 @@ pub struct LogpushJobResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: LogpushJobArgs) -> LogpushJobResult {
-
-    let result = crate::bindings::pulumi::cloudflare::logpush_job::invoke(name, &crate::bindings::pulumi::cloudflare::logpush_job::Args {
-        account_id: args.account_id.get_inner(),
-        dataset: args.dataset.get_inner(),
-        destination_conf: args.destination_conf.get_inner(),
-        enabled: args.enabled.get_inner(),
-        filter: args.filter.get_inner(),
-        frequency: args.frequency.get_inner(),
-        kind: args.kind.get_inner(),
-        logpull_options: args.logpull_options.get_inner(),
-        max_upload_bytes: args.max_upload_bytes.get_inner(),
-        max_upload_interval_seconds: args.max_upload_interval_seconds.get_inner(),
-        max_upload_records: args.max_upload_records.get_inner(),
-        name: args.name.get_inner(),
-        output_options: args.output_options.get_inner(),
-        ownership_challenge: args.ownership_challenge.get_inner(),
-        zone_id: args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::logpush_job::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::logpush_job::Args {
+            account_id: args.account_id.get_inner(),
+            dataset: args.dataset.get_inner(),
+            destination_conf: args.destination_conf.get_inner(),
+            enabled: args.enabled.get_inner(),
+            filter: args.filter.get_inner(),
+            frequency: args.frequency.get_inner(),
+            kind: args.kind.get_inner(),
+            logpull_options: args.logpull_options.get_inner(),
+            max_upload_bytes: args.max_upload_bytes.get_inner(),
+            max_upload_interval_seconds: args.max_upload_interval_seconds.get_inner(),
+            max_upload_records: args.max_upload_records.get_inner(),
+            name: args.name.get_inner(),
+            output_options: args.output_options.get_inner(),
+            ownership_challenge: args.ownership_challenge.get_inner(),
+            zone_id: args.zone_id.get_inner(),
+        },
+    );
 
     LogpushJobResult {
         account_id: crate::into_domain(result.account_id),

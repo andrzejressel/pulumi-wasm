@@ -1,15 +1,15 @@
 //! The [Cloudflare Managed Headers](https://developers.cloudflare.com/rules/transform/managed-transforms/)
 //! allows you to add or remove some predefined headers to one's
 //! requests or origin responses.
-//! 
+//!
 //! ## Example Usage
-//! 
+//!
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//! 
+//!
 //! // Enable security headers using Managed Meaders
 //! const example = new cloudflare.ManagedHeaders("example", {
 //!     managedRequestHeaders: [{
@@ -27,7 +27,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//! 
+//!
 //! # Enable security headers using Managed Meaders
 //! example = cloudflare.ManagedHeaders("example",
 //!     managed_request_headers=[cloudflare.ManagedHeadersManagedRequestHeaderArgs(
@@ -46,8 +46,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
+//!
+//! return await Deployment.RunAsync(() =>
 //! {
 //!     // Enable security headers using Managed Meaders
 //!     var example = new Cloudflare.ManagedHeaders("example", new()
@@ -70,18 +70,18 @@
 //!         },
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
-//! 
+//!
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//! 
+//!
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//! 
+//!
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		// Enable security headers using Managed Meaders
@@ -110,7 +110,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//! 
+//!
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -124,12 +124,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//! 
+//!
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//! 
+//!
 //!     public static void stack(Context ctx) {
 //!         // Enable security headers using Managed Meaders
 //!         var example = new ManagedHeaders("example", ManagedHeadersArgs.builder()        
@@ -143,7 +143,7 @@
 //!                 .build())
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
-//! 
+//!
 //!     }
 //! }
 //! ```
@@ -166,18 +166,22 @@
 
 pub struct ManagedHeadersArgs {
     /// The list of managed request headers.
-    pub managed_request_headers: pulumi_wasm_rust::Output<Option<Vec<crate::types::ManagedHeadersManagedRequestHeader>>>,
+    pub managed_request_headers:
+        pulumi_wasm_rust::Output<Option<Vec<crate::types::ManagedHeadersManagedRequestHeader>>>,
     /// The list of managed response headers.
-    pub managed_response_headers: pulumi_wasm_rust::Output<Option<Vec<crate::types::ManagedHeadersManagedResponseHeader>>>,
+    pub managed_response_headers:
+        pulumi_wasm_rust::Output<Option<Vec<crate::types::ManagedHeadersManagedResponseHeader>>>,
     /// The zone identifier to target for the resource.
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 
 pub struct ManagedHeadersResult {
     /// The list of managed request headers.
-    pub managed_request_headers: pulumi_wasm_rust::Output<Option<Vec<crate::types::ManagedHeadersManagedRequestHeader>>>,
+    pub managed_request_headers:
+        pulumi_wasm_rust::Output<Option<Vec<crate::types::ManagedHeadersManagedRequestHeader>>>,
     /// The list of managed response headers.
-    pub managed_response_headers: pulumi_wasm_rust::Output<Option<Vec<crate::types::ManagedHeadersManagedResponseHeader>>>,
+    pub managed_response_headers:
+        pulumi_wasm_rust::Output<Option<Vec<crate::types::ManagedHeadersManagedResponseHeader>>>,
     /// The zone identifier to target for the resource.
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
@@ -186,12 +190,14 @@ pub struct ManagedHeadersResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: ManagedHeadersArgs) -> ManagedHeadersResult {
-
-    let result = crate::bindings::pulumi::cloudflare::managed_headers::invoke(name, &crate::bindings::pulumi::cloudflare::managed_headers::Args {
-        managed_request_headers: args.managed_request_headers.get_inner(),
-        managed_response_headers: args.managed_response_headers.get_inner(),
-        zone_id: args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::managed_headers::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::managed_headers::Args {
+            managed_request_headers: args.managed_request_headers.get_inner(),
+            managed_response_headers: args.managed_response_headers.get_inner(),
+            zone_id: args.zone_id.get_inner(),
+        },
+    );
 
     ManagedHeadersResult {
         managed_request_headers: crate::into_domain(result.managed_request_headers),

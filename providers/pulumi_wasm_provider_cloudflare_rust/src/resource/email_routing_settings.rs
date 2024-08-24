@@ -1,13 +1,13 @@
 //! Provides a resource for managing Email Routing settings.
-//! 
+//!
 //! ## Example Usage
-//! 
+//!
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//! 
+//!
 //! const myZone = new cloudflare.EmailRoutingSettings("myZone", {
 //!     enabled: true,
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
@@ -17,7 +17,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//! 
+//!
 //! my_zone = cloudflare.EmailRoutingSettings("myZone",
 //!     enabled=True,
 //!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
@@ -28,26 +28,26 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
+//!
+//! return await Deployment.RunAsync(() =>
 //! {
 //!     var myZone = new Cloudflare.EmailRoutingSettings("myZone", new()
 //!     {
 //!         Enabled = true,
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
-//! 
+//!
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//! 
+//!
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//! 
+//!
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewEmailRoutingSettings(ctx, "myZone", &cloudflare.EmailRoutingSettingsArgs{
@@ -64,7 +64,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//! 
+//!
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -76,18 +76,18 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//! 
+//!
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//! 
+//!
 //!     public static void stack(Context ctx) {
 //!         var myZone = new EmailRoutingSettings("myZone", EmailRoutingSettingsArgs.builder()        
 //!             .enabled("true")
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
-//! 
+//!
 //!     }
 //! }
 //! ```
@@ -134,12 +134,14 @@ pub struct EmailRoutingSettingsResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: EmailRoutingSettingsArgs) -> EmailRoutingSettingsResult {
-
-    let result = crate::bindings::pulumi::cloudflare::email_routing_settings::invoke(name, &crate::bindings::pulumi::cloudflare::email_routing_settings::Args {
-        enabled: args.enabled.get_inner(),
-        skip_wizard: args.skip_wizard.get_inner(),
-        zone_id: args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::email_routing_settings::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::email_routing_settings::Args {
+            enabled: args.enabled.get_inner(),
+            skip_wizard: args.skip_wizard.get_inner(),
+            zone_id: args.zone_id.get_inner(),
+        },
+    );
 
     EmailRoutingSettingsResult {
         created: crate::into_domain(result.created),

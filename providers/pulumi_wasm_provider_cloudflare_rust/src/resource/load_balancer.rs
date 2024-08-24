@@ -3,15 +3,15 @@
 //! for geographically-aware load balancing. Note that the load balancing
 //! feature must be enabled in your Cloudflare account before you can use
 //! this resource.
-//! 
+//!
 //! ## Example Usage
-//! 
+//!
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//! 
+//!
 //! const exampleLoadBalancerPool = new cloudflare.LoadBalancerPool("exampleLoadBalancerPool", {
 //!     name: "example-lb-pool",
 //!     origins: [{
@@ -60,7 +60,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//! 
+//!
 //! example_load_balancer_pool = cloudflare.LoadBalancerPool("exampleLoadBalancerPool",
 //!     name="example-lb-pool",
 //!     origins=[cloudflare.LoadBalancerPoolOriginArgs(
@@ -109,8 +109,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
+//!
+//! return await Deployment.RunAsync(() =>
 //! {
 //!     var exampleLoadBalancerPool = new Cloudflare.LoadBalancerPool("exampleLoadBalancerPool", new()
 //!     {
@@ -125,7 +125,7 @@
 //!             },
 //!         },
 //!     });
-//! 
+//!
 //!     // Define a load balancer which always points to a pool we define below.
 //!     // In normal usage, would have different pools set for different pops
 //!     // (cloudflare points-of-presence) and/or for different regions.
@@ -191,18 +191,18 @@
 //!             },
 //!         },
 //!     });
-//! 
+//!
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//! 
+//!
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//! 
+//!
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		exampleLoadBalancerPool, err := cloudflare.NewLoadBalancerPool(ctx, "exampleLoadBalancerPool", &cloudflare.LoadBalancerPoolArgs{
@@ -279,7 +279,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//! 
+//!
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -299,12 +299,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//! 
+//!
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//! 
+//!
 //!     public static void stack(Context ctx) {
 //!         var exampleLoadBalancerPool = new LoadBalancerPool("exampleLoadBalancerPool", LoadBalancerPoolArgs.builder()        
 //!             .name("example-lb-pool")
@@ -314,7 +314,7 @@
 //!                 .enabled(false)
 //!                 .build())
 //!             .build());
-//! 
+//!
 //!         // Define a load balancer which always points to a pool we define below.
 //!         // In normal usage, would have different pools set for different pops
 //!         // (cloudflare points-of-presence) and/or for different regions.
@@ -350,7 +350,7 @@
 //!                     .build())
 //!                 .build())
 //!             .build());
-//! 
+//!
 //!     }
 //! }
 //! ```
@@ -402,17 +402,18 @@
 //!           enabled: false
 //! ```
 //! <!--End PulumiCodeChooser -->
-//! 
+//!
 //! ## Import
-//! 
+//!
 //! ```sh
 //! $ pulumi import cloudflare:index/loadBalancer:LoadBalancer example <zone_id>/<load_balancer_id>
 //! ```
-//! 
+//!
 
 pub struct LoadBalancerArgs {
     /// Controls features that modify the routing of requests to pools and origins in response to dynamic conditions, such as during the interval between active health monitoring requests.
-    pub adaptive_routings: pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerAdaptiveRouting>>>,
+    pub adaptive_routings:
+        pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerAdaptiveRouting>>>,
     /// A set containing mappings of country codes to a list of pool IDs (ordered by their failover priority) for the given country.
     pub country_pools: pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerCountryPool>>>,
     /// A list of pool IDs ordered by their failover priority. Used whenever `pop_pools`/`country_pools`/`region_pools` are not defined.
@@ -424,7 +425,8 @@ pub struct LoadBalancerArgs {
     /// The pool ID to use when all other pools are detected as unhealthy.
     pub fallback_pool_id: pulumi_wasm_rust::Output<String>,
     /// Controls location-based steering for non-proxied requests.
-    pub location_strategies: pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerLocationStrategy>>>,
+    pub location_strategies:
+        pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerLocationStrategy>>>,
     /// Human readable name for this rule.
     pub name: pulumi_wasm_rust::Output<String>,
     /// A set containing mappings of Cloudflare Point-of-Presence (PoP) identifiers to a list of pool IDs (ordered by their failover priority) for the PoP (datacenter). This feature is only available to enterprise customers.
@@ -432,7 +434,8 @@ pub struct LoadBalancerArgs {
     /// Whether the hostname gets Cloudflare's origin protection. Defaults to `false`. Conflicts with `ttl`.
     pub proxied: pulumi_wasm_rust::Output<Option<bool>>,
     /// Configures pool weights. When `steering_policy="random"`, a random pool is selected with probability proportional to pool weights. When `steering_policy="least_outstanding_requests"`, pool weights are used to scale each pool's outstanding requests. When `steering_policy="least_connections"`, pool weights are used to scale each pool's open connections.
-    pub random_steerings: pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerRandomSteering>>>,
+    pub random_steerings:
+        pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerRandomSteering>>>,
     /// A set containing mappings of region codes to a list of pool IDs (ordered by their failover priority) for the given region.
     pub region_pools: pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerRegionPool>>>,
     /// A list of rules for this load balancer to execute.
@@ -440,7 +443,8 @@ pub struct LoadBalancerArgs {
     /// Configure attributes for session affinity.
     pub session_affinity: pulumi_wasm_rust::Output<Option<String>>,
     /// Configure attributes for session affinity. Note that the property `drain_duration` is not currently supported as a rule override.
-    pub session_affinity_attributes: pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerSessionAffinityAttribute>>>,
+    pub session_affinity_attributes:
+        pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerSessionAffinityAttribute>>>,
     /// Time, in seconds, until this load balancer's session affinity cookie expires after being created. This parameter is ignored unless a supported session affinity policy is set. The current default of `82800` (23 hours) will be used unless `session_affinity_ttl` is explicitly set. Once the expiry time has been reached, subsequent requests may get sent to a different origin server. Valid values are between `1800` and `604800`.
     pub session_affinity_ttl: pulumi_wasm_rust::Output<Option<i32>>,
     /// The method the load balancer uses to determine the route to your origin. Value `off` uses `default_pool_ids`. Value `geo` uses `pop_pools`/`country_pools`/`region_pools`. For non-proxied requests, the `country` for `country_pools` is determined by `location_strategy`. Value `random` selects a pool randomly. Value `dynamic_latency` uses round trip time to select the closest pool in `default_pool_ids` (requires pool health checks). Value `proximity` uses the pools' latitude and longitude to select the closest pool using the Cloudflare PoP location for proxied requests or the location determined by `location_strategy` for non-proxied requests. Value `least_outstanding_requests` selects a pool by taking into consideration `random_steering` weights, as well as each pool's number of outstanding requests. Pools with more pending requests are weighted proportionately less relative to others. Value `least_connections` selects a pool by taking into consideration `random_steering` weights, as well as each pool's number of open connections. Pools with more open connections are weighted proportionately less relative to others. Supported for HTTP/1 and HTTP/2 connections. Value `""` maps to `geo` if you use `pop_pools`/`country_pools`/`region_pools` otherwise `off`. Available values: `off`, `geo`, `dynamic_latency`, `random`, `proximity`, `least_outstanding_requests`, `least_connections`, `""` Defaults to `""`.
@@ -453,7 +457,8 @@ pub struct LoadBalancerArgs {
 
 pub struct LoadBalancerResult {
     /// Controls features that modify the routing of requests to pools and origins in response to dynamic conditions, such as during the interval between active health monitoring requests.
-    pub adaptive_routings: pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerAdaptiveRouting>>>,
+    pub adaptive_routings:
+        pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerAdaptiveRouting>>>,
     /// A set containing mappings of country codes to a list of pool IDs (ordered by their failover priority) for the given country.
     pub country_pools: pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerCountryPool>>>,
     /// The RFC3339 timestamp of when the load balancer was created.
@@ -467,7 +472,8 @@ pub struct LoadBalancerResult {
     /// The pool ID to use when all other pools are detected as unhealthy.
     pub fallback_pool_id: pulumi_wasm_rust::Output<String>,
     /// Controls location-based steering for non-proxied requests.
-    pub location_strategies: pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerLocationStrategy>>>,
+    pub location_strategies:
+        pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerLocationStrategy>>>,
     /// The RFC3339 timestamp of when the load balancer was last modified.
     pub modified_on: pulumi_wasm_rust::Output<String>,
     /// Human readable name for this rule.
@@ -477,7 +483,8 @@ pub struct LoadBalancerResult {
     /// Whether the hostname gets Cloudflare's origin protection. Defaults to `false`. Conflicts with `ttl`.
     pub proxied: pulumi_wasm_rust::Output<Option<bool>>,
     /// Configures pool weights. When `steering_policy="random"`, a random pool is selected with probability proportional to pool weights. When `steering_policy="least_outstanding_requests"`, pool weights are used to scale each pool's outstanding requests. When `steering_policy="least_connections"`, pool weights are used to scale each pool's open connections.
-    pub random_steerings: pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerRandomSteering>>>,
+    pub random_steerings:
+        pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerRandomSteering>>>,
     /// A set containing mappings of region codes to a list of pool IDs (ordered by their failover priority) for the given region.
     pub region_pools: pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerRegionPool>>>,
     /// A list of rules for this load balancer to execute.
@@ -485,7 +492,8 @@ pub struct LoadBalancerResult {
     /// Configure attributes for session affinity.
     pub session_affinity: pulumi_wasm_rust::Output<Option<String>>,
     /// Configure attributes for session affinity. Note that the property `drain_duration` is not currently supported as a rule override.
-    pub session_affinity_attributes: pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerSessionAffinityAttribute>>>,
+    pub session_affinity_attributes:
+        pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerSessionAffinityAttribute>>>,
     /// Time, in seconds, until this load balancer's session affinity cookie expires after being created. This parameter is ignored unless a supported session affinity policy is set. The current default of `82800` (23 hours) will be used unless `session_affinity_ttl` is explicitly set. Once the expiry time has been reached, subsequent requests may get sent to a different origin server. Valid values are between `1800` and `604800`.
     pub session_affinity_ttl: pulumi_wasm_rust::Output<Option<i32>>,
     /// The method the load balancer uses to determine the route to your origin. Value `off` uses `default_pool_ids`. Value `geo` uses `pop_pools`/`country_pools`/`region_pools`. For non-proxied requests, the `country` for `country_pools` is determined by `location_strategy`. Value `random` selects a pool randomly. Value `dynamic_latency` uses round trip time to select the closest pool in `default_pool_ids` (requires pool health checks). Value `proximity` uses the pools' latitude and longitude to select the closest pool using the Cloudflare PoP location for proxied requests or the location determined by `location_strategy` for non-proxied requests. Value `least_outstanding_requests` selects a pool by taking into consideration `random_steering` weights, as well as each pool's number of outstanding requests. Pools with more pending requests are weighted proportionately less relative to others. Value `least_connections` selects a pool by taking into consideration `random_steering` weights, as well as each pool's number of open connections. Pools with more open connections are weighted proportionately less relative to others. Supported for HTTP/1 and HTTP/2 connections. Value `""` maps to `geo` if you use `pop_pools`/`country_pools`/`region_pools` otherwise `off`. Available values: `off`, `geo`, `dynamic_latency`, `random`, `proximity`, `least_outstanding_requests`, `least_connections`, `""` Defaults to `""`.
@@ -500,28 +508,30 @@ pub struct LoadBalancerResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: LoadBalancerArgs) -> LoadBalancerResult {
-
-    let result = crate::bindings::pulumi::cloudflare::load_balancer::invoke(name, &crate::bindings::pulumi::cloudflare::load_balancer::Args {
-        adaptive_routings: args.adaptive_routings.get_inner(),
-        country_pools: args.country_pools.get_inner(),
-        default_pool_ids: args.default_pool_ids.get_inner(),
-        description: args.description.get_inner(),
-        enabled: args.enabled.get_inner(),
-        fallback_pool_id: args.fallback_pool_id.get_inner(),
-        location_strategies: args.location_strategies.get_inner(),
-        name: args.name.get_inner(),
-        pop_pools: args.pop_pools.get_inner(),
-        proxied: args.proxied.get_inner(),
-        random_steerings: args.random_steerings.get_inner(),
-        region_pools: args.region_pools.get_inner(),
-        rules: args.rules.get_inner(),
-        session_affinity: args.session_affinity.get_inner(),
-        session_affinity_attributes: args.session_affinity_attributes.get_inner(),
-        session_affinity_ttl: args.session_affinity_ttl.get_inner(),
-        steering_policy: args.steering_policy.get_inner(),
-        ttl: args.ttl.get_inner(),
-        zone_id: args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::load_balancer::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::load_balancer::Args {
+            adaptive_routings: args.adaptive_routings.get_inner(),
+            country_pools: args.country_pools.get_inner(),
+            default_pool_ids: args.default_pool_ids.get_inner(),
+            description: args.description.get_inner(),
+            enabled: args.enabled.get_inner(),
+            fallback_pool_id: args.fallback_pool_id.get_inner(),
+            location_strategies: args.location_strategies.get_inner(),
+            name: args.name.get_inner(),
+            pop_pools: args.pop_pools.get_inner(),
+            proxied: args.proxied.get_inner(),
+            random_steerings: args.random_steerings.get_inner(),
+            region_pools: args.region_pools.get_inner(),
+            rules: args.rules.get_inner(),
+            session_affinity: args.session_affinity.get_inner(),
+            session_affinity_attributes: args.session_affinity_attributes.get_inner(),
+            session_affinity_ttl: args.session_affinity_ttl.get_inner(),
+            steering_policy: args.steering_policy.get_inner(),
+            ttl: args.ttl.get_inner(),
+            zone_id: args.zone_id.get_inner(),
+        },
+    );
 
     LoadBalancerResult {
         adaptive_routings: crate::into_domain(result.adaptive_routings),

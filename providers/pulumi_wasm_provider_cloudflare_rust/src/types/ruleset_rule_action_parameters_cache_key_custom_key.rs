@@ -11,7 +11,8 @@ pub struct RulesetRuleActionParametersCacheKeyCustomKey {
     pub r#host: Box<Option<crate::types::RulesetRuleActionParametersCacheKeyCustomKeyHost>>,
     /// Query string parameters for the custom key.
     #[serde(rename = "queryString")]
-    pub r#query_string: Box<Option<crate::types::RulesetRuleActionParametersCacheKeyCustomKeyQueryString>>,
+    pub r#query_string:
+        Box<Option<crate::types::RulesetRuleActionParametersCacheKeyCustomKeyQueryString>>,
     /// User parameters for the custom key.
     #[serde(rename = "user")]
     pub r#user: Box<Option<crate::types::RulesetRuleActionParametersCacheKeyCustomKeyUser>>,

@@ -1,13 +1,13 @@
 //! Provides a resource, that manages Keyless certificates.
-//! 
+//!
 //! ## Example Usage
-//! 
+//!
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//! 
+//!
 //! const example = new cloudflare.KeylessCertificate("example", {
 //!     bundleMethod: "ubiquitous",
 //!     certificate: "-----INSERT CERTIFICATE-----",
@@ -22,7 +22,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//! 
+//!
 //! example = cloudflare.KeylessCertificate("example",
 //!     bundle_method="ubiquitous",
 //!     certificate="-----INSERT CERTIFICATE-----",
@@ -38,8 +38,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
+//!
+//! return await Deployment.RunAsync(() =>
 //! {
 //!     var example = new Cloudflare.KeylessCertificate("example", new()
 //!     {
@@ -51,18 +51,18 @@
 //!         Port = 24008,
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
-//! 
+//!
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//! 
+//!
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//! 
+//!
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewKeylessCertificate(ctx, "example", &cloudflare.KeylessCertificateArgs{
@@ -84,7 +84,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//! 
+//!
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -96,12 +96,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//! 
+//!
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//! 
+//!
 //!     public static void stack(Context ctx) {
 //!         var example = new KeylessCertificate("example", KeylessCertificateArgs.builder()        
 //!             .bundleMethod("ubiquitous")
@@ -112,7 +112,7 @@
 //!             .port(24008)
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
-//! 
+//!
 //!     }
 //! }
 //! ```
@@ -131,13 +131,13 @@
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //! ```
 //! <!--End PulumiCodeChooser -->
-//! 
+//!
 //! ## Import
-//! 
+//!
 //! ```sh
 //! $ pulumi import cloudflare:index/keylessCertificate:KeylessCertificate example <zone_id>/<keyless_certificate_id>
 //! ```
-//! 
+//!
 
 pub struct KeylessCertificateArgs {
     /// A ubiquitous bundle has the highest probability of being verified everywhere, even by clients using outdated or unusual trust stores. An optimal bundle uses the shortest chain and newest intermediates. And the force bundle verifies the chain, but does not otherwise modify it. Available values: `ubiquitous`, `optimal`, `force`. Defaults to `ubiquitous`. **Modifying this attribute will force creation of a new resource.**
@@ -179,16 +179,18 @@ pub struct KeylessCertificateResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: KeylessCertificateArgs) -> KeylessCertificateResult {
-
-    let result = crate::bindings::pulumi::cloudflare::keyless_certificate::invoke(name, &crate::bindings::pulumi::cloudflare::keyless_certificate::Args {
-        bundle_method: args.bundle_method.get_inner(),
-        certificate: args.certificate.get_inner(),
-        enabled: args.enabled.get_inner(),
-        host: args.host.get_inner(),
-        name: args.name.get_inner(),
-        port: args.port.get_inner(),
-        zone_id: args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::keyless_certificate::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::keyless_certificate::Args {
+            bundle_method: args.bundle_method.get_inner(),
+            certificate: args.certificate.get_inner(),
+            enabled: args.enabled.get_inner(),
+            host: args.host.get_inner(),
+            name: args.name.get_inner(),
+            port: args.port.get_inner(),
+            zone_id: args.zone_id.get_inner(),
+        },
+    );
 
     KeylessCertificateResult {
         bundle_method: crate::into_domain(result.bundle_method),

@@ -1,13 +1,13 @@
 //! Provides a Cloudflare per-hostname TLS setting resource, specifically for ciphers suites. Used to set ciphers suites for hostnames under the specified zone.
-//! 
+//!
 //! ## Example Usage
-//! 
+//!
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//! 
+//!
 //! const example = new cloudflare.HostnameTlsSettingCiphers("example", {
 //!     hostname: "sub.example.com",
 //!     values: ["ECDHE-RSA-AES128-GCM-SHA256"],
@@ -18,7 +18,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//! 
+//!
 //! example = cloudflare.HostnameTlsSettingCiphers("example",
 //!     hostname="sub.example.com",
 //!     values=["ECDHE-RSA-AES128-GCM-SHA256"],
@@ -30,8 +30,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
+//!
+//! return await Deployment.RunAsync(() =>
 //! {
 //!     var example = new Cloudflare.HostnameTlsSettingCiphers("example", new()
 //!     {
@@ -42,18 +42,18 @@
 //!         },
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
-//! 
+//!
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//! 
+//!
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//! 
+//!
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewHostnameTlsSettingCiphers(ctx, "example", &cloudflare.HostnameTlsSettingCiphersArgs{
@@ -73,7 +73,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//! 
+//!
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -85,19 +85,19 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//! 
+//!
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//! 
+//!
 //!     public static void stack(Context ctx) {
 //!         var example = new HostnameTlsSettingCiphers("example", HostnameTlsSettingCiphersArgs.builder()        
 //!             .hostname("sub.example.com")
 //!             .values("ECDHE-RSA-AES128-GCM-SHA256")
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
-//! 
+//!
 //!     }
 //! }
 //! ```
@@ -113,13 +113,13 @@
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //! ```
 //! <!--End PulumiCodeChooser -->
-//! 
+//!
 //! ## Import
-//! 
+//!
 //! ```sh
 //! $ pulumi import cloudflare:index/hostnameTlsSettingCiphers:HostnameTlsSettingCiphers example <zone_id>/<hostname>
 //! ```
-//! 
+//!
 
 pub struct HostnameTlsSettingCiphersArgs {
     /// Hostname that belongs to this zone name. **Modifying this attribute will force creation of a new resource.**
@@ -149,13 +149,15 @@ pub struct HostnameTlsSettingCiphersResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: HostnameTlsSettingCiphersArgs) -> HostnameTlsSettingCiphersResult {
-
-    let result = crate::bindings::pulumi::cloudflare::hostname_tls_setting_ciphers::invoke(name, &crate::bindings::pulumi::cloudflare::hostname_tls_setting_ciphers::Args {
-        hostname: args.hostname.get_inner(),
-        ports: args.ports.get_inner(),
-        values: args.values.get_inner(),
-        zone_id: args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::hostname_tls_setting_ciphers::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::hostname_tls_setting_ciphers::Args {
+            hostname: args.hostname.get_inner(),
+            ports: args.ports.get_inner(),
+            values: args.values.get_inner(),
+            zone_id: args.zone_id.get_inner(),
+        },
+    );
 
     HostnameTlsSettingCiphersResult {
         created_at: crate::into_domain(result.created_at),

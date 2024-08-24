@@ -1,21 +1,21 @@
 //! Provides a Cloudflare Access Application resource. Access
 //! Applications are used to restrict access to a whole application using an
 //! authorisation gateway managed by Cloudflare.
-//! 
+//!
 //! > It's required that an `account_id` or `zone_id` is provided and in
 //!    most cases using either is fine. However, if you're using a scoped
 //!    access token, you must provide the argument that matches the token's
 //!    scope. For example, an access token that is scoped to the "example.com"
 //!    zone needs to use the `zone_id` argument.
-//! 
+//!
 //! ## Example Usage
-//! 
+//!
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//! 
+//!
 //! // With CORS configuration
 //! const stagingApp = new cloudflare.AccessApplication("stagingApp", {
 //!     corsHeaders: [{
@@ -39,7 +39,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//! 
+//!
 //! # With CORS configuration
 //! staging_app = cloudflare.AccessApplication("stagingApp",
 //!     cors_headers=[cloudflare.AccessApplicationCorsHeaderArgs(
@@ -64,8 +64,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
+//!
+//! return await Deployment.RunAsync(() =>
 //! {
 //!     // With CORS configuration
 //!     var stagingApp = new Cloudflare.AccessApplication("stagingApp", new()
@@ -94,18 +94,18 @@
 //!         Type = "self_hosted",
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
-//! 
+//!
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//! 
+//!
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//! 
+//!
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		// With CORS configuration
@@ -140,7 +140,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//! 
+//!
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -153,12 +153,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//! 
+//!
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//! 
+//!
 //!     public static void stack(Context ctx) {
 //!         // With CORS configuration
 //!         var stagingApp = new AccessApplication("stagingApp", AccessApplicationArgs.builder()        
@@ -177,7 +177,7 @@
 //!             .type("self_hosted")
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
-//! 
+//!
 //!     }
 //! }
 //! ```
@@ -204,13 +204,13 @@
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //! ```
 //! <!--End PulumiCodeChooser -->
-//! 
+//!
 //! ## Import
-//! 
+//!
 //! ```sh
 //! $ pulumi import cloudflare:index/accessApplication:AccessApplication example <account_id>/<application_id>
 //! ```
-//! 
+//!
 
 pub struct AccessApplicationArgs {
     /// The account identifier to target for the resource. Conflicts with `zone_id`.
@@ -228,7 +228,8 @@ pub struct AccessApplicationArgs {
     /// The background color of the app launcher.
     pub bg_color: pulumi_wasm_rust::Output<Option<String>>,
     /// CORS configuration for the Access Application. See below for reference structure.
-    pub cors_headers: pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessApplicationCorsHeader>>>,
+    pub cors_headers:
+        pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessApplicationCorsHeader>>>,
     /// Option that returns a custom error message when a user is denied access to the application.
     pub custom_deny_message: pulumi_wasm_rust::Output<Option<String>>,
     /// Option that redirects to a custom URL when a user is denied access to the application via identity based rules.
@@ -242,13 +243,15 @@ pub struct AccessApplicationArgs {
     /// Option to provide increased security against compromised authorization tokens and CSRF attacks by requiring an additional "binding" cookie on requests. Defaults to `false`.
     pub enable_binding_cookie: pulumi_wasm_rust::Output<Option<bool>>,
     /// The footer links of the app launcher.
-    pub footer_links: pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessApplicationFooterLink>>>,
+    pub footer_links:
+        pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessApplicationFooterLink>>>,
     /// The background color of the header bar in the app launcher.
     pub header_bg_color: pulumi_wasm_rust::Output<Option<String>>,
     /// Option to add the `HttpOnly` cookie flag to access tokens.
     pub http_only_cookie_attribute: pulumi_wasm_rust::Output<Option<bool>>,
     /// The landing page design of the app launcher.
-    pub landing_page_design: pulumi_wasm_rust::Output<Option<crate::types::AccessApplicationLandingPageDesign>>,
+    pub landing_page_design:
+        pulumi_wasm_rust::Output<Option<crate::types::AccessApplicationLandingPageDesign>>,
     /// Image URL for the logo shown in the app launcher dashboard.
     pub logo_url: pulumi_wasm_rust::Output<Option<String>>,
     /// The name of the footer link.
@@ -291,7 +294,8 @@ pub struct AccessApplicationResult {
     /// The background color of the app launcher.
     pub bg_color: pulumi_wasm_rust::Output<Option<String>>,
     /// CORS configuration for the Access Application. See below for reference structure.
-    pub cors_headers: pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessApplicationCorsHeader>>>,
+    pub cors_headers:
+        pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessApplicationCorsHeader>>>,
     /// Option that returns a custom error message when a user is denied access to the application.
     pub custom_deny_message: pulumi_wasm_rust::Output<Option<String>>,
     /// Option that redirects to a custom URL when a user is denied access to the application via identity based rules.
@@ -305,13 +309,15 @@ pub struct AccessApplicationResult {
     /// Option to provide increased security against compromised authorization tokens and CSRF attacks by requiring an additional "binding" cookie on requests. Defaults to `false`.
     pub enable_binding_cookie: pulumi_wasm_rust::Output<Option<bool>>,
     /// The footer links of the app launcher.
-    pub footer_links: pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessApplicationFooterLink>>>,
+    pub footer_links:
+        pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessApplicationFooterLink>>>,
     /// The background color of the header bar in the app launcher.
     pub header_bg_color: pulumi_wasm_rust::Output<Option<String>>,
     /// Option to add the `HttpOnly` cookie flag to access tokens.
     pub http_only_cookie_attribute: pulumi_wasm_rust::Output<Option<bool>>,
     /// The landing page design of the app launcher.
-    pub landing_page_design: pulumi_wasm_rust::Output<Option<crate::types::AccessApplicationLandingPageDesign>>,
+    pub landing_page_design:
+        pulumi_wasm_rust::Output<Option<crate::types::AccessApplicationLandingPageDesign>>,
     /// Image URL for the logo shown in the app launcher dashboard.
     pub logo_url: pulumi_wasm_rust::Output<Option<String>>,
     /// The name of the footer link.
@@ -340,38 +346,40 @@ pub struct AccessApplicationResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: AccessApplicationArgs) -> AccessApplicationResult {
-
-    let result = crate::bindings::pulumi::cloudflare::access_application::invoke(name, &crate::bindings::pulumi::cloudflare::access_application::Args {
-        account_id: args.account_id.get_inner(),
-        allow_authenticate_via_warp: args.allow_authenticate_via_warp.get_inner(),
-        allowed_idps: args.allowed_idps.get_inner(),
-        app_launcher_logo_url: args.app_launcher_logo_url.get_inner(),
-        app_launcher_visible: args.app_launcher_visible.get_inner(),
-        auto_redirect_to_identity: args.auto_redirect_to_identity.get_inner(),
-        bg_color: args.bg_color.get_inner(),
-        cors_headers: args.cors_headers.get_inner(),
-        custom_deny_message: args.custom_deny_message.get_inner(),
-        custom_deny_url: args.custom_deny_url.get_inner(),
-        custom_non_identity_deny_url: args.custom_non_identity_deny_url.get_inner(),
-        custom_pages: args.custom_pages.get_inner(),
-        domain: args.domain.get_inner(),
-        enable_binding_cookie: args.enable_binding_cookie.get_inner(),
-        footer_links: args.footer_links.get_inner(),
-        header_bg_color: args.header_bg_color.get_inner(),
-        http_only_cookie_attribute: args.http_only_cookie_attribute.get_inner(),
-        landing_page_design: args.landing_page_design.get_inner(),
-        logo_url: args.logo_url.get_inner(),
-        name: args.name.get_inner(),
-        saas_app: args.saas_app.get_inner(),
-        same_site_cookie_attribute: args.same_site_cookie_attribute.get_inner(),
-        self_hosted_domains: args.self_hosted_domains.get_inner(),
-        service_auth401_redirect: args.service_auth401_redirect.get_inner(),
-        session_duration: args.session_duration.get_inner(),
-        skip_interstitial: args.skip_interstitial.get_inner(),
-        tags: args.tags.get_inner(),
-        type_: args.type_.get_inner(),
-        zone_id: args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::access_application::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::access_application::Args {
+            account_id: args.account_id.get_inner(),
+            allow_authenticate_via_warp: args.allow_authenticate_via_warp.get_inner(),
+            allowed_idps: args.allowed_idps.get_inner(),
+            app_launcher_logo_url: args.app_launcher_logo_url.get_inner(),
+            app_launcher_visible: args.app_launcher_visible.get_inner(),
+            auto_redirect_to_identity: args.auto_redirect_to_identity.get_inner(),
+            bg_color: args.bg_color.get_inner(),
+            cors_headers: args.cors_headers.get_inner(),
+            custom_deny_message: args.custom_deny_message.get_inner(),
+            custom_deny_url: args.custom_deny_url.get_inner(),
+            custom_non_identity_deny_url: args.custom_non_identity_deny_url.get_inner(),
+            custom_pages: args.custom_pages.get_inner(),
+            domain: args.domain.get_inner(),
+            enable_binding_cookie: args.enable_binding_cookie.get_inner(),
+            footer_links: args.footer_links.get_inner(),
+            header_bg_color: args.header_bg_color.get_inner(),
+            http_only_cookie_attribute: args.http_only_cookie_attribute.get_inner(),
+            landing_page_design: args.landing_page_design.get_inner(),
+            logo_url: args.logo_url.get_inner(),
+            name: args.name.get_inner(),
+            saas_app: args.saas_app.get_inner(),
+            same_site_cookie_attribute: args.same_site_cookie_attribute.get_inner(),
+            self_hosted_domains: args.self_hosted_domains.get_inner(),
+            service_auth401_redirect: args.service_auth401_redirect.get_inner(),
+            session_duration: args.session_duration.get_inner(),
+            skip_interstitial: args.skip_interstitial.get_inner(),
+            tags: args.tags.get_inner(),
+            type_: args.type_.get_inner(),
+            zone_id: args.zone_id.get_inner(),
+        },
+    );
 
     AccessApplicationResult {
         account_id: crate::into_domain(result.account_id),

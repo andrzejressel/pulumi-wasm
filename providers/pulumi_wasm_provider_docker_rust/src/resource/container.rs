@@ -1,14 +1,14 @@
 //! <!-- Bug: Type and Name are switched -->
 //! Manages the lifecycle of a Docker container.
-//! 
+//!
 //! ## Example Usage
-//! 
+//!
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as docker from "@pulumi/docker";
-//! 
+//!
 //! // Find the latest Ubuntu precise image.
 //! const ubuntuRemoteImage = new docker.RemoteImage("ubuntuRemoteImage", {name: "ubuntu:precise"});
 //! // Start a container
@@ -18,7 +18,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_docker as docker
-//! 
+//!
 //! # Find the latest Ubuntu precise image.
 //! ubuntu_remote_image = docker.RemoteImage("ubuntuRemoteImage", name="ubuntu:precise")
 //! # Start a container
@@ -30,32 +30,32 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Docker = Pulumi.Docker;
-//! 
-//! return await Deployment.RunAsync(() => 
+//!
+//! return await Deployment.RunAsync(() =>
 //! {
 //!     // Find the latest Ubuntu precise image.
 //!     var ubuntuRemoteImage = new Docker.RemoteImage("ubuntuRemoteImage", new()
 //!     {
 //!         Name = "ubuntu:precise",
 //!     });
-//! 
+//!
 //!     // Start a container
 //!     var ubuntuContainer = new Docker.Container("ubuntuContainer", new()
 //!     {
 //!         Image = ubuntuRemoteImage.ImageId,
 //!     });
-//! 
+//!
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//! 
+//!
 //! import (
 //! 	"github.com/pulumi/pulumi-docker/sdk/v4/go/docker"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//! 
+//!
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		// Find the latest Ubuntu precise image.
@@ -79,7 +79,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//! 
+//!
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -93,21 +93,21 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//! 
+//!
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//! 
+//!
 //!     public static void stack(Context ctx) {
 //!         var ubuntuRemoteImage = new RemoteImage("ubuntuRemoteImage", RemoteImageArgs.builder()        
 //!             .name("ubuntu:precise")
 //!             .build());
-//! 
+//!
 //!         var ubuntuContainer = new Container("ubuntuContainer", ContainerArgs.builder()        
 //!             .image(ubuntuRemoteImage.imageId())
 //!             .build());
-//! 
+//!
 //!     }
 //! }
 //! ```
@@ -126,49 +126,49 @@
 //!       name: ubuntu:precise
 //! ```
 //! <!--End PulumiCodeChooser -->
-//! 
+//!
 //! ## Import
-//! 
+//!
 //! ### Example
-//! 
+//!
 //! Assuming you created a `container` as follows
-//! 
+//!
 //! #!/bin/bash
-//! 
-//! docker run --name foo -p8080:80 -d nginx 
-//! 
-//! prints the container ID 
-//! 
+//!
+//! docker run --name foo -p8080:80 -d nginx
+//!
+//! prints the container ID
+//!
 //! 9a550c0f0163d39d77222d3efd58701b625d47676c25c686c95b5b92d1cba6fd
-//! 
+//!
 //! you provide the definition for the resource as follows
-//! 
+//!
 //! terraform
-//! 
+//!
 //! resource "docker_container" "foo" {
-//! 
+//!
 //!   name  = "foo"
-//! 
+//!
 //!   image = "nginx"
-//! 
+//!
 //!   ports {
-//! 
+//!
 //!     internal = "80"
-//! 
+//!
 //!     external = "8080"
-//! 
+//!
 //!   }
-//! 
+//!
 //! }
-//! 
+//!
 //! then the import command is as follows
-//! 
+//!
 //! #!/bin/bash
-//! 
+//!
 //! ```sh
 //! $ pulumi import docker:index/container:Container foo 9a550c0f0163d39d77222d3efd58701b625d47676c25c686c95b5b92d1cba6fd
 //! ```
-//! 
+//!
 
 pub struct ContainerArgs {
     /// If `true` attach to the container after its creation and waits the end of its execution. Defaults to `false`.
@@ -241,7 +241,8 @@ pub struct ContainerArgs {
     /// Network mode of the container.
     pub network_mode: pulumi_wasm_rust::Output<Option<String>>,
     /// The networks the container is attached to
-    pub networks_advanced: pulumi_wasm_rust::Output<Option<Vec<crate::types::ContainerNetworksAdvanced>>>,
+    pub networks_advanced:
+        pulumi_wasm_rust::Output<Option<Vec<crate::types::ContainerNetworksAdvanced>>>,
     /// he PID (Process) Namespace mode for the container. Either `container:<name|id>` or `host`.
     pub pid_mode: pulumi_wasm_rust::Output<Option<String>>,
     /// Publish a container's port(s) to the host.
@@ -377,7 +378,8 @@ pub struct ContainerResult {
     /// Network mode of the container.
     pub network_mode: pulumi_wasm_rust::Output<Option<String>>,
     /// The networks the container is attached to
-    pub networks_advanced: pulumi_wasm_rust::Output<Option<Vec<crate::types::ContainerNetworksAdvanced>>>,
+    pub networks_advanced:
+        pulumi_wasm_rust::Output<Option<Vec<crate::types::ContainerNetworksAdvanced>>>,
     /// he PID (Process) Namespace mode for the container. Either `container:<name|id>` or `host`.
     pub pid_mode: pulumi_wasm_rust::Output<Option<String>>,
     /// Publish a container's port(s) to the host.
@@ -438,71 +440,75 @@ pub struct ContainerResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: ContainerArgs) -> ContainerResult {
-
-    let result = crate::bindings::pulumi::docker::container::invoke(name, &crate::bindings::pulumi::docker::container::Args {
-        attach: args.attach.get_inner(),
-        capabilities: args.capabilities.get_inner(),
-        cgroupns_mode: args.cgroupns_mode.get_inner(),
-        command: args.command.get_inner(),
-        container_read_refresh_timeout_milliseconds: args.container_read_refresh_timeout_milliseconds.get_inner(),
-        cpu_set: args.cpu_set.get_inner(),
-        cpu_shares: args.cpu_shares.get_inner(),
-        destroy_grace_seconds: args.destroy_grace_seconds.get_inner(),
-        devices: args.devices.get_inner(),
-        dns: args.dns.get_inner(),
-        dns_opts: args.dns_opts.get_inner(),
-        dns_searches: args.dns_searches.get_inner(),
-        domainname: args.domainname.get_inner(),
-        entrypoints: args.entrypoints.get_inner(),
-        envs: args.envs.get_inner(),
-        gpus: args.gpus.get_inner(),
-        group_adds: args.group_adds.get_inner(),
-        healthcheck: args.healthcheck.get_inner(),
-        hostname: args.hostname.get_inner(),
-        hosts: args.hosts.get_inner(),
-        image: args.image.get_inner(),
-        init: args.init.get_inner(),
-        ipc_mode: args.ipc_mode.get_inner(),
-        labels: args.labels.get_inner(),
-        log_driver: args.log_driver.get_inner(),
-        log_opts: args.log_opts.get_inner(),
-        logs: args.logs.get_inner(),
-        max_retry_count: args.max_retry_count.get_inner(),
-        memory: args.memory.get_inner(),
-        memory_swap: args.memory_swap.get_inner(),
-        mounts: args.mounts.get_inner(),
-        must_run: args.must_run.get_inner(),
-        name: args.name.get_inner(),
-        network_mode: args.network_mode.get_inner(),
-        networks_advanced: args.networks_advanced.get_inner(),
-        pid_mode: args.pid_mode.get_inner(),
-        ports: args.ports.get_inner(),
-        privileged: args.privileged.get_inner(),
-        publish_all_ports: args.publish_all_ports.get_inner(),
-        read_only: args.read_only.get_inner(),
-        remove_volumes: args.remove_volumes.get_inner(),
-        restart: args.restart.get_inner(),
-        rm: args.rm.get_inner(),
-        runtime: args.runtime.get_inner(),
-        security_opts: args.security_opts.get_inner(),
-        shm_size: args.shm_size.get_inner(),
-        start: args.start.get_inner(),
-        stdin_open: args.stdin_open.get_inner(),
-        stop_signal: args.stop_signal.get_inner(),
-        stop_timeout: args.stop_timeout.get_inner(),
-        storage_opts: args.storage_opts.get_inner(),
-        sysctls: args.sysctls.get_inner(),
-        tmpfs: args.tmpfs.get_inner(),
-        tty: args.tty.get_inner(),
-        ulimits: args.ulimits.get_inner(),
-        uploads: args.uploads.get_inner(),
-        user: args.user.get_inner(),
-        userns_mode: args.userns_mode.get_inner(),
-        volumes: args.volumes.get_inner(),
-        wait: args.wait.get_inner(),
-        wait_timeout: args.wait_timeout.get_inner(),
-        working_dir: args.working_dir.get_inner(),
-    });
+    let result = crate::bindings::pulumi::docker::container::invoke(
+        name,
+        &crate::bindings::pulumi::docker::container::Args {
+            attach: args.attach.get_inner(),
+            capabilities: args.capabilities.get_inner(),
+            cgroupns_mode: args.cgroupns_mode.get_inner(),
+            command: args.command.get_inner(),
+            container_read_refresh_timeout_milliseconds: args
+                .container_read_refresh_timeout_milliseconds
+                .get_inner(),
+            cpu_set: args.cpu_set.get_inner(),
+            cpu_shares: args.cpu_shares.get_inner(),
+            destroy_grace_seconds: args.destroy_grace_seconds.get_inner(),
+            devices: args.devices.get_inner(),
+            dns: args.dns.get_inner(),
+            dns_opts: args.dns_opts.get_inner(),
+            dns_searches: args.dns_searches.get_inner(),
+            domainname: args.domainname.get_inner(),
+            entrypoints: args.entrypoints.get_inner(),
+            envs: args.envs.get_inner(),
+            gpus: args.gpus.get_inner(),
+            group_adds: args.group_adds.get_inner(),
+            healthcheck: args.healthcheck.get_inner(),
+            hostname: args.hostname.get_inner(),
+            hosts: args.hosts.get_inner(),
+            image: args.image.get_inner(),
+            init: args.init.get_inner(),
+            ipc_mode: args.ipc_mode.get_inner(),
+            labels: args.labels.get_inner(),
+            log_driver: args.log_driver.get_inner(),
+            log_opts: args.log_opts.get_inner(),
+            logs: args.logs.get_inner(),
+            max_retry_count: args.max_retry_count.get_inner(),
+            memory: args.memory.get_inner(),
+            memory_swap: args.memory_swap.get_inner(),
+            mounts: args.mounts.get_inner(),
+            must_run: args.must_run.get_inner(),
+            name: args.name.get_inner(),
+            network_mode: args.network_mode.get_inner(),
+            networks_advanced: args.networks_advanced.get_inner(),
+            pid_mode: args.pid_mode.get_inner(),
+            ports: args.ports.get_inner(),
+            privileged: args.privileged.get_inner(),
+            publish_all_ports: args.publish_all_ports.get_inner(),
+            read_only: args.read_only.get_inner(),
+            remove_volumes: args.remove_volumes.get_inner(),
+            restart: args.restart.get_inner(),
+            rm: args.rm.get_inner(),
+            runtime: args.runtime.get_inner(),
+            security_opts: args.security_opts.get_inner(),
+            shm_size: args.shm_size.get_inner(),
+            start: args.start.get_inner(),
+            stdin_open: args.stdin_open.get_inner(),
+            stop_signal: args.stop_signal.get_inner(),
+            stop_timeout: args.stop_timeout.get_inner(),
+            storage_opts: args.storage_opts.get_inner(),
+            sysctls: args.sysctls.get_inner(),
+            tmpfs: args.tmpfs.get_inner(),
+            tty: args.tty.get_inner(),
+            ulimits: args.ulimits.get_inner(),
+            uploads: args.uploads.get_inner(),
+            user: args.user.get_inner(),
+            userns_mode: args.userns_mode.get_inner(),
+            volumes: args.volumes.get_inner(),
+            wait: args.wait.get_inner(),
+            wait_timeout: args.wait_timeout.get_inner(),
+            working_dir: args.working_dir.get_inner(),
+        },
+    );
 
     ContainerResult {
         attach: crate::into_domain(result.attach),
@@ -511,7 +517,9 @@ pub fn create(name: &str, args: ContainerArgs) -> ContainerResult {
         cgroupns_mode: crate::into_domain(result.cgroupns_mode),
         command: crate::into_domain(result.command),
         container_logs: crate::into_domain(result.container_logs),
-        container_read_refresh_timeout_milliseconds: crate::into_domain(result.container_read_refresh_timeout_milliseconds),
+        container_read_refresh_timeout_milliseconds: crate::into_domain(
+            result.container_read_refresh_timeout_milliseconds,
+        ),
         cpu_set: crate::into_domain(result.cpu_set),
         cpu_shares: crate::into_domain(result.cpu_shares),
         destroy_grace_seconds: crate::into_domain(result.destroy_grace_seconds),

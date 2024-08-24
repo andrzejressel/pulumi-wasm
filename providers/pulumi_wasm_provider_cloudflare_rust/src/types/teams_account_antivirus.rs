@@ -11,5 +11,6 @@ pub struct TeamsAccountAntivirus {
     pub r#fail_closed: Box<bool>,
     /// Set notifications for antivirus.
     #[serde(rename = "notificationSettings")]
-    pub r#notification_settings: Box<Option<crate::types::TeamsAccountAntivirusNotificationSettings>>,
+    pub r#notification_settings:
+        Box<Option<crate::types::TeamsAccountAntivirusNotificationSettings>>,
 }
