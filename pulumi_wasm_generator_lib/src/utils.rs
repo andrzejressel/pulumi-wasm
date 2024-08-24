@@ -1,4 +1,3 @@
-use itertools::Itertools;
 use regex::Regex;
 
 pub(crate) fn replace_multiple_dashes(s: &str) -> String {
