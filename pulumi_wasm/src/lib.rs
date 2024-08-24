@@ -92,7 +92,7 @@ impl stack_interface::Guest for Component {
 impl output_interface::Guest for Component {
     type Output = CustomOutputId;
 
-    fn combine(outputs: Vec<Output>) -> Output {
+    fn combine(outputs: Vec<OutputBorrow>) -> Output {
         pulumi_wasm_common::setup_logger();
         let refcell: &RefCell<Engine> = &get_pulumi_engine();
         let output_id = refcell.borrow_mut().create_combine_outputs(

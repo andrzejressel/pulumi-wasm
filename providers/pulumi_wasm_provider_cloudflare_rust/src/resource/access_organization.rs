@@ -248,19 +248,21 @@ pub fn create(name: &str, args: AccessOrganizationArgs) -> AccessOrganizationRes
     let result = crate::bindings::pulumi::cloudflare::access_organization::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::access_organization::Args {
-            account_id: args.account_id.get_inner(),
-            allow_authenticate_via_warp: args.allow_authenticate_via_warp.get_inner(),
-            auth_domain: args.auth_domain.get_inner(),
-            auto_redirect_to_identity: args.auto_redirect_to_identity.get_inner(),
-            custom_pages: args.custom_pages.get_inner(),
-            is_ui_read_only: args.is_ui_read_only.get_inner(),
-            login_designs: args.login_designs.get_inner(),
-            name: args.name.get_inner(),
-            session_duration: args.session_duration.get_inner(),
-            ui_read_only_toggle_reason: args.ui_read_only_toggle_reason.get_inner(),
-            user_seat_expiration_inactive_time: args.user_seat_expiration_inactive_time.get_inner(),
-            warp_auth_session_duration: args.warp_auth_session_duration.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            allow_authenticate_via_warp: &args.allow_authenticate_via_warp.get_inner(),
+            auth_domain: &args.auth_domain.get_inner(),
+            auto_redirect_to_identity: &args.auto_redirect_to_identity.get_inner(),
+            custom_pages: &args.custom_pages.get_inner(),
+            is_ui_read_only: &args.is_ui_read_only.get_inner(),
+            login_designs: &args.login_designs.get_inner(),
+            name: &args.name.get_inner(),
+            session_duration: &args.session_duration.get_inner(),
+            ui_read_only_toggle_reason: &args.ui_read_only_toggle_reason.get_inner(),
+            user_seat_expiration_inactive_time: &args
+                .user_seat_expiration_inactive_time
+                .get_inner(),
+            warp_auth_session_duration: &args.warp_auth_session_duration.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

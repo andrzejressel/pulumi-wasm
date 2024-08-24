@@ -199,12 +199,12 @@ pub fn create(name: &str, args: DeviceDexTestArgs) -> DeviceDexTestResult {
     let result = crate::bindings::pulumi::cloudflare::device_dex_test::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::device_dex_test::Args {
-            account_id: args.account_id.get_inner(),
-            data: args.data.get_inner(),
-            description: args.description.get_inner(),
-            enabled: args.enabled.get_inner(),
-            interval: args.interval.get_inner(),
-            name: args.name.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            data: &args.data.get_inner(),
+            description: &args.description.get_inner(),
+            enabled: &args.enabled.get_inner(),
+            interval: &args.interval.get_inner(),
+            name: &args.name.get_inner(),
         },
     );
 

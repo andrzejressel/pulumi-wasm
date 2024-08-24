@@ -130,8 +130,8 @@ pub fn create(name: &str, args: WaitingRoomSettingsArgs) -> WaitingRoomSettingsR
     let result = crate::bindings::pulumi::cloudflare::waiting_room_settings::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::waiting_room_settings::Args {
-            search_engine_crawler_bypass: args.search_engine_crawler_bypass.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            search_engine_crawler_bypass: &args.search_engine_crawler_bypass.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

@@ -132,8 +132,8 @@ pub fn create(name: &str, args: DevicePolicyCertificatesArgs) -> DevicePolicyCer
     let result = crate::bindings::pulumi::cloudflare::device_policy_certificates::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::device_policy_certificates::Args {
-            enabled: args.enabled.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            enabled: &args.enabled.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

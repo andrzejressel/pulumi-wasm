@@ -154,11 +154,11 @@ pub fn create(name: &str, args: CustomPagesArgs) -> CustomPagesResult {
     let result = crate::bindings::pulumi::cloudflare::custom_pages::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::custom_pages::Args {
-            account_id: args.account_id.get_inner(),
-            state: args.state.get_inner(),
-            type_: args.type_.get_inner(),
-            url: args.url.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            state: &args.state.get_inner(),
+            type_: &args.type_.get_inner(),
+            url: &args.url.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

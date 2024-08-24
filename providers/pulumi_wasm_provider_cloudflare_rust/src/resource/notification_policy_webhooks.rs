@@ -160,10 +160,10 @@ pub fn create(
     let result = crate::bindings::pulumi::cloudflare::notification_policy_webhooks::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::notification_policy_webhooks::Args {
-            account_id: args.account_id.get_inner(),
-            name: args.name.get_inner(),
-            secret: args.secret.get_inner(),
-            url: args.url.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            name: &args.name.get_inner(),
+            secret: &args.secret.get_inner(),
+            url: &args.url.get_inner(),
         },
     );
 

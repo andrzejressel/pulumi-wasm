@@ -238,10 +238,10 @@ pub fn create(name: &str, args: RandomIntegerArgs) -> RandomIntegerResult {
     let result = crate::bindings::pulumi::random::random_integer::invoke(
         name,
         &crate::bindings::pulumi::random::random_integer::Args {
-            keepers: args.keepers.get_inner(),
-            max: args.max.get_inner(),
-            min: args.min.get_inner(),
-            seed: args.seed.get_inner(),
+            keepers: &args.keepers.get_inner(),
+            max: &args.max.get_inner(),
+            min: &args.min.get_inner(),
+            seed: &args.seed.get_inner(),
         },
     );
 

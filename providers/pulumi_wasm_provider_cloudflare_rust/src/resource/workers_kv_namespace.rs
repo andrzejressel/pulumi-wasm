@@ -130,8 +130,8 @@ pub fn create(name: &str, args: WorkersKvNamespaceArgs) -> WorkersKvNamespaceRes
     let result = crate::bindings::pulumi::cloudflare::workers_kv_namespace::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::workers_kv_namespace::Args {
-            account_id: args.account_id.get_inner(),
-            title: args.title.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            title: &args.title.get_inner(),
         },
     );
 

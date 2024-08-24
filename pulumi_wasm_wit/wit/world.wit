@@ -31,7 +31,7 @@ interface output-interface {
         constructor(value: string);
         map: func(function-name: string) -> output;
     }
-    combine: func(outputs: list<output>) -> output;
+    combine: func(outputs: list<borrow<output>>) -> output;
 }
 
 interface stack-interface {

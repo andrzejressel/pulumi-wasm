@@ -148,10 +148,10 @@ pub fn create(name: &str, args: VolumeArgs) -> VolumeResult {
     let result = crate::bindings::pulumi::docker::volume::invoke(
         name,
         &crate::bindings::pulumi::docker::volume::Args {
-            driver: args.driver.get_inner(),
-            driver_opts: args.driver_opts.get_inner(),
-            labels: args.labels.get_inner(),
-            name: args.name.get_inner(),
+            driver: &args.driver.get_inner(),
+            driver_opts: &args.driver_opts.get_inner(),
+            labels: &args.labels.get_inner(),
+            name: &args.name.get_inner(),
         },
     );
 

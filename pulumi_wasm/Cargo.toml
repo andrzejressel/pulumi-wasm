@@ -11,8 +11,6 @@ crate-type = ["cdylib"]
 [dependencies]
 anyhow.workspace = true
 uuid.workspace = true
-lazy_static.workspace = true
-once_cell.workspace = true
 bitflags.workspace = true
 wit-bindgen-rt.workspace = true
 serde.workspace = true

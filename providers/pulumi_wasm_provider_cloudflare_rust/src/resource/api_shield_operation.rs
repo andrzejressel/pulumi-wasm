@@ -143,10 +143,10 @@ pub fn create(name: &str, args: ApiShieldOperationArgs) -> ApiShieldOperationRes
     let result = crate::bindings::pulumi::cloudflare::api_shield_operation::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::api_shield_operation::Args {
-            endpoint: args.endpoint.get_inner(),
-            host: args.host.get_inner(),
-            method: args.method.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            endpoint: &args.endpoint.get_inner(),
+            host: &args.host.get_inner(),
+            method: &args.method.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

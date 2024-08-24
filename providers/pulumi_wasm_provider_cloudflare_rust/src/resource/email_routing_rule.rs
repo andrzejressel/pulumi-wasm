@@ -226,12 +226,12 @@ pub fn create(name: &str, args: EmailRoutingRuleArgs) -> EmailRoutingRuleResult 
     let result = crate::bindings::pulumi::cloudflare::email_routing_rule::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::email_routing_rule::Args {
-            actions: args.actions.get_inner(),
-            enabled: args.enabled.get_inner(),
-            matchers: args.matchers.get_inner(),
-            name: args.name.get_inner(),
-            priority: args.priority.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            actions: &args.actions.get_inner(),
+            enabled: &args.enabled.get_inner(),
+            matchers: &args.matchers.get_inner(),
+            name: &args.name.get_inner(),
+            priority: &args.priority.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

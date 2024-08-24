@@ -245,11 +245,11 @@ pub fn create(name: &str, args: UserAgentBlockingRuleArgs) -> UserAgentBlockingR
     let result = crate::bindings::pulumi::cloudflare::user_agent_blocking_rule::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::user_agent_blocking_rule::Args {
-            configuration: args.configuration.get_inner(),
-            description: args.description.get_inner(),
-            mode: args.mode.get_inner(),
-            paused: args.paused.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            configuration: &args.configuration.get_inner(),
+            description: &args.description.get_inner(),
+            mode: &args.mode.get_inner(),
+            paused: &args.paused.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

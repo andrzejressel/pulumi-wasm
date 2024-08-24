@@ -251,11 +251,11 @@ pub fn create(name: &str, args: OriginCaCertificateArgs) -> OriginCaCertificateR
     let result = crate::bindings::pulumi::cloudflare::origin_ca_certificate::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::origin_ca_certificate::Args {
-            csr: args.csr.get_inner(),
-            hostnames: args.hostnames.get_inner(),
-            min_days_for_renewal: args.min_days_for_renewal.get_inner(),
-            request_type: args.request_type.get_inner(),
-            requested_validity: args.requested_validity.get_inner(),
+            csr: &args.csr.get_inner(),
+            hostnames: &args.hostnames.get_inner(),
+            min_days_for_renewal: &args.min_days_for_renewal.get_inner(),
+            request_type: &args.request_type.get_inner(),
+            requested_validity: &args.requested_validity.get_inner(),
         },
     );
 

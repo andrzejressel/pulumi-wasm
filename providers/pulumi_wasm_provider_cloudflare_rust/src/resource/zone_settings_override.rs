@@ -231,8 +231,8 @@ pub fn create(name: &str, args: ZoneSettingsOverrideArgs) -> ZoneSettingsOverrid
     let result = crate::bindings::pulumi::cloudflare::zone_settings_override::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::zone_settings_override::Args {
-            settings: args.settings.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            settings: &args.settings.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

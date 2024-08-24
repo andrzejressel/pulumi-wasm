@@ -130,8 +130,8 @@ pub fn create(name: &str, args: LogpullRetentionArgs) -> LogpullRetentionResult 
     let result = crate::bindings::pulumi::cloudflare::logpull_retention::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::logpull_retention::Args {
-            enabled: args.enabled.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            enabled: &args.enabled.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

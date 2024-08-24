@@ -56,8 +56,8 @@ pub fn create(name: &str, args: ServiceConfigArgs) -> ServiceConfigResult {
     let result = crate::bindings::pulumi::docker::service_config::invoke(
         name,
         &crate::bindings::pulumi::docker::service_config::Args {
-            data: args.data.get_inner(),
-            name: args.name.get_inner(),
+            data: &args.data.get_inner(),
+            name: &args.name.get_inner(),
         },
     );
 

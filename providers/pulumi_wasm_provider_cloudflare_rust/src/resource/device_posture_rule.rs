@@ -248,14 +248,14 @@ pub fn create(name: &str, args: DevicePostureRuleArgs) -> DevicePostureRuleResul
     let result = crate::bindings::pulumi::cloudflare::device_posture_rule::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::device_posture_rule::Args {
-            account_id: args.account_id.get_inner(),
-            description: args.description.get_inner(),
-            expiration: args.expiration.get_inner(),
-            inputs: args.inputs.get_inner(),
-            matches: args.matches.get_inner(),
-            name: args.name.get_inner(),
-            schedule: args.schedule.get_inner(),
-            type_: args.type_.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            description: &args.description.get_inner(),
+            expiration: &args.expiration.get_inner(),
+            inputs: &args.inputs.get_inner(),
+            matches: &args.matches.get_inner(),
+            name: &args.name.get_inner(),
+            schedule: &args.schedule.get_inner(),
+            type_: &args.type_.get_inner(),
         },
     );
 

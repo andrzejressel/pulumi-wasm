@@ -150,10 +150,10 @@ pub fn create(name: &str, args: WorkerSecretArgs) -> WorkerSecretResult {
     let result = crate::bindings::pulumi::cloudflare::worker_secret::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::worker_secret::Args {
-            account_id: args.account_id.get_inner(),
-            name: args.name.get_inner(),
-            script_name: args.script_name.get_inner(),
-            secret_text: args.secret_text.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            name: &args.name.get_inner(),
+            script_name: &args.script_name.get_inner(),
+            secret_text: &args.secret_text.get_inner(),
         },
     );
 

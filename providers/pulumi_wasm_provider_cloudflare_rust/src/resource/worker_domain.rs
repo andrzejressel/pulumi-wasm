@@ -154,11 +154,11 @@ pub fn create(name: &str, args: WorkerDomainArgs) -> WorkerDomainResult {
     let result = crate::bindings::pulumi::cloudflare::worker_domain::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::worker_domain::Args {
-            account_id: args.account_id.get_inner(),
-            environment: args.environment.get_inner(),
-            hostname: args.hostname.get_inner(),
-            service: args.service.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            environment: &args.environment.get_inner(),
+            hostname: &args.hostname.get_inner(),
+            service: &args.service.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

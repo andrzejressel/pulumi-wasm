@@ -267,12 +267,12 @@ pub fn create(name: &str, args: AddressMapArgs) -> AddressMapResult {
     let result = crate::bindings::pulumi::cloudflare::address_map::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::address_map::Args {
-            account_id: args.account_id.get_inner(),
-            default_sni: args.default_sni.get_inner(),
-            description: args.description.get_inner(),
-            enabled: args.enabled.get_inner(),
-            ips: args.ips.get_inner(),
-            memberships: args.memberships.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            default_sni: &args.default_sni.get_inner(),
+            description: &args.description.get_inner(),
+            enabled: &args.enabled.get_inner(),
+            ips: &args.ips.get_inner(),
+            memberships: &args.memberships.get_inner(),
         },
     );
 

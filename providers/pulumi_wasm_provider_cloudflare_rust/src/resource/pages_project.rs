@@ -946,12 +946,12 @@ pub fn create(name: &str, args: PagesProjectArgs) -> PagesProjectResult {
     let result = crate::bindings::pulumi::cloudflare::pages_project::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::pages_project::Args {
-            account_id: args.account_id.get_inner(),
-            build_config: args.build_config.get_inner(),
-            deployment_configs: args.deployment_configs.get_inner(),
-            name: args.name.get_inner(),
-            production_branch: args.production_branch.get_inner(),
-            source: args.source.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            build_config: &args.build_config.get_inner(),
+            deployment_configs: &args.deployment_configs.get_inner(),
+            name: &args.name.get_inner(),
+            production_branch: &args.production_branch.get_inner(),
+            source: &args.source.get_inner(),
         },
     );
 

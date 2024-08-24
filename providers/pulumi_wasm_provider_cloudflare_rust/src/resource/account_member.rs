@@ -161,10 +161,10 @@ pub fn create(name: &str, args: AccountMemberArgs) -> AccountMemberResult {
     let result = crate::bindings::pulumi::cloudflare::account_member::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::account_member::Args {
-            account_id: args.account_id.get_inner(),
-            email_address: args.email_address.get_inner(),
-            role_ids: args.role_ids.get_inner(),
-            status: args.status.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            email_address: &args.email_address.get_inner(),
+            role_ids: &args.role_ids.get_inner(),
+            status: &args.status.get_inner(),
         },
     );
 

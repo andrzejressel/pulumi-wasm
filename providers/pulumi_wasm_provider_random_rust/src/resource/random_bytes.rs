@@ -162,8 +162,8 @@ pub fn create(name: &str, args: RandomBytesArgs) -> RandomBytesResult {
     let result = crate::bindings::pulumi::random::random_bytes::invoke(
         name,
         &crate::bindings::pulumi::random::random_bytes::Args {
-            keepers: args.keepers.get_inner(),
-            length: args.length.get_inner(),
+            keepers: &args.keepers.get_inner(),
+            length: &args.length.get_inner(),
         },
     );
 

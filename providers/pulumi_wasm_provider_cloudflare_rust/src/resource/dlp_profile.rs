@@ -51,13 +51,13 @@ pub fn create(name: &str, args: DlpProfileArgs) -> DlpProfileResult {
     let result = crate::bindings::pulumi::cloudflare::dlp_profile::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::dlp_profile::Args {
-            account_id: args.account_id.get_inner(),
-            allowed_match_count: args.allowed_match_count.get_inner(),
-            context_awareness: args.context_awareness.get_inner(),
-            description: args.description.get_inner(),
-            entries: args.entries.get_inner(),
-            name: args.name.get_inner(),
-            type_: args.type_.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            allowed_match_count: &args.allowed_match_count.get_inner(),
+            context_awareness: &args.context_awareness.get_inner(),
+            description: &args.description.get_inner(),
+            entries: &args.entries.get_inner(),
+            name: &args.name.get_inner(),
+            type_: &args.type_.get_inner(),
         },
     );
 

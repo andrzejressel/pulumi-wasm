@@ -203,11 +203,11 @@ pub fn create(name: &str, args: EmailRoutingCatchAllArgs) -> EmailRoutingCatchAl
     let result = crate::bindings::pulumi::cloudflare::email_routing_catch_all::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::email_routing_catch_all::Args {
-            actions: args.actions.get_inner(),
-            enabled: args.enabled.get_inner(),
-            matchers: args.matchers.get_inner(),
-            name: args.name.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            actions: &args.actions.get_inner(),
+            enabled: &args.enabled.get_inner(),
+            matchers: &args.matchers.get_inner(),
+            name: &args.name.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

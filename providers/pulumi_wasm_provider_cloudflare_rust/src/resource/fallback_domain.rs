@@ -35,9 +35,9 @@ pub fn create(name: &str, args: FallbackDomainArgs) -> FallbackDomainResult {
     let result = crate::bindings::pulumi::cloudflare::fallback_domain::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::fallback_domain::Args {
-            account_id: args.account_id.get_inner(),
-            domains: args.domains.get_inner(),
-            policy_id: args.policy_id.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            domains: &args.domains.get_inner(),
+            policy_id: &args.policy_id.get_inner(),
         },
     );
 

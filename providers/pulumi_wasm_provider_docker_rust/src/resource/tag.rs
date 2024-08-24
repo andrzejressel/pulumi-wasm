@@ -23,8 +23,8 @@ pub fn create(name: &str, args: TagArgs) -> TagResult {
     let result = crate::bindings::pulumi::docker::tag::invoke(
         name,
         &crate::bindings::pulumi::docker::tag::Args {
-            source_image: args.source_image.get_inner(),
-            target_image: args.target_image.get_inner(),
+            source_image: &args.source_image.get_inner(),
+            target_image: &args.target_image.get_inner(),
         },
     );
 

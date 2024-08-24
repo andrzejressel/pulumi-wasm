@@ -107,15 +107,15 @@ pub fn create(name: &str, args: ServiceArgs) -> ServiceResult {
     let result = crate::bindings::pulumi::docker::service::invoke(
         name,
         &crate::bindings::pulumi::docker::service::Args {
-            auth: args.auth.get_inner(),
-            converge_config: args.converge_config.get_inner(),
-            endpoint_spec: args.endpoint_spec.get_inner(),
-            labels: args.labels.get_inner(),
-            mode: args.mode.get_inner(),
-            name: args.name.get_inner(),
-            rollback_config: args.rollback_config.get_inner(),
-            task_spec: args.task_spec.get_inner(),
-            update_config: args.update_config.get_inner(),
+            auth: &args.auth.get_inner(),
+            converge_config: &args.converge_config.get_inner(),
+            endpoint_spec: &args.endpoint_spec.get_inner(),
+            labels: &args.labels.get_inner(),
+            mode: &args.mode.get_inner(),
+            name: &args.name.get_inner(),
+            rollback_config: &args.rollback_config.get_inner(),
+            task_spec: &args.task_spec.get_inner(),
+            update_config: &args.update_config.get_inner(),
         },
     );
 

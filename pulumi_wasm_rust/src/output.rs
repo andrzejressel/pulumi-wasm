@@ -1,17 +1,27 @@
 use anyhow::Error;
-use lazy_static::lazy_static;
 use log::info;
+use once_cell::sync::Lazy;
 use pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface;
 use pulumi_wasm_wit::client_bindings::component::pulumi_wasm::stack_interface::add_export;
 use std::collections::HashMap;
 use std::fmt::Debug;
 use std::marker::PhantomData;
+use std::mem::ManuallyDrop;
+use std::ops::Deref;
 use std::sync::Mutex;
 use uuid::Uuid;
 
 pub struct Output<T> {
     phantom: PhantomData<T>,
-    future: output_interface::Output,
+    underlying_id: u32,
+}
+
+impl<T> Copy for Output<T> {}
+
+impl<T> Clone for Output<T> {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 
 impl<T: serde::Serialize> From<T> for Output<T> {
@@ -28,12 +38,15 @@ impl<T: serde::Serialize> From<T> for Output<Option<T>> {
 
 type Function = Box<dyn Fn(&String) -> Result<String, Error> + Send>;
 
-lazy_static! {
-    pub(crate) static ref HASHMAP: Mutex<HashMap<String, Function>> = {
-        let m = HashMap::new();
-        Mutex::new(m)
-    };
-}
+pub(crate) static HASHMAP: Lazy<Mutex<HashMap<String, Function>>> = Lazy::new(|| {
+    let m = HashMap::new();
+    Mutex::new(m)
+});
+
+static NONE_OUTPUT: Lazy<Output<Option<String>>> = Lazy::new(|| {
+    let op = None::<String>;
+    Output::new(&op)
+});
 
 impl<T> Output<T> {
     pub fn map<B, F>(&self, f: F) -> Output<B>
@@ -55,22 +68,33 @@ impl<T> Output<T> {
         let mut map = HASHMAP.lock().unwrap();
         map.insert(uuid.clone(), Box::new(f));
 
-        let new_output = self.future.map(uuid.as_str());
+        let wit = self.get_inner();
+        let new_output = wit.map(uuid.as_str());
 
         Output {
             phantom: PhantomData,
-            future: new_output,
+            underlying_id: output_interface::Output::take_handle(&new_output),
         }
     }
 
     pub(crate) fn add_to_export(&self, name: &str) {
-        add_export(name, &self.future);
+        add_export(name, &self.get_inner());
     }
 
-    pub fn get_inner(&self) -> &output_interface::Output {
-        &self.future
+    /// Forcefully changes apparent type of underlying Output
+    /// Can be used to workaround Pulumi provider incorrect types
+    ///
+    /// # Safety
+    ///
+    /// Underlying output must be of type `F`.
+    pub unsafe fn transmute<F: serde::Serialize>(&self) -> Output<F> {
+        Output {
+            phantom: PhantomData::<F>,
+            underlying_id: self.underlying_id,
+        }
     }
 
+    #[doc(hidden)]
     ///
     /// # Safety
     ///
@@ -80,8 +104,13 @@ impl<T> Output<T> {
     ) -> Output<F> {
         Output {
             phantom: PhantomData::<F>,
-            future: handle,
+            underlying_id: output_interface::Output::take_handle(&handle),
         }
+    }
+
+    #[doc(hidden)]
+    pub fn get_inner(&self) -> ManuallyDrop<output_interface::Output> {
+        unsafe { ManuallyDrop::new(output_interface::Output::from_handle(self.underlying_id)) }
     }
 }
 
@@ -91,8 +120,13 @@ impl<T: serde::Serialize> Output<T> {
         let resource = output_interface::Output::new(binding.as_str());
         Output {
             phantom: PhantomData,
-            future: resource,
+            underlying_id: output_interface::Output::take_handle(&resource),
         }
+    }
+
+    /// Returns singleton Output containing serialized null
+    pub fn empty() -> Output<Option<T>> {
+        unsafe { NONE_OUTPUT.transmute::<Option<T>>() }
     }
 }
 

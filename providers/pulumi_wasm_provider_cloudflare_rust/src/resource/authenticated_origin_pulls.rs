@@ -336,12 +336,12 @@ pub fn create(name: &str, args: AuthenticatedOriginPullsArgs) -> AuthenticatedOr
     let result = crate::bindings::pulumi::cloudflare::authenticated_origin_pulls::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::authenticated_origin_pulls::Args {
-            authenticated_origin_pulls_certificate: args
+            authenticated_origin_pulls_certificate: &args
                 .authenticated_origin_pulls_certificate
                 .get_inner(),
-            enabled: args.enabled.get_inner(),
-            hostname: args.hostname.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            enabled: &args.enabled.get_inner(),
+            hostname: &args.hostname.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

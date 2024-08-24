@@ -150,10 +150,10 @@ pub fn create(name: &str, args: ObservatoryScheduledTestArgs) -> ObservatorySche
     let result = crate::bindings::pulumi::cloudflare::observatory_scheduled_test::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::observatory_scheduled_test::Args {
-            frequency: args.frequency.get_inner(),
-            region: args.region.get_inner(),
-            url: args.url.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            frequency: &args.frequency.get_inner(),
+            region: &args.region.get_inner(),
+            url: &args.url.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

@@ -131,8 +131,8 @@ pub fn create(name: &str, args: RegionalTieredCacheArgs) -> RegionalTieredCacheR
     let result = crate::bindings::pulumi::cloudflare::regional_tiered_cache::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::regional_tiered_cache::Args {
-            value: args.value.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            value: &args.value.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

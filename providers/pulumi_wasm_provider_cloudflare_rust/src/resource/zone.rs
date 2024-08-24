@@ -159,12 +159,12 @@ pub fn create(name: &str, args: ZoneArgs) -> ZoneResult {
     let result = crate::bindings::pulumi::cloudflare::zone::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::zone::Args {
-            account_id: args.account_id.get_inner(),
-            jump_start: args.jump_start.get_inner(),
-            paused: args.paused.get_inner(),
-            plan: args.plan.get_inner(),
-            type_: args.type_.get_inner(),
-            zone: args.zone.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            jump_start: &args.jump_start.get_inner(),
+            paused: &args.paused.get_inner(),
+            plan: &args.plan.get_inner(),
+            type_: &args.type_.get_inner(),
+            zone: &args.zone.get_inner(),
         },
     );
 

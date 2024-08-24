@@ -30,10 +30,10 @@ pub fn create(name: &str, args: AccessTagArgs) -> AccessTagResult {
     let result = crate::bindings::pulumi::cloudflare::access_tag::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::access_tag::Args {
-            account_id: args.account_id.get_inner(),
-            app_count: args.app_count.get_inner(),
-            name: args.name.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            app_count: &args.app_count.get_inner(),
+            name: &args.name.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

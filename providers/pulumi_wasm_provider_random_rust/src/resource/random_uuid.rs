@@ -139,7 +139,7 @@ pub fn create(name: &str, args: RandomUuidArgs) -> RandomUuidResult {
     let result = crate::bindings::pulumi::random::random_uuid::invoke(
         name,
         &crate::bindings::pulumi::random::random_uuid::Args {
-            keepers: args.keepers.get_inner(),
+            keepers: &args.keepers.get_inner(),
         },
     );
 

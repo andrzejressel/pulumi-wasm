@@ -228,17 +228,17 @@ pub fn create(name: &str, args: TeamsRuleArgs) -> TeamsRuleResult {
     let result = crate::bindings::pulumi::cloudflare::teams_rule::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::teams_rule::Args {
-            account_id: args.account_id.get_inner(),
-            action: args.action.get_inner(),
-            description: args.description.get_inner(),
-            device_posture: args.device_posture.get_inner(),
-            enabled: args.enabled.get_inner(),
-            filters: args.filters.get_inner(),
-            identity: args.identity.get_inner(),
-            name: args.name.get_inner(),
-            precedence: args.precedence.get_inner(),
-            rule_settings: args.rule_settings.get_inner(),
-            traffic: args.traffic.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            action: &args.action.get_inner(),
+            description: &args.description.get_inner(),
+            device_posture: &args.device_posture.get_inner(),
+            enabled: &args.enabled.get_inner(),
+            filters: &args.filters.get_inner(),
+            identity: &args.identity.get_inner(),
+            name: &args.name.get_inner(),
+            precedence: &args.precedence.get_inner(),
+            rule_settings: &args.rule_settings.get_inner(),
+            traffic: &args.traffic.get_inner(),
         },
     );
 

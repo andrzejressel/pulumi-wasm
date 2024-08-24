@@ -185,11 +185,11 @@ pub fn create(name: &str, args: TeamsListArgs) -> TeamsListResult {
     let result = crate::bindings::pulumi::cloudflare::teams_list::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::teams_list::Args {
-            account_id: args.account_id.get_inner(),
-            description: args.description.get_inner(),
-            items: args.items.get_inner(),
-            name: args.name.get_inner(),
-            type_: args.type_.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            description: &args.description.get_inner(),
+            items: &args.items.get_inner(),
+            name: &args.name.get_inner(),
+            type_: &args.type_.get_inner(),
         },
     );
 

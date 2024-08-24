@@ -182,11 +182,11 @@ pub fn create(
     let result = crate::bindings::pulumi::cloudflare::access_mutual_tls_certificate::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::access_mutual_tls_certificate::Args {
-            account_id: args.account_id.get_inner(),
-            associated_hostnames: args.associated_hostnames.get_inner(),
-            certificate: args.certificate.get_inner(),
-            name: args.name.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            associated_hostnames: &args.associated_hostnames.get_inner(),
+            certificate: &args.certificate.get_inner(),
+            name: &args.name.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

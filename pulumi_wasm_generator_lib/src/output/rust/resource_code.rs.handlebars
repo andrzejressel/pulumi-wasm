@@ -27,7 +27,7 @@ pub fn create(name: &str, args: {{interface.struct_name}}Args) -> {{interface.st
 
     let result = crate::bindings::pulumi::{{package_name}}::{{interface.name}}::invoke(name, &crate::bindings::pulumi::{{package_name}}::{{interface.name}}::Args {
 {{#each interface.input_properties}}
-        {{arg_name}}: args.{{arg_name}}.get_inner(),
+        {{arg_name}}: &args.{{arg_name}}.get_inner(),
 {{/each}}
     });
 

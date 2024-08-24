@@ -141,9 +141,9 @@ pub fn create(name: &str, args: ArgoArgs) -> ArgoResult {
     let result = crate::bindings::pulumi::cloudflare::argo::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::argo::Args {
-            smart_routing: args.smart_routing.get_inner(),
-            tiered_caching: args.tiered_caching.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            smart_routing: &args.smart_routing.get_inner(),
+            tiered_caching: &args.tiered_caching.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

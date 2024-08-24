@@ -140,9 +140,9 @@ pub fn create(name: &str, args: R2BucketArgs) -> R2BucketResult {
     let result = crate::bindings::pulumi::cloudflare::r2_bucket::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::r2_bucket::Args {
-            account_id: args.account_id.get_inner(),
-            location: args.location.get_inner(),
-            name: args.name.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            location: &args.location.get_inner(),
+            name: &args.name.get_inner(),
         },
     );
 

@@ -231,12 +231,12 @@ pub fn create(name: &str, args: WebAnalyticsRuleArgs) -> WebAnalyticsRuleResult 
     let result = crate::bindings::pulumi::cloudflare::web_analytics_rule::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::web_analytics_rule::Args {
-            account_id: args.account_id.get_inner(),
-            host: args.host.get_inner(),
-            inclusive: args.inclusive.get_inner(),
-            is_paused: args.is_paused.get_inner(),
-            paths: args.paths.get_inner(),
-            ruleset_id: args.ruleset_id.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            host: &args.host.get_inner(),
+            inclusive: &args.inclusive.get_inner(),
+            is_paused: &args.is_paused.get_inner(),
+            paths: &args.paths.get_inner(),
+            ruleset_id: &args.ruleset_id.get_inner(),
         },
     );
 

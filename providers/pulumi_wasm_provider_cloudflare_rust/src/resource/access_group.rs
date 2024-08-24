@@ -371,12 +371,12 @@ pub fn create(name: &str, args: AccessGroupArgs) -> AccessGroupResult {
     let result = crate::bindings::pulumi::cloudflare::access_group::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::access_group::Args {
-            account_id: args.account_id.get_inner(),
-            excludes: args.excludes.get_inner(),
-            includes: args.includes.get_inner(),
-            name: args.name.get_inner(),
-            requires: args.requires.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            excludes: &args.excludes.get_inner(),
+            includes: &args.includes.get_inner(),
+            name: &args.name.get_inner(),
+            requires: &args.requires.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

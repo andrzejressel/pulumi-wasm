@@ -163,9 +163,9 @@ pub fn create(name: &str, args: WorkerRouteArgs) -> WorkerRouteResult {
     let result = crate::bindings::pulumi::cloudflare::worker_route::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::worker_route::Args {
-            pattern: args.pattern.get_inner(),
-            script_name: args.script_name.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            pattern: &args.pattern.get_inner(),
+            script_name: &args.script_name.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

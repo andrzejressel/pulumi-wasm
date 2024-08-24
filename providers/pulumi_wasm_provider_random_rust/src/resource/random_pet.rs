@@ -201,10 +201,10 @@ pub fn create(name: &str, args: RandomPetArgs) -> RandomPetResult {
     let result = crate::bindings::pulumi::random::random_pet::invoke(
         name,
         &crate::bindings::pulumi::random::random_pet::Args {
-            keepers: args.keepers.get_inner(),
-            length: args.length.get_inner(),
-            prefix: args.prefix.get_inner(),
-            separator: args.separator.get_inner(),
+            keepers: &args.keepers.get_inner(),
+            length: &args.length.get_inner(),
+            prefix: &args.prefix.get_inner(),
+            separator: &args.separator.get_inner(),
         },
     );
 

@@ -44,11 +44,11 @@ pub fn create(name: &str, args: ApiTokenArgs) -> ApiTokenResult {
     let result = crate::bindings::pulumi::cloudflare::api_token::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::api_token::Args {
-            condition: args.condition.get_inner(),
-            expires_on: args.expires_on.get_inner(),
-            name: args.name.get_inner(),
-            not_before: args.not_before.get_inner(),
-            policies: args.policies.get_inner(),
+            condition: &args.condition.get_inner(),
+            expires_on: &args.expires_on.get_inner(),
+            name: &args.name.get_inner(),
+            not_before: &args.not_before.get_inner(),
+            policies: &args.policies.get_inner(),
         },
     );
 

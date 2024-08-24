@@ -1425,12 +1425,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "lazy_static"
-version = "1.5.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bbd2bcb4c963f2ddae06a2efc7e9f3591312473c50c6685e1f298068316e66fe"
-
-[[package]]
 name = "leb128"
 version = "0.2.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1991,9 +1985,7 @@ version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
  "bitflags",
- "lazy_static",
  "log",
- "once_cell",
  "pulumi_wasm_common",
  "pulumi_wasm_core",
  "serde",
@@ -2037,10 +2029,8 @@ name = "pulumi_wasm_core"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
- "lazy_static",
  "log",
  "mockall",
- "once_cell",
  "prost",
  "prost-types",
  "pulumi_wasm_proto",
@@ -2223,8 +2213,8 @@ dependencies = [
  "anyhow",
  "bitflags",
  "futures",
- "lazy_static",
  "log",
+ "once_cell",
  "prettyplease",
  "pulumi_wasm_common",
  "pulumi_wasm_rust_macro",

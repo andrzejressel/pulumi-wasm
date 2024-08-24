@@ -135,8 +135,8 @@ pub fn create(
     let result = crate::bindings::pulumi::cloudflare::custom_hostname_fallback_origin::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::custom_hostname_fallback_origin::Args {
-            origin: args.origin.get_inner(),
-            zone_id: args.zone_id.get_inner(),
+            origin: &args.origin.get_inner(),
+            zone_id: &args.zone_id.get_inner(),
         },
     );
 

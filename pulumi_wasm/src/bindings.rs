@@ -611,7 +611,7 @@ pub mod exports {
                         let e1 = {
                             let l0 = *base.add(0).cast::<i32>();
 
-                            Output::from_handle(l0 as u32)
+                            OutputBorrow::lift(l0 as u32 as usize)
                         };
                         result1.push(e1);
                     }
@@ -621,7 +621,7 @@ pub mod exports {
                 }
                 pub trait Guest {
                     type Output: GuestOutput;
-                    fn combine(outputs: _rt::Vec<Output>) -> Output;
+                    fn combine(outputs: _rt::Vec<OutputBorrow<'_>>) -> Output;
                 }
                 pub trait GuestOutput: 'static {
                     #[doc(hidden)]
@@ -1348,7 +1348,7 @@ st\0\0\0\x04\0\x19register-resource-outputs\x01\x07\x01@\x01\x07request\x02\x01\
 stered-resources\x01\x0a\x03\x01>component:pulumi-wasm-external/external-world@0\
 .0.0-STABLE-DEV\x05\x01\x01B\x0a\x04\0\x06output\x03\x01\x01i\0\x01@\x01\x05valu\
 es\0\x01\x04\0\x13[constructor]output\x01\x02\x01h\0\x01@\x02\x04self\x03\x0dfun\
-ction-names\0\x01\x04\0\x12[method]output.map\x01\x04\x01p\x01\x01@\x01\x07outpu\
+ction-names\0\x01\x04\0\x12[method]output.map\x01\x04\x01p\x03\x01@\x01\x07outpu\
 ts\x05\0\x01\x04\0\x07combine\x01\x06\x04\x010component:pulumi-wasm/output-inter\
 face@0.0.0-DEV\x05\x02\x02\x03\0\x02\x06output\x01B\x13\x02\x03\x02\x01\x03\x04\0\
 \x06output\x03\0\0\x01h\x01\x01r\x02\x04names\x05value\x02\x04\0\x0cobject-field\

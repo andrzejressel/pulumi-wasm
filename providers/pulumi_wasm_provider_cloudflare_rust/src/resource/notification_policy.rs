@@ -303,15 +303,15 @@ pub fn create(name: &str, args: NotificationPolicyArgs) -> NotificationPolicyRes
     let result = crate::bindings::pulumi::cloudflare::notification_policy::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::notification_policy::Args {
-            account_id: args.account_id.get_inner(),
-            alert_type: args.alert_type.get_inner(),
-            description: args.description.get_inner(),
-            email_integrations: args.email_integrations.get_inner(),
-            enabled: args.enabled.get_inner(),
-            filters: args.filters.get_inner(),
-            name: args.name.get_inner(),
-            pagerduty_integrations: args.pagerduty_integrations.get_inner(),
-            webhooks_integrations: args.webhooks_integrations.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            alert_type: &args.alert_type.get_inner(),
+            description: &args.description.get_inner(),
+            email_integrations: &args.email_integrations.get_inner(),
+            enabled: &args.enabled.get_inner(),
+            filters: &args.filters.get_inner(),
+            name: &args.name.get_inner(),
+            pagerduty_integrations: &args.pagerduty_integrations.get_inner(),
+            webhooks_integrations: &args.webhooks_integrations.get_inner(),
         },
     );
 

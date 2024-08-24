@@ -182,13 +182,13 @@ pub fn create(name: &str, args: TurnstileWidgetArgs) -> TurnstileWidgetResult {
     let result = crate::bindings::pulumi::cloudflare::turnstile_widget::invoke(
         name,
         &crate::bindings::pulumi::cloudflare::turnstile_widget::Args {
-            account_id: args.account_id.get_inner(),
-            bot_fight_mode: args.bot_fight_mode.get_inner(),
-            domains: args.domains.get_inner(),
-            mode: args.mode.get_inner(),
-            name: args.name.get_inner(),
-            offlabel: args.offlabel.get_inner(),
-            region: args.region.get_inner(),
+            account_id: &args.account_id.get_inner(),
+            bot_fight_mode: &args.bot_fight_mode.get_inner(),
+            domains: &args.domains.get_inner(),
+            mode: &args.mode.get_inner(),
+            name: &args.name.get_inner(),
+            offlabel: &args.offlabel.get_inner(),
+            region: &args.region.get_inner(),
         },
     );
 
