@@ -1,7 +1,9 @@
-use std::collections::HashMap;
+use crate::bindings::component::pulumi_wasm::register_interface::{
+    register, ObjectField, RegisterResourceRequest, ResultField,
+};
 use crate::bindings::exports::pulumi::cloudflare::load_balancer_pool;
-use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
 use crate::Component;
+use std::collections::HashMap;
 
 impl load_balancer_pool::Guest for Component {
     fn invoke(name: String, args: load_balancer_pool::Args) -> load_balancer_pool::Res {
@@ -10,42 +12,112 @@ impl load_balancer_pool::Guest for Component {
             type_: "cloudflare:index/loadBalancerPool:LoadBalancerPool".into(),
             name,
             object: vec![
-                ObjectField { name: "accountId".into(), value: args.account_id },
-                ObjectField { name: "checkRegions".into(), value: args.check_regions },
-                ObjectField { name: "description".into(), value: args.description },
-                ObjectField { name: "enabled".into(), value: args.enabled },
-                ObjectField { name: "latitude".into(), value: args.latitude },
-                ObjectField { name: "loadSheddings".into(), value: args.load_sheddings },
-                ObjectField { name: "longitude".into(), value: args.longitude },
-                ObjectField { name: "minimumOrigins".into(), value: args.minimum_origins },
-                ObjectField { name: "monitor".into(), value: args.monitor },
-                ObjectField { name: "name".into(), value: args.name },
-                ObjectField { name: "notificationEmail".into(), value: args.notification_email },
-                ObjectField { name: "originSteerings".into(), value: args.origin_steerings },
-                ObjectField { name: "origins".into(), value: args.origins },
+                ObjectField {
+                    name: "accountId".into(),
+                    value: args.account_id,
+                },
+                ObjectField {
+                    name: "checkRegions".into(),
+                    value: args.check_regions,
+                },
+                ObjectField {
+                    name: "description".into(),
+                    value: args.description,
+                },
+                ObjectField {
+                    name: "enabled".into(),
+                    value: args.enabled,
+                },
+                ObjectField {
+                    name: "latitude".into(),
+                    value: args.latitude,
+                },
+                ObjectField {
+                    name: "loadSheddings".into(),
+                    value: args.load_sheddings,
+                },
+                ObjectField {
+                    name: "longitude".into(),
+                    value: args.longitude,
+                },
+                ObjectField {
+                    name: "minimumOrigins".into(),
+                    value: args.minimum_origins,
+                },
+                ObjectField {
+                    name: "monitor".into(),
+                    value: args.monitor,
+                },
+                ObjectField {
+                    name: "name".into(),
+                    value: args.name,
+                },
+                ObjectField {
+                    name: "notificationEmail".into(),
+                    value: args.notification_email,
+                },
+                ObjectField {
+                    name: "originSteerings".into(),
+                    value: args.origin_steerings,
+                },
+                ObjectField {
+                    name: "origins".into(),
+                    value: args.origins,
+                },
             ],
             results: vec![
-                ResultField { name: "accountId".into() },
-                ResultField { name: "checkRegions".into() },
-                ResultField { name: "createdOn".into() },
-                ResultField { name: "description".into() },
-                ResultField { name: "enabled".into() },
-                ResultField { name: "latitude".into() },
-                ResultField { name: "loadSheddings".into() },
-                ResultField { name: "longitude".into() },
-                ResultField { name: "minimumOrigins".into() },
-                ResultField { name: "modifiedOn".into() },
-                ResultField { name: "monitor".into() },
-                ResultField { name: "name".into() },
-                ResultField { name: "notificationEmail".into() },
-                ResultField { name: "originSteerings".into() },
-                ResultField { name: "origins".into() },
+                ResultField {
+                    name: "accountId".into(),
+                },
+                ResultField {
+                    name: "checkRegions".into(),
+                },
+                ResultField {
+                    name: "createdOn".into(),
+                },
+                ResultField {
+                    name: "description".into(),
+                },
+                ResultField {
+                    name: "enabled".into(),
+                },
+                ResultField {
+                    name: "latitude".into(),
+                },
+                ResultField {
+                    name: "loadSheddings".into(),
+                },
+                ResultField {
+                    name: "longitude".into(),
+                },
+                ResultField {
+                    name: "minimumOrigins".into(),
+                },
+                ResultField {
+                    name: "modifiedOn".into(),
+                },
+                ResultField {
+                    name: "monitor".into(),
+                },
+                ResultField {
+                    name: "name".into(),
+                },
+                ResultField {
+                    name: "notificationEmail".into(),
+                },
+                ResultField {
+                    name: "originSteerings".into(),
+                },
+                ResultField {
+                    name: "origins".into(),
+                },
             ],
         };
 
         let o = register(&request);
 
-        let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
 
         load_balancer_pool::Res {
             account_id: hashmap.remove("accountId").unwrap(),
@@ -64,6 +136,5 @@ impl load_balancer_pool::Guest for Component {
             origin_steerings: hashmap.remove("originSteerings").unwrap(),
             origins: hashmap.remove("origins").unwrap(),
         }
-
     }
 }

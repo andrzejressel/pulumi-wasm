@@ -1,7 +1,9 @@
-use std::collections::HashMap;
+use crate::bindings::component::pulumi_wasm::register_interface::{
+    register, ObjectField, RegisterResourceRequest, ResultField,
+};
 use crate::bindings::exports::pulumi::cloudflare::notification_policy;
-use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
 use crate::Component;
+use std::collections::HashMap;
 
 impl notification_policy::Guest for Component {
     fn invoke(name: String, args: notification_policy::Args) -> notification_policy::Res {
@@ -10,34 +12,84 @@ impl notification_policy::Guest for Component {
             type_: "cloudflare:index/notificationPolicy:NotificationPolicy".into(),
             name,
             object: vec![
-                ObjectField { name: "accountId".into(), value: args.account_id },
-                ObjectField { name: "alertType".into(), value: args.alert_type },
-                ObjectField { name: "description".into(), value: args.description },
-                ObjectField { name: "emailIntegrations".into(), value: args.email_integrations },
-                ObjectField { name: "enabled".into(), value: args.enabled },
-                ObjectField { name: "filters".into(), value: args.filters },
-                ObjectField { name: "name".into(), value: args.name },
-                ObjectField { name: "pagerdutyIntegrations".into(), value: args.pagerduty_integrations },
-                ObjectField { name: "webhooksIntegrations".into(), value: args.webhooks_integrations },
+                ObjectField {
+                    name: "accountId".into(),
+                    value: args.account_id,
+                },
+                ObjectField {
+                    name: "alertType".into(),
+                    value: args.alert_type,
+                },
+                ObjectField {
+                    name: "description".into(),
+                    value: args.description,
+                },
+                ObjectField {
+                    name: "emailIntegrations".into(),
+                    value: args.email_integrations,
+                },
+                ObjectField {
+                    name: "enabled".into(),
+                    value: args.enabled,
+                },
+                ObjectField {
+                    name: "filters".into(),
+                    value: args.filters,
+                },
+                ObjectField {
+                    name: "name".into(),
+                    value: args.name,
+                },
+                ObjectField {
+                    name: "pagerdutyIntegrations".into(),
+                    value: args.pagerduty_integrations,
+                },
+                ObjectField {
+                    name: "webhooksIntegrations".into(),
+                    value: args.webhooks_integrations,
+                },
             ],
             results: vec![
-                ResultField { name: "accountId".into() },
-                ResultField { name: "alertType".into() },
-                ResultField { name: "created".into() },
-                ResultField { name: "description".into() },
-                ResultField { name: "emailIntegrations".into() },
-                ResultField { name: "enabled".into() },
-                ResultField { name: "filters".into() },
-                ResultField { name: "modified".into() },
-                ResultField { name: "name".into() },
-                ResultField { name: "pagerdutyIntegrations".into() },
-                ResultField { name: "webhooksIntegrations".into() },
+                ResultField {
+                    name: "accountId".into(),
+                },
+                ResultField {
+                    name: "alertType".into(),
+                },
+                ResultField {
+                    name: "created".into(),
+                },
+                ResultField {
+                    name: "description".into(),
+                },
+                ResultField {
+                    name: "emailIntegrations".into(),
+                },
+                ResultField {
+                    name: "enabled".into(),
+                },
+                ResultField {
+                    name: "filters".into(),
+                },
+                ResultField {
+                    name: "modified".into(),
+                },
+                ResultField {
+                    name: "name".into(),
+                },
+                ResultField {
+                    name: "pagerdutyIntegrations".into(),
+                },
+                ResultField {
+                    name: "webhooksIntegrations".into(),
+                },
             ],
         };
 
         let o = register(&request);
 
-        let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
 
         notification_policy::Res {
             account_id: hashmap.remove("accountId").unwrap(),
@@ -52,6 +104,5 @@ impl notification_policy::Guest for Component {
             pagerduty_integrations: hashmap.remove("pagerdutyIntegrations").unwrap(),
             webhooks_integrations: hashmap.remove("webhooksIntegrations").unwrap(),
         }
-
     }
 }

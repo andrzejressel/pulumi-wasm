@@ -1,7 +1,9 @@
-use std::collections::HashMap;
+use crate::bindings::component::pulumi_wasm::register_interface::{
+    register, ObjectField, RegisterResourceRequest, ResultField,
+};
 use crate::bindings::exports::pulumi::cloudflare::ipsec_tunnel;
-use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
 use crate::Component;
+use std::collections::HashMap;
 
 impl ipsec_tunnel::Guest for Component {
     fn invoke(name: String, args: ipsec_tunnel::Args) -> ipsec_tunnel::Res {
@@ -10,48 +12,132 @@ impl ipsec_tunnel::Guest for Component {
             type_: "cloudflare:index/ipsecTunnel:IpsecTunnel".into(),
             name,
             object: vec![
-                ObjectField { name: "accountId".into(), value: args.account_id },
-                ObjectField { name: "allowNullCipher".into(), value: args.allow_null_cipher },
-                ObjectField { name: "cloudflareEndpoint".into(), value: args.cloudflare_endpoint },
-                ObjectField { name: "customerEndpoint".into(), value: args.customer_endpoint },
-                ObjectField { name: "description".into(), value: args.description },
-                ObjectField { name: "fqdnId".into(), value: args.fqdn_id },
-                ObjectField { name: "healthCheckDirection".into(), value: args.health_check_direction },
-                ObjectField { name: "healthCheckEnabled".into(), value: args.health_check_enabled },
-                ObjectField { name: "healthCheckRate".into(), value: args.health_check_rate },
-                ObjectField { name: "healthCheckTarget".into(), value: args.health_check_target },
-                ObjectField { name: "healthCheckType".into(), value: args.health_check_type },
-                ObjectField { name: "hexId".into(), value: args.hex_id },
-                ObjectField { name: "interfaceAddress".into(), value: args.interface_address },
-                ObjectField { name: "name".into(), value: args.name },
-                ObjectField { name: "psk".into(), value: args.psk },
-                ObjectField { name: "remoteId".into(), value: args.remote_id },
-                ObjectField { name: "userId".into(), value: args.user_id },
+                ObjectField {
+                    name: "accountId".into(),
+                    value: args.account_id,
+                },
+                ObjectField {
+                    name: "allowNullCipher".into(),
+                    value: args.allow_null_cipher,
+                },
+                ObjectField {
+                    name: "cloudflareEndpoint".into(),
+                    value: args.cloudflare_endpoint,
+                },
+                ObjectField {
+                    name: "customerEndpoint".into(),
+                    value: args.customer_endpoint,
+                },
+                ObjectField {
+                    name: "description".into(),
+                    value: args.description,
+                },
+                ObjectField {
+                    name: "fqdnId".into(),
+                    value: args.fqdn_id,
+                },
+                ObjectField {
+                    name: "healthCheckDirection".into(),
+                    value: args.health_check_direction,
+                },
+                ObjectField {
+                    name: "healthCheckEnabled".into(),
+                    value: args.health_check_enabled,
+                },
+                ObjectField {
+                    name: "healthCheckRate".into(),
+                    value: args.health_check_rate,
+                },
+                ObjectField {
+                    name: "healthCheckTarget".into(),
+                    value: args.health_check_target,
+                },
+                ObjectField {
+                    name: "healthCheckType".into(),
+                    value: args.health_check_type,
+                },
+                ObjectField {
+                    name: "hexId".into(),
+                    value: args.hex_id,
+                },
+                ObjectField {
+                    name: "interfaceAddress".into(),
+                    value: args.interface_address,
+                },
+                ObjectField {
+                    name: "name".into(),
+                    value: args.name,
+                },
+                ObjectField {
+                    name: "psk".into(),
+                    value: args.psk,
+                },
+                ObjectField {
+                    name: "remoteId".into(),
+                    value: args.remote_id,
+                },
+                ObjectField {
+                    name: "userId".into(),
+                    value: args.user_id,
+                },
             ],
             results: vec![
-                ResultField { name: "accountId".into() },
-                ResultField { name: "allowNullCipher".into() },
-                ResultField { name: "cloudflareEndpoint".into() },
-                ResultField { name: "customerEndpoint".into() },
-                ResultField { name: "description".into() },
-                ResultField { name: "fqdnId".into() },
-                ResultField { name: "healthCheckDirection".into() },
-                ResultField { name: "healthCheckEnabled".into() },
-                ResultField { name: "healthCheckRate".into() },
-                ResultField { name: "healthCheckTarget".into() },
-                ResultField { name: "healthCheckType".into() },
-                ResultField { name: "hexId".into() },
-                ResultField { name: "interfaceAddress".into() },
-                ResultField { name: "name".into() },
+                ResultField {
+                    name: "accountId".into(),
+                },
+                ResultField {
+                    name: "allowNullCipher".into(),
+                },
+                ResultField {
+                    name: "cloudflareEndpoint".into(),
+                },
+                ResultField {
+                    name: "customerEndpoint".into(),
+                },
+                ResultField {
+                    name: "description".into(),
+                },
+                ResultField {
+                    name: "fqdnId".into(),
+                },
+                ResultField {
+                    name: "healthCheckDirection".into(),
+                },
+                ResultField {
+                    name: "healthCheckEnabled".into(),
+                },
+                ResultField {
+                    name: "healthCheckRate".into(),
+                },
+                ResultField {
+                    name: "healthCheckTarget".into(),
+                },
+                ResultField {
+                    name: "healthCheckType".into(),
+                },
+                ResultField {
+                    name: "hexId".into(),
+                },
+                ResultField {
+                    name: "interfaceAddress".into(),
+                },
+                ResultField {
+                    name: "name".into(),
+                },
                 ResultField { name: "psk".into() },
-                ResultField { name: "remoteId".into() },
-                ResultField { name: "userId".into() },
+                ResultField {
+                    name: "remoteId".into(),
+                },
+                ResultField {
+                    name: "userId".into(),
+                },
             ],
         };
 
         let o = register(&request);
 
-        let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
 
         ipsec_tunnel::Res {
             account_id: hashmap.remove("accountId").unwrap(),
@@ -72,6 +158,5 @@ impl ipsec_tunnel::Guest for Component {
             remote_id: hashmap.remove("remoteId").unwrap(),
             user_id: hashmap.remove("userId").unwrap(),
         }
-
     }
 }

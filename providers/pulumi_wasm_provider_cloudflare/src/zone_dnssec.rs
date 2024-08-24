@@ -1,7 +1,9 @@
-use std::collections::HashMap;
+use crate::bindings::component::pulumi_wasm::register_interface::{
+    register, ObjectField, RegisterResourceRequest, ResultField,
+};
 use crate::bindings::exports::pulumi::cloudflare::zone_dnssec;
-use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
 use crate::Component;
+use std::collections::HashMap;
 
 impl zone_dnssec::Guest for Component {
     fn invoke(name: String, args: zone_dnssec::Args) -> zone_dnssec::Res {
@@ -10,28 +12,57 @@ impl zone_dnssec::Guest for Component {
             type_: "cloudflare:index/zoneDnssec:ZoneDnssec".into(),
             name,
             object: vec![
-                ObjectField { name: "modifiedOn".into(), value: args.modified_on },
-                ObjectField { name: "zoneId".into(), value: args.zone_id },
+                ObjectField {
+                    name: "modifiedOn".into(),
+                    value: args.modified_on,
+                },
+                ObjectField {
+                    name: "zoneId".into(),
+                    value: args.zone_id,
+                },
             ],
             results: vec![
-                ResultField { name: "algorithm".into() },
-                ResultField { name: "digest".into() },
-                ResultField { name: "digestAlgorithm".into() },
-                ResultField { name: "digestType".into() },
+                ResultField {
+                    name: "algorithm".into(),
+                },
+                ResultField {
+                    name: "digest".into(),
+                },
+                ResultField {
+                    name: "digestAlgorithm".into(),
+                },
+                ResultField {
+                    name: "digestType".into(),
+                },
                 ResultField { name: "ds".into() },
-                ResultField { name: "flags".into() },
-                ResultField { name: "keyTag".into() },
-                ResultField { name: "keyType".into() },
-                ResultField { name: "modifiedOn".into() },
-                ResultField { name: "publicKey".into() },
-                ResultField { name: "status".into() },
-                ResultField { name: "zoneId".into() },
+                ResultField {
+                    name: "flags".into(),
+                },
+                ResultField {
+                    name: "keyTag".into(),
+                },
+                ResultField {
+                    name: "keyType".into(),
+                },
+                ResultField {
+                    name: "modifiedOn".into(),
+                },
+                ResultField {
+                    name: "publicKey".into(),
+                },
+                ResultField {
+                    name: "status".into(),
+                },
+                ResultField {
+                    name: "zoneId".into(),
+                },
             ],
         };
 
         let o = register(&request);
 
-        let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
 
         zone_dnssec::Res {
             algorithm: hashmap.remove("algorithm").unwrap(),
@@ -47,6 +78,5 @@ impl zone_dnssec::Guest for Component {
             status: hashmap.remove("status").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

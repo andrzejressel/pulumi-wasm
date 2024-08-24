@@ -1,7 +1,9 @@
-use std::collections::HashMap;
+use crate::bindings::component::pulumi_wasm::register_interface::{
+    register, ObjectField, RegisterResourceRequest, ResultField,
+};
 use crate::bindings::exports::pulumi::cloudflare::dlp_profile;
-use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
 use crate::Component;
+use std::collections::HashMap;
 
 impl dlp_profile::Guest for Component {
     fn invoke(name: String, args: dlp_profile::Args) -> dlp_profile::Res {
@@ -10,28 +12,64 @@ impl dlp_profile::Guest for Component {
             type_: "cloudflare:index/dlpProfile:DlpProfile".into(),
             name,
             object: vec![
-                ObjectField { name: "accountId".into(), value: args.account_id },
-                ObjectField { name: "allowedMatchCount".into(), value: args.allowed_match_count },
-                ObjectField { name: "contextAwareness".into(), value: args.context_awareness },
-                ObjectField { name: "description".into(), value: args.description },
-                ObjectField { name: "entries".into(), value: args.entries },
-                ObjectField { name: "name".into(), value: args.name },
-                ObjectField { name: "type".into(), value: args.type_ },
+                ObjectField {
+                    name: "accountId".into(),
+                    value: args.account_id,
+                },
+                ObjectField {
+                    name: "allowedMatchCount".into(),
+                    value: args.allowed_match_count,
+                },
+                ObjectField {
+                    name: "contextAwareness".into(),
+                    value: args.context_awareness,
+                },
+                ObjectField {
+                    name: "description".into(),
+                    value: args.description,
+                },
+                ObjectField {
+                    name: "entries".into(),
+                    value: args.entries,
+                },
+                ObjectField {
+                    name: "name".into(),
+                    value: args.name,
+                },
+                ObjectField {
+                    name: "type".into(),
+                    value: args.type_,
+                },
             ],
             results: vec![
-                ResultField { name: "accountId".into() },
-                ResultField { name: "allowedMatchCount".into() },
-                ResultField { name: "contextAwareness".into() },
-                ResultField { name: "description".into() },
-                ResultField { name: "entries".into() },
-                ResultField { name: "name".into() },
-                ResultField { name: "type".into() },
+                ResultField {
+                    name: "accountId".into(),
+                },
+                ResultField {
+                    name: "allowedMatchCount".into(),
+                },
+                ResultField {
+                    name: "contextAwareness".into(),
+                },
+                ResultField {
+                    name: "description".into(),
+                },
+                ResultField {
+                    name: "entries".into(),
+                },
+                ResultField {
+                    name: "name".into(),
+                },
+                ResultField {
+                    name: "type".into(),
+                },
             ],
         };
 
         let o = register(&request);
 
-        let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
 
         dlp_profile::Res {
             account_id: hashmap.remove("accountId").unwrap(),
@@ -42,6 +80,5 @@ impl dlp_profile::Guest for Component {
             name: hashmap.remove("name").unwrap(),
             type_: hashmap.remove("type").unwrap(),
         }
-
     }
 }

@@ -1,7 +1,9 @@
-use std::collections::HashMap;
+use crate::bindings::component::pulumi_wasm::register_interface::{
+    register, ObjectField, RegisterResourceRequest, ResultField,
+};
 use crate::bindings::exports::pulumi::cloudflare::access_policy;
-use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
 use crate::Component;
+use std::collections::HashMap;
 
 impl access_policy::Guest for Component {
     fn invoke(name: String, args: access_policy::Args) -> access_policy::Res {
@@ -10,44 +12,120 @@ impl access_policy::Guest for Component {
             type_: "cloudflare:index/accessPolicy:AccessPolicy".into(),
             name,
             object: vec![
-                ObjectField { name: "accountId".into(), value: args.account_id },
-                ObjectField { name: "applicationId".into(), value: args.application_id },
-                ObjectField { name: "approvalGroups".into(), value: args.approval_groups },
-                ObjectField { name: "approvalRequired".into(), value: args.approval_required },
-                ObjectField { name: "decision".into(), value: args.decision },
-                ObjectField { name: "excludes".into(), value: args.excludes },
-                ObjectField { name: "includes".into(), value: args.includes },
-                ObjectField { name: "isolationRequired".into(), value: args.isolation_required },
-                ObjectField { name: "name".into(), value: args.name },
-                ObjectField { name: "precedence".into(), value: args.precedence },
-                ObjectField { name: "purposeJustificationPrompt".into(), value: args.purpose_justification_prompt },
-                ObjectField { name: "purposeJustificationRequired".into(), value: args.purpose_justification_required },
-                ObjectField { name: "requires".into(), value: args.requires },
-                ObjectField { name: "sessionDuration".into(), value: args.session_duration },
-                ObjectField { name: "zoneId".into(), value: args.zone_id },
+                ObjectField {
+                    name: "accountId".into(),
+                    value: args.account_id,
+                },
+                ObjectField {
+                    name: "applicationId".into(),
+                    value: args.application_id,
+                },
+                ObjectField {
+                    name: "approvalGroups".into(),
+                    value: args.approval_groups,
+                },
+                ObjectField {
+                    name: "approvalRequired".into(),
+                    value: args.approval_required,
+                },
+                ObjectField {
+                    name: "decision".into(),
+                    value: args.decision,
+                },
+                ObjectField {
+                    name: "excludes".into(),
+                    value: args.excludes,
+                },
+                ObjectField {
+                    name: "includes".into(),
+                    value: args.includes,
+                },
+                ObjectField {
+                    name: "isolationRequired".into(),
+                    value: args.isolation_required,
+                },
+                ObjectField {
+                    name: "name".into(),
+                    value: args.name,
+                },
+                ObjectField {
+                    name: "precedence".into(),
+                    value: args.precedence,
+                },
+                ObjectField {
+                    name: "purposeJustificationPrompt".into(),
+                    value: args.purpose_justification_prompt,
+                },
+                ObjectField {
+                    name: "purposeJustificationRequired".into(),
+                    value: args.purpose_justification_required,
+                },
+                ObjectField {
+                    name: "requires".into(),
+                    value: args.requires,
+                },
+                ObjectField {
+                    name: "sessionDuration".into(),
+                    value: args.session_duration,
+                },
+                ObjectField {
+                    name: "zoneId".into(),
+                    value: args.zone_id,
+                },
             ],
             results: vec![
-                ResultField { name: "accountId".into() },
-                ResultField { name: "applicationId".into() },
-                ResultField { name: "approvalGroups".into() },
-                ResultField { name: "approvalRequired".into() },
-                ResultField { name: "decision".into() },
-                ResultField { name: "excludes".into() },
-                ResultField { name: "includes".into() },
-                ResultField { name: "isolationRequired".into() },
-                ResultField { name: "name".into() },
-                ResultField { name: "precedence".into() },
-                ResultField { name: "purposeJustificationPrompt".into() },
-                ResultField { name: "purposeJustificationRequired".into() },
-                ResultField { name: "requires".into() },
-                ResultField { name: "sessionDuration".into() },
-                ResultField { name: "zoneId".into() },
+                ResultField {
+                    name: "accountId".into(),
+                },
+                ResultField {
+                    name: "applicationId".into(),
+                },
+                ResultField {
+                    name: "approvalGroups".into(),
+                },
+                ResultField {
+                    name: "approvalRequired".into(),
+                },
+                ResultField {
+                    name: "decision".into(),
+                },
+                ResultField {
+                    name: "excludes".into(),
+                },
+                ResultField {
+                    name: "includes".into(),
+                },
+                ResultField {
+                    name: "isolationRequired".into(),
+                },
+                ResultField {
+                    name: "name".into(),
+                },
+                ResultField {
+                    name: "precedence".into(),
+                },
+                ResultField {
+                    name: "purposeJustificationPrompt".into(),
+                },
+                ResultField {
+                    name: "purposeJustificationRequired".into(),
+                },
+                ResultField {
+                    name: "requires".into(),
+                },
+                ResultField {
+                    name: "sessionDuration".into(),
+                },
+                ResultField {
+                    name: "zoneId".into(),
+                },
             ],
         };
 
         let o = register(&request);
 
-        let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
 
         access_policy::Res {
             account_id: hashmap.remove("accountId").unwrap(),
@@ -66,6 +144,5 @@ impl access_policy::Guest for Component {
             session_duration: hashmap.remove("sessionDuration").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

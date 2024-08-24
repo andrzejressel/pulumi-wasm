@@ -1,7 +1,9 @@
-use std::collections::HashMap;
+use crate::bindings::component::pulumi_wasm::register_interface::{
+    register, ObjectField, RegisterResourceRequest, ResultField,
+};
 use crate::bindings::exports::pulumi::cloudflare::load_balancer;
-use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
 use crate::Component;
+use std::collections::HashMap;
 
 impl load_balancer::Guest for Component {
     fn invoke(name: String, args: load_balancer::Args) -> load_balancer::Res {
@@ -10,54 +12,152 @@ impl load_balancer::Guest for Component {
             type_: "cloudflare:index/loadBalancer:LoadBalancer".into(),
             name,
             object: vec![
-                ObjectField { name: "adaptiveRoutings".into(), value: args.adaptive_routings },
-                ObjectField { name: "countryPools".into(), value: args.country_pools },
-                ObjectField { name: "defaultPoolIds".into(), value: args.default_pool_ids },
-                ObjectField { name: "description".into(), value: args.description },
-                ObjectField { name: "enabled".into(), value: args.enabled },
-                ObjectField { name: "fallbackPoolId".into(), value: args.fallback_pool_id },
-                ObjectField { name: "locationStrategies".into(), value: args.location_strategies },
-                ObjectField { name: "name".into(), value: args.name },
-                ObjectField { name: "popPools".into(), value: args.pop_pools },
-                ObjectField { name: "proxied".into(), value: args.proxied },
-                ObjectField { name: "randomSteerings".into(), value: args.random_steerings },
-                ObjectField { name: "regionPools".into(), value: args.region_pools },
-                ObjectField { name: "rules".into(), value: args.rules },
-                ObjectField { name: "sessionAffinity".into(), value: args.session_affinity },
-                ObjectField { name: "sessionAffinityAttributes".into(), value: args.session_affinity_attributes },
-                ObjectField { name: "sessionAffinityTtl".into(), value: args.session_affinity_ttl },
-                ObjectField { name: "steeringPolicy".into(), value: args.steering_policy },
-                ObjectField { name: "ttl".into(), value: args.ttl },
-                ObjectField { name: "zoneId".into(), value: args.zone_id },
+                ObjectField {
+                    name: "adaptiveRoutings".into(),
+                    value: args.adaptive_routings,
+                },
+                ObjectField {
+                    name: "countryPools".into(),
+                    value: args.country_pools,
+                },
+                ObjectField {
+                    name: "defaultPoolIds".into(),
+                    value: args.default_pool_ids,
+                },
+                ObjectField {
+                    name: "description".into(),
+                    value: args.description,
+                },
+                ObjectField {
+                    name: "enabled".into(),
+                    value: args.enabled,
+                },
+                ObjectField {
+                    name: "fallbackPoolId".into(),
+                    value: args.fallback_pool_id,
+                },
+                ObjectField {
+                    name: "locationStrategies".into(),
+                    value: args.location_strategies,
+                },
+                ObjectField {
+                    name: "name".into(),
+                    value: args.name,
+                },
+                ObjectField {
+                    name: "popPools".into(),
+                    value: args.pop_pools,
+                },
+                ObjectField {
+                    name: "proxied".into(),
+                    value: args.proxied,
+                },
+                ObjectField {
+                    name: "randomSteerings".into(),
+                    value: args.random_steerings,
+                },
+                ObjectField {
+                    name: "regionPools".into(),
+                    value: args.region_pools,
+                },
+                ObjectField {
+                    name: "rules".into(),
+                    value: args.rules,
+                },
+                ObjectField {
+                    name: "sessionAffinity".into(),
+                    value: args.session_affinity,
+                },
+                ObjectField {
+                    name: "sessionAffinityAttributes".into(),
+                    value: args.session_affinity_attributes,
+                },
+                ObjectField {
+                    name: "sessionAffinityTtl".into(),
+                    value: args.session_affinity_ttl,
+                },
+                ObjectField {
+                    name: "steeringPolicy".into(),
+                    value: args.steering_policy,
+                },
+                ObjectField {
+                    name: "ttl".into(),
+                    value: args.ttl,
+                },
+                ObjectField {
+                    name: "zoneId".into(),
+                    value: args.zone_id,
+                },
             ],
             results: vec![
-                ResultField { name: "adaptiveRoutings".into() },
-                ResultField { name: "countryPools".into() },
-                ResultField { name: "createdOn".into() },
-                ResultField { name: "defaultPoolIds".into() },
-                ResultField { name: "description".into() },
-                ResultField { name: "enabled".into() },
-                ResultField { name: "fallbackPoolId".into() },
-                ResultField { name: "locationStrategies".into() },
-                ResultField { name: "modifiedOn".into() },
-                ResultField { name: "name".into() },
-                ResultField { name: "popPools".into() },
-                ResultField { name: "proxied".into() },
-                ResultField { name: "randomSteerings".into() },
-                ResultField { name: "regionPools".into() },
-                ResultField { name: "rules".into() },
-                ResultField { name: "sessionAffinity".into() },
-                ResultField { name: "sessionAffinityAttributes".into() },
-                ResultField { name: "sessionAffinityTtl".into() },
-                ResultField { name: "steeringPolicy".into() },
+                ResultField {
+                    name: "adaptiveRoutings".into(),
+                },
+                ResultField {
+                    name: "countryPools".into(),
+                },
+                ResultField {
+                    name: "createdOn".into(),
+                },
+                ResultField {
+                    name: "defaultPoolIds".into(),
+                },
+                ResultField {
+                    name: "description".into(),
+                },
+                ResultField {
+                    name: "enabled".into(),
+                },
+                ResultField {
+                    name: "fallbackPoolId".into(),
+                },
+                ResultField {
+                    name: "locationStrategies".into(),
+                },
+                ResultField {
+                    name: "modifiedOn".into(),
+                },
+                ResultField {
+                    name: "name".into(),
+                },
+                ResultField {
+                    name: "popPools".into(),
+                },
+                ResultField {
+                    name: "proxied".into(),
+                },
+                ResultField {
+                    name: "randomSteerings".into(),
+                },
+                ResultField {
+                    name: "regionPools".into(),
+                },
+                ResultField {
+                    name: "rules".into(),
+                },
+                ResultField {
+                    name: "sessionAffinity".into(),
+                },
+                ResultField {
+                    name: "sessionAffinityAttributes".into(),
+                },
+                ResultField {
+                    name: "sessionAffinityTtl".into(),
+                },
+                ResultField {
+                    name: "steeringPolicy".into(),
+                },
                 ResultField { name: "ttl".into() },
-                ResultField { name: "zoneId".into() },
+                ResultField {
+                    name: "zoneId".into(),
+                },
             ],
         };
 
         let o = register(&request);
 
-        let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
 
         load_balancer::Res {
             adaptive_routings: hashmap.remove("adaptiveRoutings").unwrap(),
@@ -82,6 +182,5 @@ impl load_balancer::Guest for Component {
             ttl: hashmap.remove("ttl").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

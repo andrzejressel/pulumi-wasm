@@ -1,7 +1,9 @@
-use std::collections::HashMap;
+use crate::bindings::component::pulumi_wasm::register_interface::{
+    register, ObjectField, RegisterResourceRequest, ResultField,
+};
 use crate::bindings::exports::pulumi::cloudflare::email_routing_settings;
-use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
 use crate::Component;
+use std::collections::HashMap;
 
 impl email_routing_settings::Guest for Component {
     fn invoke(name: String, args: email_routing_settings::Args) -> email_routing_settings::Res {
@@ -10,25 +12,49 @@ impl email_routing_settings::Guest for Component {
             type_: "cloudflare:index/emailRoutingSettings:EmailRoutingSettings".into(),
             name,
             object: vec![
-                ObjectField { name: "enabled".into(), value: args.enabled },
-                ObjectField { name: "skipWizard".into(), value: args.skip_wizard },
-                ObjectField { name: "zoneId".into(), value: args.zone_id },
+                ObjectField {
+                    name: "enabled".into(),
+                    value: args.enabled,
+                },
+                ObjectField {
+                    name: "skipWizard".into(),
+                    value: args.skip_wizard,
+                },
+                ObjectField {
+                    name: "zoneId".into(),
+                    value: args.zone_id,
+                },
             ],
             results: vec![
-                ResultField { name: "created".into() },
-                ResultField { name: "enabled".into() },
-                ResultField { name: "modified".into() },
-                ResultField { name: "name".into() },
-                ResultField { name: "skipWizard".into() },
-                ResultField { name: "status".into() },
+                ResultField {
+                    name: "created".into(),
+                },
+                ResultField {
+                    name: "enabled".into(),
+                },
+                ResultField {
+                    name: "modified".into(),
+                },
+                ResultField {
+                    name: "name".into(),
+                },
+                ResultField {
+                    name: "skipWizard".into(),
+                },
+                ResultField {
+                    name: "status".into(),
+                },
                 ResultField { name: "tag".into() },
-                ResultField { name: "zoneId".into() },
+                ResultField {
+                    name: "zoneId".into(),
+                },
             ],
         };
 
         let o = register(&request);
 
-        let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
 
         email_routing_settings::Res {
             created: hashmap.remove("created").unwrap(),
@@ -40,6 +66,5 @@ impl email_routing_settings::Guest for Component {
             tag: hashmap.remove("tag").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

@@ -1,7 +1,9 @@
-use std::collections::HashMap;
+use crate::bindings::component::pulumi_wasm::register_interface::{
+    register, ObjectField, RegisterResourceRequest, ResultField,
+};
 use crate::bindings::exports::pulumi::cloudflare::email_routing_address;
-use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
 use crate::Component;
+use std::collections::HashMap;
 
 impl email_routing_address::Guest for Component {
     fn invoke(name: String, args: email_routing_address::Args) -> email_routing_address::Res {
@@ -10,22 +12,39 @@ impl email_routing_address::Guest for Component {
             type_: "cloudflare:index/emailRoutingAddress:EmailRoutingAddress".into(),
             name,
             object: vec![
-                ObjectField { name: "accountId".into(), value: args.account_id },
-                ObjectField { name: "email".into(), value: args.email },
+                ObjectField {
+                    name: "accountId".into(),
+                    value: args.account_id,
+                },
+                ObjectField {
+                    name: "email".into(),
+                    value: args.email,
+                },
             ],
             results: vec![
-                ResultField { name: "accountId".into() },
-                ResultField { name: "created".into() },
-                ResultField { name: "email".into() },
-                ResultField { name: "modified".into() },
+                ResultField {
+                    name: "accountId".into(),
+                },
+                ResultField {
+                    name: "created".into(),
+                },
+                ResultField {
+                    name: "email".into(),
+                },
+                ResultField {
+                    name: "modified".into(),
+                },
                 ResultField { name: "tag".into() },
-                ResultField { name: "verified".into() },
+                ResultField {
+                    name: "verified".into(),
+                },
             ],
         };
 
         let o = register(&request);
 
-        let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
 
         email_routing_address::Res {
             account_id: hashmap.remove("accountId").unwrap(),
@@ -35,6 +54,5 @@ impl email_routing_address::Guest for Component {
             tag: hashmap.remove("tag").unwrap(),
             verified: hashmap.remove("verified").unwrap(),
         }
-
     }
 }

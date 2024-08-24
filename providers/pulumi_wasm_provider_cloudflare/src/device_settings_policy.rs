@@ -1,7 +1,9 @@
-use std::collections::HashMap;
+use crate::bindings::component::pulumi_wasm::register_interface::{
+    register, ObjectField, RegisterResourceRequest, ResultField,
+};
 use crate::bindings::exports::pulumi::cloudflare::device_settings_policy;
-use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
 use crate::Component;
+use std::collections::HashMap;
 
 impl device_settings_policy::Guest for Component {
     fn invoke(name: String, args: device_settings_policy::Args) -> device_settings_policy::Res {
@@ -10,50 +12,141 @@ impl device_settings_policy::Guest for Component {
             type_: "cloudflare:index/deviceSettingsPolicy:DeviceSettingsPolicy".into(),
             name,
             object: vec![
-                ObjectField { name: "accountId".into(), value: args.account_id },
-                ObjectField { name: "allowModeSwitch".into(), value: args.allow_mode_switch },
-                ObjectField { name: "allowUpdates".into(), value: args.allow_updates },
-                ObjectField { name: "allowedToLeave".into(), value: args.allowed_to_leave },
-                ObjectField { name: "autoConnect".into(), value: args.auto_connect },
-                ObjectField { name: "captivePortal".into(), value: args.captive_portal },
-                ObjectField { name: "default".into(), value: args.default },
-                ObjectField { name: "description".into(), value: args.description },
-                ObjectField { name: "disableAutoFallback".into(), value: args.disable_auto_fallback },
-                ObjectField { name: "enabled".into(), value: args.enabled },
-                ObjectField { name: "excludeOfficeIps".into(), value: args.exclude_office_ips },
-                ObjectField { name: "match".into(), value: args.match_ },
-                ObjectField { name: "name".into(), value: args.name },
-                ObjectField { name: "precedence".into(), value: args.precedence },
-                ObjectField { name: "serviceModeV2Mode".into(), value: args.service_mode_v2_mode },
-                ObjectField { name: "serviceModeV2Port".into(), value: args.service_mode_v2_port },
-                ObjectField { name: "supportUrl".into(), value: args.support_url },
-                ObjectField { name: "switchLocked".into(), value: args.switch_locked },
+                ObjectField {
+                    name: "accountId".into(),
+                    value: args.account_id,
+                },
+                ObjectField {
+                    name: "allowModeSwitch".into(),
+                    value: args.allow_mode_switch,
+                },
+                ObjectField {
+                    name: "allowUpdates".into(),
+                    value: args.allow_updates,
+                },
+                ObjectField {
+                    name: "allowedToLeave".into(),
+                    value: args.allowed_to_leave,
+                },
+                ObjectField {
+                    name: "autoConnect".into(),
+                    value: args.auto_connect,
+                },
+                ObjectField {
+                    name: "captivePortal".into(),
+                    value: args.captive_portal,
+                },
+                ObjectField {
+                    name: "default".into(),
+                    value: args.default,
+                },
+                ObjectField {
+                    name: "description".into(),
+                    value: args.description,
+                },
+                ObjectField {
+                    name: "disableAutoFallback".into(),
+                    value: args.disable_auto_fallback,
+                },
+                ObjectField {
+                    name: "enabled".into(),
+                    value: args.enabled,
+                },
+                ObjectField {
+                    name: "excludeOfficeIps".into(),
+                    value: args.exclude_office_ips,
+                },
+                ObjectField {
+                    name: "match".into(),
+                    value: args.match_,
+                },
+                ObjectField {
+                    name: "name".into(),
+                    value: args.name,
+                },
+                ObjectField {
+                    name: "precedence".into(),
+                    value: args.precedence,
+                },
+                ObjectField {
+                    name: "serviceModeV2Mode".into(),
+                    value: args.service_mode_v2_mode,
+                },
+                ObjectField {
+                    name: "serviceModeV2Port".into(),
+                    value: args.service_mode_v2_port,
+                },
+                ObjectField {
+                    name: "supportUrl".into(),
+                    value: args.support_url,
+                },
+                ObjectField {
+                    name: "switchLocked".into(),
+                    value: args.switch_locked,
+                },
             ],
             results: vec![
-                ResultField { name: "accountId".into() },
-                ResultField { name: "allowModeSwitch".into() },
-                ResultField { name: "allowUpdates".into() },
-                ResultField { name: "allowedToLeave".into() },
-                ResultField { name: "autoConnect".into() },
-                ResultField { name: "captivePortal".into() },
-                ResultField { name: "default".into() },
-                ResultField { name: "description".into() },
-                ResultField { name: "disableAutoFallback".into() },
-                ResultField { name: "enabled".into() },
-                ResultField { name: "excludeOfficeIps".into() },
-                ResultField { name: "match".into() },
-                ResultField { name: "name".into() },
-                ResultField { name: "precedence".into() },
-                ResultField { name: "serviceModeV2Mode".into() },
-                ResultField { name: "serviceModeV2Port".into() },
-                ResultField { name: "supportUrl".into() },
-                ResultField { name: "switchLocked".into() },
+                ResultField {
+                    name: "accountId".into(),
+                },
+                ResultField {
+                    name: "allowModeSwitch".into(),
+                },
+                ResultField {
+                    name: "allowUpdates".into(),
+                },
+                ResultField {
+                    name: "allowedToLeave".into(),
+                },
+                ResultField {
+                    name: "autoConnect".into(),
+                },
+                ResultField {
+                    name: "captivePortal".into(),
+                },
+                ResultField {
+                    name: "default".into(),
+                },
+                ResultField {
+                    name: "description".into(),
+                },
+                ResultField {
+                    name: "disableAutoFallback".into(),
+                },
+                ResultField {
+                    name: "enabled".into(),
+                },
+                ResultField {
+                    name: "excludeOfficeIps".into(),
+                },
+                ResultField {
+                    name: "match".into(),
+                },
+                ResultField {
+                    name: "name".into(),
+                },
+                ResultField {
+                    name: "precedence".into(),
+                },
+                ResultField {
+                    name: "serviceModeV2Mode".into(),
+                },
+                ResultField {
+                    name: "serviceModeV2Port".into(),
+                },
+                ResultField {
+                    name: "supportUrl".into(),
+                },
+                ResultField {
+                    name: "switchLocked".into(),
+                },
             ],
         };
 
         let o = register(&request);
 
-        let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
 
         device_settings_policy::Res {
             account_id: hashmap.remove("accountId").unwrap(),
@@ -75,6 +168,5 @@ impl device_settings_policy::Guest for Component {
             support_url: hashmap.remove("supportUrl").unwrap(),
             switch_locked: hashmap.remove("switchLocked").unwrap(),
         }
-
     }
 }

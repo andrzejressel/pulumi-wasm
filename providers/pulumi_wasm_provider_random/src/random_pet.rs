@@ -1,7 +1,9 @@
-use std::collections::HashMap;
+use crate::bindings::component::pulumi_wasm::register_interface::{
+    register, ObjectField, RegisterResourceRequest, ResultField,
+};
 use crate::bindings::exports::pulumi::random::random_pet;
-use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
 use crate::Component;
+use std::collections::HashMap;
 
 impl random_pet::Guest for Component {
     fn invoke(name: String, args: random_pet::Args) -> random_pet::Res {
@@ -10,22 +12,43 @@ impl random_pet::Guest for Component {
             type_: "random:index/randomPet:RandomPet".into(),
             name,
             object: vec![
-                ObjectField { name: "keepers".into(), value: args.keepers },
-                ObjectField { name: "length".into(), value: args.length },
-                ObjectField { name: "prefix".into(), value: args.prefix },
-                ObjectField { name: "separator".into(), value: args.separator },
+                ObjectField {
+                    name: "keepers".into(),
+                    value: args.keepers,
+                },
+                ObjectField {
+                    name: "length".into(),
+                    value: args.length,
+                },
+                ObjectField {
+                    name: "prefix".into(),
+                    value: args.prefix,
+                },
+                ObjectField {
+                    name: "separator".into(),
+                    value: args.separator,
+                },
             ],
             results: vec![
-                ResultField { name: "keepers".into() },
-                ResultField { name: "length".into() },
-                ResultField { name: "prefix".into() },
-                ResultField { name: "separator".into() },
+                ResultField {
+                    name: "keepers".into(),
+                },
+                ResultField {
+                    name: "length".into(),
+                },
+                ResultField {
+                    name: "prefix".into(),
+                },
+                ResultField {
+                    name: "separator".into(),
+                },
             ],
         };
 
         let o = register(&request);
 
-        let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
 
         random_pet::Res {
             keepers: hashmap.remove("keepers").unwrap(),
@@ -33,6 +56,5 @@ impl random_pet::Guest for Component {
             prefix: hashmap.remove("prefix").unwrap(),
             separator: hashmap.remove("separator").unwrap(),
         }
-
     }
 }

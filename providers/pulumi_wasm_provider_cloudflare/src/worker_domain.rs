@@ -1,7 +1,9 @@
-use std::collections::HashMap;
+use crate::bindings::component::pulumi_wasm::register_interface::{
+    register, ObjectField, RegisterResourceRequest, ResultField,
+};
 use crate::bindings::exports::pulumi::cloudflare::worker_domain;
-use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
 use crate::Component;
+use std::collections::HashMap;
 
 impl worker_domain::Guest for Component {
     fn invoke(name: String, args: worker_domain::Args) -> worker_domain::Res {
@@ -10,24 +12,50 @@ impl worker_domain::Guest for Component {
             type_: "cloudflare:index/workerDomain:WorkerDomain".into(),
             name,
             object: vec![
-                ObjectField { name: "accountId".into(), value: args.account_id },
-                ObjectField { name: "environment".into(), value: args.environment },
-                ObjectField { name: "hostname".into(), value: args.hostname },
-                ObjectField { name: "service".into(), value: args.service },
-                ObjectField { name: "zoneId".into(), value: args.zone_id },
+                ObjectField {
+                    name: "accountId".into(),
+                    value: args.account_id,
+                },
+                ObjectField {
+                    name: "environment".into(),
+                    value: args.environment,
+                },
+                ObjectField {
+                    name: "hostname".into(),
+                    value: args.hostname,
+                },
+                ObjectField {
+                    name: "service".into(),
+                    value: args.service,
+                },
+                ObjectField {
+                    name: "zoneId".into(),
+                    value: args.zone_id,
+                },
             ],
             results: vec![
-                ResultField { name: "accountId".into() },
-                ResultField { name: "environment".into() },
-                ResultField { name: "hostname".into() },
-                ResultField { name: "service".into() },
-                ResultField { name: "zoneId".into() },
+                ResultField {
+                    name: "accountId".into(),
+                },
+                ResultField {
+                    name: "environment".into(),
+                },
+                ResultField {
+                    name: "hostname".into(),
+                },
+                ResultField {
+                    name: "service".into(),
+                },
+                ResultField {
+                    name: "zoneId".into(),
+                },
             ],
         };
 
         let o = register(&request);
 
-        let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+        let mut hashmap: HashMap<String, _> =
+            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
 
         worker_domain::Res {
             account_id: hashmap.remove("accountId").unwrap(),
@@ -36,6 +64,5 @@ impl worker_domain::Guest for Component {
             service: hashmap.remove("service").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }
