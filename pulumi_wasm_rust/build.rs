@@ -28,7 +28,7 @@ fn main() {
             impl<#(#idents_generic: serde::Serialize),*> Output<(#(#idents_generic),*)> {
                 #[allow(clippy::too_many_arguments)]
                 pub fn #function_name(#(#idents: Output<#idents_generic>),*) -> Self {
-                    let output_id = output_interface::combine(&vec![#(#idents.get_inner().deref()),*]);
+                    let output_id = output_interface::combine(&[#(#idents.get_inner().deref()),*]);
                     unsafe { Output::<(#(#idents_generic),*)>::new_from_handle(output_id) }
                 }
             }
