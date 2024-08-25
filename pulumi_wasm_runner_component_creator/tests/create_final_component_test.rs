@@ -388,10 +388,9 @@ impl ResolveExt for Resolve {
             r#"
     package component:pulumi-wasm-external@0.0.0-STABLE-DEV;
 
-    interface pulumi-main {{
+    interface pulumi-main {
         main: func();
-    }}
-
+    }
 "#,
         )?;
 
