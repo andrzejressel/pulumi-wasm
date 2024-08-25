@@ -1,5 +1,6 @@
 use crate::pulumi::Pulumi;
 use anyhow::{Context, Error};
+use clap::ArgAction;
 use clap::{arg, Args, Parser, Subcommand};
 use log::LevelFilter;
 use log4rs::append::file::FileAppender;
@@ -13,7 +14,6 @@ use pulumi_wasm_runner_component_creator::source::{
 use std::collections::BTreeMap;
 use std::fs;
 use std::path::PathBuf;
-
 mod model;
 mod pulumi;
 mod pulumi_state;
@@ -36,6 +36,8 @@ enum Command {
         providers: Vec<(String, PathBuf)>,
         #[arg(long)]
         pulumi_wasm: Option<PathBuf>,
+        #[clap(long, action=ArgAction::SetFalse, help="When set to true, WASM components with debug symbols will be used. Should be only used for debugging - it will massively increase execution time")]
+        debug: bool,
         program: PathBuf,
     },
 }
@@ -84,6 +86,7 @@ async fn main() -> Result<(), Error> {
         Command::Run {
             providers,
             pulumi_wasm,
+            debug,
             program,
         } => {
             use pulumi_wasm_runner_component_creator::source::FileSource;
@@ -108,6 +111,7 @@ async fn main() -> Result<(), Error> {
                 pulumi_wasm_source.as_ref(),
                 fs::read(program)
                     .context(format!("Cannot read program {}", program.to_str().unwrap()))?,
+                *debug
             )
             .await?;
             log::info!("Created final component");

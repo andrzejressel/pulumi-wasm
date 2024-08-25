@@ -252,7 +252,7 @@ struct TestProgramSource {}
 
 #[async_trait]
 impl PulumiWasmSource for TestProgramSource {
-    async fn get(&self, version: &str) -> Result<Vec<u8>> {
+    async fn get(&self, version: &str, debug: bool) -> Result<Vec<u8>> {
         let mut resolve = Resolve::new();
         let pkg = resolve.add_pulumi_wasm(version).unwrap();
 
@@ -282,6 +282,7 @@ impl DefaultProviderSource for TestDefaultProviderSource {
         provider_name: &str,
         provider_version: &str,
         pulumi_wasm_version: &str,
+        debug: bool,
     ) -> Result<Vec<u8>> {
         let mut resolve = Resolve::new();
         resolve.add_pulumi_wasm(pulumi_wasm_version).unwrap();

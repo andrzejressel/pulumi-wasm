@@ -4,6 +4,7 @@ use itertools::Itertools;
 use regex::Regex;
 use std::collections::{BTreeMap, BTreeSet};
 use std::hash::Hash;
+use log::{info, log};
 use wac_graph::types::{Package, SubtypeChecker};
 use wac_graph::{CompositionGraph, EncodeOptions, NodeId, PackageId};
 
@@ -16,6 +17,7 @@ pub async fn create(
     default_provider_source: &dyn DefaultProviderSource,
     pulumi_wasm: &dyn PulumiWasmSource,
     program: Vec<u8>,
+    debug: bool
 ) -> anyhow::Result<Vec<u8>> {
     let mut graph = CompositionGraph::new();
 
@@ -63,6 +65,8 @@ pub async fn create(
 
     let pulumi_wasm_version = pulumi_wasm_versions.iter().next().unwrap();
 
+    info!("Pulumi WASM version: {pulumi_wasm_version}");
+
     // Is not getting invoked, because different version are capture before
     // (because of transitive output dependency)
     //
@@ -101,7 +105,7 @@ pub async fn create(
         let downloaded = match providers_paths.get(provider_name) {
             None => {
                 default_provider_source
-                    .get_component(provider_name, &provider.version, pulumi_wasm_version)
+                    .get_component(provider_name, &provider.version, pulumi_wasm_version, debug)
                     .await
             }
             Some(provider_source) => provider_source.get_component(pulumi_wasm_version).await,
@@ -111,7 +115,7 @@ pub async fn create(
     }
 
     let pulumi_wasm = pulumi_wasm
-        .get(pulumi_wasm_version)
+        .get(pulumi_wasm_version, debug)
         .await
         .context("Cannot obtain pulumi_wasm component WASM")?;
 
