@@ -385,17 +385,14 @@ impl ResolveExt for Resolve {
     fn add_pulumi_wasm_stable(&mut self) -> Result<()> {
         self.push_str(
             "pulumi-wasm-stable.wit",
-            format!(
-                r#"
+            r#"
     package component:pulumi-wasm-external@0.0.0-STABLE-DEV;
 
     interface pulumi-main {{
         main: func();
     }}
 
-"#
-            )
-            .as_str(),
+"#,
         )?;
 
         Ok(())
