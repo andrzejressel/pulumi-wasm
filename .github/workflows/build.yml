@@ -2,7 +2,7 @@ name: Build
 
 on:
   push:
-    branches: [ "main", "release_and_debug_profiles" ]
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
@@ -17,199 +17,199 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-#  build:
-#
-#    runs-on: ${{ matrix.os }}
-#
-#    strategy:
-#      fail-fast: false
-#      matrix:
-#        os: [ubuntu-latest, windows-latest, macos-latest]
-#
-#    env:
-#      RUST_BACKTRACE: "full"
-#
-#    steps:
-#    - name: Cleanup unused stuff
-#      if: runner.os == 'Linux'
-#      run: |
-#        df -h /
-#        sudo rm -rf \
-#        "$AGENT_TOOLSDIRECTORY" \
-#        /opt/google/chrome \
-#        /opt/microsoft/msedge \
-#        /opt/microsoft/powershell \
-#        /opt/pipx \
-#        /usr/lib/mono \
-#        /usr/local/julia* \
-#        /usr/local/lib/android \
-#        /usr/local/lib/node_modules \
-#        /usr/local/share/chromium \
-#        /usr/local/share/powershell \
-#        /usr/share/dotnet \
-#        /usr/share/swift
-#        df -h /
-#    - run: git config --system core.longpaths true
-#      if: runner.os == 'Windows'
-#    - uses: actions/checkout@v4
-#      with:
-#        submodules: true
-#    - uses: extractions/setup-just@v2
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#    - uses: cargo-bins/cargo-binstall@main
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#    - name: Install requirements
-#      run: just install-requirements
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#    - name: Pull required docker images
-#      if: runner.os == 'Linux'
-#      uses: nick-fields/retry@v3
-#      with:
-#        timeout_minutes: 10
-#        max_attempts: 10
-#        command: docker pull public.ecr.aws/ubuntu/ubuntu:latest
-#    - uses: actions/setup-go@v5
-#      with:
-#        go-version: '^1.22.0'
-#        cache-dependency-path: "**/go.sum"
-#    - run: go version
-#    - name: Install Protoc
-#      uses: arduino/setup-protoc@v3
-#      with:
-#        version: "25.3"
-#        repo-token: ${{ secrets.GITHUB_TOKEN }}
-#    - run: protoc --version
-#    - run: brew install pulumi
-#      if: runner.os == 'macOS'
-#    - run: pulumi version
-#    - run: pulumi login --local
-#
-#    - uses: Swatinem/rust-cache@v2
-#      with:
-#        shared-key: build
-#        workspaces: |
-#          ./
-#          pulumi_wasm_generator_lib/tests/output/cyclic-types/
-#          pulumi_wasm_generator_lib/tests/output/mini-awsnative/
-#    - name: Regenerate provider list
-#      run: just regenerate-provider-list
-#    - name: Check
-#      run: just check
-#    - name: Build
-#      run: just build
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#    - name: Test
-#      run: just test
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#    - run: git add . && git diff
-#    - run: git diff --cached
-#    - name: Ensure no files have changed
-#      run: git add . && git diff --quiet && git diff --cached --quiet
-#
-#    - uses: actions/upload-artifact@v4
-#      with:
-#        name: "timings_${{ runner.os }}"
-#        path: |
-#          target/cargo-timings/cargo-timing-*.html
-#          pulumi_wasm_generator_lib/tests/**/target/cargo-timings/cargo-timing-*.html
+  build:
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    env:
+      RUST_BACKTRACE: "full"
+
+    steps:
+      - name: Cleanup unused stuff
+        if: runner.os == 'Linux'
+        run: |
+          df -h /
+          sudo rm -rf \
+          "$AGENT_TOOLSDIRECTORY" \
+          /opt/google/chrome \
+          /opt/microsoft/msedge \
+          /opt/microsoft/powershell \
+          /opt/pipx \
+          /usr/lib/mono \
+          /usr/local/julia* \
+          /usr/local/lib/android \
+          /usr/local/lib/node_modules \
+          /usr/local/share/chromium \
+          /usr/local/share/powershell \
+          /usr/share/dotnet \
+          /usr/share/swift
+          df -h /
+      - run: git config --system core.longpaths true
+        if: runner.os == 'Windows'
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - uses: extractions/setup-just@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: cargo-bins/cargo-binstall@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install requirements
+        run: just install-requirements
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Pull required docker images
+        if: runner.os == 'Linux'
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 10
+          command: docker pull public.ecr.aws/ubuntu/ubuntu:latest
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '^1.22.0'
+          cache-dependency-path: "**/go.sum"
+      - run: go version
+      - name: Install Protoc
+        uses: arduino/setup-protoc@v3
+        with:
+          version: "25.3"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - run: protoc --version
+      - run: brew install pulumi
+        if: runner.os == 'macOS'
+      - run: pulumi version
+      - run: pulumi login --local
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          shared-key: build
+          workspaces: |
+            ./
+            pulumi_wasm_generator_lib/tests/output/cyclic-types/
+            pulumi_wasm_generator_lib/tests/output/mini-awsnative/
+      - name: Regenerate provider list
+        run: just regenerate-provider-list
+      - name: Check
+        run: just check
+      - name: Build
+        run: just build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Test
+        run: just test
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: git add . && git diff
+      - run: git diff --cached
+      - name: Ensure no files have changed
+        run: git add . && git diff --quiet && git diff --cached --quiet
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: "timings_${{ runner.os }}"
+          path: |
+            target/cargo-timings/cargo-timing-*.html
+            pulumi_wasm_generator_lib/tests/**/target/cargo-timings/cargo-timing-*.html
 
   deploy:
     runs-on: ubuntu-latest
-#    needs: build
-    if: success() && github.ref == 'refs/heads/release_and_debug_profiles'
+    needs: build
+    if: success() && github.ref == 'refs/heads/main'
     env:
       RUST_BACKTRACE: "full"
     steps:
-    - name: Cleanup unused stuff
-      run: |
-        df -h /
-        sudo rm -rf \
-        "$AGENT_TOOLSDIRECTORY" \
-        /opt/google/chrome \
-        /opt/microsoft/msedge \
-        /opt/microsoft/powershell \
-        /opt/pipx \
-        /usr/lib/mono \
-        /usr/local/julia* \
-        /usr/local/lib/android \
-        /usr/local/lib/node_modules \
-        /usr/local/share/chromium \
-        /usr/local/share/powershell \
-        /usr/share/dotnet \
-        /usr/share/swift
-        df -h /
-    - uses: actions/checkout@v4
-      with:
-        submodules: true
-        token: ${{ secrets.PAT }}
-    - uses: extractions/setup-just@v2
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - uses: cargo-bins/cargo-binstall@main
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Install requirements
-      run: just install-requirements
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Pull required docker images
-      if: runner.os == 'Linux'
-      uses: nick-fields/retry@v3
-      with:
-        timeout_minutes: 10
-        max_attempts: 10
-        command: docker pull public.ecr.aws/ubuntu/ubuntu:latest
-    - uses: actions/setup-go@v5
-      with:
-        go-version: '^1.22.0'
-        cache-dependency-path: "**/go.sum"
-    - run: go version
-    - name: Install Protoc
-      uses: arduino/setup-protoc@v3
-      with:
-        version: "25.3"
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-    - run: protoc --version
-    - run: brew install pulumi
-      if: runner.os == 'macOS'
-    - run: pulumi version
-    - run: pulumi login --local
+      - name: Cleanup unused stuff
+        run: |
+          df -h /
+          sudo rm -rf \
+          "$AGENT_TOOLSDIRECTORY" \
+          /opt/google/chrome \
+          /opt/microsoft/msedge \
+          /opt/microsoft/powershell \
+          /opt/pipx \
+          /usr/lib/mono \
+          /usr/local/julia* \
+          /usr/local/lib/android \
+          /usr/local/lib/node_modules \
+          /usr/local/share/chromium \
+          /usr/local/share/powershell \
+          /usr/share/dotnet \
+          /usr/share/swift
+          df -h /
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+          token: ${{ secrets.PAT }}
+      - uses: extractions/setup-just@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: cargo-bins/cargo-binstall@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install requirements
+        run: just install-requirements
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Pull required docker images
+        if: runner.os == 'Linux'
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 10
+          command: docker pull public.ecr.aws/ubuntu/ubuntu:latest
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '^1.22.0'
+          cache-dependency-path: "**/go.sum"
+      - run: go version
+      - name: Install Protoc
+        uses: arduino/setup-protoc@v3
+        with:
+          version: "25.3"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - run: protoc --version
+      - run: brew install pulumi
+        if: runner.os == 'macOS'
+      - run: pulumi version
+      - run: pulumi login --local
 
-    - uses: Swatinem/rust-cache@v2
-      with:
-        shared-key: build
-        save-if: false
-        workspaces: |
-          ./
-          pulumi_wasm_generator_lib/tests/output/cyclic-types/
-          pulumi_wasm_generator_lib/tests/output/mini-awsnative/
+      - uses: Swatinem/rust-cache@v2
+        with:
+          shared-key: build
+          save-if: false
+          workspaces: |
+            ./
+            pulumi_wasm_generator_lib/tests/output/cyclic-types/
+            pulumi_wasm_generator_lib/tests/output/mini-awsnative/
 
-    - uses: benjlevesque/short-sha@v3.0
-      id: short-sha
-      with:
-        length: 7
-    - name: Replace version
-      run: just update-version "0.0.0-NIGHTLY-${{ steps.short-sha.outputs.sha }}"
+      - uses: benjlevesque/short-sha@v3.0
+        id: short-sha
+        with:
+          length: 7
+      - name: Replace version
+        run: just update-version "0.0.0-NIGHTLY-${{ steps.short-sha.outputs.sha }}"
 
-    - name: Build
-      run: just build
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Test
-      run: just test
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build
+        run: just build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Test
+        run: just test
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Create commit
-      run: |
-        git config --local user.name "GitHub Actions"
-        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git add -A
-        git commit -m "Release v0.0.0-NIGHTLY-${{ steps.short-sha.outputs.sha }}"
-        git tag "v0.0.0-NIGHTLY-${{ steps.short-sha.outputs.sha }}"
-        git push origin "v0.0.0-NIGHTLY-${{ steps.short-sha.outputs.sha }}"
+      - name: Create commit
+        run: |
+          git config --local user.name "GitHub Actions"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Release v0.0.0-NIGHTLY-${{ steps.short-sha.outputs.sha }}"
+          git tag "v0.0.0-NIGHTLY-${{ steps.short-sha.outputs.sha }}"
+          git push origin "v0.0.0-NIGHTLY-${{ steps.short-sha.outputs.sha }}"

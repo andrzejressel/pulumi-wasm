@@ -2,7 +2,7 @@ use crate::pulumi::Pulumi;
 use anyhow::{Context, Error};
 use clap::ArgAction;
 use clap::{arg, Args, Parser, Subcommand};
-use log::LevelFilter;
+use log::{log, LevelFilter};
 use log4rs::append::file::FileAppender;
 use log4rs::config::{Appender, Root};
 use log4rs::encode::json::JsonEncoder;
@@ -36,7 +36,7 @@ enum Command {
         providers: Vec<(String, PathBuf)>,
         #[arg(long)]
         pulumi_wasm: Option<PathBuf>,
-        #[clap(long, action=ArgAction::SetFalse, help="When set to true, WASM components with debug symbols will be used. Should be only used for debugging - it will massively increase execution time")]
+        #[clap(long, action, help="When set to true, WASM components with debug symbols will be used. Should be only used for debugging - it will massively increase execution time")]
         debug: bool,
         program: PathBuf,
     },
@@ -99,6 +99,7 @@ async fn main() -> Result<(), Error> {
                     )
                 })
                 .collect();
+            log::info!("Debug set to {debug}");
             log::info!("Creating final component");
             let pulumi_wasm_source: Box<dyn PulumiWasmSource> = match pulumi_wasm {
                 None => Box::new(GithubPulumiWasmSource {}),
