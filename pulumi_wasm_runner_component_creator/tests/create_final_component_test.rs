@@ -10,6 +10,7 @@ use wit_parser::{PackageId, Resolve};
 #[tokio::test]
 async fn should_combine_wasm_components() -> Result<()> {
     let mut resolve = Resolve::new();
+    resolve.add_pulumi_wasm_stable().unwrap();
     resolve.add_pulumi_wasm("0.0.0-DEV").unwrap();
     resolve
         .add_provider("docker", "4.5.3", "0.0.0-DEV")
@@ -23,7 +24,7 @@ async fn should_combine_wasm_components() -> Result<()> {
 
     world root {
         import component:pulumi-wasm/output-interface@0.0.0-DEV;
-        export component:pulumi-wasm/pulumi-main@0.0.0-DEV;
+        export component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV;
         import pulumi:docker/container@4.5.3-DIVIDER-0.0.0-DEV;
     }
 "#,
@@ -60,6 +61,7 @@ async fn should_combine_wasm_components() -> Result<()> {
 #[tokio::test]
 async fn return_error_when_multiple_dependencies_on_the_same_provider_is_found() -> Result<()> {
     let mut resolve = Resolve::new();
+    resolve.add_pulumi_wasm_stable().unwrap();
     resolve.add_pulumi_wasm("0.0.0-DEV").unwrap();
     resolve
         .add_provider("docker", "4.5.3", "0.0.0-DEV")
@@ -76,7 +78,7 @@ async fn return_error_when_multiple_dependencies_on_the_same_provider_is_found()
 
     world root {
         import component:pulumi-wasm/output-interface@0.0.0-DEV;
-        export component:pulumi-wasm/pulumi-main@0.0.0-DEV;
+        export component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV;
         import pulumi:docker/container@4.5.3-DIVIDER-0.0.0-DEV;
         import pulumi:docker/container@4.5.4-DIVIDER-0.0.0-DEV;
     }
@@ -114,6 +116,7 @@ async fn return_error_when_multiple_dependencies_on_the_same_provider_is_found()
 #[tokio::test]
 async fn return_error_when_multiple_versions_of_pulumi_wasm_is_found() -> Result<()> {
     let mut resolve = Resolve::new();
+    resolve.add_pulumi_wasm_stable().unwrap();
     resolve.add_pulumi_wasm("0.0.0-DEV").unwrap();
     resolve.add_pulumi_wasm("0.0.1-DEV").unwrap();
 
@@ -126,7 +129,7 @@ async fn return_error_when_multiple_versions_of_pulumi_wasm_is_found() -> Result
     world root {
         import component:pulumi-wasm/output-interface@0.0.0-DEV;
         import component:pulumi-wasm/output-interface@0.0.1-DEV;
-        export component:pulumi-wasm/pulumi-main@0.0.0-DEV;
+        export component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV;
     }
 "#,
         )
@@ -166,6 +169,7 @@ async fn return_error_when_multiple_versions_of_pulumi_wasm_is_found() -> Result
 #[tokio::test]
 async fn return_error_when_multiple_versions_of_pulumi_wasm_in_providers_is_found() -> Result<()> {
     let mut resolve = Resolve::new();
+    resolve.add_pulumi_wasm_stable().unwrap();
     resolve.add_pulumi_wasm("0.0.0-DEV").unwrap();
     resolve.add_pulumi_wasm("0.0.1-DEV").unwrap();
     resolve
@@ -183,7 +187,7 @@ async fn return_error_when_multiple_versions_of_pulumi_wasm_in_providers_is_foun
 
     world root {
         import component:pulumi-wasm/output-interface@0.0.0-DEV;
-        export component:pulumi-wasm/pulumi-main@0.0.0-DEV;
+        export component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV;
         import pulumi:cloudflare/container@1.0.0-DIVIDER-0.0.1-DEV;
         import pulumi:docker/container@1.0.0-DIVIDER-0.0.0-DEV;
     }
@@ -235,7 +239,7 @@ fn assert_component_only_exports_main(result: &[u8]) -> Result<()> {
 
     assert_eq!(
         exports_names,
-        vec!["component:pulumi-wasm/pulumi-main@0.0.0-DEV".to_string()]
+        vec!["component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV".to_string()]
     );
 
     let imports_names: Vec<_> = graph.types()[graph[main_package_id].ty()]
@@ -314,6 +318,7 @@ trait ResolveExt {
         pulumi_wasm_version: impl Into<String>,
     ) -> Result<PackageId>;
     fn add_pulumi_wasm(&mut self, pulumi_wasm_version: impl Into<String>) -> Result<PackageId>;
+    fn add_pulumi_wasm_stable(&mut self) -> Result<()>;
 }
 
 impl ResolveExt for Resolve {
@@ -375,5 +380,25 @@ impl ResolveExt for Resolve {
             )
             .as_str(),
         )
+
+    }
+
+    fn add_pulumi_wasm_stable(&mut self) -> Result<()> {
+        self.push_str(
+            "pulumi-wasm-stable.wit",
+            format!(
+                r#"
+    package component:pulumi-wasm-external@0.0.0-STABLE-DEV;
+
+    interface pulumi-main {{
+        main: func();
+    }}
+
+"#
+            )
+                .as_str(),
+        )?;
+
+        Ok(())
     }
 }
