@@ -97,6 +97,17 @@ fn replace_build_wasm_components(providers: &[Provider], content: &str) -> Strin
         ));
     }
     replacement.push_str("      --timings\n");
+    replacement.push_str("\n");
+    replacement.push_str("build-wasm-providers-release:\n");
+    replacement.push_str("    cargo component build \\\n");
+    for provider in providers {
+        replacement.push_str(&format!(
+            "      -p pulumi_wasm_{}_provider \\\n",
+            provider.name
+        ));
+    }
+    replacement.push_str("      --timings --release\n");
+
     let start_marker = "# DO NOT EDIT - BUILD-WASM-COMPONENTS - START";
     let end_marker = "# DO NOT EDIT - BUILD-WASM-COMPONENTS - END";
     replace_between_markers(content, start_marker, end_marker, &replacement)

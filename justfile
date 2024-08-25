@@ -37,6 +37,10 @@ build-wasm-components:
     just build-wasm-providers
     cargo build -p pulumi_wasm_runner --timings
 
+build-wasm-components-release:
+    cargo component build -p pulumi_wasm --timings --release
+    just build-wasm-providers-release
+
 # DO NOT EDIT - BUILD-WASM-COMPONENTS - START
 build-wasm-providers:
     cargo component build \
@@ -44,6 +48,13 @@ build-wasm-providers:
       -p pulumi_wasm_random_provider \
       -p pulumi_wasm_cloudflare_provider \
       --timings
+
+build-wasm-providers-release:
+    cargo component build \
+      -p pulumi_wasm_docker_provider \
+      -p pulumi_wasm_random_provider \
+      -p pulumi_wasm_cloudflare_provider \
+      --timings --release
 # DO NOT EDIT - BUILD-WASM-COMPONENTS - END
 
 check:
