@@ -12,7 +12,7 @@ world pulumi-wasm {
 world client {
     import output-interface;
     import stack-interface;
-    export pulumi-main; // Used by macro
+    export component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV; // Used by macro
 }
 
 world logger {
@@ -20,7 +20,7 @@ world logger {
 }
 
 world runner {
-    export pulumi-main;
+    export component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV;
     import component:pulumi-wasm-external/external-world@0.0.0-STABLE-DEV;
     import component:pulumi-wasm-external/log@0.0.0-STABLE-DEV;
 }
@@ -80,8 +80,4 @@ interface register-interface {
     }
 
     register: func(request: register-resource-request) -> register-resource-result;
-}
-
-interface pulumi-main {
-    main: func();
 }

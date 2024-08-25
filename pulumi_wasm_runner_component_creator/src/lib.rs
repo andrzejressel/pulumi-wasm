@@ -163,13 +163,12 @@ pub async fn create(
     )
     .unwrap();
 
-    let pulumi_main_component_name =
-        format!("component:pulumi-wasm/pulumi-main@{}", pulumi_wasm_version);
+    let pulumi_main_component_name = "component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV";
     let pulumi_main_export = graph
-        .alias_instance_export(main_instance, pulumi_main_component_name.as_str())
+        .alias_instance_export(main_instance, pulumi_main_component_name)
         .unwrap();
     graph
-        .export(pulumi_main_export, pulumi_main_component_name.as_str())
+        .export(pulumi_main_export, pulumi_main_component_name)
         .unwrap();
 
     Ok(graph.encode(EncodeOptions::default()).unwrap())
