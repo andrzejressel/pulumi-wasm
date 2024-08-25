@@ -82,16 +82,16 @@ regenerate-providers:
 # DO NOT EDIT - REGENERATE-PROVIDERS - END
 
 publish:
-    cargo publish -p pulumi_wasm_wit --allow-dirty --all-features
-    cargo publish -p pulumi_wasm_proto --allow-dirty --all-features
-    cargo publish -p pulumi_wasm_common --allow-dirty --all-features
-    cargo publish -p pulumi_wasm_rust_macro --allow-dirty --all-features
-    cargo publish -p pulumi_wasm_rust --allow-dirty --all-features
-    cargo publish -p pulumi_wasm_generator_lib --allow-dirty --all-features
-    cargo publish -p pulumi_wasm_generator --allow-dirty --all-features
-    cargo publish -p pulumi_wasm_core --allow-dirty --all-features
-    cargo publish -p pulumi_wasm_runner_component_creator --allow-dirty --all-features
-    cargo publish -p pulumi_wasm_runner --allow-dirty --all-features
+    cargo publish -p pulumi_wasm_wit --all-features
+    cargo publish -p pulumi_wasm_proto --all-features
+    cargo publish -p pulumi_wasm_common --all-features
+    cargo publish -p pulumi_wasm_rust_macro --all-features
+    cargo publish -p pulumi_wasm_rust --all-features
+    cargo publish -p pulumi_wasm_generator_lib --all-features
+    cargo publish -p pulumi_wasm_generator --all-features
+    cargo publish -p pulumi_wasm_core --all-features
+    cargo publish -p pulumi_wasm_runner_component_creator --all-features
+    cargo publish -p pulumi_wasm_runner --all-features
     just publish-providers
 
 # DO NOT EDIT - PUBLISH-PROVIDERS - START
