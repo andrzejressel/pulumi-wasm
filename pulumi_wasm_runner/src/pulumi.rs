@@ -296,7 +296,7 @@ impl Pulumi {
 
     pub async fn start(&mut self) -> Result<(), Error> {
         self.plugin
-            .component_pulumi_wasm_pulumi_main()
+            .component_pulumi_wasm_external_pulumi_main()
             .call_main(&mut self.store)
             .await?;
 

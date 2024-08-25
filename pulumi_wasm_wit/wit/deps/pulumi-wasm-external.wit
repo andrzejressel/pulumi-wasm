@@ -41,3 +41,7 @@ interface log {
 
     log: func(content: content);
 }
+
+interface pulumi-main {
+    main: func();
+}
