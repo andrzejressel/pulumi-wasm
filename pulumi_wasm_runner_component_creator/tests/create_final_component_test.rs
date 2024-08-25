@@ -380,7 +380,6 @@ impl ResolveExt for Resolve {
             )
             .as_str(),
         )
-
     }
 
     fn add_pulumi_wasm_stable(&mut self) -> Result<()> {
@@ -396,7 +395,7 @@ impl ResolveExt for Resolve {
 
 "#
             )
-                .as_str(),
+            .as_str(),
         )?;
 
         Ok(())
