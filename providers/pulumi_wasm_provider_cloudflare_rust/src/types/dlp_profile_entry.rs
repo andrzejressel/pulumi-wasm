@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct DlpProfileEntry {
     /// Whether the entry is active. Defaults to `false`.
     #[serde(rename = "enabled")]

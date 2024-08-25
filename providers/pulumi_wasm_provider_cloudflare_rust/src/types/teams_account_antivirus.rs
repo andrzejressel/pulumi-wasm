@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct TeamsAccountAntivirus {
     /// Scan on file download.
     #[serde(rename = "enabledDownloadPhase")]

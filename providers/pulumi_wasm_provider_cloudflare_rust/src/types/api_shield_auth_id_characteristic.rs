@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ApiShieldAuthIdCharacteristic {
     /// The name of the characteristic.
     #[serde(rename = "name")]

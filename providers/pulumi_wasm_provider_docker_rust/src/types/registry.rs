@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct Registry {
     /// The password to authenticate to the registry. Does not cause image rebuild when changed.
     #[serde(rename = "password")]

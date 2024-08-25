@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct WaitingRoomAdditionalRoute {
     /// The additional host name for which the waiting room to be applied on (no wildcards).
     #[serde(rename = "host")]

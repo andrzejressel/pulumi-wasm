@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct PagesProjectDeploymentConfigs {
     /// Configuration for preview deploys.
     #[serde(rename = "preview")]

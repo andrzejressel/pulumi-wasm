@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct CertificatePackValidationRecord {
     #[serde(rename = "cnameName")]
     pub r#cname_name: Box<Option<String>>,

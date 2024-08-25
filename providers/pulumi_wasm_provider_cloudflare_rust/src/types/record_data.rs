@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct RecordData {
     #[serde(rename = "algorithm")]
     pub r#algorithm: Box<Option<i32>>,

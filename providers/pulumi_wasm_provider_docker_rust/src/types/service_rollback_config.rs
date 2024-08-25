@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ServiceRollbackConfig {
     /// Delay between task rollbacks (ns|us|ms|s|m|h). Defaults to `0s`.
     #[serde(rename = "delay")]

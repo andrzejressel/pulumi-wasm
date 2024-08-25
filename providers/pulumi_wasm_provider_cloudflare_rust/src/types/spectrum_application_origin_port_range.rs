@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct SpectrumApplicationOriginPortRange {
     /// Upper bound of the origin port range.
     #[serde(rename = "end")]

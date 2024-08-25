@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct SpectrumApplicationDns {
     /// The name of the DNS record associated with the application.
     #[serde(rename = "name")]

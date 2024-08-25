@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct WaitingRoomRulesRule {
     /// Action to perform in the ruleset rule. Available values: `bypass_waiting_room`.
     #[serde(rename = "action")]

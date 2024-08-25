@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ServiceTaskSpecResourcesLimits {
     /// The amounf of memory in bytes the container allocates
     #[serde(rename = "memoryBytes")]

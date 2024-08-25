@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct TunnelConfigConfigIngressRuleOriginRequestIpRule {
     /// Whether to allow the IP prefix.
     #[serde(rename = "allow")]

@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct LogpushJobOutputOptions {
     /// String to be prepended before each batch.
     #[serde(rename = "batchPrefix")]

@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct RulesetRuleActionParametersSni {
     /// Status code edge TTL value.
     #[serde(rename = "value")]

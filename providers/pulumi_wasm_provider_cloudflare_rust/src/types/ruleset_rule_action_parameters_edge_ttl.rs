@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct RulesetRuleActionParametersEdgeTtl {
     /// Default browser TTL. This value is required when override_origin is set
     #[serde(rename = "default")]

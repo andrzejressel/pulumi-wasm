@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ZoneSettingsOverrideSettingsMinify {
     #[serde(rename = "css")]
     pub r#css: Box<String>,

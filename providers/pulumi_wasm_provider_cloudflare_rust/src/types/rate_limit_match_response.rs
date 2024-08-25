@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct RateLimitMatchResponse {
     /// List of HTTP headers maps to match the origin response on.
     #[serde(rename = "headers")]

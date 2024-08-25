@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct RulesetRuleActionParametersUri {
     /// List of properties to change request origin.
     #[serde(rename = "origin")]

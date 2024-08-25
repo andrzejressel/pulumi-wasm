@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct LoadBalancerRuleOverridePopPool {
     /// A list of pool IDs in failover priority to use for traffic reaching the given PoP.
     #[serde(rename = "poolIds")]

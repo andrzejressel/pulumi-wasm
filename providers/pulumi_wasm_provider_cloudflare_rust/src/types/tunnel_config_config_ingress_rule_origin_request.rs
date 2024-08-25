@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct TunnelConfigConfigIngressRuleOriginRequest {
     /// Access rules for the ingress service.
     #[serde(rename = "access")]

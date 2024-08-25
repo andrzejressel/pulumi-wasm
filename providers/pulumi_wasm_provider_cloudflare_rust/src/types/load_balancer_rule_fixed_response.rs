@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct LoadBalancerRuleFixedResponse {
     /// The value of the HTTP context-type header for this fixed response.
     #[serde(rename = "contentType")]

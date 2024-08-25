@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ServiceTaskSpecContainerSpecHost {
     /// The name of the host
     #[serde(rename = "host")]

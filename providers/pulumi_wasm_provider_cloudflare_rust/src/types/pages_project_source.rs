@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct PagesProjectSource {
     /// Configuration for the source of the Cloudflare Pages project.
     #[serde(rename = "config")]

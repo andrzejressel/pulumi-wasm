@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ServiceEndpointSpecPort {
     /// A random name for the port
     #[serde(rename = "name")]

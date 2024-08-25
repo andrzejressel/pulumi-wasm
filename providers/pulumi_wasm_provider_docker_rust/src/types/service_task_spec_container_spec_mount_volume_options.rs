@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ServiceTaskSpecContainerSpecMountVolumeOptions {
     /// Name of the driver to use to create the volume
     #[serde(rename = "driverName")]

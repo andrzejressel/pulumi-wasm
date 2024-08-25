@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ServiceTaskSpecContainerSpecLabel {
     /// Name of the label
     #[serde(rename = "label")]

@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct AddressMapIp {
     /// An IPv4 or IPv6 address.
     #[serde(rename = "ip")]

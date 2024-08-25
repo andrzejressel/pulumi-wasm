@@ -7,7 +7,9 @@
 
 PoC of Pulumi support for WASM.
 
-Currently, supports very simple code for very simple providers (no complex objects). 
+### Quick start
+
+https://github.com/andrzejressel/pulumi-wasm-example
 
 ### Installation
 
@@ -15,6 +17,12 @@ Currently, supports very simple code for very simple providers (no complex objec
 
 ```
 pulumi plugin install language wasm "0.0.0-NIGHTLY-SHORTSHA1" --server github://api.github.com/andrzejressel/pulumi-wasm
+```
+
+#### WASM Runner
+
+```
+cargo binstall -y --index "sparse+https://cargo.cloudsmith.io/andrzej-ressel-github/pulumi-wasm/" pulumi_wasm_runner@0.0.0-NIGHTLY-SHORTSHA1
 ```
 
 ### Acknowledgements

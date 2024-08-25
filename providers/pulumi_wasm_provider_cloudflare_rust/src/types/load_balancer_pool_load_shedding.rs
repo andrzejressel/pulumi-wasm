@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct LoadBalancerPoolLoadShedding {
     /// Percent of traffic to shed 0 - 100. Defaults to `0`.
     #[serde(rename = "defaultPercent")]

@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct PageRuleActionsMinify {
     /// Whether CSS should be minified. Valid values are `"on"` or `"off"`.
     #[serde(rename = "css")]

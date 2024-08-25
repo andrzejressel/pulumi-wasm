@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct RulesetRuleRatelimit {
     /// List of parameters that define how Cloudflare tracks the request rate for this rule.
     #[serde(rename = "characteristics")]

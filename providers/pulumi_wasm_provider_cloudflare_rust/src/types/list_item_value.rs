@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ListItemValue {
     #[serde(rename = "asn")]
     pub r#asn: Box<Option<i32>>,

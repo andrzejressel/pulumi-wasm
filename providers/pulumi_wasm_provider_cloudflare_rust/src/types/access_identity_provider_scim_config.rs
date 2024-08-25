@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct AccessIdentityProviderScimConfig {
     #[serde(rename = "enabled")]
     pub r#enabled: Box<Option<bool>>,

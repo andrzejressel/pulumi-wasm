@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct GetRulesetsRulesetRuleActionParametersServeStale {
     /// Disable stale while updating.
     #[serde(rename = "disableStaleWhileUpdating")]

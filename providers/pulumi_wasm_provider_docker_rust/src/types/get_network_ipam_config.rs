@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct GetNetworkIpamConfig {
     /// Auxiliary IPv4 or IPv6 addresses used by Network driver
     #[serde(rename = "auxAddress")]

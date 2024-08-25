@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct GetRulesetsRulesetRuleActionParametersCacheKeyCustomKeyHeader {
     /// List of headers to check for presence in the custom key.
     #[serde(rename = "checkPresences")]

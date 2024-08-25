@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct TeamsAccountLoggingSettingsByRuleType {
     /// Logging configuration for DNS requests.
     #[serde(rename = "dns")]

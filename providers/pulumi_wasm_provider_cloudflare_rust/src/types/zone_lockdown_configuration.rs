@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ZoneLockdownConfiguration {
     /// The request property to target. Available values: `ip`, `ip_range`.
     #[serde(rename = "target")]

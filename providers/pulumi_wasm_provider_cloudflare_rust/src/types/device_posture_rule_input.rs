@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct DevicePostureRuleInput {
     /// The number of active threats from SentinelOne.
     #[serde(rename = "activeThreats")]

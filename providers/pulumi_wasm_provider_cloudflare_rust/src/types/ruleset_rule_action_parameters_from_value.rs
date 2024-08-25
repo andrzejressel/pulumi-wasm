@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct RulesetRuleActionParametersFromValue {
     /// Preserve query string for redirect URL.
     #[serde(rename = "preserveQueryString")]

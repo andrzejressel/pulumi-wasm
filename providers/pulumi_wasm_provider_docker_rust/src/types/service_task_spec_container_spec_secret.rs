@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ServiceTaskSpecContainerSpecSecret {
     /// Represents the file GID. Defaults to `0`
     #[serde(rename = "fileGid")]

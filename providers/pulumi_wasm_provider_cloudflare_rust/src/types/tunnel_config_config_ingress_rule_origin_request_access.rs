@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct TunnelConfigConfigIngressRuleOriginRequestAccess {
     /// Audience tags of the access rule.
     #[serde(rename = "audTags")]

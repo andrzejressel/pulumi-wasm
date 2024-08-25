@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ProviderRegistryAuth {
     /// Address of the registry
     #[serde(rename = "address")]

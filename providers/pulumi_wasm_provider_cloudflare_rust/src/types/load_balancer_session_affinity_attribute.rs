@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct LoadBalancerSessionAffinityAttribute {
     /// Configures the drain duration in seconds. This field is only used when session affinity is enabled on the load balancer. Defaults to `0`.
     #[serde(rename = "drainDuration")]

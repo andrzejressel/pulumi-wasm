@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct AccessIdentityProviderConfig {
     #[serde(rename = "apiToken")]
     pub r#api_token: Box<Option<String>>,

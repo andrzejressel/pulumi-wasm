@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct GetAccountsAccount {
     /// Whether 2FA is enforced on the account.
     #[serde(rename = "enforceTwofactor")]

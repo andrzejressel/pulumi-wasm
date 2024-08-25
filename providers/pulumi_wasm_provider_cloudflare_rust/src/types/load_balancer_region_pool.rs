@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct LoadBalancerRegionPool {
     /// A list of pool IDs in failover priority to use in the given region.
     #[serde(rename = "poolIds")]

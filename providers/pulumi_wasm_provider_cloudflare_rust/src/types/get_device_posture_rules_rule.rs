@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct GetDevicePostureRulesRule {
     #[serde(rename = "description")]
     pub r#description: Box<Option<String>>,

@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ContainerCapabilities {
     /// List of linux capabilities to add.
     #[serde(rename = "adds")]

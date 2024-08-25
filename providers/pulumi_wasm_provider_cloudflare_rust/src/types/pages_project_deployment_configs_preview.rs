@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct PagesProjectDeploymentConfigsPreview {
     /// Use latest compatibility date for Pages Functions. Defaults to `false`.
     #[serde(rename = "alwaysUseLatestCompatibilityDate")]

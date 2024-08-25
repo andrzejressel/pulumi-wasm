@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct RateLimitActionResponse {
     /// The body to return, the content here should conform to the `content_type`.
     #[serde(rename = "body")]

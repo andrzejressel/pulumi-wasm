@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct GetRulesetsRulesetRuleActionParametersResponse {
     /// Body content to include in the response.
     #[serde(rename = "content")]

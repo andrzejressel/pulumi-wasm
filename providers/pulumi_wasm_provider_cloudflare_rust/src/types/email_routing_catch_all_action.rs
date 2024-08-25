@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct EmailRoutingCatchAllAction {
     /// Type of supported action. Available values: `drop`, `forward`, `worker`.
     #[serde(rename = "type")]

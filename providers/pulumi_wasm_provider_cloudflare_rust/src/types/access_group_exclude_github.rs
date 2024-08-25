@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct AccessGroupExcludeGithub {
     /// The ID of the Azure Identity provider.
     #[serde(rename = "identityProviderId")]

@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct AccessPolicyInclude {
     #[serde(rename = "anyValidServiceToken")]
     pub r#any_valid_service_token: Box<Option<bool>>,

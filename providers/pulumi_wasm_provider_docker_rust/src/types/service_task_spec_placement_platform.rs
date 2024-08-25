@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ServiceTaskSpecPlacementPlatform {
     /// The architecture, e.g. `amd64`
     #[serde(rename = "architecture")]

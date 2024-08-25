@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct {{type.struct_name}} {
     {{#each type.fields as |field|}}
     {{#each field.description_lines}}

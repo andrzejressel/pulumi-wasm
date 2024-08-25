@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct AccessPolicyRequireGsuite {
     #[serde(rename = "emails")]
     pub r#emails: Box<Option<Vec<String>>>,

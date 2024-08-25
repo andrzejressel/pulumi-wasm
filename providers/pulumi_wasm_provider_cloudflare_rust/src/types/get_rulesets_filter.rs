@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct GetRulesetsFilter {
     /// The ID of the Ruleset to target.
     #[serde(rename = "id")]

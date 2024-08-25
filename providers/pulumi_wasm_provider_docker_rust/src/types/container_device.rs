@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ContainerDevice {
     /// The path in the container where the device will be bound.
     #[serde(rename = "containerPath")]

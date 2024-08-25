@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct AccessOrganizationLoginDesign {
     /// The background color on the login page.
     #[serde(rename = "backgroundColor")]

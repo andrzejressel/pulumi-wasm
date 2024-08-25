@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ServiceTaskSpecContainerSpecConfig {
     /// ID of the specific config that we're referencing
     #[serde(rename = "configId")]

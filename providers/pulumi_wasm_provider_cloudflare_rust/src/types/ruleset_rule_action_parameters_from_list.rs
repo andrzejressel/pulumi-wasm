@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct RulesetRuleActionParametersFromList {
     /// Expression to use for the list lookup.
     #[serde(rename = "key")]

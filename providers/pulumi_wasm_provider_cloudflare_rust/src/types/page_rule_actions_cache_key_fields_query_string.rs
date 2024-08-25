@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct PageRuleActionsCacheKeyFieldsQueryString {
     /// Exclude these query string parameters from Cache Key.
     #[serde(rename = "excludes")]

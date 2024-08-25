@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct WorkerScriptAnalyticsEngineBinding {
     /// The name of the Analytics Engine dataset to write to.
     #[serde(rename = "dataset")]

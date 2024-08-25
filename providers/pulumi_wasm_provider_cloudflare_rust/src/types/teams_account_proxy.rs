@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct TeamsAccountProxy {
     /// Whether root ca is enabled account wide for ZT clients.
     #[serde(rename = "rootCa")]

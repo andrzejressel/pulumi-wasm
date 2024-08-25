@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct DeviceDexTestData {
     /// The host URL for `http` test `kind`. For `traceroute`, it must be a valid hostname or IP address.
     #[serde(rename = "host")]

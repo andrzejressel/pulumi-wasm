@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ZoneSettingsOverrideInitialSettingMobileRedirect {
     #[serde(rename = "mobileSubdomain")]
     pub r#mobile_subdomain: Box<String>,

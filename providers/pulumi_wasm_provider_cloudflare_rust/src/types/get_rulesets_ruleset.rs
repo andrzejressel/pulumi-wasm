@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct GetRulesetsRuleset {
     /// Brief summary of the ruleset and its intended use.
     #[serde(rename = "description")]

@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct AccessOrganizationCustomPage {
     /// The id of the forbidden page.
     #[serde(rename = "forbidden")]
