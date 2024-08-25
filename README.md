@@ -5,7 +5,7 @@
 [![Deploy](https://github.com/andrzejressel/pulumi-wasm/actions/workflows/deploy.yaml/badge.svg)](https://github.com/andrzejressel/pulumi-wasm/actions/workflows/deploy.yaml)
 
 
-PoC of Pulumi support for WASM.
+Pulumi support for WASM.
 
 ### Quick start
 
