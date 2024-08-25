@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct LoadBalancerRandomSteering {
     /// The default weight for pools in the load balancer that are not specified in the `pool_weights` map.
     #[serde(rename = "defaultWeight")]

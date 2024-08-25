@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct PageRuleActionsCacheTtlByStatus {
     /// A HTTP code (e.g. `404`) or range of codes (e.g. `400-499`)
     #[serde(rename = "codes")]

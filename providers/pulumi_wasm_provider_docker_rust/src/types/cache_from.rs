@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct CacheFrom {
     /// Specifies cached images
     #[serde(rename = "images")]

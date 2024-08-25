@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct WorkerScriptR2BucketBinding {
     /// The name of the Bucket to bind to.
     #[serde(rename = "bucketName")]

@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct GetRulesetsRulesetRuleActionParametersCacheKey {
     /// Cache by device type. Conflicts with "custom_key.user.device_type".
     #[serde(rename = "cacheByDeviceType")]

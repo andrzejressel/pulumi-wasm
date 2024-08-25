@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ServiceUpdateConfig {
     /// Delay between task updates `(ns|us|ms|s|m|h)`. Defaults to `0s`.
     #[serde(rename = "delay")]

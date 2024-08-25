@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct TeamsRuleRuleSettingsEgress {
     /// The IPv4 address to be used for egress.
     #[serde(rename = "ipv4")]

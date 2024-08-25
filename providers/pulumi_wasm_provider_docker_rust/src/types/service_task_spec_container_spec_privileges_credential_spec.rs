@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ServiceTaskSpecContainerSpecPrivilegesCredentialSpec {
     /// Load credential spec from this file
     #[serde(rename = "file")]

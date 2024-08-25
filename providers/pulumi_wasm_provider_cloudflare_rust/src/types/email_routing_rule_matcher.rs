@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct EmailRoutingRuleMatcher {
     /// Field to match on. Required for `type` of `literal`.
     #[serde(rename = "field")]

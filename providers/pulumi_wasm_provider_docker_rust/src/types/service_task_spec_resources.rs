@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ServiceTaskSpecResources {
     /// Describes the resources which can be advertised by a node and requested by a task
     #[serde(rename = "limits")]

@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ServiceEndpointSpec {
     /// The mode of resolution to use for internal load balancing between tasks
     #[serde(rename = "mode")]

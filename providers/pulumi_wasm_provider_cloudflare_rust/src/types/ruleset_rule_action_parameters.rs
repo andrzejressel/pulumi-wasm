@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct RulesetRuleActionParameters {
     /// Specifies uncommon ports to allow cacheable assets to be served from.
     #[serde(rename = "additionalCacheablePorts")]

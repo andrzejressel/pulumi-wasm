@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct WorkerScriptServiceBinding {
     /// The name of the Worker environment to bind to.
     #[serde(rename = "environment")]

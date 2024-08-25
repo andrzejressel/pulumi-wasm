@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ServiceTaskSpecContainerSpecPrivileges {
     /// CredentialSpec for managed service account (Windows only)
     #[serde(rename = "credentialSpec")]

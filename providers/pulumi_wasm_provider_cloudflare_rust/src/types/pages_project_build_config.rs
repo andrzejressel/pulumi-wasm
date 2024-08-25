@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct PagesProjectBuildConfig {
     /// Enable build caching for the project.
     #[serde(rename = "buildCaching")]

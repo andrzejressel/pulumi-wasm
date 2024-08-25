@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ContainerMountTmpfsOptions {
     /// The permission mode for the tmpfs mount in an integer.
     #[serde(rename = "mode")]

@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ServiceTaskSpecPlacement {
     /// An array of constraints. e.g.: `node.role==manager`
     #[serde(rename = "constraints")]

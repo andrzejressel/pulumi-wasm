@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct WorkerScriptSecretTextBinding {
     /// The global variable for the binding in your Worker code.
     #[serde(rename = "name")]

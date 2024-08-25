@@ -59,8 +59,15 @@ fn test_integration() -> Result<(), anyhow::Error> {
         .as_str()
         .ok_or(anyhow!("[image_id] is not a string"))?;
 
+    let labels = stack
+        .pointer("/labels")
+        .ok_or(anyhow!("Cannot find [labels] in stack export"))?
+        .as_str()
+        .ok_or(anyhow!("[labels] is not a string"))?;
+
     assert!(logs.contains("Hello World!"));
     assert!(!image_id.is_empty());
+    assert!(labels.contains("value_1"));
 
     Ok(())
 }

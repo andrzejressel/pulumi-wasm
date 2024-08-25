@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct GetDevicesDevice {
     /// When the device was created.
     #[serde(rename = "created")]

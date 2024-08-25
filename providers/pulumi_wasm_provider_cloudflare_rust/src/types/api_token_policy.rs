@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ApiTokenPolicy {
     /// Effect of the policy. Available values: `allow`, `deny`. Defaults to `allow`.
     #[serde(rename = "effect")]

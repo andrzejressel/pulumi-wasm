@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ManagedHeadersManagedResponseHeader {
     /// Whether the headers rule is active.
     #[serde(rename = "enabled")]

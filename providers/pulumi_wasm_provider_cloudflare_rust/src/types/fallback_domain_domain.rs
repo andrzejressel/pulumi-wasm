@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct FallbackDomainDomain {
     /// A description of the fallback domain, displayed in the client UI.
     #[serde(rename = "description")]

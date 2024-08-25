@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct EmailRoutingRuleAction {
     /// Type of action. Available values: `forward`, `worker`, `drop`
     #[serde(rename = "type")]

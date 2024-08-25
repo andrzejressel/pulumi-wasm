@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct DlpProfileEntryPattern {
     /// The regex that defines the pattern.
     #[serde(rename = "regex")]

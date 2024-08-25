@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ZoneSettingsOverrideInitialSettingSecurityHeader {
     #[serde(rename = "enabled")]
     pub r#enabled: Box<Option<bool>>,

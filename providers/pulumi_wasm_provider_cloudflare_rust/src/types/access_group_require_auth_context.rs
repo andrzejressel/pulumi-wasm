@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct AccessGroupRequireAuthContext {
     /// The ACID of the Authentication Context.
     #[serde(rename = "acId")]

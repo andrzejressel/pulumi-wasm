@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct TunnelConfigConfigWarpRouting {
     /// Whether WARP routing is enabled.
     #[serde(rename = "enabled")]

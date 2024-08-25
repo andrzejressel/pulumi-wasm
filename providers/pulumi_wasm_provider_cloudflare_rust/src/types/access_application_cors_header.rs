@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct AccessApplicationCorsHeader {
     /// Value to determine whether all HTTP headers are exposed.
     #[serde(rename = "allowAllHeaders")]

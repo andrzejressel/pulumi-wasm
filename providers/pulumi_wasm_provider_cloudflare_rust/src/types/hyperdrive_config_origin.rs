@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct HyperdriveConfigOrigin {
     /// The name of your origin database.
     #[serde(rename = "database")]

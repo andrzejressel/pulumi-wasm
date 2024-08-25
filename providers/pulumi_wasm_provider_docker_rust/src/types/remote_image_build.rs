@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct RemoteImageBuild {
     /// The configuration for the authentication
     #[serde(rename = "authConfigs")]

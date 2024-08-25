@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct DevicePostureIntegrationConfig {
     /// The Access client ID to be used as the `Cf-Access-Client-ID` header when making a request to the `api_url`.
     #[serde(rename = "accessClientId")]

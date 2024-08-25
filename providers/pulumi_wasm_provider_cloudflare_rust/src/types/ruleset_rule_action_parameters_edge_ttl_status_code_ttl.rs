@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct RulesetRuleActionParametersEdgeTtlStatusCodeTtl {
     /// Status code for which the edge TTL is applied.
     #[serde(rename = "statusCode")]

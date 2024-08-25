@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct AccessPolicyExcludeExternalEvaluation {
     #[serde(rename = "evaluateUrl")]
     pub r#evaluate_url: Box<Option<String>>,

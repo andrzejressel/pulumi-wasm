@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct WorkerScriptWebassemblyBinding {
     /// The base64 encoded wasm module you want to store.
     #[serde(rename = "module")]

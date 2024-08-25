@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct GetRulesetsRulesetRuleLogging {
     /// Override the default logging behavior when a rule is matched.
     #[serde(rename = "enabled")]

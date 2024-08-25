@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ServiceTaskSpecContainerSpecHealthcheck {
     /// Time between running the check (ms|s|m|h). Defaults to `0s`.
     #[serde(rename = "interval")]

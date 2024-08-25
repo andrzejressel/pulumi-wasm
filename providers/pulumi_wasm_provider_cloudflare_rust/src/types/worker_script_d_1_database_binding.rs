@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct WorkerScriptD1DatabaseBinding {
     /// Database ID of D1 database to use.
     #[serde(rename = "databaseId")]

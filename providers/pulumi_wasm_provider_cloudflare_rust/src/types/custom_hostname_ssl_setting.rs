@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct CustomHostnameSslSetting {
     /// List of SSL/TLS ciphers to associate with this certificate.
     #[serde(rename = "ciphers")]

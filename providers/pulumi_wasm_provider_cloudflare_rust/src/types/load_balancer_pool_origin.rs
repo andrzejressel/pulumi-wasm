@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct LoadBalancerPoolOrigin {
     /// The IP address (IPv4 or IPv6) of the origin, or the publicly addressable hostname.
     #[serde(rename = "address")]

@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct AccessApplicationSaasAppCustomAttribute {
     /// A friendly name for the attribute as provided to the SaaS app.
     #[serde(rename = "friendlyName")]

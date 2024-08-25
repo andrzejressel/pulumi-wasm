@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct TeamsRuleRuleSettingsCheckSession {
     /// Configure how fresh the session needs to be to be considered valid.
     #[serde(rename = "duration")]

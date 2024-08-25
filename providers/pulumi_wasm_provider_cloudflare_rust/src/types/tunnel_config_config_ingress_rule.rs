@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct TunnelConfigConfigIngressRule {
     /// Hostname to match the incoming request with. If the hostname matches, the request will be sent to the service.
     #[serde(rename = "hostname")]

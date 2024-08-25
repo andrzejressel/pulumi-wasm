@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ListItem {
     /// An optional comment for the item.
     #[serde(rename = "comment")]

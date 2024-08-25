@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ServiceTaskSpecNetworksAdvanced {
     /// The network aliases of the container in the specific network.
     #[serde(rename = "aliases")]

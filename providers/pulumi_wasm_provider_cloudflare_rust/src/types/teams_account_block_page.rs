@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct TeamsAccountBlockPage {
     /// Hex code of block page background color.
     #[serde(rename = "backgroundColor")]

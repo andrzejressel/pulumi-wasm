@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct AccessMutualTlsHostnameSettingsSetting {
     /// Request client certificates for this hostname in China. Can only be set to true if this zone is china network enabled.
     #[serde(rename = "chinaNetwork")]

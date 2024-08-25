@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct RateLimitMatch {
     /// Matches HTTP requests (from the client to Cloudflare).
     #[serde(rename = "request")]

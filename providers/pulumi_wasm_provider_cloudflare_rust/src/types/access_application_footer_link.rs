@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct AccessApplicationFooterLink {
     /// The name of the footer link.
     #[serde(rename = "name")]

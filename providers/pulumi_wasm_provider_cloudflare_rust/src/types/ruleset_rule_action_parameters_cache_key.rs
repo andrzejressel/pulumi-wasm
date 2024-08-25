@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct RulesetRuleActionParametersCacheKey {
     /// Cache by device type.
     #[serde(rename = "cacheByDeviceType")]

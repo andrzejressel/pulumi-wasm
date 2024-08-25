@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct GetRulesetsRulesetRuleActionParametersUri {
     #[serde(rename = "origin")]
     pub r#origin: Box<Option<bool>>,

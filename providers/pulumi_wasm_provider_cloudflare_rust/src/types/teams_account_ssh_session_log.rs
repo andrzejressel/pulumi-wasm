@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct TeamsAccountSshSessionLog {
     /// Public key used to encrypt ssh session.
     #[serde(rename = "publicKey")]

@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ContainerVolume {
     /// The path in the container where the volume will be mounted.
     #[serde(rename = "containerPath")]

@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct DockerBuild {
     /// Custom host-to-IP mappings to use while building (format: "host:ip")
     #[serde(rename = "addHosts")]

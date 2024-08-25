@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct TeamsLocationNetwork {
     /// The ID of this resource.
     #[serde(rename = "id")]

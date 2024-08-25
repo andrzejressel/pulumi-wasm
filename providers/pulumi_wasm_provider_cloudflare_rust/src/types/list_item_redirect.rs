@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ListItemRedirect {
     /// Whether the redirect also matches subdomains of the source url.
     #[serde(rename = "includeSubdomains")]

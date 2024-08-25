@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct GetAccountRolesRole {
     /// Description of role's permissions.
     #[serde(rename = "description")]

@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct TeamsRuleRuleSettingsL4Override {
     /// Override IP to forward traffic to.
     #[serde(rename = "ip")]

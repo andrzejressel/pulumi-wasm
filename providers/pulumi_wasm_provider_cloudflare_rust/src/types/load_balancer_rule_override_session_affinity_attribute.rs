@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct LoadBalancerRuleOverrideSessionAffinityAttribute {
     /// Configures the HTTP header names to use when header session affinity is enabled.
     #[serde(rename = "headers")]

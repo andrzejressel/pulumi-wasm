@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ServiceConvergeConfig {
     /// The interval to check if the desired state is reached `(ms|s)`. Defaults to `7s`.
     #[serde(rename = "delay")]

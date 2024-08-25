@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct TeamsAccountLoggingSettingsByRuleTypeL4 {
     /// Whether to log all activity.
     #[serde(rename = "logAll")]

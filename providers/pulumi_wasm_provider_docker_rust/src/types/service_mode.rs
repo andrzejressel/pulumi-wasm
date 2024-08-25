@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ServiceMode {
     /// When `true`, tasks will run on every worker node. Conflicts with `replicated`
     #[serde(rename = "global")]

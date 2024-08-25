@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct RulesetRuleActionParametersOrigin {
     /// Host parameters for the custom key.
     #[serde(rename = "host")]

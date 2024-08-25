@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct PluginGrantPermission {
     /// The name of the permission
     #[serde(rename = "name")]

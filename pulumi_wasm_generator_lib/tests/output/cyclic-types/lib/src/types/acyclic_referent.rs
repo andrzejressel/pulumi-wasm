@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct AcyclicReferent {
     #[serde(rename = "bar")]
     pub r#bar: Box<crate::types::IndirectCycleS>,

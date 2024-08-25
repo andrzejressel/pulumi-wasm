@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct GetZonesFilter {
     /// The account identifier to target for the resource.
     #[serde(rename = "accountId")]

@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct RulesetRuleActionParametersCacheKeyCustomKeyUser {
     /// Add device type to the custom key.
     #[serde(rename = "deviceType")]

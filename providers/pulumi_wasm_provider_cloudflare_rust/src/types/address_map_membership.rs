@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct AddressMapMembership {
     /// Controls whether the membership can be deleted via the API or not.
     #[serde(rename = "canDelete")]

@@ -1,6 +1,6 @@
 use anyhow::Error;
 
-use pulumi_wasm_docker::{container, image, DockerBuild};
+use pulumi_wasm_docker::{container, image, ContainerLabel, DockerBuild};
 use pulumi_wasm_rust::{add_export, pulumi_main, Output};
 
 #[pulumi_main]
@@ -31,7 +31,11 @@ fn test_main() -> Result<(), Error> {
             image: "public.ecr.aws/ubuntu/ubuntu:latest".to_string().into(),
             init: Output::empty(),
             ipc_mode: Output::empty(),
-            labels: Output::empty(),
+            labels: vec![ContainerLabel {
+                label: Box::new("label_1".to_string()),
+                value: Box::new("value_1".to_string()),
+            }]
+            .into(),
             log_driver: Output::empty(),
             log_opts: Output::empty(),
             logs: true.into(),
@@ -97,5 +101,6 @@ fn test_main() -> Result<(), Error> {
 
     add_export("logs", &cont.container_logs);
     add_export("image_id", &image.image_name);
+    add_export("labels", &cont.labels.map(|f| f[0].value.clone()));
     Ok(())
 }

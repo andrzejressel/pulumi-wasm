@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct DlpProfileContextAwareness {
     /// Scan the context of predefined entries to only return matches surrounded by keywords.
     #[serde(rename = "enabled")]

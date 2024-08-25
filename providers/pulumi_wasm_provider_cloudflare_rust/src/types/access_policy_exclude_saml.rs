@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct AccessPolicyExcludeSaml {
     #[serde(rename = "attributeName")]
     pub r#attribute_name: Box<Option<String>>,

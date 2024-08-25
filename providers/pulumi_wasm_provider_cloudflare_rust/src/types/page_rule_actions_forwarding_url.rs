@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct PageRuleActionsForwardingUrl {
     /// The status code to use for the redirection.
     #[serde(rename = "statusCode")]

@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct PageRuleActionsCacheKeyFieldsHeader {
     /// Check for presence of specified HTTP headers, without including their actual values.
     #[serde(rename = "checkPresences")]

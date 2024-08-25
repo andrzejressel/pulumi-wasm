@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct PagesProjectSourceConfig {
     /// Toggle deployments on this repo. Defaults to `true`.
     #[serde(rename = "deploymentsEnabled")]

@@ -1,4 +1,4 @@
-#[derive(serde::Serialize)]
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
 pub struct ContainerPort {
     /// Port exposed out of the container. If not given a free random port `>= 32768` will be used.
     #[serde(rename = "external")]
