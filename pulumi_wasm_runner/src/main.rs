@@ -111,7 +111,7 @@ async fn main() -> Result<(), Error> {
                 pulumi_wasm_source.as_ref(),
                 fs::read(program)
                     .context(format!("Cannot read program {}", program.to_str().unwrap()))?,
-                *debug
+                *debug,
             )
             .await?;
             log::info!("Created final component");

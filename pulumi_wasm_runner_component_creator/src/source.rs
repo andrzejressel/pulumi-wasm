@@ -46,8 +46,8 @@ impl PulumiWasmSource for GithubPulumiWasmSource {
         download_file_and_cache(wasm_location, &url)
             .await
             .context(format!(
-                "Cannot download pulumi-wasm in version {version} with profile {profile}. Url: [{url}]"
-            ))
+            "Cannot download pulumi-wasm in version {version} with profile {profile}. Url: [{url}]"
+        ))
     }
 }
 

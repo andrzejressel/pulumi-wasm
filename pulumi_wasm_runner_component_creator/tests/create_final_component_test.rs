@@ -49,6 +49,7 @@ async fn should_combine_wasm_components() -> Result<()> {
         &TestDefaultProviderSource {},
         &TestProgramSource {},
         encoded.clone(),
+        true,
     )
     .await
     .unwrap();
@@ -104,6 +105,7 @@ async fn return_error_when_multiple_dependencies_on_the_same_provider_is_found()
         &TestDefaultProviderSource {},
         &TestProgramSource {},
         encoded.clone(),
+        true,
     )
     .await
     .expect_err("Expected creator to return error");
@@ -153,6 +155,7 @@ async fn return_error_when_multiple_versions_of_pulumi_wasm_is_found() -> Result
         &TestDefaultProviderSource {},
         &TestProgramSource {},
         encoded.clone(),
+        true,
     )
     .await
     .expect_err("Expected creator to return error");
@@ -213,6 +216,7 @@ async fn return_error_when_multiple_versions_of_pulumi_wasm_in_providers_is_foun
         &TestDefaultProviderSource {},
         &TestProgramSource {},
         encoded.clone(),
+        true,
     )
     .await
     .expect_err("Expected creator to return error");

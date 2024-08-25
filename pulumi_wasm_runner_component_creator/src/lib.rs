@@ -1,10 +1,10 @@
 use crate::source::{DefaultProviderSource, ProviderSource, PulumiWasmSource};
 use anyhow::{bail, Context};
 use itertools::Itertools;
+use log::info;
 use regex::Regex;
 use std::collections::{BTreeMap, BTreeSet};
 use std::hash::Hash;
-use log::{info, log};
 use wac_graph::types::{Package, SubtypeChecker};
 use wac_graph::{CompositionGraph, EncodeOptions, NodeId, PackageId};
 
@@ -17,7 +17,7 @@ pub async fn create(
     default_provider_source: &dyn DefaultProviderSource,
     pulumi_wasm: &dyn PulumiWasmSource,
     program: Vec<u8>,
-    debug: bool
+    debug: bool,
 ) -> anyhow::Result<Vec<u8>> {
     let mut graph = CompositionGraph::new();
 

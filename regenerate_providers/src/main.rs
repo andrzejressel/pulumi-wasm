@@ -97,7 +97,7 @@ fn replace_build_wasm_components(providers: &[Provider], content: &str) -> Strin
         ));
     }
     replacement.push_str("      --timings\n");
-    replacement.push_str("\n");
+    replacement.push('\n');
     replacement.push_str("build-wasm-providers-release:\n");
     replacement.push_str("    cargo component build \\\n");
     for provider in providers {
