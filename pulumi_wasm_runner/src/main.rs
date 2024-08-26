@@ -13,7 +13,6 @@ use pulumi_wasm_runner_component_creator::source::{
 use std::collections::BTreeMap;
 use std::fs;
 use std::path::PathBuf;
-
 mod model;
 mod pulumi;
 mod pulumi_state;
@@ -36,6 +35,12 @@ enum Command {
         providers: Vec<(String, PathBuf)>,
         #[arg(long)]
         pulumi_wasm: Option<PathBuf>,
+        #[clap(
+            long,
+            action,
+            help = "When set to true, WASM components with debug symbols will be used. Should be only used for debugging - it will massively increase execution time"
+        )]
+        debug: bool,
         program: PathBuf,
     },
 }
@@ -84,6 +89,7 @@ async fn main() -> Result<(), Error> {
         Command::Run {
             providers,
             pulumi_wasm,
+            debug,
             program,
         } => {
             use pulumi_wasm_runner_component_creator::source::FileSource;
@@ -96,6 +102,7 @@ async fn main() -> Result<(), Error> {
                     )
                 })
                 .collect();
+            log::info!("Debug set to {debug}");
             log::info!("Creating final component");
             let pulumi_wasm_source: Box<dyn PulumiWasmSource> = match pulumi_wasm {
                 None => Box::new(GithubPulumiWasmSource {}),
@@ -108,6 +115,7 @@ async fn main() -> Result<(), Error> {
                 pulumi_wasm_source.as_ref(),
                 fs::read(program)
                     .context(format!("Cannot read program {}", program.to_str().unwrap()))?,
+                *debug,
             )
             .await?;
             log::info!("Created final component");

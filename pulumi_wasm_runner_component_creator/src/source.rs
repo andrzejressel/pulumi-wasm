@@ -16,33 +16,37 @@ pub trait DefaultProviderSource {
         provider_name: &str,
         provider_version: &str,
         pulumi_wasm_version: &str,
+        debug: bool,
     ) -> Result<Vec<u8>>;
 }
 
 #[async_trait]
 pub trait PulumiWasmSource {
-    async fn get(&self, version: &str) -> Result<Vec<u8>>;
+    async fn get(&self, version: &str, debug: bool) -> Result<Vec<u8>>;
 }
 
 pub struct GithubPulumiWasmSource;
 
 #[async_trait]
 impl PulumiWasmSource for GithubPulumiWasmSource {
-    async fn get(&self, version: &str) -> Result<Vec<u8>> {
+    async fn get(&self, version: &str, debug: bool) -> Result<Vec<u8>> {
+        let profile = if debug { "debug" } else { "release" };
+
         let wasm_location = BaseDirs::new()
             .context("Unable to get user directories")?
             .cache_dir()
             .join("pulumi-wasm")
-            .join(format!("pulumi-wasm-{}.wasm", version));
+            .join(format!("pulumi-wasm-{version}-{profile}.wasm"));
 
         let url = format!(
-            "https://github.com/andrzejressel/pulumi-wasm/releases/download/v{}/pulumi_wasm.wasm",
-            version
+            "https://github.com/andrzejressel/pulumi-wasm/releases/download/v{version}/pulumi_wasm-{profile}.wasm"
         );
 
-        download_file_and_cache(wasm_location, url)
+        download_file_and_cache(wasm_location, &url)
             .await
-            .context(format!("Cannot download pulumi-wasm in version {version}"))
+            .context(format!(
+            "Cannot download pulumi-wasm in version {version} with profile {profile}. Url: [{url}]"
+        ))
     }
 }
 
@@ -53,25 +57,26 @@ impl DefaultProviderSource for GithubPulumiWasmSource {
         provider_name: &str,
         provider_version: &str,
         pulumi_wasm_version: &str,
+        debug: bool,
     ) -> Result<Vec<u8>> {
+        let profile = if debug { "debug" } else { "release" };
         let wasm_location = BaseDirs::new()
             .context("Unable to get user directories")?
             .cache_dir()
             .join("pulumi-wasm")
             .join("providers")
             .join(format!(
-                "{}-{}-{}.wasm",
-                provider_name, provider_version, pulumi_wasm_version
+                "{provider_name}-{provider_version}-{pulumi_wasm_version}-{profile}.wasm",
             ));
 
-        let url = format!("https://github.com/andrzejressel/pulumi-wasm/releases/download/v{}/pulumi_wasm_{}_provider.wasm", pulumi_wasm_version, provider_name);
+        let url = format!("https://github.com/andrzejressel/pulumi-wasm/releases/download/v{pulumi_wasm_version}/pulumi_wasm_{provider_name}_provider-{profile}.wasm");
 
-        download_file_and_cache(wasm_location, url)
-            .await.context(format!("Cannot download provider {provider_name} in version {provider_version} for pulumi wasm {pulumi_wasm_version}"))
+        download_file_and_cache(wasm_location, &url)
+            .await.context(format!("Cannot download provider {provider_name} in version {provider_version} for pulumi wasm {pulumi_wasm_version} with profile {profile}. Url: [{url}]"))
     }
 }
 
-async fn download_file_and_cache(cache: PathBuf, url: String) -> Result<Vec<u8>> {
+async fn download_file_and_cache(cache: PathBuf, url: &String) -> Result<Vec<u8>> {
     if !cache.exists() {
         fs::create_dir_all(cache.parent().unwrap())?;
 
@@ -115,6 +120,7 @@ impl DefaultProviderSource for FileSource {
         _provider_name: &str,
         _provider_version: &str,
         _pulumi_wasm_version: &str,
+        _debug: bool,
     ) -> Result<Vec<u8>> {
         Ok(fs::read(&self.0)?)
     }
@@ -129,7 +135,7 @@ impl ProviderSource for FileSource {
 
 #[async_trait]
 impl PulumiWasmSource for FileSource {
-    async fn get(&self, _version: &str) -> Result<Vec<u8>> {
+    async fn get(&self, _version: &str, _debug: bool) -> Result<Vec<u8>> {
         Ok(fs::read(&self.0)?)
     }
 }
@@ -143,7 +149,15 @@ mod tests {
         #[tokio::test]
         async fn should_download_existing_pulumi_wasm() -> Result<()> {
             let source = GithubPulumiWasmSource {};
-            let res = source.get("0.0.0-NIGHTLY-d1ce7a2").await?;
+            let res = source.get("0.0.0-NIGHTLY-05147ef", false).await?;
+            assert!(!res.is_empty());
+            Ok(())
+        }
+
+        #[tokio::test]
+        async fn should_download_existing_debug_pulumi_wasm() -> Result<()> {
+            let source = GithubPulumiWasmSource {};
+            let res = source.get("0.0.0-NIGHTLY-05147ef", true).await?;
             assert!(!res.is_empty());
             Ok(())
         }
@@ -152,12 +166,12 @@ mod tests {
         async fn should_fail_on_noexisting_version() -> Result<()> {
             let source = GithubPulumiWasmSource {};
             let err = source
-                .get("0.0.0-NIGHTLY-nonexistent")
+                .get("0.0.0-NIGHTLY-nonexistent", false)
                 .await
                 .expect_err("Expected error");
             assert_eq!(
                 err.to_string(),
-                "Cannot download pulumi-wasm in version 0.0.0-NIGHTLY-nonexistent"
+                "Cannot download pulumi-wasm in version 0.0.0-NIGHTLY-nonexistent with profile release. Url: [https://github.com/andrzejressel/pulumi-wasm/releases/download/v0.0.0-NIGHTLY-nonexistent/pulumi_wasm-release.wasm]"
             );
             Ok(())
         }
@@ -168,8 +182,24 @@ mod tests {
             let res = source
                 .get_component(
                     "cloudflare",
-                    "0.0.0-NIGHTLY-d1ce7a2",
-                    "0.0.0-NIGHTLY-d1ce7a2",
+                    "0.0.0-NIGHTLY-05147ef",
+                    "0.0.0-NIGHTLY-05147ef",
+                    false,
+                )
+                .await?;
+            assert!(!res.is_empty());
+            Ok(())
+        }
+
+        #[tokio::test]
+        async fn should_download_existing_debug_provider() -> Result<()> {
+            let source = GithubPulumiWasmSource {};
+            let res = source
+                .get_component(
+                    "cloudflare",
+                    "0.0.0-NIGHTLY-05147ef",
+                    "0.0.0-NIGHTLY-05147ef",
+                    true,
                 )
                 .await?;
             assert!(!res.is_empty());
@@ -180,12 +210,12 @@ mod tests {
         async fn should_fail_on_nonexisting_provider() -> Result<()> {
             let source = GithubPulumiWasmSource {};
             let err = source
-                .get_component("cloudflare", "0.0.0", "1.1.1")
+                .get_component("cloudflare", "0.0.0", "1.1.1", false)
                 .await
                 .expect_err("Expected error");
             assert_eq!(
                 err.to_string(),
-                "Cannot download provider cloudflare in version 0.0.0 for pulumi wasm 1.1.1"
+                "Cannot download provider cloudflare in version 0.0.0 for pulumi wasm 1.1.1 with profile release. Url: [https://github.com/andrzejressel/pulumi-wasm/releases/download/v1.1.1/pulumi_wasm_cloudflare_provider-release.wasm]"
             );
             Ok(())
         }

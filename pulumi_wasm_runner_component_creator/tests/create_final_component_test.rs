@@ -49,6 +49,7 @@ async fn should_combine_wasm_components() -> Result<()> {
         &TestDefaultProviderSource {},
         &TestProgramSource {},
         encoded.clone(),
+        true,
     )
     .await
     .unwrap();
@@ -104,6 +105,7 @@ async fn return_error_when_multiple_dependencies_on_the_same_provider_is_found()
         &TestDefaultProviderSource {},
         &TestProgramSource {},
         encoded.clone(),
+        true,
     )
     .await
     .expect_err("Expected creator to return error");
@@ -153,6 +155,7 @@ async fn return_error_when_multiple_versions_of_pulumi_wasm_is_found() -> Result
         &TestDefaultProviderSource {},
         &TestProgramSource {},
         encoded.clone(),
+        true,
     )
     .await
     .expect_err("Expected creator to return error");
@@ -213,6 +216,7 @@ async fn return_error_when_multiple_versions_of_pulumi_wasm_in_providers_is_foun
         &TestDefaultProviderSource {},
         &TestProgramSource {},
         encoded.clone(),
+        true,
     )
     .await
     .expect_err("Expected creator to return error");
@@ -256,7 +260,7 @@ struct TestProgramSource {}
 
 #[async_trait]
 impl PulumiWasmSource for TestProgramSource {
-    async fn get(&self, version: &str) -> Result<Vec<u8>> {
+    async fn get(&self, version: &str, debug: bool) -> Result<Vec<u8>> {
         let mut resolve = Resolve::new();
         let pkg = resolve.add_pulumi_wasm(version).unwrap();
 
@@ -286,6 +290,7 @@ impl DefaultProviderSource for TestDefaultProviderSource {
         provider_name: &str,
         provider_version: &str,
         pulumi_wasm_version: &str,
+        debug: bool,
     ) -> Result<Vec<u8>> {
         let mut resolve = Resolve::new();
         resolve.add_pulumi_wasm(pulumi_wasm_version).unwrap();
