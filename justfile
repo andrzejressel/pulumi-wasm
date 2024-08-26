@@ -37,6 +37,13 @@ build-wasm-components:
     just build-wasm-providers
     cargo build -p pulumi_wasm_runner --timings
 
+build-all-wasm-projects-release:
+    just build-wasm-components-release
+    cargo component build -p pulumi_wasm_example_simple --release
+    cargo component build -p pulumi_wasm_example_docker --release
+    cargo component build -p pulumi_wasm_example_dependencies --release
+    cargo component build -p pulumi_wasm_example_multiple_providers --release
+
 build-wasm-components-release:
     cargo component build -p pulumi_wasm --timings --release
     just build-wasm-providers-release
