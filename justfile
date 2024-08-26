@@ -39,6 +39,7 @@ build-wasm-components:
 
 build-all-wasm-projects-release:
     just build-wasm-components-release
+    cargo build -p pulumi_wasm_runner --release
     cargo component build -p pulumi_wasm_example_simple --release
     cargo component build -p pulumi_wasm_example_docker --release
     cargo component build -p pulumi_wasm_example_dependencies --release
