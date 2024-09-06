@@ -8,7 +8,7 @@ SD_VERSION := "1.0.0"
 
 @default: build test
 
-build: build-language-plugin regenerate-providers install-requirements build-wasm-components fmt
+build: build-language-plugin regenerate-providers install-requirements build-wasm-components build-all-wasm-projects-release fmt
 
 # https://stackoverflow.com/questions/74524817/why-is-anyhow-not-working-in-the-stable-version
 fix-issues:
