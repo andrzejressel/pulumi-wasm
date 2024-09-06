@@ -1,6 +1,7 @@
 use crate::source::{DefaultProviderSource, ProviderSource, PulumiWasmSource};
 use anyhow::{bail, Context};
 use itertools::Itertools;
+use log::info;
 use regex::Regex;
 use std::collections::{BTreeMap, BTreeSet};
 use std::hash::Hash;
@@ -16,6 +17,7 @@ pub async fn create(
     default_provider_source: &dyn DefaultProviderSource,
     pulumi_wasm: &dyn PulumiWasmSource,
     program: Vec<u8>,
+    debug: bool,
 ) -> anyhow::Result<Vec<u8>> {
     let mut graph = CompositionGraph::new();
 
@@ -63,6 +65,8 @@ pub async fn create(
 
     let pulumi_wasm_version = pulumi_wasm_versions.iter().next().unwrap();
 
+    info!("Pulumi WASM version: {pulumi_wasm_version}");
+
     // Is not getting invoked, because different version are capture before
     // (because of transitive output dependency)
     //
@@ -101,7 +105,7 @@ pub async fn create(
         let downloaded = match providers_paths.get(provider_name) {
             None => {
                 default_provider_source
-                    .get_component(provider_name, &provider.version, pulumi_wasm_version)
+                    .get_component(provider_name, &provider.version, pulumi_wasm_version, debug)
                     .await
             }
             Some(provider_source) => provider_source.get_component(pulumi_wasm_version).await,
@@ -111,7 +115,7 @@ pub async fn create(
     }
 
     let pulumi_wasm = pulumi_wasm
-        .get(pulumi_wasm_version)
+        .get(pulumi_wasm_version, debug)
         .await
         .context("Cannot obtain pulumi_wasm component WASM")?;
 
@@ -159,13 +163,12 @@ pub async fn create(
     )
     .unwrap();
 
-    let pulumi_main_component_name =
-        format!("component:pulumi-wasm/pulumi-main@{}", pulumi_wasm_version);
+    let pulumi_main_component_name = "component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV";
     let pulumi_main_export = graph
-        .alias_instance_export(main_instance, pulumi_main_component_name.as_str())
+        .alias_instance_export(main_instance, pulumi_main_component_name)
         .unwrap();
     graph
-        .export(pulumi_main_export, pulumi_main_component_name.as_str())
+        .export(pulumi_main_export, pulumi_main_component_name)
         .unwrap();
 
     Ok(graph.encode(EncodeOptions::default()).unwrap())
@@ -251,13 +254,10 @@ mod tests {
 
     mod provider_regex {
         use super::*;
-        use crate::{extract_provider_info, ProviderInfo, PROVIDER_REGEX};
-        use regex::Regex;
+        use crate::{extract_provider_info, ProviderInfo};
 
         #[test]
         fn provider_regex_should_work() -> Result<()> {
-            let provider_name_regex: Regex = Regex::new(PROVIDER_REGEX)?;
-
             assert_eq!(
                 extract_provider_info("pulumi:docker/container@4.5.3-DIVIDER-0.0.0-DEV"),
                 Some(ProviderInfo {
@@ -272,8 +272,6 @@ mod tests {
 
         #[test]
         fn extract_provider_info_return_none_if_does_not_match() -> Result<()> {
-            let provider_name_regex: Regex = Regex::new(PROVIDER_REGEX)?;
-
             assert_eq!(extract_provider_info("test"), None);
 
             Ok(())

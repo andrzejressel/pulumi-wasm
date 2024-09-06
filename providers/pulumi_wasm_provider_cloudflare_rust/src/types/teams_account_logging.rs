@@ -1,0 +1,9 @@
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
+pub struct TeamsAccountLogging {
+    /// Redact personally identifiable information from activity logging (PII fields are: source IP, user email, user ID, device ID, URL, referrer, user agent).
+    #[serde(rename = "redactPii")]
+    pub r#redact_pii: Box<bool>,
+    /// Represents whether all requests are logged or only the blocked requests are slogged in DNS, HTTP and L4 filters.
+    #[serde(rename = "settingsByRuleType")]
+    pub r#settings_by_rule_type: Box<crate::types::TeamsAccountLoggingSettingsByRuleType>,
+}

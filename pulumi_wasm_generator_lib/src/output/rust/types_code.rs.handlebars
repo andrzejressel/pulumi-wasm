@@ -1,0 +1,10 @@
+#[derive(serde::Deserialize, serde::Serialize, Debug)]
+pub struct {{type.struct_name}} {
+    {{#each type.fields as |field|}}
+    {{#each field.description_lines}}
+    /// {{&this}}
+    {{/each}}
+    #[serde(rename = "{{field.original_name}}")]
+    pub r#{{field.name}}: Box<{{&field.type_}}>,
+    {{/each}}
+}

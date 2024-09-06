@@ -67,10 +67,17 @@ fn test_integration() -> Result<(), anyhow::Error> {
         .as_str()
         .ok_or(anyhow!("[combined_string] is not a string"))?;
 
+    let combined_2_string = stack
+        .pointer("/combined_2_string")
+        .ok_or(anyhow!("Cannot find [combined_2_string] in stack export"))?
+        .as_str()
+        .ok_or(anyhow!("[combined_2_string] is not a string"))?;
+
     assert_eq!(result.len(), 36);
     assert_eq!(transformed_result, format!("Result: {}", result));
     assert_eq!(number, 0);
     assert_eq!(combined_string, "Values: (1, \"abc\")");
+    assert_eq!(combined_2_string, "Values: (1, \"abc\")");
 
     Ok(())
 }

@@ -7,16 +7,24 @@
   "labels": ["dependencies"],
   "packageRules": [
     { 
-      "matchPackagePatterns": "^wasmtime*",
+      "matchPackageNames": "^wasmtime*",
       "groupName": "wasmtime"
     },
     { 
-      "matchPackagePatterns": "^wit-bindgen*",
+      "matchPackageNames": "^wit-bindgen*",
       "groupName": "wit-bindgen"
     },
     { 
-      "matchPackagePatterns": "^rmp*",
+      "matchPackageNames": "^rmp*",
       "groupName": "rmp"
+    },
+    {
+      "matchPackageNames": [
+        "wit-component",
+        "wit-parser",
+        "wasmprinter"
+      ],
+      "groupName": "wasm-tools"
     }
   ],
   "customManagers": [

@@ -4,11 +4,15 @@
 --8<-- "pulumi_wasm_wit/wit/world.wit"
 ```
 
+``` title="pulumi-wasm-external.wit"
+--8<-- "pulumi_wasm_wit/wit/deps/pulumi-wasm-external.wit"
+```
+
 ## Interfaces
 
 ### Output
 
-Allow working with Outputs (so maybe not yet set values managed by Pulumi). Interface allows creating, mapping and cloning (to be removed in the future).
+Allow working with Outputs (so maybe not yet set values managed by Pulumi). Interface allows creating and mapping underlying values.
 It also allows to combine list of outputs into output of list
 
 ### Stack

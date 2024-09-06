@@ -5,9 +5,8 @@ interface output-interface {
     resource output {
         constructor(value: string);
         map: func(function-name: string) -> output;
-        duplicate: func() -> output;
     }
-    combine: func(outputs: list<output>) -> output;
+    combine: func(outputs: list<borrow<output>>) -> output;
 }
 
 

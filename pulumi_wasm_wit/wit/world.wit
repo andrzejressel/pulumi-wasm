@@ -5,47 +5,24 @@ world pulumi-wasm {
     export register-interface;
     export stack-interface;
 
-    import log;
+    import component:pulumi-wasm-external/log@0.0.0-STABLE-DEV;
     import component:pulumi-wasm-external/external-world@0.0.0-STABLE-DEV;
 }
 
 world client {
     import output-interface;
     import stack-interface;
-    export pulumi-main; // Used by macro
+    export component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV; // Used by macro
 }
 
 world logger {
-    import log;
+    import component:pulumi-wasm-external/log@0.0.0-STABLE-DEV;
 }
 
 world runner {
-    export pulumi-main;
+    export component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV;
     import component:pulumi-wasm-external/external-world@0.0.0-STABLE-DEV;
-    import log;
-}
-
-interface log {
-
-    enum level {
-        TRACE,
-        DEBUG,
-        INFO,
-        WARN,
-        ERROR
-    }
-
-    record content {
-        level: level,
-        target: string,
-        args: string,
-        module-path: option<string>,
-        file: option<string>,
-        line: option<u32>,
-        key-values: list<tuple<string, string>>
-    }
-
-    log: func(content: content);
+    import component:pulumi-wasm-external/log@0.0.0-STABLE-DEV;
 }
 
 interface output-interface {
@@ -53,9 +30,8 @@ interface output-interface {
     resource output {
         constructor(value: string);
         map: func(function-name: string) -> output;
-        duplicate: func() -> output;
     }
-    combine: func(outputs: list<output>) -> output;
+    combine: func(outputs: list<borrow<output>>) -> output;
 }
 
 interface stack-interface {
@@ -104,8 +80,4 @@ interface register-interface {
     }
 
     register: func(request: register-resource-request) -> register-resource-result;
-}
-
-interface pulumi-main {
-    main: func();
 }

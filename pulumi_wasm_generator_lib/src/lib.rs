@@ -17,6 +17,8 @@ pub fn generate_rust_library(schema_json: &Path, result_path: &Path) -> Result<(
 
     fs::create_dir_all(result_path.join("wit").join("deps"))?;
     fs::create_dir_all(result_path.join("src"))?;
+    fs::create_dir_all(result_path.join("src").join("resource"))?;
+    fs::create_dir_all(result_path.join("src").join("types"))?;
 
     let mut wit_file = File::create(result_path.join("wit").join("world.wit"))?;
     wit_file.write_all(output::wit::generate_wit(&package)?.as_ref())?;
@@ -32,13 +34,33 @@ pub fn generate_rust_library(schema_json: &Path, result_path: &Path) -> Result<(
     lib_file
         .write_all(output::rust::source_code_librs::generate_source_code(&package).as_bytes())?;
 
-    let mut source_file = File::create(result_path.join("src").join("resource.rs"))?;
-    source_file
-        .write_all(output::rust::source_code_resource::generate_source_code(&package).as_bytes())?;
+    let mut source_file = File::create(result_path.join("src").join("resource").join("mod.rs"))?;
+    source_file.write_all(
+        output::rust::source_code_resource_mod::generate_source_code(&package).as_bytes(),
+    )?;
 
-    let mut types_file = File::create(result_path.join("src").join("types.rs"))?;
-    types_file
-        .write_all(output::rust::source_code_types::generate_source_code(&package).as_ref())?;
+    output::rust::source_code_types_code::generate_source_code(&package)
+        .iter()
+        .for_each(|(path, content)| {
+            let mut lib_file =
+                File::create(result_path.join("src").join("types").join(path)).unwrap();
+            lib_file.write_all(content.as_bytes()).unwrap();
+        });
+
+    // let mut types_file = File::create(result_path.join("src").join("types.rs"))?;
+    // types_file
+    //     .write_all(output::rust::source_code_types::generate_source_code(&package).as_ref())?;
+
+    File::create(result_path.join("src").join("types").join("mod.rs"))?
+        .write_all(output::rust::source_code_types_mod::generate_source_code(&package).as_ref())?;
+
+    output::rust::source_code_resource_code::generate_source_code(&package)
+        .iter()
+        .for_each(|(path, content)| {
+            let mut lib_file =
+                File::create(result_path.join("src").join("resource").join(path)).unwrap();
+            lib_file.write_all(content.as_bytes()).unwrap();
+        });
 
     Ok(())
 }
@@ -61,7 +83,16 @@ pub fn generate_wasm_provider(schema_json: &Path, result_path: &Path) -> Result<
     cargo_file.write_all(output::provider::cargo::generate_cargo(&package).as_bytes())?;
 
     let mut lib_file = File::create(result_path.join("src").join("lib.rs"))?;
-    lib_file.write_all(output::provider::source_code::generate_source_code(&package).as_bytes())?;
+    lib_file.write_all(
+        output::provider::source_code_librs::generate_source_code(&package).as_bytes(),
+    )?;
+
+    output::provider::source_code_resource::generate_source_code(&package)
+        .iter()
+        .for_each(|(path, content)| {
+            let mut lib_file = File::create(result_path.join("src").join(path)).unwrap();
+            lib_file.write_all(content.as_bytes()).unwrap();
+        });
 
     Ok(())
 }

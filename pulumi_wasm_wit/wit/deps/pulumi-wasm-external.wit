@@ -18,3 +18,30 @@ interface external-world {
     register-resource: func(request: register-resource-request);
     wait-for-registered-resources: func() -> list<registered-resource>;
 }
+
+interface log {
+
+    enum level {
+        TRACE,
+        DEBUG,
+        INFO,
+        WARN,
+        ERROR
+    }
+
+    record content {
+        level: level,
+        target: string,
+        args: string,
+        module-path: option<string>,
+        file: option<string>,
+        line: option<u32>,
+        key-values: list<tuple<string, string>>
+    }
+
+    log: func(content: content);
+}
+
+interface pulumi-main {
+    main: func();
+}
