@@ -6,7 +6,8 @@ pub mod component {
         pub mod output_interface {
             #[used]
             #[doc(hidden)]
-            static __FORCE_SECTION_REF: fn() = super::super::super::__link_custom_section_describing_imports;
+            static __FORCE_SECTION_REF: fn() =
+                super::super::super::__link_custom_section_describing_imports;
             use super::super::super::_rt;
             #[derive(Debug)]
             #[repr(transparent)]
@@ -90,11 +91,7 @@ pub mod component {
                         fn wit_import(_: i32, _: *mut u8, _: usize) -> i32 {
                             unreachable!()
                         }
-                        let ret = wit_import(
-                            (self).handle() as i32,
-                            ptr0.cast_mut(),
-                            len0,
-                        );
+                        let ret = wit_import((self).handle() as i32, ptr0.cast_mut(), len0);
                         Output::from_handle(ret as u32)
                     }
                 }
@@ -104,10 +101,7 @@ pub mod component {
                 unsafe {
                     let vec0 = outputs;
                     let len0 = vec0.len();
-                    let layout0 = _rt::alloc::Layout::from_size_align_unchecked(
-                        vec0.len() * 4,
-                        4,
-                    );
+                    let layout0 = _rt::alloc::Layout::from_size_align_unchecked(vec0.len() * 4, 4);
                     let result0 = if layout0.size() != 0 {
                         let ptr = _rt::alloc::alloc(layout0).cast::<u8>();
                         if ptr.is_null() {
@@ -115,7 +109,9 @@ pub mod component {
                         }
                         ptr
                     } else {
-                        { ::core::ptr::null_mut() }
+                        {
+                            ::core::ptr::null_mut()
+                        }
                     };
                     for (i, e) in vec0.into_iter().enumerate() {
                         let base = result0.add(i * 4);
@@ -124,9 +120,7 @@ pub mod component {
                         }
                     }
                     #[cfg(target_arch = "wasm32")]
-                    #[link(
-                        wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0-DEV"
-                    )]
+                    #[link(wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0-DEV")]
                     extern "C" {
                         #[link_name = "combine"]
                         fn wit_import(_: *mut u8, _: usize) -> i32;
@@ -147,7 +141,8 @@ pub mod component {
         pub mod register_interface {
             #[used]
             #[doc(hidden)]
-            static __FORCE_SECTION_REF: fn() = super::super::super::__link_custom_section_describing_imports;
+            static __FORCE_SECTION_REF: fn() =
+                super::super::super::__link_custom_section_describing_imports;
             use super::super::super::_rt;
             pub type Output = super::super::super::component::pulumi_wasm::output_interface::Output;
             pub struct ObjectField<'a> {
@@ -155,10 +150,7 @@ pub mod component {
                 pub value: &'a Output,
             }
             impl<'a> ::core::fmt::Debug for ObjectField<'a> {
-                fn fmt(
-                    &self,
-                    f: &mut ::core::fmt::Formatter<'_>,
-                ) -> ::core::fmt::Result {
+                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                     f.debug_struct("ObjectField")
                         .field("name", &self.name)
                         .field("value", &self.value)
@@ -170,11 +162,10 @@ pub mod component {
                 pub name: _rt::String,
             }
             impl ::core::fmt::Debug for ResultField {
-                fn fmt(
-                    &self,
-                    f: &mut ::core::fmt::Formatter<'_>,
-                ) -> ::core::fmt::Result {
-                    f.debug_struct("ResultField").field("name", &self.name).finish()
+                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                    f.debug_struct("ResultField")
+                        .field("name", &self.name)
+                        .finish()
                 }
             }
             pub struct RegisterResourceResultField {
@@ -182,10 +173,7 @@ pub mod component {
                 pub output: Output,
             }
             impl ::core::fmt::Debug for RegisterResourceResultField {
-                fn fmt(
-                    &self,
-                    f: &mut ::core::fmt::Formatter<'_>,
-                ) -> ::core::fmt::Result {
+                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                     f.debug_struct("RegisterResourceResultField")
                         .field("name", &self.name)
                         .field("output", &self.output)
@@ -199,10 +187,7 @@ pub mod component {
                 pub results: _rt::Vec<ResultField>,
             }
             impl<'a> ::core::fmt::Debug for RegisterResourceRequest<'a> {
-                fn fmt(
-                    &self,
-                    f: &mut ::core::fmt::Formatter<'_>,
-                ) -> ::core::fmt::Result {
+                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                     f.debug_struct("RegisterResourceRequest")
                         .field("type", &self.type_)
                         .field("name", &self.name)
@@ -215,19 +200,14 @@ pub mod component {
                 pub fields: _rt::Vec<RegisterResourceResultField>,
             }
             impl ::core::fmt::Debug for RegisterResourceResult {
-                fn fmt(
-                    &self,
-                    f: &mut ::core::fmt::Formatter<'_>,
-                ) -> ::core::fmt::Result {
+                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                     f.debug_struct("RegisterResourceResult")
                         .field("fields", &self.fields)
                         .finish()
                 }
             }
             #[allow(unused_unsafe, clippy::all)]
-            pub fn register(
-                request: &RegisterResourceRequest<'_>,
-            ) -> RegisterResourceResult {
+            pub fn register(request: &RegisterResourceRequest<'_>) -> RegisterResourceResult {
                 unsafe {
                     #[repr(align(4))]
                     struct RetArea([::core::mem::MaybeUninit<u8>; 8]);
@@ -246,10 +226,7 @@ pub mod component {
                     let len2 = vec2.len();
                     let vec5 = object0;
                     let len5 = vec5.len();
-                    let layout5 = _rt::alloc::Layout::from_size_align_unchecked(
-                        vec5.len() * 12,
-                        4,
-                    );
+                    let layout5 = _rt::alloc::Layout::from_size_align_unchecked(vec5.len() * 12, 4);
                     let result5 = if layout5.size() != 0 {
                         let ptr = _rt::alloc::alloc(layout5).cast::<u8>();
                         if ptr.is_null() {
@@ -257,12 +234,17 @@ pub mod component {
                         }
                         ptr
                     } else {
-                        { ::core::ptr::null_mut() }
+                        {
+                            ::core::ptr::null_mut()
+                        }
                     };
                     for (i, e) in vec5.into_iter().enumerate() {
                         let base = result5.add(i * 12);
                         {
-                            let ObjectField { name: name3, value: value3 } = e;
+                            let ObjectField {
+                                name: name3,
+                                value: value3,
+                            } = e;
                             let vec4 = name3;
                             let ptr4 = vec4.as_ptr().cast::<u8>();
                             let len4 = vec4.len();
@@ -273,10 +255,7 @@ pub mod component {
                     }
                     let vec8 = results0;
                     let len8 = vec8.len();
-                    let layout8 = _rt::alloc::Layout::from_size_align_unchecked(
-                        vec8.len() * 8,
-                        4,
-                    );
+                    let layout8 = _rt::alloc::Layout::from_size_align_unchecked(vec8.len() * 8, 4);
                     let result8 = if layout8.size() != 0 {
                         let ptr = _rt::alloc::alloc(layout8).cast::<u8>();
                         if ptr.is_null() {
@@ -284,7 +263,9 @@ pub mod component {
                         }
                         ptr
                     } else {
-                        { ::core::ptr::null_mut() }
+                        {
+                            ::core::ptr::null_mut()
+                        }
                     };
                     for (i, e) in vec8.into_iter().enumerate() {
                         let base = result8.add(i * 8);
@@ -352,11 +333,7 @@ pub mod component {
                             let l12 = *base.add(0).cast::<*mut u8>();
                             let l13 = *base.add(4).cast::<usize>();
                             let len14 = l13;
-                            let bytes14 = _rt::Vec::from_raw_parts(
-                                l12.cast(),
-                                len14,
-                                len14,
-                            );
+                            let bytes14 = _rt::Vec::from_raw_parts(l12.cast(), len14, len14);
                             let l15 = *base.add(8).cast::<i32>();
                             RegisterResourceResultField {
                                 name: _rt::string_lift(bytes14),
@@ -374,9 +351,7 @@ pub mod component {
                     if layout8.size() != 0 {
                         _rt::alloc::dealloc(result8.cast(), layout8);
                     }
-                    RegisterResourceResult {
-                        fields: result16,
-                    }
+                    RegisterResourceResult { fields: result16 }
                 }
             }
         }
@@ -392,18 +367,17 @@ pub mod exports {
             pub mod random_bytes {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub keepers: &'a Output,
                     pub length: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("keepers", &self.keepers)
                             .field("length", &self.length)
@@ -417,10 +391,7 @@ pub mod exports {
                     pub length: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("base64", &self.base64)
                             .field("hex", &self.hex)
@@ -437,7 +408,8 @@ pub mod exports {
                     arg2: i32,
                     arg3: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let len0 = arg1;
@@ -489,27 +461,24 @@ pub mod exports {
                 pub(crate) use __export_pulumi_random_random_bytes_4_15_0_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 16],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod random_id {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub byte_length: &'a Output,
                     pub keepers: &'a Output,
                     pub prefix: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("byte-length", &self.byte_length)
                             .field("keepers", &self.keepers)
@@ -527,10 +496,7 @@ pub mod exports {
                     pub prefix: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("b64-std", &self.b64_std)
                             .field("b64-url", &self.b64_url)
@@ -551,7 +517,8 @@ pub mod exports {
                     arg3: i32,
                     arg4: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -617,17 +584,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_random_random_id_4_15_0_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 28]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 28],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 28]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod random_integer {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub keepers: &'a Output,
                     pub max: &'a Output,
@@ -635,10 +602,7 @@ pub mod exports {
                     pub seed: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("keepers", &self.keepers)
                             .field("max", &self.max)
@@ -655,10 +619,7 @@ pub mod exports {
                     pub seed: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("keepers", &self.keepers)
                             .field("max", &self.max)
@@ -678,7 +639,8 @@ pub mod exports {
                     arg4: i32,
                     arg5: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -747,17 +709,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_random_random_integer_4_15_0_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 20],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod random_password {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub keepers: &'a Output,
                     pub length: &'a Output,
@@ -773,10 +735,7 @@ pub mod exports {
                     pub upper: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("keepers", &self.keepers)
                             .field("length", &self.length)
@@ -810,10 +769,7 @@ pub mod exports {
                     pub upper: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("bcrypt-hash", &self.bcrypt_hash)
                             .field("keepers", &self.keepers)
@@ -850,7 +806,8 @@ pub mod exports {
                     arg12: i32,
                     arg13: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -969,8 +926,7 @@ pub mod exports {
                     *ptr14.add(28).cast::<i32>() = (min_upper15).take_handle() as i32;
                     *ptr14.add(32).cast::<i32>() = (number15).take_handle() as i32;
                     *ptr14.add(36).cast::<i32>() = (numeric15).take_handle() as i32;
-                    *ptr14.add(40).cast::<i32>() = (override_special15).take_handle()
-                        as i32;
+                    *ptr14.add(40).cast::<i32>() = (override_special15).take_handle() as i32;
                     *ptr14.add(44).cast::<i32>() = (result15).take_handle() as i32;
                     *ptr14.add(48).cast::<i32>() = (special15).take_handle() as i32;
                     *ptr14.add(52).cast::<i32>() = (upper15).take_handle() as i32;
@@ -996,17 +952,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_random_random_password_4_15_0_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 56]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 56],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 56]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod random_pet {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub keepers: &'a Output,
                     pub length: &'a Output,
@@ -1014,10 +970,7 @@ pub mod exports {
                     pub separator: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("keepers", &self.keepers)
                             .field("length", &self.length)
@@ -1033,10 +986,7 @@ pub mod exports {
                     pub separator: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("keepers", &self.keepers)
                             .field("length", &self.length)
@@ -1055,7 +1005,8 @@ pub mod exports {
                     arg4: i32,
                     arg5: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -1122,17 +1073,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_random_random_pet_4_15_0_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 16],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod random_shuffle {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub inputs: &'a Output,
                     pub keepers: &'a Output,
@@ -1140,10 +1091,7 @@ pub mod exports {
                     pub seed: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("inputs", &self.inputs)
                             .field("keepers", &self.keepers)
@@ -1160,10 +1108,7 @@ pub mod exports {
                     pub seed: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("inputs", &self.inputs)
                             .field("keepers", &self.keepers)
@@ -1183,7 +1128,8 @@ pub mod exports {
                     arg4: i32,
                     arg5: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -1252,17 +1198,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_random_random_shuffle_4_15_0_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 20],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod random_string {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub keepers: &'a Output,
                     pub length: &'a Output,
@@ -1278,10 +1224,7 @@ pub mod exports {
                     pub upper: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("keepers", &self.keepers)
                             .field("length", &self.length)
@@ -1314,10 +1257,7 @@ pub mod exports {
                     pub upper: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("keepers", &self.keepers)
                             .field("length", &self.length)
@@ -1353,7 +1293,8 @@ pub mod exports {
                     arg12: i32,
                     arg13: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -1470,8 +1411,7 @@ pub mod exports {
                     *ptr14.add(24).cast::<i32>() = (min_upper15).take_handle() as i32;
                     *ptr14.add(28).cast::<i32>() = (number15).take_handle() as i32;
                     *ptr14.add(32).cast::<i32>() = (numeric15).take_handle() as i32;
-                    *ptr14.add(36).cast::<i32>() = (override_special15).take_handle()
-                        as i32;
+                    *ptr14.add(36).cast::<i32>() = (override_special15).take_handle() as i32;
                     *ptr14.add(40).cast::<i32>() = (result15).take_handle() as i32;
                     *ptr14.add(44).cast::<i32>() = (special15).take_handle() as i32;
                     *ptr14.add(48).cast::<i32>() = (upper15).take_handle() as i32;
@@ -1497,26 +1437,25 @@ pub mod exports {
                 pub(crate) use __export_pulumi_random_random_string_4_15_0_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 52]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 52],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 52]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod random_uuid {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub keepers: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
-                        f.debug_struct("Args").field("keepers", &self.keepers).finish()
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                        f.debug_struct("Args")
+                            .field("keepers", &self.keepers)
+                            .finish()
                     }
                 }
                 pub struct Res {
@@ -1524,10 +1463,7 @@ pub mod exports {
                     pub result: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("keepers", &self.keepers)
                             .field("result", &self.result)
@@ -1541,7 +1477,8 @@ pub mod exports {
                     arg1: usize,
                     arg2: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let len0 = arg1;
                     let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
@@ -1557,7 +1494,10 @@ pub mod exports {
                         },
                     );
                     let ptr3 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
-                    let Res { keepers: keepers4, result: result4 } = result2;
+                    let Res {
+                        keepers: keepers4,
+                        result: result4,
+                    } = result2;
                     *ptr3.add(0).cast::<i32>() = (keepers4).take_handle() as i32;
                     *ptr3.add(4).cast::<i32>() = (result4).take_handle() as i32;
                     ptr3
@@ -1579,9 +1519,7 @@ pub mod exports {
                 pub(crate) use __export_pulumi_random_random_uuid_4_15_0_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 8],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 8]);
             }
         }
     }
@@ -1648,7 +1586,9 @@ mod _rt {
     }
     impl<T: WasmResource> fmt::Debug for Resource<T> {
         fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-            f.debug_struct("Resource").field("handle", &self.handle).finish()
+            f.debug_struct("Resource")
+                .field("handle", &self.handle)
+                .finish()
         }
     }
     impl<T: WasmResource> Drop for Resource<T> {

@@ -6,7 +6,8 @@ pub mod component {
         pub mod log {
             #[used]
             #[doc(hidden)]
-            static __FORCE_SECTION_REF: fn() = super::super::super::__link_custom_section_describing_imports;
+            static __FORCE_SECTION_REF: fn() =
+                super::super::super::__link_custom_section_describing_imports;
             use super::super::super::_rt;
             #[repr(u8)]
             #[derive(Clone, Copy, Eq, PartialEq)]
@@ -18,10 +19,7 @@ pub mod component {
                 Error,
             }
             impl ::core::fmt::Debug for Level {
-                fn fmt(
-                    &self,
-                    f: &mut ::core::fmt::Formatter<'_>,
-                ) -> ::core::fmt::Result {
+                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                     match self {
                         Level::Trace => f.debug_tuple("Level::Trace").finish(),
                         Level::Debug => f.debug_tuple("Level::Debug").finish(),
@@ -58,10 +56,7 @@ pub mod component {
                 pub key_values: _rt::Vec<(_rt::String, _rt::String)>,
             }
             impl ::core::fmt::Debug for Content {
-                fn fmt(
-                    &self,
-                    f: &mut ::core::fmt::Formatter<'_>,
-                ) -> ::core::fmt::Result {
+                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                     f.debug_struct("Content")
                         .field("level", &self.level)
                         .field("target", &self.target)
@@ -115,10 +110,8 @@ pub mod component {
                     };
                     let vec11 = key_values0;
                     let len11 = vec11.len();
-                    let layout11 = _rt::alloc::Layout::from_size_align_unchecked(
-                        vec11.len() * 16,
-                        4,
-                    );
+                    let layout11 =
+                        _rt::alloc::Layout::from_size_align_unchecked(vec11.len() * 16, 4);
                     let result11 = if layout11.size() != 0 {
                         let ptr = _rt::alloc::alloc(layout11).cast::<u8>();
                         if ptr.is_null() {
@@ -126,7 +119,9 @@ pub mod component {
                         }
                         ptr
                     } else {
-                        { ::core::ptr::null_mut() }
+                        {
+                            ::core::ptr::null_mut()
+                        }
                     };
                     for (i, e) in vec11.into_iter().enumerate() {
                         let base = result11.add(i * 16);
@@ -215,7 +210,8 @@ pub mod component {
         pub mod external_world {
             #[used]
             #[doc(hidden)]
-            static __FORCE_SECTION_REF: fn() = super::super::super::__link_custom_section_describing_imports;
+            static __FORCE_SECTION_REF: fn() =
+                super::super::super::__link_custom_section_describing_imports;
             use super::super::super::_rt;
             #[derive(Clone)]
             pub struct RegisterResourceRequest {
@@ -223,10 +219,7 @@ pub mod component {
                 pub body: _rt::Vec<u8>,
             }
             impl ::core::fmt::Debug for RegisterResourceRequest {
-                fn fmt(
-                    &self,
-                    f: &mut ::core::fmt::Formatter<'_>,
-                ) -> ::core::fmt::Result {
+                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                     f.debug_struct("RegisterResourceRequest")
                         .field("output-id", &self.output_id)
                         .field("body", &self.body)
@@ -239,10 +232,7 @@ pub mod component {
                 pub body: _rt::Vec<u8>,
             }
             impl ::core::fmt::Debug for RegisteredResource {
-                fn fmt(
-                    &self,
-                    f: &mut ::core::fmt::Formatter<'_>,
-                ) -> ::core::fmt::Result {
+                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                     f.debug_struct("RegisteredResource")
                         .field("output-id", &self.output_id)
                         .field("body", &self.body)
@@ -327,7 +317,10 @@ pub mod component {
             #[allow(unused_unsafe, clippy::all)]
             pub fn register_resource(request: &RegisterResourceRequest) {
                 unsafe {
-                    let RegisterResourceRequest { output_id: output_id0, body: body0 } = request;
+                    let RegisterResourceRequest {
+                        output_id: output_id0,
+                        body: body0,
+                    } = request;
                     let vec1 = output_id0;
                     let ptr1 = vec1.as_ptr().cast::<u8>();
                     let len1 = vec1.len();
@@ -408,7 +401,8 @@ pub mod exports {
             pub mod output_interface {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
                 #[derive(Debug)]
                 #[repr(transparent)]
@@ -425,9 +419,7 @@ pub mod exports {
                     pub fn new<T: GuestOutput>(val: T) -> Self {
                         Self::type_guard::<T>();
                         let val: _OutputRep<T> = Some(val);
-                        let ptr: *mut _OutputRep<T> = _rt::Box::into_raw(
-                            _rt::Box::new(val),
-                        );
+                        let ptr: *mut _OutputRep<T> = _rt::Box::into_raw(_rt::Box::new(val));
                         unsafe { Self::from_handle(T::_resource_new(ptr.cast())) }
                     }
                     /// Gets access to the underlying `T` which represents this resource.
@@ -465,12 +457,13 @@ pub mod exports {
                         use core::any::TypeId;
                         static mut LAST_TYPE: Option<TypeId> = None;
                         unsafe {
-                            assert!(! cfg!(target_feature = "atomics"));
+                            assert!(!cfg!(target_feature = "atomics"));
                             let id = TypeId::of::<T>();
                             match LAST_TYPE {
                                 Some(ty) => {
                                     assert!(
-                                        ty == id, "cannot use two types with this resource type"
+                                        ty == id,
+                                        "cannot use two types with this resource type"
                                     )
                                 }
                                 None => LAST_TYPE = Some(id),
@@ -537,7 +530,8 @@ pub mod exports {
                     arg0: *mut u8,
                     arg1: usize,
                 ) -> i32 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let len0 = arg1;
                     let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
                     let result1 = Output::new(T::new(_rt::string_lift(bytes0)));
@@ -550,7 +544,8 @@ pub mod exports {
                     arg1: *mut u8,
                     arg2: usize,
                 ) -> i32 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let len0 = arg2;
                     let bytes0 = _rt::Vec::from_raw_parts(arg1.cast(), len0, len0);
                     let result1 = T::map(
@@ -561,11 +556,9 @@ pub mod exports {
                 }
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
-                pub unsafe fn _export_combine_cabi<T: Guest>(
-                    arg0: *mut u8,
-                    arg1: usize,
-                ) -> i32 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                pub unsafe fn _export_combine_cabi<T: Guest>(arg0: *mut u8, arg1: usize) -> i32 {
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let base1 = arg0;
                     let len1 = arg1;
                     let mut result1 = _rt::Vec::with_capacity(len1);
@@ -664,7 +657,8 @@ pub mod exports {
             pub mod register_interface {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
                 pub type Output = super::super::super::super::exports::component::pulumi_wasm::output_interface::Output;
                 pub type OutputBorrow<'a> = super::super::super::super::exports::component::pulumi_wasm::output_interface::OutputBorrow<
@@ -675,10 +669,7 @@ pub mod exports {
                     pub value: OutputBorrow<'a>,
                 }
                 impl<'a> ::core::fmt::Debug for ObjectField<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("ObjectField")
                             .field("name", &self.name)
                             .field("value", &self.value)
@@ -690,11 +681,10 @@ pub mod exports {
                     pub name: _rt::String,
                 }
                 impl ::core::fmt::Debug for ResultField {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
-                        f.debug_struct("ResultField").field("name", &self.name).finish()
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                        f.debug_struct("ResultField")
+                            .field("name", &self.name)
+                            .finish()
                     }
                 }
                 pub struct RegisterResourceResultField {
@@ -702,10 +692,7 @@ pub mod exports {
                     pub output: Output,
                 }
                 impl ::core::fmt::Debug for RegisterResourceResultField {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("RegisterResourceResultField")
                             .field("name", &self.name)
                             .field("output", &self.output)
@@ -719,10 +706,7 @@ pub mod exports {
                     pub results: _rt::Vec<ResultField>,
                 }
                 impl<'a> ::core::fmt::Debug for RegisterResourceRequest<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("RegisterResourceRequest")
                             .field("type", &self.type_)
                             .field("name", &self.name)
@@ -735,10 +719,7 @@ pub mod exports {
                     pub fields: _rt::Vec<RegisterResourceResultField>,
                 }
                 impl ::core::fmt::Debug for RegisterResourceResult {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("RegisterResourceResult")
                             .field("fields", &self.fields)
                             .finish()
@@ -756,7 +737,8 @@ pub mod exports {
                     arg6: *mut u8,
                     arg7: usize,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let len0 = arg1;
                     let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
                     let len1 = arg3;
@@ -807,10 +789,8 @@ pub mod exports {
                     let RegisterResourceResult { fields: fields13 } = result11;
                     let vec16 = fields13;
                     let len16 = vec16.len();
-                    let layout16 = _rt::alloc::Layout::from_size_align_unchecked(
-                        vec16.len() * 12,
-                        4,
-                    );
+                    let layout16 =
+                        _rt::alloc::Layout::from_size_align_unchecked(vec16.len() * 12, 4);
                     let result16 = if layout16.size() != 0 {
                         let ptr = _rt::alloc::alloc(layout16).cast::<u8>();
                         if ptr.is_null() {
@@ -818,7 +798,9 @@ pub mod exports {
                         }
                         ptr
                     } else {
-                        { ::core::ptr::null_mut() }
+                        {
+                            ::core::ptr::null_mut()
+                        }
                     };
                     for (i, e) in vec16.into_iter().enumerate() {
                         let base = result16.add(i * 12);
@@ -858,9 +840,7 @@ pub mod exports {
                     _rt::cabi_dealloc(base4, len4 * 12, 4);
                 }
                 pub trait Guest {
-                    fn register(
-                        request: RegisterResourceRequest<'_>,
-                    ) -> RegisterResourceResult;
+                    fn register(request: RegisterResourceRequest<'_>) -> RegisterResourceResult;
                 }
                 #[doc(hidden)]
                 macro_rules! __export_component_pulumi_wasm_register_interface_0_0_0_dev_cabi {
@@ -881,15 +861,14 @@ pub mod exports {
                 pub(crate) use __export_component_pulumi_wasm_register_interface_0_0_0_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 8],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 8]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod stack_interface {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
                 pub type Output = super::super::super::super::exports::component::pulumi_wasm::output_interface::Output;
                 pub type OutputBorrow<'a> = super::super::super::super::exports::component::pulumi_wasm::output_interface::OutputBorrow<
@@ -901,10 +880,7 @@ pub mod exports {
                     pub value: _rt::String,
                 }
                 impl ::core::fmt::Debug for FunctionInvocationRequest {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("FunctionInvocationRequest")
                             .field("id", &self.id)
                             .field("function-id", &self.function_id)
@@ -917,10 +893,7 @@ pub mod exports {
                     pub value: _rt::String,
                 }
                 impl<'a> ::core::fmt::Debug for FunctionInvocationResult<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("FunctionInvocationResult")
                             .field("id", &self.id)
                             .field("value", &self.value)
@@ -934,7 +907,8 @@ pub mod exports {
                     arg1: usize,
                     arg2: i32,
                 ) {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let len0 = arg1;
                     let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
                     T::add_export(
@@ -944,11 +918,9 @@ pub mod exports {
                 }
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
-                pub unsafe fn _export_finish_cabi<T: Guest>(
-                    arg0: *mut u8,
-                    arg1: usize,
-                ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                pub unsafe fn _export_finish_cabi<T: Guest>(arg0: *mut u8, arg1: usize) -> *mut u8 {
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let base4 = arg0;
                     let len4 = arg1;
                     let mut result4 = _rt::Vec::with_capacity(len4);
@@ -972,10 +944,8 @@ pub mod exports {
                     let ptr6 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
                     let vec10 = result5;
                     let len10 = vec10.len();
-                    let layout10 = _rt::alloc::Layout::from_size_align_unchecked(
-                        vec10.len() * 20,
-                        4,
-                    );
+                    let layout10 =
+                        _rt::alloc::Layout::from_size_align_unchecked(vec10.len() * 20, 4);
                     let result10 = if layout10.size() != 0 {
                         let ptr = _rt::alloc::alloc(layout10).cast::<u8>();
                         if ptr.is_null() {
@@ -983,7 +953,9 @@ pub mod exports {
                         }
                         ptr
                     } else {
-                        { ::core::ptr::null_mut() }
+                        {
+                            ::core::ptr::null_mut()
+                        }
                     };
                     for (i, e) in vec10.into_iter().enumerate() {
                         let base = result10.add(i * 20);
@@ -1060,9 +1032,7 @@ pub mod exports {
                 pub(crate) use __export_component_pulumi_wasm_stack_interface_0_0_0_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 8],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 8]);
             }
         }
     }
@@ -1216,7 +1186,9 @@ mod _rt {
     }
     impl<T: WasmResource> fmt::Debug for Resource<T> {
         fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-            f.debug_struct("Resource").field("handle", &self.handle).finish()
+            f.debug_struct("Resource")
+                .field("handle", &self.handle)
+                .finish()
         }
     }
     impl<T: WasmResource> Drop for Resource<T> {

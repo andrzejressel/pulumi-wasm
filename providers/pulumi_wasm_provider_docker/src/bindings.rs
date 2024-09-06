@@ -6,7 +6,8 @@ pub mod component {
         pub mod output_interface {
             #[used]
             #[doc(hidden)]
-            static __FORCE_SECTION_REF: fn() = super::super::super::__link_custom_section_describing_imports;
+            static __FORCE_SECTION_REF: fn() =
+                super::super::super::__link_custom_section_describing_imports;
             use super::super::super::_rt;
             #[derive(Debug)]
             #[repr(transparent)]
@@ -90,11 +91,7 @@ pub mod component {
                         fn wit_import(_: i32, _: *mut u8, _: usize) -> i32 {
                             unreachable!()
                         }
-                        let ret = wit_import(
-                            (self).handle() as i32,
-                            ptr0.cast_mut(),
-                            len0,
-                        );
+                        let ret = wit_import((self).handle() as i32, ptr0.cast_mut(), len0);
                         Output::from_handle(ret as u32)
                     }
                 }
@@ -104,10 +101,7 @@ pub mod component {
                 unsafe {
                     let vec0 = outputs;
                     let len0 = vec0.len();
-                    let layout0 = _rt::alloc::Layout::from_size_align_unchecked(
-                        vec0.len() * 4,
-                        4,
-                    );
+                    let layout0 = _rt::alloc::Layout::from_size_align_unchecked(vec0.len() * 4, 4);
                     let result0 = if layout0.size() != 0 {
                         let ptr = _rt::alloc::alloc(layout0).cast::<u8>();
                         if ptr.is_null() {
@@ -115,7 +109,9 @@ pub mod component {
                         }
                         ptr
                     } else {
-                        { ::core::ptr::null_mut() }
+                        {
+                            ::core::ptr::null_mut()
+                        }
                     };
                     for (i, e) in vec0.into_iter().enumerate() {
                         let base = result0.add(i * 4);
@@ -124,9 +120,7 @@ pub mod component {
                         }
                     }
                     #[cfg(target_arch = "wasm32")]
-                    #[link(
-                        wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0-DEV"
-                    )]
+                    #[link(wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0-DEV")]
                     extern "C" {
                         #[link_name = "combine"]
                         fn wit_import(_: *mut u8, _: usize) -> i32;
@@ -147,7 +141,8 @@ pub mod component {
         pub mod register_interface {
             #[used]
             #[doc(hidden)]
-            static __FORCE_SECTION_REF: fn() = super::super::super::__link_custom_section_describing_imports;
+            static __FORCE_SECTION_REF: fn() =
+                super::super::super::__link_custom_section_describing_imports;
             use super::super::super::_rt;
             pub type Output = super::super::super::component::pulumi_wasm::output_interface::Output;
             pub struct ObjectField<'a> {
@@ -155,10 +150,7 @@ pub mod component {
                 pub value: &'a Output,
             }
             impl<'a> ::core::fmt::Debug for ObjectField<'a> {
-                fn fmt(
-                    &self,
-                    f: &mut ::core::fmt::Formatter<'_>,
-                ) -> ::core::fmt::Result {
+                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                     f.debug_struct("ObjectField")
                         .field("name", &self.name)
                         .field("value", &self.value)
@@ -170,11 +162,10 @@ pub mod component {
                 pub name: _rt::String,
             }
             impl ::core::fmt::Debug for ResultField {
-                fn fmt(
-                    &self,
-                    f: &mut ::core::fmt::Formatter<'_>,
-                ) -> ::core::fmt::Result {
-                    f.debug_struct("ResultField").field("name", &self.name).finish()
+                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                    f.debug_struct("ResultField")
+                        .field("name", &self.name)
+                        .finish()
                 }
             }
             pub struct RegisterResourceResultField {
@@ -182,10 +173,7 @@ pub mod component {
                 pub output: Output,
             }
             impl ::core::fmt::Debug for RegisterResourceResultField {
-                fn fmt(
-                    &self,
-                    f: &mut ::core::fmt::Formatter<'_>,
-                ) -> ::core::fmt::Result {
+                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                     f.debug_struct("RegisterResourceResultField")
                         .field("name", &self.name)
                         .field("output", &self.output)
@@ -199,10 +187,7 @@ pub mod component {
                 pub results: _rt::Vec<ResultField>,
             }
             impl<'a> ::core::fmt::Debug for RegisterResourceRequest<'a> {
-                fn fmt(
-                    &self,
-                    f: &mut ::core::fmt::Formatter<'_>,
-                ) -> ::core::fmt::Result {
+                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                     f.debug_struct("RegisterResourceRequest")
                         .field("type", &self.type_)
                         .field("name", &self.name)
@@ -215,19 +200,14 @@ pub mod component {
                 pub fields: _rt::Vec<RegisterResourceResultField>,
             }
             impl ::core::fmt::Debug for RegisterResourceResult {
-                fn fmt(
-                    &self,
-                    f: &mut ::core::fmt::Formatter<'_>,
-                ) -> ::core::fmt::Result {
+                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                     f.debug_struct("RegisterResourceResult")
                         .field("fields", &self.fields)
                         .finish()
                 }
             }
             #[allow(unused_unsafe, clippy::all)]
-            pub fn register(
-                request: &RegisterResourceRequest<'_>,
-            ) -> RegisterResourceResult {
+            pub fn register(request: &RegisterResourceRequest<'_>) -> RegisterResourceResult {
                 unsafe {
                     #[repr(align(4))]
                     struct RetArea([::core::mem::MaybeUninit<u8>; 8]);
@@ -246,10 +226,7 @@ pub mod component {
                     let len2 = vec2.len();
                     let vec5 = object0;
                     let len5 = vec5.len();
-                    let layout5 = _rt::alloc::Layout::from_size_align_unchecked(
-                        vec5.len() * 12,
-                        4,
-                    );
+                    let layout5 = _rt::alloc::Layout::from_size_align_unchecked(vec5.len() * 12, 4);
                     let result5 = if layout5.size() != 0 {
                         let ptr = _rt::alloc::alloc(layout5).cast::<u8>();
                         if ptr.is_null() {
@@ -257,12 +234,17 @@ pub mod component {
                         }
                         ptr
                     } else {
-                        { ::core::ptr::null_mut() }
+                        {
+                            ::core::ptr::null_mut()
+                        }
                     };
                     for (i, e) in vec5.into_iter().enumerate() {
                         let base = result5.add(i * 12);
                         {
-                            let ObjectField { name: name3, value: value3 } = e;
+                            let ObjectField {
+                                name: name3,
+                                value: value3,
+                            } = e;
                             let vec4 = name3;
                             let ptr4 = vec4.as_ptr().cast::<u8>();
                             let len4 = vec4.len();
@@ -273,10 +255,7 @@ pub mod component {
                     }
                     let vec8 = results0;
                     let len8 = vec8.len();
-                    let layout8 = _rt::alloc::Layout::from_size_align_unchecked(
-                        vec8.len() * 8,
-                        4,
-                    );
+                    let layout8 = _rt::alloc::Layout::from_size_align_unchecked(vec8.len() * 8, 4);
                     let result8 = if layout8.size() != 0 {
                         let ptr = _rt::alloc::alloc(layout8).cast::<u8>();
                         if ptr.is_null() {
@@ -284,7 +263,9 @@ pub mod component {
                         }
                         ptr
                     } else {
-                        { ::core::ptr::null_mut() }
+                        {
+                            ::core::ptr::null_mut()
+                        }
                     };
                     for (i, e) in vec8.into_iter().enumerate() {
                         let base = result8.add(i * 8);
@@ -352,11 +333,7 @@ pub mod component {
                             let l12 = *base.add(0).cast::<*mut u8>();
                             let l13 = *base.add(4).cast::<usize>();
                             let len14 = l13;
-                            let bytes14 = _rt::Vec::from_raw_parts(
-                                l12.cast(),
-                                len14,
-                                len14,
-                            );
+                            let bytes14 = _rt::Vec::from_raw_parts(l12.cast(), len14, len14);
                             let l15 = *base.add(8).cast::<i32>();
                             RegisterResourceResultField {
                                 name: _rt::string_lift(bytes14),
@@ -374,9 +351,7 @@ pub mod component {
                     if layout8.size() != 0 {
                         _rt::alloc::dealloc(result8.cast(), layout8);
                     }
-                    RegisterResourceResult {
-                        fields: result16,
-                    }
+                    RegisterResourceResult { fields: result16 }
                 }
             }
         }
@@ -392,9 +367,11 @@ pub mod exports {
             pub mod container {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub attach: &'a Output,
                     pub capabilities: &'a Output,
@@ -460,10 +437,7 @@ pub mod exports {
                     pub working_dir: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("attach", &self.attach)
                             .field("capabilities", &self.capabilities)
@@ -602,10 +576,7 @@ pub mod exports {
                     pub working_dir: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("attach", &self.attach)
                             .field("bridge", &self.bridge)
@@ -682,7 +653,8 @@ pub mod exports {
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: *mut u8) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle4;
                     let handle6;
                     let handle8;
@@ -1197,7 +1169,8 @@ pub mod exports {
                         cgroupns_mode: cgroupns_mode129,
                         command: command129,
                         container_logs: container_logs129,
-                        container_read_refresh_timeout_milliseconds: container_read_refresh_timeout_milliseconds129,
+                        container_read_refresh_timeout_milliseconds:
+                            container_read_refresh_timeout_milliseconds129,
                         cpu_set: cpu_set129,
                         cpu_shares: cpu_shares129,
                         destroy_grace_seconds: destroy_grace_seconds129,
@@ -1260,95 +1233,71 @@ pub mod exports {
                     } = result127;
                     *ptr128.add(0).cast::<i32>() = (attach129).take_handle() as i32;
                     *ptr128.add(4).cast::<i32>() = (bridge129).take_handle() as i32;
-                    *ptr128.add(8).cast::<i32>() = (capabilities129).take_handle()
-                        as i32;
-                    *ptr128.add(12).cast::<i32>() = (cgroupns_mode129).take_handle()
-                        as i32;
+                    *ptr128.add(8).cast::<i32>() = (capabilities129).take_handle() as i32;
+                    *ptr128.add(12).cast::<i32>() = (cgroupns_mode129).take_handle() as i32;
                     *ptr128.add(16).cast::<i32>() = (command129).take_handle() as i32;
-                    *ptr128.add(20).cast::<i32>() = (container_logs129).take_handle()
-                        as i32;
-                    *ptr128.add(24).cast::<i32>() = (container_read_refresh_timeout_milliseconds129)
-                        .take_handle() as i32;
+                    *ptr128.add(20).cast::<i32>() = (container_logs129).take_handle() as i32;
+                    *ptr128.add(24).cast::<i32>() =
+                        (container_read_refresh_timeout_milliseconds129).take_handle() as i32;
                     *ptr128.add(28).cast::<i32>() = (cpu_set129).take_handle() as i32;
                     *ptr128.add(32).cast::<i32>() = (cpu_shares129).take_handle() as i32;
-                    *ptr128.add(36).cast::<i32>() = (destroy_grace_seconds129)
-                        .take_handle() as i32;
+                    *ptr128.add(36).cast::<i32>() = (destroy_grace_seconds129).take_handle() as i32;
                     *ptr128.add(40).cast::<i32>() = (devices129).take_handle() as i32;
                     *ptr128.add(44).cast::<i32>() = (dns129).take_handle() as i32;
                     *ptr128.add(48).cast::<i32>() = (dns_opts129).take_handle() as i32;
-                    *ptr128.add(52).cast::<i32>() = (dns_searches129).take_handle()
-                        as i32;
+                    *ptr128.add(52).cast::<i32>() = (dns_searches129).take_handle() as i32;
                     *ptr128.add(56).cast::<i32>() = (domainname129).take_handle() as i32;
-                    *ptr128.add(60).cast::<i32>() = (entrypoints129).take_handle()
-                        as i32;
+                    *ptr128.add(60).cast::<i32>() = (entrypoints129).take_handle() as i32;
                     *ptr128.add(64).cast::<i32>() = (envs129).take_handle() as i32;
                     *ptr128.add(68).cast::<i32>() = (exit_code129).take_handle() as i32;
                     *ptr128.add(72).cast::<i32>() = (gpus129).take_handle() as i32;
                     *ptr128.add(76).cast::<i32>() = (group_adds129).take_handle() as i32;
-                    *ptr128.add(80).cast::<i32>() = (healthcheck129).take_handle()
-                        as i32;
+                    *ptr128.add(80).cast::<i32>() = (healthcheck129).take_handle() as i32;
                     *ptr128.add(84).cast::<i32>() = (hostname129).take_handle() as i32;
                     *ptr128.add(88).cast::<i32>() = (hosts129).take_handle() as i32;
                     *ptr128.add(92).cast::<i32>() = (image129).take_handle() as i32;
                     *ptr128.add(96).cast::<i32>() = (init129).take_handle() as i32;
                     *ptr128.add(100).cast::<i32>() = (ipc_mode129).take_handle() as i32;
                     *ptr128.add(104).cast::<i32>() = (labels129).take_handle() as i32;
-                    *ptr128.add(108).cast::<i32>() = (log_driver129).take_handle()
-                        as i32;
+                    *ptr128.add(108).cast::<i32>() = (log_driver129).take_handle() as i32;
                     *ptr128.add(112).cast::<i32>() = (log_opts129).take_handle() as i32;
                     *ptr128.add(116).cast::<i32>() = (logs129).take_handle() as i32;
-                    *ptr128.add(120).cast::<i32>() = (max_retry_count129).take_handle()
-                        as i32;
+                    *ptr128.add(120).cast::<i32>() = (max_retry_count129).take_handle() as i32;
                     *ptr128.add(124).cast::<i32>() = (memory129).take_handle() as i32;
-                    *ptr128.add(128).cast::<i32>() = (memory_swap129).take_handle()
-                        as i32;
+                    *ptr128.add(128).cast::<i32>() = (memory_swap129).take_handle() as i32;
                     *ptr128.add(132).cast::<i32>() = (mounts129).take_handle() as i32;
                     *ptr128.add(136).cast::<i32>() = (must_run129).take_handle() as i32;
                     *ptr128.add(140).cast::<i32>() = (name129).take_handle() as i32;
-                    *ptr128.add(144).cast::<i32>() = (network_datas129).take_handle()
-                        as i32;
-                    *ptr128.add(148).cast::<i32>() = (network_mode129).take_handle()
-                        as i32;
-                    *ptr128.add(152).cast::<i32>() = (networks_advanced129).take_handle()
-                        as i32;
+                    *ptr128.add(144).cast::<i32>() = (network_datas129).take_handle() as i32;
+                    *ptr128.add(148).cast::<i32>() = (network_mode129).take_handle() as i32;
+                    *ptr128.add(152).cast::<i32>() = (networks_advanced129).take_handle() as i32;
                     *ptr128.add(156).cast::<i32>() = (pid_mode129).take_handle() as i32;
                     *ptr128.add(160).cast::<i32>() = (ports129).take_handle() as i32;
-                    *ptr128.add(164).cast::<i32>() = (privileged129).take_handle()
-                        as i32;
-                    *ptr128.add(168).cast::<i32>() = (publish_all_ports129).take_handle()
-                        as i32;
+                    *ptr128.add(164).cast::<i32>() = (privileged129).take_handle() as i32;
+                    *ptr128.add(168).cast::<i32>() = (publish_all_ports129).take_handle() as i32;
                     *ptr128.add(172).cast::<i32>() = (read_only129).take_handle() as i32;
-                    *ptr128.add(176).cast::<i32>() = (remove_volumes129).take_handle()
-                        as i32;
+                    *ptr128.add(176).cast::<i32>() = (remove_volumes129).take_handle() as i32;
                     *ptr128.add(180).cast::<i32>() = (restart129).take_handle() as i32;
                     *ptr128.add(184).cast::<i32>() = (rm129).take_handle() as i32;
                     *ptr128.add(188).cast::<i32>() = (runtime129).take_handle() as i32;
-                    *ptr128.add(192).cast::<i32>() = (security_opts129).take_handle()
-                        as i32;
+                    *ptr128.add(192).cast::<i32>() = (security_opts129).take_handle() as i32;
                     *ptr128.add(196).cast::<i32>() = (shm_size129).take_handle() as i32;
                     *ptr128.add(200).cast::<i32>() = (start129).take_handle() as i32;
-                    *ptr128.add(204).cast::<i32>() = (stdin_open129).take_handle()
-                        as i32;
-                    *ptr128.add(208).cast::<i32>() = (stop_signal129).take_handle()
-                        as i32;
-                    *ptr128.add(212).cast::<i32>() = (stop_timeout129).take_handle()
-                        as i32;
-                    *ptr128.add(216).cast::<i32>() = (storage_opts129).take_handle()
-                        as i32;
+                    *ptr128.add(204).cast::<i32>() = (stdin_open129).take_handle() as i32;
+                    *ptr128.add(208).cast::<i32>() = (stop_signal129).take_handle() as i32;
+                    *ptr128.add(212).cast::<i32>() = (stop_timeout129).take_handle() as i32;
+                    *ptr128.add(216).cast::<i32>() = (storage_opts129).take_handle() as i32;
                     *ptr128.add(220).cast::<i32>() = (sysctls129).take_handle() as i32;
                     *ptr128.add(224).cast::<i32>() = (tmpfs129).take_handle() as i32;
                     *ptr128.add(228).cast::<i32>() = (tty129).take_handle() as i32;
                     *ptr128.add(232).cast::<i32>() = (ulimits129).take_handle() as i32;
                     *ptr128.add(236).cast::<i32>() = (uploads129).take_handle() as i32;
                     *ptr128.add(240).cast::<i32>() = (user129).take_handle() as i32;
-                    *ptr128.add(244).cast::<i32>() = (userns_mode129).take_handle()
-                        as i32;
+                    *ptr128.add(244).cast::<i32>() = (userns_mode129).take_handle() as i32;
                     *ptr128.add(248).cast::<i32>() = (volumes129).take_handle() as i32;
                     *ptr128.add(252).cast::<i32>() = (wait129).take_handle() as i32;
-                    *ptr128.add(256).cast::<i32>() = (wait_timeout129).take_handle()
-                        as i32;
-                    *ptr128.add(260).cast::<i32>() = (working_dir129).take_handle()
-                        as i32;
+                    *ptr128.add(256).cast::<i32>() = (wait_timeout129).take_handle() as i32;
+                    *ptr128.add(260).cast::<i32>() = (working_dir129).take_handle() as i32;
                     ptr128
                 }
                 pub trait Guest {
@@ -1367,17 +1316,18 @@ pub mod exports {
                 pub(crate) use __export_pulumi_docker_container_4_5_3_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 264]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 264],
-                );
+                static mut _RET_AREA: _RetArea =
+                    _RetArea([::core::mem::MaybeUninit::uninit(); 264]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod image {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub build: &'a Output,
                     pub build_on_preview: &'a Output,
@@ -1386,10 +1336,7 @@ pub mod exports {
                     pub skip_push: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("build", &self.build)
                             .field("build-on-preview", &self.build_on_preview)
@@ -1409,10 +1356,7 @@ pub mod exports {
                     pub repo_digest: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("base-image-name", &self.base_image_name)
                             .field("context", &self.context)
@@ -1435,7 +1379,8 @@ pub mod exports {
                     arg5: i32,
                     arg6: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -1493,8 +1438,7 @@ pub mod exports {
                     *ptr7.add(8).cast::<i32>() = (dockerfile8).take_handle() as i32;
                     *ptr7.add(12).cast::<i32>() = (image_name8).take_handle() as i32;
                     *ptr7.add(16).cast::<i32>() = (platform8).take_handle() as i32;
-                    *ptr7.add(20).cast::<i32>() = (registry_server8).take_handle()
-                        as i32;
+                    *ptr7.add(20).cast::<i32>() = (registry_server8).take_handle() as i32;
                     *ptr7.add(24).cast::<i32>() = (repo_digest8).take_handle() as i32;
                     ptr7
                 }
@@ -1516,17 +1460,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_docker_image_4_5_3_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 28]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 28],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 28]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod network {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub attachable: &'a Output,
                     pub check_duplicate: &'a Output,
@@ -1542,10 +1486,7 @@ pub mod exports {
                     pub options: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("attachable", &self.attachable)
                             .field("check-duplicate", &self.check_duplicate)
@@ -1578,10 +1519,7 @@ pub mod exports {
                     pub scope: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("attachable", &self.attachable)
                             .field("check-duplicate", &self.check_duplicate)
@@ -1617,7 +1555,8 @@ pub mod exports {
                     arg12: i32,
                     arg13: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -1726,8 +1665,7 @@ pub mod exports {
                         scope: scope15,
                     } = result13;
                     *ptr14.add(0).cast::<i32>() = (attachable15).take_handle() as i32;
-                    *ptr14.add(4).cast::<i32>() = (check_duplicate15).take_handle()
-                        as i32;
+                    *ptr14.add(4).cast::<i32>() = (check_duplicate15).take_handle() as i32;
                     *ptr14.add(8).cast::<i32>() = (driver15).take_handle() as i32;
                     *ptr14.add(12).cast::<i32>() = (ingress15).take_handle() as i32;
                     *ptr14.add(16).cast::<i32>() = (internal15).take_handle() as i32;
@@ -1761,17 +1699,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_docker_network_4_5_3_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 52]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 52],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 52]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod plugin {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub alias: &'a Output,
                     pub enable_timeout: &'a Output,
@@ -1784,10 +1722,7 @@ pub mod exports {
                     pub name: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("alias", &self.alias)
                             .field("enable-timeout", &self.enable_timeout)
@@ -1814,10 +1749,7 @@ pub mod exports {
                     pub plugin_reference: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("alias", &self.alias)
                             .field("enable-timeout", &self.enable_timeout)
@@ -1847,7 +1779,8 @@ pub mod exports {
                     arg9: i32,
                     arg10: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -1932,21 +1865,15 @@ pub mod exports {
                         plugin_reference: plugin_reference12,
                     } = result10;
                     *ptr11.add(0).cast::<i32>() = (alias12).take_handle() as i32;
-                    *ptr11.add(4).cast::<i32>() = (enable_timeout12).take_handle()
-                        as i32;
+                    *ptr11.add(4).cast::<i32>() = (enable_timeout12).take_handle() as i32;
                     *ptr11.add(8).cast::<i32>() = (enabled12).take_handle() as i32;
                     *ptr11.add(12).cast::<i32>() = (envs12).take_handle() as i32;
-                    *ptr11.add(16).cast::<i32>() = (force_destroy12).take_handle()
-                        as i32;
-                    *ptr11.add(20).cast::<i32>() = (force_disable12).take_handle()
-                        as i32;
-                    *ptr11.add(24).cast::<i32>() = (grant_all_permissions12)
-                        .take_handle() as i32;
-                    *ptr11.add(28).cast::<i32>() = (grant_permissions12).take_handle()
-                        as i32;
+                    *ptr11.add(16).cast::<i32>() = (force_destroy12).take_handle() as i32;
+                    *ptr11.add(20).cast::<i32>() = (force_disable12).take_handle() as i32;
+                    *ptr11.add(24).cast::<i32>() = (grant_all_permissions12).take_handle() as i32;
+                    *ptr11.add(28).cast::<i32>() = (grant_permissions12).take_handle() as i32;
                     *ptr11.add(32).cast::<i32>() = (name12).take_handle() as i32;
-                    *ptr11.add(36).cast::<i32>() = (plugin_reference12).take_handle()
-                        as i32;
+                    *ptr11.add(36).cast::<i32>() = (plugin_reference12).take_handle() as i32;
                     ptr11
                 }
                 pub trait Guest {
@@ -1968,17 +1895,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_docker_plugin_4_5_3_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 40]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 40],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 40]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod registry_image {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub insecure_skip_verify: &'a Output,
                     pub keep_remotely: &'a Output,
@@ -1986,10 +1913,7 @@ pub mod exports {
                     pub triggers: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("insecure-skip-verify", &self.insecure_skip_verify)
                             .field("keep-remotely", &self.keep_remotely)
@@ -2006,10 +1930,7 @@ pub mod exports {
                     pub triggers: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("insecure-skip-verify", &self.insecure_skip_verify)
                             .field("keep-remotely", &self.keep_remotely)
@@ -2029,7 +1950,8 @@ pub mod exports {
                     arg4: i32,
                     arg5: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -2073,8 +1995,7 @@ pub mod exports {
                         sha256_digest: sha256_digest7,
                         triggers: triggers7,
                     } = result5;
-                    *ptr6.add(0).cast::<i32>() = (insecure_skip_verify7).take_handle()
-                        as i32;
+                    *ptr6.add(0).cast::<i32>() = (insecure_skip_verify7).take_handle() as i32;
                     *ptr6.add(4).cast::<i32>() = (keep_remotely7).take_handle() as i32;
                     *ptr6.add(8).cast::<i32>() = (name7).take_handle() as i32;
                     *ptr6.add(12).cast::<i32>() = (sha256_digest7).take_handle() as i32;
@@ -2099,17 +2020,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_docker_registry_image_4_5_3_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 20],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod remote_image {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub build: &'a Output,
                     pub force_remove: &'a Output,
@@ -2120,10 +2041,7 @@ pub mod exports {
                     pub triggers: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("build", &self.build)
                             .field("force-remove", &self.force_remove)
@@ -2147,10 +2065,7 @@ pub mod exports {
                     pub triggers: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("build", &self.build)
                             .field("force-remove", &self.force_remove)
@@ -2177,7 +2092,8 @@ pub mod exports {
                     arg7: i32,
                     arg8: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -2276,27 +2192,24 @@ pub mod exports {
                 pub(crate) use __export_pulumi_docker_remote_image_4_5_3_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 36]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 36],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 36]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod secret {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub data: &'a Output,
                     pub labels: &'a Output,
                     pub name: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("data", &self.data)
                             .field("labels", &self.labels)
@@ -2310,10 +2223,7 @@ pub mod exports {
                     pub name: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("data", &self.data)
                             .field("labels", &self.labels)
@@ -2330,7 +2240,8 @@ pub mod exports {
                     arg3: i32,
                     arg4: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -2360,7 +2271,11 @@ pub mod exports {
                         },
                     );
                     let ptr5 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
-                    let Res { data: data6, labels: labels6, name: name6 } = result4;
+                    let Res {
+                        data: data6,
+                        labels: labels6,
+                        name: name6,
+                    } = result4;
                     *ptr5.add(0).cast::<i32>() = (data6).take_handle() as i32;
                     *ptr5.add(4).cast::<i32>() = (labels6).take_handle() as i32;
                     *ptr5.add(8).cast::<i32>() = (name6).take_handle() as i32;
@@ -2384,17 +2299,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_docker_secret_4_5_3_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 12],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod service {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub auth: &'a Output,
                     pub converge_config: &'a Output,
@@ -2407,10 +2322,7 @@ pub mod exports {
                     pub update_config: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("auth", &self.auth)
                             .field("converge-config", &self.converge_config)
@@ -2436,10 +2348,7 @@ pub mod exports {
                     pub update_config: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("auth", &self.auth)
                             .field("converge-config", &self.converge_config)
@@ -2468,7 +2377,8 @@ pub mod exports {
                     arg9: i32,
                     arg10: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -2552,17 +2462,14 @@ pub mod exports {
                         update_config: update_config12,
                     } = result10;
                     *ptr11.add(0).cast::<i32>() = (auth12).take_handle() as i32;
-                    *ptr11.add(4).cast::<i32>() = (converge_config12).take_handle()
-                        as i32;
+                    *ptr11.add(4).cast::<i32>() = (converge_config12).take_handle() as i32;
                     *ptr11.add(8).cast::<i32>() = (endpoint_spec12).take_handle() as i32;
                     *ptr11.add(12).cast::<i32>() = (labels12).take_handle() as i32;
                     *ptr11.add(16).cast::<i32>() = (mode12).take_handle() as i32;
                     *ptr11.add(20).cast::<i32>() = (name12).take_handle() as i32;
-                    *ptr11.add(24).cast::<i32>() = (rollback_config12).take_handle()
-                        as i32;
+                    *ptr11.add(24).cast::<i32>() = (rollback_config12).take_handle() as i32;
                     *ptr11.add(28).cast::<i32>() = (task_spec12).take_handle() as i32;
-                    *ptr11.add(32).cast::<i32>() = (update_config12).take_handle()
-                        as i32;
+                    *ptr11.add(32).cast::<i32>() = (update_config12).take_handle() as i32;
                     ptr11
                 }
                 pub trait Guest {
@@ -2584,26 +2491,23 @@ pub mod exports {
                 pub(crate) use __export_pulumi_docker_service_4_5_3_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 36]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 36],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 36]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod service_config {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub data: &'a Output,
                     pub name: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("data", &self.data)
                             .field("name", &self.name)
@@ -2615,10 +2519,7 @@ pub mod exports {
                     pub name: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("data", &self.data)
                             .field("name", &self.name)
@@ -2633,7 +2534,8 @@ pub mod exports {
                     arg2: i32,
                     arg3: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let len0 = arg1;
@@ -2656,7 +2558,10 @@ pub mod exports {
                         },
                     );
                     let ptr4 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
-                    let Res { data: data5, name: name5 } = result3;
+                    let Res {
+                        data: data5,
+                        name: name5,
+                    } = result3;
                     *ptr4.add(0).cast::<i32>() = (data5).take_handle() as i32;
                     *ptr4.add(4).cast::<i32>() = (name5).take_handle() as i32;
                     ptr4
@@ -2678,26 +2583,23 @@ pub mod exports {
                 pub(crate) use __export_pulumi_docker_service_config_4_5_3_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 8],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 8]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod tag {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub source_image: &'a Output,
                     pub target_image: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("source-image", &self.source_image)
                             .field("target-image", &self.target_image)
@@ -2710,10 +2612,7 @@ pub mod exports {
                     pub target_image: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("source-image", &self.source_image)
                             .field("source-image-id", &self.source_image_id)
@@ -2729,7 +2628,8 @@ pub mod exports {
                     arg2: i32,
                     arg3: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let len0 = arg1;
@@ -2779,17 +2679,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_docker_tag_4_5_3_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 12],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod volume {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub driver: &'a Output,
                     pub driver_opts: &'a Output,
@@ -2797,10 +2697,7 @@ pub mod exports {
                     pub name: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("driver", &self.driver)
                             .field("driver-opts", &self.driver_opts)
@@ -2817,10 +2714,7 @@ pub mod exports {
                     pub name: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("driver", &self.driver)
                             .field("driver-opts", &self.driver_opts)
@@ -2840,7 +2734,8 @@ pub mod exports {
                     arg4: i32,
                     arg5: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -2909,9 +2804,7 @@ pub mod exports {
                 pub(crate) use __export_pulumi_docker_volume_4_5_3_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 20],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
             }
         }
     }
@@ -2978,7 +2871,9 @@ mod _rt {
     }
     impl<T: WasmResource> fmt::Debug for Resource<T> {
         fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-            f.debug_struct("Resource").field("handle", &self.handle).finish()
+            f.debug_struct("Resource")
+                .field("handle", &self.handle)
+                .finish()
         }
     }
     impl<T: WasmResource> Drop for Resource<T> {

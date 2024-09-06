@@ -6,7 +6,8 @@ pub mod component {
         pub mod output_interface {
             #[used]
             #[doc(hidden)]
-            static __FORCE_SECTION_REF: fn() = super::super::super::__link_custom_section_describing_imports;
+            static __FORCE_SECTION_REF: fn() =
+                super::super::super::__link_custom_section_describing_imports;
             use super::super::super::_rt;
             #[derive(Debug)]
             #[repr(transparent)]
@@ -90,11 +91,7 @@ pub mod component {
                         fn wit_import(_: i32, _: *mut u8, _: usize) -> i32 {
                             unreachable!()
                         }
-                        let ret = wit_import(
-                            (self).handle() as i32,
-                            ptr0.cast_mut(),
-                            len0,
-                        );
+                        let ret = wit_import((self).handle() as i32, ptr0.cast_mut(), len0);
                         Output::from_handle(ret as u32)
                     }
                 }
@@ -104,10 +101,7 @@ pub mod component {
                 unsafe {
                     let vec0 = outputs;
                     let len0 = vec0.len();
-                    let layout0 = _rt::alloc::Layout::from_size_align_unchecked(
-                        vec0.len() * 4,
-                        4,
-                    );
+                    let layout0 = _rt::alloc::Layout::from_size_align_unchecked(vec0.len() * 4, 4);
                     let result0 = if layout0.size() != 0 {
                         let ptr = _rt::alloc::alloc(layout0).cast::<u8>();
                         if ptr.is_null() {
@@ -115,7 +109,9 @@ pub mod component {
                         }
                         ptr
                     } else {
-                        { ::core::ptr::null_mut() }
+                        {
+                            ::core::ptr::null_mut()
+                        }
                     };
                     for (i, e) in vec0.into_iter().enumerate() {
                         let base = result0.add(i * 4);
@@ -124,9 +120,7 @@ pub mod component {
                         }
                     }
                     #[cfg(target_arch = "wasm32")]
-                    #[link(
-                        wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0-DEV"
-                    )]
+                    #[link(wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0-DEV")]
                     extern "C" {
                         #[link_name = "combine"]
                         fn wit_import(_: *mut u8, _: usize) -> i32;
@@ -147,7 +141,8 @@ pub mod component {
         pub mod register_interface {
             #[used]
             #[doc(hidden)]
-            static __FORCE_SECTION_REF: fn() = super::super::super::__link_custom_section_describing_imports;
+            static __FORCE_SECTION_REF: fn() =
+                super::super::super::__link_custom_section_describing_imports;
             use super::super::super::_rt;
             pub type Output = super::super::super::component::pulumi_wasm::output_interface::Output;
             pub struct ObjectField<'a> {
@@ -155,10 +150,7 @@ pub mod component {
                 pub value: &'a Output,
             }
             impl<'a> ::core::fmt::Debug for ObjectField<'a> {
-                fn fmt(
-                    &self,
-                    f: &mut ::core::fmt::Formatter<'_>,
-                ) -> ::core::fmt::Result {
+                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                     f.debug_struct("ObjectField")
                         .field("name", &self.name)
                         .field("value", &self.value)
@@ -170,11 +162,10 @@ pub mod component {
                 pub name: _rt::String,
             }
             impl ::core::fmt::Debug for ResultField {
-                fn fmt(
-                    &self,
-                    f: &mut ::core::fmt::Formatter<'_>,
-                ) -> ::core::fmt::Result {
-                    f.debug_struct("ResultField").field("name", &self.name).finish()
+                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                    f.debug_struct("ResultField")
+                        .field("name", &self.name)
+                        .finish()
                 }
             }
             pub struct RegisterResourceResultField {
@@ -182,10 +173,7 @@ pub mod component {
                 pub output: Output,
             }
             impl ::core::fmt::Debug for RegisterResourceResultField {
-                fn fmt(
-                    &self,
-                    f: &mut ::core::fmt::Formatter<'_>,
-                ) -> ::core::fmt::Result {
+                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                     f.debug_struct("RegisterResourceResultField")
                         .field("name", &self.name)
                         .field("output", &self.output)
@@ -199,10 +187,7 @@ pub mod component {
                 pub results: _rt::Vec<ResultField>,
             }
             impl<'a> ::core::fmt::Debug for RegisterResourceRequest<'a> {
-                fn fmt(
-                    &self,
-                    f: &mut ::core::fmt::Formatter<'_>,
-                ) -> ::core::fmt::Result {
+                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                     f.debug_struct("RegisterResourceRequest")
                         .field("type", &self.type_)
                         .field("name", &self.name)
@@ -215,19 +200,14 @@ pub mod component {
                 pub fields: _rt::Vec<RegisterResourceResultField>,
             }
             impl ::core::fmt::Debug for RegisterResourceResult {
-                fn fmt(
-                    &self,
-                    f: &mut ::core::fmt::Formatter<'_>,
-                ) -> ::core::fmt::Result {
+                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                     f.debug_struct("RegisterResourceResult")
                         .field("fields", &self.fields)
                         .finish()
                 }
             }
             #[allow(unused_unsafe, clippy::all)]
-            pub fn register(
-                request: &RegisterResourceRequest<'_>,
-            ) -> RegisterResourceResult {
+            pub fn register(request: &RegisterResourceRequest<'_>) -> RegisterResourceResult {
                 unsafe {
                     #[repr(align(4))]
                     struct RetArea([::core::mem::MaybeUninit<u8>; 8]);
@@ -246,10 +226,7 @@ pub mod component {
                     let len2 = vec2.len();
                     let vec5 = object0;
                     let len5 = vec5.len();
-                    let layout5 = _rt::alloc::Layout::from_size_align_unchecked(
-                        vec5.len() * 12,
-                        4,
-                    );
+                    let layout5 = _rt::alloc::Layout::from_size_align_unchecked(vec5.len() * 12, 4);
                     let result5 = if layout5.size() != 0 {
                         let ptr = _rt::alloc::alloc(layout5).cast::<u8>();
                         if ptr.is_null() {
@@ -257,12 +234,17 @@ pub mod component {
                         }
                         ptr
                     } else {
-                        { ::core::ptr::null_mut() }
+                        {
+                            ::core::ptr::null_mut()
+                        }
                     };
                     for (i, e) in vec5.into_iter().enumerate() {
                         let base = result5.add(i * 12);
                         {
-                            let ObjectField { name: name3, value: value3 } = e;
+                            let ObjectField {
+                                name: name3,
+                                value: value3,
+                            } = e;
                             let vec4 = name3;
                             let ptr4 = vec4.as_ptr().cast::<u8>();
                             let len4 = vec4.len();
@@ -273,10 +255,7 @@ pub mod component {
                     }
                     let vec8 = results0;
                     let len8 = vec8.len();
-                    let layout8 = _rt::alloc::Layout::from_size_align_unchecked(
-                        vec8.len() * 8,
-                        4,
-                    );
+                    let layout8 = _rt::alloc::Layout::from_size_align_unchecked(vec8.len() * 8, 4);
                     let result8 = if layout8.size() != 0 {
                         let ptr = _rt::alloc::alloc(layout8).cast::<u8>();
                         if ptr.is_null() {
@@ -284,7 +263,9 @@ pub mod component {
                         }
                         ptr
                     } else {
-                        { ::core::ptr::null_mut() }
+                        {
+                            ::core::ptr::null_mut()
+                        }
                     };
                     for (i, e) in vec8.into_iter().enumerate() {
                         let base = result8.add(i * 8);
@@ -352,11 +333,7 @@ pub mod component {
                             let l12 = *base.add(0).cast::<*mut u8>();
                             let l13 = *base.add(4).cast::<usize>();
                             let len14 = l13;
-                            let bytes14 = _rt::Vec::from_raw_parts(
-                                l12.cast(),
-                                len14,
-                                len14,
-                            );
+                            let bytes14 = _rt::Vec::from_raw_parts(l12.cast(), len14, len14);
                             let l15 = *base.add(8).cast::<i32>();
                             RegisterResourceResultField {
                                 name: _rt::string_lift(bytes14),
@@ -374,9 +351,7 @@ pub mod component {
                     if layout8.size() != 0 {
                         _rt::alloc::dealloc(result8.cast(), layout8);
                     }
-                    RegisterResourceResult {
-                        fields: result16,
-                    }
+                    RegisterResourceResult { fields: result16 }
                 }
             }
         }
@@ -392,9 +367,11 @@ pub mod exports {
             pub mod access_application {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub allow_authenticate_via_warp: &'a Output,
@@ -427,10 +404,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field(
@@ -440,10 +414,7 @@ pub mod exports {
                             .field("allowed-idps", &self.allowed_idps)
                             .field("app-launcher-logo-url", &self.app_launcher_logo_url)
                             .field("app-launcher-visible", &self.app_launcher_visible)
-                            .field(
-                                "auto-redirect-to-identity",
-                                &self.auto_redirect_to_identity,
-                            )
+                            .field("auto-redirect-to-identity", &self.auto_redirect_to_identity)
                             .field("bg-color", &self.bg_color)
                             .field("cors-headers", &self.cors_headers)
                             .field("custom-deny-message", &self.custom_deny_message)
@@ -470,10 +441,7 @@ pub mod exports {
                                 &self.same_site_cookie_attribute,
                             )
                             .field("self-hosted-domains", &self.self_hosted_domains)
-                            .field(
-                                "service-auth401-redirect",
-                                &self.service_auth401_redirect,
-                            )
+                            .field("service-auth401-redirect", &self.service_auth401_redirect)
                             .field("session-duration", &self.session_duration)
                             .field("skip-interstitial", &self.skip_interstitial)
                             .field("tags", &self.tags)
@@ -515,10 +483,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field(
@@ -529,10 +494,7 @@ pub mod exports {
                             .field("app-launcher-logo-url", &self.app_launcher_logo_url)
                             .field("app-launcher-visible", &self.app_launcher_visible)
                             .field("aud", &self.aud)
-                            .field(
-                                "auto-redirect-to-identity",
-                                &self.auto_redirect_to_identity,
-                            )
+                            .field("auto-redirect-to-identity", &self.auto_redirect_to_identity)
                             .field("bg-color", &self.bg_color)
                             .field("cors-headers", &self.cors_headers)
                             .field("custom-deny-message", &self.custom_deny_message)
@@ -559,10 +521,7 @@ pub mod exports {
                                 &self.same_site_cookie_attribute,
                             )
                             .field("self-hosted-domains", &self.self_hosted_domains)
-                            .field(
-                                "service-auth401-redirect",
-                                &self.service_auth401_redirect,
-                            )
+                            .field("service-auth401-redirect", &self.service_auth401_redirect)
                             .field("session-duration", &self.session_duration)
                             .field("skip-interstitial", &self.skip_interstitial)
                             .field("tags", &self.tags)
@@ -574,7 +533,8 @@ pub mod exports {
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: *mut u8) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle4;
                     let handle6;
                     let handle8;
@@ -851,48 +811,38 @@ pub mod exports {
                         zone_id: zone_id63,
                     } = result61;
                     *ptr62.add(0).cast::<i32>() = (account_id63).take_handle() as i32;
-                    *ptr62.add(4).cast::<i32>() = (allow_authenticate_via_warp63)
-                        .take_handle() as i32;
+                    *ptr62.add(4).cast::<i32>() =
+                        (allow_authenticate_via_warp63).take_handle() as i32;
                     *ptr62.add(8).cast::<i32>() = (allowed_idps63).take_handle() as i32;
-                    *ptr62.add(12).cast::<i32>() = (app_launcher_logo_url63)
-                        .take_handle() as i32;
-                    *ptr62.add(16).cast::<i32>() = (app_launcher_visible63).take_handle()
-                        as i32;
+                    *ptr62.add(12).cast::<i32>() = (app_launcher_logo_url63).take_handle() as i32;
+                    *ptr62.add(16).cast::<i32>() = (app_launcher_visible63).take_handle() as i32;
                     *ptr62.add(20).cast::<i32>() = (aud63).take_handle() as i32;
-                    *ptr62.add(24).cast::<i32>() = (auto_redirect_to_identity63)
-                        .take_handle() as i32;
+                    *ptr62.add(24).cast::<i32>() =
+                        (auto_redirect_to_identity63).take_handle() as i32;
                     *ptr62.add(28).cast::<i32>() = (bg_color63).take_handle() as i32;
                     *ptr62.add(32).cast::<i32>() = (cors_headers63).take_handle() as i32;
-                    *ptr62.add(36).cast::<i32>() = (custom_deny_message63).take_handle()
-                        as i32;
-                    *ptr62.add(40).cast::<i32>() = (custom_deny_url63).take_handle()
-                        as i32;
-                    *ptr62.add(44).cast::<i32>() = (custom_non_identity_deny_url63)
-                        .take_handle() as i32;
+                    *ptr62.add(36).cast::<i32>() = (custom_deny_message63).take_handle() as i32;
+                    *ptr62.add(40).cast::<i32>() = (custom_deny_url63).take_handle() as i32;
+                    *ptr62.add(44).cast::<i32>() =
+                        (custom_non_identity_deny_url63).take_handle() as i32;
                     *ptr62.add(48).cast::<i32>() = (custom_pages63).take_handle() as i32;
                     *ptr62.add(52).cast::<i32>() = (domain63).take_handle() as i32;
-                    *ptr62.add(56).cast::<i32>() = (enable_binding_cookie63)
-                        .take_handle() as i32;
+                    *ptr62.add(56).cast::<i32>() = (enable_binding_cookie63).take_handle() as i32;
                     *ptr62.add(60).cast::<i32>() = (footer_links63).take_handle() as i32;
-                    *ptr62.add(64).cast::<i32>() = (header_bg_color63).take_handle()
-                        as i32;
-                    *ptr62.add(68).cast::<i32>() = (http_only_cookie_attribute63)
-                        .take_handle() as i32;
-                    *ptr62.add(72).cast::<i32>() = (landing_page_design63).take_handle()
-                        as i32;
+                    *ptr62.add(64).cast::<i32>() = (header_bg_color63).take_handle() as i32;
+                    *ptr62.add(68).cast::<i32>() =
+                        (http_only_cookie_attribute63).take_handle() as i32;
+                    *ptr62.add(72).cast::<i32>() = (landing_page_design63).take_handle() as i32;
                     *ptr62.add(76).cast::<i32>() = (logo_url63).take_handle() as i32;
                     *ptr62.add(80).cast::<i32>() = (name63).take_handle() as i32;
                     *ptr62.add(84).cast::<i32>() = (saas_app63).take_handle() as i32;
-                    *ptr62.add(88).cast::<i32>() = (same_site_cookie_attribute63)
-                        .take_handle() as i32;
-                    *ptr62.add(92).cast::<i32>() = (self_hosted_domains63).take_handle()
-                        as i32;
-                    *ptr62.add(96).cast::<i32>() = (service_auth401_redirect63)
-                        .take_handle() as i32;
-                    *ptr62.add(100).cast::<i32>() = (session_duration63).take_handle()
-                        as i32;
-                    *ptr62.add(104).cast::<i32>() = (skip_interstitial63).take_handle()
-                        as i32;
+                    *ptr62.add(88).cast::<i32>() =
+                        (same_site_cookie_attribute63).take_handle() as i32;
+                    *ptr62.add(92).cast::<i32>() = (self_hosted_domains63).take_handle() as i32;
+                    *ptr62.add(96).cast::<i32>() =
+                        (service_auth401_redirect63).take_handle() as i32;
+                    *ptr62.add(100).cast::<i32>() = (session_duration63).take_handle() as i32;
+                    *ptr62.add(104).cast::<i32>() = (skip_interstitial63).take_handle() as i32;
                     *ptr62.add(108).cast::<i32>() = (tags63).take_handle() as i32;
                     *ptr62.add(112).cast::<i32>() = (type_63).take_handle() as i32;
                     *ptr62.add(116).cast::<i32>() = (zone_id63).take_handle() as i32;
@@ -914,27 +864,25 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_access_application_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 120]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 120],
-                );
+                static mut _RET_AREA: _RetArea =
+                    _RetArea([::core::mem::MaybeUninit::uninit(); 120]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod access_ca_certificate {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub application_id: &'a Output,
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("application-id", &self.application_id)
@@ -950,10 +898,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("application-id", &self.application_id)
@@ -972,7 +917,8 @@ pub mod exports {
                     arg3: i32,
                     arg4: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -1034,17 +980,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_access_ca_certificate_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 20],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod access_custom_page {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub app_count: &'a Output,
@@ -1054,10 +1000,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("app-count", &self.app_count)
@@ -1077,10 +1020,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("app-count", &self.app_count)
@@ -1103,7 +1043,8 @@ pub mod exports {
                     arg6: i32,
                     arg7: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -1189,17 +1130,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_access_custom_page_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 24],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 24]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod access_group {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub excludes: &'a Output,
@@ -1209,10 +1150,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("excludes", &self.excludes)
@@ -1232,10 +1170,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("excludes", &self.excludes)
@@ -1258,7 +1193,8 @@ pub mod exports {
                     arg6: i32,
                     arg7: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -1344,17 +1280,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_access_group_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 24],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 24]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod access_identity_provider {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub configs: &'a Output,
@@ -1364,10 +1300,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("configs", &self.configs)
@@ -1387,10 +1320,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("configs", &self.configs)
@@ -1413,7 +1343,8 @@ pub mod exports {
                     arg6: i32,
                     arg7: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -1499,26 +1430,23 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_access_identity_provider_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 24],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 24]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod access_keys_configuration {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub key_rotation_interval_days: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field(
@@ -1533,10 +1461,7 @@ pub mod exports {
                     pub key_rotation_interval_days: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field(
@@ -1554,7 +1479,8 @@ pub mod exports {
                     arg2: i32,
                     arg3: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let len0 = arg1;
@@ -1582,8 +1508,7 @@ pub mod exports {
                         key_rotation_interval_days: key_rotation_interval_days5,
                     } = result3;
                     *ptr4.add(0).cast::<i32>() = (account_id5).take_handle() as i32;
-                    *ptr4.add(4).cast::<i32>() = (key_rotation_interval_days5)
-                        .take_handle() as i32;
+                    *ptr4.add(4).cast::<i32>() = (key_rotation_interval_days5).take_handle() as i32;
                     ptr4
                 }
                 pub trait Guest {
@@ -1603,17 +1528,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_access_keys_configuration_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 8],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 8]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod access_mutual_tls_certificate {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub associated_hostnames: &'a Output,
@@ -1622,10 +1547,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("associated-hostnames", &self.associated_hostnames)
@@ -1644,10 +1566,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("associated-hostnames", &self.associated_hostnames)
@@ -1669,7 +1588,8 @@ pub mod exports {
                     arg5: i32,
                     arg6: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -1722,8 +1642,7 @@ pub mod exports {
                         zone_id: zone_id8,
                     } = result6;
                     *ptr7.add(0).cast::<i32>() = (account_id8).take_handle() as i32;
-                    *ptr7.add(4).cast::<i32>() = (associated_hostnames8).take_handle()
-                        as i32;
+                    *ptr7.add(4).cast::<i32>() = (associated_hostnames8).take_handle() as i32;
                     *ptr7.add(8).cast::<i32>() = (certificate8).take_handle() as i32;
                     *ptr7.add(12).cast::<i32>() = (fingerprint8).take_handle() as i32;
                     *ptr7.add(16).cast::<i32>() = (name8).take_handle() as i32;
@@ -1748,27 +1667,24 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_access_mutual_tls_certificate_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 24],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 24]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod access_mutual_tls_hostname_settings {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub settings: &'a Output,
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("settings", &self.settings)
@@ -1782,10 +1698,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("settings", &self.settings)
@@ -1802,7 +1715,8 @@ pub mod exports {
                     arg3: i32,
                     arg4: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -1860,17 +1774,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_access_mutual_tls_hostname_settings_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 12],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod access_organization {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub allow_authenticate_via_warp: &'a Output,
@@ -1887,10 +1801,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field(
@@ -1898,10 +1809,7 @@ pub mod exports {
                                 &self.allow_authenticate_via_warp,
                             )
                             .field("auth-domain", &self.auth_domain)
-                            .field(
-                                "auto-redirect-to-identity",
-                                &self.auto_redirect_to_identity,
-                            )
+                            .field("auto-redirect-to-identity", &self.auto_redirect_to_identity)
                             .field("custom-pages", &self.custom_pages)
                             .field("is-ui-read-only", &self.is_ui_read_only)
                             .field("login-designs", &self.login_designs)
@@ -1939,10 +1847,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field(
@@ -1950,10 +1855,7 @@ pub mod exports {
                                 &self.allow_authenticate_via_warp,
                             )
                             .field("auth-domain", &self.auth_domain)
-                            .field(
-                                "auto-redirect-to-identity",
-                                &self.auto_redirect_to_identity,
-                            )
+                            .field("auto-redirect-to-identity", &self.auto_redirect_to_identity)
                             .field("custom-pages", &self.custom_pages)
                             .field("is-ui-read-only", &self.is_ui_read_only)
                             .field("login-designs", &self.login_designs)
@@ -1994,7 +1896,8 @@ pub mod exports {
                     arg13: i32,
                     arg14: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -2110,25 +2013,22 @@ pub mod exports {
                         zone_id: zone_id16,
                     } = result14;
                     *ptr15.add(0).cast::<i32>() = (account_id16).take_handle() as i32;
-                    *ptr15.add(4).cast::<i32>() = (allow_authenticate_via_warp16)
-                        .take_handle() as i32;
+                    *ptr15.add(4).cast::<i32>() =
+                        (allow_authenticate_via_warp16).take_handle() as i32;
                     *ptr15.add(8).cast::<i32>() = (auth_domain16).take_handle() as i32;
-                    *ptr15.add(12).cast::<i32>() = (auto_redirect_to_identity16)
-                        .take_handle() as i32;
+                    *ptr15.add(12).cast::<i32>() =
+                        (auto_redirect_to_identity16).take_handle() as i32;
                     *ptr15.add(16).cast::<i32>() = (custom_pages16).take_handle() as i32;
-                    *ptr15.add(20).cast::<i32>() = (is_ui_read_only16).take_handle()
-                        as i32;
-                    *ptr15.add(24).cast::<i32>() = (login_designs16).take_handle()
-                        as i32;
+                    *ptr15.add(20).cast::<i32>() = (is_ui_read_only16).take_handle() as i32;
+                    *ptr15.add(24).cast::<i32>() = (login_designs16).take_handle() as i32;
                     *ptr15.add(28).cast::<i32>() = (name16).take_handle() as i32;
-                    *ptr15.add(32).cast::<i32>() = (session_duration16).take_handle()
-                        as i32;
-                    *ptr15.add(36).cast::<i32>() = (ui_read_only_toggle_reason16)
-                        .take_handle() as i32;
-                    *ptr15.add(40).cast::<i32>() = (user_seat_expiration_inactive_time16)
-                        .take_handle() as i32;
-                    *ptr15.add(44).cast::<i32>() = (warp_auth_session_duration16)
-                        .take_handle() as i32;
+                    *ptr15.add(32).cast::<i32>() = (session_duration16).take_handle() as i32;
+                    *ptr15.add(36).cast::<i32>() =
+                        (ui_read_only_toggle_reason16).take_handle() as i32;
+                    *ptr15.add(40).cast::<i32>() =
+                        (user_seat_expiration_inactive_time16).take_handle() as i32;
+                    *ptr15.add(44).cast::<i32>() =
+                        (warp_auth_session_duration16).take_handle() as i32;
                     *ptr15.add(48).cast::<i32>() = (zone_id16).take_handle() as i32;
                     ptr15
                 }
@@ -2153,17 +2053,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_access_organization_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 52]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 52],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 52]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod access_policy {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub application_id: &'a Output,
@@ -2182,10 +2082,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("application-id", &self.application_id)
@@ -2229,10 +2126,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("application-id", &self.application_id)
@@ -2261,7 +2155,8 @@ pub mod exports {
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: *mut u8) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle4;
                     let handle6;
                     let handle8;
@@ -2411,26 +2306,21 @@ pub mod exports {
                         zone_id: zone_id35,
                     } = result33;
                     *ptr34.add(0).cast::<i32>() = (account_id35).take_handle() as i32;
-                    *ptr34.add(4).cast::<i32>() = (application_id35).take_handle()
-                        as i32;
-                    *ptr34.add(8).cast::<i32>() = (approval_groups35).take_handle()
-                        as i32;
-                    *ptr34.add(12).cast::<i32>() = (approval_required35).take_handle()
-                        as i32;
+                    *ptr34.add(4).cast::<i32>() = (application_id35).take_handle() as i32;
+                    *ptr34.add(8).cast::<i32>() = (approval_groups35).take_handle() as i32;
+                    *ptr34.add(12).cast::<i32>() = (approval_required35).take_handle() as i32;
                     *ptr34.add(16).cast::<i32>() = (decision35).take_handle() as i32;
                     *ptr34.add(20).cast::<i32>() = (excludes35).take_handle() as i32;
                     *ptr34.add(24).cast::<i32>() = (includes35).take_handle() as i32;
-                    *ptr34.add(28).cast::<i32>() = (isolation_required35).take_handle()
-                        as i32;
+                    *ptr34.add(28).cast::<i32>() = (isolation_required35).take_handle() as i32;
                     *ptr34.add(32).cast::<i32>() = (name35).take_handle() as i32;
                     *ptr34.add(36).cast::<i32>() = (precedence35).take_handle() as i32;
-                    *ptr34.add(40).cast::<i32>() = (purpose_justification_prompt35)
-                        .take_handle() as i32;
-                    *ptr34.add(44).cast::<i32>() = (purpose_justification_required35)
-                        .take_handle() as i32;
+                    *ptr34.add(40).cast::<i32>() =
+                        (purpose_justification_prompt35).take_handle() as i32;
+                    *ptr34.add(44).cast::<i32>() =
+                        (purpose_justification_required35).take_handle() as i32;
                     *ptr34.add(48).cast::<i32>() = (requires35).take_handle() as i32;
-                    *ptr34.add(52).cast::<i32>() = (session_duration35).take_handle()
-                        as i32;
+                    *ptr34.add(52).cast::<i32>() = (session_duration35).take_handle() as i32;
                     *ptr34.add(56).cast::<i32>() = (zone_id35).take_handle() as i32;
                     ptr34
                 }
@@ -2450,17 +2340,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_access_policy_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 60]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 60],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 60]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod access_rule {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub configuration: &'a Output,
@@ -2469,10 +2359,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("configuration", &self.configuration)
@@ -2490,10 +2377,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("configuration", &self.configuration)
@@ -2514,7 +2398,8 @@ pub mod exports {
                     arg5: i32,
                     arg6: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -2590,17 +2475,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_access_rule_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 20],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod access_service_token {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub duration: &'a Output,
@@ -2609,10 +2494,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("duration", &self.duration)
@@ -2633,10 +2515,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("client-id", &self.client_id)
@@ -2660,7 +2539,8 @@ pub mod exports {
                     arg5: i32,
                     arg6: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -2719,8 +2599,7 @@ pub mod exports {
                     *ptr7.add(8).cast::<i32>() = (client_secret8).take_handle() as i32;
                     *ptr7.add(12).cast::<i32>() = (duration8).take_handle() as i32;
                     *ptr7.add(16).cast::<i32>() = (expires_at8).take_handle() as i32;
-                    *ptr7.add(20).cast::<i32>() = (min_days_for_renewal8).take_handle()
-                        as i32;
+                    *ptr7.add(20).cast::<i32>() = (min_days_for_renewal8).take_handle() as i32;
                     *ptr7.add(24).cast::<i32>() = (name8).take_handle() as i32;
                     *ptr7.add(28).cast::<i32>() = (zone_id8).take_handle() as i32;
                     ptr7
@@ -2743,17 +2622,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_access_service_token_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 32],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 32]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod access_tag {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub app_count: &'a Output,
@@ -2761,10 +2640,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("app-count", &self.app_count)
@@ -2780,10 +2656,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("app-count", &self.app_count)
@@ -2802,7 +2675,8 @@ pub mod exports {
                     arg4: i32,
                     arg5: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -2869,27 +2743,24 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_access_tag_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 16],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod account {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub enforce_twofactor: &'a Output,
                     pub name: &'a Output,
                     pub type_: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("enforce-twofactor", &self.enforce_twofactor)
                             .field("name", &self.name)
@@ -2903,10 +2774,7 @@ pub mod exports {
                     pub type_: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("enforce-twofactor", &self.enforce_twofactor)
                             .field("name", &self.name)
@@ -2923,7 +2791,8 @@ pub mod exports {
                     arg3: i32,
                     arg4: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -2958,8 +2827,7 @@ pub mod exports {
                         name: name6,
                         type_: type_6,
                     } = result4;
-                    *ptr5.add(0).cast::<i32>() = (enforce_twofactor6).take_handle()
-                        as i32;
+                    *ptr5.add(0).cast::<i32>() = (enforce_twofactor6).take_handle() as i32;
                     *ptr5.add(4).cast::<i32>() = (name6).take_handle() as i32;
                     *ptr5.add(8).cast::<i32>() = (type_6).take_handle() as i32;
                     ptr5
@@ -2982,17 +2850,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_account_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 12],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod account_member {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub email_address: &'a Output,
@@ -3000,10 +2868,7 @@ pub mod exports {
                     pub status: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("email-address", &self.email_address)
@@ -3019,10 +2884,7 @@ pub mod exports {
                     pub status: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("email-address", &self.email_address)
@@ -3041,7 +2903,8 @@ pub mod exports {
                     arg4: i32,
                     arg5: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -3108,17 +2971,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_account_member_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 16],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod address_map {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub default_sni: &'a Output,
@@ -3128,10 +2991,7 @@ pub mod exports {
                     pub memberships: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("default-sni", &self.default_sni)
@@ -3153,10 +3013,7 @@ pub mod exports {
                     pub memberships: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("can-delete", &self.can_delete)
@@ -3181,7 +3038,8 @@ pub mod exports {
                     arg6: i32,
                     arg7: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -3271,31 +3129,25 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_address_map_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 32],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 32]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod api_shield {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub auth_id_characteristics: &'a Output,
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
-                            .field(
-                                "auth-id-characteristics",
-                                &self.auth_id_characteristics,
-                            )
+                            .field("auth-id-characteristics", &self.auth_id_characteristics)
                             .field("zone-id", &self.zone_id)
                             .finish()
                     }
@@ -3305,15 +3157,9 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
-                            .field(
-                                "auth-id-characteristics",
-                                &self.auth_id_characteristics,
-                            )
+                            .field("auth-id-characteristics", &self.auth_id_characteristics)
                             .field("zone-id", &self.zone_id)
                             .finish()
                     }
@@ -3326,7 +3172,8 @@ pub mod exports {
                     arg2: i32,
                     arg3: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let len0 = arg1;
@@ -3353,8 +3200,7 @@ pub mod exports {
                         auth_id_characteristics: auth_id_characteristics5,
                         zone_id: zone_id5,
                     } = result3;
-                    *ptr4.add(0).cast::<i32>() = (auth_id_characteristics5).take_handle()
-                        as i32;
+                    *ptr4.add(0).cast::<i32>() = (auth_id_characteristics5).take_handle() as i32;
                     *ptr4.add(4).cast::<i32>() = (zone_id5).take_handle() as i32;
                     ptr4
                 }
@@ -3375,17 +3221,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_api_shield_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 8],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 8]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod api_shield_operation {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub endpoint: &'a Output,
                     pub host: &'a Output,
@@ -3393,10 +3239,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("endpoint", &self.endpoint)
                             .field("host", &self.host)
@@ -3412,10 +3255,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("endpoint", &self.endpoint)
                             .field("host", &self.host)
@@ -3434,7 +3274,8 @@ pub mod exports {
                     arg4: i32,
                     arg5: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -3501,27 +3342,24 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_api_shield_operation_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 16],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod api_shield_operation_schema_validation_settings {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub mitigation_action: &'a Output,
                     pub operation_id: &'a Output,
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("mitigation-action", &self.mitigation_action)
                             .field("operation-id", &self.operation_id)
@@ -3535,10 +3373,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("mitigation-action", &self.mitigation_action)
                             .field("operation-id", &self.operation_id)
@@ -3555,7 +3390,8 @@ pub mod exports {
                     arg3: i32,
                     arg4: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -3590,8 +3426,7 @@ pub mod exports {
                         operation_id: operation_id6,
                         zone_id: zone_id6,
                     } = result4;
-                    *ptr5.add(0).cast::<i32>() = (mitigation_action6).take_handle()
-                        as i32;
+                    *ptr5.add(0).cast::<i32>() = (mitigation_action6).take_handle() as i32;
                     *ptr5.add(4).cast::<i32>() = (operation_id6).take_handle() as i32;
                     *ptr5.add(8).cast::<i32>() = (zone_id6).take_handle() as i32;
                     ptr5
@@ -3614,17 +3449,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_api_shield_operation_schema_validation_settings_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 12],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod api_shield_schema {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub kind: &'a Output,
                     pub name: &'a Output,
@@ -3633,10 +3468,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("kind", &self.kind)
                             .field("name", &self.name)
@@ -3654,10 +3486,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("kind", &self.kind)
                             .field("name", &self.name)
@@ -3678,7 +3507,8 @@ pub mod exports {
                     arg5: i32,
                     arg6: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -3732,8 +3562,7 @@ pub mod exports {
                     *ptr7.add(0).cast::<i32>() = (kind8).take_handle() as i32;
                     *ptr7.add(4).cast::<i32>() = (name8).take_handle() as i32;
                     *ptr7.add(8).cast::<i32>() = (source8).take_handle() as i32;
-                    *ptr7.add(12).cast::<i32>() = (validation_enabled8).take_handle()
-                        as i32;
+                    *ptr7.add(12).cast::<i32>() = (validation_enabled8).take_handle() as i32;
                     *ptr7.add(16).cast::<i32>() = (zone_id8).take_handle() as i32;
                     ptr7
                 }
@@ -3755,27 +3584,24 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_api_shield_schema_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 20],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod api_shield_schema_validation_settings {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub validation_default_mitigation_action: &'a Output,
                     pub validation_override_mitigation_action: &'a Output,
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field(
                                 "validation-default-mitigation-action",
@@ -3795,10 +3621,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field(
                                 "validation-default-mitigation-action",
@@ -3821,7 +3644,8 @@ pub mod exports {
                     arg3: i32,
                     arg4: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -3853,13 +3677,14 @@ pub mod exports {
                     let ptr5 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
                     let Res {
                         validation_default_mitigation_action: validation_default_mitigation_action6,
-                        validation_override_mitigation_action: validation_override_mitigation_action6,
+                        validation_override_mitigation_action:
+                            validation_override_mitigation_action6,
                         zone_id: zone_id6,
                     } = result4;
-                    *ptr5.add(0).cast::<i32>() = (validation_default_mitigation_action6)
-                        .take_handle() as i32;
-                    *ptr5.add(4).cast::<i32>() = (validation_override_mitigation_action6)
-                        .take_handle() as i32;
+                    *ptr5.add(0).cast::<i32>() =
+                        (validation_default_mitigation_action6).take_handle() as i32;
+                    *ptr5.add(4).cast::<i32>() =
+                        (validation_override_mitigation_action6).take_handle() as i32;
                     *ptr5.add(8).cast::<i32>() = (zone_id6).take_handle() as i32;
                     ptr5
                 }
@@ -3881,17 +3706,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_api_shield_schema_validation_settings_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 12],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod api_token {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub condition: &'a Output,
                     pub expires_on: &'a Output,
@@ -3900,10 +3725,7 @@ pub mod exports {
                     pub policies: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("condition", &self.condition)
                             .field("expires-on", &self.expires_on)
@@ -3925,10 +3747,7 @@ pub mod exports {
                     pub value: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("condition", &self.condition)
                             .field("expires-on", &self.expires_on)
@@ -3953,7 +3772,8 @@ pub mod exports {
                     arg5: i32,
                     arg6: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -4037,27 +3857,24 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_api_token_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 36]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 36],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 36]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod argo {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub smart_routing: &'a Output,
                     pub tiered_caching: &'a Output,
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("smart-routing", &self.smart_routing)
                             .field("tiered-caching", &self.tiered_caching)
@@ -4071,10 +3888,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("smart-routing", &self.smart_routing)
                             .field("tiered-caching", &self.tiered_caching)
@@ -4091,7 +3905,8 @@ pub mod exports {
                     arg3: i32,
                     arg4: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -4149,17 +3964,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_argo_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 12],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod authenticated_origin_pulls {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub authenticated_origin_pulls_certificate: &'a Output,
                     pub enabled: &'a Output,
@@ -4167,10 +3982,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field(
                                 "authenticated-origin-pulls-certificate",
@@ -4189,10 +4001,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field(
                                 "authenticated-origin-pulls-certificate",
@@ -4214,7 +4023,8 @@ pub mod exports {
                     arg4: i32,
                     arg5: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -4252,13 +4062,14 @@ pub mod exports {
                     );
                     let ptr6 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
                     let Res {
-                        authenticated_origin_pulls_certificate: authenticated_origin_pulls_certificate7,
+                        authenticated_origin_pulls_certificate:
+                            authenticated_origin_pulls_certificate7,
                         enabled: enabled7,
                         hostname: hostname7,
                         zone_id: zone_id7,
                     } = result5;
-                    *ptr6.add(0).cast::<i32>() = (authenticated_origin_pulls_certificate7)
-                        .take_handle() as i32;
+                    *ptr6.add(0).cast::<i32>() =
+                        (authenticated_origin_pulls_certificate7).take_handle() as i32;
                     *ptr6.add(4).cast::<i32>() = (enabled7).take_handle() as i32;
                     *ptr6.add(8).cast::<i32>() = (hostname7).take_handle() as i32;
                     *ptr6.add(12).cast::<i32>() = (zone_id7).take_handle() as i32;
@@ -4282,17 +4093,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_authenticated_origin_pulls_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 16],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod authenticated_origin_pulls_certificate {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub certificate: &'a Output,
                     pub private_key: &'a Output,
@@ -4300,10 +4111,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("certificate", &self.certificate)
                             .field("private-key", &self.private_key)
@@ -4325,10 +4133,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("certificate", &self.certificate)
                             .field("expires-on", &self.expires_on)
@@ -4353,7 +4158,8 @@ pub mod exports {
                     arg4: i32,
                     arg5: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -4432,17 +4238,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_authenticated_origin_pulls_certificate_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 40]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 40],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 40]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod bot_management {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub auto_update_model: &'a Output,
                     pub enable_js: &'a Output,
@@ -4456,29 +4262,20 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("auto-update-model", &self.auto_update_model)
                             .field("enable-js", &self.enable_js)
                             .field("fight-mode", &self.fight_mode)
                             .field("optimize-wordpress", &self.optimize_wordpress)
-                            .field(
-                                "sbfm-definitely-automated",
-                                &self.sbfm_definitely_automated,
-                            )
+                            .field("sbfm-definitely-automated", &self.sbfm_definitely_automated)
                             .field("sbfm-likely-automated", &self.sbfm_likely_automated)
                             .field(
                                 "sbfm-static-resource-protection",
                                 &self.sbfm_static_resource_protection,
                             )
                             .field("sbfm-verified-bots", &self.sbfm_verified_bots)
-                            .field(
-                                "suppress-session-score",
-                                &self.suppress_session_score,
-                            )
+                            .field("suppress-session-score", &self.suppress_session_score)
                             .field("zone-id", &self.zone_id)
                             .finish()
                     }
@@ -4497,29 +4294,20 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("auto-update-model", &self.auto_update_model)
                             .field("enable-js", &self.enable_js)
                             .field("fight-mode", &self.fight_mode)
                             .field("optimize-wordpress", &self.optimize_wordpress)
-                            .field(
-                                "sbfm-definitely-automated",
-                                &self.sbfm_definitely_automated,
-                            )
+                            .field("sbfm-definitely-automated", &self.sbfm_definitely_automated)
                             .field("sbfm-likely-automated", &self.sbfm_likely_automated)
                             .field(
                                 "sbfm-static-resource-protection",
                                 &self.sbfm_static_resource_protection,
                             )
                             .field("sbfm-verified-bots", &self.sbfm_verified_bots)
-                            .field(
-                                "suppress-session-score",
-                                &self.suppress_session_score,
-                            )
+                            .field("suppress-session-score", &self.suppress_session_score)
                             .field("using-latest-model", &self.using_latest_model)
                             .field("zone-id", &self.zone_id)
                             .finish()
@@ -4541,7 +4329,8 @@ pub mod exports {
                     arg10: i32,
                     arg11: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -4633,24 +4422,18 @@ pub mod exports {
                         using_latest_model: using_latest_model13,
                         zone_id: zone_id13,
                     } = result11;
-                    *ptr12.add(0).cast::<i32>() = (auto_update_model13).take_handle()
-                        as i32;
+                    *ptr12.add(0).cast::<i32>() = (auto_update_model13).take_handle() as i32;
                     *ptr12.add(4).cast::<i32>() = (enable_js13).take_handle() as i32;
                     *ptr12.add(8).cast::<i32>() = (fight_mode13).take_handle() as i32;
-                    *ptr12.add(12).cast::<i32>() = (optimize_wordpress13).take_handle()
-                        as i32;
-                    *ptr12.add(16).cast::<i32>() = (sbfm_definitely_automated13)
-                        .take_handle() as i32;
-                    *ptr12.add(20).cast::<i32>() = (sbfm_likely_automated13)
-                        .take_handle() as i32;
-                    *ptr12.add(24).cast::<i32>() = (sbfm_static_resource_protection13)
-                        .take_handle() as i32;
-                    *ptr12.add(28).cast::<i32>() = (sbfm_verified_bots13).take_handle()
-                        as i32;
-                    *ptr12.add(32).cast::<i32>() = (suppress_session_score13)
-                        .take_handle() as i32;
-                    *ptr12.add(36).cast::<i32>() = (using_latest_model13).take_handle()
-                        as i32;
+                    *ptr12.add(12).cast::<i32>() = (optimize_wordpress13).take_handle() as i32;
+                    *ptr12.add(16).cast::<i32>() =
+                        (sbfm_definitely_automated13).take_handle() as i32;
+                    *ptr12.add(20).cast::<i32>() = (sbfm_likely_automated13).take_handle() as i32;
+                    *ptr12.add(24).cast::<i32>() =
+                        (sbfm_static_resource_protection13).take_handle() as i32;
+                    *ptr12.add(28).cast::<i32>() = (sbfm_verified_bots13).take_handle() as i32;
+                    *ptr12.add(32).cast::<i32>() = (suppress_session_score13).take_handle() as i32;
+                    *ptr12.add(36).cast::<i32>() = (using_latest_model13).take_handle() as i32;
                     *ptr12.add(40).cast::<i32>() = (zone_id13).take_handle() as i32;
                     ptr12
                 }
@@ -4674,17 +4457,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_bot_management_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 44]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 44],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 44]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod byo_ip_prefix {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub advertisement: &'a Output,
@@ -4692,10 +4475,7 @@ pub mod exports {
                     pub prefix_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("advertisement", &self.advertisement)
@@ -4711,10 +4491,7 @@ pub mod exports {
                     pub prefix_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("advertisement", &self.advertisement)
@@ -4733,7 +4510,8 @@ pub mod exports {
                     arg4: i32,
                     arg5: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -4800,17 +4578,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_byo_ip_prefix_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 16],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod certificate_pack {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub certificate_authority: &'a Output,
                     pub cloudflare_branding: &'a Output,
@@ -4824,10 +4602,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("certificate-authority", &self.certificate_authority)
                             .field("cloudflare-branding", &self.cloudflare_branding)
@@ -4837,10 +4612,7 @@ pub mod exports {
                             .field("validation-method", &self.validation_method)
                             .field("validation-records", &self.validation_records)
                             .field("validity-days", &self.validity_days)
-                            .field(
-                                "wait-for-active-status",
-                                &self.wait_for_active_status,
-                            )
+                            .field("wait-for-active-status", &self.wait_for_active_status)
                             .field("zone-id", &self.zone_id)
                             .finish()
                     }
@@ -4858,10 +4630,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("certificate-authority", &self.certificate_authority)
                             .field("cloudflare-branding", &self.cloudflare_branding)
@@ -4871,10 +4640,7 @@ pub mod exports {
                             .field("validation-method", &self.validation_method)
                             .field("validation-records", &self.validation_records)
                             .field("validity-days", &self.validity_days)
-                            .field(
-                                "wait-for-active-status",
-                                &self.wait_for_active_status,
-                            )
+                            .field("wait-for-active-status", &self.wait_for_active_status)
                             .field("zone-id", &self.zone_id)
                             .finish()
                     }
@@ -4895,7 +4661,8 @@ pub mod exports {
                     arg10: i32,
                     arg11: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -4986,22 +4753,15 @@ pub mod exports {
                         wait_for_active_status: wait_for_active_status13,
                         zone_id: zone_id13,
                     } = result11;
-                    *ptr12.add(0).cast::<i32>() = (certificate_authority13).take_handle()
-                        as i32;
-                    *ptr12.add(4).cast::<i32>() = (cloudflare_branding13).take_handle()
-                        as i32;
+                    *ptr12.add(0).cast::<i32>() = (certificate_authority13).take_handle() as i32;
+                    *ptr12.add(4).cast::<i32>() = (cloudflare_branding13).take_handle() as i32;
                     *ptr12.add(8).cast::<i32>() = (hosts13).take_handle() as i32;
                     *ptr12.add(12).cast::<i32>() = (type_13).take_handle() as i32;
-                    *ptr12.add(16).cast::<i32>() = (validation_errors13).take_handle()
-                        as i32;
-                    *ptr12.add(20).cast::<i32>() = (validation_method13).take_handle()
-                        as i32;
-                    *ptr12.add(24).cast::<i32>() = (validation_records13).take_handle()
-                        as i32;
-                    *ptr12.add(28).cast::<i32>() = (validity_days13).take_handle()
-                        as i32;
-                    *ptr12.add(32).cast::<i32>() = (wait_for_active_status13)
-                        .take_handle() as i32;
+                    *ptr12.add(16).cast::<i32>() = (validation_errors13).take_handle() as i32;
+                    *ptr12.add(20).cast::<i32>() = (validation_method13).take_handle() as i32;
+                    *ptr12.add(24).cast::<i32>() = (validation_records13).take_handle() as i32;
+                    *ptr12.add(28).cast::<i32>() = (validity_days13).take_handle() as i32;
+                    *ptr12.add(32).cast::<i32>() = (wait_for_active_status13).take_handle() as i32;
                     *ptr12.add(36).cast::<i32>() = (zone_id13).take_handle() as i32;
                     ptr12
                 }
@@ -5025,17 +4785,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_certificate_pack_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 40]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 40],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 40]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod custom_hostname {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub custom_metadata: &'a Output,
                     pub custom_origin_server: &'a Output,
@@ -5046,10 +4806,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("custom-metadata", &self.custom_metadata)
                             .field("custom-origin-server", &self.custom_origin_server)
@@ -5077,19 +4834,13 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("custom-metadata", &self.custom_metadata)
                             .field("custom-origin-server", &self.custom_origin_server)
                             .field("custom-origin-sni", &self.custom_origin_sni)
                             .field("hostname", &self.hostname)
-                            .field(
-                                "ownership-verification",
-                                &self.ownership_verification,
-                            )
+                            .field("ownership-verification", &self.ownership_verification)
                             .field(
                                 "ownership-verification-http",
                                 &self.ownership_verification_http,
@@ -5117,7 +4868,8 @@ pub mod exports {
                     arg7: i32,
                     arg8: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -5187,21 +4939,17 @@ pub mod exports {
                         wait_for_ssl_pending_validation: wait_for_ssl_pending_validation10,
                         zone_id: zone_id10,
                     } = result8;
-                    *ptr9.add(0).cast::<i32>() = (custom_metadata10).take_handle()
-                        as i32;
-                    *ptr9.add(4).cast::<i32>() = (custom_origin_server10).take_handle()
-                        as i32;
-                    *ptr9.add(8).cast::<i32>() = (custom_origin_sni10).take_handle()
-                        as i32;
+                    *ptr9.add(0).cast::<i32>() = (custom_metadata10).take_handle() as i32;
+                    *ptr9.add(4).cast::<i32>() = (custom_origin_server10).take_handle() as i32;
+                    *ptr9.add(8).cast::<i32>() = (custom_origin_sni10).take_handle() as i32;
                     *ptr9.add(12).cast::<i32>() = (hostname10).take_handle() as i32;
-                    *ptr9.add(16).cast::<i32>() = (ownership_verification10)
-                        .take_handle() as i32;
-                    *ptr9.add(20).cast::<i32>() = (ownership_verification_http10)
-                        .take_handle() as i32;
+                    *ptr9.add(16).cast::<i32>() = (ownership_verification10).take_handle() as i32;
+                    *ptr9.add(20).cast::<i32>() =
+                        (ownership_verification_http10).take_handle() as i32;
                     *ptr9.add(24).cast::<i32>() = (ssls10).take_handle() as i32;
                     *ptr9.add(28).cast::<i32>() = (status10).take_handle() as i32;
-                    *ptr9.add(32).cast::<i32>() = (wait_for_ssl_pending_validation10)
-                        .take_handle() as i32;
+                    *ptr9.add(32).cast::<i32>() =
+                        (wait_for_ssl_pending_validation10).take_handle() as i32;
                     *ptr9.add(36).cast::<i32>() = (zone_id10).take_handle() as i32;
                     ptr9
                 }
@@ -5224,26 +4972,23 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_custom_hostname_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 40]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 40],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 40]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod custom_hostname_fallback_origin {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub origin: &'a Output,
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("origin", &self.origin)
                             .field("zone-id", &self.zone_id)
@@ -5256,10 +5001,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("origin", &self.origin)
                             .field("status", &self.status)
@@ -5275,7 +5017,8 @@ pub mod exports {
                     arg2: i32,
                     arg3: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let len0 = arg1;
@@ -5298,7 +5041,11 @@ pub mod exports {
                         },
                     );
                     let ptr4 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
-                    let Res { origin: origin5, status: status5, zone_id: zone_id5 } = result3;
+                    let Res {
+                        origin: origin5,
+                        status: status5,
+                        zone_id: zone_id5,
+                    } = result3;
                     *ptr4.add(0).cast::<i32>() = (origin5).take_handle() as i32;
                     *ptr4.add(4).cast::<i32>() = (status5).take_handle() as i32;
                     *ptr4.add(8).cast::<i32>() = (zone_id5).take_handle() as i32;
@@ -5321,17 +5068,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_custom_hostname_fallback_origin_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 12],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod custom_pages {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub state: &'a Output,
@@ -5340,10 +5087,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("state", &self.state)
@@ -5361,10 +5105,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("state", &self.state)
@@ -5385,7 +5126,8 @@ pub mod exports {
                     arg5: i32,
                     arg6: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -5461,27 +5203,24 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_custom_pages_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 20],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod custom_ssl {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub custom_ssl_options: &'a Output,
                     pub custom_ssl_priorities: &'a Output,
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("custom-ssl-options", &self.custom_ssl_options)
                             .field("custom-ssl-priorities", &self.custom_ssl_priorities)
@@ -5503,10 +5242,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("custom-ssl-options", &self.custom_ssl_options)
                             .field("custom-ssl-priorities", &self.custom_ssl_priorities)
@@ -5531,7 +5267,8 @@ pub mod exports {
                     arg3: i32,
                     arg4: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -5574,10 +5311,8 @@ pub mod exports {
                         uploaded_on: uploaded_on6,
                         zone_id: zone_id6,
                     } = result4;
-                    *ptr5.add(0).cast::<i32>() = (custom_ssl_options6).take_handle()
-                        as i32;
-                    *ptr5.add(4).cast::<i32>() = (custom_ssl_priorities6).take_handle()
-                        as i32;
+                    *ptr5.add(0).cast::<i32>() = (custom_ssl_options6).take_handle() as i32;
+                    *ptr5.add(4).cast::<i32>() = (custom_ssl_priorities6).take_handle() as i32;
                     *ptr5.add(8).cast::<i32>() = (expires_on6).take_handle() as i32;
                     *ptr5.add(12).cast::<i32>() = (hosts6).take_handle() as i32;
                     *ptr5.add(16).cast::<i32>() = (issuer6).take_handle() as i32;
@@ -5607,26 +5342,23 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_custom_ssl_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 44]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 44],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 44]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod d1_database {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub name: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("name", &self.name)
@@ -5639,10 +5371,7 @@ pub mod exports {
                     pub version: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("name", &self.name)
@@ -5658,7 +5387,8 @@ pub mod exports {
                     arg2: i32,
                     arg3: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let len0 = arg1;
@@ -5708,17 +5438,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_d1_database_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 12],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod device_dex_test {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub data: &'a Output,
@@ -5728,10 +5458,7 @@ pub mod exports {
                     pub name: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("data", &self.data)
@@ -5753,10 +5480,7 @@ pub mod exports {
                     pub updated: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("created", &self.created)
@@ -5781,7 +5505,8 @@ pub mod exports {
                     arg6: i32,
                     arg7: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -5871,17 +5596,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_device_dex_test_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 32],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 32]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod device_managed_networks {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub config: &'a Output,
@@ -5889,10 +5614,7 @@ pub mod exports {
                     pub type_: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("config", &self.config)
@@ -5908,10 +5630,7 @@ pub mod exports {
                     pub type_: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("config", &self.config)
@@ -5930,7 +5649,8 @@ pub mod exports {
                     arg4: i32,
                     arg5: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -5997,26 +5717,23 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_device_managed_networks_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 16],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod device_policy_certificates {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub enabled: &'a Output,
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("enabled", &self.enabled)
                             .field("zone-id", &self.zone_id)
@@ -6028,10 +5745,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("enabled", &self.enabled)
                             .field("zone-id", &self.zone_id)
@@ -6046,7 +5760,8 @@ pub mod exports {
                     arg2: i32,
                     arg3: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let len0 = arg1;
@@ -6069,7 +5784,10 @@ pub mod exports {
                         },
                     );
                     let ptr4 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
-                    let Res { enabled: enabled5, zone_id: zone_id5 } = result3;
+                    let Res {
+                        enabled: enabled5,
+                        zone_id: zone_id5,
+                    } = result3;
                     *ptr4.add(0).cast::<i32>() = (enabled5).take_handle() as i32;
                     *ptr4.add(4).cast::<i32>() = (zone_id5).take_handle() as i32;
                     ptr4
@@ -6091,17 +5809,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_device_policy_certificates_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 8],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 8]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod device_posture_integration {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub configs: &'a Output,
@@ -6111,10 +5829,7 @@ pub mod exports {
                     pub type_: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("configs", &self.configs)
@@ -6134,10 +5849,7 @@ pub mod exports {
                     pub type_: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("configs", &self.configs)
@@ -6160,7 +5872,8 @@ pub mod exports {
                     arg6: i32,
                     arg7: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -6246,17 +5959,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_device_posture_integration_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 24],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 24]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod device_posture_rule {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub description: &'a Output,
@@ -6268,10 +5981,7 @@ pub mod exports {
                     pub type_: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("description", &self.description)
@@ -6295,10 +6005,7 @@ pub mod exports {
                     pub type_: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("description", &self.description)
@@ -6325,7 +6032,8 @@ pub mod exports {
                     arg8: i32,
                     arg9: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -6429,17 +6137,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_device_posture_rule_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 32],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 32]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod device_settings_policy {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub allow_mode_switch: &'a Output,
@@ -6461,10 +6169,7 @@ pub mod exports {
                     pub switch_locked: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("allow-mode-switch", &self.allow_mode_switch)
@@ -6508,10 +6213,7 @@ pub mod exports {
                     pub switch_locked: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("allow-mode-switch", &self.allow_mode_switch)
@@ -6537,7 +6239,8 @@ pub mod exports {
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: *mut u8) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle4;
                     let handle6;
                     let handle8;
@@ -6714,31 +6417,23 @@ pub mod exports {
                         switch_locked: switch_locked41,
                     } = result39;
                     *ptr40.add(0).cast::<i32>() = (account_id41).take_handle() as i32;
-                    *ptr40.add(4).cast::<i32>() = (allow_mode_switch41).take_handle()
-                        as i32;
+                    *ptr40.add(4).cast::<i32>() = (allow_mode_switch41).take_handle() as i32;
                     *ptr40.add(8).cast::<i32>() = (allow_updates41).take_handle() as i32;
-                    *ptr40.add(12).cast::<i32>() = (allowed_to_leave41).take_handle()
-                        as i32;
+                    *ptr40.add(12).cast::<i32>() = (allowed_to_leave41).take_handle() as i32;
                     *ptr40.add(16).cast::<i32>() = (auto_connect41).take_handle() as i32;
-                    *ptr40.add(20).cast::<i32>() = (captive_portal41).take_handle()
-                        as i32;
+                    *ptr40.add(20).cast::<i32>() = (captive_portal41).take_handle() as i32;
                     *ptr40.add(24).cast::<i32>() = (default41).take_handle() as i32;
                     *ptr40.add(28).cast::<i32>() = (description41).take_handle() as i32;
-                    *ptr40.add(32).cast::<i32>() = (disable_auto_fallback41)
-                        .take_handle() as i32;
+                    *ptr40.add(32).cast::<i32>() = (disable_auto_fallback41).take_handle() as i32;
                     *ptr40.add(36).cast::<i32>() = (enabled41).take_handle() as i32;
-                    *ptr40.add(40).cast::<i32>() = (exclude_office_ips41).take_handle()
-                        as i32;
+                    *ptr40.add(40).cast::<i32>() = (exclude_office_ips41).take_handle() as i32;
                     *ptr40.add(44).cast::<i32>() = (match_41).take_handle() as i32;
                     *ptr40.add(48).cast::<i32>() = (name41).take_handle() as i32;
                     *ptr40.add(52).cast::<i32>() = (precedence41).take_handle() as i32;
-                    *ptr40.add(56).cast::<i32>() = (service_mode_v2_mode41).take_handle()
-                        as i32;
-                    *ptr40.add(60).cast::<i32>() = (service_mode_v2_port41).take_handle()
-                        as i32;
+                    *ptr40.add(56).cast::<i32>() = (service_mode_v2_mode41).take_handle() as i32;
+                    *ptr40.add(60).cast::<i32>() = (service_mode_v2_port41).take_handle() as i32;
                     *ptr40.add(64).cast::<i32>() = (support_url41).take_handle() as i32;
-                    *ptr40.add(68).cast::<i32>() = (switch_locked41).take_handle()
-                        as i32;
+                    *ptr40.add(68).cast::<i32>() = (switch_locked41).take_handle() as i32;
                     ptr40
                 }
                 pub trait Guest {
@@ -6757,17 +6452,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_device_settings_policy_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 72]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 72],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 72]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod dlp_profile {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub allowed_match_count: &'a Output,
@@ -6778,10 +6473,7 @@ pub mod exports {
                     pub type_: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("allowed-match-count", &self.allowed_match_count)
@@ -6803,10 +6495,7 @@ pub mod exports {
                     pub type_: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("allowed-match-count", &self.allowed_match_count)
@@ -6831,7 +6520,8 @@ pub mod exports {
                     arg7: i32,
                     arg8: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -6899,10 +6589,8 @@ pub mod exports {
                         type_: type_10,
                     } = result8;
                     *ptr9.add(0).cast::<i32>() = (account_id10).take_handle() as i32;
-                    *ptr9.add(4).cast::<i32>() = (allowed_match_count10).take_handle()
-                        as i32;
-                    *ptr9.add(8).cast::<i32>() = (context_awareness10).take_handle()
-                        as i32;
+                    *ptr9.add(4).cast::<i32>() = (allowed_match_count10).take_handle() as i32;
+                    *ptr9.add(8).cast::<i32>() = (context_awareness10).take_handle() as i32;
                     *ptr9.add(12).cast::<i32>() = (description10).take_handle() as i32;
                     *ptr9.add(16).cast::<i32>() = (entries10).take_handle() as i32;
                     *ptr9.add(20).cast::<i32>() = (name10).take_handle() as i32;
@@ -6928,26 +6616,23 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_dlp_profile_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 28]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 28],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 28]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod email_routing_address {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub email: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("email", &self.email)
@@ -6963,10 +6648,7 @@ pub mod exports {
                     pub verified: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("created", &self.created)
@@ -6985,7 +6667,8 @@ pub mod exports {
                     arg2: i32,
                     arg3: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let len0 = arg1;
@@ -7041,17 +6724,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_email_routing_address_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 24],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 24]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod email_routing_catch_all {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub actions: &'a Output,
                     pub enabled: &'a Output,
@@ -7060,10 +6743,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("actions", &self.actions)
                             .field("enabled", &self.enabled)
@@ -7082,10 +6762,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("actions", &self.actions)
                             .field("enabled", &self.enabled)
@@ -7107,7 +6784,8 @@ pub mod exports {
                     arg5: i32,
                     arg6: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -7185,17 +6863,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_email_routing_catch_all_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 24],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 24]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod email_routing_rule {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub actions: &'a Output,
                     pub enabled: &'a Output,
@@ -7205,10 +6883,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("actions", &self.actions)
                             .field("enabled", &self.enabled)
@@ -7229,10 +6904,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("actions", &self.actions)
                             .field("enabled", &self.enabled)
@@ -7256,7 +6928,8 @@ pub mod exports {
                     arg6: i32,
                     arg7: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -7344,27 +7017,24 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_email_routing_rule_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 28]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 28],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 28]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod email_routing_settings {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub enabled: &'a Output,
                     pub skip_wizard: &'a Output,
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("enabled", &self.enabled)
                             .field("skip-wizard", &self.skip_wizard)
@@ -7383,10 +7053,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("created", &self.created)
                             .field("enabled", &self.enabled)
@@ -7408,7 +7075,8 @@ pub mod exports {
                     arg3: i32,
                     arg4: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -7476,27 +7144,24 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_email_routing_settings_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 32],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 32]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod fallback_domain {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub domains: &'a Output,
                     pub policy_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("domains", &self.domains)
@@ -7510,10 +7175,7 @@ pub mod exports {
                     pub policy_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("domains", &self.domains)
@@ -7530,7 +7192,8 @@ pub mod exports {
                     arg3: i32,
                     arg4: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -7588,17 +7251,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_fallback_domain_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 12],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod filter {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub description: &'a Output,
                     pub expression: &'a Output,
@@ -7607,10 +7270,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("description", &self.description)
                             .field("expression", &self.expression)
@@ -7628,10 +7288,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("description", &self.description)
                             .field("expression", &self.expression)
@@ -7652,7 +7309,8 @@ pub mod exports {
                     arg5: i32,
                     arg6: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -7728,17 +7386,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_filter_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 20],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod firewall_rule {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub action: &'a Output,
                     pub description: &'a Output,
@@ -7749,10 +7407,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("action", &self.action)
                             .field("description", &self.description)
@@ -7774,10 +7429,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("action", &self.action)
                             .field("description", &self.description)
@@ -7802,7 +7454,8 @@ pub mod exports {
                     arg7: i32,
                     arg8: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -7897,17 +7550,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_firewall_rule_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 28]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 28],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 28]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod gre_tunnel {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub cloudflare_gre_endpoint: &'a Output,
@@ -7922,16 +7575,10 @@ pub mod exports {
                     pub ttl: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
-                            .field(
-                                "cloudflare-gre-endpoint",
-                                &self.cloudflare_gre_endpoint,
-                            )
+                            .field("cloudflare-gre-endpoint", &self.cloudflare_gre_endpoint)
                             .field("customer-gre-endpoint", &self.customer_gre_endpoint)
                             .field("description", &self.description)
                             .field("health-check-enabled", &self.health_check_enabled)
@@ -7958,16 +7605,10 @@ pub mod exports {
                     pub ttl: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
-                            .field(
-                                "cloudflare-gre-endpoint",
-                                &self.cloudflare_gre_endpoint,
-                            )
+                            .field("cloudflare-gre-endpoint", &self.cloudflare_gre_endpoint)
                             .field("customer-gre-endpoint", &self.customer_gre_endpoint)
                             .field("description", &self.description)
                             .field("health-check-enabled", &self.health_check_enabled)
@@ -7997,7 +7638,8 @@ pub mod exports {
                     arg11: i32,
                     arg12: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -8097,19 +7739,13 @@ pub mod exports {
                         ttl: ttl14,
                     } = result12;
                     *ptr13.add(0).cast::<i32>() = (account_id14).take_handle() as i32;
-                    *ptr13.add(4).cast::<i32>() = (cloudflare_gre_endpoint14)
-                        .take_handle() as i32;
-                    *ptr13.add(8).cast::<i32>() = (customer_gre_endpoint14).take_handle()
-                        as i32;
+                    *ptr13.add(4).cast::<i32>() = (cloudflare_gre_endpoint14).take_handle() as i32;
+                    *ptr13.add(8).cast::<i32>() = (customer_gre_endpoint14).take_handle() as i32;
                     *ptr13.add(12).cast::<i32>() = (description14).take_handle() as i32;
-                    *ptr13.add(16).cast::<i32>() = (health_check_enabled14).take_handle()
-                        as i32;
-                    *ptr13.add(20).cast::<i32>() = (health_check_target14).take_handle()
-                        as i32;
-                    *ptr13.add(24).cast::<i32>() = (health_check_type14).take_handle()
-                        as i32;
-                    *ptr13.add(28).cast::<i32>() = (interface_address14).take_handle()
-                        as i32;
+                    *ptr13.add(16).cast::<i32>() = (health_check_enabled14).take_handle() as i32;
+                    *ptr13.add(20).cast::<i32>() = (health_check_target14).take_handle() as i32;
+                    *ptr13.add(24).cast::<i32>() = (health_check_type14).take_handle() as i32;
+                    *ptr13.add(28).cast::<i32>() = (interface_address14).take_handle() as i32;
                     *ptr13.add(32).cast::<i32>() = (mtu14).take_handle() as i32;
                     *ptr13.add(36).cast::<i32>() = (name14).take_handle() as i32;
                     *ptr13.add(40).cast::<i32>() = (ttl14).take_handle() as i32;
@@ -8135,17 +7771,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_gre_tunnel_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 44]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 44],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 44]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod healthcheck {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub address: &'a Output,
                     pub allow_insecure: &'a Output,
@@ -8169,10 +7805,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("address", &self.address)
                             .field("allow-insecure", &self.allow_insecure)
@@ -8222,10 +7855,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("address", &self.address)
                             .field("allow-insecure", &self.allow_insecure)
@@ -8255,7 +7885,8 @@ pub mod exports {
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: *mut u8) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle4;
                     let handle6;
                     let handle8;
@@ -8452,21 +8083,15 @@ pub mod exports {
                         zone_id: zone_id45,
                     } = result43;
                     *ptr44.add(0).cast::<i32>() = (address45).take_handle() as i32;
-                    *ptr44.add(4).cast::<i32>() = (allow_insecure45).take_handle()
-                        as i32;
+                    *ptr44.add(4).cast::<i32>() = (allow_insecure45).take_handle() as i32;
                     *ptr44.add(8).cast::<i32>() = (check_regions45).take_handle() as i32;
-                    *ptr44.add(12).cast::<i32>() = (consecutive_fails45).take_handle()
-                        as i32;
-                    *ptr44.add(16).cast::<i32>() = (consecutive_successes45)
-                        .take_handle() as i32;
+                    *ptr44.add(12).cast::<i32>() = (consecutive_fails45).take_handle() as i32;
+                    *ptr44.add(16).cast::<i32>() = (consecutive_successes45).take_handle() as i32;
                     *ptr44.add(20).cast::<i32>() = (created_on45).take_handle() as i32;
                     *ptr44.add(24).cast::<i32>() = (description45).take_handle() as i32;
-                    *ptr44.add(28).cast::<i32>() = (expected_body45).take_handle()
-                        as i32;
-                    *ptr44.add(32).cast::<i32>() = (expected_codes45).take_handle()
-                        as i32;
-                    *ptr44.add(36).cast::<i32>() = (follow_redirects45).take_handle()
-                        as i32;
+                    *ptr44.add(28).cast::<i32>() = (expected_body45).take_handle() as i32;
+                    *ptr44.add(32).cast::<i32>() = (expected_codes45).take_handle() as i32;
+                    *ptr44.add(36).cast::<i32>() = (follow_redirects45).take_handle() as i32;
                     *ptr44.add(40).cast::<i32>() = (headers45).take_handle() as i32;
                     *ptr44.add(44).cast::<i32>() = (interval45).take_handle() as i32;
                     *ptr44.add(48).cast::<i32>() = (method45).take_handle() as i32;
@@ -8497,17 +8122,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_healthcheck_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 88]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 88],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 88]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod hostname_tls_setting {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub hostname: &'a Output,
                     pub setting: &'a Output,
@@ -8515,10 +8140,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("hostname", &self.hostname)
                             .field("setting", &self.setting)
@@ -8536,10 +8158,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("created-at", &self.created_at)
                             .field("hostname", &self.hostname)
@@ -8560,7 +8179,8 @@ pub mod exports {
                     arg4: i32,
                     arg5: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -8631,17 +8251,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_hostname_tls_setting_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 24],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 24]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod hostname_tls_setting_ciphers {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub hostname: &'a Output,
                     pub ports: &'a Output,
@@ -8649,10 +8269,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("hostname", &self.hostname)
                             .field("ports", &self.ports)
@@ -8670,10 +8287,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("created-at", &self.created_at)
                             .field("hostname", &self.hostname)
@@ -8694,7 +8308,8 @@ pub mod exports {
                     arg4: i32,
                     arg5: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -8765,17 +8380,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_hostname_tls_setting_ciphers_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 24],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 24]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod hyperdrive_config {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub caching: &'a Output,
@@ -8783,10 +8398,7 @@ pub mod exports {
                     pub origin: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("caching", &self.caching)
@@ -8802,10 +8414,7 @@ pub mod exports {
                     pub origin: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("caching", &self.caching)
@@ -8824,7 +8433,8 @@ pub mod exports {
                     arg4: i32,
                     arg5: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -8891,17 +8501,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_hyperdrive_config_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 16],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod ipsec_tunnel {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub allow_null_cipher: &'a Output,
@@ -8922,10 +8532,7 @@ pub mod exports {
                     pub user_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("allow-null-cipher", &self.allow_null_cipher)
@@ -8933,10 +8540,7 @@ pub mod exports {
                             .field("customer-endpoint", &self.customer_endpoint)
                             .field("description", &self.description)
                             .field("fqdn-id", &self.fqdn_id)
-                            .field(
-                                "health-check-direction",
-                                &self.health_check_direction,
-                            )
+                            .field("health-check-direction", &self.health_check_direction)
                             .field("health-check-enabled", &self.health_check_enabled)
                             .field("health-check-rate", &self.health_check_rate)
                             .field("health-check-target", &self.health_check_target)
@@ -8970,10 +8574,7 @@ pub mod exports {
                     pub user_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("allow-null-cipher", &self.allow_null_cipher)
@@ -8981,10 +8582,7 @@ pub mod exports {
                             .field("customer-endpoint", &self.customer_endpoint)
                             .field("description", &self.description)
                             .field("fqdn-id", &self.fqdn_id)
-                            .field(
-                                "health-check-direction",
-                                &self.health_check_direction,
-                            )
+                            .field("health-check-direction", &self.health_check_direction)
                             .field("health-check-enabled", &self.health_check_enabled)
                             .field("health-check-rate", &self.health_check_rate)
                             .field("health-check-target", &self.health_check_target)
@@ -9001,7 +8599,8 @@ pub mod exports {
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: *mut u8) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle4;
                     let handle6;
                     let handle8;
@@ -9169,27 +8768,18 @@ pub mod exports {
                         user_id: user_id39,
                     } = result37;
                     *ptr38.add(0).cast::<i32>() = (account_id39).take_handle() as i32;
-                    *ptr38.add(4).cast::<i32>() = (allow_null_cipher39).take_handle()
-                        as i32;
-                    *ptr38.add(8).cast::<i32>() = (cloudflare_endpoint39).take_handle()
-                        as i32;
-                    *ptr38.add(12).cast::<i32>() = (customer_endpoint39).take_handle()
-                        as i32;
+                    *ptr38.add(4).cast::<i32>() = (allow_null_cipher39).take_handle() as i32;
+                    *ptr38.add(8).cast::<i32>() = (cloudflare_endpoint39).take_handle() as i32;
+                    *ptr38.add(12).cast::<i32>() = (customer_endpoint39).take_handle() as i32;
                     *ptr38.add(16).cast::<i32>() = (description39).take_handle() as i32;
                     *ptr38.add(20).cast::<i32>() = (fqdn_id39).take_handle() as i32;
-                    *ptr38.add(24).cast::<i32>() = (health_check_direction39)
-                        .take_handle() as i32;
-                    *ptr38.add(28).cast::<i32>() = (health_check_enabled39).take_handle()
-                        as i32;
-                    *ptr38.add(32).cast::<i32>() = (health_check_rate39).take_handle()
-                        as i32;
-                    *ptr38.add(36).cast::<i32>() = (health_check_target39).take_handle()
-                        as i32;
-                    *ptr38.add(40).cast::<i32>() = (health_check_type39).take_handle()
-                        as i32;
+                    *ptr38.add(24).cast::<i32>() = (health_check_direction39).take_handle() as i32;
+                    *ptr38.add(28).cast::<i32>() = (health_check_enabled39).take_handle() as i32;
+                    *ptr38.add(32).cast::<i32>() = (health_check_rate39).take_handle() as i32;
+                    *ptr38.add(36).cast::<i32>() = (health_check_target39).take_handle() as i32;
+                    *ptr38.add(40).cast::<i32>() = (health_check_type39).take_handle() as i32;
                     *ptr38.add(44).cast::<i32>() = (hex_id39).take_handle() as i32;
-                    *ptr38.add(48).cast::<i32>() = (interface_address39).take_handle()
-                        as i32;
+                    *ptr38.add(48).cast::<i32>() = (interface_address39).take_handle() as i32;
                     *ptr38.add(52).cast::<i32>() = (name39).take_handle() as i32;
                     *ptr38.add(56).cast::<i32>() = (psk39).take_handle() as i32;
                     *ptr38.add(60).cast::<i32>() = (remote_id39).take_handle() as i32;
@@ -9212,17 +8802,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_ipsec_tunnel_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 68]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 68],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 68]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod keyless_certificate {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub bundle_method: &'a Output,
                     pub certificate: &'a Output,
@@ -9233,10 +8823,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("bundle-method", &self.bundle_method)
                             .field("certificate", &self.certificate)
@@ -9259,10 +8846,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("bundle-method", &self.bundle_method)
                             .field("certificate", &self.certificate)
@@ -9288,7 +8872,8 @@ pub mod exports {
                     arg7: i32,
                     arg8: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -9385,17 +8970,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_keyless_certificate_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 32],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 32]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod list {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub description: &'a Output,
@@ -9404,10 +8989,7 @@ pub mod exports {
                     pub name: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("description", &self.description)
@@ -9425,10 +9007,7 @@ pub mod exports {
                     pub name: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("description", &self.description)
@@ -9449,7 +9028,8 @@ pub mod exports {
                     arg5: i32,
                     arg6: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -9525,17 +9105,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_list_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 20],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod list_item {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub asn: &'a Output,
@@ -9546,10 +9126,7 @@ pub mod exports {
                     pub redirect: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("asn", &self.asn)
@@ -9571,10 +9148,7 @@ pub mod exports {
                     pub redirect: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("asn", &self.asn)
@@ -9599,7 +9173,8 @@ pub mod exports {
                     arg7: i32,
                     arg8: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -9694,17 +9269,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_list_item_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 28]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 28],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 28]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod load_balancer {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub adaptive_routings: &'a Output,
                     pub country_pools: &'a Output,
@@ -9727,10 +9302,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("adaptive-routings", &self.adaptive_routings)
                             .field("country-pools", &self.country_pools)
@@ -9781,10 +9353,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("adaptive-routings", &self.adaptive_routings)
                             .field("country-pools", &self.country_pools)
@@ -9816,7 +9385,8 @@ pub mod exports {
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: *mut u8) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle4;
                     let handle6;
                     let handle8;
@@ -10003,34 +9573,26 @@ pub mod exports {
                         ttl: ttl43,
                         zone_id: zone_id43,
                     } = result41;
-                    *ptr42.add(0).cast::<i32>() = (adaptive_routings43).take_handle()
-                        as i32;
+                    *ptr42.add(0).cast::<i32>() = (adaptive_routings43).take_handle() as i32;
                     *ptr42.add(4).cast::<i32>() = (country_pools43).take_handle() as i32;
                     *ptr42.add(8).cast::<i32>() = (created_on43).take_handle() as i32;
-                    *ptr42.add(12).cast::<i32>() = (default_pool_ids43).take_handle()
-                        as i32;
+                    *ptr42.add(12).cast::<i32>() = (default_pool_ids43).take_handle() as i32;
                     *ptr42.add(16).cast::<i32>() = (description43).take_handle() as i32;
                     *ptr42.add(20).cast::<i32>() = (enabled43).take_handle() as i32;
-                    *ptr42.add(24).cast::<i32>() = (fallback_pool_id43).take_handle()
-                        as i32;
-                    *ptr42.add(28).cast::<i32>() = (location_strategies43).take_handle()
-                        as i32;
+                    *ptr42.add(24).cast::<i32>() = (fallback_pool_id43).take_handle() as i32;
+                    *ptr42.add(28).cast::<i32>() = (location_strategies43).take_handle() as i32;
                     *ptr42.add(32).cast::<i32>() = (modified_on43).take_handle() as i32;
                     *ptr42.add(36).cast::<i32>() = (name43).take_handle() as i32;
                     *ptr42.add(40).cast::<i32>() = (pop_pools43).take_handle() as i32;
                     *ptr42.add(44).cast::<i32>() = (proxied43).take_handle() as i32;
-                    *ptr42.add(48).cast::<i32>() = (random_steerings43).take_handle()
-                        as i32;
+                    *ptr42.add(48).cast::<i32>() = (random_steerings43).take_handle() as i32;
                     *ptr42.add(52).cast::<i32>() = (region_pools43).take_handle() as i32;
                     *ptr42.add(56).cast::<i32>() = (rules43).take_handle() as i32;
-                    *ptr42.add(60).cast::<i32>() = (session_affinity43).take_handle()
-                        as i32;
-                    *ptr42.add(64).cast::<i32>() = (session_affinity_attributes43)
-                        .take_handle() as i32;
-                    *ptr42.add(68).cast::<i32>() = (session_affinity_ttl43).take_handle()
-                        as i32;
-                    *ptr42.add(72).cast::<i32>() = (steering_policy43).take_handle()
-                        as i32;
+                    *ptr42.add(60).cast::<i32>() = (session_affinity43).take_handle() as i32;
+                    *ptr42.add(64).cast::<i32>() =
+                        (session_affinity_attributes43).take_handle() as i32;
+                    *ptr42.add(68).cast::<i32>() = (session_affinity_ttl43).take_handle() as i32;
+                    *ptr42.add(72).cast::<i32>() = (steering_policy43).take_handle() as i32;
                     *ptr42.add(76).cast::<i32>() = (ttl43).take_handle() as i32;
                     *ptr42.add(80).cast::<i32>() = (zone_id43).take_handle() as i32;
                     ptr42
@@ -10051,17 +9613,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_load_balancer_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 84]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 84],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 84]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod load_balancer_monitor {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub allow_insecure: &'a Output,
@@ -10082,10 +9644,7 @@ pub mod exports {
                     pub type_: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("allow-insecure", &self.allow_insecure)
@@ -10129,10 +9688,7 @@ pub mod exports {
                     pub type_: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("allow-insecure", &self.allow_insecure)
@@ -10159,7 +9715,8 @@ pub mod exports {
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: *mut u8) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle4;
                     let handle6;
                     let handle8;
@@ -10329,20 +9886,14 @@ pub mod exports {
                         type_: type_39,
                     } = result37;
                     *ptr38.add(0).cast::<i32>() = (account_id39).take_handle() as i32;
-                    *ptr38.add(4).cast::<i32>() = (allow_insecure39).take_handle()
-                        as i32;
-                    *ptr38.add(8).cast::<i32>() = (consecutive_down39).take_handle()
-                        as i32;
-                    *ptr38.add(12).cast::<i32>() = (consecutive_up39).take_handle()
-                        as i32;
+                    *ptr38.add(4).cast::<i32>() = (allow_insecure39).take_handle() as i32;
+                    *ptr38.add(8).cast::<i32>() = (consecutive_down39).take_handle() as i32;
+                    *ptr38.add(12).cast::<i32>() = (consecutive_up39).take_handle() as i32;
                     *ptr38.add(16).cast::<i32>() = (created_on39).take_handle() as i32;
                     *ptr38.add(20).cast::<i32>() = (description39).take_handle() as i32;
-                    *ptr38.add(24).cast::<i32>() = (expected_body39).take_handle()
-                        as i32;
-                    *ptr38.add(28).cast::<i32>() = (expected_codes39).take_handle()
-                        as i32;
-                    *ptr38.add(32).cast::<i32>() = (follow_redirects39).take_handle()
-                        as i32;
+                    *ptr38.add(24).cast::<i32>() = (expected_body39).take_handle() as i32;
+                    *ptr38.add(28).cast::<i32>() = (expected_codes39).take_handle() as i32;
+                    *ptr38.add(32).cast::<i32>() = (follow_redirects39).take_handle() as i32;
                     *ptr38.add(36).cast::<i32>() = (headers39).take_handle() as i32;
                     *ptr38.add(40).cast::<i32>() = (interval39).take_handle() as i32;
                     *ptr38.add(44).cast::<i32>() = (method39).take_handle() as i32;
@@ -10371,17 +9922,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_load_balancer_monitor_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 76]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 76],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 76]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod load_balancer_pool {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub check_regions: &'a Output,
@@ -10398,10 +9949,7 @@ pub mod exports {
                     pub origins: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("check-regions", &self.check_regions)
@@ -10437,10 +9985,7 @@ pub mod exports {
                     pub origins: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("check-regions", &self.check_regions)
@@ -10479,7 +10024,8 @@ pub mod exports {
                     arg13: i32,
                     arg14: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -10602,18 +10148,14 @@ pub mod exports {
                     *ptr15.add(12).cast::<i32>() = (description16).take_handle() as i32;
                     *ptr15.add(16).cast::<i32>() = (enabled16).take_handle() as i32;
                     *ptr15.add(20).cast::<i32>() = (latitude16).take_handle() as i32;
-                    *ptr15.add(24).cast::<i32>() = (load_sheddings16).take_handle()
-                        as i32;
+                    *ptr15.add(24).cast::<i32>() = (load_sheddings16).take_handle() as i32;
                     *ptr15.add(28).cast::<i32>() = (longitude16).take_handle() as i32;
-                    *ptr15.add(32).cast::<i32>() = (minimum_origins16).take_handle()
-                        as i32;
+                    *ptr15.add(32).cast::<i32>() = (minimum_origins16).take_handle() as i32;
                     *ptr15.add(36).cast::<i32>() = (modified_on16).take_handle() as i32;
                     *ptr15.add(40).cast::<i32>() = (monitor16).take_handle() as i32;
                     *ptr15.add(44).cast::<i32>() = (name16).take_handle() as i32;
-                    *ptr15.add(48).cast::<i32>() = (notification_email16).take_handle()
-                        as i32;
-                    *ptr15.add(52).cast::<i32>() = (origin_steerings16).take_handle()
-                        as i32;
+                    *ptr15.add(48).cast::<i32>() = (notification_email16).take_handle() as i32;
+                    *ptr15.add(52).cast::<i32>() = (origin_steerings16).take_handle() as i32;
                     *ptr15.add(56).cast::<i32>() = (origins16).take_handle() as i32;
                     ptr15
                 }
@@ -10638,26 +10180,23 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_load_balancer_pool_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 60]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 60],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 60]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod logpull_retention {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub enabled: &'a Output,
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("enabled", &self.enabled)
                             .field("zone-id", &self.zone_id)
@@ -10669,10 +10208,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("enabled", &self.enabled)
                             .field("zone-id", &self.zone_id)
@@ -10687,7 +10223,8 @@ pub mod exports {
                     arg2: i32,
                     arg3: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let len0 = arg1;
@@ -10710,7 +10247,10 @@ pub mod exports {
                         },
                     );
                     let ptr4 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
-                    let Res { enabled: enabled5, zone_id: zone_id5 } = result3;
+                    let Res {
+                        enabled: enabled5,
+                        zone_id: zone_id5,
+                    } = result3;
                     *ptr4.add(0).cast::<i32>() = (enabled5).take_handle() as i32;
                     *ptr4.add(4).cast::<i32>() = (zone_id5).take_handle() as i32;
                     ptr4
@@ -10732,17 +10272,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_logpull_retention_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 8],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 8]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod logpush_job {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub dataset: &'a Output,
@@ -10761,10 +10301,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("dataset", &self.dataset)
@@ -10805,10 +10342,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("dataset", &self.dataset)
@@ -10834,7 +10368,8 @@ pub mod exports {
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: *mut u8) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle4;
                     let handle6;
                     let handle8;
@@ -10985,25 +10520,19 @@ pub mod exports {
                     } = result33;
                     *ptr34.add(0).cast::<i32>() = (account_id35).take_handle() as i32;
                     *ptr34.add(4).cast::<i32>() = (dataset35).take_handle() as i32;
-                    *ptr34.add(8).cast::<i32>() = (destination_conf35).take_handle()
-                        as i32;
+                    *ptr34.add(8).cast::<i32>() = (destination_conf35).take_handle() as i32;
                     *ptr34.add(12).cast::<i32>() = (enabled35).take_handle() as i32;
                     *ptr34.add(16).cast::<i32>() = (filter35).take_handle() as i32;
                     *ptr34.add(20).cast::<i32>() = (frequency35).take_handle() as i32;
                     *ptr34.add(24).cast::<i32>() = (kind35).take_handle() as i32;
-                    *ptr34.add(28).cast::<i32>() = (logpull_options35).take_handle()
-                        as i32;
-                    *ptr34.add(32).cast::<i32>() = (max_upload_bytes35).take_handle()
-                        as i32;
-                    *ptr34.add(36).cast::<i32>() = (max_upload_interval_seconds35)
-                        .take_handle() as i32;
-                    *ptr34.add(40).cast::<i32>() = (max_upload_records35).take_handle()
-                        as i32;
+                    *ptr34.add(28).cast::<i32>() = (logpull_options35).take_handle() as i32;
+                    *ptr34.add(32).cast::<i32>() = (max_upload_bytes35).take_handle() as i32;
+                    *ptr34.add(36).cast::<i32>() =
+                        (max_upload_interval_seconds35).take_handle() as i32;
+                    *ptr34.add(40).cast::<i32>() = (max_upload_records35).take_handle() as i32;
                     *ptr34.add(44).cast::<i32>() = (name35).take_handle() as i32;
-                    *ptr34.add(48).cast::<i32>() = (output_options35).take_handle()
-                        as i32;
-                    *ptr34.add(52).cast::<i32>() = (ownership_challenge35).take_handle()
-                        as i32;
+                    *ptr34.add(48).cast::<i32>() = (output_options35).take_handle() as i32;
+                    *ptr34.add(52).cast::<i32>() = (ownership_challenge35).take_handle() as i32;
                     *ptr34.add(56).cast::<i32>() = (zone_id35).take_handle() as i32;
                     ptr34
                 }
@@ -11023,27 +10552,24 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_logpush_job_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 60]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 60],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 60]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod logpush_ownership_challenge {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub destination_conf: &'a Output,
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("destination-conf", &self.destination_conf)
@@ -11058,10 +10584,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("destination-conf", &self.destination_conf)
@@ -11082,7 +10605,8 @@ pub mod exports {
                     arg3: i32,
                     arg4: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -11119,10 +10643,9 @@ pub mod exports {
                         zone_id: zone_id6,
                     } = result4;
                     *ptr5.add(0).cast::<i32>() = (account_id6).take_handle() as i32;
-                    *ptr5.add(4).cast::<i32>() = (destination_conf6).take_handle()
-                        as i32;
-                    *ptr5.add(8).cast::<i32>() = (ownership_challenge_filename6)
-                        .take_handle() as i32;
+                    *ptr5.add(4).cast::<i32>() = (destination_conf6).take_handle() as i32;
+                    *ptr5.add(8).cast::<i32>() =
+                        (ownership_challenge_filename6).take_handle() as i32;
                     *ptr5.add(12).cast::<i32>() = (zone_id6).take_handle() as i32;
                     ptr5
                 }
@@ -11144,17 +10667,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_logpush_ownership_challenge_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 16],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod magic_firewall_ruleset {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub description: &'a Output,
@@ -11162,10 +10685,7 @@ pub mod exports {
                     pub rules: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("description", &self.description)
@@ -11181,10 +10701,7 @@ pub mod exports {
                     pub rules: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("description", &self.description)
@@ -11203,7 +10720,8 @@ pub mod exports {
                     arg4: i32,
                     arg5: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -11270,36 +10788,27 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_magic_firewall_ruleset_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 16],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod managed_headers {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub managed_request_headers: &'a Output,
                     pub managed_response_headers: &'a Output,
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
-                            .field(
-                                "managed-request-headers",
-                                &self.managed_request_headers,
-                            )
-                            .field(
-                                "managed-response-headers",
-                                &self.managed_response_headers,
-                            )
+                            .field("managed-request-headers", &self.managed_request_headers)
+                            .field("managed-response-headers", &self.managed_response_headers)
                             .field("zone-id", &self.zone_id)
                             .finish()
                     }
@@ -11310,19 +10819,10 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
-                            .field(
-                                "managed-request-headers",
-                                &self.managed_request_headers,
-                            )
-                            .field(
-                                "managed-response-headers",
-                                &self.managed_response_headers,
-                            )
+                            .field("managed-request-headers", &self.managed_request_headers)
+                            .field("managed-response-headers", &self.managed_response_headers)
                             .field("zone-id", &self.zone_id)
                             .finish()
                     }
@@ -11336,7 +10836,8 @@ pub mod exports {
                     arg3: i32,
                     arg4: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -11371,10 +10872,8 @@ pub mod exports {
                         managed_response_headers: managed_response_headers6,
                         zone_id: zone_id6,
                     } = result4;
-                    *ptr5.add(0).cast::<i32>() = (managed_request_headers6).take_handle()
-                        as i32;
-                    *ptr5.add(4).cast::<i32>() = (managed_response_headers6)
-                        .take_handle() as i32;
+                    *ptr5.add(0).cast::<i32>() = (managed_request_headers6).take_handle() as i32;
+                    *ptr5.add(4).cast::<i32>() = (managed_response_headers6).take_handle() as i32;
                     *ptr5.add(8).cast::<i32>() = (zone_id6).take_handle() as i32;
                     ptr5
                 }
@@ -11396,17 +10895,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_managed_headers_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 12],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod mtls_certificate {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub ca: &'a Output,
@@ -11415,10 +10914,7 @@ pub mod exports {
                     pub private_key: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("ca", &self.ca)
@@ -11441,10 +10937,7 @@ pub mod exports {
                     pub uploaded_on: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("ca", &self.ca)
@@ -11470,7 +10963,8 @@ pub mod exports {
                     arg5: i32,
                     arg6: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -11556,17 +11050,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_mtls_certificate_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 40]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 40],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 40]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod notification_policy {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub alert_type: &'a Output,
@@ -11579,10 +11073,7 @@ pub mod exports {
                     pub webhooks_integrations: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("alert-type", &self.alert_type)
@@ -11591,10 +11082,7 @@ pub mod exports {
                             .field("enabled", &self.enabled)
                             .field("filters", &self.filters)
                             .field("name", &self.name)
-                            .field(
-                                "pagerduty-integrations",
-                                &self.pagerduty_integrations,
-                            )
+                            .field("pagerduty-integrations", &self.pagerduty_integrations)
                             .field("webhooks-integrations", &self.webhooks_integrations)
                             .finish()
                     }
@@ -11613,10 +11101,7 @@ pub mod exports {
                     pub webhooks_integrations: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("alert-type", &self.alert_type)
@@ -11627,10 +11112,7 @@ pub mod exports {
                             .field("filters", &self.filters)
                             .field("modified", &self.modified)
                             .field("name", &self.name)
-                            .field(
-                                "pagerduty-integrations",
-                                &self.pagerduty_integrations,
-                            )
+                            .field("pagerduty-integrations", &self.pagerduty_integrations)
                             .field("webhooks-integrations", &self.webhooks_integrations)
                             .finish()
                     }
@@ -11650,7 +11132,8 @@ pub mod exports {
                     arg9: i32,
                     arg10: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -11739,16 +11222,13 @@ pub mod exports {
                     *ptr11.add(4).cast::<i32>() = (alert_type12).take_handle() as i32;
                     *ptr11.add(8).cast::<i32>() = (created12).take_handle() as i32;
                     *ptr11.add(12).cast::<i32>() = (description12).take_handle() as i32;
-                    *ptr11.add(16).cast::<i32>() = (email_integrations12).take_handle()
-                        as i32;
+                    *ptr11.add(16).cast::<i32>() = (email_integrations12).take_handle() as i32;
                     *ptr11.add(20).cast::<i32>() = (enabled12).take_handle() as i32;
                     *ptr11.add(24).cast::<i32>() = (filters12).take_handle() as i32;
                     *ptr11.add(28).cast::<i32>() = (modified12).take_handle() as i32;
                     *ptr11.add(32).cast::<i32>() = (name12).take_handle() as i32;
-                    *ptr11.add(36).cast::<i32>() = (pagerduty_integrations12)
-                        .take_handle() as i32;
-                    *ptr11.add(40).cast::<i32>() = (webhooks_integrations12)
-                        .take_handle() as i32;
+                    *ptr11.add(36).cast::<i32>() = (pagerduty_integrations12).take_handle() as i32;
+                    *ptr11.add(40).cast::<i32>() = (webhooks_integrations12).take_handle() as i32;
                     ptr11
                 }
                 pub trait Guest {
@@ -11770,17 +11250,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_notification_policy_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 44]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 44],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 44]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod notification_policy_webhooks {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub name: &'a Output,
@@ -11788,10 +11268,7 @@ pub mod exports {
                     pub url: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("name", &self.name)
@@ -11811,10 +11288,7 @@ pub mod exports {
                     pub url: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("created-at", &self.created_at)
@@ -11837,7 +11311,8 @@ pub mod exports {
                     arg4: i32,
                     arg5: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -11912,17 +11387,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_notification_policy_webhooks_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 32],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 32]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod observatory_scheduled_test {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub frequency: &'a Output,
                     pub region: &'a Output,
@@ -11930,10 +11405,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("frequency", &self.frequency)
                             .field("region", &self.region)
@@ -11949,10 +11421,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("frequency", &self.frequency)
                             .field("region", &self.region)
@@ -11971,7 +11440,8 @@ pub mod exports {
                     arg4: i32,
                     arg5: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -12038,17 +11508,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_observatory_scheduled_test_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 16],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod origin_ca_certificate {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub csr: &'a Output,
                     pub hostnames: &'a Output,
@@ -12057,10 +11527,7 @@ pub mod exports {
                     pub requested_validity: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("csr", &self.csr)
                             .field("hostnames", &self.hostnames)
@@ -12080,10 +11547,7 @@ pub mod exports {
                     pub requested_validity: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("certificate", &self.certificate)
                             .field("csr", &self.csr)
@@ -12106,7 +11570,8 @@ pub mod exports {
                     arg5: i32,
                     arg6: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -12163,11 +11628,9 @@ pub mod exports {
                     *ptr7.add(4).cast::<i32>() = (csr8).take_handle() as i32;
                     *ptr7.add(8).cast::<i32>() = (expires_on8).take_handle() as i32;
                     *ptr7.add(12).cast::<i32>() = (hostnames8).take_handle() as i32;
-                    *ptr7.add(16).cast::<i32>() = (min_days_for_renewal8).take_handle()
-                        as i32;
+                    *ptr7.add(16).cast::<i32>() = (min_days_for_renewal8).take_handle() as i32;
                     *ptr7.add(20).cast::<i32>() = (request_type8).take_handle() as i32;
-                    *ptr7.add(24).cast::<i32>() = (requested_validity8).take_handle()
-                        as i32;
+                    *ptr7.add(24).cast::<i32>() = (requested_validity8).take_handle() as i32;
                     ptr7
                 }
                 pub trait Guest {
@@ -12188,17 +11651,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_origin_ca_certificate_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 28]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 28],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 28]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod page_rule {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub actions: &'a Output,
                     pub priority: &'a Output,
@@ -12207,10 +11670,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("actions", &self.actions)
                             .field("priority", &self.priority)
@@ -12228,10 +11688,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("actions", &self.actions)
                             .field("priority", &self.priority)
@@ -12252,7 +11709,8 @@ pub mod exports {
                     arg5: i32,
                     arg6: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -12328,27 +11786,24 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_page_rule_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 20],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod pages_domain {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub domain: &'a Output,
                     pub project_name: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("domain", &self.domain)
@@ -12363,10 +11818,7 @@ pub mod exports {
                     pub status: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("domain", &self.domain)
@@ -12384,7 +11836,8 @@ pub mod exports {
                     arg3: i32,
                     arg4: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -12444,17 +11897,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_pages_domain_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 16],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod pages_project {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub build_config: &'a Output,
@@ -12464,10 +11917,7 @@ pub mod exports {
                     pub source: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("build-config", &self.build_config)
@@ -12490,10 +11940,7 @@ pub mod exports {
                     pub subdomain: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("build-config", &self.build_config)
@@ -12519,7 +11966,8 @@ pub mod exports {
                     arg6: i32,
                     arg7: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -12584,12 +12032,10 @@ pub mod exports {
                     *ptr8.add(0).cast::<i32>() = (account_id9).take_handle() as i32;
                     *ptr8.add(4).cast::<i32>() = (build_config9).take_handle() as i32;
                     *ptr8.add(8).cast::<i32>() = (created_on9).take_handle() as i32;
-                    *ptr8.add(12).cast::<i32>() = (deployment_configs9).take_handle()
-                        as i32;
+                    *ptr8.add(12).cast::<i32>() = (deployment_configs9).take_handle() as i32;
                     *ptr8.add(16).cast::<i32>() = (domains9).take_handle() as i32;
                     *ptr8.add(20).cast::<i32>() = (name9).take_handle() as i32;
-                    *ptr8.add(24).cast::<i32>() = (production_branch9).take_handle()
-                        as i32;
+                    *ptr8.add(24).cast::<i32>() = (production_branch9).take_handle() as i32;
                     *ptr8.add(28).cast::<i32>() = (source9).take_handle() as i32;
                     *ptr8.add(32).cast::<i32>() = (subdomain9).take_handle() as i32;
                     ptr8
@@ -12613,26 +12059,23 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_pages_project_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 36]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 36],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 36]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod queue {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub name: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("name", &self.name)
@@ -12644,10 +12087,7 @@ pub mod exports {
                     pub name: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("name", &self.name)
@@ -12662,7 +12102,8 @@ pub mod exports {
                     arg2: i32,
                     arg3: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let len0 = arg1;
@@ -12685,7 +12126,10 @@ pub mod exports {
                         },
                     );
                     let ptr4 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
-                    let Res { account_id: account_id5, name: name5 } = result3;
+                    let Res {
+                        account_id: account_id5,
+                        name: name5,
+                    } = result3;
                     *ptr4.add(0).cast::<i32>() = (account_id5).take_handle() as i32;
                     *ptr4.add(4).cast::<i32>() = (name5).take_handle() as i32;
                     ptr4
@@ -12707,27 +12151,24 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_queue_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 8],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 8]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod r2_bucket {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub location: &'a Output,
                     pub name: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("location", &self.location)
@@ -12741,10 +12182,7 @@ pub mod exports {
                     pub name: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("location", &self.location)
@@ -12761,7 +12199,8 @@ pub mod exports {
                     arg3: i32,
                     arg4: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -12819,17 +12258,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_r2_bucket_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 12],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod rate_limit {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub action: &'a Output,
                     pub bypass_url_patterns: &'a Output,
@@ -12842,10 +12281,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("action", &self.action)
                             .field("bypass-url-patterns", &self.bypass_url_patterns)
@@ -12871,10 +12307,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("action", &self.action)
                             .field("bypass-url-patterns", &self.bypass_url_patterns)
@@ -12903,7 +12336,8 @@ pub mod exports {
                     arg9: i32,
                     arg10: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -12987,8 +12421,7 @@ pub mod exports {
                         zone_id: zone_id12,
                     } = result10;
                     *ptr11.add(0).cast::<i32>() = (action12).take_handle() as i32;
-                    *ptr11.add(4).cast::<i32>() = (bypass_url_patterns12).take_handle()
-                        as i32;
+                    *ptr11.add(4).cast::<i32>() = (bypass_url_patterns12).take_handle() as i32;
                     *ptr11.add(8).cast::<i32>() = (correlate12).take_handle() as i32;
                     *ptr11.add(12).cast::<i32>() = (description12).take_handle() as i32;
                     *ptr11.add(16).cast::<i32>() = (disabled12).take_handle() as i32;
@@ -13017,17 +12450,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_rate_limit_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 36]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 36],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 36]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod record {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub allow_overwrite: &'a Output,
                     pub comment: &'a Output,
@@ -13042,10 +12475,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("allow-overwrite", &self.allow_overwrite)
                             .field("comment", &self.comment)
@@ -13080,10 +12510,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("allow-overwrite", &self.allow_overwrite)
                             .field("comment", &self.comment)
@@ -13121,7 +12548,8 @@ pub mod exports {
                     arg11: i32,
                     arg12: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -13225,8 +12653,7 @@ pub mod exports {
                         value: value14,
                         zone_id: zone_id14,
                     } = result12;
-                    *ptr13.add(0).cast::<i32>() = (allow_overwrite14).take_handle()
-                        as i32;
+                    *ptr13.add(0).cast::<i32>() = (allow_overwrite14).take_handle() as i32;
                     *ptr13.add(4).cast::<i32>() = (comment14).take_handle() as i32;
                     *ptr13.add(8).cast::<i32>() = (created_on14).take_handle() as i32;
                     *ptr13.add(12).cast::<i32>() = (data14).take_handle() as i32;
@@ -13264,27 +12691,24 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_record_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 64]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 64],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 64]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod regional_hostname {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub hostname: &'a Output,
                     pub region_key: &'a Output,
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("hostname", &self.hostname)
                             .field("region-key", &self.region_key)
@@ -13299,10 +12723,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("created-on", &self.created_on)
                             .field("hostname", &self.hostname)
@@ -13320,7 +12741,8 @@ pub mod exports {
                     arg3: i32,
                     arg4: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -13380,26 +12802,23 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_regional_hostname_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 16],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod regional_tiered_cache {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub value: &'a Output,
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("value", &self.value)
                             .field("zone-id", &self.zone_id)
@@ -13411,10 +12830,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("value", &self.value)
                             .field("zone-id", &self.zone_id)
@@ -13429,7 +12845,8 @@ pub mod exports {
                     arg2: i32,
                     arg3: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let len0 = arg1;
@@ -13452,7 +12869,10 @@ pub mod exports {
                         },
                     );
                     let ptr4 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
-                    let Res { value: value5, zone_id: zone_id5 } = result3;
+                    let Res {
+                        value: value5,
+                        zone_id: zone_id5,
+                    } = result3;
                     *ptr4.add(0).cast::<i32>() = (value5).take_handle() as i32;
                     *ptr4.add(4).cast::<i32>() = (zone_id5).take_handle() as i32;
                     ptr4
@@ -13474,17 +12894,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_regional_tiered_cache_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 8],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 8]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod ruleset {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub description: &'a Output,
@@ -13495,10 +12915,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("description", &self.description)
@@ -13520,10 +12937,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("description", &self.description)
@@ -13548,7 +12962,8 @@ pub mod exports {
                     arg7: i32,
                     arg8: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -13643,17 +13058,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_ruleset_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 28]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 28],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 28]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod spectrum_application {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub argo_smart_routing: &'a Output,
                     pub dns: &'a Output,
@@ -13670,10 +13085,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("argo-smart-routing", &self.argo_smart_routing)
                             .field("dns", &self.dns)
@@ -13707,10 +13119,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("argo-smart-routing", &self.argo_smart_routing)
                             .field("dns", &self.dns)
@@ -13747,7 +13156,8 @@ pub mod exports {
                     arg13: i32,
                     arg14: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -13862,20 +13272,16 @@ pub mod exports {
                         traffic_type: traffic_type16,
                         zone_id: zone_id16,
                     } = result14;
-                    *ptr15.add(0).cast::<i32>() = (argo_smart_routing16).take_handle()
-                        as i32;
+                    *ptr15.add(0).cast::<i32>() = (argo_smart_routing16).take_handle() as i32;
                     *ptr15.add(4).cast::<i32>() = (dns16).take_handle() as i32;
                     *ptr15.add(8).cast::<i32>() = (edge_ips16).take_handle() as i32;
                     *ptr15.add(12).cast::<i32>() = (ip_firewall16).take_handle() as i32;
-                    *ptr15.add(16).cast::<i32>() = (origin_directs16).take_handle()
-                        as i32;
+                    *ptr15.add(16).cast::<i32>() = (origin_directs16).take_handle() as i32;
                     *ptr15.add(20).cast::<i32>() = (origin_dns16).take_handle() as i32;
                     *ptr15.add(24).cast::<i32>() = (origin_port16).take_handle() as i32;
-                    *ptr15.add(28).cast::<i32>() = (origin_port_range16).take_handle()
-                        as i32;
+                    *ptr15.add(28).cast::<i32>() = (origin_port_range16).take_handle() as i32;
                     *ptr15.add(32).cast::<i32>() = (protocol16).take_handle() as i32;
-                    *ptr15.add(36).cast::<i32>() = (proxy_protocol16).take_handle()
-                        as i32;
+                    *ptr15.add(36).cast::<i32>() = (proxy_protocol16).take_handle() as i32;
                     *ptr15.add(40).cast::<i32>() = (tls16).take_handle() as i32;
                     *ptr15.add(44).cast::<i32>() = (traffic_type16).take_handle() as i32;
                     *ptr15.add(48).cast::<i32>() = (zone_id16).take_handle() as i32;
@@ -13902,17 +13308,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_spectrum_application_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 52]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 52],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 52]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod split_tunnel {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub mode: &'a Output,
@@ -13920,10 +13326,7 @@ pub mod exports {
                     pub tunnels: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("mode", &self.mode)
@@ -13939,10 +13342,7 @@ pub mod exports {
                     pub tunnels: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("mode", &self.mode)
@@ -13961,7 +13361,8 @@ pub mod exports {
                     arg4: i32,
                     arg5: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -14028,17 +13429,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_split_tunnel_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 16],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod static_route {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub colo_names: &'a Output,
@@ -14050,10 +13451,7 @@ pub mod exports {
                     pub weight: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("colo-names", &self.colo_names)
@@ -14077,10 +13475,7 @@ pub mod exports {
                     pub weight: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("colo-names", &self.colo_names)
@@ -14107,7 +13502,8 @@ pub mod exports {
                     arg8: i32,
                     arg9: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -14211,17 +13607,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_static_route_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 32],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 32]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod teams_account {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub activity_log_enabled: &'a Output,
@@ -14240,20 +13636,14 @@ pub mod exports {
                     pub url_browser_isolation_enabled: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("activity-log-enabled", &self.activity_log_enabled)
                             .field("antivirus", &self.antivirus)
                             .field("block-page", &self.block_page)
                             .field("body-scanning", &self.body_scanning)
-                            .field(
-                                "extended-email-matching",
-                                &self.extended_email_matching,
-                            )
+                            .field("extended-email-matching", &self.extended_email_matching)
                             .field("fips", &self.fips)
                             .field("logging", &self.logging)
                             .field(
@@ -14293,20 +13683,14 @@ pub mod exports {
                     pub url_browser_isolation_enabled: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("activity-log-enabled", &self.activity_log_enabled)
                             .field("antivirus", &self.antivirus)
                             .field("block-page", &self.block_page)
                             .field("body-scanning", &self.body_scanning)
-                            .field(
-                                "extended-email-matching",
-                                &self.extended_email_matching,
-                            )
+                            .field("extended-email-matching", &self.extended_email_matching)
                             .field("fips", &self.fips)
                             .field("logging", &self.logging)
                             .field(
@@ -14331,7 +13715,8 @@ pub mod exports {
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: *mut u8) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle4;
                     let handle6;
                     let handle8;
@@ -14472,7 +13857,8 @@ pub mod exports {
                         extended_email_matching: extended_email_matching35,
                         fips: fips35,
                         logging: logging35,
-                        non_identity_browser_isolation_enabled: non_identity_browser_isolation_enabled35,
+                        non_identity_browser_isolation_enabled:
+                            non_identity_browser_isolation_enabled35,
                         payload_log: payload_log35,
                         protocol_detection_enabled: protocol_detection_enabled35,
                         proxy: proxy35,
@@ -14481,28 +13867,23 @@ pub mod exports {
                         url_browser_isolation_enabled: url_browser_isolation_enabled35,
                     } = result33;
                     *ptr34.add(0).cast::<i32>() = (account_id35).take_handle() as i32;
-                    *ptr34.add(4).cast::<i32>() = (activity_log_enabled35).take_handle()
-                        as i32;
+                    *ptr34.add(4).cast::<i32>() = (activity_log_enabled35).take_handle() as i32;
                     *ptr34.add(8).cast::<i32>() = (antivirus35).take_handle() as i32;
                     *ptr34.add(12).cast::<i32>() = (block_page35).take_handle() as i32;
-                    *ptr34.add(16).cast::<i32>() = (body_scanning35).take_handle()
-                        as i32;
-                    *ptr34.add(20).cast::<i32>() = (extended_email_matching35)
-                        .take_handle() as i32;
+                    *ptr34.add(16).cast::<i32>() = (body_scanning35).take_handle() as i32;
+                    *ptr34.add(20).cast::<i32>() = (extended_email_matching35).take_handle() as i32;
                     *ptr34.add(24).cast::<i32>() = (fips35).take_handle() as i32;
                     *ptr34.add(28).cast::<i32>() = (logging35).take_handle() as i32;
-                    *ptr34.add(32).cast::<i32>() = (non_identity_browser_isolation_enabled35)
-                        .take_handle() as i32;
+                    *ptr34.add(32).cast::<i32>() =
+                        (non_identity_browser_isolation_enabled35).take_handle() as i32;
                     *ptr34.add(36).cast::<i32>() = (payload_log35).take_handle() as i32;
-                    *ptr34.add(40).cast::<i32>() = (protocol_detection_enabled35)
-                        .take_handle() as i32;
+                    *ptr34.add(40).cast::<i32>() =
+                        (protocol_detection_enabled35).take_handle() as i32;
                     *ptr34.add(44).cast::<i32>() = (proxy35).take_handle() as i32;
-                    *ptr34.add(48).cast::<i32>() = (ssh_session_log35).take_handle()
-                        as i32;
-                    *ptr34.add(52).cast::<i32>() = (tls_decrypt_enabled35).take_handle()
-                        as i32;
-                    *ptr34.add(56).cast::<i32>() = (url_browser_isolation_enabled35)
-                        .take_handle() as i32;
+                    *ptr34.add(48).cast::<i32>() = (ssh_session_log35).take_handle() as i32;
+                    *ptr34.add(52).cast::<i32>() = (tls_decrypt_enabled35).take_handle() as i32;
+                    *ptr34.add(56).cast::<i32>() =
+                        (url_browser_isolation_enabled35).take_handle() as i32;
                     ptr34
                 }
                 pub trait Guest {
@@ -14521,17 +13902,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_teams_account_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 60]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 60],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 60]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod teams_list {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub description: &'a Output,
@@ -14540,10 +13921,7 @@ pub mod exports {
                     pub type_: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("description", &self.description)
@@ -14561,10 +13939,7 @@ pub mod exports {
                     pub type_: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("description", &self.description)
@@ -14585,7 +13960,8 @@ pub mod exports {
                     arg5: i32,
                     arg6: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -14661,17 +14037,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_teams_list_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 20],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod teams_location {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub client_default: &'a Output,
@@ -14679,10 +14055,7 @@ pub mod exports {
                     pub networks: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("client-default", &self.client_default)
@@ -14703,16 +14076,10 @@ pub mod exports {
                     pub policy_ids: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
-                            .field(
-                                "anonymized-logs-enabled",
-                                &self.anonymized_logs_enabled,
-                            )
+                            .field("anonymized-logs-enabled", &self.anonymized_logs_enabled)
                             .field("client-default", &self.client_default)
                             .field("doh-subdomain", &self.doh_subdomain)
                             .field("ip", &self.ip)
@@ -14733,7 +14100,8 @@ pub mod exports {
                     arg4: i32,
                     arg5: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -14782,13 +14150,11 @@ pub mod exports {
                         policy_ids: policy_ids7,
                     } = result5;
                     *ptr6.add(0).cast::<i32>() = (account_id7).take_handle() as i32;
-                    *ptr6.add(4).cast::<i32>() = (anonymized_logs_enabled7).take_handle()
-                        as i32;
+                    *ptr6.add(4).cast::<i32>() = (anonymized_logs_enabled7).take_handle() as i32;
                     *ptr6.add(8).cast::<i32>() = (client_default7).take_handle() as i32;
                     *ptr6.add(12).cast::<i32>() = (doh_subdomain7).take_handle() as i32;
                     *ptr6.add(16).cast::<i32>() = (ip7).take_handle() as i32;
-                    *ptr6.add(20).cast::<i32>() = (ipv4_destination7).take_handle()
-                        as i32;
+                    *ptr6.add(20).cast::<i32>() = (ipv4_destination7).take_handle() as i32;
                     *ptr6.add(24).cast::<i32>() = (name7).take_handle() as i32;
                     *ptr6.add(28).cast::<i32>() = (networks7).take_handle() as i32;
                     *ptr6.add(32).cast::<i32>() = (policy_ids7).take_handle() as i32;
@@ -14812,27 +14178,24 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_teams_location_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 36]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 36],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 36]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod teams_proxy_endpoint {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub ips: &'a Output,
                     pub name: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("ips", &self.ips)
@@ -14847,10 +14210,7 @@ pub mod exports {
                     pub subdomain: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("ips", &self.ips)
@@ -14868,7 +14228,8 @@ pub mod exports {
                     arg3: i32,
                     arg4: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -14928,17 +14289,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_teams_proxy_endpoint_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 16],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod teams_rule {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub action: &'a Output,
@@ -14953,10 +14314,7 @@ pub mod exports {
                     pub traffic: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("action", &self.action)
@@ -14987,10 +14345,7 @@ pub mod exports {
                     pub version: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("action", &self.action)
@@ -15024,7 +14379,8 @@ pub mod exports {
                     arg11: i32,
                     arg12: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -15127,15 +14483,13 @@ pub mod exports {
                     *ptr13.add(0).cast::<i32>() = (account_id14).take_handle() as i32;
                     *ptr13.add(4).cast::<i32>() = (action14).take_handle() as i32;
                     *ptr13.add(8).cast::<i32>() = (description14).take_handle() as i32;
-                    *ptr13.add(12).cast::<i32>() = (device_posture14).take_handle()
-                        as i32;
+                    *ptr13.add(12).cast::<i32>() = (device_posture14).take_handle() as i32;
                     *ptr13.add(16).cast::<i32>() = (enabled14).take_handle() as i32;
                     *ptr13.add(20).cast::<i32>() = (filters14).take_handle() as i32;
                     *ptr13.add(24).cast::<i32>() = (identity14).take_handle() as i32;
                     *ptr13.add(28).cast::<i32>() = (name14).take_handle() as i32;
                     *ptr13.add(32).cast::<i32>() = (precedence14).take_handle() as i32;
-                    *ptr13.add(36).cast::<i32>() = (rule_settings14).take_handle()
-                        as i32;
+                    *ptr13.add(36).cast::<i32>() = (rule_settings14).take_handle() as i32;
                     *ptr13.add(40).cast::<i32>() = (traffic14).take_handle() as i32;
                     *ptr13.add(44).cast::<i32>() = (version14).take_handle() as i32;
                     ptr13
@@ -15160,26 +14514,23 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_teams_rule_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 48]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 48],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 48]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod tiered_cache {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub cache_type: &'a Output,
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("cache-type", &self.cache_type)
                             .field("zone-id", &self.zone_id)
@@ -15191,10 +14542,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("cache-type", &self.cache_type)
                             .field("zone-id", &self.zone_id)
@@ -15209,7 +14557,8 @@ pub mod exports {
                     arg2: i32,
                     arg3: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let len0 = arg1;
@@ -15232,7 +14581,10 @@ pub mod exports {
                         },
                     );
                     let ptr4 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
-                    let Res { cache_type: cache_type5, zone_id: zone_id5 } = result3;
+                    let Res {
+                        cache_type: cache_type5,
+                        zone_id: zone_id5,
+                    } = result3;
                     *ptr4.add(0).cast::<i32>() = (cache_type5).take_handle() as i32;
                     *ptr4.add(4).cast::<i32>() = (zone_id5).take_handle() as i32;
                     ptr4
@@ -15254,27 +14606,24 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_tiered_cache_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 8],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 8]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod total_tls {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub certificate_authority: &'a Output,
                     pub enabled: &'a Output,
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("certificate-authority", &self.certificate_authority)
                             .field("enabled", &self.enabled)
@@ -15288,10 +14637,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("certificate-authority", &self.certificate_authority)
                             .field("enabled", &self.enabled)
@@ -15308,7 +14654,8 @@ pub mod exports {
                     arg3: i32,
                     arg4: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -15343,8 +14690,7 @@ pub mod exports {
                         enabled: enabled6,
                         zone_id: zone_id6,
                     } = result4;
-                    *ptr5.add(0).cast::<i32>() = (certificate_authority6).take_handle()
-                        as i32;
+                    *ptr5.add(0).cast::<i32>() = (certificate_authority6).take_handle() as i32;
                     *ptr5.add(4).cast::<i32>() = (enabled6).take_handle() as i32;
                     *ptr5.add(8).cast::<i32>() = (zone_id6).take_handle() as i32;
                     ptr5
@@ -15367,17 +14713,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_total_tls_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 12],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod tunnel {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub config_src: &'a Output,
@@ -15385,10 +14731,7 @@ pub mod exports {
                     pub secret: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("config-src", &self.config_src)
@@ -15406,10 +14749,7 @@ pub mod exports {
                     pub tunnel_token: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("cname", &self.cname)
@@ -15430,7 +14770,8 @@ pub mod exports {
                     arg4: i32,
                     arg5: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -15501,27 +14842,24 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_tunnel_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 24],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 24]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod tunnel_config {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub config: &'a Output,
                     pub tunnel_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("config", &self.config)
@@ -15535,10 +14873,7 @@ pub mod exports {
                     pub tunnel_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("config", &self.config)
@@ -15555,7 +14890,8 @@ pub mod exports {
                     arg3: i32,
                     arg4: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -15613,17 +14949,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_tunnel_config_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 12],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod tunnel_route {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub comment: &'a Output,
@@ -15632,10 +14968,7 @@ pub mod exports {
                     pub virtual_network_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("comment", &self.comment)
@@ -15653,10 +14986,7 @@ pub mod exports {
                     pub virtual_network_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("comment", &self.comment)
@@ -15677,7 +15007,8 @@ pub mod exports {
                     arg5: i32,
                     arg6: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -15732,8 +15063,7 @@ pub mod exports {
                     *ptr7.add(4).cast::<i32>() = (comment8).take_handle() as i32;
                     *ptr7.add(8).cast::<i32>() = (network8).take_handle() as i32;
                     *ptr7.add(12).cast::<i32>() = (tunnel_id8).take_handle() as i32;
-                    *ptr7.add(16).cast::<i32>() = (virtual_network_id8).take_handle()
-                        as i32;
+                    *ptr7.add(16).cast::<i32>() = (virtual_network_id8).take_handle() as i32;
                     ptr7
                 }
                 pub trait Guest {
@@ -15754,17 +15084,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_tunnel_route_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 20],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod tunnel_virtual_network {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub comment: &'a Output,
@@ -15772,10 +15102,7 @@ pub mod exports {
                     pub name: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("comment", &self.comment)
@@ -15791,10 +15118,7 @@ pub mod exports {
                     pub name: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("comment", &self.comment)
@@ -15813,7 +15137,8 @@ pub mod exports {
                     arg4: i32,
                     arg5: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -15858,8 +15183,7 @@ pub mod exports {
                     } = result5;
                     *ptr6.add(0).cast::<i32>() = (account_id7).take_handle() as i32;
                     *ptr6.add(4).cast::<i32>() = (comment7).take_handle() as i32;
-                    *ptr6.add(8).cast::<i32>() = (is_default_network7).take_handle()
-                        as i32;
+                    *ptr6.add(8).cast::<i32>() = (is_default_network7).take_handle() as i32;
                     *ptr6.add(12).cast::<i32>() = (name7).take_handle() as i32;
                     ptr6
                 }
@@ -15881,17 +15205,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_tunnel_virtual_network_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 16],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod turnstile_widget {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub bot_fight_mode: &'a Output,
@@ -15902,10 +15226,7 @@ pub mod exports {
                     pub region: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("bot-fight-mode", &self.bot_fight_mode)
@@ -15928,10 +15249,7 @@ pub mod exports {
                     pub secret: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("bot-fight-mode", &self.bot_fight_mode)
@@ -15957,7 +15275,8 @@ pub mod exports {
                     arg7: i32,
                     arg8: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -16054,27 +15373,24 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_turnstile_widget_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 32],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 32]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod url_normalization_settings {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub scope: &'a Output,
                     pub type_: &'a Output,
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("scope", &self.scope)
                             .field("type", &self.type_)
@@ -16088,10 +15404,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("scope", &self.scope)
                             .field("type", &self.type_)
@@ -16108,7 +15421,8 @@ pub mod exports {
                     arg3: i32,
                     arg4: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -16138,7 +15452,11 @@ pub mod exports {
                         },
                     );
                     let ptr5 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
-                    let Res { scope: scope6, type_: type_6, zone_id: zone_id6 } = result4;
+                    let Res {
+                        scope: scope6,
+                        type_: type_6,
+                        zone_id: zone_id6,
+                    } = result4;
                     *ptr5.add(0).cast::<i32>() = (scope6).take_handle() as i32;
                     *ptr5.add(4).cast::<i32>() = (type_6).take_handle() as i32;
                     *ptr5.add(8).cast::<i32>() = (zone_id6).take_handle() as i32;
@@ -16162,17 +15480,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_url_normalization_settings_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 12],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod user_agent_blocking_rule {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub configuration: &'a Output,
                     pub description: &'a Output,
@@ -16181,10 +15499,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("configuration", &self.configuration)
                             .field("description", &self.description)
@@ -16202,10 +15517,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("configuration", &self.configuration)
                             .field("description", &self.description)
@@ -16226,7 +15538,8 @@ pub mod exports {
                     arg5: i32,
                     arg6: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -16302,17 +15615,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_user_agent_blocking_rule_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 20],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod waiting_room {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub additional_routes: &'a Output,
                     pub cookie_suffix: &'a Output,
@@ -16334,23 +15647,14 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("additional-routes", &self.additional_routes)
                             .field("cookie-suffix", &self.cookie_suffix)
                             .field("custom-page-html", &self.custom_page_html)
-                            .field(
-                                "default-template-language",
-                                &self.default_template_language,
-                            )
+                            .field("default-template-language", &self.default_template_language)
                             .field("description", &self.description)
-                            .field(
-                                "disable-session-renewal",
-                                &self.disable_session_renewal,
-                            )
+                            .field("disable-session-renewal", &self.disable_session_renewal)
                             .field("host", &self.host)
                             .field("json-response-enabled", &self.json_response_enabled)
                             .field("name", &self.name)
@@ -16387,23 +15691,14 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("additional-routes", &self.additional_routes)
                             .field("cookie-suffix", &self.cookie_suffix)
                             .field("custom-page-html", &self.custom_page_html)
-                            .field(
-                                "default-template-language",
-                                &self.default_template_language,
-                            )
+                            .field("default-template-language", &self.default_template_language)
                             .field("description", &self.description)
-                            .field(
-                                "disable-session-renewal",
-                                &self.disable_session_renewal,
-                            )
+                            .field("disable-session-renewal", &self.disable_session_renewal)
                             .field("host", &self.host)
                             .field("json-response-enabled", &self.json_response_enabled)
                             .field("name", &self.name)
@@ -16422,7 +15717,8 @@ pub mod exports {
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: *mut u8) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle4;
                     let handle6;
                     let handle8;
@@ -16598,33 +15894,24 @@ pub mod exports {
                         total_active_users: total_active_users41,
                         zone_id: zone_id41,
                     } = result39;
-                    *ptr40.add(0).cast::<i32>() = (additional_routes41).take_handle()
-                        as i32;
+                    *ptr40.add(0).cast::<i32>() = (additional_routes41).take_handle() as i32;
                     *ptr40.add(4).cast::<i32>() = (cookie_suffix41).take_handle() as i32;
-                    *ptr40.add(8).cast::<i32>() = (custom_page_html41).take_handle()
-                        as i32;
-                    *ptr40.add(12).cast::<i32>() = (default_template_language41)
-                        .take_handle() as i32;
+                    *ptr40.add(8).cast::<i32>() = (custom_page_html41).take_handle() as i32;
+                    *ptr40.add(12).cast::<i32>() =
+                        (default_template_language41).take_handle() as i32;
                     *ptr40.add(16).cast::<i32>() = (description41).take_handle() as i32;
-                    *ptr40.add(20).cast::<i32>() = (disable_session_renewal41)
-                        .take_handle() as i32;
+                    *ptr40.add(20).cast::<i32>() = (disable_session_renewal41).take_handle() as i32;
                     *ptr40.add(24).cast::<i32>() = (host41).take_handle() as i32;
-                    *ptr40.add(28).cast::<i32>() = (json_response_enabled41)
-                        .take_handle() as i32;
+                    *ptr40.add(28).cast::<i32>() = (json_response_enabled41).take_handle() as i32;
                     *ptr40.add(32).cast::<i32>() = (name41).take_handle() as i32;
-                    *ptr40.add(36).cast::<i32>() = (new_users_per_minute41).take_handle()
-                        as i32;
+                    *ptr40.add(36).cast::<i32>() = (new_users_per_minute41).take_handle() as i32;
                     *ptr40.add(40).cast::<i32>() = (path41).take_handle() as i32;
                     *ptr40.add(44).cast::<i32>() = (queue_all41).take_handle() as i32;
-                    *ptr40.add(48).cast::<i32>() = (queueing_method41).take_handle()
-                        as i32;
-                    *ptr40.add(52).cast::<i32>() = (queueing_status_code41).take_handle()
-                        as i32;
-                    *ptr40.add(56).cast::<i32>() = (session_duration41).take_handle()
-                        as i32;
+                    *ptr40.add(48).cast::<i32>() = (queueing_method41).take_handle() as i32;
+                    *ptr40.add(52).cast::<i32>() = (queueing_status_code41).take_handle() as i32;
+                    *ptr40.add(56).cast::<i32>() = (session_duration41).take_handle() as i32;
                     *ptr40.add(60).cast::<i32>() = (suspended41).take_handle() as i32;
-                    *ptr40.add(64).cast::<i32>() = (total_active_users41).take_handle()
-                        as i32;
+                    *ptr40.add(64).cast::<i32>() = (total_active_users41).take_handle() as i32;
                     *ptr40.add(68).cast::<i32>() = (zone_id41).take_handle() as i32;
                     ptr40
                 }
@@ -16644,17 +15931,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_waiting_room_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 72]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 72],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 72]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod waiting_room_event {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub custom_page_html: &'a Output,
                     pub description: &'a Output,
@@ -16673,17 +15960,11 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("custom-page-html", &self.custom_page_html)
                             .field("description", &self.description)
-                            .field(
-                                "disable-session-renewal",
-                                &self.disable_session_renewal,
-                            )
+                            .field("disable-session-renewal", &self.disable_session_renewal)
                             .field("event-end-time", &self.event_end_time)
                             .field("event-start-time", &self.event_start_time)
                             .field("name", &self.name)
@@ -16691,10 +15972,7 @@ pub mod exports {
                             .field("prequeue-start-time", &self.prequeue_start_time)
                             .field("queueing-method", &self.queueing_method)
                             .field("session-duration", &self.session_duration)
-                            .field(
-                                "shuffle-at-event-start",
-                                &self.shuffle_at_event_start,
-                            )
+                            .field("shuffle-at-event-start", &self.shuffle_at_event_start)
                             .field("suspended", &self.suspended)
                             .field("total-active-users", &self.total_active_users)
                             .field("waiting-room-id", &self.waiting_room_id)
@@ -16722,18 +16000,12 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("created-on", &self.created_on)
                             .field("custom-page-html", &self.custom_page_html)
                             .field("description", &self.description)
-                            .field(
-                                "disable-session-renewal",
-                                &self.disable_session_renewal,
-                            )
+                            .field("disable-session-renewal", &self.disable_session_renewal)
                             .field("event-end-time", &self.event_end_time)
                             .field("event-start-time", &self.event_start_time)
                             .field("modified-on", &self.modified_on)
@@ -16742,10 +16014,7 @@ pub mod exports {
                             .field("prequeue-start-time", &self.prequeue_start_time)
                             .field("queueing-method", &self.queueing_method)
                             .field("session-duration", &self.session_duration)
-                            .field(
-                                "shuffle-at-event-start",
-                                &self.shuffle_at_event_start,
-                            )
+                            .field("shuffle-at-event-start", &self.shuffle_at_event_start)
                             .field("suspended", &self.suspended)
                             .field("total-active-users", &self.total_active_users)
                             .field("waiting-room-id", &self.waiting_room_id)
@@ -16756,7 +16025,8 @@ pub mod exports {
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: *mut u8) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle4;
                     let handle6;
                     let handle8;
@@ -16908,32 +16178,21 @@ pub mod exports {
                         zone_id: zone_id35,
                     } = result33;
                     *ptr34.add(0).cast::<i32>() = (created_on35).take_handle() as i32;
-                    *ptr34.add(4).cast::<i32>() = (custom_page_html35).take_handle()
-                        as i32;
+                    *ptr34.add(4).cast::<i32>() = (custom_page_html35).take_handle() as i32;
                     *ptr34.add(8).cast::<i32>() = (description35).take_handle() as i32;
-                    *ptr34.add(12).cast::<i32>() = (disable_session_renewal35)
-                        .take_handle() as i32;
-                    *ptr34.add(16).cast::<i32>() = (event_end_time35).take_handle()
-                        as i32;
-                    *ptr34.add(20).cast::<i32>() = (event_start_time35).take_handle()
-                        as i32;
+                    *ptr34.add(12).cast::<i32>() = (disable_session_renewal35).take_handle() as i32;
+                    *ptr34.add(16).cast::<i32>() = (event_end_time35).take_handle() as i32;
+                    *ptr34.add(20).cast::<i32>() = (event_start_time35).take_handle() as i32;
                     *ptr34.add(24).cast::<i32>() = (modified_on35).take_handle() as i32;
                     *ptr34.add(28).cast::<i32>() = (name35).take_handle() as i32;
-                    *ptr34.add(32).cast::<i32>() = (new_users_per_minute35).take_handle()
-                        as i32;
-                    *ptr34.add(36).cast::<i32>() = (prequeue_start_time35).take_handle()
-                        as i32;
-                    *ptr34.add(40).cast::<i32>() = (queueing_method35).take_handle()
-                        as i32;
-                    *ptr34.add(44).cast::<i32>() = (session_duration35).take_handle()
-                        as i32;
-                    *ptr34.add(48).cast::<i32>() = (shuffle_at_event_start35)
-                        .take_handle() as i32;
+                    *ptr34.add(32).cast::<i32>() = (new_users_per_minute35).take_handle() as i32;
+                    *ptr34.add(36).cast::<i32>() = (prequeue_start_time35).take_handle() as i32;
+                    *ptr34.add(40).cast::<i32>() = (queueing_method35).take_handle() as i32;
+                    *ptr34.add(44).cast::<i32>() = (session_duration35).take_handle() as i32;
+                    *ptr34.add(48).cast::<i32>() = (shuffle_at_event_start35).take_handle() as i32;
                     *ptr34.add(52).cast::<i32>() = (suspended35).take_handle() as i32;
-                    *ptr34.add(56).cast::<i32>() = (total_active_users35).take_handle()
-                        as i32;
-                    *ptr34.add(60).cast::<i32>() = (waiting_room_id35).take_handle()
-                        as i32;
+                    *ptr34.add(56).cast::<i32>() = (total_active_users35).take_handle() as i32;
+                    *ptr34.add(60).cast::<i32>() = (waiting_room_id35).take_handle() as i32;
                     *ptr34.add(64).cast::<i32>() = (zone_id35).take_handle() as i32;
                     ptr34
                 }
@@ -16953,27 +16212,24 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_waiting_room_event_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 68]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 68],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 68]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod waiting_room_rules {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub rules: &'a Output,
                     pub waiting_room_id: &'a Output,
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("rules", &self.rules)
                             .field("waiting-room-id", &self.waiting_room_id)
@@ -16987,10 +16243,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("rules", &self.rules)
                             .field("waiting-room-id", &self.waiting_room_id)
@@ -17007,7 +16260,8 @@ pub mod exports {
                     arg3: i32,
                     arg4: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -17065,26 +16319,23 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_waiting_room_rules_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 12],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod waiting_room_settings {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub search_engine_crawler_bypass: &'a Output,
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field(
                                 "search-engine-crawler-bypass",
@@ -17099,10 +16350,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field(
                                 "search-engine-crawler-bypass",
@@ -17120,7 +16368,8 @@ pub mod exports {
                     arg2: i32,
                     arg3: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let len0 = arg1;
@@ -17147,8 +16396,8 @@ pub mod exports {
                         search_engine_crawler_bypass: search_engine_crawler_bypass5,
                         zone_id: zone_id5,
                     } = result3;
-                    *ptr4.add(0).cast::<i32>() = (search_engine_crawler_bypass5)
-                        .take_handle() as i32;
+                    *ptr4.add(0).cast::<i32>() =
+                        (search_engine_crawler_bypass5).take_handle() as i32;
                     *ptr4.add(4).cast::<i32>() = (zone_id5).take_handle() as i32;
                     ptr4
                 }
@@ -17169,17 +16418,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_waiting_room_settings_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 8],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 8]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod web3_hostname {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub description: &'a Output,
                     pub dnslink: &'a Output,
@@ -17188,10 +16437,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("description", &self.description)
                             .field("dnslink", &self.dnslink)
@@ -17212,10 +16458,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("created-on", &self.created_on)
                             .field("description", &self.description)
@@ -17239,7 +16482,8 @@ pub mod exports {
                     arg5: i32,
                     arg6: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -17321,17 +16565,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_web3_hostname_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 32],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 32]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod web_analytics_rule {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub host: &'a Output,
@@ -17341,10 +16585,7 @@ pub mod exports {
                     pub ruleset_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("host", &self.host)
@@ -17364,10 +16605,7 @@ pub mod exports {
                     pub ruleset_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("host", &self.host)
@@ -17390,7 +16628,8 @@ pub mod exports {
                     arg6: i32,
                     arg7: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -17476,17 +16715,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_web_analytics_rule_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 24],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 24]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod web_analytics_site {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub auto_install: &'a Output,
@@ -17494,10 +16733,7 @@ pub mod exports {
                     pub zone_tag: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("auto-install", &self.auto_install)
@@ -17517,10 +16753,7 @@ pub mod exports {
                     pub zone_tag: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("auto-install", &self.auto_install)
@@ -17543,7 +16776,8 @@ pub mod exports {
                     arg4: i32,
                     arg5: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -17618,27 +16852,24 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_web_analytics_site_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 32],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 32]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod worker_cron_trigger {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub schedules: &'a Output,
                     pub script_name: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("schedules", &self.schedules)
@@ -17652,10 +16883,7 @@ pub mod exports {
                     pub script_name: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("schedules", &self.schedules)
@@ -17672,7 +16900,8 @@ pub mod exports {
                     arg3: i32,
                     arg4: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -17730,17 +16959,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_worker_cron_trigger_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 12],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod worker_domain {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub environment: &'a Output,
@@ -17749,10 +16978,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("environment", &self.environment)
@@ -17770,10 +16996,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("environment", &self.environment)
@@ -17794,7 +17017,8 @@ pub mod exports {
                     arg5: i32,
                     arg6: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -17870,27 +17094,24 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_worker_domain_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 20],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 20]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod worker_route {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub pattern: &'a Output,
                     pub script_name: &'a Output,
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("pattern", &self.pattern)
                             .field("script-name", &self.script_name)
@@ -17904,10 +17125,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("pattern", &self.pattern)
                             .field("script-name", &self.script_name)
@@ -17924,7 +17142,8 @@ pub mod exports {
                     arg3: i32,
                     arg4: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -17982,17 +17201,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_worker_route_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 12],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 12]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod worker_script {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub analytics_engine_bindings: &'a Output,
@@ -18015,16 +17234,10 @@ pub mod exports {
                     pub webassembly_bindings: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
-                            .field(
-                                "analytics-engine-bindings",
-                                &self.analytics_engine_bindings,
-                            )
+                            .field("analytics-engine-bindings", &self.analytics_engine_bindings)
                             .field("compatibility-date", &self.compatibility_date)
                             .field("compatibility-flags", &self.compatibility_flags)
                             .field("content", &self.content)
@@ -18067,16 +17280,10 @@ pub mod exports {
                     pub webassembly_bindings: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
-                            .field(
-                                "analytics-engine-bindings",
-                                &self.analytics_engine_bindings,
-                            )
+                            .field("analytics-engine-bindings", &self.analytics_engine_bindings)
                             .field("compatibility-date", &self.compatibility_date)
                             .field("compatibility-flags", &self.compatibility_flags)
                             .field("content", &self.content)
@@ -18100,7 +17307,8 @@ pub mod exports {
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: *mut u8) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle4;
                     let handle6;
                     let handle8;
@@ -18286,36 +17494,25 @@ pub mod exports {
                         webassembly_bindings: webassembly_bindings43,
                     } = result41;
                     *ptr42.add(0).cast::<i32>() = (account_id43).take_handle() as i32;
-                    *ptr42.add(4).cast::<i32>() = (analytics_engine_bindings43)
-                        .take_handle() as i32;
-                    *ptr42.add(8).cast::<i32>() = (compatibility_date43).take_handle()
-                        as i32;
-                    *ptr42.add(12).cast::<i32>() = (compatibility_flags43).take_handle()
-                        as i32;
+                    *ptr42.add(4).cast::<i32>() =
+                        (analytics_engine_bindings43).take_handle() as i32;
+                    *ptr42.add(8).cast::<i32>() = (compatibility_date43).take_handle() as i32;
+                    *ptr42.add(12).cast::<i32>() = (compatibility_flags43).take_handle() as i32;
                     *ptr42.add(16).cast::<i32>() = (content43).take_handle() as i32;
-                    *ptr42.add(20).cast::<i32>() = (d1_database_bindings43).take_handle()
-                        as i32;
-                    *ptr42.add(24).cast::<i32>() = (dispatch_namespace43).take_handle()
-                        as i32;
-                    *ptr42.add(28).cast::<i32>() = (kv_namespace_bindings43)
-                        .take_handle() as i32;
+                    *ptr42.add(20).cast::<i32>() = (d1_database_bindings43).take_handle() as i32;
+                    *ptr42.add(24).cast::<i32>() = (dispatch_namespace43).take_handle() as i32;
+                    *ptr42.add(28).cast::<i32>() = (kv_namespace_bindings43).take_handle() as i32;
                     *ptr42.add(32).cast::<i32>() = (logpush43).take_handle() as i32;
                     *ptr42.add(36).cast::<i32>() = (module43).take_handle() as i32;
                     *ptr42.add(40).cast::<i32>() = (name43).take_handle() as i32;
                     *ptr42.add(44).cast::<i32>() = (placements43).take_handle() as i32;
-                    *ptr42.add(48).cast::<i32>() = (plain_text_bindings43).take_handle()
-                        as i32;
-                    *ptr42.add(52).cast::<i32>() = (queue_bindings43).take_handle()
-                        as i32;
-                    *ptr42.add(56).cast::<i32>() = (r2_bucket_bindings43).take_handle()
-                        as i32;
-                    *ptr42.add(60).cast::<i32>() = (secret_text_bindings43).take_handle()
-                        as i32;
-                    *ptr42.add(64).cast::<i32>() = (service_bindings43).take_handle()
-                        as i32;
+                    *ptr42.add(48).cast::<i32>() = (plain_text_bindings43).take_handle() as i32;
+                    *ptr42.add(52).cast::<i32>() = (queue_bindings43).take_handle() as i32;
+                    *ptr42.add(56).cast::<i32>() = (r2_bucket_bindings43).take_handle() as i32;
+                    *ptr42.add(60).cast::<i32>() = (secret_text_bindings43).take_handle() as i32;
+                    *ptr42.add(64).cast::<i32>() = (service_bindings43).take_handle() as i32;
                     *ptr42.add(68).cast::<i32>() = (tags43).take_handle() as i32;
-                    *ptr42.add(72).cast::<i32>() = (webassembly_bindings43).take_handle()
-                        as i32;
+                    *ptr42.add(72).cast::<i32>() = (webassembly_bindings43).take_handle() as i32;
                     ptr42
                 }
                 pub trait Guest {
@@ -18334,17 +17531,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_worker_script_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 76]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 76],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 76]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod worker_secret {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub name: &'a Output,
@@ -18352,10 +17549,7 @@ pub mod exports {
                     pub secret_text: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("name", &self.name)
@@ -18371,10 +17565,7 @@ pub mod exports {
                     pub secret_text: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("name", &self.name)
@@ -18393,7 +17584,8 @@ pub mod exports {
                     arg4: i32,
                     arg5: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -18460,26 +17652,23 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_worker_secret_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 16],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod workers_for_platforms_namespace {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub name: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("name", &self.name)
@@ -18491,10 +17680,7 @@ pub mod exports {
                     pub name: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("name", &self.name)
@@ -18509,7 +17695,8 @@ pub mod exports {
                     arg2: i32,
                     arg3: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let len0 = arg1;
@@ -18532,7 +17719,10 @@ pub mod exports {
                         },
                     );
                     let ptr4 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
-                    let Res { account_id: account_id5, name: name5 } = result3;
+                    let Res {
+                        account_id: account_id5,
+                        name: name5,
+                    } = result3;
                     *ptr4.add(0).cast::<i32>() = (account_id5).take_handle() as i32;
                     *ptr4.add(4).cast::<i32>() = (name5).take_handle() as i32;
                     ptr4
@@ -18554,17 +17744,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_workers_for_platforms_namespace_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 8],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 8]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod workers_kv {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub key: &'a Output,
@@ -18572,10 +17762,7 @@ pub mod exports {
                     pub value: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("key", &self.key)
@@ -18591,10 +17778,7 @@ pub mod exports {
                     pub value: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("key", &self.key)
@@ -18613,7 +17797,8 @@ pub mod exports {
                     arg4: i32,
                     arg5: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -18680,26 +17865,23 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_workers_kv_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 16],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod workers_kv_namespace {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub title: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("title", &self.title)
@@ -18711,10 +17893,7 @@ pub mod exports {
                     pub title: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("title", &self.title)
@@ -18729,7 +17908,8 @@ pub mod exports {
                     arg2: i32,
                     arg3: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let len0 = arg1;
@@ -18752,7 +17932,10 @@ pub mod exports {
                         },
                     );
                     let ptr4 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
-                    let Res { account_id: account_id5, title: title5 } = result3;
+                    let Res {
+                        account_id: account_id5,
+                        title: title5,
+                    } = result3;
                     *ptr4.add(0).cast::<i32>() = (account_id5).take_handle() as i32;
                     *ptr4.add(4).cast::<i32>() = (title5).take_handle() as i32;
                     ptr4
@@ -18774,17 +17957,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_workers_kv_namespace_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 8],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 8]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod zone {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub account_id: &'a Output,
                     pub jump_start: &'a Output,
@@ -18794,10 +17977,7 @@ pub mod exports {
                     pub zone: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("account-id", &self.account_id)
                             .field("jump-start", &self.jump_start)
@@ -18822,10 +18002,7 @@ pub mod exports {
                     pub zone: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("account-id", &self.account_id)
                             .field("jump-start", &self.jump_start)
@@ -18853,7 +18030,8 @@ pub mod exports {
                     arg6: i32,
                     arg7: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -18925,10 +18103,8 @@ pub mod exports {
                     *ptr8.add(20).cast::<i32>() = (plan9).take_handle() as i32;
                     *ptr8.add(24).cast::<i32>() = (status9).take_handle() as i32;
                     *ptr8.add(28).cast::<i32>() = (type_9).take_handle() as i32;
-                    *ptr8.add(32).cast::<i32>() = (vanity_name_servers9).take_handle()
-                        as i32;
-                    *ptr8.add(36).cast::<i32>() = (verification_key9).take_handle()
-                        as i32;
+                    *ptr8.add(32).cast::<i32>() = (vanity_name_servers9).take_handle() as i32;
+                    *ptr8.add(36).cast::<i32>() = (verification_key9).take_handle() as i32;
                     *ptr8.add(40).cast::<i32>() = (zone9).take_handle() as i32;
                     ptr8
                 }
@@ -18951,26 +18127,23 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_zone_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 44]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 44],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 44]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod zone_cache_reserve {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub enabled: &'a Output,
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("enabled", &self.enabled)
                             .field("zone-id", &self.zone_id)
@@ -18982,10 +18155,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("enabled", &self.enabled)
                             .field("zone-id", &self.zone_id)
@@ -19000,7 +18170,8 @@ pub mod exports {
                     arg2: i32,
                     arg3: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let len0 = arg1;
@@ -19023,7 +18194,10 @@ pub mod exports {
                         },
                     );
                     let ptr4 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
-                    let Res { enabled: enabled5, zone_id: zone_id5 } = result3;
+                    let Res {
+                        enabled: enabled5,
+                        zone_id: zone_id5,
+                    } = result3;
                     *ptr4.add(0).cast::<i32>() = (enabled5).take_handle() as i32;
                     *ptr4.add(4).cast::<i32>() = (zone_id5).take_handle() as i32;
                     ptr4
@@ -19045,17 +18219,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_zone_cache_reserve_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 8],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 8]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod zone_cache_variants {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub avifs: &'a Output,
                     pub bmps: &'a Output,
@@ -19071,10 +18245,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("avifs", &self.avifs)
                             .field("bmps", &self.bmps)
@@ -19106,10 +18277,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("avifs", &self.avifs)
                             .field("bmps", &self.bmps)
@@ -19144,7 +18312,8 @@ pub mod exports {
                     arg12: i32,
                     arg13: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -19285,26 +18454,23 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_zone_cache_variants_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 48]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 48],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 48]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod zone_dnssec {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub modified_on: &'a Output,
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("modified-on", &self.modified_on)
                             .field("zone-id", &self.zone_id)
@@ -19326,10 +18492,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("algorithm", &self.algorithm)
                             .field("digest", &self.digest)
@@ -19354,7 +18517,8 @@ pub mod exports {
                     arg2: i32,
                     arg3: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let len0 = arg1;
@@ -19393,8 +18557,7 @@ pub mod exports {
                     } = result3;
                     *ptr4.add(0).cast::<i32>() = (algorithm5).take_handle() as i32;
                     *ptr4.add(4).cast::<i32>() = (digest5).take_handle() as i32;
-                    *ptr4.add(8).cast::<i32>() = (digest_algorithm5).take_handle()
-                        as i32;
+                    *ptr4.add(8).cast::<i32>() = (digest_algorithm5).take_handle() as i32;
                     *ptr4.add(12).cast::<i32>() = (digest_type5).take_handle() as i32;
                     *ptr4.add(16).cast::<i32>() = (ds5).take_handle() as i32;
                     *ptr4.add(20).cast::<i32>() = (flags5).take_handle() as i32;
@@ -19423,17 +18586,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_zone_dnssec_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 48]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 48],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 48]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod zone_hold {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub hold: &'a Output,
                     pub hold_after: &'a Output,
@@ -19441,10 +18604,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("hold", &self.hold)
                             .field("hold-after", &self.hold_after)
@@ -19460,10 +18620,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("hold", &self.hold)
                             .field("hold-after", &self.hold_after)
@@ -19482,7 +18639,8 @@ pub mod exports {
                     arg4: i32,
                     arg5: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -19527,8 +18685,7 @@ pub mod exports {
                     } = result5;
                     *ptr6.add(0).cast::<i32>() = (hold7).take_handle() as i32;
                     *ptr6.add(4).cast::<i32>() = (hold_after7).take_handle() as i32;
-                    *ptr6.add(8).cast::<i32>() = (include_subdomains7).take_handle()
-                        as i32;
+                    *ptr6.add(8).cast::<i32>() = (include_subdomains7).take_handle() as i32;
                     *ptr6.add(12).cast::<i32>() = (zone_id7).take_handle() as i32;
                     ptr6
                 }
@@ -19550,17 +18707,17 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_zone_hold_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 16],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 16]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod zone_lockdown {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub configurations: &'a Output,
                     pub description: &'a Output,
@@ -19570,10 +18727,7 @@ pub mod exports {
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("configurations", &self.configurations)
                             .field("description", &self.description)
@@ -19593,10 +18747,7 @@ pub mod exports {
                     pub zone_id: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("configurations", &self.configurations)
                             .field("description", &self.description)
@@ -19619,7 +18770,8 @@ pub mod exports {
                     arg6: i32,
                     arg7: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let handle3;
@@ -19705,26 +18857,23 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_zone_lockdown_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 24],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 24]);
             }
             #[allow(dead_code, clippy::all)]
             pub mod zone_settings_override {
                 #[used]
                 #[doc(hidden)]
-                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                static __FORCE_SECTION_REF: fn() =
+                    super::super::super::super::__link_custom_section_describing_imports;
                 use super::super::super::super::_rt;
-                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub type Output =
+                    super::super::super::super::component::pulumi_wasm::output_interface::Output;
                 pub struct Args<'a> {
                     pub settings: &'a Output,
                     pub zone_id: &'a Output,
                 }
                 impl<'a> ::core::fmt::Debug for Args<'a> {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Args")
                             .field("settings", &self.settings)
                             .field("zone-id", &self.zone_id)
@@ -19741,16 +18890,10 @@ pub mod exports {
                     pub zone_type: Output,
                 }
                 impl ::core::fmt::Debug for Res {
-                    fn fmt(
-                        &self,
-                        f: &mut ::core::fmt::Formatter<'_>,
-                    ) -> ::core::fmt::Result {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                         f.debug_struct("Res")
                             .field("initial-settings", &self.initial_settings)
-                            .field(
-                                "initial-settings-read-at",
-                                &self.initial_settings_read_at,
-                            )
+                            .field("initial-settings-read-at", &self.initial_settings_read_at)
                             .field("readonly-settings", &self.readonly_settings)
                             .field("settings", &self.settings)
                             .field("zone-id", &self.zone_id)
@@ -19767,7 +18910,8 @@ pub mod exports {
                     arg2: i32,
                     arg3: i32,
                 ) -> *mut u8 {
-                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    #[cfg(target_arch = "wasm32")]
+                    _rt::run_ctors_once();
                     let handle1;
                     let handle2;
                     let len0 = arg1;
@@ -19799,12 +18943,9 @@ pub mod exports {
                         zone_status: zone_status5,
                         zone_type: zone_type5,
                     } = result3;
-                    *ptr4.add(0).cast::<i32>() = (initial_settings5).take_handle()
-                        as i32;
-                    *ptr4.add(4).cast::<i32>() = (initial_settings_read_at5)
-                        .take_handle() as i32;
-                    *ptr4.add(8).cast::<i32>() = (readonly_settings5).take_handle()
-                        as i32;
+                    *ptr4.add(0).cast::<i32>() = (initial_settings5).take_handle() as i32;
+                    *ptr4.add(4).cast::<i32>() = (initial_settings_read_at5).take_handle() as i32;
+                    *ptr4.add(8).cast::<i32>() = (readonly_settings5).take_handle() as i32;
                     *ptr4.add(12).cast::<i32>() = (settings5).take_handle() as i32;
                     *ptr4.add(16).cast::<i32>() = (zone_id5).take_handle() as i32;
                     *ptr4.add(20).cast::<i32>() = (zone_status5).take_handle() as i32;
@@ -19828,9 +18969,7 @@ pub mod exports {
                 pub(crate) use __export_pulumi_cloudflare_zone_settings_override_5_24_1_divider_zero_zero_zero_dev_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 28]);
-                static mut _RET_AREA: _RetArea = _RetArea(
-                    [::core::mem::MaybeUninit::uninit(); 28],
-                );
+                static mut _RET_AREA: _RetArea = _RetArea([::core::mem::MaybeUninit::uninit(); 28]);
             }
         }
     }
@@ -19897,7 +19036,9 @@ mod _rt {
     }
     impl<T: WasmResource> fmt::Debug for Resource<T> {
         fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-            f.debug_struct("Resource").field("handle", &self.handle).finish()
+            f.debug_struct("Resource")
+                .field("handle", &self.handle)
+                .finish()
         }
     }
     impl<T: WasmResource> Drop for Resource<T> {
