@@ -2,13 +2,13 @@ set windows-shell := ["pwsh.exe", "-c"]
 # renovate: datasource=crate depName=cargo-nextest packageName=cargo-nextest
 NEXTEST_VERSION := "0.9.72"
 # renovate: datasource=crate depName=cargo-component packageName=cargo-component
-CARGO_COMPONENT_VERSION := "0.15.0"
+CARGO_COMPONENT_VERSION := "0.16.0"
 # renovate: datasource=crate depName=sd packageName=sd
 SD_VERSION := "1.0.0"
 
 @default: build test
 
-build: build-language-plugin regenerate-providers install-requirements build-wasm-components fmt
+build: build-language-plugin regenerate-providers install-requirements build-wasm-components build-all-wasm-projects-release fmt
 
 # https://stackoverflow.com/questions/74524817/why-is-anyhow-not-working-in-the-stable-version
 fix-issues:
