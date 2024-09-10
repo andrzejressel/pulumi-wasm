@@ -1994,7 +1994,7 @@ dependencies = [
  "uuid",
  "wasmtime",
  "wasmtime-wasi",
- "wit-bindgen-rt",
+ "wit-bindgen-rt 0.32.0",
 ]
 
 [[package]]
@@ -2012,7 +2012,7 @@ name = "pulumi_wasm_cloudflare_provider"
 version = "5.24.1-0.0.0-DEV"
 dependencies = [
  "pulumi_wasm_common",
- "wit-bindgen-rt",
+ "wit-bindgen-rt 0.32.0",
 ]
 
 [[package]]
@@ -2053,7 +2053,7 @@ name = "pulumi_wasm_docker_provider"
 version = "4.5.3-0.0.0-DEV"
 dependencies = [
  "pulumi_wasm_common",
- "wit-bindgen-rt",
+ "wit-bindgen-rt 0.32.0",
 ]
 
 [[package]]
@@ -2156,7 +2156,7 @@ name = "pulumi_wasm_random_provider"
 version = "4.15.0-0.0.0-DEV"
 dependencies = [
  "pulumi_wasm_common",
- "wit-bindgen-rt",
+ "wit-bindgen-rt 0.32.0",
 ]
 
 [[package]]
@@ -4166,7 +4166,7 @@ version = "0.31.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "88145227b8174b979eb2795ae1ea222ba7dad24a2bdfbed2ff9dc958119e9547"
 dependencies = [
- "wit-bindgen-rt",
+ "wit-bindgen-rt 0.31.0",
  "wit-bindgen-rust-macro",
 ]
 
@@ -4189,6 +4189,12 @@ checksum = "b907dbaa3afaccdf1c89c4197b0f376c867009fae9c6092937f308cfc450a129"
 dependencies = [
  "bitflags",
 ]
+
+[[package]]
+name = "wit-bindgen-rt"
+version = "0.32.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5ca6f307148acf7199e492fd3781cc7b79f8f3eda003c0ac3aa8079449601ccb"
 
 [[package]]
 name = "wit-bindgen-rust"
