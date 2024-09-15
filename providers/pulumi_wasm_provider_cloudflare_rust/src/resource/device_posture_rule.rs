@@ -1,13 +1,13 @@
 //! Provides a Cloudflare Device Posture Rule resource. Device posture rules configure security policies for device posture checks.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! const eaxmple = new cloudflare.DevicePostureRule("eaxmple", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
 //!     name: "Corporate devices posture rule",
@@ -31,7 +31,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! eaxmple = cloudflare.DevicePostureRule("eaxmple",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
 //!     name="Corporate devices posture rule",
@@ -56,8 +56,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var eaxmple = new Cloudflare.DevicePostureRule("eaxmple", new()
 //!     {
@@ -86,18 +86,18 @@
 //!             },
 //!         },
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewDevicePostureRule(ctx, "eaxmple", &cloudflare.DevicePostureRuleArgs{
@@ -132,7 +132,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -146,12 +146,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         var eaxmple = new DevicePostureRule("eaxmple", DevicePostureRuleArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
@@ -171,7 +171,7 @@
 //!                 .osDistroRevision("1.0.0")
 //!                 .build())
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -197,13 +197,13 @@
 //!           osDistroRevision: 1.0.0
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/devicePostureRule:DevicePostureRule example <account_id>/<device_posture_rule_id>
 //! ```
-//!
+//! 
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
@@ -255,19 +255,17 @@ pub struct DevicePostureRuleResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: DevicePostureRuleArgs) -> DevicePostureRuleResult {
-    let result = crate::bindings::pulumi::cloudflare::device_posture_rule::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::device_posture_rule::Args {
-            account_id: &args.account_id.get_inner(),
-            description: &args.description.get_inner(),
-            expiration: &args.expiration.get_inner(),
-            inputs: &args.inputs.get_inner(),
-            matches: &args.matches.get_inner(),
-            name: &args.name.get_inner(),
-            schedule: &args.schedule.get_inner(),
-            type_: &args.type_.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::device_posture_rule::invoke(name, &crate::bindings::pulumi::cloudflare::device_posture_rule::Args {
+        account_id: &args.account_id.get_inner(),
+        description: &args.description.get_inner(),
+        expiration: &args.expiration.get_inner(),
+        inputs: &args.inputs.get_inner(),
+        matches: &args.matches.get_inner(),
+        name: &args.name.get_inner(),
+        schedule: &args.schedule.get_inner(),
+        type_: &args.type_.get_inner(),
+    });
 
     DevicePostureRuleResult {
         account_id: crate::into_domain(result.account_id),

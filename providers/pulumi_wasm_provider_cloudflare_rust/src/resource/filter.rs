@@ -1,22 +1,22 @@
 //! Filter expressions that can be referenced across multiple features,
 //! e.g. Firewall Rules. See [what is a filter](https://developers.cloudflare.com/firewall/api/cf-filters/what-is-a-filter/)
 //! for more details and available fields and operators.
-//!
+//! 
 //! > `cloudflare.Filter` is in a deprecation phase that will last for one
 //!   year (May 1st, 2024). During this time period, this resource is still fully
 //!   supported but you are strongly advised to move to the
 //!   `cloudflare.Ruleset` resource. Full details can be found in the
 //!   developer documentation.
-//!
-//!
+//! 
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! const wordpress = new cloudflare.Filter("wordpress", {
 //!     description: "Wordpress break-in attempts that are outside of the office",
 //!     expression: "(http.request.uri.path ~ \".*wp-login.php\" or http.request.uri.path ~ \".*xmlrpc.php\") and ip.src ne 192.0.2.1",
@@ -27,7 +27,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! wordpress = cloudflare.Filter("wordpress",
 //!     description="Wordpress break-in attempts that are outside of the office",
 //!     expression="(http.request.uri.path ~ \".*wp-login.php\" or http.request.uri.path ~ \".*xmlrpc.php\") and ip.src ne 192.0.2.1",
@@ -39,8 +39,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var wordpress = new Cloudflare.Filter("wordpress", new()
 //!     {
@@ -48,18 +48,18 @@
 //!         Expression = "(http.request.uri.path ~ \".*wp-login.php\" or http.request.uri.path ~ \".*xmlrpc.php\") and ip.src ne 192.0.2.1",
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewFilter(ctx, "wordpress", &cloudflare.FilterArgs{
@@ -77,7 +77,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -89,19 +89,19 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         var wordpress = new Filter("wordpress", FilterArgs.builder()        
 //!             .description("Wordpress break-in attempts that are outside of the office")
 //!             .expression("(http.request.uri.path ~ \".*wp-login.php\" or http.request.uri.path ~ \".*xmlrpc.php\") and ip.src ne 192.0.2.1")
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -116,13 +116,13 @@
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/filter:Filter example <zone_id>/<filter_id>
 //! ```
-//!
+//! 
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
@@ -161,16 +161,14 @@ pub struct FilterResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: FilterArgs) -> FilterResult {
-    let result = crate::bindings::pulumi::cloudflare::filter::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::filter::Args {
-            description: &args.description.get_inner(),
-            expression: &args.expression.get_inner(),
-            paused: &args.paused.get_inner(),
-            ref_: &args.ref_.get_inner(),
-            zone_id: &args.zone_id.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::filter::invoke(name, &crate::bindings::pulumi::cloudflare::filter::Args {
+        description: &args.description.get_inner(),
+        expression: &args.expression.get_inner(),
+        paused: &args.paused.get_inner(),
+        ref_: &args.ref_.get_inner(),
+        zone_id: &args.zone_id.get_inner(),
+    });
 
     FilterResult {
         description: crate::into_domain(result.description),

@@ -52,8 +52,7 @@ pub struct TeamsRuleRuleSettings {
     /// Notification settings on a block rule.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "notificationSettings")]
-    pub r#notification_settings:
-        Box<Option<crate::types::TeamsRuleRuleSettingsNotificationSettings>>,
+    pub r#notification_settings: Box<Option<crate::types::TeamsRuleRuleSettingsNotificationSettings>>,
     /// The host to override matching DNS queries with.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "overrideHost")]

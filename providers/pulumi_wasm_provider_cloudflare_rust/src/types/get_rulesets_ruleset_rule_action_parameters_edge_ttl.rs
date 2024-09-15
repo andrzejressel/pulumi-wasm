@@ -12,6 +12,5 @@ pub struct GetRulesetsRulesetRuleActionParametersEdgeTtl {
     /// Edge TTL for the status codes.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "statusCodeTtls")]
-    pub r#status_code_ttls:
-        Box<Option<Vec<crate::types::GetRulesetsRulesetRuleActionParametersEdgeTtlStatusCodeTtl>>>,
+    pub r#status_code_ttls: Box<Option<Vec<crate::types::GetRulesetsRulesetRuleActionParametersEdgeTtlStatusCodeTtl>>>,
 }

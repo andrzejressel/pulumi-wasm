@@ -1,13 +1,13 @@
 //! Provides a resource to manage operation-level settings in API Shield Schema Validation 2.0.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! const exampleApiShieldOperation = new cloudflare.ApiShieldOperation("exampleApiShieldOperation", {
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //!     method: "GET",
@@ -24,7 +24,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! example_api_shield_operation = cloudflare.ApiShieldOperation("exampleApiShieldOperation",
 //!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     method="GET",
@@ -41,8 +41,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var exampleApiShieldOperation = new Cloudflare.ApiShieldOperation("exampleApiShieldOperation", new()
 //!     {
@@ -51,25 +51,25 @@
 //!         Host = "api.example.com",
 //!         Endpoint = "/path",
 //!     });
-//!
+//! 
 //!     var exampleApiShieldOperationSchemaValidationSettings = new Cloudflare.ApiShieldOperationSchemaValidationSettings("exampleApiShieldOperationSchemaValidationSettings", new()
 //!     {
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!         OperationId = exampleApiShieldOperation.Id,
 //!         MitigationAction = "block",
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		exampleApiShieldOperation, err := cloudflare.NewApiShieldOperation(ctx, "exampleApiShieldOperation", &cloudflare.ApiShieldOperationArgs{
@@ -96,7 +96,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -110,12 +110,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         var exampleApiShieldOperation = new ApiShieldOperation("exampleApiShieldOperation", ApiShieldOperationArgs.builder()        
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
@@ -123,13 +123,13 @@
 //!             .host("api.example.com")
 //!             .endpoint("/path")
 //!             .build());
-//!
+//! 
 //!         var exampleApiShieldOperationSchemaValidationSettings = new ApiShieldOperationSchemaValidationSettings("exampleApiShieldOperationSchemaValidationSettings", ApiShieldOperationSchemaValidationSettingsArgs.builder()        
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .operationId(exampleApiShieldOperation.id())
 //!             .mitigationAction("block")
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -178,10 +178,8 @@ pub struct ApiShieldOperationSchemaValidationSettingsResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(
-    name: &str,
-    args: ApiShieldOperationSchemaValidationSettingsArgs,
-) -> ApiShieldOperationSchemaValidationSettingsResult {
+pub fn create(name: &str, args: ApiShieldOperationSchemaValidationSettingsArgs) -> ApiShieldOperationSchemaValidationSettingsResult {
+
     let result = crate::bindings::pulumi::cloudflare::api_shield_operation_schema_validation_settings::invoke(name, &crate::bindings::pulumi::cloudflare::api_shield_operation_schema_validation_settings::Args {
         mitigation_action: &args.mitigation_action.get_inner(),
         operation_id: &args.operation_id.get_inner(),

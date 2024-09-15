@@ -1,14 +1,14 @@
 //! <!-- Bug: Type and Name are switched -->
 //! Manages the lifecycle of a Docker plugin.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as docker from "@pulumi/docker";
-//!
+//! 
 //! const sample_volume_plugin = new docker.Plugin("sample-volume-plugin", {
 //!     alias: "sample-volume-plugin",
 //!     enableTimeout: 60,
@@ -23,7 +23,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_docker as docker
-//!
+//! 
 //! sample_volume_plugin = docker.Plugin("sample-volume-plugin",
 //!     alias="sample-volume-plugin",
 //!     enable_timeout=60,
@@ -39,8 +39,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Docker = Pulumi.Docker;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var sample_volume_plugin = new Docker.Plugin("sample-volume-plugin", new()
 //!     {
@@ -55,18 +55,18 @@
 //!         ForceDisable = true,
 //!         GrantAllPermissions = true,
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-docker/sdk/v4/go/docker"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := docker.NewPlugin(ctx, "sample-volume-plugin", &docker.PluginArgs{
@@ -90,7 +90,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -102,12 +102,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         var sample_volume_plugin = new Plugin("sample-volume-plugin", PluginArgs.builder()        
 //!             .alias("sample-volume-plugin")
@@ -118,7 +118,7 @@
 //!             .forceDisable(true)
 //!             .grantAllPermissions(true)
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -138,15 +138,15 @@
 //!       grantAllPermissions: true
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! #!/bin/bash
-//!
+//! 
 //! ```sh
 //! $ pulumi import docker:index/plugin:Plugin sample-volume-plugin "$(docker plugin inspect -f {{.ID}} tiborvass/sample-volume-plugin:latest)"
 //! ```
-//!
+//! 
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
@@ -174,8 +174,7 @@ pub struct PluginArgs {
     pub grant_all_permissions: pulumi_wasm_rust::Output<Option<bool>>,
     /// Grant specific permissions only
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
-    pub grant_permissions:
-        pulumi_wasm_rust::Output<Option<Vec<crate::types::PluginGrantPermission>>>,
+    pub grant_permissions: pulumi_wasm_rust::Output<Option<Vec<crate::types::PluginGrantPermission>>>,
     /// The name of the permission
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub name: pulumi_wasm_rust::Output<Option<String>>,
@@ -197,8 +196,7 @@ pub struct PluginResult {
     /// If true, grant all permissions necessary to run the plugin
     pub grant_all_permissions: pulumi_wasm_rust::Output<Option<bool>>,
     /// Grant specific permissions only
-    pub grant_permissions:
-        pulumi_wasm_rust::Output<Option<Vec<crate::types::PluginGrantPermission>>>,
+    pub grant_permissions: pulumi_wasm_rust::Output<Option<Vec<crate::types::PluginGrantPermission>>>,
     /// The name of the permission
     pub name: pulumi_wasm_rust::Output<String>,
     /// Docker Plugin Reference
@@ -209,20 +207,18 @@ pub struct PluginResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: PluginArgs) -> PluginResult {
-    let result = crate::bindings::pulumi::docker::plugin::invoke(
-        name,
-        &crate::bindings::pulumi::docker::plugin::Args {
-            alias: &args.alias.get_inner(),
-            enable_timeout: &args.enable_timeout.get_inner(),
-            enabled: &args.enabled.get_inner(),
-            envs: &args.envs.get_inner(),
-            force_destroy: &args.force_destroy.get_inner(),
-            force_disable: &args.force_disable.get_inner(),
-            grant_all_permissions: &args.grant_all_permissions.get_inner(),
-            grant_permissions: &args.grant_permissions.get_inner(),
-            name: &args.name.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::docker::plugin::invoke(name, &crate::bindings::pulumi::docker::plugin::Args {
+        alias: &args.alias.get_inner(),
+        enable_timeout: &args.enable_timeout.get_inner(),
+        enabled: &args.enabled.get_inner(),
+        envs: &args.envs.get_inner(),
+        force_destroy: &args.force_destroy.get_inner(),
+        force_disable: &args.force_disable.get_inner(),
+        grant_all_permissions: &args.grant_all_permissions.get_inner(),
+        grant_permissions: &args.grant_permissions.get_inner(),
+        name: &args.name.get_inner(),
+    });
 
     PluginResult {
         alias: crate::into_domain(result.alias),

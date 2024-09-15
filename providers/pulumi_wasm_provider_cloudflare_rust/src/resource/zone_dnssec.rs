@@ -1,13 +1,13 @@
 //! Provides a Cloudflare resource to create and modify zone DNSSEC settings.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! const exampleZone = new cloudflare.Zone("exampleZone", {zone: "example.com"});
 //! const exampleZoneDnssec = new cloudflare.ZoneDnssec("exampleZoneDnssec", {zoneId: exampleZone.id});
 //! ```
@@ -15,7 +15,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! example_zone = cloudflare.Zone("exampleZone", zone="example.com")
 //! example_zone_dnssec = cloudflare.ZoneDnssec("exampleZoneDnssec", zone_id=example_zone.id)
 //! ```
@@ -25,30 +25,30 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var exampleZone = new Cloudflare.Zone("exampleZone", new()
 //!     {
 //!         ZoneName = "example.com",
 //!     });
-//!
+//! 
 //!     var exampleZoneDnssec = new Cloudflare.ZoneDnssec("exampleZoneDnssec", new()
 //!     {
 //!         ZoneId = exampleZone.Id,
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		exampleZone, err := cloudflare.NewZone(ctx, "exampleZone", &cloudflare.ZoneArgs{
@@ -70,7 +70,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -84,21 +84,21 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
 //!             .zone("example.com")
 //!             .build());
-//!
+//! 
 //!         var exampleZoneDnssec = new ZoneDnssec("exampleZoneDnssec", ZoneDnssecArgs.builder()        
 //!             .zoneId(exampleZone.id())
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -115,13 +115,13 @@
 //!       zoneId: ${exampleZone.id}
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/zoneDnssec:ZoneDnssec example <zone_id>
 //! ```
-//!
+//! 
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
@@ -165,13 +165,11 @@ pub struct ZoneDnssecResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: ZoneDnssecArgs) -> ZoneDnssecResult {
-    let result = crate::bindings::pulumi::cloudflare::zone_dnssec::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::zone_dnssec::Args {
-            modified_on: &args.modified_on.get_inner(),
-            zone_id: &args.zone_id.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::zone_dnssec::invoke(name, &crate::bindings::pulumi::cloudflare::zone_dnssec::Args {
+        modified_on: &args.modified_on.get_inner(),
+        zone_id: &args.zone_id.get_inner(),
+    });
 
     ZoneDnssecResult {
         algorithm: crate::into_domain(result.algorithm),

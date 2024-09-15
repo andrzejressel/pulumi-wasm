@@ -1,14 +1,14 @@
 //! Provides a Cloudflare Account resource. Account is the basic resource for
 //! working with Cloudflare zones, teams and users.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! const example = new cloudflare.Account("example", {
 //!     enforceTwofactor: true,
 //!     name: "some-enterprise-account",
@@ -19,7 +19,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! example = cloudflare.Account("example",
 //!     enforce_twofactor=True,
 //!     name="some-enterprise-account",
@@ -31,8 +31,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var example = new Cloudflare.Account("example", new()
 //!     {
@@ -40,18 +40,18 @@
 //!         Name = "some-enterprise-account",
 //!         Type = "enterprise",
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewAccount(ctx, "example", &cloudflare.AccountArgs{
@@ -69,7 +69,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -81,19 +81,19 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         var example = new Account("example", AccountArgs.builder()        
 //!             .enforceTwofactor(true)
 //!             .name("some-enterprise-account")
 //!             .type("enterprise")
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -108,13 +108,13 @@
 //!       type: enterprise
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/account:Account example <account_id>
 //! ```
-//!
+//! 
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
@@ -143,14 +143,12 @@ pub struct AccountResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: AccountArgs) -> AccountResult {
-    let result = crate::bindings::pulumi::cloudflare::account::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::account::Args {
-            enforce_twofactor: &args.enforce_twofactor.get_inner(),
-            name: &args.name.get_inner(),
-            type_: &args.type_.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::account::invoke(name, &crate::bindings::pulumi::cloudflare::account::Args {
+        enforce_twofactor: &args.enforce_twofactor.get_inner(),
+        name: &args.name.get_inner(),
+        type_: &args.type_.get_inner(),
+    });
 
     AccountResult {
         enforce_twofactor: crate::into_domain(result.enforce_twofactor),

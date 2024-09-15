@@ -8,8 +8,7 @@ pub struct GetRulesetsRulesetRuleActionParametersOverrides {
     /// List of tag-based overrides.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "categories")]
-    pub r#categories:
-        Box<Option<Vec<crate::types::GetRulesetsRulesetRuleActionParametersOverridesCategory>>>,
+    pub r#categories: Box<Option<Vec<crate::types::GetRulesetsRulesetRuleActionParametersOverridesCategory>>>,
     /// Defines if the current ruleset-level override enables or disables the ruleset.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "enabled")]
@@ -17,8 +16,7 @@ pub struct GetRulesetsRulesetRuleActionParametersOverrides {
     /// List of rule-based overrides.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "rules")]
-    pub r#rules:
-        Box<Option<Vec<crate::types::GetRulesetsRulesetRuleActionParametersOverridesRule>>>,
+    pub r#rules: Box<Option<Vec<crate::types::GetRulesetsRulesetRuleActionParametersOverridesRule>>>,
     /// Sensitivity level to override for all ruleset rules. Available values: `default`, `medium`, `low`, `eoff`
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "sensitivityLevel")]

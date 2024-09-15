@@ -1,13 +1,13 @@
 //! Provides a Cloudflare Waiting Room Event resource.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! // Waiting Room Event
 //! const example = new cloudflare.WaitingRoomEvent("example", {
 //!     eventEndTime: "2006-01-02T20:04:05Z",
@@ -21,7 +21,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! # Waiting Room Event
 //! example = cloudflare.WaitingRoomEvent("example",
 //!     event_end_time="2006-01-02T20:04:05Z",
@@ -36,8 +36,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     // Waiting Room Event
 //!     var example = new Cloudflare.WaitingRoomEvent("example", new()
@@ -48,18 +48,18 @@
 //!         WaitingRoomId = "d41d8cd98f00b204e9800998ecf8427e",
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		// Waiting Room Event
@@ -80,7 +80,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -92,12 +92,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         // Waiting Room Event
 //!         var example = new WaitingRoomEvent("example", WaitingRoomEventArgs.builder()        
@@ -107,7 +107,7 @@
 //!             .waitingRoomId("d41d8cd98f00b204e9800998ecf8427e")
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -125,15 +125,15 @@
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! Use the Zone ID, Waiting Room ID, and Event ID to import.
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/waitingRoomEvent:WaitingRoomEvent default <zone_id>/<waiting_room_id>/<waiting_room_event_id>
 //! ```
-//!
+//! 
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
@@ -226,26 +226,24 @@ pub struct WaitingRoomEventResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: WaitingRoomEventArgs) -> WaitingRoomEventResult {
-    let result = crate::bindings::pulumi::cloudflare::waiting_room_event::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::waiting_room_event::Args {
-            custom_page_html: &args.custom_page_html.get_inner(),
-            description: &args.description.get_inner(),
-            disable_session_renewal: &args.disable_session_renewal.get_inner(),
-            event_end_time: &args.event_end_time.get_inner(),
-            event_start_time: &args.event_start_time.get_inner(),
-            name: &args.name.get_inner(),
-            new_users_per_minute: &args.new_users_per_minute.get_inner(),
-            prequeue_start_time: &args.prequeue_start_time.get_inner(),
-            queueing_method: &args.queueing_method.get_inner(),
-            session_duration: &args.session_duration.get_inner(),
-            shuffle_at_event_start: &args.shuffle_at_event_start.get_inner(),
-            suspended: &args.suspended.get_inner(),
-            total_active_users: &args.total_active_users.get_inner(),
-            waiting_room_id: &args.waiting_room_id.get_inner(),
-            zone_id: &args.zone_id.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::waiting_room_event::invoke(name, &crate::bindings::pulumi::cloudflare::waiting_room_event::Args {
+        custom_page_html: &args.custom_page_html.get_inner(),
+        description: &args.description.get_inner(),
+        disable_session_renewal: &args.disable_session_renewal.get_inner(),
+        event_end_time: &args.event_end_time.get_inner(),
+        event_start_time: &args.event_start_time.get_inner(),
+        name: &args.name.get_inner(),
+        new_users_per_minute: &args.new_users_per_minute.get_inner(),
+        prequeue_start_time: &args.prequeue_start_time.get_inner(),
+        queueing_method: &args.queueing_method.get_inner(),
+        session_duration: &args.session_duration.get_inner(),
+        shuffle_at_event_start: &args.shuffle_at_event_start.get_inner(),
+        suspended: &args.suspended.get_inner(),
+        total_active_users: &args.total_active_users.get_inner(),
+        waiting_room_id: &args.waiting_room_id.get_inner(),
+        zone_id: &args.zone_id.get_inner(),
+    });
 
     WaitingRoomEventResult {
         created_on: crate::into_domain(result.created_on),

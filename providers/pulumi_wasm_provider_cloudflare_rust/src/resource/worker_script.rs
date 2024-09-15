@@ -1,14 +1,14 @@
 //! Provides a Cloudflare worker script resource. In order for a script to be active, you'll also need to setup a `cloudflare.WorkerRoute`.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! import * as fs from "fs";
-//!
+//! 
 //! const myNamespace = new cloudflare.WorkersKvNamespace("myNamespace", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
 //!     title: "example",
@@ -54,7 +54,7 @@
 //! import pulumi
 //! import base64
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! my_namespace = cloudflare.WorkersKvNamespace("myNamespace",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
 //!     title="example")
@@ -101,21 +101,21 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//!
-//! string ReadFileBase64(string path)
+//! 
+//! 	
+//! string ReadFileBase64(string path) 
 //! {
 //!     return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)));
 //! }
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var myNamespace = new Cloudflare.WorkersKvNamespace("myNamespace", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
 //!         Title = "example",
 //!     });
-//!
+//! 
 //!     // Sets the script with the name "script_1"
 //!     var myScript = new Cloudflare.WorkerScript("myScript", new()
 //!     {
@@ -180,21 +180,21 @@
 //!             },
 //!         },
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"encoding/base64"
 //! 	"os"
-//!
+//! 
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func filebase64OrPanic(path string) string {
 //! 	if fileData, err := os.ReadFile(path); err == nil {
 //! 		return base64.StdEncoding.EncodeToString(fileData[:])
@@ -202,7 +202,7 @@
 //! 		panic(err.Error())
 //! 	}
 //! }
-//!
+//! 
 //! func readFileOrPanic(path string) pulumi.StringPtrInput {
 //! 	data, err := os.ReadFile(path)
 //! 	if err != nil {
@@ -210,7 +210,7 @@
 //! 	}
 //! 	return pulumi.String(string(data))
 //! }
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		myNamespace, err := cloudflare.NewWorkersKvNamespace(ctx, "myNamespace", &cloudflare.WorkersKvNamespaceArgs{
@@ -279,7 +279,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -300,18 +300,18 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         var myNamespace = new WorkersKvNamespace("myNamespace", WorkersKvNamespaceArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
 //!             .title("example")
 //!             .build());
-//!
+//! 
 //!         // Sets the script with the name "script_1"
 //!         var myScript = new WorkerScript("myScript", WorkerScriptArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
@@ -347,18 +347,18 @@
 //!                 .dataset("dataset1")
 //!                 .build())
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/workerScript:WorkerScript example <account_id>/<script_name>
 //! ```
-//!
+//! 
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
@@ -367,8 +367,7 @@ pub struct WorkerScriptArgs {
     #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
-    pub analytics_engine_bindings:
-        pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptAnalyticsEngineBinding>>>,
+    pub analytics_engine_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptAnalyticsEngineBinding>>>,
     /// The date to use for the compatibility flag.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub compatibility_date: pulumi_wasm_rust::Output<Option<String>>,
@@ -379,14 +378,12 @@ pub struct WorkerScriptArgs {
     #[builder(into)]
     pub content: pulumi_wasm_rust::Output<String>,
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
-    pub d1_database_bindings:
-        pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptD1DatabaseBinding>>>,
+    pub d1_database_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptD1DatabaseBinding>>>,
     /// Name of the Workers for Platforms dispatch namespace.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub dispatch_namespace: pulumi_wasm_rust::Output<Option<String>>,
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
-    pub kv_namespace_bindings:
-        pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptKvNamespaceBinding>>>,
+    pub kv_namespace_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptKvNamespaceBinding>>>,
     /// Enabling allows Worker events to be sent to a defined Logpush destination.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub logpush: pulumi_wasm_rust::Output<Option<bool>>,
@@ -399,44 +396,35 @@ pub struct WorkerScriptArgs {
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub placements: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptPlacement>>>,
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
-    pub plain_text_bindings:
-        pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptPlainTextBinding>>>,
+    pub plain_text_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptPlainTextBinding>>>,
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
-    pub queue_bindings:
-        pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptQueueBinding>>>,
+    pub queue_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptQueueBinding>>>,
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
-    pub r2_bucket_bindings:
-        pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptR2BucketBinding>>>,
+    pub r2_bucket_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptR2BucketBinding>>>,
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
-    pub secret_text_bindings:
-        pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptSecretTextBinding>>>,
+    pub secret_text_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptSecretTextBinding>>>,
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
-    pub service_bindings:
-        pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptServiceBinding>>>,
+    pub service_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptServiceBinding>>>,
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub tags: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
-    pub webassembly_bindings:
-        pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptWebassemblyBinding>>>,
+    pub webassembly_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptWebassemblyBinding>>>,
 }
 
 pub struct WorkerScriptResult {
     /// The account identifier to target for the resource.
     pub account_id: pulumi_wasm_rust::Output<String>,
-    pub analytics_engine_bindings:
-        pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptAnalyticsEngineBinding>>>,
+    pub analytics_engine_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptAnalyticsEngineBinding>>>,
     /// The date to use for the compatibility flag.
     pub compatibility_date: pulumi_wasm_rust::Output<Option<String>>,
     /// Compatibility flags used for Worker Scripts.
     pub compatibility_flags: pulumi_wasm_rust::Output<Vec<String>>,
     /// The script content.
     pub content: pulumi_wasm_rust::Output<String>,
-    pub d1_database_bindings:
-        pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptD1DatabaseBinding>>>,
+    pub d1_database_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptD1DatabaseBinding>>>,
     /// Name of the Workers for Platforms dispatch namespace.
     pub dispatch_namespace: pulumi_wasm_rust::Output<Option<String>>,
-    pub kv_namespace_bindings:
-        pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptKvNamespaceBinding>>>,
+    pub kv_namespace_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptKvNamespaceBinding>>>,
     /// Enabling allows Worker events to be sent to a defined Logpush destination.
     pub logpush: pulumi_wasm_rust::Output<Option<bool>>,
     /// The base64 encoded wasm module you want to store.
@@ -444,49 +432,41 @@ pub struct WorkerScriptResult {
     /// The global variable for the binding in your Worker code.
     pub name: pulumi_wasm_rust::Output<String>,
     pub placements: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptPlacement>>>,
-    pub plain_text_bindings:
-        pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptPlainTextBinding>>>,
-    pub queue_bindings:
-        pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptQueueBinding>>>,
-    pub r2_bucket_bindings:
-        pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptR2BucketBinding>>>,
-    pub secret_text_bindings:
-        pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptSecretTextBinding>>>,
-    pub service_bindings:
-        pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptServiceBinding>>>,
+    pub plain_text_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptPlainTextBinding>>>,
+    pub queue_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptQueueBinding>>>,
+    pub r2_bucket_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptR2BucketBinding>>>,
+    pub secret_text_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptSecretTextBinding>>>,
+    pub service_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptServiceBinding>>>,
     pub tags: pulumi_wasm_rust::Output<Vec<String>>,
-    pub webassembly_bindings:
-        pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptWebassemblyBinding>>>,
+    pub webassembly_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptWebassemblyBinding>>>,
 }
 
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: WorkerScriptArgs) -> WorkerScriptResult {
-    let result = crate::bindings::pulumi::cloudflare::worker_script::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::worker_script::Args {
-            account_id: &args.account_id.get_inner(),
-            analytics_engine_bindings: &args.analytics_engine_bindings.get_inner(),
-            compatibility_date: &args.compatibility_date.get_inner(),
-            compatibility_flags: &args.compatibility_flags.get_inner(),
-            content: &args.content.get_inner(),
-            d1_database_bindings: &args.d1_database_bindings.get_inner(),
-            dispatch_namespace: &args.dispatch_namespace.get_inner(),
-            kv_namespace_bindings: &args.kv_namespace_bindings.get_inner(),
-            logpush: &args.logpush.get_inner(),
-            module: &args.module.get_inner(),
-            name: &args.name.get_inner(),
-            placements: &args.placements.get_inner(),
-            plain_text_bindings: &args.plain_text_bindings.get_inner(),
-            queue_bindings: &args.queue_bindings.get_inner(),
-            r2_bucket_bindings: &args.r2_bucket_bindings.get_inner(),
-            secret_text_bindings: &args.secret_text_bindings.get_inner(),
-            service_bindings: &args.service_bindings.get_inner(),
-            tags: &args.tags.get_inner(),
-            webassembly_bindings: &args.webassembly_bindings.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::worker_script::invoke(name, &crate::bindings::pulumi::cloudflare::worker_script::Args {
+        account_id: &args.account_id.get_inner(),
+        analytics_engine_bindings: &args.analytics_engine_bindings.get_inner(),
+        compatibility_date: &args.compatibility_date.get_inner(),
+        compatibility_flags: &args.compatibility_flags.get_inner(),
+        content: &args.content.get_inner(),
+        d1_database_bindings: &args.d1_database_bindings.get_inner(),
+        dispatch_namespace: &args.dispatch_namespace.get_inner(),
+        kv_namespace_bindings: &args.kv_namespace_bindings.get_inner(),
+        logpush: &args.logpush.get_inner(),
+        module: &args.module.get_inner(),
+        name: &args.name.get_inner(),
+        placements: &args.placements.get_inner(),
+        plain_text_bindings: &args.plain_text_bindings.get_inner(),
+        queue_bindings: &args.queue_bindings.get_inner(),
+        r2_bucket_bindings: &args.r2_bucket_bindings.get_inner(),
+        secret_text_bindings: &args.secret_text_bindings.get_inner(),
+        service_bindings: &args.service_bindings.get_inner(),
+        tags: &args.tags.get_inner(),
+        webassembly_bindings: &args.webassembly_bindings.get_inner(),
+    });
 
     WorkerScriptResult {
         account_id: crate::into_domain(result.account_id),

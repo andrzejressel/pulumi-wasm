@@ -1,13 +1,13 @@
 //! Provides a Cloudflare Device Settings Policy resource. Device policies configure settings applied to WARP devices.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! const developerWarpPolicy = new cloudflare.DeviceSettingsPolicy("developerWarpPolicy", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
 //!     allowModeSwitch: true,
@@ -33,7 +33,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! developer_warp_policy = cloudflare.DeviceSettingsPolicy("developerWarpPolicy",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
 //!     allow_mode_switch=True,
@@ -60,8 +60,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var developerWarpPolicy = new Cloudflare.DeviceSettingsPolicy("developerWarpPolicy", new()
 //!     {
@@ -84,18 +84,18 @@
 //!         SupportUrl = "https://cloudflare.com",
 //!         SwitchLocked = true,
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewDeviceSettingsPolicy(ctx, "developerWarpPolicy", &cloudflare.DeviceSettingsPolicyArgs{
@@ -128,7 +128,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -140,12 +140,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         var developerWarpPolicy = new DeviceSettingsPolicy("developerWarpPolicy", DeviceSettingsPolicyArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
@@ -167,7 +167,7 @@
 //!             .supportUrl("https://cloudflare.com")
 //!             .switchLocked(true)
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -197,15 +197,15 @@
 //!       switchLocked: true
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! For default device settings policies you must use "default" as the policy ID.
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/deviceSettingsPolicy:DeviceSettingsPolicy example <account_id>/<device_policy_id>
 //! ```
-//!
+//! 
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
@@ -309,29 +309,27 @@ pub struct DeviceSettingsPolicyResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: DeviceSettingsPolicyArgs) -> DeviceSettingsPolicyResult {
-    let result = crate::bindings::pulumi::cloudflare::device_settings_policy::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::device_settings_policy::Args {
-            account_id: &args.account_id.get_inner(),
-            allow_mode_switch: &args.allow_mode_switch.get_inner(),
-            allow_updates: &args.allow_updates.get_inner(),
-            allowed_to_leave: &args.allowed_to_leave.get_inner(),
-            auto_connect: &args.auto_connect.get_inner(),
-            captive_portal: &args.captive_portal.get_inner(),
-            default: &args.default.get_inner(),
-            description: &args.description.get_inner(),
-            disable_auto_fallback: &args.disable_auto_fallback.get_inner(),
-            enabled: &args.enabled.get_inner(),
-            exclude_office_ips: &args.exclude_office_ips.get_inner(),
-            match_: &args.match_.get_inner(),
-            name: &args.name.get_inner(),
-            precedence: &args.precedence.get_inner(),
-            service_mode_v2_mode: &args.service_mode_v2_mode.get_inner(),
-            service_mode_v2_port: &args.service_mode_v2_port.get_inner(),
-            support_url: &args.support_url.get_inner(),
-            switch_locked: &args.switch_locked.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::device_settings_policy::invoke(name, &crate::bindings::pulumi::cloudflare::device_settings_policy::Args {
+        account_id: &args.account_id.get_inner(),
+        allow_mode_switch: &args.allow_mode_switch.get_inner(),
+        allow_updates: &args.allow_updates.get_inner(),
+        allowed_to_leave: &args.allowed_to_leave.get_inner(),
+        auto_connect: &args.auto_connect.get_inner(),
+        captive_portal: &args.captive_portal.get_inner(),
+        default: &args.default.get_inner(),
+        description: &args.description.get_inner(),
+        disable_auto_fallback: &args.disable_auto_fallback.get_inner(),
+        enabled: &args.enabled.get_inner(),
+        exclude_office_ips: &args.exclude_office_ips.get_inner(),
+        match_: &args.match_.get_inner(),
+        name: &args.name.get_inner(),
+        precedence: &args.precedence.get_inner(),
+        service_mode_v2_mode: &args.service_mode_v2_mode.get_inner(),
+        service_mode_v2_port: &args.service_mode_v2_port.get_inner(),
+        support_url: &args.support_url.get_inner(),
+        switch_locked: &args.switch_locked.get_inner(),
+    });
 
     DeviceSettingsPolicyResult {
         account_id: crate::into_domain(result.account_id),

@@ -1,15 +1,15 @@
 //! Provides a Cloudflare Authenticated Origin Pulls resource. A `cloudflare.AuthenticatedOriginPulls`
 //! resource is required to use Per-Zone or Per-Hostname Authenticated
 //! Origin Pulls.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! // Authenticated Origin Pulls
 //! const myAop = new cloudflare.AuthenticatedOriginPulls("myAop", {
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
@@ -45,7 +45,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! # Authenticated Origin Pulls
 //! my_aop = cloudflare.AuthenticatedOriginPulls("myAop",
 //!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
@@ -78,8 +78,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     // Authenticated Origin Pulls
 //!     var myAop = new Cloudflare.AuthenticatedOriginPulls("myAop", new()
@@ -87,7 +87,7 @@
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!         Enabled = true,
 //!     });
-//!
+//! 
 //!     // Per-Zone Authenticated Origin Pulls
 //!     var myPerZoneAopCert = new Cloudflare.AuthenticatedOriginPullsCertificate("myPerZoneAopCert", new()
 //!     {
@@ -96,14 +96,14 @@
 //!         PrivateKey = "-----INSERT PRIVATE KEY-----",
 //!         Type = "per-zone",
 //!     });
-//!
+//! 
 //!     var myPerZoneAop = new Cloudflare.AuthenticatedOriginPulls("myPerZoneAop", new()
 //!     {
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!         AuthenticatedOriginPullsCertificate = myPerZoneAopCert.Id,
 //!         Enabled = true,
 //!     });
-//!
+//! 
 //!     // Per-Hostname Authenticated Origin Pulls
 //!     var myPerHostnameAopCert = new Cloudflare.AuthenticatedOriginPullsCertificate("myPerHostnameAopCert", new()
 //!     {
@@ -112,7 +112,7 @@
 //!         PrivateKey = "-----INSERT PRIVATE KEY-----",
 //!         Type = "per-hostname",
 //!     });
-//!
+//! 
 //!     var myPerHostnameAop = new Cloudflare.AuthenticatedOriginPulls("myPerHostnameAop", new()
 //!     {
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
@@ -120,18 +120,18 @@
 //!         Hostname = "aop.example.com",
 //!         Enabled = true,
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		// Authenticated Origin Pulls
@@ -186,7 +186,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -200,19 +200,19 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         // Authenticated Origin Pulls
 //!         var myAop = new AuthenticatedOriginPulls("myAop", AuthenticatedOriginPullsArgs.builder()        
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .enabled(true)
 //!             .build());
-//!
+//! 
 //!         // Per-Zone Authenticated Origin Pulls
 //!         var myPerZoneAopCert = new AuthenticatedOriginPullsCertificate("myPerZoneAopCert", AuthenticatedOriginPullsCertificateArgs.builder()        
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
@@ -220,13 +220,13 @@
 //!             .privateKey("-----INSERT PRIVATE KEY-----")
 //!             .type("per-zone")
 //!             .build());
-//!
+//! 
 //!         var myPerZoneAop = new AuthenticatedOriginPulls("myPerZoneAop", AuthenticatedOriginPullsArgs.builder()        
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .authenticatedOriginPullsCertificate(myPerZoneAopCert.id())
 //!             .enabled(true)
 //!             .build());
-//!
+//! 
 //!         // Per-Hostname Authenticated Origin Pulls
 //!         var myPerHostnameAopCert = new AuthenticatedOriginPullsCertificate("myPerHostnameAopCert", AuthenticatedOriginPullsCertificateArgs.builder()        
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
@@ -234,14 +234,14 @@
 //!             .privateKey("-----INSERT PRIVATE KEY-----")
 //!             .type("per-hostname")
 //!             .build());
-//!
+//! 
 //!         var myPerHostnameAop = new AuthenticatedOriginPulls("myPerHostnameAop", AuthenticatedOriginPullsArgs.builder()        
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .authenticatedOriginPullsCertificate(myPerHostnameAopCert.id())
 //!             .hostname("aop.example.com")
 //!             .enabled(true)
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -285,27 +285,27 @@
 //!       enabled: true
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! global
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/authenticatedOriginPulls:AuthenticatedOriginPulls example <zone_id>
 //! ```
-//!
+//! 
 //! per zone
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/authenticatedOriginPulls:AuthenticatedOriginPulls example <zone_id>/<certificate_id>
 //! ```
-//!
+//! 
 //! per hostname
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/authenticatedOriginPulls:AuthenticatedOriginPulls example <zone_id>/<certificate_id>/<hostname>
 //! ```
-//!
+//! 
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
@@ -339,22 +339,16 @@ pub struct AuthenticatedOriginPullsResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: AuthenticatedOriginPullsArgs) -> AuthenticatedOriginPullsResult {
-    let result = crate::bindings::pulumi::cloudflare::authenticated_origin_pulls::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::authenticated_origin_pulls::Args {
-            authenticated_origin_pulls_certificate: &args
-                .authenticated_origin_pulls_certificate
-                .get_inner(),
-            enabled: &args.enabled.get_inner(),
-            hostname: &args.hostname.get_inner(),
-            zone_id: &args.zone_id.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::authenticated_origin_pulls::invoke(name, &crate::bindings::pulumi::cloudflare::authenticated_origin_pulls::Args {
+        authenticated_origin_pulls_certificate: &args.authenticated_origin_pulls_certificate.get_inner(),
+        enabled: &args.enabled.get_inner(),
+        hostname: &args.hostname.get_inner(),
+        zone_id: &args.zone_id.get_inner(),
+    });
 
     AuthenticatedOriginPullsResult {
-        authenticated_origin_pulls_certificate: crate::into_domain(
-            result.authenticated_origin_pulls_certificate,
-        ),
+        authenticated_origin_pulls_certificate: crate::into_domain(result.authenticated_origin_pulls_certificate),
         enabled: crate::into_domain(result.enabled),
         hostname: crate::into_domain(result.hostname),
         zone_id: crate::into_domain(result.zone_id),

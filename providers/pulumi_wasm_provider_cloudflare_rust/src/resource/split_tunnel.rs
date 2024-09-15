@@ -1,14 +1,14 @@
 //! Provides a Cloudflare Split Tunnel resource. Split tunnels are used to either
 //! include or exclude lists of routes from the WARP client's tunnel.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! // Excluding *.example.com from WARP routes
 //! const exampleSplitTunnelExclude = new cloudflare.SplitTunnel("exampleSplitTunnelExclude", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
@@ -60,7 +60,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! # Excluding *.example.com from WARP routes
 //! example_split_tunnel_exclude = cloudflare.SplitTunnel("exampleSplitTunnelExclude",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
@@ -109,8 +109,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     // Excluding *.example.com from WARP routes
 //!     var exampleSplitTunnelExclude = new Cloudflare.SplitTunnel("exampleSplitTunnelExclude", new()
@@ -126,7 +126,7 @@
 //!             },
 //!         },
 //!     });
-//!
+//! 
 //!     // Including *.example.com in WARP routes
 //!     var exampleSplitTunnelIncludeSplitTunnel = new Cloudflare.SplitTunnel("exampleSplitTunnelIncludeSplitTunnel", new()
 //!     {
@@ -141,7 +141,7 @@
 //!             },
 //!         },
 //!     });
-//!
+//! 
 //!     // Create a device policy
 //!     var developerWarpPolicy = new Cloudflare.DeviceSettingsPolicy("developerWarpPolicy", new()
 //!     {
@@ -151,7 +151,7 @@
 //!         Match = "any(identity.groups.name[*] in {\"Developers\"})",
 //!         SwitchLocked = true,
 //!     });
-//!
+//! 
 //!     // Excluding *.example.com from WARP routes for a particular device policy
 //!     var exampleDeviceSettingsPolicySplitTunnelExclude = new Cloudflare.SplitTunnel("exampleDeviceSettingsPolicySplitTunnelExclude", new()
 //!     {
@@ -167,7 +167,7 @@
 //!             },
 //!         },
 //!     });
-//!
+//! 
 //!     // Including *.example.com in WARP routes for a particular device policy
 //!     var exampleSplitTunnelIncludeIndex_splitTunnelSplitTunnel = new Cloudflare.SplitTunnel("exampleSplitTunnelIncludeIndex/splitTunnelSplitTunnel", new()
 //!     {
@@ -183,18 +183,18 @@
 //!             },
 //!         },
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		// Excluding *.example.com from WARP routes
@@ -273,7 +273,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -288,12 +288,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         // Excluding *.example.com from WARP routes
 //!         var exampleSplitTunnelExclude = new SplitTunnel("exampleSplitTunnelExclude", SplitTunnelArgs.builder()        
@@ -304,7 +304,7 @@
 //!                 .description("example domain")
 //!                 .build())
 //!             .build());
-//!
+//! 
 //!         // Including *.example.com in WARP routes
 //!         var exampleSplitTunnelIncludeSplitTunnel = new SplitTunnel("exampleSplitTunnelIncludeSplitTunnel", SplitTunnelArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
@@ -314,7 +314,7 @@
 //!                 .description("example domain")
 //!                 .build())
 //!             .build());
-//!
+//! 
 //!         // Create a device policy
 //!         var developerWarpPolicy = new DeviceSettingsPolicy("developerWarpPolicy", DeviceSettingsPolicyArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
@@ -323,7 +323,7 @@
 //!             .match("any(identity.groups.name[*] in {\"Developers\"})")
 //!             .switchLocked(true)
 //!             .build());
-//!
+//! 
 //!         // Excluding *.example.com from WARP routes for a particular device policy
 //!         var exampleDeviceSettingsPolicySplitTunnelExclude = new SplitTunnel("exampleDeviceSettingsPolicySplitTunnelExclude", SplitTunnelArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
@@ -334,7 +334,7 @@
 //!                 .description("example domain")
 //!                 .build())
 //!             .build());
-//!
+//! 
 //!         // Including *.example.com in WARP routes for a particular device policy
 //!         var exampleSplitTunnelIncludeIndex_splitTunnelSplitTunnel = new SplitTunnel("exampleSplitTunnelIncludeIndex/splitTunnelSplitTunnel", SplitTunnelArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
@@ -345,7 +345,7 @@
 //!                 .description("example domain")
 //!                 .build())
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -401,15 +401,15 @@
 //!           description: example domain
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! Split Tunnels for default device policies must use "default" as the policy ID.
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/splitTunnel:SplitTunnel example <account_id>/<policy_id>/<mode>
 //! ```
-//!
+//! 
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
@@ -443,15 +443,13 @@ pub struct SplitTunnelResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: SplitTunnelArgs) -> SplitTunnelResult {
-    let result = crate::bindings::pulumi::cloudflare::split_tunnel::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::split_tunnel::Args {
-            account_id: &args.account_id.get_inner(),
-            mode: &args.mode.get_inner(),
-            policy_id: &args.policy_id.get_inner(),
-            tunnels: &args.tunnels.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::split_tunnel::invoke(name, &crate::bindings::pulumi::cloudflare::split_tunnel::Args {
+        account_id: &args.account_id.get_inner(),
+        mode: &args.mode.get_inner(),
+        policy_id: &args.policy_id.get_inner(),
+        tunnels: &args.tunnels.get_inner(),
+    });
 
     SplitTunnelResult {
         account_id: crate::into_domain(result.account_id),

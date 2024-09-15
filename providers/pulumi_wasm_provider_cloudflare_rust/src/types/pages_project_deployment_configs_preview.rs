@@ -48,8 +48,7 @@ pub struct PagesProjectDeploymentConfigsPreview {
     /// Services used for Pages Functions.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "serviceBindings")]
-    pub r#service_bindings:
-        Box<Option<Vec<crate::types::PagesProjectDeploymentConfigsPreviewServiceBinding>>>,
+    pub r#service_bindings: Box<Option<Vec<crate::types::PagesProjectDeploymentConfigsPreviewServiceBinding>>>,
     /// Usage model used for Pages Functions. Available values: `unbound`, `bundled`, `standard`. Defaults to `bundled`.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "usageModel")]

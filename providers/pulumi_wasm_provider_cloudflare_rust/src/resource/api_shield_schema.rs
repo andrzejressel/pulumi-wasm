@@ -1,14 +1,14 @@
 //! Provides a resource to manage a schema in API Shield Schema Validation 2.0.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! import * as fs from "fs";
-//!
+//! 
 //! const petstoreSchema = new cloudflare.ApiShieldSchema("petstoreSchema", {
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //!     name: "myschema",
@@ -21,7 +21,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! petstore_schema = cloudflare.ApiShieldSchema("petstoreSchema",
 //!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     name="myschema",
@@ -36,8 +36,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var petstoreSchema = new Cloudflare.ApiShieldSchema("petstoreSchema", new()
 //!     {
@@ -47,20 +47,20 @@
 //!         ValidationEnabled = true,
 //!         Source = File.ReadAllText("./schemas/petstore.json"),
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"os"
-//!
+//! 
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func readFileOrPanic(path string) pulumi.StringPtrInput {
 //! 	data, err := os.ReadFile(path)
 //! 	if err != nil {
@@ -68,7 +68,7 @@
 //! 	}
 //! 	return pulumi.String(string(data))
 //! }
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewApiShieldSchema(ctx, "petstoreSchema", &cloudflare.ApiShieldSchemaArgs{
@@ -88,7 +88,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -100,12 +100,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         var petstoreSchema = new ApiShieldSchema("petstoreSchema", ApiShieldSchemaArgs.builder()        
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
@@ -114,7 +114,7 @@
 //!             .validationEnabled(true)
 //!             .source(Files.readString(Paths.get("./schemas/petstore.json")))
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -172,16 +172,14 @@ pub struct ApiShieldSchemaResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: ApiShieldSchemaArgs) -> ApiShieldSchemaResult {
-    let result = crate::bindings::pulumi::cloudflare::api_shield_schema::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::api_shield_schema::Args {
-            kind: &args.kind.get_inner(),
-            name: &args.name.get_inner(),
-            source: &args.source.get_inner(),
-            validation_enabled: &args.validation_enabled.get_inner(),
-            zone_id: &args.zone_id.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::api_shield_schema::invoke(name, &crate::bindings::pulumi::cloudflare::api_shield_schema::Args {
+        kind: &args.kind.get_inner(),
+        name: &args.name.get_inner(),
+        source: &args.source.get_inner(),
+        validation_enabled: &args.validation_enabled.get_inner(),
+        zone_id: &args.zone_id.get_inner(),
+    });
 
     ApiShieldSchemaResult {
         kind: crate::into_domain(result.kind),

@@ -2,16 +2,16 @@
 //! using a `ScheduledEvent` listener that enables Workers to be executed on a
 //! schedule. Worker Cron Triggers are ideal for running periodic jobs for
 //! maintenance or calling third-party APIs to collect up-to-date data.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! import * as fs from "fs";
-//!
+//! 
 //! const exampleScript = new cloudflare.WorkerScript("exampleScript", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
 //!     name: "example-script",
@@ -30,7 +30,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! example_script = cloudflare.WorkerScript("exampleScript",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
 //!     name="example-script",
@@ -50,8 +50,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var exampleScript = new Cloudflare.WorkerScript("exampleScript", new()
 //!     {
@@ -59,7 +59,7 @@
 //!         Name = "example-script",
 //!         Content = File.ReadAllText("path/to/my.js"),
 //!     });
-//!
+//! 
 //!     var exampleTrigger = new Cloudflare.WorkerCronTrigger("exampleTrigger", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
@@ -70,20 +70,20 @@
 //!             "10 7 * * mon-fri",
 //!         },
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"os"
-//!
+//! 
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func readFileOrPanic(path string) pulumi.StringPtrInput {
 //! 	data, err := os.ReadFile(path)
 //! 	if err != nil {
@@ -91,7 +91,7 @@
 //! 	}
 //! 	return pulumi.String(string(data))
 //! }
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		exampleScript, err := cloudflare.NewWorkerScript(ctx, "exampleScript", &cloudflare.WorkerScriptArgs{
@@ -120,7 +120,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -134,19 +134,19 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         var exampleScript = new WorkerScript("exampleScript", WorkerScriptArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
 //!             .name("example-script")
 //!             .content(Files.readString(Paths.get("path/to/my.js")))
 //!             .build());
-//!
+//! 
 //!         var exampleTrigger = new WorkerCronTrigger("exampleTrigger", WorkerCronTriggerArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
 //!             .scriptName(exampleScript.name())
@@ -154,7 +154,7 @@
 //!                 "*/5 * * * *",
 //!                 "10 7 * * mon-fri")
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -178,13 +178,13 @@
 //!         - 10 7 * * mon-fri
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/workerCronTrigger:WorkerCronTrigger example <account_id>/<script_name>
 //! ```
-//!
+//! 
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
@@ -213,14 +213,12 @@ pub struct WorkerCronTriggerResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: WorkerCronTriggerArgs) -> WorkerCronTriggerResult {
-    let result = crate::bindings::pulumi::cloudflare::worker_cron_trigger::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::worker_cron_trigger::Args {
-            account_id: &args.account_id.get_inner(),
-            schedules: &args.schedules.get_inner(),
-            script_name: &args.script_name.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::worker_cron_trigger::invoke(name, &crate::bindings::pulumi::cloudflare::worker_cron_trigger::Args {
+        account_id: &args.account_id.get_inner(),
+        schedules: &args.schedules.get_inner(),
+        script_name: &args.script_name.get_inner(),
+    });
 
     WorkerCronTriggerResult {
         account_id: crate::into_domain(result.account_id),

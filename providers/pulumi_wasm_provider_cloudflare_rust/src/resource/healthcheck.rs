@@ -1,14 +1,14 @@
 //! Standalone Health Checks provide a way to monitor origin servers
 //! without needing a Cloudflare Load Balancer.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! // HTTPS Healthcheck
 //! const httpHealthCheck = new cloudflare.Healthcheck("httpHealthCheck", {
 //!     zoneId: _var.cloudflare_zone_id,
@@ -66,7 +66,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! # HTTPS Healthcheck
 //! http_health_check = cloudflare.Healthcheck("httpHealthCheck",
 //!     zone_id=var["cloudflare_zone_id"],
@@ -124,8 +124,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     // HTTPS Healthcheck
 //!     var httpHealthCheck = new Cloudflare.Healthcheck("httpHealthCheck", new()
@@ -169,7 +169,7 @@
 //!         ConsecutiveFails = 3,
 //!         ConsecutiveSuccesses = 2,
 //!     });
-//!
+//! 
 //!     // TCP Healthcheck
 //!     var tcpHealthCheck = new Cloudflare.Healthcheck("tcpHealthCheck", new()
 //!     {
@@ -192,18 +192,18 @@
 //!         ConsecutiveFails = 3,
 //!         ConsecutiveSuccesses = 2,
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		// HTTPS Healthcheck
@@ -275,7 +275,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -288,12 +288,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         // HTTPS Healthcheck
 //!         var httpHealthCheck = new Healthcheck("httpHealthCheck", HealthcheckArgs.builder()        
@@ -325,7 +325,7 @@
 //!             .consecutiveFails(3)
 //!             .consecutiveSuccesses(2)
 //!             .build());
-//!
+//! 
 //!         // TCP Healthcheck
 //!         var tcpHealthCheck = new Healthcheck("tcpHealthCheck", HealthcheckArgs.builder()        
 //!             .zoneId(var_.cloudflare_zone_id())
@@ -345,7 +345,7 @@
 //!             .consecutiveFails(3)
 //!             .consecutiveSuccesses(2)
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -405,15 +405,15 @@
 //!       consecutiveSuccesses: 2
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! Use the Zone ID and Healthcheck ID to import.
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/healthcheck:Healthcheck example <zone_id>/<healthcheck_id>
 //! ```
-//!
+//! 
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
@@ -531,31 +531,29 @@ pub struct HealthcheckResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: HealthcheckArgs) -> HealthcheckResult {
-    let result = crate::bindings::pulumi::cloudflare::healthcheck::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::healthcheck::Args {
-            address: &args.address.get_inner(),
-            allow_insecure: &args.allow_insecure.get_inner(),
-            check_regions: &args.check_regions.get_inner(),
-            consecutive_fails: &args.consecutive_fails.get_inner(),
-            consecutive_successes: &args.consecutive_successes.get_inner(),
-            description: &args.description.get_inner(),
-            expected_body: &args.expected_body.get_inner(),
-            expected_codes: &args.expected_codes.get_inner(),
-            follow_redirects: &args.follow_redirects.get_inner(),
-            headers: &args.headers.get_inner(),
-            interval: &args.interval.get_inner(),
-            method: &args.method.get_inner(),
-            name: &args.name.get_inner(),
-            path: &args.path.get_inner(),
-            port: &args.port.get_inner(),
-            retries: &args.retries.get_inner(),
-            suspended: &args.suspended.get_inner(),
-            timeout: &args.timeout.get_inner(),
-            type_: &args.type_.get_inner(),
-            zone_id: &args.zone_id.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::healthcheck::invoke(name, &crate::bindings::pulumi::cloudflare::healthcheck::Args {
+        address: &args.address.get_inner(),
+        allow_insecure: &args.allow_insecure.get_inner(),
+        check_regions: &args.check_regions.get_inner(),
+        consecutive_fails: &args.consecutive_fails.get_inner(),
+        consecutive_successes: &args.consecutive_successes.get_inner(),
+        description: &args.description.get_inner(),
+        expected_body: &args.expected_body.get_inner(),
+        expected_codes: &args.expected_codes.get_inner(),
+        follow_redirects: &args.follow_redirects.get_inner(),
+        headers: &args.headers.get_inner(),
+        interval: &args.interval.get_inner(),
+        method: &args.method.get_inner(),
+        name: &args.name.get_inner(),
+        path: &args.path.get_inner(),
+        port: &args.port.get_inner(),
+        retries: &args.retries.get_inner(),
+        suspended: &args.suspended.get_inner(),
+        timeout: &args.timeout.get_inner(),
+        type_: &args.type_.get_inner(),
+        zone_id: &args.zone_id.get_inner(),
+    });
 
     HealthcheckResult {
         address: crate::into_domain(result.address),

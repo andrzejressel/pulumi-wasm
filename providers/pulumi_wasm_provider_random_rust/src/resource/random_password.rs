@@ -1,15 +1,15 @@
 //! Identical to random_string.
-//!
+//! 
 //! This resource *does* use a cryptographic random number generator.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as aws from "@pulumi/aws";
 //! import * as random from "@pulumi/random";
-//!
+//! 
 //! const password = new random.RandomPassword("password", {
 //!     length: 16,
 //!     special: true,
@@ -28,7 +28,7 @@
 //! import pulumi
 //! import pulumi_aws as aws
 //! import pulumi_random as random
-//!
+//! 
 //! password = random.RandomPassword("password",
 //!     length=16,
 //!     special=True,
@@ -47,8 +47,8 @@
 //! using Pulumi;
 //! using Aws = Pulumi.Aws;
 //! using Random = Pulumi.Random;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var password = new Random.RandomPassword("password", new()
 //!     {
@@ -56,7 +56,7 @@
 //!         Special = true,
 //!         OverrideSpecial = "!#$%&*()-_=+[]{}<>:?",
 //!     });
-//!
+//! 
 //!     var example = new Aws.Rds.Instance("example", new()
 //!     {
 //!         InstanceClass = "db.t3.micro",
@@ -65,19 +65,19 @@
 //!         Username = "someone",
 //!         Password = password.Result,
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
 //! 	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		password, err := random.NewRandomPassword(ctx, "password", &random.RandomPasswordArgs{
@@ -105,7 +105,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -119,19 +119,19 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         var password = new RandomPassword("password", RandomPasswordArgs.builder()        
 //!             .length(16)
 //!             .special(true)
 //!             .overrideSpecial("!#$%&*()-_=+[]{}<>:?")
 //!             .build());
-//!
+//! 
 //!         var example = new Instance("example", InstanceArgs.builder()        
 //!             .instanceClass("db.t3.micro")
 //!             .allocatedStorage(64)
@@ -139,7 +139,7 @@
 //!             .username("someone")
 //!             .password(password.result())
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -161,16 +161,16 @@
 //!       username: someone
 //!       password: ${password.result}
 //! ```
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! You can import external passwords into your Pulumi programs as follows:
-//!
+//! 
 //! ```sh
 //!  $ import random:index/randomPassword:RandomPassword newPassword supersecret
 //! ```
-//!
-//! This command will encode the `supersecret` token in Pulumi state and generate a code suggestion to include a new RandomPassword resource in your Pulumi program. Include the suggested code and do a `pulumi up`. Your secret password is now securely stored in Pulumi, and you can reference it in your Pulumi program as `newPassword.result`.
+//! 
+//! This command will encode the `supersecret` token in Pulumi state and generate a code suggestion to include a new RandomPassword resource in your Pulumi program. Include the suggested code and do a `pulumi up`. Your secret password is now securely stored in Pulumi, and you can reference it in your Pulumi program as `newPassword.result`. 
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
@@ -248,23 +248,21 @@ pub struct RandomPasswordResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: RandomPasswordArgs) -> RandomPasswordResult {
-    let result = crate::bindings::pulumi::random::random_password::invoke(
-        name,
-        &crate::bindings::pulumi::random::random_password::Args {
-            keepers: &args.keepers.get_inner(),
-            length: &args.length.get_inner(),
-            lower: &args.lower.get_inner(),
-            min_lower: &args.min_lower.get_inner(),
-            min_numeric: &args.min_numeric.get_inner(),
-            min_special: &args.min_special.get_inner(),
-            min_upper: &args.min_upper.get_inner(),
-            number: &args.number.get_inner(),
-            numeric: &args.numeric.get_inner(),
-            override_special: &args.override_special.get_inner(),
-            special: &args.special.get_inner(),
-            upper: &args.upper.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::random::random_password::invoke(name, &crate::bindings::pulumi::random::random_password::Args {
+        keepers: &args.keepers.get_inner(),
+        length: &args.length.get_inner(),
+        lower: &args.lower.get_inner(),
+        min_lower: &args.min_lower.get_inner(),
+        min_numeric: &args.min_numeric.get_inner(),
+        min_special: &args.min_special.get_inner(),
+        min_upper: &args.min_upper.get_inner(),
+        number: &args.number.get_inner(),
+        numeric: &args.numeric.get_inner(),
+        override_special: &args.override_special.get_inner(),
+        special: &args.special.get_inner(),
+        upper: &args.upper.get_inner(),
+    });
 
     RandomPasswordResult {
         bcrypt_hash: crate::into_domain(result.bcrypt_hash),

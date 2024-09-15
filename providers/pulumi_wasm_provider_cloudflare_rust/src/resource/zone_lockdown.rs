@@ -3,15 +3,15 @@
 //! or path) that will only permit access if the request originates
 //! from an IP address that matches a safelist of one or more IP
 //! addresses and/or IP ranges.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! // Restrict access to these endpoints to requests from a known IP address range.
 //! const example = new cloudflare.ZoneLockdown("example", {
 //!     configurations: [{
@@ -28,7 +28,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! # Restrict access to these endpoints to requests from a known IP address range.
 //! example = cloudflare.ZoneLockdown("example",
 //!     configurations=[cloudflare.ZoneLockdownConfigurationArgs(
@@ -46,8 +46,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     // Restrict access to these endpoints to requests from a known IP address range.
 //!     var example = new Cloudflare.ZoneLockdown("example", new()
@@ -68,18 +68,18 @@
 //!         },
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		// Restrict access to these endpoints to requests from a known IP address range.
@@ -107,7 +107,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -120,12 +120,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         // Restrict access to these endpoints to requests from a known IP address range.
 //!         var example = new ZoneLockdown("example", ZoneLockdownArgs.builder()        
@@ -138,7 +138,7 @@
 //!             .urls("api.mysite.com/some/endpoint*")
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -159,13 +159,13 @@
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/zoneLockdown:ZoneLockdown example <zone_id>/<lockdown_id>
 //! ```
-//!
+//! 
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
@@ -207,17 +207,15 @@ pub struct ZoneLockdownResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: ZoneLockdownArgs) -> ZoneLockdownResult {
-    let result = crate::bindings::pulumi::cloudflare::zone_lockdown::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::zone_lockdown::Args {
-            configurations: &args.configurations.get_inner(),
-            description: &args.description.get_inner(),
-            paused: &args.paused.get_inner(),
-            priority: &args.priority.get_inner(),
-            urls: &args.urls.get_inner(),
-            zone_id: &args.zone_id.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::zone_lockdown::invoke(name, &crate::bindings::pulumi::cloudflare::zone_lockdown::Args {
+        configurations: &args.configurations.get_inner(),
+        description: &args.description.get_inner(),
+        paused: &args.paused.get_inner(),
+        priority: &args.priority.get_inner(),
+        urls: &args.urls.get_inner(),
+        zone_id: &args.zone_id.get_inner(),
+    });
 
     ZoneLockdownResult {
         configurations: crate::into_domain(result.configurations),

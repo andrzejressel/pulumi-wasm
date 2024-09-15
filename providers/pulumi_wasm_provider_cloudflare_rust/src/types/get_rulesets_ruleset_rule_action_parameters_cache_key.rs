@@ -12,8 +12,7 @@ pub struct GetRulesetsRulesetRuleActionParametersCacheKey {
     /// Custom key parameters for the request.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "customKey")]
-    pub r#custom_key:
-        Box<Option<crate::types::GetRulesetsRulesetRuleActionParametersCacheKeyCustomKey>>,
+    pub r#custom_key: Box<Option<crate::types::GetRulesetsRulesetRuleActionParametersCacheKeyCustomKey>>,
     /// Ignore query strings order.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "ignoreQueryStringsOrder")]

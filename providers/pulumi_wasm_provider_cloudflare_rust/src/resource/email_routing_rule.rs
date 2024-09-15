@@ -1,13 +1,13 @@
 //! The [Email Routing Rule](https://developers.cloudflare.com/email-routing/setup/email-routing-addresses/#email-rule-actions) resource allows you to create and manage email routing rules for a zone.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! const main = new cloudflare.EmailRoutingRule("main", {
 //!     actions: [{
 //!         type: "forward",
@@ -27,7 +27,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! main = cloudflare.EmailRoutingRule("main",
 //!     actions=[cloudflare.EmailRoutingRuleActionArgs(
 //!         type="forward",
@@ -48,8 +48,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var main = new Cloudflare.EmailRoutingRule("main", new()
 //!     {
@@ -77,18 +77,18 @@
 //!         Name = "terraform rule",
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewEmailRoutingRule(ctx, "main", &cloudflare.EmailRoutingRuleArgs{
@@ -121,7 +121,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -135,12 +135,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         var main = new EmailRoutingRule("main", EmailRoutingRuleArgs.builder()        
 //!             .actions(EmailRoutingRuleActionArgs.builder()
@@ -156,7 +156,7 @@
 //!             .name("terraform rule")
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -179,13 +179,13 @@
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/emailRoutingRule:EmailRoutingRule example <zone_id>/<email_routing_rule_id>
 //! ```
-//!
+//! 
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
@@ -231,17 +231,15 @@ pub struct EmailRoutingRuleResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: EmailRoutingRuleArgs) -> EmailRoutingRuleResult {
-    let result = crate::bindings::pulumi::cloudflare::email_routing_rule::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::email_routing_rule::Args {
-            actions: &args.actions.get_inner(),
-            enabled: &args.enabled.get_inner(),
-            matchers: &args.matchers.get_inner(),
-            name: &args.name.get_inner(),
-            priority: &args.priority.get_inner(),
-            zone_id: &args.zone_id.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::email_routing_rule::invoke(name, &crate::bindings::pulumi::cloudflare::email_routing_rule::Args {
+        actions: &args.actions.get_inner(),
+        enabled: &args.enabled.get_inner(),
+        matchers: &args.matchers.get_inner(),
+        name: &args.name.get_inner(),
+        priority: &args.priority.get_inner(),
+        zone_id: &args.zone_id.get_inner(),
+    });
 
     EmailRoutingRuleResult {
         actions: crate::into_domain(result.actions),

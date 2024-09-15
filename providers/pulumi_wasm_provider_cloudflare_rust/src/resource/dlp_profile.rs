@@ -1,13 +1,13 @@
 //! Provides a Cloudflare DLP Profile resource. Data Loss Prevention profiles
 //! are a set of entries that can be matched in HTTP bodies or files.
 //! They are referenced in Zero Trust Gateway rules.
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/dlpProfile:DlpProfile example <account_id>/<dlp_profile_id>
 //! ```
-//!
+//! 
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
@@ -20,8 +20,7 @@ pub struct DlpProfileArgs {
     pub allowed_match_count: pulumi_wasm_rust::Output<i32>,
     /// Scan the context of predefined entries to only return matches surrounded by keywords.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
-    pub context_awareness:
-        pulumi_wasm_rust::Output<Option<crate::types::DlpProfileContextAwareness>>,
+    pub context_awareness: pulumi_wasm_rust::Output<Option<crate::types::DlpProfileContextAwareness>>,
     /// Brief summary of the profile and its intended use.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub description: pulumi_wasm_rust::Output<Option<String>>,
@@ -57,18 +56,16 @@ pub struct DlpProfileResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: DlpProfileArgs) -> DlpProfileResult {
-    let result = crate::bindings::pulumi::cloudflare::dlp_profile::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::dlp_profile::Args {
-            account_id: &args.account_id.get_inner(),
-            allowed_match_count: &args.allowed_match_count.get_inner(),
-            context_awareness: &args.context_awareness.get_inner(),
-            description: &args.description.get_inner(),
-            entries: &args.entries.get_inner(),
-            name: &args.name.get_inner(),
-            type_: &args.type_.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::dlp_profile::invoke(name, &crate::bindings::pulumi::cloudflare::dlp_profile::Args {
+        account_id: &args.account_id.get_inner(),
+        allowed_match_count: &args.allowed_match_count.get_inner(),
+        context_awareness: &args.context_awareness.get_inner(),
+        description: &args.description.get_inner(),
+        entries: &args.entries.get_inner(),
+        name: &args.name.get_inner(),
+        type_: &args.type_.get_inner(),
+    });
 
     DlpProfileResult {
         account_id: crate::into_domain(result.account_id),

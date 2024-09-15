@@ -6,6 +6,11 @@ CARGO_COMPONENT_VERSION := "0.16.0"
 # renovate: datasource=crate depName=sd packageName=sd
 SD_VERSION := "1.0.0"
 
+FORMATTABLE_PROJECTS := "-p pulumi_wasm -p pulumi_wasm_common -p pulumi_wasm_generator -p pulumi_wasm_generator_lib \
+-p pulumi_wasm_runner -p pulumi_wasm_runner_component_creator -p pulumi_wasm_rust -p pulumi_wasm_rust_macro \
+-p pulumi_wasm_example_dependencies -p pulumi_wasm_example_docker -p pulumi_wasm_example_multiple_providers \
+-p pulumi_wasm_example_simple"
+
 @default: build test
 
 build: build-language-plugin regenerate-providers install-requirements build-wasm-components build-all-wasm-projects-release fmt
@@ -70,10 +75,10 @@ check:
 
 fmt:
     cd pulumi-language-wasm && just fmt
-    cargo fmt --all
+    cargo fmt {{FORMATTABLE_PROJECTS}}
 
 fmt-clippy:
-    cargo clippy --all --all-features --fix --allow-dirty --allow-staged
+    cargo clippy --all-features --fix --allow-dirty --allow-staged {{FORMATTABLE_PROJECTS}}
     just fmt
 
 regenerate-provider-list:

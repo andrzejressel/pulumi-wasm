@@ -24,13 +24,11 @@ pub struct TagResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: TagArgs) -> TagResult {
-    let result = crate::bindings::pulumi::docker::tag::invoke(
-        name,
-        &crate::bindings::pulumi::docker::tag::Args {
-            source_image: &args.source_image.get_inner(),
-            target_image: &args.target_image.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::docker::tag::invoke(name, &crate::bindings::pulumi::docker::tag::Args {
+        source_image: &args.source_image.get_inner(),
+        target_image: &args.target_image.get_inner(),
+    });
 
     TagResult {
         source_image: crate::into_domain(result.source_image),

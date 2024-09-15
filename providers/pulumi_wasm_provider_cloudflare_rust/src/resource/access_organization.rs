@@ -1,13 +1,13 @@
 //! A Zero Trust organization defines the user login experience.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! const example = new cloudflare.AccessOrganization("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
 //!     authDomain: "example.cloudflareaccess.com",
@@ -28,7 +28,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! example = cloudflare.AccessOrganization("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
 //!     auth_domain="example.cloudflareaccess.com",
@@ -50,8 +50,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var example = new Cloudflare.AccessOrganization("example", new()
 //!     {
@@ -73,18 +73,18 @@
 //!         Name = "example.cloudflareaccess.com",
 //!         UserSeatExpirationInactiveTime = "720h",
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewAccessOrganization(ctx, "example", &cloudflare.AccessOrganizationArgs{
@@ -114,7 +114,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -127,12 +127,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         var example = new AccessOrganization("example", AccessOrganizationArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
@@ -149,7 +149,7 @@
 //!             .name("example.cloudflareaccess.com")
 //!             .userSeatExpirationInactiveTime("720h")
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -173,13 +173,13 @@
 //!       userSeatExpirationInactiveTime: 720h
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/accessOrganization:AccessOrganization example <account_id>
 //! ```
-//!
+//! 
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
@@ -198,14 +198,12 @@ pub struct AccessOrganizationArgs {
     pub auto_redirect_to_identity: pulumi_wasm_rust::Output<Option<bool>>,
     /// Custom pages for your Zero Trust organization.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
-    pub custom_pages:
-        pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessOrganizationCustomPage>>>,
+    pub custom_pages: pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessOrganizationCustomPage>>>,
     /// When set to true, this will disable all editing of Access resources via the Zero Trust Dashboard.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub is_ui_read_only: pulumi_wasm_rust::Output<Option<bool>>,
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
-    pub login_designs:
-        pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessOrganizationLoginDesign>>>,
+    pub login_designs: pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessOrganizationLoginDesign>>>,
     /// The name of your Zero Trust organization.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub name: pulumi_wasm_rust::Output<Option<String>>,
@@ -236,12 +234,10 @@ pub struct AccessOrganizationResult {
     /// When set to true, users skip the identity provider selection step during login.
     pub auto_redirect_to_identity: pulumi_wasm_rust::Output<Option<bool>>,
     /// Custom pages for your Zero Trust organization.
-    pub custom_pages:
-        pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessOrganizationCustomPage>>>,
+    pub custom_pages: pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessOrganizationCustomPage>>>,
     /// When set to true, this will disable all editing of Access resources via the Zero Trust Dashboard.
     pub is_ui_read_only: pulumi_wasm_rust::Output<Option<bool>>,
-    pub login_designs:
-        pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessOrganizationLoginDesign>>>,
+    pub login_designs: pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessOrganizationLoginDesign>>>,
     /// The name of your Zero Trust organization.
     pub name: pulumi_wasm_rust::Output<Option<String>>,
     /// How often a user will be forced to re-authorise. Must be in the format `48h` or `2h45m`.
@@ -260,26 +256,22 @@ pub struct AccessOrganizationResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: AccessOrganizationArgs) -> AccessOrganizationResult {
-    let result = crate::bindings::pulumi::cloudflare::access_organization::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::access_organization::Args {
-            account_id: &args.account_id.get_inner(),
-            allow_authenticate_via_warp: &args.allow_authenticate_via_warp.get_inner(),
-            auth_domain: &args.auth_domain.get_inner(),
-            auto_redirect_to_identity: &args.auto_redirect_to_identity.get_inner(),
-            custom_pages: &args.custom_pages.get_inner(),
-            is_ui_read_only: &args.is_ui_read_only.get_inner(),
-            login_designs: &args.login_designs.get_inner(),
-            name: &args.name.get_inner(),
-            session_duration: &args.session_duration.get_inner(),
-            ui_read_only_toggle_reason: &args.ui_read_only_toggle_reason.get_inner(),
-            user_seat_expiration_inactive_time: &args
-                .user_seat_expiration_inactive_time
-                .get_inner(),
-            warp_auth_session_duration: &args.warp_auth_session_duration.get_inner(),
-            zone_id: &args.zone_id.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::access_organization::invoke(name, &crate::bindings::pulumi::cloudflare::access_organization::Args {
+        account_id: &args.account_id.get_inner(),
+        allow_authenticate_via_warp: &args.allow_authenticate_via_warp.get_inner(),
+        auth_domain: &args.auth_domain.get_inner(),
+        auto_redirect_to_identity: &args.auto_redirect_to_identity.get_inner(),
+        custom_pages: &args.custom_pages.get_inner(),
+        is_ui_read_only: &args.is_ui_read_only.get_inner(),
+        login_designs: &args.login_designs.get_inner(),
+        name: &args.name.get_inner(),
+        session_duration: &args.session_duration.get_inner(),
+        ui_read_only_toggle_reason: &args.ui_read_only_toggle_reason.get_inner(),
+        user_seat_expiration_inactive_time: &args.user_seat_expiration_inactive_time.get_inner(),
+        warp_auth_session_duration: &args.warp_auth_session_duration.get_inner(),
+        zone_id: &args.zone_id.get_inner(),
+    });
 
     AccessOrganizationResult {
         account_id: crate::into_domain(result.account_id),
@@ -292,9 +284,7 @@ pub fn create(name: &str, args: AccessOrganizationArgs) -> AccessOrganizationRes
         name: crate::into_domain(result.name),
         session_duration: crate::into_domain(result.session_duration),
         ui_read_only_toggle_reason: crate::into_domain(result.ui_read_only_toggle_reason),
-        user_seat_expiration_inactive_time: crate::into_domain(
-            result.user_seat_expiration_inactive_time,
-        ),
+        user_seat_expiration_inactive_time: crate::into_domain(result.user_seat_expiration_inactive_time),
         warp_auth_session_duration: crate::into_domain(result.warp_auth_session_duration),
         zone_id: crate::into_domain(result.zone_id),
     }

@@ -1,11 +1,11 @@
-//!
-//!
+//! 
+//! 
 //! ## Import
-//!
+//! 
 //! #!/bin/bash
-//!
+//! 
 //! Docker secret cannot be imported as the secret data, once set, is never exposed again.
-//!
+//! 
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
@@ -34,14 +34,12 @@ pub struct SecretResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: SecretArgs) -> SecretResult {
-    let result = crate::bindings::pulumi::docker::secret::invoke(
-        name,
-        &crate::bindings::pulumi::docker::secret::Args {
-            data: &args.data.get_inner(),
-            labels: &args.labels.get_inner(),
-            name: &args.name.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::docker::secret::invoke(name, &crate::bindings::pulumi::docker::secret::Args {
+        data: &args.data.get_inner(),
+        labels: &args.labels.get_inner(),
+        name: &args.name.get_inner(),
+    });
 
     SecretResult {
         data: crate::into_domain(result.data),

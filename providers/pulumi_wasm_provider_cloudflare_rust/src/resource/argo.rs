@@ -1,14 +1,14 @@
 //! Cloudflare Argo controls the routing to your origin and tiered
 //! caching options to speed up your website browsing experience.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! const example = new cloudflare.Argo("example", {
 //!     smartRouting: "on",
 //!     tieredCaching: "on",
@@ -19,7 +19,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! example = cloudflare.Argo("example",
 //!     smart_routing="on",
 //!     tiered_caching="on",
@@ -31,8 +31,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var example = new Cloudflare.Argo("example", new()
 //!     {
@@ -40,18 +40,18 @@
 //!         TieredCaching = "on",
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewArgo(ctx, "example", &cloudflare.ArgoArgs{
@@ -69,7 +69,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -81,19 +81,19 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         var example = new Argo("example", ArgoArgs.builder()        
 //!             .smartRouting("on")
 //!             .tieredCaching("on")
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -108,13 +108,13 @@
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/argo:Argo example <zone_id>
 //! ```
-//!
+//! 
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
@@ -143,14 +143,12 @@ pub struct ArgoResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: ArgoArgs) -> ArgoResult {
-    let result = crate::bindings::pulumi::cloudflare::argo::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::argo::Args {
-            smart_routing: &args.smart_routing.get_inner(),
-            tiered_caching: &args.tiered_caching.get_inner(),
-            zone_id: &args.zone_id.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::argo::invoke(name, &crate::bindings::pulumi::cloudflare::argo::Args {
+        smart_routing: &args.smart_routing.get_inner(),
+        tiered_caching: &args.tiered_caching.get_inner(),
+        zone_id: &args.zone_id.get_inner(),
+    });
 
     ArgoResult {
         smart_routing: crate::into_domain(result.smart_routing),

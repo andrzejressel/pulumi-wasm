@@ -1,27 +1,27 @@
 //! <!-- Bug: Type and Name are switched -->
 //! Pulls a Docker image to a given Docker host from a Docker Registry.
 //!  This resource will *not* pull new layers of the image automatically unless used in conjunction with docker.RegistryImage data source to update the `pull_triggers` field.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! ### Basic
-//!
+//! 
 //! Finds and downloads the latest `ubuntu:precise` image but does not check
 //! for further updates of the image
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as docker from "@pulumi/docker";
-//!
+//! 
 //! const ubuntu = new docker.RemoteImage("ubuntu", {name: "ubuntu:precise"});
 //! ```
 //! ### Python
 //! ```python
 //! import pulumi
 //! import pulumi_docker as docker
-//!
+//! 
 //! ubuntu = docker.RemoteImage("ubuntu", name="ubuntu:precise")
 //! ```
 //! ### C#
@@ -30,25 +30,25 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Docker = Pulumi.Docker;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var ubuntu = new Docker.RemoteImage("ubuntu", new()
 //!     {
 //!         Name = "ubuntu:precise",
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-docker/sdk/v4/go/docker"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := docker.NewRemoteImage(ctx, "ubuntu", &docker.RemoteImageArgs{
@@ -64,7 +64,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -76,17 +76,17 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         var ubuntu = new RemoteImage("ubuntu", RemoteImageArgs.builder()        
 //!             .name("ubuntu:precise")
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -99,18 +99,18 @@
 //!       name: ubuntu:precise
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ### Dynamic updates
-//!
+//! 
 //! To be able to update an image dynamically when the `sha256` sum changes,
 //! you need to use it in combination with `docker.RegistryImage` as follows:
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as docker from "@pulumi/docker";
-//!
+//! 
 //! const ubuntuRegistryImage = docker.getRegistryImage({
 //!     name: "ubuntu:precise",
 //! });
@@ -123,7 +123,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_docker as docker
-//!
+//! 
 //! ubuntu_registry_image = docker.get_registry_image(name="ubuntu:precise")
 //! ubuntu_remote_image = docker.RemoteImage("ubuntuRemoteImage",
 //!     name=ubuntu_registry_image.name,
@@ -135,14 +135,14 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Docker = Pulumi.Docker;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var ubuntuRegistryImage = Docker.GetRegistryImage.Invoke(new()
 //!     {
 //!         Name = "ubuntu:precise",
 //!     });
-//!
+//! 
 //!     var ubuntuRemoteImage = new Docker.RemoteImage("ubuntuRemoteImage", new()
 //!     {
 //!         Name = ubuntuRegistryImage.Apply(getRegistryImageResult => getRegistryImageResult.Name),
@@ -151,18 +151,18 @@
 //!             ubuntuRegistryImage.Apply(getRegistryImageResult => getRegistryImageResult.Sha256Digest),
 //!         },
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-docker/sdk/v4/go/docker"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		ubuntuRegistryImage, err := docker.LookupRegistryImage(ctx, &docker.LookupRegistryImageArgs{
@@ -187,7 +187,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -201,22 +201,22 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         final var ubuntuRegistryImage = DockerFunctions.getRegistryImage(GetRegistryImageArgs.builder()
 //!             .name("ubuntu:precise")
 //!             .build());
-//!
+//! 
 //!         var ubuntuRemoteImage = new RemoteImage("ubuntuRemoteImage", RemoteImageArgs.builder()        
 //!             .name(ubuntuRegistryImage.applyValue(getRegistryImageResult -> getRegistryImageResult.name()))
 //!             .pullTriggers(ubuntuRegistryImage.applyValue(getRegistryImageResult -> getRegistryImageResult.sha256Digest()))
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -237,18 +237,18 @@
 //!         name: ubuntu:precise
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ### Build
-//!
+//! 
 //! You can also use the resource to build an image.
 //! In this case the image "zoo" and "zoo:develop" are built.
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as docker from "@pulumi/docker";
-//!
+//! 
 //! const zoo = new docker.RemoteImage("zoo", {
 //!     name: "zoo",
 //!     build: {
@@ -267,7 +267,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_docker as docker
-//!
+//! 
 //! zoo = docker.RemoteImage("zoo",
 //!     name="zoo",
 //!     build=docker.RemoteImageBuildArgs(
@@ -287,8 +287,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Docker = Pulumi.Docker;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var zoo = new Docker.RemoteImage("zoo", new()
 //!     {
@@ -300,28 +300,28 @@
 //!             {
 //!                 "zoo:develop",
 //!             },
-//!             BuildArg =
+//!             BuildArg = 
 //!             {
 //!                 { "foo", "zoo" },
 //!             },
-//!             Label =
+//!             Label = 
 //!             {
 //!                 { "author", "zoo" },
 //!             },
 //!         },
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-docker/sdk/v4/go/docker"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := docker.NewRemoteImage(ctx, "zoo", &docker.RemoteImageArgs{
@@ -349,7 +349,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -362,12 +362,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         var zoo = new RemoteImage("zoo", RemoteImageArgs.builder()        
 //!             .name("zoo")
@@ -378,7 +378,7 @@
 //!                 .label(Map.of("author", "zoo"))
 //!                 .build())
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -399,9 +399,9 @@
 //!           author: zoo
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! You can use the `triggers` argument to specify when the image should be rebuild. This is for example helpful when you want to rebuild the docker image whenever the source code changes.
-//!
+//! 
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
@@ -454,18 +454,16 @@ pub struct RemoteImageResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: RemoteImageArgs) -> RemoteImageResult {
-    let result = crate::bindings::pulumi::docker::remote_image::invoke(
-        name,
-        &crate::bindings::pulumi::docker::remote_image::Args {
-            build: &args.build.get_inner(),
-            force_remove: &args.force_remove.get_inner(),
-            keep_locally: &args.keep_locally.get_inner(),
-            name: &args.name.get_inner(),
-            platform: &args.platform.get_inner(),
-            pull_triggers: &args.pull_triggers.get_inner(),
-            triggers: &args.triggers.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::docker::remote_image::invoke(name, &crate::bindings::pulumi::docker::remote_image::Args {
+        build: &args.build.get_inner(),
+        force_remove: &args.force_remove.get_inner(),
+        keep_locally: &args.keep_locally.get_inner(),
+        name: &args.name.get_inner(),
+        platform: &args.platform.get_inner(),
+        pull_triggers: &args.pull_triggers.get_inner(),
+        triggers: &args.triggers.get_inner(),
+    });
 
     RemoteImageResult {
         build: crate::into_domain(result.build),

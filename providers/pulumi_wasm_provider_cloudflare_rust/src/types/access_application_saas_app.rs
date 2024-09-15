@@ -23,8 +23,7 @@ pub struct AccessApplicationSaasApp {
     /// Custom attribute mapped from IDPs.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "customAttributes")]
-    pub r#custom_attributes:
-        Box<Option<Vec<crate::types::AccessApplicationSaasAppCustomAttribute>>>,
+    pub r#custom_attributes: Box<Option<Vec<crate::types::AccessApplicationSaasAppCustomAttribute>>>,
     /// The relay state used if not provided by the identity provider.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "defaultRelayState")]
