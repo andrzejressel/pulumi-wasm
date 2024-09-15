@@ -99,11 +99,20 @@ pub(crate) struct Resource {
 }
 
 #[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
+pub(crate) struct Function {
+    // pub(crate) name: String,
+    pub(crate) description: Option<String>,
+    pub(crate) input_properties: Vec<InputProperty>,
+    pub(crate) output_properties: Vec<OutputProperty>,
+}
+
+#[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
 pub(crate) struct Package {
     pub(crate) name: String,
     pub(crate) display_name: Option<String>,
     pub(crate) version: String,
     pub(crate) resources: BTreeMap<ElementId, Resource>,
+    pub(crate) functions: BTreeMap<ElementId, Function>,
     pub(crate) types: BTreeMap<ElementId, GlobalType>,
 }
 

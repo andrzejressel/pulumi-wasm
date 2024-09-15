@@ -70,7 +70,7 @@ pub fn generate_wasm_provider(schema_json: &Path, result_path: &Path) -> Result<
     let package = schema::to_model(&schema_package)?;
 
     fs::create_dir_all(result_path.join("wit").join("deps"))?;
-    fs::create_dir_all(result_path.join("src"))?;
+    fs::create_dir_all(result_path.join("src").join("function"))?;
 
     let mut wit_file = File::create(result_path.join("wit").join("world.wit"))?;
     wit_file.write_all(output::wit::generate_wit(&package)?.as_ref())?;
@@ -91,6 +91,13 @@ pub fn generate_wasm_provider(schema_json: &Path, result_path: &Path) -> Result<
         .iter()
         .for_each(|(path, content)| {
             let mut lib_file = File::create(result_path.join("src").join(path)).unwrap();
+            lib_file.write_all(content.as_bytes()).unwrap();
+        });
+
+    output::provider::source_code_function::generate_source_code(&package)
+        .iter()
+        .for_each(|(path, content)| {
+            let mut lib_file = File::create(result_path.join("src").join("function").join(path)).unwrap();
             lib_file.write_all(content.as_bytes()).unwrap();
         });
 

@@ -136,6 +136,7 @@ impl<T> Output<T> {
     }
 
     /// Forcefully changes apparent type of underlying Output
+    /// 
     /// Can be used to workaround Pulumi provider incorrect types
     ///
     /// # Safety

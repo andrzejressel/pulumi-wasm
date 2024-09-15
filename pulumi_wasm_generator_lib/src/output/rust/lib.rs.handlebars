@@ -1,6 +1,8 @@
 use pulumi_wasm_rust::Output;
-{{#if package.contains_resources}}
+{{#if package.contains_resources_or_types}}
 use pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface::Output as WitOutput;
+{{/if}}
+{{#if package.contains_resources}}
 #[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
 mod resource;
 pub use resource::*;
@@ -15,7 +17,7 @@ mod bindings {
     wit_bindgen::generate!({
         // the name of the world in the `*.wit` input file
         world: "{{package.name}}-pulumi-client",
-{{#if package.contains_resources}}
+{{#if package.contains_resources_or_types}}
         with: {
             "component:pulumi-wasm/output-interface@{{package.pulumi_wasm_version}}": pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface
         }
@@ -23,7 +25,7 @@ mod bindings {
     });
 }
 
-{{#if package.contains_resources}}
+{{#if package.contains_resources_or_types}}
 fn into_domain<F: serde::Serialize>(output: WitOutput) -> Output<F> {
     unsafe { Output::<F>::new_from_handle(output) }
 }

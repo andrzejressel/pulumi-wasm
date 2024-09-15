@@ -1,4 +1,4 @@
-use crate::model::{ElementId, GlobalType, GlobalTypeProperty, OutputProperty, Ref};
+use crate::model::{ElementId, GlobalType, GlobalTypeProperty, InputProperty, OutputProperty, Ref};
 use anyhow::{anyhow, Context, Result};
 use serde::Deserialize;
 use std::collections::{BTreeMap, BTreeSet, HashSet};
@@ -75,6 +75,13 @@ struct ComplexType {
 }
 
 #[derive(Deserialize, Debug)]
+struct Function {
+    description: Option<String>,
+    inputs: Option<ObjectType>,
+    outputs: Option<ObjectType>,
+}
+
+#[derive(Deserialize, Debug)]
 pub(crate) struct Package {
     name: String,
     #[serde(rename = "displayName")]
@@ -84,6 +91,8 @@ pub(crate) struct Package {
     version: String,
     #[serde(default)]
     types: PulumiMap<ComplexType>,
+    #[serde(default)]
+    functions: PulumiMap<Function>
 }
 
 // fn complex_type_mapper(complex_type: ComplexType) -> Result<crate::model::Type> {
@@ -176,12 +185,55 @@ fn resource_to_model(
                     })
                 })
                 .collect::<Result<Vec<_>>>()?,
-            output_properties: convert_object_type(&element_id, &resource.object_type)?,
+            output_properties: convert_output_property_object_type(&element_id, &resource.object_type)?,
         },
     ))
 }
 
-fn convert_object_type(
+fn function_to_model(
+    function_name: &str,
+    function: &Function,
+) -> Result<(ElementId, crate::model::Function)> {
+    let element_id = ElementId::new(function_name)?;
+    Ok((
+        element_id.clone(),
+        crate::model::Function {
+            description: function.description.clone(),
+            input_properties: match &function.inputs {
+                None => vec![],
+                Some(input) => convert_input_property_object_type(input)?
+            },
+            output_properties: match &function.outputs {
+                None => vec![],
+                Some(output) => convert_output_property_object_type(&element_id, output)?
+            }
+        },
+    ))
+}
+
+fn convert_input_property_object_type(
+    object_type: &ObjectType,
+) -> Result<Vec<InputProperty>> {
+    object_type
+        .properties
+        .iter()
+        .map(|(output_name, output_property)| {
+            let mut type_ = new_type_mapper(&output_property.r#type)
+                .context(format!("Cannot handle [{output_name}] type"))?;
+            if !object_type.required.contains(output_name)
+            {
+                type_ = crate::model::Type::Option(Box::new(type_));
+            }
+            Ok(crate::model::InputProperty {
+                name: output_name.clone(),
+                r#type: type_,
+                description: output_property.r#type.description.clone(),
+            })
+        })
+        .collect::<Result<Vec<_>>>()
+}
+
+fn convert_output_property_object_type(
     element_id: &ElementId,
     object_type: &ObjectType,
 ) -> Result<Vec<OutputProperty>> {
@@ -213,6 +265,14 @@ pub(crate) fn to_model(package: &Package) -> Result<crate::model::Package> {
         .map(|(resource_name, resource)| resource_to_model(resource_name, resource))
         .collect::<Result<BTreeMap<_, _>>>()
         .context("Cannot handle resources")?;
+    
+    let functions = package
+        .functions
+        .iter()
+        .map(|(function_name, function)| function_to_model(function_name, function))
+        .collect::<Result<BTreeMap<_, _>>>()
+        .context("Cannot handle functions")?;
+
     let types = package
         .types
         .iter()
@@ -225,7 +285,7 @@ pub(crate) fn to_model(package: &Package) -> Result<crate::model::Package> {
                     r#type: Some(TypeEnum::Object),
                     ..
                 } => Ok(GlobalType::Object(
-                    convert_object_type(&element_id, &type_.object_type)?
+                    convert_output_property_object_type(&element_id, &type_.object_type)?
                         .iter()
                         .map(|p| GlobalTypeProperty {
                             name: p.name.clone(),
@@ -266,6 +326,7 @@ pub(crate) fn to_model(package: &Package) -> Result<crate::model::Package> {
         display_name: package.display_name.clone(),
         types,
         resources,
+        functions
     })
 }
 
