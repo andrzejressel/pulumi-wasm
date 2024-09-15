@@ -71,7 +71,7 @@ build-wasm-providers-release:
 # DO NOT EDIT - BUILD-WASM-COMPONENTS - END
 
 check:
-    cargo fmt --all -- --check
+    cargo fmt {{FORMATTABLE_PROJECTS}} -- --check
 
 fmt:
     cd pulumi-language-wasm && just fmt
