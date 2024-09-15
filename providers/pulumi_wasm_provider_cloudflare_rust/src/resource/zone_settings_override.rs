@@ -206,9 +206,13 @@
 //! ```
 //! <!--End PulumiCodeChooser -->
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct ZoneSettingsOverrideArgs {
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub settings: pulumi_wasm_rust::Output<Option<crate::types::ZoneSettingsOverrideSettings>>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

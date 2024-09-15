@@ -111,10 +111,14 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct DevicePolicyCertificatesArgs {
     /// `true` if certificate generation is enabled.
+    #[builder(into)]
     pub enabled: pulumi_wasm_rust::Output<bool>,
     /// The zone identifier to target for the resource.
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

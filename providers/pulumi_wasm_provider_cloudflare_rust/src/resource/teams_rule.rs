@@ -170,28 +170,41 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct TeamsRuleArgs {
     /// The account identifier to target for the resource.
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// Action to be taken when the SSL certificate of upstream is invalid. Available values: `pass_through`, `block`, `error`.
+    #[builder(into)]
     pub action: pulumi_wasm_rust::Output<String>,
     /// The description of the teams rule.
+    #[builder(into)]
     pub description: pulumi_wasm_rust::Output<String>,
     /// The wirefilter expression to be used for device_posture check matching.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub device_posture: pulumi_wasm_rust::Output<Option<String>>,
     /// Enable notification settings.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
     /// The protocol or layer to evaluate the traffic and identity expressions.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub filters: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// The wirefilter expression to be used for identity matching.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub identity: pulumi_wasm_rust::Output<Option<String>>,
     /// The name of the teams rule.
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// The evaluation precedence of the teams rule.
+    #[builder(into)]
     pub precedence: pulumi_wasm_rust::Output<i32>,
     /// Additional rule settings.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub rule_settings: pulumi_wasm_rust::Output<Option<crate::types::TeamsRuleRuleSettings>>,
     /// The wirefilter expression to be used for traffic matching.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub traffic: pulumi_wasm_rust::Output<Option<String>>,
 }
 

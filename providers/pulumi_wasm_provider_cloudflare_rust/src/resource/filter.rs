@@ -124,16 +124,23 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct FilterArgs {
     /// A note that you can use to describe the purpose of the filter.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub description: pulumi_wasm_rust::Output<Option<String>>,
     /// The filter expression to be used.
+    #[builder(into)]
     pub expression: pulumi_wasm_rust::Output<String>,
     /// Whether this filter is currently paused.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub paused: pulumi_wasm_rust::Output<Option<bool>>,
     /// Short reference tag to quickly select related rules.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub ref_: pulumi_wasm_rust::Output<Option<String>>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

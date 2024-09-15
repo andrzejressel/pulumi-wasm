@@ -167,12 +167,17 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct AccessCaCertificateArgs {
     /// The account identifier to target for the resource. Conflicts with `zone_id`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub account_id: pulumi_wasm_rust::Output<Option<String>>,
     /// The Access Application ID to associate with the CA certificate.
+    #[builder(into)]
     pub application_id: pulumi_wasm_rust::Output<String>,
     /// The zone identifier to target for the resource. Conflicts with `account_id`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 

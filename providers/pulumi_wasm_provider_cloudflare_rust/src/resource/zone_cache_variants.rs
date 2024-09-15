@@ -349,30 +349,44 @@
 //! ```
 //! <!--End PulumiCodeChooser -->
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct ZoneCacheVariantsArgs {
     /// List of strings with the MIME types of all the variants that should be served for avif.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub avifs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// List of strings with the MIME types of all the variants that should be served for bmp.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub bmps: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// List of strings with the MIME types of all the variants that should be served for gif.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub gifs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// List of strings with the MIME types of all the variants that should be served for jp2.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub jp2s: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// List of strings with the MIME types of all the variants that should be served for jpeg.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub jpegs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// List of strings with the MIME types of all the variants that should be served for jpg2.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub jpg2s: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// List of strings with the MIME types of all the variants that should be served for jpg.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub jpgs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// List of strings with the MIME types of all the variants that should be served for png.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub pngs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// List of strings with the MIME types of all the variants that should be served for tiff.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub tiffs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// List of strings with the MIME types of all the variants that should be served for tif.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub tifs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// List of strings with the MIME types of all the variants that should be served for webp.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub webps: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

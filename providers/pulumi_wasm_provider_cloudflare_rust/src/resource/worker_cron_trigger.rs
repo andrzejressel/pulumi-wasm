@@ -186,12 +186,17 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct WorkerCronTriggerArgs {
     /// The account identifier to target for the resource.
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// Cron expressions to execute the Worker script.
+    #[builder(into)]
     pub schedules: pulumi_wasm_rust::Output<Vec<String>>,
     /// Worker script to target for the schedules.
+    #[builder(into)]
     pub script_name: pulumi_wasm_rust::Output<String>,
 }
 

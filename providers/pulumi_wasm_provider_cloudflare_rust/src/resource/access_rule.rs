@@ -356,16 +356,23 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct AccessRuleArgs {
     /// The account identifier to target for the resource. Must provide only one of `account_id`, `zone_id`. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub account_id: pulumi_wasm_rust::Output<Option<String>>,
     /// Rule configuration to apply to a matched request. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub configuration: pulumi_wasm_rust::Output<crate::types::AccessRuleConfiguration>,
     /// The action to apply to a matched request. Available values: `block`, `challenge`, `whitelist`, `js_challenge`, `managed_challenge`.
+    #[builder(into)]
     pub mode: pulumi_wasm_rust::Output<String>,
     /// A personal note about the rule. Typically used as a reminder or explanation for the rule.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub notes: pulumi_wasm_rust::Output<Option<String>>,
     /// The zone identifier to target for the resource. Must provide only one of `account_id`, `zone_id`. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 

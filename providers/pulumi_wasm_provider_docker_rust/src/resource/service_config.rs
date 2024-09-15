@@ -35,10 +35,14 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct ServiceConfigArgs {
     /// Base64-url-safe-encoded config data
+    #[builder(into)]
     pub data: pulumi_wasm_rust::Output<String>,
     /// User-defined name of the config
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub name: pulumi_wasm_rust::Output<Option<String>>,
 }
 

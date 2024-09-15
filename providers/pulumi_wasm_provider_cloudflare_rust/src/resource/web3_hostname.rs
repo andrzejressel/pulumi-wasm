@@ -1,15 +1,22 @@
 //! Manages Web3 hostnames for IPFS and Ethereum gateways.
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct Web3HostnameArgs {
     /// An optional description of the hostname.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub description: pulumi_wasm_rust::Output<Option<String>>,
     /// DNSLink value used if the target is ipfs.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub dnslink: pulumi_wasm_rust::Output<Option<String>>,
     /// The hostname that will point to the target gateway via CNAME.
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// Target gateway of the hostname.
+    #[builder(into)]
     pub target: pulumi_wasm_rust::Output<String>,
     /// The zone identifier to target for the resource.
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

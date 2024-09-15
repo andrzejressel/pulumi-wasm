@@ -113,10 +113,14 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct ZoneCacheReserveArgs {
     /// Whether to enable or disable Cache Reserve support for a given zone.
+    #[builder(into)]
     pub enabled: pulumi_wasm_rust::Output<bool>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

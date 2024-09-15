@@ -116,12 +116,17 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct AccountArgs {
     /// Whether 2FA is enforced on the account. Defaults to `false`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub enforce_twofactor: pulumi_wasm_rust::Output<Option<bool>>,
     /// The name of the account that is displayed in the Cloudflare dashboard.
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// Account type. Available values: `enterprise`, `standard`. Defaults to `standard`. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub type_: pulumi_wasm_rust::Output<Option<String>>,
 }
 

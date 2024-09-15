@@ -307,14 +307,20 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct AuthenticatedOriginPullsArgs {
     /// The ID of an uploaded Authenticated Origin Pulls certificate. If no hostname is provided, this certificate will be used zone wide as Per-Zone Authenticated Origin Pulls.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub authenticated_origin_pulls_certificate: pulumi_wasm_rust::Output<Option<String>>,
     /// Whether to enable Authenticated Origin Pulls on the given zone or hostname.
+    #[builder(into)]
     pub enabled: pulumi_wasm_rust::Output<bool>,
     /// Specify a hostname to enable Per-Hostname Authenticated Origin Pulls on, using the provided certificate.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub hostname: pulumi_wasm_rust::Output<Option<String>>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

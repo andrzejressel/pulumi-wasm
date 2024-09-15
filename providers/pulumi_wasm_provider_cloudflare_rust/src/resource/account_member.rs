@@ -132,14 +132,20 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct AccountMemberArgs {
     /// Account ID to create the account member in.
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// The email address of the user who you wish to manage. Following creation, this field becomes read only via the API and cannot be updated.
+    #[builder(into)]
     pub email_address: pulumi_wasm_rust::Output<String>,
     /// List of account role IDs that you want to assign to a member.
+    #[builder(into)]
     pub role_ids: pulumi_wasm_rust::Output<Vec<String>>,
     /// A member's status in the account. Available values: `accepted`, `pending`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub status: pulumi_wasm_rust::Output<Option<String>>,
 }
 

@@ -140,14 +140,20 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct DeviceManagedNetworksArgs {
     /// The account identifier to target for the resource.
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// The configuration containing information for the WARP client to detect the managed network.
+    #[builder(into)]
     pub config: pulumi_wasm_rust::Output<crate::types::DeviceManagedNetworksConfig>,
     /// The name of the Device Managed Network. Must be unique.
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// The type of Device Managed Network. Available values: `tls`.
+    #[builder(into)]
     pub type_: pulumi_wasm_rust::Output<String>,
 }
 

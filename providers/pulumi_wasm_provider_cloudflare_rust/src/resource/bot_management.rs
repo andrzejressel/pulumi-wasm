@@ -145,26 +145,38 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct BotManagementArgs {
     /// Automatically update to the newest bot detection models created by Cloudflare as they are released. [Learn more.](https://developers.cloudflare.com/bots/reference/machine-learning-models#model-versions-and-release-notes).
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub auto_update_model: pulumi_wasm_rust::Output<Option<bool>>,
     /// Use lightweight, invisible JavaScript detections to improve Bot Management. [Learn more about JavaScript Detections](https://developers.cloudflare.com/bots/reference/javascript-detections/).
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub enable_js: pulumi_wasm_rust::Output<Option<bool>>,
     /// Whether to enable Bot Fight Mode.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub fight_mode: pulumi_wasm_rust::Output<Option<bool>>,
     /// Whether to optimize Super Bot Fight Mode protections for Wordpress.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub optimize_wordpress: pulumi_wasm_rust::Output<Option<bool>>,
     /// Super Bot Fight Mode (SBFM) action to take on definitely automated requests.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub sbfm_definitely_automated: pulumi_wasm_rust::Output<Option<String>>,
     /// Super Bot Fight Mode (SBFM) action to take on likely automated requests.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub sbfm_likely_automated: pulumi_wasm_rust::Output<Option<String>>,
     /// Super Bot Fight Mode (SBFM) to enable static resource protection. Enable if static resources on your application need bot protection. Note: Static resource protection can also result in legitimate traffic being blocked.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub sbfm_static_resource_protection: pulumi_wasm_rust::Output<Option<bool>>,
     /// Super Bot Fight Mode (SBFM) action to take on verified bots requests.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub sbfm_verified_bots: pulumi_wasm_rust::Output<Option<String>>,
     /// Whether to disable tracking the highest bot score for a session in the Bot Management cookie.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub suppress_session_score: pulumi_wasm_rust::Output<Option<bool>>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

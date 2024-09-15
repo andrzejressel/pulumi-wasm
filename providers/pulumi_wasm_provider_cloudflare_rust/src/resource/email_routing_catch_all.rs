@@ -168,16 +168,23 @@
 //! ```
 //! <!--End PulumiCodeChooser -->
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct EmailRoutingCatchAllArgs {
     /// List actions patterns.
+    #[builder(into)]
     pub actions: pulumi_wasm_rust::Output<Vec<crate::types::EmailRoutingCatchAllAction>>,
     /// Routing rule status.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
     /// Matching patterns to forward to your actions.
+    #[builder(into)]
     pub matchers: pulumi_wasm_rust::Output<Vec<crate::types::EmailRoutingCatchAllMatcher>>,
     /// Routing rule name.
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// The zone identifier to target for the resource.
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

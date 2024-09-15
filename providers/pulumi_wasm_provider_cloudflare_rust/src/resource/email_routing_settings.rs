@@ -102,12 +102,17 @@
 //! ```
 //! <!--End PulumiCodeChooser -->
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct EmailRoutingSettingsArgs {
     /// State of the zone settings for Email Routing. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub enabled: pulumi_wasm_rust::Output<bool>,
     /// Flag to check if the user skipped the configuration wizard.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub skip_wizard: pulumi_wasm_rust::Output<Option<bool>>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

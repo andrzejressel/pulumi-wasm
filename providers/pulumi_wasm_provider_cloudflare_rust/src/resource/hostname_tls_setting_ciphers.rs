@@ -121,14 +121,20 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct HostnameTlsSettingCiphersArgs {
     /// Hostname that belongs to this zone name. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub hostname: pulumi_wasm_rust::Output<String>,
     /// Ports to use within the IP rule.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub ports: pulumi_wasm_rust::Output<Option<Vec<i32>>>,
     /// Ciphers suites value.
+    #[builder(into)]
     pub values: pulumi_wasm_rust::Output<Vec<String>>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

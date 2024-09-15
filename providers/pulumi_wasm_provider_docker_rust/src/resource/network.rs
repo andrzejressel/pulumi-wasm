@@ -117,30 +117,44 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct NetworkArgs {
     /// Enable manual container attachment to the network.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub attachable: pulumi_wasm_rust::Output<Option<bool>>,
     /// Requests daemon to check for networks with same name.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub check_duplicate: pulumi_wasm_rust::Output<Option<bool>>,
     /// The driver of the Docker network. Possible values are `bridge`, `host`, `overlay`, `macvlan`. See [network docs](https://docs.docker.com/network/#network-drivers) for more details.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub driver: pulumi_wasm_rust::Output<Option<String>>,
     /// Create swarm routing-mesh network. Defaults to `false`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub ingress: pulumi_wasm_rust::Output<Option<bool>>,
     /// Whether the network is internal.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub internal: pulumi_wasm_rust::Output<Option<bool>>,
     /// The IPAM configuration options
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub ipam_configs: pulumi_wasm_rust::Output<Option<Vec<crate::types::NetworkIpamConfig>>>,
     /// Driver used by the custom IP scheme of the network. Defaults to `default`
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub ipam_driver: pulumi_wasm_rust::Output<Option<String>>,
     /// Provide explicit options to the IPAM driver. Valid options vary with `ipam_driver` and refer to that driver's documentation for more details.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub ipam_options: pulumi_wasm_rust::Output<Option<std::collections::HashMap<String, String>>>,
     /// Enable IPv6 networking. Defaults to `false`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub ipv6: pulumi_wasm_rust::Output<Option<bool>>,
     /// User-defined key/value metadata
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub labels: pulumi_wasm_rust::Output<Option<Vec<crate::types::NetworkLabel>>>,
     /// The name of the Docker network.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub name: pulumi_wasm_rust::Output<Option<String>>,
     /// Only available with bridge networks. See [bridge options docs](https://docs.docker.com/engine/reference/commandline/network_create/#bridge-driver-options) for more details.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub options: pulumi_wasm_rust::Output<Option<std::collections::HashMap<String, String>>>,
 }
 

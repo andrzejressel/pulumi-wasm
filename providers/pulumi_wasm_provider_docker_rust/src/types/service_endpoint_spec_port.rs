@@ -1,18 +1,24 @@
-#[derive(serde::Deserialize, serde::Serialize, Debug)]
+#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug)]
+#[builder(finish_fn = build_struct)]
 pub struct ServiceEndpointSpecPort {
     /// A random name for the port
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "name")]
     pub r#name: Box<Option<String>>,
     /// Rrepresents the protocol of a port: `tcp`, `udp` or `sctp`. Defaults to `tcp`.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "protocol")]
     pub r#protocol: Box<Option<String>>,
     /// Represents the mode in which the port is to be published: 'ingress' or 'host'. Defaults to `ingress`.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "publishMode")]
     pub r#publish_mode: Box<Option<String>>,
     /// The port on the swarm hosts
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "publishedPort")]
     pub r#published_port: Box<Option<i32>>,
     /// The port inside the container
+    #[builder(into)]
     #[serde(rename = "targetPort")]
     pub r#target_port: Box<i32>,
 }

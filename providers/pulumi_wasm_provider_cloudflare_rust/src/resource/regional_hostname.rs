@@ -182,12 +182,17 @@
 //! ```
 //! <!--End PulumiCodeChooser -->
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct RegionalHostnameArgs {
     /// The hostname to regionalize.
+    #[builder(into)]
     pub hostname: pulumi_wasm_rust::Output<String>,
     /// The region key. See [the full region list](https://developers.cloudflare.com/data-localization/regional-services/get-started/).
+    #[builder(into)]
     pub region_key: pulumi_wasm_rust::Output<String>,
     /// The zone identifier to target for the resource.
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

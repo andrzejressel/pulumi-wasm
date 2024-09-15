@@ -214,16 +214,23 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct OriginCaCertificateArgs {
     /// The Certificate Signing Request. Must be newline-encoded. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub csr: pulumi_wasm_rust::Output<String>,
     /// A list of hostnames or wildcard names bound to the certificate. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub hostnames: pulumi_wasm_rust::Output<Vec<String>>,
     /// Number of days prior to the expiry to trigger a renewal of the certificate if a Terraform operation is run.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub min_days_for_renewal: pulumi_wasm_rust::Output<Option<i32>>,
     /// The signature type desired on the certificate. Available values: `origin-rsa`, `origin-ecc`, `keyless-certificate`. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub request_type: pulumi_wasm_rust::Output<String>,
     /// The number of days for which the certificate should be valid. Available values: `7`, `30`, `90`, `365`, `730`, `1095`, `5475`. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub requested_validity: pulumi_wasm_rust::Output<Option<i32>>,
 }
 

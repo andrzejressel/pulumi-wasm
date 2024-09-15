@@ -162,14 +162,20 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct TeamsLocationArgs {
     /// The account identifier to target for the resource.
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// Indicator that this is the default location.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub client_default: pulumi_wasm_rust::Output<Option<bool>>,
     /// Name of the teams location.
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// The networks CIDRs that comprise the location.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub networks: pulumi_wasm_rust::Output<Option<Vec<crate::types::TeamsLocationNetwork>>>,
 }
 

@@ -171,20 +171,29 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct FirewallRuleArgs {
     /// The action to apply to a matched request. Available values: `block`, `challenge`, `allow`, `js_challenge`, `managed_challenge`, `log`, `bypass`.
+    #[builder(into)]
     pub action: pulumi_wasm_rust::Output<String>,
     /// A description of the rule to help identify it.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub description: pulumi_wasm_rust::Output<Option<String>>,
     /// The identifier of the Filter to use for determining if the Firewall Rule should be triggered.
+    #[builder(into)]
     pub filter_id: pulumi_wasm_rust::Output<String>,
     /// Whether this filter based firewall rule is currently paused.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub paused: pulumi_wasm_rust::Output<Option<bool>>,
     /// The priority of the rule to allow control of processing order. A lower number indicates high priority. If not provided, any rules with a priority will be sequenced before those without.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub priority: pulumi_wasm_rust::Output<Option<i32>>,
     /// List of products to bypass for a request when the bypass action is used. Available values: `zoneLockdown`, `uaBlock`, `bic`, `hot`, `securityLevel`, `rateLimit`, `waf`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub products: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

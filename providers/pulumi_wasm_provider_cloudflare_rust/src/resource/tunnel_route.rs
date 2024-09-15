@@ -227,16 +227,23 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct TunnelRouteArgs {
     /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// Description of the tunnel route.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub comment: pulumi_wasm_rust::Output<Option<String>>,
     /// The IPv4 or IPv6 network that should use this tunnel route, in CIDR notation.
+    #[builder(into)]
     pub network: pulumi_wasm_rust::Output<String>,
     /// The ID of the tunnel that will service the tunnel route.
+    #[builder(into)]
     pub tunnel_id: pulumi_wasm_rust::Output<String>,
     /// The ID of the virtual network for which this route is being added; uses the default virtual network of the account if none is provided. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub virtual_network_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 

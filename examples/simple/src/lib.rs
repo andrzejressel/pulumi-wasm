@@ -7,22 +7,10 @@ use pulumi_wasm_rust::{add_export, pulumi_main};
 #[pulumi_main]
 fn test_main() -> Result<(), Error> {
     let length: Output<i32> = Output::new(&12).map(|i: i32| i * 3);
+
     let random_string = random_string::create(
         "test",
-        RandomStringArgs {
-            keepers: Output::empty(),
-            length,
-            lower: Output::empty(),
-            min_lower: Output::empty(),
-            min_numeric: Output::empty(),
-            min_special: Output::empty(),
-            min_upper: Output::empty(),
-            number: Output::empty(),
-            numeric: Output::empty(),
-            override_special: Output::empty(),
-            special: Output::empty(),
-            upper: Output::empty(),
-        },
+        RandomStringArgs::builder().length(length).build_struct(),
     );
 
     // Tests preview behaviour for unknown fields

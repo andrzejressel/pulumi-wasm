@@ -121,14 +121,20 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct HostnameTlsSettingArgs {
     /// Hostname that belongs to this zone name. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub hostname: pulumi_wasm_rust::Output<String>,
     /// TLS setting name. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub setting: pulumi_wasm_rust::Output<String>,
     /// TLS setting value.
+    #[builder(into)]
     pub value: pulumi_wasm_rust::Output<String>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

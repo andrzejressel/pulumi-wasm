@@ -212,67 +212,98 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct AccessApplicationArgs {
     /// The account identifier to target for the resource. Conflicts with `zone_id`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub account_id: pulumi_wasm_rust::Output<Option<String>>,
     /// When set to true, users can authenticate to this application using their WARP session. When set to false this application will always require direct IdP authentication. This setting always overrides the organization setting for WARP authentication.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub allow_authenticate_via_warp: pulumi_wasm_rust::Output<Option<bool>>,
     /// The identity providers selected for the application.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub allowed_idps: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// The logo URL of the app launcher.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub app_launcher_logo_url: pulumi_wasm_rust::Output<Option<String>>,
     /// Option to show/hide applications in App Launcher. Defaults to `true`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub app_launcher_visible: pulumi_wasm_rust::Output<Option<bool>>,
     /// Option to skip identity provider selection if only one is configured in `allowed_idps`. Defaults to `false`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub auto_redirect_to_identity: pulumi_wasm_rust::Output<Option<bool>>,
     /// The background color of the app launcher.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub bg_color: pulumi_wasm_rust::Output<Option<String>>,
     /// CORS configuration for the Access Application. See below for reference structure.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub cors_headers:
         pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessApplicationCorsHeader>>>,
     /// Option that returns a custom error message when a user is denied access to the application.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub custom_deny_message: pulumi_wasm_rust::Output<Option<String>>,
     /// Option that redirects to a custom URL when a user is denied access to the application via identity based rules.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub custom_deny_url: pulumi_wasm_rust::Output<Option<String>>,
     /// Option that redirects to a custom URL when a user is denied access to the application via non identity rules.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub custom_non_identity_deny_url: pulumi_wasm_rust::Output<Option<String>>,
     /// The custom pages selected for the application.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub custom_pages: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// The primary hostname and path that Access will secure. If the app is visible in the App Launcher dashboard, this is the domain that will be displayed.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub domain: pulumi_wasm_rust::Output<Option<String>>,
     /// Option to provide increased security against compromised authorization tokens and CSRF attacks by requiring an additional "binding" cookie on requests. Defaults to `false`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub enable_binding_cookie: pulumi_wasm_rust::Output<Option<bool>>,
     /// The footer links of the app launcher.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub footer_links:
         pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessApplicationFooterLink>>>,
     /// The background color of the header bar in the app launcher.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub header_bg_color: pulumi_wasm_rust::Output<Option<String>>,
     /// Option to add the `HttpOnly` cookie flag to access tokens.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub http_only_cookie_attribute: pulumi_wasm_rust::Output<Option<bool>>,
     /// The landing page design of the app launcher.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub landing_page_design:
         pulumi_wasm_rust::Output<Option<crate::types::AccessApplicationLandingPageDesign>>,
     /// Image URL for the logo shown in the app launcher dashboard.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub logo_url: pulumi_wasm_rust::Output<Option<String>>,
     /// The name of the footer link.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub name: pulumi_wasm_rust::Output<Option<String>>,
     /// SaaS configuration for the Access Application.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub saas_app: pulumi_wasm_rust::Output<Option<crate::types::AccessApplicationSaasApp>>,
     /// Defines the same-site cookie setting for access tokens. Available values: `none`, `lax`, `strict`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub same_site_cookie_attribute: pulumi_wasm_rust::Output<Option<String>>,
     /// List of domains that access will secure. Only present for self_hosted, vnc, and ssh applications. Always includes the value set as `domain`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub self_hosted_domains: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// Option to return a 401 status code in service authentication rules on failed requests. Defaults to `false`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub service_auth401_redirect: pulumi_wasm_rust::Output<Option<bool>>,
     /// How often a user will be forced to re-authorise. Must be in the format `48h` or `2h45m`. Defaults to `24h`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub session_duration: pulumi_wasm_rust::Output<Option<String>>,
     /// Option to skip the authorization interstitial when using the CLI. Defaults to `false`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub skip_interstitial: pulumi_wasm_rust::Output<Option<bool>>,
     /// The itags associated with the application.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub tags: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// The application type. Available values: `app_launcher`, `bookmark`, `biso`, `dash_sso`, `saas`, `self_hosted`, `ssh`, `vnc`, `warp`. Defaults to `self_hosted`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub type_: pulumi_wasm_rust::Output<Option<String>>,
     /// The zone identifier to target for the resource. Conflicts with `account_id`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 

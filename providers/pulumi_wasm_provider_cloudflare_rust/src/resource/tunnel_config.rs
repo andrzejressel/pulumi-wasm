@@ -445,12 +445,17 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct TunnelConfigArgs {
     /// The account identifier to target for the resource.
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// Configuration block for Tunnel Configuration.
+    #[builder(into)]
     pub config: pulumi_wasm_rust::Output<crate::types::TunnelConfigConfig>,
     /// Identifier of the Tunnel to target for this configuration.
+    #[builder(into)]
     pub tunnel_id: pulumi_wasm_rust::Output<String>,
 }
 

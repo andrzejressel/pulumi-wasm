@@ -138,12 +138,17 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct WorkerRouteArgs {
     /// The [route pattern](https://developers.cloudflare.com/workers/about/routes/) to associate the Worker with.
+    #[builder(into)]
     pub pattern: pulumi_wasm_rust::Output<String>,
     /// Worker script name to invoke for requests that match the route pattern.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub script_name: pulumi_wasm_rust::Output<Option<String>>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

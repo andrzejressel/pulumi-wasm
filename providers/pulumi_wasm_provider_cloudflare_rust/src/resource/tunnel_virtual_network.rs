@@ -118,14 +118,20 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct TunnelVirtualNetworkArgs {
     /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// Description of the tunnel virtual network.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub comment: pulumi_wasm_rust::Output<Option<String>>,
     /// Whether this virtual network is the default one for the account. This means IP Routes belong to this virtual network and Teams Clients in the account route through this virtual network, unless specified otherwise for each case.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub is_default_network: pulumi_wasm_rust::Output<Option<bool>>,
     /// A user-friendly name chosen when the virtual network is created.
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
 }
 

@@ -327,35 +327,52 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct AccessPolicyArgs {
     /// The account identifier to target for the resource. Conflicts with `zone_id`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub account_id: pulumi_wasm_rust::Output<Option<String>>,
     /// The ID of the application the policy is associated with.
+    #[builder(into)]
     pub application_id: pulumi_wasm_rust::Output<String>,
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub approval_groups:
         pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessPolicyApprovalGroup>>>,
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub approval_required: pulumi_wasm_rust::Output<Option<bool>>,
     /// Defines the action Access will take if the policy matches the user. Available values: `allow`, `deny`, `non_identity`, `bypass`.
+    #[builder(into)]
     pub decision: pulumi_wasm_rust::Output<String>,
     /// A series of access conditions, see Access Groups.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub excludes: pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessPolicyExclude>>>,
     /// A series of access conditions, see Access Groups.
+    #[builder(into)]
     pub includes: pulumi_wasm_rust::Output<Vec<crate::types::AccessPolicyInclude>>,
     /// Require this application to be served in an isolated browser for users matching this policy.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub isolation_required: pulumi_wasm_rust::Output<Option<bool>>,
     /// Friendly name of the Access Policy.
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// The unique precedence for policies on a single application.
+    #[builder(into)]
     pub precedence: pulumi_wasm_rust::Output<i32>,
     /// The prompt to display to the user for a justification for accessing the resource. Required when using `purpose_justification_required`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub purpose_justification_prompt: pulumi_wasm_rust::Output<Option<String>>,
     /// Whether to prompt the user for a justification for accessing the resource.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub purpose_justification_required: pulumi_wasm_rust::Output<Option<bool>>,
     /// A series of access conditions, see Access Groups.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub requires: pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessPolicyRequire>>>,
     /// How often a user will be forced to re-authorise. Must be in the format `48h` or `2h45m`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub session_duration: pulumi_wasm_rust::Output<Option<String>>,
     /// The zone identifier to target for the resource. Conflicts with `account_id`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 

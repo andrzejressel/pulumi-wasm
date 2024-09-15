@@ -133,21 +133,30 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct CustomHostnameArgs {
     /// Custom metadata associated with custom hostname. Only supports primitive string values, all other values are accessible via the API directly.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub custom_metadata:
         pulumi_wasm_rust::Output<Option<std::collections::HashMap<String, String>>>,
     /// The custom origin server used for certificates.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub custom_origin_server: pulumi_wasm_rust::Output<Option<String>>,
     /// The [custom origin SNI](https://developers.cloudflare.com/ssl/ssl-for-saas/hostname-specific-behavior/custom-origin) used for certificates.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub custom_origin_sni: pulumi_wasm_rust::Output<Option<String>>,
     /// Hostname you intend to request a certificate for. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub hostname: pulumi_wasm_rust::Output<String>,
     /// SSL properties used when creating the custom hostname.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub ssls: pulumi_wasm_rust::Output<Option<Vec<crate::types::CustomHostnameSsl>>>,
     /// Whether to wait for a custom hostname SSL sub-object to reach status `pending_validation` during creation. Defaults to `false`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub wait_for_ssl_pending_validation: pulumi_wasm_rust::Output<Option<bool>>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

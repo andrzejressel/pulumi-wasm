@@ -184,16 +184,23 @@
 //! $ pulumi import cloudflare:index/pageRule:PageRule default d41d8cd98f00b204e9800998ecf8427e/ch8374ftwdghsif43
 //! ```
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct PageRuleArgs {
     /// The actions taken by the page rule, options given below.
+    #[builder(into)]
     pub actions: pulumi_wasm_rust::Output<crate::types::PageRuleActions>,
     /// The priority of the page rule among others for this target, the higher the number the higher the priority as per [API documentation](https://api.cloudflare.com/#page-rules-for-a-zone-create-page-rule).
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub priority: pulumi_wasm_rust::Output<Option<i32>>,
     /// Whether the page rule is active or disabled.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub status: pulumi_wasm_rust::Output<Option<String>>,
     /// The URL pattern to target with the page rule.
+    #[builder(into)]
     pub target: pulumi_wasm_rust::Output<String>,
     /// The DNS zone ID to which the page rule should be added.
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

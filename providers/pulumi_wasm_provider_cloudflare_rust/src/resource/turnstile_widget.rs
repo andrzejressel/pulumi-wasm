@@ -139,20 +139,29 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct TurnstileWidgetArgs {
     /// The account identifier to target for the resource.
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// If bot*fight*mode is set to true, Cloudflare issues computationally expensive challenges in response to malicious bots (Enterprise only).
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub bot_fight_mode: pulumi_wasm_rust::Output<Option<bool>>,
     /// Domains where the widget is deployed
+    #[builder(into)]
     pub domains: pulumi_wasm_rust::Output<Vec<String>>,
     /// Widget Mode. Available values: `non-interactive`, `invisible`, `managed`
+    #[builder(into)]
     pub mode: pulumi_wasm_rust::Output<String>,
     /// Human readable widget name.
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// Do not show any Cloudflare branding on the widget (Enterprise only).
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub offlabel: pulumi_wasm_rust::Output<Option<bool>>,
     /// Region where this widget can be used.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub region: pulumi_wasm_rust::Output<Option<String>>,
 }
 

@@ -152,12 +152,17 @@
 //! ```
 //! <!--End PulumiCodeChooser -->
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct ApiShieldOperationSchemaValidationSettingsArgs {
     /// The mitigation action to apply to this operation.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub mitigation_action: pulumi_wasm_rust::Output<Option<String>>,
     /// Operation ID these settings should apply to. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub operation_id: pulumi_wasm_rust::Output<String>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

@@ -115,12 +115,17 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct TotalTlsArgs {
     /// The Certificate Authority that Total TLS certificates will be issued through. Available values: `google`, `lets_encrypt`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub certificate_authority: pulumi_wasm_rust::Output<Option<String>>,
     /// Enable Total TLS for the zone.
+    #[builder(into)]
     pub enabled: pulumi_wasm_rust::Output<bool>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

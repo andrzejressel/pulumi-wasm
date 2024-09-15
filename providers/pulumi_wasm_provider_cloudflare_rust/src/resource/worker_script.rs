@@ -360,41 +360,62 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct WorkerScriptArgs {
     /// The account identifier to target for the resource.
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub analytics_engine_bindings:
         pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptAnalyticsEngineBinding>>>,
     /// The date to use for the compatibility flag.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub compatibility_date: pulumi_wasm_rust::Output<Option<String>>,
     /// Compatibility flags used for Worker Scripts.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub compatibility_flags: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// The script content.
+    #[builder(into)]
     pub content: pulumi_wasm_rust::Output<String>,
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub d1_database_bindings:
         pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptD1DatabaseBinding>>>,
     /// Name of the Workers for Platforms dispatch namespace.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub dispatch_namespace: pulumi_wasm_rust::Output<Option<String>>,
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub kv_namespace_bindings:
         pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptKvNamespaceBinding>>>,
     /// Enabling allows Worker events to be sent to a defined Logpush destination.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub logpush: pulumi_wasm_rust::Output<Option<bool>>,
     /// The base64 encoded wasm module you want to store.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub module: pulumi_wasm_rust::Output<Option<bool>>,
     /// The global variable for the binding in your Worker code.
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub placements: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptPlacement>>>,
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub plain_text_bindings:
         pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptPlainTextBinding>>>,
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub queue_bindings:
         pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptQueueBinding>>>,
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub r2_bucket_bindings:
         pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptR2BucketBinding>>>,
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub secret_text_bindings:
         pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptSecretTextBinding>>>,
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub service_bindings:
         pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptServiceBinding>>>,
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub tags: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub webassembly_bindings:
         pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptWebassemblyBinding>>>,
 }

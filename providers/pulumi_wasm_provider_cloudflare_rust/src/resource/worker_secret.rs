@@ -121,14 +121,20 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct WorkerSecretArgs {
     /// The account identifier to target for the resource.
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// The name of the Worker secret. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// The name of the Worker script to associate the secret with. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub script_name: pulumi_wasm_rust::Output<String>,
     /// The text of the Worker secret. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub secret_text: pulumi_wasm_rust::Output<String>,
 }
 
