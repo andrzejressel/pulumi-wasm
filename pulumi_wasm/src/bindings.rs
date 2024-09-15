@@ -119,7 +119,9 @@ pub mod component {
                         }
                         ptr
                     } else {
-                        ::core::ptr::null_mut()
+                        {
+                            ::core::ptr::null_mut()
+                        }
                     };
                     for (i, e) in vec11.into_iter().enumerate() {
                         let base = result11.add(i * 16);
@@ -796,7 +798,9 @@ pub mod exports {
                         }
                         ptr
                     } else {
-                        ::core::ptr::null_mut()
+                        {
+                            ::core::ptr::null_mut()
+                        }
                     };
                     for (i, e) in vec16.into_iter().enumerate() {
                         let base = result16.add(i * 12);
@@ -949,7 +953,9 @@ pub mod exports {
                         }
                         ptr
                     } else {
-                        ::core::ptr::null_mut()
+                        {
+                            ::core::ptr::null_mut()
+                        }
                     };
                     for (i, e) in vec10.into_iter().enumerate() {
                         let base = result10.add(i * 20);

@@ -14,9 +14,9 @@ local-test:
     $ErrorActionPreference = "Stop"
     $PSNativeCommandUseErrorActionPreference = $true
 
-    cargo build -p pulumi_wasm_runner
-    cargo component build -p pulumi_wasm_example_multiple_providers
-    cargo component build -p pulumi_wasm_random_provider
+    cargo build -p pulumi_wasm_runner --release
+    cargo component build -p pulumi_wasm_example_multiple_providers --release
+    cargo component build -p pulumi_wasm_random_provider --release
     $env:PULUMI_CONFIG_PASSPHRASE=" "
     pulumi destroy -y
     pulumi up -y
