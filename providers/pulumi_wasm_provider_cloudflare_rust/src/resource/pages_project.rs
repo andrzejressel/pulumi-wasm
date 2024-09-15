@@ -1,17 +1,17 @@
 //! Provides a resource which manages Cloudflare Pages projects.
-//!
+//! 
 //! > If you are using a `source` block configuration, you must first have a
 //!    connected GitHub or GitLab account connected to Cloudflare. See the
 //!    [Getting Started with Pages] documentation on how to link your accounts.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! // Direct upload Pages project
 //! const basicProject = new cloudflare.PagesProject("basicProject", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
@@ -150,7 +150,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! # Direct upload Pages project
 //! basic_project = cloudflare.PagesProject("basicProject",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
@@ -287,8 +287,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     // Direct upload Pages project
 //!     var basicProject = new Cloudflare.PagesProject("basicProject", new()
@@ -297,7 +297,7 @@
 //!         Name = "this-is-my-project-01",
 //!         ProductionBranch = "main",
 //!     });
-//!
+//! 
 //!     // Pages project with managing build config
 //!     var buildConfig = new Cloudflare.PagesProject("buildConfig", new()
 //!     {
@@ -313,7 +313,7 @@
 //!         Name = "this-is-my-project-01",
 //!         ProductionBranch = "main",
 //!     });
-//!
+//! 
 //!     // Pages project managing project source
 //!     var sourceConfig = new Cloudflare.PagesProject("sourceConfig", new()
 //!     {
@@ -345,7 +345,7 @@
 //!             Type = "github",
 //!         },
 //!     });
-//!
+//! 
 //!     // Pages project managing all configs
 //!     var deploymentConfigs = new Cloudflare.PagesProject("deploymentConfigs", new()
 //!     {
@@ -367,27 +367,27 @@
 //!                 {
 //!                     "nodejs_compat",
 //!                 },
-//!                 D1Databases =
+//!                 D1Databases = 
 //!                 {
 //!                     { "D1BINDING", "445e2955-951a-4358-a35b-a4d0c813f63" },
 //!                 },
-//!                 DurableObjectNamespaces =
+//!                 DurableObjectNamespaces = 
 //!                 {
 //!                     { "DOBINDING", "5eb63bbbe01eeed093cb22bb8f5acdc3" },
 //!                 },
-//!                 EnvironmentVariables =
+//!                 EnvironmentVariables = 
 //!                 {
 //!                     { "ENVIRONMENT", "preview" },
 //!                 },
-//!                 KvNamespaces =
+//!                 KvNamespaces = 
 //!                 {
 //!                     { "KVBINDING", "5eb63bbbe01eeed093cb22bb8f5acdc3" },
 //!                 },
-//!                 R2Buckets =
+//!                 R2Buckets = 
 //!                 {
 //!                     { "R2BINDING", "some-bucket" },
 //!                 },
-//!                 Secrets =
+//!                 Secrets = 
 //!                 {
 //!                     { "TURNSTILESECRET", "1x0000000000000000000000000000000AA" },
 //!                 },
@@ -400,32 +400,32 @@
 //!                     "nodejs_compat",
 //!                     "streams_enable_constructors",
 //!                 },
-//!                 D1Databases =
+//!                 D1Databases = 
 //!                 {
 //!                     { "D1BINDING1", "445e2955-951a-4358-a35b-a4d0c813f63" },
 //!                     { "D1BINDING2", "a399414b-c697-409a-a688-377db6433cd9" },
 //!                 },
-//!                 DurableObjectNamespaces =
+//!                 DurableObjectNamespaces = 
 //!                 {
 //!                     { "DOBINDING1", "5eb63bbbe01eeed093cb22bb8f5acdc3" },
 //!                     { "DOBINDING2", "3cdca5f8bb22bc390deee10ebbb36be5" },
 //!                 },
-//!                 EnvironmentVariables =
+//!                 EnvironmentVariables = 
 //!                 {
 //!                     { "ENVIRONMENT", "production" },
 //!                     { "OTHERVALUE", "other value" },
 //!                 },
-//!                 KvNamespaces =
+//!                 KvNamespaces = 
 //!                 {
 //!                     { "KVBINDING1", "5eb63bbbe01eeed093cb22bb8f5acdc3" },
 //!                     { "KVBINDING2", "3cdca5f8bb22bc390deee10ebbb36be5" },
 //!                 },
-//!                 R2Buckets =
+//!                 R2Buckets = 
 //!                 {
 //!                     { "R2BINDING1", "some-bucket" },
 //!                     { "R2BINDING2", "other-bucket" },
 //!                 },
-//!                 Secrets =
+//!                 Secrets = 
 //!                 {
 //!                     { "TURNSTILEINVISSECRET", "2x0000000000000000000000000000000AA" },
 //!                     { "TURNSTILESECRET", "1x0000000000000000000000000000000AA" },
@@ -459,18 +459,18 @@
 //!             Type = "github",
 //!         },
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		// Direct upload Pages project
@@ -627,7 +627,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -645,12 +645,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         // Direct upload Pages project
 //!         var basicProject = new PagesProject("basicProject", PagesProjectArgs.builder()        
@@ -658,7 +658,7 @@
 //!             .name("this-is-my-project-01")
 //!             .productionBranch("main")
 //!             .build());
-//!
+//! 
 //!         // Pages project with managing build config
 //!         var buildConfig = new PagesProject("buildConfig", PagesProjectArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
@@ -672,7 +672,7 @@
 //!             .name("this-is-my-project-01")
 //!             .productionBranch("main")
 //!             .build());
-//!
+//! 
 //!         // Pages project managing project source
 //!         var sourceConfig = new PagesProject("sourceConfig", PagesProjectArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
@@ -697,7 +697,7 @@
 //!                 .type("github")
 //!                 .build())
 //!             .build());
-//!
+//! 
 //!         // Pages project managing all configs
 //!         var deploymentConfigs = new PagesProject("deploymentConfigs", PagesProjectArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
@@ -771,7 +771,7 @@
 //!                 .type("github")
 //!                 .build())
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -892,15 +892,15 @@
 //!         type: github
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! !> It is not possible to import a pages project with secret environment variables. If you have a secret environment variable, you must remove it from your project before importing it.
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/pagesProject:PagesProject example <account_id>/<project_name>
 //! ```
-//!
+//! 
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
@@ -913,8 +913,7 @@ pub struct PagesProjectArgs {
     pub build_config: pulumi_wasm_rust::Output<Option<crate::types::PagesProjectBuildConfig>>,
     /// Configuration for deployments in a project.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
-    pub deployment_configs:
-        pulumi_wasm_rust::Output<Option<crate::types::PagesProjectDeploymentConfigs>>,
+    pub deployment_configs: pulumi_wasm_rust::Output<Option<crate::types::PagesProjectDeploymentConfigs>>,
     /// The global variable for the binding in your Worker code.
     #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
@@ -951,17 +950,15 @@ pub struct PagesProjectResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: PagesProjectArgs) -> PagesProjectResult {
-    let result = crate::bindings::pulumi::cloudflare::pages_project::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::pages_project::Args {
-            account_id: &args.account_id.get_inner(),
-            build_config: &args.build_config.get_inner(),
-            deployment_configs: &args.deployment_configs.get_inner(),
-            name: &args.name.get_inner(),
-            production_branch: &args.production_branch.get_inner(),
-            source: &args.source.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::pages_project::invoke(name, &crate::bindings::pulumi::cloudflare::pages_project::Args {
+        account_id: &args.account_id.get_inner(),
+        build_config: &args.build_config.get_inner(),
+        deployment_configs: &args.deployment_configs.get_inner(),
+        name: &args.name.get_inner(),
+        production_branch: &args.production_branch.get_inner(),
+        source: &args.source.get_inner(),
+    });
 
     PagesProjectResult {
         account_id: crate::into_domain(result.account_id),

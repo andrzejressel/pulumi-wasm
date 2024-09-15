@@ -3,21 +3,21 @@
 //! trusted in both directions between a client and server and can be
 //!  used with Access to only allows requests from devices with a
 //!  corresponding client certificate.
-//!
+//! 
 //! > It's required that an `account_id` or `zone_id` is provided and in
 //!    most cases using either is fine. However, if you're using a scoped
 //!    access token, you must provide the argument that matches the token's
 //!    scope. For example, an access token that is scoped to the "example.com"
 //!    zone needs to use the `zone_id` argument.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! const myCert = new cloudflare.AccessMutualTlsCertificate("myCert", {
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //!     name: "My Root Cert",
@@ -29,7 +29,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! my_cert = cloudflare.AccessMutualTlsCertificate("myCert",
 //!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     name="My Root Cert",
@@ -42,8 +42,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var myCert = new Cloudflare.AccessMutualTlsCertificate("myCert", new()
 //!     {
@@ -55,18 +55,18 @@
 //!             "staging.example.com",
 //!         },
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewAccessMutualTlsCertificate(ctx, "myCert", &cloudflare.AccessMutualTlsCertificateArgs{
@@ -87,7 +87,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -99,12 +99,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         var myCert = new AccessMutualTlsCertificate("myCert", AccessMutualTlsCertificateArgs.builder()        
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
@@ -112,7 +112,7 @@
 //!             .certificate(var_.ca_pem())
 //!             .associatedHostnames("staging.example.com")
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -129,21 +129,21 @@
 //!         - staging.example.com
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! Account level import.
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/accessMutualTlsCertificate:AccessMutualTlsCertificate example account/<account_id>/<mutual_tls_certificate_id>
 //! ```
-//!
+//! 
 //! Zone level import.
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/accessMutualTlsCertificate:AccessMutualTlsCertificate example zone/<zone_id>/<mutual_tls_certificate_id>
 //! ```
-//!
+//! 
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
@@ -182,20 +182,15 @@ pub struct AccessMutualTlsCertificateResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(
-    name: &str,
-    args: AccessMutualTlsCertificateArgs,
-) -> AccessMutualTlsCertificateResult {
-    let result = crate::bindings::pulumi::cloudflare::access_mutual_tls_certificate::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::access_mutual_tls_certificate::Args {
-            account_id: &args.account_id.get_inner(),
-            associated_hostnames: &args.associated_hostnames.get_inner(),
-            certificate: &args.certificate.get_inner(),
-            name: &args.name.get_inner(),
-            zone_id: &args.zone_id.get_inner(),
-        },
-    );
+pub fn create(name: &str, args: AccessMutualTlsCertificateArgs) -> AccessMutualTlsCertificateResult {
+
+    let result = crate::bindings::pulumi::cloudflare::access_mutual_tls_certificate::invoke(name, &crate::bindings::pulumi::cloudflare::access_mutual_tls_certificate::Args {
+        account_id: &args.account_id.get_inner(),
+        associated_hostnames: &args.associated_hostnames.get_inner(),
+        certificate: &args.certificate.get_inner(),
+        name: &args.name.get_inner(),
+        zone_id: &args.zone_id.get_inner(),
+    });
 
     AccessMutualTlsCertificateResult {
         account_id: crate::into_domain(result.account_id),

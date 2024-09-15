@@ -1,15 +1,15 @@
 //! Provides a Cloudflare Spectrum Application. You can extend the power
 //! of Cloudflare's DDoS, TLS, and IP Firewall to your other TCP-based
 //! services.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! const example = new cloudflare.SpectrumApplication("example", {
 //!     dns: {
 //!         name: "ssh.example.com",
@@ -32,7 +32,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! example = cloudflare.SpectrumApplication("example",
 //!     dns=cloudflare.SpectrumApplicationDnsArgs(
 //!         name="ssh.example.com",
@@ -56,8 +56,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var example = new Cloudflare.SpectrumApplication("example", new()
 //!     {
@@ -83,18 +83,18 @@
 //!         TrafficType = "direct",
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewSpectrumApplication(ctx, "example", &cloudflare.SpectrumApplicationArgs{
@@ -126,7 +126,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -140,12 +140,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         var example = new SpectrumApplication("example", SpectrumApplicationArgs.builder()        
 //!             .dns(SpectrumApplicationDnsArgs.builder()
@@ -163,7 +163,7 @@
 //!             .trafficType("direct")
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -188,13 +188,13 @@
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/spectrumApplication:SpectrumApplication example <zone_id>/<spectrum_application_id>
 //! ```
-//!
+//! 
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
@@ -222,8 +222,7 @@ pub struct SpectrumApplicationArgs {
     pub origin_port: pulumi_wasm_rust::Output<Option<i32>>,
     /// Origin port range to proxy traffice to. When using a range, the protocol field must also specify a range, e.g. `tcp/22-23`. Conflicts with `origin_port`.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
-    pub origin_port_range:
-        pulumi_wasm_rust::Output<Option<crate::types::SpectrumApplicationOriginPortRange>>,
+    pub origin_port_range: pulumi_wasm_rust::Output<Option<crate::types::SpectrumApplicationOriginPortRange>>,
     /// The port configuration at Cloudflare's edge. e.g. `tcp/22`.
     #[builder(into)]
     pub protocol: pulumi_wasm_rust::Output<String>,
@@ -257,8 +256,7 @@ pub struct SpectrumApplicationResult {
     /// Origin port to proxy traffice to. Conflicts with `origin_port_range`.
     pub origin_port: pulumi_wasm_rust::Output<Option<i32>>,
     /// Origin port range to proxy traffice to. When using a range, the protocol field must also specify a range, e.g. `tcp/22-23`. Conflicts with `origin_port`.
-    pub origin_port_range:
-        pulumi_wasm_rust::Output<Option<crate::types::SpectrumApplicationOriginPortRange>>,
+    pub origin_port_range: pulumi_wasm_rust::Output<Option<crate::types::SpectrumApplicationOriginPortRange>>,
     /// The port configuration at Cloudflare's edge. e.g. `tcp/22`.
     pub protocol: pulumi_wasm_rust::Output<String>,
     /// Enables a proxy protocol to the origin. Available values: `off`, `v1`, `v2`, `simple`.
@@ -275,24 +273,22 @@ pub struct SpectrumApplicationResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: SpectrumApplicationArgs) -> SpectrumApplicationResult {
-    let result = crate::bindings::pulumi::cloudflare::spectrum_application::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::spectrum_application::Args {
-            argo_smart_routing: &args.argo_smart_routing.get_inner(),
-            dns: &args.dns.get_inner(),
-            edge_ips: &args.edge_ips.get_inner(),
-            ip_firewall: &args.ip_firewall.get_inner(),
-            origin_directs: &args.origin_directs.get_inner(),
-            origin_dns: &args.origin_dns.get_inner(),
-            origin_port: &args.origin_port.get_inner(),
-            origin_port_range: &args.origin_port_range.get_inner(),
-            protocol: &args.protocol.get_inner(),
-            proxy_protocol: &args.proxy_protocol.get_inner(),
-            tls: &args.tls.get_inner(),
-            traffic_type: &args.traffic_type.get_inner(),
-            zone_id: &args.zone_id.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::spectrum_application::invoke(name, &crate::bindings::pulumi::cloudflare::spectrum_application::Args {
+        argo_smart_routing: &args.argo_smart_routing.get_inner(),
+        dns: &args.dns.get_inner(),
+        edge_ips: &args.edge_ips.get_inner(),
+        ip_firewall: &args.ip_firewall.get_inner(),
+        origin_directs: &args.origin_directs.get_inner(),
+        origin_dns: &args.origin_dns.get_inner(),
+        origin_port: &args.origin_port.get_inner(),
+        origin_port_range: &args.origin_port_range.get_inner(),
+        protocol: &args.protocol.get_inner(),
+        proxy_protocol: &args.proxy_protocol.get_inner(),
+        tls: &args.tls.get_inner(),
+        traffic_type: &args.traffic_type.get_inner(),
+        zone_id: &args.zone_id.get_inner(),
+    });
 
     SpectrumApplicationResult {
         argo_smart_routing: crate::into_domain(result.argo_smart_routing),

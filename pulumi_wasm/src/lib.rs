@@ -23,6 +23,7 @@ bindings::export!(Component with_types_in bindings);
 #[allow(dead_code)]
 #[allow(unused_variables)]
 #[allow(unused_unsafe)]
+#[rustfmt::skip]
 mod bindings;
 // mod grpc {
 //     #![allow(clippy::all)]

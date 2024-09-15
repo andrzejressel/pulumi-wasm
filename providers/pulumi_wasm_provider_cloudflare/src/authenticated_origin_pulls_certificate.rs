@@ -1,15 +1,10 @@
-use crate::bindings::component::pulumi_wasm::register_interface::{
-    register, ObjectField, RegisterResourceRequest, ResultField,
-};
-use crate::bindings::exports::pulumi::cloudflare::authenticated_origin_pulls_certificate;
-use crate::Component;
 use std::collections::HashMap;
+use crate::bindings::exports::pulumi::cloudflare::authenticated_origin_pulls_certificate;
+use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
+use crate::Component;
 
 impl authenticated_origin_pulls_certificate::Guest for Component {
-    fn invoke(
-        name: String,
-        args: authenticated_origin_pulls_certificate::Args,
-    ) -> authenticated_origin_pulls_certificate::Res {
+    fn invoke(name: String, args: authenticated_origin_pulls_certificate::Args) -> authenticated_origin_pulls_certificate::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/authenticatedOriginPullsCertificate:AuthenticatedOriginPullsCertificate".into(),
@@ -36,8 +31,7 @@ impl authenticated_origin_pulls_certificate::Guest for Component {
 
         let o = register(&request);
 
-        let mut hashmap: HashMap<String, _> =
-            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+        let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
 
         authenticated_origin_pulls_certificate::Res {
             certificate: hashmap.remove("certificate").unwrap(),
@@ -51,5 +45,6 @@ impl authenticated_origin_pulls_certificate::Guest for Component {
             uploaded_on: hashmap.remove("uploadedOn").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
+
     }
 }

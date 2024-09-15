@@ -1,9 +1,7 @@
-use crate::bindings::component::pulumi_wasm::register_interface::{
-    register, ObjectField, RegisterResourceRequest, ResultField,
-};
-use crate::bindings::exports::pulumi::cloudflare::zone_lockdown;
-use crate::Component;
 use std::collections::HashMap;
+use crate::bindings::exports::pulumi::cloudflare::zone_lockdown;
+use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
+use crate::Component;
 
 impl zone_lockdown::Guest for Component {
     fn invoke(name: String, args: zone_lockdown::Args) -> zone_lockdown::Res {
@@ -12,57 +10,26 @@ impl zone_lockdown::Guest for Component {
             type_: "cloudflare:index/zoneLockdown:ZoneLockdown".into(),
             name,
             object: vec![
-                ObjectField {
-                    name: "configurations".into(),
-                    value: args.configurations,
-                },
-                ObjectField {
-                    name: "description".into(),
-                    value: args.description,
-                },
-                ObjectField {
-                    name: "paused".into(),
-                    value: args.paused,
-                },
-                ObjectField {
-                    name: "priority".into(),
-                    value: args.priority,
-                },
-                ObjectField {
-                    name: "urls".into(),
-                    value: args.urls,
-                },
-                ObjectField {
-                    name: "zoneId".into(),
-                    value: args.zone_id,
-                },
+                ObjectField { name: "configurations".into(), value: args.configurations },
+                ObjectField { name: "description".into(), value: args.description },
+                ObjectField { name: "paused".into(), value: args.paused },
+                ObjectField { name: "priority".into(), value: args.priority },
+                ObjectField { name: "urls".into(), value: args.urls },
+                ObjectField { name: "zoneId".into(), value: args.zone_id },
             ],
             results: vec![
-                ResultField {
-                    name: "configurations".into(),
-                },
-                ResultField {
-                    name: "description".into(),
-                },
-                ResultField {
-                    name: "paused".into(),
-                },
-                ResultField {
-                    name: "priority".into(),
-                },
-                ResultField {
-                    name: "urls".into(),
-                },
-                ResultField {
-                    name: "zoneId".into(),
-                },
+                ResultField { name: "configurations".into() },
+                ResultField { name: "description".into() },
+                ResultField { name: "paused".into() },
+                ResultField { name: "priority".into() },
+                ResultField { name: "urls".into() },
+                ResultField { name: "zoneId".into() },
             ],
         };
 
         let o = register(&request);
 
-        let mut hashmap: HashMap<String, _> =
-            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+        let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
 
         zone_lockdown::Res {
             configurations: hashmap.remove("configurations").unwrap(),
@@ -72,5 +39,6 @@ impl zone_lockdown::Guest for Component {
             urls: hashmap.remove("urls").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
+
     }
 }

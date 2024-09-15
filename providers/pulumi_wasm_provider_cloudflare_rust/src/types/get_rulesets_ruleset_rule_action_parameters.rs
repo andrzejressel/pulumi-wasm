@@ -12,8 +12,7 @@ pub struct GetRulesetsRulesetRuleActionParameters {
     /// Indicate which file extensions to minify automatically.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "autominifies")]
-    pub r#autominifies:
-        Box<Option<Vec<crate::types::GetRulesetsRulesetRuleActionParametersAutominify>>>,
+    pub r#autominifies: Box<Option<Vec<crate::types::GetRulesetsRulesetRuleActionParametersAutominify>>>,
     /// Inspect the visitor's browser for headers commonly associated with spammers and certain bots.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "bic")]
@@ -92,8 +91,7 @@ pub struct GetRulesetsRulesetRuleActionParameters {
     /// List of properties to configure WAF payload logging.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "matchedData")]
-    pub r#matched_data:
-        Box<Option<crate::types::GetRulesetsRulesetRuleActionParametersMatchedData>>,
+    pub r#matched_data: Box<Option<crate::types::GetRulesetsRulesetRuleActionParametersMatchedData>>,
     /// Turn on or off Cloudflare Mirage of the Cloudflare Speed app.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "mirage")]

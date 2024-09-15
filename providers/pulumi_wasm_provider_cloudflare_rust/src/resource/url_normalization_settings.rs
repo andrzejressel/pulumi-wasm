@@ -1,13 +1,13 @@
 //! Provides a resource to manage URL Normalization Settings.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! const example = new cloudflare.UrlNormalizationSettings("example", {
 //!     scope: "incoming",
 //!     type: "cloudflare",
@@ -18,7 +18,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! example = cloudflare.UrlNormalizationSettings("example",
 //!     scope="incoming",
 //!     type="cloudflare",
@@ -30,8 +30,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var example = new Cloudflare.UrlNormalizationSettings("example", new()
 //!     {
@@ -39,18 +39,18 @@
 //!         Type = "cloudflare",
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewUrlNormalizationSettings(ctx, "example", &cloudflare.UrlNormalizationSettingsArgs{
@@ -68,7 +68,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -80,19 +80,19 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         var example = new UrlNormalizationSettings("example", UrlNormalizationSettingsArgs.builder()        
 //!             .scope("incoming")
 //!             .type("cloudflare")
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -135,14 +135,12 @@ pub struct UrlNormalizationSettingsResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: UrlNormalizationSettingsArgs) -> UrlNormalizationSettingsResult {
-    let result = crate::bindings::pulumi::cloudflare::url_normalization_settings::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::url_normalization_settings::Args {
-            scope: &args.scope.get_inner(),
-            type_: &args.type_.get_inner(),
-            zone_id: &args.zone_id.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::url_normalization_settings::invoke(name, &crate::bindings::pulumi::cloudflare::url_normalization_settings::Args {
+        scope: &args.scope.get_inner(),
+        type_: &args.type_.get_inner(),
+        zone_id: &args.zone_id.get_inner(),
+    });
 
     UrlNormalizationSettingsResult {
         scope: crate::into_domain(result.scope),

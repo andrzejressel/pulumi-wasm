@@ -1,9 +1,7 @@
-use crate::bindings::component::pulumi_wasm::register_interface::{
-    register, ObjectField, RegisterResourceRequest, ResultField,
-};
-use crate::bindings::exports::pulumi::docker::network;
-use crate::Component;
 use std::collections::HashMap;
+use crate::bindings::exports::pulumi::docker::network;
+use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
+use crate::Component;
 
 impl network::Guest for Component {
     fn invoke(name: String, args: network::Args) -> network::Res {
@@ -12,102 +10,39 @@ impl network::Guest for Component {
             type_: "docker:index/network:Network".into(),
             name,
             object: vec![
-                ObjectField {
-                    name: "attachable".into(),
-                    value: args.attachable,
-                },
-                ObjectField {
-                    name: "checkDuplicate".into(),
-                    value: args.check_duplicate,
-                },
-                ObjectField {
-                    name: "driver".into(),
-                    value: args.driver,
-                },
-                ObjectField {
-                    name: "ingress".into(),
-                    value: args.ingress,
-                },
-                ObjectField {
-                    name: "internal".into(),
-                    value: args.internal,
-                },
-                ObjectField {
-                    name: "ipamConfigs".into(),
-                    value: args.ipam_configs,
-                },
-                ObjectField {
-                    name: "ipamDriver".into(),
-                    value: args.ipam_driver,
-                },
-                ObjectField {
-                    name: "ipamOptions".into(),
-                    value: args.ipam_options,
-                },
-                ObjectField {
-                    name: "ipv6".into(),
-                    value: args.ipv6,
-                },
-                ObjectField {
-                    name: "labels".into(),
-                    value: args.labels,
-                },
-                ObjectField {
-                    name: "name".into(),
-                    value: args.name,
-                },
-                ObjectField {
-                    name: "options".into(),
-                    value: args.options,
-                },
+                ObjectField { name: "attachable".into(), value: args.attachable },
+                ObjectField { name: "checkDuplicate".into(), value: args.check_duplicate },
+                ObjectField { name: "driver".into(), value: args.driver },
+                ObjectField { name: "ingress".into(), value: args.ingress },
+                ObjectField { name: "internal".into(), value: args.internal },
+                ObjectField { name: "ipamConfigs".into(), value: args.ipam_configs },
+                ObjectField { name: "ipamDriver".into(), value: args.ipam_driver },
+                ObjectField { name: "ipamOptions".into(), value: args.ipam_options },
+                ObjectField { name: "ipv6".into(), value: args.ipv6 },
+                ObjectField { name: "labels".into(), value: args.labels },
+                ObjectField { name: "name".into(), value: args.name },
+                ObjectField { name: "options".into(), value: args.options },
             ],
             results: vec![
-                ResultField {
-                    name: "attachable".into(),
-                },
-                ResultField {
-                    name: "checkDuplicate".into(),
-                },
-                ResultField {
-                    name: "driver".into(),
-                },
-                ResultField {
-                    name: "ingress".into(),
-                },
-                ResultField {
-                    name: "internal".into(),
-                },
-                ResultField {
-                    name: "ipamConfigs".into(),
-                },
-                ResultField {
-                    name: "ipamDriver".into(),
-                },
-                ResultField {
-                    name: "ipamOptions".into(),
-                },
-                ResultField {
-                    name: "ipv6".into(),
-                },
-                ResultField {
-                    name: "labels".into(),
-                },
-                ResultField {
-                    name: "name".into(),
-                },
-                ResultField {
-                    name: "options".into(),
-                },
-                ResultField {
-                    name: "scope".into(),
-                },
+                ResultField { name: "attachable".into() },
+                ResultField { name: "checkDuplicate".into() },
+                ResultField { name: "driver".into() },
+                ResultField { name: "ingress".into() },
+                ResultField { name: "internal".into() },
+                ResultField { name: "ipamConfigs".into() },
+                ResultField { name: "ipamDriver".into() },
+                ResultField { name: "ipamOptions".into() },
+                ResultField { name: "ipv6".into() },
+                ResultField { name: "labels".into() },
+                ResultField { name: "name".into() },
+                ResultField { name: "options".into() },
+                ResultField { name: "scope".into() },
             ],
         };
 
         let o = register(&request);
 
-        let mut hashmap: HashMap<String, _> =
-            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+        let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
 
         network::Res {
             attachable: hashmap.remove("attachable").unwrap(),
@@ -124,5 +59,6 @@ impl network::Guest for Component {
             options: hashmap.remove("options").unwrap(),
             scope: hashmap.remove("scope").unwrap(),
         }
+
     }
 }

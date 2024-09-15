@@ -8,9 +8,7 @@ pub struct RulesetRuleActionParametersEdgeTtlStatusCodeTtl {
     /// Status code range for which the edge TTL is applied.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "statusCodeRanges")]
-    pub r#status_code_ranges: Box<
-        Option<Vec<crate::types::RulesetRuleActionParametersEdgeTtlStatusCodeTtlStatusCodeRange>>,
-    >,
+    pub r#status_code_ranges: Box<Option<Vec<crate::types::RulesetRuleActionParametersEdgeTtlStatusCodeTtlStatusCodeRange>>>,
     /// Status code edge TTL value.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "value")]

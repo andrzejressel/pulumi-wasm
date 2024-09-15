@@ -1,47 +1,32 @@
-use crate::bindings::component::pulumi_wasm::register_interface::{
-    register, ObjectField, RegisterResourceRequest, ResultField,
-};
-use crate::bindings::exports::pulumi::cloudflare::access_keys_configuration;
-use crate::Component;
 use std::collections::HashMap;
+use crate::bindings::exports::pulumi::cloudflare::access_keys_configuration;
+use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
+use crate::Component;
 
 impl access_keys_configuration::Guest for Component {
-    fn invoke(
-        name: String,
-        args: access_keys_configuration::Args,
-    ) -> access_keys_configuration::Res {
+    fn invoke(name: String, args: access_keys_configuration::Args) -> access_keys_configuration::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/accessKeysConfiguration:AccessKeysConfiguration".into(),
             name,
             object: vec![
-                ObjectField {
-                    name: "accountId".into(),
-                    value: args.account_id,
-                },
-                ObjectField {
-                    name: "keyRotationIntervalDays".into(),
-                    value: args.key_rotation_interval_days,
-                },
+                ObjectField { name: "accountId".into(), value: args.account_id },
+                ObjectField { name: "keyRotationIntervalDays".into(), value: args.key_rotation_interval_days },
             ],
             results: vec![
-                ResultField {
-                    name: "accountId".into(),
-                },
-                ResultField {
-                    name: "keyRotationIntervalDays".into(),
-                },
+                ResultField { name: "accountId".into() },
+                ResultField { name: "keyRotationIntervalDays".into() },
             ],
         };
 
         let o = register(&request);
 
-        let mut hashmap: HashMap<String, _> =
-            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+        let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
 
         access_keys_configuration::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             key_rotation_interval_days: hashmap.remove("keyRotationIntervalDays").unwrap(),
         }
+
     }
 }

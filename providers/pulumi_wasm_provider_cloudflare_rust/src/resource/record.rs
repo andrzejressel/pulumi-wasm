@@ -1,13 +1,13 @@
 //! Provides a Cloudflare record resource.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! // Add a record to the domain
 //! const example = new cloudflare.Record("example", {
 //!     zoneId: _var.cloudflare_zone_id,
@@ -36,7 +36,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! # Add a record to the domain
 //! example = cloudflare.Record("example",
 //!     zone_id=var["cloudflare_zone_id"],
@@ -65,8 +65,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     // Add a record to the domain
 //!     var example = new Cloudflare.Record("example", new()
@@ -77,7 +77,7 @@
 //!         Type = "A",
 //!         Ttl = 3600,
 //!     });
-//!
+//! 
 //!     // Add a record requiring a data map
 //!     var _sipTls = new Cloudflare.Record("_sipTls", new()
 //!     {
@@ -95,18 +95,18 @@
 //!             Target = "example.com",
 //!         },
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		// Add a record to the domain
@@ -145,7 +145,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -158,12 +158,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         // Add a record to the domain
 //!         var example = new Record("example", RecordArgs.builder()        
@@ -173,7 +173,7 @@
 //!             .type("A")
 //!             .ttl(3600)
 //!             .build());
-//!
+//! 
 //!         // Add a record requiring a data map
 //!         var _sipTls = new Record("_sipTls", RecordArgs.builder()        
 //!             .zoneId(var_.cloudflare_zone_id())
@@ -189,7 +189,7 @@
 //!                 .target("example.com")
 //!                 .build())
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -222,13 +222,13 @@
 //!         target: example.com
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/record:Record example <zone_id>/<record_id>
 //! ```
-//!
+//! 
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
@@ -313,22 +313,20 @@ pub struct RecordResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: RecordArgs) -> RecordResult {
-    let result = crate::bindings::pulumi::cloudflare::record::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::record::Args {
-            allow_overwrite: &args.allow_overwrite.get_inner(),
-            comment: &args.comment.get_inner(),
-            data: &args.data.get_inner(),
-            name: &args.name.get_inner(),
-            priority: &args.priority.get_inner(),
-            proxied: &args.proxied.get_inner(),
-            tags: &args.tags.get_inner(),
-            ttl: &args.ttl.get_inner(),
-            type_: &args.type_.get_inner(),
-            value: &args.value.get_inner(),
-            zone_id: &args.zone_id.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::record::invoke(name, &crate::bindings::pulumi::cloudflare::record::Args {
+        allow_overwrite: &args.allow_overwrite.get_inner(),
+        comment: &args.comment.get_inner(),
+        data: &args.data.get_inner(),
+        name: &args.name.get_inner(),
+        priority: &args.priority.get_inner(),
+        proxied: &args.proxied.get_inner(),
+        tags: &args.tags.get_inner(),
+        ttl: &args.ttl.get_inner(),
+        type_: &args.type_.get_inner(),
+        value: &args.value.get_inner(),
+        zone_id: &args.zone_id.get_inner(),
+    });
 
     RecordResult {
         allow_overwrite: crate::into_domain(result.allow_overwrite),

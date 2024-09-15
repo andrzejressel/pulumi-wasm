@@ -1,9 +1,7 @@
-use crate::bindings::component::pulumi_wasm::register_interface::{
-    register, ObjectField, RegisterResourceRequest, ResultField,
-};
-use crate::bindings::exports::pulumi::cloudflare::zone_hold;
-use crate::Component;
 use std::collections::HashMap;
+use crate::bindings::exports::pulumi::cloudflare::zone_hold;
+use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
+use crate::Component;
 
 impl zone_hold::Guest for Component {
     fn invoke(name: String, args: zone_hold::Args) -> zone_hold::Res {
@@ -12,43 +10,22 @@ impl zone_hold::Guest for Component {
             type_: "cloudflare:index/zoneHold:ZoneHold".into(),
             name,
             object: vec![
-                ObjectField {
-                    name: "hold".into(),
-                    value: args.hold,
-                },
-                ObjectField {
-                    name: "holdAfter".into(),
-                    value: args.hold_after,
-                },
-                ObjectField {
-                    name: "includeSubdomains".into(),
-                    value: args.include_subdomains,
-                },
-                ObjectField {
-                    name: "zoneId".into(),
-                    value: args.zone_id,
-                },
+                ObjectField { name: "hold".into(), value: args.hold },
+                ObjectField { name: "holdAfter".into(), value: args.hold_after },
+                ObjectField { name: "includeSubdomains".into(), value: args.include_subdomains },
+                ObjectField { name: "zoneId".into(), value: args.zone_id },
             ],
             results: vec![
-                ResultField {
-                    name: "hold".into(),
-                },
-                ResultField {
-                    name: "holdAfter".into(),
-                },
-                ResultField {
-                    name: "includeSubdomains".into(),
-                },
-                ResultField {
-                    name: "zoneId".into(),
-                },
+                ResultField { name: "hold".into() },
+                ResultField { name: "holdAfter".into() },
+                ResultField { name: "includeSubdomains".into() },
+                ResultField { name: "zoneId".into() },
             ],
         };
 
         let o = register(&request);
 
-        let mut hashmap: HashMap<String, _> =
-            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+        let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
 
         zone_hold::Res {
             hold: hashmap.remove("hold").unwrap(),
@@ -56,5 +33,6 @@ impl zone_hold::Guest for Component {
             include_subdomains: hashmap.remove("includeSubdomains").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
+
     }
 }

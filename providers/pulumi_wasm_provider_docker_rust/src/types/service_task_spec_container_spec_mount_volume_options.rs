@@ -12,8 +12,7 @@ pub struct ServiceTaskSpecContainerSpecMountVolumeOptions {
     /// User-defined key/value metadata
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "labels")]
-    pub r#labels:
-        Box<Option<Vec<crate::types::ServiceTaskSpecContainerSpecMountVolumeOptionsLabel>>>,
+    pub r#labels: Box<Option<Vec<crate::types::ServiceTaskSpecContainerSpecMountVolumeOptionsLabel>>>,
     /// Populate volume with data from the target
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "noCopy")]

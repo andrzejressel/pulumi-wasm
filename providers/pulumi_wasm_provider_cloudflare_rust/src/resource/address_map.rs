@@ -1,14 +1,14 @@
 //! Provides the ability to manage IP addresses that can be used by DNS records when
 //! they are proxied through Cloudflare.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! const example = new cloudflare.AddressMap("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
 //!     defaultSni: "*.example.com",
@@ -38,7 +38,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! example = cloudflare.AddressMap("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
 //!     default_sni="*.example.com",
@@ -69,8 +69,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var example = new Cloudflare.AddressMap("example", new()
 //!     {
@@ -103,18 +103,18 @@
 //!             },
 //!         },
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewAddressMap(ctx, "example", &cloudflare.AddressMapArgs{
@@ -151,7 +151,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -165,12 +165,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         var example = new AddressMap("example", AddressMapArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
@@ -194,7 +194,7 @@
 //!                     .kind("zone")
 //!                     .build())
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -218,13 +218,13 @@
 //!           kind: zone
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/addressMap:AddressMap example <account_id>/<address_map_id>
 //! ```
-//!
+//! 
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
@@ -272,17 +272,15 @@ pub struct AddressMapResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: AddressMapArgs) -> AddressMapResult {
-    let result = crate::bindings::pulumi::cloudflare::address_map::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::address_map::Args {
-            account_id: &args.account_id.get_inner(),
-            default_sni: &args.default_sni.get_inner(),
-            description: &args.description.get_inner(),
-            enabled: &args.enabled.get_inner(),
-            ips: &args.ips.get_inner(),
-            memberships: &args.memberships.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::address_map::invoke(name, &crate::bindings::pulumi::cloudflare::address_map::Args {
+        account_id: &args.account_id.get_inner(),
+        default_sni: &args.default_sni.get_inner(),
+        description: &args.description.get_inner(),
+        enabled: &args.enabled.get_inner(),
+        ips: &args.ips.get_inner(),
+        memberships: &args.memberships.get_inner(),
+    });
 
     AddressMapResult {
         account_id: crate::into_domain(result.account_id),

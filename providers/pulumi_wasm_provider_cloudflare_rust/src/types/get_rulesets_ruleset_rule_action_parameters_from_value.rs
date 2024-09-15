@@ -12,6 +12,5 @@ pub struct GetRulesetsRulesetRuleActionParametersFromValue {
     /// Target URL for redirect.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "targetUrl")]
-    pub r#target_url:
-        Box<Option<crate::types::GetRulesetsRulesetRuleActionParametersFromValueTargetUrl>>,
+    pub r#target_url: Box<Option<crate::types::GetRulesetsRulesetRuleActionParametersFromValueTargetUrl>>,
 }

@@ -1,18 +1,18 @@
 //! Provides a resource which customizes Cloudflare zone settings.
-//!
+//! 
 //! > You **should not** use this resource to manage every zone setting. This
 //!   resource is only intended to override those which you do not want the default.
 //!   Attempting to manage all settings will result in problems with the resource
 //!   applying in a consistent manner.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! const test = new cloudflare.ZoneSettingsOverride("test", {
 //!     zoneId: d41d8cd98f00b204e9800998ecf8427e,
 //!     settings: {
@@ -38,7 +38,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! test = cloudflare.ZoneSettingsOverride("test",
 //!     zone_id=d41d8cd98f00b204e9800998ecf8427e,
 //!     settings=cloudflare.ZoneSettingsOverrideSettingsArgs(
@@ -65,8 +65,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var test = new Cloudflare.ZoneSettingsOverride("test", new()
 //!     {
@@ -92,18 +92,18 @@
 //!             },
 //!         },
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewZoneSettingsOverride(ctx, "test", &cloudflare.ZoneSettingsOverrideArgs{
@@ -136,7 +136,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -151,12 +151,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         var test = new ZoneSettingsOverride("test", ZoneSettingsOverrideArgs.builder()        
 //!             .zoneId(d41d8cd98f00b204e9800998ecf8427e)
@@ -178,7 +178,7 @@
 //!                     .build())
 //!                 .build())
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -217,8 +217,7 @@ pub struct ZoneSettingsOverrideArgs {
 }
 
 pub struct ZoneSettingsOverrideResult {
-    pub initial_settings:
-        pulumi_wasm_rust::Output<Vec<crate::types::ZoneSettingsOverrideInitialSetting>>,
+    pub initial_settings: pulumi_wasm_rust::Output<Vec<crate::types::ZoneSettingsOverrideInitialSetting>>,
     pub initial_settings_read_at: pulumi_wasm_rust::Output<String>,
     pub readonly_settings: pulumi_wasm_rust::Output<Vec<String>>,
     pub settings: pulumi_wasm_rust::Output<crate::types::ZoneSettingsOverrideSettings>,
@@ -232,13 +231,11 @@ pub struct ZoneSettingsOverrideResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: ZoneSettingsOverrideArgs) -> ZoneSettingsOverrideResult {
-    let result = crate::bindings::pulumi::cloudflare::zone_settings_override::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::zone_settings_override::Args {
-            settings: &args.settings.get_inner(),
-            zone_id: &args.zone_id.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::zone_settings_override::invoke(name, &crate::bindings::pulumi::cloudflare::zone_settings_override::Args {
+        settings: &args.settings.get_inner(),
+        zone_id: &args.zone_id.get_inner(),
+    });
 
     ZoneSettingsOverrideResult {
         initial_settings: crate::into_domain(result.initial_settings),

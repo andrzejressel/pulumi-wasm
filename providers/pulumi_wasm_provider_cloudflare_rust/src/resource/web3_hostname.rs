@@ -43,16 +43,14 @@ pub struct Web3HostnameResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: Web3HostnameArgs) -> Web3HostnameResult {
-    let result = crate::bindings::pulumi::cloudflare::web3_hostname::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::web3_hostname::Args {
-            description: &args.description.get_inner(),
-            dnslink: &args.dnslink.get_inner(),
-            name: &args.name.get_inner(),
-            target: &args.target.get_inner(),
-            zone_id: &args.zone_id.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::web3_hostname::invoke(name, &crate::bindings::pulumi::cloudflare::web3_hostname::Args {
+        description: &args.description.get_inner(),
+        dnslink: &args.dnslink.get_inner(),
+        name: &args.name.get_inner(),
+        target: &args.target.get_inner(),
+        zone_id: &args.zone_id.get_inner(),
+    });
 
     Web3HostnameResult {
         created_on: crate::into_domain(result.created_on),

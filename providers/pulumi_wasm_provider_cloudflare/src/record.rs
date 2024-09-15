@@ -1,9 +1,7 @@
-use crate::bindings::component::pulumi_wasm::register_interface::{
-    register, ObjectField, RegisterResourceRequest, ResultField,
-};
-use crate::bindings::exports::pulumi::cloudflare::record;
-use crate::Component;
 use std::collections::HashMap;
+use crate::bindings::exports::pulumi::cloudflare::record;
+use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
+use crate::Component;
 
 impl record::Guest for Component {
     fn invoke(name: String, args: record::Args) -> record::Res {
@@ -12,105 +10,41 @@ impl record::Guest for Component {
             type_: "cloudflare:index/record:Record".into(),
             name,
             object: vec![
-                ObjectField {
-                    name: "allowOverwrite".into(),
-                    value: args.allow_overwrite,
-                },
-                ObjectField {
-                    name: "comment".into(),
-                    value: args.comment,
-                },
-                ObjectField {
-                    name: "data".into(),
-                    value: args.data,
-                },
-                ObjectField {
-                    name: "name".into(),
-                    value: args.name,
-                },
-                ObjectField {
-                    name: "priority".into(),
-                    value: args.priority,
-                },
-                ObjectField {
-                    name: "proxied".into(),
-                    value: args.proxied,
-                },
-                ObjectField {
-                    name: "tags".into(),
-                    value: args.tags,
-                },
-                ObjectField {
-                    name: "ttl".into(),
-                    value: args.ttl,
-                },
-                ObjectField {
-                    name: "type".into(),
-                    value: args.type_,
-                },
-                ObjectField {
-                    name: "value".into(),
-                    value: args.value,
-                },
-                ObjectField {
-                    name: "zoneId".into(),
-                    value: args.zone_id,
-                },
+                ObjectField { name: "allowOverwrite".into(), value: args.allow_overwrite },
+                ObjectField { name: "comment".into(), value: args.comment },
+                ObjectField { name: "data".into(), value: args.data },
+                ObjectField { name: "name".into(), value: args.name },
+                ObjectField { name: "priority".into(), value: args.priority },
+                ObjectField { name: "proxied".into(), value: args.proxied },
+                ObjectField { name: "tags".into(), value: args.tags },
+                ObjectField { name: "ttl".into(), value: args.ttl },
+                ObjectField { name: "type".into(), value: args.type_ },
+                ObjectField { name: "value".into(), value: args.value },
+                ObjectField { name: "zoneId".into(), value: args.zone_id },
             ],
             results: vec![
-                ResultField {
-                    name: "allowOverwrite".into(),
-                },
-                ResultField {
-                    name: "comment".into(),
-                },
-                ResultField {
-                    name: "createdOn".into(),
-                },
-                ResultField {
-                    name: "data".into(),
-                },
-                ResultField {
-                    name: "hostname".into(),
-                },
-                ResultField {
-                    name: "metadata".into(),
-                },
-                ResultField {
-                    name: "modifiedOn".into(),
-                },
-                ResultField {
-                    name: "name".into(),
-                },
-                ResultField {
-                    name: "priority".into(),
-                },
-                ResultField {
-                    name: "proxiable".into(),
-                },
-                ResultField {
-                    name: "proxied".into(),
-                },
-                ResultField {
-                    name: "tags".into(),
-                },
+                ResultField { name: "allowOverwrite".into() },
+                ResultField { name: "comment".into() },
+                ResultField { name: "createdOn".into() },
+                ResultField { name: "data".into() },
+                ResultField { name: "hostname".into() },
+                ResultField { name: "metadata".into() },
+                ResultField { name: "modifiedOn".into() },
+                ResultField { name: "name".into() },
+                ResultField { name: "priority".into() },
+                ResultField { name: "proxiable".into() },
+                ResultField { name: "proxied".into() },
+                ResultField { name: "tags".into() },
                 ResultField { name: "ttl".into() },
-                ResultField {
-                    name: "type".into(),
-                },
-                ResultField {
-                    name: "value".into(),
-                },
-                ResultField {
-                    name: "zoneId".into(),
-                },
+                ResultField { name: "type".into() },
+                ResultField { name: "value".into() },
+                ResultField { name: "zoneId".into() },
             ],
         };
 
         let o = register(&request);
 
-        let mut hashmap: HashMap<String, _> =
-            o.fields.into_iter().map(|f| (f.name, f.output)).collect();
+        let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
 
         record::Res {
             allow_overwrite: hashmap.remove("allowOverwrite").unwrap(),
@@ -130,5 +64,6 @@ impl record::Guest for Component {
             value: hashmap.remove("value").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
+
     }
 }

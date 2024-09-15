@@ -1,15 +1,15 @@
 //! Provides a resource, that manages Cloudflare static routes for Magic
 //! Transit or Magic WAN. Static routes are used to route traffic
 //! through GRE tunnels.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! const example = new cloudflare.StaticRoute("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
 //!     coloNames: ["den01"],
@@ -25,7 +25,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! example = cloudflare.StaticRoute("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
 //!     colo_names=["den01"],
@@ -42,8 +42,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var example = new Cloudflare.StaticRoute("example", new()
 //!     {
@@ -62,18 +62,18 @@
 //!         Priority = 100,
 //!         Weight = 10,
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewStaticRoute(ctx, "example", &cloudflare.StaticRouteArgs{
@@ -100,7 +100,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -112,12 +112,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         var example = new StaticRoute("example", StaticRouteArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
@@ -129,7 +129,7 @@
 //!             .priority(100)
 //!             .weight(10)
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -151,13 +151,13 @@
 //!       weight: 10
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/staticRoute:StaticRoute example <account_id>/<static_route_id>
 //! ```
-//!
+//! 
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
@@ -211,19 +211,17 @@ pub struct StaticRouteResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: StaticRouteArgs) -> StaticRouteResult {
-    let result = crate::bindings::pulumi::cloudflare::static_route::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::static_route::Args {
-            account_id: &args.account_id.get_inner(),
-            colo_names: &args.colo_names.get_inner(),
-            colo_regions: &args.colo_regions.get_inner(),
-            description: &args.description.get_inner(),
-            nexthop: &args.nexthop.get_inner(),
-            prefix: &args.prefix.get_inner(),
-            priority: &args.priority.get_inner(),
-            weight: &args.weight.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::static_route::invoke(name, &crate::bindings::pulumi::cloudflare::static_route::Args {
+        account_id: &args.account_id.get_inner(),
+        colo_names: &args.colo_names.get_inner(),
+        colo_regions: &args.colo_regions.get_inner(),
+        description: &args.description.get_inner(),
+        nexthop: &args.nexthop.get_inner(),
+        prefix: &args.prefix.get_inner(),
+        priority: &args.priority.get_inner(),
+        weight: &args.weight.get_inner(),
+    });
 
     StaticRouteResult {
         account_id: crate::into_domain(result.account_id),

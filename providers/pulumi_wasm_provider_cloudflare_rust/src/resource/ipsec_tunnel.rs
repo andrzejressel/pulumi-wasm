@@ -1,13 +1,13 @@
 //! Provides a resource, that manages IPsec tunnels for Magic Transit.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! const example = new cloudflare.IpsecTunnel("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
 //!     allowNullCipher: false,
@@ -26,7 +26,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! example = cloudflare.IpsecTunnel("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
 //!     allow_null_cipher=False,
@@ -46,8 +46,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var example = new Cloudflare.IpsecTunnel("example", new()
 //!     {
@@ -63,18 +63,18 @@
 //!         Name = "IPsec_1",
 //!         Psk = "asdf12341234",
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewIpsecTunnel(ctx, "example", &cloudflare.IpsecTunnelArgs{
@@ -100,7 +100,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -112,12 +112,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         var example = new IpsecTunnel("example", IpsecTunnelArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
@@ -132,7 +132,7 @@
 //!             .name("IPsec_1")
 //!             .psk("asdf12341234")
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -155,13 +155,13 @@
 //!       psk: asdf12341234
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/ipsecTunnel:IpsecTunnel example <account_id>/<tunnel_id>
 //! ```
-//!
+//! 
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
@@ -260,28 +260,26 @@ pub struct IpsecTunnelResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: IpsecTunnelArgs) -> IpsecTunnelResult {
-    let result = crate::bindings::pulumi::cloudflare::ipsec_tunnel::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::ipsec_tunnel::Args {
-            account_id: &args.account_id.get_inner(),
-            allow_null_cipher: &args.allow_null_cipher.get_inner(),
-            cloudflare_endpoint: &args.cloudflare_endpoint.get_inner(),
-            customer_endpoint: &args.customer_endpoint.get_inner(),
-            description: &args.description.get_inner(),
-            fqdn_id: &args.fqdn_id.get_inner(),
-            health_check_direction: &args.health_check_direction.get_inner(),
-            health_check_enabled: &args.health_check_enabled.get_inner(),
-            health_check_rate: &args.health_check_rate.get_inner(),
-            health_check_target: &args.health_check_target.get_inner(),
-            health_check_type: &args.health_check_type.get_inner(),
-            hex_id: &args.hex_id.get_inner(),
-            interface_address: &args.interface_address.get_inner(),
-            name: &args.name.get_inner(),
-            psk: &args.psk.get_inner(),
-            remote_id: &args.remote_id.get_inner(),
-            user_id: &args.user_id.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::ipsec_tunnel::invoke(name, &crate::bindings::pulumi::cloudflare::ipsec_tunnel::Args {
+        account_id: &args.account_id.get_inner(),
+        allow_null_cipher: &args.allow_null_cipher.get_inner(),
+        cloudflare_endpoint: &args.cloudflare_endpoint.get_inner(),
+        customer_endpoint: &args.customer_endpoint.get_inner(),
+        description: &args.description.get_inner(),
+        fqdn_id: &args.fqdn_id.get_inner(),
+        health_check_direction: &args.health_check_direction.get_inner(),
+        health_check_enabled: &args.health_check_enabled.get_inner(),
+        health_check_rate: &args.health_check_rate.get_inner(),
+        health_check_target: &args.health_check_target.get_inner(),
+        health_check_type: &args.health_check_type.get_inner(),
+        hex_id: &args.hex_id.get_inner(),
+        interface_address: &args.interface_address.get_inner(),
+        name: &args.name.get_inner(),
+        psk: &args.psk.get_inner(),
+        remote_id: &args.remote_id.get_inner(),
+        user_id: &args.user_id.get_inner(),
+    });
 
     IpsecTunnelResult {
         account_id: crate::into_domain(result.account_id),

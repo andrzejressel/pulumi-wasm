@@ -1,10 +1,10 @@
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -18,12 +18,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         // Hostname list
 //!         var example = new List("example", ListArgs.builder()        
@@ -45,7 +45,7 @@
 //!             .kind("hostname")
 //!             .name("example_list")
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -71,13 +71,13 @@
 //!       name: example_list
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/list:List example <account_id>/<list_id>
 //! ```
-//!
+//! 
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
@@ -114,16 +114,14 @@ pub struct ListResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: ListArgs) -> ListResult {
-    let result = crate::bindings::pulumi::cloudflare::list::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::list::Args {
-            account_id: &args.account_id.get_inner(),
-            description: &args.description.get_inner(),
-            items: &args.items.get_inner(),
-            kind: &args.kind.get_inner(),
-            name: &args.name.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::list::invoke(name, &crate::bindings::pulumi::cloudflare::list::Args {
+        account_id: &args.account_id.get_inner(),
+        description: &args.description.get_inner(),
+        items: &args.items.get_inner(),
+        kind: &args.kind.get_inner(),
+        name: &args.name.get_inner(),
+    });
 
     ListResult {
         account_id: crate::into_domain(result.account_id),

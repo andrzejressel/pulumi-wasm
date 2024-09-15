@@ -1,18 +1,18 @@
 //! The [Cloudflare Ruleset Engine](https://developers.cloudflare.com/firewall/cf-rulesets)
 //! allows you to create and deploy rules and rulesets.
-//!
+//! 
 //! The engine syntax, inspired by the Wireshark Display Filter language, is the
 //! same syntax used in custom Firewall Rules. Cloudflare uses the Ruleset Engine
 //! in different products, allowing you to configure several products using the same
 //! basic syntax.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -45,12 +45,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         // Magic Transit
 //!         var magicTransitExample = new Ruleset("magicTransitExample", RulesetArgs.builder()        
@@ -65,7 +65,7 @@
 //!                 .expression("tcp.dstport in { 32768..65535 }")
 //!                 .build())
 //!             .build());
-//!
+//! 
 //!         // Zone-level WAF Managed Ruleset
 //!         var zoneLevelManagedWaf = new Ruleset("zoneLevelManagedWaf", RulesetArgs.builder()        
 //!             .description("managed WAF ruleset description")
@@ -83,7 +83,7 @@
 //!                 .build())
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
-//!
+//! 
 //!         // Zone-level WAF with tag-based overrides
 //!         var zoneLevelManagedWafWithCategoryBasedOverrides = new Ruleset("zoneLevelManagedWafWithCategoryBasedOverrides", RulesetArgs.builder()        
 //!             .description("managed WAF with tag-based overrides ruleset description")
@@ -114,7 +114,7 @@
 //!                 .build())
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
-//!
+//! 
 //!         // Rewrite the URI path component to a static path
 //!         var transformUriRulePath = new Ruleset("transformUriRulePath", RulesetArgs.builder()        
 //!             .description("change the URI path to a new static path")
@@ -136,7 +136,7 @@
 //!                 .build())
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
-//!
+//! 
 //!         // Rewrite the URI query component to a static query
 //!         var transformUriRuleQuery = new Ruleset("transformUriRuleQuery", RulesetArgs.builder()        
 //!             .description("change the URI query to a new static query")
@@ -158,7 +158,7 @@
 //!                 .build())
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
-//!
+//! 
 //!         // Rewrite HTTP headers to a modified values
 //!         var transformUriHttpHeaders = new Ruleset("transformUriHttpHeaders", RulesetArgs.builder()        
 //!             .description("modify HTTP headers before reaching origin")
@@ -190,7 +190,7 @@
 //!                 .build())
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
-//!
+//! 
 //!         // HTTP rate limit for an API route
 //!         var rateLimitingExample = new Ruleset("rateLimitingExample", RulesetArgs.builder()        
 //!             .description("apply HTTP rate limiting for a route")
@@ -213,7 +213,7 @@
 //!                 .build())
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
-//!
+//! 
 //!         // Change origin for an API route
 //!         var httpOriginExample = new Ruleset("httpOriginExample", RulesetArgs.builder()        
 //!             .description("Change origin for a route")
@@ -235,7 +235,7 @@
 //!                 .build())
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
-//!
+//! 
 //!         // Custom fields logging
 //!         var customFieldsLoggingExample = new Ruleset("customFieldsLoggingExample", RulesetArgs.builder()        
 //!             .description("add custom fields to logging")
@@ -264,7 +264,7 @@
 //!                 .build())
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
-//!
+//! 
 //!         // Custom cache keys + settings
 //!         var cacheSettingsExample = new Ruleset("cacheSettingsExample", RulesetArgs.builder()        
 //!             .description("set cache settings for the request")
@@ -329,7 +329,7 @@
 //!                 .build())
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
-//!
+//! 
 //!         // Redirects based on a List resource
 //!         var redirectFromListExample = new Ruleset("redirectFromListExample", RulesetArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
@@ -350,7 +350,7 @@
 //!                 .expression("http.request.full_uri in $redirect_list")
 //!                 .build())
 //!             .build());
-//!
+//! 
 //!         // Dynamic Redirects from value resource
 //!         var redirectFromValueExample = new Ruleset("redirectFromValueExample", RulesetArgs.builder()        
 //!             .description("Redirect ruleset")
@@ -374,7 +374,7 @@
 //!                 .build())
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
-//!
+//! 
 //!         // Serve some custom error response
 //!         var httpCustomErrorExample = new Ruleset("httpCustomErrorExample", RulesetArgs.builder()        
 //!             .description("Serve some error response")
@@ -394,7 +394,7 @@
 //!                 .build())
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
-//!
+//! 
 //!         // Set Configuration Rules for an API route
 //!         var httpConfigRulesExample = new Ruleset("httpConfigRulesExample", RulesetArgs.builder()        
 //!             .description("set config rules for request")
@@ -413,7 +413,7 @@
 //!                 .build())
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
-//!
+//! 
 //!         // Set compress algorithm for response.
 //!         var responseCompressBrotliHtml = new Ruleset("responseCompressBrotliHtml", RulesetArgs.builder()        
 //!             .description("Response compression ruleset")
@@ -437,7 +437,7 @@
 //!                 .build())
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -775,21 +775,21 @@
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! Import an account scoped Ruleset configuration.
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/ruleset:Ruleset example account/<account_id>/<ruleset_id>
 //! ```
-//!
+//! 
 //! Import a zone scoped Ruleset configuration.
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/ruleset:Ruleset example zone/<zone_id>/<ruleset_id>
 //! ```
-//!
+//! 
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
@@ -838,18 +838,16 @@ pub struct RulesetResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: RulesetArgs) -> RulesetResult {
-    let result = crate::bindings::pulumi::cloudflare::ruleset::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::ruleset::Args {
-            account_id: &args.account_id.get_inner(),
-            description: &args.description.get_inner(),
-            kind: &args.kind.get_inner(),
-            name: &args.name.get_inner(),
-            phase: &args.phase.get_inner(),
-            rules: &args.rules.get_inner(),
-            zone_id: &args.zone_id.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::ruleset::invoke(name, &crate::bindings::pulumi::cloudflare::ruleset::Args {
+        account_id: &args.account_id.get_inner(),
+        description: &args.description.get_inner(),
+        kind: &args.kind.get_inner(),
+        name: &args.name.get_inner(),
+        phase: &args.phase.get_inner(),
+        rules: &args.rules.get_inner(),
+        zone_id: &args.zone_id.get_inner(),
+    });
 
     RulesetResult {
         account_id: crate::into_domain(result.account_id),
