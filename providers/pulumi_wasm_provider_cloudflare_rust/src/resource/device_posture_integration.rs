@@ -165,18 +165,26 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct DevicePostureIntegrationArgs {
     /// The account identifier to target for the resource.
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// The device posture integration's connection authorization parameters.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub configs:
         pulumi_wasm_rust::Output<Option<Vec<crate::types::DevicePostureIntegrationConfig>>>,
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub identifier: pulumi_wasm_rust::Output<Option<String>>,
     /// Indicates the frequency with which to poll the third-party API. Must be in the format `1h` or `30m`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub interval: pulumi_wasm_rust::Output<Option<String>>,
     /// Name of the device posture integration.
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// The device posture integration type. Available values: `workspace_one`, `uptycs`, `crowdstrike_s2s`, `intune`, `kolide`, `sentinelone_s2s`, `tanium_s2s`.
+    #[builder(into)]
     pub type_: pulumi_wasm_rust::Output<String>,
 }
 

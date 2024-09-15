@@ -115,14 +115,20 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct WebAnalyticsSiteArgs {
     /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// Whether Cloudflare will automatically inject the JavaScript snippet for orange-clouded sites. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub auto_install: pulumi_wasm_rust::Output<bool>,
     /// The hostname to use for gray-clouded sites. Must provide only one of `zone_tag`. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub host: pulumi_wasm_rust::Output<Option<String>>,
     /// The zone identifier for orange-clouded sites. Must provide only one of `host`. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub zone_tag: pulumi_wasm_rust::Output<Option<String>>,
 }
 

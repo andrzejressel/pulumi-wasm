@@ -7,12 +7,17 @@
 //! Docker secret cannot be imported as the secret data, once set, is never exposed again.
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct SecretArgs {
     /// Base64-url-safe-encoded secret data
+    #[builder(into)]
     pub data: pulumi_wasm_rust::Output<String>,
     /// User-defined key/value metadata
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub labels: pulumi_wasm_rust::Output<Option<Vec<crate::types::SecretLabel>>>,
     /// User-defined name of the secret
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub name: pulumi_wasm_rust::Output<Option<String>>,
 }
 

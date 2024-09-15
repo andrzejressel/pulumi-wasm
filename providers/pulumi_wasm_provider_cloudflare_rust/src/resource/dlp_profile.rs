@@ -9,21 +9,30 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct DlpProfileArgs {
     /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// Related DLP policies will trigger when the match count exceeds the number set.
+    #[builder(into)]
     pub allowed_match_count: pulumi_wasm_rust::Output<i32>,
     /// Scan the context of predefined entries to only return matches surrounded by keywords.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub context_awareness:
         pulumi_wasm_rust::Output<Option<crate::types::DlpProfileContextAwareness>>,
     /// Brief summary of the profile and its intended use.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub description: pulumi_wasm_rust::Output<Option<String>>,
     /// List of entries to apply to the profile.
+    #[builder(into)]
     pub entries: pulumi_wasm_rust::Output<Vec<crate::types::DlpProfileEntry>>,
     /// Name of the entry to deploy.
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// The type of the profile. Available values: `custom`, `predefined`. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub type_: pulumi_wasm_rust::Output<String>,
 }
 

@@ -177,14 +177,20 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct AuthenticatedOriginPullsCertificateArgs {
     /// The public client certificate. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub certificate: pulumi_wasm_rust::Output<String>,
     /// The private key of the client certificate. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub private_key: pulumi_wasm_rust::Output<String>,
     /// The form of Authenticated Origin Pulls to upload the certificate to. Available values: `per-zone`, `per-hostname`. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub type_: pulumi_wasm_rust::Output<String>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

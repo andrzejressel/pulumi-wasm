@@ -110,10 +110,14 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct RegionalTieredCacheArgs {
     /// Value of the Regional Tiered Cache zone setting.
+    #[builder(into)]
     pub value: pulumi_wasm_rust::Output<String>,
     /// The zone identifier to target for the resource.
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

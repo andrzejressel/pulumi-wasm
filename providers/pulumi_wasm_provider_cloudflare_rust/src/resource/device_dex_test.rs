@@ -158,18 +158,26 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct DeviceDexTestArgs {
     /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// The configuration object which contains the details for the WARP client to conduct the test.
+    #[builder(into)]
     pub data: pulumi_wasm_rust::Output<crate::types::DeviceDexTestData>,
     /// Additional details about the test.
+    #[builder(into)]
     pub description: pulumi_wasm_rust::Output<String>,
     /// Determines whether or not the test is active.
+    #[builder(into)]
     pub enabled: pulumi_wasm_rust::Output<bool>,
     /// How often the test will run.
+    #[builder(into)]
     pub interval: pulumi_wasm_rust::Output<String>,
     /// The name of the Device Dex Test. Must be unique.
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
 }
 

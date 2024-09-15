@@ -153,14 +153,20 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct WorkersKvArgs {
     /// The account identifier to target for the resource.
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// Name of the KV pair. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub key: pulumi_wasm_rust::Output<String>,
     /// The ID of the Workers KV namespace in which you want to create the KV pair. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub namespace_id: pulumi_wasm_rust::Output<String>,
     /// Value of the KV pair.
+    #[builder(into)]
     pub value: pulumi_wasm_rust::Output<String>,
 }
 

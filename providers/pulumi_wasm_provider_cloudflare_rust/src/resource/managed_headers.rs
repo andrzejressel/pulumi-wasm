@@ -164,14 +164,19 @@
 //! ```
 //! <!--End PulumiCodeChooser -->
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct ManagedHeadersArgs {
     /// The list of managed request headers.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub managed_request_headers:
         pulumi_wasm_rust::Output<Option<Vec<crate::types::ManagedHeadersManagedRequestHeader>>>,
     /// The list of managed response headers.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub managed_response_headers:
         pulumi_wasm_rust::Output<Option<Vec<crate::types::ManagedHeadersManagedResponseHeader>>>,
     /// The zone identifier to target for the resource.
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

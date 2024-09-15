@@ -403,20 +403,29 @@
 //! You can use the `triggers` argument to specify when the image should be rebuild. This is for example helpful when you want to rebuild the docker image whenever the source code changes.
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct RemoteImageArgs {
     /// Configuration to build an image. Please see [docker build command reference](https://docs.docker.com/engine/reference/commandline/build/#options) too.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub build: pulumi_wasm_rust::Output<Option<crate::types::RemoteImageBuild>>,
     /// Always remove intermediate containers
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub force_remove: pulumi_wasm_rust::Output<Option<bool>>,
     /// If true, then the Docker image won't be deleted on destroy operation. If this is false, it will delete the image from the docker local storage on destroy operation.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub keep_locally: pulumi_wasm_rust::Output<Option<bool>>,
     /// type of ulimit, e.g. `nofile`
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// Set platform if server is multi-platform capable
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub platform: pulumi_wasm_rust::Output<Option<String>>,
     /// List of values which cause an image pull when changed. This is used to store the image digest from the registry when using the docker*registry*image.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub pull_triggers: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// A map of arbitrary strings that, when changed, will force the `docker.RemoteImage` resource to be replaced. This can be used to rebuild an image when contents of source code folders change
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub triggers: pulumi_wasm_rust::Output<Option<std::collections::HashMap<String, String>>>,
 }
 

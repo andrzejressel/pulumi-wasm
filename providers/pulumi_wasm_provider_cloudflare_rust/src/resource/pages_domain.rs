@@ -118,12 +118,17 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct PagesDomainArgs {
     /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// Custom domain. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub domain: pulumi_wasm_rust::Output<String>,
     /// Name of the Pages Project. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub project_name: pulumi_wasm_rust::Output<String>,
 }
 

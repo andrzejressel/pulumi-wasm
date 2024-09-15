@@ -158,14 +158,20 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct HyperdriveConfigArgs {
     /// The account identifier to target for the resource.
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// The caching details for the Hyperdrive configuration.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub caching: pulumi_wasm_rust::Output<Option<crate::types::HyperdriveConfigCaching>>,
     /// The name of the Hyperdrive configuration.
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// The origin details for the Hyperdrive configuration.
+    #[builder(into)]
     pub origin: pulumi_wasm_rust::Output<crate::types::HyperdriveConfigOrigin>,
 }
 

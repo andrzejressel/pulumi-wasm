@@ -109,10 +109,14 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct WaitingRoomSettingsArgs {
     /// Whether to allow verified search engine crawlers to bypass all waiting rooms on this zone. Defaults to `false`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub search_engine_crawler_bypass: pulumi_wasm_rust::Output<Option<bool>>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

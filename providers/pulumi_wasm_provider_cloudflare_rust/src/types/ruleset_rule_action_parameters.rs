@@ -1,155 +1,207 @@
-#[derive(serde::Deserialize, serde::Serialize, Debug)]
+#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug)]
+#[builder(finish_fn = build_struct)]
 pub struct RulesetRuleActionParameters {
     /// Specifies uncommon ports to allow cacheable assets to be served from.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "additionalCacheablePorts")]
     pub r#additional_cacheable_ports: Box<Option<Vec<i32>>>,
     /// Compression algorithms to use in order of preference.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "algorithms")]
     pub r#algorithms: Box<Option<Vec<crate::types::RulesetRuleActionParametersAlgorithm>>>,
     /// Turn on or off Cloudflare Automatic HTTPS rewrites.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "automaticHttpsRewrites")]
     pub r#automatic_https_rewrites: Box<Option<bool>>,
     /// Indicate which file extensions to minify automatically.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "autominifies")]
     pub r#autominifies: Box<Option<Vec<crate::types::RulesetRuleActionParametersAutominify>>>,
     /// Inspect the visitor's browser for headers commonly associated with spammers and certain bots.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "bic")]
     pub r#bic: Box<Option<bool>>,
     /// List of browser TTL parameters to apply to the request.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "browserTtl")]
     pub r#browser_ttl: Box<Option<crate::types::RulesetRuleActionParametersBrowserTtl>>,
     /// Whether to cache if expression matches.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "cache")]
     pub r#cache: Box<Option<bool>>,
     /// List of cache key parameters to apply to the request.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "cacheKey")]
     pub r#cache_key: Box<Option<crate::types::RulesetRuleActionParametersCacheKey>>,
     /// Content of the custom error response.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "content")]
     pub r#content: Box<Option<String>>,
     /// Content-Type of the custom error response.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "contentType")]
     pub r#content_type: Box<Option<String>>,
     /// List of cookie values to include as part of custom fields logging.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "cookieFields")]
     pub r#cookie_fields: Box<Option<Vec<String>>>,
     /// Turn off all active Cloudflare Apps.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "disableApps")]
     pub r#disable_apps: Box<Option<bool>>,
     /// Turn off railgun feature of the Cloudflare Speed app.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "disableRailgun")]
     pub r#disable_railgun: Box<Option<bool>>,
     /// Turn off zaraz feature.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "disableZaraz")]
     pub r#disable_zaraz: Box<Option<bool>>,
     /// List of edge TTL parameters to apply to the request.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "edgeTtl")]
     pub r#edge_ttl: Box<Option<crate::types::RulesetRuleActionParametersEdgeTtl>>,
     /// Turn on or off the Cloudflare Email Obfuscation feature of the Cloudflare Scrape Shield app.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "emailObfuscation")]
     pub r#email_obfuscation: Box<Option<bool>>,
     /// Use a list to lookup information for the action.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "fromList")]
     pub r#from_list: Box<Option<crate::types::RulesetRuleActionParametersFromList>>,
     /// Use a value to lookup information for the action.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "fromValue")]
     pub r#from_value: Box<Option<crate::types::RulesetRuleActionParametersFromValue>>,
     /// List of HTTP header modifications to perform in the ruleset rule. Note: Headers are order dependent and must be provided sorted alphabetically ascending based on the `name` value.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "headers")]
     pub r#headers: Box<Option<Vec<crate::types::RulesetRuleActionParametersHeader>>>,
     /// Host Header that request origin receives.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "hostHeader")]
     pub r#host_header: Box<Option<String>>,
     /// Turn on or off the hotlink protection feature.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "hotlinkProtection")]
     pub r#hotlink_protection: Box<Option<bool>>,
     /// Identifier of the action parameter to modify.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "id")]
     pub r#id: Box<Option<String>>,
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "increment")]
     pub r#increment: Box<Option<i32>>,
     /// List of properties to configure WAF payload logging.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "matchedData")]
     pub r#matched_data: Box<Option<crate::types::RulesetRuleActionParametersMatchedData>>,
     /// Turn on or off Cloudflare Mirage of the Cloudflare Speed app.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "mirage")]
     pub r#mirage: Box<Option<bool>>,
     /// Turn on or off the Cloudflare Opportunistic Encryption feature of the Edge Certificates tab in the Cloudflare SSL/TLS app.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "opportunisticEncryption")]
     pub r#opportunistic_encryption: Box<Option<bool>>,
     /// List of properties to change request origin.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "origin")]
     pub r#origin: Box<Option<crate::types::RulesetRuleActionParametersOrigin>>,
     /// Enable or disable the use of a more compliant Cache Control parsing mechanism, enabled by default for most zones.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "originCacheControl")]
     pub r#origin_cache_control: Box<Option<bool>>,
     /// Pass-through error page for origin.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "originErrorPagePassthru")]
     pub r#origin_error_page_passthru: Box<Option<bool>>,
     /// List of override configurations to apply to the ruleset.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "overrides")]
     pub r#overrides: Box<Option<crate::types::RulesetRuleActionParametersOverrides>>,
     /// Point in the request/response lifecycle where the ruleset will be created. Available values: `ddos_l4`, `ddos_l7`, `http_config_settings`, `http_custom_errors`, `http_log_custom_fields`, `http_ratelimit`, `http_request_cache_settings`, `http_request_dynamic_redirect`, `http_request_firewall_custom`, `http_request_firewall_managed`, `http_request_late_transform`, `http_request_origin`, `http_request_redirect`, `http_request_sanitize`, `http_request_sbfm`, `http_request_transform`, `http_response_compression`, `http_response_firewall_managed`, `http_response_headers_transform`, `magic_transit`.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "phases")]
     pub r#phases: Box<Option<Vec<String>>>,
     /// Apply options from the Polish feature of the Cloudflare Speed app.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "polish")]
     pub r#polish: Box<Option<String>>,
     /// Products to target with the actions. Available values: `bic`, `hot`, `ratelimit`, `securityLevel`, `uablock`, `waf`, `zonelockdown`.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "products")]
     pub r#products: Box<Option<Vec<String>>>,
     /// Specifies a maximum timeout for reading content from an origin server.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "readTimeout")]
     pub r#read_timeout: Box<Option<i32>>,
     /// List of request headers to include as part of custom fields logging, in lowercase.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "requestFields")]
     pub r#request_fields: Box<Option<Vec<String>>>,
     /// Respect strong ETags.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "respectStrongEtags")]
     pub r#respect_strong_etags: Box<Option<bool>>,
     /// List of response headers to include as part of custom fields logging, in lowercase.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "responseFields")]
     pub r#response_fields: Box<Option<Vec<String>>>,
     /// List of parameters that configure the response given to end users.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "responses")]
     pub r#responses: Box<Option<Vec<crate::types::RulesetRuleActionParametersResponse>>>,
     /// Turn on or off Cloudflare Rocket Loader in the Cloudflare Speed app.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "rocketLoader")]
     pub r#rocket_loader: Box<Option<bool>>,
     /// List of rule-based overrides.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "rules")]
     pub r#rules: Box<Option<std::collections::HashMap<String, String>>>,
     /// Which ruleset ID to target.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "ruleset")]
     pub r#ruleset: Box<Option<String>>,
     /// List of managed WAF rule IDs to target. Only valid when the `"action"` is set to skip.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "rulesets")]
     pub r#rulesets: Box<Option<Vec<String>>>,
     /// Control options for the Security Level feature from the Security app.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "securityLevel")]
     pub r#security_level: Box<Option<String>>,
     /// List of serve stale parameters to apply to the request.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "serveStale")]
     pub r#serve_stale: Box<Option<crate::types::RulesetRuleActionParametersServeStale>>,
     /// Turn on or off the Server Side Excludes feature of the Cloudflare Scrape Shield app.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "serverSideExcludes")]
     pub r#server_side_excludes: Box<Option<bool>>,
     /// List of properties to manange Server Name Indication.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "sni")]
     pub r#sni: Box<Option<crate::types::RulesetRuleActionParametersSni>>,
     /// Control options for the SSL feature of the Edge Certificates tab in the Cloudflare SSL/TLS app.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "ssl")]
     pub r#ssl: Box<Option<String>>,
     /// Status code for which the edge TTL is applied.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "statusCode")]
     pub r#status_code: Box<Option<i32>>,
     /// Turn on or off the SXG feature.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "sxg")]
     pub r#sxg: Box<Option<bool>>,
     /// List of URI properties to configure for the ruleset rule when performing URL rewrite transformations.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "uri")]
     pub r#uri: Box<Option<crate::types::RulesetRuleActionParametersUri>>,
     /// Version of the ruleset to deploy.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "version")]
     pub r#version: Box<Option<String>>,
 }

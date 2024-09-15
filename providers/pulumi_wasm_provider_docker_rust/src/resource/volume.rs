@@ -117,14 +117,20 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct VolumeArgs {
     /// Driver type for the volume. Defaults to `local`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub driver: pulumi_wasm_rust::Output<Option<String>>,
     /// Options specific to the driver.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub driver_opts: pulumi_wasm_rust::Output<Option<std::collections::HashMap<String, String>>>,
     /// User-defined key/value metadata
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub labels: pulumi_wasm_rust::Output<Option<Vec<crate::types::VolumeLabel>>>,
     /// The name of the Docker volume (will be generated if not provided).
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub name: pulumi_wasm_rust::Output<Option<String>>,
 }
 

@@ -191,12 +191,17 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct WaitingRoomRulesArgs {
     /// List of rules to apply to the ruleset.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub rules: pulumi_wasm_rust::Output<Option<Vec<crate::types::WaitingRoomRulesRule>>>,
     /// The Waiting Room ID the rules should apply to. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub waiting_room_id: pulumi_wasm_rust::Output<String>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

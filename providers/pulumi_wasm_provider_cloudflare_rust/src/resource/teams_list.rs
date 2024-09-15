@@ -152,16 +152,23 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct TeamsListArgs {
     /// The account identifier to target for the resource.
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// The description of the teams list.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub description: pulumi_wasm_rust::Output<Option<String>>,
     /// The items of the teams list.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub items: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// Name of the teams list.
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// The teams list type. Available values: `IP`, `SERIAL`, `URL`, `DOMAIN`, `EMAIL`.
+    #[builder(into)]
     pub type_: pulumi_wasm_rust::Output<String>,
 }
 

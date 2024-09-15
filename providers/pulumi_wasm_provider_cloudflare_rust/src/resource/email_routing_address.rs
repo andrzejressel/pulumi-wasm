@@ -109,10 +109,14 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct EmailRoutingAddressArgs {
     /// The account identifier to target for the resource.
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// The contact email address of the user.
+    #[builder(into)]
     pub email: pulumi_wasm_rust::Output<String>,
 }
 

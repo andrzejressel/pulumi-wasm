@@ -159,16 +159,23 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct MtlsCertificateArgs {
     /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// Whether this is a CA or leaf certificate. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub ca: pulumi_wasm_rust::Output<bool>,
     /// Certificate you intend to use with mTLS-enabled services. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub certificates: pulumi_wasm_rust::Output<String>,
     /// Optional unique name for the certificate. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub name: pulumi_wasm_rust::Output<Option<String>>,
     /// The certificate's private key. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub private_key: pulumi_wasm_rust::Output<Option<String>>,
 }
 

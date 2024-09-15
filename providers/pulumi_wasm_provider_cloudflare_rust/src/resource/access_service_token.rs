@@ -130,16 +130,23 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct AccessServiceTokenArgs {
     /// The account identifier to target for the resource. Conflicts with `zone_id`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub account_id: pulumi_wasm_rust::Output<Option<String>>,
     /// Length of time the service token is valid for. Available values: `8760h`, `17520h`, `43800h`, `87600h`, `forever`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub duration: pulumi_wasm_rust::Output<Option<String>>,
     /// Refresh the token if terraform is run within the specified amount of days before expiration.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub min_days_for_renewal: pulumi_wasm_rust::Output<Option<i32>>,
     /// Friendly name of the token's intent.
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// The zone identifier to target for the resource. Conflicts with `account_id`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 

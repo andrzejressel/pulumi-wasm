@@ -115,12 +115,17 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct R2BucketArgs {
     /// The account identifier to target for the resource.
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// The location hint of the R2 bucket.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub location: pulumi_wasm_rust::Output<Option<String>>,
     /// The name of the R2 bucket.
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
 }
 

@@ -230,31 +230,44 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct RecordArgs {
     /// Allow creation of this record in Terraform to overwrite an existing record, if any. This does not affect the ability to
     /// update the record in Terraform and does not prevent other resources within Terraform or manual changes outside Terraform
     /// from overwriting this record. **This configuration is not recommended for most environments**
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub allow_overwrite: pulumi_wasm_rust::Output<Option<bool>>,
     /// Comments or notes about the DNS record. This field has no effect on DNS responses.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub comment: pulumi_wasm_rust::Output<Option<String>>,
     /// Map of attributes that constitute the record value. Conflicts with `value`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub data: pulumi_wasm_rust::Output<Option<crate::types::RecordData>>,
     /// The name of the record.
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// The priority of the record.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub priority: pulumi_wasm_rust::Output<Option<i32>>,
     /// Whether the record gets Cloudflare's origin protection.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub proxied: pulumi_wasm_rust::Output<Option<bool>>,
     /// Custom tags for the DNS record.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub tags: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// The TTL of the record.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub ttl: pulumi_wasm_rust::Output<Option<i32>>,
     /// The type of the record. Available values: `A`, `AAAA`, `CAA`, `CNAME`, `TXT`, `SRV`, `LOC`, `MX`, `NS`, `SPF`, `CERT`,
     /// `DNSKEY`, `DS`, `NAPTR`, `SMIMEA`, `SSHFP`, `TLSA`, `URI`, `PTR`, `HTTPS`, `SVCB`
+    #[builder(into)]
     pub type_: pulumi_wasm_rust::Output<String>,
     /// The value of the record.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub value: pulumi_wasm_rust::Output<Option<String>>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

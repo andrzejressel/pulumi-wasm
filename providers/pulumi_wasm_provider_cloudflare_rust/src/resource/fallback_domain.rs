@@ -12,11 +12,16 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct FallbackDomainArgs {
     /// The account identifier to target for the resource.
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
+    #[builder(into)]
     pub domains: pulumi_wasm_rust::Output<Vec<crate::types::FallbackDomainDomain>>,
     /// The settings policy for which to configure this fallback domain policy.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub policy_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 

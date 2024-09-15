@@ -113,18 +113,26 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct ZoneArgs {
     /// Account ID to manage the zone resource in.
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// Whether to scan for DNS records on creation. Ignored after zone is created.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub jump_start: pulumi_wasm_rust::Output<Option<bool>>,
     /// Whether this zone is paused (traffic bypasses Cloudflare). Defaults to `false`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub paused: pulumi_wasm_rust::Output<Option<bool>>,
     /// The name of the commercial plan to apply to the zone. Available values: `free`, `lite`, `pro`, `pro_plus`, `business`, `enterprise`, `partners_free`, `partners_pro`, `partners_business`, `partners_enterprise`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub plan: pulumi_wasm_rust::Output<Option<String>>,
     /// A full zone implies that DNS is hosted with Cloudflare. A partial zone is typically a partner-hosted zone or a CNAME setup. Available values: `full`, `partial`, `secondary`. Defaults to `full`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub type_: pulumi_wasm_rust::Output<Option<String>>,
     /// The DNS zone name which will be added. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub zone: pulumi_wasm_rust::Output<String>,
 }
 

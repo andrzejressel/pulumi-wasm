@@ -454,23 +454,34 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct RateLimitArgs {
     /// The action to be performed when the threshold of matched traffic within the period defined is exceeded.
+    #[builder(into)]
     pub action: pulumi_wasm_rust::Output<crate::types::RateLimitAction>,
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub bypass_url_patterns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// Determines how rate limiting is applied. By default if not specified, rate limiting applies to the clients IP address.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub correlate: pulumi_wasm_rust::Output<Option<crate::types::RateLimitCorrelate>>,
     /// A note that you can use to describe the reason for a rate limit. This value is sanitized and all tags are removed.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub description: pulumi_wasm_rust::Output<Option<String>>,
     /// Whether this ratelimit is currently disabled. Defaults to `false`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub disabled: pulumi_wasm_rust::Output<Option<bool>>,
     /// Determines which traffic the rate limit counts towards the threshold. By default matches all traffic in the zone.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub match_: pulumi_wasm_rust::Output<Option<crate::types::RateLimitMatch>>,
     /// The time in seconds to count matching traffic. If the count exceeds threshold within this period the action will be performed.
+    #[builder(into)]
     pub period: pulumi_wasm_rust::Output<i32>,
     /// The threshold that triggers the rate limit mitigations, combine with period.
+    #[builder(into)]
     pub threshold: pulumi_wasm_rust::Output<i32>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

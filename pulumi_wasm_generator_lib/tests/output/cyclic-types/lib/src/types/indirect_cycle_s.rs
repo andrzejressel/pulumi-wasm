@@ -1,5 +1,7 @@
-#[derive(serde::Deserialize, serde::Serialize, Debug)]
+#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug)]
+#[builder(finish_fn = build_struct)]
 pub struct IndirectCycleS {
+    #[builder(into)]
     #[serde(rename = "foo2")]
     pub r#foo_2: Box<crate::types::IndirectCycleT>,
 }

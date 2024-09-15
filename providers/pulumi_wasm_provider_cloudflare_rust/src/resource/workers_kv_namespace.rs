@@ -109,10 +109,14 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct WorkersKvNamespaceArgs {
     /// The account identifier to target for the resource.
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// Title value of the Worker KV Namespace.
+    #[builder(into)]
     pub title: pulumi_wasm_rust::Output<String>,
 }
 

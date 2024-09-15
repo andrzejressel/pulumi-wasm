@@ -401,19 +401,27 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct AccessIdentityProviderArgs {
     /// The account identifier to target for the resource. Conflicts with `zone_id`. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub account_id: pulumi_wasm_rust::Output<Option<String>>,
     /// Provider configuration from the [developer documentation](https://developers.cloudflare.com/access/configuring-identity-providers/).
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub configs: pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessIdentityProviderConfig>>>,
     /// Friendly name of the Access Identity Provider configuration.
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// Configuration for SCIM settings for a given IDP.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub scim_configs:
         pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessIdentityProviderScimConfig>>>,
     /// The provider type to use. Available values: `azureAD`, `centrify`, `facebook`, `github`, `google`, `google-apps`, `linkedin`, `oidc`, `okta`, `onelogin`, `onetimepin`, `pingone`, `saml`, `yandex`.
+    #[builder(into)]
     pub type_: pulumi_wasm_rust::Output<String>,
     /// The zone identifier to target for the resource. Conflicts with `account_id`. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 

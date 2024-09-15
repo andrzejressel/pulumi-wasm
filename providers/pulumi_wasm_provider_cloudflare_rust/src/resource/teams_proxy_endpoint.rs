@@ -123,12 +123,17 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct TeamsProxyEndpointArgs {
     /// The account identifier to target for the resource.
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// The networks CIDRs that will be allowed to initiate proxy connections.
+    #[builder(into)]
     pub ips: pulumi_wasm_rust::Output<Vec<String>>,
     /// Name of the teams proxy endpoint.
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
 }
 

@@ -196,33 +196,48 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct SpectrumApplicationArgs {
     /// Enables Argo Smart Routing.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub argo_smart_routing: pulumi_wasm_rust::Output<Option<bool>>,
     /// The name and type of DNS record for the Spectrum application.
+    #[builder(into)]
     pub dns: pulumi_wasm_rust::Output<crate::types::SpectrumApplicationDns>,
     /// The anycast edge IP configuration for the hostname of this application.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub edge_ips: pulumi_wasm_rust::Output<Option<crate::types::SpectrumApplicationEdgeIps>>,
     /// Enables the IP Firewall for this application.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub ip_firewall: pulumi_wasm_rust::Output<Option<bool>>,
     /// A list of destination addresses to the origin. e.g. `tcp://192.0.2.1:22`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub origin_directs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// A destination DNS addresses to the origin.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub origin_dns: pulumi_wasm_rust::Output<Option<crate::types::SpectrumApplicationOriginDns>>,
     /// Origin port to proxy traffice to. Conflicts with `origin_port_range`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub origin_port: pulumi_wasm_rust::Output<Option<i32>>,
     /// Origin port range to proxy traffice to. When using a range, the protocol field must also specify a range, e.g. `tcp/22-23`. Conflicts with `origin_port`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub origin_port_range:
         pulumi_wasm_rust::Output<Option<crate::types::SpectrumApplicationOriginPortRange>>,
     /// The port configuration at Cloudflare's edge. e.g. `tcp/22`.
+    #[builder(into)]
     pub protocol: pulumi_wasm_rust::Output<String>,
     /// Enables a proxy protocol to the origin. Available values: `off`, `v1`, `v2`, `simple`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub proxy_protocol: pulumi_wasm_rust::Output<Option<String>>,
     /// TLS configuration option for Cloudflare to connect to your origin. Available values: `off`, `flexible`, `full`, `strict`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub tls: pulumi_wasm_rust::Output<Option<String>>,
     /// Sets application type. Available values: `direct`, `http`, `https`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub traffic_type: pulumi_wasm_rust::Output<Option<String>>,
     /// The zone identifier to target for the resource.
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

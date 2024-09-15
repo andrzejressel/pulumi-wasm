@@ -79,15 +79,22 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct ListArgs {
     /// The account identifier to target for the resource.
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// An optional description of the list.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub description: pulumi_wasm_rust::Output<Option<String>>,
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub items: pulumi_wasm_rust::Output<Option<Vec<crate::types::ListItem>>>,
     /// The type of items the list will contain. Available values: `ip`, `redirect`, `hostname`, `asn`. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub kind: pulumi_wasm_rust::Output<String>,
     /// The name of the list. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
 }
 

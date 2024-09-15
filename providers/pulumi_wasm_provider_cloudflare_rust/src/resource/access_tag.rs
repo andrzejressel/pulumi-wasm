@@ -1,14 +1,20 @@
 //! Provides a resource to customize the pages your end users will see
 //! when trying to reach applications behind Cloudflare Access.
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct AccessTagArgs {
     /// The account identifier to target for the resource. Conflicts with `zone_id`. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub account_id: pulumi_wasm_rust::Output<Option<String>>,
     /// Number of apps associated with the tag.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub app_count: pulumi_wasm_rust::Output<Option<i32>>,
     /// Friendly name of the Access Tag.
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// The zone identifier to target for the resource. Conflicts with `account_id`. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 

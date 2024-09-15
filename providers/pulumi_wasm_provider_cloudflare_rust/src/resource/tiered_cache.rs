@@ -103,10 +103,14 @@
 //! ```
 //! <!--End PulumiCodeChooser -->
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct TieredCacheArgs {
     /// The typed of tiered cache to utilize on the zone. Available values: `generic`, `smart`, `off`.
+    #[builder(into)]
     pub cache_type: pulumi_wasm_rust::Output<String>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

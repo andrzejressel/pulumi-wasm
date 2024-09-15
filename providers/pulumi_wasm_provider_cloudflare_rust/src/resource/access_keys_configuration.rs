@@ -1,10 +1,14 @@
 //! Access Keys Configuration defines the rotation policy for the keys
 //! that access will use to sign data.
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct AccessKeysConfigurationArgs {
     /// The account identifier to target for the resource.
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// Number of days to trigger a rotation of the keys.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub key_rotation_interval_days: pulumi_wasm_rust::Output<Option<i32>>,
 }
 

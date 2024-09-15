@@ -113,10 +113,14 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct D1DatabaseArgs {
     /// The account identifier to target for the resource.
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// The name of the D1 Database.
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
 }
 

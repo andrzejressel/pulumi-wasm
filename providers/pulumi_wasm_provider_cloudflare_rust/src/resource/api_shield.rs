@@ -126,11 +126,15 @@
 //! ```
 //! <!--End PulumiCodeChooser -->
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct ApiShieldArgs {
     /// Characteristics define properties across which auth-ids can be computed in a privacy-preserving manner.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub auth_id_characteristics:
         pulumi_wasm_rust::Output<Option<Vec<crate::types::ApiShieldAuthIdCharacteristic>>>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

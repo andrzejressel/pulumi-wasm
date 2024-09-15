@@ -121,16 +121,23 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct WorkerDomainArgs {
     /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// The name of the Worker environment. Defaults to `production`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub environment: pulumi_wasm_rust::Output<Option<String>>,
     /// Hostname of the Worker Domain.
+    #[builder(into)]
     pub hostname: pulumi_wasm_rust::Output<String>,
     /// Name of worker script to attach the domain to.
+    #[builder(into)]
     pub service: pulumi_wasm_rust::Output<String>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

@@ -1,4 +1,4 @@
-use crate::model::GlobalType;
+use crate::model::{GlobalType, Type};
 use convert_case::{Case, Casing};
 use handlebars::Handlebars;
 use serde::Serialize;
@@ -14,6 +14,7 @@ struct Property {
     original_name: String,
     type_: String,
     description_lines: Vec<String>,
+    optional: bool,
 }
 
 #[derive(Serialize)]
@@ -59,6 +60,7 @@ fn convert_model(package: &crate::model::Package) -> Package {
                                 .to_case(Case::Snake),
                             original_name: global_type_property.name.clone(),
                             type_: global_type_property.r#type.get_rust_type(),
+                            optional: matches!(global_type_property.r#type, Type::Option(_)),
                             description_lines: crate::utils::to_lines(
                                 global_type_property.description.clone(),
                             ),

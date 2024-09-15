@@ -109,10 +109,14 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct LogpullRetentionArgs {
     /// Whether you wish to retain logs or not.
+    #[builder(into)]
     pub enabled: pulumi_wasm_rust::Output<bool>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

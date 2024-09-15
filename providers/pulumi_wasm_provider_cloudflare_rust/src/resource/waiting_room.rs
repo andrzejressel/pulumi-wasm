@@ -205,43 +205,63 @@
 //! ```
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct WaitingRoomArgs {
     /// A list of additional hostname and paths combination to be applied on the waiting room.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub additional_routes:
         pulumi_wasm_rust::Output<Option<Vec<crate::types::WaitingRoomAdditionalRoute>>>,
     /// A cookie suffix to be appended to the Cloudflare waiting room cookie name.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub cookie_suffix: pulumi_wasm_rust::Output<Option<String>>,
     /// This is a templated html file that will be rendered at the edge.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub custom_page_html: pulumi_wasm_rust::Output<Option<String>>,
     /// The language to use for the default waiting room page. Available values: `de-DE`, `es-ES`, `en-US`, `fr-FR`, `id-ID`, `it-IT`, `ja-JP`, `ko-KR`, `nl-NL`, `pl-PL`, `pt-BR`, `tr-TR`, `zh-CN`, `zh-TW`, `ru-RU`, `fa-IR`. Defaults to `en-US`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub default_template_language: pulumi_wasm_rust::Output<Option<String>>,
     /// A description to add more details about the waiting room.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub description: pulumi_wasm_rust::Output<Option<String>>,
     /// Disables automatic renewal of session cookies.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub disable_session_renewal: pulumi_wasm_rust::Output<Option<bool>>,
     /// The additional host name for which the waiting room to be applied on (no wildcards).
+    #[builder(into)]
     pub host: pulumi_wasm_rust::Output<String>,
     /// If true, requests to the waiting room with the header `Accept: application/json` will receive a JSON response object.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub json_response_enabled: pulumi_wasm_rust::Output<Option<bool>>,
     /// A unique name to identify the waiting room. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// The number of new users that will be let into the route every minute.
+    #[builder(into)]
     pub new_users_per_minute: pulumi_wasm_rust::Output<i32>,
     /// The path within the additional host to enable the waiting room on. Defaults to `/`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub path: pulumi_wasm_rust::Output<Option<String>>,
     /// If queue_all is true, then all traffic will be sent to the waiting room.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub queue_all: pulumi_wasm_rust::Output<Option<bool>>,
     /// The queueing method used by the waiting room. Available values: `fifo`, `random`, `passthrough`, `reject`. Defaults to `fifo`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub queueing_method: pulumi_wasm_rust::Output<Option<String>>,
     /// HTTP status code returned to a user while in the queue. Defaults to `200`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub queueing_status_code: pulumi_wasm_rust::Output<Option<i32>>,
     /// Lifetime of a cookie (in minutes) set by Cloudflare for users who get access to the origin. Defaults to `5`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub session_duration: pulumi_wasm_rust::Output<Option<i32>>,
     /// Suspends the waiting room.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub suspended: pulumi_wasm_rust::Output<Option<bool>>,
     /// The total number of active user sessions on the route at a point in time.
+    #[builder(into)]
     pub total_active_users: pulumi_wasm_rust::Output<i32>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 

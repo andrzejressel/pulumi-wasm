@@ -4,16 +4,23 @@
 //! [developer documentation](https://developers.cloudflare.com/api/tokens/create/permissions).
 //!
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct ApiTokenArgs {
     /// Conditions under which the token should be considered valid.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub condition: pulumi_wasm_rust::Output<Option<crate::types::ApiTokenCondition>>,
     /// The expiration time on or after which the token MUST NOT be accepted for processing.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub expires_on: pulumi_wasm_rust::Output<Option<String>>,
     /// Name of the API Token.
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// The time before which the token MUST NOT be accepted for processing.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub not_before: pulumi_wasm_rust::Output<Option<String>>,
     /// Permissions policy. Multiple policy blocks can be defined.
+    #[builder(into)]
     pub policies: pulumi_wasm_rust::Output<Vec<crate::types::ApiTokenPolicy>>,
 }
 
