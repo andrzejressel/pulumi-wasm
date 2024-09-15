@@ -1,8 +1,9 @@
-{{#each package.interfaces}}
-mod {{name}};
-{{/each}}
+{{#if package.contains_resources}}
+mod resource;
+use resource::*;
+{{/if}}
 
-{{#if package.interfaces}}
+{{#if package.contains_resources}}
 mod bindings;
 bindings::export!(Component with_types_in bindings);
 {{/if}}
