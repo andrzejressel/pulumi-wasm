@@ -1,21 +1,21 @@
 //! Provides a Cloudflare Access Identity Provider resource. Identity
 //! Providers are used as an authentication or authorisation source
 //! within Access.
-//!
+//! 
 //! > It's required that an `account_id` or `zone_id` is provided and in
 //!    most cases using either is fine. However, if you're using a scoped
 //!    access token, you must provide the argument that matches the token's
 //!    scope. For example, an access token that is scoped to the "example.com"
 //!    zone needs to use the `zone_id` argument.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! // one time pin
 //! const pinLogin = new cloudflare.AccessIdentityProvider("pinLogin", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
@@ -67,7 +67,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! # one time pin
 //! pin_login = cloudflare.AccessIdentityProvider("pinLogin",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
@@ -117,8 +117,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     // one time pin
 //!     var pinLogin = new Cloudflare.AccessIdentityProvider("pinLogin", new()
@@ -127,7 +127,7 @@
 //!         Name = "PIN login",
 //!         Type = "onetimepin",
 //!     });
-//!
+//! 
 //!     // oauth
 //!     var githubOauth = new Cloudflare.AccessIdentityProvider("githubOauth", new()
 //!     {
@@ -143,7 +143,7 @@
 //!         Name = "GitHub OAuth",
 //!         Type = "github",
 //!     });
-//!
+//! 
 //!     // saml
 //!     var jumpcloudSaml = new Cloudflare.AccessIdentityProvider("jumpcloudSaml", new()
 //!     {
@@ -168,7 +168,7 @@
 //!         Name = "JumpCloud SAML",
 //!         Type = "saml",
 //!     });
-//!
+//! 
 //!     // okta
 //!     var okta = new Cloudflare.AccessIdentityProvider("okta", new()
 //!     {
@@ -186,18 +186,18 @@
 //!         Name = "Okta",
 //!         Type = "okta",
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		// one time pin
@@ -269,7 +269,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -282,12 +282,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         // one time pin
 //!         var pinLogin = new AccessIdentityProvider("pinLogin", AccessIdentityProviderArgs.builder()        
@@ -295,7 +295,7 @@
 //!             .name("PIN login")
 //!             .type("onetimepin")
 //!             .build());
-//!
+//! 
 //!         // oauth
 //!         var githubOauth = new AccessIdentityProvider("githubOauth", AccessIdentityProviderArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
@@ -306,7 +306,7 @@
 //!             .name("GitHub OAuth")
 //!             .type("github")
 //!             .build());
-//!
+//! 
 //!         // saml
 //!         var jumpcloudSaml = new AccessIdentityProvider("jumpcloudSaml", AccessIdentityProviderArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
@@ -325,7 +325,7 @@
 //!             .name("JumpCloud SAML")
 //!             .type("saml")
 //!             .build());
-//!
+//! 
 //!         // okta
 //!         var okta = new AccessIdentityProvider("okta", AccessIdentityProviderArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
@@ -338,7 +338,7 @@
 //!             .name("Okta")
 //!             .type("okta")
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -393,27 +393,34 @@
 //!       type: okta
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/accessIdentityProvider:AccessIdentityProvider example <account_id>/<identity_provider_id>
 //! ```
-//!
+//! 
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct AccessIdentityProviderArgs {
     /// The account identifier to target for the resource. Conflicts with `zone_id`. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub account_id: pulumi_wasm_rust::Output<Option<String>>,
     /// Provider configuration from the [developer documentation](https://developers.cloudflare.com/access/configuring-identity-providers/).
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub configs: pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessIdentityProviderConfig>>>,
     /// Friendly name of the Access Identity Provider configuration.
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// Configuration for SCIM settings for a given IDP.
-    pub scim_configs:
-        pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessIdentityProviderScimConfig>>>,
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    pub scim_configs: pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessIdentityProviderScimConfig>>>,
     /// The provider type to use. Available values: `azureAD`, `centrify`, `facebook`, `github`, `google`, `google-apps`, `linkedin`, `oidc`, `okta`, `onelogin`, `onetimepin`, `pingone`, `saml`, `yandex`.
+    #[builder(into)]
     pub type_: pulumi_wasm_rust::Output<String>,
     /// The zone identifier to target for the resource. Conflicts with `account_id`. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 
@@ -436,17 +443,15 @@ pub struct AccessIdentityProviderResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: AccessIdentityProviderArgs) -> AccessIdentityProviderResult {
-    let result = crate::bindings::pulumi::cloudflare::access_identity_provider::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::access_identity_provider::Args {
-            account_id: &args.account_id.get_inner(),
-            configs: &args.configs.get_inner(),
-            name: &args.name.get_inner(),
-            scim_configs: &args.scim_configs.get_inner(),
-            type_: &args.type_.get_inner(),
-            zone_id: &args.zone_id.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::access_identity_provider::invoke(name, &crate::bindings::pulumi::cloudflare::access_identity_provider::Args {
+        account_id: &args.account_id.get_inner(),
+        configs: &args.configs.get_inner(),
+        name: &args.name.get_inner(),
+        scim_configs: &args.scim_configs.get_inner(),
+        type_: &args.type_.get_inner(),
+        zone_id: &args.zone_id.get_inner(),
+    });
 
     AccessIdentityProviderResult {
         account_id: crate::into_domain(result.account_id),

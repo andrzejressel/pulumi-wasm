@@ -1,13 +1,13 @@
 //! Provides a Cloudflare mTLS certificate resource. These certificates may be used with mTLS enabled Cloudflare services.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! const example = new cloudflare.MtlsCertificate("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
 //!     ca: true,
@@ -26,7 +26,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! example = cloudflare.MtlsCertificate("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
 //!     ca=True,
@@ -46,8 +46,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var example = new Cloudflare.MtlsCertificate("example", new()
 //!     {
@@ -63,18 +63,18 @@
 //! -----END PRIVATE KEY-----
 //! ",
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewMtlsCertificate(ctx, "example", &cloudflare.MtlsCertificateArgs{
@@ -94,7 +94,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -106,12 +106,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         var example = new MtlsCertificate("example", MtlsCertificateArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
@@ -128,7 +128,7 @@
 //! -----END PRIVATE KEY-----
 //!             """)
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -151,24 +151,31 @@
 //!         -----END PRIVATE KEY-----
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/mtlsCertificate:MtlsCertificate example <account_id>/<mtls_certificate_id>
 //! ```
-//!
+//! 
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct MtlsCertificateArgs {
     /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// Whether this is a CA or leaf certificate. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub ca: pulumi_wasm_rust::Output<bool>,
     /// Certificate you intend to use with mTLS-enabled services. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub certificates: pulumi_wasm_rust::Output<String>,
     /// Optional unique name for the certificate. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub name: pulumi_wasm_rust::Output<Option<String>>,
     /// The certificate's private key. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub private_key: pulumi_wasm_rust::Output<Option<String>>,
 }
 
@@ -199,16 +206,14 @@ pub struct MtlsCertificateResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: MtlsCertificateArgs) -> MtlsCertificateResult {
-    let result = crate::bindings::pulumi::cloudflare::mtls_certificate::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::mtls_certificate::Args {
-            account_id: &args.account_id.get_inner(),
-            ca: &args.ca.get_inner(),
-            certificates: &args.certificates.get_inner(),
-            name: &args.name.get_inner(),
-            private_key: &args.private_key.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::mtls_certificate::invoke(name, &crate::bindings::pulumi::cloudflare::mtls_certificate::Args {
+        account_id: &args.account_id.get_inner(),
+        ca: &args.ca.get_inner(),
+        certificates: &args.certificates.get_inner(),
+        name: &args.name.get_inner(),
+        private_key: &args.private_key.get_inner(),
+    });
 
     MtlsCertificateResult {
         account_id: crate::into_domain(result.account_id),

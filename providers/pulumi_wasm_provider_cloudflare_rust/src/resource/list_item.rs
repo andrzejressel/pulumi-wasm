@@ -1,14 +1,14 @@
 //! Provides individual list items (IPs, Redirects, ASNs, Hostnames) to be used in Edge Rules Engine
 //! across all zones within the same account.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! // IP List
 //! const exampleIpList = new cloudflare.List("exampleIpList", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
@@ -76,7 +76,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! # IP List
 //! example_ip_list = cloudflare.List("exampleIpList",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
@@ -138,8 +138,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     // IP List
 //!     var exampleIpList = new Cloudflare.List("exampleIpList", new()
@@ -149,7 +149,7 @@
 //!         Description = "example IPs for a list",
 //!         Kind = "ip",
 //!     });
-//!
+//! 
 //!     // IP List Item
 //!     var exampleIpItem = new Cloudflare.ListItem("exampleIpItem", new()
 //!     {
@@ -158,7 +158,7 @@
 //!         Comment = "List Item Comment",
 //!         Ip = "192.0.2.0",
 //!     });
-//!
+//! 
 //!     // Redirect List
 //!     var exampleRedirectList = new Cloudflare.List("exampleRedirectList", new()
 //!     {
@@ -167,7 +167,7 @@
 //!         Description = "example Redirects for a list",
 //!         Kind = "redirect",
 //!     });
-//!
+//! 
 //!     // Redirect List Item
 //!     var exampleRedirectItem = new Cloudflare.ListItem("exampleRedirectItem", new()
 //!     {
@@ -181,7 +181,7 @@
 //!             SubpathMatching = true,
 //!         },
 //!     });
-//!
+//! 
 //!     // ASN List
 //!     var exampleAsnList = new Cloudflare.List("exampleAsnList", new()
 //!     {
@@ -190,7 +190,7 @@
 //!         Description = "example ASNs for a list",
 //!         Kind = "asn",
 //!     });
-//!
+//! 
 //!     // ASN List Item
 //!     var exampleAsnItem = new Cloudflare.ListItem("exampleAsnItem", new()
 //!     {
@@ -199,7 +199,7 @@
 //!         Comment = "List Item Comment",
 //!         Asn = 6789,
 //!     });
-//!
+//! 
 //!     // Hostname List
 //!     var exampleHostnameList = new Cloudflare.List("exampleHostnameList", new()
 //!     {
@@ -208,7 +208,7 @@
 //!         Description = "example Hostnames for a list",
 //!         Kind = "hostname",
 //!     });
-//!
+//! 
 //!     // Hostname List Item
 //!     var exampleHostnameItem = new Cloudflare.ListItem("exampleHostnameItem", new()
 //!     {
@@ -220,18 +220,18 @@
 //!             UrlHostname = "example.com",
 //!         },
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		// IP List
@@ -327,7 +327,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -343,12 +343,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         // IP List
 //!         var exampleIpList = new List("exampleIpList", ListArgs.builder()        
@@ -357,7 +357,7 @@
 //!             .description("example IPs for a list")
 //!             .kind("ip")
 //!             .build());
-//!
+//! 
 //!         // IP List Item
 //!         var exampleIpItem = new ListItem("exampleIpItem", ListItemArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
@@ -365,7 +365,7 @@
 //!             .comment("List Item Comment")
 //!             .ip("192.0.2.0")
 //!             .build());
-//!
+//! 
 //!         // Redirect List
 //!         var exampleRedirectList = new List("exampleRedirectList", ListArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
@@ -373,7 +373,7 @@
 //!             .description("example Redirects for a list")
 //!             .kind("redirect")
 //!             .build());
-//!
+//! 
 //!         // Redirect List Item
 //!         var exampleRedirectItem = new ListItem("exampleRedirectItem", ListItemArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
@@ -385,7 +385,7 @@
 //!                 .subpathMatching(true)
 //!                 .build())
 //!             .build());
-//!
+//! 
 //!         // ASN List
 //!         var exampleAsnList = new List("exampleAsnList", ListArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
@@ -393,7 +393,7 @@
 //!             .description("example ASNs for a list")
 //!             .kind("asn")
 //!             .build());
-//!
+//! 
 //!         // ASN List Item
 //!         var exampleAsnItem = new ListItem("exampleAsnItem", ListItemArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
@@ -401,7 +401,7 @@
 //!             .comment("List Item Comment")
 //!             .asn(6789)
 //!             .build());
-//!
+//! 
 //!         // Hostname List
 //!         var exampleHostnameList = new List("exampleHostnameList", ListArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
@@ -409,7 +409,7 @@
 //!             .description("example Hostnames for a list")
 //!             .kind("hostname")
 //!             .build());
-//!
+//! 
 //!         // Hostname List Item
 //!         var exampleHostnameItem = new ListItem("exampleHostnameItem", ListItemArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
@@ -419,7 +419,7 @@
 //!                 .urlHostname("example.com")
 //!                 .build())
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -496,28 +496,37 @@
 //!         urlHostname: example.com
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/listItem:ListItem example <account_id>/<list_id>/<item_id>
 //! ```
-//!
+//! 
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct ListItemArgs {
     /// The account identifier to target for the resource.
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// Autonomous system number to include in the list. Must provide only one of: `ip`, `asn`, `redirect`, `hostname`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub asn: pulumi_wasm_rust::Output<Option<i32>>,
     /// An optional comment for the item.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub comment: pulumi_wasm_rust::Output<Option<String>>,
     /// Hostname to store in the list. Must provide only one of: `ip`, `asn`, `redirect`, `hostname`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub hostname: pulumi_wasm_rust::Output<Option<crate::types::ListItemHostname>>,
     /// IP address to include in the list. Must provide only one of: `ip`, `asn`, `redirect`, `hostname`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub ip: pulumi_wasm_rust::Output<Option<String>>,
     /// The list identifier to target for the resource.
+    #[builder(into)]
     pub list_id: pulumi_wasm_rust::Output<String>,
     /// Redirect configuration to store in the list. Must provide only one of: `ip`, `asn`, `redirect`, `hostname`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub redirect: pulumi_wasm_rust::Output<Option<crate::types::ListItemRedirect>>,
 }
 
@@ -542,18 +551,16 @@ pub struct ListItemResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: ListItemArgs) -> ListItemResult {
-    let result = crate::bindings::pulumi::cloudflare::list_item::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::list_item::Args {
-            account_id: &args.account_id.get_inner(),
-            asn: &args.asn.get_inner(),
-            comment: &args.comment.get_inner(),
-            hostname: &args.hostname.get_inner(),
-            ip: &args.ip.get_inner(),
-            list_id: &args.list_id.get_inner(),
-            redirect: &args.redirect.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::list_item::invoke(name, &crate::bindings::pulumi::cloudflare::list_item::Args {
+        account_id: &args.account_id.get_inner(),
+        asn: &args.asn.get_inner(),
+        comment: &args.comment.get_inner(),
+        hostname: &args.hostname.get_inner(),
+        ip: &args.ip.get_inner(),
+        list_id: &args.list_id.get_inner(),
+        redirect: &args.redirect.get_inner(),
+    });
 
     ListItemResult {
         account_id: crate::into_domain(result.account_id),

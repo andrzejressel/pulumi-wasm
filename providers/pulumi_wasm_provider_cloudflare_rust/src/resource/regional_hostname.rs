@@ -1,13 +1,13 @@
 //! Provides a Data Localization Suite Regional Hostname.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! // Regionalized hostname record resources are managed independently from the
 //! // Regionalized Hostname resources.
 //! const exampleRecord = new cloudflare.Record("exampleRecord", {
@@ -29,7 +29,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! # Regionalized hostname record resources are managed independently from the
 //! # Regionalized Hostname resources.
 //! example_record = cloudflare.Record("exampleRecord",
@@ -51,8 +51,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     // Regionalized hostname record resources are managed independently from the
 //!     // Regionalized Hostname resources.
@@ -64,7 +64,7 @@
 //!         Value = "192.0.2.1",
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
-//!
+//! 
 //!     // The cloudflare_regional_hostname resource may exist with or without its
 //!     // corresponding record resource.
 //!     var exampleRegionalHostname = new Cloudflare.RegionalHostname("exampleRegionalHostname", new()
@@ -73,18 +73,18 @@
 //!         RegionKey = "eu",
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		// Regionalized hostname record resources are managed independently from the
@@ -116,7 +116,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -130,12 +130,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         // Regionalized hostname record resources are managed independently from the
 //!         // Regionalized Hostname resources.
@@ -146,7 +146,7 @@
 //!             .value("192.0.2.1")
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
-//!
+//! 
 //!         // The cloudflare_regional_hostname resource may exist with or without its
 //!         // corresponding record resource.
 //!         var exampleRegionalHostname = new RegionalHostname("exampleRegionalHostname", RegionalHostnameArgs.builder()        
@@ -154,7 +154,7 @@
 //!             .regionKey("eu")
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -182,12 +182,17 @@
 //! ```
 //! <!--End PulumiCodeChooser -->
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct RegionalHostnameArgs {
     /// The hostname to regionalize.
+    #[builder(into)]
     pub hostname: pulumi_wasm_rust::Output<String>,
     /// The region key. See [the full region list](https://developers.cloudflare.com/data-localization/regional-services/get-started/).
+    #[builder(into)]
     pub region_key: pulumi_wasm_rust::Output<String>,
     /// The zone identifier to target for the resource.
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 
@@ -206,14 +211,12 @@ pub struct RegionalHostnameResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: RegionalHostnameArgs) -> RegionalHostnameResult {
-    let result = crate::bindings::pulumi::cloudflare::regional_hostname::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::regional_hostname::Args {
-            hostname: &args.hostname.get_inner(),
-            region_key: &args.region_key.get_inner(),
-            zone_id: &args.zone_id.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::regional_hostname::invoke(name, &crate::bindings::pulumi::cloudflare::regional_hostname::Args {
+        hostname: &args.hostname.get_inner(),
+        region_key: &args.region_key.get_inner(),
+        zone_id: &args.zone_id.get_inner(),
+    });
 
     RegionalHostnameResult {
         created_on: crate::into_domain(result.created_on),

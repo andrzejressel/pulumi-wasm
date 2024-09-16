@@ -1,19 +1,26 @@
 //! Provides a resource which manages Cloudflare API tokens.
-//!
+//! 
 //! Read more about permission groups and their applicable scopes in the
 //! [developer documentation](https://developers.cloudflare.com/api/tokens/create/permissions).
-//!
+//! 
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct ApiTokenArgs {
     /// Conditions under which the token should be considered valid.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub condition: pulumi_wasm_rust::Output<Option<crate::types::ApiTokenCondition>>,
     /// The expiration time on or after which the token MUST NOT be accepted for processing.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub expires_on: pulumi_wasm_rust::Output<Option<String>>,
     /// Name of the API Token.
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// The time before which the token MUST NOT be accepted for processing.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub not_before: pulumi_wasm_rust::Output<Option<String>>,
     /// Permissions policy. Multiple policy blocks can be defined.
+    #[builder(into)]
     pub policies: pulumi_wasm_rust::Output<Vec<crate::types::ApiTokenPolicy>>,
 }
 
@@ -41,16 +48,14 @@ pub struct ApiTokenResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: ApiTokenArgs) -> ApiTokenResult {
-    let result = crate::bindings::pulumi::cloudflare::api_token::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::api_token::Args {
-            condition: &args.condition.get_inner(),
-            expires_on: &args.expires_on.get_inner(),
-            name: &args.name.get_inner(),
-            not_before: &args.not_before.get_inner(),
-            policies: &args.policies.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::api_token::invoke(name, &crate::bindings::pulumi::cloudflare::api_token::Args {
+        condition: &args.condition.get_inner(),
+        expires_on: &args.expires_on.get_inner(),
+        name: &args.name.get_inner(),
+        not_before: &args.not_before.get_inner(),
+        policies: &args.policies.get_inner(),
+    });
 
     ApiTokenResult {
         condition: crate::into_domain(result.condition),

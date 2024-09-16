@@ -1,13 +1,13 @@
 //! Provides a Cloudflare worker route resource. A route will also require a `cloudflare.WorkerScript`.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! const myScript = new cloudflare.WorkerScript("myScript", {});
 //! // see "cloudflare_worker_script" documentation ...
 //! // Runs the specified worker script for all URLs that match `example.com/*`
@@ -21,7 +21,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! my_script = cloudflare.WorkerScript("myScript")
 //! # see "cloudflare_worker_script" documentation ...
 //! # Runs the specified worker script for all URLs that match `example.com/*`
@@ -36,11 +36,11 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var myScript = new Cloudflare.WorkerScript("myScript");
-//!
+//! 
 //!     // see "cloudflare_worker_script" documentation ...
 //!     // Runs the specified worker script for all URLs that match `example.com/*`
 //!     var myRoute = new Cloudflare.WorkerRoute("myRoute", new()
@@ -49,18 +49,18 @@
 //!         Pattern = "example.com/*",
 //!         ScriptName = myScript.Name,
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		myScript, err := cloudflare.NewWorkerScript(ctx, "myScript", nil)
@@ -83,7 +83,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -96,15 +96,15 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         var myScript = new WorkerScript("myScript");
-//!
+//! 
 //!         // see "cloudflare_worker_script" documentation ...
 //!         // Runs the specified worker script for all URLs that match `example.com/*`
 //!         var myRoute = new WorkerRoute("myRoute", WorkerRouteArgs.builder()        
@@ -112,7 +112,7 @@
 //!             .pattern("example.com/*")
 //!             .scriptName(myScript.name())
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -130,20 +130,25 @@
 //!     type: cloudflare:WorkerScript
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/workerRoute:WorkerRoute example <zone_id>/<route_id>
 //! ```
-//!
+//! 
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct WorkerRouteArgs {
     /// The [route pattern](https://developers.cloudflare.com/workers/about/routes/) to associate the Worker with.
+    #[builder(into)]
     pub pattern: pulumi_wasm_rust::Output<String>,
     /// Worker script name to invoke for requests that match the route pattern.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub script_name: pulumi_wasm_rust::Output<Option<String>>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 
@@ -160,14 +165,12 @@ pub struct WorkerRouteResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: WorkerRouteArgs) -> WorkerRouteResult {
-    let result = crate::bindings::pulumi::cloudflare::worker_route::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::worker_route::Args {
-            pattern: &args.pattern.get_inner(),
-            script_name: &args.script_name.get_inner(),
-            zone_id: &args.zone_id.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::worker_route::invoke(name, &crate::bindings::pulumi::cloudflare::worker_route::Args {
+        pattern: &args.pattern.get_inner(),
+        script_name: &args.script_name.get_inner(),
+        zone_id: &args.zone_id.get_inner(),
+    });
 
     WorkerRouteResult {
         pattern: crate::into_domain(result.pattern),

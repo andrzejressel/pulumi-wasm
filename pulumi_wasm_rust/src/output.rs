@@ -36,6 +36,60 @@ impl<T: serde::Serialize> From<T> for Output<Option<T>> {
     }
 }
 
+impl From<&str> for Output<String> {
+    fn from(value: &str) -> Self {
+        Output::new(&value.to_string())
+    }
+}
+
+impl From<&str> for Output<Option<String>> {
+    fn from(value: &str) -> Self {
+        Output::new(&Some(value.to_string()))
+    }
+}
+
+impl From<Vec<&str>> for Output<Vec<String>> {
+    fn from(value: Vec<&str>) -> Self {
+        Output::new(&value.into_iter().map(|s| s.to_string()).collect())
+    }
+}
+
+impl From<Vec<&str>> for Output<Option<Vec<String>>> {
+    fn from(value: Vec<&str>) -> Self {
+        Output::new(&Some(value.into_iter().map(|s| s.to_string()).collect()))
+    }
+}
+
+impl<T: serde::Serialize, const N: usize> From<[T; N]> for Output<Vec<T>>
+where
+    T: serde::Serialize,
+{
+    fn from(value: [T; N]) -> Self {
+        Output::new(&value.into_iter().collect())
+    }
+}
+
+impl<T: serde::Serialize, const N: usize> From<[T; N]> for Output<Option<Vec<T>>>
+where
+    T: serde::Serialize,
+{
+    fn from(value: [T; N]) -> Self {
+        Output::new(&Some(value.into_iter().collect()))
+    }
+}
+
+impl<const N: usize> From<[&str; N]> for Output<Vec<String>> {
+    fn from(value: [&str; N]) -> Self {
+        Output::new(&value.into_iter().map(|s| s.to_string()).collect())
+    }
+}
+
+impl<const N: usize> From<[&str; N]> for Output<Option<Vec<String>>> {
+    fn from(value: [&str; N]) -> Self {
+        Output::new(&Some(value.into_iter().map(|s| s.to_string()).collect()))
+    }
+}
+
 type Function = Box<dyn Fn(&String) -> Result<String, Error> + Send>;
 
 pub(crate) static HASHMAP: Lazy<Mutex<HashMap<String, Function>>> = Lazy::new(|| {

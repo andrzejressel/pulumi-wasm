@@ -1,13 +1,13 @@
 //! Provides a Cloudflare page rule resource.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! // Add a page rule to the domain
 //! const foobar = new cloudflare.PageRule("foobar", {
 //!     zoneId: _var.cloudflare_zone_id,
@@ -28,7 +28,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! # Add a page rule to the domain
 //! foobar = cloudflare.PageRule("foobar",
 //!     zone_id=var["cloudflare_zone_id"],
@@ -50,8 +50,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     // Add a page rule to the domain
 //!     var foobar = new Cloudflare.PageRule("foobar", new()
@@ -74,20 +74,20 @@
 //!             },
 //!         },
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"fmt"
-//!
+//! 
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		// Add a page rule to the domain
@@ -117,7 +117,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -130,12 +130,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         // Add a page rule to the domain
 //!         var foobar = new PageRule("foobar", PageRuleArgs.builder()        
@@ -152,7 +152,7 @@
 //!                     .build())
 //!                 .build())
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -175,25 +175,32 @@
 //!             js: on
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! Page rules can be imported using a composite ID formed of zone ID and page rule ID, e.g.
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/pageRule:PageRule default d41d8cd98f00b204e9800998ecf8427e/ch8374ftwdghsif43
 //! ```
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct PageRuleArgs {
     /// The actions taken by the page rule, options given below.
+    #[builder(into)]
     pub actions: pulumi_wasm_rust::Output<crate::types::PageRuleActions>,
     /// The priority of the page rule among others for this target, the higher the number the higher the priority as per [API documentation](https://api.cloudflare.com/#page-rules-for-a-zone-create-page-rule).
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub priority: pulumi_wasm_rust::Output<Option<i32>>,
     /// Whether the page rule is active or disabled.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub status: pulumi_wasm_rust::Output<Option<String>>,
     /// The URL pattern to target with the page rule.
+    #[builder(into)]
     pub target: pulumi_wasm_rust::Output<String>,
     /// The DNS zone ID to which the page rule should be added.
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 
@@ -214,16 +221,14 @@ pub struct PageRuleResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: PageRuleArgs) -> PageRuleResult {
-    let result = crate::bindings::pulumi::cloudflare::page_rule::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::page_rule::Args {
-            actions: &args.actions.get_inner(),
-            priority: &args.priority.get_inner(),
-            status: &args.status.get_inner(),
-            target: &args.target.get_inner(),
-            zone_id: &args.zone_id.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::page_rule::invoke(name, &crate::bindings::pulumi::cloudflare::page_rule::Args {
+        actions: &args.actions.get_inner(),
+        priority: &args.priority.get_inner(),
+        status: &args.status.get_inner(),
+        target: &args.target.get_inner(),
+        zone_id: &args.zone_id.get_inner(),
+    });
 
     PageRuleResult {
         actions: crate::into_domain(result.actions),

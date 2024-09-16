@@ -1,13 +1,13 @@
 //! Provides a resource to manage a Cloudflare Workers KV Pair.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! const exampleNs = new cloudflare.WorkersKvNamespace("exampleNs", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
 //!     title: "test-namespace",
@@ -23,7 +23,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! example_ns = cloudflare.WorkersKvNamespace("exampleNs",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
 //!     title="test-namespace")
@@ -39,15 +39,15 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var exampleNs = new Cloudflare.WorkersKvNamespace("exampleNs", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
 //!         Title = "test-namespace",
 //!     });
-//!
+//! 
 //!     var example = new Cloudflare.WorkersKv("example", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
@@ -55,18 +55,18 @@
 //!         Key = "test-key",
 //!         Value = "test value",
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		exampleNs, err := cloudflare.NewWorkersKvNamespace(ctx, "exampleNs", &cloudflare.WorkersKvNamespaceArgs{
@@ -92,7 +92,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -106,25 +106,25 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         var exampleNs = new WorkersKvNamespace("exampleNs", WorkersKvNamespaceArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
 //!             .title("test-namespace")
 //!             .build());
-//!
+//! 
 //!         var example = new WorkersKv("example", WorkersKvArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
 //!             .namespaceId(exampleNs.id())
 //!             .key("test-key")
 //!             .value("test value")
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -145,22 +145,28 @@
 //!       value: test value
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/workersKv:WorkersKv example <account_id>/<namespace_id>/<key_name>
 //! ```
-//!
+//! 
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct WorkersKvArgs {
     /// The account identifier to target for the resource.
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// Name of the KV pair. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub key: pulumi_wasm_rust::Output<String>,
     /// The ID of the Workers KV namespace in which you want to create the KV pair. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub namespace_id: pulumi_wasm_rust::Output<String>,
     /// Value of the KV pair.
+    #[builder(into)]
     pub value: pulumi_wasm_rust::Output<String>,
 }
 
@@ -179,15 +185,13 @@ pub struct WorkersKvResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: WorkersKvArgs) -> WorkersKvResult {
-    let result = crate::bindings::pulumi::cloudflare::workers_kv::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::workers_kv::Args {
-            account_id: &args.account_id.get_inner(),
-            key: &args.key.get_inner(),
-            namespace_id: &args.namespace_id.get_inner(),
-            value: &args.value.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::workers_kv::invoke(name, &crate::bindings::pulumi::cloudflare::workers_kv::Args {
+        account_id: &args.account_id.get_inner(),
+        key: &args.key.get_inner(),
+        namespace_id: &args.namespace_id.get_inner(),
+        value: &args.value.get_inner(),
+    });
 
     WorkersKvResult {
         account_id: crate::into_domain(result.account_id),

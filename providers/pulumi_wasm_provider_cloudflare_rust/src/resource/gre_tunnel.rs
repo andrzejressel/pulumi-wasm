@@ -1,13 +1,13 @@
 //! Provides a resource, that manages GRE tunnels for Magic Transit.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! const example = new cloudflare.GreTunnel("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
 //!     cloudflareGreEndpoint: "203.0.113.2",
@@ -26,7 +26,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! example = cloudflare.GreTunnel("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
 //!     cloudflare_gre_endpoint="203.0.113.2",
@@ -46,8 +46,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var example = new Cloudflare.GreTunnel("example", new()
 //!     {
@@ -63,18 +63,18 @@
 //!         Name = "GRE_1",
 //!         Ttl = 64,
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewGreTunnel(ctx, "example", &cloudflare.GreTunnelArgs{
@@ -100,7 +100,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -112,12 +112,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         var example = new GreTunnel("example", GreTunnelArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
@@ -132,7 +132,7 @@
 //!             .name("GRE_1")
 //!             .ttl(64)
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -155,36 +155,49 @@
 //!       ttl: 64
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/greTunnel:GreTunnel example <account_id>/<tunnel_id>
 //! ```
-//!
+//! 
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct GreTunnelArgs {
     /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub account_id: pulumi_wasm_rust::Output<Option<String>>,
     /// The IP address assigned to the Cloudflare side of the GRE tunnel.
+    #[builder(into)]
     pub cloudflare_gre_endpoint: pulumi_wasm_rust::Output<String>,
     /// The IP address assigned to the customer side of the GRE tunnel.
+    #[builder(into)]
     pub customer_gre_endpoint: pulumi_wasm_rust::Output<String>,
     /// Description of the GRE tunnel intent.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub description: pulumi_wasm_rust::Output<Option<String>>,
     /// Specifies if ICMP tunnel health checks are enabled.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub health_check_enabled: pulumi_wasm_rust::Output<Option<bool>>,
     /// The IP address of the customer endpoint that will receive tunnel health checks.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub health_check_target: pulumi_wasm_rust::Output<Option<String>>,
     /// Specifies the ICMP echo type for the health check. Available values: `request`, `reply`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub health_check_type: pulumi_wasm_rust::Output<Option<String>>,
     /// 31-bit prefix (/31 in CIDR notation) supporting 2 hosts, one for each side of the tunnel.
+    #[builder(into)]
     pub interface_address: pulumi_wasm_rust::Output<String>,
     /// Maximum Transmission Unit (MTU) in bytes for the GRE tunnel.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub mtu: pulumi_wasm_rust::Output<Option<i32>>,
     /// Name of the GRE tunnel.
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// Time To Live (TTL) in number of hops of the GRE tunnel.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub ttl: pulumi_wasm_rust::Output<Option<i32>>,
 }
 
@@ -217,22 +230,20 @@ pub struct GreTunnelResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: GreTunnelArgs) -> GreTunnelResult {
-    let result = crate::bindings::pulumi::cloudflare::gre_tunnel::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::gre_tunnel::Args {
-            account_id: &args.account_id.get_inner(),
-            cloudflare_gre_endpoint: &args.cloudflare_gre_endpoint.get_inner(),
-            customer_gre_endpoint: &args.customer_gre_endpoint.get_inner(),
-            description: &args.description.get_inner(),
-            health_check_enabled: &args.health_check_enabled.get_inner(),
-            health_check_target: &args.health_check_target.get_inner(),
-            health_check_type: &args.health_check_type.get_inner(),
-            interface_address: &args.interface_address.get_inner(),
-            mtu: &args.mtu.get_inner(),
-            name: &args.name.get_inner(),
-            ttl: &args.ttl.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::gre_tunnel::invoke(name, &crate::bindings::pulumi::cloudflare::gre_tunnel::Args {
+        account_id: &args.account_id.get_inner(),
+        cloudflare_gre_endpoint: &args.cloudflare_gre_endpoint.get_inner(),
+        customer_gre_endpoint: &args.customer_gre_endpoint.get_inner(),
+        description: &args.description.get_inner(),
+        health_check_enabled: &args.health_check_enabled.get_inner(),
+        health_check_target: &args.health_check_target.get_inner(),
+        health_check_type: &args.health_check_type.get_inner(),
+        interface_address: &args.interface_address.get_inner(),
+        mtu: &args.mtu.get_inner(),
+        name: &args.name.get_inner(),
+        ttl: &args.ttl.get_inner(),
+    });
 
     GreTunnelResult {
         account_id: crate::into_domain(result.account_id),

@@ -1,24 +1,32 @@
-#[derive(serde::Deserialize, serde::Serialize, Debug)]
+#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug)]
+#[builder(finish_fn = build_struct)]
 pub struct ContainerMount {
     /// Optional configuration for the bind type.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "bindOptions")]
     pub r#bind_options: Box<Option<crate::types::ContainerMountBindOptions>>,
     /// Whether the mount should be read-only.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "readOnly")]
     pub r#read_only: Box<Option<bool>>,
     /// Mount source (e.g. a volume name, a host path).
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "source")]
     pub r#source: Box<Option<String>>,
     /// Container path
+    #[builder(into)]
     #[serde(rename = "target")]
     pub r#target: Box<String>,
     /// Optional configuration for the tmpfs type.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "tmpfsOptions")]
     pub r#tmpfs_options: Box<Option<crate::types::ContainerMountTmpfsOptions>>,
     /// The mount type
+    #[builder(into)]
     #[serde(rename = "type")]
     pub r#type: Box<String>,
     /// Optional configuration for the volume type.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "volumeOptions")]
     pub r#volume_options: Box<Option<crate::types::ContainerMountVolumeOptions>>,
 }

@@ -1,6 +1,8 @@
-#[derive(serde::Deserialize, serde::Serialize, Debug)]
+#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug)]
+#[builder(finish_fn = build_struct)]
 pub struct RulesetRuleActionParametersCacheKeyCustomKeyHost {
     /// Resolve hostname to IP address.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "resolved")]
     pub r#resolved: Box<Option<bool>>,
 }

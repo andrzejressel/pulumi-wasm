@@ -1,15 +1,15 @@
 //! Provides a Cloudflare IP Firewall Access Rule resource. Access
 //! control can be applied on basis of IP addresses, IP ranges, AS
 //! numbers or countries.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! // Challenge requests coming from known Tor exit nodes.
 //! const torExitNodes = new cloudflare.AccessRule("torExitNodes", {
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
@@ -53,7 +53,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! # Challenge requests coming from known Tor exit nodes.
 //! tor_exit_nodes = cloudflare.AccessRule("torExitNodes",
 //!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
@@ -97,8 +97,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     // Challenge requests coming from known Tor exit nodes.
 //!     var torExitNodes = new Cloudflare.AccessRule("torExitNodes", new()
@@ -112,7 +112,7 @@
 //!             Value = "T1",
 //!         },
 //!     });
-//!
+//! 
 //!     // Allowlist requests coming from Antarctica, but only for single zone.
 //!     var antarctica = new Cloudflare.AccessRule("antarctica", new()
 //!     {
@@ -125,7 +125,7 @@
 //!             Value = "AQ",
 //!         },
 //!     });
-//!
+//! 
 //!     var config = new Config();
 //!     var myOffice = config.GetObject<string[]>("myOffice") ?? new[]
 //!     {
@@ -154,13 +154,13 @@
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		// Challenge requests coming from known Tor exit nodes.
@@ -223,7 +223,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -237,12 +237,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         final var config = ctx.config();
 //!         // Challenge requests coming from known Tor exit nodes.
@@ -255,7 +255,7 @@
 //!                 .value("T1")
 //!                 .build())
 //!             .build());
-//!
+//! 
 //!         // Allowlist requests coming from Antarctica, but only for single zone.
 //!         var antarctica = new AccessRule("antarctica", AccessRuleArgs.builder()        
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
@@ -266,7 +266,7 @@
 //!                 .value("AQ")
 //!                 .build())
 //!             .build());
-//!
+//! 
 //!         final var myOffice = config.get("myOffice").orElse(        
 //!             "192.0.2.0/24",
 //!             "198.51.100.0/24",
@@ -281,7 +281,7 @@
 //!                     .value(myOffice[count.index()])
 //!                     .build())
 //!                 .build());
-//!
+//! 
 //!         
 //! }
 //!     }
@@ -334,38 +334,45 @@
 //!     options: {}
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! User level access rule import.
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/accessRule:AccessRule default user/<user_id>/<rule_id>
 //! ```
-//!
+//! 
 //! Zone level access rule import.
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/accessRule:AccessRule default zone/<zone_id>/<rule_id>
 //! ```
-//!
+//! 
 //! Account level access rule import.
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/accessRule:AccessRule default account/<account_id>/<rule_id>
 //! ```
-//!
+//! 
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct AccessRuleArgs {
     /// The account identifier to target for the resource. Must provide only one of `account_id`, `zone_id`. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub account_id: pulumi_wasm_rust::Output<Option<String>>,
     /// Rule configuration to apply to a matched request. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub configuration: pulumi_wasm_rust::Output<crate::types::AccessRuleConfiguration>,
     /// The action to apply to a matched request. Available values: `block`, `challenge`, `whitelist`, `js_challenge`, `managed_challenge`.
+    #[builder(into)]
     pub mode: pulumi_wasm_rust::Output<String>,
     /// A personal note about the rule. Typically used as a reminder or explanation for the rule.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub notes: pulumi_wasm_rust::Output<Option<String>>,
     /// The zone identifier to target for the resource. Must provide only one of `account_id`, `zone_id`. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 
@@ -386,16 +393,14 @@ pub struct AccessRuleResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: AccessRuleArgs) -> AccessRuleResult {
-    let result = crate::bindings::pulumi::cloudflare::access_rule::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::access_rule::Args {
-            account_id: &args.account_id.get_inner(),
-            configuration: &args.configuration.get_inner(),
-            mode: &args.mode.get_inner(),
-            notes: &args.notes.get_inner(),
-            zone_id: &args.zone_id.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::access_rule::invoke(name, &crate::bindings::pulumi::cloudflare::access_rule::Args {
+        account_id: &args.account_id.get_inner(),
+        configuration: &args.configuration.get_inner(),
+        mode: &args.mode.get_inner(),
+        notes: &args.notes.get_inner(),
+        zone_id: &args.zone_id.get_inner(),
+    });
 
     AccessRuleResult {
         account_id: crate::into_domain(result.account_id),

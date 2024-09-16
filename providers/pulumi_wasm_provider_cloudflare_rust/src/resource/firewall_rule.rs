@@ -2,24 +2,24 @@
 //! how traffic is matched to the rule. A filter expression permits
 //! selecting traffic by multiple criteria allowing greater freedom in
 //! rule creation.
-//!
+//! 
 //! Filter expressions needs to be created first before using Firewall
 //! Rule.
-//!
+//! 
 //! > `cloudflare.FirewallRule` is in a deprecation phase that will last for one
 //!   year (May 1st, 2024). During this time period, this resource is still fully
 //!   supported but you are strongly advised  to move to the `cloudflare.Ruleset`
 //!   resource. Full details can be found in the
 //!   developer documentation.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! const wordpressFilter = new cloudflare.Filter("wordpressFilter", {
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //!     description: "Wordpress break-in attempts that are outside of the office",
@@ -36,7 +36,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! wordpress_filter = cloudflare.Filter("wordpressFilter",
 //!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     description="Wordpress break-in attempts that are outside of the office",
@@ -53,8 +53,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var wordpressFilter = new Cloudflare.Filter("wordpressFilter", new()
 //!     {
@@ -62,7 +62,7 @@
 //!         Description = "Wordpress break-in attempts that are outside of the office",
 //!         Expression = "(http.request.uri.path ~ \".*wp-login.php\" or http.request.uri.path ~ \".*xmlrpc.php\") and ip.src ne 192.0.2.1",
 //!     });
-//!
+//! 
 //!     var wordpressFirewallRule = new Cloudflare.FirewallRule("wordpressFirewallRule", new()
 //!     {
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
@@ -70,18 +70,18 @@
 //!         FilterId = wordpressFilter.Id,
 //!         Action = "block",
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		wordpressFilter, err := cloudflare.NewFilter(ctx, "wordpressFilter", &cloudflare.FilterArgs{
@@ -108,7 +108,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -122,26 +122,26 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         var wordpressFilter = new Filter("wordpressFilter", FilterArgs.builder()        
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .description("Wordpress break-in attempts that are outside of the office")
 //!             .expression("(http.request.uri.path ~ \".*wp-login.php\" or http.request.uri.path ~ \".*xmlrpc.php\") and ip.src ne 192.0.2.1")
 //!             .build());
-//!
+//! 
 //!         var wordpressFirewallRule = new FirewallRule("wordpressFirewallRule", FirewallRuleArgs.builder()        
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .description("Block wordpress break-in attempts")
 //!             .filterId(wordpressFilter.id())
 //!             .action("block")
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -163,28 +163,37 @@
 //!       action: block
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/firewallRule:FirewallRule example <zone_id>/<firewall_rule_id>
 //! ```
-//!
+//! 
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct FirewallRuleArgs {
     /// The action to apply to a matched request. Available values: `block`, `challenge`, `allow`, `js_challenge`, `managed_challenge`, `log`, `bypass`.
+    #[builder(into)]
     pub action: pulumi_wasm_rust::Output<String>,
     /// A description of the rule to help identify it.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub description: pulumi_wasm_rust::Output<Option<String>>,
     /// The identifier of the Filter to use for determining if the Firewall Rule should be triggered.
+    #[builder(into)]
     pub filter_id: pulumi_wasm_rust::Output<String>,
     /// Whether this filter based firewall rule is currently paused.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub paused: pulumi_wasm_rust::Output<Option<bool>>,
     /// The priority of the rule to allow control of processing order. A lower number indicates high priority. If not provided, any rules with a priority will be sequenced before those without.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub priority: pulumi_wasm_rust::Output<Option<i32>>,
     /// List of products to bypass for a request when the bypass action is used. Available values: `zoneLockdown`, `uaBlock`, `bic`, `hot`, `securityLevel`, `rateLimit`, `waf`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub products: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub zone_id: pulumi_wasm_rust::Output<String>,
 }
 
@@ -209,18 +218,16 @@ pub struct FirewallRuleResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: FirewallRuleArgs) -> FirewallRuleResult {
-    let result = crate::bindings::pulumi::cloudflare::firewall_rule::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::firewall_rule::Args {
-            action: &args.action.get_inner(),
-            description: &args.description.get_inner(),
-            filter_id: &args.filter_id.get_inner(),
-            paused: &args.paused.get_inner(),
-            priority: &args.priority.get_inner(),
-            products: &args.products.get_inner(),
-            zone_id: &args.zone_id.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::firewall_rule::invoke(name, &crate::bindings::pulumi::cloudflare::firewall_rule::Args {
+        action: &args.action.get_inner(),
+        description: &args.description.get_inner(),
+        filter_id: &args.filter_id.get_inner(),
+        paused: &args.paused.get_inner(),
+        priority: &args.priority.get_inner(),
+        products: &args.products.get_inner(),
+        zone_id: &args.zone_id.get_inner(),
+    });
 
     FirewallRuleResult {
         action: crate::into_domain(result.action),

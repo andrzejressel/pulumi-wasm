@@ -1,13 +1,13 @@
 //! Provides a Cloudflare Worker secret resource.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! const mySecret = new cloudflare.WorkerSecret("mySecret", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
 //!     name: "MY_EXAMPLE_SECRET_TEXT",
@@ -19,7 +19,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! my_secret = cloudflare.WorkerSecret("mySecret",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
 //!     name="MY_EXAMPLE_SECRET_TEXT",
@@ -32,8 +32,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var mySecret = new Cloudflare.WorkerSecret("mySecret", new()
 //!     {
@@ -42,18 +42,18 @@
 //!         ScriptName = "script_1",
 //!         SecretText = "my_secret_value",
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewWorkerSecret(ctx, "mySecret", &cloudflare.WorkerSecretArgs{
@@ -72,7 +72,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -84,12 +84,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         var mySecret = new WorkerSecret("mySecret", WorkerSecretArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
@@ -97,7 +97,7 @@
 //!             .scriptName("script_1")
 //!             .secretText("my_secret_value")
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -113,22 +113,28 @@
 //!       secretText: my_secret_value
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/workerSecret:WorkerSecret example <account_id>/<script_name>/<secret_name>
 //! ```
-//!
+//! 
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct WorkerSecretArgs {
     /// The account identifier to target for the resource.
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// The name of the Worker secret. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// The name of the Worker script to associate the secret with. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub script_name: pulumi_wasm_rust::Output<String>,
     /// The text of the Worker secret. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into)]
     pub secret_text: pulumi_wasm_rust::Output<String>,
 }
 
@@ -147,15 +153,13 @@ pub struct WorkerSecretResult {
 /// Registers a new resource with the given unique name and arguments
 ///
 pub fn create(name: &str, args: WorkerSecretArgs) -> WorkerSecretResult {
-    let result = crate::bindings::pulumi::cloudflare::worker_secret::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::worker_secret::Args {
-            account_id: &args.account_id.get_inner(),
-            name: &args.name.get_inner(),
-            script_name: &args.script_name.get_inner(),
-            secret_text: &args.secret_text.get_inner(),
-        },
-    );
+
+    let result = crate::bindings::pulumi::cloudflare::worker_secret::invoke(name, &crate::bindings::pulumi::cloudflare::worker_secret::Args {
+        account_id: &args.account_id.get_inner(),
+        name: &args.name.get_inner(),
+        script_name: &args.script_name.get_inner(),
+        secret_text: &args.secret_text.get_inner(),
+    });
 
     WorkerSecretResult {
         account_id: crate::into_domain(result.account_id),

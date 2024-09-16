@@ -1,21 +1,24 @@
-#[derive(serde::Deserialize, serde::Serialize, Debug)]
+#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug)]
+#[builder(finish_fn = build_struct)]
 pub struct PageRuleActionsCacheKeyFieldsUser {
     /// `true` - classifies a request as “mobile”, “desktop”, or “tablet” based on the User Agent; defaults to `false`.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "deviceType")]
     pub r#device_type: Box<Option<bool>>,
     /// `true` - includes the client’s country, derived from the IP address; defaults to `false`.
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "geo")]
     pub r#geo: Box<Option<bool>>,
     /// `true` - includes the first language code contained in the `Accept-Language` header sent by the client; defaults to `false`.
-    ///
+    /// 
     /// Example:
-    ///
+    /// 
     /// <!--Start PulumiCodeChooser -->
     /// ### Typescript
     /// ```typescript
     /// import * as pulumi from "@pulumi/pulumi";
     /// import * as cloudflare from "@pulumi/cloudflare";
-    ///
+    /// 
     /// // Unrealistic example with all features used
     /// const foobar = new cloudflare.PageRule("foobar", {
     ///     zoneId: _var.cloudflare_zone_id,
@@ -53,7 +56,7 @@ pub struct PageRuleActionsCacheKeyFieldsUser {
     /// ```python
     /// import pulumi
     /// import pulumi_cloudflare as cloudflare
-    ///
+    /// 
     /// # Unrealistic example with all features used
     /// foobar = cloudflare.PageRule("foobar",
     ///     zone_id=var["cloudflare_zone_id"],
@@ -92,8 +95,8 @@ pub struct PageRuleActionsCacheKeyFieldsUser {
     /// using System.Linq;
     /// using Pulumi;
     /// using Cloudflare = Pulumi.Cloudflare;
-    ///
-    /// return await Deployment.RunAsync(() =>
+    /// 
+    /// return await Deployment.RunAsync(() => 
     /// {
     ///     // Unrealistic example with all features used
     ///     var foobar = new Cloudflare.PageRule("foobar", new()
@@ -145,20 +148,20 @@ pub struct PageRuleActionsCacheKeyFieldsUser {
     ///             },
     ///         },
     ///     });
-    ///
+    /// 
     /// });
     /// ```
     /// ### Go
     /// ```go
     /// package main
-    ///
+    /// 
     /// import (
     /// 	"fmt"
-    ///
+    /// 
     /// 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
     /// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
     /// )
-    ///
+    /// 
     /// func main() {
     /// 	pulumi.Run(func(ctx *pulumi.Context) error {
     /// 		// Unrealistic example with all features used
@@ -209,7 +212,7 @@ pub struct PageRuleActionsCacheKeyFieldsUser {
     /// ### Java
     /// ```java
     /// package generated_program;
-    ///
+    /// 
     /// import com.pulumi.Context;
     /// import com.pulumi.Pulumi;
     /// import com.pulumi.core.Output;
@@ -228,12 +231,12 @@ pub struct PageRuleActionsCacheKeyFieldsUser {
     /// import java.io.File;
     /// import java.nio.file.Files;
     /// import java.nio.file.Paths;
-    ///
+    /// 
     /// public class App {
     ///     public static void main(String[] args) {
     ///         Pulumi.run(App::stack);
     ///     }
-    ///
+    /// 
     ///     public static void stack(Context ctx) {
     ///         // Unrealistic example with all features used
     ///         var foobar = new PageRule("foobar", PageRuleArgs.builder()        
@@ -266,7 +269,7 @@ pub struct PageRuleActionsCacheKeyFieldsUser {
     ///                     .build())
     ///                 .build())
     ///             .build());
-    ///
+    /// 
     ///     }
     /// }
     /// ```
@@ -303,6 +306,7 @@ pub struct PageRuleActionsCacheKeyFieldsUser {
     ///             lang: true
     /// ```
     /// <!--End PulumiCodeChooser -->
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "lang")]
     pub r#lang: Box<Option<bool>>,
 }

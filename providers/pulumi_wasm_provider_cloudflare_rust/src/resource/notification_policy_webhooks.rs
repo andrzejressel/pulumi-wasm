@@ -1,13 +1,13 @@
 //! Provides a resource, that manages a webhook destination. These destinations can be tied to the notification policies created for Cloudflare's products.
-//!
+//! 
 //! ## Example Usage
-//!
+//! 
 //! <!--Start PulumiCodeChooser -->
 //! ### Typescript
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//!
+//! 
 //! const example = new cloudflare.NotificationPolicyWebhooks("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
 //!     name: "Webhooks destination",
@@ -19,7 +19,7 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
-//!
+//! 
 //! example = cloudflare.NotificationPolicyWebhooks("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
 //!     name="Webhooks destination",
@@ -32,8 +32,8 @@
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//!
-//! return await Deployment.RunAsync(() =>
+//! 
+//! return await Deployment.RunAsync(() => 
 //! {
 //!     var example = new Cloudflare.NotificationPolicyWebhooks("example", new()
 //!     {
@@ -42,18 +42,18 @@
 //!         Secret = "my-secret",
 //!         Url = "https://example.com",
 //!     });
-//!
+//! 
 //! });
 //! ```
 //! ### Go
 //! ```go
 //! package main
-//!
+//! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//!
+//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewNotificationPolicyWebhooks(ctx, "example", &cloudflare.NotificationPolicyWebhooksArgs{
@@ -72,7 +72,7 @@
 //! ### Java
 //! ```java
 //! package generated_program;
-//!
+//! 
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
@@ -84,12 +84,12 @@
 //! import java.io.File;
 //! import java.nio.file.Files;
 //! import java.nio.file.Paths;
-//!
+//! 
 //! public class App {
 //!     public static void main(String[] args) {
 //!         Pulumi.run(App::stack);
 //!     }
-//!
+//! 
 //!     public static void stack(Context ctx) {
 //!         var example = new NotificationPolicyWebhooks("example", NotificationPolicyWebhooksArgs.builder()        
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
@@ -97,7 +97,7 @@
 //!             .secret("my-secret")
 //!             .url("https://example.com")
 //!             .build());
-//!
+//! 
 //!     }
 //! }
 //! ```
@@ -113,22 +113,28 @@
 //!       url: https://example.com
 //! ```
 //! <!--End PulumiCodeChooser -->
-//!
+//! 
 //! ## Import
-//!
+//! 
 //! ```sh
 //! $ pulumi import cloudflare:index/notificationPolicyWebhooks:NotificationPolicyWebhooks example <account_id>/<notification_webhook_id>
 //! ```
-//!
+//! 
 
+#[derive(bon::Builder)]
+#[builder(finish_fn = build_struct)]
 pub struct NotificationPolicyWebhooksArgs {
     /// The account identifier to target for the resource.
+    #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// The name of the webhook destination.
+    #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// An optional secret can be provided that will be passed in the `cf-webhook-auth` header when dispatching a webhook notification. Secrets are not returned in any API response body. Refer to the [documentation](https://api.cloudflare.com/#notification-webhooks-create-webhook) for more details.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub secret: pulumi_wasm_rust::Output<Option<String>>,
     /// The URL of the webhook destinations. **Modifying this attribute will force creation of a new resource.**
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub url: pulumi_wasm_rust::Output<Option<String>>,
 }
 
@@ -153,19 +159,14 @@ pub struct NotificationPolicyWebhooksResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(
-    name: &str,
-    args: NotificationPolicyWebhooksArgs,
-) -> NotificationPolicyWebhooksResult {
-    let result = crate::bindings::pulumi::cloudflare::notification_policy_webhooks::invoke(
-        name,
-        &crate::bindings::pulumi::cloudflare::notification_policy_webhooks::Args {
-            account_id: &args.account_id.get_inner(),
-            name: &args.name.get_inner(),
-            secret: &args.secret.get_inner(),
-            url: &args.url.get_inner(),
-        },
-    );
+pub fn create(name: &str, args: NotificationPolicyWebhooksArgs) -> NotificationPolicyWebhooksResult {
+
+    let result = crate::bindings::pulumi::cloudflare::notification_policy_webhooks::invoke(name, &crate::bindings::pulumi::cloudflare::notification_policy_webhooks::Args {
+        account_id: &args.account_id.get_inner(),
+        name: &args.name.get_inner(),
+        secret: &args.secret.get_inner(),
+        url: &args.url.get_inner(),
+    });
 
     NotificationPolicyWebhooksResult {
         account_id: crate::into_domain(result.account_id),
