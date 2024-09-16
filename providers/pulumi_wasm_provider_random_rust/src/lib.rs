@@ -9,7 +9,7 @@ mod bindings {
         // the name of the world in the `*.wit` input file
         world: "random-pulumi-client",
         with: {
-            "component:pulumi-wasm/output-interface@0.0.0-DEV": pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface
+            "component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-034bd15": pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface
         }
     });
 }
