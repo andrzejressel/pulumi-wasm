@@ -1,6 +1,6 @@
-{{#each package.interfaces}}
-mod {{name}};
-{{/each}}
+{{#if package.contains_resources}}
+mod resource;
+{{/if}}
 
 {{#if package.contains_resources}}
 mod bindings;

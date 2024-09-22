@@ -5,7 +5,7 @@ use std::path::PathBuf;
 use serde::Serialize;
 use serde_json::json;
 
-static TEMPLATE: &str = include_str!("resource.rs.handlebars");
+static TEMPLATE: &str = include_str!("resource_code.rs.handlebars");
 
 #[derive(Serialize)]
 struct InputProperty {
