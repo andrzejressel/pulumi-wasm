@@ -19,19 +19,10 @@ use crate::bindings::exports::component::pulumi_wasm::{
 
 bindings::export!(Component with_types_in bindings);
 
-#[allow(clippy::all)]
-#[allow(dead_code)]
-#[allow(unused_variables)]
-#[allow(unused_unsafe)]
+#[allow(unused_braces)]
 #[rustfmt::skip]
 mod bindings;
-// mod grpc {
-//     #![allow(clippy::all)]
-//     #![allow(clippy::pedantic)]
-//     // https://github.com/hyperium/tonic/issues/1783
-//     include!(concat!(env!("OUT_DIR"), concat!("/", "pulumirpc", ".rs")));
-//     // tonic::include_proto!("pulumirpc");
-// }
+
 mod globals;
 mod pulumi_connector_impl;
 
