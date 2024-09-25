@@ -13,7 +13,7 @@ use anyhow::Error;
 use async_trait::async_trait;
 use log::info;
 use prost::Message;
-use pulumi_wasm_proto::grpc::{ReadResourceRequest, ResourceInvokeRequest};
+use pulumi_wasm_proto::grpc::ResourceInvokeRequest;
 use pulumi_wasm_wit::bindings_runner as runner;
 use wasmtime::component::{Component, Linker, ResourceTable};
 use wasmtime::Store;

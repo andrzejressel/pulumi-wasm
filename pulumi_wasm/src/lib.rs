@@ -6,7 +6,10 @@ use globals::get_pulumi_engine;
 use pulumi_wasm_core::{Engine, OutputId};
 
 use crate::bindings::exports::component::pulumi_wasm::output_interface::{GuestOutput, Output};
-use crate::bindings::exports::component::pulumi_wasm::register_interface::{ObjectField, RegisterResourceRequest, RegisterResourceResult, RegisterResourceResultField, ResourceInvokeRequest, ResourceInvokeResult, ResourceInvokeResultField, ResultField};
+use crate::bindings::exports::component::pulumi_wasm::register_interface::{
+    ObjectField, RegisterResourceRequest, RegisterResourceResult, RegisterResourceResultField,
+    ResourceInvokeRequest, ResourceInvokeResult, ResourceInvokeResultField, ResultField,
+};
 use crate::bindings::exports::component::pulumi_wasm::stack_interface::{
     FunctionInvocationRequest, FunctionInvocationResult, OutputBorrow,
 };
@@ -158,11 +161,10 @@ impl register_interface::Guest for Component {
             })
             .collect::<HashMap<_, _>>();
 
-        let (_, field_outputs) = refcell.borrow_mut().create_resource_invoke_node(
-            request.token,
-            object,
-            outputs,
-        );
+        let (_, field_outputs) =
+            refcell
+                .borrow_mut()
+                .create_resource_invoke_node(request.token, object, outputs);
 
         ResourceInvokeResult {
             fields: field_outputs

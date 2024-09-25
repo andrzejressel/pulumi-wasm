@@ -4,9 +4,8 @@ use crate::model::OutputId;
 use anyhow::Result;
 use futures::FutureExt;
 use prost::Message;
-use pulumi_wasm_proto::grpc::{ReadResourceRequest, ResourceInvokeRequest};
+use pulumi_wasm_proto::grpc::ResourceInvokeRequest;
 use std::future::poll_fn;
-use std::io::Read;
 use tokio::task::JoinSet;
 
 pub(crate) struct PulumiState {
