@@ -80,4 +80,21 @@ interface register-interface {
     }
 
     register: func(request: register-resource-request) -> register-resource-result;
+
+    record resource-invoke-result-field {
+        name: string,
+        output: output
+    }
+
+    record resource-invoke-request {
+        token: string,
+        object: list<object-field>,
+        results: list<result-field>
+    }
+
+    record resource-invoke-result {
+        fields: list<resource-invoke-result-field>
+    }
+
+    invoke: func(request: resource-invoke-request) -> resource-invoke-result;
 }

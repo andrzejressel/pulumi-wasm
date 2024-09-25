@@ -54,7 +54,7 @@ fn convert_model(package: &crate::model::Package) -> Package {
                 .collect(),
         })
         .collect();
-    
+
     let functions: Vec<_> = package
         .functions
         .iter()
@@ -76,11 +76,11 @@ fn convert_model(package: &crate::model::Package) -> Package {
                 .collect(),
         })
         .collect();
-    
+
     let mut interfaces = Vec::new();
     interfaces.extend(resources);
     interfaces.extend(functions);
-    
+
     Package {
         name: package.get_wit_name(),
         version: package.version.clone(),

@@ -7,7 +7,6 @@ static TEMPLATE: &str = include_str!("resource_mod.rs.handlebars");
 #[derive(Serialize)]
 struct Interface {
     name: String,
-    description_lines: Vec<String>,
 }
 
 #[derive(Serialize)]
@@ -24,7 +23,6 @@ fn convert_model(package: &crate::model::Package) -> Package {
             .iter()
             .map(|(element_id, resource)| Interface {
                 name: element_id.get_rust_namespace_name(),
-                description_lines: crate::utils::to_lines(resource.description.clone()),
             })
             .collect(),
     }

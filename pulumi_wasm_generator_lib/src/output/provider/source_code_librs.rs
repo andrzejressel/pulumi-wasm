@@ -10,6 +10,8 @@ struct Package {
     name: String,
     name_escaped: String,
     contains_resources: bool,
+    contains_functions: bool,
+    contains_resources_or_functions: bool,
 }
 
 fn convert_model(package: &crate::model::Package) -> Package {
@@ -17,6 +19,9 @@ fn convert_model(package: &crate::model::Package) -> Package {
         name: package.name.clone(),
         name_escaped: package.name.clone().replace('-', "_"),
         contains_resources: !package.resources.is_empty() || !package.functions.is_empty(),
+        contains_functions: !package.functions.is_empty(),
+        contains_resources_or_functions: !package.resources.is_empty()
+            || !package.functions.is_empty(),
     }
 }
 

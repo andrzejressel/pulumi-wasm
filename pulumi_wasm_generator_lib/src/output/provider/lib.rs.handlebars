@@ -1,8 +1,11 @@
 {{#if package.contains_resources}}
 mod resource;
 {{/if}}
+{{#if package.contains_functions}}
+mod function;
+{{/if}}
 
-{{#if package.contains_resources}}
+{{#if package.contains_resources_or_functions}}
 mod bindings;
 bindings::export!(Component with_types_in bindings);
 {{/if}}

@@ -120,6 +120,29 @@ world cloudflare-pulumi {
     export zone-hold;
     export zone-lockdown;
     export zone-settings-override;
+    export get-access-application;
+    export get-access-identity-provider;
+    export get-account-roles;
+    export get-accounts;
+    export get-api-token-permission-groups;
+    export get-device-posture-rules;
+    export get-devices;
+    export get-dlp-datasets;
+    export get-ip-ranges;
+    export get-list;
+    export get-lists;
+    export get-load-balancer-pools;
+    export get-origin-ca-certificate;
+    export get-origin-ca-root-certificate;
+    export get-record;
+    export get-rulesets;
+    export get-tunnel;
+    export get-tunnel-virtual-network;
+    export get-user;
+    export get-zone;
+    export get-zone-cache-reserve;
+    export get-zone-dnssec;
+    export get-zones;
 }
 
 world cloudflare-pulumi-client {
@@ -241,6 +264,29 @@ world cloudflare-pulumi-client {
     import zone-hold;
     import zone-lockdown;
     import zone-settings-override;
+    import get-access-application;
+    import get-access-identity-provider;
+    import get-account-roles;
+    import get-accounts;
+    import get-api-token-permission-groups;
+    import get-device-posture-rules;
+    import get-devices;
+    import get-dlp-datasets;
+    import get-ip-ranges;
+    import get-list;
+    import get-lists;
+    import get-load-balancer-pools;
+    import get-origin-ca-certificate;
+    import get-origin-ca-root-certificate;
+    import get-record;
+    import get-rulesets;
+    import get-tunnel;
+    import get-tunnel-virtual-network;
+    import get-user;
+    import get-zone;
+    import get-zone-cache-reserve;
+    import get-zone-dnssec;
+    import get-zones;
 }
 
 interface access-application {
@@ -312,7 +358,10 @@ interface access-application {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -334,7 +383,10 @@ interface access-ca-certificate {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -360,7 +412,10 @@ interface access-custom-page {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -386,7 +441,10 @@ interface access-group {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -412,7 +470,10 @@ interface access-identity-provider {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -430,7 +491,10 @@ interface access-keys-configuration {
         key-rotation-interval-days: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -455,7 +519,10 @@ interface access-mutual-tls-certificate {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -475,7 +542,10 @@ interface access-mutual-tls-hostname-settings {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -515,7 +585,10 @@ interface access-organization {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -559,7 +632,10 @@ interface access-policy {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -583,7 +659,10 @@ interface access-rule {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -610,7 +689,10 @@ interface access-service-token {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -632,7 +714,10 @@ interface access-tag {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -652,7 +737,10 @@ interface account {
         %type: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -674,7 +762,10 @@ interface account-member {
         status: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -702,7 +793,10 @@ interface address-map {
         memberships: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -720,7 +814,10 @@ interface api-shield {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -742,7 +839,10 @@ interface api-shield-operation {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -762,7 +862,10 @@ interface api-shield-operation-schema-validation-settings {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -786,7 +889,10 @@ interface api-shield-schema {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -806,7 +912,10 @@ interface api-shield-schema-validation-settings {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -834,7 +943,10 @@ interface api-token {
         value: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -854,7 +966,10 @@ interface argo {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -876,7 +991,10 @@ interface authenticated-origin-pulls {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -904,7 +1022,10 @@ interface authenticated-origin-pulls-certificate {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -939,7 +1060,10 @@ interface bot-management {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -961,7 +1085,10 @@ interface byo-ip-prefix {
         prefix-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -995,7 +1122,10 @@ interface certificate-pack {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1026,7 +1156,10 @@ interface custom-hostname {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1045,7 +1178,10 @@ interface custom-hostname-fallback-origin {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1069,7 +1205,10 @@ interface custom-pages {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1097,7 +1236,10 @@ interface custom-ssl {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1116,7 +1258,10 @@ interface d1-database {
         version: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1144,7 +1289,10 @@ interface device-dex-test {
         updated: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1166,7 +1314,10 @@ interface device-managed-networks {
         %type: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1184,7 +1335,10 @@ interface device-policy-certificates {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1210,7 +1364,10 @@ interface device-posture-integration {
         %type: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1240,7 +1397,10 @@ interface device-posture-rule {
         %type: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1290,7 +1450,10 @@ interface device-settings-policy {
         switch-locked: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1318,7 +1481,10 @@ interface dlp-profile {
         %type: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1340,7 +1506,10 @@ interface email-routing-address {
         verified: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1365,7 +1534,10 @@ interface email-routing-catch-all {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1392,7 +1564,10 @@ interface email-routing-rule {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1417,7 +1592,10 @@ interface email-routing-settings {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1437,7 +1615,10 @@ interface fallback-domain {
         policy-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1461,7 +1642,10 @@ interface filter {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1489,7 +1673,10 @@ interface firewall-rule {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1525,7 +1712,10 @@ interface gre-tunnel {
         ttl: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1581,7 +1771,10 @@ interface healthcheck {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1605,7 +1798,10 @@ interface hostname-tls-setting {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1629,7 +1825,10 @@ interface hostname-tls-setting-ciphers {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1651,7 +1850,10 @@ interface hyperdrive-config {
         origin: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1699,7 +1901,10 @@ interface ipsec-tunnel {
         user-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1728,7 +1933,10 @@ interface keyless-certificate {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1752,7 +1960,10 @@ interface %list {
         name: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1780,7 +1991,10 @@ interface list-item {
         redirect: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1834,7 +2048,10 @@ interface load-balancer {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1884,7 +2101,10 @@ interface load-balancer-monitor {
         %type: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1926,7 +2146,10 @@ interface load-balancer-pool {
         origins: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1944,7 +2167,10 @@ interface logpull-retention {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -1988,7 +2214,10 @@ interface logpush-job {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2009,7 +2238,10 @@ interface logpush-ownership-challenge {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2031,7 +2263,10 @@ interface magic-firewall-ruleset {
         rules: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2051,7 +2286,10 @@ interface managed-headers {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2080,7 +2318,10 @@ interface mtls-certificate {
         uploaded-on: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2114,7 +2355,10 @@ interface notification-policy {
         webhooks-integrations: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2140,7 +2384,10 @@ interface notification-policy-webhooks {
         url: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2162,7 +2409,10 @@ interface observatory-scheduled-test {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2188,7 +2438,10 @@ interface origin-ca-certificate {
         requested-validity: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2212,7 +2465,10 @@ interface page-rule {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2233,7 +2489,10 @@ interface pages-domain {
         status: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2262,7 +2521,10 @@ interface pages-project {
         subdomain: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2280,7 +2542,10 @@ interface queue {
         name: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2300,7 +2565,10 @@ interface r2-bucket {
         name: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2332,7 +2600,10 @@ interface rate-limit {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2373,7 +2644,10 @@ interface %record {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2394,7 +2668,10 @@ interface regional-hostname {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2412,7 +2689,10 @@ interface regional-tiered-cache {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2440,7 +2720,10 @@ interface ruleset {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2480,7 +2763,10 @@ interface spectrum-application {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2502,7 +2788,10 @@ interface split-tunnel {
         tunnels: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2532,7 +2821,10 @@ interface static-route {
         weight: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2576,7 +2868,10 @@ interface teams-account {
         url-browser-isolation-enabled: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2600,7 +2895,10 @@ interface teams-list {
         %type: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2627,7 +2925,10 @@ interface teams-location {
         policy-ids: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2648,7 +2949,10 @@ interface teams-proxy-endpoint {
         subdomain: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2685,7 +2989,10 @@ interface teams-rule {
         version: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2703,7 +3010,10 @@ interface tiered-cache {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2723,7 +3033,10 @@ interface total-tls {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2747,7 +3060,10 @@ interface tunnel {
         tunnel-token: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2767,7 +3083,10 @@ interface tunnel-config {
         tunnel-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2791,7 +3110,10 @@ interface tunnel-route {
         virtual-network-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2813,7 +3135,10 @@ interface tunnel-virtual-network {
         name: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2842,7 +3167,10 @@ interface turnstile-widget {
         secret: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2862,7 +3190,10 @@ interface url-normalization-settings {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2886,7 +3217,10 @@ interface user-agent-blocking-rule {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2936,7 +3270,10 @@ interface waiting-room {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -2982,7 +3319,10 @@ interface waiting-room-event {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -3002,7 +3342,10 @@ interface waiting-room-rules {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -3020,7 +3363,10 @@ interface waiting-room-settings {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -3047,7 +3393,10 @@ interface web3-hostname {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -3073,7 +3422,10 @@ interface web-analytics-rule {
         ruleset-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -3099,7 +3451,10 @@ interface web-analytics-site {
         zone-tag: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -3119,7 +3474,10 @@ interface worker-cron-trigger {
         script-name: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -3143,7 +3501,10 @@ interface worker-domain {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -3163,7 +3524,10 @@ interface worker-route {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -3215,7 +3579,10 @@ interface worker-script {
         webassembly-bindings: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -3237,7 +3604,10 @@ interface worker-secret {
         secret-text: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -3255,7 +3625,10 @@ interface workers-for-platforms-namespace {
         name: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -3277,7 +3650,10 @@ interface workers-kv {
         value: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -3295,7 +3671,10 @@ interface workers-kv-namespace {
         title: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -3326,7 +3705,10 @@ interface zone {
         zone: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -3344,7 +3726,10 @@ interface zone-cache-reserve {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -3382,7 +3767,10 @@ interface zone-cache-variants {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -3410,7 +3798,10 @@ interface zone-dnssec {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -3432,7 +3823,10 @@ interface zone-hold {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -3458,7 +3852,10 @@ interface zone-lockdown {
         zone-id: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -3481,7 +3878,554 @@ interface zone-settings-override {
         zone-type: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+
+interface get-access-application {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        domain: borrow<output>,
+        name: borrow<output>,
+        zone-id: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        aud: output,
+        domain: output,
+        id: output,
+        name: output,
+        zone-id: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+
+interface get-access-identity-provider {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        name: borrow<output>,
+        zone-id: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        id: output,
+        name: output,
+        %type: output,
+        zone-id: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+
+interface get-account-roles {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        id: output,
+        roles: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+
+interface get-accounts {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        name: borrow<output>,
+    }
+
+    record res {
+        accounts: output,
+        id: output,
+        name: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+
+interface get-api-token-permission-groups {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+
+    record res {
+        account: output,
+        id: output,
+        permissions: output,
+        r2: output,
+        user: output,
+        zone: output,
+    }
+
+    invoke: func(
+        name: string,
+    ) -> res;
+
+}
+
+interface get-device-posture-rules {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        name: borrow<output>,
+        %type: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        id: output,
+        name: output,
+        rules: output,
+        %type: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+
+interface get-devices {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        devices: output,
+        id: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+
+interface get-dlp-datasets {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        datasets: output,
+        id: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+
+interface get-ip-ranges {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+
+    record res {
+        china-ipv4-cidr-blocks: output,
+        china-ipv6-cidr-blocks: output,
+        cidr-blocks: output,
+        id: output,
+        ipv4-cidr-blocks: output,
+        ipv6-cidr-blocks: output,
+    }
+
+    invoke: func(
+        name: string,
+    ) -> res;
+
+}
+
+interface get-list {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        name: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        description: output,
+        id: output,
+        kind: output,
+        name: output,
+        numitems: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+
+interface get-lists {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        id: output,
+        lists: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+
+interface get-load-balancer-pools {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        filter: borrow<output>,
+        pools: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        filter: output,
+        id: output,
+        pools: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+
+interface get-origin-ca-certificate {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        id: borrow<output>,
+    }
+
+    record res {
+        certificate: output,
+        expires-on: output,
+        hostnames: output,
+        id: output,
+        request-type: output,
+        revoked-at: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+
+interface get-origin-ca-root-certificate {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        algorithm: borrow<output>,
+    }
+
+    record res {
+        algorithm: output,
+        cert-pem: output,
+        id: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+
+interface get-record {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        content: borrow<output>,
+        hostname: borrow<output>,
+        priority: borrow<output>,
+        %type: borrow<output>,
+        zone-id: borrow<output>,
+    }
+
+    record res {
+        content: output,
+        hostname: output,
+        id: output,
+        locked: output,
+        priority: output,
+        proxiable: output,
+        proxied: output,
+        ttl: output,
+        %type: output,
+        value: output,
+        zone-id: output,
+        zone-name: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+
+interface get-rulesets {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        filter: borrow<output>,
+        include-rules: borrow<output>,
+        zone-id: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        filter: output,
+        id: output,
+        include-rules: output,
+        rulesets: output,
+        zone-id: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+
+interface get-tunnel {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        name: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        id: output,
+        name: output,
+        remote-config: output,
+        status: output,
+        tunnel-type: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+
+interface get-tunnel-virtual-network {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        name: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        comment: output,
+        id: output,
+        is-default: output,
+        name: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+
+interface get-user {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+
+    record res {
+        email: output,
+        id: output,
+        username: output,
+    }
+
+    invoke: func(
+        name: string,
+    ) -> res;
+
+}
+
+interface get-zone {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        name: borrow<output>,
+        zone-id: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        id: output,
+        name: output,
+        name-servers: output,
+        paused: output,
+        plan: output,
+        status: output,
+        vanity-name-servers: output,
+        zone-id: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+
+interface get-zone-cache-reserve {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        zone-id: borrow<output>,
+    }
+
+    record res {
+        enabled: output,
+        id: output,
+        zone-id: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+
+interface get-zone-dnssec {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        zone-id: borrow<output>,
+    }
+
+    record res {
+        algorithm: output,
+        digest: output,
+        digest-algorithm: output,
+        digest-type: output,
+        ds: output,
+        %flags: output,
+        id: output,
+        key-tag: output,
+        key-type: output,
+        public-key: output,
+        status: output,
+        zone-id: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+
+interface get-zones {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        filter: borrow<output>,
+    }
+
+    record res {
+        filter: output,
+        id: output,
+        zones: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 

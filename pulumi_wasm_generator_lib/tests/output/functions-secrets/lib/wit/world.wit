@@ -25,7 +25,10 @@ interface func-with-secrets {
         plaintext: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 

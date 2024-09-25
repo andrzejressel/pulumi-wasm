@@ -8,10 +8,7 @@ use uuid::Uuid;
 
 use crate::model::NodeValue::Exists;
 use crate::model::{FieldName, FunctionName, MaybeNodeValue, NodeValue, OutputId};
-use crate::nodes::{
-    Callback, CombineOutputsNode, DoneNode, ExtractFieldNode, NativeFunctionNode,
-    RegisterResourceNode,
-};
+use crate::nodes::{AbstractResourceNode, Callback, CombineOutputsNode, DoneNode, ExtractFieldNode, NativeFunctionNode, RegisterResourceRequestOperation, ResourceInvokeRequestOperation, ResourceRequestOperation};
 use crate::pulumi::service::PulumiService;
 
 #[derive(Clone, Debug, PartialEq)]
@@ -24,7 +21,7 @@ pub struct ForeignFunctionToInvoke {
 enum EngineNode {
     Done(DoneNode),
     NativeFunction(NativeFunctionNode),
-    RegisterResource(RegisterResourceNode),
+    RegisterResource(AbstractResourceNode),
     ExtractField(ExtractFieldNode),
     CombineOutputs(CombineOutputsNode),
 }
@@ -290,7 +287,7 @@ impl Engine {
         match registration_request {
             None => {}
             Some(rr) => {
-                engine_view.pulumi.register_resource(*output_id, rr);
+                engine_view.pulumi.perform_resource_operation(*output_id, rr);
                 engine_view.register_resource_ids.insert(*output_id);
             }
         }
@@ -649,7 +646,7 @@ impl Engine {
     }
 
     #[cfg(test)]
-    fn get_create_resource(&self, output_id: OutputId) -> Ref<RegisterResourceNode> {
+    fn get_create_resource(&self, output_id: OutputId) -> Ref<AbstractResourceNode> {
         Self::get_create_resource_free(&self.nodes, output_id)
     }
 
@@ -657,7 +654,7 @@ impl Engine {
     fn get_create_resource_free(
         nodes: &NodesMap,
         output_id: OutputId,
-    ) -> Ref<RegisterResourceNode> {
+    ) -> Ref<AbstractResourceNode> {
         match nodes.get(&output_id) {
             None => {
                 error!("Cannot find node with id {}", output_id);
@@ -709,7 +706,7 @@ impl Engine {
     fn get_create_resource_free_mut(
         nodes: &NodesMap,
         output_id: OutputId,
-    ) -> RefMut<RegisterResourceNode> {
+    ) -> RefMut<AbstractResourceNode> {
         match nodes.get(&output_id) {
             None => {
                 error!("Cannot find node with id {}", output_id);
@@ -803,6 +800,16 @@ impl Engine {
         output_id
     }
 
+    pub fn create_resource_invoke_node(
+        &mut self,
+        token: String,
+        inputs: HashMap<FieldName, OutputId>,
+        outputs: HashSet<FieldName>,
+    ) -> (OutputId, HashMap<FieldName, OutputId>) {
+        let operation = ResourceRequestOperation::Invoke(ResourceInvokeRequestOperation::new(token));
+        self.create_register_or_read_resource_node(operation, inputs, outputs)
+    }
+
     pub fn create_register_resource_node(
         &mut self,
         r#type: String,
@@ -810,10 +817,19 @@ impl Engine {
         inputs: HashMap<FieldName, OutputId>,
         outputs: HashSet<FieldName>,
     ) -> (OutputId, HashMap<FieldName, OutputId>) {
+        let operation = ResourceRequestOperation::Register(RegisterResourceRequestOperation::new(r#type, name));
+        self.create_register_or_read_resource_node(operation, inputs, outputs)
+    }
+
+    fn create_register_or_read_resource_node(
+        &mut self,
+        operation: ResourceRequestOperation,
+        inputs: HashMap<FieldName, OutputId>,
+        outputs: HashSet<FieldName>,
+    ) -> (OutputId, HashMap<FieldName, OutputId>) {
         let output_id = Uuid::now_v7().into();
-        let node = RegisterResourceNode::new(
-            r#type,
-            name,
+        let node = AbstractResourceNode::new(
+            operation,
             inputs.keys().cloned().collect(),
             outputs.clone(),
         );
@@ -1066,9 +1082,9 @@ mod tests {
 
         use crate::engine::Engine;
         use crate::model::MaybeNodeValue::NotYetCalculated;
-        use crate::nodes::{Callback, DoneNode, ExtractFieldNode, RegisterResourceNode};
+        use crate::nodes::{AbstractResourceNode, Callback, DoneNode, ExtractFieldNode, RegisterResourceRequestOperation, ResourceRequestOperation};
         use crate::pulumi::service::{
-            MockPulumiService, RegisterResourceRequest, RegisterResourceResponse,
+            MockPulumiService, PerformResourceRequest, RegisterResourceResponse,
         };
 
         #[test]
@@ -1098,10 +1114,9 @@ mod tests {
                 engine
                     .get_create_resource(register_resource_node_output_id)
                     .deref(),
-                &RegisterResourceNode::create(
+                &AbstractResourceNode::create(
                     NotYetCalculated,
-                    "type".into(),
-                    "name".into(),
+                    ResourceRequestOperation::Register(RegisterResourceRequestOperation::new("type".into(), "name".into())),
                     HashSet::from(["input".into()]),
                     HashMap::new(),
                     HashSet::from(["output".into()]),
@@ -1126,7 +1141,7 @@ mod tests {
 
             let register_resource_node_output_id_once_cell_2 =
                 register_resource_node_output_id_once_cell.clone();
-            mock.expect_register_resource()
+            mock.expect_perform_resource_operation()
                 .times(1)
                 .with(
                     function(move |output_id| {
@@ -1136,9 +1151,8 @@ mod tests {
                                 .get()
                                 .unwrap()
                     }),
-                    eq(RegisterResourceRequest {
-                        r#type: "type".into(),
-                        name: "name".into(),
+                    eq(PerformResourceRequest {
+                        operation: ResourceRequestOperation::Register(RegisterResourceRequestOperation::new("type".into(), "name".into())),
                         object: HashMap::from([("input".into(), Some(1.into()))]),
                         expected_results: HashSet::from(["output".into()]),
                     }),

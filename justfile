@@ -94,8 +94,8 @@ regenerate-providers:
     cargo run -p pulumi_wasm_generator -- gen-rust     --remove true --schema providers/cloudflare.json --output providers/pulumi_wasm_provider_cloudflare_rust
 # DO NOT EDIT - REGENERATE-PROVIDERS - END
 
-regenerate-and-fmt:
-    just regenerate-providers build-wasm-components fmt
+regenerate-and-build:
+    just regenerate-providers build-wasm-providers
 
 publish:
     cargo publish -p pulumi_wasm_wit --all-features

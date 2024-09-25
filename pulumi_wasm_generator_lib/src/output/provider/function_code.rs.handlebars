@@ -1,14 +1,18 @@
 use std::collections::HashMap;
 use crate::bindings::exports::pulumi::{{interface.package_name}}::{{interface.name}};
-use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
+use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, invoke, ResourceInvokeRequest, ResultField};
 use crate::Component;
 
 impl {{interface.name}}::Guest for Component {
-    fn invoke(name: String, args: {{interface.name}}::Args) -> {{interface.name}}::Res {
+    fn invoke(
+        name: String,
+{{#if interface.input_properties}}
+        args: {{interface.name}}::Args
+{{/if}}
+    ) -> {{interface.name}}::Res {
         pulumi_wasm_common::setup_logger();
-        let request = RegisterResourceRequest {
-            type_: "{{interface.type}}".into(),
-            name,
+        let request = ResourceInvokeRequest {
+            token: "{{interface.type}}".into(),
             object: vec![
                 {{#each interface.input_properties}}
                 ObjectField { name: "{{name}}".into(), value: args.{{arg_name}} },
@@ -21,7 +25,7 @@ impl {{interface.name}}::Guest for Component {
             ],
         };
 
-        let o = register(&request);
+        let o = invoke(&request);
 
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
 

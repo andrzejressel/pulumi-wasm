@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl func_with_secrets::Guest for Component {
-    fn invoke(name: String, args: func_with_secrets::Args) -> func_with_secrets::Res {
+    fn invoke(
+        name: String,
+        args: func_with_secrets::Args
+    ) -> func_with_secrets::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "mypkg::funcWithSecrets".into(),

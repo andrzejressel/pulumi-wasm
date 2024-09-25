@@ -92,7 +92,7 @@ pub(crate) struct Package {
     #[serde(default)]
     types: PulumiMap<ComplexType>,
     #[serde(default)]
-    functions: PulumiMap<Function>
+    functions: PulumiMap<Function>,
 }
 
 // fn complex_type_mapper(complex_type: ComplexType) -> Result<crate::model::Type> {
@@ -185,7 +185,10 @@ fn resource_to_model(
                     })
                 })
                 .collect::<Result<Vec<_>>>()?,
-            output_properties: convert_output_property_object_type(&element_id, &resource.object_type)?,
+            output_properties: convert_output_property_object_type(
+                &element_id,
+                &resource.object_type,
+            )?,
         },
     ))
 }
@@ -201,27 +204,24 @@ fn function_to_model(
             description: function.description.clone(),
             input_properties: match &function.inputs {
                 None => vec![],
-                Some(input) => convert_input_property_object_type(input)?
+                Some(input) => convert_input_property_object_type(input)?,
             },
             output_properties: match &function.outputs {
                 None => vec![],
-                Some(output) => convert_output_property_object_type(&element_id, output)?
-            }
+                Some(output) => convert_output_property_object_type(&element_id, output)?,
+            },
         },
     ))
 }
 
-fn convert_input_property_object_type(
-    object_type: &ObjectType,
-) -> Result<Vec<InputProperty>> {
+fn convert_input_property_object_type(object_type: &ObjectType) -> Result<Vec<InputProperty>> {
     object_type
         .properties
         .iter()
         .map(|(output_name, output_property)| {
             let mut type_ = new_type_mapper(&output_property.r#type)
                 .context(format!("Cannot handle [{output_name}] type"))?;
-            if !object_type.required.contains(output_name)
-            {
+            if !object_type.required.contains(output_name) {
                 type_ = crate::model::Type::Option(Box::new(type_));
             }
             Ok(crate::model::InputProperty {
@@ -265,7 +265,7 @@ pub(crate) fn to_model(package: &Package) -> Result<crate::model::Package> {
         .map(|(resource_name, resource)| resource_to_model(resource_name, resource))
         .collect::<Result<BTreeMap<_, _>>>()
         .context("Cannot handle resources")?;
-    
+
     let functions = package
         .functions
         .iter()
@@ -326,7 +326,7 @@ pub(crate) fn to_model(package: &Package) -> Result<crate::model::Package> {
         display_name: package.display_name.clone(),
         types,
         resources,
-        functions
+        functions,
     })
 }
 

@@ -101,10 +101,16 @@ pub fn generate_wasm_provider(schema_json: &Path, result_path: &Path) -> Result<
             lib_file.write_all(content.as_bytes()).unwrap();
         });
 
-    output::provider::source_code_function::generate_source_code(&package)
+    let mut source_file = File::create(result_path.join("src").join("function").join("mod.rs"))?;
+    source_file.write_all(
+        output::provider::source_code_function_mod::generate_source_code(&package).as_bytes(),
+    )?;
+
+    output::provider::source_code_function_code::generate_source_code(&package)
         .iter()
         .for_each(|(path, content)| {
-            let mut lib_file = File::create(result_path.join("src").join("function").join(path)).unwrap();
+            let mut lib_file =
+                File::create(result_path.join("src").join("function").join(path)).unwrap();
             lib_file.write_all(content.as_bytes()).unwrap();
         });
 

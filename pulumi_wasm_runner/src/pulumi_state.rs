@@ -1,12 +1,13 @@
-use anyhow::Result;
-use futures::FutureExt;
-use prost::Message;
-use std::future::poll_fn;
-use tokio::task::JoinSet;
-
 use crate::grpc::resource_monitor_client::ResourceMonitorClient;
 use crate::grpc::RegisterResourceRequest;
 use crate::model::OutputId;
+use anyhow::Result;
+use futures::FutureExt;
+use prost::Message;
+use pulumi_wasm_proto::grpc::{ReadResourceRequest, ResourceInvokeRequest};
+use std::future::poll_fn;
+use std::io::Read;
+use tokio::task::JoinSet;
 
 pub(crate) struct PulumiState {
     engine_url: String,
@@ -21,10 +22,26 @@ impl PulumiState {
         }
     }
 
-    pub(crate) fn send_request(&mut self, output_id: OutputId, request: RegisterResourceRequest) {
+    pub(crate) fn send_register_resource_request(
+        &mut self,
+        output_id: OutputId,
+        request: RegisterResourceRequest,
+    ) {
         let engine_url = self.engine_url.clone();
-        self.join_set
-            .spawn(async move { Self::send_request_inner(output_id, request, engine_url).await });
+        self.join_set.spawn(async move {
+            Self::send_register_resource_request_inner(output_id, request, engine_url).await
+        });
+    }
+
+    pub(crate) fn send_resource_invoke_request(
+        &mut self,
+        output_id: OutputId,
+        request: ResourceInvokeRequest,
+    ) {
+        let engine_url = self.engine_url.clone();
+        self.join_set.spawn(async move {
+            Self::send_resource_invoke_request_inner(output_id, request, engine_url).await
+        });
     }
 
     pub(crate) async fn get_created_resources(&mut self) -> Vec<(OutputId, Vec<u8>)> {
@@ -51,7 +68,7 @@ impl PulumiState {
         created_resources
     }
 
-    async fn send_request_inner(
+    async fn send_register_resource_request_inner(
         output_id: OutputId,
         request: RegisterResourceRequest,
         engine_url: String,
@@ -59,6 +76,16 @@ impl PulumiState {
         let mut resource_monitor_client =
             ResourceMonitorClient::connect(format!("tcp://{engine_url}")).await?;
         let result = resource_monitor_client.register_resource(request).await?;
+        Ok((output_id, result.get_ref().encode_to_vec()))
+    }
+    async fn send_resource_invoke_request_inner(
+        output_id: OutputId,
+        request: ResourceInvokeRequest,
+        engine_url: String,
+    ) -> Result<(OutputId, Vec<u8>)> {
+        let mut resource_monitor_client =
+            ResourceMonitorClient::connect(format!("tcp://{engine_url}")).await?;
+        let result = resource_monitor_client.invoke(request).await?;
         Ok((output_id, result.get_ref().encode_to_vec()))
     }
 }
@@ -183,9 +210,9 @@ mod tests {
         let output_id_2 = OutputId::new("2".into());
         let output_id_3 = OutputId::new("3".into());
 
-        pulumi_state.send_request(output_id_1, create_request("test1"));
-        pulumi_state.send_request(output_id_2, create_request("test2"));
-        pulumi_state.send_request(output_id_3, create_request("test3"));
+        pulumi_state.send_register_resource_request(output_id_1, create_request("test1"));
+        pulumi_state.send_register_resource_request(output_id_2, create_request("test2"));
+        pulumi_state.send_register_resource_request(output_id_3, create_request("test3"));
 
         tokio::time::sleep(std::time::Duration::from_secs(2)).await;
 

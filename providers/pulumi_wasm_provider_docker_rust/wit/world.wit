@@ -13,6 +13,11 @@ world docker-pulumi {
     export service-config;
     export tag;
     export volume;
+    export get-logs;
+    export get-network;
+    export get-plugin;
+    export get-registry-image;
+    export get-remote-image;
 }
 
 world docker-pulumi-client {
@@ -27,6 +32,11 @@ world docker-pulumi-client {
     import service-config;
     import tag;
     import volume;
+    import get-logs;
+    import get-network;
+    import get-plugin;
+    import get-registry-image;
+    import get-remote-image;
 }
 
 interface container {
@@ -167,7 +177,10 @@ interface container {
         working-dir: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -193,7 +206,10 @@ interface image {
         repo-digest: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -232,7 +248,10 @@ interface network {
         scope: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -265,7 +284,10 @@ interface plugin {
         plugin-reference: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -288,7 +310,10 @@ interface registry-image {
         triggers: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -318,7 +343,10 @@ interface remote-image {
         triggers: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -338,7 +366,10 @@ interface secret {
         name: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -370,7 +401,10 @@ interface service {
         update-config: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -388,7 +422,10 @@ interface service-config {
         name: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -407,7 +444,10 @@ interface tag {
         target-image: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -430,7 +470,146 @@ interface volume {
         name: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+
+interface get-logs {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        details: borrow<output>,
+        discard-headers: borrow<output>,
+        follow: borrow<output>,
+        logs-list-string-enabled: borrow<output>,
+        name: borrow<output>,
+        show-stderr: borrow<output>,
+        show-stdout: borrow<output>,
+        since: borrow<output>,
+        tail: borrow<output>,
+        timestamps: borrow<output>,
+        until: borrow<output>,
+    }
+
+    record res {
+        details: output,
+        discard-headers: output,
+        follow: output,
+        id: output,
+        logs-list-string-enabled: output,
+        logs-list-strings: output,
+        name: output,
+        show-stderr: output,
+        show-stdout: output,
+        since: output,
+        tail: output,
+        timestamps: output,
+        until: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+
+interface get-network {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        name: borrow<output>,
+    }
+
+    record res {
+        driver: output,
+        id: output,
+        internal: output,
+        ipam-configs: output,
+        name: output,
+        options: output,
+        scope: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+
+interface get-plugin {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        alias: borrow<output>,
+        id: borrow<output>,
+    }
+
+    record res {
+        alias: output,
+        enabled: output,
+        envs: output,
+        grant-all-permissions: output,
+        id: output,
+        name: output,
+        plugin-reference: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+
+interface get-registry-image {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        insecure-skip-verify: borrow<output>,
+        name: borrow<output>,
+    }
+
+    record res {
+        id: output,
+        insecure-skip-verify: output,
+        name: output,
+        sha256-digest: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+
+interface get-remote-image {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        name: borrow<output>,
+    }
+
+    record res {
+        id: output,
+        name: output,
+        repo-digest: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 

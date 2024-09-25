@@ -39,7 +39,10 @@ interface random-bytes {
         length: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -63,7 +66,10 @@ interface random-id {
         prefix: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -86,7 +92,10 @@ interface random-integer {
         seed: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -126,7 +135,10 @@ interface random-password {
         upper: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -148,7 +160,10 @@ interface random-pet {
         separator: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -171,7 +186,10 @@ interface random-shuffle {
         seed: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -210,7 +228,10 @@ interface random-string {
         upper: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 
@@ -227,7 +248,10 @@ interface random-uuid {
         %result: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 

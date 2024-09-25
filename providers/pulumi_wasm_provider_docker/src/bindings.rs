@@ -224,6 +224,51 @@ pub mod component {
                         .finish()
                 }
             }
+            pub struct ResourceInvokeResultField {
+                pub name: _rt::String,
+                pub output: Output,
+            }
+            impl ::core::fmt::Debug for ResourceInvokeResultField {
+                fn fmt(
+                    &self,
+                    f: &mut ::core::fmt::Formatter<'_>,
+                ) -> ::core::fmt::Result {
+                    f.debug_struct("ResourceInvokeResultField")
+                        .field("name", &self.name)
+                        .field("output", &self.output)
+                        .finish()
+                }
+            }
+            pub struct ResourceInvokeRequest<'a> {
+                pub token: _rt::String,
+                pub object: _rt::Vec<ObjectField<'a>>,
+                pub results: _rt::Vec<ResultField>,
+            }
+            impl<'a> ::core::fmt::Debug for ResourceInvokeRequest<'a> {
+                fn fmt(
+                    &self,
+                    f: &mut ::core::fmt::Formatter<'_>,
+                ) -> ::core::fmt::Result {
+                    f.debug_struct("ResourceInvokeRequest")
+                        .field("token", &self.token)
+                        .field("object", &self.object)
+                        .field("results", &self.results)
+                        .finish()
+                }
+            }
+            pub struct ResourceInvokeResult {
+                pub fields: _rt::Vec<ResourceInvokeResultField>,
+            }
+            impl ::core::fmt::Debug for ResourceInvokeResult {
+                fn fmt(
+                    &self,
+                    f: &mut ::core::fmt::Formatter<'_>,
+                ) -> ::core::fmt::Result {
+                    f.debug_struct("ResourceInvokeResult")
+                        .field("fields", &self.fields)
+                        .finish()
+                }
+            }
             #[allow(unused_unsafe, clippy::all)]
             pub fn register(
                 request: &RegisterResourceRequest<'_>,
@@ -376,6 +421,149 @@ pub mod component {
                     }
                     RegisterResourceResult {
                         fields: result16,
+                    }
+                }
+            }
+            #[allow(unused_unsafe, clippy::all)]
+            pub fn invoke(request: &ResourceInvokeRequest<'_>) -> ResourceInvokeResult {
+                unsafe {
+                    #[repr(align(4))]
+                    struct RetArea([::core::mem::MaybeUninit<u8>; 8]);
+                    let mut ret_area = RetArea([::core::mem::MaybeUninit::uninit(); 8]);
+                    let ResourceInvokeRequest {
+                        token: token0,
+                        object: object0,
+                        results: results0,
+                    } = request;
+                    let vec1 = token0;
+                    let ptr1 = vec1.as_ptr().cast::<u8>();
+                    let len1 = vec1.len();
+                    let vec4 = object0;
+                    let len4 = vec4.len();
+                    let layout4 = _rt::alloc::Layout::from_size_align_unchecked(
+                        vec4.len() * 12,
+                        4,
+                    );
+                    let result4 = if layout4.size() != 0 {
+                        let ptr = _rt::alloc::alloc(layout4).cast::<u8>();
+                        if ptr.is_null() {
+                            _rt::alloc::handle_alloc_error(layout4);
+                        }
+                        ptr
+                    } else {
+                        { ::core::ptr::null_mut() }
+                    };
+                    for (i, e) in vec4.into_iter().enumerate() {
+                        let base = result4.add(i * 12);
+                        {
+                            let ObjectField { name: name2, value: value2 } = e;
+                            let vec3 = name2;
+                            let ptr3 = vec3.as_ptr().cast::<u8>();
+                            let len3 = vec3.len();
+                            *base.add(4).cast::<usize>() = len3;
+                            *base.add(0).cast::<*mut u8>() = ptr3.cast_mut();
+                            *base.add(8).cast::<i32>() = (value2).handle() as i32;
+                        }
+                    }
+                    let vec7 = results0;
+                    let len7 = vec7.len();
+                    let layout7 = _rt::alloc::Layout::from_size_align_unchecked(
+                        vec7.len() * 8,
+                        4,
+                    );
+                    let result7 = if layout7.size() != 0 {
+                        let ptr = _rt::alloc::alloc(layout7).cast::<u8>();
+                        if ptr.is_null() {
+                            _rt::alloc::handle_alloc_error(layout7);
+                        }
+                        ptr
+                    } else {
+                        { ::core::ptr::null_mut() }
+                    };
+                    for (i, e) in vec7.into_iter().enumerate() {
+                        let base = result7.add(i * 8);
+                        {
+                            let ResultField { name: name5 } = e;
+                            let vec6 = name5;
+                            let ptr6 = vec6.as_ptr().cast::<u8>();
+                            let len6 = vec6.len();
+                            *base.add(4).cast::<usize>() = len6;
+                            *base.add(0).cast::<*mut u8>() = ptr6.cast_mut();
+                        }
+                    }
+                    let ptr8 = ret_area.0.as_mut_ptr().cast::<u8>();
+                    #[cfg(target_arch = "wasm32")]
+                    #[link(
+                        wasm_import_module = "component:pulumi-wasm/register-interface@0.0.0-DEV"
+                    )]
+                    extern "C" {
+                        #[link_name = "invoke"]
+                        fn wit_import(
+                            _: *mut u8,
+                            _: usize,
+                            _: *mut u8,
+                            _: usize,
+                            _: *mut u8,
+                            _: usize,
+                            _: *mut u8,
+                        );
+                    }
+                    #[cfg(not(target_arch = "wasm32"))]
+                    fn wit_import(
+                        _: *mut u8,
+                        _: usize,
+                        _: *mut u8,
+                        _: usize,
+                        _: *mut u8,
+                        _: usize,
+                        _: *mut u8,
+                    ) {
+                        unreachable!()
+                    }
+                    wit_import(
+                        ptr1.cast_mut(),
+                        len1,
+                        result4,
+                        len4,
+                        result7,
+                        len7,
+                        ptr8,
+                    );
+                    let l9 = *ptr8.add(0).cast::<*mut u8>();
+                    let l10 = *ptr8.add(4).cast::<usize>();
+                    let base15 = l9;
+                    let len15 = l10;
+                    let mut result15 = _rt::Vec::with_capacity(len15);
+                    for i in 0..len15 {
+                        let base = base15.add(i * 12);
+                        let e15 = {
+                            let l11 = *base.add(0).cast::<*mut u8>();
+                            let l12 = *base.add(4).cast::<usize>();
+                            let len13 = l12;
+                            let bytes13 = _rt::Vec::from_raw_parts(
+                                l11.cast(),
+                                len13,
+                                len13,
+                            );
+                            let l14 = *base.add(8).cast::<i32>();
+                            ResourceInvokeResultField {
+                                name: _rt::string_lift(bytes13),
+                                output: super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                    l14 as u32,
+                                ),
+                            }
+                        };
+                        result15.push(e15);
+                    }
+                    _rt::cabi_dealloc(base15, len15 * 12, 4);
+                    if layout4.size() != 0 {
+                        _rt::alloc::dealloc(result4.cast(), layout4);
+                    }
+                    if layout7.size() != 0 {
+                        _rt::alloc::dealloc(result7.cast(), layout7);
+                    }
+                    ResourceInvokeResult {
+                        fields: result15,
                     }
                 }
             }
@@ -2913,6 +3101,664 @@ pub mod exports {
                     [::core::mem::MaybeUninit::uninit(); 20],
                 );
             }
+            #[allow(dead_code, clippy::all)]
+            pub mod get_logs {
+                #[used]
+                #[doc(hidden)]
+                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub details: &'a Output,
+                    pub discard_headers: &'a Output,
+                    pub follow: &'a Output,
+                    pub logs_list_string_enabled: &'a Output,
+                    pub name: &'a Output,
+                    pub show_stderr: &'a Output,
+                    pub show_stdout: &'a Output,
+                    pub since: &'a Output,
+                    pub tail: &'a Output,
+                    pub timestamps: &'a Output,
+                    pub until: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Args")
+                            .field("details", &self.details)
+                            .field("discard-headers", &self.discard_headers)
+                            .field("follow", &self.follow)
+                            .field(
+                                "logs-list-string-enabled",
+                                &self.logs_list_string_enabled,
+                            )
+                            .field("name", &self.name)
+                            .field("show-stderr", &self.show_stderr)
+                            .field("show-stdout", &self.show_stdout)
+                            .field("since", &self.since)
+                            .field("tail", &self.tail)
+                            .field("timestamps", &self.timestamps)
+                            .field("until", &self.until)
+                            .finish()
+                    }
+                }
+                pub struct Res {
+                    pub details: Output,
+                    pub discard_headers: Output,
+                    pub follow: Output,
+                    pub id: Output,
+                    pub logs_list_string_enabled: Output,
+                    pub logs_list_strings: Output,
+                    pub name: Output,
+                    pub show_stderr: Output,
+                    pub show_stdout: Output,
+                    pub since: Output,
+                    pub tail: Output,
+                    pub timestamps: Output,
+                    pub until: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("details", &self.details)
+                            .field("discard-headers", &self.discard_headers)
+                            .field("follow", &self.follow)
+                            .field("id", &self.id)
+                            .field(
+                                "logs-list-string-enabled",
+                                &self.logs_list_string_enabled,
+                            )
+                            .field("logs-list-strings", &self.logs_list_strings)
+                            .field("name", &self.name)
+                            .field("show-stderr", &self.show_stderr)
+                            .field("show-stdout", &self.show_stdout)
+                            .field("since", &self.since)
+                            .field("tail", &self.tail)
+                            .field("timestamps", &self.timestamps)
+                            .field("until", &self.until)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(
+                    arg0: *mut u8,
+                    arg1: usize,
+                    arg2: i32,
+                    arg3: i32,
+                    arg4: i32,
+                    arg5: i32,
+                    arg6: i32,
+                    arg7: i32,
+                    arg8: i32,
+                    arg9: i32,
+                    arg10: i32,
+                    arg11: i32,
+                    arg12: i32,
+                ) -> *mut u8 {
+                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle1;
+                    let handle2;
+                    let handle3;
+                    let handle4;
+                    let handle5;
+                    let handle6;
+                    let handle7;
+                    let handle8;
+                    let handle9;
+                    let handle10;
+                    let handle11;
+                    let len0 = arg1;
+                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
+                    let result12 = T::invoke(
+                        _rt::string_lift(bytes0),
+                        Args {
+                            details: {
+                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                    arg2 as u32,
+                                );
+                                &handle1
+                            },
+                            discard_headers: {
+                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                    arg3 as u32,
+                                );
+                                &handle2
+                            },
+                            follow: {
+                                handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                    arg4 as u32,
+                                );
+                                &handle3
+                            },
+                            logs_list_string_enabled: {
+                                handle4 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                    arg5 as u32,
+                                );
+                                &handle4
+                            },
+                            name: {
+                                handle5 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                    arg6 as u32,
+                                );
+                                &handle5
+                            },
+                            show_stderr: {
+                                handle6 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                    arg7 as u32,
+                                );
+                                &handle6
+                            },
+                            show_stdout: {
+                                handle7 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                    arg8 as u32,
+                                );
+                                &handle7
+                            },
+                            since: {
+                                handle8 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                    arg9 as u32,
+                                );
+                                &handle8
+                            },
+                            tail: {
+                                handle9 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                    arg10 as u32,
+                                );
+                                &handle9
+                            },
+                            timestamps: {
+                                handle10 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                    arg11 as u32,
+                                );
+                                &handle10
+                            },
+                            until: {
+                                handle11 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                    arg12 as u32,
+                                );
+                                &handle11
+                            },
+                        },
+                    );
+                    let ptr13 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        details: details14,
+                        discard_headers: discard_headers14,
+                        follow: follow14,
+                        id: id14,
+                        logs_list_string_enabled: logs_list_string_enabled14,
+                        logs_list_strings: logs_list_strings14,
+                        name: name14,
+                        show_stderr: show_stderr14,
+                        show_stdout: show_stdout14,
+                        since: since14,
+                        tail: tail14,
+                        timestamps: timestamps14,
+                        until: until14,
+                    } = result12;
+                    *ptr13.add(0).cast::<i32>() = (details14).take_handle() as i32;
+                    *ptr13.add(4).cast::<i32>() = (discard_headers14).take_handle()
+                        as i32;
+                    *ptr13.add(8).cast::<i32>() = (follow14).take_handle() as i32;
+                    *ptr13.add(12).cast::<i32>() = (id14).take_handle() as i32;
+                    *ptr13.add(16).cast::<i32>() = (logs_list_string_enabled14)
+                        .take_handle() as i32;
+                    *ptr13.add(20).cast::<i32>() = (logs_list_strings14).take_handle()
+                        as i32;
+                    *ptr13.add(24).cast::<i32>() = (name14).take_handle() as i32;
+                    *ptr13.add(28).cast::<i32>() = (show_stderr14).take_handle() as i32;
+                    *ptr13.add(32).cast::<i32>() = (show_stdout14).take_handle() as i32;
+                    *ptr13.add(36).cast::<i32>() = (since14).take_handle() as i32;
+                    *ptr13.add(40).cast::<i32>() = (tail14).take_handle() as i32;
+                    *ptr13.add(44).cast::<i32>() = (timestamps14).take_handle() as i32;
+                    *ptr13.add(48).cast::<i32>() = (until14).take_handle() as i32;
+                    ptr13
+                }
+                pub trait Guest {
+                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+                macro_rules! __export_pulumi_docker_get_logs_4_5_3_divider_zero_zero_zero_dev_cabi {
+                    ($ty:ident with_types_in $($path_to_types:tt)*) => {
+                        const _ : () = { #[export_name =
+                        "pulumi:docker/get-logs@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
+                        : i32, arg8 : i32, arg9 : i32, arg10 : i32, arg11 : i32, arg12 :
+                        i32,) -> * mut u8 { $($path_to_types)*::
+                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3, arg4, arg5,
+                        arg6, arg7, arg8, arg9, arg10, arg11, arg12) } };
+                    };
+                }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_docker_get_logs_4_5_3_divider_zero_zero_zero_dev_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 52]);
+                static mut _RET_AREA: _RetArea = _RetArea(
+                    [::core::mem::MaybeUninit::uninit(); 52],
+                );
+            }
+            #[allow(dead_code, clippy::all)]
+            pub mod get_network {
+                #[used]
+                #[doc(hidden)]
+                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub name: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Args").field("name", &self.name).finish()
+                    }
+                }
+                pub struct Res {
+                    pub driver: Output,
+                    pub id: Output,
+                    pub internal: Output,
+                    pub ipam_configs: Output,
+                    pub name: Output,
+                    pub options: Output,
+                    pub scope: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("driver", &self.driver)
+                            .field("id", &self.id)
+                            .field("internal", &self.internal)
+                            .field("ipam-configs", &self.ipam_configs)
+                            .field("name", &self.name)
+                            .field("options", &self.options)
+                            .field("scope", &self.scope)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(
+                    arg0: *mut u8,
+                    arg1: usize,
+                    arg2: i32,
+                ) -> *mut u8 {
+                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle1;
+                    let len0 = arg1;
+                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
+                    let result2 = T::invoke(
+                        _rt::string_lift(bytes0),
+                        Args {
+                            name: {
+                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                    arg2 as u32,
+                                );
+                                &handle1
+                            },
+                        },
+                    );
+                    let ptr3 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        driver: driver4,
+                        id: id4,
+                        internal: internal4,
+                        ipam_configs: ipam_configs4,
+                        name: name4,
+                        options: options4,
+                        scope: scope4,
+                    } = result2;
+                    *ptr3.add(0).cast::<i32>() = (driver4).take_handle() as i32;
+                    *ptr3.add(4).cast::<i32>() = (id4).take_handle() as i32;
+                    *ptr3.add(8).cast::<i32>() = (internal4).take_handle() as i32;
+                    *ptr3.add(12).cast::<i32>() = (ipam_configs4).take_handle() as i32;
+                    *ptr3.add(16).cast::<i32>() = (name4).take_handle() as i32;
+                    *ptr3.add(20).cast::<i32>() = (options4).take_handle() as i32;
+                    *ptr3.add(24).cast::<i32>() = (scope4).take_handle() as i32;
+                    ptr3
+                }
+                pub trait Guest {
+                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+                macro_rules! __export_pulumi_docker_get_network_4_5_3_divider_zero_zero_zero_dev_cabi {
+                    ($ty:ident with_types_in $($path_to_types:tt)*) => {
+                        const _ : () = { #[export_name =
+                        "pulumi:docker/get-network@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32,) -> * mut u8 { $($path_to_types)*::
+                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2) } };
+                    };
+                }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_docker_get_network_4_5_3_divider_zero_zero_zero_dev_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 28]);
+                static mut _RET_AREA: _RetArea = _RetArea(
+                    [::core::mem::MaybeUninit::uninit(); 28],
+                );
+            }
+            #[allow(dead_code, clippy::all)]
+            pub mod get_plugin {
+                #[used]
+                #[doc(hidden)]
+                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub alias: &'a Output,
+                    pub id: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Args")
+                            .field("alias", &self.alias)
+                            .field("id", &self.id)
+                            .finish()
+                    }
+                }
+                pub struct Res {
+                    pub alias: Output,
+                    pub enabled: Output,
+                    pub envs: Output,
+                    pub grant_all_permissions: Output,
+                    pub id: Output,
+                    pub name: Output,
+                    pub plugin_reference: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("alias", &self.alias)
+                            .field("enabled", &self.enabled)
+                            .field("envs", &self.envs)
+                            .field("grant-all-permissions", &self.grant_all_permissions)
+                            .field("id", &self.id)
+                            .field("name", &self.name)
+                            .field("plugin-reference", &self.plugin_reference)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(
+                    arg0: *mut u8,
+                    arg1: usize,
+                    arg2: i32,
+                    arg3: i32,
+                ) -> *mut u8 {
+                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle1;
+                    let handle2;
+                    let len0 = arg1;
+                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
+                    let result3 = T::invoke(
+                        _rt::string_lift(bytes0),
+                        Args {
+                            alias: {
+                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                    arg2 as u32,
+                                );
+                                &handle1
+                            },
+                            id: {
+                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                    arg3 as u32,
+                                );
+                                &handle2
+                            },
+                        },
+                    );
+                    let ptr4 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        alias: alias5,
+                        enabled: enabled5,
+                        envs: envs5,
+                        grant_all_permissions: grant_all_permissions5,
+                        id: id5,
+                        name: name5,
+                        plugin_reference: plugin_reference5,
+                    } = result3;
+                    *ptr4.add(0).cast::<i32>() = (alias5).take_handle() as i32;
+                    *ptr4.add(4).cast::<i32>() = (enabled5).take_handle() as i32;
+                    *ptr4.add(8).cast::<i32>() = (envs5).take_handle() as i32;
+                    *ptr4.add(12).cast::<i32>() = (grant_all_permissions5).take_handle()
+                        as i32;
+                    *ptr4.add(16).cast::<i32>() = (id5).take_handle() as i32;
+                    *ptr4.add(20).cast::<i32>() = (name5).take_handle() as i32;
+                    *ptr4.add(24).cast::<i32>() = (plugin_reference5).take_handle()
+                        as i32;
+                    ptr4
+                }
+                pub trait Guest {
+                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+                macro_rules! __export_pulumi_docker_get_plugin_4_5_3_divider_zero_zero_zero_dev_cabi {
+                    ($ty:ident with_types_in $($path_to_types:tt)*) => {
+                        const _ : () = { #[export_name =
+                        "pulumi:docker/get-plugin@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
+                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
+                    };
+                }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_docker_get_plugin_4_5_3_divider_zero_zero_zero_dev_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 28]);
+                static mut _RET_AREA: _RetArea = _RetArea(
+                    [::core::mem::MaybeUninit::uninit(); 28],
+                );
+            }
+            #[allow(dead_code, clippy::all)]
+            pub mod get_registry_image {
+                #[used]
+                #[doc(hidden)]
+                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub insecure_skip_verify: &'a Output,
+                    pub name: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Args")
+                            .field("insecure-skip-verify", &self.insecure_skip_verify)
+                            .field("name", &self.name)
+                            .finish()
+                    }
+                }
+                pub struct Res {
+                    pub id: Output,
+                    pub insecure_skip_verify: Output,
+                    pub name: Output,
+                    pub sha256_digest: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("id", &self.id)
+                            .field("insecure-skip-verify", &self.insecure_skip_verify)
+                            .field("name", &self.name)
+                            .field("sha256-digest", &self.sha256_digest)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(
+                    arg0: *mut u8,
+                    arg1: usize,
+                    arg2: i32,
+                    arg3: i32,
+                ) -> *mut u8 {
+                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle1;
+                    let handle2;
+                    let len0 = arg1;
+                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
+                    let result3 = T::invoke(
+                        _rt::string_lift(bytes0),
+                        Args {
+                            insecure_skip_verify: {
+                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                    arg2 as u32,
+                                );
+                                &handle1
+                            },
+                            name: {
+                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                    arg3 as u32,
+                                );
+                                &handle2
+                            },
+                        },
+                    );
+                    let ptr4 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        id: id5,
+                        insecure_skip_verify: insecure_skip_verify5,
+                        name: name5,
+                        sha256_digest: sha256_digest5,
+                    } = result3;
+                    *ptr4.add(0).cast::<i32>() = (id5).take_handle() as i32;
+                    *ptr4.add(4).cast::<i32>() = (insecure_skip_verify5).take_handle()
+                        as i32;
+                    *ptr4.add(8).cast::<i32>() = (name5).take_handle() as i32;
+                    *ptr4.add(12).cast::<i32>() = (sha256_digest5).take_handle() as i32;
+                    ptr4
+                }
+                pub trait Guest {
+                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+                macro_rules! __export_pulumi_docker_get_registry_image_4_5_3_divider_zero_zero_zero_dev_cabi {
+                    ($ty:ident with_types_in $($path_to_types:tt)*) => {
+                        const _ : () = { #[export_name =
+                        "pulumi:docker/get-registry-image@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
+                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
+                    };
+                }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_docker_get_registry_image_4_5_3_divider_zero_zero_zero_dev_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
+                static mut _RET_AREA: _RetArea = _RetArea(
+                    [::core::mem::MaybeUninit::uninit(); 16],
+                );
+            }
+            #[allow(dead_code, clippy::all)]
+            pub mod get_remote_image {
+                #[used]
+                #[doc(hidden)]
+                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub name: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Args").field("name", &self.name).finish()
+                    }
+                }
+                pub struct Res {
+                    pub id: Output,
+                    pub name: Output,
+                    pub repo_digest: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("id", &self.id)
+                            .field("name", &self.name)
+                            .field("repo-digest", &self.repo_digest)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(
+                    arg0: *mut u8,
+                    arg1: usize,
+                    arg2: i32,
+                ) -> *mut u8 {
+                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle1;
+                    let len0 = arg1;
+                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
+                    let result2 = T::invoke(
+                        _rt::string_lift(bytes0),
+                        Args {
+                            name: {
+                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                    arg2 as u32,
+                                );
+                                &handle1
+                            },
+                        },
+                    );
+                    let ptr3 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res { id: id4, name: name4, repo_digest: repo_digest4 } = result2;
+                    *ptr3.add(0).cast::<i32>() = (id4).take_handle() as i32;
+                    *ptr3.add(4).cast::<i32>() = (name4).take_handle() as i32;
+                    *ptr3.add(8).cast::<i32>() = (repo_digest4).take_handle() as i32;
+                    ptr3
+                }
+                pub trait Guest {
+                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+                macro_rules! __export_pulumi_docker_get_remote_image_4_5_3_divider_zero_zero_zero_dev_cabi {
+                    ($ty:ident with_types_in $($path_to_types:tt)*) => {
+                        const _ : () = { #[export_name =
+                        "pulumi:docker/get-remote-image@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32,) -> * mut u8 { $($path_to_types)*::
+                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2) } };
+                    };
+                }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_docker_get_remote_image_4_5_3_divider_zero_zero_zero_dev_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
+                static mut _RET_AREA: _RetArea = _RetArea(
+                    [::core::mem::MaybeUninit::uninit(); 12],
+                );
+            }
         }
     }
 }
@@ -3070,6 +3916,22 @@ macro_rules! __export_docker_pulumi_impl {
         $($path_to_types_root)*::
         exports::pulumi::docker::volume::__export_pulumi_docker_volume_4_5_3_divider_zero_zero_zero_dev_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::docker::volume);
+        $($path_to_types_root)*::
+        exports::pulumi::docker::get_logs::__export_pulumi_docker_get_logs_4_5_3_divider_zero_zero_zero_dev_cabi!($ty
+        with_types_in $($path_to_types_root)*:: exports::pulumi::docker::get_logs);
+        $($path_to_types_root)*::
+        exports::pulumi::docker::get_network::__export_pulumi_docker_get_network_4_5_3_divider_zero_zero_zero_dev_cabi!($ty
+        with_types_in $($path_to_types_root)*:: exports::pulumi::docker::get_network);
+        $($path_to_types_root)*::
+        exports::pulumi::docker::get_plugin::__export_pulumi_docker_get_plugin_4_5_3_divider_zero_zero_zero_dev_cabi!($ty
+        with_types_in $($path_to_types_root)*:: exports::pulumi::docker::get_plugin);
+        $($path_to_types_root)*::
+        exports::pulumi::docker::get_registry_image::__export_pulumi_docker_get_registry_image_4_5_3_divider_zero_zero_zero_dev_cabi!($ty
+        with_types_in $($path_to_types_root)*::
+        exports::pulumi::docker::get_registry_image); $($path_to_types_root)*::
+        exports::pulumi::docker::get_remote_image::__export_pulumi_docker_get_remote_image_4_5_3_divider_zero_zero_zero_dev_cabi!($ty
+        with_types_in $($path_to_types_root)*::
+        exports::pulumi::docker::get_remote_image);
     };
 }
 #[doc(inline)]
@@ -3077,112 +3939,143 @@ pub(crate) use __export_docker_pulumi_impl as export;
 #[cfg(target_arch = "wasm32")]
 #[link_section = "component-type:wit-bindgen:0.30.0:docker-pulumi:encoded world"]
 #[doc(hidden)]
-pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 5066] = *b"\
-\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xc6&\x01A\x02\x01A\x1b\
-\x01B\x0a\x04\0\x06output\x03\x01\x01i\0\x01@\x01\x05values\0\x01\x04\0\x13[cons\
-tructor]output\x01\x02\x01h\0\x01@\x02\x04self\x03\x0dfunction-names\0\x01\x04\0\
-\x12[method]output.map\x01\x04\x01p\x03\x01@\x01\x07outputs\x05\0\x01\x04\0\x07c\
-ombine\x01\x06\x03\x010component:pulumi-wasm/output-interface@0.0.0-DEV\x05\0\x02\
-\x03\0\0\x06output\x01B\x13\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
-\x01r\x02\x04names\x05value\x02\x04\0\x0cobject-field\x03\0\x03\x01r\x01\x04name\
-s\x04\0\x0cresult-field\x03\0\x05\x01i\x01\x01r\x02\x04names\x06output\x07\x04\0\
-\x1eregister-resource-result-field\x03\0\x08\x01p\x04\x01p\x06\x01r\x04\x04types\
-\x04names\x06object\x0a\x07results\x0b\x04\0\x19register-resource-request\x03\0\x0c\
-\x01p\x09\x01r\x01\x06fields\x0e\x04\0\x18register-resource-result\x03\0\x0f\x01\
-@\x01\x07request\x0d\0\x10\x04\0\x08register\x01\x11\x03\x012component:pulumi-wa\
-sm/register-interface@0.0.0-DEV\x05\x02\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06ou\
-tput\x03\0\0\x01h\x01\x01r>\x06attach\x02\x0ccapabilities\x02\x0dcgroupns-mode\x02\
-\x07command\x02+container-read-refresh-timeout-milliseconds\x02\x07cpu-set\x02\x0a\
-cpu-shares\x02\x15destroy-grace-seconds\x02\x07devices\x02\x03dns\x02\x08dns-opt\
-s\x02\x0cdns-searches\x02\x0adomainname\x02\x0bentrypoints\x02\x04envs\x02\x04gp\
-us\x02\x0agroup-adds\x02\x0bhealthcheck\x02\x08hostname\x02\x05hosts\x02\x05imag\
-e\x02\x04init\x02\x08ipc-mode\x02\x06labels\x02\x0alog-driver\x02\x08log-opts\x02\
-\x04logs\x02\x0fmax-retry-count\x02\x06memory\x02\x0bmemory-swap\x02\x06mounts\x02\
-\x08must-run\x02\x04name\x02\x0cnetwork-mode\x02\x11networks-advanced\x02\x08pid\
--mode\x02\x05ports\x02\x0aprivileged\x02\x11publish-all-ports\x02\x09read-only\x02\
-\x0eremove-volumes\x02\x07restart\x02\x02rm\x02\x07runtime\x02\x0dsecurity-opts\x02\
-\x08shm-size\x02\x05start\x02\x0astdin-open\x02\x0bstop-signal\x02\x0cstop-timeo\
-ut\x02\x0cstorage-opts\x02\x07sysctls\x02\x05tmpfs\x02\x03tty\x02\x07ulimits\x02\
-\x07uploads\x02\x04user\x02\x0buserns-mode\x02\x07volumes\x02\x04wait\x02\x0cwai\
-t-timeout\x02\x0bworking-dir\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01rB\x06attac\
-h\x05\x06bridge\x05\x0ccapabilities\x05\x0dcgroupns-mode\x05\x07command\x05\x0ec\
-ontainer-logs\x05+container-read-refresh-timeout-milliseconds\x05\x07cpu-set\x05\
-\x0acpu-shares\x05\x15destroy-grace-seconds\x05\x07devices\x05\x03dns\x05\x08dns\
--opts\x05\x0cdns-searches\x05\x0adomainname\x05\x0bentrypoints\x05\x04envs\x05\x09\
-exit-code\x05\x04gpus\x05\x0agroup-adds\x05\x0bhealthcheck\x05\x08hostname\x05\x05\
-hosts\x05\x05image\x05\x04init\x05\x08ipc-mode\x05\x06labels\x05\x0alog-driver\x05\
-\x08log-opts\x05\x04logs\x05\x0fmax-retry-count\x05\x06memory\x05\x0bmemory-swap\
-\x05\x06mounts\x05\x08must-run\x05\x04name\x05\x0dnetwork-datas\x05\x0cnetwork-m\
-ode\x05\x11networks-advanced\x05\x08pid-mode\x05\x05ports\x05\x0aprivileged\x05\x11\
-publish-all-ports\x05\x09read-only\x05\x0eremove-volumes\x05\x07restart\x05\x02r\
-m\x05\x07runtime\x05\x0dsecurity-opts\x05\x08shm-size\x05\x05start\x05\x0astdin-\
-open\x05\x0bstop-signal\x05\x0cstop-timeout\x05\x0cstorage-opts\x05\x07sysctls\x05\
-\x05tmpfs\x05\x03tty\x05\x07ulimits\x05\x07uploads\x05\x04user\x05\x0buserns-mod\
-e\x05\x07volumes\x05\x04wait\x05\x0cwait-timeout\x05\x0bworking-dir\x05\x04\0\x03\
-res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\
-8pulumi:docker/container@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x03\x01B\x0a\x02\x03\
-\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x05build\x02\x10build-on-\
-preview\x02\x0aimage-name\x02\x08registry\x02\x09skip-push\x02\x04\0\x04args\x03\
-\0\x03\x01i\x01\x01r\x07\x0fbase-image-name\x05\x07context\x05\x0adockerfile\x05\
-\x0aimage-name\x05\x08platform\x05\x0fregistry-server\x05\x0brepo-digest\x05\x04\
+pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 6481] = *b"\
+\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xcd1\x01A\x02\x01A%\x01\
+B\x0a\x04\0\x06output\x03\x01\x01i\0\x01@\x01\x05values\0\x01\x04\0\x13[construc\
+tor]output\x01\x02\x01h\0\x01@\x02\x04self\x03\x0dfunction-names\0\x01\x04\0\x12\
+[method]output.map\x01\x04\x01p\x03\x01@\x01\x07outputs\x05\0\x01\x04\0\x07combi\
+ne\x01\x06\x03\x010component:pulumi-wasm/output-interface@0.0.0-DEV\x05\0\x02\x03\
+\0\0\x06output\x01B\x1c\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
+r\x02\x04names\x05value\x02\x04\0\x0cobject-field\x03\0\x03\x01r\x01\x04names\x04\
+\0\x0cresult-field\x03\0\x05\x01i\x01\x01r\x02\x04names\x06output\x07\x04\0\x1er\
+egister-resource-result-field\x03\0\x08\x01p\x04\x01p\x06\x01r\x04\x04types\x04n\
+ames\x06object\x0a\x07results\x0b\x04\0\x19register-resource-request\x03\0\x0c\x01\
+p\x09\x01r\x01\x06fields\x0e\x04\0\x18register-resource-result\x03\0\x0f\x01r\x02\
+\x04names\x06output\x07\x04\0\x1cresource-invoke-result-field\x03\0\x11\x01r\x03\
+\x05tokens\x06object\x0a\x07results\x0b\x04\0\x17resource-invoke-request\x03\0\x13\
+\x01p\x12\x01r\x01\x06fields\x15\x04\0\x16resource-invoke-result\x03\0\x16\x01@\x01\
+\x07request\x0d\0\x10\x04\0\x08register\x01\x18\x01@\x01\x07request\x14\0\x17\x04\
+\0\x06invoke\x01\x19\x03\x012component:pulumi-wasm/register-interface@0.0.0-DEV\x05\
+\x02\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r>\x06atta\
+ch\x02\x0ccapabilities\x02\x0dcgroupns-mode\x02\x07command\x02+container-read-re\
+fresh-timeout-milliseconds\x02\x07cpu-set\x02\x0acpu-shares\x02\x15destroy-grace\
+-seconds\x02\x07devices\x02\x03dns\x02\x08dns-opts\x02\x0cdns-searches\x02\x0ado\
+mainname\x02\x0bentrypoints\x02\x04envs\x02\x04gpus\x02\x0agroup-adds\x02\x0bhea\
+lthcheck\x02\x08hostname\x02\x05hosts\x02\x05image\x02\x04init\x02\x08ipc-mode\x02\
+\x06labels\x02\x0alog-driver\x02\x08log-opts\x02\x04logs\x02\x0fmax-retry-count\x02\
+\x06memory\x02\x0bmemory-swap\x02\x06mounts\x02\x08must-run\x02\x04name\x02\x0cn\
+etwork-mode\x02\x11networks-advanced\x02\x08pid-mode\x02\x05ports\x02\x0aprivile\
+ged\x02\x11publish-all-ports\x02\x09read-only\x02\x0eremove-volumes\x02\x07resta\
+rt\x02\x02rm\x02\x07runtime\x02\x0dsecurity-opts\x02\x08shm-size\x02\x05start\x02\
+\x0astdin-open\x02\x0bstop-signal\x02\x0cstop-timeout\x02\x0cstorage-opts\x02\x07\
+sysctls\x02\x05tmpfs\x02\x03tty\x02\x07ulimits\x02\x07uploads\x02\x04user\x02\x0b\
+userns-mode\x02\x07volumes\x02\x04wait\x02\x0cwait-timeout\x02\x0bworking-dir\x02\
+\x04\0\x04args\x03\0\x03\x01i\x01\x01rB\x06attach\x05\x06bridge\x05\x0ccapabilit\
+ies\x05\x0dcgroupns-mode\x05\x07command\x05\x0econtainer-logs\x05+container-read\
+-refresh-timeout-milliseconds\x05\x07cpu-set\x05\x0acpu-shares\x05\x15destroy-gr\
+ace-seconds\x05\x07devices\x05\x03dns\x05\x08dns-opts\x05\x0cdns-searches\x05\x0a\
+domainname\x05\x0bentrypoints\x05\x04envs\x05\x09exit-code\x05\x04gpus\x05\x0agr\
+oup-adds\x05\x0bhealthcheck\x05\x08hostname\x05\x05hosts\x05\x05image\x05\x04ini\
+t\x05\x08ipc-mode\x05\x06labels\x05\x0alog-driver\x05\x08log-opts\x05\x04logs\x05\
+\x0fmax-retry-count\x05\x06memory\x05\x0bmemory-swap\x05\x06mounts\x05\x08must-r\
+un\x05\x04name\x05\x0dnetwork-datas\x05\x0cnetwork-mode\x05\x11networks-advanced\
+\x05\x08pid-mode\x05\x05ports\x05\x0aprivileged\x05\x11publish-all-ports\x05\x09\
+read-only\x05\x0eremove-volumes\x05\x07restart\x05\x02rm\x05\x07runtime\x05\x0ds\
+ecurity-opts\x05\x08shm-size\x05\x05start\x05\x0astdin-open\x05\x0bstop-signal\x05\
+\x0cstop-timeout\x05\x0cstorage-opts\x05\x07sysctls\x05\x05tmpfs\x05\x03tty\x05\x07\
+ulimits\x05\x07uploads\x05\x04user\x05\x0buserns-mode\x05\x07volumes\x05\x04wait\
+\x05\x0cwait-timeout\x05\x0bworking-dir\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04n\
+ames\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x018pulumi:docker/container@4\
+.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x03\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06ou\
+tput\x03\0\0\x01h\x01\x01r\x05\x05build\x02\x10build-on-preview\x02\x0aimage-nam\
+e\x02\x08registry\x02\x09skip-push\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\
+\x0fbase-image-name\x05\x07context\x05\x0adockerfile\x05\x0aimage-name\x05\x08pl\
+atform\x05\x0fregistry-server\x05\x0brepo-digest\x05\x04\0\x03res\x03\0\x06\x01@\
+\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x014pulumi:docker/im\
+age@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x04\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
+output\x03\0\0\x01h\x01\x01r\x0c\x0aattachable\x02\x0fcheck-duplicate\x02\x06dri\
+ver\x02\x07ingress\x02\x08internal\x02\x0cipam-configs\x02\x0bipam-driver\x02\x0c\
+ipam-options\x02\x04ipv6\x02\x06labels\x02\x04name\x02\x07options\x02\x04\0\x04a\
+rgs\x03\0\x03\x01i\x01\x01r\x0d\x0aattachable\x05\x0fcheck-duplicate\x05\x06driv\
+er\x05\x07ingress\x05\x08internal\x05\x0cipam-configs\x05\x0bipam-driver\x05\x0c\
+ipam-options\x05\x04ipv6\x05\x06labels\x05\x04name\x05\x07options\x05\x05scope\x05\
+\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
+\x04\x016pulumi:docker/network@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x05\x01B\x0a\
+\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x09\x05alias\x02\x0ee\
+nable-timeout\x02\x07enabled\x02\x04envs\x02\x0dforce-destroy\x02\x0dforce-disab\
+le\x02\x15grant-all-permissions\x02\x11grant-permissions\x02\x04name\x02\x04\0\x04\
+args\x03\0\x03\x01i\x01\x01r\x0a\x05alias\x05\x0eenable-timeout\x05\x07enabled\x05\
+\x04envs\x05\x0dforce-destroy\x05\x0dforce-disable\x05\x15grant-all-permissions\x05\
+\x11grant-permissions\x05\x04name\x05\x10plugin-reference\x05\x04\0\x03res\x03\0\
+\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x015pulumi:\
+docker/plugin@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x06\x01B\x0a\x02\x03\x02\x01\x01\
+\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x14insecure-skip-verify\x02\x0dkeep-r\
+emotely\x02\x04name\x02\x08triggers\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\
+\x14insecure-skip-verify\x05\x0dkeep-remotely\x05\x04name\x05\x0dsha256-digest\x05\
+\x08triggers\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\
+\x06invoke\x01\x08\x04\x01=pulumi:docker/registry-image@4.5.3-DIVIDER-ZERO.ZERO.\
+ZERO-DEV\x05\x07\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
+r\x07\x05build\x02\x0cforce-remove\x02\x0ckeep-locally\x02\x04name\x02\x08platfo\
+rm\x02\x0dpull-triggers\x02\x08triggers\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
+r\x09\x05build\x05\x0cforce-remove\x05\x08image-id\x05\x0ckeep-locally\x05\x04na\
+me\x05\x08platform\x05\x0dpull-triggers\x05\x0brepo-digest\x05\x08triggers\x05\x04\
 \0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\x014pulumi:docker/image@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x04\x01B\x0a\x02\x03\
-\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0c\x0aattachable\x02\x0fchec\
-k-duplicate\x02\x06driver\x02\x07ingress\x02\x08internal\x02\x0cipam-configs\x02\
-\x0bipam-driver\x02\x0cipam-options\x02\x04ipv6\x02\x06labels\x02\x04name\x02\x07\
-options\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0d\x0aattachable\x05\x0fcheck\
--duplicate\x05\x06driver\x05\x07ingress\x05\x08internal\x05\x0cipam-configs\x05\x0b\
-ipam-driver\x05\x0cipam-options\x05\x04ipv6\x05\x06labels\x05\x04name\x05\x07opt\
-ions\x05\x05scope\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
-\x04\0\x06invoke\x01\x08\x04\x016pulumi:docker/network@4.5.3-DIVIDER-ZERO.ZERO.Z\
-ERO-DEV\x05\x05\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
-r\x09\x05alias\x02\x0eenable-timeout\x02\x07enabled\x02\x04envs\x02\x0dforce-des\
-troy\x02\x0dforce-disable\x02\x15grant-all-permissions\x02\x11grant-permissions\x02\
-\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0a\x05alias\x05\x0eenable-ti\
-meout\x05\x07enabled\x05\x04envs\x05\x0dforce-destroy\x05\x0dforce-disable\x05\x15\
-grant-all-permissions\x05\x11grant-permissions\x05\x04name\x05\x10plugin-referen\
-ce\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invok\
-e\x01\x08\x04\x015pulumi:docker/plugin@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x06\x01\
-B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x14insecure-\
-skip-verify\x02\x0dkeep-remotely\x02\x04name\x02\x08triggers\x02\x04\0\x04args\x03\
-\0\x03\x01i\x01\x01r\x05\x14insecure-skip-verify\x05\x0dkeep-remotely\x05\x04nam\
-e\x05\x0dsha256-digest\x05\x08triggers\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04na\
-mes\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01=pulumi:docker/registry-ima\
-ge@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x07\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
-output\x03\0\0\x01h\x01\x01r\x07\x05build\x02\x0cforce-remove\x02\x0ckeep-locall\
-y\x02\x04name\x02\x08platform\x02\x0dpull-triggers\x02\x08triggers\x02\x04\0\x04\
-args\x03\0\x03\x01i\x01\x01r\x09\x05build\x05\x0cforce-remove\x05\x08image-id\x05\
-\x0ckeep-locally\x05\x04name\x05\x08platform\x05\x0dpull-triggers\x05\x0brepo-di\
-gest\x05\x08triggers\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
-\x04\0\x06invoke\x01\x08\x04\x01;pulumi:docker/remote-image@4.5.3-DIVIDER-ZERO.Z\
-ERO.ZERO-DEV\x05\x08\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
-\x01r\x03\x04data\x02\x06labels\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\
-\x01r\x03\x04data\x05\x06labels\x05\x04name\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04\
-names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x015pulumi:docker/secret@4.5\
-.3-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x09\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06outp\
-ut\x03\0\0\x01h\x01\x01r\x09\x04auth\x02\x0fconverge-config\x02\x0dendpoint-spec\
-\x02\x06labels\x02\x04mode\x02\x04name\x02\x0frollback-config\x02\x09task-spec\x02\
-\x0dupdate-config\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x09\x04auth\x05\x0fc\
-onverge-config\x05\x0dendpoint-spec\x05\x06labels\x05\x04mode\x05\x04name\x05\x0f\
-rollback-config\x05\x09task-spec\x05\x0dupdate-config\x05\x04\0\x03res\x03\0\x06\
-\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x016pulumi:dock\
-er/service@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x0a\x01B\x0a\x02\x03\x02\x01\x01\
-\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x04data\x02\x04name\x02\x04\0\x04args\
-\x03\0\x03\x01i\x01\x01r\x02\x04data\x05\x04name\x05\x04\0\x03res\x03\0\x06\x01@\
-\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01=pulumi:docker/se\
-rvice-config@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x0b\x01B\x0a\x02\x03\x02\x01\x01\
-\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x0csource-image\x02\x0ctarget-image\x02\
-\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x0csource-image\x05\x0fsource-image-i\
-d\x05\x0ctarget-image\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\
-\x07\x04\0\x06invoke\x01\x08\x04\x012pulumi:docker/tag@4.5.3-DIVIDER-ZERO.ZERO.Z\
-ERO-DEV\x05\x0c\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
-r\x04\x06driver\x02\x0bdriver-opts\x02\x06labels\x02\x04name\x02\x04\0\x04args\x03\
-\0\x03\x01i\x01\x01r\x05\x06driver\x05\x0bdriver-opts\x05\x06labels\x05\x0amount\
-point\x05\x04name\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
-\x04\0\x06invoke\x01\x08\x04\x015pulumi:docker/volume@4.5.3-DIVIDER-ZERO.ZERO.ZE\
-RO-DEV\x05\x0d\x04\x01<pulumi:docker/docker-pulumi@4.5.3-DIVIDER-ZERO.ZERO.ZERO-\
-DEV\x04\0\x0b\x13\x01\0\x0ddocker-pulumi\x03\0\0\0G\x09producers\x01\x0cprocesse\
-d-by\x02\x0dwit-component\x070.215.0\x10wit-bindgen-rust\x060.30.0";
+\x01;pulumi:docker/remote-image@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x08\x01B\x0a\
+\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x04data\x02\x06la\
+bels\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x04data\x05\x06la\
+bels\x05\x04name\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\
+\0\x06invoke\x01\x08\x04\x015pulumi:docker/secret@4.5.3-DIVIDER-ZERO.ZERO.ZERO-D\
+EV\x05\x09\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x09\
+\x04auth\x02\x0fconverge-config\x02\x0dendpoint-spec\x02\x06labels\x02\x04mode\x02\
+\x04name\x02\x0frollback-config\x02\x09task-spec\x02\x0dupdate-config\x02\x04\0\x04\
+args\x03\0\x03\x01i\x01\x01r\x09\x04auth\x05\x0fconverge-config\x05\x0dendpoint-\
+spec\x05\x06labels\x05\x04mode\x05\x04name\x05\x0frollback-config\x05\x09task-sp\
+ec\x05\x0dupdate-config\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
+\0\x07\x04\0\x06invoke\x01\x08\x04\x016pulumi:docker/service@4.5.3-DIVIDER-ZERO.\
+ZERO.ZERO-DEV\x05\x0a\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
+\x01r\x02\x04data\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x04d\
+ata\x05\x04name\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\
+\0\x06invoke\x01\x08\x04\x01=pulumi:docker/service-config@4.5.3-DIVIDER-ZERO.ZER\
+O.ZERO-DEV\x05\x0b\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
+\x01r\x02\x0csource-image\x02\x0ctarget-image\x02\x04\0\x04args\x03\0\x03\x01i\x01\
+\x01r\x03\x0csource-image\x05\x0fsource-image-id\x05\x0ctarget-image\x05\x04\0\x03\
+res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\
+2pulumi:docker/tag@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x0c\x01B\x0a\x02\x03\x02\
+\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x06driver\x02\x0bdriver-opts\x02\
+\x06labels\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x06driver\x05\
+\x0bdriver-opts\x05\x06labels\x05\x0amountpoint\x05\x04name\x05\x04\0\x03res\x03\
+\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x015pulum\
+i:docker/volume@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x0d\x01B\x0a\x02\x03\x02\x01\
+\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0b\x07details\x02\x0fdiscard-headers\
+\x02\x06follow\x02\x18logs-list-string-enabled\x02\x04name\x02\x0bshow-stderr\x02\
+\x0bshow-stdout\x02\x05since\x02\x04tail\x02\x0atimestamps\x02\x05until\x02\x04\0\
+\x04args\x03\0\x03\x01i\x01\x01r\x0d\x07details\x05\x0fdiscard-headers\x05\x06fo\
+llow\x05\x02id\x05\x18logs-list-string-enabled\x05\x11logs-list-strings\x05\x04n\
+ame\x05\x0bshow-stderr\x05\x0bshow-stdout\x05\x05since\x05\x04tail\x05\x0atimest\
+amps\x05\x05until\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
+\x04\0\x06invoke\x01\x08\x04\x017pulumi:docker/get-logs@4.5.3-DIVIDER-ZERO.ZERO.\
+ZERO-DEV\x05\x0e\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
+r\x01\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\x06driver\x05\x02id\x05\
+\x08internal\x05\x0cipam-configs\x05\x04name\x05\x07options\x05\x05scope\x05\x04\
+\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
+\x01:pulumi:docker/get-network@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x0f\x01B\x0a\
+\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x05alias\x02\x02i\
+d\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\x05alias\x05\x07enabled\x05\x04e\
+nvs\x05\x15grant-all-permissions\x05\x02id\x05\x04name\x05\x10plugin-reference\x05\
+\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
+\x04\x019pulumi:docker/get-plugin@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x10\x01B\x0a\
+\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x14insecure-skip-\
+verify\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x02id\x05\x14in\
+secure-skip-verify\x05\x04name\x05\x0dsha256-digest\x05\x04\0\x03res\x03\0\x06\x01\
+@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Apulumi:docker/g\
+et-registry-image@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x11\x01B\x0a\x02\x03\x02\x01\
+\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x04name\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x03\x02id\x05\x04name\x05\x0brepo-digest\x05\x04\0\x03res\x03\0\x06\
+\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01?pulumi:dock\
+er/get-remote-image@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x12\x04\x01<pulumi:dock\
+er/docker-pulumi@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV\x04\0\x0b\x13\x01\0\x0ddocker-\
+pulumi\x03\0\0\0G\x09producers\x01\x0cprocessed-by\x02\x0dwit-component\x070.215\
+.0\x10wit-bindgen-rust\x060.30.0";
 #[inline(never)]
 #[doc(hidden)]
 pub fn __link_custom_section_describing_imports() {
