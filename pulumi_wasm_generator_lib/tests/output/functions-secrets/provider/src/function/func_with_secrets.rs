@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 use crate::bindings::exports::pulumi::mypkg::func_with_secrets;
-use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
+use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, invoke, ResourceInvokeRequest, ResultField};
 use crate::Component;
 
 impl func_with_secrets::Guest for Component {
@@ -9,9 +9,8 @@ impl func_with_secrets::Guest for Component {
         args: func_with_secrets::Args
     ) -> func_with_secrets::Res {
         pulumi_wasm_common::setup_logger();
-        let request = RegisterResourceRequest {
-            type_: "mypkg::funcWithSecrets".into(),
-            name,
+        let request = ResourceInvokeRequest {
+            token: "mypkg::funcWithSecrets".into(),
             object: vec![
                 ObjectField { name: "cryptoKey".into(), value: args.crypto_key },
                 ObjectField { name: "plaintext".into(), value: args.plaintext },
@@ -24,7 +23,7 @@ impl func_with_secrets::Guest for Component {
             ],
         };
 
-        let o = register(&request);
+        let o = invoke(&request);
 
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
 
