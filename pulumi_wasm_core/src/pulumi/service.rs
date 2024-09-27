@@ -1,5 +1,5 @@
 use crate::model::{FieldName, OutputId};
-use crate::nodes::{ResourceRequestOperation};
+use crate::nodes::ResourceRequestOperation;
 #[cfg(test)]
 use mockall::automock;
 use serde_json::Value;

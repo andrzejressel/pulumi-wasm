@@ -5,7 +5,6 @@ use crate::Component;
 
 impl get_account_roles::Guest for Component {
     fn invoke(
-        name: String,
         args: get_account_roles::Args
     ) -> get_account_roles::Res {
         pulumi_wasm_common::setup_logger();

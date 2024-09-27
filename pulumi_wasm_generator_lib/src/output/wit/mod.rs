@@ -17,7 +17,14 @@ struct Result {
 }
 
 #[derive(Serialize)]
-struct Interface {
+struct Resources {
+    name: String,
+    arguments: Vec<Argument>,
+    results: Vec<Result>,
+}
+
+#[derive(Serialize)]
+struct Function {
     name: String,
     arguments: Vec<Argument>,
     results: Vec<Result>,
@@ -29,14 +36,15 @@ struct Package {
     version: String,
     pulumi_wasm_version: String,
     pulumi_wasm_version_stringify: String,
-    interfaces: Vec<Interface>,
+    resources: Vec<Resources>,
+    functions: Vec<Function>,
 }
 
 fn convert_model(package: &crate::model::Package) -> Package {
     let resources: Vec<_> = package
         .resources
         .iter()
-        .map(|(element_id, resource)| Interface {
+        .map(|(element_id, resource)| Resources {
             name: element_id.get_wit_interface_name(),
             arguments: resource
                 .input_properties
@@ -58,7 +66,7 @@ fn convert_model(package: &crate::model::Package) -> Package {
     let functions: Vec<_> = package
         .functions
         .iter()
-        .map(|(element_id, resource)| Interface {
+        .map(|(element_id, resource)| Function {
             name: element_id.get_wit_interface_name(),
             arguments: resource
                 .input_properties
@@ -77,16 +85,13 @@ fn convert_model(package: &crate::model::Package) -> Package {
         })
         .collect();
 
-    let mut interfaces = Vec::new();
-    interfaces.extend(resources);
-    interfaces.extend(functions);
-
     Package {
         name: package.get_wit_name(),
         version: package.version.clone(),
         pulumi_wasm_version: get_main_version().to_string(),
         pulumi_wasm_version_stringify: get_main_version_stringify().to_string(),
-        interfaces,
+        resources,
+        functions,
     }
 }
 

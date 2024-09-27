@@ -17,7 +17,7 @@ local-test:
     cargo build -p pulumi_wasm_runner --release
     cargo component build -p pulumi_wasm --release
     cargo component build -p pulumi_wasm_example_docker --release
-    cargo component build -p pulumi_wasm_random_provider --release
+    cargo component build -p pulumi_wasm_docker_provider --release
     $env:PULUMI_CONFIG_PASSPHRASE=" "
     pulumi destroy -y
     pulumi up -y

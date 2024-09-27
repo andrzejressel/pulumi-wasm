@@ -8,7 +8,11 @@ use uuid::Uuid;
 
 use crate::model::NodeValue::Exists;
 use crate::model::{FieldName, FunctionName, MaybeNodeValue, NodeValue, OutputId};
-use crate::nodes::{AbstractResourceNode, Callback, CombineOutputsNode, DoneNode, ExtractFieldNode, NativeFunctionNode, RegisterResourceRequestOperation, ResourceInvokeRequestOperation, ResourceRequestOperation};
+use crate::nodes::{
+    AbstractResourceNode, Callback, CombineOutputsNode, DoneNode, ExtractFieldNode,
+    NativeFunctionNode, RegisterResourceRequestOperation, ResourceInvokeRequestOperation,
+    ResourceRequestOperation,
+};
 use crate::pulumi::service::PulumiService;
 
 #[derive(Clone, Debug, PartialEq)]
@@ -287,7 +291,9 @@ impl Engine {
         match registration_request {
             None => {}
             Some(rr) => {
-                engine_view.pulumi.perform_resource_operation(*output_id, rr);
+                engine_view
+                    .pulumi
+                    .perform_resource_operation(*output_id, rr);
                 engine_view.register_resource_ids.insert(*output_id);
             }
         }
@@ -806,7 +812,8 @@ impl Engine {
         inputs: HashMap<FieldName, OutputId>,
         outputs: HashSet<FieldName>,
     ) -> (OutputId, HashMap<FieldName, OutputId>) {
-        let operation = ResourceRequestOperation::Invoke(ResourceInvokeRequestOperation::new(token));
+        let operation =
+            ResourceRequestOperation::Invoke(ResourceInvokeRequestOperation::new(token));
         self.create_register_or_read_resource_node(operation, inputs, outputs)
     }
 
@@ -817,7 +824,8 @@ impl Engine {
         inputs: HashMap<FieldName, OutputId>,
         outputs: HashSet<FieldName>,
     ) -> (OutputId, HashMap<FieldName, OutputId>) {
-        let operation = ResourceRequestOperation::Register(RegisterResourceRequestOperation::new(r#type, name));
+        let operation =
+            ResourceRequestOperation::Register(RegisterResourceRequestOperation::new(r#type, name));
         self.create_register_or_read_resource_node(operation, inputs, outputs)
     }
 
@@ -828,11 +836,8 @@ impl Engine {
         outputs: HashSet<FieldName>,
     ) -> (OutputId, HashMap<FieldName, OutputId>) {
         let output_id = Uuid::now_v7().into();
-        let node = AbstractResourceNode::new(
-            operation,
-            inputs.keys().cloned().collect(),
-            outputs.clone(),
-        );
+        let node =
+            AbstractResourceNode::new(operation, inputs.keys().cloned().collect(), outputs.clone());
         self.nodes
             .insert(output_id, EngineNode::RegisterResource(node).into());
 
@@ -1082,7 +1087,10 @@ mod tests {
 
         use crate::engine::Engine;
         use crate::model::MaybeNodeValue::NotYetCalculated;
-        use crate::nodes::{AbstractResourceNode, Callback, DoneNode, ExtractFieldNode, RegisterResourceRequestOperation, ResourceRequestOperation};
+        use crate::nodes::{
+            AbstractResourceNode, Callback, DoneNode, ExtractFieldNode,
+            RegisterResourceRequestOperation, ResourceRequestOperation,
+        };
         use crate::pulumi::service::{
             MockPulumiService, PerformResourceRequest, RegisterResourceResponse,
         };
@@ -1116,7 +1124,10 @@ mod tests {
                     .deref(),
                 &AbstractResourceNode::create(
                     NotYetCalculated,
-                    ResourceRequestOperation::Register(RegisterResourceRequestOperation::new("type".into(), "name".into())),
+                    ResourceRequestOperation::Register(RegisterResourceRequestOperation::new(
+                        "type".into(),
+                        "name".into()
+                    )),
                     HashSet::from(["input".into()]),
                     HashMap::new(),
                     HashSet::from(["output".into()]),
@@ -1152,7 +1163,9 @@ mod tests {
                                 .unwrap()
                     }),
                     eq(PerformResourceRequest {
-                        operation: ResourceRequestOperation::Register(RegisterResourceRequestOperation::new("type".into(), "name".into())),
+                        operation: ResourceRequestOperation::Register(
+                            RegisterResourceRequestOperation::new("type".into(), "name".into()),
+                        ),
                         object: HashMap::from([("input".into(), Some(1.into()))]),
                         expected_results: HashSet::from(["output".into()]),
                     }),

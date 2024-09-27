@@ -5,7 +5,6 @@ use crate::Component;
 
 impl get_access_application::Guest for Component {
     fn invoke(
-        name: String,
         args: get_access_application::Args
     ) -> get_access_application::Res {
         pulumi_wasm_common::setup_logger();

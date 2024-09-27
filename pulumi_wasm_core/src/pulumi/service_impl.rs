@@ -161,9 +161,17 @@ impl PulumiService for PulumiServiceImpl {
             let expected_results_ref = self.expected_results.borrow();
             let expected_results = expected_results_ref.get(&output_id).unwrap();
 
-            let response = grpc::RegisterResourceResponse::decode(&*response).unwrap();
-
-            let object = response.object.unwrap_or(Struct::default());
+            let object = match expected_results.request_type {
+                Invoke => {
+                    let response = grpc::InvokeResponse::decode(&*response).unwrap();
+                    // TODO: Failures
+                    response.r#return.unwrap_or(Struct::default())
+                }
+                Register => {
+                    let response = grpc::RegisterResourceResponse::decode(&*response).unwrap();
+                    response.object.unwrap_or(Struct::default())
+                }
+            };
 
             let result = Self::protoc_object_to_json_map(object, expected_results.fields.clone());
 

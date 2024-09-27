@@ -5,7 +5,6 @@ use crate::Component;
 
 impl get_user::Guest for Component {
     fn invoke(
-        name: String,
     ) -> get_user::Res {
         pulumi_wasm_common::setup_logger();
         let request = ResourceInvokeRequest {

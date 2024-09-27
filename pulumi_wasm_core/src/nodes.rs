@@ -125,7 +125,7 @@ pub(crate) struct RegisterResourceRequestOperation {
 }
 
 impl RegisterResourceRequestOperation {
-    pub(crate) fn new( r#type: String, name: String) -> Self {
+    pub(crate) fn new(r#type: String, name: String) -> Self {
         Self { name, r#type }
     }
 }
@@ -410,7 +410,9 @@ mod tests {
                         ("exists_int".into(), Some(2.into())),
                         ("not_exist".into(), None),
                     ]),
-                    operation: ResourceRequestOperation::Register(RegisterResourceRequestOperation::new("type".into(), "name".into())),
+                    operation: ResourceRequestOperation::Register(
+                        RegisterResourceRequestOperation::new("type".into(), "name".into())
+                    ),
                     expected_results: HashSet::from(["output".into()]),
                 })
             );

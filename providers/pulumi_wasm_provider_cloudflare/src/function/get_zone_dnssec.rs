@@ -5,7 +5,6 @@ use crate::Component;
 
 impl get_zone_dnssec::Guest for Component {
     fn invoke(
-        name: String,
         args: get_zone_dnssec::Args
     ) -> get_zone_dnssec::Res {
         pulumi_wasm_common::setup_logger();

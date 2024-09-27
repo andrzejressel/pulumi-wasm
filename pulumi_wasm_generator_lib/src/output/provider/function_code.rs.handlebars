@@ -5,7 +5,6 @@ use crate::Component;
 
 impl {{interface.name}}::Guest for Component {
     fn invoke(
-        name: String,
 {{#if interface.input_properties}}
         args: {{interface.name}}::Args
 {{/if}}

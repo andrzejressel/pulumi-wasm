@@ -3187,8 +3187,8 @@ pub mod exports {
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: *mut u8,
-                    arg1: usize,
+                    arg0: i32,
+                    arg1: i32,
                     arg2: i32,
                     arg3: i32,
                     arg4: i32,
@@ -3198,10 +3198,9 @@ pub mod exports {
                     arg8: i32,
                     arg9: i32,
                     arg10: i32,
-                    arg11: i32,
-                    arg12: i32,
                 ) -> *mut u8 {
                     #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
                     let handle1;
                     let handle2;
                     let handle3;
@@ -3212,128 +3211,121 @@ pub mod exports {
                     let handle8;
                     let handle9;
                     let handle10;
-                    let handle11;
-                    let len0 = arg1;
-                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
-                    let result12 = T::invoke(
-                        _rt::string_lift(bytes0),
-                        Args {
-                            details: {
-                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg2 as u32,
-                                );
-                                &handle1
-                            },
-                            discard_headers: {
-                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg3 as u32,
-                                );
-                                &handle2
-                            },
-                            follow: {
-                                handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg4 as u32,
-                                );
-                                &handle3
-                            },
-                            logs_list_string_enabled: {
-                                handle4 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg5 as u32,
-                                );
-                                &handle4
-                            },
-                            name: {
-                                handle5 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg6 as u32,
-                                );
-                                &handle5
-                            },
-                            show_stderr: {
-                                handle6 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg7 as u32,
-                                );
-                                &handle6
-                            },
-                            show_stdout: {
-                                handle7 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg8 as u32,
-                                );
-                                &handle7
-                            },
-                            since: {
-                                handle8 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg9 as u32,
-                                );
-                                &handle8
-                            },
-                            tail: {
-                                handle9 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg10 as u32,
-                                );
-                                &handle9
-                            },
-                            timestamps: {
-                                handle10 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg11 as u32,
-                                );
-                                &handle10
-                            },
-                            until: {
-                                handle11 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg12 as u32,
-                                );
-                                &handle11
-                            },
+                    let result11 = T::invoke(Args {
+                        details: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
                         },
-                    );
-                    let ptr13 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                        discard_headers: {
+                            handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg1 as u32,
+                            );
+                            &handle1
+                        },
+                        follow: {
+                            handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg2 as u32,
+                            );
+                            &handle2
+                        },
+                        logs_list_string_enabled: {
+                            handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg3 as u32,
+                            );
+                            &handle3
+                        },
+                        name: {
+                            handle4 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg4 as u32,
+                            );
+                            &handle4
+                        },
+                        show_stderr: {
+                            handle5 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg5 as u32,
+                            );
+                            &handle5
+                        },
+                        show_stdout: {
+                            handle6 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg6 as u32,
+                            );
+                            &handle6
+                        },
+                        since: {
+                            handle7 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg7 as u32,
+                            );
+                            &handle7
+                        },
+                        tail: {
+                            handle8 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg8 as u32,
+                            );
+                            &handle8
+                        },
+                        timestamps: {
+                            handle9 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg9 as u32,
+                            );
+                            &handle9
+                        },
+                        until: {
+                            handle10 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg10 as u32,
+                            );
+                            &handle10
+                        },
+                    });
+                    let ptr12 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
                     let Res {
-                        details: details14,
-                        discard_headers: discard_headers14,
-                        follow: follow14,
-                        id: id14,
-                        logs_list_string_enabled: logs_list_string_enabled14,
-                        logs_list_strings: logs_list_strings14,
-                        name: name14,
-                        show_stderr: show_stderr14,
-                        show_stdout: show_stdout14,
-                        since: since14,
-                        tail: tail14,
-                        timestamps: timestamps14,
-                        until: until14,
-                    } = result12;
-                    *ptr13.add(0).cast::<i32>() = (details14).take_handle() as i32;
-                    *ptr13.add(4).cast::<i32>() = (discard_headers14).take_handle()
+                        details: details13,
+                        discard_headers: discard_headers13,
+                        follow: follow13,
+                        id: id13,
+                        logs_list_string_enabled: logs_list_string_enabled13,
+                        logs_list_strings: logs_list_strings13,
+                        name: name13,
+                        show_stderr: show_stderr13,
+                        show_stdout: show_stdout13,
+                        since: since13,
+                        tail: tail13,
+                        timestamps: timestamps13,
+                        until: until13,
+                    } = result11;
+                    *ptr12.add(0).cast::<i32>() = (details13).take_handle() as i32;
+                    *ptr12.add(4).cast::<i32>() = (discard_headers13).take_handle()
                         as i32;
-                    *ptr13.add(8).cast::<i32>() = (follow14).take_handle() as i32;
-                    *ptr13.add(12).cast::<i32>() = (id14).take_handle() as i32;
-                    *ptr13.add(16).cast::<i32>() = (logs_list_string_enabled14)
+                    *ptr12.add(8).cast::<i32>() = (follow13).take_handle() as i32;
+                    *ptr12.add(12).cast::<i32>() = (id13).take_handle() as i32;
+                    *ptr12.add(16).cast::<i32>() = (logs_list_string_enabled13)
                         .take_handle() as i32;
-                    *ptr13.add(20).cast::<i32>() = (logs_list_strings14).take_handle()
+                    *ptr12.add(20).cast::<i32>() = (logs_list_strings13).take_handle()
                         as i32;
-                    *ptr13.add(24).cast::<i32>() = (name14).take_handle() as i32;
-                    *ptr13.add(28).cast::<i32>() = (show_stderr14).take_handle() as i32;
-                    *ptr13.add(32).cast::<i32>() = (show_stdout14).take_handle() as i32;
-                    *ptr13.add(36).cast::<i32>() = (since14).take_handle() as i32;
-                    *ptr13.add(40).cast::<i32>() = (tail14).take_handle() as i32;
-                    *ptr13.add(44).cast::<i32>() = (timestamps14).take_handle() as i32;
-                    *ptr13.add(48).cast::<i32>() = (until14).take_handle() as i32;
-                    ptr13
+                    *ptr12.add(24).cast::<i32>() = (name13).take_handle() as i32;
+                    *ptr12.add(28).cast::<i32>() = (show_stderr13).take_handle() as i32;
+                    *ptr12.add(32).cast::<i32>() = (show_stdout13).take_handle() as i32;
+                    *ptr12.add(36).cast::<i32>() = (since13).take_handle() as i32;
+                    *ptr12.add(40).cast::<i32>() = (tail13).take_handle() as i32;
+                    *ptr12.add(44).cast::<i32>() = (timestamps13).take_handle() as i32;
+                    *ptr12.add(48).cast::<i32>() = (until13).take_handle() as i32;
+                    ptr12
                 }
                 pub trait Guest {
-                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                    fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
                 macro_rules! __export_pulumi_docker_get_logs_4_5_3_divider_zero_zero_zero_dev_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
                         "pulumi:docker/get-logs@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
-                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
-                        arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
-                        : i32, arg8 : i32, arg9 : i32, arg10 : i32, arg11 : i32, arg12 :
-                        i32,) -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3, arg4, arg5,
-                        arg6, arg7, arg8, arg9, arg10, arg11, arg12) } };
+                        unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 :
+                        i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7 : i32,
+                        arg8 : i32, arg9 : i32, arg10 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
+                        arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10) } };
                     };
                 }
                 #[doc(hidden)]
@@ -3389,56 +3381,46 @@ pub mod exports {
                 }
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
-                pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: *mut u8,
-                    arg1: usize,
-                    arg2: i32,
-                ) -> *mut u8 {
+                pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: i32) -> *mut u8 {
                     #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
-                    let handle1;
-                    let len0 = arg1;
-                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
-                    let result2 = T::invoke(
-                        _rt::string_lift(bytes0),
-                        Args {
-                            name: {
-                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg2 as u32,
-                                );
-                                &handle1
-                            },
+                    let handle0;
+                    let result1 = T::invoke(Args {
+                        name: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
                         },
-                    );
-                    let ptr3 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    });
+                    let ptr2 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
                     let Res {
-                        driver: driver4,
-                        id: id4,
-                        internal: internal4,
-                        ipam_configs: ipam_configs4,
-                        name: name4,
-                        options: options4,
-                        scope: scope4,
-                    } = result2;
-                    *ptr3.add(0).cast::<i32>() = (driver4).take_handle() as i32;
-                    *ptr3.add(4).cast::<i32>() = (id4).take_handle() as i32;
-                    *ptr3.add(8).cast::<i32>() = (internal4).take_handle() as i32;
-                    *ptr3.add(12).cast::<i32>() = (ipam_configs4).take_handle() as i32;
-                    *ptr3.add(16).cast::<i32>() = (name4).take_handle() as i32;
-                    *ptr3.add(20).cast::<i32>() = (options4).take_handle() as i32;
-                    *ptr3.add(24).cast::<i32>() = (scope4).take_handle() as i32;
-                    ptr3
+                        driver: driver3,
+                        id: id3,
+                        internal: internal3,
+                        ipam_configs: ipam_configs3,
+                        name: name3,
+                        options: options3,
+                        scope: scope3,
+                    } = result1;
+                    *ptr2.add(0).cast::<i32>() = (driver3).take_handle() as i32;
+                    *ptr2.add(4).cast::<i32>() = (id3).take_handle() as i32;
+                    *ptr2.add(8).cast::<i32>() = (internal3).take_handle() as i32;
+                    *ptr2.add(12).cast::<i32>() = (ipam_configs3).take_handle() as i32;
+                    *ptr2.add(16).cast::<i32>() = (name3).take_handle() as i32;
+                    *ptr2.add(20).cast::<i32>() = (options3).take_handle() as i32;
+                    *ptr2.add(24).cast::<i32>() = (scope3).take_handle() as i32;
+                    ptr2
                 }
                 pub trait Guest {
-                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                    fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
                 macro_rules! __export_pulumi_docker_get_network_4_5_3_divider_zero_zero_zero_dev_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
                         "pulumi:docker/get-network@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
-                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
-                        arg2 : i32,) -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2) } };
+                        unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
@@ -3499,65 +3481,58 @@ pub mod exports {
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: *mut u8,
-                    arg1: usize,
-                    arg2: i32,
-                    arg3: i32,
+                    arg0: i32,
+                    arg1: i32,
                 ) -> *mut u8 {
                     #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
                     let handle1;
-                    let handle2;
-                    let len0 = arg1;
-                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
-                    let result3 = T::invoke(
-                        _rt::string_lift(bytes0),
-                        Args {
-                            alias: {
-                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg2 as u32,
-                                );
-                                &handle1
-                            },
-                            id: {
-                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg3 as u32,
-                                );
-                                &handle2
-                            },
+                    let result2 = T::invoke(Args {
+                        alias: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
                         },
-                    );
-                    let ptr4 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                        id: {
+                            handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg1 as u32,
+                            );
+                            &handle1
+                        },
+                    });
+                    let ptr3 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
                     let Res {
-                        alias: alias5,
-                        enabled: enabled5,
-                        envs: envs5,
-                        grant_all_permissions: grant_all_permissions5,
-                        id: id5,
-                        name: name5,
-                        plugin_reference: plugin_reference5,
-                    } = result3;
-                    *ptr4.add(0).cast::<i32>() = (alias5).take_handle() as i32;
-                    *ptr4.add(4).cast::<i32>() = (enabled5).take_handle() as i32;
-                    *ptr4.add(8).cast::<i32>() = (envs5).take_handle() as i32;
-                    *ptr4.add(12).cast::<i32>() = (grant_all_permissions5).take_handle()
+                        alias: alias4,
+                        enabled: enabled4,
+                        envs: envs4,
+                        grant_all_permissions: grant_all_permissions4,
+                        id: id4,
+                        name: name4,
+                        plugin_reference: plugin_reference4,
+                    } = result2;
+                    *ptr3.add(0).cast::<i32>() = (alias4).take_handle() as i32;
+                    *ptr3.add(4).cast::<i32>() = (enabled4).take_handle() as i32;
+                    *ptr3.add(8).cast::<i32>() = (envs4).take_handle() as i32;
+                    *ptr3.add(12).cast::<i32>() = (grant_all_permissions4).take_handle()
                         as i32;
-                    *ptr4.add(16).cast::<i32>() = (id5).take_handle() as i32;
-                    *ptr4.add(20).cast::<i32>() = (name5).take_handle() as i32;
-                    *ptr4.add(24).cast::<i32>() = (plugin_reference5).take_handle()
+                    *ptr3.add(16).cast::<i32>() = (id4).take_handle() as i32;
+                    *ptr3.add(20).cast::<i32>() = (name4).take_handle() as i32;
+                    *ptr3.add(24).cast::<i32>() = (plugin_reference4).take_handle()
                         as i32;
-                    ptr4
+                    ptr3
                 }
                 pub trait Guest {
-                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                    fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
                 macro_rules! __export_pulumi_docker_get_plugin_4_5_3_divider_zero_zero_zero_dev_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
                         "pulumi:docker/get-plugin@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
-                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
-                        arg2 : i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
+                        unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32,) -> *
+                        mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
+                        arg1) } };
                     };
                 }
                 #[doc(hidden)]
@@ -3612,58 +3587,51 @@ pub mod exports {
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: *mut u8,
-                    arg1: usize,
-                    arg2: i32,
-                    arg3: i32,
+                    arg0: i32,
+                    arg1: i32,
                 ) -> *mut u8 {
                     #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
                     let handle1;
-                    let handle2;
-                    let len0 = arg1;
-                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
-                    let result3 = T::invoke(
-                        _rt::string_lift(bytes0),
-                        Args {
-                            insecure_skip_verify: {
-                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg2 as u32,
-                                );
-                                &handle1
-                            },
-                            name: {
-                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg3 as u32,
-                                );
-                                &handle2
-                            },
+                    let result2 = T::invoke(Args {
+                        insecure_skip_verify: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
                         },
-                    );
-                    let ptr4 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                        name: {
+                            handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg1 as u32,
+                            );
+                            &handle1
+                        },
+                    });
+                    let ptr3 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
                     let Res {
-                        id: id5,
-                        insecure_skip_verify: insecure_skip_verify5,
-                        name: name5,
-                        sha256_digest: sha256_digest5,
-                    } = result3;
-                    *ptr4.add(0).cast::<i32>() = (id5).take_handle() as i32;
-                    *ptr4.add(4).cast::<i32>() = (insecure_skip_verify5).take_handle()
+                        id: id4,
+                        insecure_skip_verify: insecure_skip_verify4,
+                        name: name4,
+                        sha256_digest: sha256_digest4,
+                    } = result2;
+                    *ptr3.add(0).cast::<i32>() = (id4).take_handle() as i32;
+                    *ptr3.add(4).cast::<i32>() = (insecure_skip_verify4).take_handle()
                         as i32;
-                    *ptr4.add(8).cast::<i32>() = (name5).take_handle() as i32;
-                    *ptr4.add(12).cast::<i32>() = (sha256_digest5).take_handle() as i32;
-                    ptr4
+                    *ptr3.add(8).cast::<i32>() = (name4).take_handle() as i32;
+                    *ptr3.add(12).cast::<i32>() = (sha256_digest4).take_handle() as i32;
+                    ptr3
                 }
                 pub trait Guest {
-                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                    fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
                 macro_rules! __export_pulumi_docker_get_registry_image_4_5_3_divider_zero_zero_zero_dev_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
                         "pulumi:docker/get-registry-image@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
-                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
-                        arg2 : i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
+                        unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32,) -> *
+                        mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
+                        arg1) } };
                     };
                 }
                 #[doc(hidden)]
@@ -3711,44 +3679,34 @@ pub mod exports {
                 }
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
-                pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: *mut u8,
-                    arg1: usize,
-                    arg2: i32,
-                ) -> *mut u8 {
+                pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: i32) -> *mut u8 {
                     #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
-                    let handle1;
-                    let len0 = arg1;
-                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
-                    let result2 = T::invoke(
-                        _rt::string_lift(bytes0),
-                        Args {
-                            name: {
-                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg2 as u32,
-                                );
-                                &handle1
-                            },
+                    let handle0;
+                    let result1 = T::invoke(Args {
+                        name: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
                         },
-                    );
-                    let ptr3 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
-                    let Res { id: id4, name: name4, repo_digest: repo_digest4 } = result2;
-                    *ptr3.add(0).cast::<i32>() = (id4).take_handle() as i32;
-                    *ptr3.add(4).cast::<i32>() = (name4).take_handle() as i32;
-                    *ptr3.add(8).cast::<i32>() = (repo_digest4).take_handle() as i32;
-                    ptr3
+                    });
+                    let ptr2 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res { id: id3, name: name3, repo_digest: repo_digest3 } = result1;
+                    *ptr2.add(0).cast::<i32>() = (id3).take_handle() as i32;
+                    *ptr2.add(4).cast::<i32>() = (name3).take_handle() as i32;
+                    *ptr2.add(8).cast::<i32>() = (repo_digest3).take_handle() as i32;
+                    ptr2
                 }
                 pub trait Guest {
-                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                    fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
                 macro_rules! __export_pulumi_docker_get_remote_image_4_5_3_divider_zero_zero_zero_dev_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
                         "pulumi:docker/get-remote-image@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
-                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
-                        arg2 : i32,) -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2) } };
+                        unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
@@ -3939,8 +3897,8 @@ pub(crate) use __export_docker_pulumi_impl as export;
 #[cfg(target_arch = "wasm32")]
 #[link_section = "component-type:wit-bindgen:0.30.0:docker-pulumi:encoded world"]
 #[doc(hidden)]
-pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 6481] = *b"\
-\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xcd1\x01A\x02\x01A%\x01\
+pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 6451] = *b"\
+\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xaf1\x01A\x02\x01A%\x01\
 B\x0a\x04\0\x06output\x03\x01\x01i\0\x01@\x01\x05values\0\x01\x04\0\x13[construc\
 tor]output\x01\x02\x01h\0\x01@\x02\x04self\x03\x0dfunction-names\0\x01\x04\0\x12\
 [method]output.map\x01\x04\x01p\x03\x01@\x01\x07outputs\x05\0\x01\x04\0\x07combi\
@@ -4052,30 +4010,29 @@ i:docker/volume@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x0d\x01B\x0a\x02\x03\x02\x0
 \x04args\x03\0\x03\x01i\x01\x01r\x0d\x07details\x05\x0fdiscard-headers\x05\x06fo\
 llow\x05\x02id\x05\x18logs-list-string-enabled\x05\x11logs-list-strings\x05\x04n\
 ame\x05\x0bshow-stderr\x05\x0bshow-stdout\x05\x05since\x05\x04tail\x05\x0atimest\
-amps\x05\x05until\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
-\x04\0\x06invoke\x01\x08\x04\x017pulumi:docker/get-logs@4.5.3-DIVIDER-ZERO.ZERO.\
-ZERO-DEV\x05\x0e\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
-r\x01\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\x06driver\x05\x02id\x05\
-\x08internal\x05\x0cipam-configs\x05\x04name\x05\x07options\x05\x05scope\x05\x04\
-\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\x01:pulumi:docker/get-network@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x0f\x01B\x0a\
-\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x05alias\x02\x02i\
-d\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\x05alias\x05\x07enabled\x05\x04e\
-nvs\x05\x15grant-all-permissions\x05\x02id\x05\x04name\x05\x10plugin-reference\x05\
-\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
-\x04\x019pulumi:docker/get-plugin@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x10\x01B\x0a\
-\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x14insecure-skip-\
-verify\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x02id\x05\x14in\
-secure-skip-verify\x05\x04name\x05\x0dsha256-digest\x05\x04\0\x03res\x03\0\x06\x01\
-@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Apulumi:docker/g\
-et-registry-image@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x11\x01B\x0a\x02\x03\x02\x01\
-\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x04name\x02\x04\0\x04args\x03\0\x03\
-\x01i\x01\x01r\x03\x02id\x05\x04name\x05\x0brepo-digest\x05\x04\0\x03res\x03\0\x06\
-\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01?pulumi:dock\
-er/get-remote-image@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x12\x04\x01<pulumi:dock\
-er/docker-pulumi@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV\x04\0\x0b\x13\x01\0\x0ddocker-\
-pulumi\x03\0\0\0G\x09producers\x01\x0cprocessed-by\x02\x0dwit-component\x070.215\
-.0\x10wit-bindgen-rust\x060.30.0";
+amps\x05\x05until\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06\
+invoke\x01\x08\x04\x017pulumi:docker/get-logs@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\
+\x0e\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x04n\
+ame\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\x06driver\x05\x02id\x05\x08int\
+ernal\x05\x0cipam-configs\x05\x04name\x05\x07options\x05\x05scope\x05\x04\0\x03r\
+es\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01:pulumi:d\
+ocker/get-network@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x0f\x01B\x0a\x02\x03\x02\x01\
+\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x05alias\x02\x02id\x02\x04\0\x04a\
+rgs\x03\0\x03\x01i\x01\x01r\x07\x05alias\x05\x07enabled\x05\x04envs\x05\x15grant\
+-all-permissions\x05\x02id\x05\x04name\x05\x10plugin-reference\x05\x04\0\x03res\x03\
+\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x019pulumi:docker/\
+get-plugin@4.5.3-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x10\x01B\x0a\x02\x03\x02\x01\x01\
+\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x14insecure-skip-verify\x02\x04name\x02\
+\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x02id\x05\x14insecure-skip-verify\x05\
+\x04name\x05\x0dsha256-digest\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\
+\x04\0\x06invoke\x01\x08\x04\x01Apulumi:docker/get-registry-image@4.5.3-DIVIDER-\
+ZERO.ZERO.ZERO-DEV\x05\x11\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
+h\x01\x01r\x01\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x02id\x05\x04\
+name\x05\x0brepo-digest\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\
+\0\x06invoke\x01\x08\x04\x01?pulumi:docker/get-remote-image@4.5.3-DIVIDER-ZERO.Z\
+ERO.ZERO-DEV\x05\x12\x04\x01<pulumi:docker/docker-pulumi@4.5.3-DIVIDER-ZERO.ZERO\
+.ZERO-DEV\x04\0\x0b\x13\x01\0\x0ddocker-pulumi\x03\0\0\0G\x09producers\x01\x0cpr\
+ocessed-by\x02\x0dwit-component\x070.215.0\x10wit-bindgen-rust\x060.30.0";
 #[inline(never)]
 #[doc(hidden)]
 pub fn __link_custom_section_describing_imports() {

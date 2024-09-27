@@ -5,7 +5,6 @@ use crate::Component;
 
 impl get_zone::Guest for Component {
     fn invoke(
-        name: String,
         args: get_zone::Args
     ) -> get_zone::Res {
         pulumi_wasm_common::setup_logger();

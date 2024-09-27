@@ -5,7 +5,6 @@ use crate::Component;
 
 impl get_dlp_datasets::Guest for Component {
     fn invoke(
-        name: String,
         args: get_dlp_datasets::Args
     ) -> get_dlp_datasets::Res {
         pulumi_wasm_common::setup_logger();

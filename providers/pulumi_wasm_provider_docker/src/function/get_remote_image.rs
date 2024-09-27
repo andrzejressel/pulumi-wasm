@@ -5,7 +5,6 @@ use crate::Component;
 
 impl get_remote_image::Guest for Component {
     fn invoke(
-        name: String,
         args: get_remote_image::Args
     ) -> get_remote_image::Res {
         pulumi_wasm_common::setup_logger();

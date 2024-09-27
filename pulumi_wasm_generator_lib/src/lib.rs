@@ -19,6 +19,7 @@ pub fn generate_rust_library(schema_json: &Path, result_path: &Path) -> Result<(
     fs::create_dir_all(result_path.join("src"))?;
     fs::create_dir_all(result_path.join("src").join("resource"))?;
     fs::create_dir_all(result_path.join("src").join("types"))?;
+    fs::create_dir_all(result_path.join("src").join("function"))?;
 
     let mut wit_file = File::create(result_path.join("wit").join("world.wit"))?;
     wit_file.write_all(output::wit::generate_wit(&package)?.as_ref())?;
@@ -37,6 +38,11 @@ pub fn generate_rust_library(schema_json: &Path, result_path: &Path) -> Result<(
     let mut source_file = File::create(result_path.join("src").join("resource").join("mod.rs"))?;
     source_file.write_all(
         output::rust::source_code_resource_mod::generate_source_code(&package).as_bytes(),
+    )?;
+
+    let mut source_file = File::create(result_path.join("src").join("function").join("mod.rs"))?;
+    source_file.write_all(
+        output::rust::source_code_function_mod::generate_source_code(&package).as_bytes(),
     )?;
 
     output::rust::source_code_types_code::generate_source_code(&package)
@@ -59,6 +65,14 @@ pub fn generate_rust_library(schema_json: &Path, result_path: &Path) -> Result<(
         .for_each(|(path, content)| {
             let mut lib_file =
                 File::create(result_path.join("src").join("resource").join(path)).unwrap();
+            lib_file.write_all(content.as_bytes()).unwrap();
+        });
+
+    output::rust::source_code_function_code::generate_source_code(&package)
+        .iter()
+        .for_each(|(path, content)| {
+            let mut lib_file =
+                File::create(result_path.join("src").join("function").join(path)).unwrap();
             lib_file.write_all(content.as_bytes()).unwrap();
         });
 

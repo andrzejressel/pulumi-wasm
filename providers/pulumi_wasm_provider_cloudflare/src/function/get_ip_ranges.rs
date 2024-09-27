@@ -5,7 +5,6 @@ use crate::Component;
 
 impl get_ip_ranges::Guest for Component {
     fn invoke(
-        name: String,
     ) -> get_ip_ranges::Res {
         pulumi_wasm_common::setup_logger();
         let request = ResourceInvokeRequest {

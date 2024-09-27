@@ -5,7 +5,6 @@ use crate::Component;
 
 impl get_origin_ca_root_certificate::Guest for Component {
     fn invoke(
-        name: String,
         args: get_origin_ca_root_certificate::Args
     ) -> get_origin_ca_root_certificate::Res {
         pulumi_wasm_common::setup_logger();

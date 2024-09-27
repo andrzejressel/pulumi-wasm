@@ -5,7 +5,6 @@ use crate::Component;
 
 impl get_network::Guest for Component {
     fn invoke(
-        name: String,
         args: get_network::Args
     ) -> get_network::Res {
         pulumi_wasm_common::setup_logger();

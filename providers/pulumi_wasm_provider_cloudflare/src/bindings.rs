@@ -20072,78 +20072,70 @@ pub mod exports {
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: *mut u8,
-                    arg1: usize,
+                    arg0: i32,
+                    arg1: i32,
                     arg2: i32,
                     arg3: i32,
-                    arg4: i32,
-                    arg5: i32,
                 ) -> *mut u8 {
                     #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
                     let handle1;
                     let handle2;
                     let handle3;
-                    let handle4;
-                    let len0 = arg1;
-                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
-                    let result5 = T::invoke(
-                        _rt::string_lift(bytes0),
-                        Args {
-                            account_id: {
-                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg2 as u32,
-                                );
-                                &handle1
-                            },
-                            domain: {
-                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg3 as u32,
-                                );
-                                &handle2
-                            },
-                            name: {
-                                handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg4 as u32,
-                                );
-                                &handle3
-                            },
-                            zone_id: {
-                                handle4 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg5 as u32,
-                                );
-                                &handle4
-                            },
+                    let result4 = T::invoke(Args {
+                        account_id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
                         },
-                    );
-                    let ptr6 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                        domain: {
+                            handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg1 as u32,
+                            );
+                            &handle1
+                        },
+                        name: {
+                            handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg2 as u32,
+                            );
+                            &handle2
+                        },
+                        zone_id: {
+                            handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg3 as u32,
+                            );
+                            &handle3
+                        },
+                    });
+                    let ptr5 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
                     let Res {
-                        account_id: account_id7,
-                        aud: aud7,
-                        domain: domain7,
-                        id: id7,
-                        name: name7,
-                        zone_id: zone_id7,
-                    } = result5;
-                    *ptr6.add(0).cast::<i32>() = (account_id7).take_handle() as i32;
-                    *ptr6.add(4).cast::<i32>() = (aud7).take_handle() as i32;
-                    *ptr6.add(8).cast::<i32>() = (domain7).take_handle() as i32;
-                    *ptr6.add(12).cast::<i32>() = (id7).take_handle() as i32;
-                    *ptr6.add(16).cast::<i32>() = (name7).take_handle() as i32;
-                    *ptr6.add(20).cast::<i32>() = (zone_id7).take_handle() as i32;
-                    ptr6
+                        account_id: account_id6,
+                        aud: aud6,
+                        domain: domain6,
+                        id: id6,
+                        name: name6,
+                        zone_id: zone_id6,
+                    } = result4;
+                    *ptr5.add(0).cast::<i32>() = (account_id6).take_handle() as i32;
+                    *ptr5.add(4).cast::<i32>() = (aud6).take_handle() as i32;
+                    *ptr5.add(8).cast::<i32>() = (domain6).take_handle() as i32;
+                    *ptr5.add(12).cast::<i32>() = (id6).take_handle() as i32;
+                    *ptr5.add(16).cast::<i32>() = (name6).take_handle() as i32;
+                    *ptr5.add(20).cast::<i32>() = (zone_id6).take_handle() as i32;
+                    ptr5
                 }
                 pub trait Guest {
-                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                    fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
                 macro_rules! __export_pulumi_cloudflare_get_access_application_5_24_1_divider_zero_zero_zero_dev_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
                         "pulumi:cloudflare/get-access-application@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
-                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
-                        arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
-                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
-                        arg2, arg3, arg4, arg5) } };
+                        unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 :
+                        i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
+                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
                     };
                 }
                 #[doc(hidden)]
@@ -20202,68 +20194,60 @@ pub mod exports {
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: *mut u8,
-                    arg1: usize,
+                    arg0: i32,
+                    arg1: i32,
                     arg2: i32,
-                    arg3: i32,
-                    arg4: i32,
                 ) -> *mut u8 {
                     #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
                     let handle1;
                     let handle2;
-                    let handle3;
-                    let len0 = arg1;
-                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
-                    let result4 = T::invoke(
-                        _rt::string_lift(bytes0),
-                        Args {
-                            account_id: {
-                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg2 as u32,
-                                );
-                                &handle1
-                            },
-                            name: {
-                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg3 as u32,
-                                );
-                                &handle2
-                            },
-                            zone_id: {
-                                handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg4 as u32,
-                                );
-                                &handle3
-                            },
+                    let result3 = T::invoke(Args {
+                        account_id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
                         },
-                    );
-                    let ptr5 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                        name: {
+                            handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg1 as u32,
+                            );
+                            &handle1
+                        },
+                        zone_id: {
+                            handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg2 as u32,
+                            );
+                            &handle2
+                        },
+                    });
+                    let ptr4 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
                     let Res {
-                        account_id: account_id6,
-                        id: id6,
-                        name: name6,
-                        type_: type_6,
-                        zone_id: zone_id6,
-                    } = result4;
-                    *ptr5.add(0).cast::<i32>() = (account_id6).take_handle() as i32;
-                    *ptr5.add(4).cast::<i32>() = (id6).take_handle() as i32;
-                    *ptr5.add(8).cast::<i32>() = (name6).take_handle() as i32;
-                    *ptr5.add(12).cast::<i32>() = (type_6).take_handle() as i32;
-                    *ptr5.add(16).cast::<i32>() = (zone_id6).take_handle() as i32;
-                    ptr5
+                        account_id: account_id5,
+                        id: id5,
+                        name: name5,
+                        type_: type_5,
+                        zone_id: zone_id5,
+                    } = result3;
+                    *ptr4.add(0).cast::<i32>() = (account_id5).take_handle() as i32;
+                    *ptr4.add(4).cast::<i32>() = (id5).take_handle() as i32;
+                    *ptr4.add(8).cast::<i32>() = (name5).take_handle() as i32;
+                    *ptr4.add(12).cast::<i32>() = (type_5).take_handle() as i32;
+                    *ptr4.add(16).cast::<i32>() = (zone_id5).take_handle() as i32;
+                    ptr4
                 }
                 pub trait Guest {
-                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                    fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
                 macro_rules! __export_pulumi_cloudflare_get_access_identity_provider_5_24_1_divider_zero_zero_zero_dev_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
                         "pulumi:cloudflare/get-access-identity-provider@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
-                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
-                        arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
-                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
-                        arg2, arg3, arg4) } };
+                        unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 :
+                        i32,) -> * mut u8 { $($path_to_types)*::
+                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2) } };
                     };
                 }
                 #[doc(hidden)]
@@ -20313,44 +20297,34 @@ pub mod exports {
                 }
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
-                pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: *mut u8,
-                    arg1: usize,
-                    arg2: i32,
-                ) -> *mut u8 {
+                pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: i32) -> *mut u8 {
                     #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
-                    let handle1;
-                    let len0 = arg1;
-                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
-                    let result2 = T::invoke(
-                        _rt::string_lift(bytes0),
-                        Args {
-                            account_id: {
-                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg2 as u32,
-                                );
-                                &handle1
-                            },
+                    let handle0;
+                    let result1 = T::invoke(Args {
+                        account_id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
                         },
-                    );
-                    let ptr3 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
-                    let Res { account_id: account_id4, id: id4, roles: roles4 } = result2;
-                    *ptr3.add(0).cast::<i32>() = (account_id4).take_handle() as i32;
-                    *ptr3.add(4).cast::<i32>() = (id4).take_handle() as i32;
-                    *ptr3.add(8).cast::<i32>() = (roles4).take_handle() as i32;
-                    ptr3
+                    });
+                    let ptr2 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res { account_id: account_id3, id: id3, roles: roles3 } = result1;
+                    *ptr2.add(0).cast::<i32>() = (account_id3).take_handle() as i32;
+                    *ptr2.add(4).cast::<i32>() = (id3).take_handle() as i32;
+                    *ptr2.add(8).cast::<i32>() = (roles3).take_handle() as i32;
+                    ptr2
                 }
                 pub trait Guest {
-                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                    fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
                 macro_rules! __export_pulumi_cloudflare_get_account_roles_5_24_1_divider_zero_zero_zero_dev_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
                         "pulumi:cloudflare/get-account-roles@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
-                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
-                        arg2 : i32,) -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2) } };
+                        unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
@@ -20398,44 +20372,34 @@ pub mod exports {
                 }
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
-                pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: *mut u8,
-                    arg1: usize,
-                    arg2: i32,
-                ) -> *mut u8 {
+                pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: i32) -> *mut u8 {
                     #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
-                    let handle1;
-                    let len0 = arg1;
-                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
-                    let result2 = T::invoke(
-                        _rt::string_lift(bytes0),
-                        Args {
-                            name: {
-                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg2 as u32,
-                                );
-                                &handle1
-                            },
+                    let handle0;
+                    let result1 = T::invoke(Args {
+                        name: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
                         },
-                    );
-                    let ptr3 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
-                    let Res { accounts: accounts4, id: id4, name: name4 } = result2;
-                    *ptr3.add(0).cast::<i32>() = (accounts4).take_handle() as i32;
-                    *ptr3.add(4).cast::<i32>() = (id4).take_handle() as i32;
-                    *ptr3.add(8).cast::<i32>() = (name4).take_handle() as i32;
-                    ptr3
+                    });
+                    let ptr2 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res { accounts: accounts3, id: id3, name: name3 } = result1;
+                    *ptr2.add(0).cast::<i32>() = (accounts3).take_handle() as i32;
+                    *ptr2.add(4).cast::<i32>() = (id3).take_handle() as i32;
+                    *ptr2.add(8).cast::<i32>() = (name3).take_handle() as i32;
+                    ptr2
                 }
                 pub trait Guest {
-                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                    fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
                 macro_rules! __export_pulumi_cloudflare_get_accounts_5_24_1_divider_zero_zero_zero_dev_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
                         "pulumi:cloudflare/get-accounts@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
-                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
-                        arg2 : i32,) -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2) } };
+                        unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
@@ -20478,42 +20442,36 @@ pub mod exports {
                 }
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
-                pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: *mut u8,
-                    arg1: usize,
-                ) -> *mut u8 {
+                pub unsafe fn _export_invoke_cabi<T: Guest>() -> *mut u8 {
                     #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
-                    let len0 = arg1;
-                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
-                    let result1 = T::invoke(_rt::string_lift(bytes0));
-                    let ptr2 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let result0 = T::invoke();
+                    let ptr1 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
                     let Res {
-                        account: account3,
-                        id: id3,
-                        permissions: permissions3,
-                        r2: r23,
-                        user: user3,
-                        zone: zone3,
-                    } = result1;
-                    *ptr2.add(0).cast::<i32>() = (account3).take_handle() as i32;
-                    *ptr2.add(4).cast::<i32>() = (id3).take_handle() as i32;
-                    *ptr2.add(8).cast::<i32>() = (permissions3).take_handle() as i32;
-                    *ptr2.add(12).cast::<i32>() = (r23).take_handle() as i32;
-                    *ptr2.add(16).cast::<i32>() = (user3).take_handle() as i32;
-                    *ptr2.add(20).cast::<i32>() = (zone3).take_handle() as i32;
-                    ptr2
+                        account: account2,
+                        id: id2,
+                        permissions: permissions2,
+                        r2: r22,
+                        user: user2,
+                        zone: zone2,
+                    } = result0;
+                    *ptr1.add(0).cast::<i32>() = (account2).take_handle() as i32;
+                    *ptr1.add(4).cast::<i32>() = (id2).take_handle() as i32;
+                    *ptr1.add(8).cast::<i32>() = (permissions2).take_handle() as i32;
+                    *ptr1.add(12).cast::<i32>() = (r22).take_handle() as i32;
+                    *ptr1.add(16).cast::<i32>() = (user2).take_handle() as i32;
+                    *ptr1.add(20).cast::<i32>() = (zone2).take_handle() as i32;
+                    ptr1
                 }
                 pub trait Guest {
-                    fn invoke(name: _rt::String) -> Res;
+                    fn invoke() -> Res;
                 }
                 #[doc(hidden)]
                 macro_rules! __export_pulumi_cloudflare_get_api_token_permission_groups_5_24_1_divider_zero_zero_zero_dev_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
                         "pulumi:cloudflare/get-api-token-permission-groups@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
-                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 :
-                        usize,) -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > (arg0, arg1) } };
+                        unsafe extern "C" fn export_invoke() -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > () } };
                     };
                 }
                 #[doc(hidden)]
@@ -20572,68 +20530,60 @@ pub mod exports {
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: *mut u8,
-                    arg1: usize,
+                    arg0: i32,
+                    arg1: i32,
                     arg2: i32,
-                    arg3: i32,
-                    arg4: i32,
                 ) -> *mut u8 {
                     #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
                     let handle1;
                     let handle2;
-                    let handle3;
-                    let len0 = arg1;
-                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
-                    let result4 = T::invoke(
-                        _rt::string_lift(bytes0),
-                        Args {
-                            account_id: {
-                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg2 as u32,
-                                );
-                                &handle1
-                            },
-                            name: {
-                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg3 as u32,
-                                );
-                                &handle2
-                            },
-                            type_: {
-                                handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg4 as u32,
-                                );
-                                &handle3
-                            },
+                    let result3 = T::invoke(Args {
+                        account_id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
                         },
-                    );
-                    let ptr5 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                        name: {
+                            handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg1 as u32,
+                            );
+                            &handle1
+                        },
+                        type_: {
+                            handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg2 as u32,
+                            );
+                            &handle2
+                        },
+                    });
+                    let ptr4 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
                     let Res {
-                        account_id: account_id6,
-                        id: id6,
-                        name: name6,
-                        rules: rules6,
-                        type_: type_6,
-                    } = result4;
-                    *ptr5.add(0).cast::<i32>() = (account_id6).take_handle() as i32;
-                    *ptr5.add(4).cast::<i32>() = (id6).take_handle() as i32;
-                    *ptr5.add(8).cast::<i32>() = (name6).take_handle() as i32;
-                    *ptr5.add(12).cast::<i32>() = (rules6).take_handle() as i32;
-                    *ptr5.add(16).cast::<i32>() = (type_6).take_handle() as i32;
-                    ptr5
+                        account_id: account_id5,
+                        id: id5,
+                        name: name5,
+                        rules: rules5,
+                        type_: type_5,
+                    } = result3;
+                    *ptr4.add(0).cast::<i32>() = (account_id5).take_handle() as i32;
+                    *ptr4.add(4).cast::<i32>() = (id5).take_handle() as i32;
+                    *ptr4.add(8).cast::<i32>() = (name5).take_handle() as i32;
+                    *ptr4.add(12).cast::<i32>() = (rules5).take_handle() as i32;
+                    *ptr4.add(16).cast::<i32>() = (type_5).take_handle() as i32;
+                    ptr4
                 }
                 pub trait Guest {
-                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                    fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
                 macro_rules! __export_pulumi_cloudflare_get_device_posture_rules_5_24_1_divider_zero_zero_zero_dev_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
                         "pulumi:cloudflare/get-device-posture-rules@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
-                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
-                        arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
-                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
-                        arg2, arg3, arg4) } };
+                        unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 :
+                        i32,) -> * mut u8 { $($path_to_types)*::
+                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2) } };
                     };
                 }
                 #[doc(hidden)]
@@ -20683,44 +20633,34 @@ pub mod exports {
                 }
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
-                pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: *mut u8,
-                    arg1: usize,
-                    arg2: i32,
-                ) -> *mut u8 {
+                pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: i32) -> *mut u8 {
                     #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
-                    let handle1;
-                    let len0 = arg1;
-                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
-                    let result2 = T::invoke(
-                        _rt::string_lift(bytes0),
-                        Args {
-                            account_id: {
-                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg2 as u32,
-                                );
-                                &handle1
-                            },
+                    let handle0;
+                    let result1 = T::invoke(Args {
+                        account_id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
                         },
-                    );
-                    let ptr3 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
-                    let Res { account_id: account_id4, devices: devices4, id: id4 } = result2;
-                    *ptr3.add(0).cast::<i32>() = (account_id4).take_handle() as i32;
-                    *ptr3.add(4).cast::<i32>() = (devices4).take_handle() as i32;
-                    *ptr3.add(8).cast::<i32>() = (id4).take_handle() as i32;
-                    ptr3
+                    });
+                    let ptr2 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res { account_id: account_id3, devices: devices3, id: id3 } = result1;
+                    *ptr2.add(0).cast::<i32>() = (account_id3).take_handle() as i32;
+                    *ptr2.add(4).cast::<i32>() = (devices3).take_handle() as i32;
+                    *ptr2.add(8).cast::<i32>() = (id3).take_handle() as i32;
+                    ptr2
                 }
                 pub trait Guest {
-                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                    fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
                 macro_rules! __export_pulumi_cloudflare_get_devices_5_24_1_divider_zero_zero_zero_dev_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
                         "pulumi:cloudflare/get-devices@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
-                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
-                        arg2 : i32,) -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2) } };
+                        unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
@@ -20770,44 +20710,34 @@ pub mod exports {
                 }
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
-                pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: *mut u8,
-                    arg1: usize,
-                    arg2: i32,
-                ) -> *mut u8 {
+                pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: i32) -> *mut u8 {
                     #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
-                    let handle1;
-                    let len0 = arg1;
-                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
-                    let result2 = T::invoke(
-                        _rt::string_lift(bytes0),
-                        Args {
-                            account_id: {
-                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg2 as u32,
-                                );
-                                &handle1
-                            },
+                    let handle0;
+                    let result1 = T::invoke(Args {
+                        account_id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
                         },
-                    );
-                    let ptr3 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
-                    let Res { account_id: account_id4, datasets: datasets4, id: id4 } = result2;
-                    *ptr3.add(0).cast::<i32>() = (account_id4).take_handle() as i32;
-                    *ptr3.add(4).cast::<i32>() = (datasets4).take_handle() as i32;
-                    *ptr3.add(8).cast::<i32>() = (id4).take_handle() as i32;
-                    ptr3
+                    });
+                    let ptr2 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res { account_id: account_id3, datasets: datasets3, id: id3 } = result1;
+                    *ptr2.add(0).cast::<i32>() = (account_id3).take_handle() as i32;
+                    *ptr2.add(4).cast::<i32>() = (datasets3).take_handle() as i32;
+                    *ptr2.add(8).cast::<i32>() = (id3).take_handle() as i32;
+                    ptr2
                 }
                 pub trait Guest {
-                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                    fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
                 macro_rules! __export_pulumi_cloudflare_get_dlp_datasets_5_24_1_divider_zero_zero_zero_dev_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
                         "pulumi:cloudflare/get-dlp-datasets@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
-                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
-                        arg2 : i32,) -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2) } };
+                        unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
@@ -20856,46 +20786,40 @@ pub mod exports {
                 }
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
-                pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: *mut u8,
-                    arg1: usize,
-                ) -> *mut u8 {
+                pub unsafe fn _export_invoke_cabi<T: Guest>() -> *mut u8 {
                     #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
-                    let len0 = arg1;
-                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
-                    let result1 = T::invoke(_rt::string_lift(bytes0));
-                    let ptr2 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let result0 = T::invoke();
+                    let ptr1 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
                     let Res {
-                        china_ipv4_cidr_blocks: china_ipv4_cidr_blocks3,
-                        china_ipv6_cidr_blocks: china_ipv6_cidr_blocks3,
-                        cidr_blocks: cidr_blocks3,
-                        id: id3,
-                        ipv4_cidr_blocks: ipv4_cidr_blocks3,
-                        ipv6_cidr_blocks: ipv6_cidr_blocks3,
-                    } = result1;
-                    *ptr2.add(0).cast::<i32>() = (china_ipv4_cidr_blocks3).take_handle()
+                        china_ipv4_cidr_blocks: china_ipv4_cidr_blocks2,
+                        china_ipv6_cidr_blocks: china_ipv6_cidr_blocks2,
+                        cidr_blocks: cidr_blocks2,
+                        id: id2,
+                        ipv4_cidr_blocks: ipv4_cidr_blocks2,
+                        ipv6_cidr_blocks: ipv6_cidr_blocks2,
+                    } = result0;
+                    *ptr1.add(0).cast::<i32>() = (china_ipv4_cidr_blocks2).take_handle()
                         as i32;
-                    *ptr2.add(4).cast::<i32>() = (china_ipv6_cidr_blocks3).take_handle()
+                    *ptr1.add(4).cast::<i32>() = (china_ipv6_cidr_blocks2).take_handle()
                         as i32;
-                    *ptr2.add(8).cast::<i32>() = (cidr_blocks3).take_handle() as i32;
-                    *ptr2.add(12).cast::<i32>() = (id3).take_handle() as i32;
-                    *ptr2.add(16).cast::<i32>() = (ipv4_cidr_blocks3).take_handle()
+                    *ptr1.add(8).cast::<i32>() = (cidr_blocks2).take_handle() as i32;
+                    *ptr1.add(12).cast::<i32>() = (id2).take_handle() as i32;
+                    *ptr1.add(16).cast::<i32>() = (ipv4_cidr_blocks2).take_handle()
                         as i32;
-                    *ptr2.add(20).cast::<i32>() = (ipv6_cidr_blocks3).take_handle()
+                    *ptr1.add(20).cast::<i32>() = (ipv6_cidr_blocks2).take_handle()
                         as i32;
-                    ptr2
+                    ptr1
                 }
                 pub trait Guest {
-                    fn invoke(name: _rt::String) -> Res;
+                    fn invoke() -> Res;
                 }
                 #[doc(hidden)]
                 macro_rules! __export_pulumi_cloudflare_get_ip_ranges_5_24_1_divider_zero_zero_zero_dev_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
                         "pulumi:cloudflare/get-ip-ranges@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
-                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 :
-                        usize,) -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > (arg0, arg1) } };
+                        unsafe extern "C" fn export_invoke() -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > () } };
                     };
                 }
                 #[doc(hidden)]
@@ -20954,61 +20878,54 @@ pub mod exports {
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: *mut u8,
-                    arg1: usize,
-                    arg2: i32,
-                    arg3: i32,
+                    arg0: i32,
+                    arg1: i32,
                 ) -> *mut u8 {
                     #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
                     let handle1;
-                    let handle2;
-                    let len0 = arg1;
-                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
-                    let result3 = T::invoke(
-                        _rt::string_lift(bytes0),
-                        Args {
-                            account_id: {
-                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg2 as u32,
-                                );
-                                &handle1
-                            },
-                            name: {
-                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg3 as u32,
-                                );
-                                &handle2
-                            },
+                    let result2 = T::invoke(Args {
+                        account_id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
                         },
-                    );
-                    let ptr4 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                        name: {
+                            handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg1 as u32,
+                            );
+                            &handle1
+                        },
+                    });
+                    let ptr3 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
                     let Res {
-                        account_id: account_id5,
-                        description: description5,
-                        id: id5,
-                        kind: kind5,
-                        name: name5,
-                        numitems: numitems5,
-                    } = result3;
-                    *ptr4.add(0).cast::<i32>() = (account_id5).take_handle() as i32;
-                    *ptr4.add(4).cast::<i32>() = (description5).take_handle() as i32;
-                    *ptr4.add(8).cast::<i32>() = (id5).take_handle() as i32;
-                    *ptr4.add(12).cast::<i32>() = (kind5).take_handle() as i32;
-                    *ptr4.add(16).cast::<i32>() = (name5).take_handle() as i32;
-                    *ptr4.add(20).cast::<i32>() = (numitems5).take_handle() as i32;
-                    ptr4
+                        account_id: account_id4,
+                        description: description4,
+                        id: id4,
+                        kind: kind4,
+                        name: name4,
+                        numitems: numitems4,
+                    } = result2;
+                    *ptr3.add(0).cast::<i32>() = (account_id4).take_handle() as i32;
+                    *ptr3.add(4).cast::<i32>() = (description4).take_handle() as i32;
+                    *ptr3.add(8).cast::<i32>() = (id4).take_handle() as i32;
+                    *ptr3.add(12).cast::<i32>() = (kind4).take_handle() as i32;
+                    *ptr3.add(16).cast::<i32>() = (name4).take_handle() as i32;
+                    *ptr3.add(20).cast::<i32>() = (numitems4).take_handle() as i32;
+                    ptr3
                 }
                 pub trait Guest {
-                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                    fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
                 macro_rules! __export_pulumi_cloudflare_get_list_5_24_1_divider_zero_zero_zero_dev_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
                         "pulumi:cloudflare/get-list@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
-                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
-                        arg2 : i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
+                        unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32,) -> *
+                        mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
+                        arg1) } };
                     };
                 }
                 #[doc(hidden)]
@@ -21058,44 +20975,34 @@ pub mod exports {
                 }
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
-                pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: *mut u8,
-                    arg1: usize,
-                    arg2: i32,
-                ) -> *mut u8 {
+                pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: i32) -> *mut u8 {
                     #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
-                    let handle1;
-                    let len0 = arg1;
-                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
-                    let result2 = T::invoke(
-                        _rt::string_lift(bytes0),
-                        Args {
-                            account_id: {
-                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg2 as u32,
-                                );
-                                &handle1
-                            },
+                    let handle0;
+                    let result1 = T::invoke(Args {
+                        account_id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
                         },
-                    );
-                    let ptr3 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
-                    let Res { account_id: account_id4, id: id4, lists: lists4 } = result2;
-                    *ptr3.add(0).cast::<i32>() = (account_id4).take_handle() as i32;
-                    *ptr3.add(4).cast::<i32>() = (id4).take_handle() as i32;
-                    *ptr3.add(8).cast::<i32>() = (lists4).take_handle() as i32;
-                    ptr3
+                    });
+                    let ptr2 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res { account_id: account_id3, id: id3, lists: lists3 } = result1;
+                    *ptr2.add(0).cast::<i32>() = (account_id3).take_handle() as i32;
+                    *ptr2.add(4).cast::<i32>() = (id3).take_handle() as i32;
+                    *ptr2.add(8).cast::<i32>() = (lists3).take_handle() as i32;
+                    ptr2
                 }
                 pub trait Guest {
-                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                    fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
                 macro_rules! __export_pulumi_cloudflare_get_lists_5_24_1_divider_zero_zero_zero_dev_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
                         "pulumi:cloudflare/get-lists@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
-                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
-                        arg2 : i32,) -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2) } };
+                        unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
@@ -21152,66 +21059,58 @@ pub mod exports {
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: *mut u8,
-                    arg1: usize,
+                    arg0: i32,
+                    arg1: i32,
                     arg2: i32,
-                    arg3: i32,
-                    arg4: i32,
                 ) -> *mut u8 {
                     #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
                     let handle1;
                     let handle2;
-                    let handle3;
-                    let len0 = arg1;
-                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
-                    let result4 = T::invoke(
-                        _rt::string_lift(bytes0),
-                        Args {
-                            account_id: {
-                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg2 as u32,
-                                );
-                                &handle1
-                            },
-                            filter: {
-                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg3 as u32,
-                                );
-                                &handle2
-                            },
-                            pools: {
-                                handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg4 as u32,
-                                );
-                                &handle3
-                            },
+                    let result3 = T::invoke(Args {
+                        account_id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
                         },
-                    );
-                    let ptr5 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                        filter: {
+                            handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg1 as u32,
+                            );
+                            &handle1
+                        },
+                        pools: {
+                            handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg2 as u32,
+                            );
+                            &handle2
+                        },
+                    });
+                    let ptr4 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
                     let Res {
-                        account_id: account_id6,
-                        filter: filter6,
-                        id: id6,
-                        pools: pools6,
-                    } = result4;
-                    *ptr5.add(0).cast::<i32>() = (account_id6).take_handle() as i32;
-                    *ptr5.add(4).cast::<i32>() = (filter6).take_handle() as i32;
-                    *ptr5.add(8).cast::<i32>() = (id6).take_handle() as i32;
-                    *ptr5.add(12).cast::<i32>() = (pools6).take_handle() as i32;
-                    ptr5
+                        account_id: account_id5,
+                        filter: filter5,
+                        id: id5,
+                        pools: pools5,
+                    } = result3;
+                    *ptr4.add(0).cast::<i32>() = (account_id5).take_handle() as i32;
+                    *ptr4.add(4).cast::<i32>() = (filter5).take_handle() as i32;
+                    *ptr4.add(8).cast::<i32>() = (id5).take_handle() as i32;
+                    *ptr4.add(12).cast::<i32>() = (pools5).take_handle() as i32;
+                    ptr4
                 }
                 pub trait Guest {
-                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                    fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
                 macro_rules! __export_pulumi_cloudflare_get_load_balancer_pools_5_24_1_divider_zero_zero_zero_dev_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
                         "pulumi:cloudflare/get-load-balancer-pools@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
-                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
-                        arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
-                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
-                        arg2, arg3, arg4) } };
+                        unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 :
+                        i32,) -> * mut u8 { $($path_to_types)*::
+                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2) } };
                     };
                 }
                 #[doc(hidden)]
@@ -21265,54 +21164,44 @@ pub mod exports {
                 }
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
-                pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: *mut u8,
-                    arg1: usize,
-                    arg2: i32,
-                ) -> *mut u8 {
+                pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: i32) -> *mut u8 {
                     #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
-                    let handle1;
-                    let len0 = arg1;
-                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
-                    let result2 = T::invoke(
-                        _rt::string_lift(bytes0),
-                        Args {
-                            id: {
-                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg2 as u32,
-                                );
-                                &handle1
-                            },
+                    let handle0;
+                    let result1 = T::invoke(Args {
+                        id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
                         },
-                    );
-                    let ptr3 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    });
+                    let ptr2 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
                     let Res {
-                        certificate: certificate4,
-                        expires_on: expires_on4,
-                        hostnames: hostnames4,
-                        id: id4,
-                        request_type: request_type4,
-                        revoked_at: revoked_at4,
-                    } = result2;
-                    *ptr3.add(0).cast::<i32>() = (certificate4).take_handle() as i32;
-                    *ptr3.add(4).cast::<i32>() = (expires_on4).take_handle() as i32;
-                    *ptr3.add(8).cast::<i32>() = (hostnames4).take_handle() as i32;
-                    *ptr3.add(12).cast::<i32>() = (id4).take_handle() as i32;
-                    *ptr3.add(16).cast::<i32>() = (request_type4).take_handle() as i32;
-                    *ptr3.add(20).cast::<i32>() = (revoked_at4).take_handle() as i32;
-                    ptr3
+                        certificate: certificate3,
+                        expires_on: expires_on3,
+                        hostnames: hostnames3,
+                        id: id3,
+                        request_type: request_type3,
+                        revoked_at: revoked_at3,
+                    } = result1;
+                    *ptr2.add(0).cast::<i32>() = (certificate3).take_handle() as i32;
+                    *ptr2.add(4).cast::<i32>() = (expires_on3).take_handle() as i32;
+                    *ptr2.add(8).cast::<i32>() = (hostnames3).take_handle() as i32;
+                    *ptr2.add(12).cast::<i32>() = (id3).take_handle() as i32;
+                    *ptr2.add(16).cast::<i32>() = (request_type3).take_handle() as i32;
+                    *ptr2.add(20).cast::<i32>() = (revoked_at3).take_handle() as i32;
+                    ptr2
                 }
                 pub trait Guest {
-                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                    fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
                 macro_rules! __export_pulumi_cloudflare_get_origin_ca_certificate_5_24_1_divider_zero_zero_zero_dev_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
                         "pulumi:cloudflare/get-origin-ca-certificate@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
-                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
-                        arg2 : i32,) -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2) } };
+                        unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
@@ -21362,44 +21251,34 @@ pub mod exports {
                 }
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
-                pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: *mut u8,
-                    arg1: usize,
-                    arg2: i32,
-                ) -> *mut u8 {
+                pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: i32) -> *mut u8 {
                     #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
-                    let handle1;
-                    let len0 = arg1;
-                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
-                    let result2 = T::invoke(
-                        _rt::string_lift(bytes0),
-                        Args {
-                            algorithm: {
-                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg2 as u32,
-                                );
-                                &handle1
-                            },
+                    let handle0;
+                    let result1 = T::invoke(Args {
+                        algorithm: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
                         },
-                    );
-                    let ptr3 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
-                    let Res { algorithm: algorithm4, cert_pem: cert_pem4, id: id4 } = result2;
-                    *ptr3.add(0).cast::<i32>() = (algorithm4).take_handle() as i32;
-                    *ptr3.add(4).cast::<i32>() = (cert_pem4).take_handle() as i32;
-                    *ptr3.add(8).cast::<i32>() = (id4).take_handle() as i32;
-                    ptr3
+                    });
+                    let ptr2 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res { algorithm: algorithm3, cert_pem: cert_pem3, id: id3 } = result1;
+                    *ptr2.add(0).cast::<i32>() = (algorithm3).take_handle() as i32;
+                    *ptr2.add(4).cast::<i32>() = (cert_pem3).take_handle() as i32;
+                    *ptr2.add(8).cast::<i32>() = (id3).take_handle() as i32;
+                    ptr2
                 }
                 pub trait Guest {
-                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                    fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
                 macro_rules! __export_pulumi_cloudflare_get_origin_ca_root_certificate_5_24_1_divider_zero_zero_zero_dev_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
                         "pulumi:cloudflare/get-origin-ca-root-certificate@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
-                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
-                        arg2 : i32,) -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2) } };
+                        unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
@@ -21476,98 +21355,90 @@ pub mod exports {
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: *mut u8,
-                    arg1: usize,
+                    arg0: i32,
+                    arg1: i32,
                     arg2: i32,
                     arg3: i32,
                     arg4: i32,
-                    arg5: i32,
-                    arg6: i32,
                 ) -> *mut u8 {
                     #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
                     let handle1;
                     let handle2;
                     let handle3;
                     let handle4;
-                    let handle5;
-                    let len0 = arg1;
-                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
-                    let result6 = T::invoke(
-                        _rt::string_lift(bytes0),
-                        Args {
-                            content: {
-                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg2 as u32,
-                                );
-                                &handle1
-                            },
-                            hostname: {
-                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg3 as u32,
-                                );
-                                &handle2
-                            },
-                            priority: {
-                                handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg4 as u32,
-                                );
-                                &handle3
-                            },
-                            type_: {
-                                handle4 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg5 as u32,
-                                );
-                                &handle4
-                            },
-                            zone_id: {
-                                handle5 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg6 as u32,
-                                );
-                                &handle5
-                            },
+                    let result5 = T::invoke(Args {
+                        content: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
                         },
-                    );
-                    let ptr7 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                        hostname: {
+                            handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg1 as u32,
+                            );
+                            &handle1
+                        },
+                        priority: {
+                            handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg2 as u32,
+                            );
+                            &handle2
+                        },
+                        type_: {
+                            handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg3 as u32,
+                            );
+                            &handle3
+                        },
+                        zone_id: {
+                            handle4 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg4 as u32,
+                            );
+                            &handle4
+                        },
+                    });
+                    let ptr6 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
                     let Res {
-                        content: content8,
-                        hostname: hostname8,
-                        id: id8,
-                        locked: locked8,
-                        priority: priority8,
-                        proxiable: proxiable8,
-                        proxied: proxied8,
-                        ttl: ttl8,
-                        type_: type_8,
-                        value: value8,
-                        zone_id: zone_id8,
-                        zone_name: zone_name8,
-                    } = result6;
-                    *ptr7.add(0).cast::<i32>() = (content8).take_handle() as i32;
-                    *ptr7.add(4).cast::<i32>() = (hostname8).take_handle() as i32;
-                    *ptr7.add(8).cast::<i32>() = (id8).take_handle() as i32;
-                    *ptr7.add(12).cast::<i32>() = (locked8).take_handle() as i32;
-                    *ptr7.add(16).cast::<i32>() = (priority8).take_handle() as i32;
-                    *ptr7.add(20).cast::<i32>() = (proxiable8).take_handle() as i32;
-                    *ptr7.add(24).cast::<i32>() = (proxied8).take_handle() as i32;
-                    *ptr7.add(28).cast::<i32>() = (ttl8).take_handle() as i32;
-                    *ptr7.add(32).cast::<i32>() = (type_8).take_handle() as i32;
-                    *ptr7.add(36).cast::<i32>() = (value8).take_handle() as i32;
-                    *ptr7.add(40).cast::<i32>() = (zone_id8).take_handle() as i32;
-                    *ptr7.add(44).cast::<i32>() = (zone_name8).take_handle() as i32;
-                    ptr7
+                        content: content7,
+                        hostname: hostname7,
+                        id: id7,
+                        locked: locked7,
+                        priority: priority7,
+                        proxiable: proxiable7,
+                        proxied: proxied7,
+                        ttl: ttl7,
+                        type_: type_7,
+                        value: value7,
+                        zone_id: zone_id7,
+                        zone_name: zone_name7,
+                    } = result5;
+                    *ptr6.add(0).cast::<i32>() = (content7).take_handle() as i32;
+                    *ptr6.add(4).cast::<i32>() = (hostname7).take_handle() as i32;
+                    *ptr6.add(8).cast::<i32>() = (id7).take_handle() as i32;
+                    *ptr6.add(12).cast::<i32>() = (locked7).take_handle() as i32;
+                    *ptr6.add(16).cast::<i32>() = (priority7).take_handle() as i32;
+                    *ptr6.add(20).cast::<i32>() = (proxiable7).take_handle() as i32;
+                    *ptr6.add(24).cast::<i32>() = (proxied7).take_handle() as i32;
+                    *ptr6.add(28).cast::<i32>() = (ttl7).take_handle() as i32;
+                    *ptr6.add(32).cast::<i32>() = (type_7).take_handle() as i32;
+                    *ptr6.add(36).cast::<i32>() = (value7).take_handle() as i32;
+                    *ptr6.add(40).cast::<i32>() = (zone_id7).take_handle() as i32;
+                    *ptr6.add(44).cast::<i32>() = (zone_name7).take_handle() as i32;
+                    ptr6
                 }
                 pub trait Guest {
-                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                    fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
                 macro_rules! __export_pulumi_cloudflare_get_record_5_24_1_divider_zero_zero_zero_dev_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
                         "pulumi:cloudflare/get-record@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
-                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
-                        arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> *
-                        mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
-                        arg1, arg2, arg3, arg4, arg5, arg6) } };
+                        unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 :
+                        i32, arg3 : i32, arg4 : i32,) -> * mut u8 { $($path_to_types)*::
+                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3, arg4) } };
                     };
                 }
                 #[doc(hidden)]
@@ -21630,78 +21501,70 @@ pub mod exports {
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: *mut u8,
-                    arg1: usize,
+                    arg0: i32,
+                    arg1: i32,
                     arg2: i32,
                     arg3: i32,
-                    arg4: i32,
-                    arg5: i32,
                 ) -> *mut u8 {
                     #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
                     let handle1;
                     let handle2;
                     let handle3;
-                    let handle4;
-                    let len0 = arg1;
-                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
-                    let result5 = T::invoke(
-                        _rt::string_lift(bytes0),
-                        Args {
-                            account_id: {
-                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg2 as u32,
-                                );
-                                &handle1
-                            },
-                            filter: {
-                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg3 as u32,
-                                );
-                                &handle2
-                            },
-                            include_rules: {
-                                handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg4 as u32,
-                                );
-                                &handle3
-                            },
-                            zone_id: {
-                                handle4 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg5 as u32,
-                                );
-                                &handle4
-                            },
+                    let result4 = T::invoke(Args {
+                        account_id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
                         },
-                    );
-                    let ptr6 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                        filter: {
+                            handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg1 as u32,
+                            );
+                            &handle1
+                        },
+                        include_rules: {
+                            handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg2 as u32,
+                            );
+                            &handle2
+                        },
+                        zone_id: {
+                            handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg3 as u32,
+                            );
+                            &handle3
+                        },
+                    });
+                    let ptr5 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
                     let Res {
-                        account_id: account_id7,
-                        filter: filter7,
-                        id: id7,
-                        include_rules: include_rules7,
-                        rulesets: rulesets7,
-                        zone_id: zone_id7,
-                    } = result5;
-                    *ptr6.add(0).cast::<i32>() = (account_id7).take_handle() as i32;
-                    *ptr6.add(4).cast::<i32>() = (filter7).take_handle() as i32;
-                    *ptr6.add(8).cast::<i32>() = (id7).take_handle() as i32;
-                    *ptr6.add(12).cast::<i32>() = (include_rules7).take_handle() as i32;
-                    *ptr6.add(16).cast::<i32>() = (rulesets7).take_handle() as i32;
-                    *ptr6.add(20).cast::<i32>() = (zone_id7).take_handle() as i32;
-                    ptr6
+                        account_id: account_id6,
+                        filter: filter6,
+                        id: id6,
+                        include_rules: include_rules6,
+                        rulesets: rulesets6,
+                        zone_id: zone_id6,
+                    } = result4;
+                    *ptr5.add(0).cast::<i32>() = (account_id6).take_handle() as i32;
+                    *ptr5.add(4).cast::<i32>() = (filter6).take_handle() as i32;
+                    *ptr5.add(8).cast::<i32>() = (id6).take_handle() as i32;
+                    *ptr5.add(12).cast::<i32>() = (include_rules6).take_handle() as i32;
+                    *ptr5.add(16).cast::<i32>() = (rulesets6).take_handle() as i32;
+                    *ptr5.add(20).cast::<i32>() = (zone_id6).take_handle() as i32;
+                    ptr5
                 }
                 pub trait Guest {
-                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                    fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
                 macro_rules! __export_pulumi_cloudflare_get_rulesets_5_24_1_divider_zero_zero_zero_dev_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
                         "pulumi:cloudflare/get-rulesets@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
-                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
-                        arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
-                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
-                        arg2, arg3, arg4, arg5) } };
+                        unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 :
+                        i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
+                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
                     };
                 }
                 #[doc(hidden)]
@@ -21760,61 +21623,54 @@ pub mod exports {
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: *mut u8,
-                    arg1: usize,
-                    arg2: i32,
-                    arg3: i32,
+                    arg0: i32,
+                    arg1: i32,
                 ) -> *mut u8 {
                     #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
                     let handle1;
-                    let handle2;
-                    let len0 = arg1;
-                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
-                    let result3 = T::invoke(
-                        _rt::string_lift(bytes0),
-                        Args {
-                            account_id: {
-                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg2 as u32,
-                                );
-                                &handle1
-                            },
-                            name: {
-                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg3 as u32,
-                                );
-                                &handle2
-                            },
+                    let result2 = T::invoke(Args {
+                        account_id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
                         },
-                    );
-                    let ptr4 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                        name: {
+                            handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg1 as u32,
+                            );
+                            &handle1
+                        },
+                    });
+                    let ptr3 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
                     let Res {
-                        account_id: account_id5,
-                        id: id5,
-                        name: name5,
-                        remote_config: remote_config5,
-                        status: status5,
-                        tunnel_type: tunnel_type5,
-                    } = result3;
-                    *ptr4.add(0).cast::<i32>() = (account_id5).take_handle() as i32;
-                    *ptr4.add(4).cast::<i32>() = (id5).take_handle() as i32;
-                    *ptr4.add(8).cast::<i32>() = (name5).take_handle() as i32;
-                    *ptr4.add(12).cast::<i32>() = (remote_config5).take_handle() as i32;
-                    *ptr4.add(16).cast::<i32>() = (status5).take_handle() as i32;
-                    *ptr4.add(20).cast::<i32>() = (tunnel_type5).take_handle() as i32;
-                    ptr4
+                        account_id: account_id4,
+                        id: id4,
+                        name: name4,
+                        remote_config: remote_config4,
+                        status: status4,
+                        tunnel_type: tunnel_type4,
+                    } = result2;
+                    *ptr3.add(0).cast::<i32>() = (account_id4).take_handle() as i32;
+                    *ptr3.add(4).cast::<i32>() = (id4).take_handle() as i32;
+                    *ptr3.add(8).cast::<i32>() = (name4).take_handle() as i32;
+                    *ptr3.add(12).cast::<i32>() = (remote_config4).take_handle() as i32;
+                    *ptr3.add(16).cast::<i32>() = (status4).take_handle() as i32;
+                    *ptr3.add(20).cast::<i32>() = (tunnel_type4).take_handle() as i32;
+                    ptr3
                 }
                 pub trait Guest {
-                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                    fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
                 macro_rules! __export_pulumi_cloudflare_get_tunnel_5_24_1_divider_zero_zero_zero_dev_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
                         "pulumi:cloudflare/get-tunnel@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
-                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
-                        arg2 : i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
+                        unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32,) -> *
+                        mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
+                        arg1) } };
                     };
                 }
                 #[doc(hidden)]
@@ -21871,59 +21727,52 @@ pub mod exports {
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: *mut u8,
-                    arg1: usize,
-                    arg2: i32,
-                    arg3: i32,
+                    arg0: i32,
+                    arg1: i32,
                 ) -> *mut u8 {
                     #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
                     let handle1;
-                    let handle2;
-                    let len0 = arg1;
-                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
-                    let result3 = T::invoke(
-                        _rt::string_lift(bytes0),
-                        Args {
-                            account_id: {
-                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg2 as u32,
-                                );
-                                &handle1
-                            },
-                            name: {
-                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg3 as u32,
-                                );
-                                &handle2
-                            },
+                    let result2 = T::invoke(Args {
+                        account_id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
                         },
-                    );
-                    let ptr4 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                        name: {
+                            handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg1 as u32,
+                            );
+                            &handle1
+                        },
+                    });
+                    let ptr3 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
                     let Res {
-                        account_id: account_id5,
-                        comment: comment5,
-                        id: id5,
-                        is_default: is_default5,
-                        name: name5,
-                    } = result3;
-                    *ptr4.add(0).cast::<i32>() = (account_id5).take_handle() as i32;
-                    *ptr4.add(4).cast::<i32>() = (comment5).take_handle() as i32;
-                    *ptr4.add(8).cast::<i32>() = (id5).take_handle() as i32;
-                    *ptr4.add(12).cast::<i32>() = (is_default5).take_handle() as i32;
-                    *ptr4.add(16).cast::<i32>() = (name5).take_handle() as i32;
-                    ptr4
+                        account_id: account_id4,
+                        comment: comment4,
+                        id: id4,
+                        is_default: is_default4,
+                        name: name4,
+                    } = result2;
+                    *ptr3.add(0).cast::<i32>() = (account_id4).take_handle() as i32;
+                    *ptr3.add(4).cast::<i32>() = (comment4).take_handle() as i32;
+                    *ptr3.add(8).cast::<i32>() = (id4).take_handle() as i32;
+                    *ptr3.add(12).cast::<i32>() = (is_default4).take_handle() as i32;
+                    *ptr3.add(16).cast::<i32>() = (name4).take_handle() as i32;
+                    ptr3
                 }
                 pub trait Guest {
-                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                    fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
                 macro_rules! __export_pulumi_cloudflare_get_tunnel_virtual_network_5_24_1_divider_zero_zero_zero_dev_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
                         "pulumi:cloudflare/get-tunnel-virtual-network@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
-                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
-                        arg2 : i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
+                        unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32,) -> *
+                        mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
+                        arg1) } };
                     };
                 }
                 #[doc(hidden)]
@@ -21960,32 +21809,26 @@ pub mod exports {
                 }
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
-                pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: *mut u8,
-                    arg1: usize,
-                ) -> *mut u8 {
+                pub unsafe fn _export_invoke_cabi<T: Guest>() -> *mut u8 {
                     #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
-                    let len0 = arg1;
-                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
-                    let result1 = T::invoke(_rt::string_lift(bytes0));
-                    let ptr2 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
-                    let Res { email: email3, id: id3, username: username3 } = result1;
-                    *ptr2.add(0).cast::<i32>() = (email3).take_handle() as i32;
-                    *ptr2.add(4).cast::<i32>() = (id3).take_handle() as i32;
-                    *ptr2.add(8).cast::<i32>() = (username3).take_handle() as i32;
-                    ptr2
+                    let result0 = T::invoke();
+                    let ptr1 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res { email: email2, id: id2, username: username2 } = result0;
+                    *ptr1.add(0).cast::<i32>() = (email2).take_handle() as i32;
+                    *ptr1.add(4).cast::<i32>() = (id2).take_handle() as i32;
+                    *ptr1.add(8).cast::<i32>() = (username2).take_handle() as i32;
+                    ptr1
                 }
                 pub trait Guest {
-                    fn invoke(name: _rt::String) -> Res;
+                    fn invoke() -> Res;
                 }
                 #[doc(hidden)]
                 macro_rules! __export_pulumi_cloudflare_get_user_5_24_1_divider_zero_zero_zero_dev_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
                         "pulumi:cloudflare/get-user@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
-                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 :
-                        usize,) -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > (arg0, arg1) } };
+                        unsafe extern "C" fn export_invoke() -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > () } };
                     };
                 }
                 #[doc(hidden)]
@@ -22052,77 +21895,69 @@ pub mod exports {
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
                 pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: *mut u8,
-                    arg1: usize,
+                    arg0: i32,
+                    arg1: i32,
                     arg2: i32,
-                    arg3: i32,
-                    arg4: i32,
                 ) -> *mut u8 {
                     #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
                     let handle1;
                     let handle2;
-                    let handle3;
-                    let len0 = arg1;
-                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
-                    let result4 = T::invoke(
-                        _rt::string_lift(bytes0),
-                        Args {
-                            account_id: {
-                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg2 as u32,
-                                );
-                                &handle1
-                            },
-                            name: {
-                                handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg3 as u32,
-                                );
-                                &handle2
-                            },
-                            zone_id: {
-                                handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg4 as u32,
-                                );
-                                &handle3
-                            },
+                    let result3 = T::invoke(Args {
+                        account_id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
                         },
-                    );
-                    let ptr5 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                        name: {
+                            handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg1 as u32,
+                            );
+                            &handle1
+                        },
+                        zone_id: {
+                            handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg2 as u32,
+                            );
+                            &handle2
+                        },
+                    });
+                    let ptr4 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
                     let Res {
-                        account_id: account_id6,
-                        id: id6,
-                        name: name6,
-                        name_servers: name_servers6,
-                        paused: paused6,
-                        plan: plan6,
-                        status: status6,
-                        vanity_name_servers: vanity_name_servers6,
-                        zone_id: zone_id6,
-                    } = result4;
-                    *ptr5.add(0).cast::<i32>() = (account_id6).take_handle() as i32;
-                    *ptr5.add(4).cast::<i32>() = (id6).take_handle() as i32;
-                    *ptr5.add(8).cast::<i32>() = (name6).take_handle() as i32;
-                    *ptr5.add(12).cast::<i32>() = (name_servers6).take_handle() as i32;
-                    *ptr5.add(16).cast::<i32>() = (paused6).take_handle() as i32;
-                    *ptr5.add(20).cast::<i32>() = (plan6).take_handle() as i32;
-                    *ptr5.add(24).cast::<i32>() = (status6).take_handle() as i32;
-                    *ptr5.add(28).cast::<i32>() = (vanity_name_servers6).take_handle()
+                        account_id: account_id5,
+                        id: id5,
+                        name: name5,
+                        name_servers: name_servers5,
+                        paused: paused5,
+                        plan: plan5,
+                        status: status5,
+                        vanity_name_servers: vanity_name_servers5,
+                        zone_id: zone_id5,
+                    } = result3;
+                    *ptr4.add(0).cast::<i32>() = (account_id5).take_handle() as i32;
+                    *ptr4.add(4).cast::<i32>() = (id5).take_handle() as i32;
+                    *ptr4.add(8).cast::<i32>() = (name5).take_handle() as i32;
+                    *ptr4.add(12).cast::<i32>() = (name_servers5).take_handle() as i32;
+                    *ptr4.add(16).cast::<i32>() = (paused5).take_handle() as i32;
+                    *ptr4.add(20).cast::<i32>() = (plan5).take_handle() as i32;
+                    *ptr4.add(24).cast::<i32>() = (status5).take_handle() as i32;
+                    *ptr4.add(28).cast::<i32>() = (vanity_name_servers5).take_handle()
                         as i32;
-                    *ptr5.add(32).cast::<i32>() = (zone_id6).take_handle() as i32;
-                    ptr5
+                    *ptr4.add(32).cast::<i32>() = (zone_id5).take_handle() as i32;
+                    ptr4
                 }
                 pub trait Guest {
-                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                    fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
                 macro_rules! __export_pulumi_cloudflare_get_zone_5_24_1_divider_zero_zero_zero_dev_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
                         "pulumi:cloudflare/get-zone@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
-                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
-                        arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
-                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
-                        arg2, arg3, arg4) } };
+                        unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 :
+                        i32,) -> * mut u8 { $($path_to_types)*::
+                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2) } };
                     };
                 }
                 #[doc(hidden)]
@@ -22170,44 +22005,34 @@ pub mod exports {
                 }
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
-                pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: *mut u8,
-                    arg1: usize,
-                    arg2: i32,
-                ) -> *mut u8 {
+                pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: i32) -> *mut u8 {
                     #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
-                    let handle1;
-                    let len0 = arg1;
-                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
-                    let result2 = T::invoke(
-                        _rt::string_lift(bytes0),
-                        Args {
-                            zone_id: {
-                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg2 as u32,
-                                );
-                                &handle1
-                            },
+                    let handle0;
+                    let result1 = T::invoke(Args {
+                        zone_id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
                         },
-                    );
-                    let ptr3 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
-                    let Res { enabled: enabled4, id: id4, zone_id: zone_id4 } = result2;
-                    *ptr3.add(0).cast::<i32>() = (enabled4).take_handle() as i32;
-                    *ptr3.add(4).cast::<i32>() = (id4).take_handle() as i32;
-                    *ptr3.add(8).cast::<i32>() = (zone_id4).take_handle() as i32;
-                    ptr3
+                    });
+                    let ptr2 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res { enabled: enabled3, id: id3, zone_id: zone_id3 } = result1;
+                    *ptr2.add(0).cast::<i32>() = (enabled3).take_handle() as i32;
+                    *ptr2.add(4).cast::<i32>() = (id3).take_handle() as i32;
+                    *ptr2.add(8).cast::<i32>() = (zone_id3).take_handle() as i32;
+                    ptr2
                 }
                 pub trait Guest {
-                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                    fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
                 macro_rules! __export_pulumi_cloudflare_get_zone_cache_reserve_5_24_1_divider_zero_zero_zero_dev_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
                         "pulumi:cloudflare/get-zone-cache-reserve@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
-                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
-                        arg2 : i32,) -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2) } };
+                        unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
@@ -22273,67 +22098,57 @@ pub mod exports {
                 }
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
-                pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: *mut u8,
-                    arg1: usize,
-                    arg2: i32,
-                ) -> *mut u8 {
+                pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: i32) -> *mut u8 {
                     #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
-                    let handle1;
-                    let len0 = arg1;
-                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
-                    let result2 = T::invoke(
-                        _rt::string_lift(bytes0),
-                        Args {
-                            zone_id: {
-                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg2 as u32,
-                                );
-                                &handle1
-                            },
+                    let handle0;
+                    let result1 = T::invoke(Args {
+                        zone_id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
                         },
-                    );
-                    let ptr3 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    });
+                    let ptr2 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
                     let Res {
-                        algorithm: algorithm4,
-                        digest: digest4,
-                        digest_algorithm: digest_algorithm4,
-                        digest_type: digest_type4,
-                        ds: ds4,
-                        flags: flags4,
-                        id: id4,
-                        key_tag: key_tag4,
-                        key_type: key_type4,
-                        public_key: public_key4,
-                        status: status4,
-                        zone_id: zone_id4,
-                    } = result2;
-                    *ptr3.add(0).cast::<i32>() = (algorithm4).take_handle() as i32;
-                    *ptr3.add(4).cast::<i32>() = (digest4).take_handle() as i32;
-                    *ptr3.add(8).cast::<i32>() = (digest_algorithm4).take_handle()
+                        algorithm: algorithm3,
+                        digest: digest3,
+                        digest_algorithm: digest_algorithm3,
+                        digest_type: digest_type3,
+                        ds: ds3,
+                        flags: flags3,
+                        id: id3,
+                        key_tag: key_tag3,
+                        key_type: key_type3,
+                        public_key: public_key3,
+                        status: status3,
+                        zone_id: zone_id3,
+                    } = result1;
+                    *ptr2.add(0).cast::<i32>() = (algorithm3).take_handle() as i32;
+                    *ptr2.add(4).cast::<i32>() = (digest3).take_handle() as i32;
+                    *ptr2.add(8).cast::<i32>() = (digest_algorithm3).take_handle()
                         as i32;
-                    *ptr3.add(12).cast::<i32>() = (digest_type4).take_handle() as i32;
-                    *ptr3.add(16).cast::<i32>() = (ds4).take_handle() as i32;
-                    *ptr3.add(20).cast::<i32>() = (flags4).take_handle() as i32;
-                    *ptr3.add(24).cast::<i32>() = (id4).take_handle() as i32;
-                    *ptr3.add(28).cast::<i32>() = (key_tag4).take_handle() as i32;
-                    *ptr3.add(32).cast::<i32>() = (key_type4).take_handle() as i32;
-                    *ptr3.add(36).cast::<i32>() = (public_key4).take_handle() as i32;
-                    *ptr3.add(40).cast::<i32>() = (status4).take_handle() as i32;
-                    *ptr3.add(44).cast::<i32>() = (zone_id4).take_handle() as i32;
-                    ptr3
+                    *ptr2.add(12).cast::<i32>() = (digest_type3).take_handle() as i32;
+                    *ptr2.add(16).cast::<i32>() = (ds3).take_handle() as i32;
+                    *ptr2.add(20).cast::<i32>() = (flags3).take_handle() as i32;
+                    *ptr2.add(24).cast::<i32>() = (id3).take_handle() as i32;
+                    *ptr2.add(28).cast::<i32>() = (key_tag3).take_handle() as i32;
+                    *ptr2.add(32).cast::<i32>() = (key_type3).take_handle() as i32;
+                    *ptr2.add(36).cast::<i32>() = (public_key3).take_handle() as i32;
+                    *ptr2.add(40).cast::<i32>() = (status3).take_handle() as i32;
+                    *ptr2.add(44).cast::<i32>() = (zone_id3).take_handle() as i32;
+                    ptr2
                 }
                 pub trait Guest {
-                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                    fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
                 macro_rules! __export_pulumi_cloudflare_get_zone_dnssec_5_24_1_divider_zero_zero_zero_dev_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
                         "pulumi:cloudflare/get-zone-dnssec@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
-                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
-                        arg2 : i32,) -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2) } };
+                        unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
@@ -22381,44 +22196,34 @@ pub mod exports {
                 }
                 #[doc(hidden)]
                 #[allow(non_snake_case)]
-                pub unsafe fn _export_invoke_cabi<T: Guest>(
-                    arg0: *mut u8,
-                    arg1: usize,
-                    arg2: i32,
-                ) -> *mut u8 {
+                pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: i32) -> *mut u8 {
                     #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
-                    let handle1;
-                    let len0 = arg1;
-                    let bytes0 = _rt::Vec::from_raw_parts(arg0.cast(), len0, len0);
-                    let result2 = T::invoke(
-                        _rt::string_lift(bytes0),
-                        Args {
-                            filter: {
-                                handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
-                                    arg2 as u32,
-                                );
-                                &handle1
-                            },
+                    let handle0;
+                    let result1 = T::invoke(Args {
+                        filter: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
                         },
-                    );
-                    let ptr3 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
-                    let Res { filter: filter4, id: id4, zones: zones4 } = result2;
-                    *ptr3.add(0).cast::<i32>() = (filter4).take_handle() as i32;
-                    *ptr3.add(4).cast::<i32>() = (id4).take_handle() as i32;
-                    *ptr3.add(8).cast::<i32>() = (zones4).take_handle() as i32;
-                    ptr3
+                    });
+                    let ptr2 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res { filter: filter3, id: id3, zones: zones3 } = result1;
+                    *ptr2.add(0).cast::<i32>() = (filter3).take_handle() as i32;
+                    *ptr2.add(4).cast::<i32>() = (id3).take_handle() as i32;
+                    *ptr2.add(8).cast::<i32>() = (zones3).take_handle() as i32;
+                    ptr2
                 }
                 pub trait Guest {
-                    fn invoke(name: _rt::String, args: Args<'_>) -> Res;
+                    fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
                 macro_rules! __export_pulumi_cloudflare_get_zones_5_24_1_divider_zero_zero_zero_dev_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
                         "pulumi:cloudflare/get-zones@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
-                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
-                        arg2 : i32,) -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2) } };
+                        unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
@@ -23004,8 +22809,8 @@ pub(crate) use __export_cloudflare_pulumi_impl as export;
 #[cfg(target_arch = "wasm32")]
 #[link_section = "component-type:wit-bindgen:0.30.0:cloudflare-pulumi:encoded world"]
 #[doc(hidden)]
-pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 43493] = *b"\
-\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xdc\xd2\x02\x01A\x02\
+pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 43355] = *b"\
+\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xd2\xd1\x02\x01A\x02\
 \x01A\x9f\x02\x01B\x0a\x04\0\x06output\x03\x01\x01i\0\x01@\x01\x05values\0\x01\x04\
 \0\x13[constructor]output\x01\x02\x01h\0\x01@\x02\x04self\x03\x0dfunction-names\0\
 \x01\x04\0\x12[method]output.map\x01\x04\x01p\x03\x01@\x01\x07outputs\x05\0\x01\x04\
@@ -23794,114 +23599,112 @@ ngs-override@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05x\x01B\x0a\x02\x03\x02\x01\x01
 \x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x06domain\x02\x04na\
 me\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\
 \x03aud\x05\x06domain\x05\x02id\x05\x04name\x05\x07zone-id\x05\x04\0\x03res\x03\0\
-\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Jpulumi:\
-cloudflare/get-access-application@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05y\x01B\x0a\
-\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\
-\x04name\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount\
--id\x05\x02id\x05\x04name\x05\x04type\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01\
-@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Ppulumi:cloudfla\
-re/get-access-identity-provider@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05z\x01B\x0a\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x0aaccount-id\x02\x04\
-\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x0aaccount-id\x05\x02id\x05\x05roles\x05\x04\
-\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\x01Epulumi:cloudflare/get-account-roles@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05{\x01\
-B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x04name\x02\x04\
-\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x08accounts\x05\x02id\x05\x04name\x05\x04\
-\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\x01@pulumi:cloudflare/get-accounts@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05|\x01B\x07\
-\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01i\x01\x01r\x06\x07account\x02\x02\
-id\x02\x0bpermissions\x02\x02r2\x02\x04user\x02\x04zone\x02\x04\0\x03res\x03\0\x03\
-\x01@\x01\x04names\0\x04\x04\0\x06invoke\x01\x05\x04\x01Spulumi:cloudflare/get-a\
-pi-token-permission-groups@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05}\x01B\x0a\x02\x03\
+\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Jpulumi:cloudflar\
+e/get-access-application@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05y\x01B\x0a\x02\x03\
 \x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x04name\
-\x02\x04type\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount-id\x05\x02\
-id\x05\x04name\x05\x05rules\x05\x04type\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04n\
-ames\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Lpulumi:cloudflare/get-dev\
-ice-posture-rules@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05~\x01B\x0a\x02\x03\x02\x01\
+\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount-id\x05\x02\
+id\x05\x04name\x05\x04type\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04\
+args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Ppulumi:cloudflare/get-access-iden\
+tity-provider@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05z\x01B\x0a\x02\x03\x02\x01\x01\
+\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x0aaccount-id\x02\x04\0\x04args\x03\0\
+\x03\x01i\x01\x01r\x03\x0aaccount-id\x05\x02id\x05\x05roles\x05\x04\0\x03res\x03\
+\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Epulumi:cloudfl\
+are/get-account-roles@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05{\x01B\x0a\x02\x03\x02\
+\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x04name\x02\x04\0\x04args\x03\
+\0\x03\x01i\x01\x01r\x03\x08accounts\x05\x02id\x05\x04name\x05\x04\0\x03res\x03\0\
+\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01@pulumi:cloudflar\
+e/get-accounts@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05|\x01B\x07\x02\x03\x02\x01\x01\
+\x04\0\x06output\x03\0\0\x01i\x01\x01r\x06\x07account\x02\x02id\x02\x0bpermissio\
+ns\x02\x02r2\x02\x04user\x02\x04zone\x02\x04\0\x03res\x03\0\x03\x01@\0\0\x04\x04\
+\0\x06invoke\x01\x05\x04\x01Spulumi:cloudflare/get-api-token-permission-groups@5\
+.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05}\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06outp\
+ut\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x04name\x02\x04type\x02\x04\0\x04\
+args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount-id\x05\x02id\x05\x04name\x05\x05rule\
+s\x05\x04type\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06inv\
+oke\x01\x08\x04\x01Lpulumi:cloudflare/get-device-posture-rules@5.24.1-DIVIDER-ZE\
+RO.ZERO.ZERO-DEV\x05~\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
+\x01r\x01\x0aaccount-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x0aaccount\
+-id\x05\x07devices\x05\x02id\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\
+\x04\0\x06invoke\x01\x08\x04\x01?pulumi:cloudflare/get-devices@5.24.1-DIVIDER-ZE\
+RO.ZERO.ZERO-DEV\x05\x7f\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
+h\x01\x01r\x01\x0aaccount-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x0aac\
+count-id\x05\x08datasets\x05\x02id\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\
+\0\x07\x04\0\x06invoke\x01\x08\x04\x01Dpulumi:cloudflare/get-dlp-datasets@5.24.1\
+-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x80\x01\x01B\x07\x02\x03\x02\x01\x01\x04\0\x06ou\
+tput\x03\0\0\x01i\x01\x01r\x06\x16china-ipv4-cidr-blocks\x02\x16china-ipv6-cidr-\
+blocks\x02\x0bcidr-blocks\x02\x02id\x02\x10ipv4-cidr-blocks\x02\x10ipv6-cidr-blo\
+cks\x02\x04\0\x03res\x03\0\x03\x01@\0\0\x04\x04\0\x06invoke\x01\x05\x04\x01Apulu\
+mi:cloudflare/get-ip-ranges@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x81\x01\x01B\x0a\
+\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x0aaccount-id\x02\
+\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x0bdesc\
+ription\x05\x02id\x05\x04kind\x05\x04name\x05\x08numitems\x05\x04\0\x03res\x03\0\
+\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01<pulumi:cloudflar\
+e/get-list@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x82\x01\x01B\x0a\x02\x03\x02\x01\
 \x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x0aaccount-id\x02\x04\0\x04args\x03\
-\0\x03\x01i\x01\x01r\x03\x0aaccount-id\x05\x07devices\x05\x02id\x05\x04\0\x03res\
-\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01?p\
-ulumi:cloudflare/get-devices@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x7f\x01B\x0a\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x0aaccount-id\x02\x04\
-\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x0aaccount-id\x05\x08datasets\x05\x02id\x05\
-\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
-\x04\x01Dpulumi:cloudflare/get-dlp-datasets@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\
-\x80\x01\x01B\x07\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01i\x01\x01r\x06\x16\
-china-ipv4-cidr-blocks\x02\x16china-ipv6-cidr-blocks\x02\x0bcidr-blocks\x02\x02i\
-d\x02\x10ipv4-cidr-blocks\x02\x10ipv6-cidr-blocks\x02\x04\0\x03res\x03\0\x03\x01\
-@\x01\x04names\0\x04\x04\0\x06invoke\x01\x05\x04\x01Apulumi:cloudflare/get-ip-ra\
-nges@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x81\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\
-\0\x06output\x03\0\0\x01h\x01\x01r\x02\x0aaccount-id\x02\x04name\x02\x04\0\x04ar\
-gs\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x0bdescription\x05\x02id\x05\x04\
-kind\x05\x04name\x05\x08numitems\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
-args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01<pulumi:cloudflare/get-list@5.24.1\
--DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x82\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06ou\
-tput\x03\0\0\x01h\x01\x01r\x01\x0aaccount-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\
-\x01r\x03\x0aaccount-id\x05\x02id\x05\x05lists\x05\x04\0\x03res\x03\0\x06\x01@\x02\
-\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01=pulumi:cloudflare/ge\
-t-lists@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x83\x01\x01B\x0a\x02\x03\x02\x01\x01\
-\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x06filter\x02\x05po\
-ols\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x06filter\x05\
-\x02id\x05\x05pools\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
+\0\x03\x01i\x01\x01r\x03\x0aaccount-id\x05\x02id\x05\x05lists\x05\x04\0\x03res\x03\
+\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01=pulumi:cloudfl\
+are/get-lists@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x83\x01\x01B\x0a\x02\x03\x02\
+\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x06filter\x02\
+\x05pools\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x06fil\
+ter\x05\x02id\x05\x05pools\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\
 \x04\0\x06invoke\x01\x08\x04\x01Kpulumi:cloudflare/get-load-balancer-pools@5.24.\
 1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x84\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06o\
 utput\x03\0\0\x01h\x01\x01r\x01\x02id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\
 \x0bcertificate\x05\x0aexpires-on\x05\x09hostnames\x05\x02id\x05\x0crequest-type\
-\x05\x0arevoked-at\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
-\x04\0\x06invoke\x01\x08\x04\x01Mpulumi:cloudflare/get-origin-ca-certificate@5.2\
-4.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x85\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
-output\x03\0\0\x01h\x01\x01r\x01\x09algorithm\x02\x04\0\x04args\x03\0\x03\x01i\x01\
-\x01r\x03\x09algorithm\x05\x08cert-pem\x05\x02id\x05\x04\0\x03res\x03\0\x06\x01@\
-\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Rpulumi:cloudflar\
-e/get-origin-ca-root-certificate@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x86\x01\x01\
-B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x07content\x02\
-\x08hostname\x02\x08priority\x02\x04type\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\
-\x01i\x01\x01r\x0c\x07content\x05\x08hostname\x05\x02id\x05\x06locked\x05\x08pri\
-ority\x05\x09proxiable\x05\x07proxied\x05\x03ttl\x05\x04type\x05\x05value\x05\x07\
-zone-id\x05\x09zone-name\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
-\0\x07\x04\0\x06invoke\x01\x08\x04\x01>pulumi:cloudflare/get-record@5.24.1-DIVID\
-ER-ZERO.ZERO.ZERO-DEV\x05\x87\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
-\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x06filter\x02\x0dinclude-rules\x02\x07z\
-one-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x06filter\
-\x05\x02id\x05\x0dinclude-rules\x05\x08rulesets\x05\x07zone-id\x05\x04\0\x03res\x03\
-\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01@pulum\
-i:cloudflare/get-rulesets@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x88\x01\x01B\x0a\
-\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x0aaccount-id\x02\
-\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x02id\x05\
-\x04name\x05\x0dremote-config\x05\x06status\x05\x0btunnel-type\x05\x04\0\x03res\x03\
-\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01>pulum\
-i:cloudflare/get-tunnel@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x89\x01\x01B\x0a\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x0aaccount-id\x02\x04\
-name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount-id\x05\x07comment\x05\
-\x02id\x05\x0ais-default\x05\x04name\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04name\
-s\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Npulumi:cloudflare/get-tunnel\
--virtual-network@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x8a\x01\x01B\x07\x02\x03\x02\
-\x01\x01\x04\0\x06output\x03\0\0\x01i\x01\x01r\x03\x05email\x02\x02id\x02\x08use\
-rname\x02\x04\0\x03res\x03\0\x03\x01@\x01\x04names\0\x04\x04\0\x06invoke\x01\x05\
-\x04\x01<pulumi:cloudflare/get-user@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x8b\x01\
-\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccou\
-nt-id\x02\x04name\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x09\x0a\
-account-id\x05\x02id\x05\x04name\x05\x0cname-servers\x05\x06paused\x05\x04plan\x05\
-\x06status\x05\x13vanity-name-servers\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01\
-@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01<pulumi:cloudfla\
-re/get-zone@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x8c\x01\x01B\x0a\x02\x03\x02\x01\
-\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x07zone-id\x02\x04\0\x04args\x03\0\
-\x03\x01i\x01\x01r\x03\x07enabled\x05\x02id\x05\x07zone-id\x05\x04\0\x03res\x03\0\
-\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Jpulumi:\
+\x05\x0arevoked-at\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06\
+invoke\x01\x08\x04\x01Mpulumi:cloudflare/get-origin-ca-certificate@5.24.1-DIVIDE\
+R-ZERO.ZERO.ZERO-DEV\x05\x85\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
+\0\0\x01h\x01\x01r\x01\x09algorithm\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\
+\x09algorithm\x05\x08cert-pem\x05\x02id\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04a\
+rgs\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Rpulumi:cloudflare/get-origin-ca-ro\
+ot-certificate@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x86\x01\x01B\x0a\x02\x03\x02\
+\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x07content\x02\x08hostname\x02\
+\x08priority\x02\x04type\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
+r\x0c\x07content\x05\x08hostname\x05\x02id\x05\x06locked\x05\x08priority\x05\x09\
+proxiable\x05\x07proxied\x05\x03ttl\x05\x04type\x05\x05value\x05\x07zone-id\x05\x09\
+zone-name\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\
+\x08\x04\x01>pulumi:cloudflare/get-record@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x87\
+\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aa\
+ccount-id\x02\x06filter\x02\x0dinclude-rules\x02\x07zone-id\x02\x04\0\x04args\x03\
+\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x06filter\x05\x02id\x05\x0dinclude-ru\
+les\x05\x08rulesets\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\
+\0\x07\x04\0\x06invoke\x01\x08\x04\x01@pulumi:cloudflare/get-rulesets@5.24.1-DIV\
+IDER-ZERO.ZERO.ZERO-DEV\x05\x88\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\
+\x03\0\0\x01h\x01\x01r\x02\x0aaccount-id\x02\x04name\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x06\x0aaccount-id\x05\x02id\x05\x04name\x05\x0dremote-config\x05\x06\
+status\x05\x0btunnel-type\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\
+\0\x06invoke\x01\x08\x04\x01>pulumi:cloudflare/get-tunnel@5.24.1-DIVIDER-ZERO.ZE\
+RO.ZERO-DEV\x05\x89\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
+h\x01\x01r\x02\x0aaccount-id\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
+r\x05\x0aaccount-id\x05\x07comment\x05\x02id\x05\x0ais-default\x05\x04name\x05\x04\
+\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Np\
+ulumi:cloudflare/get-tunnel-virtual-network@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\
+\x8a\x01\x01B\x07\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01i\x01\x01r\x03\x05\
+email\x02\x02id\x02\x08username\x02\x04\0\x03res\x03\0\x03\x01@\0\0\x04\x04\0\x06\
+invoke\x01\x05\x04\x01<pulumi:cloudflare/get-user@5.24.1-DIVIDER-ZERO.ZERO.ZERO-\
+DEV\x05\x8b\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
+r\x03\x0aaccount-id\x02\x04name\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\
+\x01r\x09\x0aaccount-id\x05\x02id\x05\x04name\x05\x0cname-servers\x05\x06paused\x05\
+\x04plan\x05\x06status\x05\x13vanity-name-servers\x05\x07zone-id\x05\x04\0\x03re\
+s\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01<pulumi:cl\
+oudflare/get-zone@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x8c\x01\x01B\x0a\x02\x03\
+\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x07zone-id\x02\x04\0\x04a\
+rgs\x03\0\x03\x01i\x01\x01r\x03\x07enabled\x05\x02id\x05\x07zone-id\x05\x04\0\x03\
+res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Jpulumi:\
 cloudflare/get-zone-cache-reserve@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x8d\x01\x01\
 B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x07zone-id\x02\
 \x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0c\x09algorithm\x05\x06digest\x05\x10dig\
 est-algorithm\x05\x0bdigest-type\x05\x02ds\x05\x05flags\x05\x02id\x05\x07key-tag\
 \x05\x08key-type\x05\x0apublic-key\x05\x06status\x05\x07zone-id\x05\x04\0\x03res\
-\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Cp\
-ulumi:cloudflare/get-zone-dnssec@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x8e\x01\x01\
-B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x06filter\x02\
-\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x06filter\x05\x02id\x05\x05zones\x05\x04\
-\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\x01=pulumi:cloudflare/get-zones@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x8f\x01\x04\
-\x01Epulumi:cloudflare/cloudflare-pulumi@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x04\0\
-\x0b\x17\x01\0\x11cloudflare-pulumi\x03\0\0\0G\x09producers\x01\x0cprocessed-by\x02\
-\x0dwit-component\x070.215.0\x10wit-bindgen-rust\x060.30.0";
+\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Cpulumi:clo\
+udflare/get-zone-dnssec@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x8e\x01\x01B\x0a\x02\
+\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x06filter\x02\x04\0\x04\
+args\x03\0\x03\x01i\x01\x01r\x03\x06filter\x05\x02id\x05\x05zones\x05\x04\0\x03r\
+es\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01=pulumi:c\
+loudflare/get-zones@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x8f\x01\x04\x01Epulumi\
+:cloudflare/cloudflare-pulumi@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x04\0\x0b\x17\x01\
+\0\x11cloudflare-pulumi\x03\0\0\0G\x09producers\x01\x0cprocessed-by\x02\x0dwit-c\
+omponent\x070.215.0\x10wit-bindgen-rust\x060.30.0";
 #[inline(never)]
 #[doc(hidden)]
 pub fn __link_custom_section_describing_imports() {

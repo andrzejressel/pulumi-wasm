@@ -5,7 +5,6 @@ use crate::Component;
 
 impl get_tunnel::Guest for Component {
     fn invoke(
-        name: String,
         args: get_tunnel::Args
     ) -> get_tunnel::Res {
         pulumi_wasm_common::setup_logger();

@@ -477,6 +477,7 @@ interface volume {
 
 }
 
+
 interface get-logs {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -512,7 +513,6 @@ interface get-logs {
     }
 
     invoke: func(
-        name: string,
         args: args
     ) -> res;
 
@@ -537,7 +537,6 @@ interface get-network {
     }
 
     invoke: func(
-        name: string,
         args: args
     ) -> res;
 
@@ -563,7 +562,6 @@ interface get-plugin {
     }
 
     invoke: func(
-        name: string,
         args: args
     ) -> res;
 
@@ -586,7 +584,6 @@ interface get-registry-image {
     }
 
     invoke: func(
-        name: string,
         args: args
     ) -> res;
 
@@ -607,7 +604,6 @@ interface get-remote-image {
     }
 
     invoke: func(
-        name: string,
         args: args
     ) -> res;
 

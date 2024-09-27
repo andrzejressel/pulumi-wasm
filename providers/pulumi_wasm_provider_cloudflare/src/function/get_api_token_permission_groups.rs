@@ -5,7 +5,6 @@ use crate::Component;
 
 impl get_api_token_permission_groups::Guest for Component {
     fn invoke(
-        name: String,
     ) -> get_api_token_permission_groups::Res {
         pulumi_wasm_common::setup_logger();
         let request = ResourceInvokeRequest {

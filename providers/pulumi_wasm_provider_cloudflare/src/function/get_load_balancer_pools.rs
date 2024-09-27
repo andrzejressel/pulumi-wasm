@@ -5,7 +5,6 @@ use crate::Component;
 
 impl get_load_balancer_pools::Guest for Component {
     fn invoke(
-        name: String,
         args: get_load_balancer_pools::Args
     ) -> get_load_balancer_pools::Res {
         pulumi_wasm_common::setup_logger();

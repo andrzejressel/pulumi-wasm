@@ -5,7 +5,6 @@ use crate::Component;
 
 impl get_rulesets::Guest for Component {
     fn invoke(
-        name: String,
         args: get_rulesets::Args
     ) -> get_rulesets::Res {
         pulumi_wasm_common::setup_logger();

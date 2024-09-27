@@ -5,7 +5,6 @@ use crate::Component;
 
 impl get_registry_image::Guest for Component {
     fn invoke(
-        name: String,
         args: get_registry_image::Args
     ) -> get_registry_image::Res {
         pulumi_wasm_common::setup_logger();

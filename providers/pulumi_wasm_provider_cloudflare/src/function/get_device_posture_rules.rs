@@ -5,7 +5,6 @@ use crate::Component;
 
 impl get_device_posture_rules::Guest for Component {
     fn invoke(
-        name: String,
         args: get_device_posture_rules::Args
     ) -> get_device_posture_rules::Res {
         pulumi_wasm_common::setup_logger();
