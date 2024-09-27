@@ -81,6 +81,9 @@ fmt-clippy:
     cargo clippy --all-features --fix --allow-dirty --allow-staged {{FORMATTABLE_PROJECTS}}
     just fmt
 
+clippy-to-file:
+    cargo clippy --all-features --message-format=json {{FORMATTABLE_PROJECTS}} | clippy-sarif | tee rust-clippy-results.sarif | sarif-fmt
+
 regenerate-provider-list:
     cargo run -p regenerate_providers
 
