@@ -201,13 +201,17 @@ pub struct GetAccessIdentityProviderResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn invoke(args: GetAccessIdentityProviderArgs) -> GetAccessIdentityProviderResult {
+pub fn invoke(
+    args: GetAccessIdentityProviderArgs
+) -> GetAccessIdentityProviderResult {
 
-    let result = crate::bindings::pulumi::cloudflare::get_access_identity_provider::invoke(&crate::bindings::pulumi::cloudflare::get_access_identity_provider::Args {
-        account_id: &args.account_id.get_inner(),
-        name: &args.name.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::get_access_identity_provider::invoke(
+        &crate::bindings::pulumi::cloudflare::get_access_identity_provider::Args {
+                account_id: &args.account_id.get_inner(),
+                name: &args.name.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     GetAccessIdentityProviderResult {
         account_id: crate::into_domain(result.account_id),

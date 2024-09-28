@@ -188,11 +188,15 @@ pub struct GetRemoteImageResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn invoke(args: GetRemoteImageArgs) -> GetRemoteImageResult {
+pub fn invoke(
+    args: GetRemoteImageArgs
+) -> GetRemoteImageResult {
 
-    let result = crate::bindings::pulumi::docker::get_remote_image::invoke(&crate::bindings::pulumi::docker::get_remote_image::Args {
-        name: &args.name.get_inner(),
-    });
+    let result = crate::bindings::pulumi::docker::get_remote_image::invoke(
+        &crate::bindings::pulumi::docker::get_remote_image::Args {
+                name: &args.name.get_inner(),
+        }
+    );
 
     GetRemoteImageResult {
         id: crate::into_domain(result.id),

@@ -143,13 +143,17 @@ pub struct GetLoadBalancerPoolsResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn invoke(args: GetLoadBalancerPoolsArgs) -> GetLoadBalancerPoolsResult {
+pub fn invoke(
+    args: GetLoadBalancerPoolsArgs
+) -> GetLoadBalancerPoolsResult {
 
-    let result = crate::bindings::pulumi::cloudflare::get_load_balancer_pools::invoke(&crate::bindings::pulumi::cloudflare::get_load_balancer_pools::Args {
-        account_id: &args.account_id.get_inner(),
-        filter: &args.filter.get_inner(),
-        pools: &args.pools.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::get_load_balancer_pools::invoke(
+        &crate::bindings::pulumi::cloudflare::get_load_balancer_pools::Args {
+                account_id: &args.account_id.get_inner(),
+                filter: &args.filter.get_inner(),
+                pools: &args.pools.get_inner(),
+        }
+    );
 
     GetLoadBalancerPoolsResult {
         account_id: crate::into_domain(result.account_id),

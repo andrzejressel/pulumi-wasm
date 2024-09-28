@@ -2,6 +2,7 @@
 //! {{&this}}
 {{/each}}
 
+{{#if interface.input_properties}}
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
 pub struct {{interface.struct_name}}Args {
@@ -17,6 +18,7 @@ pub struct {{interface.struct_name}}Args {
     pub {{arg_name}}: pulumi_wasm_rust::Output<{{&type_}}>,
 {{/each}}
 }
+{{/if}}
 
 pub struct {{interface.struct_name}}Result {
 {{#each interface.output_properties}}
@@ -30,13 +32,21 @@ pub struct {{interface.struct_name}}Result {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn invoke(args: {{interface.struct_name}}Args) -> {{interface.struct_name}}Result {
+pub fn invoke(
+{{#if interface.input_properties}}
+    args: {{interface.struct_name}}Args
+{{/if}}
+) -> {{interface.struct_name}}Result {
 
-    let result = crate::bindings::pulumi::{{package_name}}::{{interface.name}}::invoke(&crate::bindings::pulumi::{{package_name}}::{{interface.name}}::Args {
-{{#each interface.input_properties}}
-        {{arg_name}}: &args.{{arg_name}}.get_inner(),
-{{/each}}
-    });
+    let result = crate::bindings::pulumi::{{package_name}}::{{interface.name}}::invoke(
+{{#if interface.input_properties}}
+        &crate::bindings::pulumi::{{package_name}}::{{interface.name}}::Args {
+        {{#each interface.input_properties}}
+                {{arg_name}}: &args.{{arg_name}}.get_inner(),
+        {{/each}}
+        }
+{{/if}}
+    );
 
     {{interface.struct_name}}Result {
     {{#each interface.output_properties}}

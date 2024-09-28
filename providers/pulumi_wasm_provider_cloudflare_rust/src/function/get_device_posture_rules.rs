@@ -136,13 +136,17 @@ pub struct GetDevicePostureRulesResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn invoke(args: GetDevicePostureRulesArgs) -> GetDevicePostureRulesResult {
+pub fn invoke(
+    args: GetDevicePostureRulesArgs
+) -> GetDevicePostureRulesResult {
 
-    let result = crate::bindings::pulumi::cloudflare::get_device_posture_rules::invoke(&crate::bindings::pulumi::cloudflare::get_device_posture_rules::Args {
-        account_id: &args.account_id.get_inner(),
-        name: &args.name.get_inner(),
-        type_: &args.type_.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::get_device_posture_rules::invoke(
+        &crate::bindings::pulumi::cloudflare::get_device_posture_rules::Args {
+                account_id: &args.account_id.get_inner(),
+                name: &args.name.get_inner(),
+                type_: &args.type_.get_inner(),
+        }
+    );
 
     GetDevicePostureRulesResult {
         account_id: crate::into_domain(result.account_id),

@@ -191,13 +191,17 @@ pub struct GetZoneResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn invoke(args: GetZoneArgs) -> GetZoneResult {
+pub fn invoke(
+    args: GetZoneArgs
+) -> GetZoneResult {
 
-    let result = crate::bindings::pulumi::cloudflare::get_zone::invoke(&crate::bindings::pulumi::cloudflare::get_zone::Args {
-        account_id: &args.account_id.get_inner(),
-        name: &args.name.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::get_zone::invoke(
+        &crate::bindings::pulumi::cloudflare::get_zone::Args {
+                account_id: &args.account_id.get_inner(),
+                name: &args.name.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     GetZoneResult {
         account_id: crate::into_domain(result.account_id),

@@ -116,11 +116,15 @@ pub struct GetDlpDatasetsResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn invoke(args: GetDlpDatasetsArgs) -> GetDlpDatasetsResult {
+pub fn invoke(
+    args: GetDlpDatasetsArgs
+) -> GetDlpDatasetsResult {
 
-    let result = crate::bindings::pulumi::cloudflare::get_dlp_datasets::invoke(&crate::bindings::pulumi::cloudflare::get_dlp_datasets::Args {
-        account_id: &args.account_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::get_dlp_datasets::invoke(
+        &crate::bindings::pulumi::cloudflare::get_dlp_datasets::Args {
+                account_id: &args.account_id.get_inner(),
+        }
+    );
 
     GetDlpDatasetsResult {
         account_id: crate::into_domain(result.account_id),

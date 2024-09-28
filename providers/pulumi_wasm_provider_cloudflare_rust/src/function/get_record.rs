@@ -152,15 +152,19 @@ pub struct GetRecordResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn invoke(args: GetRecordArgs) -> GetRecordResult {
+pub fn invoke(
+    args: GetRecordArgs
+) -> GetRecordResult {
 
-    let result = crate::bindings::pulumi::cloudflare::get_record::invoke(&crate::bindings::pulumi::cloudflare::get_record::Args {
-        content: &args.content.get_inner(),
-        hostname: &args.hostname.get_inner(),
-        priority: &args.priority.get_inner(),
-        type_: &args.type_.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::get_record::invoke(
+        &crate::bindings::pulumi::cloudflare::get_record::Args {
+                content: &args.content.get_inner(),
+                hostname: &args.hostname.get_inner(),
+                priority: &args.priority.get_inner(),
+                type_: &args.type_.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     GetRecordResult {
         content: crate::into_domain(result.content),

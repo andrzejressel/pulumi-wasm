@@ -124,11 +124,15 @@ pub struct GetNetworkResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn invoke(args: GetNetworkArgs) -> GetNetworkResult {
+pub fn invoke(
+    args: GetNetworkArgs
+) -> GetNetworkResult {
 
-    let result = crate::bindings::pulumi::docker::get_network::invoke(&crate::bindings::pulumi::docker::get_network::Args {
-        name: &args.name.get_inner(),
-    });
+    let result = crate::bindings::pulumi::docker::get_network::invoke(
+        &crate::bindings::pulumi::docker::get_network::Args {
+                name: &args.name.get_inner(),
+        }
+    );
 
     GetNetworkResult {
         driver: crate::into_domain(result.driver),

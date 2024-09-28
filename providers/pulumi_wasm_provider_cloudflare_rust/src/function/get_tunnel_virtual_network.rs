@@ -129,12 +129,16 @@ pub struct GetTunnelVirtualNetworkResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn invoke(args: GetTunnelVirtualNetworkArgs) -> GetTunnelVirtualNetworkResult {
+pub fn invoke(
+    args: GetTunnelVirtualNetworkArgs
+) -> GetTunnelVirtualNetworkResult {
 
-    let result = crate::bindings::pulumi::cloudflare::get_tunnel_virtual_network::invoke(&crate::bindings::pulumi::cloudflare::get_tunnel_virtual_network::Args {
-        account_id: &args.account_id.get_inner(),
-        name: &args.name.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::get_tunnel_virtual_network::invoke(
+        &crate::bindings::pulumi::cloudflare::get_tunnel_virtual_network::Args {
+                account_id: &args.account_id.get_inner(),
+                name: &args.name.get_inner(),
+        }
+    );
 
     GetTunnelVirtualNetworkResult {
         account_id: crate::into_domain(result.account_id),

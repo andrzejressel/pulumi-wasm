@@ -160,12 +160,16 @@ pub struct GetRegistryImageResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn invoke(args: GetRegistryImageArgs) -> GetRegistryImageResult {
+pub fn invoke(
+    args: GetRegistryImageArgs
+) -> GetRegistryImageResult {
 
-    let result = crate::bindings::pulumi::docker::get_registry_image::invoke(&crate::bindings::pulumi::docker::get_registry_image::Args {
-        insecure_skip_verify: &args.insecure_skip_verify.get_inner(),
-        name: &args.name.get_inner(),
-    });
+    let result = crate::bindings::pulumi::docker::get_registry_image::invoke(
+        &crate::bindings::pulumi::docker::get_registry_image::Args {
+                insecure_skip_verify: &args.insecure_skip_verify.get_inner(),
+                name: &args.name.get_inner(),
+        }
+    );
 
     GetRegistryImageResult {
         id: crate::into_domain(result.id),

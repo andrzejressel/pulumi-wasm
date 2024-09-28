@@ -173,10 +173,6 @@
 //! ```
 //! <!--End PulumiCodeChooser -->
 
-#[derive(bon::Builder)]
-#[builder(finish_fn = build_struct)]
-pub struct GetUserArgs {
-}
 
 pub struct GetUserResult {
     /// The user's email address.
@@ -190,10 +186,11 @@ pub struct GetUserResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn invoke(args: GetUserArgs) -> GetUserResult {
+pub fn invoke(
+) -> GetUserResult {
 
-    let result = crate::bindings::pulumi::cloudflare::get_user::invoke(&crate::bindings::pulumi::cloudflare::get_user::Args {
-    });
+    let result = crate::bindings::pulumi::cloudflare::get_user::invoke(
+    );
 
     GetUserResult {
         email: crate::into_domain(result.email),

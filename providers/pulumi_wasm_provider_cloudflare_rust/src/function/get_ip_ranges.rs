@@ -154,10 +154,6 @@
 //! ```
 //! <!--End PulumiCodeChooser -->
 
-#[derive(bon::Builder)]
-#[builder(finish_fn = build_struct)]
-pub struct GetIpRangesArgs {
-}
 
 pub struct GetIpRangesResult {
     /// The lexically ordered list of only the IPv4 China CIDR blocks.
@@ -177,10 +173,11 @@ pub struct GetIpRangesResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn invoke(args: GetIpRangesArgs) -> GetIpRangesResult {
+pub fn invoke(
+) -> GetIpRangesResult {
 
-    let result = crate::bindings::pulumi::cloudflare::get_ip_ranges::invoke(&crate::bindings::pulumi::cloudflare::get_ip_ranges::Args {
-    });
+    let result = crate::bindings::pulumi::cloudflare::get_ip_ranges::invoke(
+    );
 
     GetIpRangesResult {
         china_ipv4_cidr_blocks: crate::into_domain(result.china_ipv4_cidr_blocks),

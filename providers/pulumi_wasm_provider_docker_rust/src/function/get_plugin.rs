@@ -44,12 +44,16 @@ pub struct GetPluginResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn invoke(args: GetPluginArgs) -> GetPluginResult {
+pub fn invoke(
+    args: GetPluginArgs
+) -> GetPluginResult {
 
-    let result = crate::bindings::pulumi::docker::get_plugin::invoke(&crate::bindings::pulumi::docker::get_plugin::Args {
-        alias: &args.alias.get_inner(),
-        id: &args.id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::docker::get_plugin::invoke(
+        &crate::bindings::pulumi::docker::get_plugin::Args {
+                alias: &args.alias.get_inner(),
+                id: &args.id.get_inner(),
+        }
+    );
 
     GetPluginResult {
         alias: crate::into_domain(result.alias),

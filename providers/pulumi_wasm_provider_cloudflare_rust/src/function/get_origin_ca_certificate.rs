@@ -122,11 +122,15 @@ pub struct GetOriginCaCertificateResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn invoke(args: GetOriginCaCertificateArgs) -> GetOriginCaCertificateResult {
+pub fn invoke(
+    args: GetOriginCaCertificateArgs
+) -> GetOriginCaCertificateResult {
 
-    let result = crate::bindings::pulumi::cloudflare::get_origin_ca_certificate::invoke(&crate::bindings::pulumi::cloudflare::get_origin_ca_certificate::Args {
-        id: &args.id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::get_origin_ca_certificate::invoke(
+        &crate::bindings::pulumi::cloudflare::get_origin_ca_certificate::Args {
+                id: &args.id.get_inner(),
+        }
+    );
 
     GetOriginCaCertificateResult {
         certificate: crate::into_domain(result.certificate),

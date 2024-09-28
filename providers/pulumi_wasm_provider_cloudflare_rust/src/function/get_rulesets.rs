@@ -147,14 +147,18 @@ pub struct GetRulesetsResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn invoke(args: GetRulesetsArgs) -> GetRulesetsResult {
+pub fn invoke(
+    args: GetRulesetsArgs
+) -> GetRulesetsResult {
 
-    let result = crate::bindings::pulumi::cloudflare::get_rulesets::invoke(&crate::bindings::pulumi::cloudflare::get_rulesets::Args {
-        account_id: &args.account_id.get_inner(),
-        filter: &args.filter.get_inner(),
-        include_rules: &args.include_rules.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::get_rulesets::invoke(
+        &crate::bindings::pulumi::cloudflare::get_rulesets::Args {
+                account_id: &args.account_id.get_inner(),
+                filter: &args.filter.get_inner(),
+                include_rules: &args.include_rules.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     GetRulesetsResult {
         account_id: crate::into_domain(result.account_id),

@@ -21,11 +21,15 @@ pub struct GetAccountRolesResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn invoke(args: GetAccountRolesArgs) -> GetAccountRolesResult {
+pub fn invoke(
+    args: GetAccountRolesArgs
+) -> GetAccountRolesResult {
 
-    let result = crate::bindings::pulumi::cloudflare::get_account_roles::invoke(&crate::bindings::pulumi::cloudflare::get_account_roles::Args {
-        account_id: &args.account_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::get_account_roles::invoke(
+        &crate::bindings::pulumi::cloudflare::get_account_roles::Args {
+                account_id: &args.account_id.get_inner(),
+        }
+    );
 
     GetAccountRolesResult {
         account_id: crate::into_domain(result.account_id),

@@ -114,11 +114,15 @@ pub struct GetAccountsResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn invoke(args: GetAccountsArgs) -> GetAccountsResult {
+pub fn invoke(
+    args: GetAccountsArgs
+) -> GetAccountsResult {
 
-    let result = crate::bindings::pulumi::cloudflare::get_accounts::invoke(&crate::bindings::pulumi::cloudflare::get_accounts::Args {
-        name: &args.name.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::get_accounts::invoke(
+        &crate::bindings::pulumi::cloudflare::get_accounts::Args {
+                name: &args.name.get_inner(),
+        }
+    );
 
     GetAccountsResult {
         accounts: crate::into_domain(result.accounts),

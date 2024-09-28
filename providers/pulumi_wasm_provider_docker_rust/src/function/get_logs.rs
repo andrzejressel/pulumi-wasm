@@ -54,21 +54,25 @@ pub struct GetLogsResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn invoke(args: GetLogsArgs) -> GetLogsResult {
+pub fn invoke(
+    args: GetLogsArgs
+) -> GetLogsResult {
 
-    let result = crate::bindings::pulumi::docker::get_logs::invoke(&crate::bindings::pulumi::docker::get_logs::Args {
-        details: &args.details.get_inner(),
-        discard_headers: &args.discard_headers.get_inner(),
-        follow: &args.follow.get_inner(),
-        logs_list_string_enabled: &args.logs_list_string_enabled.get_inner(),
-        name: &args.name.get_inner(),
-        show_stderr: &args.show_stderr.get_inner(),
-        show_stdout: &args.show_stdout.get_inner(),
-        since: &args.since.get_inner(),
-        tail: &args.tail.get_inner(),
-        timestamps: &args.timestamps.get_inner(),
-        until: &args.until.get_inner(),
-    });
+    let result = crate::bindings::pulumi::docker::get_logs::invoke(
+        &crate::bindings::pulumi::docker::get_logs::Args {
+                details: &args.details.get_inner(),
+                discard_headers: &args.discard_headers.get_inner(),
+                follow: &args.follow.get_inner(),
+                logs_list_string_enabled: &args.logs_list_string_enabled.get_inner(),
+                name: &args.name.get_inner(),
+                show_stderr: &args.show_stderr.get_inner(),
+                show_stdout: &args.show_stdout.get_inner(),
+                since: &args.since.get_inner(),
+                tail: &args.tail.get_inner(),
+                timestamps: &args.timestamps.get_inner(),
+                until: &args.until.get_inner(),
+        }
+    );
 
     GetLogsResult {
         details: crate::into_domain(result.details),

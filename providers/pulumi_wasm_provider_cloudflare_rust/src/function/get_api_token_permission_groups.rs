@@ -110,10 +110,6 @@
 //! ```
 //! <!--End PulumiCodeChooser -->
 
-#[derive(bon::Builder)]
-#[builder(finish_fn = build_struct)]
-pub struct GetApiTokenPermissionGroupsArgs {
-}
 
 pub struct GetApiTokenPermissionGroupsResult {
     /// Map of permissions for account level resources.
@@ -133,10 +129,11 @@ pub struct GetApiTokenPermissionGroupsResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn invoke(args: GetApiTokenPermissionGroupsArgs) -> GetApiTokenPermissionGroupsResult {
+pub fn invoke(
+) -> GetApiTokenPermissionGroupsResult {
 
-    let result = crate::bindings::pulumi::cloudflare::get_api_token_permission_groups::invoke(&crate::bindings::pulumi::cloudflare::get_api_token_permission_groups::Args {
-    });
+    let result = crate::bindings::pulumi::cloudflare::get_api_token_permission_groups::invoke(
+    );
 
     GetApiTokenPermissionGroupsResult {
         account: crate::into_domain(result.account),

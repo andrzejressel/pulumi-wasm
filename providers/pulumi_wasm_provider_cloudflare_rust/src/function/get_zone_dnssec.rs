@@ -134,11 +134,15 @@ pub struct GetZoneDnssecResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn invoke(args: GetZoneDnssecArgs) -> GetZoneDnssecResult {
+pub fn invoke(
+    args: GetZoneDnssecArgs
+) -> GetZoneDnssecResult {
 
-    let result = crate::bindings::pulumi::cloudflare::get_zone_dnssec::invoke(&crate::bindings::pulumi::cloudflare::get_zone_dnssec::Args {
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::get_zone_dnssec::invoke(
+        &crate::bindings::pulumi::cloudflare::get_zone_dnssec::Args {
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     GetZoneDnssecResult {
         algorithm: crate::into_domain(result.algorithm),

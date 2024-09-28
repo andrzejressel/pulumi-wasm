@@ -36,14 +36,18 @@ pub struct GetAccessApplicationResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn invoke(args: GetAccessApplicationArgs) -> GetAccessApplicationResult {
+pub fn invoke(
+    args: GetAccessApplicationArgs
+) -> GetAccessApplicationResult {
 
-    let result = crate::bindings::pulumi::cloudflare::get_access_application::invoke(&crate::bindings::pulumi::cloudflare::get_access_application::Args {
-        account_id: &args.account_id.get_inner(),
-        domain: &args.domain.get_inner(),
-        name: &args.name.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::get_access_application::invoke(
+        &crate::bindings::pulumi::cloudflare::get_access_application::Args {
+                account_id: &args.account_id.get_inner(),
+                domain: &args.domain.get_inner(),
+                name: &args.name.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     GetAccessApplicationResult {
         account_id: crate::into_domain(result.account_id),

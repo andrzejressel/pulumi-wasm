@@ -115,11 +115,15 @@ pub struct GetDevicesResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn invoke(args: GetDevicesArgs) -> GetDevicesResult {
+pub fn invoke(
+    args: GetDevicesArgs
+) -> GetDevicesResult {
 
-    let result = crate::bindings::pulumi::cloudflare::get_devices::invoke(&crate::bindings::pulumi::cloudflare::get_devices::Args {
-        account_id: &args.account_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::get_devices::invoke(
+        &crate::bindings::pulumi::cloudflare::get_devices::Args {
+                account_id: &args.account_id.get_inner(),
+        }
+    );
 
     GetDevicesResult {
         account_id: crate::into_domain(result.account_id),

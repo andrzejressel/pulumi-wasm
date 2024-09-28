@@ -135,11 +135,15 @@ pub struct GetZonesResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn invoke(args: GetZonesArgs) -> GetZonesResult {
+pub fn invoke(
+    args: GetZonesArgs
+) -> GetZonesResult {
 
-    let result = crate::bindings::pulumi::cloudflare::get_zones::invoke(&crate::bindings::pulumi::cloudflare::get_zones::Args {
-        filter: &args.filter.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::get_zones::invoke(
+        &crate::bindings::pulumi::cloudflare::get_zones::Args {
+                filter: &args.filter.get_inner(),
+        }
+    );
 
     GetZonesResult {
         filter: crate::into_domain(result.filter),

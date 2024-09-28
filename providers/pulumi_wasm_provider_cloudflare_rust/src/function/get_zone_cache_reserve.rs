@@ -117,11 +117,15 @@ pub struct GetZoneCacheReserveResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn invoke(args: GetZoneCacheReserveArgs) -> GetZoneCacheReserveResult {
+pub fn invoke(
+    args: GetZoneCacheReserveArgs
+) -> GetZoneCacheReserveResult {
 
-    let result = crate::bindings::pulumi::cloudflare::get_zone_cache_reserve::invoke(&crate::bindings::pulumi::cloudflare::get_zone_cache_reserve::Args {
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::get_zone_cache_reserve::invoke(
+        &crate::bindings::pulumi::cloudflare::get_zone_cache_reserve::Args {
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     GetZoneCacheReserveResult {
         enabled: crate::into_domain(result.enabled),
