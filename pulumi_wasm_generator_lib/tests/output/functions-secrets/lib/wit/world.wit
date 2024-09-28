@@ -9,6 +9,7 @@ world mypkg-pulumi-client {
     import func-with-secrets;
 }
 
+
 interface func-with-secrets {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -26,9 +27,7 @@ interface func-with-secrets {
     }
 
     invoke: func(
-        name: string,
         args: args
     ) -> res;
 
 }
-

@@ -45,7 +45,6 @@ interface random-bytes {
     ) -> res;
 
 }
-
 interface random-id {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -72,7 +71,6 @@ interface random-id {
     ) -> res;
 
 }
-
 interface random-integer {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -98,7 +96,6 @@ interface random-integer {
     ) -> res;
 
 }
-
 interface random-password {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -141,7 +138,6 @@ interface random-password {
     ) -> res;
 
 }
-
 interface random-pet {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -166,7 +162,6 @@ interface random-pet {
     ) -> res;
 
 }
-
 interface random-shuffle {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -192,7 +187,6 @@ interface random-shuffle {
     ) -> res;
 
 }
-
 interface random-string {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -234,7 +228,6 @@ interface random-string {
     ) -> res;
 
 }
-
 interface random-uuid {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -254,5 +247,4 @@ interface random-uuid {
     ) -> res;
 
 }
-
 

@@ -183,7 +183,6 @@ interface container {
     ) -> res;
 
 }
-
 interface image {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -212,7 +211,6 @@ interface image {
     ) -> res;
 
 }
-
 interface network {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -254,7 +252,6 @@ interface network {
     ) -> res;
 
 }
-
 interface plugin {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -290,7 +287,6 @@ interface plugin {
     ) -> res;
 
 }
-
 interface registry-image {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -316,7 +312,6 @@ interface registry-image {
     ) -> res;
 
 }
-
 interface remote-image {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -349,7 +344,6 @@ interface remote-image {
     ) -> res;
 
 }
-
 interface secret {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -372,7 +366,6 @@ interface secret {
     ) -> res;
 
 }
-
 interface service {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -407,7 +400,6 @@ interface service {
     ) -> res;
 
 }
-
 interface service-config {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -428,7 +420,6 @@ interface service-config {
     ) -> res;
 
 }
-
 interface tag {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -450,7 +441,6 @@ interface tag {
     ) -> res;
 
 }
-
 interface volume {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -476,7 +466,6 @@ interface volume {
     ) -> res;
 
 }
-
 
 interface get-logs {
 
@@ -517,7 +506,6 @@ interface get-logs {
     ) -> res;
 
 }
-
 interface get-network {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -541,7 +529,6 @@ interface get-network {
     ) -> res;
 
 }
-
 interface get-plugin {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -566,7 +553,6 @@ interface get-plugin {
     ) -> res;
 
 }
-
 interface get-registry-image {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -588,7 +574,6 @@ interface get-registry-image {
     ) -> res;
 
 }
-
 interface get-remote-image {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -608,4 +593,3 @@ interface get-remote-image {
     ) -> res;
 
 }
-

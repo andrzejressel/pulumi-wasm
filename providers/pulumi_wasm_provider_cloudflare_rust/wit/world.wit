@@ -364,7 +364,6 @@ interface access-application {
     ) -> res;
 
 }
-
 interface access-ca-certificate {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -389,7 +388,6 @@ interface access-ca-certificate {
     ) -> res;
 
 }
-
 interface access-custom-page {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -418,7 +416,6 @@ interface access-custom-page {
     ) -> res;
 
 }
-
 interface access-group {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -447,7 +444,6 @@ interface access-group {
     ) -> res;
 
 }
-
 interface access-identity-provider {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -476,7 +472,6 @@ interface access-identity-provider {
     ) -> res;
 
 }
-
 interface access-keys-configuration {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -497,7 +492,6 @@ interface access-keys-configuration {
     ) -> res;
 
 }
-
 interface access-mutual-tls-certificate {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -525,7 +519,6 @@ interface access-mutual-tls-certificate {
     ) -> res;
 
 }
-
 interface access-mutual-tls-hostname-settings {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -548,7 +541,6 @@ interface access-mutual-tls-hostname-settings {
     ) -> res;
 
 }
-
 interface access-organization {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -591,7 +583,6 @@ interface access-organization {
     ) -> res;
 
 }
-
 interface access-policy {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -638,7 +629,6 @@ interface access-policy {
     ) -> res;
 
 }
-
 interface access-rule {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -665,7 +655,6 @@ interface access-rule {
     ) -> res;
 
 }
-
 interface access-service-token {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -695,7 +684,6 @@ interface access-service-token {
     ) -> res;
 
 }
-
 interface access-tag {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -720,7 +708,6 @@ interface access-tag {
     ) -> res;
 
 }
-
 interface account {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -743,7 +730,6 @@ interface account {
     ) -> res;
 
 }
-
 interface account-member {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -768,7 +754,6 @@ interface account-member {
     ) -> res;
 
 }
-
 interface address-map {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -799,7 +784,6 @@ interface address-map {
     ) -> res;
 
 }
-
 interface api-shield {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -820,7 +804,6 @@ interface api-shield {
     ) -> res;
 
 }
-
 interface api-shield-operation {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -845,7 +828,6 @@ interface api-shield-operation {
     ) -> res;
 
 }
-
 interface api-shield-operation-schema-validation-settings {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -868,7 +850,6 @@ interface api-shield-operation-schema-validation-settings {
     ) -> res;
 
 }
-
 interface api-shield-schema {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -895,7 +876,6 @@ interface api-shield-schema {
     ) -> res;
 
 }
-
 interface api-shield-schema-validation-settings {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -918,7 +898,6 @@ interface api-shield-schema-validation-settings {
     ) -> res;
 
 }
-
 interface api-token {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -949,7 +928,6 @@ interface api-token {
     ) -> res;
 
 }
-
 interface argo {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -972,7 +950,6 @@ interface argo {
     ) -> res;
 
 }
-
 interface authenticated-origin-pulls {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -997,7 +974,6 @@ interface authenticated-origin-pulls {
     ) -> res;
 
 }
-
 interface authenticated-origin-pulls-certificate {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1028,7 +1004,6 @@ interface authenticated-origin-pulls-certificate {
     ) -> res;
 
 }
-
 interface bot-management {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1066,7 +1041,6 @@ interface bot-management {
     ) -> res;
 
 }
-
 interface byo-ip-prefix {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1091,7 +1065,6 @@ interface byo-ip-prefix {
     ) -> res;
 
 }
-
 interface certificate-pack {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1128,7 +1101,6 @@ interface certificate-pack {
     ) -> res;
 
 }
-
 interface custom-hostname {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1162,7 +1134,6 @@ interface custom-hostname {
     ) -> res;
 
 }
-
 interface custom-hostname-fallback-origin {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1184,7 +1155,6 @@ interface custom-hostname-fallback-origin {
     ) -> res;
 
 }
-
 interface custom-pages {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1211,7 +1181,6 @@ interface custom-pages {
     ) -> res;
 
 }
-
 interface custom-ssl {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1242,7 +1211,6 @@ interface custom-ssl {
     ) -> res;
 
 }
-
 interface d1-database {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1264,7 +1232,6 @@ interface d1-database {
     ) -> res;
 
 }
-
 interface device-dex-test {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1295,7 +1262,6 @@ interface device-dex-test {
     ) -> res;
 
 }
-
 interface device-managed-networks {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1320,7 +1286,6 @@ interface device-managed-networks {
     ) -> res;
 
 }
-
 interface device-policy-certificates {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1341,7 +1306,6 @@ interface device-policy-certificates {
     ) -> res;
 
 }
-
 interface device-posture-integration {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1370,7 +1334,6 @@ interface device-posture-integration {
     ) -> res;
 
 }
-
 interface device-posture-rule {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1403,7 +1366,6 @@ interface device-posture-rule {
     ) -> res;
 
 }
-
 interface device-settings-policy {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1456,7 +1418,6 @@ interface device-settings-policy {
     ) -> res;
 
 }
-
 interface dlp-profile {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1487,7 +1448,6 @@ interface dlp-profile {
     ) -> res;
 
 }
-
 interface email-routing-address {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1512,7 +1472,6 @@ interface email-routing-address {
     ) -> res;
 
 }
-
 interface email-routing-catch-all {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1540,7 +1499,6 @@ interface email-routing-catch-all {
     ) -> res;
 
 }
-
 interface email-routing-rule {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1570,7 +1528,6 @@ interface email-routing-rule {
     ) -> res;
 
 }
-
 interface email-routing-settings {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1598,7 +1555,6 @@ interface email-routing-settings {
     ) -> res;
 
 }
-
 interface fallback-domain {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1621,7 +1577,6 @@ interface fallback-domain {
     ) -> res;
 
 }
-
 interface filter {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1648,7 +1603,6 @@ interface filter {
     ) -> res;
 
 }
-
 interface firewall-rule {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1679,7 +1633,6 @@ interface firewall-rule {
     ) -> res;
 
 }
-
 interface gre-tunnel {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1718,7 +1671,6 @@ interface gre-tunnel {
     ) -> res;
 
 }
-
 interface healthcheck {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1777,7 +1729,6 @@ interface healthcheck {
     ) -> res;
 
 }
-
 interface hostname-tls-setting {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1804,7 +1755,6 @@ interface hostname-tls-setting {
     ) -> res;
 
 }
-
 interface hostname-tls-setting-ciphers {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1831,7 +1781,6 @@ interface hostname-tls-setting-ciphers {
     ) -> res;
 
 }
-
 interface hyperdrive-config {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1856,7 +1805,6 @@ interface hyperdrive-config {
     ) -> res;
 
 }
-
 interface ipsec-tunnel {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1907,7 +1855,6 @@ interface ipsec-tunnel {
     ) -> res;
 
 }
-
 interface keyless-certificate {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1939,7 +1886,6 @@ interface keyless-certificate {
     ) -> res;
 
 }
-
 interface %list {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1966,7 +1912,6 @@ interface %list {
     ) -> res;
 
 }
-
 interface list-item {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -1997,7 +1942,6 @@ interface list-item {
     ) -> res;
 
 }
-
 interface load-balancer {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2054,7 +1998,6 @@ interface load-balancer {
     ) -> res;
 
 }
-
 interface load-balancer-monitor {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2107,7 +2050,6 @@ interface load-balancer-monitor {
     ) -> res;
 
 }
-
 interface load-balancer-pool {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2152,7 +2094,6 @@ interface load-balancer-pool {
     ) -> res;
 
 }
-
 interface logpull-retention {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2173,7 +2114,6 @@ interface logpull-retention {
     ) -> res;
 
 }
-
 interface logpush-job {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2220,7 +2160,6 @@ interface logpush-job {
     ) -> res;
 
 }
-
 interface logpush-ownership-challenge {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2244,7 +2183,6 @@ interface logpush-ownership-challenge {
     ) -> res;
 
 }
-
 interface magic-firewall-ruleset {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2269,7 +2207,6 @@ interface magic-firewall-ruleset {
     ) -> res;
 
 }
-
 interface managed-headers {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2292,7 +2229,6 @@ interface managed-headers {
     ) -> res;
 
 }
-
 interface mtls-certificate {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2324,7 +2260,6 @@ interface mtls-certificate {
     ) -> res;
 
 }
-
 interface notification-policy {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2361,7 +2296,6 @@ interface notification-policy {
     ) -> res;
 
 }
-
 interface notification-policy-webhooks {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2390,7 +2324,6 @@ interface notification-policy-webhooks {
     ) -> res;
 
 }
-
 interface observatory-scheduled-test {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2415,7 +2348,6 @@ interface observatory-scheduled-test {
     ) -> res;
 
 }
-
 interface origin-ca-certificate {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2444,7 +2376,6 @@ interface origin-ca-certificate {
     ) -> res;
 
 }
-
 interface page-rule {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2471,7 +2402,6 @@ interface page-rule {
     ) -> res;
 
 }
-
 interface pages-domain {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2495,7 +2425,6 @@ interface pages-domain {
     ) -> res;
 
 }
-
 interface pages-project {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2527,7 +2456,6 @@ interface pages-project {
     ) -> res;
 
 }
-
 interface queue {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2548,7 +2476,6 @@ interface queue {
     ) -> res;
 
 }
-
 interface r2-bucket {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2571,7 +2498,6 @@ interface r2-bucket {
     ) -> res;
 
 }
-
 interface rate-limit {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2606,7 +2532,6 @@ interface rate-limit {
     ) -> res;
 
 }
-
 interface %record {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2650,7 +2575,6 @@ interface %record {
     ) -> res;
 
 }
-
 interface regional-hostname {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2674,7 +2598,6 @@ interface regional-hostname {
     ) -> res;
 
 }
-
 interface regional-tiered-cache {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2695,7 +2618,6 @@ interface regional-tiered-cache {
     ) -> res;
 
 }
-
 interface ruleset {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2726,7 +2648,6 @@ interface ruleset {
     ) -> res;
 
 }
-
 interface spectrum-application {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2769,7 +2690,6 @@ interface spectrum-application {
     ) -> res;
 
 }
-
 interface split-tunnel {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2794,7 +2714,6 @@ interface split-tunnel {
     ) -> res;
 
 }
-
 interface static-route {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2827,7 +2746,6 @@ interface static-route {
     ) -> res;
 
 }
-
 interface teams-account {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2874,7 +2792,6 @@ interface teams-account {
     ) -> res;
 
 }
-
 interface teams-list {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2901,7 +2818,6 @@ interface teams-list {
     ) -> res;
 
 }
-
 interface teams-location {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2931,7 +2847,6 @@ interface teams-location {
     ) -> res;
 
 }
-
 interface teams-proxy-endpoint {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2955,7 +2870,6 @@ interface teams-proxy-endpoint {
     ) -> res;
 
 }
-
 interface teams-rule {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2995,7 +2909,6 @@ interface teams-rule {
     ) -> res;
 
 }
-
 interface tiered-cache {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3016,7 +2929,6 @@ interface tiered-cache {
     ) -> res;
 
 }
-
 interface total-tls {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3039,7 +2951,6 @@ interface total-tls {
     ) -> res;
 
 }
-
 interface tunnel {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3066,7 +2977,6 @@ interface tunnel {
     ) -> res;
 
 }
-
 interface tunnel-config {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3089,7 +2999,6 @@ interface tunnel-config {
     ) -> res;
 
 }
-
 interface tunnel-route {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3116,7 +3025,6 @@ interface tunnel-route {
     ) -> res;
 
 }
-
 interface tunnel-virtual-network {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3141,7 +3049,6 @@ interface tunnel-virtual-network {
     ) -> res;
 
 }
-
 interface turnstile-widget {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3173,7 +3080,6 @@ interface turnstile-widget {
     ) -> res;
 
 }
-
 interface url-normalization-settings {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3196,7 +3102,6 @@ interface url-normalization-settings {
     ) -> res;
 
 }
-
 interface user-agent-blocking-rule {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3223,7 +3128,6 @@ interface user-agent-blocking-rule {
     ) -> res;
 
 }
-
 interface waiting-room {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3276,7 +3180,6 @@ interface waiting-room {
     ) -> res;
 
 }
-
 interface waiting-room-event {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3325,7 +3228,6 @@ interface waiting-room-event {
     ) -> res;
 
 }
-
 interface waiting-room-rules {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3348,7 +3250,6 @@ interface waiting-room-rules {
     ) -> res;
 
 }
-
 interface waiting-room-settings {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3369,7 +3270,6 @@ interface waiting-room-settings {
     ) -> res;
 
 }
-
 interface web3-hostname {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3399,7 +3299,6 @@ interface web3-hostname {
     ) -> res;
 
 }
-
 interface web-analytics-rule {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3428,7 +3327,6 @@ interface web-analytics-rule {
     ) -> res;
 
 }
-
 interface web-analytics-site {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3457,7 +3355,6 @@ interface web-analytics-site {
     ) -> res;
 
 }
-
 interface worker-cron-trigger {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3480,7 +3377,6 @@ interface worker-cron-trigger {
     ) -> res;
 
 }
-
 interface worker-domain {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3507,7 +3403,6 @@ interface worker-domain {
     ) -> res;
 
 }
-
 interface worker-route {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3530,7 +3425,6 @@ interface worker-route {
     ) -> res;
 
 }
-
 interface worker-script {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3585,7 +3479,6 @@ interface worker-script {
     ) -> res;
 
 }
-
 interface worker-secret {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3610,7 +3503,6 @@ interface worker-secret {
     ) -> res;
 
 }
-
 interface workers-for-platforms-namespace {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3631,7 +3523,6 @@ interface workers-for-platforms-namespace {
     ) -> res;
 
 }
-
 interface workers-kv {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3656,7 +3547,6 @@ interface workers-kv {
     ) -> res;
 
 }
-
 interface workers-kv-namespace {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3677,7 +3567,6 @@ interface workers-kv-namespace {
     ) -> res;
 
 }
-
 interface zone {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3711,7 +3600,6 @@ interface zone {
     ) -> res;
 
 }
-
 interface zone-cache-reserve {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3732,7 +3620,6 @@ interface zone-cache-reserve {
     ) -> res;
 
 }
-
 interface zone-cache-variants {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3773,7 +3660,6 @@ interface zone-cache-variants {
     ) -> res;
 
 }
-
 interface zone-dnssec {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3804,7 +3690,6 @@ interface zone-dnssec {
     ) -> res;
 
 }
-
 interface zone-hold {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3829,7 +3714,6 @@ interface zone-hold {
     ) -> res;
 
 }
-
 interface zone-lockdown {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3858,7 +3742,6 @@ interface zone-lockdown {
     ) -> res;
 
 }
-
 interface zone-settings-override {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3885,7 +3768,6 @@ interface zone-settings-override {
 
 }
 
-
 interface get-access-application {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3911,7 +3793,6 @@ interface get-access-application {
     ) -> res;
 
 }
-
 interface get-access-identity-provider {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3935,7 +3816,6 @@ interface get-access-identity-provider {
     ) -> res;
 
 }
-
 interface get-account-roles {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3955,7 +3835,6 @@ interface get-account-roles {
     ) -> res;
 
 }
-
 interface get-accounts {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3975,7 +3854,6 @@ interface get-accounts {
     ) -> res;
 
 }
-
 interface get-api-token-permission-groups {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3994,7 +3872,6 @@ interface get-api-token-permission-groups {
     ) -> res;
 
 }
-
 interface get-device-posture-rules {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -4018,7 +3895,6 @@ interface get-device-posture-rules {
     ) -> res;
 
 }
-
 interface get-devices {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -4038,7 +3914,6 @@ interface get-devices {
     ) -> res;
 
 }
-
 interface get-dlp-datasets {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -4058,7 +3933,6 @@ interface get-dlp-datasets {
     ) -> res;
 
 }
-
 interface get-ip-ranges {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -4077,7 +3951,6 @@ interface get-ip-ranges {
     ) -> res;
 
 }
-
 interface get-list {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -4101,7 +3974,6 @@ interface get-list {
     ) -> res;
 
 }
-
 interface get-lists {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -4121,7 +3993,6 @@ interface get-lists {
     ) -> res;
 
 }
-
 interface get-load-balancer-pools {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -4144,7 +4015,6 @@ interface get-load-balancer-pools {
     ) -> res;
 
 }
-
 interface get-origin-ca-certificate {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -4167,7 +4037,6 @@ interface get-origin-ca-certificate {
     ) -> res;
 
 }
-
 interface get-origin-ca-root-certificate {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -4187,7 +4056,6 @@ interface get-origin-ca-root-certificate {
     ) -> res;
 
 }
-
 interface get-record {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -4220,7 +4088,6 @@ interface get-record {
     ) -> res;
 
 }
-
 interface get-rulesets {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -4246,7 +4113,6 @@ interface get-rulesets {
     ) -> res;
 
 }
-
 interface get-tunnel {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -4270,7 +4136,6 @@ interface get-tunnel {
     ) -> res;
 
 }
-
 interface get-tunnel-virtual-network {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -4293,7 +4158,6 @@ interface get-tunnel-virtual-network {
     ) -> res;
 
 }
-
 interface get-user {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -4309,7 +4173,6 @@ interface get-user {
     ) -> res;
 
 }
-
 interface get-zone {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -4337,7 +4200,6 @@ interface get-zone {
     ) -> res;
 
 }
-
 interface get-zone-cache-reserve {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -4357,7 +4219,6 @@ interface get-zone-cache-reserve {
     ) -> res;
 
 }
-
 interface get-zone-dnssec {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -4386,7 +4247,6 @@ interface get-zone-dnssec {
     ) -> res;
 
 }
-
 interface get-zones {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -4406,4 +4266,3 @@ interface get-zones {
     ) -> res;
 
 }
-

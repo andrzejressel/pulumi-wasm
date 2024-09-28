@@ -5,7 +5,6 @@ use crate::Component;
 
 impl func_with_secrets::Guest for Component {
     fn invoke(
-        name: String,
         args: func_with_secrets::Args
     ) -> func_with_secrets::Res {
         pulumi_wasm_common::setup_logger();
