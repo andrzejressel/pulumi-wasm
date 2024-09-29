@@ -11,9 +11,11 @@ struct Interface {}
 #[derive(Serialize)]
 struct Package {
     name: String,
-    contains_resources: bool,
+    contains_elements: bool,
     contains_types: bool,
     pulumi_wasm_version: String,
+    contains_resources: bool,
+    contains_functions: bool,
 }
 
 fn convert_model(package: &crate::model::Package) -> Package {
@@ -21,7 +23,9 @@ fn convert_model(package: &crate::model::Package) -> Package {
         name: package.name.clone(),
         pulumi_wasm_version: get_main_version().to_string(),
         contains_types: !package.types.is_empty(),
+        contains_elements: !package.resources.is_empty() || !package.functions.is_empty(),
         contains_resources: !package.resources.is_empty(),
+        contains_functions: !package.functions.is_empty(),
     }
 }
 

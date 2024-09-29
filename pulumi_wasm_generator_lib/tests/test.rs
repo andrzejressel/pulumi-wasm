@@ -16,6 +16,25 @@ fn cyclic_types() -> Result<()> {
     run_pulumi_generator_test("cyclic-types", "example")
 }
 
+#[test]
+fn functions_secrets() -> Result<()> {
+    run_pulumi_generator_test("functions-secrets", "mypkg")
+}
+
+#[test]
+// https://github.com/andrzejressel/pulumi-wasm/issues/394
+#[ignore]
+fn output_funcs() -> Result<()> {
+    run_pulumi_generator_test("output-funcs", "mypkg")
+}
+
+#[test]
+// https://github.com/andrzejressel/pulumi-wasm/issues/394
+#[ignore]
+fn output_funcs_edgeorder() -> Result<()> {
+    run_pulumi_generator_test("output-funcs-edgeorder", "myedgeorder")
+}
+
 // provider_name is `name` from yaml file
 fn run_pulumi_generator_test(test_name: &str, provider_name: &str) -> Result<()> {
     let root_path = format!("tests/output/{test_name}");

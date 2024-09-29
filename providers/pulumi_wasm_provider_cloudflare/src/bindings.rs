@@ -224,6 +224,51 @@ pub mod component {
                         .finish()
                 }
             }
+            pub struct ResourceInvokeResultField {
+                pub name: _rt::String,
+                pub output: Output,
+            }
+            impl ::core::fmt::Debug for ResourceInvokeResultField {
+                fn fmt(
+                    &self,
+                    f: &mut ::core::fmt::Formatter<'_>,
+                ) -> ::core::fmt::Result {
+                    f.debug_struct("ResourceInvokeResultField")
+                        .field("name", &self.name)
+                        .field("output", &self.output)
+                        .finish()
+                }
+            }
+            pub struct ResourceInvokeRequest<'a> {
+                pub token: _rt::String,
+                pub object: _rt::Vec<ObjectField<'a>>,
+                pub results: _rt::Vec<ResultField>,
+            }
+            impl<'a> ::core::fmt::Debug for ResourceInvokeRequest<'a> {
+                fn fmt(
+                    &self,
+                    f: &mut ::core::fmt::Formatter<'_>,
+                ) -> ::core::fmt::Result {
+                    f.debug_struct("ResourceInvokeRequest")
+                        .field("token", &self.token)
+                        .field("object", &self.object)
+                        .field("results", &self.results)
+                        .finish()
+                }
+            }
+            pub struct ResourceInvokeResult {
+                pub fields: _rt::Vec<ResourceInvokeResultField>,
+            }
+            impl ::core::fmt::Debug for ResourceInvokeResult {
+                fn fmt(
+                    &self,
+                    f: &mut ::core::fmt::Formatter<'_>,
+                ) -> ::core::fmt::Result {
+                    f.debug_struct("ResourceInvokeResult")
+                        .field("fields", &self.fields)
+                        .finish()
+                }
+            }
             #[allow(unused_unsafe, clippy::all)]
             pub fn register(
                 request: &RegisterResourceRequest<'_>,
@@ -376,6 +421,149 @@ pub mod component {
                     }
                     RegisterResourceResult {
                         fields: result16,
+                    }
+                }
+            }
+            #[allow(unused_unsafe, clippy::all)]
+            pub fn invoke(request: &ResourceInvokeRequest<'_>) -> ResourceInvokeResult {
+                unsafe {
+                    #[repr(align(4))]
+                    struct RetArea([::core::mem::MaybeUninit<u8>; 8]);
+                    let mut ret_area = RetArea([::core::mem::MaybeUninit::uninit(); 8]);
+                    let ResourceInvokeRequest {
+                        token: token0,
+                        object: object0,
+                        results: results0,
+                    } = request;
+                    let vec1 = token0;
+                    let ptr1 = vec1.as_ptr().cast::<u8>();
+                    let len1 = vec1.len();
+                    let vec4 = object0;
+                    let len4 = vec4.len();
+                    let layout4 = _rt::alloc::Layout::from_size_align_unchecked(
+                        vec4.len() * 12,
+                        4,
+                    );
+                    let result4 = if layout4.size() != 0 {
+                        let ptr = _rt::alloc::alloc(layout4).cast::<u8>();
+                        if ptr.is_null() {
+                            _rt::alloc::handle_alloc_error(layout4);
+                        }
+                        ptr
+                    } else {
+                        { ::core::ptr::null_mut() }
+                    };
+                    for (i, e) in vec4.into_iter().enumerate() {
+                        let base = result4.add(i * 12);
+                        {
+                            let ObjectField { name: name2, value: value2 } = e;
+                            let vec3 = name2;
+                            let ptr3 = vec3.as_ptr().cast::<u8>();
+                            let len3 = vec3.len();
+                            *base.add(4).cast::<usize>() = len3;
+                            *base.add(0).cast::<*mut u8>() = ptr3.cast_mut();
+                            *base.add(8).cast::<i32>() = (value2).handle() as i32;
+                        }
+                    }
+                    let vec7 = results0;
+                    let len7 = vec7.len();
+                    let layout7 = _rt::alloc::Layout::from_size_align_unchecked(
+                        vec7.len() * 8,
+                        4,
+                    );
+                    let result7 = if layout7.size() != 0 {
+                        let ptr = _rt::alloc::alloc(layout7).cast::<u8>();
+                        if ptr.is_null() {
+                            _rt::alloc::handle_alloc_error(layout7);
+                        }
+                        ptr
+                    } else {
+                        { ::core::ptr::null_mut() }
+                    };
+                    for (i, e) in vec7.into_iter().enumerate() {
+                        let base = result7.add(i * 8);
+                        {
+                            let ResultField { name: name5 } = e;
+                            let vec6 = name5;
+                            let ptr6 = vec6.as_ptr().cast::<u8>();
+                            let len6 = vec6.len();
+                            *base.add(4).cast::<usize>() = len6;
+                            *base.add(0).cast::<*mut u8>() = ptr6.cast_mut();
+                        }
+                    }
+                    let ptr8 = ret_area.0.as_mut_ptr().cast::<u8>();
+                    #[cfg(target_arch = "wasm32")]
+                    #[link(
+                        wasm_import_module = "component:pulumi-wasm/register-interface@0.0.0-DEV"
+                    )]
+                    extern "C" {
+                        #[link_name = "invoke"]
+                        fn wit_import(
+                            _: *mut u8,
+                            _: usize,
+                            _: *mut u8,
+                            _: usize,
+                            _: *mut u8,
+                            _: usize,
+                            _: *mut u8,
+                        );
+                    }
+                    #[cfg(not(target_arch = "wasm32"))]
+                    fn wit_import(
+                        _: *mut u8,
+                        _: usize,
+                        _: *mut u8,
+                        _: usize,
+                        _: *mut u8,
+                        _: usize,
+                        _: *mut u8,
+                    ) {
+                        unreachable!()
+                    }
+                    wit_import(
+                        ptr1.cast_mut(),
+                        len1,
+                        result4,
+                        len4,
+                        result7,
+                        len7,
+                        ptr8,
+                    );
+                    let l9 = *ptr8.add(0).cast::<*mut u8>();
+                    let l10 = *ptr8.add(4).cast::<usize>();
+                    let base15 = l9;
+                    let len15 = l10;
+                    let mut result15 = _rt::Vec::with_capacity(len15);
+                    for i in 0..len15 {
+                        let base = base15.add(i * 12);
+                        let e15 = {
+                            let l11 = *base.add(0).cast::<*mut u8>();
+                            let l12 = *base.add(4).cast::<usize>();
+                            let len13 = l12;
+                            let bytes13 = _rt::Vec::from_raw_parts(
+                                l11.cast(),
+                                len13,
+                                len13,
+                            );
+                            let l14 = *base.add(8).cast::<i32>();
+                            ResourceInvokeResultField {
+                                name: _rt::string_lift(bytes13),
+                                output: super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                    l14 as u32,
+                                ),
+                            }
+                        };
+                        result15.push(e15);
+                    }
+                    _rt::cabi_dealloc(base15, len15 * 12, 4);
+                    if layout4.size() != 0 {
+                        _rt::alloc::dealloc(result4.cast(), layout4);
+                    }
+                    if layout7.size() != 0 {
+                        _rt::alloc::dealloc(result7.cast(), layout7);
+                    }
+                    ResourceInvokeResult {
+                        fields: result15,
                     }
                 }
             }
@@ -19832,6 +20020,2220 @@ pub mod exports {
                     [::core::mem::MaybeUninit::uninit(); 28],
                 );
             }
+            #[allow(dead_code, clippy::all)]
+            pub mod get_access_application {
+                #[used]
+                #[doc(hidden)]
+                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub account_id: &'a Output,
+                    pub domain: &'a Output,
+                    pub name: &'a Output,
+                    pub zone_id: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Args")
+                            .field("account-id", &self.account_id)
+                            .field("domain", &self.domain)
+                            .field("name", &self.name)
+                            .field("zone-id", &self.zone_id)
+                            .finish()
+                    }
+                }
+                pub struct Res {
+                    pub account_id: Output,
+                    pub aud: Output,
+                    pub domain: Output,
+                    pub id: Output,
+                    pub name: Output,
+                    pub zone_id: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("account-id", &self.account_id)
+                            .field("aud", &self.aud)
+                            .field("domain", &self.domain)
+                            .field("id", &self.id)
+                            .field("name", &self.name)
+                            .field("zone-id", &self.zone_id)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(
+                    arg0: i32,
+                    arg1: i32,
+                    arg2: i32,
+                    arg3: i32,
+                ) -> *mut u8 {
+                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
+                    let handle1;
+                    let handle2;
+                    let handle3;
+                    let result4 = T::invoke(Args {
+                        account_id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
+                        },
+                        domain: {
+                            handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg1 as u32,
+                            );
+                            &handle1
+                        },
+                        name: {
+                            handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg2 as u32,
+                            );
+                            &handle2
+                        },
+                        zone_id: {
+                            handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg3 as u32,
+                            );
+                            &handle3
+                        },
+                    });
+                    let ptr5 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        account_id: account_id6,
+                        aud: aud6,
+                        domain: domain6,
+                        id: id6,
+                        name: name6,
+                        zone_id: zone_id6,
+                    } = result4;
+                    *ptr5.add(0).cast::<i32>() = (account_id6).take_handle() as i32;
+                    *ptr5.add(4).cast::<i32>() = (aud6).take_handle() as i32;
+                    *ptr5.add(8).cast::<i32>() = (domain6).take_handle() as i32;
+                    *ptr5.add(12).cast::<i32>() = (id6).take_handle() as i32;
+                    *ptr5.add(16).cast::<i32>() = (name6).take_handle() as i32;
+                    *ptr5.add(20).cast::<i32>() = (zone_id6).take_handle() as i32;
+                    ptr5
+                }
+                pub trait Guest {
+                    fn invoke(args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+                macro_rules! __export_pulumi_cloudflare_get_access_application_5_24_1_divider_zero_zero_zero_dev_cabi {
+                    ($ty:ident with_types_in $($path_to_types:tt)*) => {
+                        const _ : () = { #[export_name =
+                        "pulumi:cloudflare/get-access-application@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 :
+                        i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
+                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
+                    };
+                }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_cloudflare_get_access_application_5_24_1_divider_zero_zero_zero_dev_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
+                static mut _RET_AREA: _RetArea = _RetArea(
+                    [::core::mem::MaybeUninit::uninit(); 24],
+                );
+            }
+            #[allow(dead_code, clippy::all)]
+            pub mod get_access_identity_provider {
+                #[used]
+                #[doc(hidden)]
+                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub account_id: &'a Output,
+                    pub name: &'a Output,
+                    pub zone_id: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Args")
+                            .field("account-id", &self.account_id)
+                            .field("name", &self.name)
+                            .field("zone-id", &self.zone_id)
+                            .finish()
+                    }
+                }
+                pub struct Res {
+                    pub account_id: Output,
+                    pub id: Output,
+                    pub name: Output,
+                    pub type_: Output,
+                    pub zone_id: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("account-id", &self.account_id)
+                            .field("id", &self.id)
+                            .field("name", &self.name)
+                            .field("type", &self.type_)
+                            .field("zone-id", &self.zone_id)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(
+                    arg0: i32,
+                    arg1: i32,
+                    arg2: i32,
+                ) -> *mut u8 {
+                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
+                    let handle1;
+                    let handle2;
+                    let result3 = T::invoke(Args {
+                        account_id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
+                        },
+                        name: {
+                            handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg1 as u32,
+                            );
+                            &handle1
+                        },
+                        zone_id: {
+                            handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg2 as u32,
+                            );
+                            &handle2
+                        },
+                    });
+                    let ptr4 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        account_id: account_id5,
+                        id: id5,
+                        name: name5,
+                        type_: type_5,
+                        zone_id: zone_id5,
+                    } = result3;
+                    *ptr4.add(0).cast::<i32>() = (account_id5).take_handle() as i32;
+                    *ptr4.add(4).cast::<i32>() = (id5).take_handle() as i32;
+                    *ptr4.add(8).cast::<i32>() = (name5).take_handle() as i32;
+                    *ptr4.add(12).cast::<i32>() = (type_5).take_handle() as i32;
+                    *ptr4.add(16).cast::<i32>() = (zone_id5).take_handle() as i32;
+                    ptr4
+                }
+                pub trait Guest {
+                    fn invoke(args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+                macro_rules! __export_pulumi_cloudflare_get_access_identity_provider_5_24_1_divider_zero_zero_zero_dev_cabi {
+                    ($ty:ident with_types_in $($path_to_types:tt)*) => {
+                        const _ : () = { #[export_name =
+                        "pulumi:cloudflare/get-access-identity-provider@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 :
+                        i32,) -> * mut u8 { $($path_to_types)*::
+                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2) } };
+                    };
+                }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_cloudflare_get_access_identity_provider_5_24_1_divider_zero_zero_zero_dev_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
+                static mut _RET_AREA: _RetArea = _RetArea(
+                    [::core::mem::MaybeUninit::uninit(); 20],
+                );
+            }
+            #[allow(dead_code, clippy::all)]
+            pub mod get_account_roles {
+                #[used]
+                #[doc(hidden)]
+                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub account_id: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Args")
+                            .field("account-id", &self.account_id)
+                            .finish()
+                    }
+                }
+                pub struct Res {
+                    pub account_id: Output,
+                    pub id: Output,
+                    pub roles: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("account-id", &self.account_id)
+                            .field("id", &self.id)
+                            .field("roles", &self.roles)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: i32) -> *mut u8 {
+                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
+                    let result1 = T::invoke(Args {
+                        account_id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
+                        },
+                    });
+                    let ptr2 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res { account_id: account_id3, id: id3, roles: roles3 } = result1;
+                    *ptr2.add(0).cast::<i32>() = (account_id3).take_handle() as i32;
+                    *ptr2.add(4).cast::<i32>() = (id3).take_handle() as i32;
+                    *ptr2.add(8).cast::<i32>() = (roles3).take_handle() as i32;
+                    ptr2
+                }
+                pub trait Guest {
+                    fn invoke(args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+                macro_rules! __export_pulumi_cloudflare_get_account_roles_5_24_1_divider_zero_zero_zero_dev_cabi {
+                    ($ty:ident with_types_in $($path_to_types:tt)*) => {
+                        const _ : () = { #[export_name =
+                        "pulumi:cloudflare/get-account-roles@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
+                    };
+                }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_cloudflare_get_account_roles_5_24_1_divider_zero_zero_zero_dev_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
+                static mut _RET_AREA: _RetArea = _RetArea(
+                    [::core::mem::MaybeUninit::uninit(); 12],
+                );
+            }
+            #[allow(dead_code, clippy::all)]
+            pub mod get_accounts {
+                #[used]
+                #[doc(hidden)]
+                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub name: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Args").field("name", &self.name).finish()
+                    }
+                }
+                pub struct Res {
+                    pub accounts: Output,
+                    pub id: Output,
+                    pub name: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("accounts", &self.accounts)
+                            .field("id", &self.id)
+                            .field("name", &self.name)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: i32) -> *mut u8 {
+                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
+                    let result1 = T::invoke(Args {
+                        name: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
+                        },
+                    });
+                    let ptr2 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res { accounts: accounts3, id: id3, name: name3 } = result1;
+                    *ptr2.add(0).cast::<i32>() = (accounts3).take_handle() as i32;
+                    *ptr2.add(4).cast::<i32>() = (id3).take_handle() as i32;
+                    *ptr2.add(8).cast::<i32>() = (name3).take_handle() as i32;
+                    ptr2
+                }
+                pub trait Guest {
+                    fn invoke(args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+                macro_rules! __export_pulumi_cloudflare_get_accounts_5_24_1_divider_zero_zero_zero_dev_cabi {
+                    ($ty:ident with_types_in $($path_to_types:tt)*) => {
+                        const _ : () = { #[export_name =
+                        "pulumi:cloudflare/get-accounts@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
+                    };
+                }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_cloudflare_get_accounts_5_24_1_divider_zero_zero_zero_dev_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
+                static mut _RET_AREA: _RetArea = _RetArea(
+                    [::core::mem::MaybeUninit::uninit(); 12],
+                );
+            }
+            #[allow(dead_code, clippy::all)]
+            pub mod get_api_token_permission_groups {
+                #[used]
+                #[doc(hidden)]
+                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Res {
+                    pub account: Output,
+                    pub id: Output,
+                    pub permissions: Output,
+                    pub r2: Output,
+                    pub user: Output,
+                    pub zone: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("account", &self.account)
+                            .field("id", &self.id)
+                            .field("permissions", &self.permissions)
+                            .field("r2", &self.r2)
+                            .field("user", &self.user)
+                            .field("zone", &self.zone)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>() -> *mut u8 {
+                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let result0 = T::invoke();
+                    let ptr1 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        account: account2,
+                        id: id2,
+                        permissions: permissions2,
+                        r2: r22,
+                        user: user2,
+                        zone: zone2,
+                    } = result0;
+                    *ptr1.add(0).cast::<i32>() = (account2).take_handle() as i32;
+                    *ptr1.add(4).cast::<i32>() = (id2).take_handle() as i32;
+                    *ptr1.add(8).cast::<i32>() = (permissions2).take_handle() as i32;
+                    *ptr1.add(12).cast::<i32>() = (r22).take_handle() as i32;
+                    *ptr1.add(16).cast::<i32>() = (user2).take_handle() as i32;
+                    *ptr1.add(20).cast::<i32>() = (zone2).take_handle() as i32;
+                    ptr1
+                }
+                pub trait Guest {
+                    fn invoke() -> Res;
+                }
+                #[doc(hidden)]
+                macro_rules! __export_pulumi_cloudflare_get_api_token_permission_groups_5_24_1_divider_zero_zero_zero_dev_cabi {
+                    ($ty:ident with_types_in $($path_to_types:tt)*) => {
+                        const _ : () = { #[export_name =
+                        "pulumi:cloudflare/get-api-token-permission-groups@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        unsafe extern "C" fn export_invoke() -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > () } };
+                    };
+                }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_cloudflare_get_api_token_permission_groups_5_24_1_divider_zero_zero_zero_dev_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
+                static mut _RET_AREA: _RetArea = _RetArea(
+                    [::core::mem::MaybeUninit::uninit(); 24],
+                );
+            }
+            #[allow(dead_code, clippy::all)]
+            pub mod get_device_posture_rules {
+                #[used]
+                #[doc(hidden)]
+                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub account_id: &'a Output,
+                    pub name: &'a Output,
+                    pub type_: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Args")
+                            .field("account-id", &self.account_id)
+                            .field("name", &self.name)
+                            .field("type", &self.type_)
+                            .finish()
+                    }
+                }
+                pub struct Res {
+                    pub account_id: Output,
+                    pub id: Output,
+                    pub name: Output,
+                    pub rules: Output,
+                    pub type_: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("account-id", &self.account_id)
+                            .field("id", &self.id)
+                            .field("name", &self.name)
+                            .field("rules", &self.rules)
+                            .field("type", &self.type_)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(
+                    arg0: i32,
+                    arg1: i32,
+                    arg2: i32,
+                ) -> *mut u8 {
+                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
+                    let handle1;
+                    let handle2;
+                    let result3 = T::invoke(Args {
+                        account_id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
+                        },
+                        name: {
+                            handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg1 as u32,
+                            );
+                            &handle1
+                        },
+                        type_: {
+                            handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg2 as u32,
+                            );
+                            &handle2
+                        },
+                    });
+                    let ptr4 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        account_id: account_id5,
+                        id: id5,
+                        name: name5,
+                        rules: rules5,
+                        type_: type_5,
+                    } = result3;
+                    *ptr4.add(0).cast::<i32>() = (account_id5).take_handle() as i32;
+                    *ptr4.add(4).cast::<i32>() = (id5).take_handle() as i32;
+                    *ptr4.add(8).cast::<i32>() = (name5).take_handle() as i32;
+                    *ptr4.add(12).cast::<i32>() = (rules5).take_handle() as i32;
+                    *ptr4.add(16).cast::<i32>() = (type_5).take_handle() as i32;
+                    ptr4
+                }
+                pub trait Guest {
+                    fn invoke(args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+                macro_rules! __export_pulumi_cloudflare_get_device_posture_rules_5_24_1_divider_zero_zero_zero_dev_cabi {
+                    ($ty:ident with_types_in $($path_to_types:tt)*) => {
+                        const _ : () = { #[export_name =
+                        "pulumi:cloudflare/get-device-posture-rules@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 :
+                        i32,) -> * mut u8 { $($path_to_types)*::
+                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2) } };
+                    };
+                }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_cloudflare_get_device_posture_rules_5_24_1_divider_zero_zero_zero_dev_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
+                static mut _RET_AREA: _RetArea = _RetArea(
+                    [::core::mem::MaybeUninit::uninit(); 20],
+                );
+            }
+            #[allow(dead_code, clippy::all)]
+            pub mod get_devices {
+                #[used]
+                #[doc(hidden)]
+                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub account_id: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Args")
+                            .field("account-id", &self.account_id)
+                            .finish()
+                    }
+                }
+                pub struct Res {
+                    pub account_id: Output,
+                    pub devices: Output,
+                    pub id: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("account-id", &self.account_id)
+                            .field("devices", &self.devices)
+                            .field("id", &self.id)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: i32) -> *mut u8 {
+                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
+                    let result1 = T::invoke(Args {
+                        account_id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
+                        },
+                    });
+                    let ptr2 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res { account_id: account_id3, devices: devices3, id: id3 } = result1;
+                    *ptr2.add(0).cast::<i32>() = (account_id3).take_handle() as i32;
+                    *ptr2.add(4).cast::<i32>() = (devices3).take_handle() as i32;
+                    *ptr2.add(8).cast::<i32>() = (id3).take_handle() as i32;
+                    ptr2
+                }
+                pub trait Guest {
+                    fn invoke(args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+                macro_rules! __export_pulumi_cloudflare_get_devices_5_24_1_divider_zero_zero_zero_dev_cabi {
+                    ($ty:ident with_types_in $($path_to_types:tt)*) => {
+                        const _ : () = { #[export_name =
+                        "pulumi:cloudflare/get-devices@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
+                    };
+                }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_cloudflare_get_devices_5_24_1_divider_zero_zero_zero_dev_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
+                static mut _RET_AREA: _RetArea = _RetArea(
+                    [::core::mem::MaybeUninit::uninit(); 12],
+                );
+            }
+            #[allow(dead_code, clippy::all)]
+            pub mod get_dlp_datasets {
+                #[used]
+                #[doc(hidden)]
+                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub account_id: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Args")
+                            .field("account-id", &self.account_id)
+                            .finish()
+                    }
+                }
+                pub struct Res {
+                    pub account_id: Output,
+                    pub datasets: Output,
+                    pub id: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("account-id", &self.account_id)
+                            .field("datasets", &self.datasets)
+                            .field("id", &self.id)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: i32) -> *mut u8 {
+                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
+                    let result1 = T::invoke(Args {
+                        account_id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
+                        },
+                    });
+                    let ptr2 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res { account_id: account_id3, datasets: datasets3, id: id3 } = result1;
+                    *ptr2.add(0).cast::<i32>() = (account_id3).take_handle() as i32;
+                    *ptr2.add(4).cast::<i32>() = (datasets3).take_handle() as i32;
+                    *ptr2.add(8).cast::<i32>() = (id3).take_handle() as i32;
+                    ptr2
+                }
+                pub trait Guest {
+                    fn invoke(args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+                macro_rules! __export_pulumi_cloudflare_get_dlp_datasets_5_24_1_divider_zero_zero_zero_dev_cabi {
+                    ($ty:ident with_types_in $($path_to_types:tt)*) => {
+                        const _ : () = { #[export_name =
+                        "pulumi:cloudflare/get-dlp-datasets@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
+                    };
+                }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_cloudflare_get_dlp_datasets_5_24_1_divider_zero_zero_zero_dev_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
+                static mut _RET_AREA: _RetArea = _RetArea(
+                    [::core::mem::MaybeUninit::uninit(); 12],
+                );
+            }
+            #[allow(dead_code, clippy::all)]
+            pub mod get_ip_ranges {
+                #[used]
+                #[doc(hidden)]
+                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Res {
+                    pub china_ipv4_cidr_blocks: Output,
+                    pub china_ipv6_cidr_blocks: Output,
+                    pub cidr_blocks: Output,
+                    pub id: Output,
+                    pub ipv4_cidr_blocks: Output,
+                    pub ipv6_cidr_blocks: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field(
+                                "china-ipv4-cidr-blocks",
+                                &self.china_ipv4_cidr_blocks,
+                            )
+                            .field(
+                                "china-ipv6-cidr-blocks",
+                                &self.china_ipv6_cidr_blocks,
+                            )
+                            .field("cidr-blocks", &self.cidr_blocks)
+                            .field("id", &self.id)
+                            .field("ipv4-cidr-blocks", &self.ipv4_cidr_blocks)
+                            .field("ipv6-cidr-blocks", &self.ipv6_cidr_blocks)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>() -> *mut u8 {
+                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let result0 = T::invoke();
+                    let ptr1 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        china_ipv4_cidr_blocks: china_ipv4_cidr_blocks2,
+                        china_ipv6_cidr_blocks: china_ipv6_cidr_blocks2,
+                        cidr_blocks: cidr_blocks2,
+                        id: id2,
+                        ipv4_cidr_blocks: ipv4_cidr_blocks2,
+                        ipv6_cidr_blocks: ipv6_cidr_blocks2,
+                    } = result0;
+                    *ptr1.add(0).cast::<i32>() = (china_ipv4_cidr_blocks2).take_handle()
+                        as i32;
+                    *ptr1.add(4).cast::<i32>() = (china_ipv6_cidr_blocks2).take_handle()
+                        as i32;
+                    *ptr1.add(8).cast::<i32>() = (cidr_blocks2).take_handle() as i32;
+                    *ptr1.add(12).cast::<i32>() = (id2).take_handle() as i32;
+                    *ptr1.add(16).cast::<i32>() = (ipv4_cidr_blocks2).take_handle()
+                        as i32;
+                    *ptr1.add(20).cast::<i32>() = (ipv6_cidr_blocks2).take_handle()
+                        as i32;
+                    ptr1
+                }
+                pub trait Guest {
+                    fn invoke() -> Res;
+                }
+                #[doc(hidden)]
+                macro_rules! __export_pulumi_cloudflare_get_ip_ranges_5_24_1_divider_zero_zero_zero_dev_cabi {
+                    ($ty:ident with_types_in $($path_to_types:tt)*) => {
+                        const _ : () = { #[export_name =
+                        "pulumi:cloudflare/get-ip-ranges@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        unsafe extern "C" fn export_invoke() -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > () } };
+                    };
+                }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_cloudflare_get_ip_ranges_5_24_1_divider_zero_zero_zero_dev_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
+                static mut _RET_AREA: _RetArea = _RetArea(
+                    [::core::mem::MaybeUninit::uninit(); 24],
+                );
+            }
+            #[allow(dead_code, clippy::all)]
+            pub mod get_list {
+                #[used]
+                #[doc(hidden)]
+                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub account_id: &'a Output,
+                    pub name: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Args")
+                            .field("account-id", &self.account_id)
+                            .field("name", &self.name)
+                            .finish()
+                    }
+                }
+                pub struct Res {
+                    pub account_id: Output,
+                    pub description: Output,
+                    pub id: Output,
+                    pub kind: Output,
+                    pub name: Output,
+                    pub numitems: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("account-id", &self.account_id)
+                            .field("description", &self.description)
+                            .field("id", &self.id)
+                            .field("kind", &self.kind)
+                            .field("name", &self.name)
+                            .field("numitems", &self.numitems)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(
+                    arg0: i32,
+                    arg1: i32,
+                ) -> *mut u8 {
+                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
+                    let handle1;
+                    let result2 = T::invoke(Args {
+                        account_id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
+                        },
+                        name: {
+                            handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg1 as u32,
+                            );
+                            &handle1
+                        },
+                    });
+                    let ptr3 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        account_id: account_id4,
+                        description: description4,
+                        id: id4,
+                        kind: kind4,
+                        name: name4,
+                        numitems: numitems4,
+                    } = result2;
+                    *ptr3.add(0).cast::<i32>() = (account_id4).take_handle() as i32;
+                    *ptr3.add(4).cast::<i32>() = (description4).take_handle() as i32;
+                    *ptr3.add(8).cast::<i32>() = (id4).take_handle() as i32;
+                    *ptr3.add(12).cast::<i32>() = (kind4).take_handle() as i32;
+                    *ptr3.add(16).cast::<i32>() = (name4).take_handle() as i32;
+                    *ptr3.add(20).cast::<i32>() = (numitems4).take_handle() as i32;
+                    ptr3
+                }
+                pub trait Guest {
+                    fn invoke(args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+                macro_rules! __export_pulumi_cloudflare_get_list_5_24_1_divider_zero_zero_zero_dev_cabi {
+                    ($ty:ident with_types_in $($path_to_types:tt)*) => {
+                        const _ : () = { #[export_name =
+                        "pulumi:cloudflare/get-list@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32,) -> *
+                        mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
+                        arg1) } };
+                    };
+                }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_cloudflare_get_list_5_24_1_divider_zero_zero_zero_dev_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
+                static mut _RET_AREA: _RetArea = _RetArea(
+                    [::core::mem::MaybeUninit::uninit(); 24],
+                );
+            }
+            #[allow(dead_code, clippy::all)]
+            pub mod get_lists {
+                #[used]
+                #[doc(hidden)]
+                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub account_id: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Args")
+                            .field("account-id", &self.account_id)
+                            .finish()
+                    }
+                }
+                pub struct Res {
+                    pub account_id: Output,
+                    pub id: Output,
+                    pub lists: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("account-id", &self.account_id)
+                            .field("id", &self.id)
+                            .field("lists", &self.lists)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: i32) -> *mut u8 {
+                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
+                    let result1 = T::invoke(Args {
+                        account_id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
+                        },
+                    });
+                    let ptr2 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res { account_id: account_id3, id: id3, lists: lists3 } = result1;
+                    *ptr2.add(0).cast::<i32>() = (account_id3).take_handle() as i32;
+                    *ptr2.add(4).cast::<i32>() = (id3).take_handle() as i32;
+                    *ptr2.add(8).cast::<i32>() = (lists3).take_handle() as i32;
+                    ptr2
+                }
+                pub trait Guest {
+                    fn invoke(args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+                macro_rules! __export_pulumi_cloudflare_get_lists_5_24_1_divider_zero_zero_zero_dev_cabi {
+                    ($ty:ident with_types_in $($path_to_types:tt)*) => {
+                        const _ : () = { #[export_name =
+                        "pulumi:cloudflare/get-lists@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
+                    };
+                }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_cloudflare_get_lists_5_24_1_divider_zero_zero_zero_dev_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
+                static mut _RET_AREA: _RetArea = _RetArea(
+                    [::core::mem::MaybeUninit::uninit(); 12],
+                );
+            }
+            #[allow(dead_code, clippy::all)]
+            pub mod get_load_balancer_pools {
+                #[used]
+                #[doc(hidden)]
+                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub account_id: &'a Output,
+                    pub filter: &'a Output,
+                    pub pools: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Args")
+                            .field("account-id", &self.account_id)
+                            .field("filter", &self.filter)
+                            .field("pools", &self.pools)
+                            .finish()
+                    }
+                }
+                pub struct Res {
+                    pub account_id: Output,
+                    pub filter: Output,
+                    pub id: Output,
+                    pub pools: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("account-id", &self.account_id)
+                            .field("filter", &self.filter)
+                            .field("id", &self.id)
+                            .field("pools", &self.pools)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(
+                    arg0: i32,
+                    arg1: i32,
+                    arg2: i32,
+                ) -> *mut u8 {
+                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
+                    let handle1;
+                    let handle2;
+                    let result3 = T::invoke(Args {
+                        account_id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
+                        },
+                        filter: {
+                            handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg1 as u32,
+                            );
+                            &handle1
+                        },
+                        pools: {
+                            handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg2 as u32,
+                            );
+                            &handle2
+                        },
+                    });
+                    let ptr4 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        account_id: account_id5,
+                        filter: filter5,
+                        id: id5,
+                        pools: pools5,
+                    } = result3;
+                    *ptr4.add(0).cast::<i32>() = (account_id5).take_handle() as i32;
+                    *ptr4.add(4).cast::<i32>() = (filter5).take_handle() as i32;
+                    *ptr4.add(8).cast::<i32>() = (id5).take_handle() as i32;
+                    *ptr4.add(12).cast::<i32>() = (pools5).take_handle() as i32;
+                    ptr4
+                }
+                pub trait Guest {
+                    fn invoke(args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+                macro_rules! __export_pulumi_cloudflare_get_load_balancer_pools_5_24_1_divider_zero_zero_zero_dev_cabi {
+                    ($ty:ident with_types_in $($path_to_types:tt)*) => {
+                        const _ : () = { #[export_name =
+                        "pulumi:cloudflare/get-load-balancer-pools@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 :
+                        i32,) -> * mut u8 { $($path_to_types)*::
+                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2) } };
+                    };
+                }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_cloudflare_get_load_balancer_pools_5_24_1_divider_zero_zero_zero_dev_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
+                static mut _RET_AREA: _RetArea = _RetArea(
+                    [::core::mem::MaybeUninit::uninit(); 16],
+                );
+            }
+            #[allow(dead_code, clippy::all)]
+            pub mod get_origin_ca_certificate {
+                #[used]
+                #[doc(hidden)]
+                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub id: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Args").field("id", &self.id).finish()
+                    }
+                }
+                pub struct Res {
+                    pub certificate: Output,
+                    pub expires_on: Output,
+                    pub hostnames: Output,
+                    pub id: Output,
+                    pub request_type: Output,
+                    pub revoked_at: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("certificate", &self.certificate)
+                            .field("expires-on", &self.expires_on)
+                            .field("hostnames", &self.hostnames)
+                            .field("id", &self.id)
+                            .field("request-type", &self.request_type)
+                            .field("revoked-at", &self.revoked_at)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: i32) -> *mut u8 {
+                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
+                    let result1 = T::invoke(Args {
+                        id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
+                        },
+                    });
+                    let ptr2 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        certificate: certificate3,
+                        expires_on: expires_on3,
+                        hostnames: hostnames3,
+                        id: id3,
+                        request_type: request_type3,
+                        revoked_at: revoked_at3,
+                    } = result1;
+                    *ptr2.add(0).cast::<i32>() = (certificate3).take_handle() as i32;
+                    *ptr2.add(4).cast::<i32>() = (expires_on3).take_handle() as i32;
+                    *ptr2.add(8).cast::<i32>() = (hostnames3).take_handle() as i32;
+                    *ptr2.add(12).cast::<i32>() = (id3).take_handle() as i32;
+                    *ptr2.add(16).cast::<i32>() = (request_type3).take_handle() as i32;
+                    *ptr2.add(20).cast::<i32>() = (revoked_at3).take_handle() as i32;
+                    ptr2
+                }
+                pub trait Guest {
+                    fn invoke(args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+                macro_rules! __export_pulumi_cloudflare_get_origin_ca_certificate_5_24_1_divider_zero_zero_zero_dev_cabi {
+                    ($ty:ident with_types_in $($path_to_types:tt)*) => {
+                        const _ : () = { #[export_name =
+                        "pulumi:cloudflare/get-origin-ca-certificate@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
+                    };
+                }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_cloudflare_get_origin_ca_certificate_5_24_1_divider_zero_zero_zero_dev_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
+                static mut _RET_AREA: _RetArea = _RetArea(
+                    [::core::mem::MaybeUninit::uninit(); 24],
+                );
+            }
+            #[allow(dead_code, clippy::all)]
+            pub mod get_origin_ca_root_certificate {
+                #[used]
+                #[doc(hidden)]
+                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub algorithm: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Args")
+                            .field("algorithm", &self.algorithm)
+                            .finish()
+                    }
+                }
+                pub struct Res {
+                    pub algorithm: Output,
+                    pub cert_pem: Output,
+                    pub id: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("algorithm", &self.algorithm)
+                            .field("cert-pem", &self.cert_pem)
+                            .field("id", &self.id)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: i32) -> *mut u8 {
+                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
+                    let result1 = T::invoke(Args {
+                        algorithm: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
+                        },
+                    });
+                    let ptr2 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res { algorithm: algorithm3, cert_pem: cert_pem3, id: id3 } = result1;
+                    *ptr2.add(0).cast::<i32>() = (algorithm3).take_handle() as i32;
+                    *ptr2.add(4).cast::<i32>() = (cert_pem3).take_handle() as i32;
+                    *ptr2.add(8).cast::<i32>() = (id3).take_handle() as i32;
+                    ptr2
+                }
+                pub trait Guest {
+                    fn invoke(args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+                macro_rules! __export_pulumi_cloudflare_get_origin_ca_root_certificate_5_24_1_divider_zero_zero_zero_dev_cabi {
+                    ($ty:ident with_types_in $($path_to_types:tt)*) => {
+                        const _ : () = { #[export_name =
+                        "pulumi:cloudflare/get-origin-ca-root-certificate@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
+                    };
+                }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_cloudflare_get_origin_ca_root_certificate_5_24_1_divider_zero_zero_zero_dev_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
+                static mut _RET_AREA: _RetArea = _RetArea(
+                    [::core::mem::MaybeUninit::uninit(); 12],
+                );
+            }
+            #[allow(dead_code, clippy::all)]
+            pub mod get_record {
+                #[used]
+                #[doc(hidden)]
+                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub content: &'a Output,
+                    pub hostname: &'a Output,
+                    pub priority: &'a Output,
+                    pub type_: &'a Output,
+                    pub zone_id: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Args")
+                            .field("content", &self.content)
+                            .field("hostname", &self.hostname)
+                            .field("priority", &self.priority)
+                            .field("type", &self.type_)
+                            .field("zone-id", &self.zone_id)
+                            .finish()
+                    }
+                }
+                pub struct Res {
+                    pub content: Output,
+                    pub hostname: Output,
+                    pub id: Output,
+                    pub locked: Output,
+                    pub priority: Output,
+                    pub proxiable: Output,
+                    pub proxied: Output,
+                    pub ttl: Output,
+                    pub type_: Output,
+                    pub value: Output,
+                    pub zone_id: Output,
+                    pub zone_name: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("content", &self.content)
+                            .field("hostname", &self.hostname)
+                            .field("id", &self.id)
+                            .field("locked", &self.locked)
+                            .field("priority", &self.priority)
+                            .field("proxiable", &self.proxiable)
+                            .field("proxied", &self.proxied)
+                            .field("ttl", &self.ttl)
+                            .field("type", &self.type_)
+                            .field("value", &self.value)
+                            .field("zone-id", &self.zone_id)
+                            .field("zone-name", &self.zone_name)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(
+                    arg0: i32,
+                    arg1: i32,
+                    arg2: i32,
+                    arg3: i32,
+                    arg4: i32,
+                ) -> *mut u8 {
+                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
+                    let handle1;
+                    let handle2;
+                    let handle3;
+                    let handle4;
+                    let result5 = T::invoke(Args {
+                        content: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
+                        },
+                        hostname: {
+                            handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg1 as u32,
+                            );
+                            &handle1
+                        },
+                        priority: {
+                            handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg2 as u32,
+                            );
+                            &handle2
+                        },
+                        type_: {
+                            handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg3 as u32,
+                            );
+                            &handle3
+                        },
+                        zone_id: {
+                            handle4 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg4 as u32,
+                            );
+                            &handle4
+                        },
+                    });
+                    let ptr6 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        content: content7,
+                        hostname: hostname7,
+                        id: id7,
+                        locked: locked7,
+                        priority: priority7,
+                        proxiable: proxiable7,
+                        proxied: proxied7,
+                        ttl: ttl7,
+                        type_: type_7,
+                        value: value7,
+                        zone_id: zone_id7,
+                        zone_name: zone_name7,
+                    } = result5;
+                    *ptr6.add(0).cast::<i32>() = (content7).take_handle() as i32;
+                    *ptr6.add(4).cast::<i32>() = (hostname7).take_handle() as i32;
+                    *ptr6.add(8).cast::<i32>() = (id7).take_handle() as i32;
+                    *ptr6.add(12).cast::<i32>() = (locked7).take_handle() as i32;
+                    *ptr6.add(16).cast::<i32>() = (priority7).take_handle() as i32;
+                    *ptr6.add(20).cast::<i32>() = (proxiable7).take_handle() as i32;
+                    *ptr6.add(24).cast::<i32>() = (proxied7).take_handle() as i32;
+                    *ptr6.add(28).cast::<i32>() = (ttl7).take_handle() as i32;
+                    *ptr6.add(32).cast::<i32>() = (type_7).take_handle() as i32;
+                    *ptr6.add(36).cast::<i32>() = (value7).take_handle() as i32;
+                    *ptr6.add(40).cast::<i32>() = (zone_id7).take_handle() as i32;
+                    *ptr6.add(44).cast::<i32>() = (zone_name7).take_handle() as i32;
+                    ptr6
+                }
+                pub trait Guest {
+                    fn invoke(args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+                macro_rules! __export_pulumi_cloudflare_get_record_5_24_1_divider_zero_zero_zero_dev_cabi {
+                    ($ty:ident with_types_in $($path_to_types:tt)*) => {
+                        const _ : () = { #[export_name =
+                        "pulumi:cloudflare/get-record@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 :
+                        i32, arg3 : i32, arg4 : i32,) -> * mut u8 { $($path_to_types)*::
+                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3, arg4) } };
+                    };
+                }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_cloudflare_get_record_5_24_1_divider_zero_zero_zero_dev_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 48]);
+                static mut _RET_AREA: _RetArea = _RetArea(
+                    [::core::mem::MaybeUninit::uninit(); 48],
+                );
+            }
+            #[allow(dead_code, clippy::all)]
+            pub mod get_rulesets {
+                #[used]
+                #[doc(hidden)]
+                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub account_id: &'a Output,
+                    pub filter: &'a Output,
+                    pub include_rules: &'a Output,
+                    pub zone_id: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Args")
+                            .field("account-id", &self.account_id)
+                            .field("filter", &self.filter)
+                            .field("include-rules", &self.include_rules)
+                            .field("zone-id", &self.zone_id)
+                            .finish()
+                    }
+                }
+                pub struct Res {
+                    pub account_id: Output,
+                    pub filter: Output,
+                    pub id: Output,
+                    pub include_rules: Output,
+                    pub rulesets: Output,
+                    pub zone_id: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("account-id", &self.account_id)
+                            .field("filter", &self.filter)
+                            .field("id", &self.id)
+                            .field("include-rules", &self.include_rules)
+                            .field("rulesets", &self.rulesets)
+                            .field("zone-id", &self.zone_id)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(
+                    arg0: i32,
+                    arg1: i32,
+                    arg2: i32,
+                    arg3: i32,
+                ) -> *mut u8 {
+                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
+                    let handle1;
+                    let handle2;
+                    let handle3;
+                    let result4 = T::invoke(Args {
+                        account_id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
+                        },
+                        filter: {
+                            handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg1 as u32,
+                            );
+                            &handle1
+                        },
+                        include_rules: {
+                            handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg2 as u32,
+                            );
+                            &handle2
+                        },
+                        zone_id: {
+                            handle3 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg3 as u32,
+                            );
+                            &handle3
+                        },
+                    });
+                    let ptr5 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        account_id: account_id6,
+                        filter: filter6,
+                        id: id6,
+                        include_rules: include_rules6,
+                        rulesets: rulesets6,
+                        zone_id: zone_id6,
+                    } = result4;
+                    *ptr5.add(0).cast::<i32>() = (account_id6).take_handle() as i32;
+                    *ptr5.add(4).cast::<i32>() = (filter6).take_handle() as i32;
+                    *ptr5.add(8).cast::<i32>() = (id6).take_handle() as i32;
+                    *ptr5.add(12).cast::<i32>() = (include_rules6).take_handle() as i32;
+                    *ptr5.add(16).cast::<i32>() = (rulesets6).take_handle() as i32;
+                    *ptr5.add(20).cast::<i32>() = (zone_id6).take_handle() as i32;
+                    ptr5
+                }
+                pub trait Guest {
+                    fn invoke(args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+                macro_rules! __export_pulumi_cloudflare_get_rulesets_5_24_1_divider_zero_zero_zero_dev_cabi {
+                    ($ty:ident with_types_in $($path_to_types:tt)*) => {
+                        const _ : () = { #[export_name =
+                        "pulumi:cloudflare/get-rulesets@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 :
+                        i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
+                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
+                    };
+                }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_cloudflare_get_rulesets_5_24_1_divider_zero_zero_zero_dev_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
+                static mut _RET_AREA: _RetArea = _RetArea(
+                    [::core::mem::MaybeUninit::uninit(); 24],
+                );
+            }
+            #[allow(dead_code, clippy::all)]
+            pub mod get_tunnel {
+                #[used]
+                #[doc(hidden)]
+                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub account_id: &'a Output,
+                    pub name: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Args")
+                            .field("account-id", &self.account_id)
+                            .field("name", &self.name)
+                            .finish()
+                    }
+                }
+                pub struct Res {
+                    pub account_id: Output,
+                    pub id: Output,
+                    pub name: Output,
+                    pub remote_config: Output,
+                    pub status: Output,
+                    pub tunnel_type: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("account-id", &self.account_id)
+                            .field("id", &self.id)
+                            .field("name", &self.name)
+                            .field("remote-config", &self.remote_config)
+                            .field("status", &self.status)
+                            .field("tunnel-type", &self.tunnel_type)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(
+                    arg0: i32,
+                    arg1: i32,
+                ) -> *mut u8 {
+                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
+                    let handle1;
+                    let result2 = T::invoke(Args {
+                        account_id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
+                        },
+                        name: {
+                            handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg1 as u32,
+                            );
+                            &handle1
+                        },
+                    });
+                    let ptr3 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        account_id: account_id4,
+                        id: id4,
+                        name: name4,
+                        remote_config: remote_config4,
+                        status: status4,
+                        tunnel_type: tunnel_type4,
+                    } = result2;
+                    *ptr3.add(0).cast::<i32>() = (account_id4).take_handle() as i32;
+                    *ptr3.add(4).cast::<i32>() = (id4).take_handle() as i32;
+                    *ptr3.add(8).cast::<i32>() = (name4).take_handle() as i32;
+                    *ptr3.add(12).cast::<i32>() = (remote_config4).take_handle() as i32;
+                    *ptr3.add(16).cast::<i32>() = (status4).take_handle() as i32;
+                    *ptr3.add(20).cast::<i32>() = (tunnel_type4).take_handle() as i32;
+                    ptr3
+                }
+                pub trait Guest {
+                    fn invoke(args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+                macro_rules! __export_pulumi_cloudflare_get_tunnel_5_24_1_divider_zero_zero_zero_dev_cabi {
+                    ($ty:ident with_types_in $($path_to_types:tt)*) => {
+                        const _ : () = { #[export_name =
+                        "pulumi:cloudflare/get-tunnel@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32,) -> *
+                        mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
+                        arg1) } };
+                    };
+                }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_cloudflare_get_tunnel_5_24_1_divider_zero_zero_zero_dev_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
+                static mut _RET_AREA: _RetArea = _RetArea(
+                    [::core::mem::MaybeUninit::uninit(); 24],
+                );
+            }
+            #[allow(dead_code, clippy::all)]
+            pub mod get_tunnel_virtual_network {
+                #[used]
+                #[doc(hidden)]
+                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub account_id: &'a Output,
+                    pub name: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Args")
+                            .field("account-id", &self.account_id)
+                            .field("name", &self.name)
+                            .finish()
+                    }
+                }
+                pub struct Res {
+                    pub account_id: Output,
+                    pub comment: Output,
+                    pub id: Output,
+                    pub is_default: Output,
+                    pub name: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("account-id", &self.account_id)
+                            .field("comment", &self.comment)
+                            .field("id", &self.id)
+                            .field("is-default", &self.is_default)
+                            .field("name", &self.name)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(
+                    arg0: i32,
+                    arg1: i32,
+                ) -> *mut u8 {
+                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
+                    let handle1;
+                    let result2 = T::invoke(Args {
+                        account_id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
+                        },
+                        name: {
+                            handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg1 as u32,
+                            );
+                            &handle1
+                        },
+                    });
+                    let ptr3 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        account_id: account_id4,
+                        comment: comment4,
+                        id: id4,
+                        is_default: is_default4,
+                        name: name4,
+                    } = result2;
+                    *ptr3.add(0).cast::<i32>() = (account_id4).take_handle() as i32;
+                    *ptr3.add(4).cast::<i32>() = (comment4).take_handle() as i32;
+                    *ptr3.add(8).cast::<i32>() = (id4).take_handle() as i32;
+                    *ptr3.add(12).cast::<i32>() = (is_default4).take_handle() as i32;
+                    *ptr3.add(16).cast::<i32>() = (name4).take_handle() as i32;
+                    ptr3
+                }
+                pub trait Guest {
+                    fn invoke(args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+                macro_rules! __export_pulumi_cloudflare_get_tunnel_virtual_network_5_24_1_divider_zero_zero_zero_dev_cabi {
+                    ($ty:ident with_types_in $($path_to_types:tt)*) => {
+                        const _ : () = { #[export_name =
+                        "pulumi:cloudflare/get-tunnel-virtual-network@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32,) -> *
+                        mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
+                        arg1) } };
+                    };
+                }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_cloudflare_get_tunnel_virtual_network_5_24_1_divider_zero_zero_zero_dev_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
+                static mut _RET_AREA: _RetArea = _RetArea(
+                    [::core::mem::MaybeUninit::uninit(); 20],
+                );
+            }
+            #[allow(dead_code, clippy::all)]
+            pub mod get_user {
+                #[used]
+                #[doc(hidden)]
+                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Res {
+                    pub email: Output,
+                    pub id: Output,
+                    pub username: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("email", &self.email)
+                            .field("id", &self.id)
+                            .field("username", &self.username)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>() -> *mut u8 {
+                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let result0 = T::invoke();
+                    let ptr1 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res { email: email2, id: id2, username: username2 } = result0;
+                    *ptr1.add(0).cast::<i32>() = (email2).take_handle() as i32;
+                    *ptr1.add(4).cast::<i32>() = (id2).take_handle() as i32;
+                    *ptr1.add(8).cast::<i32>() = (username2).take_handle() as i32;
+                    ptr1
+                }
+                pub trait Guest {
+                    fn invoke() -> Res;
+                }
+                #[doc(hidden)]
+                macro_rules! __export_pulumi_cloudflare_get_user_5_24_1_divider_zero_zero_zero_dev_cabi {
+                    ($ty:ident with_types_in $($path_to_types:tt)*) => {
+                        const _ : () = { #[export_name =
+                        "pulumi:cloudflare/get-user@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        unsafe extern "C" fn export_invoke() -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > () } };
+                    };
+                }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_cloudflare_get_user_5_24_1_divider_zero_zero_zero_dev_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
+                static mut _RET_AREA: _RetArea = _RetArea(
+                    [::core::mem::MaybeUninit::uninit(); 12],
+                );
+            }
+            #[allow(dead_code, clippy::all)]
+            pub mod get_zone {
+                #[used]
+                #[doc(hidden)]
+                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub account_id: &'a Output,
+                    pub name: &'a Output,
+                    pub zone_id: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Args")
+                            .field("account-id", &self.account_id)
+                            .field("name", &self.name)
+                            .field("zone-id", &self.zone_id)
+                            .finish()
+                    }
+                }
+                pub struct Res {
+                    pub account_id: Output,
+                    pub id: Output,
+                    pub name: Output,
+                    pub name_servers: Output,
+                    pub paused: Output,
+                    pub plan: Output,
+                    pub status: Output,
+                    pub vanity_name_servers: Output,
+                    pub zone_id: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("account-id", &self.account_id)
+                            .field("id", &self.id)
+                            .field("name", &self.name)
+                            .field("name-servers", &self.name_servers)
+                            .field("paused", &self.paused)
+                            .field("plan", &self.plan)
+                            .field("status", &self.status)
+                            .field("vanity-name-servers", &self.vanity_name_servers)
+                            .field("zone-id", &self.zone_id)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(
+                    arg0: i32,
+                    arg1: i32,
+                    arg2: i32,
+                ) -> *mut u8 {
+                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
+                    let handle1;
+                    let handle2;
+                    let result3 = T::invoke(Args {
+                        account_id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
+                        },
+                        name: {
+                            handle1 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg1 as u32,
+                            );
+                            &handle1
+                        },
+                        zone_id: {
+                            handle2 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg2 as u32,
+                            );
+                            &handle2
+                        },
+                    });
+                    let ptr4 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        account_id: account_id5,
+                        id: id5,
+                        name: name5,
+                        name_servers: name_servers5,
+                        paused: paused5,
+                        plan: plan5,
+                        status: status5,
+                        vanity_name_servers: vanity_name_servers5,
+                        zone_id: zone_id5,
+                    } = result3;
+                    *ptr4.add(0).cast::<i32>() = (account_id5).take_handle() as i32;
+                    *ptr4.add(4).cast::<i32>() = (id5).take_handle() as i32;
+                    *ptr4.add(8).cast::<i32>() = (name5).take_handle() as i32;
+                    *ptr4.add(12).cast::<i32>() = (name_servers5).take_handle() as i32;
+                    *ptr4.add(16).cast::<i32>() = (paused5).take_handle() as i32;
+                    *ptr4.add(20).cast::<i32>() = (plan5).take_handle() as i32;
+                    *ptr4.add(24).cast::<i32>() = (status5).take_handle() as i32;
+                    *ptr4.add(28).cast::<i32>() = (vanity_name_servers5).take_handle()
+                        as i32;
+                    *ptr4.add(32).cast::<i32>() = (zone_id5).take_handle() as i32;
+                    ptr4
+                }
+                pub trait Guest {
+                    fn invoke(args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+                macro_rules! __export_pulumi_cloudflare_get_zone_5_24_1_divider_zero_zero_zero_dev_cabi {
+                    ($ty:ident with_types_in $($path_to_types:tt)*) => {
+                        const _ : () = { #[export_name =
+                        "pulumi:cloudflare/get-zone@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 :
+                        i32,) -> * mut u8 { $($path_to_types)*::
+                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2) } };
+                    };
+                }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_cloudflare_get_zone_5_24_1_divider_zero_zero_zero_dev_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 36]);
+                static mut _RET_AREA: _RetArea = _RetArea(
+                    [::core::mem::MaybeUninit::uninit(); 36],
+                );
+            }
+            #[allow(dead_code, clippy::all)]
+            pub mod get_zone_cache_reserve {
+                #[used]
+                #[doc(hidden)]
+                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub zone_id: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Args").field("zone-id", &self.zone_id).finish()
+                    }
+                }
+                pub struct Res {
+                    pub enabled: Output,
+                    pub id: Output,
+                    pub zone_id: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("enabled", &self.enabled)
+                            .field("id", &self.id)
+                            .field("zone-id", &self.zone_id)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: i32) -> *mut u8 {
+                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
+                    let result1 = T::invoke(Args {
+                        zone_id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
+                        },
+                    });
+                    let ptr2 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res { enabled: enabled3, id: id3, zone_id: zone_id3 } = result1;
+                    *ptr2.add(0).cast::<i32>() = (enabled3).take_handle() as i32;
+                    *ptr2.add(4).cast::<i32>() = (id3).take_handle() as i32;
+                    *ptr2.add(8).cast::<i32>() = (zone_id3).take_handle() as i32;
+                    ptr2
+                }
+                pub trait Guest {
+                    fn invoke(args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+                macro_rules! __export_pulumi_cloudflare_get_zone_cache_reserve_5_24_1_divider_zero_zero_zero_dev_cabi {
+                    ($ty:ident with_types_in $($path_to_types:tt)*) => {
+                        const _ : () = { #[export_name =
+                        "pulumi:cloudflare/get-zone-cache-reserve@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
+                    };
+                }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_cloudflare_get_zone_cache_reserve_5_24_1_divider_zero_zero_zero_dev_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
+                static mut _RET_AREA: _RetArea = _RetArea(
+                    [::core::mem::MaybeUninit::uninit(); 12],
+                );
+            }
+            #[allow(dead_code, clippy::all)]
+            pub mod get_zone_dnssec {
+                #[used]
+                #[doc(hidden)]
+                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub zone_id: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Args").field("zone-id", &self.zone_id).finish()
+                    }
+                }
+                pub struct Res {
+                    pub algorithm: Output,
+                    pub digest: Output,
+                    pub digest_algorithm: Output,
+                    pub digest_type: Output,
+                    pub ds: Output,
+                    pub flags: Output,
+                    pub id: Output,
+                    pub key_tag: Output,
+                    pub key_type: Output,
+                    pub public_key: Output,
+                    pub status: Output,
+                    pub zone_id: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("algorithm", &self.algorithm)
+                            .field("digest", &self.digest)
+                            .field("digest-algorithm", &self.digest_algorithm)
+                            .field("digest-type", &self.digest_type)
+                            .field("ds", &self.ds)
+                            .field("flags", &self.flags)
+                            .field("id", &self.id)
+                            .field("key-tag", &self.key_tag)
+                            .field("key-type", &self.key_type)
+                            .field("public-key", &self.public_key)
+                            .field("status", &self.status)
+                            .field("zone-id", &self.zone_id)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: i32) -> *mut u8 {
+                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
+                    let result1 = T::invoke(Args {
+                        zone_id: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
+                        },
+                    });
+                    let ptr2 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res {
+                        algorithm: algorithm3,
+                        digest: digest3,
+                        digest_algorithm: digest_algorithm3,
+                        digest_type: digest_type3,
+                        ds: ds3,
+                        flags: flags3,
+                        id: id3,
+                        key_tag: key_tag3,
+                        key_type: key_type3,
+                        public_key: public_key3,
+                        status: status3,
+                        zone_id: zone_id3,
+                    } = result1;
+                    *ptr2.add(0).cast::<i32>() = (algorithm3).take_handle() as i32;
+                    *ptr2.add(4).cast::<i32>() = (digest3).take_handle() as i32;
+                    *ptr2.add(8).cast::<i32>() = (digest_algorithm3).take_handle()
+                        as i32;
+                    *ptr2.add(12).cast::<i32>() = (digest_type3).take_handle() as i32;
+                    *ptr2.add(16).cast::<i32>() = (ds3).take_handle() as i32;
+                    *ptr2.add(20).cast::<i32>() = (flags3).take_handle() as i32;
+                    *ptr2.add(24).cast::<i32>() = (id3).take_handle() as i32;
+                    *ptr2.add(28).cast::<i32>() = (key_tag3).take_handle() as i32;
+                    *ptr2.add(32).cast::<i32>() = (key_type3).take_handle() as i32;
+                    *ptr2.add(36).cast::<i32>() = (public_key3).take_handle() as i32;
+                    *ptr2.add(40).cast::<i32>() = (status3).take_handle() as i32;
+                    *ptr2.add(44).cast::<i32>() = (zone_id3).take_handle() as i32;
+                    ptr2
+                }
+                pub trait Guest {
+                    fn invoke(args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+                macro_rules! __export_pulumi_cloudflare_get_zone_dnssec_5_24_1_divider_zero_zero_zero_dev_cabi {
+                    ($ty:ident with_types_in $($path_to_types:tt)*) => {
+                        const _ : () = { #[export_name =
+                        "pulumi:cloudflare/get-zone-dnssec@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
+                    };
+                }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_cloudflare_get_zone_dnssec_5_24_1_divider_zero_zero_zero_dev_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 48]);
+                static mut _RET_AREA: _RetArea = _RetArea(
+                    [::core::mem::MaybeUninit::uninit(); 48],
+                );
+            }
+            #[allow(dead_code, clippy::all)]
+            pub mod get_zones {
+                #[used]
+                #[doc(hidden)]
+                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                pub type Output = super::super::super::super::component::pulumi_wasm::output_interface::Output;
+                pub struct Args<'a> {
+                    pub filter: &'a Output,
+                }
+                impl<'a> ::core::fmt::Debug for Args<'a> {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Args").field("filter", &self.filter).finish()
+                    }
+                }
+                pub struct Res {
+                    pub filter: Output,
+                    pub id: Output,
+                    pub zones: Output,
+                }
+                impl ::core::fmt::Debug for Res {
+                    fn fmt(
+                        &self,
+                        f: &mut ::core::fmt::Formatter<'_>,
+                    ) -> ::core::fmt::Result {
+                        f.debug_struct("Res")
+                            .field("filter", &self.filter)
+                            .field("id", &self.id)
+                            .field("zones", &self.zones)
+                            .finish()
+                    }
+                }
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_invoke_cabi<T: Guest>(arg0: i32) -> *mut u8 {
+                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    let handle0;
+                    let result1 = T::invoke(Args {
+                        filter: {
+                            handle0 = super::super::super::super::component::pulumi_wasm::output_interface::Output::from_handle(
+                                arg0 as u32,
+                            );
+                            &handle0
+                        },
+                    });
+                    let ptr2 = _RET_AREA.0.as_mut_ptr().cast::<u8>();
+                    let Res { filter: filter3, id: id3, zones: zones3 } = result1;
+                    *ptr2.add(0).cast::<i32>() = (filter3).take_handle() as i32;
+                    *ptr2.add(4).cast::<i32>() = (id3).take_handle() as i32;
+                    *ptr2.add(8).cast::<i32>() = (zones3).take_handle() as i32;
+                    ptr2
+                }
+                pub trait Guest {
+                    fn invoke(args: Args<'_>) -> Res;
+                }
+                #[doc(hidden)]
+                macro_rules! __export_pulumi_cloudflare_get_zones_5_24_1_divider_zero_zero_zero_dev_cabi {
+                    ($ty:ident with_types_in $($path_to_types:tt)*) => {
+                        const _ : () = { #[export_name =
+                        "pulumi:cloudflare/get-zones@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
+                    };
+                }
+                #[doc(hidden)]
+                pub(crate) use __export_pulumi_cloudflare_get_zones_5_24_1_divider_zero_zero_zero_dev_cabi;
+                #[repr(align(4))]
+                struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
+                static mut _RET_AREA: _RetArea = _RetArea(
+                    [::core::mem::MaybeUninit::uninit(); 12],
+                );
+            }
         }
     }
 }
@@ -20326,7 +22728,80 @@ macro_rules! __export_cloudflare_pulumi_impl {
         exports::pulumi::cloudflare::zone_lockdown); $($path_to_types_root)*::
         exports::pulumi::cloudflare::zone_settings_override::__export_pulumi_cloudflare_zone_settings_override_5_24_1_divider_zero_zero_zero_dev_cabi!($ty
         with_types_in $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zone_settings_override);
+        exports::pulumi::cloudflare::zone_settings_override); $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_access_application::__export_pulumi_cloudflare_get_access_application_5_24_1_divider_zero_zero_zero_dev_cabi!($ty
+        with_types_in $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_access_application); $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_access_identity_provider::__export_pulumi_cloudflare_get_access_identity_provider_5_24_1_divider_zero_zero_zero_dev_cabi!($ty
+        with_types_in $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_access_identity_provider);
+        $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_account_roles::__export_pulumi_cloudflare_get_account_roles_5_24_1_divider_zero_zero_zero_dev_cabi!($ty
+        with_types_in $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_account_roles); $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_accounts::__export_pulumi_cloudflare_get_accounts_5_24_1_divider_zero_zero_zero_dev_cabi!($ty
+        with_types_in $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_accounts); $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_api_token_permission_groups::__export_pulumi_cloudflare_get_api_token_permission_groups_5_24_1_divider_zero_zero_zero_dev_cabi!($ty
+        with_types_in $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_api_token_permission_groups);
+        $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_device_posture_rules::__export_pulumi_cloudflare_get_device_posture_rules_5_24_1_divider_zero_zero_zero_dev_cabi!($ty
+        with_types_in $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_device_posture_rules); $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_devices::__export_pulumi_cloudflare_get_devices_5_24_1_divider_zero_zero_zero_dev_cabi!($ty
+        with_types_in $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_devices); $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_dlp_datasets::__export_pulumi_cloudflare_get_dlp_datasets_5_24_1_divider_zero_zero_zero_dev_cabi!($ty
+        with_types_in $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_dlp_datasets); $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_ip_ranges::__export_pulumi_cloudflare_get_ip_ranges_5_24_1_divider_zero_zero_zero_dev_cabi!($ty
+        with_types_in $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_ip_ranges); $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_list::__export_pulumi_cloudflare_get_list_5_24_1_divider_zero_zero_zero_dev_cabi!($ty
+        with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::get_list);
+        $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_lists::__export_pulumi_cloudflare_get_lists_5_24_1_divider_zero_zero_zero_dev_cabi!($ty
+        with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::get_lists);
+        $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_load_balancer_pools::__export_pulumi_cloudflare_get_load_balancer_pools_5_24_1_divider_zero_zero_zero_dev_cabi!($ty
+        with_types_in $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_load_balancer_pools); $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_origin_ca_certificate::__export_pulumi_cloudflare_get_origin_ca_certificate_5_24_1_divider_zero_zero_zero_dev_cabi!($ty
+        with_types_in $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_origin_ca_certificate);
+        $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_origin_ca_root_certificate::__export_pulumi_cloudflare_get_origin_ca_root_certificate_5_24_1_divider_zero_zero_zero_dev_cabi!($ty
+        with_types_in $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_origin_ca_root_certificate);
+        $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_record::__export_pulumi_cloudflare_get_record_5_24_1_divider_zero_zero_zero_dev_cabi!($ty
+        with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::get_record);
+        $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_rulesets::__export_pulumi_cloudflare_get_rulesets_5_24_1_divider_zero_zero_zero_dev_cabi!($ty
+        with_types_in $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_rulesets); $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_tunnel::__export_pulumi_cloudflare_get_tunnel_5_24_1_divider_zero_zero_zero_dev_cabi!($ty
+        with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::get_tunnel);
+        $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_tunnel_virtual_network::__export_pulumi_cloudflare_get_tunnel_virtual_network_5_24_1_divider_zero_zero_zero_dev_cabi!($ty
+        with_types_in $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_tunnel_virtual_network);
+        $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_user::__export_pulumi_cloudflare_get_user_5_24_1_divider_zero_zero_zero_dev_cabi!($ty
+        with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::get_user);
+        $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_zone::__export_pulumi_cloudflare_get_zone_5_24_1_divider_zero_zero_zero_dev_cabi!($ty
+        with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::get_zone);
+        $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_zone_cache_reserve::__export_pulumi_cloudflare_get_zone_cache_reserve_5_24_1_divider_zero_zero_zero_dev_cabi!($ty
+        with_types_in $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_zone_cache_reserve); $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_zone_dnssec::__export_pulumi_cloudflare_get_zone_dnssec_5_24_1_divider_zero_zero_zero_dev_cabi!($ty
+        with_types_in $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_zone_dnssec); $($path_to_types_root)*::
+        exports::pulumi::cloudflare::get_zones::__export_pulumi_cloudflare_get_zones_5_24_1_divider_zero_zero_zero_dev_cabi!($ty
+        with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::get_zones);
     };
 }
 #[doc(inline)]
@@ -20334,132 +22809,136 @@ pub(crate) use __export_cloudflare_pulumi_impl as export;
 #[cfg(target_arch = "wasm32")]
 #[link_section = "component-type:wit-bindgen:0.30.0:cloudflare-pulumi:encoded world"]
 #[doc(hidden)]
-pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 38405] = *b"\
-\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xfc\xaa\x02\x01A\x02\
-\x01A\xf1\x01\x01B\x0a\x04\0\x06output\x03\x01\x01i\0\x01@\x01\x05values\0\x01\x04\
+pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 43355] = *b"\
+\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xd2\xd1\x02\x01A\x02\
+\x01A\x9f\x02\x01B\x0a\x04\0\x06output\x03\x01\x01i\0\x01@\x01\x05values\0\x01\x04\
 \0\x13[constructor]output\x01\x02\x01h\0\x01@\x02\x04self\x03\x0dfunction-names\0\
 \x01\x04\0\x12[method]output.map\x01\x04\x01p\x03\x01@\x01\x07outputs\x05\0\x01\x04\
 \0\x07combine\x01\x06\x03\x010component:pulumi-wasm/output-interface@0.0.0-DEV\x05\
-\0\x02\x03\0\0\x06output\x01B\x13\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
+\0\x02\x03\0\0\x06output\x01B\x1c\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
 h\x01\x01r\x02\x04names\x05value\x02\x04\0\x0cobject-field\x03\0\x03\x01r\x01\x04\
 names\x04\0\x0cresult-field\x03\0\x05\x01i\x01\x01r\x02\x04names\x06output\x07\x04\
 \0\x1eregister-resource-result-field\x03\0\x08\x01p\x04\x01p\x06\x01r\x04\x04typ\
 es\x04names\x06object\x0a\x07results\x0b\x04\0\x19register-resource-request\x03\0\
 \x0c\x01p\x09\x01r\x01\x06fields\x0e\x04\0\x18register-resource-result\x03\0\x0f\
-\x01@\x01\x07request\x0d\0\x10\x04\0\x08register\x01\x11\x03\x012component:pulum\
-i-wasm/register-interface@0.0.0-DEV\x05\x02\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
-output\x03\0\0\x01h\x01\x01r\x1d\x0aaccount-id\x02\x1ballow-authenticate-via-war\
-p\x02\x0callowed-idps\x02\x15app-launcher-logo-url\x02\x14app-launcher-visible\x02\
-\x19auto-redirect-to-identity\x02\x08bg-color\x02\x0ccors-headers\x02\x13custom-\
-deny-message\x02\x0fcustom-deny-url\x02\x1ccustom-non-identity-deny-url\x02\x0cc\
-ustom-pages\x02\x06domain\x02\x15enable-binding-cookie\x02\x0cfooter-links\x02\x0f\
-header-bg-color\x02\x1ahttp-only-cookie-attribute\x02\x13landing-page-design\x02\
-\x08logo-url\x02\x04name\x02\x08saas-app\x02\x1asame-site-cookie-attribute\x02\x13\
-self-hosted-domains\x02\x18service-auth401-redirect\x02\x10session-duration\x02\x11\
-skip-interstitial\x02\x04tags\x02\x04type\x02\x07zone-id\x02\x04\0\x04args\x03\0\
-\x03\x01i\x01\x01r\x1e\x0aaccount-id\x05\x1ballow-authenticate-via-warp\x05\x0ca\
-llowed-idps\x05\x15app-launcher-logo-url\x05\x14app-launcher-visible\x05\x03aud\x05\
-\x19auto-redirect-to-identity\x05\x08bg-color\x05\x0ccors-headers\x05\x13custom-\
-deny-message\x05\x0fcustom-deny-url\x05\x1ccustom-non-identity-deny-url\x05\x0cc\
-ustom-pages\x05\x06domain\x05\x15enable-binding-cookie\x05\x0cfooter-links\x05\x0f\
-header-bg-color\x05\x1ahttp-only-cookie-attribute\x05\x13landing-page-design\x05\
-\x08logo-url\x05\x04name\x05\x08saas-app\x05\x1asame-site-cookie-attribute\x05\x13\
-self-hosted-domains\x05\x18service-auth401-redirect\x05\x10session-duration\x05\x11\
-skip-interstitial\x05\x04tags\x05\x04type\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\
-\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Fpulumi:clou\
-dflare/access-application@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x03\x01B\x0a\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x0e\
-application-id\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aa\
-ccount-id\x05\x0eapplication-id\x05\x03aud\x05\x0apublic-key\x05\x07zone-id\x05\x04\
-\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\x01Ipulumi:cloudflare/access-ca-certificate@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\
-\x04\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aa\
-ccount-id\x02\x09app-count\x02\x0bcustom-html\x02\x04name\x02\x04type\x02\x07zon\
-e-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x09app-coun\
-t\x05\x0bcustom-html\x05\x04name\x05\x04type\x05\x07zone-id\x05\x04\0\x03res\x03\
-\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Fpulum\
-i:cloudflare/access-custom-page@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x05\x01B\x0a\
+\x01r\x02\x04names\x06output\x07\x04\0\x1cresource-invoke-result-field\x03\0\x11\
+\x01r\x03\x05tokens\x06object\x0a\x07results\x0b\x04\0\x17resource-invoke-reques\
+t\x03\0\x13\x01p\x12\x01r\x01\x06fields\x15\x04\0\x16resource-invoke-result\x03\0\
+\x16\x01@\x01\x07request\x0d\0\x10\x04\0\x08register\x01\x18\x01@\x01\x07request\
+\x14\0\x17\x04\0\x06invoke\x01\x19\x03\x012component:pulumi-wasm/register-interf\
+ace@0.0.0-DEV\x05\x02\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
+\x01r\x1d\x0aaccount-id\x02\x1ballow-authenticate-via-warp\x02\x0callowed-idps\x02\
+\x15app-launcher-logo-url\x02\x14app-launcher-visible\x02\x19auto-redirect-to-id\
+entity\x02\x08bg-color\x02\x0ccors-headers\x02\x13custom-deny-message\x02\x0fcus\
+tom-deny-url\x02\x1ccustom-non-identity-deny-url\x02\x0ccustom-pages\x02\x06doma\
+in\x02\x15enable-binding-cookie\x02\x0cfooter-links\x02\x0fheader-bg-color\x02\x1a\
+http-only-cookie-attribute\x02\x13landing-page-design\x02\x08logo-url\x02\x04nam\
+e\x02\x08saas-app\x02\x1asame-site-cookie-attribute\x02\x13self-hosted-domains\x02\
+\x18service-auth401-redirect\x02\x10session-duration\x02\x11skip-interstitial\x02\
+\x04tags\x02\x04type\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x1e\
+\x0aaccount-id\x05\x1ballow-authenticate-via-warp\x05\x0callowed-idps\x05\x15app\
+-launcher-logo-url\x05\x14app-launcher-visible\x05\x03aud\x05\x19auto-redirect-t\
+o-identity\x05\x08bg-color\x05\x0ccors-headers\x05\x13custom-deny-message\x05\x0f\
+custom-deny-url\x05\x1ccustom-non-identity-deny-url\x05\x0ccustom-pages\x05\x06d\
+omain\x05\x15enable-binding-cookie\x05\x0cfooter-links\x05\x0fheader-bg-color\x05\
+\x1ahttp-only-cookie-attribute\x05\x13landing-page-design\x05\x08logo-url\x05\x04\
+name\x05\x08saas-app\x05\x1asame-site-cookie-attribute\x05\x13self-hosted-domain\
+s\x05\x18service-auth401-redirect\x05\x10session-duration\x05\x11skip-interstiti\
+al\x05\x04tags\x05\x04type\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04\
+names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Fpulumi:cloudflare/access\
+-application@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x03\x01B\x0a\x02\x03\x02\x01\x01\
+\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x0eapplication-id\x02\
+\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount-id\x05\x0ea\
+pplication-id\x05\x03aud\x05\x0apublic-key\x05\x07zone-id\x05\x04\0\x03res\x03\0\
+\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Ipulumi:\
+cloudflare/access-ca-certificate@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x04\x01B\x0a\
 \x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\
-\x08excludes\x02\x08includes\x02\x04name\x02\x08requires\x02\x07zone-id\x02\x04\0\
-\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x08excludes\x05\x08includ\
-es\x05\x04name\x05\x08requires\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\
-\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01@pulumi:cloudflare/ac\
-cess-group@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x06\x01B\x0a\x02\x03\x02\x01\x01\
-\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\x07configs\x02\x04n\
-ame\x02\x0cscim-configs\x02\x04type\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01\
-i\x01\x01r\x06\x0aaccount-id\x05\x07configs\x05\x04name\x05\x0cscim-configs\x05\x04\
-type\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
-\x04\0\x06invoke\x01\x08\x04\x01Lpulumi:cloudflare/access-identity-provider@5.24\
-.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x07\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06outp\
-ut\x03\0\0\x01h\x01\x01r\x02\x0aaccount-id\x02\x1akey-rotation-interval-days\x02\
-\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x0aaccount-id\x05\x1akey-rotation-int\
-erval-days\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
-invoke\x01\x08\x04\x01Mpulumi:cloudflare/access-keys-configuration@5.24.1-DIVIDE\
-R-ZERO.ZERO.ZERO-DEV\x05\x08\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\
-\x01h\x01\x01r\x05\x0aaccount-id\x02\x14associated-hostnames\x02\x0bcertificate\x02\
-\x04name\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount\
--id\x05\x14associated-hostnames\x05\x0bcertificate\x05\x0bfingerprint\x05\x04nam\
-e\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\
-\0\x06invoke\x01\x08\x04\x01Qpulumi:cloudflare/access-mutual-tls-certificate@5.2\
-4.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x09\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06out\
-put\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x08settings\x02\x07zone-id\x02\x04\
-\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x0aaccount-id\x05\x08settings\x05\x07zone\
--id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invo\
-ke\x01\x08\x04\x01Wpulumi:cloudflare/access-mutual-tls-hostname-settings@5.24.1-\
-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x0a\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
-\0\0\x01h\x01\x01r\x0d\x0aaccount-id\x02\x1ballow-authenticate-via-warp\x02\x0ba\
-uth-domain\x02\x19auto-redirect-to-identity\x02\x0ccustom-pages\x02\x0fis-ui-rea\
-d-only\x02\x0dlogin-designs\x02\x04name\x02\x10session-duration\x02\x1aui-read-o\
-nly-toggle-reason\x02\"user-seat-expiration-inactive-time\x02\x1awarp-auth-sessi\
-on-duration\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0d\x0aacco\
-unt-id\x05\x1ballow-authenticate-via-warp\x05\x0bauth-domain\x05\x19auto-redirec\
-t-to-identity\x05\x0ccustom-pages\x05\x0fis-ui-read-only\x05\x0dlogin-designs\x05\
-\x04name\x05\x10session-duration\x05\x1aui-read-only-toggle-reason\x05\"user-sea\
-t-expiration-inactive-time\x05\x1awarp-auth-session-duration\x05\x07zone-id\x05\x04\
-\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\x01Gpulumi:cloudflare/access-organization@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\
-\x0b\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0f\x0aa\
-ccount-id\x02\x0eapplication-id\x02\x0fapproval-groups\x02\x11approval-required\x02\
-\x08decision\x02\x08excludes\x02\x08includes\x02\x12isolation-required\x02\x04na\
-me\x02\x0aprecedence\x02\x1cpurpose-justification-prompt\x02\x1epurpose-justific\
-ation-required\x02\x08requires\x02\x10session-duration\x02\x07zone-id\x02\x04\0\x04\
-args\x03\0\x03\x01i\x01\x01r\x0f\x0aaccount-id\x05\x0eapplication-id\x05\x0fappr\
-oval-groups\x05\x11approval-required\x05\x08decision\x05\x08excludes\x05\x08incl\
-udes\x05\x12isolation-required\x05\x04name\x05\x0aprecedence\x05\x1cpurpose-just\
-ification-prompt\x05\x1epurpose-justification-required\x05\x08requires\x05\x10se\
-ssion-duration\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04ar\
-gs\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Apulumi:cloudflare/access-policy@5.2\
-4.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x0c\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06out\
-put\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x0dconfiguration\x02\x04mode\x02\
-\x05notes\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aaccoun\
-t-id\x05\x0dconfiguration\x05\x04mode\x05\x05notes\x05\x07zone-id\x05\x04\0\x03r\
+\x09app-count\x02\x0bcustom-html\x02\x04name\x02\x04type\x02\x07zone-id\x02\x04\0\
+\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x09app-count\x05\x0bcusto\
+m-html\x05\x04name\x05\x04type\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\
+\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Fpulumi:cloudflare/ac\
+cess-custom-page@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x05\x01B\x0a\x02\x03\x02\x01\
+\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\x08excludes\x02\
+\x08includes\x02\x04name\x02\x08requires\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x06\x0aaccount-id\x05\x08excludes\x05\x08includes\x05\x04name\x05\
+\x08requires\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\
+\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01@pulumi:cloudflare/access-group@5.24.1\
+-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x06\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\
+\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\x07configs\x02\x04name\x02\x0cscim-\
+configs\x02\x04type\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\
+\x0aaccount-id\x05\x07configs\x05\x04name\x05\x0cscim-configs\x05\x04type\x05\x07\
+zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
+invoke\x01\x08\x04\x01Lpulumi:cloudflare/access-identity-provider@5.24.1-DIVIDER\
+-ZERO.ZERO.ZERO-DEV\x05\x07\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\
+\x01h\x01\x01r\x02\x0aaccount-id\x02\x1akey-rotation-interval-days\x02\x04\0\x04\
+args\x03\0\x03\x01i\x01\x01r\x02\x0aaccount-id\x05\x1akey-rotation-interval-days\
+\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\
+\x08\x04\x01Mpulumi:cloudflare/access-keys-configuration@5.24.1-DIVIDER-ZERO.ZER\
+O.ZERO-DEV\x05\x08\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
+\x01r\x05\x0aaccount-id\x02\x14associated-hostnames\x02\x0bcertificate\x02\x04na\
+me\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\
+\x14associated-hostnames\x05\x0bcertificate\x05\x0bfingerprint\x05\x04name\x05\x07\
+zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
+invoke\x01\x08\x04\x01Qpulumi:cloudflare/access-mutual-tls-certificate@5.24.1-DI\
+VIDER-ZERO.ZERO.ZERO-DEV\x05\x09\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
+\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x08settings\x02\x07zone-id\x02\x04\0\x04\
+args\x03\0\x03\x01i\x01\x01r\x03\x0aaccount-id\x05\x08settings\x05\x07zone-id\x05\
+\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
+\x04\x01Wpulumi:cloudflare/access-mutual-tls-hostname-settings@5.24.1-DIVIDER-ZE\
+RO.ZERO.ZERO-DEV\x05\x0a\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
+h\x01\x01r\x0d\x0aaccount-id\x02\x1ballow-authenticate-via-warp\x02\x0bauth-doma\
+in\x02\x19auto-redirect-to-identity\x02\x0ccustom-pages\x02\x0fis-ui-read-only\x02\
+\x0dlogin-designs\x02\x04name\x02\x10session-duration\x02\x1aui-read-only-toggle\
+-reason\x02\"user-seat-expiration-inactive-time\x02\x1awarp-auth-session-duratio\
+n\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0d\x0aaccount-id\x05\
+\x1ballow-authenticate-via-warp\x05\x0bauth-domain\x05\x19auto-redirect-to-ident\
+ity\x05\x0ccustom-pages\x05\x0fis-ui-read-only\x05\x0dlogin-designs\x05\x04name\x05\
+\x10session-duration\x05\x1aui-read-only-toggle-reason\x05\"user-seat-expiration\
+-inactive-time\x05\x1awarp-auth-session-duration\x05\x07zone-id\x05\x04\0\x03res\
+\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Gp\
+ulumi:cloudflare/access-organization@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x0b\x01\
+B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0f\x0aaccount-i\
+d\x02\x0eapplication-id\x02\x0fapproval-groups\x02\x11approval-required\x02\x08d\
+ecision\x02\x08excludes\x02\x08includes\x02\x12isolation-required\x02\x04name\x02\
+\x0aprecedence\x02\x1cpurpose-justification-prompt\x02\x1epurpose-justification-\
+required\x02\x08requires\x02\x10session-duration\x02\x07zone-id\x02\x04\0\x04arg\
+s\x03\0\x03\x01i\x01\x01r\x0f\x0aaccount-id\x05\x0eapplication-id\x05\x0fapprova\
+l-groups\x05\x11approval-required\x05\x08decision\x05\x08excludes\x05\x08include\
+s\x05\x12isolation-required\x05\x04name\x05\x0aprecedence\x05\x1cpurpose-justifi\
+cation-prompt\x05\x1epurpose-justification-required\x05\x08requires\x05\x10sessi\
+on-duration\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
+\0\x07\x04\0\x06invoke\x01\x08\x04\x01Apulumi:cloudflare/access-policy@5.24.1-DI\
+VIDER-ZERO.ZERO.ZERO-DEV\x05\x0c\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
+\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x0dconfiguration\x02\x04mode\x02\x05not\
+es\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount-id\x05\
+\x0dconfiguration\x05\x04mode\x05\x05notes\x05\x07zone-id\x05\x04\0\x03res\x03\0\
+\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01?pulumi:\
+cloudflare/access-rule@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x0d\x01B\x0a\x02\x03\
+\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x08dura\
+tion\x02\x14min-days-for-renewal\x02\x04name\x02\x07zone-id\x02\x04\0\x04args\x03\
+\0\x03\x01i\x01\x01r\x08\x0aaccount-id\x05\x09client-id\x05\x0dclient-secret\x05\
+\x08duration\x05\x0aexpires-at\x05\x14min-days-for-renewal\x05\x04name\x05\x07zo\
+ne-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06in\
+voke\x01\x08\x04\x01Hpulumi:cloudflare/access-service-token@5.24.1-DIVIDER-ZERO.\
+ZERO.ZERO-DEV\x05\x0e\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
+\x01r\x04\x0aaccount-id\x02\x09app-count\x02\x04name\x02\x07zone-id\x02\x04\0\x04\
+args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x09app-count\x05\x04name\x05\x07\
+zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
+invoke\x01\x08\x04\x01>pulumi:cloudflare/access-tag@5.24.1-DIVIDER-ZERO.ZERO.ZER\
+O-DEV\x05\x0f\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\
+\x03\x11enforce-twofactor\x02\x04name\x02\x04type\x02\x04\0\x04args\x03\0\x03\x01\
+i\x01\x01r\x03\x11enforce-twofactor\x05\x04name\x05\x04type\x05\x04\0\x03res\x03\
+\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01;pulum\
+i:cloudflare/account@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x10\x01B\x0a\x02\x03\x02\
+\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x0demail-ad\
+dress\x02\x08role-ids\x02\x06status\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\
+\x0aaccount-id\x05\x0demail-address\x05\x08role-ids\x05\x06status\x05\x04\0\x03r\
 es\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\
-?pulumi:cloudflare/access-rule@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x0d\x01B\x0a\
-\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\
-\x08duration\x02\x14min-days-for-renewal\x02\x04name\x02\x07zone-id\x02\x04\0\x04\
-args\x03\0\x03\x01i\x01\x01r\x08\x0aaccount-id\x05\x09client-id\x05\x0dclient-se\
-cret\x05\x08duration\x05\x0aexpires-at\x05\x14min-days-for-renewal\x05\x04name\x05\
-\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\
-\x06invoke\x01\x08\x04\x01Hpulumi:cloudflare/access-service-token@5.24.1-DIVIDER\
--ZERO.ZERO.ZERO-DEV\x05\x0e\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\
-\x01h\x01\x01r\x04\x0aaccount-id\x02\x09app-count\x02\x04name\x02\x07zone-id\x02\
-\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x09app-count\x05\x04\
-name\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
-\x04\0\x06invoke\x01\x08\x04\x01>pulumi:cloudflare/access-tag@5.24.1-DIVIDER-ZER\
-O.ZERO.ZERO-DEV\x05\x0f\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
-h\x01\x01r\x03\x11enforce-twofactor\x02\x04name\x02\x04type\x02\x04\0\x04args\x03\
-\0\x03\x01i\x01\x01r\x03\x11enforce-twofactor\x05\x04name\x05\x04type\x05\x04\0\x03\
-res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01\
-;pulumi:cloudflare/account@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x10\x01B\x0a\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x0d\
-email-address\x02\x08role-ids\x02\x06status\x02\x04\0\x04args\x03\0\x03\x01i\x01\
-\x01r\x04\x0aaccount-id\x05\x0demail-address\x05\x08role-ids\x05\x06status\x05\x04\
-\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\x01Bpulumi:cloudflare/account-member@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x11\x01\
-B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-i\
-d\x02\x0bdefault-sni\x02\x0bdescription\x02\x07enabled\x02\x03ips\x02\x0bmembers\
-hips\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x08\x0aaccount-id\x05\x0acan-dele\
-te\x05\x0ecan-modify-ips\x05\x0bdefault-sni\x05\x0bdescription\x05\x07enabled\x05\
+Bpulumi:cloudflare/account-member@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x11\x01B\
+\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\
+\x02\x0bdefault-sni\x02\x0bdescription\x02\x07enabled\x02\x03ips\x02\x0bmembersh\
+ips\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x08\x0aaccount-id\x05\x0acan-delet\
+e\x05\x0ecan-modify-ips\x05\x0bdefault-sni\x05\x0bdescription\x05\x07enabled\x05\
 \x03ips\x05\x0bmemberships\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
 \0\x07\x04\0\x06invoke\x01\x08\x04\x01?pulumi:cloudflare/address-map@5.24.1-DIVI\
 DER-ZERO.ZERO.ZERO-DEV\x05\x12\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\
@@ -21116,10 +23595,116 @@ zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\x10initial-settings\x05\x1
 initial-settings-read-at\x05\x11readonly-settings\x05\x08settings\x05\x07zone-id\
 \x05\x0bzone-status\x05\x09zone-type\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04name\
 s\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Jpulumi:cloudflare/zone-setti\
-ngs-override@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05x\x04\x01Epulumi:cloudflare/cl\
-oudflare-pulumi@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x04\0\x0b\x17\x01\0\x11cloudfl\
-are-pulumi\x03\0\0\0G\x09producers\x01\x0cprocessed-by\x02\x0dwit-component\x070\
-.215.0\x10wit-bindgen-rust\x060.30.0";
+ngs-override@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05x\x01B\x0a\x02\x03\x02\x01\x01\
+\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x06domain\x02\x04na\
+me\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\
+\x03aud\x05\x06domain\x05\x02id\x05\x04name\x05\x07zone-id\x05\x04\0\x03res\x03\0\
+\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Jpulumi:cloudflar\
+e/get-access-application@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05y\x01B\x0a\x02\x03\
+\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x04name\
+\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount-id\x05\x02\
+id\x05\x04name\x05\x04type\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04\
+args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Ppulumi:cloudflare/get-access-iden\
+tity-provider@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05z\x01B\x0a\x02\x03\x02\x01\x01\
+\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x0aaccount-id\x02\x04\0\x04args\x03\0\
+\x03\x01i\x01\x01r\x03\x0aaccount-id\x05\x02id\x05\x05roles\x05\x04\0\x03res\x03\
+\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Epulumi:cloudfl\
+are/get-account-roles@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05{\x01B\x0a\x02\x03\x02\
+\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x04name\x02\x04\0\x04args\x03\
+\0\x03\x01i\x01\x01r\x03\x08accounts\x05\x02id\x05\x04name\x05\x04\0\x03res\x03\0\
+\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01@pulumi:cloudflar\
+e/get-accounts@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05|\x01B\x07\x02\x03\x02\x01\x01\
+\x04\0\x06output\x03\0\0\x01i\x01\x01r\x06\x07account\x02\x02id\x02\x0bpermissio\
+ns\x02\x02r2\x02\x04user\x02\x04zone\x02\x04\0\x03res\x03\0\x03\x01@\0\0\x04\x04\
+\0\x06invoke\x01\x05\x04\x01Spulumi:cloudflare/get-api-token-permission-groups@5\
+.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05}\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06outp\
+ut\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x04name\x02\x04type\x02\x04\0\x04\
+args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount-id\x05\x02id\x05\x04name\x05\x05rule\
+s\x05\x04type\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06inv\
+oke\x01\x08\x04\x01Lpulumi:cloudflare/get-device-posture-rules@5.24.1-DIVIDER-ZE\
+RO.ZERO.ZERO-DEV\x05~\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
+\x01r\x01\x0aaccount-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x0aaccount\
+-id\x05\x07devices\x05\x02id\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\
+\x04\0\x06invoke\x01\x08\x04\x01?pulumi:cloudflare/get-devices@5.24.1-DIVIDER-ZE\
+RO.ZERO.ZERO-DEV\x05\x7f\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
+h\x01\x01r\x01\x0aaccount-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x0aac\
+count-id\x05\x08datasets\x05\x02id\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\
+\0\x07\x04\0\x06invoke\x01\x08\x04\x01Dpulumi:cloudflare/get-dlp-datasets@5.24.1\
+-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x80\x01\x01B\x07\x02\x03\x02\x01\x01\x04\0\x06ou\
+tput\x03\0\0\x01i\x01\x01r\x06\x16china-ipv4-cidr-blocks\x02\x16china-ipv6-cidr-\
+blocks\x02\x0bcidr-blocks\x02\x02id\x02\x10ipv4-cidr-blocks\x02\x10ipv6-cidr-blo\
+cks\x02\x04\0\x03res\x03\0\x03\x01@\0\0\x04\x04\0\x06invoke\x01\x05\x04\x01Apulu\
+mi:cloudflare/get-ip-ranges@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x81\x01\x01B\x0a\
+\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x0aaccount-id\x02\
+\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x0bdesc\
+ription\x05\x02id\x05\x04kind\x05\x04name\x05\x08numitems\x05\x04\0\x03res\x03\0\
+\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01<pulumi:cloudflar\
+e/get-list@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x82\x01\x01B\x0a\x02\x03\x02\x01\
+\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x0aaccount-id\x02\x04\0\x04args\x03\
+\0\x03\x01i\x01\x01r\x03\x0aaccount-id\x05\x02id\x05\x05lists\x05\x04\0\x03res\x03\
+\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01=pulumi:cloudfl\
+are/get-lists@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x83\x01\x01B\x0a\x02\x03\x02\
+\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x06filter\x02\
+\x05pools\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x06fil\
+ter\x05\x02id\x05\x05pools\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\
+\x04\0\x06invoke\x01\x08\x04\x01Kpulumi:cloudflare/get-load-balancer-pools@5.24.\
+1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x84\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06o\
+utput\x03\0\0\x01h\x01\x01r\x01\x02id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\
+\x0bcertificate\x05\x0aexpires-on\x05\x09hostnames\x05\x02id\x05\x0crequest-type\
+\x05\x0arevoked-at\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06\
+invoke\x01\x08\x04\x01Mpulumi:cloudflare/get-origin-ca-certificate@5.24.1-DIVIDE\
+R-ZERO.ZERO.ZERO-DEV\x05\x85\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
+\0\0\x01h\x01\x01r\x01\x09algorithm\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\
+\x09algorithm\x05\x08cert-pem\x05\x02id\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04a\
+rgs\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Rpulumi:cloudflare/get-origin-ca-ro\
+ot-certificate@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x86\x01\x01B\x0a\x02\x03\x02\
+\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x07content\x02\x08hostname\x02\
+\x08priority\x02\x04type\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
+r\x0c\x07content\x05\x08hostname\x05\x02id\x05\x06locked\x05\x08priority\x05\x09\
+proxiable\x05\x07proxied\x05\x03ttl\x05\x04type\x05\x05value\x05\x07zone-id\x05\x09\
+zone-name\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\
+\x08\x04\x01>pulumi:cloudflare/get-record@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x87\
+\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aa\
+ccount-id\x02\x06filter\x02\x0dinclude-rules\x02\x07zone-id\x02\x04\0\x04args\x03\
+\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x06filter\x05\x02id\x05\x0dinclude-ru\
+les\x05\x08rulesets\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\
+\0\x07\x04\0\x06invoke\x01\x08\x04\x01@pulumi:cloudflare/get-rulesets@5.24.1-DIV\
+IDER-ZERO.ZERO.ZERO-DEV\x05\x88\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\
+\x03\0\0\x01h\x01\x01r\x02\x0aaccount-id\x02\x04name\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x06\x0aaccount-id\x05\x02id\x05\x04name\x05\x0dremote-config\x05\x06\
+status\x05\x0btunnel-type\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\
+\0\x06invoke\x01\x08\x04\x01>pulumi:cloudflare/get-tunnel@5.24.1-DIVIDER-ZERO.ZE\
+RO.ZERO-DEV\x05\x89\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
+h\x01\x01r\x02\x0aaccount-id\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
+r\x05\x0aaccount-id\x05\x07comment\x05\x02id\x05\x0ais-default\x05\x04name\x05\x04\
+\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Np\
+ulumi:cloudflare/get-tunnel-virtual-network@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\
+\x8a\x01\x01B\x07\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01i\x01\x01r\x03\x05\
+email\x02\x02id\x02\x08username\x02\x04\0\x03res\x03\0\x03\x01@\0\0\x04\x04\0\x06\
+invoke\x01\x05\x04\x01<pulumi:cloudflare/get-user@5.24.1-DIVIDER-ZERO.ZERO.ZERO-\
+DEV\x05\x8b\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
+r\x03\x0aaccount-id\x02\x04name\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\
+\x01r\x09\x0aaccount-id\x05\x02id\x05\x04name\x05\x0cname-servers\x05\x06paused\x05\
+\x04plan\x05\x06status\x05\x13vanity-name-servers\x05\x07zone-id\x05\x04\0\x03re\
+s\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01<pulumi:cl\
+oudflare/get-zone@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x8c\x01\x01B\x0a\x02\x03\
+\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x07zone-id\x02\x04\0\x04a\
+rgs\x03\0\x03\x01i\x01\x01r\x03\x07enabled\x05\x02id\x05\x07zone-id\x05\x04\0\x03\
+res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Jpulumi:\
+cloudflare/get-zone-cache-reserve@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x8d\x01\x01\
+B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x07zone-id\x02\
+\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0c\x09algorithm\x05\x06digest\x05\x10dig\
+est-algorithm\x05\x0bdigest-type\x05\x02ds\x05\x05flags\x05\x02id\x05\x07key-tag\
+\x05\x08key-type\x05\x0apublic-key\x05\x06status\x05\x07zone-id\x05\x04\0\x03res\
+\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Cpulumi:clo\
+udflare/get-zone-dnssec@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x8e\x01\x01B\x0a\x02\
+\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x06filter\x02\x04\0\x04\
+args\x03\0\x03\x01i\x01\x01r\x03\x06filter\x05\x02id\x05\x05zones\x05\x04\0\x03r\
+es\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01=pulumi:c\
+loudflare/get-zones@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x8f\x01\x04\x01Epulumi\
+:cloudflare/cloudflare-pulumi@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV\x04\0\x0b\x17\x01\
+\0\x11cloudflare-pulumi\x03\0\0\0G\x09producers\x01\x0cprocessed-by\x02\x0dwit-c\
+omponent\x070.215.0\x10wit-bindgen-rust\x060.30.0";
 #[inline(never)]
 #[doc(hidden)]
 pub fn __link_custom_section_describing_imports() {

@@ -1,7 +1,7 @@
 use crate::model::MaybeNodeValue::{NotYetCalculated, Set};
 use crate::model::NodeValue::Nothing;
 use crate::model::{FieldName, FunctionName, MaybeNodeValue, NodeValue, OutputId};
-use crate::pulumi::service::{RegisterResourceRequest, RegisterResourceResponse};
+use crate::pulumi::service::{PerformResourceRequest, RegisterResourceResponse};
 use log::error;
 use serde_json::Value;
 use std::collections::{HashMap, HashSet};
@@ -72,8 +72,8 @@ pub(crate) struct NativeFunctionNode {
 impl NativeFunctionNode {
     pub(crate) fn new(function_name: FunctionName) -> Self {
         Self {
-            argument: MaybeNodeValue::NotYetCalculated,
-            value: MaybeNodeValue::NotYetCalculated,
+            argument: NotYetCalculated,
+            value: NotYetCalculated,
             function_name,
             callbacks: Vec::new(),
         }
@@ -118,22 +118,48 @@ impl NativeFunctionNode {
     }
 }
 
+#[derive(Clone, Debug, PartialEq)]
+pub(crate) struct RegisterResourceRequestOperation {
+    pub(crate) name: String,
+    pub(crate) r#type: String,
+}
+
+impl RegisterResourceRequestOperation {
+    pub(crate) fn new(r#type: String, name: String) -> Self {
+        Self { name, r#type }
+    }
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub(crate) struct ResourceInvokeRequestOperation {
+    pub(crate) token: String,
+}
+impl ResourceInvokeRequestOperation {
+    pub(crate) fn new(token: String) -> Self {
+        Self { token }
+    }
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub(crate) enum ResourceRequestOperation {
+    Register(RegisterResourceRequestOperation),
+    Invoke(ResourceInvokeRequestOperation),
+}
+
 #[derive(Debug, PartialEq)]
-pub(crate) struct RegisterResourceNode {
+pub(crate) struct AbstractResourceNode {
     value: MaybeNodeValue,
-    name: String,
-    r#type: String,
     required_inputs: HashSet<FieldName>,
     inputs: HashMap<FieldName, NodeValue>,
     outputs: HashSet<FieldName>,
     callbacks: Vec<Callback>,
+    operation: ResourceRequestOperation,
 }
 
-impl RegisterResourceNode {
+impl AbstractResourceNode {
     pub(crate) fn create(
         value: MaybeNodeValue,
-        r#type: String,
-        name: String,
+        operation: ResourceRequestOperation,
         required_inputs: HashSet<FieldName>,
         inputs: HashMap<FieldName, NodeValue>,
         outputs: HashSet<FieldName>,
@@ -141,8 +167,7 @@ impl RegisterResourceNode {
     ) -> Self {
         Self {
             value,
-            name,
-            r#type,
+            operation,
             required_inputs,
             inputs,
             outputs,
@@ -151,15 +176,13 @@ impl RegisterResourceNode {
     }
 
     pub(crate) fn new(
-        r#type: String,
-        name: String,
+        operation: ResourceRequestOperation,
         input_names: HashSet<FieldName>,
         outputs: HashSet<FieldName>,
     ) -> Self {
         Self::create(
             NotYetCalculated,
-            r#type,
-            name,
+            operation,
             input_names,
             HashMap::new(),
             outputs,
@@ -171,7 +194,7 @@ impl RegisterResourceNode {
         &mut self,
         name: FieldName,
         value: NodeValue,
-    ) -> Option<RegisterResourceRequest> {
+    ) -> Option<PerformResourceRequest> {
         if !self.required_inputs.contains(&name) {
             panic!("Input not found: {:?}", name);
         }
@@ -203,7 +226,7 @@ impl RegisterResourceNode {
         &self.value
     }
 
-    fn generate_request(&self) -> RegisterResourceRequest {
+    fn generate_request(&self) -> PerformResourceRequest {
         let mut object = HashMap::new();
 
         for (name, value) in self.inputs.iter() {
@@ -217,9 +240,8 @@ impl RegisterResourceNode {
             };
         }
 
-        RegisterResourceRequest {
-            r#type: self.r#type.clone(),
-            name: self.name.clone(),
+        PerformResourceRequest {
+            operation: self.operation.clone(),
             object,
             expected_results: self.outputs.clone(),
         }
@@ -352,19 +374,23 @@ mod tests {
     use std::collections::HashMap;
 
     use crate::model::NodeValue::{Exists, Nothing};
-    use crate::nodes::RegisterResourceNode;
+    use crate::nodes::AbstractResourceNode;
     use serde_json::Value::Null;
 
     mod register_resource_node {
         use super::*;
-        use crate::pulumi::service::RegisterResourceRequest;
+        use crate::nodes::ResourceRequestOperation::Register;
+        use crate::nodes::{RegisterResourceRequestOperation, ResourceRequestOperation};
+        use crate::pulumi::service::PerformResourceRequest;
         use std::collections::HashSet;
 
         #[test]
         fn set_input_passes_it_to_pulumi() {
-            let mut node = RegisterResourceNode::new(
-                "type".into(),
-                "name".into(),
+            let mut node = AbstractResourceNode::new(
+                Register(RegisterResourceRequestOperation::new(
+                    "type".into(),
+                    "name".into(),
+                )),
                 ["exists_nil".into(), "exists_int".into(), "not_exist".into()].into(),
                 HashSet::from(["output".into()]),
             );
@@ -378,14 +404,15 @@ mod tests {
             let result = node.set_input("not_exist".into(), Nothing);
             assert_eq!(
                 result,
-                Some(RegisterResourceRequest {
-                    r#type: "type".into(),
-                    name: "name".into(),
+                Some(PerformResourceRequest {
                     object: HashMap::from([
                         ("exists_nil".into(), Some(Null)),
                         ("exists_int".into(), Some(2.into())),
                         ("not_exist".into(), None),
                     ]),
+                    operation: ResourceRequestOperation::Register(
+                        RegisterResourceRequestOperation::new("type".into(), "name".into())
+                    ),
                     expected_results: HashSet::from(["output".into()]),
                 })
             );

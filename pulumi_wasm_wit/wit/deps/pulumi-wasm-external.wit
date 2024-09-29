@@ -5,6 +5,11 @@ interface external-world {
     get-root-resource: func() -> string;
     register-resource-outputs: func(request: list<u8>) -> list<u8>;
 
+    record resource-invoke-request {
+        output-id: string,
+        body: list<u8>
+    }
+
     record register-resource-request {
         output-id: string,
         body: list<u8>
@@ -15,8 +20,9 @@ interface external-world {
         body: list<u8>
     }
 
+    resource-invoke: func(request: resource-invoke-request);
     register-resource: func(request: register-resource-request);
-    wait-for-registered-resources: func() -> list<registered-resource>;
+    wait-for-resource-operations: func() -> list<registered-resource>;
 }
 
 interface log {

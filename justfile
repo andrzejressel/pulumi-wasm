@@ -85,6 +85,9 @@ fmt-clippy:
     cargo clippy --all-features --fix --allow-dirty --allow-staged {{FORMATTABLE_PROJECTS}}
     just fmt
 
+clippy-to-file:
+    cargo clippy --all-features --message-format=json {{FORMATTABLE_PROJECTS}} | clippy-sarif | tee rust-clippy-results.sarif | sarif-fmt
+
 regenerate-provider-list:
     cargo run -p regenerate_providers
 
@@ -97,9 +100,6 @@ regenerate-providers:
     cargo run -p pulumi_wasm_generator -- gen-provider --remove true --schema providers/cloudflare.json --output providers/pulumi_wasm_provider_cloudflare
     cargo run -p pulumi_wasm_generator -- gen-rust     --remove true --schema providers/cloudflare.json --output providers/pulumi_wasm_provider_cloudflare_rust
 # DO NOT EDIT - REGENERATE-PROVIDERS - END
-
-regenerate-and-fmt:
-    just regenerate-providers build-wasm-components fmt
 
 publish:
     cargo publish -p pulumi_wasm_wit --all-features
