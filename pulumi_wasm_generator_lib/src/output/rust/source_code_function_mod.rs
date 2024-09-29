@@ -18,8 +18,8 @@ fn convert_model(package: &crate::model::Package) -> Package {
     Package {
         functions: package
             .functions
-            .iter()
-            .map(|(element_id, resource)| Function {
+            .keys()
+            .map(|(element_id)| Function {
                 name: element_id.get_rust_namespace_name(),
             })
             .collect(),

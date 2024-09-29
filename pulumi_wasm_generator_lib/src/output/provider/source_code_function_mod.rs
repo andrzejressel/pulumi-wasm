@@ -20,8 +20,8 @@ fn convert_model(package: &crate::model::Package) -> Package {
         name: package.name.clone(),
         interfaces: package
             .functions
-            .iter()
-            .map(|(element_id, _)| Interface {
+            .keys()
+            .map(|element_id| Interface {
                 name: element_id.get_rust_namespace_name(),
             })
             .collect(),
