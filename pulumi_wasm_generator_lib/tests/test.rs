@@ -62,6 +62,8 @@ fn run_pulumi_generator_test(test_name: &str, provider_name: &str) -> Result<()>
             "-p",
             format!("pulumi_wasm_{provider_name}_provider").as_str(),
         ])
+        .env_remove("CARGO_LLVM_COV")
+        .env_remove("RUSTFLAGS")
         .current_dir(root)
         .assert()
         .success();
@@ -72,6 +74,8 @@ fn run_pulumi_generator_test(test_name: &str, provider_name: &str) -> Result<()>
             "-p",
             format!("pulumi_wasm_{provider_name}").as_str(),
         ])
+        .env_remove("CARGO_LLVM_COV")
+        .env_remove("RUSTFLAGS")
         .current_dir(root)
         .assert()
         .success();
