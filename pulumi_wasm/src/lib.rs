@@ -19,6 +19,7 @@ use crate::bindings::exports::component::pulumi_wasm::{
 
 bindings::export!(Component with_types_in bindings);
 
+#[allow(clippy::all)]
 #[allow(unused_braces)]
 #[rustfmt::skip]
 mod bindings;
