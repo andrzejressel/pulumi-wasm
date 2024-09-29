@@ -24,7 +24,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-24.04, windows-2022, macos-14]
 
     env:
       RUST_BACKTRACE: "full"
@@ -119,7 +119,7 @@ jobs:
           pulumi_wasm_generator_lib/tests/**/target/cargo-timings/cargo-timing-*.html
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: build
     if: success() && github.ref == 'refs/heads/main'
     env:
