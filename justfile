@@ -28,6 +28,7 @@ package-language-plugin VERSION:
 
 install-requirements:
     rustup component add rustfmt
+    rustup component add llvm-tools-preview
     cargo binstall --no-confirm cargo-nextest@{{NEXTEST_VERSION}}
     cargo binstall --no-confirm cargo-component@{{CARGO_COMPONENT_VERSION}}
     cargo binstall --no-confirm sd@{{SD_VERSION}}
@@ -119,6 +120,10 @@ publish-providers:
 
 test:
     cargo nextest run --workspace --timings
+
+test-coverage:
+    cargo llvm-cov --no-report -p pulumi_wasm_core
+    cargo llvm-cov report --lcov --output-path lcov.info
 
 docs:
     docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material
