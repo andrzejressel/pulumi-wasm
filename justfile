@@ -5,6 +5,8 @@ NEXTEST_VERSION := "0.9.72"
 CARGO_COMPONENT_VERSION := "0.16.0"
 # renovate: datasource=crate depName=sd packageName=sd
 SD_VERSION := "1.0.0"
+# renovate: datasource=crate depName=cargo-llvm-cov packageName=cargo-llvm-cov
+CARGO_LLVM_COV_VERSION := "0.6.13"
 
 FORMATTABLE_PROJECTS := "-p pulumi_wasm -p pulumi_wasm_common -p pulumi_wasm_generator -p pulumi_wasm_generator_lib \
 -p pulumi_wasm_runner -p pulumi_wasm_runner_component_creator -p pulumi_wasm_rust -p pulumi_wasm_rust_macro \
@@ -28,9 +30,11 @@ package-language-plugin VERSION:
 
 install-requirements:
     rustup component add rustfmt
+    rustup component add llvm-tools-preview
     cargo binstall --no-confirm cargo-nextest@{{NEXTEST_VERSION}}
     cargo binstall --no-confirm cargo-component@{{CARGO_COMPONENT_VERSION}}
     cargo binstall --no-confirm sd@{{SD_VERSION}}
+    cargo binstall --no-confirm cargo-llvm-cov@{{CARGO_LLVM_COV_VERSION}}
 
 # Compiling everything together causes linking issues
 build-wasm-components:
@@ -118,7 +122,11 @@ publish-providers:
 # DO NOT EDIT - PUBLISH-PROVIDERS - END
 
 test:
-    cargo nextest run --workspace --timings
+    cargo nextest run --profile ci --workspace --timings
+
+test-coverage:
+    cargo llvm-cov --no-report -p pulumi_wasm_core
+    cargo llvm-cov report --lcov --output-path lcov.info
 
 docs:
     docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material

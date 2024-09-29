@@ -12,7 +12,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .build_client(false)
         .build_server(false)
         .out_dir(model_location)
-        .compile(
+        .compile_protos(
             &[
                 "proto/pulumi/plugin.proto",
                 "proto/pulumi/engine.proto",
@@ -26,7 +26,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .build_client(true)
         .build_server(true)
         .out_dir(full_location)
-        .compile(
+        .compile_protos(
             &[
                 "proto/pulumi/plugin.proto",
                 "proto/pulumi/engine.proto",

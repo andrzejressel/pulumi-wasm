@@ -21,3 +21,4 @@ target
 
 output.log
 *.wasm
+lcov.info
