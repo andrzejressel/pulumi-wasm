@@ -122,7 +122,7 @@ publish-providers:
 # DO NOT EDIT - PUBLISH-PROVIDERS - END
 
 test:
-    cargo nextest run --workspace --timings
+    cargo nextest run --profile ci --workspace --timings
 
 test-coverage:
     cargo llvm-cov --no-report -p pulumi_wasm_core

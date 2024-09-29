@@ -116,6 +116,13 @@ jobs:
         files: lcov.info
         fail_ci_if_error: true
         token: ${{ secrets.CODECOV_TOKEN }}
+    - name: Upload test results to Codecov
+      if: ${{ !cancelled() }}
+      uses: codecov/test-results-action@v1
+      with:
+        files: junit.xml
+        fail_ci_if_error: true
+        token: ${{ secrets.CODECOV_TOKEN }}
     - run: git add . && git diff
     - run: git diff --cached
     - name: Ensure no files have changed
