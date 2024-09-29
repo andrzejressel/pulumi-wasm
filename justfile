@@ -34,7 +34,7 @@ install-requirements:
     cargo binstall --no-confirm cargo-nextest@{{NEXTEST_VERSION}}
     cargo binstall --no-confirm cargo-component@{{CARGO_COMPONENT_VERSION}}
     cargo binstall --no-confirm sd@{{SD_VERSION}}
-    cargo binstall --no-config cargo-llvm-cov@{{CARGO_LLVM_COV_VERSION}}
+    cargo binstall --no-confirm cargo-llvm-cov@{{CARGO_LLVM_COV_VERSION}}
 
 # Compiling everything together causes linking issues
 build-wasm-components:
