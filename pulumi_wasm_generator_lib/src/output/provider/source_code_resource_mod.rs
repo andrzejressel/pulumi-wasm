@@ -21,7 +21,7 @@ fn convert_model(package: &crate::model::Package) -> Package {
         interfaces: package
             .resources
             .iter()
-            .map(|(element_id, resource)| Interface {
+            .map(|(element_id, _)| Interface {
                 name: element_id.get_rust_namespace_name(),
             })
             .collect(),
