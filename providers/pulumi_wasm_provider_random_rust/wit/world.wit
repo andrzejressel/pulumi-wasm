@@ -39,10 +39,12 @@ interface random-bytes {
         length: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
-
 interface random-id {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -63,10 +65,12 @@ interface random-id {
         prefix: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
-
 interface random-integer {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -86,10 +90,12 @@ interface random-integer {
         seed: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
-
 interface random-password {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -126,10 +132,12 @@ interface random-password {
         upper: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
-
 interface random-pet {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -148,10 +156,12 @@ interface random-pet {
         separator: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
-
 interface random-shuffle {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -171,10 +181,12 @@ interface random-shuffle {
         seed: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
-
 interface random-string {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -210,10 +222,12 @@ interface random-string {
         upper: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
-
 interface random-uuid {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -227,7 +241,10 @@ interface random-uuid {
         %result: output,
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
 
 }
 

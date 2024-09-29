@@ -1,11 +1,3 @@
-use anyhow::Error;
-use async_trait::async_trait;
-use log::info;
-use prost::Message;
-use wasmtime::component::{Component, Linker, ResourceTable};
-use wasmtime::Store;
-use wasmtime_wasi::{WasiCtx, WasiCtxBuilder, WasiView};
-
 use crate::grpc::engine_client::EngineClient;
 use crate::grpc::resource_monitor_client::ResourceMonitorClient;
 use crate::grpc::{
@@ -17,7 +9,15 @@ use crate::pulumi::runner::component::pulumi_wasm_external::external_world::Host
 use crate::pulumi::runner::component::pulumi_wasm_external::external_world::RegisteredResource;
 use crate::pulumi::runner::Runner;
 use crate::pulumi_state::PulumiState;
+use anyhow::Error;
+use async_trait::async_trait;
+use log::info;
+use prost::Message;
+use pulumi_wasm_proto::grpc::ResourceInvokeRequest;
 use pulumi_wasm_wit::bindings_runner as runner;
+use wasmtime::component::{Component, Linker, ResourceTable};
+use wasmtime::Store;
+use wasmtime_wasi::{WasiCtx, WasiCtxBuilder, WasiView};
 
 pub struct Pulumi {
     plugin: Runner,
@@ -60,12 +60,27 @@ impl Host for MyState {
 
         info!("registering resource: {:?}", b);
 
-        self.pulumi_state.send_request(request.output_id.into(), b);
+        self.pulumi_state
+            .send_register_resource_request(request.output_id.into(), b);
 
         Ok(())
     }
 
-    async fn wait_for_registered_resources(&mut self) -> wasmtime::Result<Vec<RegisteredResource>> {
+    async fn resource_invoke(
+        &mut self,
+        request: external_world::ResourceInvokeRequest,
+    ) -> wasmtime::Result<()> {
+        let b = ResourceInvokeRequest::decode(&*(request.body)).unwrap();
+
+        info!("registering resource: {:?}", b);
+
+        self.pulumi_state
+            .send_resource_invoke_request(request.output_id.into(), b);
+
+        Ok(())
+    }
+
+    async fn wait_for_resource_operations(&mut self) -> wasmtime::Result<Vec<RegisteredResource>> {
         let mut outputs = Vec::new();
         for (output_id, body) in self.pulumi_state.get_created_resources().await {
             let b = RegisterResourceResponse::decode(&*body).unwrap();

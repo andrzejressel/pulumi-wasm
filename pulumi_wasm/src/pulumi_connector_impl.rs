@@ -1,5 +1,7 @@
 use crate::bindings::component::pulumi_wasm_external::external_world;
-use crate::bindings::component::pulumi_wasm_external::external_world::RegisterResourceRequest;
+use crate::bindings::component::pulumi_wasm_external::external_world::{
+    RegisterResourceRequest, ResourceInvokeRequest,
+};
 use pulumi_wasm_core::PulumiConnector;
 
 pub(crate) struct PulumiConnectorImpl {}
@@ -12,7 +14,13 @@ impl PulumiConnector for PulumiConnectorImpl {
         external_world::is_in_preview()
     }
 
-    fn create_resource(&self, output_id: String, req: Vec<u8>) {
+    fn resource_invoke(&self, output_id: String, req: Vec<u8>) {
+        external_world::resource_invoke(&ResourceInvokeRequest {
+            output_id,
+            body: req,
+        });
+    }
+    fn register_resource(&self, output_id: String, req: Vec<u8>) {
         external_world::register_resource(&RegisterResourceRequest {
             output_id,
             body: req,
@@ -20,7 +28,7 @@ impl PulumiConnector for PulumiConnectorImpl {
     }
 
     fn get_created_resources(&self) -> Vec<(String, Vec<u8>)> {
-        let registered_resources = external_world::wait_for_registered_resources();
+        let registered_resources = external_world::wait_for_resource_operations();
         registered_resources
             .into_iter()
             .map(|r| (r.output_id, r.body))

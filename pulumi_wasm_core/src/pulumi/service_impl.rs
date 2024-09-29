@@ -9,12 +9,33 @@ use pulumi_wasm_proto::grpc;
 use serde_json::{Number, Value};
 
 use crate::model::{FieldName, OutputId};
+use crate::nodes::ResourceRequestOperation;
 use crate::pulumi::service::{PulumiService, RegisterResourceResponse};
-use crate::{PulumiConnector, RegisterResourceRequest};
+use crate::pulumi::service_impl::RequestType::{Invoke, Register};
+use crate::{PerformResourceRequest, PulumiConnector};
+
+enum RequestType {
+    Invoke,
+    Register,
+}
+
+struct Result {
+    fields: HashSet<FieldName>,
+    request_type: RequestType,
+}
+
+impl Result {
+    fn new(fields: HashSet<FieldName>, request_type: RequestType) -> Result {
+        Result {
+            fields,
+            request_type,
+        }
+    }
+}
 
 pub struct PulumiServiceImpl {
     connector: Box<dyn PulumiConnector>,
-    expected_results: RefCell<HashMap<OutputId, HashSet<FieldName>>>,
+    expected_results: RefCell<HashMap<OutputId, Result>>,
     is_in_preview: bool,
 }
 
@@ -55,53 +76,76 @@ impl PulumiService for PulumiServiceImpl {
         }
     }
 
-    fn register_resource(&self, output_id: OutputId, request: RegisterResourceRequest) {
-        {
-            self.expected_results
-                .borrow_mut()
-                .insert(output_id, request.expected_results.clone());
+    fn perform_resource_operation(&self, output_id: OutputId, request: PerformResourceRequest) {
+        match request.operation {
+            ResourceRequestOperation::Register(register) => {
+                {
+                    self.expected_results.borrow_mut().insert(
+                        output_id,
+                        Result::new(request.expected_results.clone(), Register),
+                    );
+                }
+
+                let object = Self::create_protobuf_struct(request.object.clone());
+
+                let req = grpc::RegisterResourceRequest {
+                    r#type: register.r#type.clone(),
+                    name: register.name.clone(),
+                    parent: "".to_string(),
+                    custom: true,
+                    object: Some(object),
+                    protect: false,
+                    dependencies: vec![],
+                    provider: "".to_string(),
+                    property_dependencies: Default::default(),
+                    // property_dependencies: HashMap::from(
+                    //     [("value".to_string(), register_resource_request::PropertyDependencies { urns: vec!["test".to_string()] })]
+                    // ),
+                    delete_before_replace: false,
+                    version: "".to_string(),
+                    ignore_changes: vec![],
+                    accept_secrets: true,
+                    additional_secret_outputs: vec![],
+                    alias_ur_ns: vec![],
+                    import_id: "".to_string(),
+                    custom_timeouts: None,
+                    delete_before_replace_defined: false,
+                    supports_partial_values: false,
+                    remote: false,
+                    accept_resources: false,
+                    providers: Default::default(),
+                    replace_on_changes: vec![],
+                    plugin_download_url: "".to_string(),
+                    plugin_checksums: Default::default(),
+                    retain_on_delete: false,
+                    aliases: vec![],
+                    deleted_with: "".to_string(),
+                    alias_specs: true,
+                    source_position: None,
+                };
+
+                self.connector
+                    .register_resource(output_id.to_string(), req.encode_to_vec());
+            }
+            ResourceRequestOperation::Invoke(invoke) => {
+                {
+                    self.expected_results.borrow_mut().insert(
+                        output_id,
+                        Result::new(request.expected_results.clone(), Invoke),
+                    );
+                }
+
+                let object = Self::create_protobuf_struct(request.object.clone());
+
+                let req = grpc::InvokeRequest {
+                    tok: invoke.token,
+                    args: Some(object),
+                };
+
+                self.connector
+                    .resource_invoke(output_id.to_string(), req.encode_to_vec());
+            }
         }
-
-        let object = Self::create_protobuf_struct(request.object.clone());
-
-        let req = grpc::RegisterResourceRequest {
-            r#type: request.r#type.clone(),
-            name: request.name.clone(),
-            parent: "".to_string(),
-            custom: true,
-            object: Some(object),
-            protect: false,
-            dependencies: vec![],
-            provider: "".to_string(),
-            property_dependencies: Default::default(),
-            // property_dependencies: HashMap::from(
-            //     [("value".to_string(), register_resource_request::PropertyDependencies { urns: vec!["test".to_string()] })]
-            // ),
-            delete_before_replace: false,
-            version: "".to_string(),
-            ignore_changes: vec![],
-            accept_secrets: true,
-            additional_secret_outputs: vec![],
-            alias_ur_ns: vec![],
-            import_id: "".to_string(),
-            custom_timeouts: None,
-            delete_before_replace_defined: false,
-            supports_partial_values: false,
-            remote: false,
-            accept_resources: false,
-            providers: Default::default(),
-            replace_on_changes: vec![],
-            plugin_download_url: "".to_string(),
-            plugin_checksums: Default::default(),
-            retain_on_delete: false,
-            aliases: vec![],
-            deleted_with: "".to_string(),
-            alias_specs: true,
-            source_position: None,
-        };
-
-        self.connector
-            .create_resource(output_id.to_string(), req.encode_to_vec());
     }
 
     fn register_resource_poll(
@@ -117,11 +161,19 @@ impl PulumiService for PulumiServiceImpl {
             let expected_results_ref = self.expected_results.borrow();
             let expected_results = expected_results_ref.get(&output_id).unwrap();
 
-            let response = grpc::RegisterResourceResponse::decode(&*response).unwrap();
+            let object = match expected_results.request_type {
+                Invoke => {
+                    let response = grpc::InvokeResponse::decode(&*response).unwrap();
+                    // TODO: Failures
+                    response.r#return.unwrap_or(Struct::default())
+                }
+                Register => {
+                    let response = grpc::RegisterResourceResponse::decode(&*response).unwrap();
+                    response.object.unwrap_or(Struct::default())
+                }
+            };
 
-            let object = response.object.unwrap_or(Struct::default());
-
-            let result = Self::protoc_object_to_json_map(object, expected_results.clone());
+            let result = Self::protoc_object_to_json_map(object, expected_results.fields.clone());
 
             map.insert(output_id, RegisterResourceResponse { outputs: result });
         }

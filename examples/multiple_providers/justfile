@@ -16,6 +16,7 @@ local-test:
     $PSNativeCommandUseErrorActionPreference = $true
 
     cargo build -p pulumi_wasm_runner --release
+    cargo component build -p pulumi_wasm --release
     cargo component build -p pulumi_wasm_example_multiple_providers --release
     cargo component build -p pulumi_wasm_docker_provider --release
     cargo component build -p pulumi_wasm_random_provider --release
