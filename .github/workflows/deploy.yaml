@@ -15,7 +15,7 @@ permissions:
 jobs:
 
   deploy_rust_registry:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Cleanup unused stuff
@@ -56,7 +56,7 @@ jobs:
   
 
   deploy_wasm_files:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Cleanup unused stuff
@@ -143,7 +143,7 @@ jobs:
             target/wasm32-wasip1/debug/*-debug.wasm
 
   deploy_language_plugin:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Write release version
@@ -184,13 +184,13 @@ jobs:
       matrix:
         include:
           - rust-target: x86_64-unknown-linux-gnu
-            os: ubuntu-latest
+            os: ubuntu-24.04
           - rust-target: x86_64-apple-darwin
-            os: macos-latest
+            os: macos-14
           - rust-target: aarch64-apple-darwin
-            os: macos-latest
+            os: macos-14
           - rust-target: x86_64-pc-windows-msvc
-            os: windows-latest
+            os: windows-2022
 
     steps:
       - name: Cleanup unused stuff
@@ -215,13 +215,13 @@ jobs:
       - run: git config --system core.longpaths true
         if: runner.os == 'Windows'
       - name: Write release version (non-Windows)
-        if: matrix.os != 'windows-latest'
+        if: matrix.os != 'windows-2022'
         run: |
           VERSION=${GITHUB_REF_NAME#v}
           echo "Version: $VERSION"
           echo "VERSION=$VERSION" >> $GITHUB_ENV
       - name: Write release version (Windows)
-        if: matrix.os == 'windows-latest'
+        if: matrix.os == 'windows-2022'
         run: |
           $VERSION = $env:GITHUB_REF_NAME -replace "^v"
           echo "Version: $VERSION"
@@ -266,12 +266,12 @@ jobs:
           cp ./target/${{ matrix.rust-target }}/debug/pulumi_wasm_runner.exe ./target/${{ matrix.rust-target }}/debug/pulumi_wasm_runner-${{ matrix.rust-target }}-debug
           cp ./target/${{ matrix.rust-target }}/release/pulumi_wasm_runner.exe ./target/${{ matrix.rust-target }}/release/pulumi_wasm_runner-${{ matrix.rust-target }}
           cp ./target/${{ matrix.rust-target }}/release/pulumi_wasm_runner.exe ./target/${{ matrix.rust-target }}/release/pulumi_wasm_runner-${{ matrix.rust-target }}-release
-        if: matrix.os == 'windows-latest'
+        if: matrix.os == 'windows-2022'
       - run: |
           cp ./target/${{ matrix.rust-target }}/debug/pulumi_wasm_runner ./target/${{ matrix.rust-target }}/debug/pulumi_wasm_runner-${{ matrix.rust-target }}-debug
           cp ./target/${{ matrix.rust-target }}/release/pulumi_wasm_runner ./target/${{ matrix.rust-target }}/release/pulumi_wasm_runner-${{ matrix.rust-target }}
           cp ./target/${{ matrix.rust-target }}/release/pulumi_wasm_runner ./target/${{ matrix.rust-target }}/release/pulumi_wasm_runner-${{ matrix.rust-target }}-release
-        if: matrix.os != 'windows-latest'
+        if: matrix.os != 'windows-2022'
 
       - name: Release
         uses: softprops/action-gh-release@v2.0.8
