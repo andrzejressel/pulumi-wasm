@@ -120,7 +120,7 @@ jobs:
       if: ${{ !cancelled() }}
       uses: codecov/test-results-action@v1
       with:
-        files: junit.xml
+        files: target/nextest/ci/junit.xml
         fail_ci_if_error: true
         token: ${{ secrets.CODECOV_TOKEN }}
     - run: git add . && git diff
