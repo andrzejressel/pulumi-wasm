@@ -1,0 +1,33 @@
+package pulumi:mypkg@0.0.1-DIVIDER-ZERO.ZERO.ZERO-DEV;
+
+world mypkg-pulumi {
+    import component:pulumi-wasm/register-interface@0.0.0-DEV;
+    export func-with-secrets;
+}
+
+world mypkg-pulumi-client {
+    import func-with-secrets;
+}
+
+
+interface func-with-secrets {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        crypto-key: borrow<output>,
+        plaintext: borrow<output>,
+    }
+
+    record res {
+        ciphertext: output,
+        crypto-key: output,
+        id: output,
+        plaintext: output,
+    }
+
+    invoke: func(
+        args: args
+    ) -> res;
+
+}

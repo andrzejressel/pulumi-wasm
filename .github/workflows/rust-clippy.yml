@@ -25,7 +25,7 @@ concurrency:
 jobs:
   rust-clippy-analyze:
     name: Run rust-clippy analyzing
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
       security-events: write
@@ -40,16 +40,16 @@ jobs:
       with:
         version: "25.3"
         repo-token: ${{ secrets.GITHUB_TOKEN }}
+    - uses: extractions/setup-just@v2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Install required cargo
       run: |
         cargo install clippy-sarif || clippy-sarif --version
         cargo install sarif-fmt || sarif-fmt --version
     - name: Run rust-clippy
       run:
-        cargo clippy
-        --all
-        --all-features
-        --message-format=json | clippy-sarif | tee rust-clippy-results.sarif | sarif-fmt
+        just clippy-to-file
       continue-on-error: true
     - name: Upload analysis results to GitHub
       uses: github/codeql-action/upload-sarif@v3
