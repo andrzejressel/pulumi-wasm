@@ -1,4 +1,4 @@
-package pulumi:cloudflare@5.24.1-DIVIDER-ZERO.ZERO.ZERO-DEV;
+package pulumi:cloudflare@5.24.1--0.0.0-DEV;
 
 world cloudflare-pulumi {
     import component:pulumi-wasm/register-interface@0.0.0-DEV;
