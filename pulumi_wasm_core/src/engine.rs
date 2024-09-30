@@ -811,10 +811,11 @@ impl Engine {
         token: String,
         inputs: HashMap<FieldName, OutputId>,
         outputs: HashSet<FieldName>,
+        in_preview: bool,
     ) -> (OutputId, HashMap<FieldName, OutputId>) {
         let operation =
             ResourceRequestOperation::Invoke(ResourceInvokeRequestOperation::new(token));
-        self.create_register_or_read_resource_node(operation, inputs, outputs)
+        self.create_register_or_read_resource_node(operation, inputs, outputs, in_preview)
     }
 
     pub fn create_register_resource_node(
@@ -823,10 +824,11 @@ impl Engine {
         name: String,
         inputs: HashMap<FieldName, OutputId>,
         outputs: HashSet<FieldName>,
+        in_preview: bool,
     ) -> (OutputId, HashMap<FieldName, OutputId>) {
         let operation =
             ResourceRequestOperation::Register(RegisterResourceRequestOperation::new(r#type, name));
-        self.create_register_or_read_resource_node(operation, inputs, outputs)
+        self.create_register_or_read_resource_node(operation, inputs, outputs, in_preview)
     }
 
     fn create_register_or_read_resource_node(
@@ -834,6 +836,7 @@ impl Engine {
         operation: ResourceRequestOperation,
         inputs: HashMap<FieldName, OutputId>,
         outputs: HashSet<FieldName>,
+        in_preview: bool,
     ) -> (OutputId, HashMap<FieldName, OutputId>) {
         let output_id = Uuid::now_v7().into();
         let node =
@@ -848,7 +851,7 @@ impl Engine {
 
         let mut output_nodes = HashMap::new();
         outputs.iter().for_each(|field_name| {
-            let extract_field_output = self.create_extract_field(field_name.clone(), output_id);
+            let extract_field_output = self.create_extract_field(field_name.clone(), output_id, in_preview);
             output_nodes.insert(field_name.clone(), extract_field_output);
         });
 
@@ -859,9 +862,10 @@ impl Engine {
         &mut self,
         field_name: FieldName,
         source_output_id: OutputId,
+        in_preview: bool
     ) -> OutputId {
         let output_id = Uuid::now_v7().into();
-        let node = ExtractFieldNode::new(field_name);
+        let node = ExtractFieldNode::new(field_name, in_preview);
         let callback = Callback::extract_field(output_id);
         self.nodes
             .insert(output_id, EngineNode::ExtractField(node).into());
@@ -1072,6 +1076,7 @@ mod tests {
                     Set(Exists(1.into())),
                     "key".into(),
                     vec![NativeFunction(native_function_node_output_id)],
+                    true,
                 )
             );
         }
@@ -1140,7 +1145,7 @@ mod tests {
                 engine
                     .get_extract_field(*output_fields.get(&"output".into()).unwrap())
                     .deref(),
-                &ExtractFieldNode::create(NotYetCalculated, "output".into(), vec![])
+                &ExtractFieldNode::create(NotYetCalculated, "output".into(), vec![], true)
             );
         }
 

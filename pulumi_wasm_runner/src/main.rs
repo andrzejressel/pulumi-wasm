@@ -125,6 +125,11 @@ async fn main() -> Result<(), Error> {
             let pulumi_monitor_url = std::env::var("PULUMI_MONITOR")?;
             let pulumi_stack = std::env::var("PULUMI_STACK")?;
             let pulumi_project = std::env::var("PULUMI_PROJECT")?;
+            let pulumi_preview = match std::env::var("PULUMI_DRY_RUN") {
+                Ok(preview) if preview == "true" => true,
+                Ok(preview) if preview == "false" => false,
+                 _ => false,
+            };
 
             let mut pulumi = Pulumi::create(
                 wasm,
@@ -134,6 +139,7 @@ async fn main() -> Result<(), Error> {
                 pulumi_project,
             )
             .await?;
+            pulumi.set_preview(pulumi_preview).await?;
             log::info!("Creating root stack");
             pulumi.create_root_stack().await?;
             log::info!("Created root stack. Invoking main");

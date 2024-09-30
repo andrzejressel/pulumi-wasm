@@ -261,6 +261,7 @@ pub(crate) struct ExtractFieldNode {
     value: MaybeNodeValue,
     field_name: FieldName,
     callbacks: Vec<Callback>,
+    in_preview: bool
 }
 
 impl ExtractFieldNode {
@@ -268,16 +269,18 @@ impl ExtractFieldNode {
         value: MaybeNodeValue,
         field_name: FieldName,
         callbacks: Vec<Callback>,
+        in_preview: bool,
     ) -> Self {
         Self {
             value,
             field_name,
             callbacks,
+            in_preview
         }
     }
 
-    pub(crate) fn new(field_name: FieldName) -> ExtractFieldNode {
-        Self::create(NotYetCalculated, field_name, Vec::new())
+    pub(crate) fn new(field_name: FieldName, in_preview: bool) -> ExtractFieldNode {
+        Self::create(NotYetCalculated, field_name, Vec::new(), in_preview)
     }
 
     pub(crate) fn add_callback(&mut self, callback: Callback) {
@@ -303,8 +306,10 @@ impl ExtractFieldNode {
             NodeValue::Exists(Value::Object(map)) => {
                 let key: Value = self.field_name.as_string().clone().into();
                 let value = map.iter().find(|(k, _)| *k == &key).map(|(_, v)| v.clone());
+                let in_preview = self.in_preview;
                 let new_node_value = match value {
-                    None => NodeValue::Nothing,
+                    None if in_preview => NodeValue::Nothing,
+                    None => NodeValue::Exists(Value::Null),
                     Some(v) => NodeValue::Exists(v),
                 };
                 self.value = Set(new_node_value.clone());

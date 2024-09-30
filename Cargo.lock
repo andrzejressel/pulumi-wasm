@@ -2165,6 +2165,7 @@ version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
  "assert_cmd",
+ "log",
  "predicates",
  "pulumi_wasm_random",
  "pulumi_wasm_rust",
