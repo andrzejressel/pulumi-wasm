@@ -125,7 +125,7 @@ test:
     cargo nextest run --profile ci --workspace --timings
 
 test-coverage:
-    cargo llvm-cov --no-report -p pulumi_wasm_core
+    cargo llvm-cov --no-report -p pulumi_wasm_core -p pulumi_wasm_generator_lib
     cargo llvm-cov report --lcov --output-path lcov.info
 
 docs:
