@@ -14,7 +14,6 @@ fn test_main() -> Result<(), Error> {
         RandomStringArgs::builder().length(length).build_struct(),
     );
 
-
     // Tests preview behaviour for unknown fields
     let t = random_string.result.map(|s| format!("Result: {s}"));
 
@@ -36,7 +35,12 @@ fn test_main() -> Result<(), Error> {
 
     let random_string_2 = random_string::create(
         "test_2",
-        RandomStringArgs::builder().length(keepers.map(|s| {info!("TEST: {}", s); s.len() as i32})).build_struct(),
+        RandomStringArgs::builder()
+            .length(keepers.map(|s| {
+                info!("TEST: {}", s);
+                s.len() as i32
+            }))
+            .build_struct(),
     );
 
     add_export("result", &random_string.result);

@@ -128,7 +128,7 @@ async fn main() -> Result<(), Error> {
             let pulumi_preview = match std::env::var("PULUMI_DRY_RUN") {
                 Ok(preview) if preview == "true" => true,
                 Ok(preview) if preview == "false" => false,
-                 _ => false,
+                _ => false,
             };
 
             let mut pulumi = Pulumi::create(

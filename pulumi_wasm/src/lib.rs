@@ -165,10 +165,12 @@ impl register_interface::Guest for Component {
             })
             .collect::<HashMap<_, _>>();
 
-        let (_, field_outputs) =
-            refcell
-                .borrow_mut()
-                .create_resource_invoke_node(request.token, object, outputs, GLOBAL_BOOL.load(Ordering::SeqCst));
+        let (_, field_outputs) = refcell.borrow_mut().create_resource_invoke_node(
+            request.token,
+            object,
+            outputs,
+            GLOBAL_BOOL.load(Ordering::SeqCst),
+        );
 
         ResourceInvokeResult {
             fields: field_outputs

@@ -283,7 +283,8 @@ impl Pulumi {
     pub async fn set_preview(&mut self, in_preview: bool) -> Result<(), Error> {
         self.plugin
             .component_pulumi_wasm_external_pulumi_settings()
-            .call_set_in_preview(&mut self.store, in_preview).await
+            .call_set_in_preview(&mut self.store, in_preview)
+            .await
     }
 
     pub async fn create_root_stack(&mut self) -> Result<(), Error> {
