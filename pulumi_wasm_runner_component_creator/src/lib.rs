@@ -10,7 +10,7 @@ use wac_graph::{CompositionGraph, EncodeOptions, NodeId, PackageId};
 
 pub mod source;
 
-const PROVIDER_REGEX: &str = r"pulumi:(.*)/.*@(.*)-DIVIDER-(.*)";
+const PROVIDER_REGEX: &str = r"pulumi:(.*)/.*@(.*)--(.*)";
 
 pub async fn create(
     providers_paths: BTreeMap<String, Box<dyn ProviderSource>>,
@@ -259,7 +259,7 @@ mod tests {
         #[test]
         fn provider_regex_should_work() -> Result<()> {
             assert_eq!(
-                extract_provider_info("pulumi:docker/container@4.5.3-DIVIDER-0.0.0-DEV"),
+                extract_provider_info("pulumi:docker/container@4.5.3--0.0.0-DEV"),
                 Some(ProviderInfo {
                     name: "docker".to_string(),
                     version: "4.5.3".to_string(),
