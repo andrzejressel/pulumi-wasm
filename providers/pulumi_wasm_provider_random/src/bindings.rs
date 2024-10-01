@@ -37,7 +37,7 @@ pub mod component {
                     #[cfg(target_arch = "wasm32")]
                     {
                         #[link(
-                            wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0-DEV"
+                            wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-8090225"
                         )]
                         extern "C" {
                             #[link_name = "[resource-drop]output"]
@@ -56,7 +56,7 @@ pub mod component {
                         let len0 = vec0.len();
                         #[cfg(target_arch = "wasm32")]
                         #[link(
-                            wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0-DEV"
+                            wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-8090225"
                         )]
                         extern "C" {
                             #[link_name = "[constructor]output"]
@@ -80,7 +80,7 @@ pub mod component {
                         let len0 = vec0.len();
                         #[cfg(target_arch = "wasm32")]
                         #[link(
-                            wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0-DEV"
+                            wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-8090225"
                         )]
                         extern "C" {
                             #[link_name = "[method]output.map"]
@@ -125,7 +125,7 @@ pub mod component {
                     }
                     #[cfg(target_arch = "wasm32")]
                     #[link(
-                        wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0-DEV"
+                        wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-8090225"
                     )]
                     extern "C" {
                         #[link_name = "combine"]
@@ -345,7 +345,7 @@ pub mod component {
                     let ptr9 = ret_area.0.as_mut_ptr().cast::<u8>();
                     #[cfg(target_arch = "wasm32")]
                     #[link(
-                        wasm_import_module = "component:pulumi-wasm/register-interface@0.0.0-DEV"
+                        wasm_import_module = "component:pulumi-wasm/register-interface@0.0.0-NIGHTLY-8090225"
                     )]
                     extern "C" {
                         #[link_name = "register"]
@@ -494,7 +494,7 @@ pub mod component {
                     let ptr8 = ret_area.0.as_mut_ptr().cast::<u8>();
                     #[cfg(target_arch = "wasm32")]
                     #[link(
-                        wasm_import_module = "component:pulumi-wasm/register-interface@0.0.0-DEV"
+                        wasm_import_module = "component:pulumi-wasm/register-interface@0.0.0-NIGHTLY-8090225"
                     )]
                     extern "C" {
                         #[link_name = "invoke"]
@@ -664,17 +664,17 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_random_random_bytes_4_15_0_divider_zero_zero_zero_dev_cabi {
+                macro_rules! __export_pulumi_random_random_bytes_4_15_0_divider_zero_zero_zero_nightly_eightzeroninezerotwotwofive_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:random/random-bytes@4.15.0-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        "pulumi:random/random-bytes@4.15.0-DIVIDER-ZERO.ZERO.ZERO-NIGHTLY-EIGHTZERONINEZEROTWOTWOFIVE#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_random_random_bytes_4_15_0_divider_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_random_random_bytes_4_15_0_divider_zero_zero_zero_nightly_eightzeroninezerotwotwofive_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -791,10 +791,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_random_random_id_4_15_0_divider_zero_zero_zero_dev_cabi {
+                macro_rules! __export_pulumi_random_random_id_4_15_0_divider_zero_zero_zero_nightly_eightzeroninezerotwotwofive_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:random/random-id@4.15.0-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        "pulumi:random/random-id@4.15.0-DIVIDER-ZERO.ZERO.ZERO-NIGHTLY-EIGHTZERONINEZEROTWOTWOFIVE#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -802,7 +802,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_random_random_id_4_15_0_divider_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_random_random_id_4_15_0_divider_zero_zero_zero_nightly_eightzeroninezerotwotwofive_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 28]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -921,10 +921,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_random_random_integer_4_15_0_divider_zero_zero_zero_dev_cabi {
+                macro_rules! __export_pulumi_random_random_integer_4_15_0_divider_zero_zero_zero_nightly_eightzeroninezerotwotwofive_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:random/random-integer@4.15.0-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        "pulumi:random/random-integer@4.15.0-DIVIDER-ZERO.ZERO.ZERO-NIGHTLY-EIGHTZERONINEZEROTWOTWOFIVE#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -932,7 +932,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_random_random_integer_4_15_0_divider_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_random_random_integer_4_15_0_divider_zero_zero_zero_nightly_eightzeroninezerotwotwofive_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -1168,10 +1168,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_random_random_password_4_15_0_divider_zero_zero_zero_dev_cabi {
+                macro_rules! __export_pulumi_random_random_password_4_15_0_divider_zero_zero_zero_nightly_eightzeroninezerotwotwofive_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:random/random-password@4.15.0-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        "pulumi:random/random-password@4.15.0-DIVIDER-ZERO.ZERO.ZERO-NIGHTLY-EIGHTZERONINEZEROTWOTWOFIVE#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32, arg8 : i32, arg9 : i32, arg10 : i32, arg11 : i32, arg12 :
@@ -1181,7 +1181,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_random_random_password_4_15_0_divider_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_random_random_password_4_15_0_divider_zero_zero_zero_nightly_eightzeroninezerotwotwofive_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 56]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -1296,10 +1296,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_random_random_pet_4_15_0_divider_zero_zero_zero_dev_cabi {
+                macro_rules! __export_pulumi_random_random_pet_4_15_0_divider_zero_zero_zero_nightly_eightzeroninezerotwotwofive_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:random/random-pet@4.15.0-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        "pulumi:random/random-pet@4.15.0-DIVIDER-ZERO.ZERO.ZERO-NIGHTLY-EIGHTZERONINEZEROTWOTWOFIVE#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -1307,7 +1307,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_random_random_pet_4_15_0_divider_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_random_random_pet_4_15_0_divider_zero_zero_zero_nightly_eightzeroninezerotwotwofive_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -1426,10 +1426,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_random_random_shuffle_4_15_0_divider_zero_zero_zero_dev_cabi {
+                macro_rules! __export_pulumi_random_random_shuffle_4_15_0_divider_zero_zero_zero_nightly_eightzeroninezerotwotwofive_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:random/random-shuffle@4.15.0-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        "pulumi:random/random-shuffle@4.15.0-DIVIDER-ZERO.ZERO.ZERO-NIGHTLY-EIGHTZERONINEZEROTWOTWOFIVE#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -1437,7 +1437,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_random_random_shuffle_4_15_0_divider_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_random_random_shuffle_4_15_0_divider_zero_zero_zero_nightly_eightzeroninezerotwotwofive_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -1669,10 +1669,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_random_random_string_4_15_0_divider_zero_zero_zero_dev_cabi {
+                macro_rules! __export_pulumi_random_random_string_4_15_0_divider_zero_zero_zero_nightly_eightzeroninezerotwotwofive_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:random/random-string@4.15.0-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        "pulumi:random/random-string@4.15.0-DIVIDER-ZERO.ZERO.ZERO-NIGHTLY-EIGHTZERONINEZEROTWOTWOFIVE#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32, arg8 : i32, arg9 : i32, arg10 : i32, arg11 : i32, arg12 :
@@ -1682,7 +1682,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_random_random_string_4_15_0_divider_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_random_random_string_4_15_0_divider_zero_zero_zero_nightly_eightzeroninezerotwotwofive_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 52]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -1754,17 +1754,17 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_random_random_uuid_4_15_0_divider_zero_zero_zero_dev_cabi {
+                macro_rules! __export_pulumi_random_random_uuid_4_15_0_divider_zero_zero_zero_nightly_eightzeroninezerotwotwofive_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:random/random-uuid@4.15.0-DIVIDER-ZERO.ZERO.ZERO-DEV#invoke"]
+                        "pulumi:random/random-uuid@4.15.0-DIVIDER-ZERO.ZERO.ZERO-NIGHTLY-EIGHTZERONINEZEROTWOTWOFIVE#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_random_random_uuid_4_15_0_divider_zero_zero_zero_dev_cabi;
+                pub(crate) use __export_pulumi_random_random_uuid_4_15_0_divider_zero_zero_zero_nightly_eightzeroninezerotwotwofive_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -1896,28 +1896,28 @@ macro_rules! __export_random_pulumi_impl {
     };
     ($ty:ident with_types_in $($path_to_types_root:tt)*) => {
         $($path_to_types_root)*::
-        exports::pulumi::random::random_bytes::__export_pulumi_random_random_bytes_4_15_0_divider_zero_zero_zero_dev_cabi!($ty
+        exports::pulumi::random::random_bytes::__export_pulumi_random_random_bytes_4_15_0_divider_zero_zero_zero_nightly_eightzeroninezerotwotwofive_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::random::random_bytes);
         $($path_to_types_root)*::
-        exports::pulumi::random::random_id::__export_pulumi_random_random_id_4_15_0_divider_zero_zero_zero_dev_cabi!($ty
+        exports::pulumi::random::random_id::__export_pulumi_random_random_id_4_15_0_divider_zero_zero_zero_nightly_eightzeroninezerotwotwofive_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::random::random_id);
         $($path_to_types_root)*::
-        exports::pulumi::random::random_integer::__export_pulumi_random_random_integer_4_15_0_divider_zero_zero_zero_dev_cabi!($ty
+        exports::pulumi::random::random_integer::__export_pulumi_random_random_integer_4_15_0_divider_zero_zero_zero_nightly_eightzeroninezerotwotwofive_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::random::random_integer);
         $($path_to_types_root)*::
-        exports::pulumi::random::random_password::__export_pulumi_random_random_password_4_15_0_divider_zero_zero_zero_dev_cabi!($ty
+        exports::pulumi::random::random_password::__export_pulumi_random_random_password_4_15_0_divider_zero_zero_zero_nightly_eightzeroninezerotwotwofive_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::random::random_password); $($path_to_types_root)*::
-        exports::pulumi::random::random_pet::__export_pulumi_random_random_pet_4_15_0_divider_zero_zero_zero_dev_cabi!($ty
+        exports::pulumi::random::random_pet::__export_pulumi_random_random_pet_4_15_0_divider_zero_zero_zero_nightly_eightzeroninezerotwotwofive_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::random::random_pet);
         $($path_to_types_root)*::
-        exports::pulumi::random::random_shuffle::__export_pulumi_random_random_shuffle_4_15_0_divider_zero_zero_zero_dev_cabi!($ty
+        exports::pulumi::random::random_shuffle::__export_pulumi_random_random_shuffle_4_15_0_divider_zero_zero_zero_nightly_eightzeroninezerotwotwofive_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::random::random_shuffle);
         $($path_to_types_root)*::
-        exports::pulumi::random::random_string::__export_pulumi_random_random_string_4_15_0_divider_zero_zero_zero_dev_cabi!($ty
+        exports::pulumi::random::random_string::__export_pulumi_random_random_string_4_15_0_divider_zero_zero_zero_nightly_eightzeroninezerotwotwofive_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::random::random_string);
         $($path_to_types_root)*::
-        exports::pulumi::random::random_uuid::__export_pulumi_random_random_uuid_4_15_0_divider_zero_zero_zero_dev_cabi!($ty
+        exports::pulumi::random::random_uuid::__export_pulumi_random_random_uuid_4_15_0_divider_zero_zero_zero_nightly_eightzeroninezerotwotwofive_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::random::random_uuid);
     };
 }
@@ -1926,72 +1926,75 @@ pub(crate) use __export_random_pulumi_impl as export;
 #[cfg(target_arch = "wasm32")]
 #[link_section = "component-type:wit-bindgen:0.30.0:random-pulumi:encoded world"]
 #[doc(hidden)]
-pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 2960] = *b"\
-\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\x8c\x16\x01A\x02\x01\
+pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 3272] = *b"\
+\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xc4\x18\x01A\x02\x01\
 A\x15\x01B\x0a\x04\0\x06output\x03\x01\x01i\0\x01@\x01\x05values\0\x01\x04\0\x13\
 [constructor]output\x01\x02\x01h\0\x01@\x02\x04self\x03\x0dfunction-names\0\x01\x04\
 \0\x12[method]output.map\x01\x04\x01p\x03\x01@\x01\x07outputs\x05\0\x01\x04\0\x07\
-combine\x01\x06\x03\x010component:pulumi-wasm/output-interface@0.0.0-DEV\x05\0\x02\
-\x03\0\0\x06output\x01B\x1c\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
-\x01r\x02\x04names\x05value\x02\x04\0\x0cobject-field\x03\0\x03\x01r\x01\x04name\
-s\x04\0\x0cresult-field\x03\0\x05\x01i\x01\x01r\x02\x04names\x06output\x07\x04\0\
-\x1eregister-resource-result-field\x03\0\x08\x01p\x04\x01p\x06\x01r\x04\x04types\
-\x04names\x06object\x0a\x07results\x0b\x04\0\x19register-resource-request\x03\0\x0c\
-\x01p\x09\x01r\x01\x06fields\x0e\x04\0\x18register-resource-result\x03\0\x0f\x01\
-r\x02\x04names\x06output\x07\x04\0\x1cresource-invoke-result-field\x03\0\x11\x01\
-r\x03\x05tokens\x06object\x0a\x07results\x0b\x04\0\x17resource-invoke-request\x03\
-\0\x13\x01p\x12\x01r\x01\x06fields\x15\x04\0\x16resource-invoke-result\x03\0\x16\
-\x01@\x01\x07request\x0d\0\x10\x04\0\x08register\x01\x18\x01@\x01\x07request\x14\
-\0\x17\x04\0\x06invoke\x01\x19\x03\x012component:pulumi-wasm/register-interface@\
-0.0.0-DEV\x05\x02\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
-r\x02\x07keepers\x02\x06length\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x06\
-base64\x05\x03hex\x05\x07keepers\x05\x06length\x05\x04\0\x03res\x03\0\x06\x01@\x02\
-\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01<pulumi:random/random\
--bytes@4.15.0-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x03\x01B\x0a\x02\x03\x02\x01\x01\x04\
-\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0bbyte-length\x02\x07keepers\x02\x06pref\
-ix\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\x07b64-std\x05\x07b64-url\x05\x0b\
-byte-length\x05\x03dec\x05\x03hex\x05\x07keepers\x05\x06prefix\x05\x04\0\x03res\x03\
-\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x019pulum\
-i:random/random-id@4.15.0-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x04\x01B\x0a\x02\x03\x02\
-\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x07keepers\x02\x03max\x02\x03\
-min\x02\x04seed\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x07keepers\x05\x03\
-max\x05\x03min\x05\x06result\x05\x04seed\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04\
-names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01>pulumi:random/random-int\
-eger@4.15.0-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x05\x01B\x0a\x02\x03\x02\x01\x01\x04\0\
-\x06output\x03\0\0\x01h\x01\x01r\x0c\x07keepers\x02\x06length\x02\x05lower\x02\x09\
-min-lower\x02\x0bmin-numeric\x02\x0bmin-special\x02\x09min-upper\x02\x06number\x02\
-\x07numeric\x02\x10override-special\x02\x07special\x02\x05upper\x02\x04\0\x04arg\
-s\x03\0\x03\x01i\x01\x01r\x0e\x0bbcrypt-hash\x05\x07keepers\x05\x06length\x05\x05\
-lower\x05\x09min-lower\x05\x0bmin-numeric\x05\x0bmin-special\x05\x09min-upper\x05\
-\x06number\x05\x07numeric\x05\x10override-special\x05\x06result\x05\x07special\x05\
-\x05upper\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
-invoke\x01\x08\x04\x01?pulumi:random/random-password@4.15.0-DIVIDER-ZERO.ZERO.ZE\
-RO-DEV\x05\x06\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
-r\x04\x07keepers\x02\x06length\x02\x06prefix\x02\x09separator\x02\x04\0\x04args\x03\
-\0\x03\x01i\x01\x01r\x04\x07keepers\x05\x06length\x05\x06prefix\x05\x09separator\
-\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\
-\x08\x04\x01:pulumi:random/random-pet@4.15.0-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x07\x01\
-B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x06inputs\x02\
-\x07keepers\x02\x0cresult-count\x02\x04seed\x02\x04\0\x04args\x03\0\x03\x01i\x01\
-\x01r\x05\x06inputs\x05\x07keepers\x05\x0cresult-count\x05\x07results\x05\x04see\
-d\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\
-\x01\x08\x04\x01>pulumi:random/random-shuffle@4.15.0-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\
-\x08\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0c\x07k\
+combine\x01\x06\x03\x01<component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-809\
+0225\x05\0\x02\x03\0\0\x06output\x01B\x1c\x02\x03\x02\x01\x01\x04\0\x06output\x03\
+\0\0\x01h\x01\x01r\x02\x04names\x05value\x02\x04\0\x0cobject-field\x03\0\x03\x01\
+r\x01\x04names\x04\0\x0cresult-field\x03\0\x05\x01i\x01\x01r\x02\x04names\x06out\
+put\x07\x04\0\x1eregister-resource-result-field\x03\0\x08\x01p\x04\x01p\x06\x01r\
+\x04\x04types\x04names\x06object\x0a\x07results\x0b\x04\0\x19register-resource-r\
+equest\x03\0\x0c\x01p\x09\x01r\x01\x06fields\x0e\x04\0\x18register-resource-resu\
+lt\x03\0\x0f\x01r\x02\x04names\x06output\x07\x04\0\x1cresource-invoke-result-fie\
+ld\x03\0\x11\x01r\x03\x05tokens\x06object\x0a\x07results\x0b\x04\0\x17resource-i\
+nvoke-request\x03\0\x13\x01p\x12\x01r\x01\x06fields\x15\x04\0\x16resource-invoke\
+-result\x03\0\x16\x01@\x01\x07request\x0d\0\x10\x04\0\x08register\x01\x18\x01@\x01\
+\x07request\x14\0\x17\x04\0\x06invoke\x01\x19\x03\x01>component:pulumi-wasm/regi\
+ster-interface@0.0.0-NIGHTLY-8090225\x05\x02\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
+output\x03\0\0\x01h\x01\x01r\x02\x07keepers\x02\x06length\x02\x04\0\x04args\x03\0\
+\x03\x01i\x01\x01r\x04\x06base64\x05\x03hex\x05\x07keepers\x05\x06length\x05\x04\
+\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
+\x01\\pulumi:random/random-bytes@4.15.0-DIVIDER-ZERO.ZERO.ZERO-NIGHTLY-EIGHTZERO\
+NINEZEROTWOTWOFIVE\x05\x03\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
+h\x01\x01r\x03\x0bbyte-length\x02\x07keepers\x02\x06prefix\x02\x04\0\x04args\x03\
+\0\x03\x01i\x01\x01r\x07\x07b64-std\x05\x07b64-url\x05\x0bbyte-length\x05\x03dec\
+\x05\x03hex\x05\x07keepers\x05\x06prefix\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04\
+names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01Ypulumi:random/random-id@\
+4.15.0-DIVIDER-ZERO.ZERO.ZERO-NIGHTLY-EIGHTZERONINEZEROTWOTWOFIVE\x05\x04\x01B\x0a\
+\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x07keepers\x02\x03\
+max\x02\x03min\x02\x04seed\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x07keep\
+ers\x05\x03max\x05\x03min\x05\x06result\x05\x04seed\x05\x04\0\x03res\x03\0\x06\x01\
+@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01^pulumi:random/r\
+andom-integer@4.15.0-DIVIDER-ZERO.ZERO.ZERO-NIGHTLY-EIGHTZERONINEZEROTWOTWOFIVE\x05\
+\x05\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0c\x07k\
 eepers\x02\x06length\x02\x05lower\x02\x09min-lower\x02\x0bmin-numeric\x02\x0bmin\
 -special\x02\x09min-upper\x02\x06number\x02\x07numeric\x02\x10override-special\x02\
-\x07special\x02\x05upper\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0d\x07keeper\
-s\x05\x06length\x05\x05lower\x05\x09min-lower\x05\x0bmin-numeric\x05\x0bmin-spec\
-ial\x05\x09min-upper\x05\x06number\x05\x07numeric\x05\x10override-special\x05\x06\
-result\x05\x07special\x05\x05upper\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
-args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01=pulumi:random/random-string@4.15.\
-0-DIVIDER-ZERO.ZERO.ZERO-DEV\x05\x09\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06outpu\
-t\x03\0\0\x01h\x01\x01r\x01\x07keepers\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\
-\x02\x07keepers\x05\x06result\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04ar\
-gs\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01;pulumi:random/random-uuid@4.15.0-DI\
-VIDER-ZERO.ZERO.ZERO-DEV\x05\x0a\x04\x01=pulumi:random/random-pulumi@4.15.0-DIVI\
-DER-ZERO.ZERO.ZERO-DEV\x04\0\x0b\x13\x01\0\x0drandom-pulumi\x03\0\0\0G\x09produc\
-ers\x01\x0cprocessed-by\x02\x0dwit-component\x070.215.0\x10wit-bindgen-rust\x060\
-.30.0";
+\x07special\x02\x05upper\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0e\x0bbcrypt\
+-hash\x05\x07keepers\x05\x06length\x05\x05lower\x05\x09min-lower\x05\x0bmin-nume\
+ric\x05\x0bmin-special\x05\x09min-upper\x05\x06number\x05\x07numeric\x05\x10over\
+ride-special\x05\x06result\x05\x07special\x05\x05upper\x05\x04\0\x03res\x03\0\x06\
+\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01_pulumi:rand\
+om/random-password@4.15.0-DIVIDER-ZERO.ZERO.ZERO-NIGHTLY-EIGHTZERONINEZEROTWOTWO\
+FIVE\x05\x06\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\
+\x07keepers\x02\x06length\x02\x06prefix\x02\x09separator\x02\x04\0\x04args\x03\0\
+\x03\x01i\x01\x01r\x04\x07keepers\x05\x06length\x05\x06prefix\x05\x09separator\x05\
+\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
+\x04\x01Zpulumi:random/random-pet@4.15.0-DIVIDER-ZERO.ZERO.ZERO-NIGHTLY-EIGHTZER\
+ONINEZEROTWOTWOFIVE\x05\x07\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\
+\x01h\x01\x01r\x04\x06inputs\x02\x07keepers\x02\x0cresult-count\x02\x04seed\x02\x04\
+\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x06inputs\x05\x07keepers\x05\x0cresult-co\
+unt\x05\x07results\x05\x04seed\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04a\
+rgs\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01^pulumi:random/random-shuffle@4.15.\
+0-DIVIDER-ZERO.ZERO.ZERO-NIGHTLY-EIGHTZERONINEZEROTWOTWOFIVE\x05\x08\x01B\x0a\x02\
+\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0c\x07keepers\x02\x06len\
+gth\x02\x05lower\x02\x09min-lower\x02\x0bmin-numeric\x02\x0bmin-special\x02\x09m\
+in-upper\x02\x06number\x02\x07numeric\x02\x10override-special\x02\x07special\x02\
+\x05upper\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0d\x07keepers\x05\x06length\
+\x05\x05lower\x05\x09min-lower\x05\x0bmin-numeric\x05\x0bmin-special\x05\x09min-\
+upper\x05\x06number\x05\x07numeric\x05\x10override-special\x05\x06result\x05\x07\
+special\x05\x05upper\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
+\x04\0\x06invoke\x01\x08\x04\x01]pulumi:random/random-string@4.15.0-DIVIDER-ZERO\
+.ZERO.ZERO-NIGHTLY-EIGHTZERONINEZEROTWOTWOFIVE\x05\x09\x01B\x0a\x02\x03\x02\x01\x01\
+\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x07keepers\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x02\x07keepers\x05\x06result\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04\
+names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\x01[pulumi:random/random-uui\
+d@4.15.0-DIVIDER-ZERO.ZERO.ZERO-NIGHTLY-EIGHTZERONINEZEROTWOTWOFIVE\x05\x0a\x04\x01\
+]pulumi:random/random-pulumi@4.15.0-DIVIDER-ZERO.ZERO.ZERO-NIGHTLY-EIGHTZERONINE\
+ZEROTWOTWOFIVE\x04\0\x0b\x13\x01\0\x0drandom-pulumi\x03\0\0\0G\x09producers\x01\x0c\
+processed-by\x02\x0dwit-component\x070.215.0\x10wit-bindgen-rust\x060.30.0";
 #[inline(never)]
 #[doc(hidden)]
 pub fn __link_custom_section_describing_imports() {
