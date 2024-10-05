@@ -261,7 +261,7 @@ pub(crate) struct ExtractFieldNode {
     value: MaybeNodeValue,
     field_name: FieldName,
     callbacks: Vec<Callback>,
-    in_preview: bool
+    in_preview: bool,
 }
 
 impl ExtractFieldNode {
@@ -275,7 +275,7 @@ impl ExtractFieldNode {
             value,
             field_name,
             callbacks,
-            in_preview
+            in_preview,
         }
     }
 

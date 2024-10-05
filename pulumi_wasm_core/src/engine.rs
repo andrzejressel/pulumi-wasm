@@ -851,7 +851,8 @@ impl Engine {
 
         let mut output_nodes = HashMap::new();
         outputs.iter().for_each(|field_name| {
-            let extract_field_output = self.create_extract_field(field_name.clone(), output_id, in_preview);
+            let extract_field_output =
+                self.create_extract_field(field_name.clone(), output_id, in_preview);
             output_nodes.insert(field_name.clone(), extract_field_output);
         });
 
@@ -862,7 +863,7 @@ impl Engine {
         &mut self,
         field_name: FieldName,
         source_output_id: OutputId,
-        in_preview: bool
+        in_preview: bool,
     ) -> OutputId {
         let output_id = Uuid::now_v7().into();
         let node = ExtractFieldNode::new(field_name, in_preview);
@@ -1110,7 +1111,7 @@ mod tests {
                     "name".into(),
                     HashMap::from([("input".into(), done_node_output_id)]),
                     ["output".into()].into(),
-                    true
+                    true,
                 );
 
             assert_eq!(output_fields.len(), 1);
@@ -1160,7 +1161,7 @@ mod tests {
                     "name".into(),
                     HashMap::from([("input".into(), done_node_output_id)]),
                     ["output".into()].into(),
-                    false
+                    false,
                 );
 
             assert_eq!(output_fields.len(), 1);
@@ -1258,7 +1259,7 @@ mod tests {
                 "name".into(),
                 HashMap::from([("input".into(), done_node_output_id)]),
                 ["output".into()].into(),
-                true
+                true,
             );
             register_resource_node_output_id_once_cell
                 .set(register_resource_node_output_id)
@@ -1280,7 +1281,10 @@ mod tests {
 
         use crate::engine::Engine;
         use crate::model::MaybeNodeValue::NotYetCalculated;
-        use crate::nodes::{AbstractResourceNode, Callback, DoneNode, ExtractFieldNode, ResourceInvokeRequestOperation, ResourceRequestOperation};
+        use crate::nodes::{
+            AbstractResourceNode, Callback, DoneNode, ExtractFieldNode,
+            ResourceInvokeRequestOperation, ResourceRequestOperation,
+        };
         use crate::pulumi::service::{
             MockPulumiService, PerformResourceRequest, RegisterResourceResponse,
         };
@@ -1294,7 +1298,7 @@ mod tests {
                     "token".into(),
                     HashMap::from([("input".into(), done_node_output_id)]),
                     ["output".into()].into(),
-                    true
+                    true,
                 );
 
             assert_eq!(output_fields.len(), 1);
@@ -1342,7 +1346,7 @@ mod tests {
                     "token".into(),
                     HashMap::from([("input".into(), done_node_output_id)]),
                     ["output".into()].into(),
-                    false
+                    false,
                 );
 
             assert_eq!(output_fields.len(), 1);
@@ -1395,9 +1399,9 @@ mod tests {
                     function(move |output_id| {
                         output_id
                             == invoke_resource_node_output_id_once_cell_2
-                            .deref()
-                            .get()
-                            .unwrap()
+                                .deref()
+                                .get()
+                                .unwrap()
                     }),
                     eq(PerformResourceRequest {
                         operation: ResourceRequestOperation::Invoke(
@@ -1416,9 +1420,9 @@ mod tests {
                 .with(function(move |output_ids| {
                     output_ids
                         == &([*invoke_resource_node_output_id_once_cell_2
-                        .deref()
-                        .get()
-                        .unwrap()]
+                            .deref()
+                            .get()
+                            .unwrap()]
                         .into())
                 }))
                 .returning(|output_ids| {
@@ -1438,7 +1442,7 @@ mod tests {
                 "token".into(),
                 HashMap::from([("input".into(), done_node_output_id)]),
                 ["output".into()].into(),
-                true
+                true,
             );
             invoke_resource_node_output_id_once_cell
                 .set(invoke_resource_node_output_id)

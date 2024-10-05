@@ -36,10 +36,7 @@ fn test_main() -> Result<(), Error> {
     let random_string_2 = random_string::create(
         "test_2",
         RandomStringArgs::builder()
-            .length(keepers.map(|s| {
-                info!("TEST: {}", s);
-                s.len() as i32
-            }))
+            .length(keepers.map(|s| s.len() as i32))
             .build_struct(),
     );
 
