@@ -52,8 +52,8 @@ async fn should_combine_wasm_components() -> Result<()> {
         encoded.clone(),
         true,
     )
-        .await
-        .unwrap();
+    .await
+    .unwrap();
 
     assert_component_only_exports_main_and_settings(&result)?;
 
@@ -108,8 +108,8 @@ async fn return_error_when_multiple_dependencies_on_the_same_provider_is_found()
         encoded.clone(),
         true,
     )
-        .await
-        .expect_err("Expected creator to return error");
+    .await
+    .expect_err("Expected creator to return error");
 
     assert_eq!(error.to_string(), "Provider \"docker\" is requested in multiple versions:\n- 4.5.3 that requires pulumi_wasm in version 0.0.0-DEV\n- 4.5.4 that requires pulumi_wasm in version 0.0.0-DEV".to_string());
 
@@ -158,8 +158,8 @@ async fn return_error_when_multiple_versions_of_pulumi_wasm_is_found() -> Result
         encoded.clone(),
         true,
     )
-        .await
-        .expect_err("Expected creator to return error");
+    .await
+    .expect_err("Expected creator to return error");
 
     assert_eq!(
         error.to_string(),
@@ -219,8 +219,8 @@ async fn return_error_when_multiple_versions_of_pulumi_wasm_in_providers_is_foun
         encoded.clone(),
         true,
     )
-        .await
-        .expect_err("Expected creator to return error");
+    .await
+    .expect_err("Expected creator to return error");
 
     assert_eq!(
         error.to_string(),
@@ -246,7 +246,7 @@ fn assert_component_only_exports_main_and_settings(result: &[u8]) -> Result<()> 
         exports_names,
         vec![
             "component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV".to_string(),
-             "component:pulumi-wasm-external/pulumi-settings@0.0.0-STABLE-DEV".to_string()
+            "component:pulumi-wasm-external/pulumi-settings@0.0.0-STABLE-DEV".to_string()
         ]
     );
 
@@ -358,7 +358,7 @@ impl ResolveExt for Resolve {
     }}
 "#
             )
-                .as_str(),
+            .as_str(),
         )
     }
 
@@ -390,7 +390,7 @@ impl ResolveExt for Resolve {
     }}
 "#
             )
-                .as_str(),
+            .as_str(),
         )
     }
 
