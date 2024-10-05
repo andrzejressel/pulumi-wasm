@@ -17,6 +17,7 @@ use crate::bindings::exports::component::pulumi_wasm::{
     output_interface, register_interface, stack_interface,
 };
 use crate::bindings::exports::component::pulumi_wasm_external::pulumi_settings;
+use std::sync::atomic::{AtomicBool, Ordering};
 
 bindings::export!(Component with_types_in bindings);
 
@@ -75,15 +76,8 @@ impl stack_interface::Guest for Component {
                 }
             })
             .collect()
-
-        // vec![]
-
-        // true
-        // finalizer::finish()
     }
 }
-
-use std::sync::atomic::{AtomicBool, Ordering};
 
 static GLOBAL_BOOL: AtomicBool = AtomicBool::new(false);
 

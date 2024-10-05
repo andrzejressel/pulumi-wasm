@@ -11,7 +11,7 @@ pub trait PulumiService {
     fn get_root_resource(&self) -> String;
     fn register_outputs(&self, outputs: HashMap<FieldName, Value>);
     fn perform_resource_operation(&self, output_id: OutputId, request: PerformResourceRequest);
-    fn register_resource_poll(
+    fn poll_resource_operations(
         &self,
         register_ids: &HashSet<OutputId>,
     ) -> HashMap<OutputId, RegisterResourceResponse>;

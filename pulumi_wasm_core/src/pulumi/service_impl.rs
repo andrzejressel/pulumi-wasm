@@ -148,7 +148,7 @@ impl PulumiService for PulumiServiceImpl {
         }
     }
 
-    fn register_resource_poll(
+    fn poll_resource_operations(
         &self,
         _register_ids: &HashSet<OutputId>,
     ) -> HashMap<OutputId, RegisterResourceResponse> {
