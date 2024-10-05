@@ -28,6 +28,13 @@
         "wasmprinter"
       ],
       "groupName": "wasm-tools"
+    },
+    {
+      "matchPackageNames": [
+        "wit-bindgen",
+        "wit-bindgen-rt"
+      ],
+      "groupName": "wit-bindgen"
     }
   ],
   "customManagers": [

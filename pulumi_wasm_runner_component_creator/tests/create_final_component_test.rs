@@ -25,7 +25,7 @@ async fn should_combine_wasm_components() -> Result<()> {
     world root {
         import component:pulumi-wasm/output-interface@0.0.0-DEV;
         export component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV;
-        import pulumi:docker/container@4.5.3-DIVIDER-0.0.0-DEV;
+        import pulumi:docker/container@4.5.3--0.0.0-DEV;
     }
 "#,
         )
@@ -80,8 +80,8 @@ async fn return_error_when_multiple_dependencies_on_the_same_provider_is_found()
     world root {
         import component:pulumi-wasm/output-interface@0.0.0-DEV;
         export component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV;
-        import pulumi:docker/container@4.5.3-DIVIDER-0.0.0-DEV;
-        import pulumi:docker/container@4.5.4-DIVIDER-0.0.0-DEV;
+        import pulumi:docker/container@4.5.3--0.0.0-DEV;
+        import pulumi:docker/container@4.5.4--0.0.0-DEV;
     }
 "#,
         )
@@ -191,8 +191,8 @@ async fn return_error_when_multiple_versions_of_pulumi_wasm_in_providers_is_foun
     world root {
         import component:pulumi-wasm/output-interface@0.0.0-DEV;
         export component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV;
-        import pulumi:cloudflare/container@1.0.0-DIVIDER-0.0.1-DEV;
-        import pulumi:docker/container@1.0.0-DIVIDER-0.0.0-DEV;
+        import pulumi:cloudflare/container@1.0.0--0.0.1-DEV;
+        import pulumi:docker/container@1.0.0--0.0.0-DEV;
     }
 "#,
         )
@@ -340,7 +340,7 @@ impl ResolveExt for Resolve {
             format!("{provider_name}-{provider_version}-{pulumi_wasm_version}.wit"),
             format!(
                 r#"
-    package pulumi:{provider_name}@{provider_version}-DIVIDER-{pulumi_wasm_version};
+    package pulumi:{provider_name}@{provider_version}--{pulumi_wasm_version};
 
     world root {{
         export container;
