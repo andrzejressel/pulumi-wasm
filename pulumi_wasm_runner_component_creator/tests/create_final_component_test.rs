@@ -25,6 +25,7 @@ async fn should_combine_wasm_components() -> Result<()> {
     world root {
         import component:pulumi-wasm/output-interface@0.0.0-DEV;
         export component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV;
+        import component:pulumi-wasm-external/pulumi-settings@0.0.0-STABLE-DEV;
         import pulumi:docker/container@4.5.3--0.0.0-DEV;
     }
 "#,
@@ -54,7 +55,7 @@ async fn should_combine_wasm_components() -> Result<()> {
     .await
     .unwrap();
 
-    assert_component_only_exports_main(&result)?;
+    assert_component_only_exports_main_and_settings(&result)?;
 
     Ok(())
 }
@@ -230,7 +231,7 @@ async fn return_error_when_multiple_versions_of_pulumi_wasm_in_providers_is_foun
     Ok(())
 }
 
-fn assert_component_only_exports_main(result: &[u8]) -> Result<()> {
+fn assert_component_only_exports_main_and_settings(result: &[u8]) -> Result<()> {
     let mut graph = CompositionGraph::new();
     let main = Package::from_bytes("main", None, result, graph.types_mut()).unwrap();
     let main_package_id = graph.register_package(main.clone()).unwrap();
@@ -243,7 +244,10 @@ fn assert_component_only_exports_main(result: &[u8]) -> Result<()> {
 
     assert_eq!(
         exports_names,
-        vec!["component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV".to_string()]
+        vec![
+            "component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV".to_string(),
+            "component:pulumi-wasm-external/pulumi-settings@0.0.0-STABLE-DEV".to_string()
+        ]
     );
 
     let imports_names: Vec<_> = graph.types()[graph[main_package_id].ty()]
@@ -262,6 +266,7 @@ struct TestProgramSource {}
 impl PulumiWasmSource for TestProgramSource {
     async fn get(&self, version: &str, debug: bool) -> Result<Vec<u8>> {
         let mut resolve = Resolve::new();
+        resolve.add_pulumi_wasm_stable().unwrap();
         let pkg = resolve.add_pulumi_wasm(version).unwrap();
 
         let world = resolve.select_world(pkg, None).unwrap();
@@ -290,9 +295,10 @@ impl DefaultProviderSource for TestDefaultProviderSource {
         provider_name: &str,
         provider_version: &str,
         pulumi_wasm_version: &str,
-        debug: bool,
+        _debug: bool,
     ) -> Result<Vec<u8>> {
         let mut resolve = Resolve::new();
+        resolve.add_pulumi_wasm_stable().unwrap();
         resolve.add_pulumi_wasm(pulumi_wasm_version).unwrap();
         let pkg = resolve
             .add_provider(provider_name, provider_version, pulumi_wasm_version)
@@ -365,6 +371,7 @@ impl ResolveExt for Resolve {
     package component:pulumi-wasm@{pulumi_wasm_version};
 
     world root {{
+        export component:pulumi-wasm-external/pulumi-settings@0.0.0-STABLE-DEV;
         export output-interface;
     }}
 
@@ -396,6 +403,11 @@ impl ResolveExt for Resolve {
     interface pulumi-main {
         main: func();
     }
+
+    interface pulumi-settings {
+        set-in-preview: func(in-preview: bool);
+    }
+
 "#,
         )?;
 

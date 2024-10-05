@@ -4,6 +4,7 @@ world pulumi-wasm {
     export output-interface;
     export register-interface;
     export stack-interface;
+    export component:pulumi-wasm-external/pulumi-settings@0.0.0-STABLE-DEV;
 
     import component:pulumi-wasm-external/log@0.0.0-STABLE-DEV;
     import component:pulumi-wasm-external/external-world@0.0.0-STABLE-DEV;
@@ -21,6 +22,7 @@ world logger {
 
 world runner {
     export component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV;
+    export component:pulumi-wasm-external/pulumi-settings@0.0.0-STABLE-DEV;
     import component:pulumi-wasm-external/external-world@0.0.0-STABLE-DEV;
     import component:pulumi-wasm-external/log@0.0.0-STABLE-DEV;
 }

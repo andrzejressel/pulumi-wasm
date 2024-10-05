@@ -1271,6 +1271,37 @@ pub mod exports {
                 );
             }
         }
+        #[allow(dead_code)]
+        pub mod pulumi_wasm_external {
+            #[allow(dead_code, clippy::all)]
+            pub mod pulumi_settings {
+                #[used]
+                #[doc(hidden)]
+                static __FORCE_SECTION_REF: fn() = super::super::super::super::__link_custom_section_describing_imports;
+                use super::super::super::super::_rt;
+                #[doc(hidden)]
+                #[allow(non_snake_case)]
+                pub unsafe fn _export_set_in_preview_cabi<T: Guest>(arg0: i32) {
+                    #[cfg(target_arch = "wasm32")] _rt::run_ctors_once();
+                    T::set_in_preview(_rt::bool_lift(arg0 as u8));
+                }
+                pub trait Guest {
+                    fn set_in_preview(in_preview: bool);
+                }
+                #[doc(hidden)]
+                macro_rules! __export_component_pulumi_wasm_external_pulumi_settings_0_0_0_stable_dev_cabi {
+                    ($ty:ident with_types_in $($path_to_types:tt)*) => {
+                        const _ : () = { #[export_name =
+                        "component:pulumi-wasm-external/pulumi-settings@0.0.0-STABLE-DEV#set-in-preview"]
+                        unsafe extern "C" fn export_set_in_preview(arg0 : i32,) {
+                        $($path_to_types)*:: _export_set_in_preview_cabi::<$ty > (arg0) }
+                        };
+                    };
+                }
+                #[doc(hidden)]
+                pub(crate) use __export_component_pulumi_wasm_external_pulumi_settings_0_0_0_stable_dev_cabi;
+            }
+        }
     }
 }
 mod _rt {
@@ -1474,7 +1505,10 @@ macro_rules! __export_pulumi_wasm_impl {
         exports::component::pulumi_wasm::register_interface); $($path_to_types_root)*::
         exports::component::pulumi_wasm::stack_interface::__export_component_pulumi_wasm_stack_interface_0_0_0_dev_cabi!($ty
         with_types_in $($path_to_types_root)*::
-        exports::component::pulumi_wasm::stack_interface);
+        exports::component::pulumi_wasm::stack_interface); $($path_to_types_root)*::
+        exports::component::pulumi_wasm_external::pulumi_settings::__export_component_pulumi_wasm_external_pulumi_settings_0_0_0_stable_dev_cabi!($ty
+        with_types_in $($path_to_types_root)*::
+        exports::component::pulumi_wasm_external::pulumi_settings);
     };
 }
 #[doc(inline)]
@@ -1482,9 +1516,9 @@ pub(crate) use __export_pulumi_wasm_impl as export;
 #[cfg(target_arch = "wasm32")]
 #[link_section = "component-type:wit-bindgen:0.30.0:pulumi-wasm:encoded world"]
 #[doc(hidden)]
-pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 1775] = *b"\
-\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xed\x0c\x01A\x02\x01\
-A\x0b\x01B\x0a\x01m\x05\x05TRACE\x05DEBUG\x04INFO\x04WARN\x05ERROR\x04\0\x05leve\
+pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 1882] = *b"\
+\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xd8\x0d\x01A\x02\x01\
+A\x0d\x01B\x0a\x01m\x05\x05TRACE\x05DEBUG\x04INFO\x04WARN\x05ERROR\x04\0\x05leve\
 l\x03\0\0\x01ks\x01ky\x01o\x02ss\x01p\x04\x01r\x07\x05level\x01\x06targets\x04ar\
 gss\x0bmodule-path\x02\x04file\x02\x04line\x03\x0akey-values\x05\x04\0\x07conten\
 t\x03\0\x06\x01@\x01\x07content\x07\x01\0\x04\0\x03log\x01\x08\x03\x013component\
@@ -1517,9 +1551,11 @@ d\x02\x0bfunction-ids\x05values\x04\0\x1bfunction-invocation-request\x03\0\x03\x
 h\x01\x01r\x02\x02id\x05\x05values\x04\0\x1afunction-invocation-result\x03\0\x06\
 \x01@\x02\x04names\x05value\x05\x01\0\x04\0\x0aadd-export\x01\x08\x01p\x07\x01p\x04\
 \x01@\x01\x09functions\x09\0\x0a\x04\0\x06finish\x01\x0b\x04\x01/component:pulum\
-i-wasm/stack-interface@0.0.0-DEV\x05\x05\x04\x01+component:pulumi-wasm/pulumi-wa\
-sm@0.0.0-DEV\x04\0\x0b\x11\x01\0\x0bpulumi-wasm\x03\0\0\0G\x09producers\x01\x0cp\
-rocessed-by\x02\x0dwit-component\x070.215.0\x10wit-bindgen-rust\x060.30.0";
+i-wasm/stack-interface@0.0.0-DEV\x05\x05\x01B\x02\x01@\x01\x0ain-preview\x7f\x01\
+\0\x04\0\x0eset-in-preview\x01\0\x04\x01?component:pulumi-wasm-external/pulumi-s\
+ettings@0.0.0-STABLE-DEV\x05\x06\x04\x01+component:pulumi-wasm/pulumi-wasm@0.0.0\
+-DEV\x04\0\x0b\x11\x01\0\x0bpulumi-wasm\x03\0\0\0G\x09producers\x01\x0cprocessed\
+-by\x02\x0dwit-component\x070.215.0\x10wit-bindgen-rust\x060.30.0";
 #[inline(never)]
 #[doc(hidden)]
 pub fn __link_custom_section_describing_imports() {

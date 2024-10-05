@@ -171,6 +171,15 @@ pub async fn create(
         .export(pulumi_main_export, pulumi_main_component_name)
         .unwrap();
 
+    let pulumi_main_component_name =
+        "component:pulumi-wasm-external/pulumi-settings@0.0.0-STABLE-DEV";
+    let pulumi_main_export = graph
+        .alias_instance_export(pulumi_wasm_instance, pulumi_main_component_name)
+        .unwrap();
+    graph
+        .export(pulumi_main_export, pulumi_main_component_name)
+        .unwrap();
+
     Ok(graph.encode(EncodeOptions::default()).unwrap())
 }
 

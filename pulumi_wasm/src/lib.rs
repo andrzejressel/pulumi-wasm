@@ -16,6 +16,8 @@ use crate::bindings::exports::component::pulumi_wasm::stack_interface::{
 use crate::bindings::exports::component::pulumi_wasm::{
     output_interface, register_interface, stack_interface,
 };
+use crate::bindings::exports::component::pulumi_wasm_external::pulumi_settings;
+use std::sync::atomic::{AtomicBool, Ordering};
 
 bindings::export!(Component with_types_in bindings);
 
@@ -74,11 +76,14 @@ impl stack_interface::Guest for Component {
                 }
             })
             .collect()
+    }
+}
 
-        // vec![]
+static GLOBAL_BOOL: AtomicBool = AtomicBool::new(false);
 
-        // true
-        // finalizer::finish()
+impl pulumi_settings::Guest for Component {
+    fn set_in_preview(in_preview: bool) {
+        GLOBAL_BOOL.store(in_preview, Ordering::SeqCst);
     }
 }
 
@@ -122,6 +127,7 @@ impl register_interface::Guest for Component {
             request.name.to_string(),
             object,
             outputs,
+            GLOBAL_BOOL.load(Ordering::SeqCst),
         );
 
         RegisterResourceResult {
@@ -153,10 +159,12 @@ impl register_interface::Guest for Component {
             })
             .collect::<HashMap<_, _>>();
 
-        let (_, field_outputs) =
-            refcell
-                .borrow_mut()
-                .create_resource_invoke_node(request.token, object, outputs);
+        let (_, field_outputs) = refcell.borrow_mut().create_resource_invoke_node(
+            request.token,
+            object,
+            outputs,
+            GLOBAL_BOOL.load(Ordering::SeqCst),
+        );
 
         ResourceInvokeResult {
             fields: field_outputs
