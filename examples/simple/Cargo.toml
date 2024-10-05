@@ -12,7 +12,6 @@ crate-type = ["cdylib"]
 anyhow.workspace = true
 pulumi_wasm_rust.workspace = true
 pulumi_wasm_random.workspace = true
-log = "0.4.22"
 
 [dev-dependencies]
 assert_cmd.workspace = true

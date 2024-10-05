@@ -1,5 +1,4 @@
 use anyhow::Error;
-use log::info;
 use pulumi_wasm_random::random_string;
 use pulumi_wasm_random::random_string::RandomStringArgs;
 use pulumi_wasm_rust::Output;
