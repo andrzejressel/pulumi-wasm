@@ -1,4 +1,4 @@
-package component:pulumi-wasm@0.0.0-DEV;
+package component:pulumi-wasm@0.0.0-NIGHTLY-a5d0085;
 
 interface output-interface {
 
