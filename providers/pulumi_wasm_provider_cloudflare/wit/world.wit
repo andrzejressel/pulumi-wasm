@@ -1,7 +1,7 @@
-package pulumi:cloudflare@5.24.1--0.0.0-DEV;
+package pulumi:cloudflare@5.24.1--0.0.0-NIGHTLY-a10acfd;
 
 world cloudflare-pulumi {
-    import component:pulumi-wasm/register-interface@0.0.0-DEV;
+    import component:pulumi-wasm/register-interface@0.0.0-NIGHTLY-a10acfd;
     export access-application;
     export access-ca-certificate;
     export access-custom-page;
@@ -291,7 +291,7 @@ world cloudflare-pulumi-client {
 
 interface access-application {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -366,7 +366,7 @@ interface access-application {
 }
 interface access-ca-certificate {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -390,7 +390,7 @@ interface access-ca-certificate {
 }
 interface access-custom-page {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -418,7 +418,7 @@ interface access-custom-page {
 }
 interface access-group {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -446,7 +446,7 @@ interface access-group {
 }
 interface access-identity-provider {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -474,7 +474,7 @@ interface access-identity-provider {
 }
 interface access-keys-configuration {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -494,7 +494,7 @@ interface access-keys-configuration {
 }
 interface access-mutual-tls-certificate {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -521,7 +521,7 @@ interface access-mutual-tls-certificate {
 }
 interface access-mutual-tls-hostname-settings {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -543,7 +543,7 @@ interface access-mutual-tls-hostname-settings {
 }
 interface access-organization {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -585,7 +585,7 @@ interface access-organization {
 }
 interface access-policy {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -631,7 +631,7 @@ interface access-policy {
 }
 interface access-rule {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -657,7 +657,7 @@ interface access-rule {
 }
 interface access-service-token {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -686,7 +686,7 @@ interface access-service-token {
 }
 interface access-tag {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -710,7 +710,7 @@ interface access-tag {
 }
 interface account {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         enforce-twofactor: borrow<output>,
@@ -732,7 +732,7 @@ interface account {
 }
 interface account-member {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -756,7 +756,7 @@ interface account-member {
 }
 interface address-map {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -786,7 +786,7 @@ interface address-map {
 }
 interface api-shield {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         auth-id-characteristics: borrow<output>,
@@ -806,7 +806,7 @@ interface api-shield {
 }
 interface api-shield-operation {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         endpoint: borrow<output>,
@@ -830,7 +830,7 @@ interface api-shield-operation {
 }
 interface api-shield-operation-schema-validation-settings {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         mitigation-action: borrow<output>,
@@ -852,7 +852,7 @@ interface api-shield-operation-schema-validation-settings {
 }
 interface api-shield-schema {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         kind: borrow<output>,
@@ -878,7 +878,7 @@ interface api-shield-schema {
 }
 interface api-shield-schema-validation-settings {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         validation-default-mitigation-action: borrow<output>,
@@ -900,7 +900,7 @@ interface api-shield-schema-validation-settings {
 }
 interface api-token {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         condition: borrow<output>,
@@ -930,7 +930,7 @@ interface api-token {
 }
 interface argo {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         smart-routing: borrow<output>,
@@ -952,7 +952,7 @@ interface argo {
 }
 interface authenticated-origin-pulls {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         authenticated-origin-pulls-certificate: borrow<output>,
@@ -976,7 +976,7 @@ interface authenticated-origin-pulls {
 }
 interface authenticated-origin-pulls-certificate {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         certificate: borrow<output>,
@@ -1006,7 +1006,7 @@ interface authenticated-origin-pulls-certificate {
 }
 interface bot-management {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         auto-update-model: borrow<output>,
@@ -1043,7 +1043,7 @@ interface bot-management {
 }
 interface byo-ip-prefix {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -1067,7 +1067,7 @@ interface byo-ip-prefix {
 }
 interface certificate-pack {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         certificate-authority: borrow<output>,
@@ -1103,7 +1103,7 @@ interface certificate-pack {
 }
 interface custom-hostname {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         custom-metadata: borrow<output>,
@@ -1136,7 +1136,7 @@ interface custom-hostname {
 }
 interface custom-hostname-fallback-origin {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         origin: borrow<output>,
@@ -1157,7 +1157,7 @@ interface custom-hostname-fallback-origin {
 }
 interface custom-pages {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -1183,7 +1183,7 @@ interface custom-pages {
 }
 interface custom-ssl {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         custom-ssl-options: borrow<output>,
@@ -1213,7 +1213,7 @@ interface custom-ssl {
 }
 interface d1-database {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -1234,7 +1234,7 @@ interface d1-database {
 }
 interface device-dex-test {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -1264,7 +1264,7 @@ interface device-dex-test {
 }
 interface device-managed-networks {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -1288,7 +1288,7 @@ interface device-managed-networks {
 }
 interface device-policy-certificates {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         enabled: borrow<output>,
@@ -1308,7 +1308,7 @@ interface device-policy-certificates {
 }
 interface device-posture-integration {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -1336,7 +1336,7 @@ interface device-posture-integration {
 }
 interface device-posture-rule {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -1368,7 +1368,7 @@ interface device-posture-rule {
 }
 interface device-settings-policy {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -1420,7 +1420,7 @@ interface device-settings-policy {
 }
 interface dlp-profile {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -1450,7 +1450,7 @@ interface dlp-profile {
 }
 interface email-routing-address {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -1474,7 +1474,7 @@ interface email-routing-address {
 }
 interface email-routing-catch-all {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         actions: borrow<output>,
@@ -1501,7 +1501,7 @@ interface email-routing-catch-all {
 }
 interface email-routing-rule {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         actions: borrow<output>,
@@ -1530,7 +1530,7 @@ interface email-routing-rule {
 }
 interface email-routing-settings {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         enabled: borrow<output>,
@@ -1557,7 +1557,7 @@ interface email-routing-settings {
 }
 interface fallback-domain {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -1579,7 +1579,7 @@ interface fallback-domain {
 }
 interface filter {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         description: borrow<output>,
@@ -1605,7 +1605,7 @@ interface filter {
 }
 interface firewall-rule {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         action: borrow<output>,
@@ -1635,7 +1635,7 @@ interface firewall-rule {
 }
 interface gre-tunnel {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -1673,7 +1673,7 @@ interface gre-tunnel {
 }
 interface healthcheck {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         address: borrow<output>,
@@ -1731,7 +1731,7 @@ interface healthcheck {
 }
 interface hostname-tls-setting {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         hostname: borrow<output>,
@@ -1757,7 +1757,7 @@ interface hostname-tls-setting {
 }
 interface hostname-tls-setting-ciphers {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         hostname: borrow<output>,
@@ -1783,7 +1783,7 @@ interface hostname-tls-setting-ciphers {
 }
 interface hyperdrive-config {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -1807,7 +1807,7 @@ interface hyperdrive-config {
 }
 interface ipsec-tunnel {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -1857,7 +1857,7 @@ interface ipsec-tunnel {
 }
 interface keyless-certificate {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         bundle-method: borrow<output>,
@@ -1888,7 +1888,7 @@ interface keyless-certificate {
 }
 interface %list {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -1914,7 +1914,7 @@ interface %list {
 }
 interface list-item {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -1944,7 +1944,7 @@ interface list-item {
 }
 interface load-balancer {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         adaptive-routings: borrow<output>,
@@ -2000,7 +2000,7 @@ interface load-balancer {
 }
 interface load-balancer-monitor {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -2052,7 +2052,7 @@ interface load-balancer-monitor {
 }
 interface load-balancer-pool {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -2096,7 +2096,7 @@ interface load-balancer-pool {
 }
 interface logpull-retention {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         enabled: borrow<output>,
@@ -2116,7 +2116,7 @@ interface logpull-retention {
 }
 interface logpush-job {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -2162,7 +2162,7 @@ interface logpush-job {
 }
 interface logpush-ownership-challenge {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -2185,7 +2185,7 @@ interface logpush-ownership-challenge {
 }
 interface magic-firewall-ruleset {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -2209,7 +2209,7 @@ interface magic-firewall-ruleset {
 }
 interface managed-headers {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         managed-request-headers: borrow<output>,
@@ -2231,7 +2231,7 @@ interface managed-headers {
 }
 interface mtls-certificate {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -2262,7 +2262,7 @@ interface mtls-certificate {
 }
 interface notification-policy {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -2298,7 +2298,7 @@ interface notification-policy {
 }
 interface notification-policy-webhooks {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -2326,7 +2326,7 @@ interface notification-policy-webhooks {
 }
 interface observatory-scheduled-test {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         frequency: borrow<output>,
@@ -2350,7 +2350,7 @@ interface observatory-scheduled-test {
 }
 interface origin-ca-certificate {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         csr: borrow<output>,
@@ -2378,7 +2378,7 @@ interface origin-ca-certificate {
 }
 interface page-rule {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         actions: borrow<output>,
@@ -2404,7 +2404,7 @@ interface page-rule {
 }
 interface pages-domain {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -2427,7 +2427,7 @@ interface pages-domain {
 }
 interface pages-project {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -2458,7 +2458,7 @@ interface pages-project {
 }
 interface queue {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -2478,7 +2478,7 @@ interface queue {
 }
 interface r2-bucket {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -2500,7 +2500,7 @@ interface r2-bucket {
 }
 interface rate-limit {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         action: borrow<output>,
@@ -2534,7 +2534,7 @@ interface rate-limit {
 }
 interface %record {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         allow-overwrite: borrow<output>,
@@ -2577,7 +2577,7 @@ interface %record {
 }
 interface regional-hostname {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         hostname: borrow<output>,
@@ -2600,7 +2600,7 @@ interface regional-hostname {
 }
 interface regional-tiered-cache {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         value: borrow<output>,
@@ -2620,7 +2620,7 @@ interface regional-tiered-cache {
 }
 interface ruleset {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -2650,7 +2650,7 @@ interface ruleset {
 }
 interface spectrum-application {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         argo-smart-routing: borrow<output>,
@@ -2692,7 +2692,7 @@ interface spectrum-application {
 }
 interface split-tunnel {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -2716,7 +2716,7 @@ interface split-tunnel {
 }
 interface static-route {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -2748,7 +2748,7 @@ interface static-route {
 }
 interface teams-account {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -2794,7 +2794,7 @@ interface teams-account {
 }
 interface teams-list {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -2820,7 +2820,7 @@ interface teams-list {
 }
 interface teams-location {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -2849,7 +2849,7 @@ interface teams-location {
 }
 interface teams-proxy-endpoint {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -2872,7 +2872,7 @@ interface teams-proxy-endpoint {
 }
 interface teams-rule {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -2911,7 +2911,7 @@ interface teams-rule {
 }
 interface tiered-cache {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         cache-type: borrow<output>,
@@ -2931,7 +2931,7 @@ interface tiered-cache {
 }
 interface total-tls {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         certificate-authority: borrow<output>,
@@ -2953,7 +2953,7 @@ interface total-tls {
 }
 interface tunnel {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -2979,7 +2979,7 @@ interface tunnel {
 }
 interface tunnel-config {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -3001,7 +3001,7 @@ interface tunnel-config {
 }
 interface tunnel-route {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -3027,7 +3027,7 @@ interface tunnel-route {
 }
 interface tunnel-virtual-network {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -3051,7 +3051,7 @@ interface tunnel-virtual-network {
 }
 interface turnstile-widget {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -3082,7 +3082,7 @@ interface turnstile-widget {
 }
 interface url-normalization-settings {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         scope: borrow<output>,
@@ -3104,7 +3104,7 @@ interface url-normalization-settings {
 }
 interface user-agent-blocking-rule {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         configuration: borrow<output>,
@@ -3130,7 +3130,7 @@ interface user-agent-blocking-rule {
 }
 interface waiting-room {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         additional-routes: borrow<output>,
@@ -3182,7 +3182,7 @@ interface waiting-room {
 }
 interface waiting-room-event {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         custom-page-html: borrow<output>,
@@ -3230,7 +3230,7 @@ interface waiting-room-event {
 }
 interface waiting-room-rules {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         rules: borrow<output>,
@@ -3252,7 +3252,7 @@ interface waiting-room-rules {
 }
 interface waiting-room-settings {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         search-engine-crawler-bypass: borrow<output>,
@@ -3272,7 +3272,7 @@ interface waiting-room-settings {
 }
 interface web3-hostname {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         description: borrow<output>,
@@ -3301,7 +3301,7 @@ interface web3-hostname {
 }
 interface web-analytics-rule {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -3329,7 +3329,7 @@ interface web-analytics-rule {
 }
 interface web-analytics-site {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -3357,7 +3357,7 @@ interface web-analytics-site {
 }
 interface worker-cron-trigger {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -3379,7 +3379,7 @@ interface worker-cron-trigger {
 }
 interface worker-domain {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -3405,7 +3405,7 @@ interface worker-domain {
 }
 interface worker-route {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         pattern: borrow<output>,
@@ -3427,7 +3427,7 @@ interface worker-route {
 }
 interface worker-script {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -3481,7 +3481,7 @@ interface worker-script {
 }
 interface worker-secret {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -3505,7 +3505,7 @@ interface worker-secret {
 }
 interface workers-for-platforms-namespace {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -3525,7 +3525,7 @@ interface workers-for-platforms-namespace {
 }
 interface workers-kv {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -3549,7 +3549,7 @@ interface workers-kv {
 }
 interface workers-kv-namespace {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -3569,7 +3569,7 @@ interface workers-kv-namespace {
 }
 interface zone {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -3602,7 +3602,7 @@ interface zone {
 }
 interface zone-cache-reserve {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         enabled: borrow<output>,
@@ -3622,7 +3622,7 @@ interface zone-cache-reserve {
 }
 interface zone-cache-variants {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         avifs: borrow<output>,
@@ -3662,7 +3662,7 @@ interface zone-cache-variants {
 }
 interface zone-dnssec {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         modified-on: borrow<output>,
@@ -3692,7 +3692,7 @@ interface zone-dnssec {
 }
 interface zone-hold {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         hold: borrow<output>,
@@ -3716,7 +3716,7 @@ interface zone-hold {
 }
 interface zone-lockdown {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         configurations: borrow<output>,
@@ -3744,7 +3744,7 @@ interface zone-lockdown {
 }
 interface zone-settings-override {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         settings: borrow<output>,
@@ -3770,7 +3770,7 @@ interface zone-settings-override {
 
 interface get-access-application {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -3795,7 +3795,7 @@ interface get-access-application {
 }
 interface get-access-identity-provider {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -3818,7 +3818,7 @@ interface get-access-identity-provider {
 }
 interface get-account-roles {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -3837,7 +3837,7 @@ interface get-account-roles {
 }
 interface get-accounts {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         name: borrow<output>,
@@ -3856,7 +3856,7 @@ interface get-accounts {
 }
 interface get-api-token-permission-groups {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
 
     record res {
@@ -3874,7 +3874,7 @@ interface get-api-token-permission-groups {
 }
 interface get-device-posture-rules {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -3897,7 +3897,7 @@ interface get-device-posture-rules {
 }
 interface get-devices {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -3916,7 +3916,7 @@ interface get-devices {
 }
 interface get-dlp-datasets {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -3935,7 +3935,7 @@ interface get-dlp-datasets {
 }
 interface get-ip-ranges {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
 
     record res {
@@ -3953,7 +3953,7 @@ interface get-ip-ranges {
 }
 interface get-list {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -3976,7 +3976,7 @@ interface get-list {
 }
 interface get-lists {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -3995,7 +3995,7 @@ interface get-lists {
 }
 interface get-load-balancer-pools {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -4017,7 +4017,7 @@ interface get-load-balancer-pools {
 }
 interface get-origin-ca-certificate {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         id: borrow<output>,
@@ -4039,7 +4039,7 @@ interface get-origin-ca-certificate {
 }
 interface get-origin-ca-root-certificate {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         algorithm: borrow<output>,
@@ -4058,7 +4058,7 @@ interface get-origin-ca-root-certificate {
 }
 interface get-record {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         content: borrow<output>,
@@ -4090,7 +4090,7 @@ interface get-record {
 }
 interface get-rulesets {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -4115,7 +4115,7 @@ interface get-rulesets {
 }
 interface get-tunnel {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -4138,7 +4138,7 @@ interface get-tunnel {
 }
 interface get-tunnel-virtual-network {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -4160,7 +4160,7 @@ interface get-tunnel-virtual-network {
 }
 interface get-user {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
 
     record res {
@@ -4175,7 +4175,7 @@ interface get-user {
 }
 interface get-zone {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         account-id: borrow<output>,
@@ -4202,7 +4202,7 @@ interface get-zone {
 }
 interface get-zone-cache-reserve {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         zone-id: borrow<output>,
@@ -4221,7 +4221,7 @@ interface get-zone-cache-reserve {
 }
 interface get-zone-dnssec {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         zone-id: borrow<output>,
@@ -4249,7 +4249,7 @@ interface get-zone-dnssec {
 }
 interface get-zones {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-a10acfd.{output};
 
     record args {
         filter: borrow<output>,
