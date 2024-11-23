@@ -5,6 +5,7 @@ use std::collections::BTreeMap;
 use wac_graph::types::Package;
 use wac_graph::CompositionGraph;
 use wit_component::{dummy_module, embed_component_metadata, ComponentEncoder, StringEncoding};
+use wit_parser::Mangling::Standard32;
 use wit_parser::{PackageId, Resolve};
 
 #[tokio::test]
@@ -34,7 +35,7 @@ async fn should_combine_wasm_components() -> Result<()> {
 
     let world = resolve.select_world(pkg, None).unwrap();
 
-    let mut module = dummy_module(&resolve, world);
+    let mut module = dummy_module(&resolve, world, Standard32);
 
     embed_component_metadata(&mut module, &resolve, world, StringEncoding::UTF8).unwrap();
 
@@ -90,7 +91,7 @@ async fn return_error_when_multiple_dependencies_on_the_same_provider_is_found()
 
     let world = resolve.select_world(pkg, None).unwrap();
 
-    let mut module = dummy_module(&resolve, world);
+    let mut module = dummy_module(&resolve, world, Standard32);
 
     embed_component_metadata(&mut module, &resolve, world, StringEncoding::UTF8).unwrap();
 
@@ -140,7 +141,7 @@ async fn return_error_when_multiple_versions_of_pulumi_wasm_is_found() -> Result
 
     let world = resolve.select_world(pkg, None).unwrap();
 
-    let mut module = dummy_module(&resolve, world);
+    let mut module = dummy_module(&resolve, world, Standard32);
 
     embed_component_metadata(&mut module, &resolve, world, StringEncoding::UTF8).unwrap();
 
@@ -201,7 +202,7 @@ async fn return_error_when_multiple_versions_of_pulumi_wasm_in_providers_is_foun
 
     let world = resolve.select_world(pkg, None).unwrap();
 
-    let mut module = dummy_module(&resolve, world);
+    let mut module = dummy_module(&resolve, world, Standard32);
 
     embed_component_metadata(&mut module, &resolve, world, StringEncoding::UTF8).unwrap();
 
@@ -271,7 +272,7 @@ impl PulumiWasmSource for TestProgramSource {
 
         let world = resolve.select_world(pkg, None).unwrap();
 
-        let mut module = dummy_module(&resolve, world);
+        let mut module = dummy_module(&resolve, world, Standard32);
 
         embed_component_metadata(&mut module, &resolve, world, StringEncoding::UTF8).unwrap();
 
@@ -306,7 +307,7 @@ impl DefaultProviderSource for TestDefaultProviderSource {
 
         let world = resolve.select_world(pkg, None).unwrap();
 
-        let mut module = dummy_module(&resolve, world);
+        let mut module = dummy_module(&resolve, world, Standard32);
 
         embed_component_metadata(&mut module, &resolve, world, StringEncoding::UTF8).unwrap();
 
