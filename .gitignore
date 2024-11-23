@@ -22,3 +22,9 @@ target
 output.log
 *.wasm
 lcov.info
+
+# codecov
+/codecov
+/codecov.SHA256SUM.sig
+/codecov.exe
+/codecov.exe.SHA256SUM.sig
