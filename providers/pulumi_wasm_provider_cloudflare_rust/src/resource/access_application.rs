@@ -8,203 +8,6 @@
 //!    scope. For example, an access token that is scoped to the "example.com"
 //!    zone needs to use the `zone_id` argument.
 //! 
-//! ## Example Usage
-//! 
-//! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! // With CORS configuration
-//! const stagingApp = new cloudflare.AccessApplication("stagingApp", {
-//!     corsHeaders: [{
-//!         allowCredentials: true,
-//!         allowedMethods: [
-//!             "GET",
-//!             "POST",
-//!             "OPTIONS",
-//!         ],
-//!         allowedOrigins: ["https://example.com"],
-//!         maxAge: 10,
-//!     }],
-//!     domain: "staging.example.com",
-//!     name: "staging application",
-//!     sessionDuration: "24h",
-//!     type: "self_hosted",
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! # With CORS configuration
-//! staging_app = cloudflare.AccessApplication("stagingApp",
-//!     cors_headers=[cloudflare.AccessApplicationCorsHeaderArgs(
-//!         allow_credentials=True,
-//!         allowed_methods=[
-//!             "GET",
-//!             "POST",
-//!             "OPTIONS",
-//!         ],
-//!         allowed_origins=["https://example.com"],
-//!         max_age=10,
-//!     )],
-//!     domain="staging.example.com",
-//!     name="staging application",
-//!     session_duration="24h",
-//!     type="self_hosted",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     // With CORS configuration
-//!     var stagingApp = new Cloudflare.AccessApplication("stagingApp", new()
-//!     {
-//!         CorsHeaders = new[]
-//!         {
-//!             new Cloudflare.Inputs.AccessApplicationCorsHeaderArgs
-//!             {
-//!                 AllowCredentials = true,
-//!                 AllowedMethods = new[]
-//!                 {
-//!                     "GET",
-//!                     "POST",
-//!                     "OPTIONS",
-//!                 },
-//!                 AllowedOrigins = new[]
-//!                 {
-//!                     "https://example.com",
-//!                 },
-//!                 MaxAge = 10,
-//!             },
-//!         },
-//!         Domain = "staging.example.com",
-//!         Name = "staging application",
-//!         SessionDuration = "24h",
-//!         Type = "self_hosted",
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		// With CORS configuration
-//! 		_, err := cloudflare.NewAccessApplication(ctx, "stagingApp", &cloudflare.AccessApplicationArgs{
-//! 			CorsHeaders: cloudflare.AccessApplicationCorsHeaderArray{
-//! 				&cloudflare.AccessApplicationCorsHeaderArgs{
-//! 					AllowCredentials: pulumi.Bool(true),
-//! 					AllowedMethods: pulumi.StringArray{
-//! 						pulumi.String("GET"),
-//! 						pulumi.String("POST"),
-//! 						pulumi.String("OPTIONS"),
-//! 					},
-//! 					AllowedOrigins: pulumi.StringArray{
-//! 						pulumi.String("https://example.com"),
-//! 					},
-//! 					MaxAge: pulumi.Int(10),
-//! 				},
-//! 			},
-//! 			Domain:          pulumi.String("staging.example.com"),
-//! 			Name:            pulumi.String("staging application"),
-//! 			SessionDuration: pulumi.String("24h"),
-//! 			Type:            pulumi.String("self_hosted"),
-//! 			ZoneId:          pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.AccessApplication;
-//! import com.pulumi.cloudflare.AccessApplicationArgs;
-//! import com.pulumi.cloudflare.inputs.AccessApplicationCorsHeaderArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         // With CORS configuration
-//!         var stagingApp = new AccessApplication("stagingApp", AccessApplicationArgs.builder()        
-//!             .corsHeaders(AccessApplicationCorsHeaderArgs.builder()
-//!                 .allowCredentials(true)
-//!                 .allowedMethods(                
-//!                     "GET",
-//!                     "POST",
-//!                     "OPTIONS")
-//!                 .allowedOrigins("https://example.com")
-//!                 .maxAge(10)
-//!                 .build())
-//!             .domain("staging.example.com")
-//!             .name("staging application")
-//!             .sessionDuration("24h")
-//!             .type("self_hosted")
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
-//!             .build());
-//! 
-//!     }
-//! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   # With CORS configuration
-//!   stagingApp:
-//!     type: cloudflare:AccessApplication
-//!     properties:
-//!       corsHeaders:
-//!         - allowCredentials: true
-//!           allowedMethods:
-//!             - GET
-//!             - POST
-//!             - OPTIONS
-//!           allowedOrigins:
-//!             - https://example.com
-//!           maxAge: 10
-//!       domain: staging.example.com
-//!       name: staging application
-//!       sessionDuration: 24h
-//!       type: self_hosted
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//! ```
-//! <!--End PulumiCodeChooser -->
-//! 
 //! ## Import
 //! 
 //! ```sh
@@ -272,15 +75,24 @@ pub struct AccessApplicationArgs {
     /// Image URL for the logo shown in the app launcher dashboard.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub logo_url: pulumi_wasm_rust::Output<Option<String>>,
-    /// The name of the footer link.
+    /// Friendly name of the Access Application.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub name: pulumi_wasm_rust::Output<Option<String>>,
+    /// Allows options preflight requests to bypass Access authentication and go directly to the origin. Cannot turn on if cors_headers is set. Defaults to `false`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    pub options_preflight_bypass: pulumi_wasm_rust::Output<Option<bool>>,
+    /// The policies associated with the application, in ascending order of precedence. Warning: Do not use this field while you still have this application ID referenced as `application_id` in any `cloudflare.AccessPolicy` resource, as it can result in an inconsistent state.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    pub policies: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// SaaS configuration for the Access Application.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub saas_app: pulumi_wasm_rust::Output<Option<crate::types::AccessApplicationSaasApp>>,
     /// Defines the same-site cookie setting for access tokens. Available values: `none`, `lax`, `strict`.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub same_site_cookie_attribute: pulumi_wasm_rust::Output<Option<String>>,
+    /// Configuration for provisioning to this application via SCIM. This is currently in closed beta.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    pub scim_config: pulumi_wasm_rust::Output<Option<crate::types::AccessApplicationScimConfig>>,
     /// List of domains that access will secure. Only present for self_hosted, vnc, and ssh applications. Always includes the value set as `domain`.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub self_hosted_domains: pulumi_wasm_rust::Output<Option<Vec<String>>>,
@@ -290,13 +102,19 @@ pub struct AccessApplicationArgs {
     /// How often a user will be forced to re-authorise. Must be in the format `48h` or `2h45m`. Defaults to `24h`.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub session_duration: pulumi_wasm_rust::Output<Option<String>>,
+    /// Option to skip the App Launcher landing page. Defaults to `false`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    pub skip_app_launcher_login_page: pulumi_wasm_rust::Output<Option<bool>>,
     /// Option to skip the authorization interstitial when using the CLI. Defaults to `false`.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub skip_interstitial: pulumi_wasm_rust::Output<Option<bool>>,
     /// The itags associated with the application.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub tags: pulumi_wasm_rust::Output<Option<Vec<String>>>,
-    /// The application type. Available values: `app_launcher`, `bookmark`, `biso`, `dash_sso`, `saas`, `self_hosted`, `ssh`, `vnc`, `warp`. Defaults to `self_hosted`.
+    /// The payload for an infrastructure application which defines the port, protocol, and target attributes. Only applicable to Infrastructure Applications, in which case this field is required.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    pub target_criterias: pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessApplicationTargetCriteria>>>,
+    /// The application type. Available values: `app_launcher`, `bookmark`, `biso`, `dash_sso`, `saas`, `self_hosted`, `ssh`, `vnc`, `warp`, `infrastructure`. Defaults to `self_hosted`.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub type_: pulumi_wasm_rust::Output<Option<String>>,
     /// The zone identifier to target for the resource. Conflicts with `account_id`.
@@ -345,23 +163,33 @@ pub struct AccessApplicationResult {
     pub landing_page_design: pulumi_wasm_rust::Output<Option<crate::types::AccessApplicationLandingPageDesign>>,
     /// Image URL for the logo shown in the app launcher dashboard.
     pub logo_url: pulumi_wasm_rust::Output<Option<String>>,
-    /// The name of the footer link.
+    /// Friendly name of the Access Application.
     pub name: pulumi_wasm_rust::Output<String>,
+    /// Allows options preflight requests to bypass Access authentication and go directly to the origin. Cannot turn on if cors_headers is set. Defaults to `false`.
+    pub options_preflight_bypass: pulumi_wasm_rust::Output<Option<bool>>,
+    /// The policies associated with the application, in ascending order of precedence. Warning: Do not use this field while you still have this application ID referenced as `application_id` in any `cloudflare.AccessPolicy` resource, as it can result in an inconsistent state.
+    pub policies: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// SaaS configuration for the Access Application.
     pub saas_app: pulumi_wasm_rust::Output<Option<crate::types::AccessApplicationSaasApp>>,
     /// Defines the same-site cookie setting for access tokens. Available values: `none`, `lax`, `strict`.
     pub same_site_cookie_attribute: pulumi_wasm_rust::Output<Option<String>>,
+    /// Configuration for provisioning to this application via SCIM. This is currently in closed beta.
+    pub scim_config: pulumi_wasm_rust::Output<Option<crate::types::AccessApplicationScimConfig>>,
     /// List of domains that access will secure. Only present for self_hosted, vnc, and ssh applications. Always includes the value set as `domain`.
     pub self_hosted_domains: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// Option to return a 401 status code in service authentication rules on failed requests. Defaults to `false`.
     pub service_auth401_redirect: pulumi_wasm_rust::Output<Option<bool>>,
     /// How often a user will be forced to re-authorise. Must be in the format `48h` or `2h45m`. Defaults to `24h`.
     pub session_duration: pulumi_wasm_rust::Output<Option<String>>,
+    /// Option to skip the App Launcher landing page. Defaults to `false`.
+    pub skip_app_launcher_login_page: pulumi_wasm_rust::Output<Option<bool>>,
     /// Option to skip the authorization interstitial when using the CLI. Defaults to `false`.
     pub skip_interstitial: pulumi_wasm_rust::Output<Option<bool>>,
     /// The itags associated with the application.
     pub tags: pulumi_wasm_rust::Output<Option<Vec<String>>>,
-    /// The application type. Available values: `app_launcher`, `bookmark`, `biso`, `dash_sso`, `saas`, `self_hosted`, `ssh`, `vnc`, `warp`. Defaults to `self_hosted`.
+    /// The payload for an infrastructure application which defines the port, protocol, and target attributes. Only applicable to Infrastructure Applications, in which case this field is required.
+    pub target_criterias: pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessApplicationTargetCriteria>>>,
+    /// The application type. Available values: `app_launcher`, `bookmark`, `biso`, `dash_sso`, `saas`, `self_hosted`, `ssh`, `vnc`, `warp`, `infrastructure`. Defaults to `self_hosted`.
     pub type_: pulumi_wasm_rust::Output<Option<String>>,
     /// The zone identifier to target for the resource. Conflicts with `account_id`.
     pub zone_id: pulumi_wasm_rust::Output<String>,
@@ -393,13 +221,18 @@ pub fn create(name: &str, args: AccessApplicationArgs) -> AccessApplicationResul
         landing_page_design: &args.landing_page_design.get_inner(),
         logo_url: &args.logo_url.get_inner(),
         name: &args.name.get_inner(),
+        options_preflight_bypass: &args.options_preflight_bypass.get_inner(),
+        policies: &args.policies.get_inner(),
         saas_app: &args.saas_app.get_inner(),
         same_site_cookie_attribute: &args.same_site_cookie_attribute.get_inner(),
+        scim_config: &args.scim_config.get_inner(),
         self_hosted_domains: &args.self_hosted_domains.get_inner(),
         service_auth401_redirect: &args.service_auth401_redirect.get_inner(),
         session_duration: &args.session_duration.get_inner(),
+        skip_app_launcher_login_page: &args.skip_app_launcher_login_page.get_inner(),
         skip_interstitial: &args.skip_interstitial.get_inner(),
         tags: &args.tags.get_inner(),
+        target_criterias: &args.target_criterias.get_inner(),
         type_: &args.type_.get_inner(),
         zone_id: &args.zone_id.get_inner(),
     });
@@ -426,13 +259,18 @@ pub fn create(name: &str, args: AccessApplicationArgs) -> AccessApplicationResul
         landing_page_design: crate::into_domain(result.landing_page_design),
         logo_url: crate::into_domain(result.logo_url),
         name: crate::into_domain(result.name),
+        options_preflight_bypass: crate::into_domain(result.options_preflight_bypass),
+        policies: crate::into_domain(result.policies),
         saas_app: crate::into_domain(result.saas_app),
         same_site_cookie_attribute: crate::into_domain(result.same_site_cookie_attribute),
+        scim_config: crate::into_domain(result.scim_config),
         self_hosted_domains: crate::into_domain(result.self_hosted_domains),
         service_auth401_redirect: crate::into_domain(result.service_auth401_redirect),
         session_duration: crate::into_domain(result.session_duration),
+        skip_app_launcher_login_page: crate::into_domain(result.skip_app_launcher_login_page),
         skip_interstitial: crate::into_domain(result.skip_interstitial),
         tags: crate::into_domain(result.tags),
+        target_criterias: crate::into_domain(result.target_criterias),
         type_: crate::into_domain(result.type_),
         zone_id: crate::into_domain(result.zone_id),
     }

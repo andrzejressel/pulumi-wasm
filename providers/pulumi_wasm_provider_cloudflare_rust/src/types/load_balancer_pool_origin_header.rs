@@ -1,7 +1,7 @@
 #[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug)]
 #[builder(finish_fn = build_struct)]
 pub struct LoadBalancerPoolOriginHeader {
-    /// HTTP request headers.
+    /// HTTP Header name.
     #[builder(into)]
     #[serde(rename = "header")]
     pub r#header: Box<String>,

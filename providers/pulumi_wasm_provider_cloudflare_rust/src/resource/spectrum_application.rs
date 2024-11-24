@@ -11,21 +11,21 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! const example = new cloudflare.SpectrumApplication("example", {
+//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     protocol: "tcp/22",
+//!     trafficType: "direct",
 //!     dns: {
-//!         name: "ssh.example.com",
 //!         type: "CNAME",
+//!         name: "ssh.example.com",
 //!     },
+//!     originDirects: ["tcp://192.0.2.1:22"],
 //!     edgeIps: {
+//!         type: "static",
 //!         ips: [
 //!             "203.0.113.1",
 //!             "203.0.113.2",
 //!         ],
-//!         type: "static",
 //!     },
-//!     originDirects: ["tcp://192.0.2.1:22"],
-//!     protocol: "tcp/22",
-//!     trafficType: "direct",
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //! });
 //! ```
 //! ### Python
@@ -34,21 +34,21 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! example = cloudflare.SpectrumApplication("example",
-//!     dns=cloudflare.SpectrumApplicationDnsArgs(
-//!         name="ssh.example.com",
-//!         type="CNAME",
-//!     ),
-//!     edge_ips=cloudflare.SpectrumApplicationEdgeIpsArgs(
-//!         ips=[
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
+//!     protocol="tcp/22",
+//!     traffic_type="direct",
+//!     dns={
+//!         "type": "CNAME",
+//!         "name": "ssh.example.com",
+//!     },
+//!     origin_directs=["tcp://192.0.2.1:22"],
+//!     edge_ips={
+//!         "type": "static",
+//!         "ips": [
 //!             "203.0.113.1",
 //!             "203.0.113.2",
 //!         ],
-//!         type="static",
-//!     ),
-//!     origin_directs=["tcp://192.0.2.1:22"],
-//!     protocol="tcp/22",
-//!     traffic_type="direct",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     })
 //! ```
 //! ### C#
 //! ```csharp
@@ -61,27 +61,27 @@
 //! {
 //!     var example = new Cloudflare.SpectrumApplication("example", new()
 //!     {
+//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         Protocol = "tcp/22",
+//!         TrafficType = "direct",
 //!         Dns = new Cloudflare.Inputs.SpectrumApplicationDnsArgs
 //!         {
-//!             Name = "ssh.example.com",
 //!             Type = "CNAME",
-//!         },
-//!         EdgeIps = new Cloudflare.Inputs.SpectrumApplicationEdgeIpsArgs
-//!         {
-//!             Ips = new[]
-//!             {
-//!                 "203.0.113.1",
-//!                 "203.0.113.2",
-//!             },
-//!             Type = "static",
+//!             Name = "ssh.example.com",
 //!         },
 //!         OriginDirects = new[]
 //!         {
 //!             "tcp://192.0.2.1:22",
 //!         },
-//!         Protocol = "tcp/22",
-//!         TrafficType = "direct",
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         EdgeIps = new Cloudflare.Inputs.SpectrumApplicationEdgeIpsArgs
+//!         {
+//!             Type = "static",
+//!             Ips = new[]
+//!             {
+//!                 "203.0.113.1",
+//!                 "203.0.113.2",
+//!             },
+//!         },
 //!     });
 //! 
 //! });
@@ -98,23 +98,23 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewSpectrumApplication(ctx, "example", &cloudflare.SpectrumApplicationArgs{
+//! 			ZoneId:      pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			Protocol:    pulumi.String("tcp/22"),
+//! 			TrafficType: pulumi.String("direct"),
 //! 			Dns: &cloudflare.SpectrumApplicationDnsArgs{
-//! 				Name: pulumi.String("ssh.example.com"),
 //! 				Type: pulumi.String("CNAME"),
-//! 			},
-//! 			EdgeIps: &cloudflare.SpectrumApplicationEdgeIpsArgs{
-//! 				Ips: pulumi.StringArray{
-//! 					pulumi.String("203.0.113.1"),
-//! 					pulumi.String("203.0.113.2"),
-//! 				},
-//! 				Type: pulumi.String("static"),
+//! 				Name: pulumi.String("ssh.example.com"),
 //! 			},
 //! 			OriginDirects: pulumi.StringArray{
 //! 				pulumi.String("tcp://192.0.2.1:22"),
 //! 			},
-//! 			Protocol:    pulumi.String("tcp/22"),
-//! 			TrafficType: pulumi.String("direct"),
-//! 			ZoneId:      pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			EdgeIps: &cloudflare.SpectrumApplicationEdgeIpsArgs{
+//! 				Type: pulumi.String("static"),
+//! 				Ips: pulumi.StringArray{
+//! 					pulumi.String("203.0.113.1"),
+//! 					pulumi.String("203.0.113.2"),
+//! 				},
+//! 			},
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -147,21 +147,21 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new SpectrumApplication("example", SpectrumApplicationArgs.builder()        
+//!         var example = new SpectrumApplication("example", SpectrumApplicationArgs.builder()
+//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .protocol("tcp/22")
+//!             .trafficType("direct")
 //!             .dns(SpectrumApplicationDnsArgs.builder()
-//!                 .name("ssh.example.com")
 //!                 .type("CNAME")
+//!                 .name("ssh.example.com")
 //!                 .build())
+//!             .originDirects("tcp://192.0.2.1:22")
 //!             .edgeIps(SpectrumApplicationEdgeIpsArgs.builder()
+//!                 .type("static")
 //!                 .ips(                
 //!                     "203.0.113.1",
 //!                     "203.0.113.2")
-//!                 .type("static")
 //!                 .build())
-//!             .originDirects("tcp://192.0.2.1:22")
-//!             .protocol("tcp/22")
-//!             .trafficType("direct")
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
 //! 
 //!     }
@@ -173,19 +173,19 @@
 //!   example:
 //!     type: cloudflare:SpectrumApplication
 //!     properties:
+//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       protocol: tcp/22
+//!       trafficType: direct
 //!       dns:
-//!         name: ssh.example.com
 //!         type: CNAME
+//!         name: ssh.example.com
+//!       originDirects:
+//!         - tcp://192.0.2.1:22
 //!       edgeIps:
+//!         type: static
 //!         ips:
 //!           - 203.0.113.1
 //!           - 203.0.113.2
-//!         type: static
-//!       originDirects:
-//!         - tcp://192.0.2.1:22
-//!       protocol: tcp/22
-//!       trafficType: direct
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

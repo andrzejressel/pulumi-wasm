@@ -1,7 +1,6 @@
 #[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug)]
 #[builder(finish_fn = build_struct)]
 pub struct RulesetRuleActionParametersUri {
-    /// List of properties to change request origin.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "origin")]
     pub r#origin: Box<Option<bool>>,

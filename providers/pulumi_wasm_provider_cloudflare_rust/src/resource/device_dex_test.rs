@@ -10,15 +10,15 @@
 //! 
 //! const example = new cloudflare.DeviceDexTest("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
+//!     name: "GET homepage",
+//!     description: "Send a HTTP GET request to the home endpoint every half hour.",
+//!     interval: "0h30m0s",
+//!     enabled: true,
 //!     data: {
 //!         host: "https://example.com/home",
 //!         kind: "http",
 //!         method: "GET",
 //!     },
-//!     description: "Send a HTTP GET request to the home endpoint every half hour.",
-//!     enabled: true,
-//!     interval: "0h30m0s",
-//!     name: "GET homepage",
 //! });
 //! ```
 //! ### Python
@@ -28,15 +28,15 @@
 //! 
 //! example = cloudflare.DeviceDexTest("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     data=cloudflare.DeviceDexTestDataArgs(
-//!         host="https://example.com/home",
-//!         kind="http",
-//!         method="GET",
-//!     ),
+//!     name="GET homepage",
 //!     description="Send a HTTP GET request to the home endpoint every half hour.",
-//!     enabled=True,
 //!     interval="0h30m0s",
-//!     name="GET homepage")
+//!     enabled=True,
+//!     data={
+//!         "host": "https://example.com/home",
+//!         "kind": "http",
+//!         "method": "GET",
+//!     })
 //! ```
 //! ### C#
 //! ```csharp
@@ -50,16 +50,16 @@
 //!     var example = new Cloudflare.DeviceDexTest("example", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
+//!         Name = "GET homepage",
+//!         Description = "Send a HTTP GET request to the home endpoint every half hour.",
+//!         Interval = "0h30m0s",
+//!         Enabled = true,
 //!         Data = new Cloudflare.Inputs.DeviceDexTestDataArgs
 //!         {
 //!             Host = "https://example.com/home",
 //!             Kind = "http",
 //!             Method = "GET",
 //!         },
-//!         Description = "Send a HTTP GET request to the home endpoint every half hour.",
-//!         Enabled = true,
-//!         Interval = "0h30m0s",
-//!         Name = "GET homepage",
 //!     });
 //! 
 //! });
@@ -76,16 +76,16 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewDeviceDexTest(ctx, "example", &cloudflare.DeviceDexTestArgs{
-//! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
+//! 			AccountId:   pulumi.String("f037e56e89293a057740de681ac9abbe"),
+//! 			Name:        pulumi.String("GET homepage"),
+//! 			Description: pulumi.String("Send a HTTP GET request to the home endpoint every half hour."),
+//! 			Interval:    pulumi.String("0h30m0s"),
+//! 			Enabled:     pulumi.Bool(true),
 //! 			Data: &cloudflare.DeviceDexTestDataArgs{
 //! 				Host:   pulumi.String("https://example.com/home"),
 //! 				Kind:   pulumi.String("http"),
 //! 				Method: pulumi.String("GET"),
 //! 			},
-//! 			Description: pulumi.String("Send a HTTP GET request to the home endpoint every half hour."),
-//! 			Enabled:     pulumi.Bool(true),
-//! 			Interval:    pulumi.String("0h30m0s"),
-//! 			Name:        pulumi.String("GET homepage"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -117,17 +117,17 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new DeviceDexTest("example", DeviceDexTestArgs.builder()        
+//!         var example = new DeviceDexTest("example", DeviceDexTestArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
+//!             .name("GET homepage")
+//!             .description("Send a HTTP GET request to the home endpoint every half hour.")
+//!             .interval("0h30m0s")
+//!             .enabled(true)
 //!             .data(DeviceDexTestDataArgs.builder()
 //!                 .host("https://example.com/home")
 //!                 .kind("http")
 //!                 .method("GET")
 //!                 .build())
-//!             .description("Send a HTTP GET request to the home endpoint every half hour.")
-//!             .enabled(true)
-//!             .interval("0h30m0s")
-//!             .name("GET homepage")
 //!             .build());
 //! 
 //!     }
@@ -140,14 +140,14 @@
 //!     type: cloudflare:DeviceDexTest
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
+//!       name: GET homepage
+//!       description: Send a HTTP GET request to the home endpoint every half hour.
+//!       interval: 0h30m0s
+//!       enabled: true
 //!       data:
 //!         host: https://example.com/home
 //!         kind: http
 //!         method: GET
-//!       description: Send a HTTP GET request to the home endpoint every half hour.
-//!       enabled: true
-//!       interval: 0h30m0s
-//!       name: GET homepage
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

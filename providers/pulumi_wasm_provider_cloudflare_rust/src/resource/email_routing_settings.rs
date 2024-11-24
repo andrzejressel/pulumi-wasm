@@ -8,9 +8,9 @@
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
-//! const myZone = new cloudflare.EmailRoutingSettings("myZone", {
-//!     enabled: true,
+//! const myZone = new cloudflare.EmailRoutingSettings("my_zone", {
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     enabled: true,
 //! });
 //! ```
 //! ### Python
@@ -18,9 +18,9 @@
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
 //! 
-//! my_zone = cloudflare.EmailRoutingSettings("myZone",
-//!     enabled=True,
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//! my_zone = cloudflare.EmailRoutingSettings("my_zone",
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
+//!     enabled=True)
 //! ```
 //! ### C#
 //! ```csharp
@@ -31,10 +31,10 @@
 //! 
 //! return await Deployment.RunAsync(() => 
 //! {
-//!     var myZone = new Cloudflare.EmailRoutingSettings("myZone", new()
+//!     var myZone = new Cloudflare.EmailRoutingSettings("my_zone", new()
 //!     {
-//!         Enabled = true,
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         Enabled = true,
 //!     });
 //! 
 //! });
@@ -50,9 +50,9 @@
 //! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewEmailRoutingSettings(ctx, "myZone", &cloudflare.EmailRoutingSettingsArgs{
-//! 			Enabled: pulumi.Bool(true),
+//! 		_, err := cloudflare.NewEmailRoutingSettings(ctx, "my_zone", &cloudflare.EmailRoutingSettingsArgs{
 //! 			ZoneId:  pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			Enabled: pulumi.Bool(true),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -83,9 +83,9 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var myZone = new EmailRoutingSettings("myZone", EmailRoutingSettingsArgs.builder()        
-//!             .enabled("true")
+//!         var myZone = new EmailRoutingSettings("myZone", EmailRoutingSettingsArgs.builder()
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .enabled("true")
 //!             .build());
 //! 
 //!     }
@@ -96,9 +96,10 @@
 //! resources:
 //!   myZone:
 //!     type: cloudflare:EmailRoutingSettings
+//!     name: my_zone
 //!     properties:
-//!       enabled: 'true'
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       enabled: 'true'
 //! ```
 //! <!--End PulumiCodeChooser -->
 

@@ -33,6 +33,10 @@ pub struct RulesetRuleActionParameters {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "cacheKey")]
     pub r#cache_key: Box<Option<crate::types::RulesetRuleActionParametersCacheKey>>,
+    /// List of cache reserve parameters to apply to the request.
+    #[builder(into, default = Box::new(None))]
+    #[serde(rename = "cacheReserve")]
+    pub r#cache_reserve: Box<Option<crate::types::RulesetRuleActionParametersCacheReserve>>,
     /// Content of the custom error response.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "content")]
@@ -53,6 +57,10 @@ pub struct RulesetRuleActionParameters {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "disableRailgun")]
     pub r#disable_railgun: Box<Option<bool>>,
+    /// Turn off RUM feature.
+    #[builder(into, default = Box::new(None))]
+    #[serde(rename = "disableRum")]
+    pub r#disable_rum: Box<Option<bool>>,
     /// Turn off zaraz feature.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "disableZaraz")]
@@ -65,6 +73,10 @@ pub struct RulesetRuleActionParameters {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "emailObfuscation")]
     pub r#email_obfuscation: Box<Option<bool>>,
+    /// Toggle fonts.
+    #[builder(into, default = Box::new(None))]
+    #[serde(rename = "fonts")]
+    pub r#fonts: Box<Option<bool>>,
     /// Use a list to lookup information for the action.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "fromList")]
@@ -156,7 +168,7 @@ pub struct RulesetRuleActionParameters {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "rocketLoader")]
     pub r#rocket_loader: Box<Option<bool>>,
-    /// List of rule-based overrides.
+    /// Map of managed WAF rule ID to comma-delimited string of ruleset rule IDs. Example: `rules = { "efb7b8c949ac4650a09736fc376e9aee" = "5de7edfa648c4d6891dc3e7f84534ffa,e3a567afc347477d9702d9047e97d760" }`.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "rules")]
     pub r#rules: Box<Option<std::collections::HashMap<String, String>>>,
@@ -188,7 +200,7 @@ pub struct RulesetRuleActionParameters {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "ssl")]
     pub r#ssl: Box<Option<String>>,
-    /// Status code for which the edge TTL is applied.
+    /// HTTP status code of the custom error response.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "statusCode")]
     pub r#status_code: Box<Option<i32>>,

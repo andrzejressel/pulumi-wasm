@@ -114,8 +114,10 @@ pub struct GetDevicePostureRulesArgs {
     /// The account identifier to target for the resource.
     #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
+    /// Name of the Device Posture Rule.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub name: pulumi_wasm_rust::Output<Option<String>>,
+    /// The device posture rule type. Available values: `serial_number`, `file`, `application`, `gateway`, `warp`, `domain_joined`, `os_version`, `disk_encryption`, `firewall`, `client_certificate`, `client_certificate_v2`, `workspace_one`, `unique_client_id`, `crowdstrike_s2s`, `sentinelone`, `kolide`, `tanium_s2s`, `intune`, `sentinelone_s2s`, `custom_s2s`.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub type_: pulumi_wasm_rust::Output<Option<String>>,
 }
@@ -129,7 +131,7 @@ pub struct GetDevicePostureRulesResult {
     pub name: pulumi_wasm_rust::Output<Option<String>>,
     /// A list of matching Device Posture Rules.
     pub rules: pulumi_wasm_rust::Output<Vec<crate::types::GetDevicePostureRulesRule>>,
-    /// The device posture rule type. Available values: `serial_number`, `file`, `application`, `gateway`, `warp`, `domain_joined`, `os_version`, `disk_encryption`, `firewall`, `client_certificate`, `workspace_one`, `unique_client_id`, `crowdstrike_s2s`, `sentinelone`, `kolide`, `tanium_s2s`, `intune`, `sentinelone_s2s`.
+    /// The device posture rule type. Available values: `serial_number`, `file`, `application`, `gateway`, `warp`, `domain_joined`, `os_version`, `disk_encryption`, `firewall`, `client_certificate`, `client_certificate_v2`, `workspace_one`, `unique_client_id`, `crowdstrike_s2s`, `sentinelone`, `kolide`, `tanium_s2s`, `intune`, `sentinelone_s2s`, `custom_s2s`.
     pub type_: pulumi_wasm_rust::Output<Option<String>>,
 }
 

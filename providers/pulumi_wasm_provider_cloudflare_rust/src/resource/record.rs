@@ -10,21 +10,21 @@
 //! 
 //! // Add a record to the domain
 //! const example = new cloudflare.Record("example", {
-//!     zoneId: _var.cloudflare_zone_id,
-//!     name: "example",
-//!     value: "192.0.2.1",
+//!     zoneId: cloudflareZoneId,
+//!     name: "terraform",
+//!     content: "192.0.2.1",
 //!     type: "A",
 //!     ttl: 3600,
 //! });
 //! // Add a record requiring a data map
-//! const _sipTls = new cloudflare.Record("_sipTls", {
-//!     zoneId: _var.cloudflare_zone_id,
+//! const _sipTls = new cloudflare.Record("_sip_tls", {
+//!     zoneId: cloudflareZoneId,
 //!     name: "_sip._tls",
 //!     type: "SRV",
 //!     data: {
 //!         service: "_sip",
 //!         proto: "_tls",
-//!         name: "example-srv",
+//!         name: "terraform-srv",
 //!         priority: 0,
 //!         weight: 0,
 //!         port: 443,
@@ -39,25 +39,25 @@
 //! 
 //! # Add a record to the domain
 //! example = cloudflare.Record("example",
-//!     zone_id=var["cloudflare_zone_id"],
-//!     name="example",
-//!     value="192.0.2.1",
+//!     zone_id=cloudflare_zone_id,
+//!     name="terraform",
+//!     content="192.0.2.1",
 //!     type="A",
 //!     ttl=3600)
 //! # Add a record requiring a data map
-//! _sip_tls = cloudflare.Record("_sipTls",
-//!     zone_id=var["cloudflare_zone_id"],
+//! _sip_tls = cloudflare.Record("_sip_tls",
+//!     zone_id=cloudflare_zone_id,
 //!     name="_sip._tls",
 //!     type="SRV",
-//!     data=cloudflare.RecordDataArgs(
-//!         service="_sip",
-//!         proto="_tls",
-//!         name="example-srv",
-//!         priority=0,
-//!         weight=0,
-//!         port=443,
-//!         target="example.com",
-//!     ))
+//!     data={
+//!         "service": "_sip",
+//!         "proto": "_tls",
+//!         "name": "terraform-srv",
+//!         "priority": 0,
+//!         "weight": 0,
+//!         "port": 443,
+//!         "target": "example.com",
+//!     })
 //! ```
 //! ### C#
 //! ```csharp
@@ -71,24 +71,24 @@
 //!     // Add a record to the domain
 //!     var example = new Cloudflare.Record("example", new()
 //!     {
-//!         ZoneId = @var.Cloudflare_zone_id,
-//!         Name = "example",
-//!         Value = "192.0.2.1",
+//!         ZoneId = cloudflareZoneId,
+//!         Name = "terraform",
+//!         Content = "192.0.2.1",
 //!         Type = "A",
 //!         Ttl = 3600,
 //!     });
 //! 
 //!     // Add a record requiring a data map
-//!     var _sipTls = new Cloudflare.Record("_sipTls", new()
+//!     var _sipTls = new Cloudflare.Record("_sip_tls", new()
 //!     {
-//!         ZoneId = @var.Cloudflare_zone_id,
+//!         ZoneId = cloudflareZoneId,
 //!         Name = "_sip._tls",
 //!         Type = "SRV",
 //!         Data = new Cloudflare.Inputs.RecordDataArgs
 //!         {
 //!             Service = "_sip",
 //!             Proto = "_tls",
-//!             Name = "example-srv",
+//!             Name = "terraform-srv",
 //!             Priority = 0,
 //!             Weight = 0,
 //!             Port = 443,
@@ -111,24 +111,24 @@
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		// Add a record to the domain
 //! 		_, err := cloudflare.NewRecord(ctx, "example", &cloudflare.RecordArgs{
-//! 			ZoneId: pulumi.Any(_var.Cloudflare_zone_id),
-//! 			Name:   pulumi.String("example"),
-//! 			Value:  pulumi.String("192.0.2.1"),
-//! 			Type:   pulumi.String("A"),
-//! 			Ttl:    pulumi.Int(3600),
+//! 			ZoneId:  pulumi.Any(cloudflareZoneId),
+//! 			Name:    pulumi.String("terraform"),
+//! 			Content: pulumi.String("192.0.2.1"),
+//! 			Type:    pulumi.String("A"),
+//! 			Ttl:     pulumi.Int(3600),
 //! 		})
 //! 		if err != nil {
 //! 			return err
 //! 		}
 //! 		// Add a record requiring a data map
-//! 		_, err = cloudflare.NewRecord(ctx, "_sipTls", &cloudflare.RecordArgs{
-//! 			ZoneId: pulumi.Any(_var.Cloudflare_zone_id),
+//! 		_, err = cloudflare.NewRecord(ctx, "_sip_tls", &cloudflare.RecordArgs{
+//! 			ZoneId: pulumi.Any(cloudflareZoneId),
 //! 			Name:   pulumi.String("_sip._tls"),
 //! 			Type:   pulumi.String("SRV"),
 //! 			Data: &cloudflare.RecordDataArgs{
 //! 				Service:  pulumi.String("_sip"),
 //! 				Proto:    pulumi.String("_tls"),
-//! 				Name:     pulumi.String("example-srv"),
+//! 				Name:     pulumi.String("terraform-srv"),
 //! 				Priority: pulumi.Int(0),
 //! 				Weight:   pulumi.Int(0),
 //! 				Port:     pulumi.Int(443),
@@ -166,23 +166,23 @@
 //! 
 //!     public static void stack(Context ctx) {
 //!         // Add a record to the domain
-//!         var example = new Record("example", RecordArgs.builder()        
-//!             .zoneId(var_.cloudflare_zone_id())
-//!             .name("example")
-//!             .value("192.0.2.1")
+//!         var example = new Record("example", RecordArgs.builder()
+//!             .zoneId(cloudflareZoneId)
+//!             .name("terraform")
+//!             .content("192.0.2.1")
 //!             .type("A")
 //!             .ttl(3600)
 //!             .build());
 //! 
 //!         // Add a record requiring a data map
-//!         var _sipTls = new Record("_sipTls", RecordArgs.builder()        
-//!             .zoneId(var_.cloudflare_zone_id())
+//!         var _sipTls = new Record("_sipTls", RecordArgs.builder()
+//!             .zoneId(cloudflareZoneId)
 //!             .name("_sip._tls")
 //!             .type("SRV")
 //!             .data(RecordDataArgs.builder()
 //!                 .service("_sip")
 //!                 .proto("_tls")
-//!                 .name("example-srv")
+//!                 .name("terraform-srv")
 //!                 .priority(0)
 //!                 .weight(0)
 //!                 .port(443)
@@ -200,22 +200,23 @@
 //!   example:
 //!     type: cloudflare:Record
 //!     properties:
-//!       zoneId: ${var.cloudflare_zone_id}
-//!       name: example
-//!       value: 192.0.2.1
+//!       zoneId: ${cloudflareZoneId}
+//!       name: terraform
+//!       content: 192.0.2.1
 //!       type: A
 //!       ttl: 3600
 //!   # Add a record requiring a data map
 //!   _sipTls:
 //!     type: cloudflare:Record
+//!     name: _sip_tls
 //!     properties:
-//!       zoneId: ${var.cloudflare_zone_id}
+//!       zoneId: ${cloudflareZoneId}
 //!       name: _sip._tls
 //!       type: SRV
 //!       data:
 //!         service: _sip
 //!         proto: _tls
-//!         name: example-srv
+//!         name: terraform-srv
 //!         priority: 0
 //!         weight: 0
 //!         port: 443
@@ -233,18 +234,18 @@
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
 pub struct RecordArgs {
-    /// Allow creation of this record in Terraform to overwrite an existing record, if any. This does not affect the ability to
-    /// update the record in Terraform and does not prevent other resources within Terraform or manual changes outside Terraform
-    /// from overwriting this record. **This configuration is not recommended for most environments**
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub allow_overwrite: pulumi_wasm_rust::Output<Option<bool>>,
     /// Comments or notes about the DNS record. This field has no effect on DNS responses.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub comment: pulumi_wasm_rust::Output<Option<String>>,
-    /// Map of attributes that constitute the record value. Conflicts with `value`.
+    /// The content of the record. Must provide only one of `data`, `content`, `value`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    pub content: pulumi_wasm_rust::Output<Option<String>>,
+    /// Map of attributes that constitute the record value. Must provide only one of `data`, `content`, `value`.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub data: pulumi_wasm_rust::Output<Option<crate::types::RecordData>>,
-    /// The name of the record.
+    /// The name of the record. **Modifying this attribute will force creation of a new resource.**
     #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// The priority of the record.
@@ -259,11 +260,10 @@ pub struct RecordArgs {
     /// The TTL of the record.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub ttl: pulumi_wasm_rust::Output<Option<i32>>,
-    /// The type of the record. Available values: `A`, `AAAA`, `CAA`, `CNAME`, `TXT`, `SRV`, `LOC`, `MX`, `NS`, `SPF`, `CERT`,
-    /// `DNSKEY`, `DS`, `NAPTR`, `SMIMEA`, `SSHFP`, `TLSA`, `URI`, `PTR`, `HTTPS`, `SVCB`
+    /// The type of the record. Available values: `A`, `AAAA`, `CAA`, `CNAME`, `TXT`, `SRV`, `LOC`, `MX`, `NS`, `SPF`, `CERT`, `DNSKEY`, `DS`, `NAPTR`, `SMIMEA`, `SSHFP`, `TLSA`, `URI`, `PTR`, `HTTPS`, `SVCB`. **Modifying this attribute will force creation of a new resource.**
     #[builder(into)]
     pub type_: pulumi_wasm_rust::Output<String>,
-    /// The value of the record.
+    /// The value of the record. Must provide only one of `data`, `content`, `value`.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub value: pulumi_wasm_rust::Output<Option<String>>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
@@ -272,15 +272,14 @@ pub struct RecordArgs {
 }
 
 pub struct RecordResult {
-    /// Allow creation of this record in Terraform to overwrite an existing record, if any. This does not affect the ability to
-    /// update the record in Terraform and does not prevent other resources within Terraform or manual changes outside Terraform
-    /// from overwriting this record. **This configuration is not recommended for most environments**
     pub allow_overwrite: pulumi_wasm_rust::Output<Option<bool>>,
     /// Comments or notes about the DNS record. This field has no effect on DNS responses.
     pub comment: pulumi_wasm_rust::Output<Option<String>>,
+    /// The content of the record. Must provide only one of `data`, `content`, `value`.
+    pub content: pulumi_wasm_rust::Output<String>,
     /// The RFC3339 timestamp of when the record was created.
     pub created_on: pulumi_wasm_rust::Output<String>,
-    /// Map of attributes that constitute the record value. Conflicts with `value`.
+    /// Map of attributes that constitute the record value. Must provide only one of `data`, `content`, `value`.
     pub data: pulumi_wasm_rust::Output<Option<crate::types::RecordData>>,
     /// The FQDN of the record.
     pub hostname: pulumi_wasm_rust::Output<String>,
@@ -288,7 +287,7 @@ pub struct RecordResult {
     pub metadata: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
     /// The RFC3339 timestamp of when the record was last modified.
     pub modified_on: pulumi_wasm_rust::Output<String>,
-    /// The name of the record.
+    /// The name of the record. **Modifying this attribute will force creation of a new resource.**
     pub name: pulumi_wasm_rust::Output<String>,
     /// The priority of the record.
     pub priority: pulumi_wasm_rust::Output<Option<i32>>,
@@ -300,10 +299,9 @@ pub struct RecordResult {
     pub tags: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// The TTL of the record.
     pub ttl: pulumi_wasm_rust::Output<i32>,
-    /// The type of the record. Available values: `A`, `AAAA`, `CAA`, `CNAME`, `TXT`, `SRV`, `LOC`, `MX`, `NS`, `SPF`, `CERT`,
-    /// `DNSKEY`, `DS`, `NAPTR`, `SMIMEA`, `SSHFP`, `TLSA`, `URI`, `PTR`, `HTTPS`, `SVCB`
+    /// The type of the record. Available values: `A`, `AAAA`, `CAA`, `CNAME`, `TXT`, `SRV`, `LOC`, `MX`, `NS`, `SPF`, `CERT`, `DNSKEY`, `DS`, `NAPTR`, `SMIMEA`, `SSHFP`, `TLSA`, `URI`, `PTR`, `HTTPS`, `SVCB`. **Modifying this attribute will force creation of a new resource.**
     pub type_: pulumi_wasm_rust::Output<String>,
-    /// The value of the record.
+    /// The value of the record. Must provide only one of `data`, `content`, `value`.
     pub value: pulumi_wasm_rust::Output<String>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
     pub zone_id: pulumi_wasm_rust::Output<String>,
@@ -317,6 +315,7 @@ pub fn create(name: &str, args: RecordArgs) -> RecordResult {
     let result = crate::bindings::pulumi::cloudflare::record::invoke(name, &crate::bindings::pulumi::cloudflare::record::Args {
         allow_overwrite: &args.allow_overwrite.get_inner(),
         comment: &args.comment.get_inner(),
+        content: &args.content.get_inner(),
         data: &args.data.get_inner(),
         name: &args.name.get_inner(),
         priority: &args.priority.get_inner(),
@@ -331,6 +330,7 @@ pub fn create(name: &str, args: RecordArgs) -> RecordResult {
     RecordResult {
         allow_overwrite: crate::into_domain(result.allow_overwrite),
         comment: crate::into_domain(result.comment),
+        content: crate::into_domain(result.content),
         created_on: crate::into_domain(result.created_on),
         data: crate::into_domain(result.data),
         hostname: crate::into_domain(result.hostname),

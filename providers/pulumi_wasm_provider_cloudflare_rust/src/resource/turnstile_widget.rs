@@ -10,10 +10,10 @@
 //! 
 //! const example = new cloudflare.TurnstileWidget("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
+//!     name: "example widget",
 //!     botFightMode: false,
 //!     domains: ["example.com"],
 //!     mode: "invisible",
-//!     name: "example widget",
 //!     region: "world",
 //! });
 //! ```
@@ -24,10 +24,10 @@
 //! 
 //! example = cloudflare.TurnstileWidget("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
+//!     name="example widget",
 //!     bot_fight_mode=False,
 //!     domains=["example.com"],
 //!     mode="invisible",
-//!     name="example widget",
 //!     region="world")
 //! ```
 //! ### C#
@@ -42,13 +42,13 @@
 //!     var example = new Cloudflare.TurnstileWidget("example", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
+//!         Name = "example widget",
 //!         BotFightMode = false,
 //!         Domains = new[]
 //!         {
 //!             "example.com",
 //!         },
 //!         Mode = "invisible",
-//!         Name = "example widget",
 //!         Region = "world",
 //!     });
 //! 
@@ -67,12 +67,12 @@
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewTurnstileWidget(ctx, "example", &cloudflare.TurnstileWidgetArgs{
 //! 			AccountId:    pulumi.String("f037e56e89293a057740de681ac9abbe"),
+//! 			Name:         pulumi.String("example widget"),
 //! 			BotFightMode: pulumi.Bool(false),
 //! 			Domains: pulumi.StringArray{
 //! 				pulumi.String("example.com"),
 //! 			},
 //! 			Mode:   pulumi.String("invisible"),
-//! 			Name:   pulumi.String("example widget"),
 //! 			Region: pulumi.String("world"),
 //! 		})
 //! 		if err != nil {
@@ -104,12 +104,12 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new TurnstileWidget("example", TurnstileWidgetArgs.builder()        
+//!         var example = new TurnstileWidget("example", TurnstileWidgetArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
+//!             .name("example widget")
 //!             .botFightMode(false)
 //!             .domains("example.com")
 //!             .mode("invisible")
-//!             .name("example widget")
 //!             .region("world")
 //!             .build());
 //! 
@@ -123,11 +123,11 @@
 //!     type: cloudflare:TurnstileWidget
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
+//!       name: example widget
 //!       botFightMode: false
 //!       domains:
 //!         - example.com
 //!       mode: invisible
-//!       name: example widget
 //!       region: world
 //! ```
 //! <!--End PulumiCodeChooser -->

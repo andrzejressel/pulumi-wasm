@@ -28,6 +28,7 @@ impl device_settings_policy::Guest for Component {
                 ObjectField { name: "serviceModeV2Port".into(), value: args.service_mode_v2_port },
                 ObjectField { name: "supportUrl".into(), value: args.support_url },
                 ObjectField { name: "switchLocked".into(), value: args.switch_locked },
+                ObjectField { name: "tunnelProtocol".into(), value: args.tunnel_protocol },
             ],
             results: vec![
                 ResultField { name: "accountId".into() },
@@ -48,6 +49,7 @@ impl device_settings_policy::Guest for Component {
                 ResultField { name: "serviceModeV2Port".into() },
                 ResultField { name: "supportUrl".into() },
                 ResultField { name: "switchLocked".into() },
+                ResultField { name: "tunnelProtocol".into() },
             ],
         };
 
@@ -74,6 +76,7 @@ impl device_settings_policy::Guest for Component {
             service_mode_v2_port: hashmap.remove("serviceModeV2Port").unwrap(),
             support_url: hashmap.remove("supportUrl").unwrap(),
             switch_locked: hashmap.remove("switchLocked").unwrap(),
+            tunnel_protocol: hashmap.remove("tunnelProtocol").unwrap(),
         }
 
     }

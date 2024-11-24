@@ -10,11 +10,11 @@
 //! 
 //! // Waiting Room Event
 //! const example = new cloudflare.WaitingRoomEvent("example", {
-//!     eventEndTime: "2006-01-02T20:04:05Z",
-//!     eventStartTime: "2006-01-02T15:04:05Z",
-//!     name: "foo",
-//!     waitingRoomId: "d41d8cd98f00b204e9800998ecf8427e",
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     waitingRoomId: "d41d8cd98f00b204e9800998ecf8427e",
+//!     name: "foo",
+//!     eventStartTime: "2006-01-02T15:04:05Z",
+//!     eventEndTime: "2006-01-02T20:04:05Z",
 //! });
 //! ```
 //! ### Python
@@ -24,11 +24,11 @@
 //! 
 //! # Waiting Room Event
 //! example = cloudflare.WaitingRoomEvent("example",
-//!     event_end_time="2006-01-02T20:04:05Z",
-//!     event_start_time="2006-01-02T15:04:05Z",
-//!     name="foo",
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     waiting_room_id="d41d8cd98f00b204e9800998ecf8427e",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     name="foo",
+//!     event_start_time="2006-01-02T15:04:05Z",
+//!     event_end_time="2006-01-02T20:04:05Z")
 //! ```
 //! ### C#
 //! ```csharp
@@ -42,11 +42,11 @@
 //!     // Waiting Room Event
 //!     var example = new Cloudflare.WaitingRoomEvent("example", new()
 //!     {
-//!         EventEndTime = "2006-01-02T20:04:05Z",
-//!         EventStartTime = "2006-01-02T15:04:05Z",
-//!         Name = "foo",
-//!         WaitingRoomId = "d41d8cd98f00b204e9800998ecf8427e",
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         WaitingRoomId = "d41d8cd98f00b204e9800998ecf8427e",
+//!         Name = "foo",
+//!         EventStartTime = "2006-01-02T15:04:05Z",
+//!         EventEndTime = "2006-01-02T20:04:05Z",
 //!     });
 //! 
 //! });
@@ -64,11 +64,11 @@
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		// Waiting Room Event
 //! 		_, err := cloudflare.NewWaitingRoomEvent(ctx, "example", &cloudflare.WaitingRoomEventArgs{
-//! 			EventEndTime:   pulumi.String("2006-01-02T20:04:05Z"),
-//! 			EventStartTime: pulumi.String("2006-01-02T15:04:05Z"),
-//! 			Name:           pulumi.String("foo"),
-//! 			WaitingRoomId:  pulumi.String("d41d8cd98f00b204e9800998ecf8427e"),
 //! 			ZoneId:         pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			WaitingRoomId:  pulumi.String("d41d8cd98f00b204e9800998ecf8427e"),
+//! 			Name:           pulumi.String("foo"),
+//! 			EventStartTime: pulumi.String("2006-01-02T15:04:05Z"),
+//! 			EventEndTime:   pulumi.String("2006-01-02T20:04:05Z"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -100,12 +100,12 @@
 //! 
 //!     public static void stack(Context ctx) {
 //!         // Waiting Room Event
-//!         var example = new WaitingRoomEvent("example", WaitingRoomEventArgs.builder()        
-//!             .eventEndTime("2006-01-02T20:04:05Z")
-//!             .eventStartTime("2006-01-02T15:04:05Z")
-//!             .name("foo")
-//!             .waitingRoomId("d41d8cd98f00b204e9800998ecf8427e")
+//!         var example = new WaitingRoomEvent("example", WaitingRoomEventArgs.builder()
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .waitingRoomId("d41d8cd98f00b204e9800998ecf8427e")
+//!             .name("foo")
+//!             .eventStartTime("2006-01-02T15:04:05Z")
+//!             .eventEndTime("2006-01-02T20:04:05Z")
 //!             .build());
 //! 
 //!     }
@@ -118,11 +118,11 @@
 //!   example:
 //!     type: cloudflare:WaitingRoomEvent
 //!     properties:
-//!       eventEndTime: 2006-01-02T20:04:05Z
-//!       eventStartTime: 2006-01-02T15:04:05Z
-//!       name: foo
-//!       waitingRoomId: d41d8cd98f00b204e9800998ecf8427e
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       waitingRoomId: d41d8cd98f00b204e9800998ecf8427e
+//!       name: foo
+//!       eventStartTime: 2006-01-02T15:04:05Z
+//!       eventEndTime: 2006-01-02T20:04:05Z
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

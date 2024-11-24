@@ -10,9 +10,9 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! const example = new cloudflare.Argo("example", {
-//!     smartRouting: "on",
-//!     tieredCaching: "on",
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     tieredCaching: "on",
+//!     smartRouting: "on",
 //! });
 //! ```
 //! ### Python
@@ -21,9 +21,9 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! example = cloudflare.Argo("example",
-//!     smart_routing="on",
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     tiered_caching="on",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     smart_routing="on")
 //! ```
 //! ### C#
 //! ```csharp
@@ -36,9 +36,9 @@
 //! {
 //!     var example = new Cloudflare.Argo("example", new()
 //!     {
-//!         SmartRouting = "on",
-//!         TieredCaching = "on",
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         TieredCaching = "on",
+//!         SmartRouting = "on",
 //!     });
 //! 
 //! });
@@ -55,9 +55,9 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewArgo(ctx, "example", &cloudflare.ArgoArgs{
-//! 			SmartRouting:  pulumi.String("on"),
-//! 			TieredCaching: pulumi.String("on"),
 //! 			ZoneId:        pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			TieredCaching: pulumi.String("on"),
+//! 			SmartRouting:  pulumi.String("on"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -88,10 +88,10 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new Argo("example", ArgoArgs.builder()        
-//!             .smartRouting("on")
-//!             .tieredCaching("on")
+//!         var example = new Argo("example", ArgoArgs.builder()
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .tieredCaching("on")
+//!             .smartRouting("on")
 //!             .build());
 //! 
 //!     }
@@ -103,9 +103,9 @@
 //!   example:
 //!     type: cloudflare:Argo
 //!     properties:
-//!       smartRouting: on
-//!       tieredCaching: on
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       tieredCaching: on
+//!       smartRouting: on
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

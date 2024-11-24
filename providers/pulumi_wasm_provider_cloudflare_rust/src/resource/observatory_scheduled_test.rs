@@ -9,10 +9,10 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! const example = new cloudflare.ObservatoryScheduledTest("example", {
-//!     frequency: "WEEKLY",
-//!     region: "us-central1",
-//!     url: "example.com",
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     url: "example.com",
+//!     region: "us-central1",
+//!     frequency: "WEEKLY",
 //! });
 //! ```
 //! ### Python
@@ -21,10 +21,10 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! example = cloudflare.ObservatoryScheduledTest("example",
-//!     frequency="WEEKLY",
-//!     region="us-central1",
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     url="example.com",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     region="us-central1",
+//!     frequency="WEEKLY")
 //! ```
 //! ### C#
 //! ```csharp
@@ -37,10 +37,10 @@
 //! {
 //!     var example = new Cloudflare.ObservatoryScheduledTest("example", new()
 //!     {
-//!         Frequency = "WEEKLY",
-//!         Region = "us-central1",
-//!         Url = "example.com",
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         Url = "example.com",
+//!         Region = "us-central1",
+//!         Frequency = "WEEKLY",
 //!     });
 //! 
 //! });
@@ -57,10 +57,10 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewObservatoryScheduledTest(ctx, "example", &cloudflare.ObservatoryScheduledTestArgs{
-//! 			Frequency: pulumi.String("WEEKLY"),
-//! 			Region:    pulumi.String("us-central1"),
-//! 			Url:       pulumi.String("example.com"),
 //! 			ZoneId:    pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			Url:       pulumi.String("example.com"),
+//! 			Region:    pulumi.String("us-central1"),
+//! 			Frequency: pulumi.String("WEEKLY"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -91,11 +91,11 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new ObservatoryScheduledTest("example", ObservatoryScheduledTestArgs.builder()        
-//!             .frequency("WEEKLY")
-//!             .region("us-central1")
-//!             .url("example.com")
+//!         var example = new ObservatoryScheduledTest("example", ObservatoryScheduledTestArgs.builder()
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .url("example.com")
+//!             .region("us-central1")
+//!             .frequency("WEEKLY")
 //!             .build());
 //! 
 //!     }
@@ -107,10 +107,10 @@
 //!   example:
 //!     type: cloudflare:ObservatoryScheduledTest
 //!     properties:
-//!       frequency: WEEKLY
-//!       region: us-central1
-//!       url: example.com
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       url: example.com
+//!       region: us-central1
+//!       frequency: WEEKLY
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

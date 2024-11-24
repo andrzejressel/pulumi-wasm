@@ -8,25 +8,26 @@
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
-//! const developerWarpPolicy = new cloudflare.DeviceSettingsPolicy("developerWarpPolicy", {
+//! const developerWarpPolicy = new cloudflare.DeviceSettingsPolicy("developer_warp_policy", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
+//!     name: "Developers WARP settings policy",
+//!     description: "Developers WARP settings policy description",
+//!     precedence: 10,
+//!     match: "any(identity.groups.name[*] in {\"Developers\"})",
+//!     "default": false,
+//!     enabled: true,
 //!     allowModeSwitch: true,
 //!     allowUpdates: true,
 //!     allowedToLeave: true,
 //!     autoConnect: 0,
 //!     captivePortal: 5,
-//!     "default": false,
-//!     description: "Developers WARP settings policy description",
 //!     disableAutoFallback: true,
-//!     enabled: true,
-//!     excludeOfficeIps: false,
-//!     match: "any(identity.groups.name[*] in {\"Developers\"})",
-//!     name: "Developers WARP settings policy",
-//!     precedence: 10,
-//!     serviceModeV2Mode: "warp",
-//!     serviceModeV2Port: 3000,
 //!     supportUrl: "https://cloudflare.com",
 //!     switchLocked: true,
+//!     serviceModeV2Mode: "warp",
+//!     serviceModeV2Port: 3000,
+//!     excludeOfficeIps: false,
+//!     tunnelProtocol: "wireguard",
 //! });
 //! ```
 //! ### Python
@@ -34,25 +35,26 @@
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
 //! 
-//! developer_warp_policy = cloudflare.DeviceSettingsPolicy("developerWarpPolicy",
+//! developer_warp_policy = cloudflare.DeviceSettingsPolicy("developer_warp_policy",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
+//!     name="Developers WARP settings policy",
+//!     description="Developers WARP settings policy description",
+//!     precedence=10,
+//!     match="any(identity.groups.name[*] in {\"Developers\"})",
+//!     default=False,
+//!     enabled=True,
 //!     allow_mode_switch=True,
 //!     allow_updates=True,
 //!     allowed_to_leave=True,
 //!     auto_connect=0,
 //!     captive_portal=5,
-//!     default=False,
-//!     description="Developers WARP settings policy description",
 //!     disable_auto_fallback=True,
-//!     enabled=True,
-//!     exclude_office_ips=False,
-//!     match="any(identity.groups.name[*] in {\"Developers\"})",
-//!     name="Developers WARP settings policy",
-//!     precedence=10,
+//!     support_url="https://cloudflare.com",
+//!     switch_locked=True,
 //!     service_mode_v2_mode="warp",
 //!     service_mode_v2_port=3000,
-//!     support_url="https://cloudflare.com",
-//!     switch_locked=True)
+//!     exclude_office_ips=False,
+//!     tunnel_protocol="wireguard")
 //! ```
 //! ### C#
 //! ```csharp
@@ -63,26 +65,27 @@
 //! 
 //! return await Deployment.RunAsync(() => 
 //! {
-//!     var developerWarpPolicy = new Cloudflare.DeviceSettingsPolicy("developerWarpPolicy", new()
+//!     var developerWarpPolicy = new Cloudflare.DeviceSettingsPolicy("developer_warp_policy", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
+//!         Name = "Developers WARP settings policy",
+//!         Description = "Developers WARP settings policy description",
+//!         Precedence = 10,
+//!         Match = "any(identity.groups.name[*] in {\"Developers\"})",
+//!         Default = false,
+//!         Enabled = true,
 //!         AllowModeSwitch = true,
 //!         AllowUpdates = true,
 //!         AllowedToLeave = true,
 //!         AutoConnect = 0,
 //!         CaptivePortal = 5,
-//!         Default = false,
-//!         Description = "Developers WARP settings policy description",
 //!         DisableAutoFallback = true,
-//!         Enabled = true,
-//!         ExcludeOfficeIps = false,
-//!         Match = "any(identity.groups.name[*] in {\"Developers\"})",
-//!         Name = "Developers WARP settings policy",
-//!         Precedence = 10,
-//!         ServiceModeV2Mode = "warp",
-//!         ServiceModeV2Port = 3000,
 //!         SupportUrl = "https://cloudflare.com",
 //!         SwitchLocked = true,
+//!         ServiceModeV2Mode = "warp",
+//!         ServiceModeV2Port = 3000,
+//!         ExcludeOfficeIps = false,
+//!         TunnelProtocol = "wireguard",
 //!     });
 //! 
 //! });
@@ -98,25 +101,26 @@
 //! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewDeviceSettingsPolicy(ctx, "developerWarpPolicy", &cloudflare.DeviceSettingsPolicyArgs{
+//! 		_, err := cloudflare.NewDeviceSettingsPolicy(ctx, "developer_warp_policy", &cloudflare.DeviceSettingsPolicyArgs{
 //! 			AccountId:           pulumi.String("f037e56e89293a057740de681ac9abbe"),
+//! 			Name:                pulumi.String("Developers WARP settings policy"),
+//! 			Description:         pulumi.String("Developers WARP settings policy description"),
+//! 			Precedence:          pulumi.Int(10),
+//! 			Match:               pulumi.String("any(identity.groups.name[*] in {\"Developers\"})"),
+//! 			Default:             pulumi.Bool(false),
+//! 			Enabled:             pulumi.Bool(true),
 //! 			AllowModeSwitch:     pulumi.Bool(true),
 //! 			AllowUpdates:        pulumi.Bool(true),
 //! 			AllowedToLeave:      pulumi.Bool(true),
 //! 			AutoConnect:         pulumi.Int(0),
 //! 			CaptivePortal:       pulumi.Int(5),
-//! 			Default:             pulumi.Bool(false),
-//! 			Description:         pulumi.String("Developers WARP settings policy description"),
 //! 			DisableAutoFallback: pulumi.Bool(true),
-//! 			Enabled:             pulumi.Bool(true),
-//! 			ExcludeOfficeIps:    pulumi.Bool(false),
-//! 			Match:               pulumi.String("any(identity.groups.name[*] in {\"Developers\"})"),
-//! 			Name:                pulumi.String("Developers WARP settings policy"),
-//! 			Precedence:          pulumi.Int(10),
-//! 			ServiceModeV2Mode:   pulumi.String("warp"),
-//! 			ServiceModeV2Port:   pulumi.Int(3000),
 //! 			SupportUrl:          pulumi.String("https://cloudflare.com"),
 //! 			SwitchLocked:        pulumi.Bool(true),
+//! 			ServiceModeV2Mode:   pulumi.String("warp"),
+//! 			ServiceModeV2Port:   pulumi.Int(3000),
+//! 			ExcludeOfficeIps:    pulumi.Bool(false),
+//! 			TunnelProtocol:      pulumi.String("wireguard"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -147,25 +151,26 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var developerWarpPolicy = new DeviceSettingsPolicy("developerWarpPolicy", DeviceSettingsPolicyArgs.builder()        
+//!         var developerWarpPolicy = new DeviceSettingsPolicy("developerWarpPolicy", DeviceSettingsPolicyArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
+//!             .name("Developers WARP settings policy")
+//!             .description("Developers WARP settings policy description")
+//!             .precedence(10)
+//!             .match("any(identity.groups.name[*] in {\"Developers\"})")
+//!             .default_(false)
+//!             .enabled(true)
 //!             .allowModeSwitch(true)
 //!             .allowUpdates(true)
 //!             .allowedToLeave(true)
 //!             .autoConnect(0)
 //!             .captivePortal(5)
-//!             .default_(false)
-//!             .description("Developers WARP settings policy description")
 //!             .disableAutoFallback(true)
-//!             .enabled(true)
-//!             .excludeOfficeIps(false)
-//!             .match("any(identity.groups.name[*] in {\"Developers\"})")
-//!             .name("Developers WARP settings policy")
-//!             .precedence(10)
-//!             .serviceModeV2Mode("warp")
-//!             .serviceModeV2Port(3000)
 //!             .supportUrl("https://cloudflare.com")
 //!             .switchLocked(true)
+//!             .serviceModeV2Mode("warp")
+//!             .serviceModeV2Port(3000)
+//!             .excludeOfficeIps(false)
+//!             .tunnelProtocol("wireguard")
 //!             .build());
 //! 
 //!     }
@@ -176,25 +181,27 @@
 //! resources:
 //!   developerWarpPolicy:
 //!     type: cloudflare:DeviceSettingsPolicy
+//!     name: developer_warp_policy
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
+//!       name: Developers WARP settings policy
+//!       description: Developers WARP settings policy description
+//!       precedence: 10
+//!       match: any(identity.groups.name[*] in {"Developers"})
+//!       default: false
+//!       enabled: true
 //!       allowModeSwitch: true
 //!       allowUpdates: true
 //!       allowedToLeave: true
 //!       autoConnect: 0
 //!       captivePortal: 5
-//!       default: false
-//!       description: Developers WARP settings policy description
 //!       disableAutoFallback: true
-//!       enabled: true
-//!       excludeOfficeIps: false
-//!       match: any(identity.groups.name[*] in {"Developers"})
-//!       name: Developers WARP settings policy
-//!       precedence: 10
-//!       serviceModeV2Mode: warp
-//!       serviceModeV2Port: 3000
 //!       supportUrl: https://cloudflare.com
 //!       switchLocked: true
+//!       serviceModeV2Mode: warp
+//!       serviceModeV2Port: 3000
+//!       excludeOfficeIps: false
+//!       tunnelProtocol: wireguard
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 
@@ -264,6 +271,9 @@ pub struct DeviceSettingsPolicyArgs {
     /// Enablement of the ZT client switch lock.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub switch_locked: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Determines which tunnel protocol to use. Available values: `""`, `wireguard`, `masque`. Defaults to `wireguard`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    pub tunnel_protocol: pulumi_wasm_rust::Output<Option<String>>,
 }
 
 pub struct DeviceSettingsPolicyResult {
@@ -303,6 +313,8 @@ pub struct DeviceSettingsPolicyResult {
     pub support_url: pulumi_wasm_rust::Output<Option<String>>,
     /// Enablement of the ZT client switch lock.
     pub switch_locked: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Determines which tunnel protocol to use. Available values: `""`, `wireguard`, `masque`. Defaults to `wireguard`.
+    pub tunnel_protocol: pulumi_wasm_rust::Output<Option<String>>,
 }
 
 ///
@@ -329,6 +341,7 @@ pub fn create(name: &str, args: DeviceSettingsPolicyArgs) -> DeviceSettingsPolic
         service_mode_v2_port: &args.service_mode_v2_port.get_inner(),
         support_url: &args.support_url.get_inner(),
         switch_locked: &args.switch_locked.get_inner(),
+        tunnel_protocol: &args.tunnel_protocol.get_inner(),
     });
 
     DeviceSettingsPolicyResult {
@@ -350,5 +363,6 @@ pub fn create(name: &str, args: DeviceSettingsPolicyArgs) -> DeviceSettingsPolic
         service_mode_v2_port: crate::into_domain(result.service_mode_v2_port),
         support_url: crate::into_domain(result.support_url),
         switch_locked: crate::into_domain(result.switch_locked),
+        tunnel_protocol: crate::into_domain(result.tunnel_protocol),
     }
 }

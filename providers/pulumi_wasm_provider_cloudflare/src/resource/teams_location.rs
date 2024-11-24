@@ -12,6 +12,7 @@ impl teams_location::Guest for Component {
             object: vec![
                 ObjectField { name: "accountId".into(), value: args.account_id },
                 ObjectField { name: "clientDefault".into(), value: args.client_default },
+                ObjectField { name: "ecsSupport".into(), value: args.ecs_support },
                 ObjectField { name: "name".into(), value: args.name },
                 ObjectField { name: "networks".into(), value: args.networks },
             ],
@@ -20,6 +21,7 @@ impl teams_location::Guest for Component {
                 ResultField { name: "anonymizedLogsEnabled".into() },
                 ResultField { name: "clientDefault".into() },
                 ResultField { name: "dohSubdomain".into() },
+                ResultField { name: "ecsSupport".into() },
                 ResultField { name: "ip".into() },
                 ResultField { name: "ipv4Destination".into() },
                 ResultField { name: "name".into() },
@@ -37,6 +39,7 @@ impl teams_location::Guest for Component {
             anonymized_logs_enabled: hashmap.remove("anonymizedLogsEnabled").unwrap(),
             client_default: hashmap.remove("clientDefault").unwrap(),
             doh_subdomain: hashmap.remove("dohSubdomain").unwrap(),
+            ecs_support: hashmap.remove("ecsSupport").unwrap(),
             ip: hashmap.remove("ip").unwrap(),
             ipv4_destination: hashmap.remove("ipv4Destination").unwrap(),
             name: hashmap.remove("name").unwrap(),

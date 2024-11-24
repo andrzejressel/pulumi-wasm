@@ -21,7 +21,6 @@ impl get_record::Guest for Component {
                 ResultField { name: "content".into() },
                 ResultField { name: "hostname".into() },
                 ResultField { name: "id".into() },
-                ResultField { name: "locked".into() },
                 ResultField { name: "priority".into() },
                 ResultField { name: "proxiable".into() },
                 ResultField { name: "proxied".into() },
@@ -29,7 +28,6 @@ impl get_record::Guest for Component {
                 ResultField { name: "type".into() },
                 ResultField { name: "value".into() },
                 ResultField { name: "zoneId".into() },
-                ResultField { name: "zoneName".into() },
             ],
         };
 
@@ -41,7 +39,6 @@ impl get_record::Guest for Component {
             content: hashmap.remove("content").unwrap(),
             hostname: hashmap.remove("hostname").unwrap(),
             id: hashmap.remove("id").unwrap(),
-            locked: hashmap.remove("locked").unwrap(),
             priority: hashmap.remove("priority").unwrap(),
             proxiable: hashmap.remove("proxiable").unwrap(),
             proxied: hashmap.remove("proxied").unwrap(),
@@ -49,7 +46,6 @@ impl get_record::Guest for Component {
             type_: hashmap.remove("type").unwrap(),
             value: hashmap.remove("value").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
-            zone_name: hashmap.remove("zoneName").unwrap(),
         }
 
     }

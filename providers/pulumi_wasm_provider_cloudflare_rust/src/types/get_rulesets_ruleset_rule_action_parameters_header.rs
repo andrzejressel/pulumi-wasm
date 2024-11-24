@@ -5,7 +5,7 @@ pub struct GetRulesetsRulesetRuleActionParametersHeader {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "expression")]
     pub r#expression: Box<Option<String>>,
-    /// Name of the ruleset.
+    /// Name of the HTTP request header to target.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "name")]
     pub r#name: Box<Option<String>>,

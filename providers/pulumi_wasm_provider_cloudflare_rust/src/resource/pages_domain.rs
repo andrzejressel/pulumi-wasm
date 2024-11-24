@@ -13,8 +13,8 @@
 //! 
 //! const my_domain = new cloudflare.PagesDomain("my-domain", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     domain: "example.com",
 //!     projectName: "my-example-project",
+//!     domain: "example.com",
 //! });
 //! ```
 //! ### Python
@@ -24,8 +24,8 @@
 //! 
 //! my_domain = cloudflare.PagesDomain("my-domain",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     domain="example.com",
-//!     project_name="my-example-project")
+//!     project_name="my-example-project",
+//!     domain="example.com")
 //! ```
 //! ### C#
 //! ```csharp
@@ -39,8 +39,8 @@
 //!     var my_domain = new Cloudflare.PagesDomain("my-domain", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         Domain = "example.com",
 //!         ProjectName = "my-example-project",
+//!         Domain = "example.com",
 //!     });
 //! 
 //! });
@@ -58,8 +58,8 @@
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewPagesDomain(ctx, "my-domain", &cloudflare.PagesDomainArgs{
 //! 			AccountId:   pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			Domain:      pulumi.String("example.com"),
 //! 			ProjectName: pulumi.String("my-example-project"),
+//! 			Domain:      pulumi.String("example.com"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -90,10 +90,10 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var my_domain = new PagesDomain("my-domain", PagesDomainArgs.builder()        
+//!         var my_domain = new PagesDomain("my-domain", PagesDomainArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .domain("example.com")
 //!             .projectName("my-example-project")
+//!             .domain("example.com")
 //!             .build());
 //! 
 //!     }
@@ -106,8 +106,8 @@
 //!     type: cloudflare:PagesDomain
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
-//!       domain: example.com
 //!       projectName: my-example-project
+//!       domain: example.com
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

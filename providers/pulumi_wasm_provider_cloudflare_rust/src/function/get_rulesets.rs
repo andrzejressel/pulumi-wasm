@@ -9,10 +9,10 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! const example = cloudflare.getRulesets({
+//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //!     filter: {
 //!         name: ".*OWASP.*",
 //!     },
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //! });
 //! ```
 //! ### Python
@@ -20,10 +20,10 @@
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
 //! 
-//! example = cloudflare.get_rulesets(filter=cloudflare.GetRulesetsFilterArgs(
-//!         name=".*OWASP.*",
-//!     ),
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//! example = cloudflare.get_rulesets(zone_id="0da42c8d2132a9ddaf714f9e7c920711",
+//!     filter={
+//!         "name": ".*OWASP.*",
+//!     })
 //! ```
 //! ### C#
 //! ```csharp
@@ -36,11 +36,11 @@
 //! {
 //!     var example = Cloudflare.GetRulesets.Invoke(new()
 //!     {
+//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!         Filter = new Cloudflare.Inputs.GetRulesetsFilterInputArgs
 //!         {
 //!             Name = ".*OWASP.*",
 //!         },
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
 //! 
 //! });
@@ -57,10 +57,10 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.GetRulesets(ctx, &cloudflare.GetRulesetsArgs{
+//! 			ZoneId: pulumi.StringRef("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 			Filter: cloudflare.GetRulesetsFilter{
 //! 				Name: pulumi.StringRef(".*OWASP.*"),
 //! 			},
-//! 			ZoneId: pulumi.StringRef("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 		}, nil)
 //! 		if err != nil {
 //! 			return err
@@ -93,10 +93,10 @@
 //! 
 //!     public static void stack(Context ctx) {
 //!         final var example = CloudflareFunctions.getRulesets(GetRulesetsArgs.builder()
+//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .filter(GetRulesetsFilterArgs.builder()
 //!                 .name(".*OWASP.*")
 //!                 .build())
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
 //! 
 //!     }
@@ -109,9 +109,9 @@
 //!     fn::invoke:
 //!       Function: cloudflare:getRulesets
 //!       Arguments:
+//!         zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //!         filter:
 //!           name: .*OWASP.*
-//!         zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //! ```
 //! <!--End PulumiCodeChooser -->
 

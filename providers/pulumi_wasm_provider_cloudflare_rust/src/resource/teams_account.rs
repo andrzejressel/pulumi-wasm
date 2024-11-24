@@ -11,6 +11,17 @@
 //! 
 //! const example = new cloudflare.TeamsAccount("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
+//!     tlsDecryptEnabled: true,
+//!     protocolDetectionEnabled: true,
+//!     blockPage: {
+//!         footerText: "hello",
+//!         headerText: "hello",
+//!         logoPath: "https://example.com/logo.jpg",
+//!         backgroundColor: "#000000",
+//!     },
+//!     bodyScanning: {
+//!         inspectionMode: "deep",
+//!     },
 //!     antivirus: {
 //!         enabledDownloadPhase: true,
 //!         enabledUploadPhase: false,
@@ -21,21 +32,17 @@
 //!             supportUrl: "https://example.com/blocked",
 //!         },
 //!     },
-//!     blockPage: {
-//!         backgroundColor: "#000000",
-//!         footerText: "hello",
-//!         headerText: "hello",
-//!         logoPath: "https://example.com/logo.jpg",
-//!     },
-//!     bodyScanning: {
-//!         inspectionMode: "deep",
-//!     },
-//!     extendedEmailMatching: {
-//!         enabled: true,
-//!     },
 //!     fips: {
 //!         tls: true,
 //!     },
+//!     proxy: {
+//!         tcp: true,
+//!         udp: true,
+//!         rootCa: true,
+//!         virtualIp: false,
+//!         disableForTime: 3600,
+//!     },
+//!     urlBrowserIsolationEnabled: true,
 //!     logging: {
 //!         redactPii: true,
 //!         settingsByRuleType: {
@@ -53,14 +60,9 @@
 //!             },
 //!         },
 //!     },
-//!     protocolDetectionEnabled: true,
-//!     proxy: {
-//!         rootCa: true,
-//!         tcp: true,
-//!         udp: true,
+//!     extendedEmailMatching: {
+//!         enabled: true,
 //!     },
-//!     tlsDecryptEnabled: true,
-//!     urlBrowserIsolationEnabled: true,
 //! });
 //! ```
 //! ### Python
@@ -70,56 +72,58 @@
 //! 
 //! example = cloudflare.TeamsAccount("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     antivirus=cloudflare.TeamsAccountAntivirusArgs(
-//!         enabled_download_phase=True,
-//!         enabled_upload_phase=False,
-//!         fail_closed=True,
-//!         notification_settings=cloudflare.TeamsAccountAntivirusNotificationSettingsArgs(
-//!             enabled=True,
-//!             message="you are blocked",
-//!             support_url="https://example.com/blocked",
-//!         ),
-//!     ),
-//!     block_page=cloudflare.TeamsAccountBlockPageArgs(
-//!         background_color="#000000",
-//!         footer_text="hello",
-//!         header_text="hello",
-//!         logo_path="https://example.com/logo.jpg",
-//!     ),
-//!     body_scanning=cloudflare.TeamsAccountBodyScanningArgs(
-//!         inspection_mode="deep",
-//!     ),
-//!     extended_email_matching=cloudflare.TeamsAccountExtendedEmailMatchingArgs(
-//!         enabled=True,
-//!     ),
-//!     fips=cloudflare.TeamsAccountFipsArgs(
-//!         tls=True,
-//!     ),
-//!     logging=cloudflare.TeamsAccountLoggingArgs(
-//!         redact_pii=True,
-//!         settings_by_rule_type=cloudflare.TeamsAccountLoggingSettingsByRuleTypeArgs(
-//!             dns=cloudflare.TeamsAccountLoggingSettingsByRuleTypeDnsArgs(
-//!                 log_all=False,
-//!                 log_blocks=True,
-//!             ),
-//!             http=cloudflare.TeamsAccountLoggingSettingsByRuleTypeHttpArgs(
-//!                 log_all=True,
-//!                 log_blocks=True,
-//!             ),
-//!             l4=cloudflare.TeamsAccountLoggingSettingsByRuleTypeL4Args(
-//!                 log_all=False,
-//!                 log_blocks=True,
-//!             ),
-//!         ),
-//!     ),
-//!     protocol_detection_enabled=True,
-//!     proxy=cloudflare.TeamsAccountProxyArgs(
-//!         root_ca=True,
-//!         tcp=True,
-//!         udp=True,
-//!     ),
 //!     tls_decrypt_enabled=True,
-//!     url_browser_isolation_enabled=True)
+//!     protocol_detection_enabled=True,
+//!     block_page={
+//!         "footer_text": "hello",
+//!         "header_text": "hello",
+//!         "logo_path": "https://example.com/logo.jpg",
+//!         "background_color": "#000000",
+//!     },
+//!     body_scanning={
+//!         "inspection_mode": "deep",
+//!     },
+//!     antivirus={
+//!         "enabled_download_phase": True,
+//!         "enabled_upload_phase": False,
+//!         "fail_closed": True,
+//!         "notification_settings": {
+//!             "enabled": True,
+//!             "message": "you are blocked",
+//!             "support_url": "https://example.com/blocked",
+//!         },
+//!     },
+//!     fips={
+//!         "tls": True,
+//!     },
+//!     proxy={
+//!         "tcp": True,
+//!         "udp": True,
+//!         "root_ca": True,
+//!         "virtual_ip": False,
+//!         "disable_for_time": 3600,
+//!     },
+//!     url_browser_isolation_enabled=True,
+//!     logging={
+//!         "redact_pii": True,
+//!         "settings_by_rule_type": {
+//!             "dns": {
+//!                 "log_all": False,
+//!                 "log_blocks": True,
+//!             },
+//!             "http": {
+//!                 "log_all": True,
+//!                 "log_blocks": True,
+//!             },
+//!             "l4": {
+//!                 "log_all": False,
+//!                 "log_blocks": True,
+//!             },
+//!         },
+//!     },
+//!     extended_email_matching={
+//!         "enabled": True,
+//!     })
 //! ```
 //! ### C#
 //! ```csharp
@@ -133,6 +137,19 @@
 //!     var example = new Cloudflare.TeamsAccount("example", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
+//!         TlsDecryptEnabled = true,
+//!         ProtocolDetectionEnabled = true,
+//!         BlockPage = new Cloudflare.Inputs.TeamsAccountBlockPageArgs
+//!         {
+//!             FooterText = "hello",
+//!             HeaderText = "hello",
+//!             LogoPath = "https://example.com/logo.jpg",
+//!             BackgroundColor = "#000000",
+//!         },
+//!         BodyScanning = new Cloudflare.Inputs.TeamsAccountBodyScanningArgs
+//!         {
+//!             InspectionMode = "deep",
+//!         },
 //!         Antivirus = new Cloudflare.Inputs.TeamsAccountAntivirusArgs
 //!         {
 //!             EnabledDownloadPhase = true,
@@ -145,25 +162,19 @@
 //!                 SupportUrl = "https://example.com/blocked",
 //!             },
 //!         },
-//!         BlockPage = new Cloudflare.Inputs.TeamsAccountBlockPageArgs
-//!         {
-//!             BackgroundColor = "#000000",
-//!             FooterText = "hello",
-//!             HeaderText = "hello",
-//!             LogoPath = "https://example.com/logo.jpg",
-//!         },
-//!         BodyScanning = new Cloudflare.Inputs.TeamsAccountBodyScanningArgs
-//!         {
-//!             InspectionMode = "deep",
-//!         },
-//!         ExtendedEmailMatching = new Cloudflare.Inputs.TeamsAccountExtendedEmailMatchingArgs
-//!         {
-//!             Enabled = true,
-//!         },
 //!         Fips = new Cloudflare.Inputs.TeamsAccountFipsArgs
 //!         {
 //!             Tls = true,
 //!         },
+//!         Proxy = new Cloudflare.Inputs.TeamsAccountProxyArgs
+//!         {
+//!             Tcp = true,
+//!             Udp = true,
+//!             RootCa = true,
+//!             VirtualIp = false,
+//!             DisableForTime = 3600,
+//!         },
+//!         UrlBrowserIsolationEnabled = true,
 //!         Logging = new Cloudflare.Inputs.TeamsAccountLoggingArgs
 //!         {
 //!             RedactPii = true,
@@ -186,15 +197,10 @@
 //!                 },
 //!             },
 //!         },
-//!         ProtocolDetectionEnabled = true,
-//!         Proxy = new Cloudflare.Inputs.TeamsAccountProxyArgs
+//!         ExtendedEmailMatching = new Cloudflare.Inputs.TeamsAccountExtendedEmailMatchingArgs
 //!         {
-//!             RootCa = true,
-//!             Tcp = true,
-//!             Udp = true,
+//!             Enabled = true,
 //!         },
-//!         TlsDecryptEnabled = true,
-//!         UrlBrowserIsolationEnabled = true,
 //!     });
 //! 
 //! });
@@ -211,7 +217,18 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewTeamsAccount(ctx, "example", &cloudflare.TeamsAccountArgs{
-//! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
+//! 			AccountId:                pulumi.String("f037e56e89293a057740de681ac9abbe"),
+//! 			TlsDecryptEnabled:        pulumi.Bool(true),
+//! 			ProtocolDetectionEnabled: pulumi.Bool(true),
+//! 			BlockPage: &cloudflare.TeamsAccountBlockPageArgs{
+//! 				FooterText:      pulumi.String("hello"),
+//! 				HeaderText:      pulumi.String("hello"),
+//! 				LogoPath:        pulumi.String("https://example.com/logo.jpg"),
+//! 				BackgroundColor: pulumi.String("#000000"),
+//! 			},
+//! 			BodyScanning: &cloudflare.TeamsAccountBodyScanningArgs{
+//! 				InspectionMode: pulumi.String("deep"),
+//! 			},
 //! 			Antivirus: &cloudflare.TeamsAccountAntivirusArgs{
 //! 				EnabledDownloadPhase: pulumi.Bool(true),
 //! 				EnabledUploadPhase:   pulumi.Bool(false),
@@ -222,21 +239,17 @@
 //! 					SupportUrl: pulumi.String("https://example.com/blocked"),
 //! 				},
 //! 			},
-//! 			BlockPage: &cloudflare.TeamsAccountBlockPageArgs{
-//! 				BackgroundColor: pulumi.String("#000000"),
-//! 				FooterText:      pulumi.String("hello"),
-//! 				HeaderText:      pulumi.String("hello"),
-//! 				LogoPath:        pulumi.String("https://example.com/logo.jpg"),
-//! 			},
-//! 			BodyScanning: &cloudflare.TeamsAccountBodyScanningArgs{
-//! 				InspectionMode: pulumi.String("deep"),
-//! 			},
-//! 			ExtendedEmailMatching: &cloudflare.TeamsAccountExtendedEmailMatchingArgs{
-//! 				Enabled: pulumi.Bool(true),
-//! 			},
 //! 			Fips: &cloudflare.TeamsAccountFipsArgs{
 //! 				Tls: pulumi.Bool(true),
 //! 			},
+//! 			Proxy: &cloudflare.TeamsAccountProxyArgs{
+//! 				Tcp:            pulumi.Bool(true),
+//! 				Udp:            pulumi.Bool(true),
+//! 				RootCa:         pulumi.Bool(true),
+//! 				VirtualIp:      pulumi.Bool(false),
+//! 				DisableForTime: pulumi.Int(3600),
+//! 			},
+//! 			UrlBrowserIsolationEnabled: pulumi.Bool(true),
 //! 			Logging: &cloudflare.TeamsAccountLoggingArgs{
 //! 				RedactPii: pulumi.Bool(true),
 //! 				SettingsByRuleType: &cloudflare.TeamsAccountLoggingSettingsByRuleTypeArgs{
@@ -254,14 +267,9 @@
 //! 					},
 //! 				},
 //! 			},
-//! 			ProtocolDetectionEnabled: pulumi.Bool(true),
-//! 			Proxy: &cloudflare.TeamsAccountProxyArgs{
-//! 				RootCa: pulumi.Bool(true),
-//! 				Tcp:    pulumi.Bool(true),
-//! 				Udp:    pulumi.Bool(true),
+//! 			ExtendedEmailMatching: &cloudflare.TeamsAccountExtendedEmailMatchingArgs{
+//! 				Enabled: pulumi.Bool(true),
 //! 			},
-//! 			TlsDecryptEnabled:          pulumi.Bool(true),
-//! 			UrlBrowserIsolationEnabled: pulumi.Bool(true),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -279,18 +287,18 @@
 //! import com.pulumi.core.Output;
 //! import com.pulumi.cloudflare.TeamsAccount;
 //! import com.pulumi.cloudflare.TeamsAccountArgs;
-//! import com.pulumi.cloudflare.inputs.TeamsAccountAntivirusArgs;
-//! import com.pulumi.cloudflare.inputs.TeamsAccountAntivirusNotificationSettingsArgs;
 //! import com.pulumi.cloudflare.inputs.TeamsAccountBlockPageArgs;
 //! import com.pulumi.cloudflare.inputs.TeamsAccountBodyScanningArgs;
-//! import com.pulumi.cloudflare.inputs.TeamsAccountExtendedEmailMatchingArgs;
+//! import com.pulumi.cloudflare.inputs.TeamsAccountAntivirusArgs;
+//! import com.pulumi.cloudflare.inputs.TeamsAccountAntivirusNotificationSettingsArgs;
 //! import com.pulumi.cloudflare.inputs.TeamsAccountFipsArgs;
+//! import com.pulumi.cloudflare.inputs.TeamsAccountProxyArgs;
 //! import com.pulumi.cloudflare.inputs.TeamsAccountLoggingArgs;
 //! import com.pulumi.cloudflare.inputs.TeamsAccountLoggingSettingsByRuleTypeArgs;
 //! import com.pulumi.cloudflare.inputs.TeamsAccountLoggingSettingsByRuleTypeDnsArgs;
 //! import com.pulumi.cloudflare.inputs.TeamsAccountLoggingSettingsByRuleTypeHttpArgs;
 //! import com.pulumi.cloudflare.inputs.TeamsAccountLoggingSettingsByRuleTypeL4Args;
-//! import com.pulumi.cloudflare.inputs.TeamsAccountProxyArgs;
+//! import com.pulumi.cloudflare.inputs.TeamsAccountExtendedEmailMatchingArgs;
 //! import java.util.List;
 //! import java.util.ArrayList;
 //! import java.util.Map;
@@ -304,8 +312,19 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new TeamsAccount("example", TeamsAccountArgs.builder()        
+//!         var example = new TeamsAccount("example", TeamsAccountArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
+//!             .tlsDecryptEnabled(true)
+//!             .protocolDetectionEnabled(true)
+//!             .blockPage(TeamsAccountBlockPageArgs.builder()
+//!                 .footerText("hello")
+//!                 .headerText("hello")
+//!                 .logoPath("https://example.com/logo.jpg")
+//!                 .backgroundColor("#000000")
+//!                 .build())
+//!             .bodyScanning(TeamsAccountBodyScanningArgs.builder()
+//!                 .inspectionMode("deep")
+//!                 .build())
 //!             .antivirus(TeamsAccountAntivirusArgs.builder()
 //!                 .enabledDownloadPhase(true)
 //!                 .enabledUploadPhase(false)
@@ -316,21 +335,17 @@
 //!                     .supportUrl("https://example.com/blocked")
 //!                     .build())
 //!                 .build())
-//!             .blockPage(TeamsAccountBlockPageArgs.builder()
-//!                 .backgroundColor("#000000")
-//!                 .footerText("hello")
-//!                 .headerText("hello")
-//!                 .logoPath("https://example.com/logo.jpg")
-//!                 .build())
-//!             .bodyScanning(TeamsAccountBodyScanningArgs.builder()
-//!                 .inspectionMode("deep")
-//!                 .build())
-//!             .extendedEmailMatching(TeamsAccountExtendedEmailMatchingArgs.builder()
-//!                 .enabled(true)
-//!                 .build())
 //!             .fips(TeamsAccountFipsArgs.builder()
 //!                 .tls(true)
 //!                 .build())
+//!             .proxy(TeamsAccountProxyArgs.builder()
+//!                 .tcp(true)
+//!                 .udp(true)
+//!                 .rootCa(true)
+//!                 .virtualIp(false)
+//!                 .disableForTime(3600)
+//!                 .build())
+//!             .urlBrowserIsolationEnabled(true)
 //!             .logging(TeamsAccountLoggingArgs.builder()
 //!                 .redactPii(true)
 //!                 .settingsByRuleType(TeamsAccountLoggingSettingsByRuleTypeArgs.builder()
@@ -348,14 +363,9 @@
 //!                         .build())
 //!                     .build())
 //!                 .build())
-//!             .protocolDetectionEnabled(true)
-//!             .proxy(TeamsAccountProxyArgs.builder()
-//!                 .rootCa(true)
-//!                 .tcp(true)
-//!                 .udp(true)
+//!             .extendedEmailMatching(TeamsAccountExtendedEmailMatchingArgs.builder()
+//!                 .enabled(true)
 //!                 .build())
-//!             .tlsDecryptEnabled(true)
-//!             .urlBrowserIsolationEnabled(true)
 //!             .build());
 //! 
 //!     }
@@ -368,6 +378,15 @@
 //!     type: cloudflare:TeamsAccount
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
+//!       tlsDecryptEnabled: true
+//!       protocolDetectionEnabled: true
+//!       blockPage:
+//!         footerText: hello
+//!         headerText: hello
+//!         logoPath: https://example.com/logo.jpg
+//!         backgroundColor: '#000000'
+//!       bodyScanning:
+//!         inspectionMode: deep
 //!       antivirus:
 //!         enabledDownloadPhase: true
 //!         enabledUploadPhase: false
@@ -376,17 +395,15 @@
 //!           enabled: true
 //!           message: you are blocked
 //!           supportUrl: https://example.com/blocked
-//!       blockPage:
-//!         backgroundColor: '#000000'
-//!         footerText: hello
-//!         headerText: hello
-//!         logoPath: https://example.com/logo.jpg
-//!       bodyScanning:
-//!         inspectionMode: deep
-//!       extendedEmailMatching:
-//!         enabled: true
 //!       fips:
 //!         tls: true
+//!       proxy:
+//!         tcp: true
+//!         udp: true
+//!         rootCa: true
+//!         virtualIp: false
+//!         disableForTime: 3600
+//!       urlBrowserIsolationEnabled: true
 //!       logging:
 //!         redactPii: true
 //!         settingsByRuleType:
@@ -399,13 +416,8 @@
 //!           l4:
 //!             logAll: false
 //!             logBlocks: true
-//!       protocolDetectionEnabled: true
-//!       proxy:
-//!         rootCa: true
-//!         tcp: true
-//!         udp: true
-//!       tlsDecryptEnabled: true
-//!       urlBrowserIsolationEnabled: true
+//!       extendedEmailMatching:
+//!         enabled: true
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 
@@ -434,6 +446,12 @@ pub struct TeamsAccountArgs {
     /// Configuration for body scanning.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub body_scanning: pulumi_wasm_rust::Output<Option<crate::types::TeamsAccountBodyScanning>>,
+    /// Configuration for TLS interception certificate. This will be required starting Feb 2025.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    pub certificate: pulumi_wasm_rust::Output<Option<crate::types::TeamsAccountCertificate>>,
+    /// Configuration for custom certificates / BYO-PKI. Conflicts with `certificate`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    pub custom_certificate: pulumi_wasm_rust::Output<Option<crate::types::TeamsAccountCustomCertificate>>,
     /// Configuration for extended e-mail matching.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub extended_email_matching: pulumi_wasm_rust::Output<Option<crate::types::TeamsAccountExtendedEmailMatching>>,
@@ -476,8 +494,12 @@ pub struct TeamsAccountResult {
     pub block_page: pulumi_wasm_rust::Output<Option<crate::types::TeamsAccountBlockPage>>,
     /// Configuration for body scanning.
     pub body_scanning: pulumi_wasm_rust::Output<Option<crate::types::TeamsAccountBodyScanning>>,
+    /// Configuration for TLS interception certificate. This will be required starting Feb 2025.
+    pub certificate: pulumi_wasm_rust::Output<Option<crate::types::TeamsAccountCertificate>>,
+    /// Configuration for custom certificates / BYO-PKI. Conflicts with `certificate`.
+    pub custom_certificate: pulumi_wasm_rust::Output<Option<crate::types::TeamsAccountCustomCertificate>>,
     /// Configuration for extended e-mail matching.
-    pub extended_email_matching: pulumi_wasm_rust::Output<Option<crate::types::TeamsAccountExtendedEmailMatching>>,
+    pub extended_email_matching: pulumi_wasm_rust::Output<crate::types::TeamsAccountExtendedEmailMatching>,
     /// Configure compliance with Federal Information Processing Standards.
     pub fips: pulumi_wasm_rust::Output<Option<crate::types::TeamsAccountFips>>,
     pub logging: pulumi_wasm_rust::Output<Option<crate::types::TeamsAccountLogging>>,
@@ -508,6 +530,8 @@ pub fn create(name: &str, args: TeamsAccountArgs) -> TeamsAccountResult {
         antivirus: &args.antivirus.get_inner(),
         block_page: &args.block_page.get_inner(),
         body_scanning: &args.body_scanning.get_inner(),
+        certificate: &args.certificate.get_inner(),
+        custom_certificate: &args.custom_certificate.get_inner(),
         extended_email_matching: &args.extended_email_matching.get_inner(),
         fips: &args.fips.get_inner(),
         logging: &args.logging.get_inner(),
@@ -526,6 +550,8 @@ pub fn create(name: &str, args: TeamsAccountArgs) -> TeamsAccountResult {
         antivirus: crate::into_domain(result.antivirus),
         block_page: crate::into_domain(result.block_page),
         body_scanning: crate::into_domain(result.body_scanning),
+        certificate: crate::into_domain(result.certificate),
+        custom_certificate: crate::into_domain(result.custom_certificate),
         extended_email_matching: crate::into_domain(result.extended_email_matching),
         fips: crate::into_domain(result.fips),
         logging: crate::into_domain(result.logging),

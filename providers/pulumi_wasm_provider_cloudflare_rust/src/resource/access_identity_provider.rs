@@ -17,50 +17,49 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! // one time pin
-//! const pinLogin = new cloudflare.AccessIdentityProvider("pinLogin", {
+//! const pinLogin = new cloudflare.AccessIdentityProvider("pin_login", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
 //!     name: "PIN login",
 //!     type: "onetimepin",
 //! });
 //! // oauth
-//! const githubOauth = new cloudflare.AccessIdentityProvider("githubOauth", {
+//! const githubOauth = new cloudflare.AccessIdentityProvider("github_oauth", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
+//!     name: "GitHub OAuth",
+//!     type: "github",
 //!     configs: [{
 //!         clientId: "example",
 //!         clientSecret: "secret_key",
 //!     }],
-//!     name: "GitHub OAuth",
-//!     type: "github",
 //! });
 //! // saml
-//! const jumpcloudSaml = new cloudflare.AccessIdentityProvider("jumpcloudSaml", {
+//! const jumpcloudSaml = new cloudflare.AccessIdentityProvider("jumpcloud_saml", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
+//!     name: "JumpCloud SAML",
+//!     type: "saml",
 //!     configs: [{
+//!         issuerUrl: "jumpcloud",
+//!         ssoTargetUrl: "https://sso.myexample.jumpcloud.com/saml2/cloudflareaccess",
 //!         attributes: [
 //!             "email",
 //!             "username",
 //!         ],
-//!         idpPublicCert: `MIIDpDCCAoygAwIBAgIGAV2ka+55MA0GCSqGSIb3DQEBCwUAMIGSMQswCQ...GF/Q2/MHadws97cZg
-//! uTnQyuOqPuHbnN83d/2l1NSYKCbHt24o
-//! `,
-//!         issuerUrl: "jumpcloud",
 //!         signRequest: false,
-//!         ssoTargetUrl: "https://sso.myexample.jumpcloud.com/saml2/cloudflareaccess",
+//!         idpPublicCert: `MIIDpDCCAoygAwIBAgIGAV2ka+55MA0GCSqGSIb3DQEBCwUAMIGSMQswCQ...GF/Q2/MHadws97cZg
+//! uTnQyuOqPuHbnN83d/2l1NSYKCbHt24o`,
 //!     }],
-//!     name: "JumpCloud SAML",
-//!     type: "saml",
 //! });
 //! // okta
 //! const okta = new cloudflare.AccessIdentityProvider("okta", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     configs: [{
-//!         apiToken: "okta_api_token",
-//!         clientId: "example",
-//!         clientSecret: "secret_key",
-//!         oktaAccount: "https://example.com",
-//!     }],
 //!     name: "Okta",
 //!     type: "okta",
+//!     configs: [{
+//!         clientId: "example",
+//!         clientSecret: "secret_key",
+//!         apiToken: "okta_api_token",
+//!         oktaAccount: "https://example.com",
+//!     }],
 //! });
 //! ```
 //! ### Python
@@ -69,47 +68,46 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! # one time pin
-//! pin_login = cloudflare.AccessIdentityProvider("pinLogin",
+//! pin_login = cloudflare.AccessIdentityProvider("pin_login",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
 //!     name="PIN login",
 //!     type="onetimepin")
 //! # oauth
-//! github_oauth = cloudflare.AccessIdentityProvider("githubOauth",
+//! github_oauth = cloudflare.AccessIdentityProvider("github_oauth",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     configs=[cloudflare.AccessIdentityProviderConfigArgs(
-//!         client_id="example",
-//!         client_secret="secret_key",
-//!     )],
 //!     name="GitHub OAuth",
-//!     type="github")
+//!     type="github",
+//!     configs=[{
+//!         "client_id": "example",
+//!         "client_secret": "secret_key",
+//!     }])
 //! # saml
-//! jumpcloud_saml = cloudflare.AccessIdentityProvider("jumpcloudSaml",
+//! jumpcloud_saml = cloudflare.AccessIdentityProvider("jumpcloud_saml",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     configs=[cloudflare.AccessIdentityProviderConfigArgs(
-//!         attributes=[
+//!     name="JumpCloud SAML",
+//!     type="saml",
+//!     configs=[{
+//!         "issuer_url": "jumpcloud",
+//!         "sso_target_url": "https://sso.myexample.jumpcloud.com/saml2/cloudflareaccess",
+//!         "attributes": [
 //!             "email",
 //!             "username",
 //!         ],
-//!         idp_public_cert="""MIIDpDCCAoygAwIBAgIGAV2ka+55MA0GCSqGSIb3DQEBCwUAMIGSMQswCQ...GF/Q2/MHadws97cZg
-//! uTnQyuOqPuHbnN83d/2l1NSYKCbHt24o
-//! """,
-//!         issuer_url="jumpcloud",
-//!         sign_request=False,
-//!         sso_target_url="https://sso.myexample.jumpcloud.com/saml2/cloudflareaccess",
-//!     )],
-//!     name="JumpCloud SAML",
-//!     type="saml")
+//!         "sign_request": False,
+//!         "idp_public_cert": """MIIDpDCCAoygAwIBAgIGAV2ka+55MA0GCSqGSIb3DQEBCwUAMIGSMQswCQ...GF/Q2/MHadws97cZg
+//! uTnQyuOqPuHbnN83d/2l1NSYKCbHt24o""",
+//!     }])
 //! # okta
 //! okta = cloudflare.AccessIdentityProvider("okta",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     configs=[cloudflare.AccessIdentityProviderConfigArgs(
-//!         api_token="okta_api_token",
-//!         client_id="example",
-//!         client_secret="secret_key",
-//!         okta_account="https://example.com",
-//!     )],
 //!     name="Okta",
-//!     type="okta")
+//!     type="okta",
+//!     configs=[{
+//!         "client_id": "example",
+//!         "client_secret": "secret_key",
+//!         "api_token": "okta_api_token",
+//!         "okta_account": "https://example.com",
+//!     }])
 //! ```
 //! ### C#
 //! ```csharp
@@ -121,7 +119,7 @@
 //! return await Deployment.RunAsync(() => 
 //! {
 //!     // one time pin
-//!     var pinLogin = new Cloudflare.AccessIdentityProvider("pinLogin", new()
+//!     var pinLogin = new Cloudflare.AccessIdentityProvider("pin_login", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
 //!         Name = "PIN login",
@@ -129,9 +127,11 @@
 //!     });
 //! 
 //!     // oauth
-//!     var githubOauth = new Cloudflare.AccessIdentityProvider("githubOauth", new()
+//!     var githubOauth = new Cloudflare.AccessIdentityProvider("github_oauth", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
+//!         Name = "GitHub OAuth",
+//!         Type = "github",
 //!         Configs = new[]
 //!         {
 //!             new Cloudflare.Inputs.AccessIdentityProviderConfigArgs
@@ -140,51 +140,48 @@
 //!                 ClientSecret = "secret_key",
 //!             },
 //!         },
-//!         Name = "GitHub OAuth",
-//!         Type = "github",
 //!     });
 //! 
 //!     // saml
-//!     var jumpcloudSaml = new Cloudflare.AccessIdentityProvider("jumpcloudSaml", new()
+//!     var jumpcloudSaml = new Cloudflare.AccessIdentityProvider("jumpcloud_saml", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
+//!         Name = "JumpCloud SAML",
+//!         Type = "saml",
 //!         Configs = new[]
 //!         {
 //!             new Cloudflare.Inputs.AccessIdentityProviderConfigArgs
 //!             {
+//!                 IssuerUrl = "jumpcloud",
+//!                 SsoTargetUrl = "https://sso.myexample.jumpcloud.com/saml2/cloudflareaccess",
 //!                 Attributes = new[]
 //!                 {
 //!                     "email",
 //!                     "username",
 //!                 },
-//!                 IdpPublicCert = @"MIIDpDCCAoygAwIBAgIGAV2ka+55MA0GCSqGSIb3DQEBCwUAMIGSMQswCQ...GF/Q2/MHadws97cZg
-//! uTnQyuOqPuHbnN83d/2l1NSYKCbHt24o
-//! ",
-//!                 IssuerUrl = "jumpcloud",
 //!                 SignRequest = false,
-//!                 SsoTargetUrl = "https://sso.myexample.jumpcloud.com/saml2/cloudflareaccess",
+//!                 IdpPublicCert = @"MIIDpDCCAoygAwIBAgIGAV2ka+55MA0GCSqGSIb3DQEBCwUAMIGSMQswCQ...GF/Q2/MHadws97cZg
+//! uTnQyuOqPuHbnN83d/2l1NSYKCbHt24o",
 //!             },
 //!         },
-//!         Name = "JumpCloud SAML",
-//!         Type = "saml",
 //!     });
 //! 
 //!     // okta
 //!     var okta = new Cloudflare.AccessIdentityProvider("okta", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
+//!         Name = "Okta",
+//!         Type = "okta",
 //!         Configs = new[]
 //!         {
 //!             new Cloudflare.Inputs.AccessIdentityProviderConfigArgs
 //!             {
-//!                 ApiToken = "okta_api_token",
 //!                 ClientId = "example",
 //!                 ClientSecret = "secret_key",
+//!                 ApiToken = "okta_api_token",
 //!                 OktaAccount = "https://example.com",
 //!             },
 //!         },
-//!         Name = "Okta",
-//!         Type = "okta",
 //!     });
 //! 
 //! });
@@ -201,7 +198,7 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		// one time pin
-//! 		_, err := cloudflare.NewAccessIdentityProvider(ctx, "pinLogin", &cloudflare.AccessIdentityProviderArgs{
+//! 		_, err := cloudflare.NewAccessIdentityProvider(ctx, "pin_login", &cloudflare.AccessIdentityProviderArgs{
 //! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
 //! 			Name:      pulumi.String("PIN login"),
 //! 			Type:      pulumi.String("onetimepin"),
@@ -210,37 +207,37 @@
 //! 			return err
 //! 		}
 //! 		// oauth
-//! 		_, err = cloudflare.NewAccessIdentityProvider(ctx, "githubOauth", &cloudflare.AccessIdentityProviderArgs{
+//! 		_, err = cloudflare.NewAccessIdentityProvider(ctx, "github_oauth", &cloudflare.AccessIdentityProviderArgs{
 //! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
+//! 			Name:      pulumi.String("GitHub OAuth"),
+//! 			Type:      pulumi.String("github"),
 //! 			Configs: cloudflare.AccessIdentityProviderConfigArray{
 //! 				&cloudflare.AccessIdentityProviderConfigArgs{
 //! 					ClientId:     pulumi.String("example"),
 //! 					ClientSecret: pulumi.String("secret_key"),
 //! 				},
 //! 			},
-//! 			Name: pulumi.String("GitHub OAuth"),
-//! 			Type: pulumi.String("github"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
 //! 		}
 //! 		// saml
-//! 		_, err = cloudflare.NewAccessIdentityProvider(ctx, "jumpcloudSaml", &cloudflare.AccessIdentityProviderArgs{
+//! 		_, err = cloudflare.NewAccessIdentityProvider(ctx, "jumpcloud_saml", &cloudflare.AccessIdentityProviderArgs{
 //! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
+//! 			Name:      pulumi.String("JumpCloud SAML"),
+//! 			Type:      pulumi.String("saml"),
 //! 			Configs: cloudflare.AccessIdentityProviderConfigArray{
 //! 				&cloudflare.AccessIdentityProviderConfigArgs{
+//! 					IssuerUrl:    pulumi.String("jumpcloud"),
+//! 					SsoTargetUrl: pulumi.String("https://sso.myexample.jumpcloud.com/saml2/cloudflareaccess"),
 //! 					Attributes: pulumi.StringArray{
 //! 						pulumi.String("email"),
 //! 						pulumi.String("username"),
 //! 					},
-//! 					IdpPublicCert: pulumi.String("MIIDpDCCAoygAwIBAgIGAV2ka+55MA0GCSqGSIb3DQEBCwUAMIGSMQswCQ...GF/Q2/MHadws97cZg\nuTnQyuOqPuHbnN83d/2l1NSYKCbHt24o\n"),
-//! 					IssuerUrl:     pulumi.String("jumpcloud"),
 //! 					SignRequest:   pulumi.Bool(false),
-//! 					SsoTargetUrl:  pulumi.String("https://sso.myexample.jumpcloud.com/saml2/cloudflareaccess"),
+//! 					IdpPublicCert: pulumi.String("MIIDpDCCAoygAwIBAgIGAV2ka+55MA0GCSqGSIb3DQEBCwUAMIGSMQswCQ...GF/Q2/MHadws97cZg\nuTnQyuOqPuHbnN83d/2l1NSYKCbHt24o"),
 //! 				},
 //! 			},
-//! 			Name: pulumi.String("JumpCloud SAML"),
-//! 			Type: pulumi.String("saml"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -248,16 +245,16 @@
 //! 		// okta
 //! 		_, err = cloudflare.NewAccessIdentityProvider(ctx, "okta", &cloudflare.AccessIdentityProviderArgs{
 //! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
+//! 			Name:      pulumi.String("Okta"),
+//! 			Type:      pulumi.String("okta"),
 //! 			Configs: cloudflare.AccessIdentityProviderConfigArray{
 //! 				&cloudflare.AccessIdentityProviderConfigArgs{
-//! 					ApiToken:     pulumi.String("okta_api_token"),
 //! 					ClientId:     pulumi.String("example"),
 //! 					ClientSecret: pulumi.String("secret_key"),
+//! 					ApiToken:     pulumi.String("okta_api_token"),
 //! 					OktaAccount:  pulumi.String("https://example.com"),
 //! 				},
 //! 			},
-//! 			Name: pulumi.String("Okta"),
-//! 			Type: pulumi.String("okta"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -290,53 +287,52 @@
 //! 
 //!     public static void stack(Context ctx) {
 //!         // one time pin
-//!         var pinLogin = new AccessIdentityProvider("pinLogin", AccessIdentityProviderArgs.builder()        
+//!         var pinLogin = new AccessIdentityProvider("pinLogin", AccessIdentityProviderArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
 //!             .name("PIN login")
 //!             .type("onetimepin")
 //!             .build());
 //! 
 //!         // oauth
-//!         var githubOauth = new AccessIdentityProvider("githubOauth", AccessIdentityProviderArgs.builder()        
+//!         var githubOauth = new AccessIdentityProvider("githubOauth", AccessIdentityProviderArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
+//!             .name("GitHub OAuth")
+//!             .type("github")
 //!             .configs(AccessIdentityProviderConfigArgs.builder()
 //!                 .clientId("example")
 //!                 .clientSecret("secret_key")
 //!                 .build())
-//!             .name("GitHub OAuth")
-//!             .type("github")
 //!             .build());
 //! 
 //!         // saml
-//!         var jumpcloudSaml = new AccessIdentityProvider("jumpcloudSaml", AccessIdentityProviderArgs.builder()        
+//!         var jumpcloudSaml = new AccessIdentityProvider("jumpcloudSaml", AccessIdentityProviderArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
+//!             .name("JumpCloud SAML")
+//!             .type("saml")
 //!             .configs(AccessIdentityProviderConfigArgs.builder()
+//!                 .issuerUrl("jumpcloud")
+//!                 .ssoTargetUrl("https://sso.myexample.jumpcloud.com/saml2/cloudflareaccess")
 //!                 .attributes(                
 //!                     "email",
 //!                     "username")
+//!                 .signRequest(false)
 //!                 .idpPublicCert("""
 //! MIIDpDCCAoygAwIBAgIGAV2ka+55MA0GCSqGSIb3DQEBCwUAMIGSMQswCQ...GF/Q2/MHadws97cZg
-//! uTnQyuOqPuHbnN83d/2l1NSYKCbHt24o
-//!                 """)
-//!                 .issuerUrl("jumpcloud")
-//!                 .signRequest(false)
-//!                 .ssoTargetUrl("https://sso.myexample.jumpcloud.com/saml2/cloudflareaccess")
+//! uTnQyuOqPuHbnN83d/2l1NSYKCbHt24o                """)
 //!                 .build())
-//!             .name("JumpCloud SAML")
-//!             .type("saml")
 //!             .build());
 //! 
 //!         // okta
-//!         var okta = new AccessIdentityProvider("okta", AccessIdentityProviderArgs.builder()        
+//!         var okta = new AccessIdentityProvider("okta", AccessIdentityProviderArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .configs(AccessIdentityProviderConfigArgs.builder()
-//!                 .apiToken("okta_api_token")
-//!                 .clientId("example")
-//!                 .clientSecret("secret_key")
-//!                 .oktaAccount("https://example.com")
-//!                 .build())
 //!             .name("Okta")
 //!             .type("okta")
+//!             .configs(AccessIdentityProviderConfigArgs.builder()
+//!                 .clientId("example")
+//!                 .clientSecret("secret_key")
+//!                 .apiToken("okta_api_token")
+//!                 .oktaAccount("https://example.com")
+//!                 .build())
 //!             .build());
 //! 
 //!     }
@@ -348,6 +344,7 @@
 //!   # one time pin
 //!   pinLogin:
 //!     type: cloudflare:AccessIdentityProvider
+//!     name: pin_login
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
 //!       name: PIN login
@@ -355,42 +352,44 @@
 //!   # oauth
 //!   githubOauth:
 //!     type: cloudflare:AccessIdentityProvider
+//!     name: github_oauth
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
+//!       name: GitHub OAuth
+//!       type: github
 //!       configs:
 //!         - clientId: example
 //!           clientSecret: secret_key
-//!       name: GitHub OAuth
-//!       type: github
 //!   # saml
 //!   jumpcloudSaml:
 //!     type: cloudflare:AccessIdentityProvider
+//!     name: jumpcloud_saml
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
-//!       configs:
-//!         - attributes:
-//!             - email
-//!             - username
-//!           idpPublicCert: |
-//!             MIIDpDCCAoygAwIBAgIGAV2ka+55MA0GCSqGSIb3DQEBCwUAMIGSMQswCQ...GF/Q2/MHadws97cZg
-//!             uTnQyuOqPuHbnN83d/2l1NSYKCbHt24o
-//!           issuerUrl: jumpcloud
-//!           signRequest: false
-//!           ssoTargetUrl: https://sso.myexample.jumpcloud.com/saml2/cloudflareaccess
 //!       name: JumpCloud SAML
 //!       type: saml
+//!       configs:
+//!         - issuerUrl: jumpcloud
+//!           ssoTargetUrl: https://sso.myexample.jumpcloud.com/saml2/cloudflareaccess
+//!           attributes:
+//!             - email
+//!             - username
+//!           signRequest: false
+//!           idpPublicCert: |-
+//!             MIIDpDCCAoygAwIBAgIGAV2ka+55MA0GCSqGSIb3DQEBCwUAMIGSMQswCQ...GF/Q2/MHadws97cZg
+//!             uTnQyuOqPuHbnN83d/2l1NSYKCbHt24o
 //!   # okta
 //!   okta:
 //!     type: cloudflare:AccessIdentityProvider
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
-//!       configs:
-//!         - apiToken: okta_api_token
-//!           clientId: example
-//!           clientSecret: secret_key
-//!           oktaAccount: https://example.com
 //!       name: Okta
 //!       type: okta
+//!       configs:
+//!         - clientId: example
+//!           clientSecret: secret_key
+//!           apiToken: okta_api_token
+//!           oktaAccount: https://example.com
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

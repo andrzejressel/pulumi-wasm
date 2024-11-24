@@ -33,7 +33,8 @@ pub struct LogpushJobOutputOptions {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "recordPrefix")]
     pub r#record_prefix: Box<Option<String>>,
-    /// String to be appended after each record. Defaults to `}`.
+    /// String to be appended after each record. Defaults to `}
+    /// `.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "recordSuffix")]
     pub r#record_suffix: Box<Option<String>>,

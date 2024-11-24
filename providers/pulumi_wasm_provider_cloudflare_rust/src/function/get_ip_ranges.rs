@@ -10,7 +10,7 @@
 //! import * as example from "@pulumi/example";
 //! 
 //! const cloudflare = cloudflare.getIpRanges({});
-//! const example = new example.index.Example_firewall_resource("example", {
+//! const example = new example.index.FirewallResource("example", {
 //!     name: "from-cloudflare",
 //!     network: "default",
 //!     sourceRanges: cloudflare.ipv4CidrBlocks,
@@ -27,7 +27,7 @@
 //! import pulumi_example as example
 //! 
 //! cloudflare = cloudflare.get_ip_ranges()
-//! example = example.index.Example_firewall_resource("example",
+//! example = example.index.FirewallResource("example",
 //!     name=from-cloudflare,
 //!     network=default,
 //!     source_ranges=cloudflare.ipv4_cidr_blocks,
@@ -48,7 +48,7 @@
 //! {
 //!     var cloudflare = Cloudflare.GetIpRanges.Invoke();
 //! 
-//!     var example = new Example.Index.Example_firewall_resource("example", new()
+//!     var example = new Example.Index.FirewallResource("example", new()
 //!     {
 //!         Name = "from-cloudflare",
 //!         Network = "default",
@@ -71,17 +71,17 @@
 //! 
 //! import (
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi-example/sdk/v1/go/example"
+//! 	"github.com/pulumi/pulumi-example/sdk/go/example"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
 //! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		cloudflare, err := cloudflare.GetIpRanges(ctx, nil, nil)
+//! 		cloudflare, err := cloudflare.GetIpRanges(ctx, map[string]interface{}{}, nil)
 //! 		if err != nil {
 //! 			return err
 //! 		}
-//! 		_, err = index.NewExample_firewall_resource(ctx, "example", &index.Example_firewall_resourceArgs{
+//! 		_, err = example.NewFirewallResource(ctx, "example", &example.FirewallResourceArgs{
 //! 			Name:         "from-cloudflare",
 //! 			Network:      "default",
 //! 			SourceRanges: cloudflare.Ipv4CidrBlocks,
@@ -107,8 +107,8 @@
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
 //! import com.pulumi.cloudflare.CloudflareFunctions;
-//! import com.pulumi.example.example_firewall_resource;
-//! import com.pulumi.example.Example_firewall_resourceArgs;
+//! import com.pulumi.example.firewallResource;
+//! import com.pulumi.example.FirewallResourceArgs;
 //! import java.util.List;
 //! import java.util.ArrayList;
 //! import java.util.Map;
@@ -124,7 +124,7 @@
 //!     public static void stack(Context ctx) {
 //!         final var cloudflare = CloudflareFunctions.getIpRanges();
 //! 
-//!         var example = new Example_firewall_resource("example", Example_firewall_resourceArgs.builder()        
+//!         var example = new FirewallResource("example", FirewallResourceArgs.builder()
 //!             .name("from-cloudflare")
 //!             .network("default")
 //!             .sourceRanges(cloudflare.applyValue(getIpRangesResult -> getIpRangesResult.ipv4CidrBlocks()))
@@ -138,7 +138,7 @@
 //! ```yaml
 //! resources:
 //!   example:
-//!     type: example:example_firewall_resource
+//!     type: example:firewallResource
 //!     properties:
 //!       name: from-cloudflare
 //!       network: default

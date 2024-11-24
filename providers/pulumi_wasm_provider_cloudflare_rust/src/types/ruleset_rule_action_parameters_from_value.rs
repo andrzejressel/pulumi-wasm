@@ -5,7 +5,7 @@ pub struct RulesetRuleActionParametersFromValue {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "preserveQueryString")]
     pub r#preserve_query_string: Box<Option<bool>>,
-    /// Status code for which the edge TTL is applied.
+    /// Status code for redirect.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "statusCode")]
     pub r#status_code: Box<Option<i32>>,

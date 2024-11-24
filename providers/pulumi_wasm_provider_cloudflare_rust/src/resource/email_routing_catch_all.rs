@@ -9,16 +9,16 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! const example = new cloudflare.EmailRoutingCatchAll("example", {
-//!     actions: [{
-//!         type: "forward",
-//!         values: ["destinationaddress@example.net"],
-//!     }],
+//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     name: "example catch all",
 //!     enabled: true,
 //!     matchers: [{
 //!         type: "all",
 //!     }],
-//!     name: "example catch all",
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     actions: [{
+//!         type: "forward",
+//!         values: ["destinationaddress@example.net"],
+//!     }],
 //! });
 //! ```
 //! ### Python
@@ -27,16 +27,16 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! example = cloudflare.EmailRoutingCatchAll("example",
-//!     actions=[cloudflare.EmailRoutingCatchAllActionArgs(
-//!         type="forward",
-//!         values=["destinationaddress@example.net"],
-//!     )],
-//!     enabled=True,
-//!     matchers=[cloudflare.EmailRoutingCatchAllMatcherArgs(
-//!         type="all",
-//!     )],
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     name="example catch all",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     enabled=True,
+//!     matchers=[{
+//!         "type": "all",
+//!     }],
+//!     actions=[{
+//!         "type": "forward",
+//!         "values": ["destinationaddress@example.net"],
+//!     }])
 //! ```
 //! ### C#
 //! ```csharp
@@ -49,6 +49,16 @@
 //! {
 //!     var example = new Cloudflare.EmailRoutingCatchAll("example", new()
 //!     {
+//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         Name = "example catch all",
+//!         Enabled = true,
+//!         Matchers = new[]
+//!         {
+//!             new Cloudflare.Inputs.EmailRoutingCatchAllMatcherArgs
+//!             {
+//!                 Type = "all",
+//!             },
+//!         },
 //!         Actions = new[]
 //!         {
 //!             new Cloudflare.Inputs.EmailRoutingCatchAllActionArgs
@@ -60,16 +70,6 @@
 //!                 },
 //!             },
 //!         },
-//!         Enabled = true,
-//!         Matchers = new[]
-//!         {
-//!             new Cloudflare.Inputs.EmailRoutingCatchAllMatcherArgs
-//!             {
-//!                 Type = "all",
-//!             },
-//!         },
-//!         Name = "example catch all",
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
 //! 
 //! });
@@ -86,6 +86,14 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewEmailRoutingCatchAll(ctx, "example", &cloudflare.EmailRoutingCatchAllArgs{
+//! 			ZoneId:  pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			Name:    pulumi.String("example catch all"),
+//! 			Enabled: pulumi.Bool(true),
+//! 			Matchers: cloudflare.EmailRoutingCatchAllMatcherArray{
+//! 				&cloudflare.EmailRoutingCatchAllMatcherArgs{
+//! 					Type: pulumi.String("all"),
+//! 				},
+//! 			},
 //! 			Actions: cloudflare.EmailRoutingCatchAllActionArray{
 //! 				&cloudflare.EmailRoutingCatchAllActionArgs{
 //! 					Type: pulumi.String("forward"),
@@ -94,14 +102,6 @@
 //! 					},
 //! 				},
 //! 			},
-//! 			Enabled: pulumi.Bool(true),
-//! 			Matchers: cloudflare.EmailRoutingCatchAllMatcherArray{
-//! 				&cloudflare.EmailRoutingCatchAllMatcherArgs{
-//! 					Type: pulumi.String("all"),
-//! 				},
-//! 			},
-//! 			Name:   pulumi.String("example catch all"),
-//! 			ZoneId: pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -119,8 +119,8 @@
 //! import com.pulumi.core.Output;
 //! import com.pulumi.cloudflare.EmailRoutingCatchAll;
 //! import com.pulumi.cloudflare.EmailRoutingCatchAllArgs;
-//! import com.pulumi.cloudflare.inputs.EmailRoutingCatchAllActionArgs;
 //! import com.pulumi.cloudflare.inputs.EmailRoutingCatchAllMatcherArgs;
+//! import com.pulumi.cloudflare.inputs.EmailRoutingCatchAllActionArgs;
 //! import java.util.List;
 //! import java.util.ArrayList;
 //! import java.util.Map;
@@ -134,17 +134,17 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new EmailRoutingCatchAll("example", EmailRoutingCatchAllArgs.builder()        
-//!             .actions(EmailRoutingCatchAllActionArgs.builder()
-//!                 .type("forward")
-//!                 .values("destinationaddress@example.net")
-//!                 .build())
+//!         var example = new EmailRoutingCatchAll("example", EmailRoutingCatchAllArgs.builder()
+//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .name("example catch all")
 //!             .enabled(true)
 //!             .matchers(EmailRoutingCatchAllMatcherArgs.builder()
 //!                 .type("all")
 //!                 .build())
-//!             .name("example catch all")
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .actions(EmailRoutingCatchAllActionArgs.builder()
+//!                 .type("forward")
+//!                 .values("destinationaddress@example.net")
+//!                 .build())
 //!             .build());
 //! 
 //!     }
@@ -156,15 +156,15 @@
 //!   example:
 //!     type: cloudflare:EmailRoutingCatchAll
 //!     properties:
+//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       name: example catch all
+//!       enabled: true
+//!       matchers:
+//!         - type: all
 //!       actions:
 //!         - type: forward
 //!           values:
 //!             - destinationaddress@example.net
-//!       enabled: true
-//!       matchers:
-//!         - type: all
-//!       name: example catch all
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //! ```
 //! <!--End PulumiCodeChooser -->
 

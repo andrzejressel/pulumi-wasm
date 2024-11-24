@@ -8,16 +8,16 @@
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
-//! const exampleZone = new cloudflare.Zone("exampleZone", {zone: "example.com"});
-//! const exampleZoneDnssec = new cloudflare.ZoneDnssec("exampleZoneDnssec", {zoneId: exampleZone.id});
+//! const example = new cloudflare.Zone("example", {zone: "example.com"});
+//! const exampleZoneDnssec = new cloudflare.ZoneDnssec("example", {zoneId: example.id});
 //! ```
 //! ### Python
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
 //! 
-//! example_zone = cloudflare.Zone("exampleZone", zone="example.com")
-//! example_zone_dnssec = cloudflare.ZoneDnssec("exampleZoneDnssec", zone_id=example_zone.id)
+//! example = cloudflare.Zone("example", zone="example.com")
+//! example_zone_dnssec = cloudflare.ZoneDnssec("example", zone_id=example.id)
 //! ```
 //! ### C#
 //! ```csharp
@@ -28,14 +28,14 @@
 //! 
 //! return await Deployment.RunAsync(() => 
 //! {
-//!     var exampleZone = new Cloudflare.Zone("exampleZone", new()
+//!     var example = new Cloudflare.Zone("example", new()
 //!     {
 //!         ZoneName = "example.com",
 //!     });
 //! 
-//!     var exampleZoneDnssec = new Cloudflare.ZoneDnssec("exampleZoneDnssec", new()
+//!     var exampleZoneDnssec = new Cloudflare.ZoneDnssec("example", new()
 //!     {
-//!         ZoneId = exampleZone.Id,
+//!         ZoneId = example.Id,
 //!     });
 //! 
 //! });
@@ -51,14 +51,14 @@
 //! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		exampleZone, err := cloudflare.NewZone(ctx, "exampleZone", &cloudflare.ZoneArgs{
+//! 		example, err := cloudflare.NewZone(ctx, "example", &cloudflare.ZoneArgs{
 //! 			Zone: pulumi.String("example.com"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
 //! 		}
-//! 		_, err = cloudflare.NewZoneDnssec(ctx, "exampleZoneDnssec", &cloudflare.ZoneDnssecArgs{
-//! 			ZoneId: exampleZone.ID(),
+//! 		_, err = cloudflare.NewZoneDnssec(ctx, "example", &cloudflare.ZoneDnssecArgs{
+//! 			ZoneId: example.ID(),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -91,12 +91,12 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()        
+//!         var example = new Zone("example", ZoneArgs.builder()
 //!             .zone("example.com")
 //!             .build());
 //! 
-//!         var exampleZoneDnssec = new ZoneDnssec("exampleZoneDnssec", ZoneDnssecArgs.builder()        
-//!             .zoneId(exampleZone.id())
+//!         var exampleZoneDnssec = new ZoneDnssec("exampleZoneDnssec", ZoneDnssecArgs.builder()
+//!             .zoneId(example.id())
 //!             .build());
 //! 
 //!     }
@@ -105,14 +105,15 @@
 //! ### YAML
 //! ```yaml
 //! resources:
-//!   exampleZone:
+//!   example:
 //!     type: cloudflare:Zone
 //!     properties:
 //!       zone: example.com
 //!   exampleZoneDnssec:
 //!     type: cloudflare:ZoneDnssec
+//!     name: example
 //!     properties:
-//!       zoneId: ${exampleZone.id}
+//!       zoneId: ${example.id}
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

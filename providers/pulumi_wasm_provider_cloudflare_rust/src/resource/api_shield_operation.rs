@@ -9,10 +9,10 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! const example = new cloudflare.ApiShieldOperation("example", {
-//!     endpoint: "/path",
-//!     host: "api.example.com",
-//!     method: "GET",
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     method: "GET",
+//!     host: "api.example.com",
+//!     endpoint: "/path",
 //! });
 //! ```
 //! ### Python
@@ -21,10 +21,10 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! example = cloudflare.ApiShieldOperation("example",
-//!     endpoint="/path",
-//!     host="api.example.com",
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     method="GET",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     host="api.example.com",
+//!     endpoint="/path")
 //! ```
 //! ### C#
 //! ```csharp
@@ -37,10 +37,10 @@
 //! {
 //!     var example = new Cloudflare.ApiShieldOperation("example", new()
 //!     {
-//!         Endpoint = "/path",
-//!         Host = "api.example.com",
-//!         Method = "GET",
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         Method = "GET",
+//!         Host = "api.example.com",
+//!         Endpoint = "/path",
 //!     });
 //! 
 //! });
@@ -57,10 +57,10 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewApiShieldOperation(ctx, "example", &cloudflare.ApiShieldOperationArgs{
-//! 			Endpoint: pulumi.String("/path"),
-//! 			Host:     pulumi.String("api.example.com"),
-//! 			Method:   pulumi.String("GET"),
 //! 			ZoneId:   pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			Method:   pulumi.String("GET"),
+//! 			Host:     pulumi.String("api.example.com"),
+//! 			Endpoint: pulumi.String("/path"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -91,11 +91,11 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new ApiShieldOperation("example", ApiShieldOperationArgs.builder()        
-//!             .endpoint("/path")
-//!             .host("api.example.com")
-//!             .method("GET")
+//!         var example = new ApiShieldOperation("example", ApiShieldOperationArgs.builder()
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .method("GET")
+//!             .host("api.example.com")
+//!             .endpoint("/path")
 //!             .build());
 //! 
 //!     }
@@ -107,10 +107,10 @@
 //!   example:
 //!     type: cloudflare:ApiShieldOperation
 //!     properties:
-//!       endpoint: /path
-//!       host: api.example.com
-//!       method: GET
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       method: GET
+//!       host: api.example.com
+//!       endpoint: /path
 //! ```
 //! <!--End PulumiCodeChooser -->
 

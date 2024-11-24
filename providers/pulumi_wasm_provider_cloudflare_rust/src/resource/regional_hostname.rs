@@ -10,19 +10,19 @@
 //! 
 //! // Regionalized hostname record resources are managed independently from the
 //! // Regionalized Hostname resources.
-//! const exampleRecord = new cloudflare.Record("exampleRecord", {
-//!     name: "example.com",
-//!     ttl: 3600,
-//!     type: "A",
-//!     value: "192.0.2.1",
+//! const example = new cloudflare.Record("example", {
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     name: "example.com",
+//!     content: "192.0.2.1",
+//!     type: "A",
+//!     ttl: 3600,
 //! });
 //! // The cloudflare_regional_hostname resource may exist with or without its
 //! // corresponding record resource.
-//! const exampleRegionalHostname = new cloudflare.RegionalHostname("exampleRegionalHostname", {
+//! const exampleRegionalHostname = new cloudflare.RegionalHostname("example", {
+//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //!     hostname: "example.com",
 //!     regionKey: "eu",
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //! });
 //! ```
 //! ### Python
@@ -32,18 +32,18 @@
 //! 
 //! # Regionalized hostname record resources are managed independently from the
 //! # Regionalized Hostname resources.
-//! example_record = cloudflare.Record("exampleRecord",
+//! example = cloudflare.Record("example",
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     name="example.com",
-//!     ttl=3600,
+//!     content="192.0.2.1",
 //!     type="A",
-//!     value="192.0.2.1",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     ttl=3600)
 //! # The cloudflare_regional_hostname resource may exist with or without its
 //! # corresponding record resource.
-//! example_regional_hostname = cloudflare.RegionalHostname("exampleRegionalHostname",
+//! example_regional_hostname = cloudflare.RegionalHostname("example",
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     hostname="example.com",
-//!     region_key="eu",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     region_key="eu")
 //! ```
 //! ### C#
 //! ```csharp
@@ -56,22 +56,22 @@
 //! {
 //!     // Regionalized hostname record resources are managed independently from the
 //!     // Regionalized Hostname resources.
-//!     var exampleRecord = new Cloudflare.Record("exampleRecord", new()
+//!     var example = new Cloudflare.Record("example", new()
 //!     {
-//!         Name = "example.com",
-//!         Ttl = 3600,
-//!         Type = "A",
-//!         Value = "192.0.2.1",
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         Name = "example.com",
+//!         Content = "192.0.2.1",
+//!         Type = "A",
+//!         Ttl = 3600,
 //!     });
 //! 
 //!     // The cloudflare_regional_hostname resource may exist with or without its
 //!     // corresponding record resource.
-//!     var exampleRegionalHostname = new Cloudflare.RegionalHostname("exampleRegionalHostname", new()
+//!     var exampleRegionalHostname = new Cloudflare.RegionalHostname("example", new()
 //!     {
+//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!         Hostname = "example.com",
 //!         RegionKey = "eu",
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
 //! 
 //! });
@@ -89,22 +89,22 @@
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		// Regionalized hostname record resources are managed independently from the
 //! 		// Regionalized Hostname resources.
-//! 		_, err := cloudflare.NewRecord(ctx, "exampleRecord", &cloudflare.RecordArgs{
-//! 			Name:   pulumi.String("example.com"),
-//! 			Ttl:    pulumi.Int(3600),
-//! 			Type:   pulumi.String("A"),
-//! 			Value:  pulumi.String("192.0.2.1"),
-//! 			ZoneId: pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 		_, err := cloudflare.NewRecord(ctx, "example", &cloudflare.RecordArgs{
+//! 			ZoneId:  pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			Name:    pulumi.String("example.com"),
+//! 			Content: pulumi.String("192.0.2.1"),
+//! 			Type:    pulumi.String("A"),
+//! 			Ttl:     pulumi.Int(3600),
 //! 		})
 //! 		if err != nil {
 //! 			return err
 //! 		}
 //! 		// The cloudflare_regional_hostname resource may exist with or without its
 //! 		// corresponding record resource.
-//! 		_, err = cloudflare.NewRegionalHostname(ctx, "exampleRegionalHostname", &cloudflare.RegionalHostnameArgs{
+//! 		_, err = cloudflare.NewRegionalHostname(ctx, "example", &cloudflare.RegionalHostnameArgs{
+//! 			ZoneId:    pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 			Hostname:  pulumi.String("example.com"),
 //! 			RegionKey: pulumi.String("eu"),
-//! 			ZoneId:    pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -139,20 +139,20 @@
 //!     public static void stack(Context ctx) {
 //!         // Regionalized hostname record resources are managed independently from the
 //!         // Regionalized Hostname resources.
-//!         var exampleRecord = new Record("exampleRecord", RecordArgs.builder()        
-//!             .name("example.com")
-//!             .ttl(3600)
-//!             .type("A")
-//!             .value("192.0.2.1")
+//!         var example = new Record("example", RecordArgs.builder()
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .name("example.com")
+//!             .content("192.0.2.1")
+//!             .type("A")
+//!             .ttl(3600)
 //!             .build());
 //! 
 //!         // The cloudflare_regional_hostname resource may exist with or without its
 //!         // corresponding record resource.
-//!         var exampleRegionalHostname = new RegionalHostname("exampleRegionalHostname", RegionalHostnameArgs.builder()        
+//!         var exampleRegionalHostname = new RegionalHostname("exampleRegionalHostname", RegionalHostnameArgs.builder()
+//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .hostname("example.com")
 //!             .regionKey("eu")
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
 //! 
 //!     }
@@ -162,23 +162,24 @@
 //! ```yaml
 //! resources:
 //!   # Regionalized hostname record resources are managed independently from the
-//!   # // Regionalized Hostname resources.
-//!   exampleRecord:
+//!   # Regionalized Hostname resources.
+//!   example:
 //!     type: cloudflare:Record
 //!     properties:
-//!       name: example.com
-//!       ttl: 3600
-//!       type: A
-//!       value: 192.0.2.1
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       name: example.com
+//!       content: 192.0.2.1
+//!       type: A
+//!       ttl: 3600
 //!   # The cloudflare_regional_hostname resource may exist with or without its
-//!   # // corresponding record resource.
+//!   # corresponding record resource.
 //!   exampleRegionalHostname:
 //!     type: cloudflare:RegionalHostname
+//!     name: example
 //!     properties:
+//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //!       hostname: example.com
 //!       regionKey: eu
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //! ```
 //! <!--End PulumiCodeChooser -->
 

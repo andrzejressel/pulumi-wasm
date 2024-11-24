@@ -11,41 +11,41 @@
 //! 
 //! const example = new cloudflare.LoadBalancerPool("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     description: "example load balancer pool",
-//!     enabled: false,
-//!     latitude: 55,
-//!     loadSheddings: [{
-//!         defaultPercent: 55,
-//!         defaultPolicy: "random",
-//!         sessionPercent: 12,
-//!         sessionPolicy: "hash",
-//!     }],
-//!     longitude: -12,
-//!     minimumOrigins: 1,
 //!     name: "example-pool",
-//!     notificationEmail: "someone@example.com",
-//!     originSteerings: [{
-//!         policy: "random",
-//!     }],
 //!     origins: [
 //!         {
+//!             name: "example-1",
 //!             address: "192.0.2.1",
 //!             enabled: false,
 //!             headers: [{
 //!                 header: "Host",
 //!                 values: ["example-1"],
 //!             }],
-//!             name: "example-1",
 //!         },
 //!         {
+//!             name: "example-2",
 //!             address: "192.0.2.2",
 //!             headers: [{
 //!                 header: "Host",
 //!                 values: ["example-2"],
 //!             }],
-//!             name: "example-2",
 //!         },
 //!     ],
+//!     latitude: 55,
+//!     longitude: -12,
+//!     description: "example load balancer pool",
+//!     enabled: false,
+//!     minimumOrigins: 1,
+//!     notificationEmail: "someone@example.com",
+//!     loadSheddings: [{
+//!         defaultPercent: 55,
+//!         defaultPolicy: "random",
+//!         sessionPercent: 12,
+//!         sessionPolicy: "hash",
+//!     }],
+//!     originSteerings: [{
+//!         policy: "random",
+//!     }],
 //! });
 //! ```
 //! ### Python
@@ -55,41 +55,41 @@
 //! 
 //! example = cloudflare.LoadBalancerPool("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
+//!     name="example-pool",
+//!     origins=[
+//!         {
+//!             "name": "example-1",
+//!             "address": "192.0.2.1",
+//!             "enabled": False,
+//!             "headers": [{
+//!                 "header": "Host",
+//!                 "values": ["example-1"],
+//!             }],
+//!         },
+//!         {
+//!             "name": "example-2",
+//!             "address": "192.0.2.2",
+//!             "headers": [{
+//!                 "header": "Host",
+//!                 "values": ["example-2"],
+//!             }],
+//!         },
+//!     ],
+//!     latitude=55,
+//!     longitude=-12,
 //!     description="example load balancer pool",
 //!     enabled=False,
-//!     latitude=55,
-//!     load_sheddings=[cloudflare.LoadBalancerPoolLoadSheddingArgs(
-//!         default_percent=55,
-//!         default_policy="random",
-//!         session_percent=12,
-//!         session_policy="hash",
-//!     )],
-//!     longitude=-12,
 //!     minimum_origins=1,
-//!     name="example-pool",
 //!     notification_email="someone@example.com",
-//!     origin_steerings=[cloudflare.LoadBalancerPoolOriginSteeringArgs(
-//!         policy="random",
-//!     )],
-//!     origins=[
-//!         cloudflare.LoadBalancerPoolOriginArgs(
-//!             address="192.0.2.1",
-//!             enabled=False,
-//!             headers=[cloudflare.LoadBalancerPoolOriginHeaderArgs(
-//!                 header="Host",
-//!                 values=["example-1"],
-//!             )],
-//!             name="example-1",
-//!         ),
-//!         cloudflare.LoadBalancerPoolOriginArgs(
-//!             address="192.0.2.2",
-//!             headers=[cloudflare.LoadBalancerPoolOriginHeaderArgs(
-//!                 header="Host",
-//!                 values=["example-2"],
-//!             )],
-//!             name="example-2",
-//!         ),
-//!     ])
+//!     load_sheddings=[{
+//!         "default_percent": 55,
+//!         "default_policy": "random",
+//!         "session_percent": 12,
+//!         "session_policy": "hash",
+//!     }],
+//!     origin_steerings=[{
+//!         "policy": "random",
+//!     }])
 //! ```
 //! ### C#
 //! ```csharp
@@ -103,34 +103,12 @@
 //!     var example = new Cloudflare.LoadBalancerPool("example", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         Description = "example load balancer pool",
-//!         Enabled = false,
-//!         Latitude = 55,
-//!         LoadSheddings = new[]
-//!         {
-//!             new Cloudflare.Inputs.LoadBalancerPoolLoadSheddingArgs
-//!             {
-//!                 DefaultPercent = 55,
-//!                 DefaultPolicy = "random",
-//!                 SessionPercent = 12,
-//!                 SessionPolicy = "hash",
-//!             },
-//!         },
-//!         Longitude = -12,
-//!         MinimumOrigins = 1,
 //!         Name = "example-pool",
-//!         NotificationEmail = "someone@example.com",
-//!         OriginSteerings = new[]
-//!         {
-//!             new Cloudflare.Inputs.LoadBalancerPoolOriginSteeringArgs
-//!             {
-//!                 Policy = "random",
-//!             },
-//!         },
 //!         Origins = new[]
 //!         {
 //!             new Cloudflare.Inputs.LoadBalancerPoolOriginArgs
 //!             {
+//!                 Name = "example-1",
 //!                 Address = "192.0.2.1",
 //!                 Enabled = false,
 //!                 Headers = new[]
@@ -144,10 +122,10 @@
 //!                         },
 //!                     },
 //!                 },
-//!                 Name = "example-1",
 //!             },
 //!             new Cloudflare.Inputs.LoadBalancerPoolOriginArgs
 //!             {
+//!                 Name = "example-2",
 //!                 Address = "192.0.2.2",
 //!                 Headers = new[]
 //!                 {
@@ -160,7 +138,29 @@
 //!                         },
 //!                     },
 //!                 },
-//!                 Name = "example-2",
+//!             },
+//!         },
+//!         Latitude = 55,
+//!         Longitude = -12,
+//!         Description = "example load balancer pool",
+//!         Enabled = false,
+//!         MinimumOrigins = 1,
+//!         NotificationEmail = "someone@example.com",
+//!         LoadSheddings = new[]
+//!         {
+//!             new Cloudflare.Inputs.LoadBalancerPoolLoadSheddingArgs
+//!             {
+//!                 DefaultPercent = 55,
+//!                 DefaultPolicy = "random",
+//!                 SessionPercent = 12,
+//!                 SessionPolicy = "hash",
+//!             },
+//!         },
+//!         OriginSteerings = new[]
+//!         {
+//!             new Cloudflare.Inputs.LoadBalancerPoolOriginSteeringArgs
+//!             {
+//!                 Policy = "random",
 //!             },
 //!         },
 //!     });
@@ -179,29 +179,11 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewLoadBalancerPool(ctx, "example", &cloudflare.LoadBalancerPoolArgs{
-//! 			AccountId:   pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			Description: pulumi.String("example load balancer pool"),
-//! 			Enabled:     pulumi.Bool(false),
-//! 			Latitude:    pulumi.Float64(55),
-//! 			LoadSheddings: cloudflare.LoadBalancerPoolLoadSheddingArray{
-//! 				&cloudflare.LoadBalancerPoolLoadSheddingArgs{
-//! 					DefaultPercent: pulumi.Float64(55),
-//! 					DefaultPolicy:  pulumi.String("random"),
-//! 					SessionPercent: pulumi.Float64(12),
-//! 					SessionPolicy:  pulumi.String("hash"),
-//! 				},
-//! 			},
-//! 			Longitude:         -12,
-//! 			MinimumOrigins:    pulumi.Int(1),
-//! 			Name:              pulumi.String("example-pool"),
-//! 			NotificationEmail: pulumi.String("someone@example.com"),
-//! 			OriginSteerings: cloudflare.LoadBalancerPoolOriginSteeringArray{
-//! 				&cloudflare.LoadBalancerPoolOriginSteeringArgs{
-//! 					Policy: pulumi.String("random"),
-//! 				},
-//! 			},
+//! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
+//! 			Name:      pulumi.String("example-pool"),
 //! 			Origins: cloudflare.LoadBalancerPoolOriginArray{
 //! 				&cloudflare.LoadBalancerPoolOriginArgs{
+//! 					Name:    pulumi.String("example-1"),
 //! 					Address: pulumi.String("192.0.2.1"),
 //! 					Enabled: pulumi.Bool(false),
 //! 					Headers: cloudflare.LoadBalancerPoolOriginHeaderArray{
@@ -212,9 +194,9 @@
 //! 							},
 //! 						},
 //! 					},
-//! 					Name: pulumi.String("example-1"),
 //! 				},
 //! 				&cloudflare.LoadBalancerPoolOriginArgs{
+//! 					Name:    pulumi.String("example-2"),
 //! 					Address: pulumi.String("192.0.2.2"),
 //! 					Headers: cloudflare.LoadBalancerPoolOriginHeaderArray{
 //! 						&cloudflare.LoadBalancerPoolOriginHeaderArgs{
@@ -224,7 +206,25 @@
 //! 							},
 //! 						},
 //! 					},
-//! 					Name: pulumi.String("example-2"),
+//! 				},
+//! 			},
+//! 			Latitude:          pulumi.Float64(55),
+//! 			Longitude:         pulumi.Float64(-12),
+//! 			Description:       pulumi.String("example load balancer pool"),
+//! 			Enabled:           pulumi.Bool(false),
+//! 			MinimumOrigins:    pulumi.Int(1),
+//! 			NotificationEmail: pulumi.String("someone@example.com"),
+//! 			LoadSheddings: cloudflare.LoadBalancerPoolLoadSheddingArray{
+//! 				&cloudflare.LoadBalancerPoolLoadSheddingArgs{
+//! 					DefaultPercent: pulumi.Float64(55),
+//! 					DefaultPolicy:  pulumi.String("random"),
+//! 					SessionPercent: pulumi.Float64(12),
+//! 					SessionPolicy:  pulumi.String("hash"),
+//! 				},
+//! 			},
+//! 			OriginSteerings: cloudflare.LoadBalancerPoolOriginSteeringArray{
+//! 				&cloudflare.LoadBalancerPoolOriginSteeringArgs{
+//! 					Policy: pulumi.String("random"),
 //! 				},
 //! 			},
 //! 		})
@@ -244,9 +244,9 @@
 //! import com.pulumi.core.Output;
 //! import com.pulumi.cloudflare.LoadBalancerPool;
 //! import com.pulumi.cloudflare.LoadBalancerPoolArgs;
+//! import com.pulumi.cloudflare.inputs.LoadBalancerPoolOriginArgs;
 //! import com.pulumi.cloudflare.inputs.LoadBalancerPoolLoadSheddingArgs;
 //! import com.pulumi.cloudflare.inputs.LoadBalancerPoolOriginSteeringArgs;
-//! import com.pulumi.cloudflare.inputs.LoadBalancerPoolOriginArgs;
 //! import java.util.List;
 //! import java.util.ArrayList;
 //! import java.util.Map;
@@ -260,46 +260,82 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new LoadBalancerPool("example", LoadBalancerPoolArgs.builder()        
+//!         var example = new LoadBalancerPool("example", LoadBalancerPoolArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .description("example load balancer pool")
-//!             .enabled(false)
-//!             .latitude(55)
-//!             .loadSheddings(LoadBalancerPoolLoadSheddingArgs.builder()
-//!                 .defaultPercent(55)
-//!                 .defaultPolicy("random")
-//!                 .sessionPercent(12)
-//!                 .sessionPolicy("hash")
-//!                 .build())
-//!             .longitude("TODO: GenUnaryOpExpression")
-//!             .minimumOrigins(1)
 //!             .name("example-pool")
-//!             .notificationEmail("someone@example.com")
-//!             .originSteerings(LoadBalancerPoolOriginSteeringArgs.builder()
-//!                 .policy("random")
-//!                 .build())
 //!             .origins(            
 //!                 LoadBalancerPoolOriginArgs.builder()
+//!                     .name("example-1")
 //!                     .address("192.0.2.1")
 //!                     .enabled(false)
 //!                     .headers(LoadBalancerPoolOriginHeaderArgs.builder()
 //!                         .header("Host")
 //!                         .values("example-1")
 //!                         .build())
-//!                     .name("example-1")
 //!                     .build(),
 //!                 LoadBalancerPoolOriginArgs.builder()
+//!                     .name("example-2")
 //!                     .address("192.0.2.2")
 //!                     .headers(LoadBalancerPoolOriginHeaderArgs.builder()
 //!                         .header("Host")
 //!                         .values("example-2")
 //!                         .build())
-//!                     .name("example-2")
 //!                     .build())
+//!             .latitude(55)
+//!             .longitude(-12)
+//!             .description("example load balancer pool")
+//!             .enabled(false)
+//!             .minimumOrigins(1)
+//!             .notificationEmail("someone@example.com")
+//!             .loadSheddings(LoadBalancerPoolLoadSheddingArgs.builder()
+//!                 .defaultPercent(55)
+//!                 .defaultPolicy("random")
+//!                 .sessionPercent(12)
+//!                 .sessionPolicy("hash")
+//!                 .build())
+//!             .originSteerings(LoadBalancerPoolOriginSteeringArgs.builder()
+//!                 .policy("random")
+//!                 .build())
 //!             .build());
 //! 
 //!     }
 //! }
+//! ```
+//! ### YAML
+//! ```yaml
+//! resources:
+//!   example:
+//!     type: cloudflare:LoadBalancerPool
+//!     properties:
+//!       accountId: f037e56e89293a057740de681ac9abbe
+//!       name: example-pool
+//!       origins:
+//!         - name: example-1
+//!           address: 192.0.2.1
+//!           enabled: false
+//!           headers:
+//!             - header: Host
+//!               values:
+//!                 - example-1
+//!         - name: example-2
+//!           address: 192.0.2.2
+//!           headers:
+//!             - header: Host
+//!               values:
+//!                 - example-2
+//!       latitude: 55
+//!       longitude: -12
+//!       description: example load balancer pool
+//!       enabled: false
+//!       minimumOrigins: 1
+//!       notificationEmail: someone@example.com
+//!       loadSheddings:
+//!         - defaultPercent: 55
+//!           defaultPolicy: random
+//!           sessionPercent: 12
+//!           sessionPolicy: hash
+//!       originSteerings:
+//!         - policy: random
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 
@@ -322,7 +358,7 @@ pub struct LoadBalancerPoolArgs {
     /// Free text description.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub description: pulumi_wasm_rust::Output<Option<String>>,
-    /// Whether this origin is enabled. Disabled origins will not receive traffic and are excluded from health checks. Defaults to `true`.
+    /// Whether to enable (the default) this pool. Disabled pools will not receive traffic and are excluded from health checks. Disabling a pool will cause any load balancers using it to failover to the next pool (if any). Defaults to `true`.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
     /// The latitude this pool is physically located at; used for proximity steering.
@@ -340,7 +376,7 @@ pub struct LoadBalancerPoolArgs {
     /// The ID of the Monitor to use for health checking origins within this pool.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub monitor: pulumi_wasm_rust::Output<Option<String>>,
-    /// A human-identifiable name for the origin.
+    /// A short name (tag) for the pool.
     #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// The email address to send health status notifications to. This can be an individual mailbox or a mailing list. Multiple emails can be supplied as a comma delimited list.
@@ -363,7 +399,7 @@ pub struct LoadBalancerPoolResult {
     pub created_on: pulumi_wasm_rust::Output<String>,
     /// Free text description.
     pub description: pulumi_wasm_rust::Output<Option<String>>,
-    /// Whether this origin is enabled. Disabled origins will not receive traffic and are excluded from health checks. Defaults to `true`.
+    /// Whether to enable (the default) this pool. Disabled pools will not receive traffic and are excluded from health checks. Disabling a pool will cause any load balancers using it to failover to the next pool (if any). Defaults to `true`.
     pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
     /// The latitude this pool is physically located at; used for proximity steering.
     pub latitude: pulumi_wasm_rust::Output<Option<f64>>,
@@ -377,7 +413,7 @@ pub struct LoadBalancerPoolResult {
     pub modified_on: pulumi_wasm_rust::Output<String>,
     /// The ID of the Monitor to use for health checking origins within this pool.
     pub monitor: pulumi_wasm_rust::Output<Option<String>>,
-    /// A human-identifiable name for the origin.
+    /// A short name (tag) for the pool.
     pub name: pulumi_wasm_rust::Output<String>,
     /// The email address to send health status notifications to. This can be an individual mailbox or a mailing list. Multiple emails can be supplied as a comma delimited list.
     pub notification_email: pulumi_wasm_rust::Output<Option<String>>,

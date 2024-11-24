@@ -15,6 +15,7 @@ impl zone::Guest for Component {
                 ObjectField { name: "paused".into(), value: args.paused },
                 ObjectField { name: "plan".into(), value: args.plan },
                 ObjectField { name: "type".into(), value: args.type_ },
+                ObjectField { name: "vanityNameServers".into(), value: args.vanity_name_servers },
                 ObjectField { name: "zone".into(), value: args.zone },
             ],
             results: vec![

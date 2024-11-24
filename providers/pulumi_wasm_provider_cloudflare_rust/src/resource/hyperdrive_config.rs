@@ -8,13 +8,13 @@
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
-//! const noDefaults = new cloudflare.HyperdriveConfig("noDefaults", {
+//! const noDefaults = new cloudflare.HyperdriveConfig("no_defaults", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
 //!     name: "my-hyperdrive-config",
 //!     origin: {
 //!         database: "postgres",
-//!         host: "my-database.example.com",
 //!         password: "my-password",
+//!         host: "my-database.example.com",
 //!         port: 5432,
 //!         scheme: "postgres",
 //!         user: "my-user",
@@ -26,17 +26,17 @@
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
 //! 
-//! no_defaults = cloudflare.HyperdriveConfig("noDefaults",
+//! no_defaults = cloudflare.HyperdriveConfig("no_defaults",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
 //!     name="my-hyperdrive-config",
-//!     origin=cloudflare.HyperdriveConfigOriginArgs(
-//!         database="postgres",
-//!         host="my-database.example.com",
-//!         password="my-password",
-//!         port=5432,
-//!         scheme="postgres",
-//!         user="my-user",
-//!     ))
+//!     origin={
+//!         "database": "postgres",
+//!         "password": "my-password",
+//!         "host": "my-database.example.com",
+//!         "port": 5432,
+//!         "scheme": "postgres",
+//!         "user": "my-user",
+//!     })
 //! ```
 //! ### C#
 //! ```csharp
@@ -47,15 +47,15 @@
 //! 
 //! return await Deployment.RunAsync(() => 
 //! {
-//!     var noDefaults = new Cloudflare.HyperdriveConfig("noDefaults", new()
+//!     var noDefaults = new Cloudflare.HyperdriveConfig("no_defaults", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
 //!         Name = "my-hyperdrive-config",
 //!         Origin = new Cloudflare.Inputs.HyperdriveConfigOriginArgs
 //!         {
 //!             Database = "postgres",
-//!             Host = "my-database.example.com",
 //!             Password = "my-password",
+//!             Host = "my-database.example.com",
 //!             Port = 5432,
 //!             Scheme = "postgres",
 //!             User = "my-user",
@@ -75,13 +75,13 @@
 //! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewHyperdriveConfig(ctx, "noDefaults", &cloudflare.HyperdriveConfigArgs{
+//! 		_, err := cloudflare.NewHyperdriveConfig(ctx, "no_defaults", &cloudflare.HyperdriveConfigArgs{
 //! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
 //! 			Name:      pulumi.String("my-hyperdrive-config"),
 //! 			Origin: &cloudflare.HyperdriveConfigOriginArgs{
 //! 				Database: pulumi.String("postgres"),
-//! 				Host:     pulumi.String("my-database.example.com"),
 //! 				Password: pulumi.String("my-password"),
+//! 				Host:     pulumi.String("my-database.example.com"),
 //! 				Port:     pulumi.Int(5432),
 //! 				Scheme:   pulumi.String("postgres"),
 //! 				User:     pulumi.String("my-user"),
@@ -117,13 +117,13 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var noDefaults = new HyperdriveConfig("noDefaults", HyperdriveConfigArgs.builder()        
+//!         var noDefaults = new HyperdriveConfig("noDefaults", HyperdriveConfigArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
 //!             .name("my-hyperdrive-config")
 //!             .origin(HyperdriveConfigOriginArgs.builder()
 //!                 .database("postgres")
-//!                 .host("my-database.example.com")
 //!                 .password("my-password")
+//!                 .host("my-database.example.com")
 //!                 .port(5432)
 //!                 .scheme("postgres")
 //!                 .user("my-user")
@@ -138,13 +138,14 @@
 //! resources:
 //!   noDefaults:
 //!     type: cloudflare:HyperdriveConfig
+//!     name: no_defaults
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
 //!       name: my-hyperdrive-config
 //!       origin:
 //!         database: postgres
-//!         host: my-database.example.com
 //!         password: my-password
+//!         host: my-database.example.com
 //!         port: 5432
 //!         scheme: postgres
 //!         user: my-user
@@ -173,6 +174,9 @@ pub struct HyperdriveConfigArgs {
     /// The origin details for the Hyperdrive configuration.
     #[builder(into)]
     pub origin: pulumi_wasm_rust::Output<crate::types::HyperdriveConfigOrigin>,
+    /// The identifier of this resource. This is the hyperdrive config value.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    pub resource_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 
 pub struct HyperdriveConfigResult {
@@ -184,6 +188,8 @@ pub struct HyperdriveConfigResult {
     pub name: pulumi_wasm_rust::Output<String>,
     /// The origin details for the Hyperdrive configuration.
     pub origin: pulumi_wasm_rust::Output<crate::types::HyperdriveConfigOrigin>,
+    /// The identifier of this resource. This is the hyperdrive config value.
+    pub resource_id: pulumi_wasm_rust::Output<String>,
 }
 
 ///
@@ -196,6 +202,7 @@ pub fn create(name: &str, args: HyperdriveConfigArgs) -> HyperdriveConfigResult 
         caching: &args.caching.get_inner(),
         name: &args.name.get_inner(),
         origin: &args.origin.get_inner(),
+        resource_id: &args.resource_id.get_inner(),
     });
 
     HyperdriveConfigResult {
@@ -203,5 +210,6 @@ pub fn create(name: &str, args: HyperdriveConfigArgs) -> HyperdriveConfigResult 
         caching: crate::into_domain(result.caching),
         name: crate::into_domain(result.name),
         origin: crate::into_domain(result.origin),
+        resource_id: crate::into_domain(result.resource_id),
     }
 }

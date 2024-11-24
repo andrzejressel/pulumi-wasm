@@ -12,7 +12,7 @@
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
-//! const exampleLoadBalancerPool = new cloudflare.LoadBalancerPool("exampleLoadBalancerPool", {
+//! const exampleLoadBalancerPool = new cloudflare.LoadBalancerPool("example", {
 //!     name: "example-lb-pool",
 //!     origins: [{
 //!         name: "example-1",
@@ -24,7 +24,7 @@
 //! // In normal usage, would have different pools set for different pops
 //! // (cloudflare points-of-presence) and/or for different regions.
 //! // Within each pop or region we can define multiple pools in failover order.
-//! const exampleLoadBalancer = new cloudflare.LoadBalancer("exampleLoadBalancer", {
+//! const example = new cloudflare.LoadBalancer("example", {
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //!     name: "example-load-balancer.example.com",
 //!     fallbackPoolId: exampleLoadBalancerPool.id,
@@ -61,18 +61,18 @@
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
 //! 
-//! example_load_balancer_pool = cloudflare.LoadBalancerPool("exampleLoadBalancerPool",
+//! example_load_balancer_pool = cloudflare.LoadBalancerPool("example",
 //!     name="example-lb-pool",
-//!     origins=[cloudflare.LoadBalancerPoolOriginArgs(
-//!         name="example-1",
-//!         address="192.0.2.1",
-//!         enabled=False,
-//!     )])
+//!     origins=[{
+//!         "name": "example-1",
+//!         "address": "192.0.2.1",
+//!         "enabled": False,
+//!     }])
 //! # Define a load balancer which always points to a pool we define below.
 //! # In normal usage, would have different pools set for different pops
 //! # (cloudflare points-of-presence) and/or for different regions.
 //! # Within each pop or region we can define multiple pools in failover order.
-//! example_load_balancer = cloudflare.LoadBalancer("exampleLoadBalancer",
+//! example = cloudflare.LoadBalancer("example",
 //!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     name="example-load-balancer.example.com",
 //!     fallback_pool_id=example_load_balancer_pool.id,
@@ -80,28 +80,28 @@
 //!     description="example load balancer using geo-balancing",
 //!     proxied=True,
 //!     steering_policy="geo",
-//!     pop_pools=[cloudflare.LoadBalancerPopPoolArgs(
-//!         pop="LAX",
-//!         pool_ids=[example_load_balancer_pool.id],
-//!     )],
-//!     country_pools=[cloudflare.LoadBalancerCountryPoolArgs(
-//!         country="US",
-//!         pool_ids=[example_load_balancer_pool.id],
-//!     )],
-//!     region_pools=[cloudflare.LoadBalancerRegionPoolArgs(
-//!         region="WNAM",
-//!         pool_ids=[example_load_balancer_pool.id],
-//!     )],
-//!     rules=[cloudflare.LoadBalancerRuleArgs(
-//!         name="example rule",
-//!         condition="http.request.uri.path contains \"testing\"",
-//!         fixed_response=cloudflare.LoadBalancerRuleFixedResponseArgs(
-//!             message_body="hello",
-//!             status_code=200,
-//!             content_type="html",
-//!             location="www.example.com",
-//!         ),
-//!     )])
+//!     pop_pools=[{
+//!         "pop": "LAX",
+//!         "pool_ids": [example_load_balancer_pool.id],
+//!     }],
+//!     country_pools=[{
+//!         "country": "US",
+//!         "pool_ids": [example_load_balancer_pool.id],
+//!     }],
+//!     region_pools=[{
+//!         "region": "WNAM",
+//!         "pool_ids": [example_load_balancer_pool.id],
+//!     }],
+//!     rules=[{
+//!         "name": "example rule",
+//!         "condition": "http.request.uri.path contains \"testing\"",
+//!         "fixed_response": {
+//!             "message_body": "hello",
+//!             "status_code": 200,
+//!             "content_type": "html",
+//!             "location": "www.example.com",
+//!         },
+//!     }])
 //! ```
 //! ### C#
 //! ```csharp
@@ -112,7 +112,7 @@
 //! 
 //! return await Deployment.RunAsync(() => 
 //! {
-//!     var exampleLoadBalancerPool = new Cloudflare.LoadBalancerPool("exampleLoadBalancerPool", new()
+//!     var exampleLoadBalancerPool = new Cloudflare.LoadBalancerPool("example", new()
 //!     {
 //!         Name = "example-lb-pool",
 //!         Origins = new[]
@@ -130,7 +130,7 @@
 //!     // In normal usage, would have different pools set for different pops
 //!     // (cloudflare points-of-presence) and/or for different regions.
 //!     // Within each pop or region we can define multiple pools in failover order.
-//!     var exampleLoadBalancer = new Cloudflare.LoadBalancer("exampleLoadBalancer", new()
+//!     var example = new Cloudflare.LoadBalancer("example", new()
 //!     {
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!         Name = "example-load-balancer.example.com",
@@ -205,7 +205,7 @@
 //! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		exampleLoadBalancerPool, err := cloudflare.NewLoadBalancerPool(ctx, "exampleLoadBalancerPool", &cloudflare.LoadBalancerPoolArgs{
+//! 		exampleLoadBalancerPool, err := cloudflare.NewLoadBalancerPool(ctx, "example", &cloudflare.LoadBalancerPoolArgs{
 //! 			Name: pulumi.String("example-lb-pool"),
 //! 			Origins: cloudflare.LoadBalancerPoolOriginArray{
 //! 				&cloudflare.LoadBalancerPoolOriginArgs{
@@ -222,7 +222,7 @@
 //! 		// In normal usage, would have different pools set for different pops
 //! 		// (cloudflare points-of-presence) and/or for different regions.
 //! 		// Within each pop or region we can define multiple pools in failover order.
-//! 		_, err = cloudflare.NewLoadBalancer(ctx, "exampleLoadBalancer", &cloudflare.LoadBalancerArgs{
+//! 		_, err = cloudflare.NewLoadBalancer(ctx, "example", &cloudflare.LoadBalancerArgs{
 //! 			ZoneId:         pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 			Name:           pulumi.String("example-load-balancer.example.com"),
 //! 			FallbackPoolId: exampleLoadBalancerPool.ID(),
@@ -306,7 +306,7 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var exampleLoadBalancerPool = new LoadBalancerPool("exampleLoadBalancerPool", LoadBalancerPoolArgs.builder()        
+//!         var exampleLoadBalancerPool = new LoadBalancerPool("exampleLoadBalancerPool", LoadBalancerPoolArgs.builder()
 //!             .name("example-lb-pool")
 //!             .origins(LoadBalancerPoolOriginArgs.builder()
 //!                 .name("example-1")
@@ -319,7 +319,7 @@
 //!         // In normal usage, would have different pools set for different pops
 //!         // (cloudflare points-of-presence) and/or for different regions.
 //!         // Within each pop or region we can define multiple pools in failover order.
-//!         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()        
+//!         var example = new LoadBalancer("example", LoadBalancerArgs.builder()
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .name("example-load-balancer.example.com")
 //!             .fallbackPoolId(exampleLoadBalancerPool.id())
@@ -361,7 +361,7 @@
 //!   # In normal usage, would have different pools set for different pops
 //!   # (cloudflare points-of-presence) and/or for different regions.
 //!   # Within each pop or region we can define multiple pools in failover order.
-//!   exampleLoadBalancer:
+//!   example:
 //!     type: cloudflare:LoadBalancer
 //!     properties:
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
@@ -394,6 +394,7 @@
 //!             location: www.example.com
 //!   exampleLoadBalancerPool:
 //!     type: cloudflare:LoadBalancerPool
+//!     name: example
 //!     properties:
 //!       name: example-lb-pool
 //!       origins:
@@ -434,7 +435,7 @@ pub struct LoadBalancerArgs {
     /// Controls location-based steering for non-proxied requests.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub location_strategies: pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerLocationStrategy>>>,
-    /// Human readable name for this rule.
+    /// The DNS hostname to associate with your load balancer. If this hostname already exists as a DNS record in Cloudflare's DNS, the load balancer will take precedence and the DNS record will not be used.
     #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// A set containing mappings of Cloudflare Point-of-Presence (PoP) identifiers to a list of pool IDs (ordered by their failover priority) for the PoP (datacenter). This feature is only available to enterprise customers.
@@ -452,10 +453,10 @@ pub struct LoadBalancerArgs {
     /// A list of rules for this load balancer to execute.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub rules: pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerRule>>>,
-    /// Configure attributes for session affinity.
+    /// Specifies the type of session affinity the load balancer should use unless specified as `none` or `""` (default). With value `cookie`, on the first request to a proxied load balancer, a cookie is generated, encoding information of which origin the request will be forwarded to. Subsequent requests, by the same client to the same load balancer, will be sent to the origin server the cookie encodes, for the duration of the cookie and as long as the origin server remains healthy. If the cookie has expired or the origin server is unhealthy then a new origin server is calculated and used. Value `ip_cookie` behaves the same as `cookie` except the initial origin selection is stable and based on the client's IP address. Available values: `""`, `none`, `cookie`, `ip_cookie`, `header`. Defaults to `none`.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub session_affinity: pulumi_wasm_rust::Output<Option<String>>,
-    /// Configure attributes for session affinity. Note that the property `drain_duration` is not currently supported as a rule override.
+    /// Configure attributes for session affinity.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub session_affinity_attributes: pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerSessionAffinityAttribute>>>,
     /// Time, in seconds, until this load balancer's session affinity cookie expires after being created. This parameter is ignored unless a supported session affinity policy is set. The current default of `82800` (23 hours) will be used unless `session_affinity_ttl` is explicitly set. Once the expiry time has been reached, subsequent requests may get sent to a different origin server. Valid values are between `1800` and `604800`.
@@ -464,7 +465,7 @@ pub struct LoadBalancerArgs {
     /// The method the load balancer uses to determine the route to your origin. Value `off` uses `default_pool_ids`. Value `geo` uses `pop_pools`/`country_pools`/`region_pools`. For non-proxied requests, the `country` for `country_pools` is determined by `location_strategy`. Value `random` selects a pool randomly. Value `dynamic_latency` uses round trip time to select the closest pool in `default_pool_ids` (requires pool health checks). Value `proximity` uses the pools' latitude and longitude to select the closest pool using the Cloudflare PoP location for proxied requests or the location determined by `location_strategy` for non-proxied requests. Value `least_outstanding_requests` selects a pool by taking into consideration `random_steering` weights, as well as each pool's number of outstanding requests. Pools with more pending requests are weighted proportionately less relative to others. Value `least_connections` selects a pool by taking into consideration `random_steering` weights, as well as each pool's number of open connections. Pools with more open connections are weighted proportionately less relative to others. Supported for HTTP/1 and HTTP/2 connections. Value `""` maps to `geo` if you use `pop_pools`/`country_pools`/`region_pools` otherwise `off`. Available values: `off`, `geo`, `dynamic_latency`, `random`, `proximity`, `least_outstanding_requests`, `least_connections`, `""` Defaults to `""`.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub steering_policy: pulumi_wasm_rust::Output<Option<String>>,
-    /// Time to live (TTL) of the DNS entry for the IP address returned by this load balancer. This cannot be set for proxied load balancers. Defaults to `30`.
+    /// Time to live (TTL) of the DNS entry for the IP address returned by this load balancer. This cannot be set for proxied load balancers. Defaults to `30`. Conflicts with `proxied`.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub ttl: pulumi_wasm_rust::Output<Option<i32>>,
     /// The zone ID to add the load balancer to. **Modifying this attribute will force creation of a new resource.**
@@ -491,7 +492,7 @@ pub struct LoadBalancerResult {
     pub location_strategies: pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerLocationStrategy>>>,
     /// The RFC3339 timestamp of when the load balancer was last modified.
     pub modified_on: pulumi_wasm_rust::Output<String>,
-    /// Human readable name for this rule.
+    /// The DNS hostname to associate with your load balancer. If this hostname already exists as a DNS record in Cloudflare's DNS, the load balancer will take precedence and the DNS record will not be used.
     pub name: pulumi_wasm_rust::Output<String>,
     /// A set containing mappings of Cloudflare Point-of-Presence (PoP) identifiers to a list of pool IDs (ordered by their failover priority) for the PoP (datacenter). This feature is only available to enterprise customers.
     pub pop_pools: pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerPopPool>>>,
@@ -503,15 +504,15 @@ pub struct LoadBalancerResult {
     pub region_pools: pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerRegionPool>>>,
     /// A list of rules for this load balancer to execute.
     pub rules: pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerRule>>>,
-    /// Configure attributes for session affinity.
+    /// Specifies the type of session affinity the load balancer should use unless specified as `none` or `""` (default). With value `cookie`, on the first request to a proxied load balancer, a cookie is generated, encoding information of which origin the request will be forwarded to. Subsequent requests, by the same client to the same load balancer, will be sent to the origin server the cookie encodes, for the duration of the cookie and as long as the origin server remains healthy. If the cookie has expired or the origin server is unhealthy then a new origin server is calculated and used. Value `ip_cookie` behaves the same as `cookie` except the initial origin selection is stable and based on the client's IP address. Available values: `""`, `none`, `cookie`, `ip_cookie`, `header`. Defaults to `none`.
     pub session_affinity: pulumi_wasm_rust::Output<Option<String>>,
-    /// Configure attributes for session affinity. Note that the property `drain_duration` is not currently supported as a rule override.
+    /// Configure attributes for session affinity.
     pub session_affinity_attributes: pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerSessionAffinityAttribute>>>,
     /// Time, in seconds, until this load balancer's session affinity cookie expires after being created. This parameter is ignored unless a supported session affinity policy is set. The current default of `82800` (23 hours) will be used unless `session_affinity_ttl` is explicitly set. Once the expiry time has been reached, subsequent requests may get sent to a different origin server. Valid values are between `1800` and `604800`.
     pub session_affinity_ttl: pulumi_wasm_rust::Output<Option<i32>>,
     /// The method the load balancer uses to determine the route to your origin. Value `off` uses `default_pool_ids`. Value `geo` uses `pop_pools`/`country_pools`/`region_pools`. For non-proxied requests, the `country` for `country_pools` is determined by `location_strategy`. Value `random` selects a pool randomly. Value `dynamic_latency` uses round trip time to select the closest pool in `default_pool_ids` (requires pool health checks). Value `proximity` uses the pools' latitude and longitude to select the closest pool using the Cloudflare PoP location for proxied requests or the location determined by `location_strategy` for non-proxied requests. Value `least_outstanding_requests` selects a pool by taking into consideration `random_steering` weights, as well as each pool's number of outstanding requests. Pools with more pending requests are weighted proportionately less relative to others. Value `least_connections` selects a pool by taking into consideration `random_steering` weights, as well as each pool's number of open connections. Pools with more open connections are weighted proportionately less relative to others. Supported for HTTP/1 and HTTP/2 connections. Value `""` maps to `geo` if you use `pop_pools`/`country_pools`/`region_pools` otherwise `off`. Available values: `off`, `geo`, `dynamic_latency`, `random`, `proximity`, `least_outstanding_requests`, `least_connections`, `""` Defaults to `""`.
     pub steering_policy: pulumi_wasm_rust::Output<String>,
-    /// Time to live (TTL) of the DNS entry for the IP address returned by this load balancer. This cannot be set for proxied load balancers. Defaults to `30`.
+    /// Time to live (TTL) of the DNS entry for the IP address returned by this load balancer. This cannot be set for proxied load balancers. Defaults to `30`. Conflicts with `proxied`.
     pub ttl: pulumi_wasm_rust::Output<i32>,
     /// The zone ID to add the load balancer to. **Modifying this attribute will force creation of a new resource.**
     pub zone_id: pulumi_wasm_rust::Output<String>,

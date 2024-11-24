@@ -1,6 +1,14 @@
 #[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug)]
 #[builder(finish_fn = build_struct)]
 pub struct HyperdriveConfigOrigin {
+    /// Client ID associated with the Cloudflare Access Service Token used to connect via Access.
+    #[builder(into, default = Box::new(None))]
+    #[serde(rename = "accessClientId")]
+    pub r#access_client_id: Box<Option<String>>,
+    /// Client Secret associated with the Cloudflare Access Service Token used to connect via Access.
+    #[builder(into, default = Box::new(None))]
+    #[serde(rename = "accessClientSecret")]
+    pub r#access_client_secret: Box<Option<String>>,
     /// The name of your origin database.
     #[builder(into)]
     #[serde(rename = "database")]
@@ -14,9 +22,9 @@ pub struct HyperdriveConfigOrigin {
     #[serde(rename = "password")]
     pub r#password: Box<String>,
     /// The port (default: 5432 for Postgres) of your origin database.
-    #[builder(into)]
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "port")]
-    pub r#port: Box<i32>,
+    pub r#port: Box<Option<i32>>,
     /// Specifies the URL scheme used to connect to your origin database.
     #[builder(into)]
     #[serde(rename = "scheme")]

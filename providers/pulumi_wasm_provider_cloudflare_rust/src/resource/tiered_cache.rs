@@ -10,8 +10,8 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! const example = new cloudflare.TieredCache("example", {
-//!     cacheType: "smart",
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     cacheType: "smart",
 //! });
 //! ```
 //! ### Python
@@ -20,8 +20,8 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! example = cloudflare.TieredCache("example",
-//!     cache_type="smart",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
+//!     cache_type="smart")
 //! ```
 //! ### C#
 //! ```csharp
@@ -34,8 +34,8 @@
 //! {
 //!     var example = new Cloudflare.TieredCache("example", new()
 //!     {
-//!         CacheType = "smart",
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         CacheType = "smart",
 //!     });
 //! 
 //! });
@@ -52,8 +52,8 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewTieredCache(ctx, "example", &cloudflare.TieredCacheArgs{
-//! 			CacheType: pulumi.String("smart"),
 //! 			ZoneId:    pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			CacheType: pulumi.String("smart"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -84,9 +84,9 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new TieredCache("example", TieredCacheArgs.builder()        
-//!             .cacheType("smart")
+//!         var example = new TieredCache("example", TieredCacheArgs.builder()
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .cacheType("smart")
 //!             .build());
 //! 
 //!     }
@@ -98,8 +98,8 @@
 //!   example:
 //!     type: cloudflare:TieredCache
 //!     properties:
-//!       cacheType: smart
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       cacheType: smart
 //! ```
 //! <!--End PulumiCodeChooser -->
 

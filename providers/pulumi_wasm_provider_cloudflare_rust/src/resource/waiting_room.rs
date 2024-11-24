@@ -10,6 +10,13 @@
 //! 
 //! // Waiting Room
 //! const example = new cloudflare.WaitingRoom("example", {
+//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     name: "foo",
+//!     host: "foo.example.com",
+//!     path: "/",
+//!     newUsersPerMinute: 200,
+//!     totalActiveUsers: 200,
+//!     cookieSuffix: "queue1",
 //!     additionalRoutes: [
 //!         {
 //!             host: "shop1.example.com",
@@ -19,14 +26,8 @@
 //!             host: "shop2.example.com",
 //!         },
 //!     ],
-//!     cookieSuffix: "queue1",
-//!     host: "foo.example.com",
-//!     name: "foo",
-//!     newUsersPerMinute: 200,
-//!     path: "/",
 //!     queueingStatusCode: 200,
-//!     totalActiveUsers: 200,
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     enabledOriginCommands: ["revoke"],
 //! });
 //! ```
 //! ### Python
@@ -36,23 +37,24 @@
 //! 
 //! # Waiting Room
 //! example = cloudflare.WaitingRoom("example",
-//!     additional_routes=[
-//!         cloudflare.WaitingRoomAdditionalRouteArgs(
-//!             host="shop1.example.com",
-//!             path="/example-path",
-//!         ),
-//!         cloudflare.WaitingRoomAdditionalRouteArgs(
-//!             host="shop2.example.com",
-//!         ),
-//!     ],
-//!     cookie_suffix="queue1",
-//!     host="foo.example.com",
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     name="foo",
-//!     new_users_per_minute=200,
+//!     host="foo.example.com",
 //!     path="/",
-//!     queueing_status_code=200,
+//!     new_users_per_minute=200,
 //!     total_active_users=200,
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     cookie_suffix="queue1",
+//!     additional_routes=[
+//!         {
+//!             "host": "shop1.example.com",
+//!             "path": "/example-path",
+//!         },
+//!         {
+//!             "host": "shop2.example.com",
+//!         },
+//!     ],
+//!     queueing_status_code=200,
+//!     enabled_origin_commands=["revoke"])
 //! ```
 //! ### C#
 //! ```csharp
@@ -66,6 +68,13 @@
 //!     // Waiting Room
 //!     var example = new Cloudflare.WaitingRoom("example", new()
 //!     {
+//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         Name = "foo",
+//!         Host = "foo.example.com",
+//!         Path = "/",
+//!         NewUsersPerMinute = 200,
+//!         TotalActiveUsers = 200,
+//!         CookieSuffix = "queue1",
 //!         AdditionalRoutes = new[]
 //!         {
 //!             new Cloudflare.Inputs.WaitingRoomAdditionalRouteArgs
@@ -78,14 +87,11 @@
 //!                 Host = "shop2.example.com",
 //!             },
 //!         },
-//!         CookieSuffix = "queue1",
-//!         Host = "foo.example.com",
-//!         Name = "foo",
-//!         NewUsersPerMinute = 200,
-//!         Path = "/",
 //!         QueueingStatusCode = 200,
-//!         TotalActiveUsers = 200,
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         EnabledOriginCommands = new[]
+//!         {
+//!             "revoke",
+//!         },
 //!     });
 //! 
 //! });
@@ -103,6 +109,13 @@
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		// Waiting Room
 //! 		_, err := cloudflare.NewWaitingRoom(ctx, "example", &cloudflare.WaitingRoomArgs{
+//! 			ZoneId:            pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			Name:              pulumi.String("foo"),
+//! 			Host:              pulumi.String("foo.example.com"),
+//! 			Path:              pulumi.String("/"),
+//! 			NewUsersPerMinute: pulumi.Int(200),
+//! 			TotalActiveUsers:  pulumi.Int(200),
+//! 			CookieSuffix:      pulumi.String("queue1"),
 //! 			AdditionalRoutes: cloudflare.WaitingRoomAdditionalRouteArray{
 //! 				&cloudflare.WaitingRoomAdditionalRouteArgs{
 //! 					Host: pulumi.String("shop1.example.com"),
@@ -112,14 +125,10 @@
 //! 					Host: pulumi.String("shop2.example.com"),
 //! 				},
 //! 			},
-//! 			CookieSuffix:       pulumi.String("queue1"),
-//! 			Host:               pulumi.String("foo.example.com"),
-//! 			Name:               pulumi.String("foo"),
-//! 			NewUsersPerMinute:  pulumi.Int(200),
-//! 			Path:               pulumi.String("/"),
 //! 			QueueingStatusCode: pulumi.Int(200),
-//! 			TotalActiveUsers:   pulumi.Int(200),
-//! 			ZoneId:             pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			EnabledOriginCommands: pulumi.StringArray{
+//! 				pulumi.String("revoke"),
+//! 			},
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -152,7 +161,14 @@
 //! 
 //!     public static void stack(Context ctx) {
 //!         // Waiting Room
-//!         var example = new WaitingRoom("example", WaitingRoomArgs.builder()        
+//!         var example = new WaitingRoom("example", WaitingRoomArgs.builder()
+//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .name("foo")
+//!             .host("foo.example.com")
+//!             .path("/")
+//!             .newUsersPerMinute(200)
+//!             .totalActiveUsers(200)
+//!             .cookieSuffix("queue1")
 //!             .additionalRoutes(            
 //!                 WaitingRoomAdditionalRouteArgs.builder()
 //!                     .host("shop1.example.com")
@@ -161,14 +177,8 @@
 //!                 WaitingRoomAdditionalRouteArgs.builder()
 //!                     .host("shop2.example.com")
 //!                     .build())
-//!             .cookieSuffix("queue1")
-//!             .host("foo.example.com")
-//!             .name("foo")
-//!             .newUsersPerMinute(200)
-//!             .path("/")
 //!             .queueingStatusCode(200)
-//!             .totalActiveUsers(200)
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .enabledOriginCommands("revoke")
 //!             .build());
 //! 
 //!     }
@@ -181,18 +191,20 @@
 //!   example:
 //!     type: cloudflare:WaitingRoom
 //!     properties:
+//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       name: foo
+//!       host: foo.example.com
+//!       path: /
+//!       newUsersPerMinute: 200
+//!       totalActiveUsers: 200
+//!       cookieSuffix: queue1
 //!       additionalRoutes:
 //!         - host: shop1.example.com
 //!           path: /example-path
 //!         - host: shop2.example.com
-//!       cookieSuffix: queue1
-//!       host: foo.example.com
-//!       name: foo
-//!       newUsersPerMinute: 200
-//!       path: /
 //!       queueingStatusCode: 200
-//!       totalActiveUsers: 200
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       enabledOriginCommands:
+//!         - revoke
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 
@@ -217,7 +229,7 @@ pub struct WaitingRoomArgs {
     /// This is a templated html file that will be rendered at the edge.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub custom_page_html: pulumi_wasm_rust::Output<Option<String>>,
-    /// The language to use for the default waiting room page. Available values: `de-DE`, `es-ES`, `en-US`, `fr-FR`, `id-ID`, `it-IT`, `ja-JP`, `ko-KR`, `nl-NL`, `pl-PL`, `pt-BR`, `tr-TR`, `zh-CN`, `zh-TW`, `ru-RU`, `fa-IR`. Defaults to `en-US`.
+    /// The language to use for the default waiting room page. Available values: `de-DE`, `es-ES`, `en-US`, `fr-FR`, `id-ID`, `it-IT`, `ja-JP`, `ko-KR`, `nl-NL`, `pl-PL`, `pt-BR`, `tr-TR`, `zh-CN`, `zh-TW`, `ru-RU`, `fa-IR`, `bg-BG`, `hr-HR`, `cs-CZ`, `da-DK`, `fi-FI`, `lt-LT`, `ms-MY`, `nb-NO`, `ro-RO`, `el-GR`, `he-IL`, `hi-IN`, `hu-HU`, `sr-BA`, `sk-SK`, `sl-SI`, `sv-SE`, `tl-PH`, `th-TH`, `uk-UA`, `vi-VN`. Defaults to `en-US`.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub default_template_language: pulumi_wasm_rust::Output<Option<String>>,
     /// A description to add more details about the waiting room.
@@ -226,7 +238,10 @@ pub struct WaitingRoomArgs {
     /// Disables automatic renewal of session cookies.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub disable_session_renewal: pulumi_wasm_rust::Output<Option<bool>>,
-    /// The additional host name for which the waiting room to be applied on (no wildcards).
+    /// The list of enabled origin commands for the waiting room. Available values: `revoke`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    pub enabled_origin_commands: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+    /// Host name for which the waiting room will be applied (no wildcards).
     #[builder(into)]
     pub host: pulumi_wasm_rust::Output<String>,
     /// If true, requests to the waiting room with the header `Accept: application/json` will receive a JSON response object.
@@ -238,7 +253,7 @@ pub struct WaitingRoomArgs {
     /// The number of new users that will be let into the route every minute.
     #[builder(into)]
     pub new_users_per_minute: pulumi_wasm_rust::Output<i32>,
-    /// The path within the additional host to enable the waiting room on. Defaults to `/`.
+    /// The path within the host to enable the waiting room on. Defaults to `/`.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub path: pulumi_wasm_rust::Output<Option<String>>,
     /// If queue_all is true, then all traffic will be sent to the waiting room.
@@ -271,13 +286,15 @@ pub struct WaitingRoomResult {
     pub cookie_suffix: pulumi_wasm_rust::Output<Option<String>>,
     /// This is a templated html file that will be rendered at the edge.
     pub custom_page_html: pulumi_wasm_rust::Output<Option<String>>,
-    /// The language to use for the default waiting room page. Available values: `de-DE`, `es-ES`, `en-US`, `fr-FR`, `id-ID`, `it-IT`, `ja-JP`, `ko-KR`, `nl-NL`, `pl-PL`, `pt-BR`, `tr-TR`, `zh-CN`, `zh-TW`, `ru-RU`, `fa-IR`. Defaults to `en-US`.
+    /// The language to use for the default waiting room page. Available values: `de-DE`, `es-ES`, `en-US`, `fr-FR`, `id-ID`, `it-IT`, `ja-JP`, `ko-KR`, `nl-NL`, `pl-PL`, `pt-BR`, `tr-TR`, `zh-CN`, `zh-TW`, `ru-RU`, `fa-IR`, `bg-BG`, `hr-HR`, `cs-CZ`, `da-DK`, `fi-FI`, `lt-LT`, `ms-MY`, `nb-NO`, `ro-RO`, `el-GR`, `he-IL`, `hi-IN`, `hu-HU`, `sr-BA`, `sk-SK`, `sl-SI`, `sv-SE`, `tl-PH`, `th-TH`, `uk-UA`, `vi-VN`. Defaults to `en-US`.
     pub default_template_language: pulumi_wasm_rust::Output<Option<String>>,
     /// A description to add more details about the waiting room.
     pub description: pulumi_wasm_rust::Output<Option<String>>,
     /// Disables automatic renewal of session cookies.
     pub disable_session_renewal: pulumi_wasm_rust::Output<Option<bool>>,
-    /// The additional host name for which the waiting room to be applied on (no wildcards).
+    /// The list of enabled origin commands for the waiting room. Available values: `revoke`.
+    pub enabled_origin_commands: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+    /// Host name for which the waiting room will be applied (no wildcards).
     pub host: pulumi_wasm_rust::Output<String>,
     /// If true, requests to the waiting room with the header `Accept: application/json` will receive a JSON response object.
     pub json_response_enabled: pulumi_wasm_rust::Output<Option<bool>>,
@@ -285,7 +302,7 @@ pub struct WaitingRoomResult {
     pub name: pulumi_wasm_rust::Output<String>,
     /// The number of new users that will be let into the route every minute.
     pub new_users_per_minute: pulumi_wasm_rust::Output<i32>,
-    /// The path within the additional host to enable the waiting room on. Defaults to `/`.
+    /// The path within the host to enable the waiting room on. Defaults to `/`.
     pub path: pulumi_wasm_rust::Output<Option<String>>,
     /// If queue_all is true, then all traffic will be sent to the waiting room.
     pub queue_all: pulumi_wasm_rust::Output<Option<bool>>,
@@ -315,6 +332,7 @@ pub fn create(name: &str, args: WaitingRoomArgs) -> WaitingRoomResult {
         default_template_language: &args.default_template_language.get_inner(),
         description: &args.description.get_inner(),
         disable_session_renewal: &args.disable_session_renewal.get_inner(),
+        enabled_origin_commands: &args.enabled_origin_commands.get_inner(),
         host: &args.host.get_inner(),
         json_response_enabled: &args.json_response_enabled.get_inner(),
         name: &args.name.get_inner(),
@@ -336,6 +354,7 @@ pub fn create(name: &str, args: WaitingRoomArgs) -> WaitingRoomResult {
         default_template_language: crate::into_domain(result.default_template_language),
         description: crate::into_domain(result.description),
         disable_session_renewal: crate::into_domain(result.disable_session_renewal),
+        enabled_origin_commands: crate::into_domain(result.enabled_origin_commands),
         host: crate::into_domain(result.host),
         json_response_enabled: crate::into_domain(result.json_response_enabled),
         name: crate::into_domain(result.name),

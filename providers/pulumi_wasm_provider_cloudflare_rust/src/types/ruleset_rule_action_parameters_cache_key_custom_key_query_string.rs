@@ -5,7 +5,7 @@ pub struct RulesetRuleActionParametersCacheKeyCustomKeyQueryString {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "excludes")]
     pub r#excludes: Box<Option<Vec<String>>>,
-    /// List of cookies to include in the custom key.
+    /// List of query string parameters to include in the custom key.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "includes")]
     pub r#includes: Box<Option<Vec<String>>>,

@@ -16,6 +16,7 @@ impl dlp_profile::Guest for Component {
                 ObjectField { name: "description".into(), value: args.description },
                 ObjectField { name: "entries".into(), value: args.entries },
                 ObjectField { name: "name".into(), value: args.name },
+                ObjectField { name: "ocrEnabled".into(), value: args.ocr_enabled },
                 ObjectField { name: "type".into(), value: args.type_ },
             ],
             results: vec![
@@ -25,6 +26,7 @@ impl dlp_profile::Guest for Component {
                 ResultField { name: "description".into() },
                 ResultField { name: "entries".into() },
                 ResultField { name: "name".into() },
+                ResultField { name: "ocrEnabled".into() },
                 ResultField { name: "type".into() },
             ],
         };
@@ -40,6 +42,7 @@ impl dlp_profile::Guest for Component {
             description: hashmap.remove("description").unwrap(),
             entries: hashmap.remove("entries").unwrap(),
             name: hashmap.remove("name").unwrap(),
+            ocr_enabled: hashmap.remove("ocrEnabled").unwrap(),
             type_: hashmap.remove("type").unwrap(),
         }
 

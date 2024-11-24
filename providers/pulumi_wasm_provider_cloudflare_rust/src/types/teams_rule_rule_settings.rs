@@ -33,10 +33,18 @@ pub struct TeamsRuleRuleSettings {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "checkSession")]
     pub r#check_session: Box<Option<crate::types::TeamsRuleRuleSettingsCheckSession>>,
+    /// Add your own custom resolvers to route queries that match the resolver policy. Cannot be used when resolve*dns*through*cloudflare is set. DNS queries will route to the address closest to their origin.
+    #[builder(into, default = Box::new(None))]
+    #[serde(rename = "dnsResolvers")]
+    pub r#dns_resolvers: Box<Option<crate::types::TeamsRuleRuleSettingsDnsResolvers>>,
     /// Configure how Proxy traffic egresses. Can be set for rules with Egress action and Egress filter. Can be omitted to indicate local egress via Warp IPs.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "egress")]
     pub r#egress: Box<Option<crate::types::TeamsRuleRuleSettingsEgress>>,
+    /// Set to true, to ignore the category matches at CNAME domains in a response.
+    #[builder(into, default = Box::new(None))]
+    #[serde(rename = "ignoreCnameCategoryMatches")]
+    pub r#ignore_cname_category_matches: Box<Option<bool>>,
     /// Disable DNSSEC validation (must be Allow rule).
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "insecureDisableDnssecValidation")]
@@ -65,6 +73,10 @@ pub struct TeamsRuleRuleSettings {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "payloadLog")]
     pub r#payload_log: Box<Option<crate::types::TeamsRuleRuleSettingsPayloadLog>>,
+    /// Enable sending queries that match the resolver policy to Cloudflare's default 1.1.1.1 DNS resolver. Cannot be set when `dns_resolvers` are specified.
+    #[builder(into, default = Box::new(None))]
+    #[serde(rename = "resolveDnsThroughCloudflare")]
+    pub r#resolve_dns_through_cloudflare: Box<Option<bool>>,
     /// Configure untrusted certificate settings for this rule.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "untrustedCert")]

@@ -5,7 +5,7 @@ pub struct ListItem {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "comment")]
     pub r#comment: Box<Option<String>>,
-    #[builder(into)]
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "value")]
-    pub r#value: Box<crate::types::ListItemValue>,
+    pub r#value: Box<Option<crate::types::ListItemValue>>,
 }

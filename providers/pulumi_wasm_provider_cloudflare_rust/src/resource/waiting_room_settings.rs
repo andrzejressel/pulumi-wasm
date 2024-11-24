@@ -9,8 +9,8 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! const example = new cloudflare.WaitingRoomSettings("example", {
-//!     searchEngineCrawlerBypass: true,
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     searchEngineCrawlerBypass: true,
 //! });
 //! ```
 //! ### Python
@@ -19,8 +19,8 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! example = cloudflare.WaitingRoomSettings("example",
-//!     search_engine_crawler_bypass=True,
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
+//!     search_engine_crawler_bypass=True)
 //! ```
 //! ### C#
 //! ```csharp
@@ -33,8 +33,8 @@
 //! {
 //!     var example = new Cloudflare.WaitingRoomSettings("example", new()
 //!     {
-//!         SearchEngineCrawlerBypass = true,
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         SearchEngineCrawlerBypass = true,
 //!     });
 //! 
 //! });
@@ -51,8 +51,8 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewWaitingRoomSettings(ctx, "example", &cloudflare.WaitingRoomSettingsArgs{
-//! 			SearchEngineCrawlerBypass: pulumi.Bool(true),
 //! 			ZoneId:                    pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			SearchEngineCrawlerBypass: pulumi.Bool(true),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -83,9 +83,9 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new WaitingRoomSettings("example", WaitingRoomSettingsArgs.builder()        
-//!             .searchEngineCrawlerBypass(true)
+//!         var example = new WaitingRoomSettings("example", WaitingRoomSettingsArgs.builder()
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .searchEngineCrawlerBypass(true)
 //!             .build());
 //! 
 //!     }
@@ -97,8 +97,8 @@
 //!   example:
 //!     type: cloudflare:WaitingRoomSettings
 //!     properties:
-//!       searchEngineCrawlerBypass: true
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       searchEngineCrawlerBypass: true
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

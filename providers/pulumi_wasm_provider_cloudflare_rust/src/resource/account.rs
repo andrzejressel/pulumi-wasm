@@ -10,9 +10,9 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! const example = new cloudflare.Account("example", {
-//!     enforceTwofactor: true,
 //!     name: "some-enterprise-account",
 //!     type: "enterprise",
+//!     enforceTwofactor: true,
 //! });
 //! ```
 //! ### Python
@@ -21,9 +21,9 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! example = cloudflare.Account("example",
-//!     enforce_twofactor=True,
 //!     name="some-enterprise-account",
-//!     type="enterprise")
+//!     type="enterprise",
+//!     enforce_twofactor=True)
 //! ```
 //! ### C#
 //! ```csharp
@@ -36,9 +36,9 @@
 //! {
 //!     var example = new Cloudflare.Account("example", new()
 //!     {
-//!         EnforceTwofactor = true,
 //!         Name = "some-enterprise-account",
 //!         Type = "enterprise",
+//!         EnforceTwofactor = true,
 //!     });
 //! 
 //! });
@@ -55,9 +55,9 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewAccount(ctx, "example", &cloudflare.AccountArgs{
-//! 			EnforceTwofactor: pulumi.Bool(true),
 //! 			Name:             pulumi.String("some-enterprise-account"),
 //! 			Type:             pulumi.String("enterprise"),
+//! 			EnforceTwofactor: pulumi.Bool(true),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -88,10 +88,10 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new Account("example", AccountArgs.builder()        
-//!             .enforceTwofactor(true)
+//!         var example = new Account("example", AccountArgs.builder()
 //!             .name("some-enterprise-account")
 //!             .type("enterprise")
+//!             .enforceTwofactor(true)
 //!             .build());
 //! 
 //!     }
@@ -103,9 +103,9 @@
 //!   example:
 //!     type: cloudflare:Account
 //!     properties:
-//!       enforceTwofactor: true
 //!       name: some-enterprise-account
 //!       type: enterprise
+//!       enforceTwofactor: true
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

@@ -8,20 +8,20 @@
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
-//! const exampleWebAnalyticsSite = new cloudflare.WebAnalyticsSite("exampleWebAnalyticsSite", {
+//! const example = new cloudflare.WebAnalyticsSite("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
 //!     zoneTag: "0da42c8d2132a9ddaf714f9e7c920711",
 //!     autoInstall: true,
 //! });
-//! const exampleWebAnalyticsRule = new cloudflare.WebAnalyticsRule("exampleWebAnalyticsRule", {
+//! const exampleWebAnalyticsRule = new cloudflare.WebAnalyticsRule("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     rulesetId: exampleWebAnalyticsSite.rulesetId,
+//!     rulesetId: example.rulesetId,
 //!     host: "*",
 //!     paths: ["/excluded"],
 //!     inclusive: false,
 //!     isPaused: false,
 //! }, {
-//!     dependsOn: [exampleWebAnalyticsSite],
+//!     dependsOn: [example],
 //! });
 //! ```
 //! ### Python
@@ -29,18 +29,18 @@
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
 //! 
-//! example_web_analytics_site = cloudflare.WebAnalyticsSite("exampleWebAnalyticsSite",
+//! example = cloudflare.WebAnalyticsSite("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
 //!     zone_tag="0da42c8d2132a9ddaf714f9e7c920711",
 //!     auto_install=True)
-//! example_web_analytics_rule = cloudflare.WebAnalyticsRule("exampleWebAnalyticsRule",
+//! example_web_analytics_rule = cloudflare.WebAnalyticsRule("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     ruleset_id=example_web_analytics_site.ruleset_id,
+//!     ruleset_id=example.ruleset_id,
 //!     host="*",
 //!     paths=["/excluded"],
 //!     inclusive=False,
 //!     is_paused=False,
-//!     opts=pulumi.ResourceOptions(depends_on=[example_web_analytics_site]))
+//!     opts = pulumi.ResourceOptions(depends_on=[example]))
 //! ```
 //! ### C#
 //! ```csharp
@@ -51,17 +51,17 @@
 //! 
 //! return await Deployment.RunAsync(() => 
 //! {
-//!     var exampleWebAnalyticsSite = new Cloudflare.WebAnalyticsSite("exampleWebAnalyticsSite", new()
+//!     var example = new Cloudflare.WebAnalyticsSite("example", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
 //!         ZoneTag = "0da42c8d2132a9ddaf714f9e7c920711",
 //!         AutoInstall = true,
 //!     });
 //! 
-//!     var exampleWebAnalyticsRule = new Cloudflare.WebAnalyticsRule("exampleWebAnalyticsRule", new()
+//!     var exampleWebAnalyticsRule = new Cloudflare.WebAnalyticsRule("example", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         RulesetId = exampleWebAnalyticsSite.RulesetId,
+//!         RulesetId = example.RulesetId,
 //!         Host = "*",
 //!         Paths = new[]
 //!         {
@@ -73,7 +73,7 @@
 //!     {
 //!         DependsOn =
 //!         {
-//!             exampleWebAnalyticsSite, 
+//!             example,
 //!         },
 //!     });
 //! 
@@ -90,7 +90,7 @@
 //! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		exampleWebAnalyticsSite, err := cloudflare.NewWebAnalyticsSite(ctx, "exampleWebAnalyticsSite", &cloudflare.WebAnalyticsSiteArgs{
+//! 		example, err := cloudflare.NewWebAnalyticsSite(ctx, "example", &cloudflare.WebAnalyticsSiteArgs{
 //! 			AccountId:   pulumi.String("f037e56e89293a057740de681ac9abbe"),
 //! 			ZoneTag:     pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 			AutoInstall: pulumi.Bool(true),
@@ -98,9 +98,9 @@
 //! 		if err != nil {
 //! 			return err
 //! 		}
-//! 		_, err = cloudflare.NewWebAnalyticsRule(ctx, "exampleWebAnalyticsRule", &cloudflare.WebAnalyticsRuleArgs{
+//! 		_, err = cloudflare.NewWebAnalyticsRule(ctx, "example", &cloudflare.WebAnalyticsRuleArgs{
 //! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			RulesetId: exampleWebAnalyticsSite.RulesetId,
+//! 			RulesetId: example.RulesetId,
 //! 			Host:      pulumi.String("*"),
 //! 			Paths: pulumi.StringArray{
 //! 				pulumi.String("/excluded"),
@@ -108,7 +108,7 @@
 //! 			Inclusive: pulumi.Bool(false),
 //! 			IsPaused:  pulumi.Bool(false),
 //! 		}, pulumi.DependsOn([]pulumi.Resource{
-//! 			exampleWebAnalyticsSite,
+//! 			example,
 //! 		}))
 //! 		if err != nil {
 //! 			return err
@@ -142,21 +142,21 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var exampleWebAnalyticsSite = new WebAnalyticsSite("exampleWebAnalyticsSite", WebAnalyticsSiteArgs.builder()        
+//!         var example = new WebAnalyticsSite("example", WebAnalyticsSiteArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
 //!             .zoneTag("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .autoInstall(true)
 //!             .build());
 //! 
-//!         var exampleWebAnalyticsRule = new WebAnalyticsRule("exampleWebAnalyticsRule", WebAnalyticsRuleArgs.builder()        
+//!         var exampleWebAnalyticsRule = new WebAnalyticsRule("exampleWebAnalyticsRule", WebAnalyticsRuleArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .rulesetId(exampleWebAnalyticsSite.rulesetId())
+//!             .rulesetId(example.rulesetId())
 //!             .host("*")
 //!             .paths("/excluded")
 //!             .inclusive(false)
 //!             .isPaused(false)
 //!             .build(), CustomResourceOptions.builder()
-//!                 .dependsOn(exampleWebAnalyticsSite)
+//!                 .dependsOn(example)
 //!                 .build());
 //! 
 //!     }
@@ -165,7 +165,7 @@
 //! ### YAML
 //! ```yaml
 //! resources:
-//!   exampleWebAnalyticsSite:
+//!   example:
 //!     type: cloudflare:WebAnalyticsSite
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
@@ -173,9 +173,10 @@
 //!       autoInstall: true
 //!   exampleWebAnalyticsRule:
 //!     type: cloudflare:WebAnalyticsRule
+//!     name: example
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
-//!       rulesetId: ${exampleWebAnalyticsSite.rulesetId}
+//!       rulesetId: ${example.rulesetId}
 //!       host: '*'
 //!       paths:
 //!         - /excluded
@@ -183,7 +184,7 @@
 //!       isPaused: false
 //!     options:
 //!       dependson:
-//!         - ${exampleWebAnalyticsSite}
+//!         - ${example}
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

@@ -87,7 +87,7 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new Zone("example", ZoneArgs.builder()        
+//!         var example = new Zone("example", ZoneArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
 //!             .zone("example.com")
 //!             .build());
@@ -131,6 +131,9 @@ pub struct ZoneArgs {
     /// A full zone implies that DNS is hosted with Cloudflare. A partial zone is typically a partner-hosted zone or a CNAME setup. Available values: `full`, `partial`, `secondary`. Defaults to `full`.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub type_: pulumi_wasm_rust::Output<Option<String>>,
+    /// List of Vanity Nameservers (if set).
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    pub vanity_name_servers: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// The DNS zone name which will be added. **Modifying this attribute will force creation of a new resource.**
     #[builder(into)]
     pub zone: pulumi_wasm_rust::Output<String>,
@@ -171,6 +174,7 @@ pub fn create(name: &str, args: ZoneArgs) -> ZoneResult {
         paused: &args.paused.get_inner(),
         plan: &args.plan.get_inner(),
         type_: &args.type_.get_inner(),
+        vanity_name_servers: &args.vanity_name_servers.get_inner(),
         zone: &args.zone.get_inner(),
     });
 

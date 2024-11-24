@@ -10,8 +10,8 @@
 //! 
 //! // Add a page rule to the domain
 //! const foobar = new cloudflare.PageRule("foobar", {
-//!     zoneId: _var.cloudflare_zone_id,
-//!     target: `sub.${_var.cloudflare_zone}/page`,
+//!     zoneId: cloudflareZoneId,
+//!     target: `sub.${cloudflareZone}/page`,
 //!     priority: 1,
 //!     actions: {
 //!         ssl: "flexible",
@@ -31,18 +31,18 @@
 //! 
 //! # Add a page rule to the domain
 //! foobar = cloudflare.PageRule("foobar",
-//!     zone_id=var["cloudflare_zone_id"],
-//!     target=f"sub.{var['cloudflare_zone']}/page",
+//!     zone_id=cloudflare_zone_id,
+//!     target=f"sub.{cloudflare_zone}/page",
 //!     priority=1,
-//!     actions=cloudflare.PageRuleActionsArgs(
-//!         ssl="flexible",
-//!         email_obfuscation="on",
-//!         minifies=[cloudflare.PageRuleActionsMinifyArgs(
-//!             html="off",
-//!             css="on",
-//!             js="on",
-//!         )],
-//!     ))
+//!     actions={
+//!         "ssl": "flexible",
+//!         "email_obfuscation": "on",
+//!         "minifies": [{
+//!             "html": "off",
+//!             "css": "on",
+//!             "js": "on",
+//!         }],
+//!     })
 //! ```
 //! ### C#
 //! ```csharp
@@ -56,8 +56,8 @@
 //!     // Add a page rule to the domain
 //!     var foobar = new Cloudflare.PageRule("foobar", new()
 //!     {
-//!         ZoneId = @var.Cloudflare_zone_id,
-//!         Target = $"sub.{@var.Cloudflare_zone}/page",
+//!         ZoneId = cloudflareZoneId,
+//!         Target = $"sub.{cloudflareZone}/page",
 //!         Priority = 1,
 //!         Actions = new Cloudflare.Inputs.PageRuleActionsArgs
 //!         {
@@ -92,8 +92,8 @@
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		// Add a page rule to the domain
 //! 		_, err := cloudflare.NewPageRule(ctx, "foobar", &cloudflare.PageRuleArgs{
-//! 			ZoneId:   pulumi.Any(_var.Cloudflare_zone_id),
-//! 			Target:   pulumi.String(fmt.Sprintf("sub.%v/page", _var.Cloudflare_zone)),
+//! 			ZoneId:   pulumi.Any(cloudflareZoneId),
+//! 			Target:   pulumi.Sprintf("sub.%v/page", cloudflareZone),
 //! 			Priority: pulumi.Int(1),
 //! 			Actions: &cloudflare.PageRuleActionsArgs{
 //! 				Ssl:              pulumi.String("flexible"),
@@ -138,9 +138,9 @@
 //! 
 //!     public static void stack(Context ctx) {
 //!         // Add a page rule to the domain
-//!         var foobar = new PageRule("foobar", PageRuleArgs.builder()        
-//!             .zoneId(var_.cloudflare_zone_id())
-//!             .target(String.format("sub.%s/page", var_.cloudflare_zone()))
+//!         var foobar = new PageRule("foobar", PageRuleArgs.builder()
+//!             .zoneId(cloudflareZoneId)
+//!             .target(String.format("sub.%s/page", cloudflareZone))
 //!             .priority(1)
 //!             .actions(PageRuleActionsArgs.builder()
 //!                 .ssl("flexible")
@@ -163,8 +163,8 @@
 //!   foobar:
 //!     type: cloudflare:PageRule
 //!     properties:
-//!       zoneId: ${var.cloudflare_zone_id}
-//!       target: sub.${var.cloudflare_zone}/page
+//!       zoneId: ${cloudflareZoneId}
+//!       target: sub.${cloudflareZone}/page
 //!       priority: 1
 //!       actions:
 //!         ssl: flexible

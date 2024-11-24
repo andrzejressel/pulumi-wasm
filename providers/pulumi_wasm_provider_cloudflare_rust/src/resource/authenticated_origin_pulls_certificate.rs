@@ -11,18 +11,18 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! // Per-Zone Authenticated Origin Pulls certificate
-//! const myPerZoneAopCert = new cloudflare.AuthenticatedOriginPullsCertificate("myPerZoneAopCert", {
+//! const myPerZoneAopCert = new cloudflare.AuthenticatedOriginPullsCertificate("my_per_zone_aop_cert", {
+//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //!     certificate: "-----INSERT CERTIFICATE-----",
 //!     privateKey: "-----INSERT PRIVATE KEY-----",
 //!     type: "per-zone",
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //! });
 //! // Per-Hostname Authenticated Origin Pulls certificate
-//! const myPerHostnameAopCert = new cloudflare.AuthenticatedOriginPullsCertificate("myPerHostnameAopCert", {
+//! const myPerHostnameAopCert = new cloudflare.AuthenticatedOriginPullsCertificate("my_per_hostname_aop_cert", {
+//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //!     certificate: "-----INSERT CERTIFICATE-----",
 //!     privateKey: "-----INSERT PRIVATE KEY-----",
 //!     type: "per-hostname",
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //! });
 //! ```
 //! ### Python
@@ -31,17 +31,17 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! # Per-Zone Authenticated Origin Pulls certificate
-//! my_per_zone_aop_cert = cloudflare.AuthenticatedOriginPullsCertificate("myPerZoneAopCert",
+//! my_per_zone_aop_cert = cloudflare.AuthenticatedOriginPullsCertificate("my_per_zone_aop_cert",
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     certificate="-----INSERT CERTIFICATE-----",
 //!     private_key="-----INSERT PRIVATE KEY-----",
-//!     type="per-zone",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     type="per-zone")
 //! # Per-Hostname Authenticated Origin Pulls certificate
-//! my_per_hostname_aop_cert = cloudflare.AuthenticatedOriginPullsCertificate("myPerHostnameAopCert",
+//! my_per_hostname_aop_cert = cloudflare.AuthenticatedOriginPullsCertificate("my_per_hostname_aop_cert",
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     certificate="-----INSERT CERTIFICATE-----",
 //!     private_key="-----INSERT PRIVATE KEY-----",
-//!     type="per-hostname",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     type="per-hostname")
 //! ```
 //! ### C#
 //! ```csharp
@@ -53,21 +53,21 @@
 //! return await Deployment.RunAsync(() => 
 //! {
 //!     // Per-Zone Authenticated Origin Pulls certificate
-//!     var myPerZoneAopCert = new Cloudflare.AuthenticatedOriginPullsCertificate("myPerZoneAopCert", new()
+//!     var myPerZoneAopCert = new Cloudflare.AuthenticatedOriginPullsCertificate("my_per_zone_aop_cert", new()
 //!     {
+//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!         Certificate = "-----INSERT CERTIFICATE-----",
 //!         PrivateKey = "-----INSERT PRIVATE KEY-----",
 //!         Type = "per-zone",
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
 //! 
 //!     // Per-Hostname Authenticated Origin Pulls certificate
-//!     var myPerHostnameAopCert = new Cloudflare.AuthenticatedOriginPullsCertificate("myPerHostnameAopCert", new()
+//!     var myPerHostnameAopCert = new Cloudflare.AuthenticatedOriginPullsCertificate("my_per_hostname_aop_cert", new()
 //!     {
+//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!         Certificate = "-----INSERT CERTIFICATE-----",
 //!         PrivateKey = "-----INSERT PRIVATE KEY-----",
 //!         Type = "per-hostname",
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
 //! 
 //! });
@@ -84,21 +84,21 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		// Per-Zone Authenticated Origin Pulls certificate
-//! 		_, err := cloudflare.NewAuthenticatedOriginPullsCertificate(ctx, "myPerZoneAopCert", &cloudflare.AuthenticatedOriginPullsCertificateArgs{
+//! 		_, err := cloudflare.NewAuthenticatedOriginPullsCertificate(ctx, "my_per_zone_aop_cert", &cloudflare.AuthenticatedOriginPullsCertificateArgs{
+//! 			ZoneId:      pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 			Certificate: pulumi.String("-----INSERT CERTIFICATE-----"),
 //! 			PrivateKey:  pulumi.String("-----INSERT PRIVATE KEY-----"),
 //! 			Type:        pulumi.String("per-zone"),
-//! 			ZoneId:      pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
 //! 		}
 //! 		// Per-Hostname Authenticated Origin Pulls certificate
-//! 		_, err = cloudflare.NewAuthenticatedOriginPullsCertificate(ctx, "myPerHostnameAopCert", &cloudflare.AuthenticatedOriginPullsCertificateArgs{
+//! 		_, err = cloudflare.NewAuthenticatedOriginPullsCertificate(ctx, "my_per_hostname_aop_cert", &cloudflare.AuthenticatedOriginPullsCertificateArgs{
+//! 			ZoneId:      pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 			Certificate: pulumi.String("-----INSERT CERTIFICATE-----"),
 //! 			PrivateKey:  pulumi.String("-----INSERT PRIVATE KEY-----"),
 //! 			Type:        pulumi.String("per-hostname"),
-//! 			ZoneId:      pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -130,19 +130,19 @@
 //! 
 //!     public static void stack(Context ctx) {
 //!         // Per-Zone Authenticated Origin Pulls certificate
-//!         var myPerZoneAopCert = new AuthenticatedOriginPullsCertificate("myPerZoneAopCert", AuthenticatedOriginPullsCertificateArgs.builder()        
+//!         var myPerZoneAopCert = new AuthenticatedOriginPullsCertificate("myPerZoneAopCert", AuthenticatedOriginPullsCertificateArgs.builder()
+//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .certificate("-----INSERT CERTIFICATE-----")
 //!             .privateKey("-----INSERT PRIVATE KEY-----")
 //!             .type("per-zone")
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
 //! 
 //!         // Per-Hostname Authenticated Origin Pulls certificate
-//!         var myPerHostnameAopCert = new AuthenticatedOriginPullsCertificate("myPerHostnameAopCert", AuthenticatedOriginPullsCertificateArgs.builder()        
+//!         var myPerHostnameAopCert = new AuthenticatedOriginPullsCertificate("myPerHostnameAopCert", AuthenticatedOriginPullsCertificateArgs.builder()
+//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .certificate("-----INSERT CERTIFICATE-----")
 //!             .privateKey("-----INSERT PRIVATE KEY-----")
 //!             .type("per-hostname")
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
 //! 
 //!     }
@@ -154,19 +154,21 @@
 //!   # Per-Zone Authenticated Origin Pulls certificate
 //!   myPerZoneAopCert:
 //!     type: cloudflare:AuthenticatedOriginPullsCertificate
+//!     name: my_per_zone_aop_cert
 //!     properties:
+//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //!       certificate: '-----INSERT CERTIFICATE-----'
 //!       privateKey: '-----INSERT PRIVATE KEY-----'
 //!       type: per-zone
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //!   # Per-Hostname Authenticated Origin Pulls certificate
 //!   myPerHostnameAopCert:
 //!     type: cloudflare:AuthenticatedOriginPullsCertificate
+//!     name: my_per_hostname_aop_cert
 //!     properties:
+//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //!       certificate: '-----INSERT CERTIFICATE-----'
 //!       privateKey: '-----INSERT PRIVATE KEY-----'
 //!       type: per-hostname
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

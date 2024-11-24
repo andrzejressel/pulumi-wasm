@@ -9,8 +9,8 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! const example = cloudflare.getRecord({
-//!     hostname: "example.com",
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     hostname: "example.com",
 //! });
 //! ```
 //! ### Python
@@ -18,8 +18,8 @@
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
 //! 
-//! example = cloudflare.get_record(hostname="example.com",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//! example = cloudflare.get_record(zone_id="0da42c8d2132a9ddaf714f9e7c920711",
+//!     hostname="example.com")
 //! ```
 //! ### C#
 //! ```csharp
@@ -32,8 +32,8 @@
 //! {
 //!     var example = Cloudflare.GetRecord.Invoke(new()
 //!     {
-//!         Hostname = "example.com",
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         Hostname = "example.com",
 //!     });
 //! 
 //! });
@@ -50,8 +50,8 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.LookupRecord(ctx, &cloudflare.LookupRecordArgs{
-//! 			Hostname: "example.com",
 //! 			ZoneId:   "0da42c8d2132a9ddaf714f9e7c920711",
+//! 			Hostname: "example.com",
 //! 		}, nil)
 //! 		if err != nil {
 //! 			return err
@@ -83,8 +83,8 @@
 //! 
 //!     public static void stack(Context ctx) {
 //!         final var example = CloudflareFunctions.getRecord(GetRecordArgs.builder()
-//!             .hostname("example.com")
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .hostname("example.com")
 //!             .build());
 //! 
 //!     }
@@ -97,8 +97,8 @@
 //!     fn::invoke:
 //!       Function: cloudflare:getRecord
 //!       Arguments:
-//!         hostname: example.com
 //!         zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!         hostname: example.com
 //! ```
 //! <!--End PulumiCodeChooser -->
 
@@ -129,8 +129,6 @@ pub struct GetRecordResult {
     pub hostname: pulumi_wasm_rust::Output<String>,
     /// The provider-assigned unique ID for this managed resource.
     pub id: pulumi_wasm_rust::Output<String>,
-    /// Locked status of the found DNS record.
-    pub locked: pulumi_wasm_rust::Output<bool>,
     /// DNS priority to filter record results on.
     pub priority: pulumi_wasm_rust::Output<Option<i32>>,
     /// Proxiable status of the found DNS record.
@@ -145,8 +143,6 @@ pub struct GetRecordResult {
     pub value: pulumi_wasm_rust::Output<String>,
     /// The zone identifier to target for the resource.
     pub zone_id: pulumi_wasm_rust::Output<String>,
-    /// Zone name of the found DNS record.
-    pub zone_name: pulumi_wasm_rust::Output<String>,
 }
 
 ///
@@ -170,7 +166,6 @@ pub fn invoke(
         content: crate::into_domain(result.content),
         hostname: crate::into_domain(result.hostname),
         id: crate::into_domain(result.id),
-        locked: crate::into_domain(result.locked),
         priority: crate::into_domain(result.priority),
         proxiable: crate::into_domain(result.proxiable),
         proxied: crate::into_domain(result.proxied),
@@ -178,6 +173,5 @@ pub fn invoke(
         type_: crate::into_domain(result.type_),
         value: crate::into_domain(result.value),
         zone_id: crate::into_domain(result.zone_id),
-        zone_name: crate::into_domain(result.zone_name),
     }
 }

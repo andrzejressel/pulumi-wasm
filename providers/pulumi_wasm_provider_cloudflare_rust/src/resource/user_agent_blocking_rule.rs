@@ -8,25 +8,25 @@
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
-//! const example1 = new cloudflare.UserAgentBlockingRule("example1", {
+//! const example1 = new cloudflare.UserAgentBlockingRule("example_1", {
+//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     mode: "js_challenge",
+//!     paused: false,
+//!     description: "My description 1",
 //!     configuration: {
 //!         target: "ua",
 //!         value: "Chrome",
 //!     },
-//!     description: "My description 1",
-//!     mode: "js_challenge",
-//!     paused: false,
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //! });
-//! const example2 = new cloudflare.UserAgentBlockingRule("example2", {
+//! const example2 = new cloudflare.UserAgentBlockingRule("example_2", {
+//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     mode: "challenge",
+//!     paused: true,
+//!     description: "My description 22",
 //!     configuration: {
 //!         target: "ua",
 //!         value: "Mozilla",
 //!     },
-//!     description: "My description 22",
-//!     mode: "challenge",
-//!     paused: true,
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //! });
 //! ```
 //! ### Python
@@ -34,24 +34,24 @@
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
 //! 
-//! example1 = cloudflare.UserAgentBlockingRule("example1",
-//!     configuration=cloudflare.UserAgentBlockingRuleConfigurationArgs(
-//!         target="ua",
-//!         value="Chrome",
-//!     ),
-//!     description="My description 1",
+//! example1 = cloudflare.UserAgentBlockingRule("example_1",
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     mode="js_challenge",
 //!     paused=False,
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
-//! example2 = cloudflare.UserAgentBlockingRule("example2",
-//!     configuration=cloudflare.UserAgentBlockingRuleConfigurationArgs(
-//!         target="ua",
-//!         value="Mozilla",
-//!     ),
-//!     description="My description 22",
+//!     description="My description 1",
+//!     configuration={
+//!         "target": "ua",
+//!         "value": "Chrome",
+//!     })
+//! example2 = cloudflare.UserAgentBlockingRule("example_2",
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     mode="challenge",
 //!     paused=True,
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     description="My description 22",
+//!     configuration={
+//!         "target": "ua",
+//!         "value": "Mozilla",
+//!     })
 //! ```
 //! ### C#
 //! ```csharp
@@ -62,30 +62,30 @@
 //! 
 //! return await Deployment.RunAsync(() => 
 //! {
-//!     var example1 = new Cloudflare.UserAgentBlockingRule("example1", new()
+//!     var example1 = new Cloudflare.UserAgentBlockingRule("example_1", new()
 //!     {
+//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         Mode = "js_challenge",
+//!         Paused = false,
+//!         Description = "My description 1",
 //!         Configuration = new Cloudflare.Inputs.UserAgentBlockingRuleConfigurationArgs
 //!         {
 //!             Target = "ua",
 //!             Value = "Chrome",
 //!         },
-//!         Description = "My description 1",
-//!         Mode = "js_challenge",
-//!         Paused = false,
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
 //! 
-//!     var example2 = new Cloudflare.UserAgentBlockingRule("example2", new()
+//!     var example2 = new Cloudflare.UserAgentBlockingRule("example_2", new()
 //!     {
+//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         Mode = "challenge",
+//!         Paused = true,
+//!         Description = "My description 22",
 //!         Configuration = new Cloudflare.Inputs.UserAgentBlockingRuleConfigurationArgs
 //!         {
 //!             Target = "ua",
 //!             Value = "Mozilla",
 //!         },
-//!         Description = "My description 22",
-//!         Mode = "challenge",
-//!         Paused = true,
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
 //! 
 //! });
@@ -101,28 +101,28 @@
 //! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewUserAgentBlockingRule(ctx, "example1", &cloudflare.UserAgentBlockingRuleArgs{
+//! 		_, err := cloudflare.NewUserAgentBlockingRule(ctx, "example_1", &cloudflare.UserAgentBlockingRuleArgs{
+//! 			ZoneId:      pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			Mode:        pulumi.String("js_challenge"),
+//! 			Paused:      pulumi.Bool(false),
+//! 			Description: pulumi.String("My description 1"),
 //! 			Configuration: &cloudflare.UserAgentBlockingRuleConfigurationArgs{
 //! 				Target: pulumi.String("ua"),
 //! 				Value:  pulumi.String("Chrome"),
 //! 			},
-//! 			Description: pulumi.String("My description 1"),
-//! 			Mode:        pulumi.String("js_challenge"),
-//! 			Paused:      pulumi.Bool(false),
-//! 			ZoneId:      pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
 //! 		}
-//! 		_, err = cloudflare.NewUserAgentBlockingRule(ctx, "example2", &cloudflare.UserAgentBlockingRuleArgs{
+//! 		_, err = cloudflare.NewUserAgentBlockingRule(ctx, "example_2", &cloudflare.UserAgentBlockingRuleArgs{
+//! 			ZoneId:      pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			Mode:        pulumi.String("challenge"),
+//! 			Paused:      pulumi.Bool(true),
+//! 			Description: pulumi.String("My description 22"),
 //! 			Configuration: &cloudflare.UserAgentBlockingRuleConfigurationArgs{
 //! 				Target: pulumi.String("ua"),
 //! 				Value:  pulumi.String("Mozilla"),
 //! 			},
-//! 			Description: pulumi.String("My description 22"),
-//! 			Mode:        pulumi.String("challenge"),
-//! 			Paused:      pulumi.Bool(true),
-//! 			ZoneId:      pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -154,26 +154,26 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example1 = new UserAgentBlockingRule("example1", UserAgentBlockingRuleArgs.builder()        
+//!         var example1 = new UserAgentBlockingRule("example1", UserAgentBlockingRuleArgs.builder()
+//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .mode("js_challenge")
+//!             .paused(false)
+//!             .description("My description 1")
 //!             .configuration(UserAgentBlockingRuleConfigurationArgs.builder()
 //!                 .target("ua")
 //!                 .value("Chrome")
 //!                 .build())
-//!             .description("My description 1")
-//!             .mode("js_challenge")
-//!             .paused(false)
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
 //! 
-//!         var example2 = new UserAgentBlockingRule("example2", UserAgentBlockingRuleArgs.builder()        
+//!         var example2 = new UserAgentBlockingRule("example2", UserAgentBlockingRuleArgs.builder()
+//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .mode("challenge")
+//!             .paused(true)
+//!             .description("My description 22")
 //!             .configuration(UserAgentBlockingRuleConfigurationArgs.builder()
 //!                 .target("ua")
 //!                 .value("Mozilla")
 //!                 .build())
-//!             .description("My description 22")
-//!             .mode("challenge")
-//!             .paused(true)
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
 //! 
 //!     }
@@ -184,24 +184,26 @@
 //! resources:
 //!   example1:
 //!     type: cloudflare:UserAgentBlockingRule
+//!     name: example_1
 //!     properties:
+//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       mode: js_challenge
+//!       paused: false
+//!       description: My description 1
 //!       configuration:
 //!         target: ua
 //!         value: Chrome
-//!       description: My description 1
-//!       mode: js_challenge
-//!       paused: false
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //!   example2:
 //!     type: cloudflare:UserAgentBlockingRule
+//!     name: example_2
 //!     properties:
+//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       mode: challenge
+//!       paused: true
+//!       description: My description 22
 //!       configuration:
 //!         target: ua
 //!         value: Mozilla
-//!       description: My description 22
-//!       mode: challenge
-//!       paused: true
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

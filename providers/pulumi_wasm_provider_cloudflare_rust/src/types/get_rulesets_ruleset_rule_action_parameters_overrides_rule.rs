@@ -9,7 +9,7 @@ pub struct GetRulesetsRulesetRuleActionParametersOverridesRule {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "enabled")]
     pub r#enabled: Box<Option<bool>>,
-    /// The ID of the Ruleset to target.
+    /// The ID of this resource.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "id")]
     pub r#id: Box<Option<String>>,

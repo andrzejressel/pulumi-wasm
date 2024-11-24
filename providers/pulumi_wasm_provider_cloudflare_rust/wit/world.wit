@@ -1,4 +1,4 @@
-package pulumi:cloudflare@5.24.1--0.0.0-DEV;
+package pulumi:cloudflare@5.43.1--0.0.0-DEV;
 
 world cloudflare-pulumi {
     import component:pulumi-wasm/register-interface@0.0.0-DEV;
@@ -30,6 +30,7 @@ world cloudflare-pulumi {
     export bot-management;
     export byo-ip-prefix;
     export certificate-pack;
+    export cloud-connector-rules;
     export custom-hostname;
     export custom-hostname-fallback-origin;
     export custom-pages;
@@ -54,6 +55,7 @@ world cloudflare-pulumi {
     export hostname-tls-setting;
     export hostname-tls-setting-ciphers;
     export hyperdrive-config;
+    export infrastructure-access-target;
     export ipsec-tunnel;
     export keyless-certificate;
     export %list;
@@ -65,6 +67,9 @@ world cloudflare-pulumi {
     export logpush-job;
     export logpush-ownership-challenge;
     export magic-firewall-ruleset;
+    export magic-wan-gre-tunnel;
+    export magic-wan-ipsec-tunnel;
+    export magic-wan-static-route;
     export managed-headers;
     export mtls-certificate;
     export notification-policy;
@@ -80,6 +85,7 @@ world cloudflare-pulumi {
     export %record;
     export regional-hostname;
     export regional-tiered-cache;
+    export risk-behavior;
     export ruleset;
     export spectrum-application;
     export split-tunnel;
@@ -110,9 +116,49 @@ world cloudflare-pulumi {
     export worker-route;
     export worker-script;
     export worker-secret;
+    export workers-cron-trigger;
+    export workers-domain;
+    export workers-for-platforms-dispatch-namespace;
     export workers-for-platforms-namespace;
     export workers-kv;
     export workers-kv-namespace;
+    export workers-route;
+    export workers-script;
+    export workers-secret;
+    export zero-trust-access-application;
+    export zero-trust-access-custom-page;
+    export zero-trust-access-group;
+    export zero-trust-access-identity-provider;
+    export zero-trust-access-mtls-certificate;
+    export zero-trust-access-mtls-hostname-settings;
+    export zero-trust-access-organization;
+    export zero-trust-access-policy;
+    export zero-trust-access-service-token;
+    export zero-trust-access-short-lived-certificate;
+    export zero-trust-access-tag;
+    export zero-trust-device-certificates;
+    export zero-trust-device-managed-networks;
+    export zero-trust-device-posture-integration;
+    export zero-trust-device-posture-rule;
+    export zero-trust-device-profiles;
+    export zero-trust-dex-test;
+    export zero-trust-dlp-profile;
+    export zero-trust-dns-location;
+    export zero-trust-gateway-certificate;
+    export zero-trust-gateway-policy;
+    export zero-trust-gateway-proxy-endpoint;
+    export zero-trust-gateway-settings;
+    export zero-trust-infrastructure-access-target;
+    export zero-trust-key-access-key-configuration;
+    export zero-trust-list;
+    export zero-trust-local-fallback-domain;
+    export zero-trust-risk-behavior;
+    export zero-trust-risk-score-integration;
+    export zero-trust-split-tunnel;
+    export zero-trust-tunnel-cloudflared;
+    export zero-trust-tunnel-cloudflared-config;
+    export zero-trust-tunnel-route;
+    export zero-trust-tunnel-virtual-network;
     export zone;
     export zone-cache-reserve;
     export zone-cache-variants;
@@ -125,9 +171,13 @@ world cloudflare-pulumi {
     export get-account-roles;
     export get-accounts;
     export get-api-token-permission-groups;
+    export get-dcv-delegation;
     export get-device-posture-rules;
     export get-devices;
     export get-dlp-datasets;
+    export get-gateway-app-types;
+    export get-gateway-categories;
+    export get-infrastructure-access-targets;
     export get-ip-ranges;
     export get-list;
     export get-lists;
@@ -139,6 +189,11 @@ world cloudflare-pulumi {
     export get-tunnel;
     export get-tunnel-virtual-network;
     export get-user;
+    export get-zero-trust-access-application;
+    export get-zero-trust-access-identity-provider;
+    export get-zero-trust-infrastructure-access-targets;
+    export get-zero-trust-tunnel-cloudflared;
+    export get-zero-trust-tunnel-virtual-network;
     export get-zone;
     export get-zone-cache-reserve;
     export get-zone-dnssec;
@@ -174,6 +229,7 @@ world cloudflare-pulumi-client {
     import bot-management;
     import byo-ip-prefix;
     import certificate-pack;
+    import cloud-connector-rules;
     import custom-hostname;
     import custom-hostname-fallback-origin;
     import custom-pages;
@@ -198,6 +254,7 @@ world cloudflare-pulumi-client {
     import hostname-tls-setting;
     import hostname-tls-setting-ciphers;
     import hyperdrive-config;
+    import infrastructure-access-target;
     import ipsec-tunnel;
     import keyless-certificate;
     import %list;
@@ -209,6 +266,9 @@ world cloudflare-pulumi-client {
     import logpush-job;
     import logpush-ownership-challenge;
     import magic-firewall-ruleset;
+    import magic-wan-gre-tunnel;
+    import magic-wan-ipsec-tunnel;
+    import magic-wan-static-route;
     import managed-headers;
     import mtls-certificate;
     import notification-policy;
@@ -224,6 +284,7 @@ world cloudflare-pulumi-client {
     import %record;
     import regional-hostname;
     import regional-tiered-cache;
+    import risk-behavior;
     import ruleset;
     import spectrum-application;
     import split-tunnel;
@@ -254,9 +315,49 @@ world cloudflare-pulumi-client {
     import worker-route;
     import worker-script;
     import worker-secret;
+    import workers-cron-trigger;
+    import workers-domain;
+    import workers-for-platforms-dispatch-namespace;
     import workers-for-platforms-namespace;
     import workers-kv;
     import workers-kv-namespace;
+    import workers-route;
+    import workers-script;
+    import workers-secret;
+    import zero-trust-access-application;
+    import zero-trust-access-custom-page;
+    import zero-trust-access-group;
+    import zero-trust-access-identity-provider;
+    import zero-trust-access-mtls-certificate;
+    import zero-trust-access-mtls-hostname-settings;
+    import zero-trust-access-organization;
+    import zero-trust-access-policy;
+    import zero-trust-access-service-token;
+    import zero-trust-access-short-lived-certificate;
+    import zero-trust-access-tag;
+    import zero-trust-device-certificates;
+    import zero-trust-device-managed-networks;
+    import zero-trust-device-posture-integration;
+    import zero-trust-device-posture-rule;
+    import zero-trust-device-profiles;
+    import zero-trust-dex-test;
+    import zero-trust-dlp-profile;
+    import zero-trust-dns-location;
+    import zero-trust-gateway-certificate;
+    import zero-trust-gateway-policy;
+    import zero-trust-gateway-proxy-endpoint;
+    import zero-trust-gateway-settings;
+    import zero-trust-infrastructure-access-target;
+    import zero-trust-key-access-key-configuration;
+    import zero-trust-list;
+    import zero-trust-local-fallback-domain;
+    import zero-trust-risk-behavior;
+    import zero-trust-risk-score-integration;
+    import zero-trust-split-tunnel;
+    import zero-trust-tunnel-cloudflared;
+    import zero-trust-tunnel-cloudflared-config;
+    import zero-trust-tunnel-route;
+    import zero-trust-tunnel-virtual-network;
     import zone;
     import zone-cache-reserve;
     import zone-cache-variants;
@@ -269,9 +370,13 @@ world cloudflare-pulumi-client {
     import get-account-roles;
     import get-accounts;
     import get-api-token-permission-groups;
+    import get-dcv-delegation;
     import get-device-posture-rules;
     import get-devices;
     import get-dlp-datasets;
+    import get-gateway-app-types;
+    import get-gateway-categories;
+    import get-infrastructure-access-targets;
     import get-ip-ranges;
     import get-list;
     import get-lists;
@@ -283,6 +388,11 @@ world cloudflare-pulumi-client {
     import get-tunnel;
     import get-tunnel-virtual-network;
     import get-user;
+    import get-zero-trust-access-application;
+    import get-zero-trust-access-identity-provider;
+    import get-zero-trust-infrastructure-access-targets;
+    import get-zero-trust-tunnel-cloudflared;
+    import get-zero-trust-tunnel-virtual-network;
     import get-zone;
     import get-zone-cache-reserve;
     import get-zone-dnssec;
@@ -314,13 +424,18 @@ interface access-application {
         landing-page-design: borrow<output>,
         logo-url: borrow<output>,
         name: borrow<output>,
+        options-preflight-bypass: borrow<output>,
+        policies: borrow<output>,
         saas-app: borrow<output>,
         same-site-cookie-attribute: borrow<output>,
+        scim-config: borrow<output>,
         self-hosted-domains: borrow<output>,
         service-auth401-redirect: borrow<output>,
         session-duration: borrow<output>,
+        skip-app-launcher-login-page: borrow<output>,
         skip-interstitial: borrow<output>,
         tags: borrow<output>,
+        target-criterias: borrow<output>,
         %type: borrow<output>,
         zone-id: borrow<output>,
     }
@@ -347,13 +462,18 @@ interface access-application {
         landing-page-design: output,
         logo-url: output,
         name: output,
+        options-preflight-bypass: output,
+        policies: output,
         saas-app: output,
         same-site-cookie-attribute: output,
+        scim-config: output,
         self-hosted-domains: output,
         service-auth401-redirect: output,
         session-duration: output,
+        skip-app-launcher-login-page: output,
         skip-interstitial: output,
         tags: output,
+        target-criterias: output,
         %type: output,
         zone-id: output,
     }
@@ -592,6 +712,7 @@ interface access-policy {
         application-id: borrow<output>,
         approval-groups: borrow<output>,
         approval-required: borrow<output>,
+        connection-rules: borrow<output>,
         decision: borrow<output>,
         excludes: borrow<output>,
         includes: borrow<output>,
@@ -610,6 +731,7 @@ interface access-policy {
         application-id: output,
         approval-groups: output,
         approval-required: output,
+        connection-rules: output,
         decision: output,
         excludes: output,
         includes: output,
@@ -1009,6 +1131,7 @@ interface bot-management {
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
 
     record args {
+        ai-bots-protection: borrow<output>,
         auto-update-model: borrow<output>,
         enable-js: borrow<output>,
         fight-mode: borrow<output>,
@@ -1022,6 +1145,7 @@ interface bot-management {
     }
 
     record res {
+        ai-bots-protection: output,
         auto-update-model: output,
         enable-js: output,
         fight-mode: output,
@@ -1092,6 +1216,26 @@ interface certificate-pack {
         validation-records: output,
         validity-days: output,
         wait-for-active-status: output,
+        zone-id: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface cloud-connector-rules {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        rules: borrow<output>,
+        zone-id: borrow<output>,
+    }
+
+    record res {
+        rules: output,
         zone-id: output,
     }
 
@@ -1389,6 +1533,7 @@ interface device-settings-policy {
         service-mode-v2-port: borrow<output>,
         support-url: borrow<output>,
         switch-locked: borrow<output>,
+        tunnel-protocol: borrow<output>,
     }
 
     record res {
@@ -1410,6 +1555,7 @@ interface device-settings-policy {
         service-mode-v2-port: output,
         support-url: output,
         switch-locked: output,
+        tunnel-protocol: output,
     }
 
     invoke: func(
@@ -1429,6 +1575,7 @@ interface dlp-profile {
         description: borrow<output>,
         entries: borrow<output>,
         name: borrow<output>,
+        ocr-enabled: borrow<output>,
         %type: borrow<output>,
     }
 
@@ -1439,6 +1586,7 @@ interface dlp-profile {
         description: output,
         entries: output,
         name: output,
+        ocr-enabled: output,
         %type: output,
     }
 
@@ -1790,6 +1938,7 @@ interface hyperdrive-config {
         caching: borrow<output>,
         name: borrow<output>,
         origin: borrow<output>,
+        resource-id: borrow<output>,
     }
 
     record res {
@@ -1797,6 +1946,31 @@ interface hyperdrive-config {
         caching: output,
         name: output,
         origin: output,
+        resource-id: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface infrastructure-access-target {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        hostname: borrow<output>,
+        ip: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        created-at: output,
+        hostname: output,
+        ip: output,
+        modified-at: output,
     }
 
     invoke: func(
@@ -1826,6 +2000,7 @@ interface ipsec-tunnel {
         name: borrow<output>,
         psk: borrow<output>,
         remote-id: borrow<output>,
+        replay-protection: borrow<output>,
         user-id: borrow<output>,
     }
 
@@ -1846,6 +2021,7 @@ interface ipsec-tunnel {
         name: output,
         psk: output,
         remote-id: output,
+        replay-protection: output,
         user-id: output,
     }
 
@@ -2207,6 +2383,128 @@ interface magic-firewall-ruleset {
     ) -> res;
 
 }
+interface magic-wan-gre-tunnel {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        cloudflare-gre-endpoint: borrow<output>,
+        customer-gre-endpoint: borrow<output>,
+        description: borrow<output>,
+        health-check-enabled: borrow<output>,
+        health-check-target: borrow<output>,
+        health-check-type: borrow<output>,
+        interface-address: borrow<output>,
+        mtu: borrow<output>,
+        name: borrow<output>,
+        ttl: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        cloudflare-gre-endpoint: output,
+        customer-gre-endpoint: output,
+        description: output,
+        health-check-enabled: output,
+        health-check-target: output,
+        health-check-type: output,
+        interface-address: output,
+        mtu: output,
+        name: output,
+        ttl: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface magic-wan-ipsec-tunnel {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        allow-null-cipher: borrow<output>,
+        cloudflare-endpoint: borrow<output>,
+        customer-endpoint: borrow<output>,
+        description: borrow<output>,
+        fqdn-id: borrow<output>,
+        health-check-direction: borrow<output>,
+        health-check-enabled: borrow<output>,
+        health-check-rate: borrow<output>,
+        health-check-target: borrow<output>,
+        health-check-type: borrow<output>,
+        hex-id: borrow<output>,
+        interface-address: borrow<output>,
+        name: borrow<output>,
+        psk: borrow<output>,
+        remote-id: borrow<output>,
+        replay-protection: borrow<output>,
+        user-id: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        allow-null-cipher: output,
+        cloudflare-endpoint: output,
+        customer-endpoint: output,
+        description: output,
+        fqdn-id: output,
+        health-check-direction: output,
+        health-check-enabled: output,
+        health-check-rate: output,
+        health-check-target: output,
+        health-check-type: output,
+        hex-id: output,
+        interface-address: output,
+        name: output,
+        psk: output,
+        remote-id: output,
+        replay-protection: output,
+        user-id: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface magic-wan-static-route {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        colo-names: borrow<output>,
+        colo-regions: borrow<output>,
+        description: borrow<output>,
+        nexthop: borrow<output>,
+        prefix: borrow<output>,
+        priority: borrow<output>,
+        weight: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        colo-names: output,
+        colo-regions: output,
+        description: output,
+        nexthop: output,
+        prefix: output,
+        priority: output,
+        weight: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
 interface managed-headers {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -2539,6 +2837,7 @@ interface %record {
     record args {
         allow-overwrite: borrow<output>,
         comment: borrow<output>,
+        content: borrow<output>,
         data: borrow<output>,
         name: borrow<output>,
         priority: borrow<output>,
@@ -2553,6 +2852,7 @@ interface %record {
     record res {
         allow-overwrite: output,
         comment: output,
+        content: output,
         created-on: output,
         data: output,
         hostname: output,
@@ -2610,6 +2910,26 @@ interface regional-tiered-cache {
     record res {
         value: output,
         zone-id: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface risk-behavior {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        behaviors: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        behaviors: output,
     }
 
     invoke: func(
@@ -2756,6 +3076,8 @@ interface teams-account {
         antivirus: borrow<output>,
         block-page: borrow<output>,
         body-scanning: borrow<output>,
+        certificate: borrow<output>,
+        custom-certificate: borrow<output>,
         extended-email-matching: borrow<output>,
         fips: borrow<output>,
         logging: borrow<output>,
@@ -2774,6 +3096,8 @@ interface teams-account {
         antivirus: output,
         block-page: output,
         body-scanning: output,
+        certificate: output,
+        custom-certificate: output,
         extended-email-matching: output,
         fips: output,
         logging: output,
@@ -2800,6 +3124,7 @@ interface teams-list {
         account-id: borrow<output>,
         description: borrow<output>,
         items: borrow<output>,
+        items-with-descriptions: borrow<output>,
         name: borrow<output>,
         %type: borrow<output>,
     }
@@ -2808,6 +3133,7 @@ interface teams-list {
         account-id: output,
         description: output,
         items: output,
+        items-with-descriptions: output,
         name: output,
         %type: output,
     }
@@ -2825,6 +3151,7 @@ interface teams-location {
     record args {
         account-id: borrow<output>,
         client-default: borrow<output>,
+        ecs-support: borrow<output>,
         name: borrow<output>,
         networks: borrow<output>,
     }
@@ -2834,6 +3161,7 @@ interface teams-location {
         anonymized-logs-enabled: output,
         client-default: output,
         doh-subdomain: output,
+        ecs-support: output,
         ip: output,
         ipv4-destination: output,
         name: output,
@@ -3139,6 +3467,7 @@ interface waiting-room {
         default-template-language: borrow<output>,
         description: borrow<output>,
         disable-session-renewal: borrow<output>,
+        enabled-origin-commands: borrow<output>,
         host: borrow<output>,
         json-response-enabled: borrow<output>,
         name: borrow<output>,
@@ -3160,6 +3489,7 @@ interface waiting-room {
         default-template-language: output,
         description: output,
         disable-session-renewal: output,
+        enabled-origin-commands: output,
         host: output,
         json-response-enabled: output,
         name: output,
@@ -3437,6 +3767,7 @@ interface worker-script {
         content: borrow<output>,
         d1-database-bindings: borrow<output>,
         dispatch-namespace: borrow<output>,
+        hyperdrive-config-bindings: borrow<output>,
         kv-namespace-bindings: borrow<output>,
         logpush: borrow<output>,
         module: borrow<output>,
@@ -3459,6 +3790,7 @@ interface worker-script {
         content: output,
         d1-database-bindings: output,
         dispatch-namespace: output,
+        hyperdrive-config-bindings: output,
         kv-namespace-bindings: output,
         logpush: output,
         module: output,
@@ -3495,6 +3827,74 @@ interface worker-secret {
         name: output,
         script-name: output,
         secret-text: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface workers-cron-trigger {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        schedules: borrow<output>,
+        script-name: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        schedules: output,
+        script-name: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface workers-domain {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        environment: borrow<output>,
+        hostname: borrow<output>,
+        service: borrow<output>,
+        zone-id: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        environment: output,
+        hostname: output,
+        service: output,
+        zone-id: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface workers-for-platforms-dispatch-namespace {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        name: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        name: output,
     }
 
     invoke: func(
@@ -3567,6 +3967,1151 @@ interface workers-kv-namespace {
     ) -> res;
 
 }
+interface workers-route {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        pattern: borrow<output>,
+        script-name: borrow<output>,
+        zone-id: borrow<output>,
+    }
+
+    record res {
+        pattern: output,
+        script-name: output,
+        zone-id: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface workers-script {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        analytics-engine-bindings: borrow<output>,
+        compatibility-date: borrow<output>,
+        compatibility-flags: borrow<output>,
+        content: borrow<output>,
+        d1-database-bindings: borrow<output>,
+        dispatch-namespace: borrow<output>,
+        hyperdrive-config-bindings: borrow<output>,
+        kv-namespace-bindings: borrow<output>,
+        logpush: borrow<output>,
+        module: borrow<output>,
+        name: borrow<output>,
+        placements: borrow<output>,
+        plain-text-bindings: borrow<output>,
+        queue-bindings: borrow<output>,
+        r2-bucket-bindings: borrow<output>,
+        secret-text-bindings: borrow<output>,
+        service-bindings: borrow<output>,
+        tags: borrow<output>,
+        webassembly-bindings: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        analytics-engine-bindings: output,
+        compatibility-date: output,
+        compatibility-flags: output,
+        content: output,
+        d1-database-bindings: output,
+        dispatch-namespace: output,
+        hyperdrive-config-bindings: output,
+        kv-namespace-bindings: output,
+        logpush: output,
+        module: output,
+        name: output,
+        placements: output,
+        plain-text-bindings: output,
+        queue-bindings: output,
+        r2-bucket-bindings: output,
+        secret-text-bindings: output,
+        service-bindings: output,
+        tags: output,
+        webassembly-bindings: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface workers-secret {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        name: borrow<output>,
+        script-name: borrow<output>,
+        secret-text: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        name: output,
+        script-name: output,
+        secret-text: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-access-application {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        allow-authenticate-via-warp: borrow<output>,
+        allowed-idps: borrow<output>,
+        app-launcher-logo-url: borrow<output>,
+        app-launcher-visible: borrow<output>,
+        auto-redirect-to-identity: borrow<output>,
+        bg-color: borrow<output>,
+        cors-headers: borrow<output>,
+        custom-deny-message: borrow<output>,
+        custom-deny-url: borrow<output>,
+        custom-non-identity-deny-url: borrow<output>,
+        custom-pages: borrow<output>,
+        domain: borrow<output>,
+        enable-binding-cookie: borrow<output>,
+        footer-links: borrow<output>,
+        header-bg-color: borrow<output>,
+        http-only-cookie-attribute: borrow<output>,
+        landing-page-design: borrow<output>,
+        logo-url: borrow<output>,
+        name: borrow<output>,
+        options-preflight-bypass: borrow<output>,
+        policies: borrow<output>,
+        saas-app: borrow<output>,
+        same-site-cookie-attribute: borrow<output>,
+        scim-config: borrow<output>,
+        self-hosted-domains: borrow<output>,
+        service-auth401-redirect: borrow<output>,
+        session-duration: borrow<output>,
+        skip-app-launcher-login-page: borrow<output>,
+        skip-interstitial: borrow<output>,
+        tags: borrow<output>,
+        target-criterias: borrow<output>,
+        %type: borrow<output>,
+        zone-id: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        allow-authenticate-via-warp: output,
+        allowed-idps: output,
+        app-launcher-logo-url: output,
+        app-launcher-visible: output,
+        aud: output,
+        auto-redirect-to-identity: output,
+        bg-color: output,
+        cors-headers: output,
+        custom-deny-message: output,
+        custom-deny-url: output,
+        custom-non-identity-deny-url: output,
+        custom-pages: output,
+        domain: output,
+        enable-binding-cookie: output,
+        footer-links: output,
+        header-bg-color: output,
+        http-only-cookie-attribute: output,
+        landing-page-design: output,
+        logo-url: output,
+        name: output,
+        options-preflight-bypass: output,
+        policies: output,
+        saas-app: output,
+        same-site-cookie-attribute: output,
+        scim-config: output,
+        self-hosted-domains: output,
+        service-auth401-redirect: output,
+        session-duration: output,
+        skip-app-launcher-login-page: output,
+        skip-interstitial: output,
+        tags: output,
+        target-criterias: output,
+        %type: output,
+        zone-id: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-access-custom-page {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        app-count: borrow<output>,
+        custom-html: borrow<output>,
+        name: borrow<output>,
+        %type: borrow<output>,
+        zone-id: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        app-count: output,
+        custom-html: output,
+        name: output,
+        %type: output,
+        zone-id: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-access-group {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        excludes: borrow<output>,
+        includes: borrow<output>,
+        name: borrow<output>,
+        requires: borrow<output>,
+        zone-id: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        excludes: output,
+        includes: output,
+        name: output,
+        requires: output,
+        zone-id: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-access-identity-provider {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        configs: borrow<output>,
+        name: borrow<output>,
+        scim-configs: borrow<output>,
+        %type: borrow<output>,
+        zone-id: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        configs: output,
+        name: output,
+        scim-configs: output,
+        %type: output,
+        zone-id: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-access-mtls-certificate {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        associated-hostnames: borrow<output>,
+        certificate: borrow<output>,
+        name: borrow<output>,
+        zone-id: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        associated-hostnames: output,
+        certificate: output,
+        fingerprint: output,
+        name: output,
+        zone-id: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-access-mtls-hostname-settings {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        settings: borrow<output>,
+        zone-id: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        settings: output,
+        zone-id: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-access-organization {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        allow-authenticate-via-warp: borrow<output>,
+        auth-domain: borrow<output>,
+        auto-redirect-to-identity: borrow<output>,
+        custom-pages: borrow<output>,
+        is-ui-read-only: borrow<output>,
+        login-designs: borrow<output>,
+        name: borrow<output>,
+        session-duration: borrow<output>,
+        ui-read-only-toggle-reason: borrow<output>,
+        user-seat-expiration-inactive-time: borrow<output>,
+        warp-auth-session-duration: borrow<output>,
+        zone-id: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        allow-authenticate-via-warp: output,
+        auth-domain: output,
+        auto-redirect-to-identity: output,
+        custom-pages: output,
+        is-ui-read-only: output,
+        login-designs: output,
+        name: output,
+        session-duration: output,
+        ui-read-only-toggle-reason: output,
+        user-seat-expiration-inactive-time: output,
+        warp-auth-session-duration: output,
+        zone-id: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-access-policy {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        application-id: borrow<output>,
+        approval-groups: borrow<output>,
+        approval-required: borrow<output>,
+        connection-rules: borrow<output>,
+        decision: borrow<output>,
+        excludes: borrow<output>,
+        includes: borrow<output>,
+        isolation-required: borrow<output>,
+        name: borrow<output>,
+        precedence: borrow<output>,
+        purpose-justification-prompt: borrow<output>,
+        purpose-justification-required: borrow<output>,
+        requires: borrow<output>,
+        session-duration: borrow<output>,
+        zone-id: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        application-id: output,
+        approval-groups: output,
+        approval-required: output,
+        connection-rules: output,
+        decision: output,
+        excludes: output,
+        includes: output,
+        isolation-required: output,
+        name: output,
+        precedence: output,
+        purpose-justification-prompt: output,
+        purpose-justification-required: output,
+        requires: output,
+        session-duration: output,
+        zone-id: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-access-service-token {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        duration: borrow<output>,
+        min-days-for-renewal: borrow<output>,
+        name: borrow<output>,
+        zone-id: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        client-id: output,
+        client-secret: output,
+        duration: output,
+        expires-at: output,
+        min-days-for-renewal: output,
+        name: output,
+        zone-id: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-access-short-lived-certificate {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        application-id: borrow<output>,
+        zone-id: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        application-id: output,
+        aud: output,
+        public-key: output,
+        zone-id: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-access-tag {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        app-count: borrow<output>,
+        name: borrow<output>,
+        zone-id: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        app-count: output,
+        name: output,
+        zone-id: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-device-certificates {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        enabled: borrow<output>,
+        zone-id: borrow<output>,
+    }
+
+    record res {
+        enabled: output,
+        zone-id: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-device-managed-networks {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        config: borrow<output>,
+        name: borrow<output>,
+        %type: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        config: output,
+        name: output,
+        %type: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-device-posture-integration {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        configs: borrow<output>,
+        identifier: borrow<output>,
+        interval: borrow<output>,
+        name: borrow<output>,
+        %type: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        configs: output,
+        identifier: output,
+        interval: output,
+        name: output,
+        %type: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-device-posture-rule {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        description: borrow<output>,
+        expiration: borrow<output>,
+        inputs: borrow<output>,
+        matches: borrow<output>,
+        name: borrow<output>,
+        schedule: borrow<output>,
+        %type: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        description: output,
+        expiration: output,
+        inputs: output,
+        matches: output,
+        name: output,
+        schedule: output,
+        %type: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-device-profiles {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        allow-mode-switch: borrow<output>,
+        allow-updates: borrow<output>,
+        allowed-to-leave: borrow<output>,
+        auto-connect: borrow<output>,
+        captive-portal: borrow<output>,
+        default: borrow<output>,
+        description: borrow<output>,
+        disable-auto-fallback: borrow<output>,
+        enabled: borrow<output>,
+        exclude-office-ips: borrow<output>,
+        match: borrow<output>,
+        name: borrow<output>,
+        precedence: borrow<output>,
+        service-mode-v2-mode: borrow<output>,
+        service-mode-v2-port: borrow<output>,
+        support-url: borrow<output>,
+        switch-locked: borrow<output>,
+        tunnel-protocol: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        allow-mode-switch: output,
+        allow-updates: output,
+        allowed-to-leave: output,
+        auto-connect: output,
+        captive-portal: output,
+        default: output,
+        description: output,
+        disable-auto-fallback: output,
+        enabled: output,
+        exclude-office-ips: output,
+        match: output,
+        name: output,
+        precedence: output,
+        service-mode-v2-mode: output,
+        service-mode-v2-port: output,
+        support-url: output,
+        switch-locked: output,
+        tunnel-protocol: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-dex-test {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        data: borrow<output>,
+        description: borrow<output>,
+        enabled: borrow<output>,
+        interval: borrow<output>,
+        name: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        created: output,
+        data: output,
+        description: output,
+        enabled: output,
+        interval: output,
+        name: output,
+        updated: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-dlp-profile {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        allowed-match-count: borrow<output>,
+        context-awareness: borrow<output>,
+        description: borrow<output>,
+        entries: borrow<output>,
+        name: borrow<output>,
+        ocr-enabled: borrow<output>,
+        %type: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        allowed-match-count: output,
+        context-awareness: output,
+        description: output,
+        entries: output,
+        name: output,
+        ocr-enabled: output,
+        %type: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-dns-location {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        client-default: borrow<output>,
+        ecs-support: borrow<output>,
+        name: borrow<output>,
+        networks: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        anonymized-logs-enabled: output,
+        client-default: output,
+        doh-subdomain: output,
+        ecs-support: output,
+        ip: output,
+        ipv4-destination: output,
+        name: output,
+        networks: output,
+        policy-ids: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-gateway-certificate {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        activate: borrow<output>,
+        custom: borrow<output>,
+        gateway-managed: borrow<output>,
+        validity-period-days: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        activate: output,
+        binding-status: output,
+        created-at: output,
+        custom: output,
+        expires-on: output,
+        gateway-managed: output,
+        in-use: output,
+        qs-pack-id: output,
+        uploaded-on: output,
+        validity-period-days: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-gateway-policy {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        action: borrow<output>,
+        description: borrow<output>,
+        device-posture: borrow<output>,
+        enabled: borrow<output>,
+        filters: borrow<output>,
+        identity: borrow<output>,
+        name: borrow<output>,
+        precedence: borrow<output>,
+        rule-settings: borrow<output>,
+        traffic: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        action: output,
+        description: output,
+        device-posture: output,
+        enabled: output,
+        filters: output,
+        identity: output,
+        name: output,
+        precedence: output,
+        rule-settings: output,
+        traffic: output,
+        version: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-gateway-proxy-endpoint {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        ips: borrow<output>,
+        name: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        ips: output,
+        name: output,
+        subdomain: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-gateway-settings {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        activity-log-enabled: borrow<output>,
+        antivirus: borrow<output>,
+        block-page: borrow<output>,
+        body-scanning: borrow<output>,
+        certificate: borrow<output>,
+        custom-certificate: borrow<output>,
+        extended-email-matching: borrow<output>,
+        fips: borrow<output>,
+        logging: borrow<output>,
+        non-identity-browser-isolation-enabled: borrow<output>,
+        payload-log: borrow<output>,
+        protocol-detection-enabled: borrow<output>,
+        proxy: borrow<output>,
+        ssh-session-log: borrow<output>,
+        tls-decrypt-enabled: borrow<output>,
+        url-browser-isolation-enabled: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        activity-log-enabled: output,
+        antivirus: output,
+        block-page: output,
+        body-scanning: output,
+        certificate: output,
+        custom-certificate: output,
+        extended-email-matching: output,
+        fips: output,
+        logging: output,
+        non-identity-browser-isolation-enabled: output,
+        payload-log: output,
+        protocol-detection-enabled: output,
+        proxy: output,
+        ssh-session-log: output,
+        tls-decrypt-enabled: output,
+        url-browser-isolation-enabled: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-infrastructure-access-target {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        hostname: borrow<output>,
+        ip: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        created-at: output,
+        hostname: output,
+        ip: output,
+        modified-at: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-key-access-key-configuration {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        key-rotation-interval-days: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        key-rotation-interval-days: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-list {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        description: borrow<output>,
+        items: borrow<output>,
+        items-with-descriptions: borrow<output>,
+        name: borrow<output>,
+        %type: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        description: output,
+        items: output,
+        items-with-descriptions: output,
+        name: output,
+        %type: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-local-fallback-domain {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        domains: borrow<output>,
+        policy-id: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        domains: output,
+        policy-id: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-risk-behavior {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        behaviors: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        behaviors: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-risk-score-integration {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        active: borrow<output>,
+        integration-type: borrow<output>,
+        reference-id: borrow<output>,
+        tenant-url: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        active: output,
+        integration-type: output,
+        reference-id: output,
+        tenant-url: output,
+        well-known-url: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-split-tunnel {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        mode: borrow<output>,
+        policy-id: borrow<output>,
+        tunnels: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        mode: output,
+        policy-id: output,
+        tunnels: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-tunnel-cloudflared {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        config-src: borrow<output>,
+        name: borrow<output>,
+        secret: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        cname: output,
+        config-src: output,
+        name: output,
+        secret: output,
+        tunnel-token: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-tunnel-cloudflared-config {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        config: borrow<output>,
+        tunnel-id: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        config: output,
+        tunnel-id: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-tunnel-route {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        comment: borrow<output>,
+        network: borrow<output>,
+        tunnel-id: borrow<output>,
+        virtual-network-id: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        comment: output,
+        network: output,
+        tunnel-id: output,
+        virtual-network-id: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface zero-trust-tunnel-virtual-network {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        comment: borrow<output>,
+        is-default-network: borrow<output>,
+        name: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        comment: output,
+        is-default-network: output,
+        name: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
 interface zone {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3577,6 +5122,7 @@ interface zone {
         paused: borrow<output>,
         plan: borrow<output>,
         %type: borrow<output>,
+        vanity-name-servers: borrow<output>,
         zone: borrow<output>,
     }
 
@@ -3872,6 +5418,25 @@ interface get-api-token-permission-groups {
     ) -> res;
 
 }
+interface get-dcv-delegation {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        zone-id: borrow<output>,
+    }
+
+    record res {
+        hostname: output,
+        id: output,
+        zone-id: output,
+    }
+
+    invoke: func(
+        args: args
+    ) -> res;
+
+}
 interface get-device-posture-rules {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
@@ -3926,6 +5491,77 @@ interface get-dlp-datasets {
         account-id: output,
         datasets: output,
         id: output,
+    }
+
+    invoke: func(
+        args: args
+    ) -> res;
+
+}
+interface get-gateway-app-types {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        app-types: output,
+        id: output,
+    }
+
+    invoke: func(
+        args: args
+    ) -> res;
+
+}
+interface get-gateway-categories {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        categories: output,
+        id: output,
+    }
+
+    invoke: func(
+        args: args
+    ) -> res;
+
+}
+interface get-infrastructure-access-targets {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        created-after: borrow<output>,
+        hostname: borrow<output>,
+        hostname-contains: borrow<output>,
+        ipv4: borrow<output>,
+        ipv6: borrow<output>,
+        modified-after: borrow<output>,
+        virtual-network-id: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        created-after: output,
+        hostname: output,
+        hostname-contains: output,
+        id: output,
+        ipv4: output,
+        ipv6: output,
+        modified-after: output,
+        targets: output,
+        virtual-network-id: output,
     }
 
     invoke: func(
@@ -4072,7 +5708,6 @@ interface get-record {
         content: output,
         hostname: output,
         id: output,
-        locked: output,
         priority: output,
         proxiable: output,
         proxied: output,
@@ -4080,7 +5715,6 @@ interface get-record {
         %type: output,
         value: output,
         zone-id: output,
-        zone-name: output,
     }
 
     invoke: func(
@@ -4119,12 +5753,14 @@ interface get-tunnel {
 
     record args {
         account-id: borrow<output>,
+        is-deleted: borrow<output>,
         name: borrow<output>,
     }
 
     record res {
         account-id: output,
         id: output,
+        is-deleted: output,
         name: output,
         remote-config: output,
         status: output,
@@ -4170,6 +5806,134 @@ interface get-user {
     }
 
     invoke: func(
+    ) -> res;
+
+}
+interface get-zero-trust-access-application {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        domain: borrow<output>,
+        name: borrow<output>,
+        zone-id: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        aud: output,
+        domain: output,
+        id: output,
+        name: output,
+        zone-id: output,
+    }
+
+    invoke: func(
+        args: args
+    ) -> res;
+
+}
+interface get-zero-trust-access-identity-provider {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        name: borrow<output>,
+        zone-id: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        id: output,
+        name: output,
+        %type: output,
+        zone-id: output,
+    }
+
+    invoke: func(
+        args: args
+    ) -> res;
+
+}
+interface get-zero-trust-infrastructure-access-targets {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        created-after: borrow<output>,
+        hostname: borrow<output>,
+        hostname-contains: borrow<output>,
+        ipv4: borrow<output>,
+        ipv6: borrow<output>,
+        modified-after: borrow<output>,
+        virtual-network-id: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        created-after: output,
+        hostname: output,
+        hostname-contains: output,
+        id: output,
+        ipv4: output,
+        ipv6: output,
+        modified-after: output,
+        targets: output,
+        virtual-network-id: output,
+    }
+
+    invoke: func(
+        args: args
+    ) -> res;
+
+}
+interface get-zero-trust-tunnel-cloudflared {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        is-deleted: borrow<output>,
+        name: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        id: output,
+        is-deleted: output,
+        name: output,
+        remote-config: output,
+        status: output,
+        tunnel-type: output,
+    }
+
+    invoke: func(
+        args: args
+    ) -> res;
+
+}
+interface get-zero-trust-tunnel-virtual-network {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-id: borrow<output>,
+        name: borrow<output>,
+    }
+
+    record res {
+        account-id: output,
+        comment: output,
+        id: output,
+        is-default: output,
+        name: output,
+    }
+
+    invoke: func(
+        args: args
     ) -> res;
 
 }

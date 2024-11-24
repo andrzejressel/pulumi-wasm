@@ -2,8 +2,8 @@
 //! e.g. Firewall Rules. See [what is a filter](https://developers.cloudflare.com/firewall/api/cf-filters/what-is-a-filter/)
 //! for more details and available fields and operators.
 //! 
-//! > `cloudflare.Filter` is in a deprecation phase that will last for one
-//!   year (May 1st, 2024). During this time period, this resource is still fully
+//! > `cloudflare.Filter` is in a deprecation phase until January 15th, 2025.
+//!   During this time period, this resource is still fully
 //!   supported but you are strongly advised to move to the
 //!   `cloudflare.Ruleset` resource. Full details can be found in the
 //!   developer documentation.
@@ -18,9 +18,9 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! const wordpress = new cloudflare.Filter("wordpress", {
+//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //!     description: "Wordpress break-in attempts that are outside of the office",
 //!     expression: "(http.request.uri.path ~ \".*wp-login.php\" or http.request.uri.path ~ \".*xmlrpc.php\") and ip.src ne 192.0.2.1",
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //! });
 //! ```
 //! ### Python
@@ -29,9 +29,9 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! wordpress = cloudflare.Filter("wordpress",
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     description="Wordpress break-in attempts that are outside of the office",
-//!     expression="(http.request.uri.path ~ \".*wp-login.php\" or http.request.uri.path ~ \".*xmlrpc.php\") and ip.src ne 192.0.2.1",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     expression="(http.request.uri.path ~ \".*wp-login.php\" or http.request.uri.path ~ \".*xmlrpc.php\") and ip.src ne 192.0.2.1")
 //! ```
 //! ### C#
 //! ```csharp
@@ -44,9 +44,9 @@
 //! {
 //!     var wordpress = new Cloudflare.Filter("wordpress", new()
 //!     {
+//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!         Description = "Wordpress break-in attempts that are outside of the office",
 //!         Expression = "(http.request.uri.path ~ \".*wp-login.php\" or http.request.uri.path ~ \".*xmlrpc.php\") and ip.src ne 192.0.2.1",
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
 //! 
 //! });
@@ -63,9 +63,9 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewFilter(ctx, "wordpress", &cloudflare.FilterArgs{
+//! 			ZoneId:      pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 			Description: pulumi.String("Wordpress break-in attempts that are outside of the office"),
 //! 			Expression:  pulumi.String("(http.request.uri.path ~ \".*wp-login.php\" or http.request.uri.path ~ \".*xmlrpc.php\") and ip.src ne 192.0.2.1"),
-//! 			ZoneId:      pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -96,10 +96,10 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var wordpress = new Filter("wordpress", FilterArgs.builder()        
+//!         var wordpress = new Filter("wordpress", FilterArgs.builder()
+//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .description("Wordpress break-in attempts that are outside of the office")
 //!             .expression("(http.request.uri.path ~ \".*wp-login.php\" or http.request.uri.path ~ \".*xmlrpc.php\") and ip.src ne 192.0.2.1")
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
 //! 
 //!     }
@@ -111,9 +111,9 @@
 //!   wordpress:
 //!     type: cloudflare:Filter
 //!     properties:
+//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //!       description: Wordpress break-in attempts that are outside of the office
 //!       expression: (http.request.uri.path ~ ".*wp-login.php" or http.request.uri.path ~ ".*xmlrpc.php") and ip.src ne 192.0.2.1
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

@@ -13,15 +13,19 @@ pub struct DevicePostureRuleInput {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "checkDisks")]
     pub r#check_disks: Box<Option<Vec<String>>>,
+    /// Confirm the certificate was not imported from another device.
+    #[builder(into, default = Box::new(None))]
+    #[serde(rename = "checkPrivateKey")]
+    pub r#check_private_key: Box<Option<bool>>,
     /// The common name for a certificate.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "cn")]
     pub r#cn: Box<Option<String>>,
-    /// The workspace one device compliance status. Available values: `compliant`, `noncompliant`.
+    /// The workspace one or intune device compliance status. `compliant` and `noncompliant` are values supported by both providers. `unknown`, `conflict`, `error`, `ingraceperiod` values are only supported by intune. Available values: `compliant`, `noncompliant`, `unknown`, `conflict`, `error`, `ingraceperiod`.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "complianceStatus")]
     pub r#compliance_status: Box<Option<String>>,
-    /// The workspace one connection id.
+    /// The workspace one or intune connection id.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "connectionId")]
     pub r#connection_id: Box<Option<String>>,
@@ -33,7 +37,7 @@ pub struct DevicePostureRuleInput {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "domain")]
     pub r#domain: Box<Option<String>>,
-    /// The datetime a device last seen in RFC 3339 format from Tanium.
+    /// The time a device last seen in Tanium. Must be in the format `1h` or `30m`. Valid units are `d`, `h` and `m`.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "eidLastSeen")]
     pub r#eid_last_seen: Box<Option<String>>,
@@ -45,6 +49,10 @@ pub struct DevicePostureRuleInput {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "exists")]
     pub r#exists: Box<Option<bool>>,
+    /// List of values indicating purposes for which the certificate public key can be used. Available values: `clientAuth`, `emailProtection`.
+    #[builder(into, default = Box::new(None))]
+    #[serde(rename = "extendedKeyUsages")]
+    pub r#extended_key_usages: Box<Option<Vec<String>>>,
     /// The Teams List id. Required for `serial_number` and `unique_client_id` rule types.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "id")]
@@ -65,10 +73,18 @@ pub struct DevicePostureRuleInput {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "lastSeen")]
     pub r#last_seen: Box<Option<String>>,
+    /// List of operating system locations to check for a client certificate..
+    #[builder(into, default = Box::new(None))]
+    #[serde(rename = "locations")]
+    pub r#locations: Box<Option<Vec<crate::types::DevicePostureRuleInputLocation>>>,
     /// The network status from SentinelOne. Available values: `connected`, `disconnected`, `disconnecting`, `connecting`.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "networkStatus")]
     pub r#network_status: Box<Option<String>>,
+    /// The current operational state of a SentinelOne Agent. Available values: `na`, `partially_disabled`, `auto_fully_disabled`, `fully_disabled`, `auto_partially_disabled`, `disabled_error`, `db_corruption`.
+    #[builder(into, default = Box::new(None))]
+    #[serde(rename = "operationalState")]
+    pub r#operational_state: Box<Option<String>>,
     /// The version comparison operator. Available values: `>`, `>=`, `<`, `<=`, `==`.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "operator")]
@@ -85,6 +101,10 @@ pub struct DevicePostureRuleInput {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "osDistroRevision")]
     pub r#os_distro_revision: Box<Option<String>>,
+    /// Extra version value following the operating system semantic version.
+    #[builder(into, default = Box::new(None))]
+    #[serde(rename = "osVersionExtra")]
+    pub r#os_version_extra: Box<Option<String>>,
     /// Overall ZTA score from Crowdstrike. Value must be between 1 and 100.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "overall")]
@@ -105,6 +125,10 @@ pub struct DevicePostureRuleInput {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "running")]
     pub r#running: Box<Option<bool>>,
+    /// A value between 0-100 assigned to devices set by the 3rd party posture provider for custom device posture integrations.
+    #[builder(into, default = Box::new(None))]
+    #[serde(rename = "score")]
+    pub r#score: Box<Option<i32>>,
     /// Sensor signal score from Crowdstrike. Value must be between 1 and 100.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "sensorConfig")]
@@ -129,7 +153,7 @@ pub struct DevicePostureRuleInput {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "version")]
     pub r#version: Box<Option<String>>,
-    /// The version comparison operator for crowdstrike. Available values: `>`, `>=`, `<`, `<=`, `==`.
+    /// The version comparison operator for Crowdstrike. Available values: `>`, `>=`, `<`, `<=`, `==`.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "versionOperator")]
     pub r#version_operator: Box<Option<String>>,

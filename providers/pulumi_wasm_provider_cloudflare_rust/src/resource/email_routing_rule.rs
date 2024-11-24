@@ -9,18 +9,18 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! const main = new cloudflare.EmailRoutingRule("main", {
+//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     name: "terraform rule",
+//!     enabled: true,
+//!     matchers: [{
+//!         type: "literal",
+//!         field: "to",
+//!         value: "test@example.com",
+//!     }],
 //!     actions: [{
 //!         type: "forward",
 //!         values: ["destinationaddress@example.net"],
 //!     }],
-//!     enabled: true,
-//!     matchers: [{
-//!         field: "to",
-//!         type: "literal",
-//!         value: "test@example.com",
-//!     }],
-//!     name: "terraform rule",
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //! });
 //! ```
 //! ### Python
@@ -29,18 +29,18 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! main = cloudflare.EmailRoutingRule("main",
-//!     actions=[cloudflare.EmailRoutingRuleActionArgs(
-//!         type="forward",
-//!         values=["destinationaddress@example.net"],
-//!     )],
-//!     enabled=True,
-//!     matchers=[cloudflare.EmailRoutingRuleMatcherArgs(
-//!         field="to",
-//!         type="literal",
-//!         value="test@example.com",
-//!     )],
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     name="terraform rule",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     enabled=True,
+//!     matchers=[{
+//!         "type": "literal",
+//!         "field": "to",
+//!         "value": "test@example.com",
+//!     }],
+//!     actions=[{
+//!         "type": "forward",
+//!         "values": ["destinationaddress@example.net"],
+//!     }])
 //! ```
 //! ### C#
 //! ```csharp
@@ -53,6 +53,18 @@
 //! {
 //!     var main = new Cloudflare.EmailRoutingRule("main", new()
 //!     {
+//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         Name = "terraform rule",
+//!         Enabled = true,
+//!         Matchers = new[]
+//!         {
+//!             new Cloudflare.Inputs.EmailRoutingRuleMatcherArgs
+//!             {
+//!                 Type = "literal",
+//!                 Field = "to",
+//!                 Value = "test@example.com",
+//!             },
+//!         },
 //!         Actions = new[]
 //!         {
 //!             new Cloudflare.Inputs.EmailRoutingRuleActionArgs
@@ -64,18 +76,6 @@
 //!                 },
 //!             },
 //!         },
-//!         Enabled = true,
-//!         Matchers = new[]
-//!         {
-//!             new Cloudflare.Inputs.EmailRoutingRuleMatcherArgs
-//!             {
-//!                 Field = "to",
-//!                 Type = "literal",
-//!                 Value = "test@example.com",
-//!             },
-//!         },
-//!         Name = "terraform rule",
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
 //! 
 //! });
@@ -92,6 +92,16 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewEmailRoutingRule(ctx, "main", &cloudflare.EmailRoutingRuleArgs{
+//! 			ZoneId:  pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			Name:    pulumi.String("terraform rule"),
+//! 			Enabled: pulumi.Bool(true),
+//! 			Matchers: cloudflare.EmailRoutingRuleMatcherArray{
+//! 				&cloudflare.EmailRoutingRuleMatcherArgs{
+//! 					Type:  pulumi.String("literal"),
+//! 					Field: pulumi.String("to"),
+//! 					Value: pulumi.String("test@example.com"),
+//! 				},
+//! 			},
 //! 			Actions: cloudflare.EmailRoutingRuleActionArray{
 //! 				&cloudflare.EmailRoutingRuleActionArgs{
 //! 					Type: pulumi.String("forward"),
@@ -100,16 +110,6 @@
 //! 					},
 //! 				},
 //! 			},
-//! 			Enabled: pulumi.Bool(true),
-//! 			Matchers: cloudflare.EmailRoutingRuleMatcherArray{
-//! 				&cloudflare.EmailRoutingRuleMatcherArgs{
-//! 					Field: pulumi.String("to"),
-//! 					Type:  pulumi.String("literal"),
-//! 					Value: pulumi.String("test@example.com"),
-//! 				},
-//! 			},
-//! 			Name:   pulumi.String("terraform rule"),
-//! 			ZoneId: pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -127,8 +127,8 @@
 //! import com.pulumi.core.Output;
 //! import com.pulumi.cloudflare.EmailRoutingRule;
 //! import com.pulumi.cloudflare.EmailRoutingRuleArgs;
-//! import com.pulumi.cloudflare.inputs.EmailRoutingRuleActionArgs;
 //! import com.pulumi.cloudflare.inputs.EmailRoutingRuleMatcherArgs;
+//! import com.pulumi.cloudflare.inputs.EmailRoutingRuleActionArgs;
 //! import java.util.List;
 //! import java.util.ArrayList;
 //! import java.util.Map;
@@ -142,19 +142,19 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var main = new EmailRoutingRule("main", EmailRoutingRuleArgs.builder()        
+//!         var main = new EmailRoutingRule("main", EmailRoutingRuleArgs.builder()
+//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .name("terraform rule")
+//!             .enabled(true)
+//!             .matchers(EmailRoutingRuleMatcherArgs.builder()
+//!                 .type("literal")
+//!                 .field("to")
+//!                 .value("test@example.com")
+//!                 .build())
 //!             .actions(EmailRoutingRuleActionArgs.builder()
 //!                 .type("forward")
 //!                 .values("destinationaddress@example.net")
 //!                 .build())
-//!             .enabled(true)
-//!             .matchers(EmailRoutingRuleMatcherArgs.builder()
-//!                 .field("to")
-//!                 .type("literal")
-//!                 .value("test@example.com")
-//!                 .build())
-//!             .name("terraform rule")
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
 //! 
 //!     }
@@ -166,17 +166,17 @@
 //!   main:
 //!     type: cloudflare:EmailRoutingRule
 //!     properties:
+//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       name: terraform rule
+//!       enabled: true
+//!       matchers:
+//!         - type: literal
+//!           field: to
+//!           value: test@example.com
 //!       actions:
 //!         - type: forward
 //!           values:
 //!             - destinationaddress@example.net
-//!       enabled: true
-//!       matchers:
-//!         - field: to
-//!           type: literal
-//!           value: test@example.com
-//!       name: terraform rule
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

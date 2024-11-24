@@ -13,6 +13,7 @@ impl teams_list::Guest for Component {
                 ObjectField { name: "accountId".into(), value: args.account_id },
                 ObjectField { name: "description".into(), value: args.description },
                 ObjectField { name: "items".into(), value: args.items },
+                ObjectField { name: "itemsWithDescriptions".into(), value: args.items_with_descriptions },
                 ObjectField { name: "name".into(), value: args.name },
                 ObjectField { name: "type".into(), value: args.type_ },
             ],
@@ -20,6 +21,7 @@ impl teams_list::Guest for Component {
                 ResultField { name: "accountId".into() },
                 ResultField { name: "description".into() },
                 ResultField { name: "items".into() },
+                ResultField { name: "itemsWithDescriptions".into() },
                 ResultField { name: "name".into() },
                 ResultField { name: "type".into() },
             ],
@@ -33,6 +35,7 @@ impl teams_list::Guest for Component {
             account_id: hashmap.remove("accountId").unwrap(),
             description: hashmap.remove("description").unwrap(),
             items: hashmap.remove("items").unwrap(),
+            items_with_descriptions: hashmap.remove("itemsWithDescriptions").unwrap(),
             name: hashmap.remove("name").unwrap(),
             type_: hashmap.remove("type").unwrap(),
         }

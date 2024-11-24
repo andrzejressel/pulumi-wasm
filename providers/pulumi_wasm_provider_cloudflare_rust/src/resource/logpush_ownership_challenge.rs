@@ -12,8 +12,8 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! const example = new cloudflare.LogpushOwnershipChallenge("example", {
-//!     destinationConf: "s3://my-bucket-path?region=us-west-2",
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     destinationConf: "s3://my-bucket-path?region=us-west-2",
 //! });
 //! ```
 //! ### Python
@@ -22,8 +22,8 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! example = cloudflare.LogpushOwnershipChallenge("example",
-//!     destination_conf="s3://my-bucket-path?region=us-west-2",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
+//!     destination_conf="s3://my-bucket-path?region=us-west-2")
 //! ```
 //! ### C#
 //! ```csharp
@@ -36,8 +36,8 @@
 //! {
 //!     var example = new Cloudflare.LogpushOwnershipChallenge("example", new()
 //!     {
-//!         DestinationConf = "s3://my-bucket-path?region=us-west-2",
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         DestinationConf = "s3://my-bucket-path?region=us-west-2",
 //!     });
 //! 
 //! });
@@ -54,8 +54,8 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewLogpushOwnershipChallenge(ctx, "example", &cloudflare.LogpushOwnershipChallengeArgs{
-//! 			DestinationConf: pulumi.String("s3://my-bucket-path?region=us-west-2"),
 //! 			ZoneId:          pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			DestinationConf: pulumi.String("s3://my-bucket-path?region=us-west-2"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -86,9 +86,9 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new LogpushOwnershipChallenge("example", LogpushOwnershipChallengeArgs.builder()        
-//!             .destinationConf("s3://my-bucket-path?region=us-west-2")
+//!         var example = new LogpushOwnershipChallenge("example", LogpushOwnershipChallengeArgs.builder()
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .destinationConf("s3://my-bucket-path?region=us-west-2")
 //!             .build());
 //! 
 //!     }
@@ -100,8 +100,8 @@
 //!   example:
 //!     type: cloudflare:LogpushOwnershipChallenge
 //!     properties:
-//!       destinationConf: s3://my-bucket-path?region=us-west-2
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       destinationConf: s3://my-bucket-path?region=us-west-2
 //! ```
 //! <!--End PulumiCodeChooser -->
 

@@ -3,150 +3,6 @@
 //! to actively check the availability of those servers over HTTP(S) or
 //! TCP.
 //! 
-//! ## Example Usage
-//! 
-//! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! // TCP Monitor
-//! const example = new cloudflare.LoadBalancerMonitor("example", {
-//!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     description: "example tcp load balancer",
-//!     interval: 60,
-//!     method: "connection_established",
-//!     port: 8080,
-//!     retries: 5,
-//!     timeout: 7,
-//!     type: "tcp",
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! # TCP Monitor
-//! example = cloudflare.LoadBalancerMonitor("example",
-//!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     description="example tcp load balancer",
-//!     interval=60,
-//!     method="connection_established",
-//!     port=8080,
-//!     retries=5,
-//!     timeout=7,
-//!     type="tcp")
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     // TCP Monitor
-//!     var example = new Cloudflare.LoadBalancerMonitor("example", new()
-//!     {
-//!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         Description = "example tcp load balancer",
-//!         Interval = 60,
-//!         Method = "connection_established",
-//!         Port = 8080,
-//!         Retries = 5,
-//!         Timeout = 7,
-//!         Type = "tcp",
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		// TCP Monitor
-//! 		_, err := cloudflare.NewLoadBalancerMonitor(ctx, "example", &cloudflare.LoadBalancerMonitorArgs{
-//! 			AccountId:   pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			Description: pulumi.String("example tcp load balancer"),
-//! 			Interval:    pulumi.Int(60),
-//! 			Method:      pulumi.String("connection_established"),
-//! 			Port:        pulumi.Int(8080),
-//! 			Retries:     pulumi.Int(5),
-//! 			Timeout:     pulumi.Int(7),
-//! 			Type:        pulumi.String("tcp"),
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.LoadBalancerMonitor;
-//! import com.pulumi.cloudflare.LoadBalancerMonitorArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         // TCP Monitor
-//!         var example = new LoadBalancerMonitor("example", LoadBalancerMonitorArgs.builder()        
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .description("example tcp load balancer")
-//!             .interval(60)
-//!             .method("connection_established")
-//!             .port(8080)
-//!             .retries(5)
-//!             .timeout(7)
-//!             .type("tcp")
-//!             .build());
-//! 
-//!     }
-//! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   # TCP Monitor
-//!   example:
-//!     type: cloudflare:LoadBalancerMonitor
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       description: example tcp load balancer
-//!       interval: 60
-//!       method: connection_established
-//!       port: 8080
-//!       retries: 5
-//!       timeout: 7
-//!       type: tcp
-//! ```
-//! <!--End PulumiCodeChooser -->
-//! 
 //! ## Import
 //! 
 //! ```sh
@@ -181,7 +37,7 @@ pub struct LoadBalancerMonitorArgs {
     /// Follow redirects if returned by the origin. Only valid if `type` is "http" or "https".
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub follow_redirects: pulumi_wasm_rust::Output<Option<bool>>,
-    /// The header name.
+    /// The HTTP request headers to send in the health check. It is recommended you set a Host header by default. The User-Agent header cannot be overridden.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub headers: pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerMonitorHeader>>>,
     /// The interval between each health check. Shorter intervals may improve failover time, but will increase load on the origins as we check from multiple locations. Defaults to `60`.
@@ -229,7 +85,7 @@ pub struct LoadBalancerMonitorResult {
     pub expected_codes: pulumi_wasm_rust::Output<Option<String>>,
     /// Follow redirects if returned by the origin. Only valid if `type` is "http" or "https".
     pub follow_redirects: pulumi_wasm_rust::Output<Option<bool>>,
-    /// The header name.
+    /// The HTTP request headers to send in the health check. It is recommended you set a Host header by default. The User-Agent header cannot be overridden.
     pub headers: pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerMonitorHeader>>>,
     /// The interval between each health check. Shorter intervals may improve failover time, but will increase load on the origins as we check from multiple locations. Defaults to `60`.
     pub interval: pulumi_wasm_rust::Output<Option<i32>>,

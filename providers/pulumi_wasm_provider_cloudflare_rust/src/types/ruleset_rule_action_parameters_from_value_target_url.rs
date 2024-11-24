@@ -5,7 +5,7 @@ pub struct RulesetRuleActionParametersFromValueTargetUrl {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "expression")]
     pub r#expression: Box<Option<String>>,
-    /// Status code edge TTL value.
+    /// Static value to provide as the HTTP request header value.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "value")]
     pub r#value: Box<Option<String>>,

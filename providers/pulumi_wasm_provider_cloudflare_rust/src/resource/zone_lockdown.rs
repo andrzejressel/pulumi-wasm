@@ -14,14 +14,14 @@
 //! 
 //! // Restrict access to these endpoints to requests from a known IP address range.
 //! const example = new cloudflare.ZoneLockdown("example", {
+//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     paused: false,
+//!     description: "Restrict access to these endpoints to requests from a known IP address range",
+//!     urls: ["api.mysite.com/some/endpoint*"],
 //!     configurations: [{
 //!         target: "ip_range",
 //!         value: "192.0.2.0/24",
 //!     }],
-//!     description: "Restrict access to these endpoints to requests from a known IP address range",
-//!     paused: false,
-//!     urls: ["api.mysite.com/some/endpoint*"],
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //! });
 //! ```
 //! ### Python
@@ -31,14 +31,14 @@
 //! 
 //! # Restrict access to these endpoints to requests from a known IP address range.
 //! example = cloudflare.ZoneLockdown("example",
-//!     configurations=[cloudflare.ZoneLockdownConfigurationArgs(
-//!         target="ip_range",
-//!         value="192.0.2.0/24",
-//!     )],
-//!     description="Restrict access to these endpoints to requests from a known IP address range",
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     paused=False,
+//!     description="Restrict access to these endpoints to requests from a known IP address range",
 //!     urls=["api.mysite.com/some/endpoint*"],
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     configurations=[{
+//!         "target": "ip_range",
+//!         "value": "192.0.2.0/24",
+//!     }])
 //! ```
 //! ### C#
 //! ```csharp
@@ -52,6 +52,13 @@
 //!     // Restrict access to these endpoints to requests from a known IP address range.
 //!     var example = new Cloudflare.ZoneLockdown("example", new()
 //!     {
+//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         Paused = false,
+//!         Description = "Restrict access to these endpoints to requests from a known IP address range",
+//!         Urls = new[]
+//!         {
+//!             "api.mysite.com/some/endpoint*",
+//!         },
 //!         Configurations = new[]
 //!         {
 //!             new Cloudflare.Inputs.ZoneLockdownConfigurationArgs
@@ -60,13 +67,6 @@
 //!                 Value = "192.0.2.0/24",
 //!             },
 //!         },
-//!         Description = "Restrict access to these endpoints to requests from a known IP address range",
-//!         Paused = false,
-//!         Urls = new[]
-//!         {
-//!             "api.mysite.com/some/endpoint*",
-//!         },
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
 //! 
 //! });
@@ -84,18 +84,18 @@
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		// Restrict access to these endpoints to requests from a known IP address range.
 //! 		_, err := cloudflare.NewZoneLockdown(ctx, "example", &cloudflare.ZoneLockdownArgs{
+//! 			ZoneId:      pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			Paused:      pulumi.Bool(false),
+//! 			Description: pulumi.String("Restrict access to these endpoints to requests from a known IP address range"),
+//! 			Urls: pulumi.StringArray{
+//! 				pulumi.String("api.mysite.com/some/endpoint*"),
+//! 			},
 //! 			Configurations: cloudflare.ZoneLockdownConfigurationArray{
 //! 				&cloudflare.ZoneLockdownConfigurationArgs{
 //! 					Target: pulumi.String("ip_range"),
 //! 					Value:  pulumi.String("192.0.2.0/24"),
 //! 				},
 //! 			},
-//! 			Description: pulumi.String("Restrict access to these endpoints to requests from a known IP address range"),
-//! 			Paused:      pulumi.Bool(false),
-//! 			Urls: pulumi.StringArray{
-//! 				pulumi.String("api.mysite.com/some/endpoint*"),
-//! 			},
-//! 			ZoneId: pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -128,15 +128,15 @@
 //! 
 //!     public static void stack(Context ctx) {
 //!         // Restrict access to these endpoints to requests from a known IP address range.
-//!         var example = new ZoneLockdown("example", ZoneLockdownArgs.builder()        
+//!         var example = new ZoneLockdown("example", ZoneLockdownArgs.builder()
+//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .paused("false")
+//!             .description("Restrict access to these endpoints to requests from a known IP address range")
+//!             .urls("api.mysite.com/some/endpoint*")
 //!             .configurations(ZoneLockdownConfigurationArgs.builder()
 //!                 .target("ip_range")
 //!                 .value("192.0.2.0/24")
 //!                 .build())
-//!             .description("Restrict access to these endpoints to requests from a known IP address range")
-//!             .paused("false")
-//!             .urls("api.mysite.com/some/endpoint*")
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
 //! 
 //!     }
@@ -149,14 +149,14 @@
 //!   example:
 //!     type: cloudflare:ZoneLockdown
 //!     properties:
+//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       paused: 'false'
+//!       description: Restrict access to these endpoints to requests from a known IP address range
+//!       urls:
+//!         - api.mysite.com/some/endpoint*
 //!       configurations:
 //!         - target: ip_range
 //!           value: 192.0.2.0/24
-//!       description: Restrict access to these endpoints to requests from a known IP address range
-//!       paused: 'false'
-//!       urls:
-//!         - api.mysite.com/some/endpoint*
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

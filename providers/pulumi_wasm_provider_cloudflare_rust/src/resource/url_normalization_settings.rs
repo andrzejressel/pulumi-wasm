@@ -9,9 +9,9 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! const example = new cloudflare.UrlNormalizationSettings("example", {
-//!     scope: "incoming",
-//!     type: "cloudflare",
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     type: "cloudflare",
+//!     scope: "incoming",
 //! });
 //! ```
 //! ### Python
@@ -20,9 +20,9 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! example = cloudflare.UrlNormalizationSettings("example",
-//!     scope="incoming",
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     type="cloudflare",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     scope="incoming")
 //! ```
 //! ### C#
 //! ```csharp
@@ -35,9 +35,9 @@
 //! {
 //!     var example = new Cloudflare.UrlNormalizationSettings("example", new()
 //!     {
-//!         Scope = "incoming",
-//!         Type = "cloudflare",
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         Type = "cloudflare",
+//!         Scope = "incoming",
 //!     });
 //! 
 //! });
@@ -54,9 +54,9 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewUrlNormalizationSettings(ctx, "example", &cloudflare.UrlNormalizationSettingsArgs{
-//! 			Scope:  pulumi.String("incoming"),
-//! 			Type:   pulumi.String("cloudflare"),
 //! 			ZoneId: pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			Type:   pulumi.String("cloudflare"),
+//! 			Scope:  pulumi.String("incoming"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -87,10 +87,10 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new UrlNormalizationSettings("example", UrlNormalizationSettingsArgs.builder()        
-//!             .scope("incoming")
-//!             .type("cloudflare")
+//!         var example = new UrlNormalizationSettings("example", UrlNormalizationSettingsArgs.builder()
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .type("cloudflare")
+//!             .scope("incoming")
 //!             .build());
 //! 
 //!     }
@@ -102,9 +102,9 @@
 //!   example:
 //!     type: cloudflare:UrlNormalizationSettings
 //!     properties:
-//!       scope: incoming
-//!       type: cloudflare
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       type: cloudflare
+//!       scope: incoming
 //! ```
 //! <!--End PulumiCodeChooser -->
 

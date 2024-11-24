@@ -2,6 +2,13 @@
 //! be used to limit the traffic you receive zone-wide, or matching more
 //! specific types of requests/responses.
 //! 
+//! > `cloudflare.RateLimit` is in a deprecation phase until January 15th, 2025.
+//!   During this time period, this resource is still
+//!   fully supported but you are strongly advised to move to the
+//!   `cloudflare.Ruleset` resource. Full details can be found in the
+//!   developer documentation.
+//! 
+//! 
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
@@ -11,25 +18,16 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! const example = new cloudflare.RateLimit("example", {
-//!     action: {
-//!         mode: "simulate",
-//!         response: {
-//!             body: "custom response body",
-//!             contentType: "text/plain",
-//!         },
-//!         timeout: 43200,
-//!     },
-//!     bypassUrlPatterns: [
-//!         "example.com/bypass1",
-//!         "example.com/bypass2",
-//!     ],
-//!     correlate: {
-//!         by: "nat",
-//!     },
-//!     description: "example rate limit for a zone",
-//!     disabled: false,
+//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     threshold: 2000,
+//!     period: 2,
 //!     match: {
 //!         request: {
+//!             urlPattern: `${cloudflareZone}/*`,
+//!             schemes: [
+//!                 "HTTP",
+//!                 "HTTPS",
+//!             ],
 //!             methods: [
 //!                 "GET",
 //!                 "POST",
@@ -38,13 +36,16 @@
 //!                 "PATCH",
 //!                 "HEAD",
 //!             ],
-//!             schemes: [
-//!                 "HTTP",
-//!                 "HTTPS",
-//!             ],
-//!             urlPattern: `${_var.cloudflare_zone}/*`,
 //!         },
 //!         response: {
+//!             statuses: [
+//!                 200,
+//!                 201,
+//!                 202,
+//!                 301,
+//!                 429,
+//!             ],
+//!             originTraffic: false,
 //!             headers: [
 //!                 {
 //!                     name: "Host",
@@ -57,19 +58,25 @@
 //!                     value: "my-example",
 //!                 },
 //!             ],
-//!             originTraffic: false,
-//!             statuses: [
-//!                 200,
-//!                 201,
-//!                 202,
-//!                 301,
-//!                 429,
-//!             ],
 //!         },
 //!     },
-//!     period: 2,
-//!     threshold: 2000,
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     action: {
+//!         mode: "simulate",
+//!         timeout: 43200,
+//!         response: {
+//!             contentType: "text/plain",
+//!             body: "custom response body",
+//!         },
+//!     },
+//!     correlate: {
+//!         by: "nat",
+//!     },
+//!     disabled: false,
+//!     description: "example rate limit for a zone",
+//!     bypassUrlPatterns: [
+//!         "example.com/bypass1",
+//!         "example.com/bypass2",
+//!     ],
 //! });
 //! ```
 //! ### Python
@@ -78,26 +85,17 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! example = cloudflare.RateLimit("example",
-//!     action=cloudflare.RateLimitActionArgs(
-//!         mode="simulate",
-//!         response=cloudflare.RateLimitActionResponseArgs(
-//!             body="custom response body",
-//!             content_type="text/plain",
-//!         ),
-//!         timeout=43200,
-//!     ),
-//!     bypass_url_patterns=[
-//!         "example.com/bypass1",
-//!         "example.com/bypass2",
-//!     ],
-//!     correlate=cloudflare.RateLimitCorrelateArgs(
-//!         by="nat",
-//!     ),
-//!     description="example rate limit for a zone",
-//!     disabled=False,
-//!     match=cloudflare.RateLimitMatchArgs(
-//!         request=cloudflare.RateLimitMatchRequestArgs(
-//!             methods=[
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
+//!     threshold=2000,
+//!     period=2,
+//!     match={
+//!         "request": {
+//!             "url_pattern": f"{cloudflare_zone}/*",
+//!             "schemes": [
+//!                 "HTTP",
+//!                 "HTTPS",
+//!             ],
+//!             "methods": [
 //!                 "GET",
 //!                 "POST",
 //!                 "PUT",
@@ -105,14 +103,17 @@
 //!                 "PATCH",
 //!                 "HEAD",
 //!             ],
-//!             schemes=[
-//!                 "HTTP",
-//!                 "HTTPS",
+//!         },
+//!         "response": {
+//!             "statuses": [
+//!                 200,
+//!                 201,
+//!                 202,
+//!                 301,
+//!                 429,
 //!             ],
-//!             url_pattern=f"{var['cloudflare_zone']}/*",
-//!         ),
-//!         response=cloudflare.RateLimitMatchResponseArgs(
-//!             headers=[
+//!             "origin_traffic": False,
+//!             "headers": [
 //!                 {
 //!                     "name": "Host",
 //!                     "op": "eq",
@@ -124,19 +125,25 @@
 //!                     "value": "my-example",
 //!                 },
 //!             ],
-//!             origin_traffic=False,
-//!             statuses=[
-//!                 200,
-//!                 201,
-//!                 202,
-//!                 301,
-//!                 429,
-//!             ],
-//!         ),
-//!     ),
-//!     period=2,
-//!     threshold=2000,
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!         },
+//!     },
+//!     action={
+//!         "mode": "simulate",
+//!         "timeout": 43200,
+//!         "response": {
+//!             "content_type": "text/plain",
+//!             "body": "custom response body",
+//!         },
+//!     },
+//!     correlate={
+//!         "by": "nat",
+//!     },
+//!     disabled=False,
+//!     description="example rate limit for a zone",
+//!     bypass_url_patterns=[
+//!         "example.com/bypass1",
+//!         "example.com/bypass2",
+//!     ])
 //! ```
 //! ### C#
 //! ```csharp
@@ -149,31 +156,19 @@
 //! {
 //!     var example = new Cloudflare.RateLimit("example", new()
 //!     {
-//!         Action = new Cloudflare.Inputs.RateLimitActionArgs
-//!         {
-//!             Mode = "simulate",
-//!             Response = new Cloudflare.Inputs.RateLimitActionResponseArgs
-//!             {
-//!                 Body = "custom response body",
-//!                 ContentType = "text/plain",
-//!             },
-//!             Timeout = 43200,
-//!         },
-//!         BypassUrlPatterns = new[]
-//!         {
-//!             "example.com/bypass1",
-//!             "example.com/bypass2",
-//!         },
-//!         Correlate = new Cloudflare.Inputs.RateLimitCorrelateArgs
-//!         {
-//!             By = "nat",
-//!         },
-//!         Description = "example rate limit for a zone",
-//!         Disabled = false,
+//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         Threshold = 2000,
+//!         Period = 2,
 //!         Match = new Cloudflare.Inputs.RateLimitMatchArgs
 //!         {
 //!             Request = new Cloudflare.Inputs.RateLimitMatchRequestArgs
 //!             {
+//!                 UrlPattern = $"{cloudflareZone}/*",
+//!                 Schemes = new[]
+//!                 {
+//!                     "HTTP",
+//!                     "HTTPS",
+//!                 },
 //!                 Methods = new[]
 //!                 {
 //!                     "GET",
@@ -183,15 +178,18 @@
 //!                     "PATCH",
 //!                     "HEAD",
 //!                 },
-//!                 Schemes = new[]
-//!                 {
-//!                     "HTTP",
-//!                     "HTTPS",
-//!                 },
-//!                 UrlPattern = $"{@var.Cloudflare_zone}/*",
 //!             },
 //!             Response = new Cloudflare.Inputs.RateLimitMatchResponseArgs
 //!             {
+//!                 Statuses = new[]
+//!                 {
+//!                     200,
+//!                     201,
+//!                     202,
+//!                     301,
+//!                     429,
+//!                 },
+//!                 OriginTraffic = false,
 //!                 Headers = new[]
 //!                 {
 //!                     
@@ -207,20 +205,29 @@
 //!                         { "value", "my-example" },
 //!                     },
 //!                 },
-//!                 OriginTraffic = false,
-//!                 Statuses = new[]
-//!                 {
-//!                     200,
-//!                     201,
-//!                     202,
-//!                     301,
-//!                     429,
-//!                 },
 //!             },
 //!         },
-//!         Period = 2,
-//!         Threshold = 2000,
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         Action = new Cloudflare.Inputs.RateLimitActionArgs
+//!         {
+//!             Mode = "simulate",
+//!             Timeout = 43200,
+//!             Response = new Cloudflare.Inputs.RateLimitActionResponseArgs
+//!             {
+//!                 ContentType = "text/plain",
+//!                 Body = "custom response body",
+//!             },
+//!         },
+//!         Correlate = new Cloudflare.Inputs.RateLimitCorrelateArgs
+//!         {
+//!             By = "nat",
+//!         },
+//!         Disabled = false,
+//!         Description = "example rate limit for a zone",
+//!         BypassUrlPatterns = new[]
+//!         {
+//!             "example.com/bypass1",
+//!             "example.com/bypass2",
+//!         },
 //!     });
 //! 
 //! });
@@ -239,25 +246,16 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewRateLimit(ctx, "example", &cloudflare.RateLimitArgs{
-//! 			Action: &cloudflare.RateLimitActionArgs{
-//! 				Mode: pulumi.String("simulate"),
-//! 				Response: &cloudflare.RateLimitActionResponseArgs{
-//! 					Body:        pulumi.String("custom response body"),
-//! 					ContentType: pulumi.String("text/plain"),
-//! 				},
-//! 				Timeout: pulumi.Int(43200),
-//! 			},
-//! 			BypassUrlPatterns: pulumi.StringArray{
-//! 				pulumi.String("example.com/bypass1"),
-//! 				pulumi.String("example.com/bypass2"),
-//! 			},
-//! 			Correlate: &cloudflare.RateLimitCorrelateArgs{
-//! 				By: pulumi.String("nat"),
-//! 			},
-//! 			Description: pulumi.String("example rate limit for a zone"),
-//! 			Disabled:    pulumi.Bool(false),
+//! 			ZoneId:    pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			Threshold: pulumi.Int(2000),
+//! 			Period:    pulumi.Int(2),
 //! 			Match: &cloudflare.RateLimitMatchArgs{
 //! 				Request: &cloudflare.RateLimitMatchRequestArgs{
+//! 					UrlPattern: pulumi.Sprintf("%v/*", cloudflareZone),
+//! 					Schemes: pulumi.StringArray{
+//! 						pulumi.String("HTTP"),
+//! 						pulumi.String("HTTPS"),
+//! 					},
 //! 					Methods: pulumi.StringArray{
 //! 						pulumi.String("GET"),
 //! 						pulumi.String("POST"),
@@ -266,13 +264,16 @@
 //! 						pulumi.String("PATCH"),
 //! 						pulumi.String("HEAD"),
 //! 					},
-//! 					Schemes: pulumi.StringArray{
-//! 						pulumi.String("HTTP"),
-//! 						pulumi.String("HTTPS"),
-//! 					},
-//! 					UrlPattern: pulumi.String(fmt.Sprintf("%v/*", _var.Cloudflare_zone)),
 //! 				},
 //! 				Response: &cloudflare.RateLimitMatchResponseArgs{
+//! 					Statuses: pulumi.IntArray{
+//! 						pulumi.Int(200),
+//! 						pulumi.Int(201),
+//! 						pulumi.Int(202),
+//! 						pulumi.Int(301),
+//! 						pulumi.Int(429),
+//! 					},
+//! 					OriginTraffic: pulumi.Bool(false),
 //! 					Headers: pulumi.StringMapArray{
 //! 						pulumi.StringMap{
 //! 							"name":  pulumi.String("Host"),
@@ -285,19 +286,25 @@
 //! 							"value": pulumi.String("my-example"),
 //! 						},
 //! 					},
-//! 					OriginTraffic: pulumi.Bool(false),
-//! 					Statuses: pulumi.IntArray{
-//! 						pulumi.Int(200),
-//! 						pulumi.Int(201),
-//! 						pulumi.Int(202),
-//! 						pulumi.Int(301),
-//! 						pulumi.Int(429),
-//! 					},
 //! 				},
 //! 			},
-//! 			Period:    pulumi.Int(2),
-//! 			Threshold: pulumi.Int(2000),
-//! 			ZoneId:    pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			Action: &cloudflare.RateLimitActionArgs{
+//! 				Mode:    pulumi.String("simulate"),
+//! 				Timeout: pulumi.Int(43200),
+//! 				Response: &cloudflare.RateLimitActionResponseArgs{
+//! 					ContentType: pulumi.String("text/plain"),
+//! 					Body:        pulumi.String("custom response body"),
+//! 				},
+//! 			},
+//! 			Correlate: &cloudflare.RateLimitCorrelateArgs{
+//! 				By: pulumi.String("nat"),
+//! 			},
+//! 			Disabled:    pulumi.Bool(false),
+//! 			Description: pulumi.String("example rate limit for a zone"),
+//! 			BypassUrlPatterns: pulumi.StringArray{
+//! 				pulumi.String("example.com/bypass1"),
+//! 				pulumi.String("example.com/bypass2"),
+//! 			},
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -315,12 +322,12 @@
 //! import com.pulumi.core.Output;
 //! import com.pulumi.cloudflare.RateLimit;
 //! import com.pulumi.cloudflare.RateLimitArgs;
-//! import com.pulumi.cloudflare.inputs.RateLimitActionArgs;
-//! import com.pulumi.cloudflare.inputs.RateLimitActionResponseArgs;
-//! import com.pulumi.cloudflare.inputs.RateLimitCorrelateArgs;
 //! import com.pulumi.cloudflare.inputs.RateLimitMatchArgs;
 //! import com.pulumi.cloudflare.inputs.RateLimitMatchRequestArgs;
 //! import com.pulumi.cloudflare.inputs.RateLimitMatchResponseArgs;
+//! import com.pulumi.cloudflare.inputs.RateLimitActionArgs;
+//! import com.pulumi.cloudflare.inputs.RateLimitActionResponseArgs;
+//! import com.pulumi.cloudflare.inputs.RateLimitCorrelateArgs;
 //! import java.util.List;
 //! import java.util.ArrayList;
 //! import java.util.Map;
@@ -334,25 +341,16 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new RateLimit("example", RateLimitArgs.builder()        
-//!             .action(RateLimitActionArgs.builder()
-//!                 .mode("simulate")
-//!                 .response(RateLimitActionResponseArgs.builder()
-//!                     .body("custom response body")
-//!                     .contentType("text/plain")
-//!                     .build())
-//!                 .timeout(43200)
-//!                 .build())
-//!             .bypassUrlPatterns(            
-//!                 "example.com/bypass1",
-//!                 "example.com/bypass2")
-//!             .correlate(RateLimitCorrelateArgs.builder()
-//!                 .by("nat")
-//!                 .build())
-//!             .description("example rate limit for a zone")
-//!             .disabled(false)
+//!         var example = new RateLimit("example", RateLimitArgs.builder()
+//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .threshold(2000)
+//!             .period(2)
 //!             .match(RateLimitMatchArgs.builder()
 //!                 .request(RateLimitMatchRequestArgs.builder()
+//!                     .urlPattern(String.format("%s/*", cloudflareZone))
+//!                     .schemes(                    
+//!                         "HTTP",
+//!                         "HTTPS")
 //!                     .methods(                    
 //!                         "GET",
 //!                         "POST",
@@ -360,12 +358,15 @@
 //!                         "DELETE",
 //!                         "PATCH",
 //!                         "HEAD")
-//!                     .schemes(                    
-//!                         "HTTP",
-//!                         "HTTPS")
-//!                     .urlPattern(String.format("%s/*", var_.cloudflare_zone()))
 //!                     .build())
 //!                 .response(RateLimitMatchResponseArgs.builder()
+//!                     .statuses(                    
+//!                         200,
+//!                         201,
+//!                         202,
+//!                         301,
+//!                         429)
+//!                     .originTraffic(false)
 //!                     .headers(                    
 //!                         Map.ofEntries(
 //!                             Map.entry("name", "Host"),
@@ -377,18 +378,24 @@
 //!                             Map.entry("op", "ne"),
 //!                             Map.entry("value", "my-example")
 //!                         ))
-//!                     .originTraffic(false)
-//!                     .statuses(                    
-//!                         200,
-//!                         201,
-//!                         202,
-//!                         301,
-//!                         429)
 //!                     .build())
 //!                 .build())
-//!             .period(2)
-//!             .threshold(2000)
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .action(RateLimitActionArgs.builder()
+//!                 .mode("simulate")
+//!                 .timeout(43200)
+//!                 .response(RateLimitActionResponseArgs.builder()
+//!                     .contentType("text/plain")
+//!                     .body("custom response body")
+//!                     .build())
+//!                 .build())
+//!             .correlate(RateLimitCorrelateArgs.builder()
+//!                 .by("nat")
+//!                 .build())
+//!             .disabled(false)
+//!             .description("example rate limit for a zone")
+//!             .bypassUrlPatterns(            
+//!                 "example.com/bypass1",
+//!                 "example.com/bypass2")
 //!             .build());
 //! 
 //!     }
@@ -400,21 +407,15 @@
 //!   example:
 //!     type: cloudflare:RateLimit
 //!     properties:
-//!       action:
-//!         mode: simulate
-//!         response:
-//!           body: custom response body
-//!           contentType: text/plain
-//!         timeout: 43200
-//!       bypassUrlPatterns:
-//!         - example.com/bypass1
-//!         - example.com/bypass2
-//!       correlate:
-//!         by: nat
-//!       description: example rate limit for a zone
-//!       disabled: false
+//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       threshold: 2000
+//!       period: 2
 //!       match:
 //!         request:
+//!           urlPattern: ${cloudflareZone}/*
+//!           schemes:
+//!             - HTTP
+//!             - HTTPS
 //!           methods:
 //!             - GET
 //!             - POST
@@ -422,11 +423,14 @@
 //!             - DELETE
 //!             - PATCH
 //!             - HEAD
-//!           schemes:
-//!             - HTTP
-//!             - HTTPS
-//!           urlPattern: ${var.cloudflare_zone}/*
 //!         response:
+//!           statuses:
+//!             - 200
+//!             - 201
+//!             - 202
+//!             - 301
+//!             - 429
+//!           originTraffic: false
 //!           headers:
 //!             - name: Host
 //!               op: eq
@@ -434,16 +438,19 @@
 //!             - name: X-Example
 //!               op: ne
 //!               value: my-example
-//!           originTraffic: false
-//!           statuses:
-//!             - 200
-//!             - 201
-//!             - 202
-//!             - 301
-//!             - 429
-//!       period: 2
-//!       threshold: 2000
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       action:
+//!         mode: simulate
+//!         timeout: 43200
+//!         response:
+//!           contentType: text/plain
+//!           body: custom response body
+//!       correlate:
+//!         by: nat
+//!       disabled: false
+//!       description: example rate limit for a zone
+//!       bypassUrlPatterns:
+//!         - example.com/bypass1
+//!         - example.com/bypass2
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

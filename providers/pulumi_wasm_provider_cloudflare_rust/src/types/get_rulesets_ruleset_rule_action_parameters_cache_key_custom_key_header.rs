@@ -5,6 +5,10 @@ pub struct GetRulesetsRulesetRuleActionParametersCacheKeyCustomKeyHeader {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "checkPresences")]
     pub r#check_presences: Box<Option<Vec<String>>>,
+    /// Dictionary of headers mapping to lists of values to check for presence in the custom key.
+    #[builder(into, default = Box::new(None))]
+    #[serde(rename = "contains")]
+    pub r#contains: Box<Option<std::collections::HashMap<String, Vec<String>>>>,
     /// Exclude the origin header from the custom key.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "excludeOrigin")]

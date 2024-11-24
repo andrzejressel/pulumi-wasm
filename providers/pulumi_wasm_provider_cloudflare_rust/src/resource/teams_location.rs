@@ -11,8 +11,9 @@
 //! 
 //! const example = new cloudflare.TeamsLocation("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     clientDefault: true,
 //!     name: "office",
+//!     clientDefault: true,
+//!     ecsSupport: false,
 //!     networks: [
 //!         {
 //!             network: "203.0.113.1/32",
@@ -30,15 +31,16 @@
 //! 
 //! example = cloudflare.TeamsLocation("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     client_default=True,
 //!     name="office",
+//!     client_default=True,
+//!     ecs_support=False,
 //!     networks=[
-//!         cloudflare.TeamsLocationNetworkArgs(
-//!             network="203.0.113.1/32",
-//!         ),
-//!         cloudflare.TeamsLocationNetworkArgs(
-//!             network="203.0.113.2/32",
-//!         ),
+//!         {
+//!             "network": "203.0.113.1/32",
+//!         },
+//!         {
+//!             "network": "203.0.113.2/32",
+//!         },
 //!     ])
 //! ```
 //! ### C#
@@ -53,8 +55,9 @@
 //!     var example = new Cloudflare.TeamsLocation("example", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         ClientDefault = true,
 //!         Name = "office",
+//!         ClientDefault = true,
+//!         EcsSupport = false,
 //!         Networks = new[]
 //!         {
 //!             new Cloudflare.Inputs.TeamsLocationNetworkArgs
@@ -83,8 +86,9 @@
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewTeamsLocation(ctx, "example", &cloudflare.TeamsLocationArgs{
 //! 			AccountId:     pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			ClientDefault: pulumi.Bool(true),
 //! 			Name:          pulumi.String("office"),
+//! 			ClientDefault: pulumi.Bool(true),
+//! 			EcsSupport:    pulumi.Bool(false),
 //! 			Networks: cloudflare.TeamsLocationNetworkArray{
 //! 				&cloudflare.TeamsLocationNetworkArgs{
 //! 					Network: pulumi.String("203.0.113.1/32"),
@@ -124,10 +128,11 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new TeamsLocation("example", TeamsLocationArgs.builder()        
+//!         var example = new TeamsLocation("example", TeamsLocationArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .clientDefault(true)
 //!             .name("office")
+//!             .clientDefault(true)
+//!             .ecsSupport(false)
 //!             .networks(            
 //!                 TeamsLocationNetworkArgs.builder()
 //!                     .network("203.0.113.1/32")
@@ -147,8 +152,9 @@
 //!     type: cloudflare:TeamsLocation
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
-//!       clientDefault: true
 //!       name: office
+//!       clientDefault: true
+//!       ecsSupport: false
 //!       networks:
 //!         - network: 203.0.113.1/32
 //!         - network: 203.0.113.2/32
@@ -171,6 +177,9 @@ pub struct TeamsLocationArgs {
     /// Indicator that this is the default location.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub client_default: pulumi_wasm_rust::Output<Option<bool>>,
+    /// Indicator that this location needs to resolve EDNS queries.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    pub ecs_support: pulumi_wasm_rust::Output<Option<bool>>,
     /// Name of the teams location.
     #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
@@ -188,6 +197,8 @@ pub struct TeamsLocationResult {
     pub client_default: pulumi_wasm_rust::Output<Option<bool>>,
     /// The FQDN that DoH clients should be pointed at.
     pub doh_subdomain: pulumi_wasm_rust::Output<String>,
+    /// Indicator that this location needs to resolve EDNS queries.
+    pub ecs_support: pulumi_wasm_rust::Output<Option<bool>>,
     /// Client IP address.
     pub ip: pulumi_wasm_rust::Output<String>,
     /// IP to direct all IPv4 DNS queries to.
@@ -207,6 +218,7 @@ pub fn create(name: &str, args: TeamsLocationArgs) -> TeamsLocationResult {
     let result = crate::bindings::pulumi::cloudflare::teams_location::invoke(name, &crate::bindings::pulumi::cloudflare::teams_location::Args {
         account_id: &args.account_id.get_inner(),
         client_default: &args.client_default.get_inner(),
+        ecs_support: &args.ecs_support.get_inner(),
         name: &args.name.get_inner(),
         networks: &args.networks.get_inner(),
     });
@@ -216,6 +228,7 @@ pub fn create(name: &str, args: TeamsLocationArgs) -> TeamsLocationResult {
         anonymized_logs_enabled: crate::into_domain(result.anonymized_logs_enabled),
         client_default: crate::into_domain(result.client_default),
         doh_subdomain: crate::into_domain(result.doh_subdomain),
+        ecs_support: crate::into_domain(result.ecs_support),
         ip: crate::into_domain(result.ip),
         ipv4_destination: crate::into_domain(result.ipv4_destination),
         name: crate::into_domain(result.name),

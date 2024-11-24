@@ -5,7 +5,7 @@ pub struct GetRulesetsRulesetRuleActionParametersFromList {
     #[builder(into)]
     #[serde(rename = "key")]
     pub r#key: Box<String>,
-    /// Name of the ruleset.
+    /// Name of the list.
     #[builder(into)]
     #[serde(rename = "name")]
     pub r#name: Box<String>,

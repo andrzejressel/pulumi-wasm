@@ -1,6 +1,10 @@
 #[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug)]
 #[builder(finish_fn = build_struct)]
 pub struct TeamsRuleRuleSettingsBisoAdminControls {
+    /// Disable clipboard redirection.
+    #[builder(into, default = Box::new(None))]
+    #[serde(rename = "disableClipboardRedirection")]
+    pub r#disable_clipboard_redirection: Box<Option<bool>>,
     /// Disable copy-paste.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "disableCopyPaste")]

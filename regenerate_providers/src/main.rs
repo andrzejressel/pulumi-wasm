@@ -19,7 +19,7 @@ fn main() {
         },
         Provider {
             name: "cloudflare",
-            version: "5.24.1",
+            version: "5.43.1",
         },
     ];
 

@@ -12,11 +12,13 @@ impl get_tunnel::Guest for Component {
             token: "cloudflare:index/getTunnel:getTunnel".into(),
             object: vec![
                 ObjectField { name: "accountId".into(), value: args.account_id },
+                ObjectField { name: "isDeleted".into(), value: args.is_deleted },
                 ObjectField { name: "name".into(), value: args.name },
             ],
             results: vec![
                 ResultField { name: "accountId".into() },
                 ResultField { name: "id".into() },
+                ResultField { name: "isDeleted".into() },
                 ResultField { name: "name".into() },
                 ResultField { name: "remoteConfig".into() },
                 ResultField { name: "status".into() },
@@ -31,6 +33,7 @@ impl get_tunnel::Guest for Component {
         get_tunnel::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             id: hashmap.remove("id").unwrap(),
+            is_deleted: hashmap.remove("isDeleted").unwrap(),
             name: hashmap.remove("name").unwrap(),
             remote_config: hashmap.remove("remoteConfig").unwrap(),
             status: hashmap.remove("status").unwrap(),

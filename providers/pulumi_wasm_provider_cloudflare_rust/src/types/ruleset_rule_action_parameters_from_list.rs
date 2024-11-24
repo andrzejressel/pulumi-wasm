@@ -5,7 +5,7 @@ pub struct RulesetRuleActionParametersFromList {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "key")]
     pub r#key: Box<Option<String>>,
-    /// Name of the compression algorithm to use. Available values: `gzip`, `brotli`, `auto`, `default`, `none`
+    /// Name of the list.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "name")]
     pub r#name: Box<Option<String>>,

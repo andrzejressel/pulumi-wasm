@@ -14,13 +14,13 @@
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
-//! const exampleZone = cloudflare.getZone({
+//! const example = cloudflare.getZone({
 //!     name: "example.com",
 //! });
-//! const exampleRecord = new cloudflare.Record("exampleRecord", {
-//!     zoneId: exampleZone.then(exampleZone => exampleZone.id),
+//! const exampleRecord = new cloudflare.Record("example", {
+//!     zoneId: example.then(example => example.id),
 //!     name: "www",
-//!     value: "203.0.113.1",
+//!     content: "203.0.113.1",
 //!     type: "A",
 //!     proxied: true,
 //! });
@@ -30,11 +30,11 @@
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
 //! 
-//! example_zone = cloudflare.get_zone(name="example.com")
-//! example_record = cloudflare.Record("exampleRecord",
-//!     zone_id=example_zone.id,
+//! example = cloudflare.get_zone(name="example.com")
+//! example_record = cloudflare.Record("example",
+//!     zone_id=example.id,
 //!     name="www",
-//!     value="203.0.113.1",
+//!     content="203.0.113.1",
 //!     type="A",
 //!     proxied=True)
 //! ```
@@ -47,16 +47,16 @@
 //! 
 //! return await Deployment.RunAsync(() => 
 //! {
-//!     var exampleZone = Cloudflare.GetZone.Invoke(new()
+//!     var example = Cloudflare.GetZone.Invoke(new()
 //!     {
 //!         Name = "example.com",
 //!     });
 //! 
-//!     var exampleRecord = new Cloudflare.Record("exampleRecord", new()
+//!     var exampleRecord = new Cloudflare.Record("example", new()
 //!     {
-//!         ZoneId = exampleZone.Apply(getZoneResult => getZoneResult.Id),
+//!         ZoneId = example.Apply(getZoneResult => getZoneResult.Id),
 //!         Name = "www",
-//!         Value = "203.0.113.1",
+//!         Content = "203.0.113.1",
 //!         Type = "A",
 //!         Proxied = true,
 //!     });
@@ -74,16 +74,16 @@
 //! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		exampleZone, err := cloudflare.LookupZone(ctx, &cloudflare.LookupZoneArgs{
+//! 		example, err := cloudflare.LookupZone(ctx, &cloudflare.LookupZoneArgs{
 //! 			Name: pulumi.StringRef("example.com"),
 //! 		}, nil)
 //! 		if err != nil {
 //! 			return err
 //! 		}
-//! 		_, err = cloudflare.NewRecord(ctx, "exampleRecord", &cloudflare.RecordArgs{
-//! 			ZoneId:  pulumi.String(exampleZone.Id),
+//! 		_, err = cloudflare.NewRecord(ctx, "example", &cloudflare.RecordArgs{
+//! 			ZoneId:  pulumi.String(example.Id),
 //! 			Name:    pulumi.String("www"),
-//! 			Value:   pulumi.String("203.0.113.1"),
+//! 			Content: pulumi.String("203.0.113.1"),
 //! 			Type:    pulumi.String("A"),
 //! 			Proxied: pulumi.Bool(true),
 //! 		})
@@ -118,14 +118,14 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         final var exampleZone = CloudflareFunctions.getZone(GetZoneArgs.builder()
+//!         final var example = CloudflareFunctions.getZone(GetZoneArgs.builder()
 //!             .name("example.com")
 //!             .build());
 //! 
-//!         var exampleRecord = new Record("exampleRecord", RecordArgs.builder()        
-//!             .zoneId(exampleZone.applyValue(getZoneResult -> getZoneResult.id()))
+//!         var exampleRecord = new Record("exampleRecord", RecordArgs.builder()
+//!             .zoneId(example.applyValue(getZoneResult -> getZoneResult.id()))
 //!             .name("www")
-//!             .value("203.0.113.1")
+//!             .content("203.0.113.1")
 //!             .type("A")
 //!             .proxied(true)
 //!             .build());
@@ -138,14 +138,15 @@
 //! resources:
 //!   exampleRecord:
 //!     type: cloudflare:Record
+//!     name: example
 //!     properties:
-//!       zoneId: ${exampleZone.id}
+//!       zoneId: ${example.id}
 //!       name: www
-//!       value: 203.0.113.1
+//!       content: 203.0.113.1
 //!       type: A
 //!       proxied: true
 //! variables:
-//!   exampleZone:
+//!   example:
 //!     fn::invoke:
 //!       Function: cloudflare:getZone
 //!       Arguments:

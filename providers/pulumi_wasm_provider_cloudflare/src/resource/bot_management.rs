@@ -10,6 +10,7 @@ impl bot_management::Guest for Component {
             type_: "cloudflare:index/botManagement:BotManagement".into(),
             name,
             object: vec![
+                ObjectField { name: "aiBotsProtection".into(), value: args.ai_bots_protection },
                 ObjectField { name: "autoUpdateModel".into(), value: args.auto_update_model },
                 ObjectField { name: "enableJs".into(), value: args.enable_js },
                 ObjectField { name: "fightMode".into(), value: args.fight_mode },
@@ -22,6 +23,7 @@ impl bot_management::Guest for Component {
                 ObjectField { name: "zoneId".into(), value: args.zone_id },
             ],
             results: vec![
+                ResultField { name: "aiBotsProtection".into() },
                 ResultField { name: "autoUpdateModel".into() },
                 ResultField { name: "enableJs".into() },
                 ResultField { name: "fightMode".into() },
@@ -41,6 +43,7 @@ impl bot_management::Guest for Component {
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
 
         bot_management::Res {
+            ai_bots_protection: hashmap.remove("aiBotsProtection").unwrap(),
             auto_update_model: hashmap.remove("autoUpdateModel").unwrap(),
             enable_js: hashmap.remove("enableJs").unwrap(),
             fight_mode: hashmap.remove("fightMode").unwrap(),

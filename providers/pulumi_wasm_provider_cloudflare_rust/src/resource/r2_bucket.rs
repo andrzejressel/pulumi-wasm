@@ -8,8 +8,8 @@
 //! 
 //! const example = new cloudflare.R2Bucket("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     location: "enam",
 //!     name: "terraform-bucket",
+//!     location: "enam",
 //! });
 //! ```
 //! ### Python
@@ -19,8 +19,8 @@
 //! 
 //! example = cloudflare.R2Bucket("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     location="enam",
-//!     name="terraform-bucket")
+//!     name="terraform-bucket",
+//!     location="enam")
 //! ```
 //! ### C#
 //! ```csharp
@@ -34,8 +34,8 @@
 //!     var example = new Cloudflare.R2Bucket("example", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         Location = "enam",
 //!         Name = "terraform-bucket",
+//!         Location = "enam",
 //!     });
 //! 
 //! });
@@ -53,8 +53,8 @@
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewR2Bucket(ctx, "example", &cloudflare.R2BucketArgs{
 //! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			Location:  pulumi.String("enam"),
 //! 			Name:      pulumi.String("terraform-bucket"),
+//! 			Location:  pulumi.String("enam"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -85,10 +85,10 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new R2Bucket("example", R2BucketArgs.builder()        
+//!         var example = new R2Bucket("example", R2BucketArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .location("enam")
 //!             .name("terraform-bucket")
+//!             .location("enam")
 //!             .build());
 //! 
 //!     }
@@ -101,8 +101,8 @@
 //!     type: cloudflare:R2Bucket
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
-//!       location: enam
 //!       name: terraform-bucket
+//!       location: enam
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 
@@ -121,7 +121,7 @@ pub struct R2BucketArgs {
     /// The account identifier to target for the resource.
     #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
-    /// The location hint of the R2 bucket.
+    /// The location hint of the R2 bucket. Available values: `WNAM`, `ENAM`, `WEUR`, `EEUR`, `APAC`
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub location: pulumi_wasm_rust::Output<Option<String>>,
     /// The name of the R2 bucket.
@@ -132,7 +132,7 @@ pub struct R2BucketArgs {
 pub struct R2BucketResult {
     /// The account identifier to target for the resource.
     pub account_id: pulumi_wasm_rust::Output<String>,
-    /// The location hint of the R2 bucket.
+    /// The location hint of the R2 bucket. Available values: `WNAM`, `ENAM`, `WEUR`, `EEUR`, `APAC`
     pub location: pulumi_wasm_rust::Output<String>,
     /// The name of the R2 bucket.
     pub name: pulumi_wasm_rust::Output<String>,

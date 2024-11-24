@@ -15,13 +15,13 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! const example = new cloudflare.BotManagement("example", {
+//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //!     enableJs: true,
-//!     optimizeWordpress: true,
 //!     sbfmDefinitelyAutomated: "block",
 //!     sbfmLikelyAutomated: "managed_challenge",
-//!     sbfmStaticResourceProtection: false,
 //!     sbfmVerifiedBots: "allow",
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     sbfmStaticResourceProtection: false,
+//!     optimizeWordpress: true,
 //! });
 //! ```
 //! ### Python
@@ -30,13 +30,13 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! example = cloudflare.BotManagement("example",
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     enable_js=True,
-//!     optimize_wordpress=True,
 //!     sbfm_definitely_automated="block",
 //!     sbfm_likely_automated="managed_challenge",
-//!     sbfm_static_resource_protection=False,
 //!     sbfm_verified_bots="allow",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     sbfm_static_resource_protection=False,
+//!     optimize_wordpress=True)
 //! ```
 //! ### C#
 //! ```csharp
@@ -49,13 +49,13 @@
 //! {
 //!     var example = new Cloudflare.BotManagement("example", new()
 //!     {
+//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!         EnableJs = true,
-//!         OptimizeWordpress = true,
 //!         SbfmDefinitelyAutomated = "block",
 //!         SbfmLikelyAutomated = "managed_challenge",
-//!         SbfmStaticResourceProtection = false,
 //!         SbfmVerifiedBots = "allow",
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         SbfmStaticResourceProtection = false,
+//!         OptimizeWordpress = true,
 //!     });
 //! 
 //! });
@@ -72,13 +72,13 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewBotManagement(ctx, "example", &cloudflare.BotManagementArgs{
+//! 			ZoneId:                       pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 			EnableJs:                     pulumi.Bool(true),
-//! 			OptimizeWordpress:            pulumi.Bool(true),
 //! 			SbfmDefinitelyAutomated:      pulumi.String("block"),
 //! 			SbfmLikelyAutomated:          pulumi.String("managed_challenge"),
-//! 			SbfmStaticResourceProtection: pulumi.Bool(false),
 //! 			SbfmVerifiedBots:             pulumi.String("allow"),
-//! 			ZoneId:                       pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			SbfmStaticResourceProtection: pulumi.Bool(false),
+//! 			OptimizeWordpress:            pulumi.Bool(true),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -109,14 +109,14 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new BotManagement("example", BotManagementArgs.builder()        
+//!         var example = new BotManagement("example", BotManagementArgs.builder()
+//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .enableJs(true)
-//!             .optimizeWordpress(true)
 //!             .sbfmDefinitelyAutomated("block")
 //!             .sbfmLikelyAutomated("managed_challenge")
-//!             .sbfmStaticResourceProtection(false)
 //!             .sbfmVerifiedBots("allow")
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .sbfmStaticResourceProtection(false)
+//!             .optimizeWordpress(true)
 //!             .build());
 //! 
 //!     }
@@ -128,13 +128,13 @@
 //!   example:
 //!     type: cloudflare:BotManagement
 //!     properties:
+//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //!       enableJs: true
-//!       optimizeWordpress: true
 //!       sbfmDefinitelyAutomated: block
 //!       sbfmLikelyAutomated: managed_challenge
-//!       sbfmStaticResourceProtection: false
 //!       sbfmVerifiedBots: allow
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       sbfmStaticResourceProtection: false
+//!       optimizeWordpress: true
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 
@@ -148,6 +148,9 @@
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
 pub struct BotManagementArgs {
+    /// Enable rule to block AI Scrapers and Crawlers.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    pub ai_bots_protection: pulumi_wasm_rust::Output<Option<String>>,
     /// Automatically update to the newest bot detection models created by Cloudflare as they are released. [Learn more.](https://developers.cloudflare.com/bots/reference/machine-learning-models#model-versions-and-release-notes).
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub auto_update_model: pulumi_wasm_rust::Output<Option<bool>>,
@@ -181,6 +184,8 @@ pub struct BotManagementArgs {
 }
 
 pub struct BotManagementResult {
+    /// Enable rule to block AI Scrapers and Crawlers.
+    pub ai_bots_protection: pulumi_wasm_rust::Output<String>,
     /// Automatically update to the newest bot detection models created by Cloudflare as they are released. [Learn more.](https://developers.cloudflare.com/bots/reference/machine-learning-models#model-versions-and-release-notes).
     pub auto_update_model: pulumi_wasm_rust::Output<Option<bool>>,
     /// Use lightweight, invisible JavaScript detections to improve Bot Management. [Learn more about JavaScript Detections](https://developers.cloudflare.com/bots/reference/javascript-detections/).
@@ -211,6 +216,7 @@ pub struct BotManagementResult {
 pub fn create(name: &str, args: BotManagementArgs) -> BotManagementResult {
 
     let result = crate::bindings::pulumi::cloudflare::bot_management::invoke(name, &crate::bindings::pulumi::cloudflare::bot_management::Args {
+        ai_bots_protection: &args.ai_bots_protection.get_inner(),
         auto_update_model: &args.auto_update_model.get_inner(),
         enable_js: &args.enable_js.get_inner(),
         fight_mode: &args.fight_mode.get_inner(),
@@ -224,6 +230,7 @@ pub fn create(name: &str, args: BotManagementArgs) -> BotManagementResult {
     });
 
     BotManagementResult {
+        ai_bots_protection: crate::into_domain(result.ai_bots_protection),
         auto_update_model: crate::into_domain(result.auto_update_model),
         enable_js: crate::into_domain(result.enable_js),
         fight_mode: crate::into_domain(result.fight_mode),

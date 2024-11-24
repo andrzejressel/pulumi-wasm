@@ -10,10 +10,10 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! const example = new cloudflare.AccessCustomPage("example", {
-//!     customHtml: "<html><body><h1>Forbidden</h1></body></html>",
+//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //!     name: "example",
 //!     type: "forbidden",
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     customHtml: "<html><body><h1>Forbidden</h1></body></html>",
 //! });
 //! ```
 //! ### Python
@@ -22,10 +22,10 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! example = cloudflare.AccessCustomPage("example",
-//!     custom_html="<html><body><h1>Forbidden</h1></body></html>",
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     name="example",
 //!     type="forbidden",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     custom_html="<html><body><h1>Forbidden</h1></body></html>")
 //! ```
 //! ### C#
 //! ```csharp
@@ -38,10 +38,10 @@
 //! {
 //!     var example = new Cloudflare.AccessCustomPage("example", new()
 //!     {
-//!         CustomHtml = "<html><body><h1>Forbidden</h1></body></html>",
+//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!         Name = "example",
 //!         Type = "forbidden",
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         CustomHtml = "<html><body><h1>Forbidden</h1></body></html>",
 //!     });
 //! 
 //! });
@@ -58,10 +58,10 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewAccessCustomPage(ctx, "example", &cloudflare.AccessCustomPageArgs{
-//! 			CustomHtml: pulumi.String("<html><body><h1>Forbidden</h1></body></html>"),
+//! 			ZoneId:     pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 			Name:       pulumi.String("example"),
 //! 			Type:       pulumi.String("forbidden"),
-//! 			ZoneId:     pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			CustomHtml: pulumi.String("<html><body><h1>Forbidden</h1></body></html>"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -92,11 +92,11 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new AccessCustomPage("example", AccessCustomPageArgs.builder()        
-//!             .customHtml("<html><body><h1>Forbidden</h1></body></html>")
+//!         var example = new AccessCustomPage("example", AccessCustomPageArgs.builder()
+//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .name("example")
 //!             .type("forbidden")
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .customHtml("<html><body><h1>Forbidden</h1></body></html>")
 //!             .build());
 //! 
 //!     }
@@ -108,10 +108,10 @@
 //!   example:
 //!     type: cloudflare:AccessCustomPage
 //!     properties:
-//!       customHtml: <html><body><h1>Forbidden</h1></body></html>
+//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //!       name: example
 //!       type: forbidden
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       customHtml: <html><body><h1>Forbidden</h1></body></html>
 //! ```
 //! <!--End PulumiCodeChooser -->
 

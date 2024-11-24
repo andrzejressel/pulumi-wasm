@@ -29,12 +29,12 @@
 //! all = cloudflare.get_api_token_permission_groups()
 //! example = cloudflare.ApiToken("example",
 //!     name="Terraform Cloud (Terraform)",
-//!     policies=[cloudflare.ApiTokenPolicyArgs(
-//!         permission_groups=[all.user["User Details Read"]],
-//!         resources={
+//!     policies=[{
+//!         "permission_groups": [all.user["User Details Read"]],
+//!         "resources": {
 //!             f"com.cloudflare.api.user.{me.id}": "*",
 //!         },
-//!     )])
+//!     }])
 //! ```
 //! ### C#
 //! ```csharp
@@ -82,11 +82,13 @@
 //! )
 //! func main() {
 //! pulumi.Run(func(ctx *pulumi.Context) error {
-//! me, err := cloudflare.GetUser(ctx, nil, nil);
+//! me, err := cloudflare.GetUser(ctx, map[string]interface{}{
+//! }, nil);
 //! if err != nil {
 //! return err
 //! }
-//! all, err := cloudflare.GetApiTokenPermissionGroups(ctx, nil, nil);
+//! all, err := cloudflare.GetApiTokenPermissionGroups(ctx, map[string]interface{}{
+//! }, nil);
 //! if err != nil {
 //! return err
 //! }
@@ -138,7 +140,7 @@
 //! 
 //!         final var all = CloudflareFunctions.getApiTokenPermissionGroups();
 //! 
-//!         var example = new ApiToken("example", ApiTokenArgs.builder()        
+//!         var example = new ApiToken("example", ApiTokenArgs.builder()
 //!             .name("Terraform Cloud (Terraform)")
 //!             .policies(ApiTokenPolicyArgs.builder()
 //!                 .permissionGroups(all.applyValue(getApiTokenPermissionGroupsResult -> getApiTokenPermissionGroupsResult.user().User Details Read()))

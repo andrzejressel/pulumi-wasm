@@ -1,10 +1,19 @@
 #[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug)]
 #[builder(finish_fn = build_struct)]
 pub struct AccessApplicationSaasApp {
+    /// The lifetime of the Access Token after creation. Valid units are `m` and `h`. Must be greater than or equal to 1m and less than or equal to 24h.
+    #[builder(into, default = Box::new(None))]
+    #[serde(rename = "accessTokenLifetime")]
+    pub r#access_token_lifetime: Box<Option<String>>,
+    /// Allow PKCE flow without a client secret.
+    #[builder(into, default = Box::new(None))]
+    #[serde(rename = "allowPkceWithoutClientSecret")]
+    pub r#allow_pkce_without_client_secret: Box<Option<bool>>,
     /// The URL where this applications tile redirects users.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "appLauncherUrl")]
     pub r#app_launcher_url: Box<Option<String>>,
+    /// **Modifying this attribute will force creation of a new resource.**
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "authType")]
     pub r#auth_type: Box<Option<String>>,
@@ -24,6 +33,10 @@ pub struct AccessApplicationSaasApp {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "customAttributes")]
     pub r#custom_attributes: Box<Option<Vec<crate::types::AccessApplicationSaasAppCustomAttribute>>>,
+    /// Custom claim mapped from IDPs.
+    #[builder(into, default = Box::new(None))]
+    #[serde(rename = "customClaims")]
+    pub r#custom_claims: Box<Option<Vec<crate::types::AccessApplicationSaasAppCustomClaim>>>,
     /// The relay state used if not provided by the identity provider.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "defaultRelayState")]
@@ -36,6 +49,10 @@ pub struct AccessApplicationSaasApp {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "groupFilterRegex")]
     pub r#group_filter_regex: Box<Option<String>>,
+    /// Hybrid and Implicit Flow options.
+    #[builder(into, default = Box::new(None))]
+    #[serde(rename = "hybridAndImplicitOptions")]
+    pub r#hybrid_and_implicit_options: Box<Option<crate::types::AccessApplicationSaasAppHybridAndImplicitOptions>>,
     /// The unique identifier for the SaaS application.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "idpEntityId")]
@@ -56,6 +73,10 @@ pub struct AccessApplicationSaasApp {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "redirectUris")]
     pub r#redirect_uris: Box<Option<Vec<String>>>,
+    /// Refresh token grant options.
+    #[builder(into, default = Box::new(None))]
+    #[serde(rename = "refreshTokenOptions")]
+    pub r#refresh_token_options: Box<Option<Vec<crate::types::AccessApplicationSaasAppRefreshTokenOption>>>,
     /// A [JSONata](https://jsonata.org/) expression that transforms an application's user identities into attribute assertions in the SAML response. The expression can transform id, email, name, and groups values. It can also transform fields listed in the saml*attributes or oidc*fields of the identity provider used to authenticate. The output of this expression must be a JSON object.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "samlAttributeTransformJsonata")]

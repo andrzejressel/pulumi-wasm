@@ -8,7 +8,7 @@
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
-//! const exampleNs = new cloudflare.WorkersKvNamespace("exampleNs", {
+//! const exampleNs = new cloudflare.WorkersKvNamespace("example_ns", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
 //!     title: "test-namespace",
 //! });
@@ -24,7 +24,7 @@
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
 //! 
-//! example_ns = cloudflare.WorkersKvNamespace("exampleNs",
+//! example_ns = cloudflare.WorkersKvNamespace("example_ns",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
 //!     title="test-namespace")
 //! example = cloudflare.WorkersKv("example",
@@ -42,7 +42,7 @@
 //! 
 //! return await Deployment.RunAsync(() => 
 //! {
-//!     var exampleNs = new Cloudflare.WorkersKvNamespace("exampleNs", new()
+//!     var exampleNs = new Cloudflare.WorkersKvNamespace("example_ns", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
 //!         Title = "test-namespace",
@@ -69,7 +69,7 @@
 //! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		exampleNs, err := cloudflare.NewWorkersKvNamespace(ctx, "exampleNs", &cloudflare.WorkersKvNamespaceArgs{
+//! 		exampleNs, err := cloudflare.NewWorkersKvNamespace(ctx, "example_ns", &cloudflare.WorkersKvNamespaceArgs{
 //! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
 //! 			Title:     pulumi.String("test-namespace"),
 //! 		})
@@ -113,12 +113,12 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var exampleNs = new WorkersKvNamespace("exampleNs", WorkersKvNamespaceArgs.builder()        
+//!         var exampleNs = new WorkersKvNamespace("exampleNs", WorkersKvNamespaceArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
 //!             .title("test-namespace")
 //!             .build());
 //! 
-//!         var example = new WorkersKv("example", WorkersKvArgs.builder()        
+//!         var example = new WorkersKv("example", WorkersKvArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
 //!             .namespaceId(exampleNs.id())
 //!             .key("test-key")
@@ -133,6 +133,7 @@
 //! resources:
 //!   exampleNs:
 //!     type: cloudflare:WorkersKvNamespace
+//!     name: example_ns
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
 //!       title: test-namespace

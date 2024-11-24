@@ -1,4 +1,4 @@
-//! The [Workers for Platforms](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/) resource allows you 
+//! The [Workers for Platforms](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/) resource allows you
 //! to manage Cloudflare Workers for Platforms namespaces.
 //! 
 //! ## Example Usage
@@ -8,16 +8,18 @@
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//! import * as fs from "fs";
+//! import * as std from "@pulumi/std";
 //! 
 //! const example = new cloudflare.WorkersForPlatformsNamespace("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
 //!     name: "example-namespace",
 //! });
-//! const customerWorker1 = new cloudflare.WorkerScript("customerWorker1", {
+//! const customerWorker1 = new cloudflare.WorkersScript("customer_worker_1", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
 //!     name: "customer-worker-1",
-//!     content: fs.readFileSync("script.js", "utf8"),
+//!     content: std.file({
+//!         input: "script.js",
+//!     }).then(invoke => invoke.result),
 //!     dispatchNamespace: example.name,
 //!     tags: ["free"],
 //! });
@@ -26,24 +28,25 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
+//! import pulumi_std as std
 //! 
 //! example = cloudflare.WorkersForPlatformsNamespace("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
 //!     name="example-namespace")
-//! customer_worker1 = cloudflare.WorkerScript("customerWorker1",
+//! customer_worker1 = cloudflare.WorkersScript("customer_worker_1",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
 //!     name="customer-worker-1",
-//!     content=(lambda path: open(path).read())("script.js"),
+//!     content=std.file(input="script.js").result,
 //!     dispatch_namespace=example.name,
 //!     tags=["free"])
 //! ```
 //! ### C#
 //! ```csharp
 //! using System.Collections.Generic;
-//! using System.IO;
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
+//! using Std = Pulumi.Std;
 //! 
 //! return await Deployment.RunAsync(() => 
 //! {
@@ -53,11 +56,14 @@
 //!         Name = "example-namespace",
 //!     });
 //! 
-//!     var customerWorker1 = new Cloudflare.WorkerScript("customerWorker1", new()
+//!     var customerWorker1 = new Cloudflare.WorkersScript("customer_worker_1", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
 //!         Name = "customer-worker-1",
-//!         Content = File.ReadAllText("script.js"),
+//!         Content = Std.File.Invoke(new()
+//!         {
+//!             Input = "script.js",
+//!         }).Apply(invoke => invoke.Result),
 //!         DispatchNamespace = example.Name,
 //!         Tags = new[]
 //!         {
@@ -72,19 +78,10 @@
 //! package main
 //! 
 //! import (
-//! 	"os"
-//! 
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
+//! 	"github.com/pulumi/pulumi-std/sdk/go/std"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
-//! 
-//! func readFileOrPanic(path string) pulumi.StringPtrInput {
-//! 	data, err := os.ReadFile(path)
-//! 	if err != nil {
-//! 		panic(err.Error())
-//! 	}
-//! 	return pulumi.String(string(data))
-//! }
 //! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
@@ -95,10 +92,16 @@
 //! 		if err != nil {
 //! 			return err
 //! 		}
-//! 		_, err = cloudflare.NewWorkerScript(ctx, "customerWorker1", &cloudflare.WorkerScriptArgs{
+//! 		invokeFile, err := std.File(ctx, &std.FileArgs{
+//! 			Input: "script.js",
+//! 		}, nil)
+//! 		if err != nil {
+//! 			return err
+//! 		}
+//! 		_, err = cloudflare.NewWorkersScript(ctx, "customer_worker_1", &cloudflare.WorkersScriptArgs{
 //! 			AccountId:         pulumi.String("f037e56e89293a057740de681ac9abbe"),
 //! 			Name:              pulumi.String("customer-worker-1"),
-//! 			Content:           readFileOrPanic("script.js"),
+//! 			Content:           pulumi.String(invokeFile.Result),
 //! 			DispatchNamespace: example.Name,
 //! 			Tags: pulumi.StringArray{
 //! 				pulumi.String("free"),
@@ -120,8 +123,8 @@
 //! import com.pulumi.core.Output;
 //! import com.pulumi.cloudflare.WorkersForPlatformsNamespace;
 //! import com.pulumi.cloudflare.WorkersForPlatformsNamespaceArgs;
-//! import com.pulumi.cloudflare.WorkerScript;
-//! import com.pulumi.cloudflare.WorkerScriptArgs;
+//! import com.pulumi.cloudflare.WorkersScript;
+//! import com.pulumi.cloudflare.WorkersScriptArgs;
 //! import java.util.List;
 //! import java.util.ArrayList;
 //! import java.util.Map;
@@ -135,15 +138,17 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new WorkersForPlatformsNamespace("example", WorkersForPlatformsNamespaceArgs.builder()        
+//!         var example = new WorkersForPlatformsNamespace("example", WorkersForPlatformsNamespaceArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
 //!             .name("example-namespace")
 //!             .build());
 //! 
-//!         var customerWorker1 = new WorkerScript("customerWorker1", WorkerScriptArgs.builder()        
+//!         var customerWorker1 = new WorkersScript("customerWorker1", WorkersScriptArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
 //!             .name("customer-worker-1")
-//!             .content(Files.readString(Paths.get("script.js")))
+//!             .content(StdFunctions.file(FileArgs.builder()
+//!                 .input("script.js")
+//!                 .build()).result())
 //!             .dispatchNamespace(example.name())
 //!             .tags("free")
 //!             .build());
@@ -160,12 +165,17 @@
 //!       accountId: f037e56e89293a057740de681ac9abbe
 //!       name: example-namespace
 //!   customerWorker1:
-//!     type: cloudflare:WorkerScript
+//!     type: cloudflare:WorkersScript
+//!     name: customer_worker_1
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
 //!       name: customer-worker-1
 //!       content:
-//!         fn::readFile: script.js
+//!         fn::invoke:
+//!           Function: std:file
+//!           Arguments:
+//!             input: script.js
+//!           Return: result
 //!       dispatchNamespace: ${example.name}
 //!       tags:
 //!         - free
