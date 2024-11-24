@@ -12,15 +12,15 @@
 //! 
 //! const example = new cloudflare.DevicePostureIntegration("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
+//!     name: "Device posture integration",
+//!     type: "workspace_one",
+//!     interval: "24h",
 //!     configs: [{
 //!         apiUrl: "https://example.com/api",
 //!         authUrl: "https://example.com/connect/token",
 //!         clientId: "client-id",
 //!         clientSecret: "client-secret",
 //!     }],
-//!     interval: "24h",
-//!     name: "Device posture integration",
-//!     type: "workspace_one",
 //! });
 //! ```
 //! ### Python
@@ -30,15 +30,15 @@
 //! 
 //! example = cloudflare.DevicePostureIntegration("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     configs=[cloudflare.DevicePostureIntegrationConfigArgs(
-//!         api_url="https://example.com/api",
-//!         auth_url="https://example.com/connect/token",
-//!         client_id="client-id",
-//!         client_secret="client-secret",
-//!     )],
-//!     interval="24h",
 //!     name="Device posture integration",
-//!     type="workspace_one")
+//!     type="workspace_one",
+//!     interval="24h",
+//!     configs=[{
+//!         "api_url": "https://example.com/api",
+//!         "auth_url": "https://example.com/connect/token",
+//!         "client_id": "client-id",
+//!         "client_secret": "client-secret",
+//!     }])
 //! ```
 //! ### C#
 //! ```csharp
@@ -52,6 +52,9 @@
 //!     var example = new Cloudflare.DevicePostureIntegration("example", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
+//!         Name = "Device posture integration",
+//!         Type = "workspace_one",
+//!         Interval = "24h",
 //!         Configs = new[]
 //!         {
 //!             new Cloudflare.Inputs.DevicePostureIntegrationConfigArgs
@@ -62,9 +65,6 @@
 //!                 ClientSecret = "client-secret",
 //!             },
 //!         },
-//!         Interval = "24h",
-//!         Name = "Device posture integration",
-//!         Type = "workspace_one",
 //!     });
 //! 
 //! });
@@ -82,6 +82,9 @@
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewDevicePostureIntegration(ctx, "example", &cloudflare.DevicePostureIntegrationArgs{
 //! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
+//! 			Name:      pulumi.String("Device posture integration"),
+//! 			Type:      pulumi.String("workspace_one"),
+//! 			Interval:  pulumi.String("24h"),
 //! 			Configs: cloudflare.DevicePostureIntegrationConfigArray{
 //! 				&cloudflare.DevicePostureIntegrationConfigArgs{
 //! 					ApiUrl:       pulumi.String("https://example.com/api"),
@@ -90,9 +93,6 @@
 //! 					ClientSecret: pulumi.String("client-secret"),
 //! 				},
 //! 			},
-//! 			Interval: pulumi.String("24h"),
-//! 			Name:     pulumi.String("Device posture integration"),
-//! 			Type:     pulumi.String("workspace_one"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -124,17 +124,17 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new DevicePostureIntegration("example", DevicePostureIntegrationArgs.builder()        
+//!         var example = new DevicePostureIntegration("example", DevicePostureIntegrationArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
+//!             .name("Device posture integration")
+//!             .type("workspace_one")
+//!             .interval("24h")
 //!             .configs(DevicePostureIntegrationConfigArgs.builder()
 //!                 .apiUrl("https://example.com/api")
 //!                 .authUrl("https://example.com/connect/token")
 //!                 .clientId("client-id")
 //!                 .clientSecret("client-secret")
 //!                 .build())
-//!             .interval("24h")
-//!             .name("Device posture integration")
-//!             .type("workspace_one")
 //!             .build());
 //! 
 //!     }
@@ -147,14 +147,14 @@
 //!     type: cloudflare:DevicePostureIntegration
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
+//!       name: Device posture integration
+//!       type: workspace_one
+//!       interval: 24h
 //!       configs:
 //!         - apiUrl: https://example.com/api
 //!           authUrl: https://example.com/connect/token
 //!           clientId: client-id
 //!           clientSecret: client-secret
-//!       interval: 24h
-//!       name: Device posture integration
-//!       type: workspace_one
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 
@@ -182,7 +182,7 @@ pub struct DevicePostureIntegrationArgs {
     /// Name of the device posture integration.
     #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
-    /// The device posture integration type. Available values: `workspace_one`, `uptycs`, `crowdstrike_s2s`, `intune`, `kolide`, `sentinelone_s2s`, `tanium_s2s`.
+    /// The device posture integration type. Available values: `workspace_one`, `uptycs`, `crowdstrike_s2s`, `intune`, `kolide`, `sentinelone_s2s`, `tanium_s2s`, `custom_s2s`.
     #[builder(into)]
     pub type_: pulumi_wasm_rust::Output<String>,
 }
@@ -197,7 +197,7 @@ pub struct DevicePostureIntegrationResult {
     pub interval: pulumi_wasm_rust::Output<Option<String>>,
     /// Name of the device posture integration.
     pub name: pulumi_wasm_rust::Output<String>,
-    /// The device posture integration type. Available values: `workspace_one`, `uptycs`, `crowdstrike_s2s`, `intune`, `kolide`, `sentinelone_s2s`, `tanium_s2s`.
+    /// The device posture integration type. Available values: `workspace_one`, `uptycs`, `crowdstrike_s2s`, `intune`, `kolide`, `sentinelone_s2s`, `tanium_s2s`, `custom_s2s`.
     pub type_: pulumi_wasm_rust::Output<String>,
 }
 

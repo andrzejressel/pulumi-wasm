@@ -10,16 +10,16 @@
 //! 
 //! const example = new cloudflare.TeamsRule("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     action: "block",
-//!     description: "desc",
-//!     filters: ["http"],
 //!     name: "office",
+//!     description: "desc",
 //!     precedence: 1,
+//!     action: "block",
+//!     filters: ["http"],
+//!     traffic: "http.request.uri == \"https://www.example.com/malicious\"",
 //!     ruleSettings: {
 //!         blockPageEnabled: true,
 //!         blockPageReason: "access not permitted",
 //!     },
-//!     traffic: "http.request.uri == \"https://www.example.com/malicious\"",
 //! });
 //! ```
 //! ### Python
@@ -29,16 +29,16 @@
 //! 
 //! example = cloudflare.TeamsRule("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     action="block",
-//!     description="desc",
-//!     filters=["http"],
 //!     name="office",
+//!     description="desc",
 //!     precedence=1,
-//!     rule_settings=cloudflare.TeamsRuleRuleSettingsArgs(
-//!         block_page_enabled=True,
-//!         block_page_reason="access not permitted",
-//!     ),
-//!     traffic="http.request.uri == \"https://www.example.com/malicious\"")
+//!     action="block",
+//!     filters=["http"],
+//!     traffic="http.request.uri == \"https://www.example.com/malicious\"",
+//!     rule_settings={
+//!         "block_page_enabled": True,
+//!         "block_page_reason": "access not permitted",
+//!     })
 //! ```
 //! ### C#
 //! ```csharp
@@ -52,20 +52,20 @@
 //!     var example = new Cloudflare.TeamsRule("example", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         Action = "block",
+//!         Name = "office",
 //!         Description = "desc",
+//!         Precedence = 1,
+//!         Action = "block",
 //!         Filters = new[]
 //!         {
 //!             "http",
 //!         },
-//!         Name = "office",
-//!         Precedence = 1,
+//!         Traffic = "http.request.uri == \"https://www.example.com/malicious\"",
 //!         RuleSettings = new Cloudflare.Inputs.TeamsRuleRuleSettingsArgs
 //!         {
 //!             BlockPageEnabled = true,
 //!             BlockPageReason = "access not permitted",
 //!         },
-//!         Traffic = "http.request.uri == \"https://www.example.com/malicious\"",
 //!     });
 //! 
 //! });
@@ -83,18 +83,18 @@
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewTeamsRule(ctx, "example", &cloudflare.TeamsRuleArgs{
 //! 			AccountId:   pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			Action:      pulumi.String("block"),
+//! 			Name:        pulumi.String("office"),
 //! 			Description: pulumi.String("desc"),
+//! 			Precedence:  pulumi.Int(1),
+//! 			Action:      pulumi.String("block"),
 //! 			Filters: pulumi.StringArray{
 //! 				pulumi.String("http"),
 //! 			},
-//! 			Name:       pulumi.String("office"),
-//! 			Precedence: pulumi.Int(1),
+//! 			Traffic: pulumi.String("http.request.uri == \"https://www.example.com/malicious\""),
 //! 			RuleSettings: &cloudflare.TeamsRuleRuleSettingsArgs{
 //! 				BlockPageEnabled: pulumi.Bool(true),
 //! 				BlockPageReason:  pulumi.String("access not permitted"),
 //! 			},
-//! 			Traffic: pulumi.String("http.request.uri == \"https://www.example.com/malicious\""),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -126,18 +126,18 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new TeamsRule("example", TeamsRuleArgs.builder()        
+//!         var example = new TeamsRule("example", TeamsRuleArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .action("block")
-//!             .description("desc")
-//!             .filters("http")
 //!             .name("office")
+//!             .description("desc")
 //!             .precedence(1)
+//!             .action("block")
+//!             .filters("http")
+//!             .traffic("http.request.uri == \"https://www.example.com/malicious\"")
 //!             .ruleSettings(TeamsRuleRuleSettingsArgs.builder()
 //!                 .blockPageEnabled(true)
 //!                 .blockPageReason("access not permitted")
 //!                 .build())
-//!             .traffic("http.request.uri == \"https://www.example.com/malicious\"")
 //!             .build());
 //! 
 //!     }
@@ -150,16 +150,16 @@
 //!     type: cloudflare:TeamsRule
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
-//!       action: block
+//!       name: office
 //!       description: desc
+//!       precedence: 1
+//!       action: block
 //!       filters:
 //!         - http
-//!       name: office
-//!       precedence: 1
+//!       traffic: http.request.uri == "https://www.example.com/malicious"
 //!       ruleSettings:
 //!         blockPageEnabled: true
 //!         blockPageReason: access not permitted
-//!       traffic: http.request.uri == "https://www.example.com/malicious"
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 
@@ -176,7 +176,7 @@ pub struct TeamsRuleArgs {
     /// The account identifier to target for the resource.
     #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
-    /// Action to be taken when the SSL certificate of upstream is invalid. Available values: `pass_through`, `block`, `error`.
+    /// The action executed by matched teams rule. Available values: `allow`, `block`, `safesearch`, `ytrestricted`, `on`, `off`, `scan`, `noscan`, `isolate`, `noisolate`, `override`, `l4_override`, `egress`, `audit_ssh`, `resolve`.
     #[builder(into)]
     pub action: pulumi_wasm_rust::Output<String>,
     /// The description of the teams rule.
@@ -185,7 +185,7 @@ pub struct TeamsRuleArgs {
     /// The wirefilter expression to be used for device_posture check matching.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub device_posture: pulumi_wasm_rust::Output<Option<String>>,
-    /// Enable notification settings.
+    /// Indicator of rule enablement.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
     /// The protocol or layer to evaluate the traffic and identity expressions.
@@ -211,26 +211,26 @@ pub struct TeamsRuleArgs {
 pub struct TeamsRuleResult {
     /// The account identifier to target for the resource.
     pub account_id: pulumi_wasm_rust::Output<String>,
-    /// Action to be taken when the SSL certificate of upstream is invalid. Available values: `pass_through`, `block`, `error`.
+    /// The action executed by matched teams rule. Available values: `allow`, `block`, `safesearch`, `ytrestricted`, `on`, `off`, `scan`, `noscan`, `isolate`, `noisolate`, `override`, `l4_override`, `egress`, `audit_ssh`, `resolve`.
     pub action: pulumi_wasm_rust::Output<String>,
     /// The description of the teams rule.
     pub description: pulumi_wasm_rust::Output<String>,
     /// The wirefilter expression to be used for device_posture check matching.
-    pub device_posture: pulumi_wasm_rust::Output<Option<String>>,
-    /// Enable notification settings.
+    pub device_posture: pulumi_wasm_rust::Output<String>,
+    /// Indicator of rule enablement.
     pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
     /// The protocol or layer to evaluate the traffic and identity expressions.
     pub filters: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// The wirefilter expression to be used for identity matching.
-    pub identity: pulumi_wasm_rust::Output<Option<String>>,
+    pub identity: pulumi_wasm_rust::Output<String>,
     /// The name of the teams rule.
     pub name: pulumi_wasm_rust::Output<String>,
     /// The evaluation precedence of the teams rule.
     pub precedence: pulumi_wasm_rust::Output<i32>,
     /// Additional rule settings.
-    pub rule_settings: pulumi_wasm_rust::Output<Option<crate::types::TeamsRuleRuleSettings>>,
+    pub rule_settings: pulumi_wasm_rust::Output<crate::types::TeamsRuleRuleSettings>,
     /// The wirefilter expression to be used for traffic matching.
-    pub traffic: pulumi_wasm_rust::Output<Option<String>>,
+    pub traffic: pulumi_wasm_rust::Output<String>,
     pub version: pulumi_wasm_rust::Output<i32>,
 }
 

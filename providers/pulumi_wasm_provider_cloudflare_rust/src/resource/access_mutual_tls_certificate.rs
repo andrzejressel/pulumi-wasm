@@ -18,10 +18,10 @@
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
-//! const myCert = new cloudflare.AccessMutualTlsCertificate("myCert", {
+//! const myCert = new cloudflare.AccessMutualTlsCertificate("my_cert", {
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //!     name: "My Root Cert",
-//!     certificate: _var.ca_pem,
+//!     certificate: caPem,
 //!     associatedHostnames: ["staging.example.com"],
 //! });
 //! ```
@@ -30,10 +30,10 @@
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
 //! 
-//! my_cert = cloudflare.AccessMutualTlsCertificate("myCert",
+//! my_cert = cloudflare.AccessMutualTlsCertificate("my_cert",
 //!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     name="My Root Cert",
-//!     certificate=var["ca_pem"],
+//!     certificate=ca_pem,
 //!     associated_hostnames=["staging.example.com"])
 //! ```
 //! ### C#
@@ -45,11 +45,11 @@
 //! 
 //! return await Deployment.RunAsync(() => 
 //! {
-//!     var myCert = new Cloudflare.AccessMutualTlsCertificate("myCert", new()
+//!     var myCert = new Cloudflare.AccessMutualTlsCertificate("my_cert", new()
 //!     {
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!         Name = "My Root Cert",
-//!         Certificate = @var.Ca_pem,
+//!         Certificate = caPem,
 //!         AssociatedHostnames = new[]
 //!         {
 //!             "staging.example.com",
@@ -69,10 +69,10 @@
 //! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewAccessMutualTlsCertificate(ctx, "myCert", &cloudflare.AccessMutualTlsCertificateArgs{
+//! 		_, err := cloudflare.NewAccessMutualTlsCertificate(ctx, "my_cert", &cloudflare.AccessMutualTlsCertificateArgs{
 //! 			ZoneId:      pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 			Name:        pulumi.String("My Root Cert"),
-//! 			Certificate: pulumi.Any(_var.Ca_pem),
+//! 			Certificate: pulumi.Any(caPem),
 //! 			AssociatedHostnames: pulumi.StringArray{
 //! 				pulumi.String("staging.example.com"),
 //! 			},
@@ -106,10 +106,10 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var myCert = new AccessMutualTlsCertificate("myCert", AccessMutualTlsCertificateArgs.builder()        
+//!         var myCert = new AccessMutualTlsCertificate("myCert", AccessMutualTlsCertificateArgs.builder()
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .name("My Root Cert")
-//!             .certificate(var_.ca_pem())
+//!             .certificate(caPem)
 //!             .associatedHostnames("staging.example.com")
 //!             .build());
 //! 
@@ -121,10 +121,11 @@
 //! resources:
 //!   myCert:
 //!     type: cloudflare:AccessMutualTlsCertificate
+//!     name: my_cert
 //!     properties:
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //!       name: My Root Cert
-//!       certificate: ${var.ca_pem}
+//!       certificate: ${caPem}
 //!       associatedHostnames:
 //!         - staging.example.com
 //! ```

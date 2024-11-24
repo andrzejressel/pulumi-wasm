@@ -9,13 +9,13 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! const example = new cloudflare.KeylessCertificate("example", {
-//!     bundleMethod: "ubiquitous",
-//!     certificate: "-----INSERT CERTIFICATE-----",
-//!     enabled: true,
-//!     host: "example.com",
-//!     name: "example.com Keyless SSL",
-//!     port: 24008,
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     bundleMethod: "ubiquitous",
+//!     name: "example.com Keyless SSL",
+//!     host: "example.com",
+//!     port: 24008,
+//!     enabled: true,
+//!     certificate: "-----INSERT CERTIFICATE-----",
 //! });
 //! ```
 //! ### Python
@@ -24,13 +24,13 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! example = cloudflare.KeylessCertificate("example",
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     bundle_method="ubiquitous",
-//!     certificate="-----INSERT CERTIFICATE-----",
-//!     enabled=True,
-//!     host="example.com",
 //!     name="example.com Keyless SSL",
+//!     host="example.com",
 //!     port=24008,
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     enabled=True,
+//!     certificate="-----INSERT CERTIFICATE-----")
 //! ```
 //! ### C#
 //! ```csharp
@@ -43,13 +43,13 @@
 //! {
 //!     var example = new Cloudflare.KeylessCertificate("example", new()
 //!     {
-//!         BundleMethod = "ubiquitous",
-//!         Certificate = "-----INSERT CERTIFICATE-----",
-//!         Enabled = true,
-//!         Host = "example.com",
-//!         Name = "example.com Keyless SSL",
-//!         Port = 24008,
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         BundleMethod = "ubiquitous",
+//!         Name = "example.com Keyless SSL",
+//!         Host = "example.com",
+//!         Port = 24008,
+//!         Enabled = true,
+//!         Certificate = "-----INSERT CERTIFICATE-----",
 //!     });
 //! 
 //! });
@@ -66,13 +66,13 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewKeylessCertificate(ctx, "example", &cloudflare.KeylessCertificateArgs{
-//! 			BundleMethod: pulumi.String("ubiquitous"),
-//! 			Certificate:  pulumi.String("-----INSERT CERTIFICATE-----"),
-//! 			Enabled:      pulumi.Bool(true),
-//! 			Host:         pulumi.String("example.com"),
-//! 			Name:         pulumi.String("example.com Keyless SSL"),
-//! 			Port:         pulumi.Int(24008),
 //! 			ZoneId:       pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			BundleMethod: pulumi.String("ubiquitous"),
+//! 			Name:         pulumi.String("example.com Keyless SSL"),
+//! 			Host:         pulumi.String("example.com"),
+//! 			Port:         pulumi.Int(24008),
+//! 			Enabled:      pulumi.Bool(true),
+//! 			Certificate:  pulumi.String("-----INSERT CERTIFICATE-----"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -103,14 +103,14 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new KeylessCertificate("example", KeylessCertificateArgs.builder()        
-//!             .bundleMethod("ubiquitous")
-//!             .certificate("-----INSERT CERTIFICATE-----")
-//!             .enabled(true)
-//!             .host("example.com")
-//!             .name("example.com Keyless SSL")
-//!             .port(24008)
+//!         var example = new KeylessCertificate("example", KeylessCertificateArgs.builder()
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .bundleMethod("ubiquitous")
+//!             .name("example.com Keyless SSL")
+//!             .host("example.com")
+//!             .port(24008)
+//!             .enabled(true)
+//!             .certificate("-----INSERT CERTIFICATE-----")
 //!             .build());
 //! 
 //!     }
@@ -122,13 +122,13 @@
 //!   example:
 //!     type: cloudflare:KeylessCertificate
 //!     properties:
-//!       bundleMethod: ubiquitous
-//!       certificate: '-----INSERT CERTIFICATE-----'
-//!       enabled: true
-//!       host: example.com
-//!       name: example.com Keyless SSL
-//!       port: 24008
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       bundleMethod: ubiquitous
+//!       name: example.com Keyless SSL
+//!       host: example.com
+//!       port: 24008
+//!       enabled: true
+//!       certificate: '-----INSERT CERTIFICATE-----'
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

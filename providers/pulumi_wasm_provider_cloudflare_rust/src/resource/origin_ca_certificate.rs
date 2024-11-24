@@ -13,15 +13,15 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! import * as tls from "@pulumi/tls";
 //! 
-//! const examplePrivateKey = new tls.PrivateKey("examplePrivateKey", {algorithm: "RSA"});
-//! const exampleCertRequest = new tls.CertRequest("exampleCertRequest", {
-//!     privateKeyPem: examplePrivateKey.privateKeyPem,
-//!     subjects: [{
+//! const example = new tls.index.PrivateKey("example", {algorithm: "RSA"});
+//! const exampleCertRequest = new tls.index.CertRequest("example", {
+//!     privateKeyPem: example.privateKeyPem,
+//!     subject: [{
 //!         commonName: "",
 //!         organization: "Terraform Test",
 //!     }],
 //! });
-//! const exampleOriginCaCertificate = new cloudflare.OriginCaCertificate("exampleOriginCaCertificate", {
+//! const exampleOriginCaCertificate = new cloudflare.OriginCaCertificate("example", {
 //!     csr: exampleCertRequest.certRequestPem,
 //!     hostnames: ["example.com"],
 //!     requestType: "origin-rsa",
@@ -34,15 +34,15 @@
 //! import pulumi_cloudflare as cloudflare
 //! import pulumi_tls as tls
 //! 
-//! example_private_key = tls.PrivateKey("examplePrivateKey", algorithm="RSA")
-//! example_cert_request = tls.CertRequest("exampleCertRequest",
-//!     private_key_pem=example_private_key.private_key_pem,
-//!     subjects=[tls.CertRequestSubjectArgs(
-//!         common_name="",
-//!         organization="Terraform Test",
-//!     )])
-//! example_origin_ca_certificate = cloudflare.OriginCaCertificate("exampleOriginCaCertificate",
-//!     csr=example_cert_request.cert_request_pem,
+//! example = tls.index.PrivateKey("example", algorithm=RSA)
+//! example_cert_request = tls.index.CertRequest("example",
+//!     private_key_pem=example.private_key_pem,
+//!     subject=[{
+//!         commonName: ,
+//!         organization: Terraform Test,
+//!     }])
+//! example_origin_ca_certificate = cloudflare.OriginCaCertificate("example",
+//!     csr=example_cert_request["certRequestPem"],
 //!     hostnames=["example.com"],
 //!     request_type="origin-rsa",
 //!     requested_validity=7)
@@ -57,25 +57,25 @@
 //! 
 //! return await Deployment.RunAsync(() => 
 //! {
-//!     var examplePrivateKey = new Tls.PrivateKey("examplePrivateKey", new()
+//!     var example = new Tls.Index.PrivateKey("example", new()
 //!     {
 //!         Algorithm = "RSA",
 //!     });
 //! 
-//!     var exampleCertRequest = new Tls.CertRequest("exampleCertRequest", new()
+//!     var exampleCertRequest = new Tls.Index.CertRequest("example", new()
 //!     {
-//!         PrivateKeyPem = examplePrivateKey.PrivateKeyPem,
-//!         Subjects = new[]
+//!         PrivateKeyPem = example.PrivateKeyPem,
+//!         Subject = new[]
 //!         {
-//!             new Tls.Inputs.CertRequestSubjectArgs
+//!             
 //!             {
-//!                 CommonName = "",
-//!                 Organization = "Terraform Test",
+//!                 { "commonName", "" },
+//!                 { "organization", "Terraform Test" },
 //!             },
 //!         },
 //!     });
 //! 
-//!     var exampleOriginCaCertificate = new Cloudflare.OriginCaCertificate("exampleOriginCaCertificate", new()
+//!     var exampleOriginCaCertificate = new Cloudflare.OriginCaCertificate("example", new()
 //!     {
 //!         Csr = exampleCertRequest.CertRequestPem,
 //!         Hostnames = new[]
@@ -100,25 +100,25 @@
 //! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		examplePrivateKey, err := tls.NewPrivateKey(ctx, "examplePrivateKey", &tls.PrivateKeyArgs{
-//! 			Algorithm: pulumi.String("RSA"),
+//! 		example, err := tls.NewPrivateKey(ctx, "example", &tls.PrivateKeyArgs{
+//! 			Algorithm: "RSA",
 //! 		})
 //! 		if err != nil {
 //! 			return err
 //! 		}
-//! 		exampleCertRequest, err := tls.NewCertRequest(ctx, "exampleCertRequest", &tls.CertRequestArgs{
-//! 			PrivateKeyPem: examplePrivateKey.PrivateKeyPem,
-//! 			Subjects: tls.CertRequestSubjectArray{
-//! 				&tls.CertRequestSubjectArgs{
-//! 					CommonName:   pulumi.String(""),
-//! 					Organization: pulumi.String("Terraform Test"),
+//! 		exampleCertRequest, err := tls.NewCertRequest(ctx, "example", &tls.CertRequestArgs{
+//! 			PrivateKeyPem: example.PrivateKeyPem,
+//! 			Subject: []map[string]interface{}{
+//! 				map[string]interface{}{
+//! 					"commonName":   "",
+//! 					"organization": "Terraform Test",
 //! 				},
 //! 			},
 //! 		})
 //! 		if err != nil {
 //! 			return err
 //! 		}
-//! 		_, err = cloudflare.NewOriginCaCertificate(ctx, "exampleOriginCaCertificate", &cloudflare.OriginCaCertificateArgs{
+//! 		_, err = cloudflare.NewOriginCaCertificate(ctx, "example", &cloudflare.OriginCaCertificateArgs{
 //! 			Csr: exampleCertRequest.CertRequestPem,
 //! 			Hostnames: pulumi.StringArray{
 //! 				pulumi.String("example.com"),
@@ -140,11 +140,10 @@
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
-//! import com.pulumi.tls.PrivateKey;
+//! import com.pulumi.tls.privateKey;
 //! import com.pulumi.tls.PrivateKeyArgs;
-//! import com.pulumi.tls.CertRequest;
+//! import com.pulumi.tls.certRequest;
 //! import com.pulumi.tls.CertRequestArgs;
-//! import com.pulumi.tls.inputs.CertRequestSubjectArgs;
 //! import com.pulumi.cloudflare.OriginCaCertificate;
 //! import com.pulumi.cloudflare.OriginCaCertificateArgs;
 //! import java.util.List;
@@ -160,19 +159,16 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var examplePrivateKey = new PrivateKey("examplePrivateKey", PrivateKeyArgs.builder()        
+//!         var example = new PrivateKey("example", PrivateKeyArgs.builder()
 //!             .algorithm("RSA")
 //!             .build());
 //! 
-//!         var exampleCertRequest = new CertRequest("exampleCertRequest", CertRequestArgs.builder()        
-//!             .privateKeyPem(examplePrivateKey.privateKeyPem())
-//!             .subjects(CertRequestSubjectArgs.builder()
-//!                 .commonName("")
-//!                 .organization("Terraform Test")
-//!                 .build())
+//!         var exampleCertRequest = new CertRequest("exampleCertRequest", CertRequestArgs.builder()
+//!             .privateKeyPem(example.privateKeyPem())
+//!             .subject(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
 //!             .build());
 //! 
-//!         var exampleOriginCaCertificate = new OriginCaCertificate("exampleOriginCaCertificate", OriginCaCertificateArgs.builder()        
+//!         var exampleOriginCaCertificate = new OriginCaCertificate("exampleOriginCaCertificate", OriginCaCertificateArgs.builder()
 //!             .csr(exampleCertRequest.certRequestPem())
 //!             .hostnames("example.com")
 //!             .requestType("origin-rsa")
@@ -185,19 +181,21 @@
 //! ### YAML
 //! ```yaml
 //! resources:
-//!   examplePrivateKey:
-//!     type: tls:PrivateKey
+//!   example:
+//!     type: tls:privateKey
 //!     properties:
 //!       algorithm: RSA
 //!   exampleCertRequest:
-//!     type: tls:CertRequest
+//!     type: tls:certRequest
+//!     name: example
 //!     properties:
-//!       privateKeyPem: ${examplePrivateKey.privateKeyPem}
-//!       subjects:
+//!       privateKeyPem: ${example.privateKeyPem}
+//!       subject:
 //!         - commonName:
 //!           organization: Terraform Test
 //!   exampleOriginCaCertificate:
 //!     type: cloudflare:OriginCaCertificate
+//!     name: example
 //!     properties:
 //!       csr: ${exampleCertRequest.certRequestPem}
 //!       hostnames:
@@ -223,7 +221,6 @@ pub struct OriginCaCertificateArgs {
     /// A list of hostnames or wildcard names bound to the certificate. **Modifying this attribute will force creation of a new resource.**
     #[builder(into)]
     pub hostnames: pulumi_wasm_rust::Output<Vec<String>>,
-    /// Number of days prior to the expiry to trigger a renewal of the certificate if a Terraform operation is run.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub min_days_for_renewal: pulumi_wasm_rust::Output<Option<i32>>,
     /// The signature type desired on the certificate. Available values: `origin-rsa`, `origin-ecc`, `keyless-certificate`. **Modifying this attribute will force creation of a new resource.**
@@ -243,7 +240,6 @@ pub struct OriginCaCertificateResult {
     pub expires_on: pulumi_wasm_rust::Output<String>,
     /// A list of hostnames or wildcard names bound to the certificate. **Modifying this attribute will force creation of a new resource.**
     pub hostnames: pulumi_wasm_rust::Output<Vec<String>>,
-    /// Number of days prior to the expiry to trigger a renewal of the certificate if a Terraform operation is run.
     pub min_days_for_renewal: pulumi_wasm_rust::Output<Option<i32>>,
     /// The signature type desired on the certificate. Available values: `origin-rsa`, `origin-ecc`, `keyless-certificate`. **Modifying this attribute will force creation of a new resource.**
     pub request_type: pulumi_wasm_rust::Output<String>,

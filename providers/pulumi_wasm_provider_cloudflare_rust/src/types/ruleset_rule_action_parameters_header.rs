@@ -5,7 +5,7 @@ pub struct RulesetRuleActionParametersHeader {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "expression")]
     pub r#expression: Box<Option<String>>,
-    /// Name of the compression algorithm to use. Available values: `gzip`, `brotli`, `auto`, `default`, `none`
+    /// Name of the HTTP request header to target.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "name")]
     pub r#name: Box<Option<String>>,
@@ -13,7 +13,7 @@ pub struct RulesetRuleActionParametersHeader {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "operation")]
     pub r#operation: Box<Option<String>>,
-    /// Status code edge TTL value.
+    /// Static value to provide as the HTTP request header value.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "value")]
     pub r#value: Box<Option<String>>,

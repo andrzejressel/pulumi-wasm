@@ -9,14 +9,14 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! const example = new cloudflare.CustomSsl("example", {
+//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //!     customSslOptions: {
-//!         bundleMethod: "ubiquitous",
 //!         certificate: "-----INSERT CERTIFICATE-----",
-//!         geoRestrictions: "us",
 //!         privateKey: "-----INSERT PRIVATE KEY-----",
+//!         bundleMethod: "ubiquitous",
+//!         geoRestrictions: "us",
 //!         type: "legacy_custom",
 //!     },
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //! });
 //! ```
 //! ### Python
@@ -25,14 +25,14 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! example = cloudflare.CustomSsl("example",
-//!     custom_ssl_options=cloudflare.CustomSslCustomSslOptionsArgs(
-//!         bundle_method="ubiquitous",
-//!         certificate="-----INSERT CERTIFICATE-----",
-//!         geo_restrictions="us",
-//!         private_key="-----INSERT PRIVATE KEY-----",
-//!         type="legacy_custom",
-//!     ),
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
+//!     custom_ssl_options={
+//!         "certificate": "-----INSERT CERTIFICATE-----",
+//!         "private_key": "-----INSERT PRIVATE KEY-----",
+//!         "bundle_method": "ubiquitous",
+//!         "geo_restrictions": "us",
+//!         "type": "legacy_custom",
+//!     })
 //! ```
 //! ### C#
 //! ```csharp
@@ -45,15 +45,15 @@
 //! {
 //!     var example = new Cloudflare.CustomSsl("example", new()
 //!     {
+//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!         CustomSslOptions = new Cloudflare.Inputs.CustomSslCustomSslOptionsArgs
 //!         {
-//!             BundleMethod = "ubiquitous",
 //!             Certificate = "-----INSERT CERTIFICATE-----",
-//!             GeoRestrictions = "us",
 //!             PrivateKey = "-----INSERT PRIVATE KEY-----",
+//!             BundleMethod = "ubiquitous",
+//!             GeoRestrictions = "us",
 //!             Type = "legacy_custom",
 //!         },
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
 //! 
 //! });
@@ -70,14 +70,14 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewCustomSsl(ctx, "example", &cloudflare.CustomSslArgs{
+//! 			ZoneId: pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 			CustomSslOptions: &cloudflare.CustomSslCustomSslOptionsArgs{
-//! 				BundleMethod:    pulumi.String("ubiquitous"),
 //! 				Certificate:     pulumi.String("-----INSERT CERTIFICATE-----"),
-//! 				GeoRestrictions: pulumi.String("us"),
 //! 				PrivateKey:      pulumi.String("-----INSERT PRIVATE KEY-----"),
+//! 				BundleMethod:    pulumi.String("ubiquitous"),
+//! 				GeoRestrictions: pulumi.String("us"),
 //! 				Type:            pulumi.String("legacy_custom"),
 //! 			},
-//! 			ZoneId: pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -109,15 +109,15 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new CustomSsl("example", CustomSslArgs.builder()        
+//!         var example = new CustomSsl("example", CustomSslArgs.builder()
+//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .customSslOptions(CustomSslCustomSslOptionsArgs.builder()
-//!                 .bundleMethod("ubiquitous")
 //!                 .certificate("-----INSERT CERTIFICATE-----")
-//!                 .geoRestrictions("us")
 //!                 .privateKey("-----INSERT PRIVATE KEY-----")
+//!                 .bundleMethod("ubiquitous")
+//!                 .geoRestrictions("us")
 //!                 .type("legacy_custom")
 //!                 .build())
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
 //! 
 //!     }
@@ -129,13 +129,13 @@
 //!   example:
 //!     type: cloudflare:CustomSsl
 //!     properties:
-//!       customSslOptions:
-//!         bundleMethod: ubiquitous
-//!         certificate: '-----INSERT CERTIFICATE-----'
-//!         geoRestrictions: us
-//!         privateKey: '-----INSERT PRIVATE KEY-----'
-//!         type: legacy_custom
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       customSslOptions:
+//!         certificate: '-----INSERT CERTIFICATE-----'
+//!         privateKey: '-----INSERT PRIVATE KEY-----'
+//!         bundleMethod: ubiquitous
+//!         geoRestrictions: us
+//!         type: legacy_custom
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

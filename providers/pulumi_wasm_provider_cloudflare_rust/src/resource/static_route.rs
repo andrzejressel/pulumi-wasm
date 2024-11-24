@@ -12,13 +12,13 @@
 //! 
 //! const example = new cloudflare.StaticRoute("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     coloNames: ["den01"],
-//!     coloRegions: ["APAC"],
 //!     description: "New route for new prefix 192.0.2.0/24",
-//!     nexthop: "10.0.0.0",
 //!     prefix: "192.0.2.0/24",
+//!     nexthop: "10.0.0.0",
 //!     priority: 100,
 //!     weight: 10,
+//!     coloNames: ["den01"],
+//!     coloRegions: ["APAC"],
 //! });
 //! ```
 //! ### Python
@@ -28,13 +28,13 @@
 //! 
 //! example = cloudflare.StaticRoute("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     colo_names=["den01"],
-//!     colo_regions=["APAC"],
 //!     description="New route for new prefix 192.0.2.0/24",
-//!     nexthop="10.0.0.0",
 //!     prefix="192.0.2.0/24",
+//!     nexthop="10.0.0.0",
 //!     priority=100,
-//!     weight=10)
+//!     weight=10,
+//!     colo_names=["den01"],
+//!     colo_regions=["APAC"])
 //! ```
 //! ### C#
 //! ```csharp
@@ -48,6 +48,11 @@
 //!     var example = new Cloudflare.StaticRoute("example", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
+//!         Description = "New route for new prefix 192.0.2.0/24",
+//!         Prefix = "192.0.2.0/24",
+//!         Nexthop = "10.0.0.0",
+//!         Priority = 100,
+//!         Weight = 10,
 //!         ColoNames = new[]
 //!         {
 //!             "den01",
@@ -56,11 +61,6 @@
 //!         {
 //!             "APAC",
 //!         },
-//!         Description = "New route for new prefix 192.0.2.0/24",
-//!         Nexthop = "10.0.0.0",
-//!         Prefix = "192.0.2.0/24",
-//!         Priority = 100,
-//!         Weight = 10,
 //!     });
 //! 
 //! });
@@ -77,18 +77,18 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewStaticRoute(ctx, "example", &cloudflare.StaticRouteArgs{
-//! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
+//! 			AccountId:   pulumi.String("f037e56e89293a057740de681ac9abbe"),
+//! 			Description: pulumi.String("New route for new prefix 192.0.2.0/24"),
+//! 			Prefix:      pulumi.String("192.0.2.0/24"),
+//! 			Nexthop:     pulumi.String("10.0.0.0"),
+//! 			Priority:    pulumi.Int(100),
+//! 			Weight:      pulumi.Int(10),
 //! 			ColoNames: pulumi.StringArray{
 //! 				pulumi.String("den01"),
 //! 			},
 //! 			ColoRegions: pulumi.StringArray{
 //! 				pulumi.String("APAC"),
 //! 			},
-//! 			Description: pulumi.String("New route for new prefix 192.0.2.0/24"),
-//! 			Nexthop:     pulumi.String("10.0.0.0"),
-//! 			Prefix:      pulumi.String("192.0.2.0/24"),
-//! 			Priority:    pulumi.Int(100),
-//! 			Weight:      pulumi.Int(10),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -119,15 +119,15 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new StaticRoute("example", StaticRouteArgs.builder()        
+//!         var example = new StaticRoute("example", StaticRouteArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .coloNames("den01")
-//!             .coloRegions("APAC")
 //!             .description("New route for new prefix 192.0.2.0/24")
-//!             .nexthop("10.0.0.0")
 //!             .prefix("192.0.2.0/24")
+//!             .nexthop("10.0.0.0")
 //!             .priority(100)
 //!             .weight(10)
+//!             .coloNames("den01")
+//!             .coloRegions("APAC")
 //!             .build());
 //! 
 //!     }
@@ -140,15 +140,15 @@
 //!     type: cloudflare:StaticRoute
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
+//!       description: New route for new prefix 192.0.2.0/24
+//!       prefix: 192.0.2.0/24
+//!       nexthop: 10.0.0.0
+//!       priority: 100
+//!       weight: 10
 //!       coloNames:
 //!         - den01
 //!       coloRegions:
 //!         - APAC
-//!       description: New route for new prefix 192.0.2.0/24
-//!       nexthop: 10.0.0.0
-//!       prefix: 192.0.2.0/24
-//!       priority: 100
-//!       weight: 10
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

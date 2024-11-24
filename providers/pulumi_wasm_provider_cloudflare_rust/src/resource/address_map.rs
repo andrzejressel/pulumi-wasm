@@ -11,8 +11,8 @@
 //! 
 //! const example = new cloudflare.AddressMap("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     defaultSni: "*.example.com",
 //!     description: "My address map",
+//!     defaultSni: "*.example.com",
 //!     enabled: true,
 //!     ips: [
 //!         {
@@ -41,26 +41,26 @@
 //! 
 //! example = cloudflare.AddressMap("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     default_sni="*.example.com",
 //!     description="My address map",
+//!     default_sni="*.example.com",
 //!     enabled=True,
 //!     ips=[
-//!         cloudflare.AddressMapIpArgs(
-//!             ip="192.0.2.1",
-//!         ),
-//!         cloudflare.AddressMapIpArgs(
-//!             ip="203.0.113.1",
-//!         ),
+//!         {
+//!             "ip": "192.0.2.1",
+//!         },
+//!         {
+//!             "ip": "203.0.113.1",
+//!         },
 //!     ],
 //!     memberships=[
-//!         cloudflare.AddressMapMembershipArgs(
-//!             identifier="92f17202ed8bd63d69a66b86a49a8f6b",
-//!             kind="account",
-//!         ),
-//!         cloudflare.AddressMapMembershipArgs(
-//!             identifier="023e105f4ecef8ad9ca31a8372d0c353",
-//!             kind="zone",
-//!         ),
+//!         {
+//!             "identifier": "92f17202ed8bd63d69a66b86a49a8f6b",
+//!             "kind": "account",
+//!         },
+//!         {
+//!             "identifier": "023e105f4ecef8ad9ca31a8372d0c353",
+//!             "kind": "zone",
+//!         },
 //!     ])
 //! ```
 //! ### C#
@@ -75,8 +75,8 @@
 //!     var example = new Cloudflare.AddressMap("example", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         DefaultSni = "*.example.com",
 //!         Description = "My address map",
+//!         DefaultSni = "*.example.com",
 //!         Enabled = true,
 //!         Ips = new[]
 //!         {
@@ -119,8 +119,8 @@
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewAddressMap(ctx, "example", &cloudflare.AddressMapArgs{
 //! 			AccountId:   pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			DefaultSni:  pulumi.String("*.example.com"),
 //! 			Description: pulumi.String("My address map"),
+//! 			DefaultSni:  pulumi.String("*.example.com"),
 //! 			Enabled:     pulumi.Bool(true),
 //! 			Ips: cloudflare.AddressMapIpArray{
 //! 				&cloudflare.AddressMapIpArgs{
@@ -172,10 +172,10 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new AddressMap("example", AddressMapArgs.builder()        
+//!         var example = new AddressMap("example", AddressMapArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .defaultSni("*.example.com")
 //!             .description("My address map")
+//!             .defaultSni("*.example.com")
 //!             .enabled(true)
 //!             .ips(            
 //!                 AddressMapIpArgs.builder()
@@ -205,8 +205,8 @@
 //!     type: cloudflare:AddressMap
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
-//!       defaultSni: '*.example.com'
 //!       description: My address map
+//!       defaultSni: '*.example.com'
 //!       enabled: true
 //!       ips:
 //!         - ip: 192.0.2.1
@@ -252,7 +252,7 @@ pub struct AddressMapArgs {
 pub struct AddressMapResult {
     /// The account identifier to target for the resource.
     pub account_id: pulumi_wasm_rust::Output<String>,
-    /// Controls whether the membership can be deleted via the API or not.
+    /// If set to false, then the Address Map cannot be deleted via API. This is true for Cloudflare-managed maps.
     pub can_delete: pulumi_wasm_rust::Output<bool>,
     /// If set to false, then the IPs on the Address Map cannot be modified via the API. This is true for Cloudflare-managed maps.
     pub can_modify_ips: pulumi_wasm_rust::Output<bool>,

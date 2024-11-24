@@ -8,12 +8,12 @@
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
-//! const exampleTunnel = new cloudflare.Tunnel("exampleTunnel", {
+//! const exampleTunnel = new cloudflare.ZeroTrustTunnelCloudflared("example_tunnel", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
 //!     name: "example_tunnel",
 //!     secret: "<32 character secret>",
 //! });
-//! const exampleConfig = new cloudflare.TunnelConfig("exampleConfig", {
+//! const exampleConfig = new cloudflare.TunnelConfig("example_config", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
 //!     tunnelId: exampleTunnel.id,
 //!     config: {
@@ -71,61 +71,61 @@
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
 //! 
-//! example_tunnel = cloudflare.Tunnel("exampleTunnel",
+//! example_tunnel = cloudflare.ZeroTrustTunnelCloudflared("example_tunnel",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
 //!     name="example_tunnel",
 //!     secret="<32 character secret>")
-//! example_config = cloudflare.TunnelConfig("exampleConfig",
+//! example_config = cloudflare.TunnelConfig("example_config",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
 //!     tunnel_id=example_tunnel.id,
-//!     config=cloudflare.TunnelConfigConfigArgs(
-//!         warp_routing=cloudflare.TunnelConfigConfigWarpRoutingArgs(
-//!             enabled=True,
-//!         ),
-//!         origin_request=cloudflare.TunnelConfigConfigOriginRequestArgs(
-//!             connect_timeout="1m0s",
-//!             tls_timeout="1m0s",
-//!             tcp_keep_alive="1m0s",
-//!             no_happy_eyeballs=False,
-//!             keep_alive_connections=1024,
-//!             keep_alive_timeout="1m0s",
-//!             http_host_header="baz",
-//!             origin_server_name="foobar",
-//!             ca_pool="/path/to/unsigned/ca/pool",
-//!             no_tls_verify=False,
-//!             disable_chunked_encoding=False,
-//!             bastion_mode=False,
-//!             proxy_address="10.0.0.1",
-//!             proxy_port=8123,
-//!             proxy_type="socks",
-//!             ip_rules=[cloudflare.TunnelConfigConfigOriginRequestIpRuleArgs(
-//!                 prefix="/web",
-//!                 ports=[
+//!     config={
+//!         "warp_routing": {
+//!             "enabled": True,
+//!         },
+//!         "origin_request": {
+//!             "connect_timeout": "1m0s",
+//!             "tls_timeout": "1m0s",
+//!             "tcp_keep_alive": "1m0s",
+//!             "no_happy_eyeballs": False,
+//!             "keep_alive_connections": 1024,
+//!             "keep_alive_timeout": "1m0s",
+//!             "http_host_header": "baz",
+//!             "origin_server_name": "foobar",
+//!             "ca_pool": "/path/to/unsigned/ca/pool",
+//!             "no_tls_verify": False,
+//!             "disable_chunked_encoding": False,
+//!             "bastion_mode": False,
+//!             "proxy_address": "10.0.0.1",
+//!             "proxy_port": 8123,
+//!             "proxy_type": "socks",
+//!             "ip_rules": [{
+//!                 "prefix": "/web",
+//!                 "ports": [
 //!                     80,
 //!                     443,
 //!                 ],
-//!                 allow=False,
-//!             )],
-//!         ),
-//!         ingress_rules=[
-//!             cloudflare.TunnelConfigConfigIngressRuleArgs(
-//!                 hostname="foo",
-//!                 path="/bar",
-//!                 service="http://10.0.0.2:8080",
-//!                 origin_request=cloudflare.TunnelConfigConfigIngressRuleOriginRequestArgs(
-//!                     connect_timeout="2m0s",
-//!                     access=cloudflare.TunnelConfigConfigIngressRuleOriginRequestAccessArgs(
-//!                         required=True,
-//!                         team_name="terraform",
-//!                         aud_tags=["AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"],
-//!                     ),
-//!                 ),
-//!             ),
-//!             cloudflare.TunnelConfigConfigIngressRuleArgs(
-//!                 service="https://10.0.0.3:8081",
-//!             ),
+//!                 "allow": False,
+//!             }],
+//!         },
+//!         "ingress_rules": [
+//!             {
+//!                 "hostname": "foo",
+//!                 "path": "/bar",
+//!                 "service": "http://10.0.0.2:8080",
+//!                 "origin_request": {
+//!                     "connect_timeout": "2m0s",
+//!                     "access": {
+//!                         "required": True,
+//!                         "team_name": "terraform",
+//!                         "aud_tags": ["AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"],
+//!                     },
+//!                 },
+//!             },
+//!             {
+//!                 "service": "https://10.0.0.3:8081",
+//!             },
 //!         ],
-//!     ))
+//!     })
 //! ```
 //! ### C#
 //! ```csharp
@@ -136,14 +136,14 @@
 //! 
 //! return await Deployment.RunAsync(() => 
 //! {
-//!     var exampleTunnel = new Cloudflare.Tunnel("exampleTunnel", new()
+//!     var exampleTunnel = new Cloudflare.ZeroTrustTunnelCloudflared("example_tunnel", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
 //!         Name = "example_tunnel",
 //!         Secret = "<32 character secret>",
 //!     });
 //! 
-//!     var exampleConfig = new Cloudflare.TunnelConfig("exampleConfig", new()
+//!     var exampleConfig = new Cloudflare.TunnelConfig("example_config", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
 //!         TunnelId = exampleTunnel.Id,
@@ -226,7 +226,7 @@
 //! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		exampleTunnel, err := cloudflare.NewTunnel(ctx, "exampleTunnel", &cloudflare.TunnelArgs{
+//! 		exampleTunnel, err := cloudflare.NewZeroTrustTunnelCloudflared(ctx, "example_tunnel", &cloudflare.ZeroTrustTunnelCloudflaredArgs{
 //! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
 //! 			Name:      pulumi.String("example_tunnel"),
 //! 			Secret:    pulumi.String("<32 character secret>"),
@@ -234,7 +234,7 @@
 //! 		if err != nil {
 //! 			return err
 //! 		}
-//! 		_, err = cloudflare.NewTunnelConfig(ctx, "exampleConfig", &cloudflare.TunnelConfigArgs{
+//! 		_, err = cloudflare.NewTunnelConfig(ctx, "example_config", &cloudflare.TunnelConfigArgs{
 //! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
 //! 			TunnelId:  exampleTunnel.ID(),
 //! 			Config: &cloudflare.TunnelConfigConfigArgs{
@@ -304,8 +304,8 @@
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.Tunnel;
-//! import com.pulumi.cloudflare.TunnelArgs;
+//! import com.pulumi.cloudflare.ZeroTrustTunnelCloudflared;
+//! import com.pulumi.cloudflare.ZeroTrustTunnelCloudflaredArgs;
 //! import com.pulumi.cloudflare.TunnelConfig;
 //! import com.pulumi.cloudflare.TunnelConfigArgs;
 //! import com.pulumi.cloudflare.inputs.TunnelConfigConfigArgs;
@@ -324,13 +324,13 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var exampleTunnel = new Tunnel("exampleTunnel", TunnelArgs.builder()        
+//!         var exampleTunnel = new ZeroTrustTunnelCloudflared("exampleTunnel", ZeroTrustTunnelCloudflaredArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
 //!             .name("example_tunnel")
 //!             .secret("<32 character secret>")
 //!             .build());
 //! 
-//!         var exampleConfig = new TunnelConfig("exampleConfig", TunnelConfigArgs.builder()        
+//!         var exampleConfig = new TunnelConfig("exampleConfig", TunnelConfigArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
 //!             .tunnelId(exampleTunnel.id())
 //!             .config(TunnelConfigConfigArgs.builder()
@@ -388,13 +388,15 @@
 //! ```yaml
 //! resources:
 //!   exampleTunnel:
-//!     type: cloudflare:Tunnel
+//!     type: cloudflare:ZeroTrustTunnelCloudflared
+//!     name: example_tunnel
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
 //!       name: example_tunnel
 //!       secret: <32 character secret>
 //!   exampleConfig:
 //!     type: cloudflare:TunnelConfig
+//!     name: example_config
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
 //!       tunnelId: ${exampleTunnel.id}

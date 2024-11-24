@@ -87,7 +87,7 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new D1Database("example", D1DatabaseArgs.builder()        
+//!         var example = new D1Database("example", D1DatabaseArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
 //!             .name("terraform-database")
 //!             .build());

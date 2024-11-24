@@ -9,7 +9,7 @@ pub struct AccessPolicyExcludeAuthContext {
     #[builder(into)]
     #[serde(rename = "id")]
     pub r#id: Box<String>,
-    /// The ID of the Azure Identity provider.
+    /// The ID of the Azure identity provider.
     #[builder(into)]
     #[serde(rename = "identityProviderId")]
     pub r#identity_provider_id: Box<String>,

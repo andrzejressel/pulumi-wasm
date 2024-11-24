@@ -19,11 +19,12 @@
 //!         platform: "linux",
 //!     }],
 //!     inputs: [{
-//!         id: cloudflare_teams_list.corporate_devices.id,
+//!         id: corporateDevices.id,
 //!         version: "1.0.0",
 //!         operator: "<",
 //!         osDistroName: "ubuntu",
 //!         osDistroRevision: "1.0.0",
+//!         osVersionExtra: "(a)",
 //!     }],
 //! });
 //! ```
@@ -39,16 +40,17 @@
 //!     description="Device posture rule for corporate devices.",
 //!     schedule="24h",
 //!     expiration="24h",
-//!     matches=[cloudflare.DevicePostureRuleMatchArgs(
-//!         platform="linux",
-//!     )],
-//!     inputs=[cloudflare.DevicePostureRuleInputArgs(
-//!         id=cloudflare_teams_list["corporate_devices"]["id"],
-//!         version="1.0.0",
-//!         operator="<",
-//!         os_distro_name="ubuntu",
-//!         os_distro_revision="1.0.0",
-//!     )])
+//!     matches=[{
+//!         "platform": "linux",
+//!     }],
+//!     inputs=[{
+//!         "id": corporate_devices["id"],
+//!         "version": "1.0.0",
+//!         "operator": "<",
+//!         "os_distro_name": "ubuntu",
+//!         "os_distro_revision": "1.0.0",
+//!         "os_version_extra": "(a)",
+//!     }])
 //! ```
 //! ### C#
 //! ```csharp
@@ -78,11 +80,12 @@
 //!         {
 //!             new Cloudflare.Inputs.DevicePostureRuleInputArgs
 //!             {
-//!                 Id = cloudflare_teams_list.Corporate_devices.Id,
+//!                 Id = corporateDevices.Id,
 //!                 Version = "1.0.0",
 //!                 Operator = "<",
 //!                 OsDistroName = "ubuntu",
 //!                 OsDistroRevision = "1.0.0",
+//!                 OsVersionExtra = "(a)",
 //!             },
 //!         },
 //!     });
@@ -114,11 +117,12 @@
 //! 			},
 //! 			Inputs: cloudflare.DevicePostureRuleInputTypeArray{
 //! 				&cloudflare.DevicePostureRuleInputTypeArgs{
-//! 					Id:               pulumi.Any(cloudflare_teams_list.Corporate_devices.Id),
+//! 					Id:               pulumi.Any(corporateDevices.Id),
 //! 					Version:          pulumi.String("1.0.0"),
 //! 					Operator:         pulumi.String("<"),
 //! 					OsDistroName:     pulumi.String("ubuntu"),
 //! 					OsDistroRevision: pulumi.String("1.0.0"),
+//! 					OsVersionExtra:   pulumi.String("(a)"),
 //! 				},
 //! 			},
 //! 		})
@@ -153,7 +157,7 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var eaxmple = new DevicePostureRule("eaxmple", DevicePostureRuleArgs.builder()        
+//!         var eaxmple = new DevicePostureRule("eaxmple", DevicePostureRuleArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
 //!             .name("Corporate devices posture rule")
 //!             .type("os_version")
@@ -164,11 +168,12 @@
 //!                 .platform("linux")
 //!                 .build())
 //!             .inputs(DevicePostureRuleInputArgs.builder()
-//!                 .id(cloudflare_teams_list.corporate_devices().id())
+//!                 .id(corporateDevices.id())
 //!                 .version("1.0.0")
 //!                 .operator("<")
 //!                 .osDistroName("ubuntu")
 //!                 .osDistroRevision("1.0.0")
+//!                 .osVersionExtra("(a)")
 //!                 .build())
 //!             .build());
 //! 
@@ -190,11 +195,12 @@
 //!       matches:
 //!         - platform: linux
 //!       inputs:
-//!         - id: ${cloudflare_teams_list.corporate_devices.id}
+//!         - id: ${corporateDevices.id}
 //!           version: 1.0.0
 //!           operator: <
 //!           osDistroName: ubuntu
 //!           osDistroRevision: 1.0.0
+//!           osVersionExtra: (a)
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 
@@ -228,7 +234,7 @@ pub struct DevicePostureRuleArgs {
     /// Tells the client when to run the device posture check. Must be in the format `1h` or `30m`. Valid units are `h` and `m`.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub schedule: pulumi_wasm_rust::Output<Option<String>>,
-    /// The device posture rule type. Available values: `serial_number`, `file`, `application`, `gateway`, `warp`, `domain_joined`, `os_version`, `disk_encryption`, `firewall`, `client_certificate`, `workspace_one`, `unique_client_id`, `crowdstrike_s2s`, `sentinelone`, `kolide`, `tanium_s2s`, `intune`, `sentinelone_s2s`.
+    /// The device posture rule type. Available values: `serial_number`, `file`, `application`, `gateway`, `warp`, `domain_joined`, `os_version`, `disk_encryption`, `firewall`, `client_certificate`, `client_certificate_v2`, `workspace_one`, `unique_client_id`, `crowdstrike_s2s`, `sentinelone`, `kolide`, `tanium_s2s`, `intune`, `sentinelone_s2s`, `custom_s2s`.
     #[builder(into)]
     pub type_: pulumi_wasm_rust::Output<String>,
 }
@@ -247,7 +253,7 @@ pub struct DevicePostureRuleResult {
     pub name: pulumi_wasm_rust::Output<Option<String>>,
     /// Tells the client when to run the device posture check. Must be in the format `1h` or `30m`. Valid units are `h` and `m`.
     pub schedule: pulumi_wasm_rust::Output<Option<String>>,
-    /// The device posture rule type. Available values: `serial_number`, `file`, `application`, `gateway`, `warp`, `domain_joined`, `os_version`, `disk_encryption`, `firewall`, `client_certificate`, `workspace_one`, `unique_client_id`, `crowdstrike_s2s`, `sentinelone`, `kolide`, `tanium_s2s`, `intune`, `sentinelone_s2s`.
+    /// The device posture rule type. Available values: `serial_number`, `file`, `application`, `gateway`, `warp`, `domain_joined`, `os_version`, `disk_encryption`, `firewall`, `client_certificate`, `client_certificate_v2`, `workspace_one`, `unique_client_id`, `crowdstrike_s2s`, `sentinelone`, `kolide`, `tanium_s2s`, `intune`, `sentinelone_s2s`, `custom_s2s`.
     pub type_: pulumi_wasm_rust::Output<String>,
 }
 

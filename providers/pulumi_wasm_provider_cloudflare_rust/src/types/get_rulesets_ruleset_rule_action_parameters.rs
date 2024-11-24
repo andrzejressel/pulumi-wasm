@@ -29,6 +29,10 @@ pub struct GetRulesetsRulesetRuleActionParameters {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "cacheKey")]
     pub r#cache_key: Box<Option<crate::types::GetRulesetsRulesetRuleActionParametersCacheKey>>,
+    /// List of cache reserve parameters to apply to the request.
+    #[builder(into, default = Box::new(None))]
+    #[serde(rename = "cacheReserve")]
+    pub r#cache_reserve: Box<Option<crate::types::GetRulesetsRulesetRuleActionParametersCacheReserve>>,
     /// Content of the custom error response
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "content")]
@@ -81,7 +85,7 @@ pub struct GetRulesetsRulesetRuleActionParameters {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "hotlinkProtection")]
     pub r#hotlink_protection: Box<Option<bool>>,
-    /// The ID of the Ruleset to target.
+    /// Identifier of the action parameter to modify.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "id")]
     pub r#id: Box<Option<String>>,
@@ -196,7 +200,7 @@ pub struct GetRulesetsRulesetRuleActionParameters {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "uri")]
     pub r#uri: Box<Option<crate::types::GetRulesetsRulesetRuleActionParametersUri>>,
-    /// Version of the ruleset to filter on.
+    /// Version of the ruleset to deploy.
     #[builder(into)]
     #[serde(rename = "version")]
     pub r#version: Box<String>,

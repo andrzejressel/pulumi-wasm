@@ -21,9 +21,9 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! example = cloudflare.get_load_balancer_pools(account_id="f037e56e89293a057740de681ac9abbe",
-//!     filter=cloudflare.GetLoadBalancerPoolsFilterArgs(
-//!         name="example-lb-pool",
-//!     ))
+//!     filter={
+//!         "name": "example-lb-pool",
+//!     })
 //! ```
 //! ### C#
 //! ```csharp

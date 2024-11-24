@@ -17,6 +17,10 @@ pub struct LoadBalancerPoolOrigin {
     #[builder(into)]
     #[serde(rename = "name")]
     pub r#name: Box<String>,
+    /// The virtual network subnet ID the origin belongs in. Virtual network must also belong to the account.
+    #[builder(into, default = Box::new(None))]
+    #[serde(rename = "virtualNetworkId")]
+    pub r#virtual_network_id: Box<Option<String>>,
     /// The weight (0.01 - 1.00) of this origin, relative to other origins in the pool. Equal values mean equal weighting. A weight of 0 means traffic will not be sent to this origin, but health is still checked. When `origin_steering.policy="least_outstanding_requests"`, weight is used to scale the origin's outstanding requests. When `origin_steering.policy="least_connections"`, weight is used to scale the origin's open connections. Defaults to `1`.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "weight")]

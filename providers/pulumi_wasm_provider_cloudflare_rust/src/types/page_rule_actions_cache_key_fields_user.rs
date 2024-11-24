@@ -21,8 +21,8 @@ pub struct PageRuleActionsCacheKeyFieldsUser {
     /// 
     /// // Unrealistic example with all features used
     /// const foobar = new cloudflare.PageRule("foobar", {
-    ///     zoneId: _var.cloudflare_zone_id,
-    ///     target: `${_var.cloudflare_zone}/app/*`,
+    ///     zoneId: cloudflareZoneId,
+    ///     target: `${cloudflareZone}/app/*`,
     ///     priority: 1,
     ///     actions: {
     ///         cacheKeyFields: {
@@ -59,35 +59,35 @@ pub struct PageRuleActionsCacheKeyFieldsUser {
     /// 
     /// # Unrealistic example with all features used
     /// foobar = cloudflare.PageRule("foobar",
-    ///     zone_id=var["cloudflare_zone_id"],
-    ///     target=f"{var['cloudflare_zone']}/app/*",
+    ///     zone_id=cloudflare_zone_id,
+    ///     target=f"{cloudflare_zone}/app/*",
     ///     priority=1,
-    ///     actions=cloudflare.PageRuleActionsArgs(
-    ///         cache_key_fields=cloudflare.PageRuleActionsCacheKeyFieldsArgs(
-    ///             cookie=cloudflare.PageRuleActionsCacheKeyFieldsCookieArgs(
-    ///                 check_presences=["wordpress_test_cookie"],
-    ///             ),
-    ///             header=cloudflare.PageRuleActionsCacheKeyFieldsHeaderArgs(
-    ///                 check_presences=["header_present"],
-    ///                 excludes=["origin"],
-    ///                 includes=[
+    ///     actions={
+    ///         "cache_key_fields": {
+    ///             "cookie": {
+    ///                 "check_presences": ["wordpress_test_cookie"],
+    ///             },
+    ///             "header": {
+    ///                 "check_presences": ["header_present"],
+    ///                 "excludes": ["origin"],
+    ///                 "includes": [
     ///                     "api-key",
     ///                     "dnt",
     ///                 ],
-    ///             ),
-    ///             host=cloudflare.PageRuleActionsCacheKeyFieldsHostArgs(
-    ///                 resolved=True,
-    ///             ),
-    ///             query_string=cloudflare.PageRuleActionsCacheKeyFieldsQueryStringArgs(
-    ///                 ignore=True,
-    ///             ),
-    ///             user=cloudflare.PageRuleActionsCacheKeyFieldsUserArgs(
-    ///                 device_type=False,
-    ///                 geo=True,
-    ///                 lang=True,
-    ///             ),
-    ///         ),
-    ///     ))
+    ///             },
+    ///             "host": {
+    ///                 "resolved": True,
+    ///             },
+    ///             "query_string": {
+    ///                 "ignore": True,
+    ///             },
+    ///             "user": {
+    ///                 "device_type": False,
+    ///                 "geo": True,
+    ///                 "lang": True,
+    ///             },
+    ///         },
+    ///     })
     /// ```
     /// ### C#
     /// ```csharp
@@ -101,8 +101,8 @@ pub struct PageRuleActionsCacheKeyFieldsUser {
     ///     // Unrealistic example with all features used
     ///     var foobar = new Cloudflare.PageRule("foobar", new()
     ///     {
-    ///         ZoneId = @var.Cloudflare_zone_id,
-    ///         Target = $"{@var.Cloudflare_zone}/app/*",
+    ///         ZoneId = cloudflareZoneId,
+    ///         Target = $"{cloudflareZone}/app/*",
     ///         Priority = 1,
     ///         Actions = new Cloudflare.Inputs.PageRuleActionsArgs
     ///         {
@@ -166,8 +166,8 @@ pub struct PageRuleActionsCacheKeyFieldsUser {
     /// 	pulumi.Run(func(ctx *pulumi.Context) error {
     /// 		// Unrealistic example with all features used
     /// 		_, err := cloudflare.NewPageRule(ctx, "foobar", &cloudflare.PageRuleArgs{
-    /// 			ZoneId:   pulumi.Any(_var.Cloudflare_zone_id),
-    /// 			Target:   pulumi.String(fmt.Sprintf("%v/app/*", _var.Cloudflare_zone)),
+    /// 			ZoneId:   pulumi.Any(cloudflareZoneId),
+    /// 			Target:   pulumi.Sprintf("%v/app/*", cloudflareZone),
     /// 			Priority: pulumi.Int(1),
     /// 			Actions: &cloudflare.PageRuleActionsArgs{
     /// 				CacheKeyFields: &cloudflare.PageRuleActionsCacheKeyFieldsArgs{
@@ -239,9 +239,9 @@ pub struct PageRuleActionsCacheKeyFieldsUser {
     /// 
     ///     public static void stack(Context ctx) {
     ///         // Unrealistic example with all features used
-    ///         var foobar = new PageRule("foobar", PageRuleArgs.builder()        
-    ///             .zoneId(var_.cloudflare_zone_id())
-    ///             .target(String.format("%s/app/*", var_.cloudflare_zone()))
+    ///         var foobar = new PageRule("foobar", PageRuleArgs.builder()
+    ///             .zoneId(cloudflareZoneId)
+    ///             .target(String.format("%s/app/*", cloudflareZone))
     ///             .priority(1)
     ///             .actions(PageRuleActionsArgs.builder()
     ///                 .cacheKeyFields(PageRuleActionsCacheKeyFieldsArgs.builder()
@@ -280,8 +280,8 @@ pub struct PageRuleActionsCacheKeyFieldsUser {
     ///   foobar:
     ///     type: cloudflare:PageRule
     ///     properties:
-    ///       zoneId: ${var.cloudflare_zone_id}
-    ///       target: ${var.cloudflare_zone}/app/*
+    ///       zoneId: ${cloudflareZoneId}
+    ///       target: ${cloudflareZone}/app/*
     ///       priority: 1
     ///       actions:
     ///         cacheKeyFields:

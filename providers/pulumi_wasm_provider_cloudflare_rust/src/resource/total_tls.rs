@@ -9,9 +9,9 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! const example = new cloudflare.TotalTls("example", {
-//!     certificateAuthority: "lets_encrypt",
-//!     enabled: true,
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     enabled: true,
+//!     certificateAuthority: "lets_encrypt",
 //! });
 //! ```
 //! ### Python
@@ -20,9 +20,9 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! example = cloudflare.TotalTls("example",
-//!     certificate_authority="lets_encrypt",
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     enabled=True,
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     certificate_authority="lets_encrypt")
 //! ```
 //! ### C#
 //! ```csharp
@@ -35,9 +35,9 @@
 //! {
 //!     var example = new Cloudflare.TotalTls("example", new()
 //!     {
-//!         CertificateAuthority = "lets_encrypt",
-//!         Enabled = true,
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         Enabled = true,
+//!         CertificateAuthority = "lets_encrypt",
 //!     });
 //! 
 //! });
@@ -54,9 +54,9 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewTotalTls(ctx, "example", &cloudflare.TotalTlsArgs{
-//! 			CertificateAuthority: pulumi.String("lets_encrypt"),
-//! 			Enabled:              pulumi.Bool(true),
 //! 			ZoneId:               pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			Enabled:              pulumi.Bool(true),
+//! 			CertificateAuthority: pulumi.String("lets_encrypt"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -87,10 +87,10 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new TotalTls("example", TotalTlsArgs.builder()        
-//!             .certificateAuthority("lets_encrypt")
-//!             .enabled(true)
+//!         var example = new TotalTls("example", TotalTlsArgs.builder()
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .enabled(true)
+//!             .certificateAuthority("lets_encrypt")
 //!             .build());
 //! 
 //!     }
@@ -102,9 +102,9 @@
 //!   example:
 //!     type: cloudflare:TotalTls
 //!     properties:
-//!       certificateAuthority: lets_encrypt
-//!       enabled: true
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       enabled: true
+//!       certificateAuthority: lets_encrypt
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

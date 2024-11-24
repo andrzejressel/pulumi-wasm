@@ -11,9 +11,9 @@
 //! 
 //! const example = new cloudflare.ByoIpPrefix("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     advertisement: "on",
-//!     description: "Example IP Prefix",
 //!     prefixId: "d41d8cd98f00b204e9800998ecf8427e",
+//!     description: "Example IP Prefix",
+//!     advertisement: "on",
 //! });
 //! ```
 //! ### Python
@@ -23,9 +23,9 @@
 //! 
 //! example = cloudflare.ByoIpPrefix("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     advertisement="on",
+//!     prefix_id="d41d8cd98f00b204e9800998ecf8427e",
 //!     description="Example IP Prefix",
-//!     prefix_id="d41d8cd98f00b204e9800998ecf8427e")
+//!     advertisement="on")
 //! ```
 //! ### C#
 //! ```csharp
@@ -39,9 +39,9 @@
 //!     var example = new Cloudflare.ByoIpPrefix("example", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         Advertisement = "on",
-//!         Description = "Example IP Prefix",
 //!         PrefixId = "d41d8cd98f00b204e9800998ecf8427e",
+//!         Description = "Example IP Prefix",
+//!         Advertisement = "on",
 //!     });
 //! 
 //! });
@@ -59,9 +59,9 @@
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewByoIpPrefix(ctx, "example", &cloudflare.ByoIpPrefixArgs{
 //! 			AccountId:     pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			Advertisement: pulumi.String("on"),
-//! 			Description:   pulumi.String("Example IP Prefix"),
 //! 			PrefixId:      pulumi.String("d41d8cd98f00b204e9800998ecf8427e"),
+//! 			Description:   pulumi.String("Example IP Prefix"),
+//! 			Advertisement: pulumi.String("on"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -92,11 +92,11 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new ByoIpPrefix("example", ByoIpPrefixArgs.builder()        
+//!         var example = new ByoIpPrefix("example", ByoIpPrefixArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .advertisement("on")
-//!             .description("Example IP Prefix")
 //!             .prefixId("d41d8cd98f00b204e9800998ecf8427e")
+//!             .description("Example IP Prefix")
+//!             .advertisement("on")
 //!             .build());
 //! 
 //!     }
@@ -109,9 +109,9 @@
 //!     type: cloudflare:ByoIpPrefix
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
-//!       advertisement: on
-//!       description: Example IP Prefix
 //!       prefixId: d41d8cd98f00b204e9800998ecf8427e
+//!       description: Example IP Prefix
+//!       advertisement: on
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

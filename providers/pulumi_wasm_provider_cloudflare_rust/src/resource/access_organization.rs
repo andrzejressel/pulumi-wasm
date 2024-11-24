@@ -10,18 +10,18 @@
 //! 
 //! const example = new cloudflare.AccessOrganization("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
+//!     name: "example.cloudflareaccess.com",
 //!     authDomain: "example.cloudflareaccess.com",
-//!     autoRedirectToIdentity: false,
 //!     isUiReadOnly: false,
+//!     userSeatExpirationInactiveTime: "720h",
+//!     autoRedirectToIdentity: false,
 //!     loginDesigns: [{
 //!         backgroundColor: "#ffffff",
-//!         footerText: "My footer text",
-//!         headerText: "My header text",
-//!         logoPath: "https://example.com/logo.png",
 //!         textColor: "#000000",
+//!         logoPath: "https://example.com/logo.png",
+//!         headerText: "My header text",
+//!         footerText: "My footer text",
 //!     }],
-//!     name: "example.cloudflareaccess.com",
-//!     userSeatExpirationInactiveTime: "720h",
 //! });
 //! ```
 //! ### Python
@@ -31,18 +31,18 @@
 //! 
 //! example = cloudflare.AccessOrganization("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     auth_domain="example.cloudflareaccess.com",
-//!     auto_redirect_to_identity=False,
-//!     is_ui_read_only=False,
-//!     login_designs=[cloudflare.AccessOrganizationLoginDesignArgs(
-//!         background_color="#ffffff",
-//!         footer_text="My footer text",
-//!         header_text="My header text",
-//!         logo_path="https://example.com/logo.png",
-//!         text_color="#000000",
-//!     )],
 //!     name="example.cloudflareaccess.com",
-//!     user_seat_expiration_inactive_time="720h")
+//!     auth_domain="example.cloudflareaccess.com",
+//!     is_ui_read_only=False,
+//!     user_seat_expiration_inactive_time="720h",
+//!     auto_redirect_to_identity=False,
+//!     login_designs=[{
+//!         "background_color": "#ffffff",
+//!         "text_color": "#000000",
+//!         "logo_path": "https://example.com/logo.png",
+//!         "header_text": "My header text",
+//!         "footer_text": "My footer text",
+//!     }])
 //! ```
 //! ### C#
 //! ```csharp
@@ -56,22 +56,22 @@
 //!     var example = new Cloudflare.AccessOrganization("example", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
+//!         Name = "example.cloudflareaccess.com",
 //!         AuthDomain = "example.cloudflareaccess.com",
-//!         AutoRedirectToIdentity = false,
 //!         IsUiReadOnly = false,
+//!         UserSeatExpirationInactiveTime = "720h",
+//!         AutoRedirectToIdentity = false,
 //!         LoginDesigns = new[]
 //!         {
 //!             new Cloudflare.Inputs.AccessOrganizationLoginDesignArgs
 //!             {
 //!                 BackgroundColor = "#ffffff",
-//!                 FooterText = "My footer text",
-//!                 HeaderText = "My header text",
-//!                 LogoPath = "https://example.com/logo.png",
 //!                 TextColor = "#000000",
+//!                 LogoPath = "https://example.com/logo.png",
+//!                 HeaderText = "My header text",
+//!                 FooterText = "My footer text",
 //!             },
 //!         },
-//!         Name = "example.cloudflareaccess.com",
-//!         UserSeatExpirationInactiveTime = "720h",
 //!     });
 //! 
 //! });
@@ -88,21 +88,21 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewAccessOrganization(ctx, "example", &cloudflare.AccessOrganizationArgs{
-//! 			AccountId:              pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			AuthDomain:             pulumi.String("example.cloudflareaccess.com"),
-//! 			AutoRedirectToIdentity: pulumi.Bool(false),
-//! 			IsUiReadOnly:           pulumi.Bool(false),
+//! 			AccountId:                      pulumi.String("f037e56e89293a057740de681ac9abbe"),
+//! 			Name:                           pulumi.String("example.cloudflareaccess.com"),
+//! 			AuthDomain:                     pulumi.String("example.cloudflareaccess.com"),
+//! 			IsUiReadOnly:                   pulumi.Bool(false),
+//! 			UserSeatExpirationInactiveTime: pulumi.String("720h"),
+//! 			AutoRedirectToIdentity:         pulumi.Bool(false),
 //! 			LoginDesigns: cloudflare.AccessOrganizationLoginDesignArray{
 //! 				&cloudflare.AccessOrganizationLoginDesignArgs{
 //! 					BackgroundColor: pulumi.String("#ffffff"),
-//! 					FooterText:      pulumi.String("My footer text"),
-//! 					HeaderText:      pulumi.String("My header text"),
-//! 					LogoPath:        pulumi.String("https://example.com/logo.png"),
 //! 					TextColor:       pulumi.String("#000000"),
+//! 					LogoPath:        pulumi.String("https://example.com/logo.png"),
+//! 					HeaderText:      pulumi.String("My header text"),
+//! 					FooterText:      pulumi.String("My footer text"),
 //! 				},
 //! 			},
-//! 			Name:                           pulumi.String("example.cloudflareaccess.com"),
-//! 			UserSeatExpirationInactiveTime: pulumi.String("720h"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -134,20 +134,20 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new AccessOrganization("example", AccessOrganizationArgs.builder()        
+//!         var example = new AccessOrganization("example", AccessOrganizationArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
+//!             .name("example.cloudflareaccess.com")
 //!             .authDomain("example.cloudflareaccess.com")
-//!             .autoRedirectToIdentity(false)
 //!             .isUiReadOnly(false)
+//!             .userSeatExpirationInactiveTime("720h")
+//!             .autoRedirectToIdentity(false)
 //!             .loginDesigns(AccessOrganizationLoginDesignArgs.builder()
 //!                 .backgroundColor("#ffffff")
-//!                 .footerText("My footer text")
-//!                 .headerText("My header text")
-//!                 .logoPath("https://example.com/logo.png")
 //!                 .textColor("#000000")
+//!                 .logoPath("https://example.com/logo.png")
+//!                 .headerText("My header text")
+//!                 .footerText("My footer text")
 //!                 .build())
-//!             .name("example.cloudflareaccess.com")
-//!             .userSeatExpirationInactiveTime("720h")
 //!             .build());
 //! 
 //!     }
@@ -160,17 +160,17 @@
 //!     type: cloudflare:AccessOrganization
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
+//!       name: example.cloudflareaccess.com
 //!       authDomain: example.cloudflareaccess.com
-//!       autoRedirectToIdentity: false
 //!       isUiReadOnly: false
+//!       userSeatExpirationInactiveTime: 720h
+//!       autoRedirectToIdentity: false
 //!       loginDesigns:
 //!         - backgroundColor: '#ffffff'
-//!           footerText: My footer text
-//!           headerText: My header text
-//!           logoPath: https://example.com/logo.png
 //!           textColor: '#000000'
-//!       name: example.cloudflareaccess.com
-//!       userSeatExpirationInactiveTime: 720h
+//!           logoPath: https://example.com/logo.png
+//!           headerText: My header text
+//!           footerText: My footer text
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 
@@ -205,8 +205,8 @@ pub struct AccessOrganizationArgs {
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub login_designs: pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessOrganizationLoginDesign>>>,
     /// The name of your Zero Trust organization.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
-    pub name: pulumi_wasm_rust::Output<Option<String>>,
+    #[builder(into)]
+    pub name: pulumi_wasm_rust::Output<String>,
     /// How often a user will be forced to re-authorise. Must be in the format `48h` or `2h45m`.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub session_duration: pulumi_wasm_rust::Output<Option<String>>,
@@ -239,7 +239,7 @@ pub struct AccessOrganizationResult {
     pub is_ui_read_only: pulumi_wasm_rust::Output<Option<bool>>,
     pub login_designs: pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessOrganizationLoginDesign>>>,
     /// The name of your Zero Trust organization.
-    pub name: pulumi_wasm_rust::Output<Option<String>>,
+    pub name: pulumi_wasm_rust::Output<String>,
     /// How often a user will be forced to re-authorise. Must be in the format `48h` or `2h45m`.
     pub session_duration: pulumi_wasm_rust::Output<Option<String>>,
     /// A description of the reason why the UI read only field is being toggled.

@@ -13,8 +13,8 @@
 //! 
 //! const example = new cloudflare.TunnelVirtualNetwork("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     comment: "New tunnel virtual network for documentation",
 //!     name: "vnet-for-documentation",
+//!     comment: "New tunnel virtual network for documentation",
 //! });
 //! ```
 //! ### Python
@@ -24,8 +24,8 @@
 //! 
 //! example = cloudflare.TunnelVirtualNetwork("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     comment="New tunnel virtual network for documentation",
-//!     name="vnet-for-documentation")
+//!     name="vnet-for-documentation",
+//!     comment="New tunnel virtual network for documentation")
 //! ```
 //! ### C#
 //! ```csharp
@@ -39,8 +39,8 @@
 //!     var example = new Cloudflare.TunnelVirtualNetwork("example", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         Comment = "New tunnel virtual network for documentation",
 //!         Name = "vnet-for-documentation",
+//!         Comment = "New tunnel virtual network for documentation",
 //!     });
 //! 
 //! });
@@ -58,8 +58,8 @@
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewTunnelVirtualNetwork(ctx, "example", &cloudflare.TunnelVirtualNetworkArgs{
 //! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			Comment:   pulumi.String("New tunnel virtual network for documentation"),
 //! 			Name:      pulumi.String("vnet-for-documentation"),
+//! 			Comment:   pulumi.String("New tunnel virtual network for documentation"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -90,10 +90,10 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new TunnelVirtualNetwork("example", TunnelVirtualNetworkArgs.builder()        
+//!         var example = new TunnelVirtualNetwork("example", TunnelVirtualNetworkArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .comment("New tunnel virtual network for documentation")
 //!             .name("vnet-for-documentation")
+//!             .comment("New tunnel virtual network for documentation")
 //!             .build());
 //! 
 //!     }
@@ -106,8 +106,8 @@
 //!     type: cloudflare:TunnelVirtualNetwork
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
-//!       comment: New tunnel virtual network for documentation
 //!       name: vnet-for-documentation
+//!       comment: New tunnel virtual network for documentation
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

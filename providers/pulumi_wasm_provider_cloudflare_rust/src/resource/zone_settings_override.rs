@@ -5,6 +5,21 @@
 //!   Attempting to manage all settings will result in problems with the resource
 //!   applying in a consistent manner.
 //! 
+//! ## Plan-Dependent Settings
+//! 
+//! Note that some settings are only available on certain plans. Setting an argument
+//! for a feature that is not available on the plan configured for the zone will
+//! result in an error:
+//! 
+//! ```
+//! Error: invalid zone setting "\<argument\>" (value: \<value\>) found - cannot be set as it is read only
+//! ```
+//! 
+//! This is true even when setting the argument to its default value. These values
+//! should either be omitted or set to `null` for zones with plans that don't
+//! support the feature. See the [plan feature matrices](https://www.cloudflare.com/plans/) for details on
+//! feature support by plan.
+//! 
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
@@ -14,7 +29,7 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! const test = new cloudflare.ZoneSettingsOverride("test", {
-//!     zoneId: d41d8cd98f00b204e9800998ecf8427e,
+//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //!     settings: {
 //!         brotli: "on",
 //!         challengeTtl: 2700,
@@ -40,24 +55,24 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! test = cloudflare.ZoneSettingsOverride("test",
-//!     zone_id=d41d8cd98f00b204e9800998ecf8427e,
-//!     settings=cloudflare.ZoneSettingsOverrideSettingsArgs(
-//!         brotli="on",
-//!         challenge_ttl=2700,
-//!         security_level="high",
-//!         opportunistic_encryption="on",
-//!         automatic_https_rewrites="on",
-//!         mirage="on",
-//!         waf="on",
-//!         minify=cloudflare.ZoneSettingsOverrideSettingsMinifyArgs(
-//!             css="on",
-//!             js="off",
-//!             html="off",
-//!         ),
-//!         security_header=cloudflare.ZoneSettingsOverrideSettingsSecurityHeaderArgs(
-//!             enabled=True,
-//!         ),
-//!     ))
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
+//!     settings={
+//!         "brotli": "on",
+//!         "challenge_ttl": 2700,
+//!         "security_level": "high",
+//!         "opportunistic_encryption": "on",
+//!         "automatic_https_rewrites": "on",
+//!         "mirage": "on",
+//!         "waf": "on",
+//!         "minify": {
+//!             "css": "on",
+//!             "js": "off",
+//!             "html": "off",
+//!         },
+//!         "security_header": {
+//!             "enabled": True,
+//!         },
+//!     })
 //! ```
 //! ### C#
 //! ```csharp
@@ -70,7 +85,7 @@
 //! {
 //!     var test = new Cloudflare.ZoneSettingsOverride("test", new()
 //!     {
-//!         ZoneId = d41d8cd98f00b204e9800998ecf8427e,
+//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!         Settings = new Cloudflare.Inputs.ZoneSettingsOverrideSettingsArgs
 //!         {
 //!             Brotli = "on",
@@ -107,7 +122,7 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewZoneSettingsOverride(ctx, "test", &cloudflare.ZoneSettingsOverrideArgs{
-//! 			ZoneId: pulumi.Any(d41d8cd98f00b204e9800998ecf8427e),
+//! 			ZoneId: pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 			Settings: &cloudflare.ZoneSettingsOverrideSettingsArgs{
 //! 				Brotli:                  pulumi.String("on"),
 //! 				ChallengeTtl:            pulumi.Int(2700),
@@ -158,8 +173,8 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var test = new ZoneSettingsOverride("test", ZoneSettingsOverrideArgs.builder()        
-//!             .zoneId(d41d8cd98f00b204e9800998ecf8427e)
+//!         var test = new ZoneSettingsOverride("test", ZoneSettingsOverrideArgs.builder()
+//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .settings(ZoneSettingsOverrideSettingsArgs.builder()
 //!                 .brotli("on")
 //!                 .challengeTtl(2700)
@@ -188,7 +203,7 @@
 //!   test:
 //!     type: cloudflare:ZoneSettingsOverride
 //!     properties:
-//!       zoneId: ${d41d8cd98f00b204e9800998ecf8427e}
+//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //!       settings:
 //!         brotli: on
 //!         challengeTtl: 2700

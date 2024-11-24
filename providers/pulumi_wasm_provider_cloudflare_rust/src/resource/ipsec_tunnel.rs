@@ -10,16 +10,16 @@
 //! 
 //! const example = new cloudflare.IpsecTunnel("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     allowNullCipher: false,
-//!     cloudflareEndpoint: "203.0.113.1",
+//!     name: "IPsec_1",
 //!     customerEndpoint: "203.0.113.1",
+//!     cloudflareEndpoint: "203.0.113.1",
+//!     interfaceAddress: "192.0.2.0/31",
 //!     description: "Tunnel for ISP X",
 //!     healthCheckEnabled: true,
 //!     healthCheckTarget: "203.0.113.1",
 //!     healthCheckType: "reply",
-//!     interfaceAddress: "192.0.2.0/31",
-//!     name: "IPsec_1",
 //!     psk: "asdf12341234",
+//!     allowNullCipher: false,
 //! });
 //! ```
 //! ### Python
@@ -29,16 +29,16 @@
 //! 
 //! example = cloudflare.IpsecTunnel("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     allow_null_cipher=False,
-//!     cloudflare_endpoint="203.0.113.1",
+//!     name="IPsec_1",
 //!     customer_endpoint="203.0.113.1",
+//!     cloudflare_endpoint="203.0.113.1",
+//!     interface_address="192.0.2.0/31",
 //!     description="Tunnel for ISP X",
 //!     health_check_enabled=True,
 //!     health_check_target="203.0.113.1",
 //!     health_check_type="reply",
-//!     interface_address="192.0.2.0/31",
-//!     name="IPsec_1",
-//!     psk="asdf12341234")
+//!     psk="asdf12341234",
+//!     allow_null_cipher=False)
 //! ```
 //! ### C#
 //! ```csharp
@@ -52,16 +52,16 @@
 //!     var example = new Cloudflare.IpsecTunnel("example", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         AllowNullCipher = false,
-//!         CloudflareEndpoint = "203.0.113.1",
+//!         Name = "IPsec_1",
 //!         CustomerEndpoint = "203.0.113.1",
+//!         CloudflareEndpoint = "203.0.113.1",
+//!         InterfaceAddress = "192.0.2.0/31",
 //!         Description = "Tunnel for ISP X",
 //!         HealthCheckEnabled = true,
 //!         HealthCheckTarget = "203.0.113.1",
 //!         HealthCheckType = "reply",
-//!         InterfaceAddress = "192.0.2.0/31",
-//!         Name = "IPsec_1",
 //!         Psk = "asdf12341234",
+//!         AllowNullCipher = false,
 //!     });
 //! 
 //! });
@@ -79,16 +79,16 @@
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewIpsecTunnel(ctx, "example", &cloudflare.IpsecTunnelArgs{
 //! 			AccountId:          pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			AllowNullCipher:    pulumi.Bool(false),
-//! 			CloudflareEndpoint: pulumi.String("203.0.113.1"),
+//! 			Name:               pulumi.String("IPsec_1"),
 //! 			CustomerEndpoint:   pulumi.String("203.0.113.1"),
+//! 			CloudflareEndpoint: pulumi.String("203.0.113.1"),
+//! 			InterfaceAddress:   pulumi.String("192.0.2.0/31"),
 //! 			Description:        pulumi.String("Tunnel for ISP X"),
 //! 			HealthCheckEnabled: pulumi.Bool(true),
 //! 			HealthCheckTarget:  pulumi.String("203.0.113.1"),
 //! 			HealthCheckType:    pulumi.String("reply"),
-//! 			InterfaceAddress:   pulumi.String("192.0.2.0/31"),
-//! 			Name:               pulumi.String("IPsec_1"),
 //! 			Psk:                pulumi.String("asdf12341234"),
+//! 			AllowNullCipher:    pulumi.Bool(false),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -119,18 +119,18 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new IpsecTunnel("example", IpsecTunnelArgs.builder()        
+//!         var example = new IpsecTunnel("example", IpsecTunnelArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .allowNullCipher(false)
-//!             .cloudflareEndpoint("203.0.113.1")
+//!             .name("IPsec_1")
 //!             .customerEndpoint("203.0.113.1")
+//!             .cloudflareEndpoint("203.0.113.1")
+//!             .interfaceAddress("192.0.2.0/31")
 //!             .description("Tunnel for ISP X")
 //!             .healthCheckEnabled(true)
 //!             .healthCheckTarget("203.0.113.1")
 //!             .healthCheckType("reply")
-//!             .interfaceAddress("192.0.2.0/31")
-//!             .name("IPsec_1")
 //!             .psk("asdf12341234")
+//!             .allowNullCipher(false)
 //!             .build());
 //! 
 //!     }
@@ -143,16 +143,16 @@
 //!     type: cloudflare:IpsecTunnel
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
-//!       allowNullCipher: false
-//!       cloudflareEndpoint: 203.0.113.1
+//!       name: IPsec_1
 //!       customerEndpoint: 203.0.113.1
+//!       cloudflareEndpoint: 203.0.113.1
+//!       interfaceAddress: 192.0.2.0/31
 //!       description: Tunnel for ISP X
 //!       healthCheckEnabled: true
 //!       healthCheckTarget: 203.0.113.1
 //!       healthCheckType: reply
-//!       interfaceAddress: 192.0.2.0/31
-//!       name: IPsec_1
 //!       psk: asdf12341234
+//!       allowNullCipher: false
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 
@@ -214,6 +214,9 @@ pub struct IpsecTunnelArgs {
     /// ID to be used while setting up the IPsec tunnel. This value is generated by cloudflare.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub remote_id: pulumi_wasm_rust::Output<Option<String>>,
+    /// Specifies if replay protection is enabled. Defaults to `false`.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    pub replay_protection: pulumi_wasm_rust::Output<Option<bool>>,
     /// `remote_id` in the form of an email address. This value is generated by cloudflare.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub user_id: pulumi_wasm_rust::Output<Option<String>>,
@@ -252,6 +255,8 @@ pub struct IpsecTunnelResult {
     pub psk: pulumi_wasm_rust::Output<String>,
     /// ID to be used while setting up the IPsec tunnel. This value is generated by cloudflare.
     pub remote_id: pulumi_wasm_rust::Output<String>,
+    /// Specifies if replay protection is enabled. Defaults to `false`.
+    pub replay_protection: pulumi_wasm_rust::Output<Option<bool>>,
     /// `remote_id` in the form of an email address. This value is generated by cloudflare.
     pub user_id: pulumi_wasm_rust::Output<String>,
 }
@@ -278,6 +283,7 @@ pub fn create(name: &str, args: IpsecTunnelArgs) -> IpsecTunnelResult {
         name: &args.name.get_inner(),
         psk: &args.psk.get_inner(),
         remote_id: &args.remote_id.get_inner(),
+        replay_protection: &args.replay_protection.get_inner(),
         user_id: &args.user_id.get_inner(),
     });
 
@@ -298,6 +304,7 @@ pub fn create(name: &str, args: IpsecTunnelArgs) -> IpsecTunnelResult {
         name: crate::into_domain(result.name),
         psk: crate::into_domain(result.psk),
         remote_id: crate::into_domain(result.remote_id),
+        replay_protection: crate::into_domain(result.replay_protection),
         user_id: crate::into_domain(result.user_id),
     }
 }

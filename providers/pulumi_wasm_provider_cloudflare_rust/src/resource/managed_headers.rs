@@ -12,15 +12,15 @@
 //! 
 //! // Enable security headers using Managed Meaders
 //! const example = new cloudflare.ManagedHeaders("example", {
+//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //!     managedRequestHeaders: [{
-//!         enabled: true,
 //!         id: "add_true_client_ip_headers",
+//!         enabled: true,
 //!     }],
 //!     managedResponseHeaders: [{
-//!         enabled: true,
 //!         id: "remove_x-powered-by_header",
+//!         enabled: true,
 //!     }],
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //! });
 //! ```
 //! ### Python
@@ -30,15 +30,15 @@
 //! 
 //! # Enable security headers using Managed Meaders
 //! example = cloudflare.ManagedHeaders("example",
-//!     managed_request_headers=[cloudflare.ManagedHeadersManagedRequestHeaderArgs(
-//!         enabled=True,
-//!         id="add_true_client_ip_headers",
-//!     )],
-//!     managed_response_headers=[cloudflare.ManagedHeadersManagedResponseHeaderArgs(
-//!         enabled=True,
-//!         id="remove_x-powered-by_header",
-//!     )],
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
+//!     managed_request_headers=[{
+//!         "id": "add_true_client_ip_headers",
+//!         "enabled": True,
+//!     }],
+//!     managed_response_headers=[{
+//!         "id": "remove_x-powered-by_header",
+//!         "enabled": True,
+//!     }])
 //! ```
 //! ### C#
 //! ```csharp
@@ -52,23 +52,23 @@
 //!     // Enable security headers using Managed Meaders
 //!     var example = new Cloudflare.ManagedHeaders("example", new()
 //!     {
+//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!         ManagedRequestHeaders = new[]
 //!         {
 //!             new Cloudflare.Inputs.ManagedHeadersManagedRequestHeaderArgs
 //!             {
-//!                 Enabled = true,
 //!                 Id = "add_true_client_ip_headers",
+//!                 Enabled = true,
 //!             },
 //!         },
 //!         ManagedResponseHeaders = new[]
 //!         {
 //!             new Cloudflare.Inputs.ManagedHeadersManagedResponseHeaderArgs
 //!             {
-//!                 Enabled = true,
 //!                 Id = "remove_x-powered-by_header",
+//!                 Enabled = true,
 //!             },
 //!         },
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
 //! 
 //! });
@@ -86,19 +86,19 @@
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		// Enable security headers using Managed Meaders
 //! 		_, err := cloudflare.NewManagedHeaders(ctx, "example", &cloudflare.ManagedHeadersArgs{
+//! 			ZoneId: pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 			ManagedRequestHeaders: cloudflare.ManagedHeadersManagedRequestHeaderArray{
 //! 				&cloudflare.ManagedHeadersManagedRequestHeaderArgs{
-//! 					Enabled: pulumi.Bool(true),
 //! 					Id:      pulumi.String("add_true_client_ip_headers"),
+//! 					Enabled: pulumi.Bool(true),
 //! 				},
 //! 			},
 //! 			ManagedResponseHeaders: cloudflare.ManagedHeadersManagedResponseHeaderArray{
 //! 				&cloudflare.ManagedHeadersManagedResponseHeaderArgs{
-//! 					Enabled: pulumi.Bool(true),
 //! 					Id:      pulumi.String("remove_x-powered-by_header"),
+//! 					Enabled: pulumi.Bool(true),
 //! 				},
 //! 			},
-//! 			ZoneId: pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -132,16 +132,16 @@
 //! 
 //!     public static void stack(Context ctx) {
 //!         // Enable security headers using Managed Meaders
-//!         var example = new ManagedHeaders("example", ManagedHeadersArgs.builder()        
+//!         var example = new ManagedHeaders("example", ManagedHeadersArgs.builder()
+//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .managedRequestHeaders(ManagedHeadersManagedRequestHeaderArgs.builder()
-//!                 .enabled(true)
 //!                 .id("add_true_client_ip_headers")
+//!                 .enabled(true)
 //!                 .build())
 //!             .managedResponseHeaders(ManagedHeadersManagedResponseHeaderArgs.builder()
-//!                 .enabled(true)
 //!                 .id("remove_x-powered-by_header")
+//!                 .enabled(true)
 //!                 .build())
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
 //! 
 //!     }
@@ -154,13 +154,13 @@
 //!   example:
 //!     type: cloudflare:ManagedHeaders
 //!     properties:
-//!       managedRequestHeaders:
-//!         - enabled: true
-//!           id: add_true_client_ip_headers
-//!       managedResponseHeaders:
-//!         - enabled: true
-//!           id: remove_x-powered-by_header
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       managedRequestHeaders:
+//!         - id: add_true_client_ip_headers
+//!           enabled: true
+//!       managedResponseHeaders:
+//!         - id: remove_x-powered-by_header
+//!           enabled: true
 //! ```
 //! <!--End PulumiCodeChooser -->
 

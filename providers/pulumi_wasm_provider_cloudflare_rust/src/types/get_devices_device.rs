@@ -57,6 +57,10 @@ pub struct GetDevicesDevice {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "osVersion")]
     pub r#os_version: Box<Option<String>>,
+    /// Extra version value following the operating system version.
+    #[builder(into, default = Box::new(None))]
+    #[serde(rename = "osVersionExtra")]
+    pub r#os_version_extra: Box<Option<String>>,
     /// When the device was revoked.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "revokedAt")]

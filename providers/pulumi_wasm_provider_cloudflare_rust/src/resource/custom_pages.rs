@@ -9,10 +9,10 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! const example = new cloudflare.CustomPages("example", {
-//!     state: "customized",
+//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //!     type: "basic_challenge",
 //!     url: "https://example.com/challenge.html",
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     state: "customized",
 //! });
 //! ```
 //! ### Python
@@ -21,10 +21,10 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! example = cloudflare.CustomPages("example",
-//!     state="customized",
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     type="basic_challenge",
 //!     url="https://example.com/challenge.html",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     state="customized")
 //! ```
 //! ### C#
 //! ```csharp
@@ -37,10 +37,10 @@
 //! {
 //!     var example = new Cloudflare.CustomPages("example", new()
 //!     {
-//!         State = "customized",
+//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!         Type = "basic_challenge",
 //!         Url = "https://example.com/challenge.html",
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         State = "customized",
 //!     });
 //! 
 //! });
@@ -57,10 +57,10 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewCustomPages(ctx, "example", &cloudflare.CustomPagesArgs{
-//! 			State:  pulumi.String("customized"),
+//! 			ZoneId: pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 			Type:   pulumi.String("basic_challenge"),
 //! 			Url:    pulumi.String("https://example.com/challenge.html"),
-//! 			ZoneId: pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			State:  pulumi.String("customized"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -91,11 +91,11 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new CustomPages("example", CustomPagesArgs.builder()        
-//!             .state("customized")
+//!         var example = new CustomPages("example", CustomPagesArgs.builder()
+//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .type("basic_challenge")
 //!             .url("https://example.com/challenge.html")
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .state("customized")
 //!             .build());
 //! 
 //!     }
@@ -107,10 +107,10 @@
 //!   example:
 //!     type: cloudflare:CustomPages
 //!     properties:
-//!       state: customized
+//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //!       type: basic_challenge
 //!       url: https://example.com/challenge.html
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       state: customized
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

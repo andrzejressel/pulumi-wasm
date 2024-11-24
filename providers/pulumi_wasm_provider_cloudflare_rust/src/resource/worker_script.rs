@@ -7,17 +7,19 @@
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//! import * as fs from "fs";
+//! import * as std from "@pulumi/std";
 //! 
-//! const myNamespace = new cloudflare.WorkersKvNamespace("myNamespace", {
+//! const myNamespace = new cloudflare.WorkersKvNamespace("my_namespace", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
 //!     title: "example",
 //! });
 //! // Sets the script with the name "script_1"
-//! const myScript = new cloudflare.WorkerScript("myScript", {
+//! const myScript = new cloudflare.WorkerScript("my_script", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
 //!     name: "script_1",
-//!     content: fs.readFileSync("script.js", "utf8"),
+//!     content: std.file({
+//!         input: "script.js",
+//!     }).then(invoke => invoke.result),
 //!     kvNamespaceBindings: [{
 //!         name: "MY_EXAMPLE_KV_NAMESPACE",
 //!         namespaceId: myNamespace.id,
@@ -28,11 +30,13 @@
 //!     }],
 //!     secretTextBindings: [{
 //!         name: "MY_EXAMPLE_SECRET_TEXT",
-//!         text: _var.secret_foo_value,
+//!         text: secretFooValue,
 //!     }],
 //!     webassemblyBindings: [{
 //!         name: "MY_EXAMPLE_WASM",
-//!         module: fs.readFileSync("example.wasm", { encoding: "base64" }),
+//!         module: std.filebase64({
+//!             input: "example.wasm",
+//!         }).then(invoke => invoke.result),
 //!     }],
 //!     serviceBindings: [{
 //!         name: "MY_SERVICE_BINDING",
@@ -52,76 +56,72 @@
 //! ### Python
 //! ```python
 //! import pulumi
-//! import base64
 //! import pulumi_cloudflare as cloudflare
+//! import pulumi_std as std
 //! 
-//! my_namespace = cloudflare.WorkersKvNamespace("myNamespace",
+//! my_namespace = cloudflare.WorkersKvNamespace("my_namespace",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
 //!     title="example")
 //! # Sets the script with the name "script_1"
-//! my_script = cloudflare.WorkerScript("myScript",
+//! my_script = cloudflare.WorkerScript("my_script",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
 //!     name="script_1",
-//!     content=(lambda path: open(path).read())("script.js"),
-//!     kv_namespace_bindings=[cloudflare.WorkerScriptKvNamespaceBindingArgs(
-//!         name="MY_EXAMPLE_KV_NAMESPACE",
-//!         namespace_id=my_namespace.id,
-//!     )],
-//!     plain_text_bindings=[cloudflare.WorkerScriptPlainTextBindingArgs(
-//!         name="MY_EXAMPLE_PLAIN_TEXT",
-//!         text="foobar",
-//!     )],
-//!     secret_text_bindings=[cloudflare.WorkerScriptSecretTextBindingArgs(
-//!         name="MY_EXAMPLE_SECRET_TEXT",
-//!         text=var["secret_foo_value"],
-//!     )],
-//!     webassembly_bindings=[cloudflare.WorkerScriptWebassemblyBindingArgs(
-//!         name="MY_EXAMPLE_WASM",
-//!         module=(lambda path: base64.b64encode(open(path).read().encode()).decode())("example.wasm"),
-//!     )],
-//!     service_bindings=[cloudflare.WorkerScriptServiceBindingArgs(
-//!         name="MY_SERVICE_BINDING",
-//!         service="MY_SERVICE",
-//!         environment="production",
-//!     )],
-//!     r2_bucket_bindings=[cloudflare.WorkerScriptR2BucketBindingArgs(
-//!         name="MY_BUCKET",
-//!         bucket_name="MY_BUCKET_NAME",
-//!     )],
-//!     analytics_engine_bindings=[cloudflare.WorkerScriptAnalyticsEngineBindingArgs(
-//!         name="MY_DATASET",
-//!         dataset="dataset1",
-//!     )])
+//!     content=std.file(input="script.js").result,
+//!     kv_namespace_bindings=[{
+//!         "name": "MY_EXAMPLE_KV_NAMESPACE",
+//!         "namespace_id": my_namespace.id,
+//!     }],
+//!     plain_text_bindings=[{
+//!         "name": "MY_EXAMPLE_PLAIN_TEXT",
+//!         "text": "foobar",
+//!     }],
+//!     secret_text_bindings=[{
+//!         "name": "MY_EXAMPLE_SECRET_TEXT",
+//!         "text": secret_foo_value,
+//!     }],
+//!     webassembly_bindings=[{
+//!         "name": "MY_EXAMPLE_WASM",
+//!         "module": std.filebase64(input="example.wasm").result,
+//!     }],
+//!     service_bindings=[{
+//!         "name": "MY_SERVICE_BINDING",
+//!         "service": "MY_SERVICE",
+//!         "environment": "production",
+//!     }],
+//!     r2_bucket_bindings=[{
+//!         "name": "MY_BUCKET",
+//!         "bucket_name": "MY_BUCKET_NAME",
+//!     }],
+//!     analytics_engine_bindings=[{
+//!         "name": "MY_DATASET",
+//!         "dataset": "dataset1",
+//!     }])
 //! ```
 //! ### C#
 //! ```csharp
-//! using System;
 //! using System.Collections.Generic;
-//! using System.IO;
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! 	
-//! string ReadFileBase64(string path) 
-//! {
-//!     return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)));
-//! }
+//! using Std = Pulumi.Std;
 //! 
 //! return await Deployment.RunAsync(() => 
 //! {
-//!     var myNamespace = new Cloudflare.WorkersKvNamespace("myNamespace", new()
+//!     var myNamespace = new Cloudflare.WorkersKvNamespace("my_namespace", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
 //!         Title = "example",
 //!     });
 //! 
 //!     // Sets the script with the name "script_1"
-//!     var myScript = new Cloudflare.WorkerScript("myScript", new()
+//!     var myScript = new Cloudflare.WorkerScript("my_script", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
 //!         Name = "script_1",
-//!         Content = File.ReadAllText("script.js"),
+//!         Content = Std.File.Invoke(new()
+//!         {
+//!             Input = "script.js",
+//!         }).Apply(invoke => invoke.Result),
 //!         KvNamespaceBindings = new[]
 //!         {
 //!             new Cloudflare.Inputs.WorkerScriptKvNamespaceBindingArgs
@@ -143,7 +143,7 @@
 //!             new Cloudflare.Inputs.WorkerScriptSecretTextBindingArgs
 //!             {
 //!                 Name = "MY_EXAMPLE_SECRET_TEXT",
-//!                 Text = @var.Secret_foo_value,
+//!                 Text = secretFooValue,
 //!             },
 //!         },
 //!         WebassemblyBindings = new[]
@@ -151,7 +151,10 @@
 //!             new Cloudflare.Inputs.WorkerScriptWebassemblyBindingArgs
 //!             {
 //!                 Name = "MY_EXAMPLE_WASM",
-//!                 Module = ReadFileBase64("example.wasm"),
+//!                 Module = Std.Filebase64.Invoke(new()
+//!                 {
+//!                     Input = "example.wasm",
+//!                 }).Apply(invoke => invoke.Result),
 //!             },
 //!         },
 //!         ServiceBindings = new[]
@@ -188,43 +191,37 @@
 //! package main
 //! 
 //! import (
-//! 	"encoding/base64"
-//! 	"os"
-//! 
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
+//! 	"github.com/pulumi/pulumi-std/sdk/go/std"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
 //! 
-//! func filebase64OrPanic(path string) string {
-//! 	if fileData, err := os.ReadFile(path); err == nil {
-//! 		return base64.StdEncoding.EncodeToString(fileData[:])
-//! 	} else {
-//! 		panic(err.Error())
-//! 	}
-//! }
-//! 
-//! func readFileOrPanic(path string) pulumi.StringPtrInput {
-//! 	data, err := os.ReadFile(path)
-//! 	if err != nil {
-//! 		panic(err.Error())
-//! 	}
-//! 	return pulumi.String(string(data))
-//! }
-//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		myNamespace, err := cloudflare.NewWorkersKvNamespace(ctx, "myNamespace", &cloudflare.WorkersKvNamespaceArgs{
+//! 		myNamespace, err := cloudflare.NewWorkersKvNamespace(ctx, "my_namespace", &cloudflare.WorkersKvNamespaceArgs{
 //! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
 //! 			Title:     pulumi.String("example"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
 //! 		}
+//! 		invokeFile, err := std.File(ctx, &std.FileArgs{
+//! 			Input: "script.js",
+//! 		}, nil)
+//! 		if err != nil {
+//! 			return err
+//! 		}
+//! 		invokeFilebase641, err := std.Filebase64(ctx, &std.Filebase64Args{
+//! 			Input: "example.wasm",
+//! 		}, nil)
+//! 		if err != nil {
+//! 			return err
+//! 		}
 //! 		// Sets the script with the name "script_1"
-//! 		_, err = cloudflare.NewWorkerScript(ctx, "myScript", &cloudflare.WorkerScriptArgs{
+//! 		_, err = cloudflare.NewWorkerScript(ctx, "my_script", &cloudflare.WorkerScriptArgs{
 //! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
 //! 			Name:      pulumi.String("script_1"),
-//! 			Content:   readFileOrPanic("script.js"),
+//! 			Content:   pulumi.String(invokeFile.Result),
 //! 			KvNamespaceBindings: cloudflare.WorkerScriptKvNamespaceBindingArray{
 //! 				&cloudflare.WorkerScriptKvNamespaceBindingArgs{
 //! 					Name:        pulumi.String("MY_EXAMPLE_KV_NAMESPACE"),
@@ -240,13 +237,13 @@
 //! 			SecretTextBindings: cloudflare.WorkerScriptSecretTextBindingArray{
 //! 				&cloudflare.WorkerScriptSecretTextBindingArgs{
 //! 					Name: pulumi.String("MY_EXAMPLE_SECRET_TEXT"),
-//! 					Text: pulumi.Any(_var.Secret_foo_value),
+//! 					Text: pulumi.Any(secretFooValue),
 //! 				},
 //! 			},
 //! 			WebassemblyBindings: cloudflare.WorkerScriptWebassemblyBindingArray{
 //! 				&cloudflare.WorkerScriptWebassemblyBindingArgs{
 //! 					Name:   pulumi.String("MY_EXAMPLE_WASM"),
-//! 					Module: filebase64OrPanic("example.wasm"),
+//! 					Module: pulumi.String(invokeFilebase641.Result),
 //! 				},
 //! 			},
 //! 			ServiceBindings: cloudflare.WorkerScriptServiceBindingArray{
@@ -307,16 +304,18 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var myNamespace = new WorkersKvNamespace("myNamespace", WorkersKvNamespaceArgs.builder()        
+//!         var myNamespace = new WorkersKvNamespace("myNamespace", WorkersKvNamespaceArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
 //!             .title("example")
 //!             .build());
 //! 
 //!         // Sets the script with the name "script_1"
-//!         var myScript = new WorkerScript("myScript", WorkerScriptArgs.builder()        
+//!         var myScript = new WorkerScript("myScript", WorkerScriptArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
 //!             .name("script_1")
-//!             .content(Files.readString(Paths.get("script.js")))
+//!             .content(StdFunctions.file(FileArgs.builder()
+//!                 .input("script.js")
+//!                 .build()).result())
 //!             .kvNamespaceBindings(WorkerScriptKvNamespaceBindingArgs.builder()
 //!                 .name("MY_EXAMPLE_KV_NAMESPACE")
 //!                 .namespaceId(myNamespace.id())
@@ -327,11 +326,13 @@
 //!                 .build())
 //!             .secretTextBindings(WorkerScriptSecretTextBindingArgs.builder()
 //!                 .name("MY_EXAMPLE_SECRET_TEXT")
-//!                 .text(var_.secret_foo_value())
+//!                 .text(secretFooValue)
 //!                 .build())
 //!             .webassemblyBindings(WorkerScriptWebassemblyBindingArgs.builder()
 //!                 .name("MY_EXAMPLE_WASM")
-//!                 .module(Base64.getEncoder().encodeToString(Files.readAllBytes(Paths.get("example.wasm"))))
+//!                 .module(StdFunctions.filebase64(Filebase64Args.builder()
+//!                     .input("example.wasm")
+//!                     .build()).result())
 //!                 .build())
 //!             .serviceBindings(WorkerScriptServiceBindingArgs.builder()
 //!                 .name("MY_SERVICE_BINDING")
@@ -350,6 +351,56 @@
 //! 
 //!     }
 //! }
+//! ```
+//! ### YAML
+//! ```yaml
+//! resources:
+//!   myNamespace:
+//!     type: cloudflare:WorkersKvNamespace
+//!     name: my_namespace
+//!     properties:
+//!       accountId: f037e56e89293a057740de681ac9abbe
+//!       title: example
+//!   # Sets the script with the name "script_1"
+//!   myScript:
+//!     type: cloudflare:WorkerScript
+//!     name: my_script
+//!     properties:
+//!       accountId: f037e56e89293a057740de681ac9abbe
+//!       name: script_1
+//!       content:
+//!         fn::invoke:
+//!           Function: std:file
+//!           Arguments:
+//!             input: script.js
+//!           Return: result
+//!       kvNamespaceBindings:
+//!         - name: MY_EXAMPLE_KV_NAMESPACE
+//!           namespaceId: ${myNamespace.id}
+//!       plainTextBindings:
+//!         - name: MY_EXAMPLE_PLAIN_TEXT
+//!           text: foobar
+//!       secretTextBindings:
+//!         - name: MY_EXAMPLE_SECRET_TEXT
+//!           text: ${secretFooValue}
+//!       webassemblyBindings:
+//!         - name: MY_EXAMPLE_WASM
+//!           module:
+//!             fn::invoke:
+//!               Function: std:filebase64
+//!               Arguments:
+//!                 input: example.wasm
+//!               Return: result
+//!       serviceBindings:
+//!         - name: MY_SERVICE_BINDING
+//!           service: MY_SERVICE
+//!           environment: production
+//!       r2BucketBindings:
+//!         - name: MY_BUCKET
+//!           bucketName: MY_BUCKET_NAME
+//!       analyticsEngineBindings:
+//!         - name: MY_DATASET
+//!           dataset: dataset1
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 
@@ -383,14 +434,16 @@ pub struct WorkerScriptArgs {
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub dispatch_namespace: pulumi_wasm_rust::Output<Option<String>>,
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    pub hyperdrive_config_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptHyperdriveConfigBinding>>>,
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub kv_namespace_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptKvNamespaceBinding>>>,
     /// Enabling allows Worker events to be sent to a defined Logpush destination.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub logpush: pulumi_wasm_rust::Output<Option<bool>>,
-    /// The base64 encoded wasm module you want to store.
+    /// Whether to upload Worker as a module.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub module: pulumi_wasm_rust::Output<Option<bool>>,
-    /// The global variable for the binding in your Worker code.
+    /// The name for the script. **Modifying this attribute will force creation of a new resource.**
     #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
@@ -424,12 +477,13 @@ pub struct WorkerScriptResult {
     pub d1_database_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptD1DatabaseBinding>>>,
     /// Name of the Workers for Platforms dispatch namespace.
     pub dispatch_namespace: pulumi_wasm_rust::Output<Option<String>>,
+    pub hyperdrive_config_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptHyperdriveConfigBinding>>>,
     pub kv_namespace_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptKvNamespaceBinding>>>,
     /// Enabling allows Worker events to be sent to a defined Logpush destination.
     pub logpush: pulumi_wasm_rust::Output<Option<bool>>,
-    /// The base64 encoded wasm module you want to store.
+    /// Whether to upload Worker as a module.
     pub module: pulumi_wasm_rust::Output<Option<bool>>,
-    /// The global variable for the binding in your Worker code.
+    /// The name for the script. **Modifying this attribute will force creation of a new resource.**
     pub name: pulumi_wasm_rust::Output<String>,
     pub placements: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptPlacement>>>,
     pub plain_text_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptPlainTextBinding>>>,
@@ -454,6 +508,7 @@ pub fn create(name: &str, args: WorkerScriptArgs) -> WorkerScriptResult {
         content: &args.content.get_inner(),
         d1_database_bindings: &args.d1_database_bindings.get_inner(),
         dispatch_namespace: &args.dispatch_namespace.get_inner(),
+        hyperdrive_config_bindings: &args.hyperdrive_config_bindings.get_inner(),
         kv_namespace_bindings: &args.kv_namespace_bindings.get_inner(),
         logpush: &args.logpush.get_inner(),
         module: &args.module.get_inner(),
@@ -476,6 +531,7 @@ pub fn create(name: &str, args: WorkerScriptArgs) -> WorkerScriptResult {
         content: crate::into_domain(result.content),
         d1_database_bindings: crate::into_domain(result.d1_database_bindings),
         dispatch_namespace: crate::into_domain(result.dispatch_namespace),
+        hyperdrive_config_bindings: crate::into_domain(result.hyperdrive_config_bindings),
         kv_namespace_bindings: crate::into_domain(result.kv_namespace_bindings),
         logpush: crate::into_domain(result.logpush),
         module: crate::into_domain(result.module),

@@ -1,77 +1,5 @@
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.List;
-//! import com.pulumi.cloudflare.ListArgs;
-//! import com.pulumi.cloudflare.inputs.ListItemArgs;
-//! import com.pulumi.cloudflare.inputs.ListItemValueArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         // Hostname list
-//!         var example = new List("example", ListArgs.builder()        
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .description("example hostnames for a list")
-//!             .items(            
-//!                 ListItemArgs.builder()
-//!                     .comment("one")
-//!                     .value(ListItemValueArgs.builder()
-//!                         .hostname(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-//!                         .build())
-//!                     .build(),
-//!                 ListItemArgs.builder()
-//!                     .comment("two")
-//!                     .value(ListItemValueArgs.builder()
-//!                         .hostname(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-//!                         .build())
-//!                     .build())
-//!             .kind("hostname")
-//!             .name("example_list")
-//!             .build());
-//! 
-//!     }
-//! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   # Hostname list
-//!   example:
-//!     type: cloudflare:List
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       description: example hostnames for a list
-//!       items:
-//!         - comment: one
-//!           value:
-//!             hostname:
-//!               - urlHostname: example.com
-//!         - comment: two
-//!           value:
-//!             hostname:
-//!               - urlHostname: '*.example.com'
-//!       kind: hostname
-//!       name: example_list
-//! ```
-//! <!--End PulumiCodeChooser -->
-//! 
 //! ## Import
 //! 
 //! ```sh
@@ -88,12 +16,13 @@ pub struct ListArgs {
     /// An optional description of the list.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub description: pulumi_wasm_rust::Output<Option<String>>,
+    /// The items in the list.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub items: pulumi_wasm_rust::Output<Option<Vec<crate::types::ListItem>>>,
-    /// The type of items the list will contain. Available values: `ip`, `redirect`, `hostname`, `asn`. **Modifying this attribute will force creation of a new resource.**
+    /// The type of items the list will contain. Must provide only one of: `ip`, `redirect`, `hostname`, `asn`..
     #[builder(into)]
     pub kind: pulumi_wasm_rust::Output<String>,
-    /// The name of the list. **Modifying this attribute will force creation of a new resource.**
+    /// The name of the list.
     #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
 }
@@ -103,10 +32,11 @@ pub struct ListResult {
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// An optional description of the list.
     pub description: pulumi_wasm_rust::Output<Option<String>>,
+    /// The items in the list.
     pub items: pulumi_wasm_rust::Output<Option<Vec<crate::types::ListItem>>>,
-    /// The type of items the list will contain. Available values: `ip`, `redirect`, `hostname`, `asn`. **Modifying this attribute will force creation of a new resource.**
+    /// The type of items the list will contain. Must provide only one of: `ip`, `redirect`, `hostname`, `asn`..
     pub kind: pulumi_wasm_rust::Output<String>,
-    /// The name of the list. **Modifying this attribute will force creation of a new resource.**
+    /// The name of the list.
     pub name: pulumi_wasm_rust::Output<String>,
 }
 

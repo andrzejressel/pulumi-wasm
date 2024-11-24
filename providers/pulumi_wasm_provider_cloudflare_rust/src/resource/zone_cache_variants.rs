@@ -9,6 +9,7 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! const example = new cloudflare.ZoneCacheVariants("example", {
+//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //!     avifs: [
 //!         "image/avif",
 //!         "image/webp",
@@ -19,10 +20,6 @@
 //!     ],
 //!     gifs: [
 //!         "image/gif",
-//!         "image/webp",
-//!     ],
-//!     jp2s: [
-//!         "image/jp2",
 //!         "image/webp",
 //!     ],
 //!     jpegs: [
@@ -37,23 +34,26 @@
 //!         "image/jpg2",
 //!         "image/webp",
 //!     ],
-//!     pngs: [
-//!         "image/png",
+//!     jp2s: [
+//!         "image/jp2",
 //!         "image/webp",
 //!     ],
-//!     tifs: [
-//!         "image/tif",
+//!     pngs: [
+//!         "image/png",
 //!         "image/webp",
 //!     ],
 //!     tiffs: [
 //!         "image/tiff",
 //!         "image/webp",
 //!     ],
+//!     tifs: [
+//!         "image/tif",
+//!         "image/webp",
+//!     ],
 //!     webps: [
 //!         "image/jpeg",
 //!         "image/webp",
 //!     ],
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //! });
 //! ```
 //! ### Python
@@ -62,6 +62,7 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! example = cloudflare.ZoneCacheVariants("example",
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     avifs=[
 //!         "image/avif",
 //!         "image/webp",
@@ -72,10 +73,6 @@
 //!     ],
 //!     gifs=[
 //!         "image/gif",
-//!         "image/webp",
-//!     ],
-//!     jp2s=[
-//!         "image/jp2",
 //!         "image/webp",
 //!     ],
 //!     jpegs=[
@@ -90,23 +87,26 @@
 //!         "image/jpg2",
 //!         "image/webp",
 //!     ],
-//!     pngs=[
-//!         "image/png",
+//!     jp2s=[
+//!         "image/jp2",
 //!         "image/webp",
 //!     ],
-//!     tifs=[
-//!         "image/tif",
+//!     pngs=[
+//!         "image/png",
 //!         "image/webp",
 //!     ],
 //!     tiffs=[
 //!         "image/tiff",
 //!         "image/webp",
 //!     ],
+//!     tifs=[
+//!         "image/tif",
+//!         "image/webp",
+//!     ],
 //!     webps=[
 //!         "image/jpeg",
 //!         "image/webp",
-//!     ],
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     ])
 //! ```
 //! ### C#
 //! ```csharp
@@ -119,6 +119,7 @@
 //! {
 //!     var example = new Cloudflare.ZoneCacheVariants("example", new()
 //!     {
+//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!         Avifs = new[]
 //!         {
 //!             "image/avif",
@@ -132,11 +133,6 @@
 //!         Gifs = new[]
 //!         {
 //!             "image/gif",
-//!             "image/webp",
-//!         },
-//!         Jp2s = new[]
-//!         {
-//!             "image/jp2",
 //!             "image/webp",
 //!         },
 //!         Jpegs = new[]
@@ -154,14 +150,14 @@
 //!             "image/jpg2",
 //!             "image/webp",
 //!         },
+//!         Jp2s = new[]
+//!         {
+//!             "image/jp2",
+//!             "image/webp",
+//!         },
 //!         Pngs = new[]
 //!         {
 //!             "image/png",
-//!             "image/webp",
-//!         },
-//!         Tifs = new[]
-//!         {
-//!             "image/tif",
 //!             "image/webp",
 //!         },
 //!         Tiffs = new[]
@@ -169,12 +165,16 @@
 //!             "image/tiff",
 //!             "image/webp",
 //!         },
+//!         Tifs = new[]
+//!         {
+//!             "image/tif",
+//!             "image/webp",
+//!         },
 //!         Webps = new[]
 //!         {
 //!             "image/jpeg",
 //!             "image/webp",
 //!         },
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
 //! 
 //! });
@@ -191,6 +191,7 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewZoneCacheVariants(ctx, "example", &cloudflare.ZoneCacheVariantsArgs{
+//! 			ZoneId: pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 			Avifs: pulumi.StringArray{
 //! 				pulumi.String("image/avif"),
 //! 				pulumi.String("image/webp"),
@@ -201,10 +202,6 @@
 //! 			},
 //! 			Gifs: pulumi.StringArray{
 //! 				pulumi.String("image/gif"),
-//! 				pulumi.String("image/webp"),
-//! 			},
-//! 			Jp2s: pulumi.StringArray{
-//! 				pulumi.String("image/jp2"),
 //! 				pulumi.String("image/webp"),
 //! 			},
 //! 			Jpegs: pulumi.StringArray{
@@ -219,23 +216,26 @@
 //! 				pulumi.String("image/jpg2"),
 //! 				pulumi.String("image/webp"),
 //! 			},
-//! 			Pngs: pulumi.StringArray{
-//! 				pulumi.String("image/png"),
+//! 			Jp2s: pulumi.StringArray{
+//! 				pulumi.String("image/jp2"),
 //! 				pulumi.String("image/webp"),
 //! 			},
-//! 			Tifs: pulumi.StringArray{
-//! 				pulumi.String("image/tif"),
+//! 			Pngs: pulumi.StringArray{
+//! 				pulumi.String("image/png"),
 //! 				pulumi.String("image/webp"),
 //! 			},
 //! 			Tiffs: pulumi.StringArray{
 //! 				pulumi.String("image/tiff"),
 //! 				pulumi.String("image/webp"),
 //! 			},
+//! 			Tifs: pulumi.StringArray{
+//! 				pulumi.String("image/tif"),
+//! 				pulumi.String("image/webp"),
+//! 			},
 //! 			Webps: pulumi.StringArray{
 //! 				pulumi.String("image/jpeg"),
 //! 				pulumi.String("image/webp"),
 //! 			},
-//! 			ZoneId: pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -266,7 +266,8 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new ZoneCacheVariants("example", ZoneCacheVariantsArgs.builder()        
+//!         var example = new ZoneCacheVariants("example", ZoneCacheVariantsArgs.builder()
+//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .avifs(            
 //!                 "image/avif",
 //!                 "image/webp")
@@ -275,9 +276,6 @@
 //!                 "image/webp")
 //!             .gifs(            
 //!                 "image/gif",
-//!                 "image/webp")
-//!             .jp2s(            
-//!                 "image/jp2",
 //!                 "image/webp")
 //!             .jpegs(            
 //!                 "image/jpeg",
@@ -288,19 +286,21 @@
 //!             .jpg2s(            
 //!                 "image/jpg2",
 //!                 "image/webp")
+//!             .jp2s(            
+//!                 "image/jp2",
+//!                 "image/webp")
 //!             .pngs(            
 //!                 "image/png",
-//!                 "image/webp")
-//!             .tifs(            
-//!                 "image/tif",
 //!                 "image/webp")
 //!             .tiffs(            
 //!                 "image/tiff",
 //!                 "image/webp")
+//!             .tifs(            
+//!                 "image/tif",
+//!                 "image/webp")
 //!             .webps(            
 //!                 "image/jpeg",
 //!                 "image/webp")
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
 //! 
 //!     }
@@ -312,6 +312,7 @@
 //!   example:
 //!     type: cloudflare:ZoneCacheVariants
 //!     properties:
+//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //!       avifs:
 //!         - image/avif
 //!         - image/webp
@@ -320,9 +321,6 @@
 //!         - image/webp
 //!       gifs:
 //!         - image/gif
-//!         - image/webp
-//!       jp2s:
-//!         - image/jp2
 //!         - image/webp
 //!       jpegs:
 //!         - image/jpeg
@@ -333,19 +331,21 @@
 //!       jpg2s:
 //!         - image/jpg2
 //!         - image/webp
+//!       jp2s:
+//!         - image/jp2
+//!         - image/webp
 //!       pngs:
 //!         - image/png
-//!         - image/webp
-//!       tifs:
-//!         - image/tif
 //!         - image/webp
 //!       tiffs:
 //!         - image/tiff
 //!         - image/webp
+//!       tifs:
+//!         - image/tif
+//!         - image/webp
 //!       webps:
 //!         - image/jpeg
 //!         - image/webp
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //! ```
 //! <!--End PulumiCodeChooser -->
 

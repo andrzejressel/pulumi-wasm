@@ -12,14 +12,14 @@
 //! 
 //! const example = new cloudflare.TeamsList("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
+//!     name: "Corporate devices",
+//!     type: "SERIAL",
 //!     description: "Serial numbers for all corporate devices.",
 //!     items: [
 //!         "8GE8721REF",
 //!         "5RE8543EGG",
 //!         "1YE2880LNP",
 //!     ],
-//!     name: "Corporate devices",
-//!     type: "SERIAL",
 //! });
 //! ```
 //! ### Python
@@ -29,14 +29,14 @@
 //! 
 //! example = cloudflare.TeamsList("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
+//!     name="Corporate devices",
+//!     type="SERIAL",
 //!     description="Serial numbers for all corporate devices.",
 //!     items=[
 //!         "8GE8721REF",
 //!         "5RE8543EGG",
 //!         "1YE2880LNP",
-//!     ],
-//!     name="Corporate devices",
-//!     type="SERIAL")
+//!     ])
 //! ```
 //! ### C#
 //! ```csharp
@@ -50,6 +50,8 @@
 //!     var example = new Cloudflare.TeamsList("example", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
+//!         Name = "Corporate devices",
+//!         Type = "SERIAL",
 //!         Description = "Serial numbers for all corporate devices.",
 //!         Items = new[]
 //!         {
@@ -57,8 +59,6 @@
 //!             "5RE8543EGG",
 //!             "1YE2880LNP",
 //!         },
-//!         Name = "Corporate devices",
-//!         Type = "SERIAL",
 //!     });
 //! 
 //! });
@@ -76,14 +76,14 @@
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewTeamsList(ctx, "example", &cloudflare.TeamsListArgs{
 //! 			AccountId:   pulumi.String("f037e56e89293a057740de681ac9abbe"),
+//! 			Name:        pulumi.String("Corporate devices"),
+//! 			Type:        pulumi.String("SERIAL"),
 //! 			Description: pulumi.String("Serial numbers for all corporate devices."),
 //! 			Items: pulumi.StringArray{
 //! 				pulumi.String("8GE8721REF"),
 //! 				pulumi.String("5RE8543EGG"),
 //! 				pulumi.String("1YE2880LNP"),
 //! 			},
-//! 			Name: pulumi.String("Corporate devices"),
-//! 			Type: pulumi.String("SERIAL"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -114,15 +114,15 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new TeamsList("example", TeamsListArgs.builder()        
+//!         var example = new TeamsList("example", TeamsListArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
+//!             .name("Corporate devices")
+//!             .type("SERIAL")
 //!             .description("Serial numbers for all corporate devices.")
 //!             .items(            
 //!                 "8GE8721REF",
 //!                 "5RE8543EGG",
 //!                 "1YE2880LNP")
-//!             .name("Corporate devices")
-//!             .type("SERIAL")
 //!             .build());
 //! 
 //!     }
@@ -135,13 +135,13 @@
 //!     type: cloudflare:TeamsList
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
+//!       name: Corporate devices
+//!       type: SERIAL
 //!       description: Serial numbers for all corporate devices.
 //!       items:
 //!         - 8GE8721REF
 //!         - 5RE8543EGG
 //!         - 1YE2880LNP
-//!       name: Corporate devices
-//!       type: SERIAL
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 
@@ -164,6 +164,9 @@ pub struct TeamsListArgs {
     /// The items of the teams list.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub items: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+    /// The items of the teams list that has explicit description.
+    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    pub items_with_descriptions: pulumi_wasm_rust::Output<Option<Vec<crate::types::TeamsListItemsWithDescription>>>,
     /// Name of the teams list.
     #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
@@ -179,6 +182,8 @@ pub struct TeamsListResult {
     pub description: pulumi_wasm_rust::Output<Option<String>>,
     /// The items of the teams list.
     pub items: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+    /// The items of the teams list that has explicit description.
+    pub items_with_descriptions: pulumi_wasm_rust::Output<Option<Vec<crate::types::TeamsListItemsWithDescription>>>,
     /// Name of the teams list.
     pub name: pulumi_wasm_rust::Output<String>,
     /// The teams list type. Available values: `IP`, `SERIAL`, `URL`, `DOMAIN`, `EMAIL`.
@@ -194,6 +199,7 @@ pub fn create(name: &str, args: TeamsListArgs) -> TeamsListResult {
         account_id: &args.account_id.get_inner(),
         description: &args.description.get_inner(),
         items: &args.items.get_inner(),
+        items_with_descriptions: &args.items_with_descriptions.get_inner(),
         name: &args.name.get_inner(),
         type_: &args.type_.get_inner(),
     });
@@ -202,6 +208,7 @@ pub fn create(name: &str, args: TeamsListArgs) -> TeamsListResult {
         account_id: crate::into_domain(result.account_id),
         description: crate::into_domain(result.description),
         items: crate::into_domain(result.items),
+        items_with_descriptions: crate::into_domain(result.items_with_descriptions),
         name: crate::into_domain(result.name),
         type_: crate::into_domain(result.type_),
     }

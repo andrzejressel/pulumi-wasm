@@ -12,20 +12,20 @@
 //! 
 //! const example = new cloudflare.MagicFirewallRuleset("example", {
 //!     accountId: "d41d8cd98f00b204e9800998ecf8427e",
-//!     description: "Global mitigations",
 //!     name: "Magic Transit Ruleset",
+//!     description: "Global mitigations",
 //!     rules: [
 //!         {
 //!             action: "allow",
+//!             expression: "tcp.dstport in { 32768..65535 }",
 //!             description: "Allow TCP Ephemeral Ports",
 //!             enabled: "true",
-//!             expression: "tcp.dstport in { 32768..65535 }",
 //!         },
 //!         {
 //!             action: "block",
+//!             expression: "ip.len >= 0",
 //!             description: "Block all",
 //!             enabled: "true",
-//!             expression: "ip.len >= 0",
 //!         },
 //!     ],
 //! });
@@ -37,20 +37,20 @@
 //! 
 //! example = cloudflare.MagicFirewallRuleset("example",
 //!     account_id="d41d8cd98f00b204e9800998ecf8427e",
-//!     description="Global mitigations",
 //!     name="Magic Transit Ruleset",
+//!     description="Global mitigations",
 //!     rules=[
 //!         {
 //!             "action": "allow",
+//!             "expression": "tcp.dstport in { 32768..65535 }",
 //!             "description": "Allow TCP Ephemeral Ports",
 //!             "enabled": "true",
-//!             "expression": "tcp.dstport in { 32768..65535 }",
 //!         },
 //!         {
 //!             "action": "block",
+//!             "expression": "ip.len >= 0",
 //!             "description": "Block all",
 //!             "enabled": "true",
-//!             "expression": "ip.len >= 0",
 //!         },
 //!     ])
 //! ```
@@ -66,23 +66,23 @@
 //!     var example = new Cloudflare.MagicFirewallRuleset("example", new()
 //!     {
 //!         AccountId = "d41d8cd98f00b204e9800998ecf8427e",
-//!         Description = "Global mitigations",
 //!         Name = "Magic Transit Ruleset",
+//!         Description = "Global mitigations",
 //!         Rules = new[]
 //!         {
 //!             
 //!             {
 //!                 { "action", "allow" },
+//!                 { "expression", "tcp.dstport in { 32768..65535 }" },
 //!                 { "description", "Allow TCP Ephemeral Ports" },
 //!                 { "enabled", "true" },
-//!                 { "expression", "tcp.dstport in { 32768..65535 }" },
 //!             },
 //!             
 //!             {
 //!                 { "action", "block" },
+//!                 { "expression", "ip.len >= 0" },
 //!                 { "description", "Block all" },
 //!                 { "enabled", "true" },
-//!                 { "expression", "ip.len >= 0" },
 //!             },
 //!         },
 //!     });
@@ -102,20 +102,20 @@
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewMagicFirewallRuleset(ctx, "example", &cloudflare.MagicFirewallRulesetArgs{
 //! 			AccountId:   pulumi.String("d41d8cd98f00b204e9800998ecf8427e"),
-//! 			Description: pulumi.String("Global mitigations"),
 //! 			Name:        pulumi.String("Magic Transit Ruleset"),
+//! 			Description: pulumi.String("Global mitigations"),
 //! 			Rules: pulumi.StringMapArray{
 //! 				pulumi.StringMap{
 //! 					"action":      pulumi.String("allow"),
+//! 					"expression":  pulumi.String("tcp.dstport in { 32768..65535 }"),
 //! 					"description": pulumi.String("Allow TCP Ephemeral Ports"),
 //! 					"enabled":     pulumi.String("true"),
-//! 					"expression":  pulumi.String("tcp.dstport in { 32768..65535 }"),
 //! 				},
 //! 				pulumi.StringMap{
 //! 					"action":      pulumi.String("block"),
+//! 					"expression":  pulumi.String("ip.len >= 0"),
 //! 					"description": pulumi.String("Block all"),
 //! 					"enabled":     pulumi.String("true"),
-//! 					"expression":  pulumi.String("ip.len >= 0"),
 //! 				},
 //! 			},
 //! 		})
@@ -148,22 +148,22 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new MagicFirewallRuleset("example", MagicFirewallRulesetArgs.builder()        
+//!         var example = new MagicFirewallRuleset("example", MagicFirewallRulesetArgs.builder()
 //!             .accountId("d41d8cd98f00b204e9800998ecf8427e")
-//!             .description("Global mitigations")
 //!             .name("Magic Transit Ruleset")
+//!             .description("Global mitigations")
 //!             .rules(            
 //!                 Map.ofEntries(
 //!                     Map.entry("action", "allow"),
+//!                     Map.entry("expression", "tcp.dstport in { 32768..65535 }"),
 //!                     Map.entry("description", "Allow TCP Ephemeral Ports"),
-//!                     Map.entry("enabled", "true"),
-//!                     Map.entry("expression", "tcp.dstport in { 32768..65535 }")
+//!                     Map.entry("enabled", "true")
 //!                 ),
 //!                 Map.ofEntries(
 //!                     Map.entry("action", "block"),
+//!                     Map.entry("expression", "ip.len >= 0"),
 //!                     Map.entry("description", "Block all"),
-//!                     Map.entry("enabled", "true"),
-//!                     Map.entry("expression", "ip.len >= 0")
+//!                     Map.entry("enabled", "true")
 //!                 ))
 //!             .build());
 //! 
@@ -177,17 +177,17 @@
 //!     type: cloudflare:MagicFirewallRuleset
 //!     properties:
 //!       accountId: d41d8cd98f00b204e9800998ecf8427e
-//!       description: Global mitigations
 //!       name: Magic Transit Ruleset
+//!       description: Global mitigations
 //!       rules:
 //!         - action: allow
+//!           expression: tcp.dstport in { 32768..65535 }
 //!           description: Allow TCP Ephemeral Ports
 //!           enabled: 'true'
-//!           expression: tcp.dstport in { 32768..65535 }
 //!         - action: block
+//!           expression: ip.len >= 0
 //!           description: Block all
 //!           enabled: 'true'
-//!           expression: ip.len >= 0
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

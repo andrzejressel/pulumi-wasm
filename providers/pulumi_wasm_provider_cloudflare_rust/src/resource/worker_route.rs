@@ -8,10 +8,9 @@
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
-//! const myScript = new cloudflare.WorkerScript("myScript", {});
-//! // see "cloudflare_worker_script" documentation ...
+//! const myScript = new cloudflare.WorkersScript("my_script", {});
 //! // Runs the specified worker script for all URLs that match `example.com/*`
-//! const myRoute = new cloudflare.WorkerRoute("myRoute", {
+//! const myRoute = new cloudflare.WorkerRoute("my_route", {
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //!     pattern: "example.com/*",
 //!     scriptName: myScript.name,
@@ -22,10 +21,9 @@
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
 //! 
-//! my_script = cloudflare.WorkerScript("myScript")
-//! # see "cloudflare_worker_script" documentation ...
+//! my_script = cloudflare.WorkersScript("my_script")
 //! # Runs the specified worker script for all URLs that match `example.com/*`
-//! my_route = cloudflare.WorkerRoute("myRoute",
+//! my_route = cloudflare.WorkerRoute("my_route",
 //!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     pattern="example.com/*",
 //!     script_name=my_script.name)
@@ -39,11 +37,10 @@
 //! 
 //! return await Deployment.RunAsync(() => 
 //! {
-//!     var myScript = new Cloudflare.WorkerScript("myScript");
+//!     var myScript = new Cloudflare.WorkersScript("my_script");
 //! 
-//!     // see "cloudflare_worker_script" documentation ...
 //!     // Runs the specified worker script for all URLs that match `example.com/*`
-//!     var myRoute = new Cloudflare.WorkerRoute("myRoute", new()
+//!     var myRoute = new Cloudflare.WorkerRoute("my_route", new()
 //!     {
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!         Pattern = "example.com/*",
@@ -63,12 +60,12 @@
 //! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		myScript, err := cloudflare.NewWorkerScript(ctx, "myScript", nil)
+//! 		myScript, err := cloudflare.NewWorkersScript(ctx, "my_script", nil)
 //! 		if err != nil {
 //! 			return err
 //! 		}
 //! 		// Runs the specified worker script for all URLs that match `example.com/*`
-//! 		_, err = cloudflare.NewWorkerRoute(ctx, "myRoute", &cloudflare.WorkerRouteArgs{
+//! 		_, err = cloudflare.NewWorkerRoute(ctx, "my_route", &cloudflare.WorkerRouteArgs{
 //! 			ZoneId:     pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 			Pattern:    pulumi.String("example.com/*"),
 //! 			ScriptName: myScript.Name,
@@ -87,7 +84,7 @@
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.WorkerScript;
+//! import com.pulumi.cloudflare.WorkersScript;
 //! import com.pulumi.cloudflare.WorkerRoute;
 //! import com.pulumi.cloudflare.WorkerRouteArgs;
 //! import java.util.List;
@@ -103,11 +100,10 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var myScript = new WorkerScript("myScript");
+//!         var myScript = new WorkersScript("myScript");
 //! 
-//!         // see "cloudflare_worker_script" documentation ...
 //!         // Runs the specified worker script for all URLs that match `example.com/*`
-//!         var myRoute = new WorkerRoute("myRoute", WorkerRouteArgs.builder()        
+//!         var myRoute = new WorkerRoute("myRoute", WorkerRouteArgs.builder()
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .pattern("example.com/*")
 //!             .scriptName(myScript.name())
@@ -122,12 +118,14 @@
 //!   # Runs the specified worker script for all URLs that match `example.com/*`
 //!   myRoute:
 //!     type: cloudflare:WorkerRoute
+//!     name: my_route
 //!     properties:
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //!       pattern: example.com/*
 //!       scriptName: ${myScript.name}
 //!   myScript:
-//!     type: cloudflare:WorkerScript
+//!     type: cloudflare:WorkersScript
+//!     name: my_script
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

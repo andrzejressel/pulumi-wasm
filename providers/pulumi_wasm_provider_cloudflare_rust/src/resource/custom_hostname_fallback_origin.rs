@@ -9,8 +9,8 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! const example = new cloudflare.CustomHostnameFallbackOrigin("example", {
-//!     origin: "fallback.example.com",
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     origin: "fallback.example.com",
 //! });
 //! ```
 //! ### Python
@@ -19,8 +19,8 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! example = cloudflare.CustomHostnameFallbackOrigin("example",
-//!     origin="fallback.example.com",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
+//!     origin="fallback.example.com")
 //! ```
 //! ### C#
 //! ```csharp
@@ -33,8 +33,8 @@
 //! {
 //!     var example = new Cloudflare.CustomHostnameFallbackOrigin("example", new()
 //!     {
-//!         Origin = "fallback.example.com",
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         Origin = "fallback.example.com",
 //!     });
 //! 
 //! });
@@ -51,8 +51,8 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewCustomHostnameFallbackOrigin(ctx, "example", &cloudflare.CustomHostnameFallbackOriginArgs{
-//! 			Origin: pulumi.String("fallback.example.com"),
 //! 			ZoneId: pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			Origin: pulumi.String("fallback.example.com"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -83,9 +83,9 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new CustomHostnameFallbackOrigin("example", CustomHostnameFallbackOriginArgs.builder()        
-//!             .origin("fallback.example.com")
+//!         var example = new CustomHostnameFallbackOrigin("example", CustomHostnameFallbackOriginArgs.builder()
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .origin("fallback.example.com")
 //!             .build());
 //! 
 //!     }
@@ -97,8 +97,8 @@
 //!   example:
 //!     type: cloudflare:CustomHostnameFallbackOrigin
 //!     properties:
-//!       origin: fallback.example.com
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       origin: fallback.example.com
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

@@ -26,6 +26,7 @@ impl ipsec_tunnel::Guest for Component {
                 ObjectField { name: "name".into(), value: args.name },
                 ObjectField { name: "psk".into(), value: args.psk },
                 ObjectField { name: "remoteId".into(), value: args.remote_id },
+                ObjectField { name: "replayProtection".into(), value: args.replay_protection },
                 ObjectField { name: "userId".into(), value: args.user_id },
             ],
             results: vec![
@@ -45,6 +46,7 @@ impl ipsec_tunnel::Guest for Component {
                 ResultField { name: "name".into() },
                 ResultField { name: "psk".into() },
                 ResultField { name: "remoteId".into() },
+                ResultField { name: "replayProtection".into() },
                 ResultField { name: "userId".into() },
             ],
         };
@@ -70,6 +72,7 @@ impl ipsec_tunnel::Guest for Component {
             name: hashmap.remove("name").unwrap(),
             psk: hashmap.remove("psk").unwrap(),
             remote_id: hashmap.remove("remoteId").unwrap(),
+            replay_protection: hashmap.remove("replayProtection").unwrap(),
             user_id: hashmap.remove("userId").unwrap(),
         }
 

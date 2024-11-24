@@ -8,14 +8,14 @@
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
-//! const managedNetworks = new cloudflare.DeviceManagedNetworks("managedNetworks", {
+//! const managedNetworks = new cloudflare.DeviceManagedNetworks("managed_networks", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     config: {
-//!         sha256: "b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b878ae4944c",
-//!         tlsSockaddr: "foobar:1234",
-//!     },
 //!     name: "managed-network-1",
 //!     type: "tls",
+//!     config: {
+//!         tlsSockaddr: "foobar:1234",
+//!         sha256: "b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b878ae4944c",
+//!     },
 //! });
 //! ```
 //! ### Python
@@ -23,14 +23,14 @@
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
 //! 
-//! managed_networks = cloudflare.DeviceManagedNetworks("managedNetworks",
+//! managed_networks = cloudflare.DeviceManagedNetworks("managed_networks",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     config=cloudflare.DeviceManagedNetworksConfigArgs(
-//!         sha256="b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b878ae4944c",
-//!         tls_sockaddr="foobar:1234",
-//!     ),
 //!     name="managed-network-1",
-//!     type="tls")
+//!     type="tls",
+//!     config={
+//!         "tls_sockaddr": "foobar:1234",
+//!         "sha256": "b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b878ae4944c",
+//!     })
 //! ```
 //! ### C#
 //! ```csharp
@@ -41,16 +41,16 @@
 //! 
 //! return await Deployment.RunAsync(() => 
 //! {
-//!     var managedNetworks = new Cloudflare.DeviceManagedNetworks("managedNetworks", new()
+//!     var managedNetworks = new Cloudflare.DeviceManagedNetworks("managed_networks", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         Config = new Cloudflare.Inputs.DeviceManagedNetworksConfigArgs
-//!         {
-//!             Sha256 = "b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b878ae4944c",
-//!             TlsSockaddr = "foobar:1234",
-//!         },
 //!         Name = "managed-network-1",
 //!         Type = "tls",
+//!         Config = new Cloudflare.Inputs.DeviceManagedNetworksConfigArgs
+//!         {
+//!             TlsSockaddr = "foobar:1234",
+//!             Sha256 = "b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b878ae4944c",
+//!         },
 //!     });
 //! 
 //! });
@@ -66,14 +66,14 @@
 //! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewDeviceManagedNetworks(ctx, "managedNetworks", &cloudflare.DeviceManagedNetworksArgs{
+//! 		_, err := cloudflare.NewDeviceManagedNetworks(ctx, "managed_networks", &cloudflare.DeviceManagedNetworksArgs{
 //! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
+//! 			Name:      pulumi.String("managed-network-1"),
+//! 			Type:      pulumi.String("tls"),
 //! 			Config: &cloudflare.DeviceManagedNetworksConfigArgs{
-//! 				Sha256:      pulumi.String("b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b878ae4944c"),
 //! 				TlsSockaddr: pulumi.String("foobar:1234"),
+//! 				Sha256:      pulumi.String("b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b878ae4944c"),
 //! 			},
-//! 			Name: pulumi.String("managed-network-1"),
-//! 			Type: pulumi.String("tls"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -105,14 +105,14 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var managedNetworks = new DeviceManagedNetworks("managedNetworks", DeviceManagedNetworksArgs.builder()        
+//!         var managedNetworks = new DeviceManagedNetworks("managedNetworks", DeviceManagedNetworksArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .config(DeviceManagedNetworksConfigArgs.builder()
-//!                 .sha256("b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b878ae4944c")
-//!                 .tlsSockaddr("foobar:1234")
-//!                 .build())
 //!             .name("managed-network-1")
 //!             .type("tls")
+//!             .config(DeviceManagedNetworksConfigArgs.builder()
+//!                 .tlsSockaddr("foobar:1234")
+//!                 .sha256("b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b878ae4944c")
+//!                 .build())
 //!             .build());
 //! 
 //!     }
@@ -123,13 +123,14 @@
 //! resources:
 //!   managedNetworks:
 //!     type: cloudflare:DeviceManagedNetworks
+//!     name: managed_networks
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
-//!       config:
-//!         sha256: b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b878ae4944c
-//!         tlsSockaddr: foobar:1234
 //!       name: managed-network-1
 //!       type: tls
+//!       config:
+//!         tlsSockaddr: foobar:1234
+//!         sha256: b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b878ae4944c
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

@@ -1,5 +1,64 @@
 //! Use this data source to lookup [Account Roles](https://api.cloudflare.com/#account-roles-properties).
 //! 
+//! ## Example Usage
+//! 
+//! <!--Start PulumiCodeChooser -->
+//! ### Typescript
+//! ```typescript
+//! import * as pulumi from "@pulumi/pulumi";
+//! import * as cloudflare from "@pulumi/cloudflare";
+//! 
+//! const accountRoles = cloudflare.getAccountRoles({
+//!     accountId: "f037e56e89293a057740de681ac9abbe",
+//! });
+//! const rolesByName = accountRoles.then(accountRoles => .reduce((__obj, role) => ({ ...__obj, [role.name]: role })));
+//! const member = new cloudflare.AccountMember("member", {
+//!     accountId: "f037e56e89293a057740de681ac9abbe",
+//!     emailAddress: "user@example.com",
+//!     roleIds: [rolesByName.Administrator?.id],
+//! });
+//! ```
+//! ### Python
+//! ```python
+//! import pulumi
+//! import pulumi_cloudflare as cloudflare
+//! 
+//! account_roles = cloudflare.get_account_roles(account_id="f037e56e89293a057740de681ac9abbe")
+//! roles_by_name = {role.name: role for role in account_roles.roles}
+//! member = cloudflare.AccountMember("member",
+//!     account_id="f037e56e89293a057740de681ac9abbe",
+//!     email_address="user@example.com",
+//!     role_ids=[roles_by_name["Administrator"]])
+//! ```
+//! ### C#
+//! ```csharp
+//! using System.Collections.Generic;
+//! using System.Linq;
+//! using Pulumi;
+//! using Cloudflare = Pulumi.Cloudflare;
+//! 
+//! return await Deployment.RunAsync(() => 
+//! {
+//!     var accountRoles = Cloudflare.GetAccountRoles.Invoke(new()
+//!     {
+//!         AccountId = "f037e56e89293a057740de681ac9abbe",
+//!     });
+//! 
+//!     var rolesByName = ;
+//! 
+//!     var member = new Cloudflare.AccountMember("member", new()
+//!     {
+//!         AccountId = "f037e56e89293a057740de681ac9abbe",
+//!         EmailAddress = "user@example.com",
+//!         RoleIds = new[]
+//!         {
+//!             rolesByName.Apply(rolesByName => rolesByName.Administrator.Id),
+//!         },
+//!     });
+//! 
+//! });
+//! ```
+//! <!--End PulumiCodeChooser -->
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]

@@ -8,7 +8,7 @@
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
-//! const mySecret = new cloudflare.WorkerSecret("mySecret", {
+//! const mySecret = new cloudflare.WorkerSecret("my_secret", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
 //!     name: "MY_EXAMPLE_SECRET_TEXT",
 //!     scriptName: "script_1",
@@ -20,7 +20,7 @@
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
 //! 
-//! my_secret = cloudflare.WorkerSecret("mySecret",
+//! my_secret = cloudflare.WorkerSecret("my_secret",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
 //!     name="MY_EXAMPLE_SECRET_TEXT",
 //!     script_name="script_1",
@@ -35,7 +35,7 @@
 //! 
 //! return await Deployment.RunAsync(() => 
 //! {
-//!     var mySecret = new Cloudflare.WorkerSecret("mySecret", new()
+//!     var mySecret = new Cloudflare.WorkerSecret("my_secret", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
 //!         Name = "MY_EXAMPLE_SECRET_TEXT",
@@ -56,7 +56,7 @@
 //! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewWorkerSecret(ctx, "mySecret", &cloudflare.WorkerSecretArgs{
+//! 		_, err := cloudflare.NewWorkerSecret(ctx, "my_secret", &cloudflare.WorkerSecretArgs{
 //! 			AccountId:  pulumi.String("f037e56e89293a057740de681ac9abbe"),
 //! 			Name:       pulumi.String("MY_EXAMPLE_SECRET_TEXT"),
 //! 			ScriptName: pulumi.String("script_1"),
@@ -91,7 +91,7 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var mySecret = new WorkerSecret("mySecret", WorkerSecretArgs.builder()        
+//!         var mySecret = new WorkerSecret("mySecret", WorkerSecretArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
 //!             .name("MY_EXAMPLE_SECRET_TEXT")
 //!             .scriptName("script_1")
@@ -106,6 +106,7 @@
 //! resources:
 //!   mySecret:
 //!     type: cloudflare:WorkerSecret
+//!     name: my_secret
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
 //!       name: MY_EXAMPLE_SECRET_TEXT

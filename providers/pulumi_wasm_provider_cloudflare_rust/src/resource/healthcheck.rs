@@ -10,8 +10,8 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! // HTTPS Healthcheck
-//! const httpHealthCheck = new cloudflare.Healthcheck("httpHealthCheck", {
-//!     zoneId: _var.cloudflare_zone_id,
+//! const httpHealthCheck = new cloudflare.Healthcheck("http_health_check", {
+//!     zoneId: cloudflareZoneId,
 //!     name: "http-health-check",
 //!     description: "example http health check",
 //!     address: "example.com",
@@ -42,8 +42,8 @@
 //!     consecutiveSuccesses: 2,
 //! });
 //! // TCP Healthcheck
-//! const tcpHealthCheck = new cloudflare.Healthcheck("tcpHealthCheck", {
-//!     zoneId: _var.cloudflare_zone_id,
+//! const tcpHealthCheck = new cloudflare.Healthcheck("tcp_health_check", {
+//!     zoneId: cloudflareZoneId,
 //!     name: "tcp-health-check",
 //!     description: "example tcp health check",
 //!     address: "example.com",
@@ -68,8 +68,8 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! # HTTPS Healthcheck
-//! http_health_check = cloudflare.Healthcheck("httpHealthCheck",
-//!     zone_id=var["cloudflare_zone_id"],
+//! http_health_check = cloudflare.Healthcheck("http_health_check",
+//!     zone_id=cloudflare_zone_id,
 //!     name="http-health-check",
 //!     description="example http health check",
 //!     address="example.com",
@@ -89,18 +89,18 @@
 //!     ],
 //!     follow_redirects=True,
 //!     allow_insecure=False,
-//!     headers=[cloudflare.HealthcheckHeaderArgs(
-//!         header="Host",
-//!         values=["example.com"],
-//!     )],
+//!     headers=[{
+//!         "header": "Host",
+//!         "values": ["example.com"],
+//!     }],
 //!     timeout=10,
 //!     retries=2,
 //!     interval=60,
 //!     consecutive_fails=3,
 //!     consecutive_successes=2)
 //! # TCP Healthcheck
-//! tcp_health_check = cloudflare.Healthcheck("tcpHealthCheck",
-//!     zone_id=var["cloudflare_zone_id"],
+//! tcp_health_check = cloudflare.Healthcheck("tcp_health_check",
+//!     zone_id=cloudflare_zone_id,
 //!     name="tcp-health-check",
 //!     description="example tcp health check",
 //!     address="example.com",
@@ -128,9 +128,9 @@
 //! return await Deployment.RunAsync(() => 
 //! {
 //!     // HTTPS Healthcheck
-//!     var httpHealthCheck = new Cloudflare.Healthcheck("httpHealthCheck", new()
+//!     var httpHealthCheck = new Cloudflare.Healthcheck("http_health_check", new()
 //!     {
-//!         ZoneId = @var.Cloudflare_zone_id,
+//!         ZoneId = cloudflareZoneId,
 //!         Name = "http-health-check",
 //!         Description = "example http health check",
 //!         Address = "example.com",
@@ -171,9 +171,9 @@
 //!     });
 //! 
 //!     // TCP Healthcheck
-//!     var tcpHealthCheck = new Cloudflare.Healthcheck("tcpHealthCheck", new()
+//!     var tcpHealthCheck = new Cloudflare.Healthcheck("tcp_health_check", new()
 //!     {
-//!         ZoneId = @var.Cloudflare_zone_id,
+//!         ZoneId = cloudflareZoneId,
 //!         Name = "tcp-health-check",
 //!         Description = "example tcp health check",
 //!         Address = "example.com",
@@ -207,8 +207,8 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		// HTTPS Healthcheck
-//! 		_, err := cloudflare.NewHealthcheck(ctx, "httpHealthCheck", &cloudflare.HealthcheckArgs{
-//! 			ZoneId:      pulumi.Any(_var.Cloudflare_zone_id),
+//! 		_, err := cloudflare.NewHealthcheck(ctx, "http_health_check", &cloudflare.HealthcheckArgs{
+//! 			ZoneId:      pulumi.Any(cloudflareZoneId),
 //! 			Name:        pulumi.String("http-health-check"),
 //! 			Description: pulumi.String("example http health check"),
 //! 			Address:     pulumi.String("example.com"),
@@ -246,8 +246,8 @@
 //! 			return err
 //! 		}
 //! 		// TCP Healthcheck
-//! 		_, err = cloudflare.NewHealthcheck(ctx, "tcpHealthCheck", &cloudflare.HealthcheckArgs{
-//! 			ZoneId:      pulumi.Any(_var.Cloudflare_zone_id),
+//! 		_, err = cloudflare.NewHealthcheck(ctx, "tcp_health_check", &cloudflare.HealthcheckArgs{
+//! 			ZoneId:      pulumi.Any(cloudflareZoneId),
 //! 			Name:        pulumi.String("tcp-health-check"),
 //! 			Description: pulumi.String("example tcp health check"),
 //! 			Address:     pulumi.String("example.com"),
@@ -296,8 +296,8 @@
 //! 
 //!     public static void stack(Context ctx) {
 //!         // HTTPS Healthcheck
-//!         var httpHealthCheck = new Healthcheck("httpHealthCheck", HealthcheckArgs.builder()        
-//!             .zoneId(var_.cloudflare_zone_id())
+//!         var httpHealthCheck = new Healthcheck("httpHealthCheck", HealthcheckArgs.builder()
+//!             .zoneId(cloudflareZoneId)
 //!             .name("http-health-check")
 //!             .description("example http health check")
 //!             .address("example.com")
@@ -327,8 +327,8 @@
 //!             .build());
 //! 
 //!         // TCP Healthcheck
-//!         var tcpHealthCheck = new Healthcheck("tcpHealthCheck", HealthcheckArgs.builder()        
-//!             .zoneId(var_.cloudflare_zone_id())
+//!         var tcpHealthCheck = new Healthcheck("tcpHealthCheck", HealthcheckArgs.builder()
+//!             .zoneId(cloudflareZoneId)
 //!             .name("tcp-health-check")
 //!             .description("example tcp health check")
 //!             .address("example.com")
@@ -355,8 +355,9 @@
 //!   # HTTPS Healthcheck
 //!   httpHealthCheck:
 //!     type: cloudflare:Healthcheck
+//!     name: http_health_check
 //!     properties:
-//!       zoneId: ${var.cloudflare_zone_id}
+//!       zoneId: ${cloudflareZoneId}
 //!       name: http-health-check
 //!       description: example http health check
 //!       address: example.com
@@ -386,8 +387,9 @@
 //!   # TCP Healthcheck
 //!   tcpHealthCheck:
 //!     type: cloudflare:Healthcheck
+//!     name: tcp_health_check
 //!     properties:
-//!       zoneId: ${var.cloudflare_zone_id}
+//!       zoneId: ${cloudflareZoneId}
 //!       name: tcp-health-check
 //!       description: example tcp health check
 //!       address: example.com
@@ -445,7 +447,7 @@ pub struct HealthcheckArgs {
     /// Follow redirects if the origin returns a 3xx status code. Defaults to `false`.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub follow_redirects: pulumi_wasm_rust::Output<Option<bool>>,
-    /// The header name.
+    /// The HTTP request headers to send in the health check. It is recommended you set a Host header by default. The User-Agent header cannot be overridden.
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub headers: pulumi_wasm_rust::Output<Option<Vec<crate::types::HealthcheckHeader>>>,
     /// The interval between each health check. Shorter intervals may give quicker notifications if the origin status changes, but will increase the load on the origin as we check from multiple locations. Defaults to `60`.
@@ -501,7 +503,7 @@ pub struct HealthcheckResult {
     pub expected_codes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// Follow redirects if the origin returns a 3xx status code. Defaults to `false`.
     pub follow_redirects: pulumi_wasm_rust::Output<Option<bool>>,
-    /// The header name.
+    /// The HTTP request headers to send in the health check. It is recommended you set a Host header by default. The User-Agent header cannot be overridden.
     pub headers: pulumi_wasm_rust::Output<Option<Vec<crate::types::HealthcheckHeader>>>,
     /// The interval between each health check. Shorter intervals may give quicker notifications if the origin status changes, but will increase the load on the origin as we check from multiple locations. Defaults to `60`.
     pub interval: pulumi_wasm_rust::Output<Option<i32>>,

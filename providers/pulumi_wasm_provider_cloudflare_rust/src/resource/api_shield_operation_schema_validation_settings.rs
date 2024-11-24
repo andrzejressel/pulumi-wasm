@@ -8,15 +8,15 @@
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
-//! const exampleApiShieldOperation = new cloudflare.ApiShieldOperation("exampleApiShieldOperation", {
+//! const example = new cloudflare.ApiShieldOperation("example", {
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //!     method: "GET",
 //!     host: "api.example.com",
 //!     endpoint: "/path",
 //! });
-//! const exampleApiShieldOperationSchemaValidationSettings = new cloudflare.ApiShieldOperationSchemaValidationSettings("exampleApiShieldOperationSchemaValidationSettings", {
+//! const exampleApiShieldOperationSchemaValidationSettings = new cloudflare.ApiShieldOperationSchemaValidationSettings("example", {
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
-//!     operationId: exampleApiShieldOperation.id,
+//!     operationId: example.id,
 //!     mitigationAction: "block",
 //! });
 //! ```
@@ -25,14 +25,14 @@
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
 //! 
-//! example_api_shield_operation = cloudflare.ApiShieldOperation("exampleApiShieldOperation",
+//! example = cloudflare.ApiShieldOperation("example",
 //!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     method="GET",
 //!     host="api.example.com",
 //!     endpoint="/path")
-//! example_api_shield_operation_schema_validation_settings = cloudflare.ApiShieldOperationSchemaValidationSettings("exampleApiShieldOperationSchemaValidationSettings",
+//! example_api_shield_operation_schema_validation_settings = cloudflare.ApiShieldOperationSchemaValidationSettings("example",
 //!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
-//!     operation_id=example_api_shield_operation.id,
+//!     operation_id=example.id,
 //!     mitigation_action="block")
 //! ```
 //! ### C#
@@ -44,7 +44,7 @@
 //! 
 //! return await Deployment.RunAsync(() => 
 //! {
-//!     var exampleApiShieldOperation = new Cloudflare.ApiShieldOperation("exampleApiShieldOperation", new()
+//!     var example = new Cloudflare.ApiShieldOperation("example", new()
 //!     {
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!         Method = "GET",
@@ -52,10 +52,10 @@
 //!         Endpoint = "/path",
 //!     });
 //! 
-//!     var exampleApiShieldOperationSchemaValidationSettings = new Cloudflare.ApiShieldOperationSchemaValidationSettings("exampleApiShieldOperationSchemaValidationSettings", new()
+//!     var exampleApiShieldOperationSchemaValidationSettings = new Cloudflare.ApiShieldOperationSchemaValidationSettings("example", new()
 //!     {
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
-//!         OperationId = exampleApiShieldOperation.Id,
+//!         OperationId = example.Id,
 //!         MitigationAction = "block",
 //!     });
 //! 
@@ -72,7 +72,7 @@
 //! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		exampleApiShieldOperation, err := cloudflare.NewApiShieldOperation(ctx, "exampleApiShieldOperation", &cloudflare.ApiShieldOperationArgs{
+//! 		example, err := cloudflare.NewApiShieldOperation(ctx, "example", &cloudflare.ApiShieldOperationArgs{
 //! 			ZoneId:   pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 			Method:   pulumi.String("GET"),
 //! 			Host:     pulumi.String("api.example.com"),
@@ -81,9 +81,9 @@
 //! 		if err != nil {
 //! 			return err
 //! 		}
-//! 		_, err = cloudflare.NewApiShieldOperationSchemaValidationSettings(ctx, "exampleApiShieldOperationSchemaValidationSettings", &cloudflare.ApiShieldOperationSchemaValidationSettingsArgs{
+//! 		_, err = cloudflare.NewApiShieldOperationSchemaValidationSettings(ctx, "example", &cloudflare.ApiShieldOperationSchemaValidationSettingsArgs{
 //! 			ZoneId:           pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
-//! 			OperationId:      exampleApiShieldOperation.ID(),
+//! 			OperationId:      example.ID(),
 //! 			MitigationAction: pulumi.String("block"),
 //! 		})
 //! 		if err != nil {
@@ -117,16 +117,16 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var exampleApiShieldOperation = new ApiShieldOperation("exampleApiShieldOperation", ApiShieldOperationArgs.builder()        
+//!         var example = new ApiShieldOperation("example", ApiShieldOperationArgs.builder()
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .method("GET")
 //!             .host("api.example.com")
 //!             .endpoint("/path")
 //!             .build());
 //! 
-//!         var exampleApiShieldOperationSchemaValidationSettings = new ApiShieldOperationSchemaValidationSettings("exampleApiShieldOperationSchemaValidationSettings", ApiShieldOperationSchemaValidationSettingsArgs.builder()        
+//!         var exampleApiShieldOperationSchemaValidationSettings = new ApiShieldOperationSchemaValidationSettings("exampleApiShieldOperationSchemaValidationSettings", ApiShieldOperationSchemaValidationSettingsArgs.builder()
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
-//!             .operationId(exampleApiShieldOperation.id())
+//!             .operationId(example.id())
 //!             .mitigationAction("block")
 //!             .build());
 //! 
@@ -136,7 +136,7 @@
 //! ### YAML
 //! ```yaml
 //! resources:
-//!   exampleApiShieldOperation:
+//!   example:
 //!     type: cloudflare:ApiShieldOperation
 //!     properties:
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
@@ -145,9 +145,10 @@
 //!       endpoint: /path
 //!   exampleApiShieldOperationSchemaValidationSettings:
 //!     type: cloudflare:ApiShieldOperationSchemaValidationSettings
+//!     name: example
 //!     properties:
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       operationId: ${exampleApiShieldOperation.id}
+//!       operationId: ${example.id}
 //!       mitigationAction: block
 //! ```
 //! <!--End PulumiCodeChooser -->

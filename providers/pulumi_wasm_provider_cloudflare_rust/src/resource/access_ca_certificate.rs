@@ -22,9 +22,9 @@
 //!     applicationId: "6cd6cea3-3ef2-4542-9aea-85a0bbcd5414",
 //! });
 //! // zone level
-//! const anotherExample = new cloudflare.AccessCaCertificate("anotherExample", {
-//!     applicationId: "fe2be0ff-7f13-4350-8c8e-a9b9795fe3c2",
+//! const anotherExample = new cloudflare.AccessCaCertificate("another_example", {
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     applicationId: "fe2be0ff-7f13-4350-8c8e-a9b9795fe3c2",
 //! });
 //! ```
 //! ### Python
@@ -37,9 +37,9 @@
 //!     account_id="f037e56e89293a057740de681ac9abbe",
 //!     application_id="6cd6cea3-3ef2-4542-9aea-85a0bbcd5414")
 //! # zone level
-//! another_example = cloudflare.AccessCaCertificate("anotherExample",
-//!     application_id="fe2be0ff-7f13-4350-8c8e-a9b9795fe3c2",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//! another_example = cloudflare.AccessCaCertificate("another_example",
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
+//!     application_id="fe2be0ff-7f13-4350-8c8e-a9b9795fe3c2")
 //! ```
 //! ### C#
 //! ```csharp
@@ -58,10 +58,10 @@
 //!     });
 //! 
 //!     // zone level
-//!     var anotherExample = new Cloudflare.AccessCaCertificate("anotherExample", new()
+//!     var anotherExample = new Cloudflare.AccessCaCertificate("another_example", new()
 //!     {
-//!         ApplicationId = "fe2be0ff-7f13-4350-8c8e-a9b9795fe3c2",
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         ApplicationId = "fe2be0ff-7f13-4350-8c8e-a9b9795fe3c2",
 //!     });
 //! 
 //! });
@@ -86,9 +86,9 @@
 //! 			return err
 //! 		}
 //! 		// zone level
-//! 		_, err = cloudflare.NewAccessCaCertificate(ctx, "anotherExample", &cloudflare.AccessCaCertificateArgs{
-//! 			ApplicationId: pulumi.String("fe2be0ff-7f13-4350-8c8e-a9b9795fe3c2"),
+//! 		_, err = cloudflare.NewAccessCaCertificate(ctx, "another_example", &cloudflare.AccessCaCertificateArgs{
 //! 			ZoneId:        pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			ApplicationId: pulumi.String("fe2be0ff-7f13-4350-8c8e-a9b9795fe3c2"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -120,15 +120,15 @@
 //! 
 //!     public static void stack(Context ctx) {
 //!         // account level
-//!         var example = new AccessCaCertificate("example", AccessCaCertificateArgs.builder()        
+//!         var example = new AccessCaCertificate("example", AccessCaCertificateArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
 //!             .applicationId("6cd6cea3-3ef2-4542-9aea-85a0bbcd5414")
 //!             .build());
 //! 
 //!         // zone level
-//!         var anotherExample = new AccessCaCertificate("anotherExample", AccessCaCertificateArgs.builder()        
-//!             .applicationId("fe2be0ff-7f13-4350-8c8e-a9b9795fe3c2")
+//!         var anotherExample = new AccessCaCertificate("anotherExample", AccessCaCertificateArgs.builder()
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .applicationId("fe2be0ff-7f13-4350-8c8e-a9b9795fe3c2")
 //!             .build());
 //! 
 //!     }
@@ -146,9 +146,10 @@
 //!   # zone level
 //!   anotherExample:
 //!     type: cloudflare:AccessCaCertificate
+//!     name: another_example
 //!     properties:
-//!       applicationId: fe2be0ff-7f13-4350-8c8e-a9b9795fe3c2
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       applicationId: fe2be0ff-7f13-4350-8c8e-a9b9795fe3c2
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

@@ -8,17 +8,17 @@
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
-//! const exampleAccessIdentityProvider = cloudflare.getAccessIdentityProvider({
+//! const example = cloudflare.getAccessIdentityProvider({
 //!     name: "Google SSO",
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
 //! });
-//! const exampleAccessApplication = new cloudflare.AccessApplication("exampleAccessApplication", {
+//! const exampleAccessApplication = new cloudflare.AccessApplication("example", {
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //!     name: "name",
 //!     domain: "name.example.com",
 //!     type: "self_hosted",
 //!     sessionDuration: "24h",
-//!     allowedIdps: [exampleAccessIdentityProvider.then(exampleAccessIdentityProvider => exampleAccessIdentityProvider.id)],
+//!     allowedIdps: [example.then(example => example.id)],
 //!     autoRedirectToIdentity: true,
 //! });
 //! ```
@@ -27,15 +27,15 @@
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
 //! 
-//! example_access_identity_provider = cloudflare.get_access_identity_provider(name="Google SSO",
+//! example = cloudflare.get_access_identity_provider(name="Google SSO",
 //!     account_id="f037e56e89293a057740de681ac9abbe")
-//! example_access_application = cloudflare.AccessApplication("exampleAccessApplication",
+//! example_access_application = cloudflare.AccessApplication("example",
 //!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     name="name",
 //!     domain="name.example.com",
 //!     type="self_hosted",
 //!     session_duration="24h",
-//!     allowed_idps=[example_access_identity_provider.id],
+//!     allowed_idps=[example.id],
 //!     auto_redirect_to_identity=True)
 //! ```
 //! ### C#
@@ -47,13 +47,13 @@
 //! 
 //! return await Deployment.RunAsync(() => 
 //! {
-//!     var exampleAccessIdentityProvider = Cloudflare.GetAccessIdentityProvider.Invoke(new()
+//!     var example = Cloudflare.GetAccessIdentityProvider.Invoke(new()
 //!     {
 //!         Name = "Google SSO",
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
 //!     });
 //! 
-//!     var exampleAccessApplication = new Cloudflare.AccessApplication("exampleAccessApplication", new()
+//!     var exampleAccessApplication = new Cloudflare.AccessApplication("example", new()
 //!     {
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!         Name = "name",
@@ -62,7 +62,7 @@
 //!         SessionDuration = "24h",
 //!         AllowedIdps = new[]
 //!         {
-//!             exampleAccessIdentityProvider.Apply(getAccessIdentityProviderResult => getAccessIdentityProviderResult.Id),
+//!             example.Apply(getAccessIdentityProviderResult => getAccessIdentityProviderResult.Id),
 //!         },
 //!         AutoRedirectToIdentity = true,
 //!     });
@@ -80,21 +80,21 @@
 //! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		exampleAccessIdentityProvider, err := cloudflare.LookupAccessIdentityProvider(ctx, &cloudflare.LookupAccessIdentityProviderArgs{
+//! 		example, err := cloudflare.LookupAccessIdentityProvider(ctx, &cloudflare.LookupAccessIdentityProviderArgs{
 //! 			Name:      "Google SSO",
 //! 			AccountId: pulumi.StringRef("f037e56e89293a057740de681ac9abbe"),
 //! 		}, nil)
 //! 		if err != nil {
 //! 			return err
 //! 		}
-//! 		_, err = cloudflare.NewAccessApplication(ctx, "exampleAccessApplication", &cloudflare.AccessApplicationArgs{
+//! 		_, err = cloudflare.NewAccessApplication(ctx, "example", &cloudflare.AccessApplicationArgs{
 //! 			ZoneId:          pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 			Name:            pulumi.String("name"),
 //! 			Domain:          pulumi.String("name.example.com"),
 //! 			Type:            pulumi.String("self_hosted"),
 //! 			SessionDuration: pulumi.String("24h"),
 //! 			AllowedIdps: pulumi.StringArray{
-//! 				pulumi.String(exampleAccessIdentityProvider.Id),
+//! 				pulumi.String(example.Id),
 //! 			},
 //! 			AutoRedirectToIdentity: pulumi.Bool(true),
 //! 		})
@@ -129,18 +129,18 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         final var exampleAccessIdentityProvider = CloudflareFunctions.getAccessIdentityProvider(GetAccessIdentityProviderArgs.builder()
+//!         final var example = CloudflareFunctions.getAccessIdentityProvider(GetAccessIdentityProviderArgs.builder()
 //!             .name("Google SSO")
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
 //!             .build());
 //! 
-//!         var exampleAccessApplication = new AccessApplication("exampleAccessApplication", AccessApplicationArgs.builder()        
+//!         var exampleAccessApplication = new AccessApplication("exampleAccessApplication", AccessApplicationArgs.builder()
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .name("name")
 //!             .domain("name.example.com")
 //!             .type("self_hosted")
 //!             .sessionDuration("24h")
-//!             .allowedIdps(exampleAccessIdentityProvider.applyValue(getAccessIdentityProviderResult -> getAccessIdentityProviderResult.id()))
+//!             .allowedIdps(example.applyValue(getAccessIdentityProviderResult -> getAccessIdentityProviderResult.id()))
 //!             .autoRedirectToIdentity(true)
 //!             .build());
 //! 
@@ -152,6 +152,7 @@
 //! resources:
 //!   exampleAccessApplication:
 //!     type: cloudflare:AccessApplication
+//!     name: example
 //!     properties:
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //!       name: name
@@ -159,10 +160,10 @@
 //!       type: self_hosted
 //!       sessionDuration: 24h
 //!       allowedIdps:
-//!         - ${exampleAccessIdentityProvider.id}
+//!         - ${example.id}
 //!       autoRedirectToIdentity: true
 //! variables:
-//!   exampleAccessIdentityProvider:
+//!   example:
 //!     fn::invoke:
 //!       Function: cloudflare:getAccessIdentityProvider
 //!       Arguments:

@@ -9,22 +9,22 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! const example = new cloudflare.WaitingRoomRules("example", {
+//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     waitingRoomId: "d41d8cd98f00b204e9800998ecf8427e",
 //!     rules: [
 //!         {
-//!             action: "bypass_waiting_room",
 //!             description: "bypass ip list",
 //!             expression: "src.ip in {192.0.2.0 192.0.2.1}",
+//!             action: "bypass_waiting_room",
 //!             status: "enabled",
 //!         },
 //!         {
-//!             action: "bypass_waiting_room",
 //!             description: "bypass query string",
 //!             expression: "http.request.uri.query contains \"bypass=true\"",
+//!             action: "bypass_waiting_room",
 //!             status: "enabled",
 //!         },
 //!     ],
-//!     waitingRoomId: "d41d8cd98f00b204e9800998ecf8427e",
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //! });
 //! ```
 //! ### Python
@@ -33,22 +33,22 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! example = cloudflare.WaitingRoomRules("example",
-//!     rules=[
-//!         cloudflare.WaitingRoomRulesRuleArgs(
-//!             action="bypass_waiting_room",
-//!             description="bypass ip list",
-//!             expression="src.ip in {192.0.2.0 192.0.2.1}",
-//!             status="enabled",
-//!         ),
-//!         cloudflare.WaitingRoomRulesRuleArgs(
-//!             action="bypass_waiting_room",
-//!             description="bypass query string",
-//!             expression="http.request.uri.query contains \"bypass=true\"",
-//!             status="enabled",
-//!         ),
-//!     ],
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     waiting_room_id="d41d8cd98f00b204e9800998ecf8427e",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     rules=[
+//!         {
+//!             "description": "bypass ip list",
+//!             "expression": "src.ip in {192.0.2.0 192.0.2.1}",
+//!             "action": "bypass_waiting_room",
+//!             "status": "enabled",
+//!         },
+//!         {
+//!             "description": "bypass query string",
+//!             "expression": "http.request.uri.query contains \"bypass=true\"",
+//!             "action": "bypass_waiting_room",
+//!             "status": "enabled",
+//!         },
+//!     ])
 //! ```
 //! ### C#
 //! ```csharp
@@ -61,25 +61,25 @@
 //! {
 //!     var example = new Cloudflare.WaitingRoomRules("example", new()
 //!     {
+//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         WaitingRoomId = "d41d8cd98f00b204e9800998ecf8427e",
 //!         Rules = new[]
 //!         {
 //!             new Cloudflare.Inputs.WaitingRoomRulesRuleArgs
 //!             {
-//!                 Action = "bypass_waiting_room",
 //!                 Description = "bypass ip list",
 //!                 Expression = "src.ip in {192.0.2.0 192.0.2.1}",
+//!                 Action = "bypass_waiting_room",
 //!                 Status = "enabled",
 //!             },
 //!             new Cloudflare.Inputs.WaitingRoomRulesRuleArgs
 //!             {
-//!                 Action = "bypass_waiting_room",
 //!                 Description = "bypass query string",
 //!                 Expression = "http.request.uri.query contains \"bypass=true\"",
+//!                 Action = "bypass_waiting_room",
 //!                 Status = "enabled",
 //!             },
 //!         },
-//!         WaitingRoomId = "d41d8cd98f00b204e9800998ecf8427e",
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
 //! 
 //! });
@@ -96,22 +96,22 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewWaitingRoomRules(ctx, "example", &cloudflare.WaitingRoomRulesArgs{
+//! 			ZoneId:        pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			WaitingRoomId: pulumi.String("d41d8cd98f00b204e9800998ecf8427e"),
 //! 			Rules: cloudflare.WaitingRoomRulesRuleArray{
 //! 				&cloudflare.WaitingRoomRulesRuleArgs{
-//! 					Action:      pulumi.String("bypass_waiting_room"),
 //! 					Description: pulumi.String("bypass ip list"),
 //! 					Expression:  pulumi.String("src.ip in {192.0.2.0 192.0.2.1}"),
+//! 					Action:      pulumi.String("bypass_waiting_room"),
 //! 					Status:      pulumi.String("enabled"),
 //! 				},
 //! 				&cloudflare.WaitingRoomRulesRuleArgs{
-//! 					Action:      pulumi.String("bypass_waiting_room"),
 //! 					Description: pulumi.String("bypass query string"),
 //! 					Expression:  pulumi.String("http.request.uri.query contains \"bypass=true\""),
+//! 					Action:      pulumi.String("bypass_waiting_room"),
 //! 					Status:      pulumi.String("enabled"),
 //! 				},
 //! 			},
-//! 			WaitingRoomId: pulumi.String("d41d8cd98f00b204e9800998ecf8427e"),
-//! 			ZoneId:        pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -143,22 +143,22 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new WaitingRoomRules("example", WaitingRoomRulesArgs.builder()        
+//!         var example = new WaitingRoomRules("example", WaitingRoomRulesArgs.builder()
+//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .waitingRoomId("d41d8cd98f00b204e9800998ecf8427e")
 //!             .rules(            
 //!                 WaitingRoomRulesRuleArgs.builder()
-//!                     .action("bypass_waiting_room")
 //!                     .description("bypass ip list")
 //!                     .expression("src.ip in {192.0.2.0 192.0.2.1}")
+//!                     .action("bypass_waiting_room")
 //!                     .status("enabled")
 //!                     .build(),
 //!                 WaitingRoomRulesRuleArgs.builder()
-//!                     .action("bypass_waiting_room")
 //!                     .description("bypass query string")
 //!                     .expression("http.request.uri.query contains \"bypass=true\"")
+//!                     .action("bypass_waiting_room")
 //!                     .status("enabled")
 //!                     .build())
-//!             .waitingRoomId("d41d8cd98f00b204e9800998ecf8427e")
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
 //! 
 //!     }
@@ -170,17 +170,17 @@
 //!   example:
 //!     type: cloudflare:WaitingRoomRules
 //!     properties:
-//!       rules:
-//!         - action: bypass_waiting_room
-//!           description: bypass ip list
-//!           expression: src.ip in {192.0.2.0 192.0.2.1}
-//!           status: enabled
-//!         - action: bypass_waiting_room
-//!           description: bypass query string
-//!           expression: http.request.uri.query contains "bypass=true"
-//!           status: enabled
-//!       waitingRoomId: d41d8cd98f00b204e9800998ecf8427e
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       waitingRoomId: d41d8cd98f00b204e9800998ecf8427e
+//!       rules:
+//!         - description: bypass ip list
+//!           expression: src.ip in {192.0.2.0 192.0.2.1}
+//!           action: bypass_waiting_room
+//!           status: enabled
+//!         - description: bypass query string
+//!           expression: http.request.uri.query contains "bypass=true"
+//!           action: bypass_waiting_room
+//!           status: enabled
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

@@ -7,45 +7,51 @@
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//! import * as fs from "fs";
+//! import * as std from "@pulumi/std";
 //! 
-//! const petstoreSchema = new cloudflare.ApiShieldSchema("petstoreSchema", {
+//! const petstoreSchema = new cloudflare.ApiShieldSchema("petstore_schema", {
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //!     name: "myschema",
 //!     kind: "openapi_v3",
 //!     validationEnabled: true,
-//!     source: fs.readFileSync("./schemas/petstore.json", "utf8"),
+//!     source: std.file({
+//!         input: "./schemas/petstore.json",
+//!     }).then(invoke => invoke.result),
 //! });
 //! ```
 //! ### Python
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
+//! import pulumi_std as std
 //! 
-//! petstore_schema = cloudflare.ApiShieldSchema("petstoreSchema",
+//! petstore_schema = cloudflare.ApiShieldSchema("petstore_schema",
 //!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     name="myschema",
 //!     kind="openapi_v3",
 //!     validation_enabled=True,
-//!     source=(lambda path: open(path).read())("./schemas/petstore.json"))
+//!     source=std.file(input="./schemas/petstore.json").result)
 //! ```
 //! ### C#
 //! ```csharp
 //! using System.Collections.Generic;
-//! using System.IO;
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
+//! using Std = Pulumi.Std;
 //! 
 //! return await Deployment.RunAsync(() => 
 //! {
-//!     var petstoreSchema = new Cloudflare.ApiShieldSchema("petstoreSchema", new()
+//!     var petstoreSchema = new Cloudflare.ApiShieldSchema("petstore_schema", new()
 //!     {
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!         Name = "myschema",
 //!         Kind = "openapi_v3",
 //!         ValidationEnabled = true,
-//!         Source = File.ReadAllText("./schemas/petstore.json"),
+//!         Source = Std.File.Invoke(new()
+//!         {
+//!             Input = "./schemas/petstore.json",
+//!         }).Apply(invoke => invoke.Result),
 //!     });
 //! 
 //! });
@@ -55,28 +61,25 @@
 //! package main
 //! 
 //! import (
-//! 	"os"
-//! 
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
+//! 	"github.com/pulumi/pulumi-std/sdk/go/std"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
 //! 
-//! func readFileOrPanic(path string) pulumi.StringPtrInput {
-//! 	data, err := os.ReadFile(path)
-//! 	if err != nil {
-//! 		panic(err.Error())
-//! 	}
-//! 	return pulumi.String(string(data))
-//! }
-//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewApiShieldSchema(ctx, "petstoreSchema", &cloudflare.ApiShieldSchemaArgs{
+//! 		invokeFile, err := std.File(ctx, &std.FileArgs{
+//! 			Input: "./schemas/petstore.json",
+//! 		}, nil)
+//! 		if err != nil {
+//! 			return err
+//! 		}
+//! 		_, err = cloudflare.NewApiShieldSchema(ctx, "petstore_schema", &cloudflare.ApiShieldSchemaArgs{
 //! 			ZoneId:            pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 			Name:              pulumi.String("myschema"),
 //! 			Kind:              pulumi.String("openapi_v3"),
 //! 			ValidationEnabled: pulumi.Bool(true),
-//! 			Source:            readFileOrPanic("./schemas/petstore.json"),
+//! 			Source:            pulumi.String(invokeFile.Result),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -107,12 +110,14 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var petstoreSchema = new ApiShieldSchema("petstoreSchema", ApiShieldSchemaArgs.builder()        
+//!         var petstoreSchema = new ApiShieldSchema("petstoreSchema", ApiShieldSchemaArgs.builder()
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .name("myschema")
 //!             .kind("openapi_v3")
 //!             .validationEnabled(true)
-//!             .source(Files.readString(Paths.get("./schemas/petstore.json")))
+//!             .source(StdFunctions.file(FileArgs.builder()
+//!                 .input("./schemas/petstore.json")
+//!                 .build()).result())
 //!             .build());
 //! 
 //!     }
@@ -123,15 +128,18 @@
 //! resources:
 //!   petstoreSchema:
 //!     type: cloudflare:ApiShieldSchema
+//!     name: petstore_schema
 //!     properties:
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //!       name: myschema
 //!       kind: openapi_v3
-//!       # optional
-//!       validationEnabled: true
-//!       # optional, default false
+//!       validationEnabled: true # optional, default false
 //!       source:
-//!         fn::readFile: ./schemas/petstore.json
+//!         fn::invoke:
+//!           Function: std:file
+//!           Arguments:
+//!             input: ./schemas/petstore.json
+//!           Return: result
 //! ```
 //! <!--End PulumiCodeChooser -->
 

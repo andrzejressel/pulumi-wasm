@@ -12,6 +12,7 @@ impl record::Guest for Component {
             object: vec![
                 ObjectField { name: "allowOverwrite".into(), value: args.allow_overwrite },
                 ObjectField { name: "comment".into(), value: args.comment },
+                ObjectField { name: "content".into(), value: args.content },
                 ObjectField { name: "data".into(), value: args.data },
                 ObjectField { name: "name".into(), value: args.name },
                 ObjectField { name: "priority".into(), value: args.priority },
@@ -25,6 +26,7 @@ impl record::Guest for Component {
             results: vec![
                 ResultField { name: "allowOverwrite".into() },
                 ResultField { name: "comment".into() },
+                ResultField { name: "content".into() },
                 ResultField { name: "createdOn".into() },
                 ResultField { name: "data".into() },
                 ResultField { name: "hostname".into() },
@@ -49,6 +51,7 @@ impl record::Guest for Component {
         record::Res {
             allow_overwrite: hashmap.remove("allowOverwrite").unwrap(),
             comment: hashmap.remove("comment").unwrap(),
+            content: hashmap.remove("content").unwrap(),
             created_on: hashmap.remove("createdOn").unwrap(),
             data: hashmap.remove("data").unwrap(),
             hostname: hashmap.remove("hostname").unwrap(),

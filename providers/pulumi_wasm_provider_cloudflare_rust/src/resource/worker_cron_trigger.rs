@@ -10,14 +10,16 @@
 //! ```typescript
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
-//! import * as fs from "fs";
+//! import * as std from "@pulumi/std";
 //! 
-//! const exampleScript = new cloudflare.WorkerScript("exampleScript", {
+//! const exampleScript = new cloudflare.WorkersScript("example_script", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
 //!     name: "example-script",
-//!     content: fs.readFileSync("path/to/my.js", "utf8"),
+//!     content: std.file({
+//!         input: "path/to/my.js",
+//!     }).then(invoke => invoke.result),
 //! });
-//! const exampleTrigger = new cloudflare.WorkerCronTrigger("exampleTrigger", {
+//! const exampleTrigger = new cloudflare.WorkerCronTrigger("example_trigger", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
 //!     scriptName: exampleScript.name,
 //!     schedules: [
@@ -30,12 +32,13 @@
 //! ```python
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
+//! import pulumi_std as std
 //! 
-//! example_script = cloudflare.WorkerScript("exampleScript",
+//! example_script = cloudflare.WorkersScript("example_script",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
 //!     name="example-script",
-//!     content=(lambda path: open(path).read())("path/to/my.js"))
-//! example_trigger = cloudflare.WorkerCronTrigger("exampleTrigger",
+//!     content=std.file(input="path/to/my.js").result)
+//! example_trigger = cloudflare.WorkerCronTrigger("example_trigger",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
 //!     script_name=example_script.name,
 //!     schedules=[
@@ -46,21 +49,24 @@
 //! ### C#
 //! ```csharp
 //! using System.Collections.Generic;
-//! using System.IO;
 //! using System.Linq;
 //! using Pulumi;
 //! using Cloudflare = Pulumi.Cloudflare;
+//! using Std = Pulumi.Std;
 //! 
 //! return await Deployment.RunAsync(() => 
 //! {
-//!     var exampleScript = new Cloudflare.WorkerScript("exampleScript", new()
+//!     var exampleScript = new Cloudflare.WorkersScript("example_script", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
 //!         Name = "example-script",
-//!         Content = File.ReadAllText("path/to/my.js"),
+//!         Content = Std.File.Invoke(new()
+//!         {
+//!             Input = "path/to/my.js",
+//!         }).Apply(invoke => invoke.Result),
 //!     });
 //! 
-//!     var exampleTrigger = new Cloudflare.WorkerCronTrigger("exampleTrigger", new()
+//!     var exampleTrigger = new Cloudflare.WorkerCronTrigger("example_trigger", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
 //!         ScriptName = exampleScript.Name,
@@ -78,31 +84,28 @@
 //! package main
 //! 
 //! import (
-//! 	"os"
-//! 
 //! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
+//! 	"github.com/pulumi/pulumi-std/sdk/go/std"
 //! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //! )
 //! 
-//! func readFileOrPanic(path string) pulumi.StringPtrInput {
-//! 	data, err := os.ReadFile(path)
-//! 	if err != nil {
-//! 		panic(err.Error())
-//! 	}
-//! 	return pulumi.String(string(data))
-//! }
-//! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		exampleScript, err := cloudflare.NewWorkerScript(ctx, "exampleScript", &cloudflare.WorkerScriptArgs{
+//! 		invokeFile, err := std.File(ctx, &std.FileArgs{
+//! 			Input: "path/to/my.js",
+//! 		}, nil)
+//! 		if err != nil {
+//! 			return err
+//! 		}
+//! 		exampleScript, err := cloudflare.NewWorkersScript(ctx, "example_script", &cloudflare.WorkersScriptArgs{
 //! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
 //! 			Name:      pulumi.String("example-script"),
-//! 			Content:   readFileOrPanic("path/to/my.js"),
+//! 			Content:   pulumi.String(invokeFile.Result),
 //! 		})
 //! 		if err != nil {
 //! 			return err
 //! 		}
-//! 		_, err = cloudflare.NewWorkerCronTrigger(ctx, "exampleTrigger", &cloudflare.WorkerCronTriggerArgs{
+//! 		_, err = cloudflare.NewWorkerCronTrigger(ctx, "example_trigger", &cloudflare.WorkerCronTriggerArgs{
 //! 			AccountId:  pulumi.String("f037e56e89293a057740de681ac9abbe"),
 //! 			ScriptName: exampleScript.Name,
 //! 			Schedules: pulumi.StringArray{
@@ -124,8 +127,8 @@
 //! import com.pulumi.Context;
 //! import com.pulumi.Pulumi;
 //! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.WorkerScript;
-//! import com.pulumi.cloudflare.WorkerScriptArgs;
+//! import com.pulumi.cloudflare.WorkersScript;
+//! import com.pulumi.cloudflare.WorkersScriptArgs;
 //! import com.pulumi.cloudflare.WorkerCronTrigger;
 //! import com.pulumi.cloudflare.WorkerCronTriggerArgs;
 //! import java.util.List;
@@ -141,13 +144,15 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var exampleScript = new WorkerScript("exampleScript", WorkerScriptArgs.builder()        
+//!         var exampleScript = new WorkersScript("exampleScript", WorkersScriptArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
 //!             .name("example-script")
-//!             .content(Files.readString(Paths.get("path/to/my.js")))
+//!             .content(StdFunctions.file(FileArgs.builder()
+//!                 .input("path/to/my.js")
+//!                 .build()).result())
 //!             .build());
 //! 
-//!         var exampleTrigger = new WorkerCronTrigger("exampleTrigger", WorkerCronTriggerArgs.builder()        
+//!         var exampleTrigger = new WorkerCronTrigger("exampleTrigger", WorkerCronTriggerArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
 //!             .scriptName(exampleScript.name())
 //!             .schedules(            
@@ -162,14 +167,20 @@
 //! ```yaml
 //! resources:
 //!   exampleScript:
-//!     type: cloudflare:WorkerScript
+//!     type: cloudflare:WorkersScript
+//!     name: example_script
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
 //!       name: example-script
 //!       content:
-//!         fn::readFile: path/to/my.js
+//!         fn::invoke:
+//!           Function: std:file
+//!           Arguments:
+//!             input: path/to/my.js
+//!           Return: result
 //!   exampleTrigger:
 //!     type: cloudflare:WorkerCronTrigger
+//!     name: example_trigger
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
 //!       scriptName: ${exampleScript.name}

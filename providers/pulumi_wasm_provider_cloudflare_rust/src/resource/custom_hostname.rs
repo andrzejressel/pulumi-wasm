@@ -9,11 +9,11 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! const example = new cloudflare.CustomHostname("example", {
+//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //!     hostname: "hostname.example.com",
 //!     ssls: [{
 //!         method: "txt",
 //!     }],
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //! });
 //! ```
 //! ### Python
@@ -22,11 +22,11 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! example = cloudflare.CustomHostname("example",
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     hostname="hostname.example.com",
-//!     ssls=[cloudflare.CustomHostnameSslArgs(
-//!         method="txt",
-//!     )],
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     ssls=[{
+//!         "method": "txt",
+//!     }])
 //! ```
 //! ### C#
 //! ```csharp
@@ -39,6 +39,7 @@
 //! {
 //!     var example = new Cloudflare.CustomHostname("example", new()
 //!     {
+//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!         Hostname = "hostname.example.com",
 //!         Ssls = new[]
 //!         {
@@ -47,7 +48,6 @@
 //!                 Method = "txt",
 //!             },
 //!         },
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
 //! 
 //! });
@@ -64,13 +64,13 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewCustomHostname(ctx, "example", &cloudflare.CustomHostnameArgs{
+//! 			ZoneId:   pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 			Hostname: pulumi.String("hostname.example.com"),
 //! 			Ssls: cloudflare.CustomHostnameSslArray{
 //! 				&cloudflare.CustomHostnameSslArgs{
 //! 					Method: pulumi.String("txt"),
 //! 				},
 //! 			},
-//! 			ZoneId: pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -102,12 +102,12 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new CustomHostname("example", CustomHostnameArgs.builder()        
+//!         var example = new CustomHostname("example", CustomHostnameArgs.builder()
+//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .hostname("hostname.example.com")
 //!             .ssls(CustomHostnameSslArgs.builder()
 //!                 .method("txt")
 //!                 .build())
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
 //! 
 //!     }
@@ -119,10 +119,10 @@
 //!   example:
 //!     type: cloudflare:CustomHostname
 //!     properties:
+//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //!       hostname: hostname.example.com
 //!       ssls:
 //!         - method: txt
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

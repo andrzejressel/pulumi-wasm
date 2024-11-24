@@ -12,8 +12,8 @@
 //! 
 //! const example = new cloudflare.TeamsProxyEndpoint("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     ips: ["192.0.2.0/24"],
 //!     name: "office",
+//!     ips: ["192.0.2.0/24"],
 //! });
 //! ```
 //! ### Python
@@ -23,8 +23,8 @@
 //! 
 //! example = cloudflare.TeamsProxyEndpoint("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     ips=["192.0.2.0/24"],
-//!     name="office")
+//!     name="office",
+//!     ips=["192.0.2.0/24"])
 //! ```
 //! ### C#
 //! ```csharp
@@ -38,11 +38,11 @@
 //!     var example = new Cloudflare.TeamsProxyEndpoint("example", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
+//!         Name = "office",
 //!         Ips = new[]
 //!         {
 //!             "192.0.2.0/24",
 //!         },
-//!         Name = "office",
 //!     });
 //! 
 //! });
@@ -60,10 +60,10 @@
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewTeamsProxyEndpoint(ctx, "example", &cloudflare.TeamsProxyEndpointArgs{
 //! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
+//! 			Name:      pulumi.String("office"),
 //! 			Ips: pulumi.StringArray{
 //! 				pulumi.String("192.0.2.0/24"),
 //! 			},
-//! 			Name: pulumi.String("office"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -94,10 +94,10 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new TeamsProxyEndpoint("example", TeamsProxyEndpointArgs.builder()        
+//!         var example = new TeamsProxyEndpoint("example", TeamsProxyEndpointArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .ips("192.0.2.0/24")
 //!             .name("office")
+//!             .ips("192.0.2.0/24")
 //!             .build());
 //! 
 //!     }
@@ -110,9 +110,9 @@
 //!     type: cloudflare:TeamsProxyEndpoint
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
+//!       name: office
 //!       ips:
 //!         - 192.0.2.0/24
-//!       name: office
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

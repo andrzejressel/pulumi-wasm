@@ -11,7 +11,7 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! // Challenge requests coming from known Tor exit nodes.
-//! const torExitNodes = new cloudflare.AccessRule("torExitNodes", {
+//! const torExitNodes = new cloudflare.AccessRule("tor_exit_nodes", {
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //!     notes: "Requests coming from known Tor exit nodes",
 //!     mode: "challenge",
@@ -38,13 +38,13 @@
 //! ];
 //! const officeNetwork: cloudflare.AccessRule[] = [];
 //! for (const range = {value: 0}; range.value < myOffice.length; range.value++) {
-//!     officeNetwork.push(new cloudflare.AccessRule(`officeNetwork-${range.value}`, {
+//!     officeNetwork.push(new cloudflare.AccessRule(`office_network-${range.value}`, {
 //!         accountId: "f037e56e89293a057740de681ac9abbe",
 //!         notes: "Requests coming from office network",
 //!         mode: "whitelist",
 //!         configuration: {
 //!             target: "ip_range",
-//!             value: myOffice[count.index],
+//!             value: myOffice[range.value],
 //!         },
 //!     }));
 //! }
@@ -55,23 +55,23 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! # Challenge requests coming from known Tor exit nodes.
-//! tor_exit_nodes = cloudflare.AccessRule("torExitNodes",
+//! tor_exit_nodes = cloudflare.AccessRule("tor_exit_nodes",
 //!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     notes="Requests coming from known Tor exit nodes",
 //!     mode="challenge",
-//!     configuration=cloudflare.AccessRuleConfigurationArgs(
-//!         target="country",
-//!         value="T1",
-//!     ))
+//!     configuration={
+//!         "target": "country",
+//!         "value": "T1",
+//!     })
 //! # Allowlist requests coming from Antarctica, but only for single zone.
 //! antarctica = cloudflare.AccessRule("antarctica",
 //!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     notes="Requests coming from Antarctica",
 //!     mode="whitelist",
-//!     configuration=cloudflare.AccessRuleConfigurationArgs(
-//!         target="country",
-//!         value="AQ",
-//!     ))
+//!     configuration={
+//!         "target": "country",
+//!         "value": "AQ",
+//!     })
 //! config = pulumi.Config()
 //! my_office = config.get_object("myOffice")
 //! if my_office is None:
@@ -82,14 +82,14 @@
 //!     ]
 //! office_network = []
 //! for range in [{"value": i} for i in range(0, len(my_office))]:
-//!     office_network.append(cloudflare.AccessRule(f"officeNetwork-{range['value']}",
+//!     office_network.append(cloudflare.AccessRule(f"office_network-{range['value']}",
 //!         account_id="f037e56e89293a057740de681ac9abbe",
 //!         notes="Requests coming from office network",
 //!         mode="whitelist",
-//!         configuration=cloudflare.AccessRuleConfigurationArgs(
-//!             target="ip_range",
-//!             value=my_office[count["index"]],
-//!         )))
+//!         configuration={
+//!             "target": "ip_range",
+//!             "value": my_office[range["value"]],
+//!         }))
 //! ```
 //! ### C#
 //! ```csharp
@@ -101,7 +101,7 @@
 //! return await Deployment.RunAsync(() => 
 //! {
 //!     // Challenge requests coming from known Tor exit nodes.
-//!     var torExitNodes = new Cloudflare.AccessRule("torExitNodes", new()
+//!     var torExitNodes = new Cloudflare.AccessRule("tor_exit_nodes", new()
 //!     {
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!         Notes = "Requests coming from known Tor exit nodes",
@@ -137,7 +137,7 @@
 //!     for (var rangeIndex = 0; rangeIndex < myOffice.Length; rangeIndex++)
 //!     {
 //!         var range = new { Value = rangeIndex };
-//!         officeNetwork.Add(new Cloudflare.AccessRule($"officeNetwork-{range.Value}", new()
+//!         officeNetwork.Add(new Cloudflare.AccessRule($"office_network-{range.Value}", new()
 //!         {
 //!             AccountId = "f037e56e89293a057740de681ac9abbe",
 //!             Notes = "Requests coming from office network",
@@ -145,80 +145,11 @@
 //!             Configuration = new Cloudflare.Inputs.AccessRuleConfigurationArgs
 //!             {
 //!                 Target = "ip_range",
-//!                 Value = myOffice[count.Index],
+//!                 Value = myOffice[range.Value],
 //!             },
 //!         }));
 //!     }
 //! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		// Challenge requests coming from known Tor exit nodes.
-//! 		_, err := cloudflare.NewAccessRule(ctx, "torExitNodes", &cloudflare.AccessRuleArgs{
-//! 			ZoneId: pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
-//! 			Notes:  pulumi.String("Requests coming from known Tor exit nodes"),
-//! 			Mode:   pulumi.String("challenge"),
-//! 			Configuration: &cloudflare.AccessRuleConfigurationArgs{
-//! 				Target: pulumi.String("country"),
-//! 				Value:  pulumi.String("T1"),
-//! 			},
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		// Allowlist requests coming from Antarctica, but only for single zone.
-//! 		_, err = cloudflare.NewAccessRule(ctx, "antarctica", &cloudflare.AccessRuleArgs{
-//! 			ZoneId: pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
-//! 			Notes:  pulumi.String("Requests coming from Antarctica"),
-//! 			Mode:   pulumi.String("whitelist"),
-//! 			Configuration: &cloudflare.AccessRuleConfigurationArgs{
-//! 				Target: pulumi.String("country"),
-//! 				Value:  pulumi.String("AQ"),
-//! 			},
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		cfg := config.New(ctx, "")
-//! 		myOffice := []string{
-//! 			"192.0.2.0/24",
-//! 			"198.51.100.0/24",
-//! 			"2001:db8::/56",
-//! 		}
-//! 		if param := cfg.GetObject("myOffice"); param != nil {
-//! 			myOffice = param
-//! 		}
-//! 		var officeNetwork []*cloudflare.AccessRule
-//! 		for index := 0; index < len(myOffice); index++ {
-//! 			key0 := index
-//! 			_ := index
-//! 			__res, err := cloudflare.NewAccessRule(ctx, fmt.Sprintf("officeNetwork-%v", key0), &cloudflare.AccessRuleArgs{
-//! 				AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 				Notes:     pulumi.String("Requests coming from office network"),
-//! 				Mode:      pulumi.String("whitelist"),
-//! 				Configuration: &cloudflare.AccessRuleConfigurationArgs{
-//! 					Target: pulumi.String("ip_range"),
-//! 					Value:  "TODO: call element",
-//! 				},
-//! 			})
-//! 			if err != nil {
-//! 				return err
-//! 			}
-//! 			officeNetwork = append(officeNetwork, __res)
-//! 		}
-//! 		return nil
-//! 	})
-//! }
 //! ```
 //! ### Java
 //! ```java
@@ -246,7 +177,7 @@
 //!     public static void stack(Context ctx) {
 //!         final var config = ctx.config();
 //!         // Challenge requests coming from known Tor exit nodes.
-//!         var torExitNodes = new AccessRule("torExitNodes", AccessRuleArgs.builder()        
+//!         var torExitNodes = new AccessRule("torExitNodes", AccessRuleArgs.builder()
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .notes("Requests coming from known Tor exit nodes")
 //!             .mode("challenge")
@@ -257,7 +188,7 @@
 //!             .build());
 //! 
 //!         // Allowlist requests coming from Antarctica, but only for single zone.
-//!         var antarctica = new AccessRule("antarctica", AccessRuleArgs.builder()        
+//!         var antarctica = new AccessRule("antarctica", AccessRuleArgs.builder()
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .notes("Requests coming from Antarctica")
 //!             .mode("whitelist")
@@ -272,13 +203,13 @@
 //!             "198.51.100.0/24",
 //!             "2001:db8::/56");
 //!         for (var i = 0; i < myOffice.length(); i++) {
-//!             new AccessRule("officeNetwork-" + i, AccessRuleArgs.builder()            
+//!             new AccessRule("officeNetwork-" + i, AccessRuleArgs.builder()
 //!                 .accountId("f037e56e89293a057740de681ac9abbe")
 //!                 .notes("Requests coming from office network")
 //!                 .mode("whitelist")
 //!                 .configuration(AccessRuleConfigurationArgs.builder()
 //!                     .target("ip_range")
-//!                     .value(myOffice[count.index()])
+//!                     .value(myOffice[range.value()])
 //!                     .build())
 //!                 .build());
 //! 
@@ -302,6 +233,7 @@
 //!   # Challenge requests coming from known Tor exit nodes.
 //!   torExitNodes:
 //!     type: cloudflare:AccessRule
+//!     name: tor_exit_nodes
 //!     properties:
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //!       notes: Requests coming from known Tor exit nodes
@@ -321,6 +253,7 @@
 //!         value: AQ
 //!   officeNetwork:
 //!     type: cloudflare:AccessRule
+//!     name: office_network
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
 //!       notes: Requests coming from office network
@@ -329,7 +262,7 @@
 //!         target: ip_range
 //!         value:
 //!           fn::select:
-//!             - ${count.index}
+//!             - ${range.value}
 //!             - ${myOffice}
 //!     options: {}
 //! ```

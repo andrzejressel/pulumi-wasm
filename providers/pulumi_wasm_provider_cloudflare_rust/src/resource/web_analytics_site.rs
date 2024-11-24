@@ -10,8 +10,8 @@
 //! 
 //! const example = new cloudflare.WebAnalyticsSite("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     autoInstall: true,
 //!     zoneTag: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     autoInstall: true,
 //! });
 //! ```
 //! ### Python
@@ -21,8 +21,8 @@
 //! 
 //! example = cloudflare.WebAnalyticsSite("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     auto_install=True,
-//!     zone_tag="0da42c8d2132a9ddaf714f9e7c920711")
+//!     zone_tag="0da42c8d2132a9ddaf714f9e7c920711",
+//!     auto_install=True)
 //! ```
 //! ### C#
 //! ```csharp
@@ -36,8 +36,8 @@
 //!     var example = new Cloudflare.WebAnalyticsSite("example", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         AutoInstall = true,
 //!         ZoneTag = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         AutoInstall = true,
 //!     });
 //! 
 //! });
@@ -55,8 +55,8 @@
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewWebAnalyticsSite(ctx, "example", &cloudflare.WebAnalyticsSiteArgs{
 //! 			AccountId:   pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			AutoInstall: pulumi.Bool(true),
 //! 			ZoneTag:     pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			AutoInstall: pulumi.Bool(true),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -87,10 +87,10 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new WebAnalyticsSite("example", WebAnalyticsSiteArgs.builder()        
+//!         var example = new WebAnalyticsSite("example", WebAnalyticsSiteArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .autoInstall(true)
 //!             .zoneTag("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .autoInstall(true)
 //!             .build());
 //! 
 //!     }
@@ -103,8 +103,8 @@
 //!     type: cloudflare:WebAnalyticsSite
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
-//!       autoInstall: true
 //!       zoneTag: 0da42c8d2132a9ddaf714f9e7c920711
+//!       autoInstall: true
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

@@ -25,7 +25,7 @@ pub struct GetRulesetsRulesetRule {
     #[builder(into)]
     #[serde(rename = "expression")]
     pub r#expression: Box<String>,
-    /// The ID of the Ruleset to target.
+    /// Unique rule identifier.
     #[builder(into)]
     #[serde(rename = "id")]
     pub r#id: Box<String>,
@@ -45,7 +45,7 @@ pub struct GetRulesetsRulesetRule {
     #[builder(into)]
     #[serde(rename = "ref")]
     pub r#ref: Box<String>,
-    /// Version of the ruleset to filter on.
+    /// Version of the ruleset to deploy.
     #[builder(into)]
     #[serde(rename = "version")]
     pub r#version: Box<String>,

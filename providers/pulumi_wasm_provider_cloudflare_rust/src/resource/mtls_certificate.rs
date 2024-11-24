@@ -10,16 +10,14 @@
 //! 
 //! const example = new cloudflare.MtlsCertificate("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     ca: true,
+//!     name: "example",
 //!     certificates: `-----BEGIN CERTIFICATE-----
 //! MIIDmDCCAoCgAwIBAgIUKTOAZNj...i4JhqeoTewsxndhDDE
-//! -----END CERTIFICATE-----
-//! `,
-//!     name: "example",
+//! -----END CERTIFICATE-----`,
 //!     privateKey: `-----BEGIN PRIVATE KEY-----
 //! MIIEvQIBADANBgkqhkiG9w0BAQE...1IS3EnQRrz6WMYA=
-//! -----END PRIVATE KEY-----
-//! `,
+//! -----END PRIVATE KEY-----`,
+//!     ca: true,
 //! });
 //! ```
 //! ### Python
@@ -29,16 +27,14 @@
 //! 
 //! example = cloudflare.MtlsCertificate("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     ca=True,
+//!     name="example",
 //!     certificates="""-----BEGIN CERTIFICATE-----
 //! MIIDmDCCAoCgAwIBAgIUKTOAZNj...i4JhqeoTewsxndhDDE
-//! -----END CERTIFICATE-----
-//! """,
-//!     name="example",
+//! -----END CERTIFICATE-----""",
 //!     private_key="""-----BEGIN PRIVATE KEY-----
 //! MIIEvQIBADANBgkqhkiG9w0BAQE...1IS3EnQRrz6WMYA=
-//! -----END PRIVATE KEY-----
-//! """)
+//! -----END PRIVATE KEY-----""",
+//!     ca=True)
 //! ```
 //! ### C#
 //! ```csharp
@@ -52,16 +48,14 @@
 //!     var example = new Cloudflare.MtlsCertificate("example", new()
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         Ca = true,
+//!         Name = "example",
 //!         Certificates = @"-----BEGIN CERTIFICATE-----
 //! MIIDmDCCAoCgAwIBAgIUKTOAZNj...i4JhqeoTewsxndhDDE
-//! -----END CERTIFICATE-----
-//! ",
-//!         Name = "example",
+//! -----END CERTIFICATE-----",
 //!         PrivateKey = @"-----BEGIN PRIVATE KEY-----
 //! MIIEvQIBADANBgkqhkiG9w0BAQE...1IS3EnQRrz6WMYA=
-//! -----END PRIVATE KEY-----
-//! ",
+//! -----END PRIVATE KEY-----",
+//!         Ca = true,
 //!     });
 //! 
 //! });
@@ -79,10 +73,10 @@
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewMtlsCertificate(ctx, "example", &cloudflare.MtlsCertificateArgs{
 //! 			AccountId:    pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			Ca:           pulumi.Bool(true),
-//! 			Certificates: pulumi.String("-----BEGIN CERTIFICATE-----\nMIIDmDCCAoCgAwIBAgIUKTOAZNj...i4JhqeoTewsxndhDDE\n-----END CERTIFICATE-----\n"),
 //! 			Name:         pulumi.String("example"),
-//! 			PrivateKey:   pulumi.String("-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQE...1IS3EnQRrz6WMYA=\n-----END PRIVATE KEY-----\n"),
+//! 			Certificates: pulumi.String("-----BEGIN CERTIFICATE-----\nMIIDmDCCAoCgAwIBAgIUKTOAZNj...i4JhqeoTewsxndhDDE\n-----END CERTIFICATE-----"),
+//! 			PrivateKey:   pulumi.String("-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQE...1IS3EnQRrz6WMYA=\n-----END PRIVATE KEY-----"),
+//! 			Ca:           pulumi.Bool(true),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -113,20 +107,18 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new MtlsCertificate("example", MtlsCertificateArgs.builder()        
+//!         var example = new MtlsCertificate("example", MtlsCertificateArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .ca(true)
+//!             .name("example")
 //!             .certificates("""
 //! -----BEGIN CERTIFICATE-----
 //! MIIDmDCCAoCgAwIBAgIUKTOAZNj...i4JhqeoTewsxndhDDE
-//! -----END CERTIFICATE-----
-//!             """)
-//!             .name("example")
+//! -----END CERTIFICATE-----            """)
 //!             .privateKey("""
 //! -----BEGIN PRIVATE KEY-----
 //! MIIEvQIBADANBgkqhkiG9w0BAQE...1IS3EnQRrz6WMYA=
-//! -----END PRIVATE KEY-----
-//!             """)
+//! -----END PRIVATE KEY-----            """)
+//!             .ca(true)
 //!             .build());
 //! 
 //!     }
@@ -139,16 +131,16 @@
 //!     type: cloudflare:MtlsCertificate
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
-//!       ca: true
-//!       certificates: |
+//!       name: example
+//!       certificates: |-
 //!         -----BEGIN CERTIFICATE-----
 //!         MIIDmDCCAoCgAwIBAgIUKTOAZNj...i4JhqeoTewsxndhDDE
 //!         -----END CERTIFICATE-----
-//!       name: example
-//!       privateKey: |
+//!       privateKey: |-
 //!         -----BEGIN PRIVATE KEY-----
 //!         MIIEvQIBADANBgkqhkiG9w0BAQE...1IS3EnQRrz6WMYA=
 //!         -----END PRIVATE KEY-----
+//!       ca: true
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

@@ -9,10 +9,10 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! const example = new cloudflare.HostnameTlsSetting("example", {
+//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //!     hostname: "sub.example.com",
 //!     setting: "min_tls_version",
 //!     value: "1.2",
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //! });
 //! ```
 //! ### Python
@@ -21,10 +21,10 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! example = cloudflare.HostnameTlsSetting("example",
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     hostname="sub.example.com",
 //!     setting="min_tls_version",
-//!     value="1.2",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     value="1.2")
 //! ```
 //! ### C#
 //! ```csharp
@@ -37,10 +37,10 @@
 //! {
 //!     var example = new Cloudflare.HostnameTlsSetting("example", new()
 //!     {
+//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!         Hostname = "sub.example.com",
 //!         Setting = "min_tls_version",
 //!         Value = "1.2",
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
 //! 
 //! });
@@ -57,10 +57,10 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewHostnameTlsSetting(ctx, "example", &cloudflare.HostnameTlsSettingArgs{
+//! 			ZoneId:   pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 			Hostname: pulumi.String("sub.example.com"),
 //! 			Setting:  pulumi.String("min_tls_version"),
 //! 			Value:    pulumi.String("1.2"),
-//! 			ZoneId:   pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -91,11 +91,11 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new HostnameTlsSetting("example", HostnameTlsSettingArgs.builder()        
+//!         var example = new HostnameTlsSetting("example", HostnameTlsSettingArgs.builder()
+//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .hostname("sub.example.com")
 //!             .setting("min_tls_version")
 //!             .value("1.2")
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build());
 //! 
 //!     }
@@ -107,10 +107,10 @@
 //!   example:
 //!     type: cloudflare:HostnameTlsSetting
 //!     properties:
+//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //!       hostname: sub.example.com
 //!       setting: min_tls_version
 //!       value: '1.2'
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

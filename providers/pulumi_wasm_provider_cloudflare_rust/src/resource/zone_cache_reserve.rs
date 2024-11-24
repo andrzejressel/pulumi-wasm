@@ -13,8 +13,8 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! const example = new cloudflare.ZoneCacheReserve("example", {
-//!     enabled: true,
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     enabled: true,
 //! });
 //! ```
 //! ### Python
@@ -23,8 +23,8 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! example = cloudflare.ZoneCacheReserve("example",
-//!     enabled=True,
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
+//!     enabled=True)
 //! ```
 //! ### C#
 //! ```csharp
@@ -37,8 +37,8 @@
 //! {
 //!     var example = new Cloudflare.ZoneCacheReserve("example", new()
 //!     {
-//!         Enabled = true,
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
+//!         Enabled = true,
 //!     });
 //! 
 //! });
@@ -55,8 +55,8 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewZoneCacheReserve(ctx, "example", &cloudflare.ZoneCacheReserveArgs{
-//! 			Enabled: pulumi.Bool(true),
 //! 			ZoneId:  pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
+//! 			Enabled: pulumi.Bool(true),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -87,9 +87,9 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new ZoneCacheReserve("example", ZoneCacheReserveArgs.builder()        
-//!             .enabled(true)
+//!         var example = new ZoneCacheReserve("example", ZoneCacheReserveArgs.builder()
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .enabled(true)
 //!             .build());
 //! 
 //!     }
@@ -101,8 +101,8 @@
 //!   example:
 //!     type: cloudflare:ZoneCacheReserve
 //!     properties:
-//!       enabled: true
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       enabled: true
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

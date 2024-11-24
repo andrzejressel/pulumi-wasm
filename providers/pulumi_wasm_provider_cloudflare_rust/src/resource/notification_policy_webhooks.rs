@@ -11,8 +11,8 @@
 //! const example = new cloudflare.NotificationPolicyWebhooks("example", {
 //!     accountId: "f037e56e89293a057740de681ac9abbe",
 //!     name: "Webhooks destination",
-//!     secret: "my-secret",
 //!     url: "https://example.com",
+//!     secret: "my-secret",
 //! });
 //! ```
 //! ### Python
@@ -23,8 +23,8 @@
 //! example = cloudflare.NotificationPolicyWebhooks("example",
 //!     account_id="f037e56e89293a057740de681ac9abbe",
 //!     name="Webhooks destination",
-//!     secret="my-secret",
-//!     url="https://example.com")
+//!     url="https://example.com",
+//!     secret="my-secret")
 //! ```
 //! ### C#
 //! ```csharp
@@ -39,8 +39,8 @@
 //!     {
 //!         AccountId = "f037e56e89293a057740de681ac9abbe",
 //!         Name = "Webhooks destination",
-//!         Secret = "my-secret",
 //!         Url = "https://example.com",
+//!         Secret = "my-secret",
 //!     });
 //! 
 //! });
@@ -59,8 +59,8 @@
 //! 		_, err := cloudflare.NewNotificationPolicyWebhooks(ctx, "example", &cloudflare.NotificationPolicyWebhooksArgs{
 //! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
 //! 			Name:      pulumi.String("Webhooks destination"),
-//! 			Secret:    pulumi.String("my-secret"),
 //! 			Url:       pulumi.String("https://example.com"),
+//! 			Secret:    pulumi.String("my-secret"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -91,11 +91,11 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new NotificationPolicyWebhooks("example", NotificationPolicyWebhooksArgs.builder()        
+//!         var example = new NotificationPolicyWebhooks("example", NotificationPolicyWebhooksArgs.builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
 //!             .name("Webhooks destination")
-//!             .secret("my-secret")
 //!             .url("https://example.com")
+//!             .secret("my-secret")
 //!             .build());
 //! 
 //!     }
@@ -109,8 +109,8 @@
 //!     properties:
 //!       accountId: f037e56e89293a057740de681ac9abbe
 //!       name: Webhooks destination
-//!       secret: my-secret
 //!       url: https://example.com
+//!       secret: my-secret
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 
@@ -143,7 +143,7 @@ pub struct NotificationPolicyWebhooksResult {
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// Timestamp of when the notification webhook was created.
     pub created_at: pulumi_wasm_rust::Output<String>,
-    /// Timestamp of when the notification webhook last faiuled.
+    /// Timestamp of when the notification webhook last failed.
     pub last_failure: pulumi_wasm_rust::Output<String>,
     /// Timestamp of when the notification webhook was last successful.
     pub last_success: pulumi_wasm_rust::Output<String>,

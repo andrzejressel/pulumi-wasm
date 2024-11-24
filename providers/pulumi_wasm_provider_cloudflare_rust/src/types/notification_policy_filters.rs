@@ -112,6 +112,10 @@ pub struct NotificationPolicyFilters {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "targetHostnames")]
     pub r#target_hostnames: Box<Option<Vec<String>>>,
+    /// Target ip to alert on for dos in CIDR notation.
+    #[builder(into, default = Box::new(None))]
+    #[serde(rename = "targetIps")]
+    pub r#target_ips: Box<Option<Vec<String>>>,
     /// Target domain to alert on.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "targetZoneNames")]
@@ -120,6 +124,10 @@ pub struct NotificationPolicyFilters {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "tunnelIds")]
     pub r#tunnel_ids: Box<Option<Vec<String>>>,
+    /// Tunnel Names to alert on.
+    #[builder(into, default = Box::new(None))]
+    #[serde(rename = "tunnelNames")]
+    pub r#tunnel_names: Box<Option<Vec<String>>>,
     /// Filter for alert.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "wheres")]

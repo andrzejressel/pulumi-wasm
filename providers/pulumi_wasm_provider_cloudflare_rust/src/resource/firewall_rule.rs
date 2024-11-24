@@ -6,10 +6,10 @@
 //! Filter expressions needs to be created first before using Firewall
 //! Rule.
 //! 
-//! > `cloudflare.FirewallRule` is in a deprecation phase that will last for one
-//!   year (May 1st, 2024). During this time period, this resource is still fully
-//!   supported but you are strongly advised  to move to the `cloudflare.Ruleset`
-//!   resource. Full details can be found in the
+//! > `cloudflare.FirewallRule` is in a deprecation phase until January 15th, 2025.
+//!   During this time period, this resource is still
+//!   fully supported but you are strongly advised  to move to the
+//!   `cloudflare.Ruleset` resource. Full details can be found in the
 //!   developer documentation.
 //! 
 //! ## Example Usage
@@ -20,15 +20,15 @@
 //! import * as pulumi from "@pulumi/pulumi";
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
-//! const wordpressFilter = new cloudflare.Filter("wordpressFilter", {
+//! const wordpress = new cloudflare.Filter("wordpress", {
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //!     description: "Wordpress break-in attempts that are outside of the office",
 //!     expression: "(http.request.uri.path ~ \".*wp-login.php\" or http.request.uri.path ~ \".*xmlrpc.php\") and ip.src ne 192.0.2.1",
 //! });
-//! const wordpressFirewallRule = new cloudflare.FirewallRule("wordpressFirewallRule", {
+//! const wordpressFirewallRule = new cloudflare.FirewallRule("wordpress", {
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
 //!     description: "Block wordpress break-in attempts",
-//!     filterId: wordpressFilter.id,
+//!     filterId: wordpress.id,
 //!     action: "block",
 //! });
 //! ```
@@ -37,14 +37,14 @@
 //! import pulumi
 //! import pulumi_cloudflare as cloudflare
 //! 
-//! wordpress_filter = cloudflare.Filter("wordpressFilter",
+//! wordpress = cloudflare.Filter("wordpress",
 //!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     description="Wordpress break-in attempts that are outside of the office",
 //!     expression="(http.request.uri.path ~ \".*wp-login.php\" or http.request.uri.path ~ \".*xmlrpc.php\") and ip.src ne 192.0.2.1")
-//! wordpress_firewall_rule = cloudflare.FirewallRule("wordpressFirewallRule",
+//! wordpress_firewall_rule = cloudflare.FirewallRule("wordpress",
 //!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
 //!     description="Block wordpress break-in attempts",
-//!     filter_id=wordpress_filter.id,
+//!     filter_id=wordpress.id,
 //!     action="block")
 //! ```
 //! ### C#
@@ -56,18 +56,18 @@
 //! 
 //! return await Deployment.RunAsync(() => 
 //! {
-//!     var wordpressFilter = new Cloudflare.Filter("wordpressFilter", new()
+//!     var wordpress = new Cloudflare.Filter("wordpress", new()
 //!     {
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!         Description = "Wordpress break-in attempts that are outside of the office",
 //!         Expression = "(http.request.uri.path ~ \".*wp-login.php\" or http.request.uri.path ~ \".*xmlrpc.php\") and ip.src ne 192.0.2.1",
 //!     });
 //! 
-//!     var wordpressFirewallRule = new Cloudflare.FirewallRule("wordpressFirewallRule", new()
+//!     var wordpressFirewallRule = new Cloudflare.FirewallRule("wordpress", new()
 //!     {
 //!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!         Description = "Block wordpress break-in attempts",
-//!         FilterId = wordpressFilter.Id,
+//!         FilterId = wordpress.Id,
 //!         Action = "block",
 //!     });
 //! 
@@ -84,7 +84,7 @@
 //! 
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		wordpressFilter, err := cloudflare.NewFilter(ctx, "wordpressFilter", &cloudflare.FilterArgs{
+//! 		wordpress, err := cloudflare.NewFilter(ctx, "wordpress", &cloudflare.FilterArgs{
 //! 			ZoneId:      pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 			Description: pulumi.String("Wordpress break-in attempts that are outside of the office"),
 //! 			Expression:  pulumi.String("(http.request.uri.path ~ \".*wp-login.php\" or http.request.uri.path ~ \".*xmlrpc.php\") and ip.src ne 192.0.2.1"),
@@ -92,10 +92,10 @@
 //! 		if err != nil {
 //! 			return err
 //! 		}
-//! 		_, err = cloudflare.NewFirewallRule(ctx, "wordpressFirewallRule", &cloudflare.FirewallRuleArgs{
+//! 		_, err = cloudflare.NewFirewallRule(ctx, "wordpress", &cloudflare.FirewallRuleArgs{
 //! 			ZoneId:      pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 			Description: pulumi.String("Block wordpress break-in attempts"),
-//! 			FilterId:    wordpressFilter.ID(),
+//! 			FilterId:    wordpress.ID(),
 //! 			Action:      pulumi.String("block"),
 //! 		})
 //! 		if err != nil {
@@ -129,16 +129,16 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var wordpressFilter = new Filter("wordpressFilter", FilterArgs.builder()        
+//!         var wordpress = new Filter("wordpress", FilterArgs.builder()
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .description("Wordpress break-in attempts that are outside of the office")
 //!             .expression("(http.request.uri.path ~ \".*wp-login.php\" or http.request.uri.path ~ \".*xmlrpc.php\") and ip.src ne 192.0.2.1")
 //!             .build());
 //! 
-//!         var wordpressFirewallRule = new FirewallRule("wordpressFirewallRule", FirewallRuleArgs.builder()        
+//!         var wordpressFirewallRule = new FirewallRule("wordpressFirewallRule", FirewallRuleArgs.builder()
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .description("Block wordpress break-in attempts")
-//!             .filterId(wordpressFilter.id())
+//!             .filterId(wordpress.id())
 //!             .action("block")
 //!             .build());
 //! 
@@ -148,7 +148,7 @@
 //! ### YAML
 //! ```yaml
 //! resources:
-//!   wordpressFilter:
+//!   wordpress:
 //!     type: cloudflare:Filter
 //!     properties:
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
@@ -156,10 +156,11 @@
 //!       expression: (http.request.uri.path ~ ".*wp-login.php" or http.request.uri.path ~ ".*xmlrpc.php") and ip.src ne 192.0.2.1
 //!   wordpressFirewallRule:
 //!     type: cloudflare:FirewallRule
+//!     name: wordpress
 //!     properties:
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //!       description: Block wordpress break-in attempts
-//!       filterId: ${wordpressFilter.id}
+//!       filterId: ${wordpress.id}
 //!       action: block
 //! ```
 //! <!--End PulumiCodeChooser -->

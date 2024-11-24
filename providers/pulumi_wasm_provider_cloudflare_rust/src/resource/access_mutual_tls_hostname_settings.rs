@@ -9,12 +9,12 @@
 //! import * as cloudflare from "@pulumi/cloudflare";
 //! 
 //! const example = new cloudflare.AccessMutualTlsHostnameSettings("example", {
-//!     settings: [{
-//!         chinaNetwork: false,
-//!         clientCertificateForwarding: true,
-//!         hostname: "example.com",
-//!     }],
 //!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
+//!     settings: [{
+//!         hostname: "example.com",
+//!         clientCertificateForwarding: true,
+//!         chinaNetwork: false,
+//!     }],
 //! });
 //! ```
 //! ### Python
@@ -23,12 +23,12 @@
 //! import pulumi_cloudflare as cloudflare
 //! 
 //! example = cloudflare.AccessMutualTlsHostnameSettings("example",
-//!     settings=[cloudflare.AccessMutualTlsHostnameSettingsSettingArgs(
-//!         china_network=False,
-//!         client_certificate_forwarding=True,
-//!         hostname="example.com",
-//!     )],
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
+//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
+//!     settings=[{
+//!         "hostname": "example.com",
+//!         "client_certificate_forwarding": True,
+//!         "china_network": False,
+//!     }])
 //! ```
 //! ### C#
 //! ```csharp
@@ -41,16 +41,16 @@
 //! {
 //!     var example = new Cloudflare.AccessMutualTlsHostnameSettings("example", new()
 //!     {
+//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!         Settings = new[]
 //!         {
 //!             new Cloudflare.Inputs.AccessMutualTlsHostnameSettingsSettingArgs
 //!             {
-//!                 ChinaNetwork = false,
-//!                 ClientCertificateForwarding = true,
 //!                 Hostname = "example.com",
+//!                 ClientCertificateForwarding = true,
+//!                 ChinaNetwork = false,
 //!             },
 //!         },
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
 //!     });
 //! 
 //! });
@@ -67,14 +67,14 @@
 //! func main() {
 //! 	pulumi.Run(func(ctx *pulumi.Context) error {
 //! 		_, err := cloudflare.NewAccessMutualTlsHostnameSettings(ctx, "example", &cloudflare.AccessMutualTlsHostnameSettingsArgs{
+//! 			ZoneId: pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 			Settings: cloudflare.AccessMutualTlsHostnameSettingsSettingArray{
 //! 				&cloudflare.AccessMutualTlsHostnameSettingsSettingArgs{
-//! 					ChinaNetwork:                pulumi.Bool(false),
-//! 					ClientCertificateForwarding: pulumi.Bool(true),
 //! 					Hostname:                    pulumi.String("example.com"),
+//! 					ClientCertificateForwarding: pulumi.Bool(true),
+//! 					ChinaNetwork:                pulumi.Bool(false),
 //! 				},
 //! 			},
-//! 			ZoneId: pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
 //! 		})
 //! 		if err != nil {
 //! 			return err
@@ -106,13 +106,13 @@
 //!     }
 //! 
 //!     public static void stack(Context ctx) {
-//!         var example = new AccessMutualTlsHostnameSettings("example", AccessMutualTlsHostnameSettingsArgs.builder()        
-//!             .settings(AccessMutualTlsHostnameSettingsSettingArgs.builder()
-//!                 .chinaNetwork(false)
-//!                 .clientCertificateForwarding(true)
-//!                 .hostname("example.com")
-//!                 .build())
+//!         var example = new AccessMutualTlsHostnameSettings("example", AccessMutualTlsHostnameSettingsArgs.builder()
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .settings(AccessMutualTlsHostnameSettingsSettingArgs.builder()
+//!                 .hostname("example.com")
+//!                 .clientCertificateForwarding(true)
+//!                 .chinaNetwork(false)
+//!                 .build())
 //!             .build());
 //! 
 //!     }
@@ -124,11 +124,11 @@
 //!   example:
 //!     type: cloudflare:AccessMutualTlsHostnameSettings
 //!     properties:
-//!       settings:
-//!         - chinaNetwork: false
-//!           clientCertificateForwarding: true
-//!           hostname: example.com
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//!       settings:
+//!         - hostname: example.com
+//!           clientCertificateForwarding: true
+//!           chinaNetwork: false
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

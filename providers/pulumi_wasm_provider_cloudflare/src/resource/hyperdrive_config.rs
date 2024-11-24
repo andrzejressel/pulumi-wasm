@@ -14,12 +14,14 @@ impl hyperdrive_config::Guest for Component {
                 ObjectField { name: "caching".into(), value: args.caching },
                 ObjectField { name: "name".into(), value: args.name },
                 ObjectField { name: "origin".into(), value: args.origin },
+                ObjectField { name: "resourceId".into(), value: args.resource_id },
             ],
             results: vec![
                 ResultField { name: "accountId".into() },
                 ResultField { name: "caching".into() },
                 ResultField { name: "name".into() },
                 ResultField { name: "origin".into() },
+                ResultField { name: "resourceId".into() },
             ],
         };
 
@@ -32,6 +34,7 @@ impl hyperdrive_config::Guest for Component {
             caching: hashmap.remove("caching").unwrap(),
             name: hashmap.remove("name").unwrap(),
             origin: hashmap.remove("origin").unwrap(),
+            resource_id: hashmap.remove("resourceId").unwrap(),
         }
 
     }

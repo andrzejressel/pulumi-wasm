@@ -89,6 +89,9 @@ pub struct ZoneSettingsOverrideInitialSetting {
     #[serde(rename = "mobileRedirect")]
     pub r#mobile_redirect: Box<Option<crate::types::ZoneSettingsOverrideInitialSettingMobileRedirect>>,
     #[builder(into, default = Box::new(None))]
+    #[serde(rename = "nel")]
+    pub r#nel: Box<Option<crate::types::ZoneSettingsOverrideInitialSettingNel>>,
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "opportunisticEncryption")]
     pub r#opportunistic_encryption: Box<Option<String>>,
     #[builder(into, default = Box::new(None))]
@@ -119,6 +122,9 @@ pub struct ZoneSettingsOverrideInitialSetting {
     #[serde(rename = "pseudoIpv4")]
     pub r#pseudo_ipv_4: Box<Option<String>>,
     #[builder(into, default = Box::new(None))]
+    #[serde(rename = "replaceInsecureJs")]
+    pub r#replace_insecure_js: Box<Option<String>>,
+    #[builder(into, default = Box::new(None))]
     #[serde(rename = "responseBuffering")]
     pub r#response_buffering: Box<Option<String>>,
     #[builder(into, default = Box::new(None))]
@@ -136,6 +142,9 @@ pub struct ZoneSettingsOverrideInitialSetting {
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "sortQueryStringForCache")]
     pub r#sort_query_string_for_cache: Box<Option<String>>,
+    #[builder(into, default = Box::new(None))]
+    #[serde(rename = "speedBrain")]
+    pub r#speed_brain: Box<Option<String>>,
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "ssl")]
     pub r#ssl: Box<Option<String>>,
