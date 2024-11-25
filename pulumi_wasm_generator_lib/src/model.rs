@@ -132,6 +132,7 @@ pub(crate) enum Ref {
 
 #[derive(Clone, Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
 pub(crate) struct ElementId {
+    pub(crate) provider: String,
     pub(crate) namespace: Vec<String>,
     pub(crate) name: String,
     pub(crate) raw: String,
@@ -232,13 +233,14 @@ impl ElementId {
             if parts.len() != 2 {
                 return Err(anyhow::anyhow!("Cannot generate element id from [{raw}]"));
             }
-
+            let provider = parts[0].to_string();
             let namespace = match &parts[1] {
                 &"index" => vec![],
                 package => vec![package.to_string()],
             };
 
             Ok(ElementId {
+                provider,
                 namespace,
                 name,
                 raw: raw.to_string(),
@@ -249,13 +251,14 @@ impl ElementId {
                 return Err(anyhow::anyhow!("Cannot generate element id from [{raw}]"));
             }
 
-            let _package = parts[0].to_string();
+            let provider = parts[0].to_string();
             let namespace = match &parts[1] {
                 &"index" => vec![],
                 package => vec![package.to_string()],
             };
             let name = parts[2].to_string();
             Ok(ElementId {
+                provider,
                 namespace,
                 name,
                 raw: raw.to_string(),
@@ -274,6 +277,7 @@ mod tests {
         assert_eq!(
             ElementId::new(id).unwrap(),
             ElementId {
+                provider: "command".to_string(),
                 namespace: vec!["remote".to_string()],
                 name: "Connection".to_string(),
                 raw: id.to_string(),
@@ -287,6 +291,7 @@ mod tests {
         assert_eq!(
             ElementId::new(id).unwrap(),
             ElementId {
+                provider: "random".to_string(),
                 namespace: vec![],
                 name: "RandomBytes".to_string(),
                 raw: id.to_string(),
@@ -300,6 +305,7 @@ mod tests {
         assert_eq!(
             ElementId::new(id).unwrap(),
             ElementId {
+                provider: "docker".to_string(),
                 namespace: vec![],
                 name: "ContainerPort".to_string(),
                 raw: "docker:index/ContainerPort:ContainerPort".to_string(),

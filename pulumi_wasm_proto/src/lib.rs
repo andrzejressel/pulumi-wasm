@@ -7,3 +7,11 @@ pub mod grpc {
     #[cfg(feature = "connectivity")]
     include!(concat!(env!("OUT_DIR"), "/full/pulumirpc.rs"));
 }
+
+pub mod codegen {
+    #[cfg(not(feature = "connectivity"))]
+    include!(concat!(env!("OUT_DIR"), "/mini/codegen.rs"));
+
+    #[cfg(feature = "connectivity")]
+    include!(concat!(env!("OUT_DIR"), "/full/codegen.rs"));
+}

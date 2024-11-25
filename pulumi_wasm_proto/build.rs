@@ -17,6 +17,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 "proto/pulumi/plugin.proto",
                 "proto/pulumi/engine.proto",
                 "proto/pulumi/resource.proto",
+                "proto/pulumi/codegen/pcl.proto"
             ],
             &["proto"],
         )?;
@@ -31,6 +32,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 "proto/pulumi/plugin.proto",
                 "proto/pulumi/engine.proto",
                 "proto/pulumi/resource.proto",
+                "proto/pulumi/codegen/pcl.proto"
             ],
             &["proto"],
         )?;

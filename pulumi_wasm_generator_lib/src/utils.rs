@@ -1,4 +1,5 @@
 use regex::Regex;
+use crate::generate_example;
 
 pub(crate) fn replace_multiple_dashes(s: &str) -> String {
     let re = Regex::new("-+").unwrap();
@@ -76,20 +77,65 @@ pub(crate) fn escape_wit_identifier(s: &str) -> &str {
 }
 
 pub(crate) fn to_lines(s: Option<String>) -> Vec<String> {
-    s.unwrap_or("".to_string())
-        .lines()
-        .flat_map(|line| match line {
+    let binding = s.clone().unwrap_or("".to_string());
+    let lines = binding.lines();
+
+    let mut in_protobuf = false;
+    let mut in_language = false;
+
+    let mut new_lines = Vec::<String>::new();
+
+    for line in lines {
+        if in_language && !line.starts_with("```") {
+            continue
+        }
+        if in_language {
+            in_language = false;
+        }
+
+        if (in_protobuf) {
+            let example = generate_example(line.to_string()).unwrap();
+            new_lines.push("```".to_string());
+            new_lines.extend(example.lines().map(|f| f.to_string()).collect::<Vec<_>>());
+            new_lines.push("```".to_string());
+            in_protobuf = false;
+        }
+
+        let l = match line {
             "{{% examples %}}" | "{{% /examples %}}" | "{{% example %}}" | "{{% /example %}}" => {
                 vec![]
             }
-            "```typescript" => vec!["### Typescript", line],
-            "```python" => vec!["### Python", line],
-            "```go" => vec!["### Go", line],
-            "```java" => vec!["### Java", line],
-            "```yaml" => vec!["### YAML", line],
-            "```csharp" => vec!["### C#", line],
-            l => vec![l],
-        })
-        .map(|s| s.to_string())
-        .collect()
+            "```typescript" |"```python" | "```go" | "```java" | "```yaml" | "```csharp" => {
+                in_language = true;
+                vec![]
+            },
+            "```pcl_protobuf" => {
+                in_protobuf = true;
+                vec![]
+            }
+            l => vec![l.to_string()],
+        };
+
+        new_lines.extend(l);
+
+    }
+
+    new_lines
+
+    // s.unwrap_or("".to_string())
+    //     .lines()
+    //     .flat_map(|line| match line {
+    //         "{{% examples %}}" | "{{% /examples %}}" | "{{% example %}}" | "{{% /example %}}" => {
+    //             vec![]
+    //         }
+    //         "```typescript" => vec!["### Typescript", line],
+    //         "```python" => vec!["### Python", line],
+    //         "```go" => vec!["### Go", line],
+    //         "```java" => vec!["### Java", line],
+    //         "```yaml" => vec!["### YAML", line],
+    //         "```csharp" => vec!["### C#", line],
+    //         l => vec![l],
+    //     })
+    //     .map(|s| s.to_string())
+    //     .collect()
 }
