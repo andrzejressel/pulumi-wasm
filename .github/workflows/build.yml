@@ -24,24 +24,53 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-24.04, windows-2022, macos-14]
 
     env:
       RUST_BACKTRACE: "full"
 
     steps:
+    - name: Cleanup unused stuff
+      if: runner.os == 'Linux'
+      run: |
+        df -h /
+        sudo rm -rf \
+        "$AGENT_TOOLSDIRECTORY" \
+        /opt/google/chrome \
+        /opt/microsoft/msedge \
+        /opt/microsoft/powershell \
+        /opt/pipx \
+        /usr/lib/mono \
+        /usr/local/julia* \
+        /usr/local/lib/android \
+        /usr/local/lib/node_modules \
+        /usr/local/share/chromium \
+        /usr/local/share/powershell \
+        /usr/share/dotnet \
+        /usr/share/swift
+        df -h /
+    - run: git config --system core.longpaths true
+      if: runner.os == 'Windows'
     - uses: actions/checkout@v4
       with:
         submodules: true
-    - uses: Swatinem/rust-cache@v2
+    - uses: extractions/setup-just@v2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - uses: cargo-bins/cargo-binstall@main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Install requirements
+      run: just install-requirements
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Pull required docker images
+      if: runner.os == 'Linux'
+      uses: nick-fields/retry@v3
       with:
-        workspaces: |
-          ./
-          pulumi_wasm_generator_lib/tests/output/pulumi_providers/command/
-          pulumi_wasm_generator_lib/tests/output/pulumi_providers/docker/
-          pulumi_wasm_generator_lib/tests/output/pulumi_providers/random/
-          pulumi_wasm_generator_lib/tests/output/pulumi_tests/cyclic-types/
-          pulumi_wasm_generator_lib/tests/output/pulumi_tests/mini-awsnative/
+        timeout_minutes: 10
+        max_attempts: 10
+        command: docker pull public.ecr.aws/ubuntu/ubuntu:latest
     - uses: actions/setup-go@v5
       with:
         go-version: '^1.22.0'
@@ -57,18 +86,16 @@ jobs:
       if: runner.os == 'macOS'
     - run: pulumi version
     - run: pulumi login --local
-    - uses: extractions/setup-just@v2
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - uses: cargo-bins/cargo-binstall@main
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - uses: Swatinem/rust-cache@v2
+      with:
+        shared-key: build
+        workspaces: |
+          ./
+          pulumi_wasm_generator_lib/tests/output/cyclic-types/
+          pulumi_wasm_generator_lib/tests/output/mini-awsnative/
     - name: Regenerate provider list
       run: just regenerate-provider-list
-    - name: Install requirements
-      run: just install-requirements
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Check
       run: just check
     - name: Build
@@ -79,45 +106,127 @@ jobs:
       run: just test
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        RUST_BACKTRACE: "full"
+    - name: Get code coverage
+      run: just test-coverage
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Upload coverage data to codecov
+      uses: codecov/codecov-action@v5
+      with:
+        files: lcov.info
+        fail_ci_if_error: true
+        token: ${{ secrets.CODECOV_TOKEN }}
+    - name: Upload test results to Codecov
+      if: ${{ !cancelled() }}
+      uses: codecov/test-results-action@v1
+      with:
+        files: target/nextest/ci/junit.xml
+        fail_ci_if_error: true
+        token: ${{ secrets.CODECOV_TOKEN }}
+    - run: git add . && git diff
+    - run: git diff --cached
     - name: Ensure no files have changed
-      run: git diff --exit-code
-    - uses: benjlevesque/short-sha@v3.0
-      id: short-sha
-      with:
-        length: 7
-    - name: Package language plugin
-      if: runner.os == 'Linux'
-      run: just package-language-plugin "0.1.0-${{ steps.short-sha.outputs.sha }}"
+      run: git add . && git diff --quiet && git diff --cached --quiet
+
     - uses: actions/upload-artifact@v4
-      if: runner.os == 'Linux'
       with:
-        name: wasm_artefacts
-        if-no-files-found: error
+        name: "timings_${{ runner.os }}"
         path: |
-          pulumi_wasm_generator_lib/**/pulumi_providers/**/wasm32-wasip1/debug/*_provider.wasm
-          target/wasm32-wasip1/debug/pulumi_wasm.wasm
-          pulumi-language-wasm/*.tar.gz
+          target/cargo-timings/cargo-timing-*.html
+          pulumi_wasm_generator_lib/tests/**/target/cargo-timings/cargo-timing-*.html
+
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: build
     if: success() && github.ref == 'refs/heads/main'
+    env:
+      RUST_BACKTRACE: "full"
     steps:
-    - uses: actions/download-artifact@v4
+    - name: Cleanup unused stuff
+      run: |
+        df -h /
+        sudo rm -rf \
+        "$AGENT_TOOLSDIRECTORY" \
+        /opt/google/chrome \
+        /opt/microsoft/msedge \
+        /opt/microsoft/powershell \
+        /opt/pipx \
+        /usr/lib/mono \
+        /usr/local/julia* \
+        /usr/local/lib/android \
+        /usr/local/lib/node_modules \
+        /usr/local/share/chromium \
+        /usr/local/share/powershell \
+        /usr/share/dotnet \
+        /usr/share/swift
+        df -h /
+    - uses: actions/checkout@v4
       with:
-        name: wasm_artefacts
-        path: artefacts
+        submodules: true
+        token: ${{ secrets.PAT }}
+    - uses: extractions/setup-just@v2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - uses: cargo-bins/cargo-binstall@main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Install requirements
+      run: just install-requirements
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Pull required docker images
+      if: runner.os == 'Linux'
+      uses: nick-fields/retry@v3
+      with:
+        timeout_minutes: 10
+        max_attempts: 10
+        command: docker pull public.ecr.aws/ubuntu/ubuntu:latest
+    - uses: actions/setup-go@v5
+      with:
+        go-version: '^1.22.0'
+        cache-dependency-path: "**/go.sum"
+    - run: go version
+    - name: Install Protoc
+      uses: arduino/setup-protoc@v3
+      with:
+        version: "25.3"
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+    - run: protoc --version
+    - run: brew install pulumi
+      if: runner.os == 'macOS'
+    - run: pulumi version
+    - run: pulumi login --local
+
+    - uses: Swatinem/rust-cache@v2
+      with:
+        shared-key: build
+        save-if: false
+        workspaces: |
+          ./
+          pulumi_wasm_generator_lib/tests/output/cyclic-types/
+          pulumi_wasm_generator_lib/tests/output/mini-awsnative/
+
     - uses: benjlevesque/short-sha@v3.0
       id: short-sha
       with:
         length: 7
-    - name: Release
-      uses: softprops/action-gh-release@v2.0.6
-      with:
-        name: 0.1.0-${{ steps.short-sha.outputs.sha }}
-        tag_name: v0.1.0-${{ steps.short-sha.outputs.sha }}
-        fail_on_unmatched_files: true
-        prerelease: true
-        body: ""
-        files: |
-          artefacts/**/*
+    - name: Replace version
+      run: just update-version "0.0.0-NIGHTLY-${{ steps.short-sha.outputs.sha }}"
+
+    - name: Build
+      run: just build
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Test
+      run: just test
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Create commit
+      run: |
+        git config --local user.name "GitHub Actions"
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git add -A
+        git commit -m "Release v0.0.0-NIGHTLY-${{ steps.short-sha.outputs.sha }}"
+        git tag "v0.0.0-NIGHTLY-${{ steps.short-sha.outputs.sha }}"
+        git push origin "v0.0.0-NIGHTLY-${{ steps.short-sha.outputs.sha }}"

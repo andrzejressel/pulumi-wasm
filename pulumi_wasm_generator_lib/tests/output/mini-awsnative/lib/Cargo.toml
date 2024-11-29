@@ -1,0 +1,11 @@
+[package]
+name = "pulumi_wasm_aws-native"
+version = "0.0.1-0.0.0-DEV"
+edition = "2021"
+
+[dependencies]
+wit-bindgen.workspace = true
+pulumi_wasm_rust.workspace = true
+serde.workspace = true
+pulumi_wasm_wit = { workspace = true, features = ["client"] }
+bon.workspace = true

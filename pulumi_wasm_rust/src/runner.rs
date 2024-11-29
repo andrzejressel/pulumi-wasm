@@ -1,16 +1,16 @@
-use crate::bindings::component::pulumi_wasm::stack_interface::{
-    finish, FunctionInvocationRequest, FunctionInvocationResult,
-};
 use crate::output::HASHMAP;
 use anyhow::{Context, Error, Result};
 use log::{error, info};
+use pulumi_wasm_wit::client_bindings::component::pulumi_wasm::stack_interface::{
+    finish, FunctionInvocationRequest, FunctionInvocationResult,
+};
 
 pub fn run<F>(f: F) -> Result<(), Error>
 where
     F: Fn() -> Result<(), Error>,
 {
     let outer = || {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         f()?;
         run_loop()?;
         Ok(())

@@ -1,42 +1,15 @@
-{{#each package.interfaces}}
-use bindings::exports::pulumi::{{@root.package.name_escaped}}::{{name}};
-{{/each}}
+{{#if package.contains_resources}}
+mod resource;
+{{/if}}
+{{#if package.contains_functions}}
+mod function;
+{{/if}}
 
-{{#if package.interfaces}}
-use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, register, RegisterResourceRequest, ResultField};
+{{#if package.contains_resources_or_functions}}
+#[allow(unused_braces)]
+#[allow(unused_imports)]
 mod bindings;
 bindings::export!(Component with_types_in bindings);
 {{/if}}
 
 struct Component {}
-
-{{#each package.interfaces}}
-impl {{name}}::Guest for Component {
-    fn invoke(name: String, args: {{name}}::Args) -> {{name}}::Res {
-        wasm_common::setup_logger();
-        let request = RegisterResourceRequest {
-            type_: "{{type}}".into(),
-            name,
-            object: vec![
-                {{#each input_properties}}
-                ObjectField { name: "{{name}}".into(), value: args.{{arg_name}} },
-                {{/each}}
-            ],
-            results: vec![
-                {{#each output_properties}}
-                ResultField { name: "{{name}}".into() },
-                {{/each}}
-            ],
-        };
-
-        let o = register(&request);
-
-        {{name}}::Res {
-            {{#each output_properties}}
-            {{arg_name}}: o.fields.iter().find(|o| o.name == "{{name}}").unwrap().output.duplicate(),
-            {{/each}}
-        }
-
-    }
-}
-{{/each}}

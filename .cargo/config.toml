@@ -1,0 +1,5 @@
+[registries.cloudsmith]
+index = "sparse+https://cargo.cloudsmith.io/andrzej-ressel-github/pulumi-wasm/"
+
+[registry]
+default = "cloudsmith"

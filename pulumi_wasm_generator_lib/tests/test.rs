@@ -5,22 +5,6 @@ use pulumi_wasm_generator_lib::{generate_rust_library, generate_wasm_provider};
 use std::fs;
 use std::path::{Path, PathBuf};
 use std::process::Command;
-const REGENERATE_TESTS: bool = false;
-
-#[test]
-fn random() -> Result<()> {
-    run_real_provider_test("random")
-}
-
-#[test]
-fn command() -> Result<()> {
-    run_real_provider_test("command")
-}
-
-#[test]
-fn docker() -> Result<()> {
-    run_real_provider_test("docker")
-}
 
 #[test]
 fn mini_awsnative() -> Result<()> {
@@ -32,9 +16,28 @@ fn cyclic_types() -> Result<()> {
     run_pulumi_generator_test("cyclic-types", "example")
 }
 
+#[test]
+fn functions_secrets() -> Result<()> {
+    run_pulumi_generator_test("functions-secrets", "mypkg")
+}
+
+#[test]
+// https://github.com/andrzejressel/pulumi-wasm/issues/394
+#[ignore]
+fn output_funcs() -> Result<()> {
+    run_pulumi_generator_test("output-funcs", "mypkg")
+}
+
+#[test]
+// https://github.com/andrzejressel/pulumi-wasm/issues/394
+#[ignore]
+fn output_funcs_edgeorder() -> Result<()> {
+    run_pulumi_generator_test("output-funcs-edgeorder", "myedgeorder")
+}
+
 // provider_name is `name` from yaml file
 fn run_pulumi_generator_test(test_name: &str, provider_name: &str) -> Result<()> {
-    let root_path = format!("tests/output/pulumi_tests/{test_name}");
+    let root_path = format!("tests/output/{test_name}");
     let root = Path::new(&root_path);
     let provider_output_path = root.join("provider");
     let output = Path::new(&provider_output_path);
@@ -44,15 +47,10 @@ fn run_pulumi_generator_test(test_name: &str, provider_name: &str) -> Result<()>
 
     fs::copy(schema.clone(), root.join(schema.file_name().unwrap()))?;
 
-    // schema.file_name().unwrap()
-
     generate_wasm_provider(schema.as_path(), output)?;
     generate_rust_library(schema.as_path(), &root.join("lib"))?;
 
-    fs::copy(
-        "tests/input/Cargo.toml",
-        format!("tests/output/pulumi_tests/{test_name}/Cargo.toml"),
-    )?;
+    fs::copy("tests/input/Cargo.toml", root.join("Cargo.toml"))?;
     fs::create_dir_all(root.join("src"))?;
     fs::write(root.join("src/lib.rs"), "")?;
     fs::copy("../rust-toolchain.toml", root.join("rust-toolchain.toml"))?;
@@ -64,6 +62,8 @@ fn run_pulumi_generator_test(test_name: &str, provider_name: &str) -> Result<()>
             "-p",
             format!("pulumi_wasm_{provider_name}_provider").as_str(),
         ])
+        .env_remove("CARGO_LLVM_COV")
+        .env_remove("RUSTFLAGS")
         .current_dir(root)
         .assert()
         .success();
@@ -74,6 +74,8 @@ fn run_pulumi_generator_test(test_name: &str, provider_name: &str) -> Result<()>
             "-p",
             format!("pulumi_wasm_{provider_name}").as_str(),
         ])
+        .env_remove("CARGO_LLVM_COV")
+        .env_remove("RUSTFLAGS")
         .current_dir(root)
         .assert()
         .success();
@@ -108,54 +110,4 @@ fn find_schema_files(name: &str) -> PathBuf {
     }
 
     panic!("No schema file found for provider: {name}");
-}
-
-fn run_real_provider_test(provider_name: &str) -> Result<()> {
-    let root_path = format!("tests/output/pulumi_providers/{provider_name}");
-    let root = Path::new(&root_path);
-    let provider_output_path = root.join("provider");
-    let output = Path::new(&provider_output_path);
-    generate_wasm_provider(
-        Path::new(&format!(
-            "tests/schemas/pulumi-resource-{provider_name}.json"
-        )),
-        output,
-    )?;
-    generate_rust_library(
-        Path::new(&format!(
-            "tests/schemas/pulumi-resource-{provider_name}.json"
-        )),
-        &root.join("lib"),
-    )?;
-
-    fs::copy(
-        "tests/input/Cargo.toml",
-        format!("tests/output/pulumi_providers/{provider_name}/Cargo.toml"),
-    )?;
-    fs::create_dir_all(root.join("src"))?;
-    fs::write(root.join("src/lib.rs"), "")?;
-    fs::copy("../rust-toolchain.toml", root.join("rust-toolchain.toml"))?;
-
-    Command::new("cargo")
-        .args([
-            "component",
-            "build",
-            "-p",
-            format!("pulumi_wasm_{provider_name}_provider").as_str(),
-        ])
-        .current_dir(root)
-        .assert()
-        .success();
-
-    Command::new("cargo")
-        .args([
-            "build",
-            "-p",
-            format!("pulumi_wasm_{provider_name}").as_str(),
-        ])
-        .current_dir(root)
-        .assert()
-        .success();
-
-    Ok(())
 }

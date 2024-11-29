@@ -1,0 +1,102 @@
+package component:pulumi-wasm@0.0.0-DEV;
+
+world pulumi-wasm {
+    export output-interface;
+    export register-interface;
+    export stack-interface;
+    export component:pulumi-wasm-external/pulumi-settings@0.0.0-STABLE-DEV;
+
+    import component:pulumi-wasm-external/log@0.0.0-STABLE-DEV;
+    import component:pulumi-wasm-external/external-world@0.0.0-STABLE-DEV;
+}
+
+world client {
+    import output-interface;
+    import stack-interface;
+    export component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV; // Used by macro
+}
+
+world logger {
+    import component:pulumi-wasm-external/log@0.0.0-STABLE-DEV;
+}
+
+world runner {
+    export component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV;
+    export component:pulumi-wasm-external/pulumi-settings@0.0.0-STABLE-DEV;
+    import component:pulumi-wasm-external/external-world@0.0.0-STABLE-DEV;
+    import component:pulumi-wasm-external/log@0.0.0-STABLE-DEV;
+}
+
+interface output-interface {
+
+    resource output {
+        constructor(value: string);
+        map: func(function-name: string) -> output;
+    }
+    combine: func(outputs: list<borrow<output>>) -> output;
+}
+
+interface stack-interface {
+    use output-interface.{output};
+
+    record function-invocation-request {
+        id: output,
+        function-id: string,
+        value: string,
+    }
+    record function-invocation-result {
+        id: borrow<output>,
+        value: string,
+    }
+    add-export: func(name: string, value: borrow<output>);
+    finish: func(functions: list<function-invocation-result>) -> list<function-invocation-request>;
+}
+
+
+interface register-interface {
+    use output-interface.{output};
+
+    record object-field {
+        name: string,
+        value: borrow<output>
+    }
+
+    record result-field {
+        name: string
+    }
+
+    record register-resource-result-field {
+        name: string,
+        output: output
+    }
+
+    record register-resource-request {
+        %type: string,
+        name: string,
+        object: list<object-field>,
+        results: list<result-field>
+    }
+
+    record register-resource-result {
+        fields: list<register-resource-result-field>
+    }
+
+    register: func(request: register-resource-request) -> register-resource-result;
+
+    record resource-invoke-result-field {
+        name: string,
+        output: output
+    }
+
+    record resource-invoke-request {
+        token: string,
+        object: list<object-field>,
+        results: list<result-field>
+    }
+
+    record resource-invoke-result {
+        fields: list<resource-invoke-result-field>
+    }
+
+    invoke: func(request: resource-invoke-request) -> resource-invoke-result;
+}

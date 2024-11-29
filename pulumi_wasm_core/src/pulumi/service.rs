@@ -1,4 +1,5 @@
 use crate::model::{FieldName, OutputId};
+use crate::nodes::ResourceRequestOperation;
 #[cfg(test)]
 use mockall::automock;
 use serde_json::Value;
@@ -9,17 +10,16 @@ pub trait PulumiService {
     fn is_in_preview(&self) -> bool;
     fn get_root_resource(&self) -> String;
     fn register_outputs(&self, outputs: HashMap<FieldName, Value>);
-    fn register_resource(&self, output_id: OutputId, request: RegisterResourceRequest);
-    fn register_resource_poll(
+    fn perform_resource_operation(&self, output_id: OutputId, request: PerformResourceRequest);
+    fn poll_resource_operations(
         &self,
         register_ids: &HashSet<OutputId>,
     ) -> HashMap<OutputId, RegisterResourceResponse>;
 }
 
 #[derive(Clone, Debug, PartialEq)]
-pub struct RegisterResourceRequest {
-    pub(crate) r#type: String,
-    pub(crate) name: String,
+pub struct PerformResourceRequest {
+    pub(crate) operation: ResourceRequestOperation,
     pub(crate) object: HashMap<FieldName, Option<Value>>,
     pub(crate) expected_results: HashSet<FieldName>,
 }

@@ -1,36 +1,27 @@
-use anyhow::Error;
-use async_trait::async_trait;
-use log::info;
-use prost::Message;
-use wasmtime::component::{Component, Instance, Linker, ResourceTable};
-use wasmtime::Store;
-use wasmtime_wasi::{WasiCtx, WasiCtxBuilder, WasiView};
-
 use crate::grpc::engine_client::EngineClient;
 use crate::grpc::resource_monitor_client::ResourceMonitorClient;
 use crate::grpc::{
     GetRootResourceRequest, RegisterResourceOutputsRequest, RegisterResourceRequest,
     RegisterResourceResponse, SetRootResourceRequest,
 };
-use crate::pulumi::server::component::pulumi_wasm::external_world;
-use crate::pulumi::server::component::pulumi_wasm::external_world::Host;
-use crate::pulumi::server::component::pulumi_wasm::external_world::RegisteredResource;
-use crate::pulumi::server::Main;
+use crate::pulumi::runner::component::pulumi_wasm_external::external_world;
+use crate::pulumi::runner::component::pulumi_wasm_external::external_world::Host;
+use crate::pulumi::runner::component::pulumi_wasm_external::external_world::RegisteredResource;
+use crate::pulumi::runner::Runner;
 use crate::pulumi_state::PulumiState;
+use anyhow::Error;
+use async_trait::async_trait;
+use log::info;
+use prost::Message;
+use pulumi_wasm_proto::grpc::ResourceInvokeRequest;
+use pulumi_wasm_wit::bindings_runner as runner;
+use wasmtime::component::{Component, Linker, ResourceTable};
+use wasmtime::Store;
+use wasmtime_wasi::{WasiCtx, WasiCtxBuilder, WasiView};
 
 pub struct Pulumi {
-    plugin: Main,
-    _instance: Instance,
+    plugin: Runner,
     store: Store<SimplePluginCtx>,
-}
-
-pub(crate) mod server {
-    wasmtime::component::bindgen!({
-        path: "../wits/world.wit",
-        world: "main",
-        async: true,
-        trappable_imports: true,
-    });
 }
 
 struct SimplePluginCtx {
@@ -69,12 +60,27 @@ impl Host for MyState {
 
         info!("registering resource: {:?}", b);
 
-        self.pulumi_state.send_request(request.output_id.into(), b);
+        self.pulumi_state
+            .send_register_resource_request(request.output_id.into(), b);
 
         Ok(())
     }
 
-    async fn wait_for_registered_resources(&mut self) -> wasmtime::Result<Vec<RegisteredResource>> {
+    async fn resource_invoke(
+        &mut self,
+        request: external_world::ResourceInvokeRequest,
+    ) -> wasmtime::Result<()> {
+        let b = ResourceInvokeRequest::decode(&*(request.body)).unwrap();
+
+        info!("registering resource: {:?}", b);
+
+        self.pulumi_state
+            .send_resource_invoke_request(request.output_id.into(), b);
+
+        Ok(())
+    }
+
+    async fn wait_for_resource_operations(&mut self) -> wasmtime::Result<Vec<RegisteredResource>> {
         let mut outputs = Vec::new();
         for (output_id, body) in self.pulumi_state.get_created_resources().await {
             let b = RegisterResourceResponse::decode(&*body).unwrap();
@@ -88,21 +94,31 @@ impl Host for MyState {
 }
 
 #[async_trait]
-impl server::component::pulumi_wasm::log::Host for MyState {
+impl runner::component::pulumi_wasm_external::log::Host for MyState {
     async fn log(
         &mut self,
-        content: server::component::pulumi_wasm::log::Content,
+        content: runner::component::pulumi_wasm_external::log::Content,
     ) -> wasmtime::Result<()> {
         log::logger().log(
             &log::Record::builder()
                 .metadata(
                     log::Metadata::builder()
                         .level(match content.level {
-                            server::component::pulumi_wasm::log::Level::Trace => log::Level::Trace,
-                            server::component::pulumi_wasm::log::Level::Debug => log::Level::Debug,
-                            server::component::pulumi_wasm::log::Level::Info => log::Level::Info,
-                            server::component::pulumi_wasm::log::Level::Error => log::Level::Error,
-                            server::component::pulumi_wasm::log::Level::Warn => log::Level::Warn,
+                            runner::component::pulumi_wasm_external::log::Level::Trace => {
+                                log::Level::Trace
+                            }
+                            runner::component::pulumi_wasm_external::log::Level::Debug => {
+                                log::Level::Debug
+                            }
+                            runner::component::pulumi_wasm_external::log::Level::Info => {
+                                log::Level::Info
+                            }
+                            runner::component::pulumi_wasm_external::log::Level::Error => {
+                                log::Level::Error
+                            }
+                            runner::component::pulumi_wasm_external::log::Level::Warn => {
+                                log::Level::Warn
+                            }
                         })
                         .target(&content.target)
                         .build(),
@@ -205,7 +221,7 @@ impl Pulumi {
         let engine = wasmtime::Engine::new(&engine_config)?;
 
         let mut linker: Linker<SimplePluginCtx> = Linker::new(&engine);
-        Main::add_to_linker(&mut linker, |state: &mut SimplePluginCtx| {
+        Runner::add_to_linker(&mut linker, |state: &mut SimplePluginCtx| {
             &mut state.my_state
         })?;
 
@@ -234,14 +250,13 @@ impl Pulumi {
             },
         );
 
+        info!("Creating WASM component");
         let component = Component::from_binary(&engine, &pulumi_wasm_file)?;
-        let (plugin, instance) = Main::instantiate_async(&mut store, &component, &linker).await?;
+        info!("Instantiating WASM component");
+        let plugin = Runner::instantiate_async(&mut store, &component, &linker).await?;
+        info!("WASM component instantiated");
 
-        Ok(Pulumi {
-            plugin,
-            _instance: instance,
-            store,
-        })
+        Ok(Pulumi { plugin, store })
     }
 
     pub fn compile(pulumi_wasm_file: &str) -> Result<Vec<u8>, Error> {
@@ -254,7 +269,7 @@ impl Pulumi {
         let engine = wasmtime::Engine::new(&engine_config).unwrap();
 
         let mut linker: Linker<SimplePluginCtx> = Linker::new(&engine);
-        Main::add_to_linker(&mut linker, |state: &mut SimplePluginCtx| {
+        Runner::add_to_linker(&mut linker, |state: &mut SimplePluginCtx| {
             &mut state.my_state
         })?;
 
@@ -263,6 +278,13 @@ impl Pulumi {
         let component = Component::from_file(&engine, pulumi_wasm_file)?;
 
         component.serialize()
+    }
+
+    pub async fn set_preview(&mut self, in_preview: bool) -> Result<(), Error> {
+        self.plugin
+            .component_pulumi_wasm_external_pulumi_settings()
+            .call_set_in_preview(&mut self.store, in_preview)
+            .await
     }
 
     pub async fn create_root_stack(&mut self) -> Result<(), Error> {
@@ -296,7 +318,7 @@ impl Pulumi {
 
     pub async fn start(&mut self) -> Result<(), Error> {
         self.plugin
-            .component_pulumi_wasm_pulumi_main()
+            .component_pulumi_wasm_external_pulumi_main()
             .call_main(&mut self.store)
             .await?;
 

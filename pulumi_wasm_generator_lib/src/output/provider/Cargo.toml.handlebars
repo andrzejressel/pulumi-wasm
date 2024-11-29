@@ -1,6 +1,6 @@
 [package]
 name = "pulumi_wasm_{{package.name}}_provider"
-version = "{{package.version}}"
+version = "{{package.version}}-{{package.pulumi_wasm_version}}"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -10,7 +10,7 @@ crate-type = ["cdylib"]
 
 [dependencies]
 wit-bindgen-rt.workspace = true
-wasm_common.workspace = true
+pulumi_wasm_common.workspace = true
 
 [package.metadata.component]
 package = "pulumi:{{package.name}}"

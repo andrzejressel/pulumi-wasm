@@ -1,0 +1,16 @@
+#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug)]
+#[builder(finish_fn = build_struct)]
+pub struct {{type.struct_name}} {
+    {{#each type.fields as |field|}}
+    {{#each field.description_lines}}
+    /// {{&this}}
+    {{/each}}
+    {{#if optional}}
+    #[builder(into, default = Box::new(None))]
+    {{else}}
+    #[builder(into)]
+    {{/if}}
+    #[serde(rename = "{{field.original_name}}")]
+    pub r#{{field.name}}: Box<{{&field.type_}}>,
+    {{/each}}
+}

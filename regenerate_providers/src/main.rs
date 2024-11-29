@@ -17,6 +17,10 @@ fn main() {
             name: "random",
             version: "4.15.0",
         },
+        Provider {
+            name: "cloudflare",
+            version: "5.43.1",
+        },
     ];
 
     for provider in &providers {
@@ -53,9 +57,8 @@ fn update_cargo_toml(providers: &[Provider]) {
             provider.name
         ));
     }
-
-    let start_marker = "# DO NOT EDIT - START";
-    let end_marker = "# DO NOT EDIT - END";
+    let start_marker = "    # DO NOT EDIT - START";
+    let end_marker = "    # DO NOT EDIT - END";
     let new_content = replace_between_markers(&content, start_marker, end_marker, &replacement);
 
     fs::write("Cargo.toml", new_content).expect("Failed to write to Cargo.toml");
@@ -65,6 +68,8 @@ fn update_justfile(providers: &[Provider]) {
     let content = fs::read_to_string("justfile").expect("Failed to read justfile");
     let content = replace_regenerate_providers(providers, &content);
     let content = replace_build_wasm_components(providers, &content);
+    let content = replace_publish_wasm_components(providers, &content);
+    let content = replace_generate_rust_docs(providers, &content);
 
     fs::write("justfile", content).expect("Failed to write to justfile");
 }
@@ -83,16 +88,55 @@ fn replace_regenerate_providers(providers: &[Provider], content: &str) -> String
 
 fn replace_build_wasm_components(providers: &[Provider], content: &str) -> String {
     let mut replacement = String::new();
+    replacement.push_str("build-wasm-providers:\n");
+    replacement.push_str("    cargo component build \\\n");
     for provider in providers {
         replacement.push_str(&format!(
             "      -p pulumi_wasm_{}_provider \\\n",
             provider.name
         ));
     }
+    replacement.push_str("      --timings\n");
+    replacement.push('\n');
+    replacement.push_str("build-wasm-providers-release:\n");
+    replacement.push_str("    cargo component build \\\n");
+    for provider in providers {
+        replacement.push_str(&format!(
+            "      -p pulumi_wasm_{}_provider \\\n",
+            provider.name
+        ));
+    }
+    replacement.push_str("      --timings --release\n");
 
-    let start_marker =
-        "    # DO NOT EDIT - BUILD-WASM-COMPONENTS - START\n    cargo component build \\";
-    let end_marker = "    # DO NOT EDIT - BUILD-WASM-COMPONENTS - END";
+    let start_marker = "# DO NOT EDIT - BUILD-WASM-COMPONENTS - START";
+    let end_marker = "# DO NOT EDIT - BUILD-WASM-COMPONENTS - END";
+    replace_between_markers(content, start_marker, end_marker, &replacement)
+}
+
+fn replace_publish_wasm_components(providers: &[Provider], content: &str) -> String {
+    let mut replacement = String::new();
+    replacement.push_str("publish-providers:\n");
+    for provider in providers {
+        replacement.push_str(&format!(
+            "    cargo publish -p pulumi_wasm_{}\n",
+            provider.name
+        ));
+    }
+    let start_marker = "# DO NOT EDIT - PUBLISH-PROVIDERS - START";
+    let end_marker = "# DO NOT EDIT - PUBLISH-PROVIDERS - END";
+    replace_between_markers(content, start_marker, end_marker, &replacement)
+}
+
+fn replace_generate_rust_docs(providers: &[Provider], content: &str) -> String {
+    let mut replacement = String::new();
+    replacement.push_str("rust-docs:\n");
+    replacement.push_str("    cargo doc --no-deps -p pulumi_wasm_rust");
+    for provider in providers {
+        replacement.push_str(&format!(" -p pulumi_wasm_{}", provider.name));
+    }
+    replacement.push('\n');
+    let start_marker = "# DO NOT EDIT - GENERATE-RUST-DOCS - START";
+    let end_marker = "# DO NOT EDIT - GENERATE-RUST-DOCS - END";
     replace_between_markers(content, start_marker, end_marker, &replacement)
 }
 

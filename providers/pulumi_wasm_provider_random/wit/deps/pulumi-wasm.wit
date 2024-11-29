@@ -1,13 +1,12 @@
-package component:pulumi-wasm@0.1.0;
+package component:pulumi-wasm@0.0.0-DEV;
 
 interface output-interface {
 
     resource output {
         constructor(value: string);
         map: func(function-name: string) -> output;
-        duplicate: func() -> output;
     }
-    combine: func(outputs: list<output>) -> output;
+    combine: func(outputs: list<borrow<output>>) -> output;
 }
 
 
@@ -40,4 +39,21 @@ interface register-interface {
     }
 
     register: func(request: register-resource-request) -> register-resource-result;
+
+    record resource-invoke-result-field {
+        name: string,
+        output: output
+    }
+
+    record resource-invoke-request {
+        token: string,
+        object: list<object-field>,
+        results: list<result-field>
+    }
+
+    record resource-invoke-result {
+        fields: list<resource-invoke-result-field>
+    }
+
+    invoke: func(request: resource-invoke-request) -> resource-invoke-result;
 }

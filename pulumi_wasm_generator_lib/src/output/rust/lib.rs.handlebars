@@ -1,35 +1,37 @@
 use pulumi_wasm_rust::Output;
-{{#if package.interfaces}}
-use crate::bindings::component::pulumi_wasm::output_interface::Output as WitOutput;
+{{#if package.contains_elements}}
+use pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface::Output as WitOutput;
 {{/if}}
-pub mod resource;
-pub mod types;
+{{#if package.contains_resources}}
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
+mod resource;
+pub use resource::*;
+{{/if}}
+{{#if package.contains_functions}}
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
+mod function;
+pub use function::*;
+{{/if}}
+{{#if package.contains_types}}
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
+mod types;
+pub use types::*;
+{{/if}}
 
 mod bindings {
     wit_bindgen::generate!({
         // the name of the world in the `*.wit` input file
         world: "{{package.name}}-pulumi-client",
-{{#if package.interfaces}}
+{{#if package.contains_elements}}
         with: {
-            "component:pulumi-wasm/output-interface@0.1.0": generate
+            "component:pulumi-wasm/output-interface@{{package.pulumi_wasm_version}}": pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface
         }
 {{/if}}
     });
 }
 
-{{#if package.interfaces}}
-fn random_to_domain_mapper<F: serde::Serialize>(random: WitOutput) -> Output<F> {
-    unsafe {
-        let inner = random.take_handle();
-        Output::<F>::new_from_handle(inner)
-    }
-}
-
-fn clone<T>(output: Output<T>) -> WitOutput {
-    unsafe {
-        let inner = output.get_inner();
-        let cloned = inner.duplicate();
-        WitOutput::from_handle(cloned.take_handle())
-    }
+{{#if package.contains_elements}}
+fn into_domain<F: serde::Serialize>(output: WitOutput) -> Output<F> {
+    unsafe { Output::<F>::new_from_handle(output) }
 }
 {{/if}}

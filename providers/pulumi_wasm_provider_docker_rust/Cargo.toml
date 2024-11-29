@@ -1,13 +1,11 @@
 [package]
 name = "pulumi_wasm_docker"
-version = "4.5.3"
+version = "4.5.3-0.0.0-DEV"
 edition = "2021"
 
 [dependencies]
 wit-bindgen.workspace = true
 pulumi_wasm_rust.workspace = true
 serde.workspace = true
-automod.workspace = true
-
-[package.metadata.pulumi]
-related_crate = "pulumi_wasm_docker_provider"
+pulumi_wasm_wit = { workspace = true, features = ["client"] }
+bon.workspace = true

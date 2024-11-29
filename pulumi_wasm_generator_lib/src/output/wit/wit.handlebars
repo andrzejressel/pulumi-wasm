@@ -1,28 +1,36 @@
-package pulumi:{{package.name}}@{{package.version}};
+package pulumi:{{package.name}}@{{package.version}}--{{package.pulumi_wasm_version}};
 
 world {{package.name}}-pulumi {
-    import component:pulumi-wasm/register-interface@0.1.0;
-{{#each package.interfaces}}
+    import component:pulumi-wasm/register-interface@{{package.pulumi_wasm_version}};
+{{#each package.resources}}
+    export {{name}};
+{{/each}}
+{{#each package.functions}}
     export {{name}};
 {{/each}}
 }
 
 world {{package.name}}-pulumi-client {
-{{#each package.interfaces}}
+{{#each package.resources}}
+    import {{name}};
+{{/each}}
+{{#each package.functions}}
     import {{name}};
 {{/each}}
 }
 
-{{#each package.interfaces}}
+{{#each package.resources}}
 interface {{name}} {
 
-    use component:pulumi-wasm/output-interface@0.1.0.{output};
+    use component:pulumi-wasm/output-interface@{{@root.package.pulumi_wasm_version}}.{output};
 
+    {{#if arguments}}
     record args {
         {{#each arguments}}
         {{name}}: borrow<output>,
         {{/each}}
     }
+    {{/if}}
 
     record res {
         {{#each results}}
@@ -30,8 +38,40 @@ interface {{name}} {
         {{/each}}
     }
 
-    invoke: func(name: string, args: args) -> res;
+    invoke: func(
+        name: string,
+{{#if arguments}}
+        args: args
+{{/if}}
+    ) -> res;
 
 }
+{{/each}}
 
+{{#each package.functions}}
+interface {{name}} {
+
+    use component:pulumi-wasm/output-interface@{{@root.package.pulumi_wasm_version}}.{output};
+
+    {{#if arguments}}
+    record args {
+        {{#each arguments}}
+        {{name}}: borrow<output>,
+        {{/each}}
+    }
+    {{/if}}
+
+    record res {
+        {{#each results}}
+        {{name}}: output,
+        {{/each}}
+    }
+
+    invoke: func(
+    {{#if arguments}}
+        args: args
+    {{/if}}
+    ) -> res;
+
+}
 {{/each}}

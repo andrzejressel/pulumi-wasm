@@ -1,0 +1,287 @@
+name: Deploy
+
+on:
+  push:
+    tags:
+      - '*'
+
+env:
+  CARGO_TERM_COLOR: always
+  RUST_BACKTRACE: "full"
+
+permissions:
+  contents: write
+
+jobs:
+
+  deploy_rust_registry:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Cleanup unused stuff
+        run: |
+          df -h /
+          sudo rm -rf \
+          "$AGENT_TOOLSDIRECTORY" \
+          /opt/google/chrome \
+          /opt/microsoft/msedge \
+          /opt/microsoft/powershell \
+          /opt/pipx \
+          /usr/lib/mono \
+          /usr/local/julia* \
+          /usr/local/lib/android \
+          /usr/local/lib/node_modules \
+          /usr/local/share/chromium \
+          /usr/local/share/powershell \
+          /usr/share/dotnet \
+          /usr/share/swift
+          df -h /
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - uses: extractions/setup-just@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install Protoc
+        uses: arduino/setup-protoc@v3
+        with:
+          version: "25.3"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - run: protoc --version
+
+      - name: Publish to registry
+        run: just publish
+        env:
+          CARGO_REGISTRIES_CLOUDSMITH_TOKEN: ${{ secrets.CLOUDSMITH_API_KEY }}
+  
+
+  deploy_wasm_files:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Cleanup unused stuff
+        run: |
+          df -h /
+          sudo rm -rf \
+          "$AGENT_TOOLSDIRECTORY" \
+          /opt/google/chrome \
+          /opt/microsoft/msedge \
+          /opt/microsoft/powershell \
+          /opt/pipx \
+          /usr/lib/mono \
+          /usr/local/julia* \
+          /usr/local/lib/android \
+          /usr/local/lib/node_modules \
+          /usr/local/share/chromium \
+          /usr/local/share/powershell \
+          /usr/share/dotnet \
+          /usr/share/swift
+          df -h /
+      - name: Write release version
+        run: |
+          VERSION=${GITHUB_REF_NAME#v}
+          echo Version: $VERSION
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - uses: extractions/setup-just@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: cargo-bins/cargo-binstall@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install requirements
+        run: just install-requirements
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install Protoc
+        uses: arduino/setup-protoc@v3
+        with:
+          version: "25.3"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - run: protoc --version
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          shared-key: build
+          save-if: false
+          workspaces: |
+            ./
+            pulumi_wasm_generator_lib/tests/output/cyclic-types/
+            pulumi_wasm_generator_lib/tests/output/mini-awsnative/
+
+      - name: Build
+        run: |
+          just build-wasm-components
+          just build-wasm-components-release
+
+          for i in target/wasm32-wasip1/debug/*_provider.wasm; do cp "$i" "${i%.*}-debug.wasm"; done
+          cp target/wasm32-wasip1/debug/pulumi_wasm.wasm target/wasm32-wasip1/debug/pulumi_wasm-debug.wasm
+
+          for i in target/wasm32-wasip1/release/*_provider.wasm; do cp "$i" "${i%.*}-release.wasm"; done
+          cp target/wasm32-wasip1/release/pulumi_wasm.wasm target/wasm32-wasip1/release/pulumi_wasm-release.wasm
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: "timings_rust_wasm_${{ runner.os }}"
+          path: |
+            target/cargo-timings/cargo-timing-*.html
+            pulumi_wasm_generator_lib/tests/**/target/cargo-timings/cargo-timing-*.html
+      - name: Release
+        uses: softprops/action-gh-release@v2.1.0
+        with:
+          name: ${{ env.VERSION }}
+          tag_name: ${{ env.GITHUB_REF_NAME }}
+          fail_on_unmatched_files: true
+          prerelease: true
+          body: ""
+          files: |
+            target/wasm32-wasip1/release/*-release.wasm
+            target/wasm32-wasip1/debug/*-debug.wasm
+
+  deploy_language_plugin:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Write release version
+        run: |
+          VERSION=${GITHUB_REF_NAME#v}
+          echo Version: $VERSION
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - uses: extractions/setup-just@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '^1.22.0'
+          cache-dependency-path: "**/go.sum"
+      - run: go version
+
+      - name: Package language plugin
+        if: runner.os == 'Linux'
+        run: just package-language-plugin "$VERSION"
+
+      - name: Release
+        uses: softprops/action-gh-release@v2.1.0
+        with:
+          name: ${{ env.VERSION }}
+          tag_name: ${{ env.GITHUB_REF_NAME }}
+          fail_on_unmatched_files: true
+          prerelease: true
+          body: ""
+          files: |
+            pulumi-language-wasm/*.tar.gz
+
+  deploy_runner:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - rust-target: x86_64-unknown-linux-gnu
+            os: ubuntu-24.04
+          - rust-target: x86_64-apple-darwin
+            os: macos-14
+          - rust-target: aarch64-apple-darwin
+            os: macos-14
+          - rust-target: x86_64-pc-windows-msvc
+            os: windows-2022
+
+    steps:
+      - name: Cleanup unused stuff
+        if: runner.os == 'Linux'
+        run: |
+          df -h /
+          sudo rm -rf \
+          "$AGENT_TOOLSDIRECTORY" \
+          /opt/google/chrome \
+          /opt/microsoft/msedge \
+          /opt/microsoft/powershell \
+          /opt/pipx \
+          /usr/lib/mono \
+          /usr/local/julia* \
+          /usr/local/lib/android \
+          /usr/local/lib/node_modules \
+          /usr/local/share/chromium \
+          /usr/local/share/powershell \
+          /usr/share/dotnet \
+          /usr/share/swift
+          df -h /
+      - run: git config --system core.longpaths true
+        if: runner.os == 'Windows'
+      - name: Write release version (non-Windows)
+        if: matrix.os != 'windows-2022'
+        run: |
+          VERSION=${GITHUB_REF_NAME#v}
+          echo "Version: $VERSION"
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+      - name: Write release version (Windows)
+        if: matrix.os == 'windows-2022'
+        run: |
+          $VERSION = $env:GITHUB_REF_NAME -replace "^v"
+          echo "Version: $VERSION"
+          echo "VERSION=$VERSION" >> $env:GITHUB_ENV
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - uses: extractions/setup-just@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: cargo-bins/cargo-binstall@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install requirements
+        run: just install-requirements
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install Protoc
+        uses: arduino/setup-protoc@v3
+        with:
+          version: "25.3"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - run: protoc --version
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          shared-key: build
+          save-if: false
+          workspaces: |
+            ./
+            pulumi_wasm_generator_lib/tests/output/cyclic-types/
+            pulumi_wasm_generator_lib/tests/output/mini-awsnative/
+
+      - name: Add target
+        run: rustup target add ${{ matrix.rust-target }}
+      - name: Build runner (Debug)
+        run: cargo build -p pulumi_wasm_runner --target ${{ matrix.rust-target }}
+      - name: Build runner (Release)
+        run: cargo build -p pulumi_wasm_runner --release --target ${{ matrix.rust-target }}
+
+      - run: |
+          cp ./target/${{ matrix.rust-target }}/debug/pulumi_wasm_runner.exe ./target/${{ matrix.rust-target }}/debug/pulumi_wasm_runner-${{ matrix.rust-target }}-debug
+          cp ./target/${{ matrix.rust-target }}/release/pulumi_wasm_runner.exe ./target/${{ matrix.rust-target }}/release/pulumi_wasm_runner-${{ matrix.rust-target }}
+          cp ./target/${{ matrix.rust-target }}/release/pulumi_wasm_runner.exe ./target/${{ matrix.rust-target }}/release/pulumi_wasm_runner-${{ matrix.rust-target }}-release
+        if: matrix.os == 'windows-2022'
+      - run: |
+          cp ./target/${{ matrix.rust-target }}/debug/pulumi_wasm_runner ./target/${{ matrix.rust-target }}/debug/pulumi_wasm_runner-${{ matrix.rust-target }}-debug
+          cp ./target/${{ matrix.rust-target }}/release/pulumi_wasm_runner ./target/${{ matrix.rust-target }}/release/pulumi_wasm_runner-${{ matrix.rust-target }}
+          cp ./target/${{ matrix.rust-target }}/release/pulumi_wasm_runner ./target/${{ matrix.rust-target }}/release/pulumi_wasm_runner-${{ matrix.rust-target }}-release
+        if: matrix.os != 'windows-2022'
+
+      - name: Release
+        uses: softprops/action-gh-release@v2.1.0
+        with:
+          name: ${{ env.VERSION }}
+          tag_name: ${{ env.GITHUB_REF_NAME }}
+          fail_on_unmatched_files: true
+          prerelease: true
+          body: ""
+          files: |
+            ./target/${{ matrix.rust-target }}/debug/pulumi_wasm_runner-${{ matrix.rust-target }}-debug
+            ./target/${{ matrix.rust-target }}/release/pulumi_wasm_runner-${{ matrix.rust-target }}
+            ./target/${{ matrix.rust-target }}/release/pulumi_wasm_runner-${{ matrix.rust-target }}-release

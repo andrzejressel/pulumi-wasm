@@ -1,0 +1,10 @@
+package pulumi:aws-native@0.0.1--0.0.0-DEV;
+
+world aws-native-pulumi {
+    import component:pulumi-wasm/register-interface@0.0.0-DEV;
+}
+
+world aws-native-pulumi-client {
+}
+
+

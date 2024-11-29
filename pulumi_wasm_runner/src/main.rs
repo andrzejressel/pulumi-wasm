@@ -1,25 +1,21 @@
 use crate::pulumi::Pulumi;
-use anyhow::Error;
+use anyhow::{Context, Error};
 use clap::{arg, Args, Parser, Subcommand};
 use log::LevelFilter;
 use log4rs::append::file::FileAppender;
 use log4rs::config::{Appender, Root};
 use log4rs::encode::json::JsonEncoder;
 use log4rs::Config;
+use pulumi_wasm_proto::grpc;
+use pulumi_wasm_runner_component_creator::source::{
+    GithubPulumiWasmSource, ProviderSource, PulumiWasmSource,
+};
+use std::collections::BTreeMap;
+use std::fs;
 use std::path::PathBuf;
-
-mod create_final_component;
 mod model;
 mod pulumi;
 mod pulumi_state;
-
-mod grpc {
-    #![allow(clippy::all)]
-    #![allow(clippy::pedantic)]
-    // https://github.com/hyperium/tonic/issues/1783
-    include!(concat!(env!("OUT_DIR"), concat!("/", "pulumirpc", ".rs")));
-    // tonic::include_proto!("pulumirpc");
-}
 
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]
@@ -31,10 +27,20 @@ struct App {
 #[derive(Debug, Subcommand)]
 enum Command {
     Run {
-        #[arg(long = "provider")]
-        providers: Vec<PathBuf>,
+        #[arg(
+            long="provider",
+            value_parser = parse_key_val::<String, PathBuf>,
+            help="Example: --provider provider_name=provider.wasm --provider provider2_name=provider2.wasm "
+        )]
+        providers: Vec<(String, PathBuf)>,
         #[arg(long)]
-        pulumi_wasm: PathBuf,
+        pulumi_wasm: Option<PathBuf>,
+        #[clap(
+            long,
+            action,
+            help = "When set to true, WASM components with debug symbols will be used. Should be only used for debugging - it will massively increase execution time"
+        )]
+        debug: bool,
         program: PathBuf,
     },
 }
@@ -46,6 +52,22 @@ struct GlobalOpts {
 
     #[arg(short, long)]
     cwasm: Option<String>,
+}
+
+/// Parse a single key-value pair
+fn parse_key_val<T, U>(
+    s: &str,
+) -> Result<(T, U), Box<dyn std::error::Error + Send + Sync + 'static>>
+where
+    T: std::str::FromStr,
+    T::Err: std::error::Error + Send + Sync + 'static,
+    U: std::str::FromStr,
+    U::Err: std::error::Error + Send + Sync + 'static,
+{
+    let pos = s
+        .find('=')
+        .ok_or_else(|| format!("invalid KEY=value: no `=` found in `{s}`"))?;
+    Ok((s[..pos].parse()?, s[pos + 1..].parse()?))
 }
 
 #[tokio::main]
@@ -67,15 +89,47 @@ async fn main() -> Result<(), Error> {
         Command::Run {
             providers,
             pulumi_wasm,
+            debug,
             program,
         } => {
-            let component = create_final_component::create(providers, pulumi_wasm, program);
+            use pulumi_wasm_runner_component_creator::source::FileSource;
+            let providers: BTreeMap<_, _> = providers
+                .iter()
+                .map(|(k, v)| {
+                    (
+                        k.clone(),
+                        Box::new(FileSource::new(v.clone())) as Box<dyn ProviderSource>,
+                    )
+                })
+                .collect();
+            log::info!("Debug set to {debug}");
+            log::info!("Creating final component");
+            let pulumi_wasm_source: Box<dyn PulumiWasmSource> = match pulumi_wasm {
+                None => Box::new(GithubPulumiWasmSource {}),
+                Some(location) => Box::new(FileSource::new(location.clone())),
+            };
+
+            let component = pulumi_wasm_runner_component_creator::create(
+                providers,
+                &GithubPulumiWasmSource {},
+                pulumi_wasm_source.as_ref(),
+                fs::read(program)
+                    .context(format!("Cannot read program {}", program.to_str().unwrap()))?,
+                *debug,
+            )
+            .await?;
+            log::info!("Created final component");
             let wasm = component;
 
             let pulumi_engine_url = std::env::var("PULUMI_ENGINE")?;
             let pulumi_monitor_url = std::env::var("PULUMI_MONITOR")?;
             let pulumi_stack = std::env::var("PULUMI_STACK")?;
             let pulumi_project = std::env::var("PULUMI_PROJECT")?;
+            let pulumi_preview = match std::env::var("PULUMI_DRY_RUN") {
+                Ok(preview) if preview == "true" => true,
+                Ok(preview) if preview == "false" => false,
+                _ => false,
+            };
 
             let mut pulumi = Pulumi::create(
                 wasm,
@@ -85,7 +139,10 @@ async fn main() -> Result<(), Error> {
                 pulumi_project,
             )
             .await?;
+            pulumi.set_preview(pulumi_preview).await?;
+            log::info!("Creating root stack");
             pulumi.create_root_stack().await?;
+            log::info!("Created root stack. Invoking main");
             pulumi.start().await?;
         }
     }

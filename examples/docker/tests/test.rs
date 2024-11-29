@@ -59,8 +59,22 @@ fn test_integration() -> Result<(), anyhow::Error> {
         .as_str()
         .ok_or(anyhow!("[image_id] is not a string"))?;
 
+    let labels = stack
+        .pointer("/labels")
+        .ok_or(anyhow!("Cannot find [labels] in stack export"))?
+        .as_str()
+        .ok_or(anyhow!("[labels] is not a string"))?;
+
+    let remote_image_id = stack
+        .pointer("/remote_image_id")
+        .ok_or(anyhow!("Cannot find [remote_image_id] in stack export"))?
+        .as_str()
+        .ok_or(anyhow!("[remote_image_id] is not a string"))?;
+
     assert!(logs.contains("Hello World!"));
     assert!(!image_id.is_empty());
+    assert!(labels.contains("value_1"));
+    assert!(remote_image_id.starts_with("public.ecr.aws/ubuntu/ubuntu@sha256:"));
 
     Ok(())
 }

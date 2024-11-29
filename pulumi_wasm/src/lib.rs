@@ -8,7 +8,7 @@ use pulumi_wasm_core::{Engine, OutputId};
 use crate::bindings::exports::component::pulumi_wasm::output_interface::{GuestOutput, Output};
 use crate::bindings::exports::component::pulumi_wasm::register_interface::{
     ObjectField, RegisterResourceRequest, RegisterResourceResult, RegisterResourceResultField,
-    ResultField,
+    ResourceInvokeRequest, ResourceInvokeResult, ResourceInvokeResultField, ResultField,
 };
 use crate::bindings::exports::component::pulumi_wasm::stack_interface::{
     FunctionInvocationRequest, FunctionInvocationResult, OutputBorrow,
@@ -16,21 +16,16 @@ use crate::bindings::exports::component::pulumi_wasm::stack_interface::{
 use crate::bindings::exports::component::pulumi_wasm::{
     output_interface, register_interface, stack_interface,
 };
+use crate::bindings::exports::component::pulumi_wasm_external::pulumi_settings;
+use std::sync::atomic::{AtomicBool, Ordering};
 
 bindings::export!(Component with_types_in bindings);
 
 #[allow(clippy::all)]
-#[allow(dead_code)]
-#[allow(unused_variables)]
-#[allow(unused_unsafe)]
+#[allow(unused_braces)]
+#[rustfmt::skip]
 mod bindings;
-mod grpc {
-    #![allow(clippy::all)]
-    #![allow(clippy::pedantic)]
-    // https://github.com/hyperium/tonic/issues/1783
-    include!(concat!(env!("OUT_DIR"), concat!("/", "pulumirpc", ".rs")));
-    // tonic::include_proto!("pulumirpc");
-}
+
 mod globals;
 mod pulumi_connector_impl;
 
@@ -47,7 +42,7 @@ struct Component;
 
 impl stack_interface::Guest for Component {
     fn add_export(name: String, value: OutputBorrow<'_>) {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let refcell: &RefCell<Engine> = &get_pulumi_engine();
         refcell
             .borrow_mut()
@@ -55,7 +50,7 @@ impl stack_interface::Guest for Component {
     }
 
     fn finish(functions: Vec<FunctionInvocationResult>) -> Vec<FunctionInvocationRequest> {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
 
         let refcell: &RefCell<Engine> = &get_pulumi_engine();
 
@@ -81,19 +76,22 @@ impl stack_interface::Guest for Component {
                 }
             })
             .collect()
+    }
+}
 
-        // vec![]
+static GLOBAL_BOOL: AtomicBool = AtomicBool::new(false);
 
-        // true
-        // finalizer::finish()
+impl pulumi_settings::Guest for Component {
+    fn set_in_preview(in_preview: bool) {
+        GLOBAL_BOOL.store(in_preview, Ordering::SeqCst);
     }
 }
 
 impl output_interface::Guest for Component {
     type Output = CustomOutputId;
 
-    fn combine(outputs: Vec<Output>) -> Output {
-        wasm_common::setup_logger();
+    fn combine(outputs: Vec<OutputBorrow>) -> Output {
+        pulumi_wasm_common::setup_logger();
         let refcell: &RefCell<Engine> = &get_pulumi_engine();
         let output_id = refcell.borrow_mut().create_combine_outputs(
             outputs
@@ -107,7 +105,7 @@ impl output_interface::Guest for Component {
 
 impl register_interface::Guest for Component {
     fn register(request: RegisterResourceRequest<'_>) -> RegisterResourceResult {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let refcell: &RefCell<Engine> = &get_pulumi_engine();
 
         let outputs = request
@@ -129,6 +127,7 @@ impl register_interface::Guest for Component {
             request.name.to_string(),
             object,
             outputs,
+            GLOBAL_BOOL.load(Ordering::SeqCst),
         );
 
         RegisterResourceResult {
@@ -141,11 +140,47 @@ impl register_interface::Guest for Component {
                 .collect(),
         }
     }
+
+    fn invoke(request: ResourceInvokeRequest<'_>) -> ResourceInvokeResult {
+        pulumi_wasm_common::setup_logger();
+        let refcell: &RefCell<Engine> = &get_pulumi_engine();
+
+        let outputs = request
+            .results
+            .iter()
+            .map(|ResultField { name }| name.clone().into())
+            .collect::<HashSet<_>>();
+
+        let object = request
+            .object
+            .iter()
+            .map(|ObjectField { name, value }| {
+                (name.clone().into(), value.get::<CustomOutputId>().0)
+            })
+            .collect::<HashMap<_, _>>();
+
+        let (_, field_outputs) = refcell.borrow_mut().create_resource_invoke_node(
+            request.token,
+            object,
+            outputs,
+            GLOBAL_BOOL.load(Ordering::SeqCst),
+        );
+
+        ResourceInvokeResult {
+            fields: field_outputs
+                .iter()
+                .map(|(field_name, output_id)| ResourceInvokeResultField {
+                    name: field_name.as_string().clone(),
+                    output: Output::new(CustomOutputId(*output_id)),
+                })
+                .collect(),
+        }
+    }
 }
 
 impl GuestOutput for CustomOutputId {
     fn new(value: String) -> CustomOutputId {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let value = serde_json::from_str(&value).unwrap();
         let refcell: &RefCell<Engine> = &get_pulumi_engine();
         let output_id = refcell.borrow_mut().create_done_node(value);
@@ -153,16 +188,11 @@ impl GuestOutput for CustomOutputId {
     }
 
     fn map(&self, function_name: String) -> Output {
-        wasm_common::setup_logger();
+        pulumi_wasm_common::setup_logger();
         let refcell: &RefCell<Engine> = &get_pulumi_engine();
         let output_id = refcell
             .borrow_mut()
             .create_native_function_node(function_name.into(), self.0);
         Output::new::<CustomOutputId>(output_id.into())
-    }
-
-    fn duplicate(&self) -> Output {
-        wasm_common::setup_logger();
-        Output::new::<CustomOutputId>(self.0.into())
     }
 }

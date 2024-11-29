@@ -4,6 +4,35 @@ theme:
     scheme: slate
   name: material
   search: true
+  features:
+    - navigation.sections
+
+nav:
+  - index.md
+  - crates.md
+  - rustdoc: "/pulumi-wasm/rust-docs/pulumi_wasm_rust/index.html"
+  - Internal:
+      - Internal/Output.md
+      - Internal/Serialization formats.md
+      - Internal/WIT.md
+      - Internal/Supporting new language.md
+
+
+extra:
+  analytics:
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_TOKEN
+  consent:
+    title: Cookie consent
+    description: >- 
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+
+copyright: >
+  Copyright &copy; 2024 - 2024 Pulumi WASM project –
+  <a href="#__consent">Change cookie settings</a>
 
 markdown_extensions:
   - pymdownx.superfences:
@@ -11,3 +40,4 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.snippets
