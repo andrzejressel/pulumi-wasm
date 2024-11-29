@@ -15,11 +15,9 @@ prettyplease.workspace = true
 
 [dependencies]
 uuid.workspace = true
-bitflags.workspace = true
 anyhow.workspace = true
 serde.workspace = true
 serde_json.workspace = true
-futures.workspace = true
 log.workspace = true
 pulumi_wasm_rust_macro.workspace = true
 pulumi_wasm_common.workspace = true
