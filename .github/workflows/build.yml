@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "main" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "draft-releases" ]
 
 env:
   CARGO_TERM_COLOR: always
@@ -138,7 +138,7 @@ jobs:
   deploy:
     runs-on: ubuntu-24.04
     needs: build
-    if: success() && github.ref == 'refs/heads/main'
+    if: success() && github.ref == 'refs/heads/draft-releases'
     env:
       RUST_BACKTRACE: "full"
     steps:

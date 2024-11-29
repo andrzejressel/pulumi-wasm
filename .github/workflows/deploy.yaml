@@ -136,7 +136,7 @@ jobs:
           name: ${{ env.VERSION }}
           tag_name: ${{ env.GITHUB_REF_NAME }}
           fail_on_unmatched_files: true
-          prerelease: true
+          draft: true
           body: ""
           files: |
             target/wasm32-wasip1/release/*-release.wasm
@@ -173,7 +173,7 @@ jobs:
           name: ${{ env.VERSION }}
           tag_name: ${{ env.GITHUB_REF_NAME }}
           fail_on_unmatched_files: true
-          prerelease: true
+          draft: true
           body: ""
           files: |
             pulumi-language-wasm/*.tar.gz
@@ -279,7 +279,7 @@ jobs:
           name: ${{ env.VERSION }}
           tag_name: ${{ env.GITHUB_REF_NAME }}
           fail_on_unmatched_files: true
-          prerelease: true
+          draft: true
           body: ""
           files: |
             ./target/${{ matrix.rust-target }}/debug/pulumi_wasm_runner-${{ matrix.rust-target }}-debug
