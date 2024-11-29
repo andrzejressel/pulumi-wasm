@@ -7,26 +7,17 @@ repository.workspace = true
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-tonic-web.workspace = true
 prost.workspace = true
-prost-types.workspace = true
 tonic = { workspace = true, default-features = true }
 log.workspace = true
-uuid.workspace = true
 wasmtime.workspace = true
 wasmtime-wasi.workspace = true
 anyhow.workspace = true
-serde.workspace = true
-serde_json.workspace = true
 futures.workspace = true
 async-trait.workspace = true
-regex.workspace = true
 tokio.workspace = true
 log4rs.workspace = true
 clap.workspace = true
-wac-graph.workspace = true
 pulumi_wasm_proto = { workspace = true, features = ["connectivity"] }
 pulumi_wasm_wit = { workspace = true, features = ["runner"] }
-directories.workspace = true
-reqwest.workspace = true
 pulumi_wasm_runner_component_creator.workspace = true
