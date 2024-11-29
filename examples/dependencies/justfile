@@ -1,8 +1,9 @@
 set windows-shell := ["pwsh.exe", "-c"]
 binary := "../../target/release/pulumi_wasm_runner"
-wasm := "../../target/wasm32-wasip1/release/pulumi_wasm_example_dependencies.wasm"
-pulumi_wasm := "../../target/wasm32-wasip1/release/pulumi_wasm.wasm"
-random := "../../target/wasm32-wasip1/release/pulumi_wasm_random_provider.wasm"
+wasm := "../../target/wasm32-wasip2/release/pulumi_wasm_example_dependencies.wasm"
+pulumi_wasm := "../../target/wasm32-wasip2/release/pulumi_wasm.wasm"
+random := "../../target/wasm32-wasip2/release/pulumi_wasm_random_provider.wasm"
+TARGET_NAME := "wasm32-wasip2"
 
 run:
     {{binary}} run --pulumi-wasm "{{pulumi_wasm}}" --provider "random={{random}}" "{{wasm}}"
@@ -15,9 +16,9 @@ local-test:
     $PSNativeCommandUseErrorActionPreference = $true
 
     cargo build -p pulumi_wasm_runner --release
-    cargo component build -p pulumi_wasm --release
-    cargo component build -p pulumi_wasm_example_dependencies --release
-    cargo component build -p pulumi_wasm_random_provider --release
+    cargo build -p pulumi_wasm --release --target={{TARGET_NAME}}
+    cargo build -p pulumi_wasm_example_dependencies --release --target={{TARGET_NAME}}
+    cargo build -p pulumi_wasm_random_provider --release --target={{TARGET_NAME}}
     $env:PULUMI_CONFIG_PASSPHRASE=" "
     pulumi destroy -y
     pulumi up -y

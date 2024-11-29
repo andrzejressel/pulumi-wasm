@@ -1,9 +1,13 @@
 mod resource;
 mod function;
 
-#[allow(unused_braces)]
-#[allow(unused_imports)]
-mod bindings;
+mod bindings {
+    wit_bindgen::generate!({
+    // the name of the world in the `*.wit` input file
+        world: "docker-pulumi",
+        generate_all,
+    });
+}
 bindings::export!(Component with_types_in bindings);
 
 struct Component {}

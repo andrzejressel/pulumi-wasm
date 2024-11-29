@@ -1,12 +1,12 @@
 set windows-shell := ["pwsh.exe", "-c"]
 # renovate: datasource=crate depName=cargo-nextest packageName=cargo-nextest
 NEXTEST_VERSION := "0.9.72"
-# renovate: datasource=crate depName=cargo-component packageName=cargo-component
-CARGO_COMPONENT_VERSION := "0.19.0"
 # renovate: datasource=crate depName=sd packageName=sd
 SD_VERSION := "1.0.0"
 # renovate: datasource=crate depName=cargo-llvm-cov packageName=cargo-llvm-cov
 CARGO_LLVM_COV_VERSION := "0.6.13"
+
+TARGET_NAME := "wasm32-wasip2"
 
 FORMATTABLE_PROJECTS := "-p pulumi_wasm -p pulumi_wasm_common -p pulumi_wasm_generator -p pulumi_wasm_generator_lib \
 -p pulumi_wasm_runner -p pulumi_wasm_runner_component_creator -p pulumi_wasm_rust -p pulumi_wasm_rust_macro \
@@ -19,7 +19,6 @@ build: build-language-plugin regenerate-providers install-requirements build-was
 
 # https://stackoverflow.com/questions/74524817/why-is-anyhow-not-working-in-the-stable-version
 fix-issues:
-    cargo component check --workspace
     cargo check --workspace
 
 build-language-plugin:
@@ -32,39 +31,36 @@ install-requirements:
     rustup component add rustfmt
     rustup component add llvm-tools-preview
     cargo binstall --no-confirm cargo-nextest@{{NEXTEST_VERSION}}
-    cargo binstall --no-confirm cargo-component@{{CARGO_COMPONENT_VERSION}}
     cargo binstall --no-confirm sd@{{SD_VERSION}}
     cargo binstall --no-confirm cargo-llvm-cov@{{CARGO_LLVM_COV_VERSION}}
 
 # Compiling everything together causes linking issues
 build-wasm-components:
-    cargo component build -p pulumi_wasm --timings
-    cargo component build -p pulumi_wasm_example_simple --timings
-    cargo component build -p pulumi_wasm_example_docker --timings
-    cargo component build -p pulumi_wasm_example_dependencies --timings
-    cargo component build -p pulumi_wasm_example_multiple_providers --timings
+    cargo build -p pulumi_wasm --target={{TARGET_NAME}}
+    cargo build -p pulumi_wasm_example_simple --target={{TARGET_NAME}}
+    cargo build -p pulumi_wasm_example_docker --target={{TARGET_NAME}}
+    cargo build -p pulumi_wasm_example_dependencies --target={{TARGET_NAME}}
+    cargo build -p pulumi_wasm_example_multiple_providers --target={{TARGET_NAME}}
     just build-wasm-providers
     cargo build -p pulumi_wasm_runner --timings
 
 build-all-wasm-projects-release:
     just build-wasm-components-release
     cargo build -p pulumi_wasm_runner --release
-    cargo component build -p pulumi_wasm_example_simple --release
-    cargo component build -p pulumi_wasm_example_docker --release
-    cargo component build -p pulumi_wasm_example_dependencies --release
-    cargo component build -p pulumi_wasm_example_multiple_providers --release
+    cargo build -p pulumi_wasm_example_simple --release --target={{TARGET_NAME}}
+    cargo build -p pulumi_wasm_example_docker --release --target={{TARGET_NAME}}
+    cargo build -p pulumi_wasm_example_dependencies --release --target={{TARGET_NAME}}
+    cargo build -p pulumi_wasm_example_multiple_providers --release --target={{TARGET_NAME}}
 
 build-wasm-components-release:
-    cargo component build -p pulumi_wasm --timings --release
+    cargo build -p pulumi_wasm --timings --release --target={{TARGET_NAME}}
     just build-wasm-providers-release
 
 # DO NOT EDIT - BUILD-WASM-COMPONENTS - START
 build-wasm-providers:
-    cargo component build \
-      -p pulumi_wasm_docker_provider \
-      -p pulumi_wasm_random_provider \
-      -p pulumi_wasm_cloudflare_provider \
-      --timings
+    cargo build --target={{TARGET_NAME}} -p pulumi_wasm_docker_provider
+    cargo build --target={{TARGET_NAME}} -p pulumi_wasm_random_provider
+    cargo build --target={{TARGET_NAME}} -p pulumi_wasm_cloudflare_provider
 
 build-wasm-providers-release:
     cargo component build \
