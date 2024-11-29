@@ -1,8 +1,9 @@
+use std::collections::HashMap;
 use crate::model::ElementId;
 use anyhow::Result;
 use base64::prelude::*;
 use prost::Message;
-use pulumi_wasm_proto::codegen::literal_value_expression;
+use pulumi_wasm_proto::codegen::{literal_value_expression, ObjectConsExpression};
 use pulumi_wasm_proto::codegen::node::Value;
 use pulumi_wasm_proto::codegen::{
     expression, traverser, ScopeTraversalExpression, Traversal, Traverser,
@@ -111,7 +112,7 @@ fn generate_expression(expression: &Option<Expression>) -> String {
                     Some(v) => match v {
                         literal_value_expression::Value::UnknownValue(_) => todo!("Unknown value"),
                         literal_value_expression::Value::StringValue(s) => {
-                            format!("\"{}\"", s)
+                            format!("{}", s)
                         }
                         literal_value_expression::Value::NumberValue(n) => n.to_string(),
                         literal_value_expression::Value::BoolValue(b) => match b {
@@ -120,13 +121,16 @@ fn generate_expression(expression: &Option<Expression>) -> String {
                         },
                     },
                 },
-                expression::Value::TemplateExpression(_) => todo!("Template expression"),
+                expression::Value::TemplateExpression(t) => {
+                    println!("{:?}", t);
+                    t.parts.iter().map(|p| generate_expression(&Some(p.clone()))).collect::<Vec<_>>().join("")
+                },
                 expression::Value::IndexExpression(i) => format!(
                     "{}[{}]",
                     generate_expression_box(&i.as_ref().collection),
                     generate_expression_box(&i.key)
                 ),
-                expression::Value::ObjectConsExpression(_) => todo!("Object cons expression"),
+                expression::Value::ObjectConsExpression(oce) => generate_cons_expression(oce),
                 expression::Value::TupleConsExpression(t) => t
                     .items
                     .iter()
@@ -149,6 +153,19 @@ fn generate_expression(expression: &Option<Expression>) -> String {
             },
         },
     }
+}
+
+fn generate_cons_expression(oce: &ObjectConsExpression) -> String {
+    let mut str = String::new();
+    str.push_str("HashMap::from([");
+
+    for (key, value) in oce.properties.iter() {
+        str.push_str(&format!("(\"{}\", {})", key, generate_expression(&Some(value.clone()))));
+    }
+
+    str.push_str("])");
+
+    str
 }
 
 fn generate_scope_traversal_expression(ste: &ScopeTraversalExpression) -> String {
