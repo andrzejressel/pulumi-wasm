@@ -4,7 +4,7 @@ pub(crate) mod yaml_model;
 #[cfg(test)]
 pub(crate) mod tests {
     use crate::yaml::yaml_model::YamlFile;
-    use std::collections::{BTreeMap, HashMap};
+    use std::collections::BTreeMap;
     pub(crate) mod example_access_organization {
 
         use super::*;
@@ -134,7 +134,7 @@ resources:
 
         pub fn get_yaml_file() -> YamlFile {
             use crate::yaml::yaml_model::{YamlExpression, YamlFile, YamlResource};
-            use std::collections::{BTreeMap, HashMap};
+            use std::collections::BTreeMap;
 
             YamlFile {
                 resources: {
@@ -214,7 +214,7 @@ resources:
         use crate::model::ElementId;
         use crate::yaml::model::{Example, Expression};
         use crate::yaml::tests::reformat_code;
-        use std::collections::{BTreeMap, HashMap};
+        use std::collections::BTreeMap;
 
         pub const YAML: &str = r#"
 resources:

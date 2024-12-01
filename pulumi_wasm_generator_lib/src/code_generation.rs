@@ -6,7 +6,6 @@ use anyhow::{anyhow, Context, Result};
 use convert_case::Case;
 use convert_case::Casing;
 use std::collections::BTreeMap;
-use std::fmt::format;
 use std::panic;
 
 pub fn generate_code_from_string(yaml: String, package: &crate::model::Package) -> Result<String> {
@@ -27,14 +26,14 @@ fn test_main() -> Result<(), Error> {
     "
     .trim()
     .to_string();
-    result.push_str("\n");
+    result.push('\n');
 
     for (name, resource) in example.resources {
         result.push_str(generate_resource(name, resource).as_str());
         result.push('\n');
     }
 
-    result.push_str("}");
+    result.push('}');
 
     let syntax_tree = syn::parse_file(result.as_str())
         .context(format!("Failed to parse generated Rust code:\n{}", result))?;
@@ -129,7 +128,7 @@ fn generate_expression(expr: Expression) -> String {
                 str.push_str(format!("{},", generate_expression(value)).as_str());
             }
 
-            str.push_str("]");
+            str.push(']');
             str
         }
     }

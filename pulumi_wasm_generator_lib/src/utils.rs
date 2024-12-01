@@ -1,6 +1,5 @@
 use crate::code_generation::generate_code_from_string;
 use regex::Regex;
-use std::panic;
 
 pub(crate) fn replace_multiple_dashes(s: &str) -> String {
     let re = Regex::new("-+").unwrap();
@@ -88,7 +87,7 @@ pub(crate) fn to_lines(s: Option<String>, package: &crate::model::Package) -> Ve
     let mut new_lines = Vec::<String>::new();
 
     for line in lines {
-        if (in_yaml && line.trim() == "```") {
+        if in_yaml && line.trim() == "```" {
             let yaml_str = yaml_lines.join("\n");
             let example = generate_code_from_string(yaml_str, package);
 
@@ -113,7 +112,7 @@ pub(crate) fn to_lines(s: Option<String>, package: &crate::model::Package) -> Ve
                     new_lines.push("```".to_string());
                 }
             }
-        } else if (in_yaml) {
+        } else if in_yaml {
             yaml_lines.push(line.to_string());
             continue;
         }

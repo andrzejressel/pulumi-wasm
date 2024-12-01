@@ -1,7 +1,6 @@
 use crate::model::{ElementId, GlobalType, Package, Ref, Type};
 use crate::yaml::yaml_model::{YamlExpression, YamlFile, YamlResource};
 use std::collections::{BTreeMap, HashMap};
-use std::hash::Hash;
 
 struct PackageContext<'a> {
     package: &'a Package,
@@ -27,7 +26,7 @@ pub(crate) fn yaml_to_model(
     }
 
     let context = PackageContext {
-        package: &package,
+        package,
         resource_name_map,
     };
 
@@ -105,7 +104,7 @@ fn map_array(
     let mut expressions = Vec::new();
 
     for expression in yaml_expressions {
-        expressions.push(map_expression(context, &type_without_option, expression));
+        expressions.push(map_expression(context, type_without_option, expression));
     }
 
     Expression::Array(expressions)
@@ -128,8 +127,8 @@ fn remove_option(type_: &Type) -> TypeWithoutOption {
         Type::Integer => TypeWithoutOption::Integer,
         Type::Number => TypeWithoutOption::Number,
         Type::String => TypeWithoutOption::String,
-        Type::Array(a) => TypeWithoutOption::Array(Box::new(remove_option(a).into())),
-        Type::Object(o) => TypeWithoutOption::Object(Box::new(remove_option(o).into())),
+        Type::Array(a) => TypeWithoutOption::Array(Box::new(remove_option(a))),
+        Type::Object(o) => TypeWithoutOption::Object(Box::new(remove_option(o))),
         Type::Ref(r) => TypeWithoutOption::Ref(r.clone()),
         Type::Option(o) => remove_option(o),
     }
@@ -153,9 +152,7 @@ fn map_expression(
         (TypeWithoutOption::String, YamlExpression::String(value)) => {
             Expression::String(value.clone())
         }
-        (TypeWithoutOption::Boolean, YamlExpression::Boolean(value)) => {
-            Expression::Boolean(value.clone())
-        }
+        (TypeWithoutOption::Boolean, YamlExpression::Boolean(value)) => Expression::Boolean(*value),
         (TypeWithoutOption::Array(arr), YamlExpression::Array(expression)) => {
             map_array(package_context, arr, expression)
         }
