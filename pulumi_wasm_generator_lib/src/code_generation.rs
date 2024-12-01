@@ -1,17 +1,17 @@
 use crate::model::ElementId;
+use crate::utils::escape_rust_name;
 use crate::yaml::model::{yaml_to_model, Example, Expression, Resource};
 use crate::yaml::yaml_model::YamlFile;
+use anyhow::{anyhow, Context, Result};
+use convert_case::Case;
+use convert_case::Casing;
 use std::collections::BTreeMap;
 use std::fmt::format;
 use std::panic;
-use anyhow::{anyhow, Context, Result};
-use convert_case::Case;
-use crate::utils::escape_rust_name;
-use convert_case::Casing;
 
 pub fn generate_code_from_string(yaml: String, package: &crate::model::Package) -> Result<String> {
-    let yaml_file = YamlFile::from_yaml(yaml.as_str())
-        .context(format!("Failed to parse YAML: {}", yaml))?;
+    let yaml_file =
+        YamlFile::from_yaml(yaml.as_str()).context(format!("Failed to parse YAML: {}", yaml))?;
     let example = panic::catch_unwind(|| yaml_to_model(yaml_file, package.name.clone(), package))
         .map_err(|_| anyhow!("Failed to convert YAML to model"))
         .context(format!("Failed to convert YAML {} to model", yaml))?;

@@ -105,7 +105,9 @@ pub(crate) fn to_lines(s: Option<String>, package: &crate::model::Package) -> Ve
                 }
                 Err(err) => {
                     eprintln!("ERROR: {}", err);
-                    err.chain().skip(1).for_each(|cause| eprintln!("because: {}", cause));
+                    err.chain()
+                        .skip(1)
+                        .for_each(|cause| eprintln!("because: {}", cause));
                     new_lines.push("```yaml".to_string());
                     new_lines.extend(yaml_lines.clone());
                     new_lines.push("```".to_string());
