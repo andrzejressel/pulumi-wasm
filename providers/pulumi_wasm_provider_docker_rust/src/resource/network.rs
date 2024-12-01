@@ -23,27 +23,28 @@
 //! 
 //! Assuming you created a `network` as follows
 //! 
-//! #!/bin/bash
-//! 
+//! ```sh
 //! docker network create foo
+//! ````
 //! 
 //! prints the long ID
 //! 
+//! ```text
 //! 87b57a9b91ecab2db2a6dbf38df74c67d7c7108cbe479d6576574ec2cd8c2d73
+//! ```
 //! 
 //! you provide the definition for the resource as follows
 //! 
-//! terraform
-//! 
-//! resource "docker_network" "foo" {
-//! 
-//!   name = "foo"
-//! 
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let foo = network::create("foo", NetworkArgs::builder().name("foo").build_struct());
 //! }
+//! ```
 //! 
 //! then the import command is as follows
-//! 
-//! #!/bin/bash
 //! 
 //! ```sh
 //! $ pulumi import docker:index/network:Network foo 87b57a9b91ecab2db2a6dbf38df74c67d7c7108cbe479d6576574ec2cd8c2d73

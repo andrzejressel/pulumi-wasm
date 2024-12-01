@@ -1,5 +1,10 @@
 use crate::code_generation::generate_code_from_string;
+use crate::model::ElementId;
 use regex::Regex;
+use std::cell::LazyCell;
+use std::collections::HashMap;
+use std::fs;
+use std::sync::LazyLock;
 
 pub(crate) fn replace_multiple_dashes(s: &str) -> String {
     let re = Regex::new("-+").unwrap();
@@ -76,8 +81,15 @@ pub(crate) fn escape_wit_identifier(s: &str) -> &str {
     }
 }
 
-pub(crate) fn to_lines(s: Option<String>, package: &crate::model::Package) -> Vec<String> {
-    let binding = s.clone().unwrap_or("".to_string());
+pub(crate) fn to_lines(
+    s: Option<String>,
+    package: &crate::model::Package,
+    element_id: Option<ElementId>,
+) -> Vec<String> {
+    let binding = s
+        .clone()
+        .map(|s| fix_pulumi_docker_docs(s, element_id))
+        .unwrap_or("".to_string());
     let lines = binding.lines();
 
     let mut in_yaml = false;
@@ -148,6 +160,10 @@ pub(crate) fn to_lines(s: Option<String>, package: &crate::model::Package) -> Ve
                 in_shell = true;
                 vec!["```sh".to_string()]
             }
+            "```text" => {
+                in_shell = true;
+                vec!["```text".to_string()]
+            }
             _ => vec![line.to_string()],
         };
 
@@ -155,4 +171,68 @@ pub(crate) fn to_lines(s: Option<String>, package: &crate::model::Package) -> Ve
     }
 
     new_lines
+}
+
+const DOCKER_SERVICE_REPLACEMENTS: LazyCell<HashMap<ElementId, Vec<(&str, &str)>>> =
+    LazyCell::new(|| {
+        HashMap::from([
+            (
+                ElementId::new("docker:index/service:Service").unwrap(),
+                vec![(
+                    include_str!("dockerfixes/service/1_original.md"),
+                    include_str!("dockerfixes/service/1_fixed.md"),
+                )],
+            ),
+            (
+                ElementId::new("docker:index/getPlugin:getPlugin").unwrap(),
+                vec![(
+                    include_str!("dockerfixes/getPlugin/1_original.md"),
+                    include_str!("dockerfixes/getPlugin/1_fixed.md"),
+                )],
+            ),
+            (
+                ElementId::new("docker:index/network:Network").unwrap(),
+                vec![(
+                    include_str!("dockerfixes/network/1_original.md"),
+                    include_str!("dockerfixes/network/1_fixed.md"),
+                )],
+            ),
+            (
+                ElementId::new("docker:index/secret:Secret").unwrap(),
+                vec![(
+                    include_str!("dockerfixes/secret/1_original.md"),
+                    include_str!("dockerfixes/secret/1_fixed.md"),
+                )],
+            ),
+            (
+                ElementId::new("docker:index/serviceConfig:ServiceConfig").unwrap(),
+                vec![(
+                    include_str!("dockerfixes/serviceConfig/1_original.md"),
+                    include_str!("dockerfixes/serviceConfig/1_fixed.md"),
+                )],
+            ),
+            (
+                ElementId::new("docker:index/container:Container").unwrap(),
+                vec![(
+                    include_str!("dockerfixes/container/1_original.md"),
+                    include_str!("dockerfixes/container/1_fixed.md"),
+                )],
+            ),
+        ])
+    });
+
+fn fix_pulumi_docker_docs(s: String, element_id: Option<ElementId>) -> String {
+    if let Some(id) = element_id {
+        if let Some(replacements) = DOCKER_SERVICE_REPLACEMENTS.get(&id) {
+            for (origin, fixed) in replacements {
+                if s.contains(origin) {
+                    return fixed.to_string();
+                }
+            }
+            fs::write("error.md", s).unwrap();
+            panic!("ElementId {:?} does not have valid replacement. Original markdown was saved to error.md", id);
+        }
+    }
+
+    s
 }
