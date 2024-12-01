@@ -616,6 +616,87 @@ resources:
         }
     }
 
+    pub(crate) mod example_numbers {
+        use super::*;
+        use crate::model::ElementId;
+        use crate::yaml::model::{Example, Expression, Resource};
+        use crate::yaml::yaml_model::YamlExpression;
+
+        pub const YAML: &str = r#"
+        resources:
+          example:
+            type: cloudflare:KeylessCertificate
+            properties:
+              port: 24008
+"#;
+
+        pub fn get_yaml_file() -> super::YamlFile {
+            use crate::yaml::yaml_model::{YamlFile, YamlResource};
+
+            YamlFile {
+                resources: {
+                    let mut resources = BTreeMap::new();
+                    resources.insert(
+                        "example".to_string(),
+                        YamlResource {
+                            type_: "cloudflare:KeylessCertificate".to_string(),
+                            name: None,
+                            properties: {
+                                let mut properties = BTreeMap::new();
+                                properties
+                                    .insert("port".to_string(), YamlExpression::Number(24008f64));
+                                properties
+                            },
+                        },
+                    );
+                    resources
+                },
+            }
+        }
+
+        pub fn get_model() -> Example {
+            Example {
+                resources: {
+                    let mut map = BTreeMap::new();
+                    map.insert(
+                        "example".to_string(),
+                        Resource {
+                            type_: ElementId::new(
+                                "cloudflare:index/keylessCertificate:KeylessCertificate",
+                            )
+                            .unwrap(),
+                            // type_: "cloudflare:AccessMutualTlsCertificate".to_string(),
+                            name: None,
+                            properties: {
+                                let mut props = BTreeMap::new();
+                                props.insert("port".to_string(), Expression::Integer(24008));
+                                props
+                            },
+                        },
+                    );
+                    map
+                },
+            }
+        }
+
+        pub fn get_rust_code() -> String {
+            reformat_code(
+                r#"
+            use pulumi_wasm_rust::Output;
+            use pulumi_wasm_rust::{add_export, pulumi_main};
+            #[pulumi_main]
+            fn test_main() -> Result<(), Error> {
+                let myCert = access_mutual_tls_certificate::create(
+                    "myCert",
+                    AccessMutualTlsCertificateArgs::builder()
+                        .build_struct(),
+                );
+            }
+            "#,
+            )
+        }
+    }
+
     fn reformat_code(code: &str) -> String {
         let syntax_tree = syn::parse_file(code).unwrap();
         prettyplease::unparse(&syntax_tree)

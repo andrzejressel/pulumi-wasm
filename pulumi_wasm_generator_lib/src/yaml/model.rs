@@ -160,8 +160,10 @@ fn map_expression(
         (TypeWithoutOption::Ref(r), YamlExpression::Object(properties)) => {
             map_type(package_context, r, properties)
         }
-        (TypeWithoutOption::Integer, YamlExpression::Number(f)) => Expression::Integer(f.round() as i64),
-        // (TypeWithoutOption::Number, YamlExpression::Number(f)) => Expression::Number(*f),
+        (TypeWithoutOption::Integer, YamlExpression::Number(f)) => {
+            Expression::Integer(f.round() as i64)
+        }
+        (TypeWithoutOption::Number, YamlExpression::Number(f)) => Expression::Number(*f),
         (a, b) => panic!("Invalid type combination: {:?} with {:?}", a, b),
     }
 }
@@ -209,7 +211,9 @@ fn map_type(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::yaml::tests::{access_rule, example_access_organization, example_array};
+    use crate::yaml::tests::{
+        access_rule, example_access_organization, example_array, example_numbers,
+    };
     use crate::{extract_schema_from_file, schema};
 
     #[test]
@@ -244,5 +248,17 @@ mod tests {
         let result = yaml_to_model(yaml_file, "cloudflare".to_string(), &package);
 
         assert_eq!(result, example_array::get_model());
+    }
+
+    #[test]
+    fn test_example_numbers() {
+        let schema_package: schema::Package =
+            extract_schema_from_file("test_cases/cloudflare.json".as_ref()).unwrap();
+        let package = schema::to_model(&schema_package).unwrap();
+        let yaml_file = example_numbers::get_yaml_file();
+
+        let result = yaml_to_model(yaml_file, "cloudflare".to_string(), &package);
+
+        assert_eq!(result, example_numbers::get_model());
     }
 }
