@@ -15,6 +15,3 @@ tonic = { workspace = true, default-features = true, optional = true }
 
 [build-dependencies]
 tonic-build.workspace = true
-
-[dev-dependencies]
-mockall.workspace = true

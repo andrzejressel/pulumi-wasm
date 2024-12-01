@@ -3,125 +3,25 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const example = new cloudflare.AccountMember("example", {
-//!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     emailAddress: "user@example.com",
-//!     roleIds: [
-//!         "68b329da9893e34099c7d8ad5cb9c940",
-//!         "d784fa8b6d98d27699781bd9a7cf19f0",
-//!     ],
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! example = cloudflare.AccountMember("example",
-//!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     email_address="user@example.com",
-//!     role_ids=[
-//!         "68b329da9893e34099c7d8ad5cb9c940",
-//!         "d784fa8b6d98d27699781bd9a7cf19f0",
-//!     ])
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var example = new Cloudflare.AccountMember("example", new()
-//!     {
-//!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         EmailAddress = "user@example.com",
-//!         RoleIds = new[]
-//!         {
-//!             "68b329da9893e34099c7d8ad5cb9c940",
-//!             "d784fa8b6d98d27699781bd9a7cf19f0",
-//!         },
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewAccountMember(ctx, "example", &cloudflare.AccountMemberArgs{
-//! 			AccountId:    pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			EmailAddress: pulumi.String("user@example.com"),
-//! 			RoleIds: pulumi.StringArray{
-//! 				pulumi.String("68b329da9893e34099c7d8ad5cb9c940"),
-//! 				pulumi.String("d784fa8b6d98d27699781bd9a7cf19f0"),
-//! 			},
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = account_member::create(
+//!         "example",
+//!         AccountMemberArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .email_address("user@example.com")
+//!             .role_ids(
+//!                 vec![
+//!                     "68b329da9893e34099c7d8ad5cb9c940",
+//!                     "d784fa8b6d98d27699781bd9a7cf19f0",
+//!                 ],
+//!             )
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.AccountMember;
-//! import com.pulumi.cloudflare.AccountMemberArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var example = new AccountMember("example", AccountMemberArgs.builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .emailAddress("user@example.com")
-//!             .roleIds(            
-//!                 "68b329da9893e34099c7d8ad5cb9c940",
-//!                 "d784fa8b6d98d27699781bd9a7cf19f0")
-//!             .build());
-//! 
-//!     }
-//! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:AccountMember
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       emailAddress: user@example.com
-//!       roleIds:
-//!         - 68b329da9893e34099c7d8ad5cb9c940
-//!         - d784fa8b6d98d27699781bd9a7cf19f0
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

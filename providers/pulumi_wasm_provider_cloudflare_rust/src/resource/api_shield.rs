@@ -3,126 +3,24 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const example = new cloudflare.ApiShield("example", {
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
-//!     authIdCharacteristics: [{
-//!         name: "my-example-header",
-//!         type: "header",
-//!     }],
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! example = cloudflare.ApiShield("example",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
-//!     auth_id_characteristics=[{
-//!         "name": "my-example-header",
-//!         "type": "header",
-//!     }])
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var example = new Cloudflare.ApiShield("example", new()
-//!     {
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
-//!         AuthIdCharacteristics = new[]
-//!         {
-//!             new Cloudflare.Inputs.ApiShieldAuthIdCharacteristicArgs
-//!             {
-//!                 Name = "my-example-header",
-//!                 Type = "header",
-//!             },
-//!         },
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewApiShield(ctx, "example", &cloudflare.ApiShieldArgs{
-//! 			ZoneId: pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
-//! 			AuthIdCharacteristics: cloudflare.ApiShieldAuthIdCharacteristicArray{
-//! 				&cloudflare.ApiShieldAuthIdCharacteristicArgs{
-//! 					Name: pulumi.String("my-example-header"),
-//! 					Type: pulumi.String("header"),
-//! 				},
-//! 			},
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = api_shield::create(
+//!         "example",
+//!         ApiShieldArgs::builder()
+//!             .auth_id_characteristics(
+//!                 vec![
+//!                     ApiShieldAuthIdCharacteristic::builder().name("my-example-header").
+//!                     type ("header").build_struct(),
+//!                 ],
+//!             )
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.ApiShield;
-//! import com.pulumi.cloudflare.ApiShieldArgs;
-//! import com.pulumi.cloudflare.inputs.ApiShieldAuthIdCharacteristicArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var example = new ApiShield("example", ApiShieldArgs.builder()
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
-//!             .authIdCharacteristics(ApiShieldAuthIdCharacteristicArgs.builder()
-//!                 .name("my-example-header")
-//!                 .type("header")
-//!                 .build())
-//!             .build());
-//! 
-//!     }
-//! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:ApiShield
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       authIdCharacteristics:
-//!         - name: my-example-header
-//!           type: header
 //! ```
 //! <!--End PulumiCodeChooser -->
 

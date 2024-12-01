@@ -3,188 +3,31 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const example = new cloudflare.WebAnalyticsSite("example", {
-//!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     zoneTag: "0da42c8d2132a9ddaf714f9e7c920711",
-//!     autoInstall: true,
-//! });
-//! const exampleWebAnalyticsRule = new cloudflare.WebAnalyticsRule("example", {
-//!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     rulesetId: example.rulesetId,
-//!     host: "*",
-//!     paths: ["/excluded"],
-//!     inclusive: false,
-//!     isPaused: false,
-//! }, {
-//!     dependsOn: [example],
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! example = cloudflare.WebAnalyticsSite("example",
-//!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     zone_tag="0da42c8d2132a9ddaf714f9e7c920711",
-//!     auto_install=True)
-//! example_web_analytics_rule = cloudflare.WebAnalyticsRule("example",
-//!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     ruleset_id=example.ruleset_id,
-//!     host="*",
-//!     paths=["/excluded"],
-//!     inclusive=False,
-//!     is_paused=False,
-//!     opts = pulumi.ResourceOptions(depends_on=[example]))
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var example = new Cloudflare.WebAnalyticsSite("example", new()
-//!     {
-//!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         ZoneTag = "0da42c8d2132a9ddaf714f9e7c920711",
-//!         AutoInstall = true,
-//!     });
-//! 
-//!     var exampleWebAnalyticsRule = new Cloudflare.WebAnalyticsRule("example", new()
-//!     {
-//!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         RulesetId = example.RulesetId,
-//!         Host = "*",
-//!         Paths = new[]
-//!         {
-//!             "/excluded",
-//!         },
-//!         Inclusive = false,
-//!         IsPaused = false,
-//!     }, new CustomResourceOptions
-//!     {
-//!         DependsOn =
-//!         {
-//!             example,
-//!         },
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		example, err := cloudflare.NewWebAnalyticsSite(ctx, "example", &cloudflare.WebAnalyticsSiteArgs{
-//! 			AccountId:   pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			ZoneTag:     pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
-//! 			AutoInstall: pulumi.Bool(true),
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		_, err = cloudflare.NewWebAnalyticsRule(ctx, "example", &cloudflare.WebAnalyticsRuleArgs{
-//! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			RulesetId: example.RulesetId,
-//! 			Host:      pulumi.String("*"),
-//! 			Paths: pulumi.StringArray{
-//! 				pulumi.String("/excluded"),
-//! 			},
-//! 			Inclusive: pulumi.Bool(false),
-//! 			IsPaused:  pulumi.Bool(false),
-//! 		}, pulumi.DependsOn([]pulumi.Resource{
-//! 			example,
-//! 		}))
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.WebAnalyticsSite;
-//! import com.pulumi.cloudflare.WebAnalyticsSiteArgs;
-//! import com.pulumi.cloudflare.WebAnalyticsRule;
-//! import com.pulumi.cloudflare.WebAnalyticsRuleArgs;
-//! import com.pulumi.resources.CustomResourceOptions;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var example = new WebAnalyticsSite("example", WebAnalyticsSiteArgs.builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .zoneTag("0da42c8d2132a9ddaf714f9e7c920711")
-//!             .autoInstall(true)
-//!             .build());
-//! 
-//!         var exampleWebAnalyticsRule = new WebAnalyticsRule("exampleWebAnalyticsRule", WebAnalyticsRuleArgs.builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .rulesetId(example.rulesetId())
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = web_analytics_site::create(
+//!         "example",
+//!         WebAnalyticsSiteArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .auto_install(true)
+//!             .zone_tag("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
+//!     let exampleWebAnalyticsRule = web_analytics_rule::create(
+//!         "exampleWebAnalyticsRule",
+//!         WebAnalyticsRuleArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
 //!             .host("*")
-//!             .paths("/excluded")
 //!             .inclusive(false)
-//!             .isPaused(false)
-//!             .build(), CustomResourceOptions.builder()
-//!                 .dependsOn(example)
-//!                 .build());
-//! 
-//!     }
+//!             .is_paused(false)
+//!             .paths(vec!["/excluded",])
+//!             .ruleset_id("${example.rulesetId}")
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:WebAnalyticsSite
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       zoneTag: 0da42c8d2132a9ddaf714f9e7c920711
-//!       autoInstall: true
-//!   exampleWebAnalyticsRule:
-//!     type: cloudflare:WebAnalyticsRule
-//!     name: example
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       rulesetId: ${example.rulesetId}
-//!       host: '*'
-//!       paths:
-//!         - /excluded
-//!       inclusive: false
-//!       isPaused: false
-//!     options:
-//!       dependson:
-//!         - ${example}
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

@@ -3,114 +3,21 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const example = new cloudflare.WorkerDomain("example", {
-//!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     hostname: "subdomain.example.com",
-//!     service: "my-service",
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! example = cloudflare.WorkerDomain("example",
-//!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     hostname="subdomain.example.com",
-//!     service="my-service",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711")
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var example = new Cloudflare.WorkerDomain("example", new()
-//!     {
-//!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         Hostname = "subdomain.example.com",
-//!         Service = "my-service",
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewWorkerDomain(ctx, "example", &cloudflare.WorkerDomainArgs{
-//! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			Hostname:  pulumi.String("subdomain.example.com"),
-//! 			Service:   pulumi.String("my-service"),
-//! 			ZoneId:    pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.WorkerDomain;
-//! import com.pulumi.cloudflare.WorkerDomainArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var example = new WorkerDomain("example", WorkerDomainArgs.builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = worker_domain::create(
+//!         "example",
+//!         WorkerDomainArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
 //!             .hostname("subdomain.example.com")
 //!             .service("my-service")
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
-//!             .build());
-//! 
-//!     }
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:WorkerDomain
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       hostname: subdomain.example.com
-//!       service: my-service
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

@@ -4,160 +4,28 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const example = new cloudflare.ZeroTrustDnsLocation("example", {
-//!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     name: "office",
-//!     clientDefault: true,
-//!     ecsSupport: false,
-//!     networks: [
-//!         {
-//!             network: "203.0.113.1/32",
-//!         },
-//!         {
-//!             network: "203.0.113.2/32",
-//!         },
-//!     ],
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! example = cloudflare.ZeroTrustDnsLocation("example",
-//!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     name="office",
-//!     client_default=True,
-//!     ecs_support=False,
-//!     networks=[
-//!         {
-//!             "network": "203.0.113.1/32",
-//!         },
-//!         {
-//!             "network": "203.0.113.2/32",
-//!         },
-//!     ])
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var example = new Cloudflare.ZeroTrustDnsLocation("example", new()
-//!     {
-//!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         Name = "office",
-//!         ClientDefault = true,
-//!         EcsSupport = false,
-//!         Networks = new[]
-//!         {
-//!             new Cloudflare.Inputs.ZeroTrustDnsLocationNetworkArgs
-//!             {
-//!                 Network = "203.0.113.1/32",
-//!             },
-//!             new Cloudflare.Inputs.ZeroTrustDnsLocationNetworkArgs
-//!             {
-//!                 Network = "203.0.113.2/32",
-//!             },
-//!         },
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewZeroTrustDnsLocation(ctx, "example", &cloudflare.ZeroTrustDnsLocationArgs{
-//! 			AccountId:     pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			Name:          pulumi.String("office"),
-//! 			ClientDefault: pulumi.Bool(true),
-//! 			EcsSupport:    pulumi.Bool(false),
-//! 			Networks: cloudflare.ZeroTrustDnsLocationNetworkArray{
-//! 				&cloudflare.ZeroTrustDnsLocationNetworkArgs{
-//! 					Network: pulumi.String("203.0.113.1/32"),
-//! 				},
-//! 				&cloudflare.ZeroTrustDnsLocationNetworkArgs{
-//! 					Network: pulumi.String("203.0.113.2/32"),
-//! 				},
-//! 			},
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.ZeroTrustDnsLocation;
-//! import com.pulumi.cloudflare.ZeroTrustDnsLocationArgs;
-//! import com.pulumi.cloudflare.inputs.ZeroTrustDnsLocationNetworkArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var example = new ZeroTrustDnsLocation("example", ZeroTrustDnsLocationArgs.builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = zero_trust_dns_location::create(
+//!         "example",
+//!         ZeroTrustDnsLocationArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .client_default(true)
+//!             .ecs_support(false)
 //!             .name("office")
-//!             .clientDefault(true)
-//!             .ecsSupport(false)
-//!             .networks(            
-//!                 ZeroTrustDnsLocationNetworkArgs.builder()
-//!                     .network("203.0.113.1/32")
-//!                     .build(),
-//!                 ZeroTrustDnsLocationNetworkArgs.builder()
-//!                     .network("203.0.113.2/32")
-//!                     .build())
-//!             .build());
-//! 
-//!     }
+//!             .networks(
+//!                 vec![
+//!                     ZeroTrustDnsLocationNetwork::builder().network("203.0.113.1/32")
+//!                     .build_struct(), ZeroTrustDnsLocationNetwork::builder()
+//!                     .network("203.0.113.2/32").build_struct(),
+//!                 ],
+//!             )
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:ZeroTrustDnsLocation
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: office
-//!       clientDefault: true
-//!       ecsSupport: false
-//!       networks:
-//!         - network: 203.0.113.1/32
-//!         - network: 203.0.113.2/32
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

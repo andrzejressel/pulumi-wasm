@@ -3,232 +3,52 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const example = new cloudflare.ZeroTrustInfrastructureAccessTarget("example", {
-//!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     hostname: "example-target",
-//!     ip: {
-//!         ipv4: {
-//!             ipAddr: "198.51.100.1",
-//!             virtualNetworkId: "238dccd1-149b-463d-8228-560ab83a54fd",
-//!         },
-//!         ipv6: {
-//!             ipAddr: "2001:db8::",
-//!             virtualNetworkId: "238dccd1-149b-463d-8228-560ab83a54fd",
-//!         },
-//!     },
-//! });
-//! const ipv4OnlyExample = new cloudflare.ZeroTrustInfrastructureAccessTarget("ipv4_only_example", {
-//!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     hostname: "example-ipv4-only",
-//!     ip: {
-//!         ipv4: {
-//!             ipAddr: "198.51.100.1",
-//!             virtualNetworkId: "238dccd1-149b-463d-8228-560ab83a54fd",
-//!         },
-//!     },
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! example = cloudflare.ZeroTrustInfrastructureAccessTarget("example",
-//!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     hostname="example-target",
-//!     ip={
-//!         "ipv4": {
-//!             "ip_addr": "198.51.100.1",
-//!             "virtual_network_id": "238dccd1-149b-463d-8228-560ab83a54fd",
-//!         },
-//!         "ipv6": {
-//!             "ip_addr": "2001:db8::",
-//!             "virtual_network_id": "238dccd1-149b-463d-8228-560ab83a54fd",
-//!         },
-//!     })
-//! ipv4_only_example = cloudflare.ZeroTrustInfrastructureAccessTarget("ipv4_only_example",
-//!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     hostname="example-ipv4-only",
-//!     ip={
-//!         "ipv4": {
-//!             "ip_addr": "198.51.100.1",
-//!             "virtual_network_id": "238dccd1-149b-463d-8228-560ab83a54fd",
-//!         },
-//!     })
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var example = new Cloudflare.ZeroTrustInfrastructureAccessTarget("example", new()
-//!     {
-//!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         Hostname = "example-target",
-//!         Ip = new Cloudflare.Inputs.ZeroTrustInfrastructureAccessTargetIpArgs
-//!         {
-//!             Ipv4 = new Cloudflare.Inputs.ZeroTrustInfrastructureAccessTargetIpIpv4Args
-//!             {
-//!                 IpAddr = "198.51.100.1",
-//!                 VirtualNetworkId = "238dccd1-149b-463d-8228-560ab83a54fd",
-//!             },
-//!             Ipv6 = new Cloudflare.Inputs.ZeroTrustInfrastructureAccessTargetIpIpv6Args
-//!             {
-//!                 IpAddr = "2001:db8::",
-//!                 VirtualNetworkId = "238dccd1-149b-463d-8228-560ab83a54fd",
-//!             },
-//!         },
-//!     });
-//! 
-//!     var ipv4OnlyExample = new Cloudflare.ZeroTrustInfrastructureAccessTarget("ipv4_only_example", new()
-//!     {
-//!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         Hostname = "example-ipv4-only",
-//!         Ip = new Cloudflare.Inputs.ZeroTrustInfrastructureAccessTargetIpArgs
-//!         {
-//!             Ipv4 = new Cloudflare.Inputs.ZeroTrustInfrastructureAccessTargetIpIpv4Args
-//!             {
-//!                 IpAddr = "198.51.100.1",
-//!                 VirtualNetworkId = "238dccd1-149b-463d-8228-560ab83a54fd",
-//!             },
-//!         },
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewZeroTrustInfrastructureAccessTarget(ctx, "example", &cloudflare.ZeroTrustInfrastructureAccessTargetArgs{
-//! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			Hostname:  pulumi.String("example-target"),
-//! 			Ip: &cloudflare.ZeroTrustInfrastructureAccessTargetIpArgs{
-//! 				Ipv4: &cloudflare.ZeroTrustInfrastructureAccessTargetIpIpv4Args{
-//! 					IpAddr:           pulumi.String("198.51.100.1"),
-//! 					VirtualNetworkId: pulumi.String("238dccd1-149b-463d-8228-560ab83a54fd"),
-//! 				},
-//! 				Ipv6: &cloudflare.ZeroTrustInfrastructureAccessTargetIpIpv6Args{
-//! 					IpAddr:           pulumi.String("2001:db8::"),
-//! 					VirtualNetworkId: pulumi.String("238dccd1-149b-463d-8228-560ab83a54fd"),
-//! 				},
-//! 			},
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		_, err = cloudflare.NewZeroTrustInfrastructureAccessTarget(ctx, "ipv4_only_example", &cloudflare.ZeroTrustInfrastructureAccessTargetArgs{
-//! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			Hostname:  pulumi.String("example-ipv4-only"),
-//! 			Ip: &cloudflare.ZeroTrustInfrastructureAccessTargetIpArgs{
-//! 				Ipv4: &cloudflare.ZeroTrustInfrastructureAccessTargetIpIpv4Args{
-//! 					IpAddr:           pulumi.String("198.51.100.1"),
-//! 					VirtualNetworkId: pulumi.String("238dccd1-149b-463d-8228-560ab83a54fd"),
-//! 				},
-//! 			},
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.ZeroTrustInfrastructureAccessTarget;
-//! import com.pulumi.cloudflare.ZeroTrustInfrastructureAccessTargetArgs;
-//! import com.pulumi.cloudflare.inputs.ZeroTrustInfrastructureAccessTargetIpArgs;
-//! import com.pulumi.cloudflare.inputs.ZeroTrustInfrastructureAccessTargetIpIpv4Args;
-//! import com.pulumi.cloudflare.inputs.ZeroTrustInfrastructureAccessTargetIpIpv6Args;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var example = new ZeroTrustInfrastructureAccessTarget("example", ZeroTrustInfrastructureAccessTargetArgs.builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = zero_trust_infrastructure_access_target::create(
+//!         "example",
+//!         ZeroTrustInfrastructureAccessTargetArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
 //!             .hostname("example-target")
-//!             .ip(ZeroTrustInfrastructureAccessTargetIpArgs.builder()
-//!                 .ipv4(ZeroTrustInfrastructureAccessTargetIpIpv4Args.builder()
-//!                     .ipAddr("198.51.100.1")
-//!                     .virtualNetworkId("238dccd1-149b-463d-8228-560ab83a54fd")
-//!                     .build())
-//!                 .ipv6(ZeroTrustInfrastructureAccessTargetIpIpv6Args.builder()
-//!                     .ipAddr("2001:db8::")
-//!                     .virtualNetworkId("238dccd1-149b-463d-8228-560ab83a54fd")
-//!                     .build())
-//!                 .build())
-//!             .build());
-//! 
-//!         var ipv4OnlyExample = new ZeroTrustInfrastructureAccessTarget("ipv4OnlyExample", ZeroTrustInfrastructureAccessTargetArgs.builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
+//!             .ip(
+//!                 ZeroTrustInfrastructureAccessTargetIp::builder()
+//!                     .ipv4(
+//!                         ZeroTrustInfrastructureAccessTargetIpIpv4::builder()
+//!                             .ipAddr("198.51.100.1")
+//!                             .virtualNetworkId("238dccd1-149b-463d-8228-560ab83a54fd")
+//!                             .build_struct(),
+//!                     )
+//!                     .ipv6(
+//!                         ZeroTrustInfrastructureAccessTargetIpIpv6::builder()
+//!                             .ipAddr("2001:db8::")
+//!                             .virtualNetworkId("238dccd1-149b-463d-8228-560ab83a54fd")
+//!                             .build_struct(),
+//!                     )
+//!                     .build_struct(),
+//!             )
+//!             .build_struct(),
+//!     );
+//!     let ipv4OnlyExample = zero_trust_infrastructure_access_target::create(
+//!         "ipv4OnlyExample",
+//!         ZeroTrustInfrastructureAccessTargetArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
 //!             .hostname("example-ipv4-only")
-//!             .ip(ZeroTrustInfrastructureAccessTargetIpArgs.builder()
-//!                 .ipv4(ZeroTrustInfrastructureAccessTargetIpIpv4Args.builder()
-//!                     .ipAddr("198.51.100.1")
-//!                     .virtualNetworkId("238dccd1-149b-463d-8228-560ab83a54fd")
-//!                     .build())
-//!                 .build())
-//!             .build());
-//! 
-//!     }
+//!             .ip(
+//!                 ZeroTrustInfrastructureAccessTargetIp::builder()
+//!                     .ipv4(
+//!                         ZeroTrustInfrastructureAccessTargetIpIpv4::builder()
+//!                             .ipAddr("198.51.100.1")
+//!                             .virtualNetworkId("238dccd1-149b-463d-8228-560ab83a54fd")
+//!                             .build_struct(),
+//!                     )
+//!                     .build_struct(),
+//!             )
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:ZeroTrustInfrastructureAccessTarget
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       hostname: example-target
-//!       ip:
-//!         ipv4:
-//!           ipAddr: 198.51.100.1
-//!           virtualNetworkId: 238dccd1-149b-463d-8228-560ab83a54fd
-//!         ipv6:
-//!           ipAddr: '2001:db8::'
-//!           virtualNetworkId: 238dccd1-149b-463d-8228-560ab83a54fd
-//!   ipv4OnlyExample:
-//!     type: cloudflare:ZeroTrustInfrastructureAccessTarget
-//!     name: ipv4_only_example
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       hostname: example-ipv4-only
-//!       ip:
-//!         ipv4:
-//!           ipAddr: 198.51.100.1
-//!           virtualNetworkId: 238dccd1-149b-463d-8228-560ab83a54fd
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

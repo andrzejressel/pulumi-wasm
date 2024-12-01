@@ -3,108 +3,20 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const example = new cloudflare.ApiShieldSchemaValidationSettings("example", {
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
-//!     validationDefaultMitigationAction: "log",
-//!     validationOverrideMitigationAction: "none",
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! example = cloudflare.ApiShieldSchemaValidationSettings("example",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
-//!     validation_default_mitigation_action="log",
-//!     validation_override_mitigation_action="none")
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var example = new Cloudflare.ApiShieldSchemaValidationSettings("example", new()
-//!     {
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
-//!         ValidationDefaultMitigationAction = "log",
-//!         ValidationOverrideMitigationAction = "none",
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewApiShieldSchemaValidationSettings(ctx, "example", &cloudflare.ApiShieldSchemaValidationSettingsArgs{
-//! 			ZoneId:                             pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
-//! 			ValidationDefaultMitigationAction:  pulumi.String("log"),
-//! 			ValidationOverrideMitigationAction: pulumi.String("none"),
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = api_shield_schema_validation_settings::create(
+//!         "example",
+//!         ApiShieldSchemaValidationSettingsArgs::builder()
+//!             .validation_default_mitigation_action("log")
+//!             .validation_override_mitigation_action("none")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.ApiShieldSchemaValidationSettings;
-//! import com.pulumi.cloudflare.ApiShieldSchemaValidationSettingsArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var example = new ApiShieldSchemaValidationSettings("example", ApiShieldSchemaValidationSettingsArgs.builder()
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
-//!             .validationDefaultMitigationAction("log")
-//!             .validationOverrideMitigationAction("none")
-//!             .build());
-//! 
-//!     }
-//! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:ApiShieldSchemaValidationSettings
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       validationDefaultMitigationAction: log
-//!       validationOverrideMitigationAction: none
 //! ```
 //! <!--End PulumiCodeChooser -->
 

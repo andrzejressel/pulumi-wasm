@@ -5,114 +5,20 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const example = new cloudflare.ZeroTrustGatewayProxyEndpoint("example", {
-//!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     name: "office",
-//!     ips: ["192.0.2.0/24"],
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! example = cloudflare.ZeroTrustGatewayProxyEndpoint("example",
-//!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     name="office",
-//!     ips=["192.0.2.0/24"])
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var example = new Cloudflare.ZeroTrustGatewayProxyEndpoint("example", new()
-//!     {
-//!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         Name = "office",
-//!         Ips = new[]
-//!         {
-//!             "192.0.2.0/24",
-//!         },
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewZeroTrustGatewayProxyEndpoint(ctx, "example", &cloudflare.ZeroTrustGatewayProxyEndpointArgs{
-//! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			Name:      pulumi.String("office"),
-//! 			Ips: pulumi.StringArray{
-//! 				pulumi.String("192.0.2.0/24"),
-//! 			},
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.ZeroTrustGatewayProxyEndpoint;
-//! import com.pulumi.cloudflare.ZeroTrustGatewayProxyEndpointArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var example = new ZeroTrustGatewayProxyEndpoint("example", ZeroTrustGatewayProxyEndpointArgs.builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = zero_trust_gateway_proxy_endpoint::create(
+//!         "example",
+//!         ZeroTrustGatewayProxyEndpointArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .ips(vec!["192.0.2.0/24",])
 //!             .name("office")
-//!             .ips("192.0.2.0/24")
-//!             .build());
-//! 
-//!     }
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:ZeroTrustGatewayProxyEndpoint
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: office
-//!       ips:
-//!         - 192.0.2.0/24
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

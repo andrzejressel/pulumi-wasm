@@ -13,8 +13,8 @@ handlebars.workspace = true
 regex.workspace = true
 convert_case.workspace = true
 serde_yaml.workspace = true
-itertools.workspace = true
+prettyplease = "0.2.25"
+syn = "2.0.90"
 
 [dev-dependencies]
 assert_cmd.workspace = true
-predicates.workspace = true

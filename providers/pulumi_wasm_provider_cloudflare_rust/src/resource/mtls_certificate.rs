@@ -3,144 +3,30 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const example = new cloudflare.MtlsCertificate("example", {
-//!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     name: "example",
-//!     certificates: `-----BEGIN CERTIFICATE-----
-//! MIIDmDCCAoCgAwIBAgIUKTOAZNj...i4JhqeoTewsxndhDDE
-//! -----END CERTIFICATE-----`,
-//!     privateKey: `-----BEGIN PRIVATE KEY-----
-//! MIIEvQIBADANBgkqhkiG9w0BAQE...1IS3EnQRrz6WMYA=
-//! -----END PRIVATE KEY-----`,
-//!     ca: true,
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! example = cloudflare.MtlsCertificate("example",
-//!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     name="example",
-//!     certificates="""-----BEGIN CERTIFICATE-----
-//! MIIDmDCCAoCgAwIBAgIUKTOAZNj...i4JhqeoTewsxndhDDE
-//! -----END CERTIFICATE-----""",
-//!     private_key="""-----BEGIN PRIVATE KEY-----
-//! MIIEvQIBADANBgkqhkiG9w0BAQE...1IS3EnQRrz6WMYA=
-//! -----END PRIVATE KEY-----""",
-//!     ca=True)
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var example = new Cloudflare.MtlsCertificate("example", new()
-//!     {
-//!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         Name = "example",
-//!         Certificates = @"-----BEGIN CERTIFICATE-----
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = mtls_certificate::create(
+//!         "example",
+//!         MtlsCertificateArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .ca(true)
+//!             .certificates(
+//!                 "-----BEGIN CERTIFICATE-----
 //! MIIDmDCCAoCgAwIBAgIUKTOAZNj...i4JhqeoTewsxndhDDE
 //! -----END CERTIFICATE-----",
-//!         PrivateKey = @"-----BEGIN PRIVATE KEY-----
+//!             )
+//!             .name("example")
+//!             .private_key(
+//!                 "-----BEGIN PRIVATE KEY-----
 //! MIIEvQIBADANBgkqhkiG9w0BAQE...1IS3EnQRrz6WMYA=
 //! -----END PRIVATE KEY-----",
-//!         Ca = true,
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewMtlsCertificate(ctx, "example", &cloudflare.MtlsCertificateArgs{
-//! 			AccountId:    pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			Name:         pulumi.String("example"),
-//! 			Certificates: pulumi.String("-----BEGIN CERTIFICATE-----\nMIIDmDCCAoCgAwIBAgIUKTOAZNj...i4JhqeoTewsxndhDDE\n-----END CERTIFICATE-----"),
-//! 			PrivateKey:   pulumi.String("-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQE...1IS3EnQRrz6WMYA=\n-----END PRIVATE KEY-----"),
-//! 			Ca:           pulumi.Bool(true),
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
+//!             )
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.MtlsCertificate;
-//! import com.pulumi.cloudflare.MtlsCertificateArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var example = new MtlsCertificate("example", MtlsCertificateArgs.builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .name("example")
-//!             .certificates("""
-//! -----BEGIN CERTIFICATE-----
-//! MIIDmDCCAoCgAwIBAgIUKTOAZNj...i4JhqeoTewsxndhDDE
-//! -----END CERTIFICATE-----            """)
-//!             .privateKey("""
-//! -----BEGIN PRIVATE KEY-----
-//! MIIEvQIBADANBgkqhkiG9w0BAQE...1IS3EnQRrz6WMYA=
-//! -----END PRIVATE KEY-----            """)
-//!             .ca(true)
-//!             .build());
-//! 
-//!     }
-//! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:MtlsCertificate
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: example
-//!       certificates: |-
-//!         -----BEGIN CERTIFICATE-----
-//!         MIIDmDCCAoCgAwIBAgIUKTOAZNj...i4JhqeoTewsxndhDDE
-//!         -----END CERTIFICATE-----
-//!       privateKey: |-
-//!         -----BEGIN PRIVATE KEY-----
-//!         MIIEvQIBADANBgkqhkiG9w0BAQE...1IS3EnQRrz6WMYA=
-//!         -----END PRIVATE KEY-----
-//!       ca: true
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

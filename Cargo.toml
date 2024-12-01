@@ -57,14 +57,12 @@ prost-types = "0.13.1"
 uuid = { version = "1.8.0", features = ["v4", "v7"] }
 futures = "0.3.30"
 once_cell = "1.19.0"
-bitflags = "2.5.0"
 wit-bindgen = "0.36.0"
 wit-bindgen-rt = "0.36.0"
 serde = { version = "1.0.200", features = ["derive"] }
 serde_json = { version = "1.0.120" }
 tonic = { version = "0.12.0", default-features = false }
 tonic-build = "0.12.0"
-tonic-web = "0.12.0"
 wasmtime = "27.0.0"
 wasmtime-wasi = "27.0.0"
 async-trait = "0.1.80"
@@ -75,16 +73,9 @@ clap = { version = "4.5.4", features = ["derive"] }
 regex = "1.10.4"
 syn = { version = "2.0.60", features = ["full"] }
 quote = "1.0.36"
-proc-macro2 = "1.0.81"
 assert_cmd = "2.0.14"
 predicates = "3.1.0"
-normpath = "1.2"
-simple_logger = "5.0.0"
-petgraph = "0.6.4"
-cargo_metadata = "0.19.0"
 itertools = "0.13.0"
-testdir = "0.9.1"
-fs_extra = "1.3.0"
 handlebars = "6.0.0"
 convert_case = "0.6.0"
 mockall = "0.13.0"

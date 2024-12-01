@@ -6,108 +6,20 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const example = new cloudflare.TunnelVirtualNetwork("example", {
-//!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     name: "vnet-for-documentation",
-//!     comment: "New tunnel virtual network for documentation",
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! example = cloudflare.TunnelVirtualNetwork("example",
-//!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     name="vnet-for-documentation",
-//!     comment="New tunnel virtual network for documentation")
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var example = new Cloudflare.TunnelVirtualNetwork("example", new()
-//!     {
-//!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         Name = "vnet-for-documentation",
-//!         Comment = "New tunnel virtual network for documentation",
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewTunnelVirtualNetwork(ctx, "example", &cloudflare.TunnelVirtualNetworkArgs{
-//! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			Name:      pulumi.String("vnet-for-documentation"),
-//! 			Comment:   pulumi.String("New tunnel virtual network for documentation"),
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.TunnelVirtualNetwork;
-//! import com.pulumi.cloudflare.TunnelVirtualNetworkArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var example = new TunnelVirtualNetwork("example", TunnelVirtualNetworkArgs.builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .name("vnet-for-documentation")
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = tunnel_virtual_network::create(
+//!         "example",
+//!         TunnelVirtualNetworkArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
 //!             .comment("New tunnel virtual network for documentation")
-//!             .build());
-//! 
-//!     }
+//!             .name("vnet-for-documentation")
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:TunnelVirtualNetwork
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: vnet-for-documentation
-//!       comment: New tunnel virtual network for documentation
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

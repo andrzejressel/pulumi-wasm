@@ -3,114 +3,20 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const example = new cloudflare.HostnameTlsSettingCiphers("example", {
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
-//!     hostname: "sub.example.com",
-//!     values: ["ECDHE-RSA-AES128-GCM-SHA256"],
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! example = cloudflare.HostnameTlsSettingCiphers("example",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
-//!     hostname="sub.example.com",
-//!     values=["ECDHE-RSA-AES128-GCM-SHA256"])
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var example = new Cloudflare.HostnameTlsSettingCiphers("example", new()
-//!     {
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
-//!         Hostname = "sub.example.com",
-//!         Values = new[]
-//!         {
-//!             "ECDHE-RSA-AES128-GCM-SHA256",
-//!         },
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewHostnameTlsSettingCiphers(ctx, "example", &cloudflare.HostnameTlsSettingCiphersArgs{
-//! 			ZoneId:   pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
-//! 			Hostname: pulumi.String("sub.example.com"),
-//! 			Values: pulumi.StringArray{
-//! 				pulumi.String("ECDHE-RSA-AES128-GCM-SHA256"),
-//! 			},
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.HostnameTlsSettingCiphers;
-//! import com.pulumi.cloudflare.HostnameTlsSettingCiphersArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var example = new HostnameTlsSettingCiphers("example", HostnameTlsSettingCiphersArgs.builder()
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = hostname_tls_setting_ciphers::create(
+//!         "example",
+//!         HostnameTlsSettingCiphersArgs::builder()
 //!             .hostname("sub.example.com")
-//!             .values("ECDHE-RSA-AES128-GCM-SHA256")
-//!             .build());
-//! 
-//!     }
+//!             .values(vec!["ECDHE-RSA-AES128-GCM-SHA256",])
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:HostnameTlsSettingCiphers
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       hostname: sub.example.com
-//!       values:
-//!         - ECDHE-RSA-AES128-GCM-SHA256
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 
