@@ -146,7 +146,3 @@ pub(crate) fn to_lines(s: Option<String>, package: &crate::model::Package) -> Ve
 
     new_lines
 }
-
-fn generate_example(p0: String) -> String {
-    "RUST EXAMPLE".to_string()
-}
