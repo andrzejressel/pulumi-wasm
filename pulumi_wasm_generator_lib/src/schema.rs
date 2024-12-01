@@ -166,6 +166,7 @@ fn resource_to_model(
     Ok((
         element_id.clone(),
         crate::model::Resource {
+            element_id: element_id.clone(),
             // name: resource_name.clone(),
             description: resource.object_type.description.clone(),
             input_properties: resource

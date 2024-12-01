@@ -3,117 +3,20 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const example = new cloudflare.Zone("example", {zone: "example.com"});
-//! const exampleZoneDnssec = new cloudflare.ZoneDnssec("example", {zoneId: example.id});
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! example = cloudflare.Zone("example", zone="example.com")
-//! example_zone_dnssec = cloudflare.ZoneDnssec("example", zone_id=example.id)
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var example = new Cloudflare.Zone("example", new()
-//!     {
-//!         ZoneName = "example.com",
-//!     });
-//! 
-//!     var exampleZoneDnssec = new Cloudflare.ZoneDnssec("example", new()
-//!     {
-//!         ZoneId = example.Id,
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		example, err := cloudflare.NewZone(ctx, "example", &cloudflare.ZoneArgs{
-//! 			Zone: pulumi.String("example.com"),
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		_, err = cloudflare.NewZoneDnssec(ctx, "example", &cloudflare.ZoneDnssecArgs{
-//! 			ZoneId: example.ID(),
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = zone::create(
+//!         "example",
+//!         ZoneArgs::builder().zone("example.com").build_struct(),
+//!     );
+//!     let exampleZoneDnssec = zone_dnssec::create(
+//!         "exampleZoneDnssec",
+//!         ZoneDnssecArgs::builder().zone_id("${example.id}").build_struct(),
+//!     );
 //! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.Zone;
-//! import com.pulumi.cloudflare.ZoneArgs;
-//! import com.pulumi.cloudflare.ZoneDnssec;
-//! import com.pulumi.cloudflare.ZoneDnssecArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var example = new Zone("example", ZoneArgs.builder()
-//!             .zone("example.com")
-//!             .build());
-//! 
-//!         var exampleZoneDnssec = new ZoneDnssec("exampleZoneDnssec", ZoneDnssecArgs.builder()
-//!             .zoneId(example.id())
-//!             .build());
-//! 
-//!     }
-//! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:Zone
-//!     properties:
-//!       zone: example.com
-//!   exampleZoneDnssec:
-//!     type: cloudflare:ZoneDnssec
-//!     name: example
-//!     properties:
-//!       zoneId: ${example.id}
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

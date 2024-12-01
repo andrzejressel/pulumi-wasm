@@ -3,108 +3,20 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const example = new cloudflare.UrlNormalizationSettings("example", {
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
-//!     type: "cloudflare",
-//!     scope: "incoming",
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! example = cloudflare.UrlNormalizationSettings("example",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
-//!     type="cloudflare",
-//!     scope="incoming")
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var example = new Cloudflare.UrlNormalizationSettings("example", new()
-//!     {
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
-//!         Type = "cloudflare",
-//!         Scope = "incoming",
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewUrlNormalizationSettings(ctx, "example", &cloudflare.UrlNormalizationSettingsArgs{
-//! 			ZoneId: pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
-//! 			Type:   pulumi.String("cloudflare"),
-//! 			Scope:  pulumi.String("incoming"),
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.UrlNormalizationSettings;
-//! import com.pulumi.cloudflare.UrlNormalizationSettingsArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var example = new UrlNormalizationSettings("example", UrlNormalizationSettingsArgs.builder()
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
-//!             .type("cloudflare")
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = url_normalization_settings::create(
+//!         "example",
+//!         UrlNormalizationSettingsArgs::builder()
 //!             .scope("incoming")
-//!             .build());
-//! 
-//!     }
+//!             .type_("cloudflare")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:UrlNormalizationSettings
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       type: cloudflare
-//!       scope: incoming
 //! ```
 //! <!--End PulumiCodeChooser -->
 

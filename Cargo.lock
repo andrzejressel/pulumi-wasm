@@ -2332,10 +2332,12 @@ dependencies = [
  "assert_cmd",
  "convert_case",
  "handlebars",
+ "prettyplease",
  "regex",
  "serde",
  "serde_json",
  "serde_yaml",
+ "syn 2.0.90",
 ]
 
 [[package]]

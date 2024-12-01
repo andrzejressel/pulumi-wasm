@@ -4,114 +4,21 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const example = new cloudflare.ByoIpPrefix("example", {
-//!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     prefixId: "d41d8cd98f00b204e9800998ecf8427e",
-//!     description: "Example IP Prefix",
-//!     advertisement: "on",
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! example = cloudflare.ByoIpPrefix("example",
-//!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     prefix_id="d41d8cd98f00b204e9800998ecf8427e",
-//!     description="Example IP Prefix",
-//!     advertisement="on")
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var example = new Cloudflare.ByoIpPrefix("example", new()
-//!     {
-//!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         PrefixId = "d41d8cd98f00b204e9800998ecf8427e",
-//!         Description = "Example IP Prefix",
-//!         Advertisement = "on",
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewByoIpPrefix(ctx, "example", &cloudflare.ByoIpPrefixArgs{
-//! 			AccountId:     pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			PrefixId:      pulumi.String("d41d8cd98f00b204e9800998ecf8427e"),
-//! 			Description:   pulumi.String("Example IP Prefix"),
-//! 			Advertisement: pulumi.String("on"),
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.ByoIpPrefix;
-//! import com.pulumi.cloudflare.ByoIpPrefixArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var example = new ByoIpPrefix("example", ByoIpPrefixArgs.builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .prefixId("d41d8cd98f00b204e9800998ecf8427e")
-//!             .description("Example IP Prefix")
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = byo_ip_prefix::create(
+//!         "example",
+//!         ByoIpPrefixArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
 //!             .advertisement("on")
-//!             .build());
-//! 
-//!     }
+//!             .description("Example IP Prefix")
+//!             .prefix_id("d41d8cd98f00b204e9800998ecf8427e")
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:ByoIpPrefix
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       prefixId: d41d8cd98f00b204e9800998ecf8427e
-//!       description: Example IP Prefix
-//!       advertisement: on
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

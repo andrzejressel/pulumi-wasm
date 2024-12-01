@@ -63,6 +63,7 @@ fn convert_model(package: &crate::model::Package) -> Package {
                             optional: matches!(global_type_property.r#type, Type::Option(_)),
                             description_lines: crate::utils::to_lines(
                                 global_type_property.description.clone(),
+                                package,
                             ),
                         })
                         .collect(),

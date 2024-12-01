@@ -5,156 +5,29 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const example = new cloudflare.DevicePostureIntegration("example", {
-//!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     name: "Device posture integration",
-//!     type: "workspace_one",
-//!     interval: "24h",
-//!     configs: [{
-//!         apiUrl: "https://example.com/api",
-//!         authUrl: "https://example.com/connect/token",
-//!         clientId: "client-id",
-//!         clientSecret: "client-secret",
-//!     }],
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! example = cloudflare.DevicePostureIntegration("example",
-//!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     name="Device posture integration",
-//!     type="workspace_one",
-//!     interval="24h",
-//!     configs=[{
-//!         "api_url": "https://example.com/api",
-//!         "auth_url": "https://example.com/connect/token",
-//!         "client_id": "client-id",
-//!         "client_secret": "client-secret",
-//!     }])
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var example = new Cloudflare.DevicePostureIntegration("example", new()
-//!     {
-//!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         Name = "Device posture integration",
-//!         Type = "workspace_one",
-//!         Interval = "24h",
-//!         Configs = new[]
-//!         {
-//!             new Cloudflare.Inputs.DevicePostureIntegrationConfigArgs
-//!             {
-//!                 ApiUrl = "https://example.com/api",
-//!                 AuthUrl = "https://example.com/connect/token",
-//!                 ClientId = "client-id",
-//!                 ClientSecret = "client-secret",
-//!             },
-//!         },
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewDevicePostureIntegration(ctx, "example", &cloudflare.DevicePostureIntegrationArgs{
-//! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			Name:      pulumi.String("Device posture integration"),
-//! 			Type:      pulumi.String("workspace_one"),
-//! 			Interval:  pulumi.String("24h"),
-//! 			Configs: cloudflare.DevicePostureIntegrationConfigArray{
-//! 				&cloudflare.DevicePostureIntegrationConfigArgs{
-//! 					ApiUrl:       pulumi.String("https://example.com/api"),
-//! 					AuthUrl:      pulumi.String("https://example.com/connect/token"),
-//! 					ClientId:     pulumi.String("client-id"),
-//! 					ClientSecret: pulumi.String("client-secret"),
-//! 				},
-//! 			},
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.DevicePostureIntegration;
-//! import com.pulumi.cloudflare.DevicePostureIntegrationArgs;
-//! import com.pulumi.cloudflare.inputs.DevicePostureIntegrationConfigArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var example = new DevicePostureIntegration("example", DevicePostureIntegrationArgs.builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .name("Device posture integration")
-//!             .type("workspace_one")
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = device_posture_integration::create(
+//!         "example",
+//!         DevicePostureIntegrationArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .configs(
+//!                 vec![
+//!                     DevicePostureIntegrationConfig::builder()
+//!                     .apiUrl("https://example.com/api")
+//!                     .authUrl("https://example.com/connect/token").clientId("client-id")
+//!                     .clientSecret("client-secret").build_struct(),
+//!                 ],
+//!             )
 //!             .interval("24h")
-//!             .configs(DevicePostureIntegrationConfigArgs.builder()
-//!                 .apiUrl("https://example.com/api")
-//!                 .authUrl("https://example.com/connect/token")
-//!                 .clientId("client-id")
-//!                 .clientSecret("client-secret")
-//!                 .build())
-//!             .build());
-//! 
-//!     }
+//!             .name("Device posture integration")
+//!             .type_("workspace_one")
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:DevicePostureIntegration
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: Device posture integration
-//!       type: workspace_one
-//!       interval: 24h
-//!       configs:
-//!         - apiUrl: https://example.com/api
-//!           authUrl: https://example.com/connect/token
-//!           clientId: client-id
-//!           clientSecret: client-secret
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

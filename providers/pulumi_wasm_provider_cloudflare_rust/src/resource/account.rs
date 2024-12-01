@@ -4,108 +4,20 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const example = new cloudflare.Account("example", {
-//!     name: "some-enterprise-account",
-//!     type: "enterprise",
-//!     enforceTwofactor: true,
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! example = cloudflare.Account("example",
-//!     name="some-enterprise-account",
-//!     type="enterprise",
-//!     enforce_twofactor=True)
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var example = new Cloudflare.Account("example", new()
-//!     {
-//!         Name = "some-enterprise-account",
-//!         Type = "enterprise",
-//!         EnforceTwofactor = true,
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewAccount(ctx, "example", &cloudflare.AccountArgs{
-//! 			Name:             pulumi.String("some-enterprise-account"),
-//! 			Type:             pulumi.String("enterprise"),
-//! 			EnforceTwofactor: pulumi.Bool(true),
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.Account;
-//! import com.pulumi.cloudflare.AccountArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var example = new Account("example", AccountArgs.builder()
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = account::create(
+//!         "example",
+//!         AccountArgs::builder()
+//!             .enforce_twofactor(true)
 //!             .name("some-enterprise-account")
-//!             .type("enterprise")
-//!             .enforceTwofactor(true)
-//!             .build());
-//! 
-//!     }
+//!             .type_("enterprise")
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:Account
-//!     properties:
-//!       name: some-enterprise-account
-//!       type: enterprise
-//!       enforceTwofactor: true
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 
