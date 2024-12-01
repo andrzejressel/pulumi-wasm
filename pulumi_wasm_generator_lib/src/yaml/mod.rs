@@ -549,6 +549,73 @@ resources:
         }
     }
 
+    pub(crate) mod example_empty_properties {
+        use super::*;
+        use crate::model::ElementId;
+        use crate::yaml::model::{Example, Resource};
+
+        pub const YAML: &str = r#"
+resources:
+  myCert:
+    type: cloudflare:AccessMutualTlsCertificate
+    name: my_cert
+"#;
+
+        pub fn get_yaml_file() -> super::YamlFile {
+            use crate::yaml::yaml_model::{YamlFile, YamlResource};
+
+            YamlFile {
+                resources: {
+                    let mut resources = BTreeMap::new();
+                    resources.insert(
+                        "myCert".to_string(),
+                        YamlResource {
+                            type_: "cloudflare:AccessMutualTlsCertificate".to_string(),
+                            name: Some("my_cert".to_string()),
+                            properties: BTreeMap::new(),
+                        },
+                    );
+                    resources
+                },
+            }
+        }
+
+        pub fn get_model() -> Example {
+            Example {
+                resources: {
+                    let mut map = BTreeMap::new();
+                    map.insert(
+                        "myCert".to_string(),
+                        Resource {
+                            type_: ElementId::new("cloudflare:index/accessMutualTlsCertificate:AccessMutualTlsCertificate").unwrap(),
+                            // type_: "cloudflare:AccessMutualTlsCertificate".to_string(),
+                            name: Some("my_cert".to_string()),
+                            properties: BTreeMap::new()
+                        },
+                    );
+                    map
+                },
+            }
+        }
+
+        pub fn get_rust_code() -> String {
+            reformat_code(
+                r#"
+            use pulumi_wasm_rust::Output;
+            use pulumi_wasm_rust::{add_export, pulumi_main};
+            #[pulumi_main]
+            fn test_main() -> Result<(), Error> {
+                let myCert = access_mutual_tls_certificate::create(
+                    "myCert",
+                    AccessMutualTlsCertificateArgs::builder()
+                        .build_struct(),
+                );
+            }
+            "#,
+            )
+        }
+    }
+
     fn reformat_code(code: &str) -> String {
         let syntax_tree = syn::parse_file(code).unwrap();
         prettyplease::unparse(&syntax_tree)
