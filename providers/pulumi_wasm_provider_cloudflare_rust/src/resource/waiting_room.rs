@@ -3,26 +3,34 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   # Waiting Room
-//!   example:
-//!     type: cloudflare:WaitingRoom
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       name: foo
-//!       host: foo.example.com
-//!       path: /
-//!       newUsersPerMinute: 200
-//!       totalActiveUsers: 200
-//!       cookieSuffix: queue1
-//!       additionalRoutes:
-//!         - host: shop1.example.com
-//!           path: /example-path
-//!         - host: shop2.example.com
-//!       queueingStatusCode: 200
-//!       enabledOriginCommands:
-//!         - revoke
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = waiting_room::create(
+//!         "example",
+//!         WaitingRoomArgs::builder()
+//!             .additional_routes(
+//!                 vec![
+//!                     WaitingRoomAdditionalRoute::builder().host("shop1.example.com")
+//!                     .path("/example-path").build_struct(),
+//!                     WaitingRoomAdditionalRoute::builder().host("shop2.example.com")
+//!                     .build_struct(),
+//!                 ],
+//!             )
+//!             .cookie_suffix("queue1")
+//!             .enabled_origin_commands(vec!["revoke",])
+//!             .host("foo.example.com")
+//!             .name("foo")
+//!             .new_users_per_minute(200)
+//!             .path("/")
+//!             .queueing_status_code(200)
+//!             .total_active_users(200)
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

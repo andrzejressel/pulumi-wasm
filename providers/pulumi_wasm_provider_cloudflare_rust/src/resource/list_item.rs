@@ -4,84 +4,92 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   # IP List
-//!   exampleIpList:
-//!     type: cloudflare:List
-//!     name: example_ip_list
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: example_list
-//!       description: example IPs for a list
-//!       kind: ip
-//!   # IP List Item
-//!   exampleIpItem:
-//!     type: cloudflare:ListItem
-//!     name: example_ip_item
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       listId: ${exampleIpList.id}
-//!       comment: List Item Comment
-//!       ip: 192.0.2.0
-//!   # Redirect List
-//!   exampleRedirectList:
-//!     type: cloudflare:List
-//!     name: example_redirect_list
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: example_list
-//!       description: example Redirects for a list
-//!       kind: redirect
-//!   # Redirect List Item
-//!   exampleRedirectItem:
-//!     type: cloudflare:ListItem
-//!     name: example_redirect_item
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       listId: ${exampleIpList.id}
-//!       redirect:
-//!         sourceUrl: https://source.tld/
-//!         targetUrl: https://target.tld
-//!         statusCode: 302
-//!         subpathMatching: true
-//!   # ASN List
-//!   exampleAsnList:
-//!     type: cloudflare:List
-//!     name: example_asn_list
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: example_asn_list
-//!       description: example ASNs for a list
-//!       kind: asn
-//!   # ASN List Item
-//!   exampleAsnItem:
-//!     type: cloudflare:ListItem
-//!     name: example_asn_item
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       listId: ${exampleAsnList.id}
-//!       comment: List Item Comment
-//!       asn: 6789
-//!   # Hostname List
-//!   exampleHostnameList:
-//!     type: cloudflare:List
-//!     name: example_hostname_list
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: example_hostname_list
-//!       description: example Hostnames for a list
-//!       kind: hostname
-//!   # Hostname List Item
-//!   exampleHostnameItem:
-//!     type: cloudflare:ListItem
-//!     name: example_hostname_item
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       listId: ${exampleHostnameList.id}
-//!       comment: List Item Comment
-//!       hostname:
-//!         urlHostname: example.com
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let exampleAsnItem = list_item::create(
+//!         "exampleAsnItem",
+//!         ListItemArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .asn(6789)
+//!             .comment("List Item Comment")
+//!             .list_id("${exampleAsnList.id}")
+//!             .build_struct(),
+//!     );
+//!     let exampleAsnList = list::create(
+//!         "exampleAsnList",
+//!         ListArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .description("example ASNs for a list")
+//!             .kind("asn")
+//!             .name("example_asn_list")
+//!             .build_struct(),
+//!     );
+//!     let exampleHostnameItem = list_item::create(
+//!         "exampleHostnameItem",
+//!         ListItemArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .comment("List Item Comment")
+//!             .hostname(
+//!                 ListItemHostname::builder().urlHostname("example.com").build_struct(),
+//!             )
+//!             .list_id("${exampleHostnameList.id}")
+//!             .build_struct(),
+//!     );
+//!     let exampleHostnameList = list::create(
+//!         "exampleHostnameList",
+//!         ListArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .description("example Hostnames for a list")
+//!             .kind("hostname")
+//!             .name("example_hostname_list")
+//!             .build_struct(),
+//!     );
+//!     let exampleIpItem = list_item::create(
+//!         "exampleIpItem",
+//!         ListItemArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .comment("List Item Comment")
+//!             .ip("192.0.2.0")
+//!             .list_id("${exampleIpList.id}")
+//!             .build_struct(),
+//!     );
+//!     let exampleIpList = list::create(
+//!         "exampleIpList",
+//!         ListArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .description("example IPs for a list")
+//!             .kind("ip")
+//!             .name("example_list")
+//!             .build_struct(),
+//!     );
+//!     let exampleRedirectItem = list_item::create(
+//!         "exampleRedirectItem",
+//!         ListItemArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .list_id("${exampleIpList.id}")
+//!             .redirect(
+//!                 ListItemRedirect::builder()
+//!                     .sourceUrl("https://source.tld/")
+//!                     .statusCode(302)
+//!                     .subpathMatching(true)
+//!                     .targetUrl("https://target.tld")
+//!                     .build_struct(),
+//!             )
+//!             .build_struct(),
+//!     );
+//!     let exampleRedirectList = list::create(
+//!         "exampleRedirectList",
+//!         ListArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .description("example Redirects for a list")
+//!             .kind("redirect")
+//!             .name("example_list")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

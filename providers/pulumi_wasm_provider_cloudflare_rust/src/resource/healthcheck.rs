@@ -4,61 +4,61 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   # HTTPS Healthcheck
-//!   httpHealthCheck:
-//!     type: cloudflare:Healthcheck
-//!     name: http_health_check
-//!     properties:
-//!       zoneId: ${cloudflareZoneId}
-//!       name: http-health-check
-//!       description: example http health check
-//!       address: example.com
-//!       suspended: false
-//!       checkRegions:
-//!         - WEU
-//!         - EEU
-//!       type: HTTPS
-//!       port: 443
-//!       method: GET
-//!       path: /health
-//!       expectedBody: alive
-//!       expectedCodes:
-//!         - 2xx
-//!         - '301'
-//!       followRedirects: true
-//!       allowInsecure: false
-//!       headers:
-//!         - header: Host
-//!           values:
-//!             - example.com
-//!       timeout: 10
-//!       retries: 2
-//!       interval: 60
-//!       consecutiveFails: 3
-//!       consecutiveSuccesses: 2
-//!   # TCP Healthcheck
-//!   tcpHealthCheck:
-//!     type: cloudflare:Healthcheck
-//!     name: tcp_health_check
-//!     properties:
-//!       zoneId: ${cloudflareZoneId}
-//!       name: tcp-health-check
-//!       description: example tcp health check
-//!       address: example.com
-//!       suspended: false
-//!       checkRegions:
-//!         - WEU
-//!         - EEU
-//!       type: TCP
-//!       port: 22
-//!       method: connection_established
-//!       timeout: 10
-//!       retries: 2
-//!       interval: 60
-//!       consecutiveFails: 3
-//!       consecutiveSuccesses: 2
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let httpHealthCheck = healthcheck::create(
+//!         "httpHealthCheck",
+//!         HealthcheckArgs::builder()
+//!             .address("example.com")
+//!             .allow_insecure(false)
+//!             .check_regions(vec!["WEU", "EEU",])
+//!             .consecutive_fails(3)
+//!             .consecutive_successes(2)
+//!             .description("example http health check")
+//!             .expected_body("alive")
+//!             .expected_codes(vec!["2xx", "301",])
+//!             .follow_redirects(true)
+//!             .headers(
+//!                 vec![
+//!                     HealthcheckHeader::builder().header("Host")
+//!                     .values(vec!["example.com",]).build_struct(),
+//!                 ],
+//!             )
+//!             .interval(60)
+//!             .method("GET")
+//!             .name("http-health-check")
+//!             .path("/health")
+//!             .port(443)
+//!             .retries(2)
+//!             .suspended(false)
+//!             .timeout(10)
+//!             .type_("HTTPS")
+//!             .zone_id("${cloudflareZoneId}")
+//!             .build_struct(),
+//!     );
+//!     let tcpHealthCheck = healthcheck::create(
+//!         "tcpHealthCheck",
+//!         HealthcheckArgs::builder()
+//!             .address("example.com")
+//!             .check_regions(vec!["WEU", "EEU",])
+//!             .consecutive_fails(3)
+//!             .consecutive_successes(2)
+//!             .description("example tcp health check")
+//!             .interval(60)
+//!             .method("connection_established")
+//!             .name("tcp-health-check")
+//!             .port(22)
+//!             .retries(2)
+//!             .suspended(false)
+//!             .timeout(10)
+//!             .type_("TCP")
+//!             .zone_id("${cloudflareZoneId}")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

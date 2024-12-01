@@ -3,18 +3,24 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:KeylessCertificate
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       bundleMethod: ubiquitous
-//!       name: example.com Keyless SSL
-//!       host: example.com
-//!       port: 24008
-//!       enabled: true
-//!       certificate: '-----INSERT CERTIFICATE-----'
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = keyless_certificate::create(
+//!         "example",
+//!         KeylessCertificateArgs::builder()
+//!             .bundle_method("ubiquitous")
+//!             .certificate("-----INSERT CERTIFICATE-----")
+//!             .enabled(true)
+//!             .host("example.com")
+//!             .name("example.com Keyless SSL")
+//!             .port(24008)
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

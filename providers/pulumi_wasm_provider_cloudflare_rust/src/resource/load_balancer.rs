@@ -7,52 +7,65 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   # Define a load balancer which always points to a pool we define below.
-//!   # In normal usage, would have different pools set for different pops
-//!   # (cloudflare points-of-presence) and/or for different regions.
-//!   # Within each pop or region we can define multiple pools in failover order.
-//!   example:
-//!     type: cloudflare:LoadBalancer
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       name: example-load-balancer.example.com
-//!       fallbackPoolId: ${exampleLoadBalancerPool.id}
-//!       defaultPoolIds:
-//!         - ${exampleLoadBalancerPool.id}
-//!       description: example load balancer using geo-balancing
-//!       proxied: true
-//!       steeringPolicy: geo
-//!       popPools:
-//!         - pop: LAX
-//!           poolIds:
-//!             - ${exampleLoadBalancerPool.id}
-//!       countryPools:
-//!         - country: US
-//!           poolIds:
-//!             - ${exampleLoadBalancerPool.id}
-//!       regionPools:
-//!         - region: WNAM
-//!           poolIds:
-//!             - ${exampleLoadBalancerPool.id}
-//!       rules:
-//!         - name: example rule
-//!           condition: http.request.uri.path contains "testing"
-//!           fixedResponse:
-//!             messageBody: hello
-//!             statusCode: 200
-//!             contentType: html
-//!             location: www.example.com
-//!   exampleLoadBalancerPool:
-//!     type: cloudflare:LoadBalancerPool
-//!     name: example
-//!     properties:
-//!       name: example-lb-pool
-//!       origins:
-//!         - name: example-1
-//!           address: 192.0.2.1
-//!           enabled: false
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = load_balancer::create(
+//!         "example",
+//!         LoadBalancerArgs::builder()
+//!             .country_pools(
+//!                 vec![
+//!                     LoadBalancerCountryPool::builder().country("US")
+//!                     .poolIds(vec!["${exampleLoadBalancerPool.id}",]).build_struct(),
+//!                 ],
+//!             )
+//!             .default_pool_ids(vec!["${exampleLoadBalancerPool.id}",])
+//!             .description("example load balancer using geo-balancing")
+//!             .fallback_pool_id("${exampleLoadBalancerPool.id}")
+//!             .name("example-load-balancer.example.com")
+//!             .pop_pools(
+//!                 vec![
+//!                     LoadBalancerPopPool::builder()
+//!                     .poolIds(vec!["${exampleLoadBalancerPool.id}",]).pop("LAX")
+//!                     .build_struct(),
+//!                 ],
+//!             )
+//!             .proxied(true)
+//!             .region_pools(
+//!                 vec![
+//!                     LoadBalancerRegionPool::builder()
+//!                     .poolIds(vec!["${exampleLoadBalancerPool.id}",]).region("WNAM")
+//!                     .build_struct(),
+//!                 ],
+//!             )
+//!             .rules(
+//!                 vec![
+//!                     LoadBalancerRule::builder()
+//!                     .condition("http.request.uri.path contains "testing "")
+//!                     .fixedResponse(LoadBalancerRuleFixedResponse::builder()
+//!                     .contentType("html").location("www.example.com").messageBody("hello")
+//!                     .statusCode(200).build_struct()).name("example rule").build_struct(),
+//!                 ],
+//!             )
+//!             .steering_policy("geo")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
+//!     let exampleLoadBalancerPool = load_balancer_pool::create(
+//!         "exampleLoadBalancerPool",
+//!         LoadBalancerPoolArgs::builder()
+//!             .name("example-lb-pool")
+//!             .origins(
+//!                 vec![
+//!                     LoadBalancerPoolOrigin::builder().address("192.0.2.1").enabled(false)
+//!                     .name("example-1").build_struct(),
+//!                 ],
+//!             )
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

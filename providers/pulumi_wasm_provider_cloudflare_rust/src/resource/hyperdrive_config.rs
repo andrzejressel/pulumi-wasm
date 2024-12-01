@@ -3,21 +3,29 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   noDefaults:
-//!     type: cloudflare:HyperdriveConfig
-//!     name: no_defaults
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: my-hyperdrive-config
-//!       origin:
-//!         database: postgres
-//!         password: my-password
-//!         host: my-database.example.com
-//!         port: 5432
-//!         scheme: postgres
-//!         user: my-user
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let noDefaults = hyperdrive_config::create(
+//!         "noDefaults",
+//!         HyperdriveConfigArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .name("my-hyperdrive-config")
+//!             .origin(
+//!                 HyperdriveConfigOrigin::builder()
+//!                     .database("postgres")
+//!                     .host("my-database.example.com")
+//!                     .password("my-password")
+//!                     .port(5432)
+//!                     .scheme("postgres")
+//!                     .user("my-user")
+//!                     .build_struct(),
+//!             )
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

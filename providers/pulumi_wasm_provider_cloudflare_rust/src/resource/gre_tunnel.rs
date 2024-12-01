@@ -3,22 +3,28 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:GreTunnel
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: GRE_1
-//!       customerGreEndpoint: 203.0.113.1
-//!       cloudflareGreEndpoint: 203.0.113.2
-//!       interfaceAddress: 192.0.2.0/31
-//!       description: Tunnel for ISP X
-//!       ttl: 64
-//!       mtu: 1476
-//!       healthCheckEnabled: true
-//!       healthCheckTarget: 203.0.113.1
-//!       healthCheckType: reply
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = gre_tunnel::create(
+//!         "example",
+//!         GreTunnelArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .cloudflare_gre_endpoint("203.0.113.2")
+//!             .customer_gre_endpoint("203.0.113.1")
+//!             .description("Tunnel for ISP X")
+//!             .health_check_enabled(true)
+//!             .health_check_target("203.0.113.1")
+//!             .health_check_type("reply")
+//!             .interface_address("192.0.2.0/31")
+//!             .mtu(1476)
+//!             .name("GRE_1")
+//!             .ttl(64)
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

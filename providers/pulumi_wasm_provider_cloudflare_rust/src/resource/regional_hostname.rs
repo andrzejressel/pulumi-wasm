@@ -3,27 +3,30 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   # Regionalized hostname record resources are managed independently from the
-//!   # Regionalized Hostname resources.
-//!   example:
-//!     type: cloudflare:Record
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       name: example.com
-//!       content: 192.0.2.1
-//!       type: A
-//!       ttl: 3600
-//!   # The cloudflare_regional_hostname resource may exist with or without its
-//!   # corresponding record resource.
-//!   exampleRegionalHostname:
-//!     type: cloudflare:RegionalHostname
-//!     name: example
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       hostname: example.com
-//!       regionKey: eu
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = record::create(
+//!         "example",
+//!         RecordArgs::builder()
+//!             .content("192.0.2.1")
+//!             .name("example.com")
+//!             .ttl(3600)
+//!             .type_("A")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
+//!     let exampleRegionalHostname = regional_hostname::create(
+//!         "exampleRegionalHostname",
+//!         RegionalHostnameArgs::builder()
+//!             .hostname("example.com")
+//!             .region_key("eu")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 //! <!--End PulumiCodeChooser -->
 
