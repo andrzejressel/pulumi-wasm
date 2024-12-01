@@ -82,4 +82,12 @@ mod tests {
         let expected_yaml_file = get_yaml_file();
         assert_eq!(yaml_file, expected_yaml_file);
     }
+
+    #[test]
+    fn test_without_numbers() {
+        use super::super::tests::example_numbers::*;
+        let yaml_file = YamlFile::from_yaml(YAML).unwrap();
+        let expected_yaml_file = get_yaml_file();
+        assert_eq!(yaml_file, expected_yaml_file);
+    }
 }

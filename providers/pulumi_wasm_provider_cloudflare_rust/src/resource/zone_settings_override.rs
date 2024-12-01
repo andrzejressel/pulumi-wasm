@@ -23,26 +23,41 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   test:
-//!     type: cloudflare:ZoneSettingsOverride
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       settings:
-//!         brotli: on
-//!         challengeTtl: 2700
-//!         securityLevel: high
-//!         opportunisticEncryption: on
-//!         automaticHttpsRewrites: on
-//!         mirage: on
-//!         waf: on
-//!         minify:
-//!           css: on
-//!           js: off
-//!           html: off
-//!         securityHeader:
-//!           enabled: true
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let test = zone_settings_override::create(
+//!         "test",
+//!         ZoneSettingsOverrideArgs::builder()
+//!             .settings(
+//!                 ZoneSettingsOverrideSettings::builder()
+//!                     .automaticHttpsRewrites("on")
+//!                     .brotli("on")
+//!                     .challengeTtl(2700)
+//!                     .minify(
+//!                         ZoneSettingsOverrideSettingsMinify::builder()
+//!                             .css("on")
+//!                             .html("off")
+//!                             .js("off")
+//!                             .build_struct(),
+//!                     )
+//!                     .mirage("on")
+//!                     .opportunisticEncryption("on")
+//!                     .securityHeader(
+//!                         ZoneSettingsOverrideSettingsSecurityHeader::builder()
+//!                             .enabled(true)
+//!                             .build_struct(),
+//!                     )
+//!                     .securityLevel("high")
+//!                     .waf("on")
+//!                     .build_struct(),
+//!             )
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 //! <!--End PulumiCodeChooser -->
 

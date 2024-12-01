@@ -3,33 +3,41 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   # Add a record to the domain
-//!   example:
-//!     type: cloudflare:Record
-//!     properties:
-//!       zoneId: ${cloudflareZoneId}
-//!       name: terraform
-//!       content: 192.0.2.1
-//!       type: A
-//!       ttl: 3600
-//!   # Add a record requiring a data map
-//!   _sipTls:
-//!     type: cloudflare:Record
-//!     name: _sip_tls
-//!     properties:
-//!       zoneId: ${cloudflareZoneId}
-//!       name: _sip._tls
-//!       type: SRV
-//!       data:
-//!         service: _sip
-//!         proto: _tls
-//!         name: terraform-srv
-//!         priority: 0
-//!         weight: 0
-//!         port: 443
-//!         target: example.com
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let _sipTls = record::create(
+//!         "_sipTls",
+//!         RecordArgs::builder()
+//!             .data(
+//!                 RecordData::builder()
+//!                     .name("terraform-srv")
+//!                     .port(443)
+//!                     .priority(0)
+//!                     .proto("_tls")
+//!                     .service("_sip")
+//!                     .target("example.com")
+//!                     .weight(0)
+//!                     .build_struct(),
+//!             )
+//!             .name("_sip._tls")
+//!             .type_("SRV")
+//!             .zone_id("${cloudflareZoneId}")
+//!             .build_struct(),
+//!     );
+//!     let example = record::create(
+//!         "example",
+//!         RecordArgs::builder()
+//!             .content("192.0.2.1")
+//!             .name("terraform")
+//!             .ttl(3600)
+//!             .type_("A")
+//!             .zone_id("${cloudflareZoneId}")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

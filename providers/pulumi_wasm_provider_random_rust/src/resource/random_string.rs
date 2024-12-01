@@ -6,14 +6,20 @@
 //! 
 //! ## Example Usage
 //! 
-//! ```yaml
-//! resources:
-//!   random:
-//!     type: random:RandomString
-//!     properties:
-//!       length: 16
-//!       overrideSpecial: /@£$
-//!       special: true
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let random = random_string::create(
+//!         "random",
+//!         RandomStringArgs::builder()
+//!             .length(16)
+//!             .override_special("/@£$")
+//!             .special(true)
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 //! 
 //! ## Import

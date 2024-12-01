@@ -5,21 +5,25 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:MagicWanStaticRoute
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       description: New route for new prefix 192.0.2.0/24
-//!       prefix: 192.0.2.0/24
-//!       nexthop: 10.0.0.0
-//!       priority: 100
-//!       weight: 10
-//!       coloNames:
-//!         - den01
-//!       coloRegions:
-//!         - APAC
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = magic_wan_static_route::create(
+//!         "example",
+//!         MagicWanStaticRouteArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .colo_names(vec!["den01",])
+//!             .colo_regions(vec!["APAC",])
+//!             .description("New route for new prefix 192.0.2.0/24")
+//!             .nexthop("10.0.0.0")
+//!             .prefix("192.0.2.0/24")
+//!             .priority(100)
+//!             .weight(10)
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

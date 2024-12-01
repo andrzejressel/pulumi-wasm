@@ -107,6 +107,7 @@ fn generate_expression(expr: Expression) -> String {
     match expr {
         Expression::String(s) => format!("\"{}\"", s),
         Expression::Number(n) => format!("{}", n),
+        Expression::Integer(i) => format!("{}", i),
         Expression::Boolean(b) => format!("{}", b),
         Expression::Object(element_id, expr) => generate_object(element_id, expr),
         Expression::HashMap(map) => {
