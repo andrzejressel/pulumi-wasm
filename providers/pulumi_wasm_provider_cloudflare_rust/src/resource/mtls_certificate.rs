@@ -11,7 +11,7 @@
 //!     let example = mtls_certificate::create(
 //!         "example",
 //!         MtlsCertificateArgs::builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
 //!             .ca(true)
 //!             .certificates(
 //!                 "-----BEGIN CERTIFICATE-----
@@ -19,7 +19,7 @@
 //! -----END CERTIFICATE-----",
 //!             )
 //!             .name("example")
-//!             .privateKey(
+//!             .private_key(
 //!                 "-----BEGIN PRIVATE KEY-----
 //! MIIEvQIBADANBgkqhkiG9w0BAQE...1IS3EnQRrz6WMYA=
 //! -----END PRIVATE KEY-----",

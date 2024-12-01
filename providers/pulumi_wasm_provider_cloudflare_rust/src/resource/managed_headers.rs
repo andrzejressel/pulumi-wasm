@@ -13,19 +13,19 @@
 //!     let example = managed_headers::create(
 //!         "example",
 //!         ManagedHeadersArgs::builder()
-//!             .managedRequestHeaders(
+//!             .managed_request_headers(
 //!                 vec![
 //!                     ManagedHeadersManagedRequestHeader::builder().enabled(true)
 //!                     .id("add_true_client_ip_headers").build_struct(),
 //!                 ],
 //!             )
-//!             .managedResponseHeaders(
+//!             .managed_response_headers(
 //!                 vec![
 //!                     ManagedHeadersManagedResponseHeader::builder().enabled(true)
 //!                     .id("remove_x-powered-by_header").build_struct(),
 //!                 ],
 //!             )
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build_struct(),
 //!     );
 //! }

@@ -11,7 +11,7 @@
 //!     let example = workers_kv_namespace::create(
 //!         "example",
 //!         WorkersKvNamespaceArgs::builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
 //!             .title("test-namespace")
 //!             .build_struct(),
 //!     );

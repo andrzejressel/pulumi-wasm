@@ -3,27 +3,24 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   exampleAccessApplication:
-//!     type: cloudflare:AccessApplication
-//!     name: example
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       name: name
-//!       domain: name.example.com
-//!       type: self_hosted
-//!       sessionDuration: 24h
-//!       allowedIdps:
-//!         - ${example.id}
-//!       autoRedirectToIdentity: true
-//! variables:
-//!   example:
-//!     fn::invoke:
-//!       Function: cloudflare:getAccessIdentityProvider
-//!       Arguments:
-//!         name: Google SSO
-//!         accountId: f037e56e89293a057740de681ac9abbe
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let exampleAccessApplication = access_application::create(
+//!         "exampleAccessApplication",
+//!         AccessApplicationArgs::builder()
+//!             .allowed_idps(vec!["${example.id}",])
+//!             .auto_redirect_to_identity(true)
+//!             .domain("name.example.com")
+//!             .name("name")
+//!             .session_duration("24h")
+//!             .type_("self_hosted")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 //! <!--End PulumiCodeChooser -->
 

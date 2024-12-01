@@ -3,15 +3,21 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:CustomPages
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       type: basic_challenge
-//!       url: https://example.com/challenge.html
-//!       state: customized
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = custom_pages::create(
+//!         "example",
+//!         CustomPagesArgs::builder()
+//!             .state("customized")
+//!             .type_("basic_challenge")
+//!             .url("https://example.com/challenge.html")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

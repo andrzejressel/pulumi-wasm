@@ -3,26 +3,33 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   eaxmple:
-//!     type: cloudflare:DevicePostureRule
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: Corporate devices posture rule
-//!       type: os_version
-//!       description: Device posture rule for corporate devices.
-//!       schedule: 24h
-//!       expiration: 24h
-//!       matches:
-//!         - platform: linux
-//!       inputs:
-//!         - id: ${corporateDevices.id}
-//!           version: 1.0.0
-//!           operator: <
-//!           osDistroName: ubuntu
-//!           osDistroRevision: 1.0.0
-//!           osVersionExtra: (a)
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let eaxmple = device_posture_rule::create(
+//!         "eaxmple",
+//!         DevicePostureRuleArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .description("Device posture rule for corporate devices.")
+//!             .expiration("24h")
+//!             .inputs(
+//!                 vec![
+//!                     DevicePostureRuleInput::builder().id("${corporateDevices.id}")
+//!                     .operator("<").osDistroName("ubuntu").osDistroRevision("1.0.0")
+//!                     .osVersionExtra("(a)").version("1.0.0").build_struct(),
+//!                 ],
+//!             )
+//!             .matches(
+//!                 vec![DevicePostureRuleMatch::builder().platform("linux").build_struct(),],
+//!             )
+//!             .name("Corporate devices posture rule")
+//!             .schedule("24h")
+//!             .type_("os_version")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

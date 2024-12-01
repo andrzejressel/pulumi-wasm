@@ -11,10 +11,10 @@
 //!     let example = workers_domain::create(
 //!         "example",
 //!         WorkersDomainArgs::builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
 //!             .hostname("subdomain.example.com")
 //!             .service("my-service")
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build_struct(),
 //!     );
 //! }

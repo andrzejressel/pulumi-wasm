@@ -14,15 +14,15 @@
 //!             .avifs(vec!["image/avif", "image/webp",])
 //!             .bmps(vec!["image/bmp", "image/webp",])
 //!             .gifs(vec!["image/gif", "image/webp",])
-//!             .jp2s(vec!["image/jp2", "image/webp",])
+//!             .jp_2_s(vec!["image/jp2", "image/webp",])
 //!             .jpegs(vec!["image/jpeg", "image/webp",])
-//!             .jpg2s(vec!["image/jpg2", "image/webp",])
+//!             .jpg_2_s(vec!["image/jpg2", "image/webp",])
 //!             .jpgs(vec!["image/jpg", "image/webp",])
 //!             .pngs(vec!["image/png", "image/webp",])
 //!             .tiffs(vec!["image/tiff", "image/webp",])
 //!             .tifs(vec!["image/tif", "image/webp",])
 //!             .webps(vec!["image/jpeg", "image/webp",])
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build_struct(),
 //!     );
 //! }

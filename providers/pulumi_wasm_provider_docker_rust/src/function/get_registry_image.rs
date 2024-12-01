@@ -12,7 +12,7 @@
 //!         "ubuntuRemoteImage",
 //!         RemoteImageArgs::builder()
 //!             .name("${ubuntuRegistryImage.name}")
-//!             .pullTriggers(vec!["${ubuntuRegistryImage.sha256Digest}",])
+//!             .pull_triggers(vec!["${ubuntuRegistryImage.sha256Digest}",])
 //!             .build_struct(),
 //!     );
 //! }

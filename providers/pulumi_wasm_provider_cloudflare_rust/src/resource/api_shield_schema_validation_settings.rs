@@ -11,9 +11,9 @@
 //!     let example = api_shield_schema_validation_settings::create(
 //!         "example",
 //!         ApiShieldSchemaValidationSettingsArgs::builder()
-//!             .validationDefaultMitigationAction("log")
-//!             .validationOverrideMitigationAction("none")
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .validation_default_mitigation_action("log")
+//!             .validation_override_mitigation_action("none")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build_struct(),
 //!     );
 //! }

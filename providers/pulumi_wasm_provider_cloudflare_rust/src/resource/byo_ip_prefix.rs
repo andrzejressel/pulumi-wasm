@@ -12,10 +12,10 @@
 //!     let example = byo_ip_prefix::create(
 //!         "example",
 //!         ByoIpPrefixArgs::builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
 //!             .advertisement("on")
 //!             .description("Example IP Prefix")
-//!             .prefixId("d41d8cd98f00b204e9800998ecf8427e")
+//!             .prefix_id("d41d8cd98f00b204e9800998ecf8427e")
 //!             .build_struct(),
 //!     );
 //! }

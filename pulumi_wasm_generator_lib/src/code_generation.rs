@@ -1,16 +1,24 @@
-use crate::model::{ElementId, Ref};
+use crate::model::ElementId;
 use crate::yaml::model::{yaml_to_model, Example, Expression, Resource};
 use crate::yaml::yaml_model::YamlFile;
-use std::collections::{BTreeMap, HashMap};
+use std::collections::BTreeMap;
 use std::fmt::format;
+use std::panic;
+use anyhow::{anyhow, Context, Result};
+use convert_case::Case;
+use crate::utils::escape_rust_name;
+use convert_case::Casing;
 
-pub fn generate_code_from_string(yaml: String, package: &crate::model::Package) -> String {
-    let yaml_file = YamlFile::from_yaml(yaml.as_str()).unwrap();
-    let example = yaml_to_model(yaml_file, package.name.clone(), package);
+pub fn generate_code_from_string(yaml: String, package: &crate::model::Package) -> Result<String> {
+    let yaml_file = YamlFile::from_yaml(yaml.as_str())
+        .context(format!("Failed to parse YAML: {}", yaml))?;
+    let example = panic::catch_unwind(|| yaml_to_model(yaml_file, package.name.clone(), package))
+        .map_err(|_| anyhow!("Failed to convert YAML to model"))
+        .context(format!("Failed to convert YAML {} to model", yaml))?;
     generate_code(example)
 }
 
-pub fn generate_code(example: Example) -> String {
+pub fn generate_code(example: Example) -> Result<String> {
     let mut result = r"
 use pulumi_wasm_rust::Output;
 use pulumi_wasm_rust::{add_export, pulumi_main};
@@ -28,10 +36,10 @@ fn test_main() -> Result<(), Error> {
 
     result.push_str("}");
 
-    println!("{}", result);
-    let syntax_tree = syn::parse_file(result.as_str()).unwrap();
+    let syntax_tree = syn::parse_file(result.as_str())
+        .context(format!("Failed to parse generated Rust code:\n{}", result))?;
     let formatted = prettyplease::unparse(&syntax_tree);
-    formatted
+    Ok(formatted)
 }
 
 pub fn generate_resource(name: String, resource: Resource) -> String {
@@ -48,11 +56,14 @@ pub fn generate_resource(name: String, resource: Resource) -> String {
         resource.type_.get_rust_struct_name()
     ));
     for (property_name, property_expr) in resource.properties {
+        let valid_rust_property_name = escape_rust_name(property_name.as_str())
+            .from_case(Case::Camel)
+            .to_case(Case::Snake);
         str.push_str(&format!(
             r#"
            .{}({})
         "#,
-            property_name,
+            valid_rust_property_name,
             generate_expression(property_expr)
         ));
     }
@@ -132,14 +143,14 @@ mod tests {
     #[test]
     fn test_example_array() {
         let model = example_array::get_model();
-        let code = generate_code(model);
+        let code = generate_code(model).unwrap();
         assert_eq!(example_array::get_rust_code(), code)
     }
 
     #[test]
     fn test_access_rule() {
         let model = access_rule::get_model();
-        let code = generate_code(model);
+        let code = generate_code(model).unwrap();
         assert_eq!(access_rule::get_rust_code(), code)
     }
 }

@@ -14,15 +14,15 @@
 //!             .endpoint("/path")
 //!             .host("api.example.com")
 //!             .method("GET")
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build_struct(),
 //!     );
 //!     let exampleApiShieldOperationSchemaValidationSettings = api_shield_operation_schema_validation_settings::create(
 //!         "exampleApiShieldOperationSchemaValidationSettings",
 //!         ApiShieldOperationSchemaValidationSettingsArgs::builder()
-//!             .mitigationAction("block")
-//!             .operationId("${example.id}")
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .mitigation_action("block")
+//!             .operation_id("${example.id}")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build_struct(),
 //!     );
 //! }

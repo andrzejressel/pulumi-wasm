@@ -11,7 +11,7 @@
 //!     let example = infrastructure_access_target::create(
 //!         "example",
 //!         InfrastructureAccessTargetArgs::builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
 //!             .hostname("example-target")
 //!             .ip(
 //!                 InfrastructureAccessTargetIp::builder()
@@ -34,7 +34,7 @@
 //!     let ipv4OnlyExample = infrastructure_access_target::create(
 //!         "ipv4OnlyExample",
 //!         InfrastructureAccessTargetArgs::builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
 //!             .hostname("example-ipv4-only")
 //!             .ip(
 //!                 InfrastructureAccessTargetIp::builder()

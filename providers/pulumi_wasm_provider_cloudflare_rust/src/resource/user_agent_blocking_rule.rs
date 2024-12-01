@@ -20,7 +20,7 @@
 //!             .description("My description 1")
 //!             .mode("js_challenge")
 //!             .paused(false)
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build_struct(),
 //!     );
 //!     let example2 = user_agent_blocking_rule::create(
@@ -35,7 +35,7 @@
 //!             .description("My description 22")
 //!             .mode("challenge")
 //!             .paused(true)
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build_struct(),
 //!     );
 //! }

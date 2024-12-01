@@ -90,7 +90,7 @@ pub(crate) fn to_lines(s: Option<String>, package: &crate::model::Package) -> Ve
     for line in lines {
         if (in_yaml && line.trim() == "```") {
             let yaml_str = yaml_lines.join("\n");
-            let example = panic::catch_unwind(|| generate_code_from_string(yaml_str, package));
+            let example = generate_code_from_string(yaml_str, package);
 
             match example {
                 Ok(rust_example) => {
@@ -103,7 +103,9 @@ pub(crate) fn to_lines(s: Option<String>, package: &crate::model::Package) -> Ve
                     );
                     new_lines.push("```".to_string());
                 }
-                Err(f) => {
+                Err(err) => {
+                    eprintln!("ERROR: {}", err);
+                    err.chain().skip(1).for_each(|cause| eprintln!("because: {}", cause));
                     new_lines.push("```yaml".to_string());
                     new_lines.extend(yaml_lines.clone());
                     new_lines.push("```".to_string());

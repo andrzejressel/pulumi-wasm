@@ -11,9 +11,9 @@
 //!     let example = web_analytics_site::create(
 //!         "example",
 //!         WebAnalyticsSiteArgs::builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .autoInstall(true)
-//!             .zoneTag("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .auto_install(true)
+//!             .zone_tag("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build_struct(),
 //!     );
 //! }

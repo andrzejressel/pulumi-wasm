@@ -3,18 +3,28 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   managedNetworks:
-//!     type: cloudflare:DeviceManagedNetworks
-//!     name: managed_networks
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: managed-network-1
-//!       type: tls
-//!       config:
-//!         tlsSockaddr: foobar:1234
-//!         sha256: b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b878ae4944c
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let managedNetworks = device_managed_networks::create(
+//!         "managedNetworks",
+//!         DeviceManagedNetworksArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .config(
+//!                 DeviceManagedNetworksConfig::builder()
+//!                     .sha256(
+//!                         "b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b878ae4944c",
+//!                     )
+//!                     .tlsSockaddr("foobar:1234")
+//!                     .build_struct(),
+//!             )
+//!             .name("managed-network-1")
+//!             .type_("tls")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

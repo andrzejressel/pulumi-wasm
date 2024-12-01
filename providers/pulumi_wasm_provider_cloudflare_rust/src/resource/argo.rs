@@ -12,9 +12,9 @@
 //!     let example = argo::create(
 //!         "example",
 //!         ArgoArgs::builder()
-//!             .smartRouting("on")
-//!             .tieredCaching("on")
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .smart_routing("on")
+//!             .tiered_caching("on")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build_struct(),
 //!     );
 //! }

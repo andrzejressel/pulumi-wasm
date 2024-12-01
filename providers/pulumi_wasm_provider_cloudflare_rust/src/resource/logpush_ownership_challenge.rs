@@ -14,8 +14,8 @@
 //!     let example = logpush_ownership_challenge::create(
 //!         "example",
 //!         LogpushOwnershipChallengeArgs::builder()
-//!             .destinationConf("s3://my-bucket-path?region=us-west-2")
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .destination_conf("s3://my-bucket-path?region=us-west-2")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build_struct(),
 //!     );
 //! }

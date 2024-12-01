@@ -11,9 +11,9 @@
 //!     let example = total_tls::create(
 //!         "example",
 //!         TotalTlsArgs::builder()
-//!             .certificateAuthority("lets_encrypt")
+//!             .certificate_authority("lets_encrypt")
 //!             .enabled(true)
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build_struct(),
 //!     );
 //! }

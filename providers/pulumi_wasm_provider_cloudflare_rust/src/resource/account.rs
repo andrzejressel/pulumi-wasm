@@ -4,14 +4,20 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:Account
-//!     properties:
-//!       name: some-enterprise-account
-//!       type: enterprise
-//!       enforceTwofactor: true
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = account::create(
+//!         "example",
+//!         AccountArgs::builder()
+//!             .enforce_twofactor(true)
+//!             .name("some-enterprise-account")
+//!             .type_("enterprise")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

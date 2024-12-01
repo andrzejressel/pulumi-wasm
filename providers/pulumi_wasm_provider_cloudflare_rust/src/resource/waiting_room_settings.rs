@@ -11,8 +11,8 @@
 //!     let example = waiting_room_settings::create(
 //!         "example",
 //!         WaitingRoomSettingsArgs::builder()
-//!             .searchEngineCrawlerBypass(true)
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .search_engine_crawler_bypass(true)
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build_struct(),
 //!     );
 //! }

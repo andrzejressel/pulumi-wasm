@@ -13,7 +13,7 @@
 //!     let example = teams_proxy_endpoint::create(
 //!         "example",
 //!         TeamsProxyEndpointArgs::builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
 //!             .ips(vec!["192.0.2.0/24",])
 //!             .name("office")
 //!             .build_struct(),

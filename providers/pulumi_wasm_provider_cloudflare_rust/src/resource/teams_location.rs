@@ -12,9 +12,9 @@
 //!     let example = teams_location::create(
 //!         "example",
 //!         TeamsLocationArgs::builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .clientDefault(true)
-//!             .ecsSupport(false)
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .client_default(true)
+//!             .ecs_support(false)
 //!             .name("office")
 //!             .networks(
 //!                 vec![

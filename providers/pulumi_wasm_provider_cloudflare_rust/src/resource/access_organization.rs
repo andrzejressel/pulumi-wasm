@@ -11,11 +11,11 @@
 //!     let example = access_organization::create(
 //!         "example",
 //!         AccessOrganizationArgs::builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .authDomain("example.cloudflareaccess.com")
-//!             .autoRedirectToIdentity(false)
-//!             .isUiReadOnly(false)
-//!             .loginDesigns(
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .auth_domain("example.cloudflareaccess.com")
+//!             .auto_redirect_to_identity(false)
+//!             .is_ui_read_only(false)
+//!             .login_designs(
 //!                 vec![
 //!                     AccessOrganizationLoginDesign::builder().backgroundColor("#ffffff")
 //!                     .footerText("My footer text").headerText("My header text")
@@ -24,7 +24,7 @@
 //!                 ],
 //!             )
 //!             .name("example.cloudflareaccess.com")
-//!             .userSeatExpirationInactiveTime("720h")
+//!             .user_seat_expiration_inactive_time("720h")
 //!             .build_struct(),
 //!     );
 //! }

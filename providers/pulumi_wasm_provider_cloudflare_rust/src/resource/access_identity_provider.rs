@@ -11,57 +11,68 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   # one time pin
-//!   pinLogin:
-//!     type: cloudflare:AccessIdentityProvider
-//!     name: pin_login
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: PIN login
-//!       type: onetimepin
-//!   # oauth
-//!   githubOauth:
-//!     type: cloudflare:AccessIdentityProvider
-//!     name: github_oauth
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: GitHub OAuth
-//!       type: github
-//!       configs:
-//!         - clientId: example
-//!           clientSecret: secret_key
-//!   # saml
-//!   jumpcloudSaml:
-//!     type: cloudflare:AccessIdentityProvider
-//!     name: jumpcloud_saml
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: JumpCloud SAML
-//!       type: saml
-//!       configs:
-//!         - issuerUrl: jumpcloud
-//!           ssoTargetUrl: https://sso.myexample.jumpcloud.com/saml2/cloudflareaccess
-//!           attributes:
-//!             - email
-//!             - username
-//!           signRequest: false
-//!           idpPublicCert: |-
-//!             MIIDpDCCAoygAwIBAgIGAV2ka+55MA0GCSqGSIb3DQEBCwUAMIGSMQswCQ...GF/Q2/MHadws97cZg
-//!             uTnQyuOqPuHbnN83d/2l1NSYKCbHt24o
-//!   # okta
-//!   okta:
-//!     type: cloudflare:AccessIdentityProvider
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: Okta
-//!       type: okta
-//!       configs:
-//!         - clientId: example
-//!           clientSecret: secret_key
-//!           apiToken: okta_api_token
-//!           oktaAccount: https://example.com
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let githubOauth = access_identity_provider::create(
+//!         "githubOauth",
+//!         AccessIdentityProviderArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .configs(
+//!                 vec![
+//!                     AccessIdentityProviderConfig::builder().clientId("example")
+//!                     .clientSecret("secret_key").build_struct(),
+//!                 ],
+//!             )
+//!             .name("GitHub OAuth")
+//!             .type_("github")
+//!             .build_struct(),
+//!     );
+//!     let jumpcloudSaml = access_identity_provider::create(
+//!         "jumpcloudSaml",
+//!         AccessIdentityProviderArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .configs(
+//!                 vec![
+//!                     AccessIdentityProviderConfig::builder().attributes(vec!["email",
+//!                     "username",])
+//!                     .idpPublicCert("MIIDpDCCAoygAwIBAgIGAV2ka+55MA0GCSqGSIb3DQEBCwUAMIGSMQswCQ...GF/Q2/MHadws97cZg
+//! uTnQyuOqPuHbnN83d/2l1NSYKCbHt24o")
+//!                     .issuerUrl("jumpcloud").signRequest(false)
+//!                     .ssoTargetUrl("https://sso.myexample.jumpcloud.com/saml2/cloudflareaccess")
+//!                     .build_struct(),
+//!                 ],
+//!             )
+//!             .name("JumpCloud SAML")
+//!             .type_("saml")
+//!             .build_struct(),
+//!     );
+//!     let okta = access_identity_provider::create(
+//!         "okta",
+//!         AccessIdentityProviderArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .configs(
+//!                 vec![
+//!                     AccessIdentityProviderConfig::builder().apiToken("okta_api_token")
+//!                     .clientId("example").clientSecret("secret_key")
+//!                     .oktaAccount("https://example.com").build_struct(),
+//!                 ],
+//!             )
+//!             .name("Okta")
+//!             .type_("okta")
+//!             .build_struct(),
+//!     );
+//!     let pinLogin = access_identity_provider::create(
+//!         "pinLogin",
+//!         AccessIdentityProviderArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .name("PIN login")
+//!             .type_("onetimepin")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

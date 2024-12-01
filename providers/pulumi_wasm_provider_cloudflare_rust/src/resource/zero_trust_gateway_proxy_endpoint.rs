@@ -13,7 +13,7 @@
 //!     let example = zero_trust_gateway_proxy_endpoint::create(
 //!         "example",
 //!         ZeroTrustGatewayProxyEndpointArgs::builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
 //!             .ips(vec!["192.0.2.0/24",])
 //!             .name("office")
 //!             .build_struct(),

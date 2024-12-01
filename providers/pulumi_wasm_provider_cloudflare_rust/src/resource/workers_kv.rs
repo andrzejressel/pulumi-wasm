@@ -11,16 +11,16 @@
 //!     let example = workers_kv::create(
 //!         "example",
 //!         WorkersKvArgs::builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
 //!             .key("test-key")
-//!             .namespaceId("${exampleNs.id}")
+//!             .namespace_id("${exampleNs.id}")
 //!             .value("test value")
 //!             .build_struct(),
 //!     );
 //!     let exampleNs = workers_kv_namespace::create(
 //!         "exampleNs",
 //!         WorkersKvNamespaceArgs::builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
 //!             .title("test-namespace")
 //!             .build_struct(),
 //!     );

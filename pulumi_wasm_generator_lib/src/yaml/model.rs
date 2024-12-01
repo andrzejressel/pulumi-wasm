@@ -39,8 +39,6 @@ pub(crate) fn yaml_to_model(
     }
 
     Example { resources }
-
-    // todo!()
 }
 
 #[derive(Debug, PartialEq)]

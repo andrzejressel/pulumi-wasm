@@ -5,19 +5,22 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:TeamsList
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: Corporate devices
-//!       type: SERIAL
-//!       description: Serial numbers for all corporate devices.
-//!       items:
-//!         - 8GE8721REF
-//!         - 5RE8543EGG
-//!         - 1YE2880LNP
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = teams_list::create(
+//!         "example",
+//!         TeamsListArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .description("Serial numbers for all corporate devices.")
+//!             .items(vec!["8GE8721REF", "5RE8543EGG", "1YE2880LNP",])
+//!             .name("Corporate devices")
+//!             .type_("SERIAL")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

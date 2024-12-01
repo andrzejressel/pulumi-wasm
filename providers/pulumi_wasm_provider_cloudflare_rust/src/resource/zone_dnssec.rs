@@ -14,7 +14,7 @@
 //!     );
 //!     let exampleZoneDnssec = zone_dnssec::create(
 //!         "exampleZoneDnssec",
-//!         ZoneDnssecArgs::builder().zoneId("${example.id}").build_struct(),
+//!         ZoneDnssecArgs::builder().zone_id("${example.id}").build_struct(),
 //!     );
 //! }
 //! ```

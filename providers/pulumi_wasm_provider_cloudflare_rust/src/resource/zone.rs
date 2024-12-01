@@ -15,7 +15,7 @@
 //!     let example = zone::create(
 //!         "example",
 //!         ZoneArgs::builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
 //!             .zone("example.com")
 //!             .build_struct(),
 //!     );

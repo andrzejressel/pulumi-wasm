@@ -13,7 +13,7 @@
 //!     let example = zero_trust_tunnel_cloudflared::create(
 //!         "example",
 //!         ZeroTrustTunnelCloudflaredArgs::builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
 //!             .name("my-tunnel")
 //!             .secret("AQIDBAUGBwgBAgMEBQYHCAECAwQFBgcIAQIDBAUGBwg=")
 //!             .build_struct(),

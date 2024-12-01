@@ -9,23 +9,22 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   exampleRecord:
-//!     type: cloudflare:Record
-//!     name: example
-//!     properties:
-//!       zoneId: ${example.id}
-//!       name: www
-//!       content: 203.0.113.1
-//!       type: A
-//!       proxied: true
-//! variables:
-//!   example:
-//!     fn::invoke:
-//!       Function: cloudflare:getZone
-//!       Arguments:
-//!         name: example.com
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let exampleRecord = record::create(
+//!         "exampleRecord",
+//!         RecordArgs::builder()
+//!             .content("203.0.113.1")
+//!             .name("www")
+//!             .proxied(true)
+//!             .type_("A")
+//!             .zone_id("${example.id}")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 //! <!--End PulumiCodeChooser -->
 

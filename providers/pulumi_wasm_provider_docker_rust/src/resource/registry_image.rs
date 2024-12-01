@@ -13,7 +13,7 @@
 //! fn test_main() -> Result<(), Error> {
 //!     let helloworld = registry_image::create(
 //!         "helloworld",
-//!         RegistryImageArgs::builder().keepRemotely(true).build_struct(),
+//!         RegistryImageArgs::builder().keep_remotely(true).build_struct(),
 //!     );
 //!     let image = remote_image::create(
 //!         "image",

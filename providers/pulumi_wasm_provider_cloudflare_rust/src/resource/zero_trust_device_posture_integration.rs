@@ -5,20 +5,29 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:ZeroTrustDevicePostureIntegration
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: Device posture integration
-//!       type: workspace_one
-//!       interval: 24h
-//!       configs:
-//!         - apiUrl: https://example.com/api
-//!           authUrl: https://example.com/connect/token
-//!           clientId: client-id
-//!           clientSecret: client-secret
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = zero_trust_device_posture_integration::create(
+//!         "example",
+//!         ZeroTrustDevicePostureIntegrationArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .configs(
+//!                 vec![
+//!                     ZeroTrustDevicePostureIntegrationConfig::builder()
+//!                     .apiUrl("https://example.com/api")
+//!                     .authUrl("https://example.com/connect/token").clientId("client-id")
+//!                     .clientSecret("client-secret").build_struct(),
+//!                 ],
+//!             )
+//!             .interval("24h")
+//!             .name("Device posture integration")
+//!             .type_("workspace_one")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

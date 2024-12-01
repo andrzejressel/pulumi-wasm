@@ -11,7 +11,7 @@
 //!     let example = zero_trust_dex_test::create(
 //!         "example",
 //!         ZeroTrustDexTestArgs::builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
 //!             .data(
 //!                 ZeroTrustDexTestData::builder()
 //!                     .host("https://example.com/home")

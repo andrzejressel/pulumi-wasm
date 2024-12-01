@@ -11,8 +11,8 @@
 //!     let example = turnstile_widget::create(
 //!         "example",
 //!         TurnstileWidgetArgs::builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .botFightMode(false)
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .bot_fight_mode(false)
 //!             .domains(vec!["example.com",])
 //!             .mode("invisible")
 //!             .name("example widget")

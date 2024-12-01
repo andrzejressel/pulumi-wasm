@@ -11,15 +11,15 @@
 //!     let example = magic_wan_ipsec_tunnel::create(
 //!         "example",
 //!         MagicWanIpsecTunnelArgs::builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .allowNullCipher(false)
-//!             .cloudflareEndpoint("203.0.113.1")
-//!             .customerEndpoint("203.0.113.1")
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .allow_null_cipher(false)
+//!             .cloudflare_endpoint("203.0.113.1")
+//!             .customer_endpoint("203.0.113.1")
 //!             .description("Tunnel for ISP X")
-//!             .healthCheckEnabled(true)
-//!             .healthCheckTarget("203.0.113.1")
-//!             .healthCheckType("reply")
-//!             .interfaceAddress("192.0.2.0/31")
+//!             .health_check_enabled(true)
+//!             .health_check_target("203.0.113.1")
+//!             .health_check_type("reply")
+//!             .interface_address("192.0.2.0/31")
 //!             .name("IPsec_1")
 //!             .psk("asdf12341234")
 //!             .build_struct(),

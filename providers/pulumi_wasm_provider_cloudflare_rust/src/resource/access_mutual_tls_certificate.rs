@@ -21,10 +21,10 @@
 //!     let myCert = access_mutual_tls_certificate::create(
 //!         "myCert",
 //!         AccessMutualTlsCertificateArgs::builder()
-//!             .associatedHostnames(vec!["staging.example.com",])
+//!             .associated_hostnames(vec!["staging.example.com",])
 //!             .certificate("${caPem}")
 //!             .name("My Root Cert")
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build_struct(),
 //!     );
 //! }

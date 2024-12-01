@@ -24,7 +24,7 @@
 //!                 ],
 //!             )
 //!             .name("example catch all")
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build_struct(),
 //!     );
 //! }

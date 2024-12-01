@@ -11,7 +11,7 @@
 //!     let example = zero_trust_infrastructure_access_target::create(
 //!         "example",
 //!         ZeroTrustInfrastructureAccessTargetArgs::builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
 //!             .hostname("example-target")
 //!             .ip(
 //!                 ZeroTrustInfrastructureAccessTargetIp::builder()
@@ -34,7 +34,7 @@
 //!     let ipv4OnlyExample = zero_trust_infrastructure_access_target::create(
 //!         "ipv4OnlyExample",
 //!         ZeroTrustInfrastructureAccessTargetArgs::builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
 //!             .hostname("example-ipv4-only")
 //!             .ip(
 //!                 ZeroTrustInfrastructureAccessTargetIp::builder()

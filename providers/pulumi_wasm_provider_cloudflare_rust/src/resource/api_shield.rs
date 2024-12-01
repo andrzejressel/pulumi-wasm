@@ -11,13 +11,13 @@
 //!     let example = api_shield::create(
 //!         "example",
 //!         ApiShieldArgs::builder()
-//!             .authIdCharacteristics(
+//!             .auth_id_characteristics(
 //!                 vec![
 //!                     ApiShieldAuthIdCharacteristic::builder().name("my-example-header").
 //!                     type ("header").build_struct(),
 //!                 ],
 //!             )
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build_struct(),
 //!     );
 //! }

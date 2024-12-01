@@ -5,48 +5,54 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   # Authenticated Origin Pulls
-//!   myAop:
-//!     type: cloudflare:AuthenticatedOriginPulls
-//!     name: my_aop
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       enabled: true
-//!   # Per-Zone Authenticated Origin Pulls
-//!   myPerZoneAopCert:
-//!     type: cloudflare:AuthenticatedOriginPullsCertificate
-//!     name: my_per_zone_aop_cert
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       certificate: '-----INSERT CERTIFICATE-----'
-//!       privateKey: '-----INSERT PRIVATE KEY-----'
-//!       type: per-zone
-//!   myPerZoneAop:
-//!     type: cloudflare:AuthenticatedOriginPulls
-//!     name: my_per_zone_aop
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       authenticatedOriginPullsCertificate: ${myPerZoneAopCert.id}
-//!       enabled: true
-//!   # Per-Hostname Authenticated Origin Pulls
-//!   myPerHostnameAopCert:
-//!     type: cloudflare:AuthenticatedOriginPullsCertificate
-//!     name: my_per_hostname_aop_cert
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       certificate: '-----INSERT CERTIFICATE-----'
-//!       privateKey: '-----INSERT PRIVATE KEY-----'
-//!       type: per-hostname
-//!   myPerHostnameAop:
-//!     type: cloudflare:AuthenticatedOriginPulls
-//!     name: my_per_hostname_aop
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       authenticatedOriginPullsCertificate: ${myPerHostnameAopCert.id}
-//!       hostname: aop.example.com
-//!       enabled: true
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let myAop = authenticated_origin_pulls::create(
+//!         "myAop",
+//!         AuthenticatedOriginPullsArgs::builder()
+//!             .enabled(true)
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
+//!     let myPerHostnameAop = authenticated_origin_pulls::create(
+//!         "myPerHostnameAop",
+//!         AuthenticatedOriginPullsArgs::builder()
+//!             .authenticated_origin_pulls_certificate("${myPerHostnameAopCert.id}")
+//!             .enabled(true)
+//!             .hostname("aop.example.com")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
+//!     let myPerHostnameAopCert = authenticated_origin_pulls_certificate::create(
+//!         "myPerHostnameAopCert",
+//!         AuthenticatedOriginPullsCertificateArgs::builder()
+//!             .certificate("-----INSERT CERTIFICATE-----")
+//!             .private_key("-----INSERT PRIVATE KEY-----")
+//!             .type_("per-hostname")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
+//!     let myPerZoneAop = authenticated_origin_pulls::create(
+//!         "myPerZoneAop",
+//!         AuthenticatedOriginPullsArgs::builder()
+//!             .authenticated_origin_pulls_certificate("${myPerZoneAopCert.id}")
+//!             .enabled(true)
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
+//!     let myPerZoneAopCert = authenticated_origin_pulls_certificate::create(
+//!         "myPerZoneAopCert",
+//!         AuthenticatedOriginPullsCertificateArgs::builder()
+//!             .certificate("-----INSERT CERTIFICATE-----")
+//!             .private_key("-----INSERT PRIVATE KEY-----")
+//!             .type_("per-zone")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

@@ -11,20 +11,20 @@
 //!     let example = web_analytics_site::create(
 //!         "example",
 //!         WebAnalyticsSiteArgs::builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .autoInstall(true)
-//!             .zoneTag("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .auto_install(true)
+//!             .zone_tag("0da42c8d2132a9ddaf714f9e7c920711")
 //!             .build_struct(),
 //!     );
 //!     let exampleWebAnalyticsRule = web_analytics_rule::create(
 //!         "exampleWebAnalyticsRule",
 //!         WebAnalyticsRuleArgs::builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
 //!             .host("*")
 //!             .inclusive(false)
-//!             .isPaused(false)
+//!             .is_paused(false)
 //!             .paths(vec!["/excluded",])
-//!             .rulesetId("${example.rulesetId}")
+//!             .ruleset_id("${example.rulesetId}")
 //!             .build_struct(),
 //!     );
 //! }

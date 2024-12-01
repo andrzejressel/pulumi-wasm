@@ -5,26 +5,30 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   # Per-Zone Authenticated Origin Pulls certificate
-//!   myPerZoneAopCert:
-//!     type: cloudflare:AuthenticatedOriginPullsCertificate
-//!     name: my_per_zone_aop_cert
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       certificate: '-----INSERT CERTIFICATE-----'
-//!       privateKey: '-----INSERT PRIVATE KEY-----'
-//!       type: per-zone
-//!   # Per-Hostname Authenticated Origin Pulls certificate
-//!   myPerHostnameAopCert:
-//!     type: cloudflare:AuthenticatedOriginPullsCertificate
-//!     name: my_per_hostname_aop_cert
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       certificate: '-----INSERT CERTIFICATE-----'
-//!       privateKey: '-----INSERT PRIVATE KEY-----'
-//!       type: per-hostname
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let myPerHostnameAopCert = authenticated_origin_pulls_certificate::create(
+//!         "myPerHostnameAopCert",
+//!         AuthenticatedOriginPullsCertificateArgs::builder()
+//!             .certificate("-----INSERT CERTIFICATE-----")
+//!             .private_key("-----INSERT PRIVATE KEY-----")
+//!             .type_("per-hostname")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
+//!     let myPerZoneAopCert = authenticated_origin_pulls_certificate::create(
+//!         "myPerZoneAopCert",
+//!         AuthenticatedOriginPullsCertificateArgs::builder()
+//!             .certificate("-----INSERT CERTIFICATE-----")
+//!             .private_key("-----INSERT PRIVATE KEY-----")
+//!             .type_("per-zone")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 
