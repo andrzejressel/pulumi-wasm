@@ -11,7 +11,7 @@
 //! for a feature that is not available on the plan configured for the zone will
 //! result in an error:
 //! 
-//! ```
+//! ```sh
 //! Error: invalid zone setting "\<argument\>" (value: \<value\>) found - cannot be set as it is read only
 //! ```
 //! 
@@ -23,7 +23,7 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ```rust
+//! ```ignore
 //! use pulumi_wasm_rust::Output;
 //! use pulumi_wasm_rust::{add_export, pulumi_main};
 //! #[pulumi_main]

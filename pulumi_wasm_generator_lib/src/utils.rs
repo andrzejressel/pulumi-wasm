@@ -82,6 +82,7 @@ pub(crate) fn to_lines(s: Option<String>, package: &crate::model::Package) -> Ve
 
     let mut in_yaml = false;
     let mut in_language = false;
+    let mut in_shell = false;
 
     let mut yaml_lines = Vec::<String>::new();
     let mut new_lines = Vec::<String>::new();
@@ -93,7 +94,7 @@ pub(crate) fn to_lines(s: Option<String>, package: &crate::model::Package) -> Ve
 
             match example {
                 Ok(rust_example) => {
-                    new_lines.push("```rust".to_string());
+                    new_lines.push("```ignore".to_string());
                     new_lines.extend(
                         rust_example
                             .lines()
@@ -129,14 +130,23 @@ pub(crate) fn to_lines(s: Option<String>, package: &crate::model::Package) -> Ve
                 in_language = true;
                 vec![]
             }
+            "```" if in_shell => {
+                in_shell = false;
+                vec!["```".to_string()]
+            }
             "```" if in_yaml || in_language => {
                 in_yaml = false;
                 in_language = false;
+                in_shell = false;
                 yaml_lines.clear();
                 vec![]
             }
             _ if in_language || in_yaml => {
                 vec![]
+            }
+            "```" | "```sh" | "```shell" => {
+                in_shell = true;
+                vec!["```sh".to_string()]
             }
             _ => vec![line.to_string()],
         };

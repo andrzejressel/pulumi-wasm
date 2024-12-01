@@ -11,7 +11,7 @@
 //! data "docker.Plugin" "by_id" {
 //!   id = "e9a9db917b3bfd6706b5d3a66d4bceb9f"
 //! }
-//! ```
+//! ```sh
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
