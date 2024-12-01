@@ -137,7 +137,7 @@ fn generate_expression(expr: Expression) -> String {
 #[cfg(test)]
 mod tests {
     use crate::code_generation::generate_code;
-    use crate::yaml::tests::{access_rule, example_array};
+    use crate::yaml::tests::{access_rule, example_array, example_empty_properties};
 
     #[test]
     fn test_example_array() {
@@ -151,5 +151,12 @@ mod tests {
         let model = access_rule::get_model();
         let code = generate_code(model).unwrap();
         assert_eq!(access_rule::get_rust_code(), code)
+    }
+
+    #[test]
+    fn test_without_parameters() {
+        let model = example_empty_properties::get_model();
+        let code = generate_code(model).unwrap();
+        assert_eq!(example_empty_properties::get_rust_code(), code)
     }
 }

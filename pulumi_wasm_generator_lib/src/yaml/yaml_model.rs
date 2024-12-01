@@ -11,6 +11,7 @@ pub(crate) struct YamlResource {
     #[serde(rename = "type")]
     pub(crate) type_: String,
     pub(crate) name: Option<String>,
+    #[serde(default)]
     pub(crate) properties: BTreeMap<String, YamlExpression>,
 }
 
@@ -36,46 +37,49 @@ mod tests {
 
     #[test]
     fn test_array_yaml_deserialization() {
-        use super::super::tests::example_array;
-        let yaml = example_array::YAML;
-        let yaml_file = YamlFile::from_yaml(yaml).unwrap();
-        let expected_yaml_file = example_array::get_yaml_file();
+        use super::super::tests::example_array::*;
+        let yaml_file = YamlFile::from_yaml(YAML).unwrap();
+        let expected_yaml_file = get_yaml_file();
         assert_eq!(yaml_file, expected_yaml_file);
     }
 
     #[test]
     fn test_complex_yaml_deserialization() {
-        use super::super::tests::complex_yaml;
-        let yaml = complex_yaml::YAML;
-        let yaml_file = YamlFile::from_yaml(yaml).unwrap();
-        let expected_yaml_file = complex_yaml::get_yaml_file();
+        use super::super::tests::complex_yaml::*;
+        let yaml_file = YamlFile::from_yaml(YAML).unwrap();
+        let expected_yaml_file = get_yaml_file();
         assert_eq!(yaml_file, expected_yaml_file);
     }
 
     #[test]
     fn test_access_rule_yaml_deserialization() {
-        use super::super::tests::access_rule;
-        let yaml = access_rule::YAML;
-        let yaml_file = YamlFile::from_yaml(yaml).unwrap();
-        let expected_yaml_file = access_rule::get_yaml_file();
+        use super::super::tests::access_rule::*;
+        let yaml_file = YamlFile::from_yaml(YAML).unwrap();
+        let expected_yaml_file = get_yaml_file();
         assert_eq!(yaml_file, expected_yaml_file);
     }
 
     #[test]
     fn test_access_organization_yaml_deserialization() {
-        use super::super::tests::example_access_organization;
-        let yaml = example_access_organization::YAML;
-        let yaml_file = YamlFile::from_yaml(yaml).unwrap();
-        let expected_yaml_file = example_access_organization::get_yaml_file();
+        use super::super::tests::example_access_organization::*;
+        let yaml_file = YamlFile::from_yaml(YAML).unwrap();
+        let expected_yaml_file = get_yaml_file();
         assert_eq!(yaml_file, expected_yaml_file);
     }
 
     #[test]
     fn test_example_variable() {
-        use super::super::tests::example_variable;
-        let yaml = example_variable::YAML;
-        let yaml_file = YamlFile::from_yaml(yaml).unwrap();
-        let expected_yaml_file = example_variable::get_yaml_file();
+        use super::super::tests::example_variable::*;
+        let yaml_file = YamlFile::from_yaml(YAML).unwrap();
+        let expected_yaml_file = get_yaml_file();
+        assert_eq!(yaml_file, expected_yaml_file);
+    }
+
+    #[test]
+    fn test_without_parameters() {
+        use super::super::tests::example_empty_properties::*;
+        let yaml_file = YamlFile::from_yaml(YAML).unwrap();
+        let expected_yaml_file = get_yaml_file();
         assert_eq!(yaml_file, expected_yaml_file);
     }
 }
