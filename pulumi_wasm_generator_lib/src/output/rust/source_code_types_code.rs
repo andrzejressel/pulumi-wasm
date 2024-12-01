@@ -64,6 +64,7 @@ fn convert_model(package: &crate::model::Package) -> Package {
                             description_lines: crate::utils::to_lines(
                                 global_type_property.description.clone(),
                                 package,
+                                None,
                             ),
                         })
                         .collect(),

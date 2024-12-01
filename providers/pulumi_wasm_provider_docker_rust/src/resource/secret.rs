@@ -2,10 +2,9 @@
 //! 
 //! ## Import
 //! 
-//! #!/bin/bash
-//! 
-//! Docker secret cannot be imported as the secret data, once set, is never exposed again.
-//! 
+//! ```sh
+//! # Docker secret cannot be imported as the secret data, once set, is never exposed again.
+//! ```
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
