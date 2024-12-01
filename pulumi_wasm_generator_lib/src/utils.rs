@@ -1,7 +1,6 @@
 use crate::code_generation::generate_code_from_string;
 use crate::model::ElementId;
 use regex::Regex;
-use std::cell::LazyCell;
 use std::collections::HashMap;
 use std::fs;
 use std::sync::LazyLock;
@@ -173,8 +172,8 @@ pub(crate) fn to_lines(
     new_lines
 }
 
-const DOCKER_SERVICE_REPLACEMENTS: LazyCell<HashMap<ElementId, Vec<(&str, &str)>>> =
-    LazyCell::new(|| {
+static DOCKER_SERVICE_REPLACEMENTS: LazyLock<HashMap<ElementId, Vec<(&str, &str)>>> =
+    LazyLock::new(|| {
         HashMap::from([
             (
                 ElementId::new("docker:index/service:Service").unwrap(),
@@ -223,7 +222,8 @@ const DOCKER_SERVICE_REPLACEMENTS: LazyCell<HashMap<ElementId, Vec<(&str, &str)>
 
 fn fix_pulumi_docker_docs(s: String, element_id: Option<ElementId>) -> String {
     if let Some(id) = element_id {
-        if let Some(replacements) = DOCKER_SERVICE_REPLACEMENTS.get(&id) {
+        let replacement = &DOCKER_SERVICE_REPLACEMENTS;
+        if let Some(replacements) = replacement.get(&id) {
             for (origin, fixed) in replacements {
                 if s.contains(origin) {
                     return fixed.to_string();
