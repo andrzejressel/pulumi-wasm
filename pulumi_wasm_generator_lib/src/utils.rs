@@ -1,4 +1,6 @@
+use crate::code_generation::generate_code_from_string;
 use regex::Regex;
+use std::panic;
 
 pub(crate) fn replace_multiple_dashes(s: &str) -> String {
     let re = Regex::new("-+").unwrap();
@@ -75,21 +77,73 @@ pub(crate) fn escape_wit_identifier(s: &str) -> &str {
     }
 }
 
-pub(crate) fn to_lines(s: Option<String>) -> Vec<String> {
-    s.unwrap_or("".to_string())
-        .lines()
-        .flat_map(|line| match line {
+pub(crate) fn to_lines(s: Option<String>, package: &crate::model::Package) -> Vec<String> {
+    let binding = s.clone().unwrap_or("".to_string());
+    let lines = binding.lines();
+
+    let mut in_yaml = false;
+    let mut in_language = false;
+
+    let mut yaml_lines = Vec::<String>::new();
+    let mut new_lines = Vec::<String>::new();
+
+    for line in lines {
+        if (in_yaml && line.trim() == "```") {
+            let yaml_str = yaml_lines.join("\n");
+            let example = panic::catch_unwind(|| generate_code_from_string(yaml_str, package));
+
+            match example {
+                Ok(rust_example) => {
+                    new_lines.push("```rust".to_string());
+                    new_lines.extend(
+                        rust_example
+                            .lines()
+                            .map(|f| f.to_string())
+                            .collect::<Vec<_>>(),
+                    );
+                    new_lines.push("```".to_string());
+                }
+                Err(f) => {
+                    new_lines.push("```yaml".to_string());
+                    new_lines.extend(yaml_lines.clone());
+                    new_lines.push("```".to_string());
+                }
+            }
+        } else if (in_yaml) {
+            yaml_lines.push(line.to_string());
+            continue;
+        }
+
+        let l = match line.trim() {
             "{{% examples %}}" | "{{% /examples %}}" | "{{% example %}}" | "{{% /example %}}" => {
                 vec![]
             }
-            "```typescript" => vec!["### Typescript", line],
-            "```python" => vec!["### Python", line],
-            "```go" => vec!["### Go", line],
-            "```java" => vec!["### Java", line],
-            "```yaml" => vec!["### YAML", line],
-            "```csharp" => vec!["### C#", line],
-            l => vec![l],
-        })
-        .map(|s| s.to_string())
-        .collect()
+            "```yaml" => {
+                in_yaml = true;
+                vec![]
+            }
+            "```typescript" | "```python" | "```go" | "```java" | "```csharp" => {
+                in_language = true;
+                vec![]
+            }
+            "```" if in_yaml || in_language => {
+                in_yaml = false;
+                in_language = false;
+                yaml_lines.clear();
+                vec![]
+            }
+            _ if in_language || in_yaml => {
+                vec![]
+            }
+            _ => vec![line.to_string()],
+        };
+
+        new_lines.extend(l);
+    }
+
+    new_lines
+}
+
+fn generate_example(p0: String) -> String {
+    "RUST EXAMPLE".to_string()
 }

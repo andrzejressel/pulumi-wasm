@@ -9,132 +9,24 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const example = new cloudflare.BotManagement("example", {
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
-//!     enableJs: true,
-//!     sbfmDefinitelyAutomated: "block",
-//!     sbfmLikelyAutomated: "managed_challenge",
-//!     sbfmVerifiedBots: "allow",
-//!     sbfmStaticResourceProtection: false,
-//!     optimizeWordpress: true,
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! example = cloudflare.BotManagement("example",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
-//!     enable_js=True,
-//!     sbfm_definitely_automated="block",
-//!     sbfm_likely_automated="managed_challenge",
-//!     sbfm_verified_bots="allow",
-//!     sbfm_static_resource_protection=False,
-//!     optimize_wordpress=True)
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var example = new Cloudflare.BotManagement("example", new()
-//!     {
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
-//!         EnableJs = true,
-//!         SbfmDefinitelyAutomated = "block",
-//!         SbfmLikelyAutomated = "managed_challenge",
-//!         SbfmVerifiedBots = "allow",
-//!         SbfmStaticResourceProtection = false,
-//!         OptimizeWordpress = true,
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewBotManagement(ctx, "example", &cloudflare.BotManagementArgs{
-//! 			ZoneId:                       pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
-//! 			EnableJs:                     pulumi.Bool(true),
-//! 			SbfmDefinitelyAutomated:      pulumi.String("block"),
-//! 			SbfmLikelyAutomated:          pulumi.String("managed_challenge"),
-//! 			SbfmVerifiedBots:             pulumi.String("allow"),
-//! 			SbfmStaticResourceProtection: pulumi.Bool(false),
-//! 			OptimizeWordpress:            pulumi.Bool(true),
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.BotManagement;
-//! import com.pulumi.cloudflare.BotManagementArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var example = new BotManagement("example", BotManagementArgs.builder()
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = bot_management::create(
+//!         "example",
+//!         BotManagementArgs::builder()
 //!             .enableJs(true)
+//!             .optimizeWordpress(true)
 //!             .sbfmDefinitelyAutomated("block")
 //!             .sbfmLikelyAutomated("managed_challenge")
-//!             .sbfmVerifiedBots("allow")
 //!             .sbfmStaticResourceProtection(false)
-//!             .optimizeWordpress(true)
-//!             .build());
-//! 
-//!     }
+//!             .sbfmVerifiedBots("allow")
+//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:BotManagement
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       enableJs: true
-//!       sbfmDefinitelyAutomated: block
-//!       sbfmLikelyAutomated: managed_challenge
-//!       sbfmVerifiedBots: allow
-//!       sbfmStaticResourceProtection: false
-//!       optimizeWordpress: true
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

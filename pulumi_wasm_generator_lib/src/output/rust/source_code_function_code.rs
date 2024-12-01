@@ -51,7 +51,7 @@ fn convert_model(package: &crate::model::Package) -> Package {
                 name: element_id.get_rust_namespace_name(),
                 struct_name: element_id.name.clone().to_case(Case::Pascal),
                 function_name: element_id.get_rust_function_name(),
-                description_lines: crate::utils::to_lines(resource.description.clone()),
+                description_lines: crate::utils::to_lines(resource.description.clone(), package),
                 input_properties: resource
                     .input_properties
                     .iter()
@@ -62,6 +62,7 @@ fn convert_model(package: &crate::model::Package) -> Package {
                         type_: input_property.r#type.get_rust_type(),
                         description_lines: crate::utils::to_lines(
                             input_property.description.clone(),
+                            package,
                         ),
                     })
                     .collect(),
@@ -74,6 +75,7 @@ fn convert_model(package: &crate::model::Package) -> Package {
                         type_: output_property.r#type.get_rust_type(),
                         description_lines: crate::utils::to_lines(
                             output_property.description.clone(),
+                            package,
                         ),
                     })
                     .collect(),

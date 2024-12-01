@@ -3,156 +3,28 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const example = new cloudflare.MagicWanIpsecTunnel("example", {
-//!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     name: "IPsec_1",
-//!     customerEndpoint: "203.0.113.1",
-//!     cloudflareEndpoint: "203.0.113.1",
-//!     interfaceAddress: "192.0.2.0/31",
-//!     description: "Tunnel for ISP X",
-//!     healthCheckEnabled: true,
-//!     healthCheckTarget: "203.0.113.1",
-//!     healthCheckType: "reply",
-//!     psk: "asdf12341234",
-//!     allowNullCipher: false,
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! example = cloudflare.MagicWanIpsecTunnel("example",
-//!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     name="IPsec_1",
-//!     customer_endpoint="203.0.113.1",
-//!     cloudflare_endpoint="203.0.113.1",
-//!     interface_address="192.0.2.0/31",
-//!     description="Tunnel for ISP X",
-//!     health_check_enabled=True,
-//!     health_check_target="203.0.113.1",
-//!     health_check_type="reply",
-//!     psk="asdf12341234",
-//!     allow_null_cipher=False)
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var example = new Cloudflare.MagicWanIpsecTunnel("example", new()
-//!     {
-//!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         Name = "IPsec_1",
-//!         CustomerEndpoint = "203.0.113.1",
-//!         CloudflareEndpoint = "203.0.113.1",
-//!         InterfaceAddress = "192.0.2.0/31",
-//!         Description = "Tunnel for ISP X",
-//!         HealthCheckEnabled = true,
-//!         HealthCheckTarget = "203.0.113.1",
-//!         HealthCheckType = "reply",
-//!         Psk = "asdf12341234",
-//!         AllowNullCipher = false,
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewMagicWanIpsecTunnel(ctx, "example", &cloudflare.MagicWanIpsecTunnelArgs{
-//! 			AccountId:          pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			Name:               pulumi.String("IPsec_1"),
-//! 			CustomerEndpoint:   pulumi.String("203.0.113.1"),
-//! 			CloudflareEndpoint: pulumi.String("203.0.113.1"),
-//! 			InterfaceAddress:   pulumi.String("192.0.2.0/31"),
-//! 			Description:        pulumi.String("Tunnel for ISP X"),
-//! 			HealthCheckEnabled: pulumi.Bool(true),
-//! 			HealthCheckTarget:  pulumi.String("203.0.113.1"),
-//! 			HealthCheckType:    pulumi.String("reply"),
-//! 			Psk:                pulumi.String("asdf12341234"),
-//! 			AllowNullCipher:    pulumi.Bool(false),
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.MagicWanIpsecTunnel;
-//! import com.pulumi.cloudflare.MagicWanIpsecTunnelArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var example = new MagicWanIpsecTunnel("example", MagicWanIpsecTunnelArgs.builder()
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = magic_wan_ipsec_tunnel::create(
+//!         "example",
+//!         MagicWanIpsecTunnelArgs::builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .name("IPsec_1")
-//!             .customerEndpoint("203.0.113.1")
+//!             .allowNullCipher(false)
 //!             .cloudflareEndpoint("203.0.113.1")
-//!             .interfaceAddress("192.0.2.0/31")
+//!             .customerEndpoint("203.0.113.1")
 //!             .description("Tunnel for ISP X")
 //!             .healthCheckEnabled(true)
 //!             .healthCheckTarget("203.0.113.1")
 //!             .healthCheckType("reply")
+//!             .interfaceAddress("192.0.2.0/31")
+//!             .name("IPsec_1")
 //!             .psk("asdf12341234")
-//!             .allowNullCipher(false)
-//!             .build());
-//! 
-//!     }
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:MagicWanIpsecTunnel
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: IPsec_1
-//!       customerEndpoint: 203.0.113.1
-//!       cloudflareEndpoint: 203.0.113.1
-//!       interfaceAddress: 192.0.2.0/31
-//!       description: Tunnel for ISP X
-//!       healthCheckEnabled: true
-//!       healthCheckTarget: 203.0.113.1
-//!       healthCheckType: reply
-//!       psk: asdf12341234
-//!       allowNullCipher: false
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

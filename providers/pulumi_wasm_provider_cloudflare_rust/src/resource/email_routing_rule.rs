@@ -3,180 +3,32 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const main = new cloudflare.EmailRoutingRule("main", {
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
-//!     name: "terraform rule",
-//!     enabled: true,
-//!     matchers: [{
-//!         type: "literal",
-//!         field: "to",
-//!         value: "test@example.com",
-//!     }],
-//!     actions: [{
-//!         type: "forward",
-//!         values: ["destinationaddress@example.net"],
-//!     }],
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! main = cloudflare.EmailRoutingRule("main",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
-//!     name="terraform rule",
-//!     enabled=True,
-//!     matchers=[{
-//!         "type": "literal",
-//!         "field": "to",
-//!         "value": "test@example.com",
-//!     }],
-//!     actions=[{
-//!         "type": "forward",
-//!         "values": ["destinationaddress@example.net"],
-//!     }])
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var main = new Cloudflare.EmailRoutingRule("main", new()
-//!     {
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
-//!         Name = "terraform rule",
-//!         Enabled = true,
-//!         Matchers = new[]
-//!         {
-//!             new Cloudflare.Inputs.EmailRoutingRuleMatcherArgs
-//!             {
-//!                 Type = "literal",
-//!                 Field = "to",
-//!                 Value = "test@example.com",
-//!             },
-//!         },
-//!         Actions = new[]
-//!         {
-//!             new Cloudflare.Inputs.EmailRoutingRuleActionArgs
-//!             {
-//!                 Type = "forward",
-//!                 Values = new[]
-//!                 {
-//!                     "destinationaddress@example.net",
-//!                 },
-//!             },
-//!         },
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewEmailRoutingRule(ctx, "main", &cloudflare.EmailRoutingRuleArgs{
-//! 			ZoneId:  pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
-//! 			Name:    pulumi.String("terraform rule"),
-//! 			Enabled: pulumi.Bool(true),
-//! 			Matchers: cloudflare.EmailRoutingRuleMatcherArray{
-//! 				&cloudflare.EmailRoutingRuleMatcherArgs{
-//! 					Type:  pulumi.String("literal"),
-//! 					Field: pulumi.String("to"),
-//! 					Value: pulumi.String("test@example.com"),
-//! 				},
-//! 			},
-//! 			Actions: cloudflare.EmailRoutingRuleActionArray{
-//! 				&cloudflare.EmailRoutingRuleActionArgs{
-//! 					Type: pulumi.String("forward"),
-//! 					Values: pulumi.StringArray{
-//! 						pulumi.String("destinationaddress@example.net"),
-//! 					},
-//! 				},
-//! 			},
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.EmailRoutingRule;
-//! import com.pulumi.cloudflare.EmailRoutingRuleArgs;
-//! import com.pulumi.cloudflare.inputs.EmailRoutingRuleMatcherArgs;
-//! import com.pulumi.cloudflare.inputs.EmailRoutingRuleActionArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var main = new EmailRoutingRule("main", EmailRoutingRuleArgs.builder()
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
-//!             .name("terraform rule")
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let main = email_routing_rule::create(
+//!         "main",
+//!         EmailRoutingRuleArgs::builder()
+//!             .actions(
+//!                 vec![
+//!                     EmailRoutingRuleAction::builder(). type ("forward")
+//!                     .values(vec!["destinationaddress@example.net",]).build_struct(),
+//!                 ],
+//!             )
 //!             .enabled(true)
-//!             .matchers(EmailRoutingRuleMatcherArgs.builder()
-//!                 .type("literal")
-//!                 .field("to")
-//!                 .value("test@example.com")
-//!                 .build())
-//!             .actions(EmailRoutingRuleActionArgs.builder()
-//!                 .type("forward")
-//!                 .values("destinationaddress@example.net")
-//!                 .build())
-//!             .build());
-//! 
-//!     }
+//!             .matchers(
+//!                 vec![
+//!                     EmailRoutingRuleMatcher::builder().field("to"). type ("literal")
+//!                     .value("test@example.com").build_struct(),
+//!                 ],
+//!             )
+//!             .name("terraform rule")
+//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   main:
-//!     type: cloudflare:EmailRoutingRule
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       name: terraform rule
-//!       enabled: true
-//!       matchers:
-//!         - type: literal
-//!           field: to
-//!           value: test@example.com
-//!       actions:
-//!         - type: forward
-//!           values:
-//!             - destinationaddress@example.net
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

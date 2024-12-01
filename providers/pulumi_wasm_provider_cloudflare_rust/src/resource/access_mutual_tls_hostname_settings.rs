@@ -3,132 +3,25 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const example = new cloudflare.AccessMutualTlsHostnameSettings("example", {
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
-//!     settings: [{
-//!         hostname: "example.com",
-//!         clientCertificateForwarding: true,
-//!         chinaNetwork: false,
-//!     }],
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! example = cloudflare.AccessMutualTlsHostnameSettings("example",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
-//!     settings=[{
-//!         "hostname": "example.com",
-//!         "client_certificate_forwarding": True,
-//!         "china_network": False,
-//!     }])
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var example = new Cloudflare.AccessMutualTlsHostnameSettings("example", new()
-//!     {
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
-//!         Settings = new[]
-//!         {
-//!             new Cloudflare.Inputs.AccessMutualTlsHostnameSettingsSettingArgs
-//!             {
-//!                 Hostname = "example.com",
-//!                 ClientCertificateForwarding = true,
-//!                 ChinaNetwork = false,
-//!             },
-//!         },
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewAccessMutualTlsHostnameSettings(ctx, "example", &cloudflare.AccessMutualTlsHostnameSettingsArgs{
-//! 			ZoneId: pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
-//! 			Settings: cloudflare.AccessMutualTlsHostnameSettingsSettingArray{
-//! 				&cloudflare.AccessMutualTlsHostnameSettingsSettingArgs{
-//! 					Hostname:                    pulumi.String("example.com"),
-//! 					ClientCertificateForwarding: pulumi.Bool(true),
-//! 					ChinaNetwork:                pulumi.Bool(false),
-//! 				},
-//! 			},
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.AccessMutualTlsHostnameSettings;
-//! import com.pulumi.cloudflare.AccessMutualTlsHostnameSettingsArgs;
-//! import com.pulumi.cloudflare.inputs.AccessMutualTlsHostnameSettingsSettingArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var example = new AccessMutualTlsHostnameSettings("example", AccessMutualTlsHostnameSettingsArgs.builder()
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = access_mutual_tls_hostname_settings::create(
+//!         "example",
+//!         AccessMutualTlsHostnameSettingsArgs::builder()
+//!             .settings(
+//!                 vec![
+//!                     AccessMutualTlsHostnameSettingsSetting::builder().chinaNetwork(false)
+//!                     .clientCertificateForwarding(true).hostname("example.com")
+//!                     .build_struct(),
+//!                 ],
+//!             )
 //!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
-//!             .settings(AccessMutualTlsHostnameSettingsSettingArgs.builder()
-//!                 .hostname("example.com")
-//!                 .clientCertificateForwarding(true)
-//!                 .chinaNetwork(false)
-//!                 .build())
-//!             .build());
-//! 
-//!     }
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:AccessMutualTlsHostnameSettings
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       settings:
-//!         - hostname: example.com
-//!           clientCertificateForwarding: true
-//!           chinaNetwork: false
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

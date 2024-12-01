@@ -11,145 +11,26 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! // account level
-//! const example = new cloudflare.AccessCaCertificate("example", {
-//!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     applicationId: "6cd6cea3-3ef2-4542-9aea-85a0bbcd5414",
-//! });
-//! // zone level
-//! const anotherExample = new cloudflare.AccessCaCertificate("another_example", {
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
-//!     applicationId: "fe2be0ff-7f13-4350-8c8e-a9b9795fe3c2",
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! # account level
-//! example = cloudflare.AccessCaCertificate("example",
-//!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     application_id="6cd6cea3-3ef2-4542-9aea-85a0bbcd5414")
-//! # zone level
-//! another_example = cloudflare.AccessCaCertificate("another_example",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
-//!     application_id="fe2be0ff-7f13-4350-8c8e-a9b9795fe3c2")
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     // account level
-//!     var example = new Cloudflare.AccessCaCertificate("example", new()
-//!     {
-//!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         ApplicationId = "6cd6cea3-3ef2-4542-9aea-85a0bbcd5414",
-//!     });
-//! 
-//!     // zone level
-//!     var anotherExample = new Cloudflare.AccessCaCertificate("another_example", new()
-//!     {
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
-//!         ApplicationId = "fe2be0ff-7f13-4350-8c8e-a9b9795fe3c2",
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		// account level
-//! 		_, err := cloudflare.NewAccessCaCertificate(ctx, "example", &cloudflare.AccessCaCertificateArgs{
-//! 			AccountId:     pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			ApplicationId: pulumi.String("6cd6cea3-3ef2-4542-9aea-85a0bbcd5414"),
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		// zone level
-//! 		_, err = cloudflare.NewAccessCaCertificate(ctx, "another_example", &cloudflare.AccessCaCertificateArgs{
-//! 			ZoneId:        pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
-//! 			ApplicationId: pulumi.String("fe2be0ff-7f13-4350-8c8e-a9b9795fe3c2"),
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.AccessCaCertificate;
-//! import com.pulumi.cloudflare.AccessCaCertificateArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         // account level
-//!         var example = new AccessCaCertificate("example", AccessCaCertificateArgs.builder()
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let anotherExample = access_ca_certificate::create(
+//!         "anotherExample",
+//!         AccessCaCertificateArgs::builder()
+//!             .applicationId("fe2be0ff-7f13-4350-8c8e-a9b9795fe3c2")
+//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
+//!     let example = access_ca_certificate::create(
+//!         "example",
+//!         AccessCaCertificateArgs::builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
 //!             .applicationId("6cd6cea3-3ef2-4542-9aea-85a0bbcd5414")
-//!             .build());
-//! 
-//!         // zone level
-//!         var anotherExample = new AccessCaCertificate("anotherExample", AccessCaCertificateArgs.builder()
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
-//!             .applicationId("fe2be0ff-7f13-4350-8c8e-a9b9795fe3c2")
-//!             .build());
-//! 
-//!     }
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   # account level
-//!   example:
-//!     type: cloudflare:AccessCaCertificate
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       applicationId: 6cd6cea3-3ef2-4542-9aea-85a0bbcd5414
-//!   # zone level
-//!   anotherExample:
-//!     type: cloudflare:AccessCaCertificate
-//!     name: another_example
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       applicationId: fe2be0ff-7f13-4350-8c8e-a9b9795fe3c2
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

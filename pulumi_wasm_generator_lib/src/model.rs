@@ -92,6 +92,7 @@ pub(crate) enum GlobalType {
 
 #[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
 pub(crate) struct Resource {
+    pub(crate) element_id: ElementId,
     // pub(crate) name: String,
     pub(crate) description: Option<String>,
     pub(crate) input_properties: Vec<InputProperty>,

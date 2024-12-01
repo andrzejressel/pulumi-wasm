@@ -3,114 +3,21 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const example = new cloudflare.NotificationPolicyWebhooks("example", {
-//!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     name: "Webhooks destination",
-//!     url: "https://example.com",
-//!     secret: "my-secret",
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! example = cloudflare.NotificationPolicyWebhooks("example",
-//!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     name="Webhooks destination",
-//!     url="https://example.com",
-//!     secret="my-secret")
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var example = new Cloudflare.NotificationPolicyWebhooks("example", new()
-//!     {
-//!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         Name = "Webhooks destination",
-//!         Url = "https://example.com",
-//!         Secret = "my-secret",
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewNotificationPolicyWebhooks(ctx, "example", &cloudflare.NotificationPolicyWebhooksArgs{
-//! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			Name:      pulumi.String("Webhooks destination"),
-//! 			Url:       pulumi.String("https://example.com"),
-//! 			Secret:    pulumi.String("my-secret"),
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.NotificationPolicyWebhooks;
-//! import com.pulumi.cloudflare.NotificationPolicyWebhooksArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var example = new NotificationPolicyWebhooks("example", NotificationPolicyWebhooksArgs.builder()
+//! ```rust
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = notification_policy_webhooks::create(
+//!         "example",
+//!         NotificationPolicyWebhooksArgs::builder()
 //!             .accountId("f037e56e89293a057740de681ac9abbe")
 //!             .name("Webhooks destination")
-//!             .url("https://example.com")
 //!             .secret("my-secret")
-//!             .build());
-//! 
-//!     }
+//!             .url("https://example.com")
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:NotificationPolicyWebhooks
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: Webhooks destination
-//!       url: https://example.com
-//!       secret: my-secret
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 
