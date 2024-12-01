@@ -23,9 +23,9 @@
 //! * For local development using Docker Desktop, this is enabled by default.
 //! * For systems using Docker Engine, install the QEMU binaries and register them with using the docker image from [github.com/tonistiigi/binfmt](https://github.com/tonistiigi/binfmt):
 //! 
-//!   ```shell
+//! ```sh
 //!   docker run --privileged --rm tonistiigi/binfmt --install all
-//!   ```
+//! ```
 //! * In a GitHub Actions workflow, the [docker/setup-qemu-action](https://github.com/docker/setup-qemu-action) can be used instead by adding this step to your workflow file. Example workflow usage:
 //! 
 //! ```yaml

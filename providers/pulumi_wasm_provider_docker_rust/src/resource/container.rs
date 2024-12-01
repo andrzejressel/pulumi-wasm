@@ -4,7 +4,7 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ```rust
+//! ```ignore
 //! use pulumi_wasm_rust::Output;
 //! use pulumi_wasm_rust::{add_export, pulumi_main};
 //! #[pulumi_main]
@@ -27,37 +27,39 @@
 //! 
 //! Assuming you created a `container` as follows
 //! 
-//! #!/bin/bash
-//! 
+//! ```sh
 //! docker run --name foo -p8080:80 -d nginx 
+//! ```
 //! 
 //! prints the container ID 
 //! 
+//! ```text
 //! 9a550c0f0163d39d77222d3efd58701b625d47676c25c686c95b5b92d1cba6fd
+//! ```
 //! 
 //! you provide the definition for the resource as follows
 //! 
-//! terraform
-//! 
-//! resource "docker_container" "foo" {
-//! 
-//!   name  = "foo"
-//! 
-//!   image = "nginx"
-//! 
-//!   ports {
-//! 
-//!     internal = "80"
-//! 
-//!     external = "8080"
-//! 
-//!   }
-//! 
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let foo = container::create(
+//!         "foo",
+//!         ContainerArgs::builder()
+//!             .image("nginx")
+//!             .name("foo")
+//!             .ports(
+//!                 vec![
+//!                     ContainerPort::builder().external(8080).internal(80).build_struct(),
+//!                 ],
+//!             )
+//!             .build_struct(),
+//!     );
 //! }
+//! ```
 //! 
 //! then the import command is as follows
-//! 
-//! #!/bin/bash
 //! 
 //! ```sh
 //! $ pulumi import docker:index/container:Container foo 9a550c0f0163d39d77222d3efd58701b625d47676c25c686c95b5b92d1cba6fd

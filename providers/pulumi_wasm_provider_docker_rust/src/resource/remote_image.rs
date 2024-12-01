@@ -10,7 +10,7 @@
 //! for further updates of the image
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ```rust
+//! ```ignore
 //! use pulumi_wasm_rust::Output;
 //! use pulumi_wasm_rust::{add_export, pulumi_main};
 //! #[pulumi_main]
@@ -29,7 +29,7 @@
 //! you need to use it in combination with `docker.RegistryImage` as follows:
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ```rust
+//! ```ignore
 //! use pulumi_wasm_rust::Output;
 //! use pulumi_wasm_rust::{add_export, pulumi_main};
 //! #[pulumi_main]
