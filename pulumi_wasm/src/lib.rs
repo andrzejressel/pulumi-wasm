@@ -23,6 +23,7 @@ bindings::export!(Component with_types_in bindings);
 
 #[allow(clippy::all)]
 #[allow(unused_braces)]
+#[allow(static_mut_refs)]
 #[rustfmt::skip]
 mod bindings;
 
