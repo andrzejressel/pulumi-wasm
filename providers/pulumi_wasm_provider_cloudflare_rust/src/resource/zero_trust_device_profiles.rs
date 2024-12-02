@@ -3,30 +3,35 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   developerWarpPolicy:
-//!     type: cloudflare:ZeroTrustDeviceProfiles
-//!     name: developer_warp_policy
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: Developers WARP settings policy
-//!       description: Developers WARP settings policy description
-//!       precedence: 10
-//!       match: any(identity.groups.name[*] in {"Developers"})
-//!       default: false
-//!       enabled: true
-//!       allowModeSwitch: true
-//!       allowUpdates: true
-//!       allowedToLeave: true
-//!       autoConnect: 0
-//!       captivePortal: 5
-//!       disableAutoFallback: true
-//!       supportUrl: https://cloudflare.com
-//!       switchLocked: true
-//!       serviceModeV2Mode: warp
-//!       serviceModeV2Port: 3000
-//!       excludeOfficeIps: false
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let developerWarpPolicy = zero_trust_device_profiles::create(
+//!         "developerWarpPolicy",
+//!         ZeroTrustDeviceProfilesArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .allow_mode_switch(true)
+//!             .allow_updates(true)
+//!             .allowed_to_leave(true)
+//!             .auto_connect(0)
+//!             .captive_portal(5)
+//!             .default(false)
+//!             .description("Developers WARP settings policy description")
+//!             .disable_auto_fallback(true)
+//!             .enabled(true)
+//!             .exclude_office_ips(false)
+//!             .match_("any(identity.groups.name[*] in {\"Developers\"})")
+//!             .name("Developers WARP settings policy")
+//!             .precedence(10)
+//!             .service_mode_v_2_mode("warp")
+//!             .service_mode_v_2_port(3000)
+//!             .support_url("https://cloudflare.com")
+//!             .switch_locked(true)
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

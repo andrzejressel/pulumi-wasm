@@ -2333,6 +2333,7 @@ dependencies = [
  "convert_case",
  "handlebars",
  "prettyplease",
+ "proc-macro2",
  "regex",
  "serde",
  "serde_json",

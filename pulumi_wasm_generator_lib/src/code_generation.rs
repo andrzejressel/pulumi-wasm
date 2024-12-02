@@ -7,6 +7,8 @@ use convert_case::Case;
 use convert_case::Casing;
 use std::collections::BTreeMap;
 use std::panic;
+use syn::LitStr;
+use syn::__private::ToTokens;
 
 pub fn generate_code_from_string(yaml: String, package: &crate::model::Package) -> Result<String> {
     let yaml_file =
@@ -105,7 +107,10 @@ fn generate_object(element_id: ElementId, expr: BTreeMap<String, Expression>) ->
 
 fn generate_expression(expr: Expression) -> String {
     match expr {
-        Expression::String(s) => format!("\"{}\"", s),
+        Expression::String(s) => {
+            let lit_str = LitStr::new(&s, proc_macro2::Span::call_site());
+            format!("{}", lit_str.to_token_stream())
+        }
         Expression::Number(n) => format!("{}", n),
         Expression::Integer(i) => format!("{}", i),
         Expression::Boolean(b) => format!("{}", b),
@@ -138,7 +143,10 @@ fn generate_expression(expr: Expression) -> String {
 #[cfg(test)]
 mod tests {
     use crate::code_generation::generate_code;
-    use crate::yaml::tests::{access_rule, example_array, example_empty_properties};
+    use crate::yaml::tests::{
+        access_rule, example_array, example_empty_properties, example_escape_string,
+        example_numbers,
+    };
 
     #[test]
     fn test_example_array() {
@@ -159,5 +167,19 @@ mod tests {
         let model = example_empty_properties::get_model();
         let code = generate_code(model).unwrap();
         assert_eq!(example_empty_properties::get_rust_code(), code)
+    }
+
+    #[test]
+    fn test_numbers() {
+        let model = example_numbers::get_model();
+        let code = generate_code(model).unwrap();
+        assert_eq!(example_numbers::get_rust_code(), code)
+    }
+
+    #[test]
+    fn test_string_escape() {
+        let model = example_escape_string::get_model();
+        let code = generate_code(model).unwrap();
+        assert_eq!(example_escape_string::get_rust_code(), code)
     }
 }

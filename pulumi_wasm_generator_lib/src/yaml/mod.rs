@@ -682,13 +682,105 @@ resources:
         pub fn get_rust_code() -> String {
             reformat_code(
                 r#"
+                use pulumi_wasm_rust::Output;
+                use pulumi_wasm_rust::{add_export, pulumi_main};
+                #[pulumi_main]
+                fn test_main() -> Result<(), Error> {
+                    let example = keyless_certificate::create(
+                        "example",
+                        KeylessCertificateArgs::builder()
+                            .port(24008)
+                            .build_struct(),
+                    );
+                }
+            "#,
+            )
+        }
+    }
+
+    pub(crate) mod example_escape_string {
+        use super::*;
+        use crate::model::ElementId;
+        use crate::yaml::model::{Example, Expression, Resource};
+        use crate::yaml::yaml_model::YamlExpression;
+
+        use super::*;
+
+        pub(crate) const YAML: &str = r#"
+resources:
+  example:
+    type: cloudflare:AccessOrganization
+    properties:
+      name: my "name"
+    "#;
+
+        pub(crate) fn get_yaml_file() -> YamlFile {
+            use crate::yaml::yaml_model::{YamlExpression, YamlFile, YamlResource};
+
+            YamlFile {
+                resources: {
+                    let mut resources = BTreeMap::new();
+                    resources.insert(
+                        "example".to_string(),
+                        YamlResource {
+                            type_: "cloudflare:AccessOrganization".to_string(),
+                            name: None,
+                            properties: {
+                                let mut properties = BTreeMap::new();
+                                properties.insert(
+                                    "name".to_string(),
+                                    YamlExpression::String("my \"name\"".to_string()),
+                                );
+                                properties
+                            },
+                        },
+                    );
+                    resources
+                },
+            }
+        }
+
+        pub fn get_model() -> Example {
+            use crate::yaml::yaml_model::{YamlExpression, YamlFile, YamlResource};
+
+            Example {
+                resources: {
+                    let mut map = BTreeMap::new();
+                    map.insert(
+                        "example".to_string(),
+                        Resource {
+                            type_: ElementId::new(
+                                "cloudflare:index/accessOrganization:AccessOrganization",
+                            )
+                            .unwrap(),
+                            // type_: "cloudflare:AccessMutualTlsCertificate".to_string(),
+                            name: None,
+                            properties: {
+                                let mut props = BTreeMap::new();
+                                props.insert(
+                                    "name".to_string(),
+                                    Expression::String("my \"name\"".to_string()),
+                                );
+                                props
+                            },
+                        },
+                    );
+                    map
+                },
+            }
+        }
+
+        pub fn get_rust_code() -> String {
+            reformat_code(
+                r#"
             use pulumi_wasm_rust::Output;
             use pulumi_wasm_rust::{add_export, pulumi_main};
             #[pulumi_main]
             fn test_main() -> Result<(), Error> {
-                let myCert = access_mutual_tls_certificate::create(
-                    "myCert",
-                    AccessMutualTlsCertificateArgs::builder()
+                let example = access_organization::create(
+                    "example",
+                    AccessOrganizationArgs::builder()
+                        .name("my \"name\"")
                         .build_struct(),
                 );
             }
