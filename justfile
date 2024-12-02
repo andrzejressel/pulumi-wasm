@@ -119,6 +119,7 @@ publish-providers:
 
 test:
     cargo nextest run --profile ci --workspace --timings
+    just rust-docs
 
 test-coverage:
     cargo llvm-cov --no-report -p pulumi_wasm_core -p pulumi_wasm_generator_lib
@@ -129,6 +130,7 @@ docs:
 
 # DO NOT EDIT - GENERATE-RUST-DOCS - START
 rust-docs:
+    cargo test --doc -p pulumi_wasm_random -p pulumi_wasm_cloudflare
     cargo doc --no-deps -p pulumi_wasm_rust -p pulumi_wasm_docker -p pulumi_wasm_random -p pulumi_wasm_cloudflare
 # DO NOT EDIT - GENERATE-RUST-DOCS - END
 

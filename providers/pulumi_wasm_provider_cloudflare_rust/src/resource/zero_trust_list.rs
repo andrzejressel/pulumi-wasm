@@ -5,143 +5,22 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const example = new cloudflare.ZeroTrustList("example", {
-//!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     name: "Corporate devices",
-//!     type: "SERIAL",
-//!     description: "Serial numbers for all corporate devices.",
-//!     items: [
-//!         "8GE8721REF",
-//!         "5RE8543EGG",
-//!         "1YE2880LNP",
-//!     ],
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! example = cloudflare.ZeroTrustList("example",
-//!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     name="Corporate devices",
-//!     type="SERIAL",
-//!     description="Serial numbers for all corporate devices.",
-//!     items=[
-//!         "8GE8721REF",
-//!         "5RE8543EGG",
-//!         "1YE2880LNP",
-//!     ])
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var example = new Cloudflare.ZeroTrustList("example", new()
-//!     {
-//!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         Name = "Corporate devices",
-//!         Type = "SERIAL",
-//!         Description = "Serial numbers for all corporate devices.",
-//!         Items = new[]
-//!         {
-//!             "8GE8721REF",
-//!             "5RE8543EGG",
-//!             "1YE2880LNP",
-//!         },
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewZeroTrustList(ctx, "example", &cloudflare.ZeroTrustListArgs{
-//! 			AccountId:   pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			Name:        pulumi.String("Corporate devices"),
-//! 			Type:        pulumi.String("SERIAL"),
-//! 			Description: pulumi.String("Serial numbers for all corporate devices."),
-//! 			Items: pulumi.StringArray{
-//! 				pulumi.String("8GE8721REF"),
-//! 				pulumi.String("5RE8543EGG"),
-//! 				pulumi.String("1YE2880LNP"),
-//! 			},
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.ZeroTrustList;
-//! import com.pulumi.cloudflare.ZeroTrustListArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var example = new ZeroTrustList("example", ZeroTrustListArgs.builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .name("Corporate devices")
-//!             .type("SERIAL")
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = zero_trust_list::create(
+//!         "example",
+//!         ZeroTrustListArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
 //!             .description("Serial numbers for all corporate devices.")
-//!             .items(            
-//!                 "8GE8721REF",
-//!                 "5RE8543EGG",
-//!                 "1YE2880LNP")
-//!             .build());
-//! 
-//!     }
+//!             .items(vec!["8GE8721REF", "5RE8543EGG", "1YE2880LNP",])
+//!             .name("Corporate devices")
+//!             .type_("SERIAL")
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:ZeroTrustList
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: Corporate devices
-//!       type: SERIAL
-//!       description: Serial numbers for all corporate devices.
-//!       items:
-//!         - 8GE8721REF
-//!         - 5RE8543EGG
-//!         - 1YE2880LNP
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

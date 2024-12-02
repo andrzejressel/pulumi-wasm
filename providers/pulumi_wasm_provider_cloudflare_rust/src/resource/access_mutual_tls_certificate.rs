@@ -13,121 +13,21 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const myCert = new cloudflare.AccessMutualTlsCertificate("my_cert", {
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
-//!     name: "My Root Cert",
-//!     certificate: caPem,
-//!     associatedHostnames: ["staging.example.com"],
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! my_cert = cloudflare.AccessMutualTlsCertificate("my_cert",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
-//!     name="My Root Cert",
-//!     certificate=ca_pem,
-//!     associated_hostnames=["staging.example.com"])
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var myCert = new Cloudflare.AccessMutualTlsCertificate("my_cert", new()
-//!     {
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
-//!         Name = "My Root Cert",
-//!         Certificate = caPem,
-//!         AssociatedHostnames = new[]
-//!         {
-//!             "staging.example.com",
-//!         },
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewAccessMutualTlsCertificate(ctx, "my_cert", &cloudflare.AccessMutualTlsCertificateArgs{
-//! 			ZoneId:      pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
-//! 			Name:        pulumi.String("My Root Cert"),
-//! 			Certificate: pulumi.Any(caPem),
-//! 			AssociatedHostnames: pulumi.StringArray{
-//! 				pulumi.String("staging.example.com"),
-//! 			},
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.AccessMutualTlsCertificate;
-//! import com.pulumi.cloudflare.AccessMutualTlsCertificateArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var myCert = new AccessMutualTlsCertificate("myCert", AccessMutualTlsCertificateArgs.builder()
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let myCert = access_mutual_tls_certificate::create(
+//!         "myCert",
+//!         AccessMutualTlsCertificateArgs::builder()
+//!             .associated_hostnames(vec!["staging.example.com",])
+//!             .certificate("${caPem}")
 //!             .name("My Root Cert")
-//!             .certificate(caPem)
-//!             .associatedHostnames("staging.example.com")
-//!             .build());
-//! 
-//!     }
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   myCert:
-//!     type: cloudflare:AccessMutualTlsCertificate
-//!     name: my_cert
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       name: My Root Cert
-//!       certificate: ${caPem}
-//!       associatedHostnames:
-//!         - staging.example.com
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

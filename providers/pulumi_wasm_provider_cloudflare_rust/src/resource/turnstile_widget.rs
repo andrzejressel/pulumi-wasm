@@ -3,132 +3,23 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const example = new cloudflare.TurnstileWidget("example", {
-//!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     name: "example widget",
-//!     botFightMode: false,
-//!     domains: ["example.com"],
-//!     mode: "invisible",
-//!     region: "world",
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! example = cloudflare.TurnstileWidget("example",
-//!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     name="example widget",
-//!     bot_fight_mode=False,
-//!     domains=["example.com"],
-//!     mode="invisible",
-//!     region="world")
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var example = new Cloudflare.TurnstileWidget("example", new()
-//!     {
-//!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         Name = "example widget",
-//!         BotFightMode = false,
-//!         Domains = new[]
-//!         {
-//!             "example.com",
-//!         },
-//!         Mode = "invisible",
-//!         Region = "world",
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewTurnstileWidget(ctx, "example", &cloudflare.TurnstileWidgetArgs{
-//! 			AccountId:    pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			Name:         pulumi.String("example widget"),
-//! 			BotFightMode: pulumi.Bool(false),
-//! 			Domains: pulumi.StringArray{
-//! 				pulumi.String("example.com"),
-//! 			},
-//! 			Mode:   pulumi.String("invisible"),
-//! 			Region: pulumi.String("world"),
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.TurnstileWidget;
-//! import com.pulumi.cloudflare.TurnstileWidgetArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var example = new TurnstileWidget("example", TurnstileWidgetArgs.builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .name("example widget")
-//!             .botFightMode(false)
-//!             .domains("example.com")
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = turnstile_widget::create(
+//!         "example",
+//!         TurnstileWidgetArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .bot_fight_mode(false)
+//!             .domains(vec!["example.com",])
 //!             .mode("invisible")
+//!             .name("example widget")
 //!             .region("world")
-//!             .build());
-//! 
-//!     }
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:TurnstileWidget
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: example widget
-//!       botFightMode: false
-//!       domains:
-//!         - example.com
-//!       mode: invisible
-//!       region: world
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

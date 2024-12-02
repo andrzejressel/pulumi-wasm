@@ -3,126 +3,22 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! // Waiting Room Event
-//! const example = new cloudflare.WaitingRoomEvent("example", {
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
-//!     waitingRoomId: "d41d8cd98f00b204e9800998ecf8427e",
-//!     name: "foo",
-//!     eventStartTime: "2006-01-02T15:04:05Z",
-//!     eventEndTime: "2006-01-02T20:04:05Z",
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! # Waiting Room Event
-//! example = cloudflare.WaitingRoomEvent("example",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
-//!     waiting_room_id="d41d8cd98f00b204e9800998ecf8427e",
-//!     name="foo",
-//!     event_start_time="2006-01-02T15:04:05Z",
-//!     event_end_time="2006-01-02T20:04:05Z")
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     // Waiting Room Event
-//!     var example = new Cloudflare.WaitingRoomEvent("example", new()
-//!     {
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
-//!         WaitingRoomId = "d41d8cd98f00b204e9800998ecf8427e",
-//!         Name = "foo",
-//!         EventStartTime = "2006-01-02T15:04:05Z",
-//!         EventEndTime = "2006-01-02T20:04:05Z",
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		// Waiting Room Event
-//! 		_, err := cloudflare.NewWaitingRoomEvent(ctx, "example", &cloudflare.WaitingRoomEventArgs{
-//! 			ZoneId:         pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
-//! 			WaitingRoomId:  pulumi.String("d41d8cd98f00b204e9800998ecf8427e"),
-//! 			Name:           pulumi.String("foo"),
-//! 			EventStartTime: pulumi.String("2006-01-02T15:04:05Z"),
-//! 			EventEndTime:   pulumi.String("2006-01-02T20:04:05Z"),
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.WaitingRoomEvent;
-//! import com.pulumi.cloudflare.WaitingRoomEventArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         // Waiting Room Event
-//!         var example = new WaitingRoomEvent("example", WaitingRoomEventArgs.builder()
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
-//!             .waitingRoomId("d41d8cd98f00b204e9800998ecf8427e")
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = waiting_room_event::create(
+//!         "example",
+//!         WaitingRoomEventArgs::builder()
+//!             .event_end_time("2006-01-02T20:04:05Z")
+//!             .event_start_time("2006-01-02T15:04:05Z")
 //!             .name("foo")
-//!             .eventStartTime("2006-01-02T15:04:05Z")
-//!             .eventEndTime("2006-01-02T20:04:05Z")
-//!             .build());
-//! 
-//!     }
+//!             .waiting_room_id("d41d8cd98f00b204e9800998ecf8427e")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   # Waiting Room Event
-//!   example:
-//!     type: cloudflare:WaitingRoomEvent
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       waitingRoomId: d41d8cd98f00b204e9800998ecf8427e
-//!       name: foo
-//!       eventStartTime: 2006-01-02T15:04:05Z
-//!       eventEndTime: 2006-01-02T20:04:05Z
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

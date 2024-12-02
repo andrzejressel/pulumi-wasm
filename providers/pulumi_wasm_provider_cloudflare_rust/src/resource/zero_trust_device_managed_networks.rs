@@ -3,134 +3,28 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const managedNetworks = new cloudflare.ZeroTrustDeviceManagedNetworks("managed_networks", {
-//!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     name: "managed-network-1",
-//!     type: "tls",
-//!     config: {
-//!         tlsSockaddr: "foobar:1234",
-//!         sha256: "b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b878ae4944c",
-//!     },
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! managed_networks = cloudflare.ZeroTrustDeviceManagedNetworks("managed_networks",
-//!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     name="managed-network-1",
-//!     type="tls",
-//!     config={
-//!         "tls_sockaddr": "foobar:1234",
-//!         "sha256": "b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b878ae4944c",
-//!     })
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var managedNetworks = new Cloudflare.ZeroTrustDeviceManagedNetworks("managed_networks", new()
-//!     {
-//!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         Name = "managed-network-1",
-//!         Type = "tls",
-//!         Config = new Cloudflare.Inputs.ZeroTrustDeviceManagedNetworksConfigArgs
-//!         {
-//!             TlsSockaddr = "foobar:1234",
-//!             Sha256 = "b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b878ae4944c",
-//!         },
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewZeroTrustDeviceManagedNetworks(ctx, "managed_networks", &cloudflare.ZeroTrustDeviceManagedNetworksArgs{
-//! 			AccountId: pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			Name:      pulumi.String("managed-network-1"),
-//! 			Type:      pulumi.String("tls"),
-//! 			Config: &cloudflare.ZeroTrustDeviceManagedNetworksConfigArgs{
-//! 				TlsSockaddr: pulumi.String("foobar:1234"),
-//! 				Sha256:      pulumi.String("b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b878ae4944c"),
-//! 			},
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.ZeroTrustDeviceManagedNetworks;
-//! import com.pulumi.cloudflare.ZeroTrustDeviceManagedNetworksArgs;
-//! import com.pulumi.cloudflare.inputs.ZeroTrustDeviceManagedNetworksConfigArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var managedNetworks = new ZeroTrustDeviceManagedNetworks("managedNetworks", ZeroTrustDeviceManagedNetworksArgs.builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let managedNetworks = zero_trust_device_managed_networks::create(
+//!         "managedNetworks",
+//!         ZeroTrustDeviceManagedNetworksArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .config(
+//!                 ZeroTrustDeviceManagedNetworksConfig::builder()
+//!                     .sha256(
+//!                         "b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b878ae4944c",
+//!                     )
+//!                     .tlsSockaddr("foobar:1234")
+//!                     .build_struct(),
+//!             )
 //!             .name("managed-network-1")
-//!             .type("tls")
-//!             .config(ZeroTrustDeviceManagedNetworksConfigArgs.builder()
-//!                 .tlsSockaddr("foobar:1234")
-//!                 .sha256("b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b878ae4944c")
-//!                 .build())
-//!             .build());
-//! 
-//!     }
+//!             .type_("tls")
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   managedNetworks:
-//!     type: cloudflare:ZeroTrustDeviceManagedNetworks
-//!     name: managed_networks
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: managed-network-1
-//!       type: tls
-//!       config:
-//!         tlsSockaddr: foobar:1234
-//!         sha256: b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b878ae4944c
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

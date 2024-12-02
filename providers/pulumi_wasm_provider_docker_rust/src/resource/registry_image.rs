@@ -6,140 +6,27 @@
 //! Build an image with the `docker.RemoteImage` resource and then push it to a registry:
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as docker from "@pulumi/docker";
-//! 
-//! const helloworld = new docker.RegistryImage("helloworld", {keepRemotely: true});
-//! const image = new docker.RemoteImage("image", {
-//!     name: "registry.com/somename:1.0",
-//!     build: {
-//!         context: `${path.cwd}/absolutePathToContextFolder`,
-//!     },
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_docker as docker
-//! 
-//! helloworld = docker.RegistryImage("helloworld", keep_remotely=True)
-//! image = docker.RemoteImage("image",
-//!     name="registry.com/somename:1.0",
-//!     build=docker.RemoteImageBuildArgs(
-//!         context=f"{path['cwd']}/absolutePathToContextFolder",
-//!     ))
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Docker = Pulumi.Docker;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var helloworld = new Docker.RegistryImage("helloworld", new()
-//!     {
-//!         KeepRemotely = true,
-//!     });
-//! 
-//!     var image = new Docker.RemoteImage("image", new()
-//!     {
-//!         Name = "registry.com/somename:1.0",
-//!         Build = new Docker.Inputs.RemoteImageBuildArgs
-//!         {
-//!             Context = $"{path.Cwd}/absolutePathToContextFolder",
-//!         },
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"fmt"
-//! 
-//! 	"github.com/pulumi/pulumi-docker/sdk/v4/go/docker"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := docker.NewRegistryImage(ctx, "helloworld", &docker.RegistryImageArgs{
-//! 			KeepRemotely: pulumi.Bool(true),
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		_, err = docker.NewRemoteImage(ctx, "image", &docker.RemoteImageArgs{
-//! 			Name: pulumi.String("registry.com/somename:1.0"),
-//! 			Build: &docker.RemoteImageBuildArgs{
-//! 				Context: pulumi.String(fmt.Sprintf("%v/absolutePathToContextFolder", path.Cwd)),
-//! 			},
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.docker.RegistryImage;
-//! import com.pulumi.docker.RegistryImageArgs;
-//! import com.pulumi.docker.RemoteImage;
-//! import com.pulumi.docker.RemoteImageArgs;
-//! import com.pulumi.docker.inputs.RemoteImageBuildArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var helloworld = new RegistryImage("helloworld", RegistryImageArgs.builder()        
-//!             .keepRemotely(true)
-//!             .build());
-//! 
-//!         var image = new RemoteImage("image", RemoteImageArgs.builder()        
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let helloworld = registry_image::create(
+//!         "helloworld",
+//!         RegistryImageArgs::builder().keep_remotely(true).build_struct(),
+//!     );
+//!     let image = remote_image::create(
+//!         "image",
+//!         RemoteImageArgs::builder()
+//!             .build(
+//!                 RemoteImageBuild::builder()
+//!                     .context("${path.cwd}/absolutePathToContextFolder")
+//!                     .build_struct(),
+//!             )
 //!             .name("registry.com/somename:1.0")
-//!             .build(RemoteImageBuildArgs.builder()
-//!                 .context(String.format("%s/absolutePathToContextFolder", path.cwd()))
-//!                 .build())
-//!             .build());
-//! 
-//!     }
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   helloworld:
-//!     type: docker:RegistryImage
-//!     properties:
-//!       keepRemotely: true
-//!   image:
-//!     type: docker:RemoteImage
-//!     properties:
-//!       name: registry.com/somename:1.0
-//!       build:
-//!         context: ${path.cwd}/absolutePathToContextFolder
 //! ```
 //! <!--End PulumiCodeChooser -->
 

@@ -5,438 +5,63 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! // Predefined profile must be imported, cannot be created
-//! const creds = new cloudflare.ZeroTrustDlpProfile("creds", {
-//!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     name: "Credentials and Secrets",
-//!     type: "predefined",
-//!     allowedMatchCount: 3,
-//!     entries: [
-//!         {
-//!             enabled: true,
-//!             name: "Amazon AWS Access Key ID",
-//!             id: "d8fcfc9c-773c-405e-8426-21ecbb67ba93",
-//!         },
-//!         {
-//!             enabled: false,
-//!             id: "2c0e33e1-71da-40c8-aad3-32e674ad3d96",
-//!             name: "Amazon AWS Secret Access Key",
-//!         },
-//!         {
-//!             enabled: true,
-//!             id: "4e92c006-3802-4dff-bbe1-8e1513b1c92a",
-//!             name: "Microsoft Azure Client Secret",
-//!         },
-//!         {
-//!             enabled: false,
-//!             id: "5c713294-2375-4904-abcf-e4a15be4d592",
-//!             name: "SSH Private Key",
-//!         },
-//!         {
-//!             enabled: true,
-//!             id: "6c6579e4-d832-42d5-905c-8e53340930f2",
-//!             name: "Google GCP API Key",
-//!         },
-//!     ],
-//! });
-//! // Custom profile
-//! const exampleCustom = new cloudflare.ZeroTrustDlpProfile("example_custom", {
-//!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     name: "Example Custom Profile",
-//!     description: "A profile with example entries",
-//!     type: "custom",
-//!     allowedMatchCount: 0,
-//!     entries: [
-//!         {
-//!             name: "Matches visa credit cards",
-//!             enabled: true,
-//!             pattern: {
-//!                 regex: "4\\d{3}([-\\. ])?\\d{4}([-\\. ])?\\d{4}([-\\. ])?\\d{4}",
-//!                 validation: "luhn",
-//!             },
-//!         },
-//!         {
-//!             name: "Matches diners club card",
-//!             enabled: true,
-//!             pattern: {
-//!                 regex: "(?:0[0-5]|[68][0-9])[0-9]{11}",
-//!                 validation: "luhn",
-//!             },
-//!         },
-//!     ],
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! # Predefined profile must be imported, cannot be created
-//! creds = cloudflare.ZeroTrustDlpProfile("creds",
-//!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     name="Credentials and Secrets",
-//!     type="predefined",
-//!     allowed_match_count=3,
-//!     entries=[
-//!         {
-//!             "enabled": True,
-//!             "name": "Amazon AWS Access Key ID",
-//!             "id": "d8fcfc9c-773c-405e-8426-21ecbb67ba93",
-//!         },
-//!         {
-//!             "enabled": False,
-//!             "id": "2c0e33e1-71da-40c8-aad3-32e674ad3d96",
-//!             "name": "Amazon AWS Secret Access Key",
-//!         },
-//!         {
-//!             "enabled": True,
-//!             "id": "4e92c006-3802-4dff-bbe1-8e1513b1c92a",
-//!             "name": "Microsoft Azure Client Secret",
-//!         },
-//!         {
-//!             "enabled": False,
-//!             "id": "5c713294-2375-4904-abcf-e4a15be4d592",
-//!             "name": "SSH Private Key",
-//!         },
-//!         {
-//!             "enabled": True,
-//!             "id": "6c6579e4-d832-42d5-905c-8e53340930f2",
-//!             "name": "Google GCP API Key",
-//!         },
-//!     ])
-//! # Custom profile
-//! example_custom = cloudflare.ZeroTrustDlpProfile("example_custom",
-//!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     name="Example Custom Profile",
-//!     description="A profile with example entries",
-//!     type="custom",
-//!     allowed_match_count=0,
-//!     entries=[
-//!         {
-//!             "name": "Matches visa credit cards",
-//!             "enabled": True,
-//!             "pattern": {
-//!                 "regex": "4\\d{3}([-\\. ])?\\d{4}([-\\. ])?\\d{4}([-\\. ])?\\d{4}",
-//!                 "validation": "luhn",
-//!             },
-//!         },
-//!         {
-//!             "name": "Matches diners club card",
-//!             "enabled": True,
-//!             "pattern": {
-//!                 "regex": "(?:0[0-5]|[68][0-9])[0-9]{11}",
-//!                 "validation": "luhn",
-//!             },
-//!         },
-//!     ])
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     // Predefined profile must be imported, cannot be created
-//!     var creds = new Cloudflare.ZeroTrustDlpProfile("creds", new()
-//!     {
-//!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         Name = "Credentials and Secrets",
-//!         Type = "predefined",
-//!         AllowedMatchCount = 3,
-//!         Entries = new[]
-//!         {
-//!             new Cloudflare.Inputs.ZeroTrustDlpProfileEntryArgs
-//!             {
-//!                 Enabled = true,
-//!                 Name = "Amazon AWS Access Key ID",
-//!                 Id = "d8fcfc9c-773c-405e-8426-21ecbb67ba93",
-//!             },
-//!             new Cloudflare.Inputs.ZeroTrustDlpProfileEntryArgs
-//!             {
-//!                 Enabled = false,
-//!                 Id = "2c0e33e1-71da-40c8-aad3-32e674ad3d96",
-//!                 Name = "Amazon AWS Secret Access Key",
-//!             },
-//!             new Cloudflare.Inputs.ZeroTrustDlpProfileEntryArgs
-//!             {
-//!                 Enabled = true,
-//!                 Id = "4e92c006-3802-4dff-bbe1-8e1513b1c92a",
-//!                 Name = "Microsoft Azure Client Secret",
-//!             },
-//!             new Cloudflare.Inputs.ZeroTrustDlpProfileEntryArgs
-//!             {
-//!                 Enabled = false,
-//!                 Id = "5c713294-2375-4904-abcf-e4a15be4d592",
-//!                 Name = "SSH Private Key",
-//!             },
-//!             new Cloudflare.Inputs.ZeroTrustDlpProfileEntryArgs
-//!             {
-//!                 Enabled = true,
-//!                 Id = "6c6579e4-d832-42d5-905c-8e53340930f2",
-//!                 Name = "Google GCP API Key",
-//!             },
-//!         },
-//!     });
-//! 
-//!     // Custom profile
-//!     var exampleCustom = new Cloudflare.ZeroTrustDlpProfile("example_custom", new()
-//!     {
-//!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         Name = "Example Custom Profile",
-//!         Description = "A profile with example entries",
-//!         Type = "custom",
-//!         AllowedMatchCount = 0,
-//!         Entries = new[]
-//!         {
-//!             new Cloudflare.Inputs.ZeroTrustDlpProfileEntryArgs
-//!             {
-//!                 Name = "Matches visa credit cards",
-//!                 Enabled = true,
-//!                 Pattern = new Cloudflare.Inputs.ZeroTrustDlpProfileEntryPatternArgs
-//!                 {
-//!                     Regex = "4\\d{3}([-\\. ])?\\d{4}([-\\. ])?\\d{4}([-\\. ])?\\d{4}",
-//!                     Validation = "luhn",
-//!                 },
-//!             },
-//!             new Cloudflare.Inputs.ZeroTrustDlpProfileEntryArgs
-//!             {
-//!                 Name = "Matches diners club card",
-//!                 Enabled = true,
-//!                 Pattern = new Cloudflare.Inputs.ZeroTrustDlpProfileEntryPatternArgs
-//!                 {
-//!                     Regex = "(?:0[0-5]|[68][0-9])[0-9]{11}",
-//!                     Validation = "luhn",
-//!                 },
-//!             },
-//!         },
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		// Predefined profile must be imported, cannot be created
-//! 		_, err := cloudflare.NewZeroTrustDlpProfile(ctx, "creds", &cloudflare.ZeroTrustDlpProfileArgs{
-//! 			AccountId:         pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			Name:              pulumi.String("Credentials and Secrets"),
-//! 			Type:              pulumi.String("predefined"),
-//! 			AllowedMatchCount: pulumi.Int(3),
-//! 			Entries: cloudflare.ZeroTrustDlpProfileEntryArray{
-//! 				&cloudflare.ZeroTrustDlpProfileEntryArgs{
-//! 					Enabled: pulumi.Bool(true),
-//! 					Name:    pulumi.String("Amazon AWS Access Key ID"),
-//! 					Id:      pulumi.String("d8fcfc9c-773c-405e-8426-21ecbb67ba93"),
-//! 				},
-//! 				&cloudflare.ZeroTrustDlpProfileEntryArgs{
-//! 					Enabled: pulumi.Bool(false),
-//! 					Id:      pulumi.String("2c0e33e1-71da-40c8-aad3-32e674ad3d96"),
-//! 					Name:    pulumi.String("Amazon AWS Secret Access Key"),
-//! 				},
-//! 				&cloudflare.ZeroTrustDlpProfileEntryArgs{
-//! 					Enabled: pulumi.Bool(true),
-//! 					Id:      pulumi.String("4e92c006-3802-4dff-bbe1-8e1513b1c92a"),
-//! 					Name:    pulumi.String("Microsoft Azure Client Secret"),
-//! 				},
-//! 				&cloudflare.ZeroTrustDlpProfileEntryArgs{
-//! 					Enabled: pulumi.Bool(false),
-//! 					Id:      pulumi.String("5c713294-2375-4904-abcf-e4a15be4d592"),
-//! 					Name:    pulumi.String("SSH Private Key"),
-//! 				},
-//! 				&cloudflare.ZeroTrustDlpProfileEntryArgs{
-//! 					Enabled: pulumi.Bool(true),
-//! 					Id:      pulumi.String("6c6579e4-d832-42d5-905c-8e53340930f2"),
-//! 					Name:    pulumi.String("Google GCP API Key"),
-//! 				},
-//! 			},
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		// Custom profile
-//! 		_, err = cloudflare.NewZeroTrustDlpProfile(ctx, "example_custom", &cloudflare.ZeroTrustDlpProfileArgs{
-//! 			AccountId:         pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			Name:              pulumi.String("Example Custom Profile"),
-//! 			Description:       pulumi.String("A profile with example entries"),
-//! 			Type:              pulumi.String("custom"),
-//! 			AllowedMatchCount: pulumi.Int(0),
-//! 			Entries: cloudflare.ZeroTrustDlpProfileEntryArray{
-//! 				&cloudflare.ZeroTrustDlpProfileEntryArgs{
-//! 					Name:    pulumi.String("Matches visa credit cards"),
-//! 					Enabled: pulumi.Bool(true),
-//! 					Pattern: &cloudflare.ZeroTrustDlpProfileEntryPatternArgs{
-//! 						Regex:      pulumi.String("4\\d{3}([-\\. ])?\\d{4}([-\\. ])?\\d{4}([-\\. ])?\\d{4}"),
-//! 						Validation: pulumi.String("luhn"),
-//! 					},
-//! 				},
-//! 				&cloudflare.ZeroTrustDlpProfileEntryArgs{
-//! 					Name:    pulumi.String("Matches diners club card"),
-//! 					Enabled: pulumi.Bool(true),
-//! 					Pattern: &cloudflare.ZeroTrustDlpProfileEntryPatternArgs{
-//! 						Regex:      pulumi.String("(?:0[0-5]|[68][0-9])[0-9]{11}"),
-//! 						Validation: pulumi.String("luhn"),
-//! 					},
-//! 				},
-//! 			},
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.ZeroTrustDlpProfile;
-//! import com.pulumi.cloudflare.ZeroTrustDlpProfileArgs;
-//! import com.pulumi.cloudflare.inputs.ZeroTrustDlpProfileEntryArgs;
-//! import com.pulumi.cloudflare.inputs.ZeroTrustDlpProfileEntryPatternArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         // Predefined profile must be imported, cannot be created
-//!         var creds = new ZeroTrustDlpProfile("creds", ZeroTrustDlpProfileArgs.builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .name("Credentials and Secrets")
-//!             .type("predefined")
-//!             .allowedMatchCount(3)
-//!             .entries(            
-//!                 ZeroTrustDlpProfileEntryArgs.builder()
-//!                     .enabled(true)
-//!                     .name("Amazon AWS Access Key ID")
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let creds = zero_trust_dlp_profile::create(
+//!         "creds",
+//!         ZeroTrustDlpProfileArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .allowed_match_count(3)
+//!             .entries(
+//!                 vec![
+//!                     ZeroTrustDlpProfileEntry::builder().enabled(true)
 //!                     .id("d8fcfc9c-773c-405e-8426-21ecbb67ba93")
-//!                     .build(),
-//!                 ZeroTrustDlpProfileEntryArgs.builder()
-//!                     .enabled(false)
+//!                     .name("Amazon AWS Access Key ID").build_struct(),
+//!                     ZeroTrustDlpProfileEntry::builder().enabled(false)
 //!                     .id("2c0e33e1-71da-40c8-aad3-32e674ad3d96")
-//!                     .name("Amazon AWS Secret Access Key")
-//!                     .build(),
-//!                 ZeroTrustDlpProfileEntryArgs.builder()
-//!                     .enabled(true)
+//!                     .name("Amazon AWS Secret Access Key").build_struct(),
+//!                     ZeroTrustDlpProfileEntry::builder().enabled(true)
 //!                     .id("4e92c006-3802-4dff-bbe1-8e1513b1c92a")
-//!                     .name("Microsoft Azure Client Secret")
-//!                     .build(),
-//!                 ZeroTrustDlpProfileEntryArgs.builder()
-//!                     .enabled(false)
-//!                     .id("5c713294-2375-4904-abcf-e4a15be4d592")
-//!                     .name("SSH Private Key")
-//!                     .build(),
-//!                 ZeroTrustDlpProfileEntryArgs.builder()
-//!                     .enabled(true)
+//!                     .name("Microsoft Azure Client Secret").build_struct(),
+//!                     ZeroTrustDlpProfileEntry::builder().enabled(false)
+//!                     .id("5c713294-2375-4904-abcf-e4a15be4d592").name("SSH Private Key")
+//!                     .build_struct(), ZeroTrustDlpProfileEntry::builder().enabled(true)
 //!                     .id("6c6579e4-d832-42d5-905c-8e53340930f2")
-//!                     .name("Google GCP API Key")
-//!                     .build())
-//!             .build());
-//! 
-//!         // Custom profile
-//!         var exampleCustom = new ZeroTrustDlpProfile("exampleCustom", ZeroTrustDlpProfileArgs.builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .name("Example Custom Profile")
+//!                     .name("Google GCP API Key").build_struct(),
+//!                 ],
+//!             )
+//!             .name("Credentials and Secrets")
+//!             .type_("predefined")
+//!             .build_struct(),
+//!     );
+//!     let exampleCustom = zero_trust_dlp_profile::create(
+//!         "exampleCustom",
+//!         ZeroTrustDlpProfileArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .allowed_match_count(0)
 //!             .description("A profile with example entries")
-//!             .type("custom")
-//!             .allowedMatchCount(0)
-//!             .entries(            
-//!                 ZeroTrustDlpProfileEntryArgs.builder()
+//!             .entries(
+//!                 vec![
+//!                     ZeroTrustDlpProfileEntry::builder().enabled(true)
 //!                     .name("Matches visa credit cards")
-//!                     .enabled(true)
-//!                     .pattern(ZeroTrustDlpProfileEntryPatternArgs.builder()
-//!                         .regex("4\\d{3}([-\\. ])?\\d{4}([-\\. ])?\\d{4}([-\\. ])?\\d{4}")
-//!                         .validation("luhn")
-//!                         .build())
-//!                     .build(),
-//!                 ZeroTrustDlpProfileEntryArgs.builder()
+//!                     .pattern(ZeroTrustDlpProfileEntryPattern::builder()
+//!                     .regex("4\\d{3}([-\\. ])?\\d{4}([-\\. ])?\\d{4}([-\\. ])?\\d{4}")
+//!                     .validation("luhn").build_struct()).build_struct(),
+//!                     ZeroTrustDlpProfileEntry::builder().enabled(true)
 //!                     .name("Matches diners club card")
-//!                     .enabled(true)
-//!                     .pattern(ZeroTrustDlpProfileEntryPatternArgs.builder()
-//!                         .regex("(?:0[0-5]|[68][0-9])[0-9]{11}")
-//!                         .validation("luhn")
-//!                         .build())
-//!                     .build())
-//!             .build());
-//! 
-//!     }
+//!                     .pattern(ZeroTrustDlpProfileEntryPattern::builder()
+//!                     .regex("(?:0[0-5]|[68][0-9])[0-9]{11}").validation("luhn")
+//!                     .build_struct()).build_struct(),
+//!                 ],
+//!             )
+//!             .name("Example Custom Profile")
+//!             .type_("custom")
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   # Predefined profile must be imported, cannot be created
-//!   creds:
-//!     type: cloudflare:ZeroTrustDlpProfile
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: Credentials and Secrets
-//!       type: predefined
-//!       allowedMatchCount: 3
-//!       entries:
-//!         - enabled: true
-//!           name: Amazon AWS Access Key ID
-//!           id: d8fcfc9c-773c-405e-8426-21ecbb67ba93
-//!         - enabled: false
-//!           id: 2c0e33e1-71da-40c8-aad3-32e674ad3d96
-//!           name: Amazon AWS Secret Access Key
-//!         - enabled: true
-//!           id: 4e92c006-3802-4dff-bbe1-8e1513b1c92a
-//!           name: Microsoft Azure Client Secret
-//!         - enabled: false
-//!           id: 5c713294-2375-4904-abcf-e4a15be4d592
-//!           name: SSH Private Key
-//!         - enabled: true
-//!           id: 6c6579e4-d832-42d5-905c-8e53340930f2
-//!           name: Google GCP API Key
-//!   # Custom profile
-//!   exampleCustom:
-//!     type: cloudflare:ZeroTrustDlpProfile
-//!     name: example_custom
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: Example Custom Profile
-//!       description: A profile with example entries
-//!       type: custom
-//!       allowedMatchCount: 0
-//!       entries:
-//!         - name: Matches visa credit cards
-//!           enabled: true
-//!           pattern:
-//!             regex: 4\d{3}([-\. ])?\d{4}([-\. ])?\d{4}([-\. ])?\d{4}
-//!             validation: luhn
-//!         - name: Matches diners club card
-//!           enabled: true
-//!           pattern:
-//!             regex: (?:0[0-5]|[68][0-9])[0-9]{11}
-//!             validation: luhn
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

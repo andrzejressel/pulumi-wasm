@@ -7,5 +7,4 @@ edition.workspace = true
 
 [dependencies]
 log.workspace = true
-uuid.workspace = true
 pulumi_wasm_wit = { workspace = true, features = ["logger"] }

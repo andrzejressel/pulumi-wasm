@@ -3,204 +3,37 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const eaxmple = new cloudflare.ZeroTrustDevicePostureRule("eaxmple", {
-//!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     name: "Corporate devices posture rule",
-//!     type: "os_version",
-//!     description: "Device posture rule for corporate devices.",
-//!     schedule: "24h",
-//!     expiration: "24h",
-//!     matches: [{
-//!         platform: "linux",
-//!     }],
-//!     inputs: [{
-//!         id: corporateDevices.id,
-//!         version: "1.0.0",
-//!         operator: "<",
-//!         osDistroName: "ubuntu",
-//!         osDistroRevision: "1.0.0",
-//!         osVersionExtra: "(a)",
-//!     }],
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! eaxmple = cloudflare.ZeroTrustDevicePostureRule("eaxmple",
-//!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     name="Corporate devices posture rule",
-//!     type="os_version",
-//!     description="Device posture rule for corporate devices.",
-//!     schedule="24h",
-//!     expiration="24h",
-//!     matches=[{
-//!         "platform": "linux",
-//!     }],
-//!     inputs=[{
-//!         "id": corporate_devices["id"],
-//!         "version": "1.0.0",
-//!         "operator": "<",
-//!         "os_distro_name": "ubuntu",
-//!         "os_distro_revision": "1.0.0",
-//!         "os_version_extra": "(a)",
-//!     }])
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var eaxmple = new Cloudflare.ZeroTrustDevicePostureRule("eaxmple", new()
-//!     {
-//!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         Name = "Corporate devices posture rule",
-//!         Type = "os_version",
-//!         Description = "Device posture rule for corporate devices.",
-//!         Schedule = "24h",
-//!         Expiration = "24h",
-//!         Matches = new[]
-//!         {
-//!             new Cloudflare.Inputs.ZeroTrustDevicePostureRuleMatchArgs
-//!             {
-//!                 Platform = "linux",
-//!             },
-//!         },
-//!         Inputs = new[]
-//!         {
-//!             new Cloudflare.Inputs.ZeroTrustDevicePostureRuleInputArgs
-//!             {
-//!                 Id = corporateDevices.Id,
-//!                 Version = "1.0.0",
-//!                 Operator = "<",
-//!                 OsDistroName = "ubuntu",
-//!                 OsDistroRevision = "1.0.0",
-//!                 OsVersionExtra = "(a)",
-//!             },
-//!         },
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewZeroTrustDevicePostureRule(ctx, "eaxmple", &cloudflare.ZeroTrustDevicePostureRuleArgs{
-//! 			AccountId:   pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			Name:        pulumi.String("Corporate devices posture rule"),
-//! 			Type:        pulumi.String("os_version"),
-//! 			Description: pulumi.String("Device posture rule for corporate devices."),
-//! 			Schedule:    pulumi.String("24h"),
-//! 			Expiration:  pulumi.String("24h"),
-//! 			Matches: cloudflare.ZeroTrustDevicePostureRuleMatchArray{
-//! 				&cloudflare.ZeroTrustDevicePostureRuleMatchArgs{
-//! 					Platform: pulumi.String("linux"),
-//! 				},
-//! 			},
-//! 			Inputs: cloudflare.ZeroTrustDevicePostureRuleInputTypeArray{
-//! 				&cloudflare.ZeroTrustDevicePostureRuleInputTypeArgs{
-//! 					Id:               pulumi.Any(corporateDevices.Id),
-//! 					Version:          pulumi.String("1.0.0"),
-//! 					Operator:         pulumi.String("<"),
-//! 					OsDistroName:     pulumi.String("ubuntu"),
-//! 					OsDistroRevision: pulumi.String("1.0.0"),
-//! 					OsVersionExtra:   pulumi.String("(a)"),
-//! 				},
-//! 			},
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.ZeroTrustDevicePostureRule;
-//! import com.pulumi.cloudflare.ZeroTrustDevicePostureRuleArgs;
-//! import com.pulumi.cloudflare.inputs.ZeroTrustDevicePostureRuleMatchArgs;
-//! import com.pulumi.cloudflare.inputs.ZeroTrustDevicePostureRuleInputArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var eaxmple = new ZeroTrustDevicePostureRule("eaxmple", ZeroTrustDevicePostureRuleArgs.builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .name("Corporate devices posture rule")
-//!             .type("os_version")
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let eaxmple = zero_trust_device_posture_rule::create(
+//!         "eaxmple",
+//!         ZeroTrustDevicePostureRuleArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
 //!             .description("Device posture rule for corporate devices.")
-//!             .schedule("24h")
 //!             .expiration("24h")
-//!             .matches(ZeroTrustDevicePostureRuleMatchArgs.builder()
-//!                 .platform("linux")
-//!                 .build())
-//!             .inputs(ZeroTrustDevicePostureRuleInputArgs.builder()
-//!                 .id(corporateDevices.id())
-//!                 .version("1.0.0")
-//!                 .operator("<")
-//!                 .osDistroName("ubuntu")
-//!                 .osDistroRevision("1.0.0")
-//!                 .osVersionExtra("(a)")
-//!                 .build())
-//!             .build());
-//! 
-//!     }
+//!             .inputs(
+//!                 vec![
+//!                     ZeroTrustDevicePostureRuleInput::builder()
+//!                     .id("${corporateDevices.id}").operator("<").osDistroName("ubuntu")
+//!                     .osDistroRevision("1.0.0").osVersionExtra("(a)").version("1.0.0")
+//!                     .build_struct(),
+//!                 ],
+//!             )
+//!             .matches(
+//!                 vec![
+//!                     ZeroTrustDevicePostureRuleMatch::builder().platform("linux")
+//!                     .build_struct(),
+//!                 ],
+//!             )
+//!             .name("Corporate devices posture rule")
+//!             .schedule("24h")
+//!             .type_("os_version")
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   eaxmple:
-//!     type: cloudflare:ZeroTrustDevicePostureRule
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: Corporate devices posture rule
-//!       type: os_version
-//!       description: Device posture rule for corporate devices.
-//!       schedule: 24h
-//!       expiration: 24h
-//!       matches:
-//!         - platform: linux
-//!       inputs:
-//!         - id: ${corporateDevices.id}
-//!           version: 1.0.0
-//!           operator: <
-//!           osDistroName: ubuntu
-//!           osDistroRevision: 1.0.0
-//!           osVersionExtra: (a)
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

@@ -10,93 +10,16 @@
 //! for further updates of the image
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as docker from "@pulumi/docker";
-//! 
-//! const ubuntu = new docker.RemoteImage("ubuntu", {name: "ubuntu:precise"});
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_docker as docker
-//! 
-//! ubuntu = docker.RemoteImage("ubuntu", name="ubuntu:precise")
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Docker = Pulumi.Docker;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var ubuntu = new Docker.RemoteImage("ubuntu", new()
-//!     {
-//!         Name = "ubuntu:precise",
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-docker/sdk/v4/go/docker"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := docker.NewRemoteImage(ctx, "ubuntu", &docker.RemoteImageArgs{
-//! 			Name: pulumi.String("ubuntu:precise"),
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let ubuntu = remote_image::create(
+//!         "ubuntu",
+//!         RemoteImageArgs::builder().name("ubuntu:precise").build_struct(),
+//!     );
 //! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.docker.RemoteImage;
-//! import com.pulumi.docker.RemoteImageArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var ubuntu = new RemoteImage("ubuntu", RemoteImageArgs.builder()        
-//!             .name("ubuntu:precise")
-//!             .build());
-//! 
-//!     }
-//! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   ubuntu:
-//!     type: docker:RemoteImage
-//!     properties:
-//!       name: ubuntu:precise
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 
@@ -106,135 +29,19 @@
 //! you need to use it in combination with `docker.RegistryImage` as follows:
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as docker from "@pulumi/docker";
-//! 
-//! const ubuntuRegistryImage = docker.getRegistryImage({
-//!     name: "ubuntu:precise",
-//! });
-//! const ubuntuRemoteImage = new docker.RemoteImage("ubuntuRemoteImage", {
-//!     name: ubuntuRegistryImage.then(ubuntuRegistryImage => ubuntuRegistryImage.name),
-//!     pullTriggers: [ubuntuRegistryImage.then(ubuntuRegistryImage => ubuntuRegistryImage.sha256Digest)],
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_docker as docker
-//! 
-//! ubuntu_registry_image = docker.get_registry_image(name="ubuntu:precise")
-//! ubuntu_remote_image = docker.RemoteImage("ubuntuRemoteImage",
-//!     name=ubuntu_registry_image.name,
-//!     pull_triggers=[ubuntu_registry_image.sha256_digest])
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Docker = Pulumi.Docker;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var ubuntuRegistryImage = Docker.GetRegistryImage.Invoke(new()
-//!     {
-//!         Name = "ubuntu:precise",
-//!     });
-//! 
-//!     var ubuntuRemoteImage = new Docker.RemoteImage("ubuntuRemoteImage", new()
-//!     {
-//!         Name = ubuntuRegistryImage.Apply(getRegistryImageResult => getRegistryImageResult.Name),
-//!         PullTriggers = new[]
-//!         {
-//!             ubuntuRegistryImage.Apply(getRegistryImageResult => getRegistryImageResult.Sha256Digest),
-//!         },
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-docker/sdk/v4/go/docker"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		ubuntuRegistryImage, err := docker.LookupRegistryImage(ctx, &docker.LookupRegistryImageArgs{
-//! 			Name: "ubuntu:precise",
-//! 		}, nil)
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		_, err = docker.NewRemoteImage(ctx, "ubuntuRemoteImage", &docker.RemoteImageArgs{
-//! 			Name: pulumi.String(ubuntuRegistryImage.Name),
-//! 			PullTriggers: pulumi.StringArray{
-//! 				pulumi.String(ubuntuRegistryImage.Sha256Digest),
-//! 			},
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let ubuntuRemoteImage = remote_image::create(
+//!         "ubuntuRemoteImage",
+//!         RemoteImageArgs::builder()
+//!             .name("${ubuntuRegistryImage.name}")
+//!             .pull_triggers(vec!["${ubuntuRegistryImage.sha256Digest}",])
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.docker.DockerFunctions;
-//! import com.pulumi.docker.inputs.GetRegistryImageArgs;
-//! import com.pulumi.docker.RemoteImage;
-//! import com.pulumi.docker.RemoteImageArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         final var ubuntuRegistryImage = DockerFunctions.getRegistryImage(GetRegistryImageArgs.builder()
-//!             .name("ubuntu:precise")
-//!             .build());
-//! 
-//!         var ubuntuRemoteImage = new RemoteImage("ubuntuRemoteImage", RemoteImageArgs.builder()        
-//!             .name(ubuntuRegistryImage.applyValue(getRegistryImageResult -> getRegistryImageResult.name()))
-//!             .pullTriggers(ubuntuRegistryImage.applyValue(getRegistryImageResult -> getRegistryImageResult.sha256Digest()))
-//!             .build());
-//! 
-//!     }
-//! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   ubuntuRemoteImage:
-//!     type: docker:RemoteImage
-//!     properties:
-//!       name: ${ubuntuRegistryImage.name}
-//!       pullTriggers:
-//!         - ${ubuntuRegistryImage.sha256Digest}
-//! variables:
-//!   ubuntuRegistryImage:
-//!     fn::invoke:
-//!       Function: docker:getRegistryImage
-//!       Arguments:
-//!         name: ubuntu:precise
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 
@@ -244,145 +51,6 @@
 //! In this case the image "zoo" and "zoo:develop" are built.
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as docker from "@pulumi/docker";
-//! 
-//! const zoo = new docker.RemoteImage("zoo", {
-//!     name: "zoo",
-//!     build: {
-//!         context: ".",
-//!         tags: ["zoo:develop"],
-//!         buildArg: {
-//!             foo: "zoo",
-//!         },
-//!         label: {
-//!             author: "zoo",
-//!         },
-//!     },
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_docker as docker
-//! 
-//! zoo = docker.RemoteImage("zoo",
-//!     name="zoo",
-//!     build=docker.RemoteImageBuildArgs(
-//!         context=".",
-//!         tags=["zoo:develop"],
-//!         build_arg={
-//!             "foo": "zoo",
-//!         },
-//!         label={
-//!             "author": "zoo",
-//!         },
-//!     ))
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Docker = Pulumi.Docker;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var zoo = new Docker.RemoteImage("zoo", new()
-//!     {
-//!         Name = "zoo",
-//!         Build = new Docker.Inputs.RemoteImageBuildArgs
-//!         {
-//!             Context = ".",
-//!             Tags = new[]
-//!             {
-//!                 "zoo:develop",
-//!             },
-//!             BuildArg = 
-//!             {
-//!                 { "foo", "zoo" },
-//!             },
-//!             Label = 
-//!             {
-//!                 { "author", "zoo" },
-//!             },
-//!         },
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-docker/sdk/v4/go/docker"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := docker.NewRemoteImage(ctx, "zoo", &docker.RemoteImageArgs{
-//! 			Name: pulumi.String("zoo"),
-//! 			Build: &docker.RemoteImageBuildArgs{
-//! 				Context: pulumi.String("."),
-//! 				Tags: pulumi.StringArray{
-//! 					pulumi.String("zoo:develop"),
-//! 				},
-//! 				BuildArg: pulumi.StringMap{
-//! 					"foo": pulumi.String("zoo"),
-//! 				},
-//! 				Label: pulumi.StringMap{
-//! 					"author": pulumi.String("zoo"),
-//! 				},
-//! 			},
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.docker.RemoteImage;
-//! import com.pulumi.docker.RemoteImageArgs;
-//! import com.pulumi.docker.inputs.RemoteImageBuildArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var zoo = new RemoteImage("zoo", RemoteImageArgs.builder()        
-//!             .name("zoo")
-//!             .build(RemoteImageBuildArgs.builder()
-//!                 .context(".")
-//!                 .tags("zoo:develop")
-//!                 .buildArg(Map.of("foo", "zoo"))
-//!                 .label(Map.of("author", "zoo"))
-//!                 .build())
-//!             .build());
-//! 
-//!     }
-//! }
-//! ```
-//! ### YAML
 //! ```yaml
 //! resources:
 //!   zoo:

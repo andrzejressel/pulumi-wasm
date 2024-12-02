@@ -5,162 +5,30 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! // Enable security headers using Managed Meaders
-//! const example = new cloudflare.ManagedHeaders("example", {
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
-//!     managedRequestHeaders: [{
-//!         id: "add_true_client_ip_headers",
-//!         enabled: true,
-//!     }],
-//!     managedResponseHeaders: [{
-//!         id: "remove_x-powered-by_header",
-//!         enabled: true,
-//!     }],
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! # Enable security headers using Managed Meaders
-//! example = cloudflare.ManagedHeaders("example",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
-//!     managed_request_headers=[{
-//!         "id": "add_true_client_ip_headers",
-//!         "enabled": True,
-//!     }],
-//!     managed_response_headers=[{
-//!         "id": "remove_x-powered-by_header",
-//!         "enabled": True,
-//!     }])
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     // Enable security headers using Managed Meaders
-//!     var example = new Cloudflare.ManagedHeaders("example", new()
-//!     {
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
-//!         ManagedRequestHeaders = new[]
-//!         {
-//!             new Cloudflare.Inputs.ManagedHeadersManagedRequestHeaderArgs
-//!             {
-//!                 Id = "add_true_client_ip_headers",
-//!                 Enabled = true,
-//!             },
-//!         },
-//!         ManagedResponseHeaders = new[]
-//!         {
-//!             new Cloudflare.Inputs.ManagedHeadersManagedResponseHeaderArgs
-//!             {
-//!                 Id = "remove_x-powered-by_header",
-//!                 Enabled = true,
-//!             },
-//!         },
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		// Enable security headers using Managed Meaders
-//! 		_, err := cloudflare.NewManagedHeaders(ctx, "example", &cloudflare.ManagedHeadersArgs{
-//! 			ZoneId: pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
-//! 			ManagedRequestHeaders: cloudflare.ManagedHeadersManagedRequestHeaderArray{
-//! 				&cloudflare.ManagedHeadersManagedRequestHeaderArgs{
-//! 					Id:      pulumi.String("add_true_client_ip_headers"),
-//! 					Enabled: pulumi.Bool(true),
-//! 				},
-//! 			},
-//! 			ManagedResponseHeaders: cloudflare.ManagedHeadersManagedResponseHeaderArray{
-//! 				&cloudflare.ManagedHeadersManagedResponseHeaderArgs{
-//! 					Id:      pulumi.String("remove_x-powered-by_header"),
-//! 					Enabled: pulumi.Bool(true),
-//! 				},
-//! 			},
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = managed_headers::create(
+//!         "example",
+//!         ManagedHeadersArgs::builder()
+//!             .managed_request_headers(
+//!                 vec![
+//!                     ManagedHeadersManagedRequestHeader::builder().enabled(true)
+//!                     .id("add_true_client_ip_headers").build_struct(),
+//!                 ],
+//!             )
+//!             .managed_response_headers(
+//!                 vec![
+//!                     ManagedHeadersManagedResponseHeader::builder().enabled(true)
+//!                     .id("remove_x-powered-by_header").build_struct(),
+//!                 ],
+//!             )
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.ManagedHeaders;
-//! import com.pulumi.cloudflare.ManagedHeadersArgs;
-//! import com.pulumi.cloudflare.inputs.ManagedHeadersManagedRequestHeaderArgs;
-//! import com.pulumi.cloudflare.inputs.ManagedHeadersManagedResponseHeaderArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         // Enable security headers using Managed Meaders
-//!         var example = new ManagedHeaders("example", ManagedHeadersArgs.builder()
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
-//!             .managedRequestHeaders(ManagedHeadersManagedRequestHeaderArgs.builder()
-//!                 .id("add_true_client_ip_headers")
-//!                 .enabled(true)
-//!                 .build())
-//!             .managedResponseHeaders(ManagedHeadersManagedResponseHeaderArgs.builder()
-//!                 .id("remove_x-powered-by_header")
-//!                 .enabled(true)
-//!                 .build())
-//!             .build());
-//! 
-//!     }
-//! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   # Enable security headers using Managed Meaders
-//!   example:
-//!     type: cloudflare:ManagedHeaders
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       managedRequestHeaders:
-//!         - id: add_true_client_ip_headers
-//!           enabled: true
-//!       managedResponseHeaders:
-//!         - id: remove_x-powered-by_header
-//!           enabled: true
 //! ```
 //! <!--End PulumiCodeChooser -->
 

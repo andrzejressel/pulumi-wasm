@@ -3,129 +3,24 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const myScript = new cloudflare.WorkersScript("my_script", {});
-//! // Runs the specified worker script for all URLs that match `example.com/*`
-//! const myRoute = new cloudflare.WorkerRoute("my_route", {
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
-//!     pattern: "example.com/*",
-//!     scriptName: myScript.name,
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! my_script = cloudflare.WorkersScript("my_script")
-//! # Runs the specified worker script for all URLs that match `example.com/*`
-//! my_route = cloudflare.WorkerRoute("my_route",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
-//!     pattern="example.com/*",
-//!     script_name=my_script.name)
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var myScript = new Cloudflare.WorkersScript("my_script");
-//! 
-//!     // Runs the specified worker script for all URLs that match `example.com/*`
-//!     var myRoute = new Cloudflare.WorkerRoute("my_route", new()
-//!     {
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
-//!         Pattern = "example.com/*",
-//!         ScriptName = myScript.Name,
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		myScript, err := cloudflare.NewWorkersScript(ctx, "my_script", nil)
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		// Runs the specified worker script for all URLs that match `example.com/*`
-//! 		_, err = cloudflare.NewWorkerRoute(ctx, "my_route", &cloudflare.WorkerRouteArgs{
-//! 			ZoneId:     pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
-//! 			Pattern:    pulumi.String("example.com/*"),
-//! 			ScriptName: myScript.Name,
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.WorkersScript;
-//! import com.pulumi.cloudflare.WorkerRoute;
-//! import com.pulumi.cloudflare.WorkerRouteArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var myScript = new WorkersScript("myScript");
-//! 
-//!         // Runs the specified worker script for all URLs that match `example.com/*`
-//!         var myRoute = new WorkerRoute("myRoute", WorkerRouteArgs.builder()
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let myRoute = worker_route::create(
+//!         "myRoute",
+//!         WorkerRouteArgs::builder()
 //!             .pattern("example.com/*")
-//!             .scriptName(myScript.name())
-//!             .build());
-//! 
-//!     }
+//!             .script_name("${myScript.name}")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
+//!     let myScript = workers_script::create(
+//!         "myScript",
+//!         WorkersScriptArgs::builder().build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   # Runs the specified worker script for all URLs that match `example.com/*`
-//!   myRoute:
-//!     type: cloudflare:WorkerRoute
-//!     name: my_route
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       pattern: example.com/*
-//!       scriptName: ${myScript.name}
-//!   myScript:
-//!     type: cloudflare:WorkersScript
-//!     name: my_script
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

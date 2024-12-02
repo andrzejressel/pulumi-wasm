@@ -5,150 +5,25 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const example = new cloudflare.StaticRoute("example", {
-//!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     description: "New route for new prefix 192.0.2.0/24",
-//!     prefix: "192.0.2.0/24",
-//!     nexthop: "10.0.0.0",
-//!     priority: 100,
-//!     weight: 10,
-//!     coloNames: ["den01"],
-//!     coloRegions: ["APAC"],
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! example = cloudflare.StaticRoute("example",
-//!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     description="New route for new prefix 192.0.2.0/24",
-//!     prefix="192.0.2.0/24",
-//!     nexthop="10.0.0.0",
-//!     priority=100,
-//!     weight=10,
-//!     colo_names=["den01"],
-//!     colo_regions=["APAC"])
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var example = new Cloudflare.StaticRoute("example", new()
-//!     {
-//!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         Description = "New route for new prefix 192.0.2.0/24",
-//!         Prefix = "192.0.2.0/24",
-//!         Nexthop = "10.0.0.0",
-//!         Priority = 100,
-//!         Weight = 10,
-//!         ColoNames = new[]
-//!         {
-//!             "den01",
-//!         },
-//!         ColoRegions = new[]
-//!         {
-//!             "APAC",
-//!         },
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewStaticRoute(ctx, "example", &cloudflare.StaticRouteArgs{
-//! 			AccountId:   pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			Description: pulumi.String("New route for new prefix 192.0.2.0/24"),
-//! 			Prefix:      pulumi.String("192.0.2.0/24"),
-//! 			Nexthop:     pulumi.String("10.0.0.0"),
-//! 			Priority:    pulumi.Int(100),
-//! 			Weight:      pulumi.Int(10),
-//! 			ColoNames: pulumi.StringArray{
-//! 				pulumi.String("den01"),
-//! 			},
-//! 			ColoRegions: pulumi.StringArray{
-//! 				pulumi.String("APAC"),
-//! 			},
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.StaticRoute;
-//! import com.pulumi.cloudflare.StaticRouteArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var example = new StaticRoute("example", StaticRouteArgs.builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = static_route::create(
+//!         "example",
+//!         StaticRouteArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .colo_names(vec!["den01",])
+//!             .colo_regions(vec!["APAC",])
 //!             .description("New route for new prefix 192.0.2.0/24")
-//!             .prefix("192.0.2.0/24")
 //!             .nexthop("10.0.0.0")
+//!             .prefix("192.0.2.0/24")
 //!             .priority(100)
 //!             .weight(10)
-//!             .coloNames("den01")
-//!             .coloRegions("APAC")
-//!             .build());
-//! 
-//!     }
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:StaticRoute
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       description: New route for new prefix 192.0.2.0/24
-//!       prefix: 192.0.2.0/24
-//!       nexthop: 10.0.0.0
-//!       priority: 100
-//!       weight: 10
-//!       coloNames:
-//!         - den01
-//!       coloRegions:
-//!         - APAC
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

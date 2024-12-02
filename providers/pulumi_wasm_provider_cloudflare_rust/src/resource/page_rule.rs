@@ -3,176 +3,32 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! // Add a page rule to the domain
-//! const foobar = new cloudflare.PageRule("foobar", {
-//!     zoneId: cloudflareZoneId,
-//!     target: `sub.${cloudflareZone}/page`,
-//!     priority: 1,
-//!     actions: {
-//!         ssl: "flexible",
-//!         emailObfuscation: "on",
-//!         minifies: [{
-//!             html: "off",
-//!             css: "on",
-//!             js: "on",
-//!         }],
-//!     },
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! # Add a page rule to the domain
-//! foobar = cloudflare.PageRule("foobar",
-//!     zone_id=cloudflare_zone_id,
-//!     target=f"sub.{cloudflare_zone}/page",
-//!     priority=1,
-//!     actions={
-//!         "ssl": "flexible",
-//!         "email_obfuscation": "on",
-//!         "minifies": [{
-//!             "html": "off",
-//!             "css": "on",
-//!             "js": "on",
-//!         }],
-//!     })
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     // Add a page rule to the domain
-//!     var foobar = new Cloudflare.PageRule("foobar", new()
-//!     {
-//!         ZoneId = cloudflareZoneId,
-//!         Target = $"sub.{cloudflareZone}/page",
-//!         Priority = 1,
-//!         Actions = new Cloudflare.Inputs.PageRuleActionsArgs
-//!         {
-//!             Ssl = "flexible",
-//!             EmailObfuscation = "on",
-//!             Minifies = new[]
-//!             {
-//!                 new Cloudflare.Inputs.PageRuleActionsMinifyArgs
-//!                 {
-//!                     Html = "off",
-//!                     Css = "on",
-//!                     Js = "on",
-//!                 },
-//!             },
-//!         },
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"fmt"
-//! 
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		// Add a page rule to the domain
-//! 		_, err := cloudflare.NewPageRule(ctx, "foobar", &cloudflare.PageRuleArgs{
-//! 			ZoneId:   pulumi.Any(cloudflareZoneId),
-//! 			Target:   pulumi.Sprintf("sub.%v/page", cloudflareZone),
-//! 			Priority: pulumi.Int(1),
-//! 			Actions: &cloudflare.PageRuleActionsArgs{
-//! 				Ssl:              pulumi.String("flexible"),
-//! 				EmailObfuscation: pulumi.String("on"),
-//! 				Minifies: cloudflare.PageRuleActionsMinifyArray{
-//! 					&cloudflare.PageRuleActionsMinifyArgs{
-//! 						Html: pulumi.String("off"),
-//! 						Css:  pulumi.String("on"),
-//! 						Js:   pulumi.String("on"),
-//! 					},
-//! 				},
-//! 			},
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.PageRule;
-//! import com.pulumi.cloudflare.PageRuleArgs;
-//! import com.pulumi.cloudflare.inputs.PageRuleActionsArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         // Add a page rule to the domain
-//!         var foobar = new PageRule("foobar", PageRuleArgs.builder()
-//!             .zoneId(cloudflareZoneId)
-//!             .target(String.format("sub.%s/page", cloudflareZone))
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let foobar = page_rule::create(
+//!         "foobar",
+//!         PageRuleArgs::builder()
+//!             .actions(
+//!                 PageRuleActions::builder()
+//!                     .emailObfuscation("on")
+//!                     .minifies(
+//!                         vec![
+//!                             PageRuleActionsMinify::builder().css("on").html("off")
+//!                             .js("on").build_struct(),
+//!                         ],
+//!                     )
+//!                     .ssl("flexible")
+//!                     .build_struct(),
+//!             )
 //!             .priority(1)
-//!             .actions(PageRuleActionsArgs.builder()
-//!                 .ssl("flexible")
-//!                 .emailObfuscation("on")
-//!                 .minifies(PageRuleActionsMinifyArgs.builder()
-//!                     .html("off")
-//!                     .css("on")
-//!                     .js("on")
-//!                     .build())
-//!                 .build())
-//!             .build());
-//! 
-//!     }
+//!             .target("sub.${cloudflareZone}/page")
+//!             .zone_id("${cloudflareZoneId}")
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   # Add a page rule to the domain
-//!   foobar:
-//!     type: cloudflare:PageRule
-//!     properties:
-//!       zoneId: ${cloudflareZoneId}
-//!       target: sub.${cloudflareZone}/page
-//!       priority: 1
-//!       actions:
-//!         ssl: flexible
-//!         emailObfuscation: on
-//!         minifies:
-//!           - html: off
-//!             css: on
-//!             js: on
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

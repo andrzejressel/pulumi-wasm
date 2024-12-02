@@ -3,208 +3,34 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! // Waiting Room
-//! const example = new cloudflare.WaitingRoom("example", {
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
-//!     name: "foo",
-//!     host: "foo.example.com",
-//!     path: "/",
-//!     newUsersPerMinute: 200,
-//!     totalActiveUsers: 200,
-//!     cookieSuffix: "queue1",
-//!     additionalRoutes: [
-//!         {
-//!             host: "shop1.example.com",
-//!             path: "/example-path",
-//!         },
-//!         {
-//!             host: "shop2.example.com",
-//!         },
-//!     ],
-//!     queueingStatusCode: 200,
-//!     enabledOriginCommands: ["revoke"],
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! # Waiting Room
-//! example = cloudflare.WaitingRoom("example",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
-//!     name="foo",
-//!     host="foo.example.com",
-//!     path="/",
-//!     new_users_per_minute=200,
-//!     total_active_users=200,
-//!     cookie_suffix="queue1",
-//!     additional_routes=[
-//!         {
-//!             "host": "shop1.example.com",
-//!             "path": "/example-path",
-//!         },
-//!         {
-//!             "host": "shop2.example.com",
-//!         },
-//!     ],
-//!     queueing_status_code=200,
-//!     enabled_origin_commands=["revoke"])
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     // Waiting Room
-//!     var example = new Cloudflare.WaitingRoom("example", new()
-//!     {
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
-//!         Name = "foo",
-//!         Host = "foo.example.com",
-//!         Path = "/",
-//!         NewUsersPerMinute = 200,
-//!         TotalActiveUsers = 200,
-//!         CookieSuffix = "queue1",
-//!         AdditionalRoutes = new[]
-//!         {
-//!             new Cloudflare.Inputs.WaitingRoomAdditionalRouteArgs
-//!             {
-//!                 Host = "shop1.example.com",
-//!                 Path = "/example-path",
-//!             },
-//!             new Cloudflare.Inputs.WaitingRoomAdditionalRouteArgs
-//!             {
-//!                 Host = "shop2.example.com",
-//!             },
-//!         },
-//!         QueueingStatusCode = 200,
-//!         EnabledOriginCommands = new[]
-//!         {
-//!             "revoke",
-//!         },
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		// Waiting Room
-//! 		_, err := cloudflare.NewWaitingRoom(ctx, "example", &cloudflare.WaitingRoomArgs{
-//! 			ZoneId:            pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
-//! 			Name:              pulumi.String("foo"),
-//! 			Host:              pulumi.String("foo.example.com"),
-//! 			Path:              pulumi.String("/"),
-//! 			NewUsersPerMinute: pulumi.Int(200),
-//! 			TotalActiveUsers:  pulumi.Int(200),
-//! 			CookieSuffix:      pulumi.String("queue1"),
-//! 			AdditionalRoutes: cloudflare.WaitingRoomAdditionalRouteArray{
-//! 				&cloudflare.WaitingRoomAdditionalRouteArgs{
-//! 					Host: pulumi.String("shop1.example.com"),
-//! 					Path: pulumi.String("/example-path"),
-//! 				},
-//! 				&cloudflare.WaitingRoomAdditionalRouteArgs{
-//! 					Host: pulumi.String("shop2.example.com"),
-//! 				},
-//! 			},
-//! 			QueueingStatusCode: pulumi.Int(200),
-//! 			EnabledOriginCommands: pulumi.StringArray{
-//! 				pulumi.String("revoke"),
-//! 			},
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.WaitingRoom;
-//! import com.pulumi.cloudflare.WaitingRoomArgs;
-//! import com.pulumi.cloudflare.inputs.WaitingRoomAdditionalRouteArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         // Waiting Room
-//!         var example = new WaitingRoom("example", WaitingRoomArgs.builder()
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
-//!             .name("foo")
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = waiting_room::create(
+//!         "example",
+//!         WaitingRoomArgs::builder()
+//!             .additional_routes(
+//!                 vec![
+//!                     WaitingRoomAdditionalRoute::builder().host("shop1.example.com")
+//!                     .path("/example-path").build_struct(),
+//!                     WaitingRoomAdditionalRoute::builder().host("shop2.example.com")
+//!                     .build_struct(),
+//!                 ],
+//!             )
+//!             .cookie_suffix("queue1")
+//!             .enabled_origin_commands(vec!["revoke",])
 //!             .host("foo.example.com")
+//!             .name("foo")
+//!             .new_users_per_minute(200)
 //!             .path("/")
-//!             .newUsersPerMinute(200)
-//!             .totalActiveUsers(200)
-//!             .cookieSuffix("queue1")
-//!             .additionalRoutes(            
-//!                 WaitingRoomAdditionalRouteArgs.builder()
-//!                     .host("shop1.example.com")
-//!                     .path("/example-path")
-//!                     .build(),
-//!                 WaitingRoomAdditionalRouteArgs.builder()
-//!                     .host("shop2.example.com")
-//!                     .build())
-//!             .queueingStatusCode(200)
-//!             .enabledOriginCommands("revoke")
-//!             .build());
-//! 
-//!     }
+//!             .queueing_status_code(200)
+//!             .total_active_users(200)
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   # Waiting Room
-//!   example:
-//!     type: cloudflare:WaitingRoom
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       name: foo
-//!       host: foo.example.com
-//!       path: /
-//!       newUsersPerMinute: 200
-//!       totalActiveUsers: 200
-//!       cookieSuffix: queue1
-//!       additionalRoutes:
-//!         - host: shop1.example.com
-//!           path: /example-path
-//!         - host: shop2.example.com
-//!       queueingStatusCode: 200
-//!       enabledOriginCommands:
-//!         - revoke
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

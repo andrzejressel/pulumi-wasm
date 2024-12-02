@@ -3,126 +3,20 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const example = new cloudflare.CustomHostname("example", {
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
-//!     hostname: "hostname.example.com",
-//!     ssls: [{
-//!         method: "txt",
-//!     }],
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! example = cloudflare.CustomHostname("example",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
-//!     hostname="hostname.example.com",
-//!     ssls=[{
-//!         "method": "txt",
-//!     }])
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var example = new Cloudflare.CustomHostname("example", new()
-//!     {
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
-//!         Hostname = "hostname.example.com",
-//!         Ssls = new[]
-//!         {
-//!             new Cloudflare.Inputs.CustomHostnameSslArgs
-//!             {
-//!                 Method = "txt",
-//!             },
-//!         },
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewCustomHostname(ctx, "example", &cloudflare.CustomHostnameArgs{
-//! 			ZoneId:   pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
-//! 			Hostname: pulumi.String("hostname.example.com"),
-//! 			Ssls: cloudflare.CustomHostnameSslArray{
-//! 				&cloudflare.CustomHostnameSslArgs{
-//! 					Method: pulumi.String("txt"),
-//! 				},
-//! 			},
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.CustomHostname;
-//! import com.pulumi.cloudflare.CustomHostnameArgs;
-//! import com.pulumi.cloudflare.inputs.CustomHostnameSslArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var example = new CustomHostname("example", CustomHostnameArgs.builder()
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = custom_hostname::create(
+//!         "example",
+//!         CustomHostnameArgs::builder()
 //!             .hostname("hostname.example.com")
-//!             .ssls(CustomHostnameSslArgs.builder()
-//!                 .method("txt")
-//!                 .build())
-//!             .build());
-//! 
-//!     }
+//!             .ssls(vec![CustomHostnameSsl::builder().method("txt").build_struct(),])
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:CustomHostname
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       hostname: hostname.example.com
-//!       ssls:
-//!         - method: txt
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

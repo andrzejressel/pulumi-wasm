@@ -3,163 +3,30 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const example = new cloudflare.ZeroTrustGatewayPolicy("example", {
-//!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     name: "office",
-//!     description: "desc",
-//!     precedence: 1,
-//!     action: "block",
-//!     filters: ["http"],
-//!     traffic: "http.request.uri == \"https://www.example.com/malicious\"",
-//!     ruleSettings: {
-//!         blockPageEnabled: true,
-//!         blockPageReason: "access not permitted",
-//!     },
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! example = cloudflare.ZeroTrustGatewayPolicy("example",
-//!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     name="office",
-//!     description="desc",
-//!     precedence=1,
-//!     action="block",
-//!     filters=["http"],
-//!     traffic="http.request.uri == \"https://www.example.com/malicious\"",
-//!     rule_settings={
-//!         "block_page_enabled": True,
-//!         "block_page_reason": "access not permitted",
-//!     })
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var example = new Cloudflare.ZeroTrustGatewayPolicy("example", new()
-//!     {
-//!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         Name = "office",
-//!         Description = "desc",
-//!         Precedence = 1,
-//!         Action = "block",
-//!         Filters = new[]
-//!         {
-//!             "http",
-//!         },
-//!         Traffic = "http.request.uri == \"https://www.example.com/malicious\"",
-//!         RuleSettings = new Cloudflare.Inputs.ZeroTrustGatewayPolicyRuleSettingsArgs
-//!         {
-//!             BlockPageEnabled = true,
-//!             BlockPageReason = "access not permitted",
-//!         },
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewZeroTrustGatewayPolicy(ctx, "example", &cloudflare.ZeroTrustGatewayPolicyArgs{
-//! 			AccountId:   pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			Name:        pulumi.String("office"),
-//! 			Description: pulumi.String("desc"),
-//! 			Precedence:  pulumi.Int(1),
-//! 			Action:      pulumi.String("block"),
-//! 			Filters: pulumi.StringArray{
-//! 				pulumi.String("http"),
-//! 			},
-//! 			Traffic: pulumi.String("http.request.uri == \"https://www.example.com/malicious\""),
-//! 			RuleSettings: &cloudflare.ZeroTrustGatewayPolicyRuleSettingsArgs{
-//! 				BlockPageEnabled: pulumi.Bool(true),
-//! 				BlockPageReason:  pulumi.String("access not permitted"),
-//! 			},
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.ZeroTrustGatewayPolicy;
-//! import com.pulumi.cloudflare.ZeroTrustGatewayPolicyArgs;
-//! import com.pulumi.cloudflare.inputs.ZeroTrustGatewayPolicyRuleSettingsArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var example = new ZeroTrustGatewayPolicy("example", ZeroTrustGatewayPolicyArgs.builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .name("office")
-//!             .description("desc")
-//!             .precedence(1)
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = zero_trust_gateway_policy::create(
+//!         "example",
+//!         ZeroTrustGatewayPolicyArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
 //!             .action("block")
-//!             .filters("http")
+//!             .description("desc")
+//!             .filters(vec!["http",])
+//!             .name("office")
+//!             .precedence(1)
+//!             .rule_settings(
+//!                 ZeroTrustGatewayPolicyRuleSettings::builder()
+//!                     .blockPageEnabled(true)
+//!                     .blockPageReason("access not permitted")
+//!                     .build_struct(),
+//!             )
 //!             .traffic("http.request.uri == \"https://www.example.com/malicious\"")
-//!             .ruleSettings(ZeroTrustGatewayPolicyRuleSettingsArgs.builder()
-//!                 .blockPageEnabled(true)
-//!                 .blockPageReason("access not permitted")
-//!                 .build())
-//!             .build());
-//! 
-//!     }
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:ZeroTrustGatewayPolicy
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: office
-//!       description: desc
-//!       precedence: 1
-//!       action: block
-//!       filters:
-//!         - http
-//!       traffic: http.request.uri == "https://www.example.com/malicious"
-//!       ruleSettings:
-//!         blockPageEnabled: true
-//!         blockPageReason: access not permitted
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

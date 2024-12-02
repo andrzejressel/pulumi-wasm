@@ -3,156 +3,28 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const example = new cloudflare.MagicWanGreTunnel("example", {
-//!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     name: "GRE_1",
-//!     customerGreEndpoint: "203.0.113.1",
-//!     cloudflareGreEndpoint: "203.0.113.2",
-//!     interfaceAddress: "192.0.2.0/31",
-//!     description: "Tunnel for ISP X",
-//!     ttl: 64,
-//!     mtu: 1476,
-//!     healthCheckEnabled: true,
-//!     healthCheckTarget: "203.0.113.1",
-//!     healthCheckType: "reply",
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! example = cloudflare.MagicWanGreTunnel("example",
-//!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     name="GRE_1",
-//!     customer_gre_endpoint="203.0.113.1",
-//!     cloudflare_gre_endpoint="203.0.113.2",
-//!     interface_address="192.0.2.0/31",
-//!     description="Tunnel for ISP X",
-//!     ttl=64,
-//!     mtu=1476,
-//!     health_check_enabled=True,
-//!     health_check_target="203.0.113.1",
-//!     health_check_type="reply")
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var example = new Cloudflare.MagicWanGreTunnel("example", new()
-//!     {
-//!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         Name = "GRE_1",
-//!         CustomerGreEndpoint = "203.0.113.1",
-//!         CloudflareGreEndpoint = "203.0.113.2",
-//!         InterfaceAddress = "192.0.2.0/31",
-//!         Description = "Tunnel for ISP X",
-//!         Ttl = 64,
-//!         Mtu = 1476,
-//!         HealthCheckEnabled = true,
-//!         HealthCheckTarget = "203.0.113.1",
-//!         HealthCheckType = "reply",
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewMagicWanGreTunnel(ctx, "example", &cloudflare.MagicWanGreTunnelArgs{
-//! 			AccountId:             pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			Name:                  pulumi.String("GRE_1"),
-//! 			CustomerGreEndpoint:   pulumi.String("203.0.113.1"),
-//! 			CloudflareGreEndpoint: pulumi.String("203.0.113.2"),
-//! 			InterfaceAddress:      pulumi.String("192.0.2.0/31"),
-//! 			Description:           pulumi.String("Tunnel for ISP X"),
-//! 			Ttl:                   pulumi.Int(64),
-//! 			Mtu:                   pulumi.Int(1476),
-//! 			HealthCheckEnabled:    pulumi.Bool(true),
-//! 			HealthCheckTarget:     pulumi.String("203.0.113.1"),
-//! 			HealthCheckType:       pulumi.String("reply"),
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.MagicWanGreTunnel;
-//! import com.pulumi.cloudflare.MagicWanGreTunnelArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var example = new MagicWanGreTunnel("example", MagicWanGreTunnelArgs.builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .name("GRE_1")
-//!             .customerGreEndpoint("203.0.113.1")
-//!             .cloudflareGreEndpoint("203.0.113.2")
-//!             .interfaceAddress("192.0.2.0/31")
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = magic_wan_gre_tunnel::create(
+//!         "example",
+//!         MagicWanGreTunnelArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .cloudflare_gre_endpoint("203.0.113.2")
+//!             .customer_gre_endpoint("203.0.113.1")
 //!             .description("Tunnel for ISP X")
-//!             .ttl(64)
+//!             .health_check_enabled(true)
+//!             .health_check_target("203.0.113.1")
+//!             .health_check_type("reply")
+//!             .interface_address("192.0.2.0/31")
 //!             .mtu(1476)
-//!             .healthCheckEnabled(true)
-//!             .healthCheckTarget("203.0.113.1")
-//!             .healthCheckType("reply")
-//!             .build());
-//! 
-//!     }
+//!             .name("GRE_1")
+//!             .ttl(64)
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:MagicWanGreTunnel
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: GRE_1
-//!       customerGreEndpoint: 203.0.113.1
-//!       cloudflareGreEndpoint: 203.0.113.2
-//!       interfaceAddress: 192.0.2.0/31
-//!       description: Tunnel for ISP X
-//!       ttl: 64
-//!       mtu: 1476
-//!       healthCheckEnabled: true
-//!       healthCheckTarget: 203.0.113.1
-//!       healthCheckType: reply
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

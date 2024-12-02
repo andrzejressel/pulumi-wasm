@@ -4,420 +4,90 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const example = new cloudflare.ZeroTrustGatewaySettings("example", {
-//!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     tlsDecryptEnabled: true,
-//!     protocolDetectionEnabled: true,
-//!     blockPage: {
-//!         footerText: "hello",
-//!         headerText: "hello",
-//!         logoPath: "https://example.com/logo.jpg",
-//!         backgroundColor: "#000000",
-//!     },
-//!     bodyScanning: {
-//!         inspectionMode: "deep",
-//!     },
-//!     antivirus: {
-//!         enabledDownloadPhase: true,
-//!         enabledUploadPhase: false,
-//!         failClosed: true,
-//!         notificationSettings: {
-//!             enabled: true,
-//!             message: "you are blocked",
-//!             supportUrl: "https://example.com/blocked",
-//!         },
-//!     },
-//!     fips: {
-//!         tls: true,
-//!     },
-//!     proxy: {
-//!         tcp: true,
-//!         udp: true,
-//!         rootCa: true,
-//!         virtualIp: false,
-//!         disableForTime: 3600,
-//!     },
-//!     urlBrowserIsolationEnabled: true,
-//!     logging: {
-//!         redactPii: true,
-//!         settingsByRuleType: {
-//!             dns: {
-//!                 logAll: false,
-//!                 logBlocks: true,
-//!             },
-//!             http: {
-//!                 logAll: true,
-//!                 logBlocks: true,
-//!             },
-//!             l4: {
-//!                 logAll: false,
-//!                 logBlocks: true,
-//!             },
-//!         },
-//!     },
-//!     extendedEmailMatching: {
-//!         enabled: true,
-//!     },
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! example = cloudflare.ZeroTrustGatewaySettings("example",
-//!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     tls_decrypt_enabled=True,
-//!     protocol_detection_enabled=True,
-//!     block_page={
-//!         "footer_text": "hello",
-//!         "header_text": "hello",
-//!         "logo_path": "https://example.com/logo.jpg",
-//!         "background_color": "#000000",
-//!     },
-//!     body_scanning={
-//!         "inspection_mode": "deep",
-//!     },
-//!     antivirus={
-//!         "enabled_download_phase": True,
-//!         "enabled_upload_phase": False,
-//!         "fail_closed": True,
-//!         "notification_settings": {
-//!             "enabled": True,
-//!             "message": "you are blocked",
-//!             "support_url": "https://example.com/blocked",
-//!         },
-//!     },
-//!     fips={
-//!         "tls": True,
-//!     },
-//!     proxy={
-//!         "tcp": True,
-//!         "udp": True,
-//!         "root_ca": True,
-//!         "virtual_ip": False,
-//!         "disable_for_time": 3600,
-//!     },
-//!     url_browser_isolation_enabled=True,
-//!     logging={
-//!         "redact_pii": True,
-//!         "settings_by_rule_type": {
-//!             "dns": {
-//!                 "log_all": False,
-//!                 "log_blocks": True,
-//!             },
-//!             "http": {
-//!                 "log_all": True,
-//!                 "log_blocks": True,
-//!             },
-//!             "l4": {
-//!                 "log_all": False,
-//!                 "log_blocks": True,
-//!             },
-//!         },
-//!     },
-//!     extended_email_matching={
-//!         "enabled": True,
-//!     })
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var example = new Cloudflare.ZeroTrustGatewaySettings("example", new()
-//!     {
-//!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         TlsDecryptEnabled = true,
-//!         ProtocolDetectionEnabled = true,
-//!         BlockPage = new Cloudflare.Inputs.ZeroTrustGatewaySettingsBlockPageArgs
-//!         {
-//!             FooterText = "hello",
-//!             HeaderText = "hello",
-//!             LogoPath = "https://example.com/logo.jpg",
-//!             BackgroundColor = "#000000",
-//!         },
-//!         BodyScanning = new Cloudflare.Inputs.ZeroTrustGatewaySettingsBodyScanningArgs
-//!         {
-//!             InspectionMode = "deep",
-//!         },
-//!         Antivirus = new Cloudflare.Inputs.ZeroTrustGatewaySettingsAntivirusArgs
-//!         {
-//!             EnabledDownloadPhase = true,
-//!             EnabledUploadPhase = false,
-//!             FailClosed = true,
-//!             NotificationSettings = new Cloudflare.Inputs.ZeroTrustGatewaySettingsAntivirusNotificationSettingsArgs
-//!             {
-//!                 Enabled = true,
-//!                 Message = "you are blocked",
-//!                 SupportUrl = "https://example.com/blocked",
-//!             },
-//!         },
-//!         Fips = new Cloudflare.Inputs.ZeroTrustGatewaySettingsFipsArgs
-//!         {
-//!             Tls = true,
-//!         },
-//!         Proxy = new Cloudflare.Inputs.ZeroTrustGatewaySettingsProxyArgs
-//!         {
-//!             Tcp = true,
-//!             Udp = true,
-//!             RootCa = true,
-//!             VirtualIp = false,
-//!             DisableForTime = 3600,
-//!         },
-//!         UrlBrowserIsolationEnabled = true,
-//!         Logging = new Cloudflare.Inputs.ZeroTrustGatewaySettingsLoggingArgs
-//!         {
-//!             RedactPii = true,
-//!             SettingsByRuleType = new Cloudflare.Inputs.ZeroTrustGatewaySettingsLoggingSettingsByRuleTypeArgs
-//!             {
-//!                 Dns = new Cloudflare.Inputs.ZeroTrustGatewaySettingsLoggingSettingsByRuleTypeDnsArgs
-//!                 {
-//!                     LogAll = false,
-//!                     LogBlocks = true,
-//!                 },
-//!                 Http = new Cloudflare.Inputs.ZeroTrustGatewaySettingsLoggingSettingsByRuleTypeHttpArgs
-//!                 {
-//!                     LogAll = true,
-//!                     LogBlocks = true,
-//!                 },
-//!                 L4 = new Cloudflare.Inputs.ZeroTrustGatewaySettingsLoggingSettingsByRuleTypeL4Args
-//!                 {
-//!                     LogAll = false,
-//!                     LogBlocks = true,
-//!                 },
-//!             },
-//!         },
-//!         ExtendedEmailMatching = new Cloudflare.Inputs.ZeroTrustGatewaySettingsExtendedEmailMatchingArgs
-//!         {
-//!             Enabled = true,
-//!         },
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewZeroTrustGatewaySettings(ctx, "example", &cloudflare.ZeroTrustGatewaySettingsArgs{
-//! 			AccountId:                pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			TlsDecryptEnabled:        pulumi.Bool(true),
-//! 			ProtocolDetectionEnabled: pulumi.Bool(true),
-//! 			BlockPage: &cloudflare.ZeroTrustGatewaySettingsBlockPageArgs{
-//! 				FooterText:      pulumi.String("hello"),
-//! 				HeaderText:      pulumi.String("hello"),
-//! 				LogoPath:        pulumi.String("https://example.com/logo.jpg"),
-//! 				BackgroundColor: pulumi.String("#000000"),
-//! 			},
-//! 			BodyScanning: &cloudflare.ZeroTrustGatewaySettingsBodyScanningArgs{
-//! 				InspectionMode: pulumi.String("deep"),
-//! 			},
-//! 			Antivirus: &cloudflare.ZeroTrustGatewaySettingsAntivirusArgs{
-//! 				EnabledDownloadPhase: pulumi.Bool(true),
-//! 				EnabledUploadPhase:   pulumi.Bool(false),
-//! 				FailClosed:           pulumi.Bool(true),
-//! 				NotificationSettings: &cloudflare.ZeroTrustGatewaySettingsAntivirusNotificationSettingsArgs{
-//! 					Enabled:    pulumi.Bool(true),
-//! 					Message:    pulumi.String("you are blocked"),
-//! 					SupportUrl: pulumi.String("https://example.com/blocked"),
-//! 				},
-//! 			},
-//! 			Fips: &cloudflare.ZeroTrustGatewaySettingsFipsArgs{
-//! 				Tls: pulumi.Bool(true),
-//! 			},
-//! 			Proxy: &cloudflare.ZeroTrustGatewaySettingsProxyArgs{
-//! 				Tcp:            pulumi.Bool(true),
-//! 				Udp:            pulumi.Bool(true),
-//! 				RootCa:         pulumi.Bool(true),
-//! 				VirtualIp:      pulumi.Bool(false),
-//! 				DisableForTime: pulumi.Int(3600),
-//! 			},
-//! 			UrlBrowserIsolationEnabled: pulumi.Bool(true),
-//! 			Logging: &cloudflare.ZeroTrustGatewaySettingsLoggingArgs{
-//! 				RedactPii: pulumi.Bool(true),
-//! 				SettingsByRuleType: &cloudflare.ZeroTrustGatewaySettingsLoggingSettingsByRuleTypeArgs{
-//! 					Dns: &cloudflare.ZeroTrustGatewaySettingsLoggingSettingsByRuleTypeDnsArgs{
-//! 						LogAll:    pulumi.Bool(false),
-//! 						LogBlocks: pulumi.Bool(true),
-//! 					},
-//! 					Http: &cloudflare.ZeroTrustGatewaySettingsLoggingSettingsByRuleTypeHttpArgs{
-//! 						LogAll:    pulumi.Bool(true),
-//! 						LogBlocks: pulumi.Bool(true),
-//! 					},
-//! 					L4: &cloudflare.ZeroTrustGatewaySettingsLoggingSettingsByRuleTypeL4Args{
-//! 						LogAll:    pulumi.Bool(false),
-//! 						LogBlocks: pulumi.Bool(true),
-//! 					},
-//! 				},
-//! 			},
-//! 			ExtendedEmailMatching: &cloudflare.ZeroTrustGatewaySettingsExtendedEmailMatchingArgs{
-//! 				Enabled: pulumi.Bool(true),
-//! 			},
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.ZeroTrustGatewaySettings;
-//! import com.pulumi.cloudflare.ZeroTrustGatewaySettingsArgs;
-//! import com.pulumi.cloudflare.inputs.ZeroTrustGatewaySettingsBlockPageArgs;
-//! import com.pulumi.cloudflare.inputs.ZeroTrustGatewaySettingsBodyScanningArgs;
-//! import com.pulumi.cloudflare.inputs.ZeroTrustGatewaySettingsAntivirusArgs;
-//! import com.pulumi.cloudflare.inputs.ZeroTrustGatewaySettingsAntivirusNotificationSettingsArgs;
-//! import com.pulumi.cloudflare.inputs.ZeroTrustGatewaySettingsFipsArgs;
-//! import com.pulumi.cloudflare.inputs.ZeroTrustGatewaySettingsProxyArgs;
-//! import com.pulumi.cloudflare.inputs.ZeroTrustGatewaySettingsLoggingArgs;
-//! import com.pulumi.cloudflare.inputs.ZeroTrustGatewaySettingsLoggingSettingsByRuleTypeArgs;
-//! import com.pulumi.cloudflare.inputs.ZeroTrustGatewaySettingsLoggingSettingsByRuleTypeDnsArgs;
-//! import com.pulumi.cloudflare.inputs.ZeroTrustGatewaySettingsLoggingSettingsByRuleTypeHttpArgs;
-//! import com.pulumi.cloudflare.inputs.ZeroTrustGatewaySettingsLoggingSettingsByRuleTypeL4Args;
-//! import com.pulumi.cloudflare.inputs.ZeroTrustGatewaySettingsExtendedEmailMatchingArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var example = new ZeroTrustGatewaySettings("example", ZeroTrustGatewaySettingsArgs.builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
-//!             .tlsDecryptEnabled(true)
-//!             .protocolDetectionEnabled(true)
-//!             .blockPage(ZeroTrustGatewaySettingsBlockPageArgs.builder()
-//!                 .footerText("hello")
-//!                 .headerText("hello")
-//!                 .logoPath("https://example.com/logo.jpg")
-//!                 .backgroundColor("#000000")
-//!                 .build())
-//!             .bodyScanning(ZeroTrustGatewaySettingsBodyScanningArgs.builder()
-//!                 .inspectionMode("deep")
-//!                 .build())
-//!             .antivirus(ZeroTrustGatewaySettingsAntivirusArgs.builder()
-//!                 .enabledDownloadPhase(true)
-//!                 .enabledUploadPhase(false)
-//!                 .failClosed(true)
-//!                 .notificationSettings(ZeroTrustGatewaySettingsAntivirusNotificationSettingsArgs.builder()
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = zero_trust_gateway_settings::create(
+//!         "example",
+//!         ZeroTrustGatewaySettingsArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .antivirus(
+//!                 ZeroTrustGatewaySettingsAntivirus::builder()
+//!                     .enabledDownloadPhase(true)
+//!                     .enabledUploadPhase(false)
+//!                     .failClosed(true)
+//!                     .notificationSettings(
+//!                         ZeroTrustGatewaySettingsAntivirusNotificationSettings::builder()
+//!                             .enabled(true)
+//!                             .message("you are blocked")
+//!                             .supportUrl("https://example.com/blocked")
+//!                             .build_struct(),
+//!                     )
+//!                     .build_struct(),
+//!             )
+//!             .block_page(
+//!                 ZeroTrustGatewaySettingsBlockPage::builder()
+//!                     .backgroundColor("#000000")
+//!                     .footerText("hello")
+//!                     .headerText("hello")
+//!                     .logoPath("https://example.com/logo.jpg")
+//!                     .build_struct(),
+//!             )
+//!             .body_scanning(
+//!                 ZeroTrustGatewaySettingsBodyScanning::builder()
+//!                     .inspectionMode("deep")
+//!                     .build_struct(),
+//!             )
+//!             .extended_email_matching(
+//!                 ZeroTrustGatewaySettingsExtendedEmailMatching::builder()
 //!                     .enabled(true)
-//!                     .message("you are blocked")
-//!                     .supportUrl("https://example.com/blocked")
-//!                     .build())
-//!                 .build())
-//!             .fips(ZeroTrustGatewaySettingsFipsArgs.builder()
-//!                 .tls(true)
-//!                 .build())
-//!             .proxy(ZeroTrustGatewaySettingsProxyArgs.builder()
-//!                 .tcp(true)
-//!                 .udp(true)
-//!                 .rootCa(true)
-//!                 .virtualIp(false)
-//!                 .disableForTime(3600)
-//!                 .build())
-//!             .urlBrowserIsolationEnabled(true)
-//!             .logging(ZeroTrustGatewaySettingsLoggingArgs.builder()
-//!                 .redactPii(true)
-//!                 .settingsByRuleType(ZeroTrustGatewaySettingsLoggingSettingsByRuleTypeArgs.builder()
-//!                     .dns(ZeroTrustGatewaySettingsLoggingSettingsByRuleTypeDnsArgs.builder()
-//!                         .logAll(false)
-//!                         .logBlocks(true)
-//!                         .build())
-//!                     .http(ZeroTrustGatewaySettingsLoggingSettingsByRuleTypeHttpArgs.builder()
-//!                         .logAll(true)
-//!                         .logBlocks(true)
-//!                         .build())
-//!                     .l4(ZeroTrustGatewaySettingsLoggingSettingsByRuleTypeL4Args.builder()
-//!                         .logAll(false)
-//!                         .logBlocks(true)
-//!                         .build())
-//!                     .build())
-//!                 .build())
-//!             .extendedEmailMatching(ZeroTrustGatewaySettingsExtendedEmailMatchingArgs.builder()
-//!                 .enabled(true)
-//!                 .build())
-//!             .build());
-//! 
-//!     }
+//!                     .build_struct(),
+//!             )
+//!             .fips(ZeroTrustGatewaySettingsFips::builder().tls(true).build_struct())
+//!             .logging(
+//!                 ZeroTrustGatewaySettingsLogging::builder()
+//!                     .redactPii(true)
+//!                     .settingsByRuleType(
+//!                         ZeroTrustGatewaySettingsLoggingSettingsByRuleType::builder()
+//!                             .dns(
+//!                                 ZeroTrustGatewaySettingsLoggingSettingsByRuleTypeDns::builder()
+//!                                     .logAll(false)
+//!                                     .logBlocks(true)
+//!                                     .build_struct(),
+//!                             )
+//!                             .http(
+//!                                 ZeroTrustGatewaySettingsLoggingSettingsByRuleTypeHttp::builder()
+//!                                     .logAll(true)
+//!                                     .logBlocks(true)
+//!                                     .build_struct(),
+//!                             )
+//!                             .l4(
+//!                                 ZeroTrustGatewaySettingsLoggingSettingsByRuleTypeL4::builder()
+//!                                     .logAll(false)
+//!                                     .logBlocks(true)
+//!                                     .build_struct(),
+//!                             )
+//!                             .build_struct(),
+//!                     )
+//!                     .build_struct(),
+//!             )
+//!             .protocol_detection_enabled(true)
+//!             .proxy(
+//!                 ZeroTrustGatewaySettingsProxy::builder()
+//!                     .disableForTime(3600)
+//!                     .rootCa(true)
+//!                     .tcp(true)
+//!                     .udp(true)
+//!                     .virtualIp(false)
+//!                     .build_struct(),
+//!             )
+//!             .tls_decrypt_enabled(true)
+//!             .url_browser_isolation_enabled(true)
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:ZeroTrustGatewaySettings
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       tlsDecryptEnabled: true
-//!       protocolDetectionEnabled: true
-//!       blockPage:
-//!         footerText: hello
-//!         headerText: hello
-//!         logoPath: https://example.com/logo.jpg
-//!         backgroundColor: '#000000'
-//!       bodyScanning:
-//!         inspectionMode: deep
-//!       antivirus:
-//!         enabledDownloadPhase: true
-//!         enabledUploadPhase: false
-//!         failClosed: true
-//!         notificationSettings:
-//!           enabled: true
-//!           message: you are blocked
-//!           supportUrl: https://example.com/blocked
-//!       fips:
-//!         tls: true
-//!       proxy:
-//!         tcp: true
-//!         udp: true
-//!         rootCa: true
-//!         virtualIp: false
-//!         disableForTime: 3600
-//!       urlBrowserIsolationEnabled: true
-//!       logging:
-//!         redactPii: true
-//!         settingsByRuleType:
-//!           dns:
-//!             logAll: false
-//!             logBlocks: true
-//!           http:
-//!             logAll: true
-//!             logBlocks: true
-//!           l4:
-//!             logAll: false
-//!             logBlocks: true
-//!       extendedEmailMatching:
-//!         enabled: true
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

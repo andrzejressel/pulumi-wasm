@@ -3,174 +3,31 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const example = new cloudflare.AccessOrganization("example", {
-//!     accountId: "f037e56e89293a057740de681ac9abbe",
-//!     name: "example.cloudflareaccess.com",
-//!     authDomain: "example.cloudflareaccess.com",
-//!     isUiReadOnly: false,
-//!     userSeatExpirationInactiveTime: "720h",
-//!     autoRedirectToIdentity: false,
-//!     loginDesigns: [{
-//!         backgroundColor: "#ffffff",
-//!         textColor: "#000000",
-//!         logoPath: "https://example.com/logo.png",
-//!         headerText: "My header text",
-//!         footerText: "My footer text",
-//!     }],
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! example = cloudflare.AccessOrganization("example",
-//!     account_id="f037e56e89293a057740de681ac9abbe",
-//!     name="example.cloudflareaccess.com",
-//!     auth_domain="example.cloudflareaccess.com",
-//!     is_ui_read_only=False,
-//!     user_seat_expiration_inactive_time="720h",
-//!     auto_redirect_to_identity=False,
-//!     login_designs=[{
-//!         "background_color": "#ffffff",
-//!         "text_color": "#000000",
-//!         "logo_path": "https://example.com/logo.png",
-//!         "header_text": "My header text",
-//!         "footer_text": "My footer text",
-//!     }])
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var example = new Cloudflare.AccessOrganization("example", new()
-//!     {
-//!         AccountId = "f037e56e89293a057740de681ac9abbe",
-//!         Name = "example.cloudflareaccess.com",
-//!         AuthDomain = "example.cloudflareaccess.com",
-//!         IsUiReadOnly = false,
-//!         UserSeatExpirationInactiveTime = "720h",
-//!         AutoRedirectToIdentity = false,
-//!         LoginDesigns = new[]
-//!         {
-//!             new Cloudflare.Inputs.AccessOrganizationLoginDesignArgs
-//!             {
-//!                 BackgroundColor = "#ffffff",
-//!                 TextColor = "#000000",
-//!                 LogoPath = "https://example.com/logo.png",
-//!                 HeaderText = "My header text",
-//!                 FooterText = "My footer text",
-//!             },
-//!         },
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		_, err := cloudflare.NewAccessOrganization(ctx, "example", &cloudflare.AccessOrganizationArgs{
-//! 			AccountId:                      pulumi.String("f037e56e89293a057740de681ac9abbe"),
-//! 			Name:                           pulumi.String("example.cloudflareaccess.com"),
-//! 			AuthDomain:                     pulumi.String("example.cloudflareaccess.com"),
-//! 			IsUiReadOnly:                   pulumi.Bool(false),
-//! 			UserSeatExpirationInactiveTime: pulumi.String("720h"),
-//! 			AutoRedirectToIdentity:         pulumi.Bool(false),
-//! 			LoginDesigns: cloudflare.AccessOrganizationLoginDesignArray{
-//! 				&cloudflare.AccessOrganizationLoginDesignArgs{
-//! 					BackgroundColor: pulumi.String("#ffffff"),
-//! 					TextColor:       pulumi.String("#000000"),
-//! 					LogoPath:        pulumi.String("https://example.com/logo.png"),
-//! 					HeaderText:      pulumi.String("My header text"),
-//! 					FooterText:      pulumi.String("My footer text"),
-//! 				},
-//! 			},
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.AccessOrganization;
-//! import com.pulumi.cloudflare.AccessOrganizationArgs;
-//! import com.pulumi.cloudflare.inputs.AccessOrganizationLoginDesignArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var example = new AccessOrganization("example", AccessOrganizationArgs.builder()
-//!             .accountId("f037e56e89293a057740de681ac9abbe")
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = access_organization::create(
+//!         "example",
+//!         AccessOrganizationArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .auth_domain("example.cloudflareaccess.com")
+//!             .auto_redirect_to_identity(false)
+//!             .is_ui_read_only(false)
+//!             .login_designs(
+//!                 vec![
+//!                     AccessOrganizationLoginDesign::builder().backgroundColor("#ffffff")
+//!                     .footerText("My footer text").headerText("My header text")
+//!                     .logoPath("https://example.com/logo.png").textColor("#000000")
+//!                     .build_struct(),
+//!                 ],
+//!             )
 //!             .name("example.cloudflareaccess.com")
-//!             .authDomain("example.cloudflareaccess.com")
-//!             .isUiReadOnly(false)
-//!             .userSeatExpirationInactiveTime("720h")
-//!             .autoRedirectToIdentity(false)
-//!             .loginDesigns(AccessOrganizationLoginDesignArgs.builder()
-//!                 .backgroundColor("#ffffff")
-//!                 .textColor("#000000")
-//!                 .logoPath("https://example.com/logo.png")
-//!                 .headerText("My header text")
-//!                 .footerText("My footer text")
-//!                 .build())
-//!             .build());
-//! 
-//!     }
+//!             .user_seat_expiration_inactive_time("720h")
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:AccessOrganization
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: example.cloudflareaccess.com
-//!       authDomain: example.cloudflareaccess.com
-//!       isUiReadOnly: false
-//!       userSeatExpirationInactiveTime: 720h
-//!       autoRedirectToIdentity: false
-//!       loginDesigns:
-//!         - backgroundColor: '#ffffff'
-//!           textColor: '#000000'
-//!           logoPath: https://example.com/logo.png
-//!           headerText: My header text
-//!           footerText: My footer text
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 

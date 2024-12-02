@@ -3,153 +3,29 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ### Typescript
-//! ```typescript
-//! import * as pulumi from "@pulumi/pulumi";
-//! import * as cloudflare from "@pulumi/cloudflare";
-//! 
-//! const example = new cloudflare.ApiShieldOperation("example", {
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
-//!     method: "GET",
-//!     host: "api.example.com",
-//!     endpoint: "/path",
-//! });
-//! const exampleApiShieldOperationSchemaValidationSettings = new cloudflare.ApiShieldOperationSchemaValidationSettings("example", {
-//!     zoneId: "0da42c8d2132a9ddaf714f9e7c920711",
-//!     operationId: example.id,
-//!     mitigationAction: "block",
-//! });
-//! ```
-//! ### Python
-//! ```python
-//! import pulumi
-//! import pulumi_cloudflare as cloudflare
-//! 
-//! example = cloudflare.ApiShieldOperation("example",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
-//!     method="GET",
-//!     host="api.example.com",
-//!     endpoint="/path")
-//! example_api_shield_operation_schema_validation_settings = cloudflare.ApiShieldOperationSchemaValidationSettings("example",
-//!     zone_id="0da42c8d2132a9ddaf714f9e7c920711",
-//!     operation_id=example.id,
-//!     mitigation_action="block")
-//! ```
-//! ### C#
-//! ```csharp
-//! using System.Collections.Generic;
-//! using System.Linq;
-//! using Pulumi;
-//! using Cloudflare = Pulumi.Cloudflare;
-//! 
-//! return await Deployment.RunAsync(() => 
-//! {
-//!     var example = new Cloudflare.ApiShieldOperation("example", new()
-//!     {
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
-//!         Method = "GET",
-//!         Host = "api.example.com",
-//!         Endpoint = "/path",
-//!     });
-//! 
-//!     var exampleApiShieldOperationSchemaValidationSettings = new Cloudflare.ApiShieldOperationSchemaValidationSettings("example", new()
-//!     {
-//!         ZoneId = "0da42c8d2132a9ddaf714f9e7c920711",
-//!         OperationId = example.Id,
-//!         MitigationAction = "block",
-//!     });
-//! 
-//! });
-//! ```
-//! ### Go
-//! ```go
-//! package main
-//! 
-//! import (
-//! 	"github.com/pulumi/pulumi-cloudflare/sdk/v5/go/cloudflare"
-//! 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//! )
-//! 
-//! func main() {
-//! 	pulumi.Run(func(ctx *pulumi.Context) error {
-//! 		example, err := cloudflare.NewApiShieldOperation(ctx, "example", &cloudflare.ApiShieldOperationArgs{
-//! 			ZoneId:   pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
-//! 			Method:   pulumi.String("GET"),
-//! 			Host:     pulumi.String("api.example.com"),
-//! 			Endpoint: pulumi.String("/path"),
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		_, err = cloudflare.NewApiShieldOperationSchemaValidationSettings(ctx, "example", &cloudflare.ApiShieldOperationSchemaValidationSettingsArgs{
-//! 			ZoneId:           pulumi.String("0da42c8d2132a9ddaf714f9e7c920711"),
-//! 			OperationId:      example.ID(),
-//! 			MitigationAction: pulumi.String("block"),
-//! 		})
-//! 		if err != nil {
-//! 			return err
-//! 		}
-//! 		return nil
-//! 	})
-//! }
-//! ```
-//! ### Java
-//! ```java
-//! package generated_program;
-//! 
-//! import com.pulumi.Context;
-//! import com.pulumi.Pulumi;
-//! import com.pulumi.core.Output;
-//! import com.pulumi.cloudflare.ApiShieldOperation;
-//! import com.pulumi.cloudflare.ApiShieldOperationArgs;
-//! import com.pulumi.cloudflare.ApiShieldOperationSchemaValidationSettings;
-//! import com.pulumi.cloudflare.ApiShieldOperationSchemaValidationSettingsArgs;
-//! import java.util.List;
-//! import java.util.ArrayList;
-//! import java.util.Map;
-//! import java.io.File;
-//! import java.nio.file.Files;
-//! import java.nio.file.Paths;
-//! 
-//! public class App {
-//!     public static void main(String[] args) {
-//!         Pulumi.run(App::stack);
-//!     }
-//! 
-//!     public static void stack(Context ctx) {
-//!         var example = new ApiShieldOperation("example", ApiShieldOperationArgs.builder()
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
-//!             .method("GET")
-//!             .host("api.example.com")
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = api_shield_operation::create(
+//!         "example",
+//!         ApiShieldOperationArgs::builder()
 //!             .endpoint("/path")
-//!             .build());
-//! 
-//!         var exampleApiShieldOperationSchemaValidationSettings = new ApiShieldOperationSchemaValidationSettings("exampleApiShieldOperationSchemaValidationSettings", ApiShieldOperationSchemaValidationSettingsArgs.builder()
-//!             .zoneId("0da42c8d2132a9ddaf714f9e7c920711")
-//!             .operationId(example.id())
-//!             .mitigationAction("block")
-//!             .build());
-//! 
-//!     }
+//!             .host("api.example.com")
+//!             .method("GET")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
+//!     let exampleApiShieldOperationSchemaValidationSettings = api_shield_operation_schema_validation_settings::create(
+//!         "exampleApiShieldOperationSchemaValidationSettings",
+//!         ApiShieldOperationSchemaValidationSettingsArgs::builder()
+//!             .mitigation_action("block")
+//!             .operation_id("${example.id}")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
 //! }
-//! ```
-//! ### YAML
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:ApiShieldOperation
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       method: GET
-//!       host: api.example.com
-//!       endpoint: /path
-//!   exampleApiShieldOperationSchemaValidationSettings:
-//!     type: cloudflare:ApiShieldOperationSchemaValidationSettings
-//!     name: example
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       operationId: ${example.id}
-//!       mitigationAction: block
 //! ```
 //! <!--End PulumiCodeChooser -->
 

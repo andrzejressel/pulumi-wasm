@@ -17,4 +17,3 @@ reqwest.workspace = true
 [dev-dependencies]
 wit-component = { workspace = true, features=["dummy-module"] }
 wit-parser.workspace = true
-wasmprinter.workspace = true

@@ -128,6 +128,15 @@ fn replace_publish_wasm_components(providers: &[Provider], content: &str) -> Str
 fn replace_generate_rust_docs(providers: &[Provider], content: &str) -> String {
     let mut replacement = String::new();
     replacement.push_str("rust-docs:\n");
+    replacement.push_str("    cargo test --doc");
+    for provider in providers {
+        // Docker docs are untested, because Pulumi can't get their shit together:
+        // https://github.com/pulumi/pulumi-docker/issues/1278
+        if provider.name != "docker" {
+            replacement.push_str(&format!(" -p pulumi_wasm_{}", provider.name));
+        }
+    }
+    replacement.push('\n');
     replacement.push_str("    cargo doc --no-deps -p pulumi_wasm_rust");
     for provider in providers {
         replacement.push_str(&format!(" -p pulumi_wasm_{}", provider.name));
