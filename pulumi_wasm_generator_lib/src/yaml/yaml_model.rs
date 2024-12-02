@@ -90,4 +90,12 @@ mod tests {
         let expected_yaml_file = get_yaml_file();
         assert_eq!(yaml_file, expected_yaml_file);
     }
+
+    #[test]
+    fn test_string_escape() {
+        use super::super::tests::example_escape_string::*;
+        let yaml_file = YamlFile::from_yaml(YAML).unwrap();
+        let expected_yaml_file = get_yaml_file();
+        assert_eq!(yaml_file, expected_yaml_file);
+    }
 }

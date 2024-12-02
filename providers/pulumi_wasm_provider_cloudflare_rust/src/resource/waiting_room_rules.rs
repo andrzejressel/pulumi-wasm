@@ -18,7 +18,7 @@
 //!                     .expression("src.ip in {192.0.2.0 192.0.2.1}").status("enabled")
 //!                     .build_struct(), WaitingRoomRulesRule::builder()
 //!                     .action("bypass_waiting_room").description("bypass query string")
-//!                     .expression("http.request.uri.query contains "bypass = true "")
+//!                     .expression("http.request.uri.query contains \"bypass=true\"")
 //!                     .status("enabled").build_struct(),
 //!                 ],
 //!             )

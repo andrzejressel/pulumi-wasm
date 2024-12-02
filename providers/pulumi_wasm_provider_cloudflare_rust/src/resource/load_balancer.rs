@@ -43,7 +43,7 @@
 //!             .rules(
 //!                 vec![
 //!                     LoadBalancerRule::builder()
-//!                     .condition("http.request.uri.path contains "testing "")
+//!                     .condition("http.request.uri.path contains \"testing\"")
 //!                     .fixedResponse(LoadBalancerRuleFixedResponse::builder()
 //!                     .contentType("html").location("www.example.com").messageBody("hello")
 //!                     .statusCode(200).build_struct()).name("example rule").build_struct(),

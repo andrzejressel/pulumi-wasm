@@ -5,53 +5,63 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   # Predefined profile must be imported, cannot be created
-//!   creds:
-//!     type: cloudflare:DlpProfile
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: Credentials and Secrets
-//!       type: predefined
-//!       allowedMatchCount: 3
-//!       entries:
-//!         - enabled: true
-//!           name: Amazon AWS Access Key ID
-//!           id: d8fcfc9c-773c-405e-8426-21ecbb67ba93
-//!         - enabled: false
-//!           id: 2c0e33e1-71da-40c8-aad3-32e674ad3d96
-//!           name: Amazon AWS Secret Access Key
-//!         - enabled: true
-//!           id: 4e92c006-3802-4dff-bbe1-8e1513b1c92a
-//!           name: Microsoft Azure Client Secret
-//!         - enabled: false
-//!           id: 5c713294-2375-4904-abcf-e4a15be4d592
-//!           name: SSH Private Key
-//!         - enabled: true
-//!           id: 6c6579e4-d832-42d5-905c-8e53340930f2
-//!           name: Google GCP API Key
-//!   # Custom profile
-//!   exampleCustom:
-//!     type: cloudflare:DlpProfile
-//!     name: example_custom
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: Example Custom Profile
-//!       description: A profile with example entries
-//!       type: custom
-//!       allowedMatchCount: 0
-//!       entries:
-//!         - name: Matches visa credit cards
-//!           enabled: true
-//!           pattern:
-//!             regex: 4\d{3}([-\. ])?\d{4}([-\. ])?\d{4}([-\. ])?\d{4}
-//!             validation: luhn
-//!         - name: Matches diners club card
-//!           enabled: true
-//!           pattern:
-//!             regex: (?:0[0-5]|[68][0-9])[0-9]{11}
-//!             validation: luhn
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let creds = dlp_profile::create(
+//!         "creds",
+//!         DlpProfileArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .allowed_match_count(3)
+//!             .entries(
+//!                 vec![
+//!                     DlpProfileEntry::builder().enabled(true)
+//!                     .id("d8fcfc9c-773c-405e-8426-21ecbb67ba93")
+//!                     .name("Amazon AWS Access Key ID").build_struct(),
+//!                     DlpProfileEntry::builder().enabled(false)
+//!                     .id("2c0e33e1-71da-40c8-aad3-32e674ad3d96")
+//!                     .name("Amazon AWS Secret Access Key").build_struct(),
+//!                     DlpProfileEntry::builder().enabled(true)
+//!                     .id("4e92c006-3802-4dff-bbe1-8e1513b1c92a")
+//!                     .name("Microsoft Azure Client Secret").build_struct(),
+//!                     DlpProfileEntry::builder().enabled(false)
+//!                     .id("5c713294-2375-4904-abcf-e4a15be4d592").name("SSH Private Key")
+//!                     .build_struct(), DlpProfileEntry::builder().enabled(true)
+//!                     .id("6c6579e4-d832-42d5-905c-8e53340930f2")
+//!                     .name("Google GCP API Key").build_struct(),
+//!                 ],
+//!             )
+//!             .name("Credentials and Secrets")
+//!             .type_("predefined")
+//!             .build_struct(),
+//!     );
+//!     let exampleCustom = dlp_profile::create(
+//!         "exampleCustom",
+//!         DlpProfileArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .allowed_match_count(0)
+//!             .description("A profile with example entries")
+//!             .entries(
+//!                 vec![
+//!                     DlpProfileEntry::builder().enabled(true)
+//!                     .name("Matches visa credit cards")
+//!                     .pattern(DlpProfileEntryPattern::builder()
+//!                     .regex("4\\d{3}([-\\. ])?\\d{4}([-\\. ])?\\d{4}([-\\. ])?\\d{4}")
+//!                     .validation("luhn").build_struct()).build_struct(),
+//!                     DlpProfileEntry::builder().enabled(true)
+//!                     .name("Matches diners club card")
+//!                     .pattern(DlpProfileEntryPattern::builder()
+//!                     .regex("(?:0[0-5]|[68][0-9])[0-9]{11}").validation("luhn")
+//!                     .build_struct()).build_struct(),
+//!                 ],
+//!             )
+//!             .name("Example Custom Profile")
+//!             .type_("custom")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 //! <!--End PulumiCodeChooser -->
 //! 
