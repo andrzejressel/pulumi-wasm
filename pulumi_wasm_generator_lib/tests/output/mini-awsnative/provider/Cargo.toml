@@ -9,15 +9,5 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-wit-bindgen-rt.workspace = true
+wit-bindgen.workspace = true
 pulumi_wasm_common.workspace = true
-
-[package.metadata.component]
-package = "pulumi:aws-native"
-
-[package.metadata.component.target]
-path = "wit"
-world = "aws-native-pulumi"
-
-[package.metadata.component.target.dependencies]
-"component:pulumi-wasm" = { path = "wit/deps/pulumi-wasm.wit" }
