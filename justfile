@@ -58,16 +58,17 @@ build-wasm-components-release:
 
 # DO NOT EDIT - BUILD-WASM-COMPONENTS - START
 build-wasm-providers:
-    cargo build --target={{TARGET_NAME}} -p pulumi_wasm_docker_provider
-    cargo build --target={{TARGET_NAME}} -p pulumi_wasm_random_provider
-    cargo build --target={{TARGET_NAME}} -p pulumi_wasm_cloudflare_provider
-
-build-wasm-providers-release:
-    cargo component build \
+    cargo build --target={{TARGET_NAME}} \
       -p pulumi_wasm_docker_provider \
       -p pulumi_wasm_random_provider \
       -p pulumi_wasm_cloudflare_provider \
-      --timings --release
+
+build-wasm-providers-release:
+    cargo build --target={{TARGET_NAME}} \
+      -p pulumi_wasm_docker_provider \
+      -p pulumi_wasm_random_provider \
+      -p pulumi_wasm_cloudflare_provider \
+      --release
 # DO NOT EDIT - BUILD-WASM-COMPONENTS - END
 
 check:

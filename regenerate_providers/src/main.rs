@@ -89,22 +89,23 @@ fn replace_regenerate_providers(providers: &[Provider], content: &str) -> String
 fn replace_build_wasm_components(providers: &[Provider], content: &str) -> String {
     let mut replacement = String::new();
     replacement.push_str("build-wasm-providers:\n");
-    for provider in providers {
-        replacement.push_str(&format!(
-            "    cargo build --target={{{{TARGET_NAME}}}} -p pulumi_wasm_{}_provider\n",
-            provider.name
-        ));
-    }
-    replacement.push('\n');
-    replacement.push_str("build-wasm-providers-release:\n");
-    replacement.push_str("    cargo component build \\\n");
+    replacement.push_str("    cargo build --target={{TARGET_NAME}} \\\n");
     for provider in providers {
         replacement.push_str(&format!(
             "      -p pulumi_wasm_{}_provider \\\n",
             provider.name
         ));
     }
-    replacement.push_str("      --timings --release\n");
+    replacement.push('\n');
+    replacement.push_str("build-wasm-providers-release:\n");
+    replacement.push_str("    cargo build --target={{TARGET_NAME}} \\\n");
+    for provider in providers {
+        replacement.push_str(&format!(
+            "      -p pulumi_wasm_{}_provider \\\n",
+            provider.name
+        ));
+    }
+    replacement.push_str("      --release\n");
 
     let start_marker = "# DO NOT EDIT - BUILD-WASM-COMPONENTS - START";
     let end_marker = "# DO NOT EDIT - BUILD-WASM-COMPONENTS - END";
