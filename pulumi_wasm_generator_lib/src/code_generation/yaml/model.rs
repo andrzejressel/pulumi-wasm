@@ -1,5 +1,5 @@
+use crate::code_generation::yaml::yaml_model::{YamlExpression, YamlFile, YamlResource};
 use crate::model::{ElementId, GlobalType, Package, Ref, Type};
-use crate::yaml::yaml_model::{YamlExpression, YamlFile, YamlResource};
 use std::collections::{BTreeMap, HashMap};
 
 struct PackageContext<'a> {
@@ -206,59 +206,4 @@ fn map_type(
     }
 
     Expression::Object(element_id.clone(), new_properties)
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    use crate::yaml::tests::{
-        access_rule, example_access_organization, example_array, example_numbers,
-    };
-    use crate::{extract_schema_from_file, schema};
-
-    #[test]
-    fn test_map_expression() {
-        let schema_package: schema::Package =
-            extract_schema_from_file("test_cases/cloudflare.json".as_ref()).unwrap();
-        let package = schema::to_model(&schema_package).unwrap();
-        let yaml_file = example_access_organization::get_yaml_file();
-
-        yaml_to_model(yaml_file, "cloudflare".to_string(), &package);
-    }
-
-    #[test]
-    fn test_access_rule() {
-        let schema_package: schema::Package =
-            extract_schema_from_file("test_cases/cloudflare.json".as_ref()).unwrap();
-        let package = schema::to_model(&schema_package).unwrap();
-        let yaml_file = access_rule::get_yaml_file();
-
-        let result = yaml_to_model(yaml_file, "cloudflare".to_string(), &package);
-
-        assert_eq!(result, access_rule::get_model());
-    }
-
-    #[test]
-    fn test_example_array() {
-        let schema_package: schema::Package =
-            extract_schema_from_file("test_cases/cloudflare.json".as_ref()).unwrap();
-        let package = schema::to_model(&schema_package).unwrap();
-        let yaml_file = example_array::get_yaml_file();
-
-        let result = yaml_to_model(yaml_file, "cloudflare".to_string(), &package);
-
-        assert_eq!(result, example_array::get_model());
-    }
-
-    #[test]
-    fn test_example_numbers() {
-        let schema_package: schema::Package =
-            extract_schema_from_file("test_cases/cloudflare.json".as_ref()).unwrap();
-        let package = schema::to_model(&schema_package).unwrap();
-        let yaml_file = example_numbers::get_yaml_file();
-
-        let result = yaml_to_model(yaml_file, "cloudflare".to_string(), &package);
-
-        assert_eq!(result, example_numbers::get_model());
-    }
 }
