@@ -202,6 +202,7 @@ fn function_to_model(
     Ok((
         element_id.clone(),
         crate::model::Function {
+            element_id: element_id.clone(),
             description: function.description.clone(),
             input_properties: match &function.inputs {
                 None => vec![],

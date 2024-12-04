@@ -101,6 +101,7 @@ pub(crate) struct Resource {
 
 #[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
 pub(crate) struct Function {
+    pub(crate) element_id: ElementId,
     // pub(crate) name: String,
     pub(crate) description: Option<String>,
     pub(crate) input_properties: Vec<InputProperty>,
