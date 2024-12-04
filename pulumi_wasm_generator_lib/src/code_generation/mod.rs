@@ -4,7 +4,6 @@ use crate::code_generation::yaml::yaml_model::YamlFile;
 use anyhow::anyhow;
 use anyhow::Context;
 use std::panic;
-pub(crate) mod code_generation;
 pub(crate) mod rust_generation;
 mod tests;
 pub(crate) mod yaml;
