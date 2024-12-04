@@ -1,6 +1,5 @@
-use super::*;
 use crate::code_generation::yaml::model::{Example, Expression, Resource};
-use crate::code_generation::yaml::reformat_code;
+use crate::code_generation::yaml::tests::reformat_code;
 use crate::code_generation::YamlFile;
 use crate::model::ElementId;
 use std::collections::BTreeMap;

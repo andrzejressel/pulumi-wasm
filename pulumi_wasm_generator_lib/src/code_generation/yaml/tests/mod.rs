@@ -4,3 +4,8 @@ pub(crate) mod example_empty_properties;
 pub(crate) mod example_escape_string;
 pub(crate) mod example_numbers;
 pub(crate) mod example_variable;
+
+fn reformat_code(code: &str) -> String {
+    let syntax_tree = syn::parse_file(code).unwrap();
+    prettyplease::unparse(&syntax_tree)
+}

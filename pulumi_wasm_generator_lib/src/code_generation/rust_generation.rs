@@ -7,10 +7,9 @@ use anyhow::Context;
 use anyhow::Result;
 use convert_case::Case;
 use convert_case::Casing;
-use std::collections::BTreeMap;
-use syn::__private::quote;
-use syn::LitStr;
 use quote::ToTokens;
+use std::collections::BTreeMap;
+use syn::LitStr;
 
 pub fn generate_code(example: Example) -> Result<String> {
     let mut result = r"
