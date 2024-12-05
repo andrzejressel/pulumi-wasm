@@ -28,28 +28,11 @@
 //! ```
 //! * In a GitHub Actions workflow, the [docker/setup-qemu-action](https://github.com/docker/setup-qemu-action) can be used instead by adding this step to your workflow file. Example workflow usage:
 //! 
-//! ```yaml
-//!   name: Pulumi
-//!   on:
-//!     push:
-//!       branches:
-//!         - master
-//!   jobs:
-//!     up:
-//!       name: Preview
-//!       runs-on: ubuntu-latest
-//!       steps:
-//!           # This is the step added:
-//!         - name: Set up QEMU
-//!           uses: docker/setup-qemu-action@v2
-//!           # The ordinary pulumi/actions workflow:
-//!         - uses: actions/checkout@v3
-//!         - uses: pulumi/actions@v4
-//!           with:
-//!             command: preview
-//!             stack-name: org-name/stack-name
-//!           env:
-//!             PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {}
 //! ```
 //! 
 //! 

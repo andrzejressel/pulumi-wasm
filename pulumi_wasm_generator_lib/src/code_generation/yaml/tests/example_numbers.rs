@@ -60,7 +60,6 @@ pub fn get_model() -> Example {
             map
         },
         variables: BTreeMap::new(),
-
     }
 }
 

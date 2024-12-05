@@ -3,14 +3,18 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! variables:
-//!   example:
-//!     fn::invoke:
-//!       Function: cloudflare:getTunnelVirtualNetwork
-//!       Arguments:
-//!         accountId: f037e56e89293a057740de681ac9abbe
-//!         name: example
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = get_tunnel_virtual_network::invoke(
+//!         GetTunnelVirtualNetworkArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .name("example")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 //! <!--End PulumiCodeChooser -->
 

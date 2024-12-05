@@ -6,7 +6,7 @@ pub(crate) struct YamlFile {
     #[serde(default)]
     pub(crate) resources: BTreeMap<String, YamlResource>,
     #[serde(default)]
-    pub(crate) variables: BTreeMap<String, YamlVariable>
+    pub(crate) variables: BTreeMap<String, YamlVariable>,
 }
 
 #[derive(Debug, Serialize, Deserialize, PartialEq)]
@@ -29,6 +29,7 @@ pub(crate) struct YamlFnInvoke {
     #[serde(rename = "Function")]
     pub(crate) function: String,
     #[serde(rename = "Arguments")]
+    #[serde(default)]
     pub(crate) arguments: BTreeMap<String, YamlExpression>,
 }
 

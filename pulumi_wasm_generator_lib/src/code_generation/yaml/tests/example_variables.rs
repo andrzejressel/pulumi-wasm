@@ -1,11 +1,11 @@
-use crate::code_generation::yaml::model::{Expression, FnInvoke, Variable};
-use crate::code_generation::yaml::model::{Example, Resource};
+use crate::code_generation::yaml::model::Variable::FnInvokeVariable;
+use crate::code_generation::yaml::model::Example;
+use crate::code_generation::yaml::model::{Expression, FnInvoke};
 use crate::code_generation::yaml::tests::reformat_code;
-use crate::code_generation::yaml::yaml_model::{YamlFnInvoke, YamlExpression, YamlVariable};
+use crate::code_generation::yaml::yaml_model::{YamlExpression, YamlFnInvoke, YamlVariable};
 use crate::code_generation::YamlFile;
 use crate::model::ElementId;
 use std::collections::BTreeMap;
-use crate::code_generation::yaml::model::Variable::{FnInvokeVariable as OtherFnInvoke, FnInvokeVariable};
 
 //language=YAML
 pub const YAML: &str = r#"
@@ -18,7 +18,7 @@ pub const YAML: &str = r#"
 "#;
 
 pub fn get_yaml_file() -> YamlFile {
-    use crate::code_generation::yaml::yaml_model::{YamlFile, YamlResource};
+    use crate::code_generation::yaml::yaml_model::YamlFile;
 
     YamlFile {
         resources: BTreeMap::new(),
@@ -31,11 +31,16 @@ pub fn get_yaml_file() -> YamlFile {
                         function: "cloudflare:getGatewayCategories".to_string(),
                         arguments: {
                             let mut arguments = BTreeMap::new();
-                            arguments.insert("accountId".to_string(), YamlExpression::String("f037e56e89293a057740de681ac9abbe".to_string()));
+                            arguments.insert(
+                                "accountId".to_string(),
+                                YamlExpression::String(
+                                    "f037e56e89293a057740de681ac9abbe".to_string(),
+                                ),
+                            );
                             arguments
-                        }
-                    }
-                }
+                        },
+                    },
+                },
             );
             variables
         },
@@ -50,14 +55,19 @@ pub fn get_model() -> Example {
             map.insert(
                 "example".to_string(),
                 FnInvokeVariable(FnInvoke {
-                        function: ElementId::new("cloudflare:index/getGatewayCategories:getGatewayCategories").unwrap(),
-                        arguments: {
-                            let mut arguments = BTreeMap::new();
-                            arguments.insert("accountId".to_string(), Expression::String("f037e56e89293a057740de681ac9abbe".to_string()));
-                            arguments
-                        }
-                    }
-                )
+                    function: ElementId::new(
+                        "cloudflare:index/getGatewayCategories:getGatewayCategories",
+                    )
+                    .unwrap(),
+                    arguments: {
+                        let mut arguments = BTreeMap::new();
+                        arguments.insert(
+                            "accountId".to_string(),
+                            Expression::String("f037e56e89293a057740de681ac9abbe".to_string()),
+                        );
+                        arguments
+                    },
+                }),
             );
             map
         },
@@ -72,10 +82,9 @@ pub fn get_rust_code() -> String {
         use pulumi_wasm_rust::{add_export, pulumi_main};
         #[pulumi_main]
         fn test_main() -> Result<(), Error> {
-            let example = keyless_certificate::create(
-                "example",
-                KeylessCertificateArgs::builder()
-                    .port(24008)
+            let example = get_gateway_categories::invoke(
+                GetGatewayCategoriesArgs::builder()
+                    .account_id("f037e56e89293a057740de681ac9abbe")
                     .build_struct(),
             );
         }

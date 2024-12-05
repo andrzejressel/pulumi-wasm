@@ -8,6 +8,12 @@
 //! use pulumi_wasm_rust::{add_export, pulumi_main};
 //! #[pulumi_main]
 //! fn test_main() -> Result<(), Error> {
+//!     let example = get_access_identity_provider::invoke(
+//!         GetAccessIdentityProviderArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .name("Google SSO")
+//!             .build_struct(),
+//!     );
 //!     let exampleAccessApplication = access_application::create(
 //!         "exampleAccessApplication",
 //!         AccessApplicationArgs::builder()

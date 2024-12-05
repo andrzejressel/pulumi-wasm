@@ -1,7 +1,9 @@
-use crate::code_generation::yaml::yaml_model::{YamlExpression, YamlFile, YamlFnInvoke, YamlResource, YamlVariable};
+use crate::code_generation::yaml::model::Variable::FnInvokeVariable;
+use crate::code_generation::yaml::yaml_model::{
+    YamlExpression, YamlFile, YamlFnInvoke, YamlResource, YamlVariable,
+};
 use crate::model::{ElementId, GlobalType, Package, Ref, Type};
 use std::collections::{BTreeMap, HashMap};
-use crate::code_generation::yaml::model::Variable::FnInvokeVariable;
 
 struct PackageContext<'a> {
     package: &'a Package,
@@ -42,7 +44,7 @@ pub(crate) fn yaml_to_model(
     let context = PackageContext {
         package,
         resource_name_map,
-        function_name_map
+        function_name_map,
     };
 
     let mut resources = BTreeMap::new();
@@ -58,13 +60,16 @@ pub(crate) fn yaml_to_model(
         variables.insert(name, variable);
     }
 
-    Example { resources, variables }
+    Example {
+        resources,
+        variables,
+    }
 }
 
 #[derive(Debug, PartialEq)]
 pub(crate) struct Example {
     pub(crate) resources: BTreeMap<String, Resource>,
-    pub(crate) variables: BTreeMap<String, Variable>
+    pub(crate) variables: BTreeMap<String, Variable>,
 }
 
 #[derive(Debug, PartialEq)]

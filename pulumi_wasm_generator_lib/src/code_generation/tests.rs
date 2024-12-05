@@ -33,7 +33,8 @@ mod tests {
 
                 let schema_package: schema::Package = extract_schema_from_file(
                     concat!("test_cases/", $package_name, ".json").as_ref(),
-                ).unwrap();
+                )
+                .unwrap();
 
                 let package = schema::to_model(&schema_package).unwrap();
                 let yaml_file = $test_module::get_yaml_file();
@@ -65,5 +66,4 @@ mod tests {
         example_interpolation
     );
     full_pipeline_test!(generate_yaml_variables, "cloudflare", example_variables);
-
 }

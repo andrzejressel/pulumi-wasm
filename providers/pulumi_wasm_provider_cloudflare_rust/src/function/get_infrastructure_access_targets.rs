@@ -3,18 +3,19 @@
 //! ## Example Usage
 //! 
 //! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! variables:
-//!   example:
-//!     fn::invoke:
-//!       Function: cloudflare:getInfrastructureAccessTargets
-//!       Arguments:
-//!         accountId: f037e56e89293a057740de681ac9abbe
-//!         hostnameContains: example
-//!         ipv4: 198.51.100.1
-//! outputs:
-//!   # output the list of targets the data source contains
-//!   targets: ${example.targets}
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = get_infrastructure_access_targets::invoke(
+//!         GetInfrastructureAccessTargetsArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .hostname_contains("example")
+//!             .ipv_4("198.51.100.1")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 //! <!--End PulumiCodeChooser -->
 
