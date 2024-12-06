@@ -62,10 +62,10 @@ impl<'a> Description<'a> {
     fn examples_transition(line: &str) -> (State, Vec<String>) {
         match line.trim() {
             "```yaml" => (Yaml(vec![]), vec![]),
-            "```typescript" | "```python" | "```java" | "```go" => (LanguageInExamples, vec![]),
+            "```typescript" | "```python" | "```java" | "```go" | "```csharp" => (LanguageInExamples, vec![]),
             "{{% example %}}" | "{{% /example %}}" => (Examples, vec![]),
             "{{% /examples %}}" | "<!--End PulumiCodeChooser -->" => (Initial, vec![]),
-            _ => (Examples, vec![]),
+            _ => (Examples, vec![line.to_string()]),
         }
     }
 

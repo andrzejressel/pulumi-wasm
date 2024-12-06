@@ -2,6 +2,8 @@
 //! 
 //! This resource *does* use a cryptographic random number generator.
 //! 
+//! ## Example Usage
+//! 
 //! ```yaml
 //! resources:
 //!   password:

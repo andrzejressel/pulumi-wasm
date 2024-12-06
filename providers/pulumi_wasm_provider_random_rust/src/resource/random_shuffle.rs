@@ -1,5 +1,7 @@
 //! The resource `random.RandomShuffle` generates a random permutation of a list of strings given as an argument.
 //! 
+//! ## Example Usage
+//! 
 //! ```yaml
 //! resources:
 //!   az:

@@ -53,6 +53,9 @@
 //!   ```
 //! 
 //! 
+//! ## Example Usage
+//! ### A Docker image build
+//! 
 //! ```yaml
 //! config: {}
 //! description: A Docker image build
@@ -74,6 +77,8 @@
 //! runtime: yaml
 //! variables: {}
 //! ```
+//! ### A Docker image build and push
+//! 
 //! ```yaml
 //! config: {}
 //! description: A Docker image build and push
@@ -94,6 +99,8 @@
 //! runtime: yaml
 //! variables: {}
 //! ```
+//! ### Docker image build using caching with AWS Elastic Container Registry
+//! 
 //! ```yaml
 //! config: {}
 //! description: Docker image build using caching with AWS Elastic Container Registry
