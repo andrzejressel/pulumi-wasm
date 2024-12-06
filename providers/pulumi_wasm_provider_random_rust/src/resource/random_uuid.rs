@@ -2,8 +2,6 @@
 //! 
 //! This resource uses [hashicorp/go-uuid](https://github.com/hashicorp/go-uuid) to generate a UUID-formatted string for use with services needing a unique string identifier.
 //! 
-//! ## Example Usage
-//! 
 //! ```yaml
 //! resources:
 //!   testRandomUuid:

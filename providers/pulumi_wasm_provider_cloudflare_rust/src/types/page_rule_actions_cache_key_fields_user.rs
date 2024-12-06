@@ -13,7 +13,6 @@ pub struct PageRuleActionsCacheKeyFieldsUser {
     /// 
     /// Example:
     /// 
-    /// <!--Start PulumiCodeChooser -->
     /// ```ignore
     /// use pulumi_wasm_rust::Output;
     /// use pulumi_wasm_rust::{add_export, pulumi_main};
@@ -66,7 +65,6 @@ pub struct PageRuleActionsCacheKeyFieldsUser {
     ///     );
     /// }
     /// ```
-    /// <!--End PulumiCodeChooser -->
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "lang")]
     pub r#lang: Box<Option<bool>>,

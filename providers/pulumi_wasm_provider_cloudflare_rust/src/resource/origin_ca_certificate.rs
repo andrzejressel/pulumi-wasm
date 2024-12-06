@@ -6,7 +6,6 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
 //! ```yaml
 //! resources:
 //!   example:
@@ -31,7 +30,6 @@
 //!       requestType: origin-rsa
 //!       requestedValidity: 7
 //! ```
-//! <!--End PulumiCodeChooser -->
 //! 
 //! ## Import
 //! 

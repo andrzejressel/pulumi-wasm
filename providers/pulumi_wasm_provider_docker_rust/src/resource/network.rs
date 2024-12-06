@@ -3,7 +3,6 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
 //! ```ignore
 //! use pulumi_wasm_rust::Output;
 //! use pulumi_wasm_rust::{add_export, pulumi_main};
@@ -15,7 +14,6 @@
 //!     );
 //! }
 //! ```
-//! <!--End PulumiCodeChooser -->
 //! 
 //! ## Import
 //! 
@@ -23,7 +21,7 @@
 //! 
 //! Assuming you created a `network` as follows
 //! 
-//! ```sh
+//! ```shell
 //! docker network create foo
 //! ````
 //! 
@@ -35,13 +33,12 @@
 //! 
 //! you provide the definition for the resource as follows
 //! 
-//! ```ignore
-//! use pulumi_wasm_rust::Output;
-//! use pulumi_wasm_rust::{add_export, pulumi_main};
-//! #[pulumi_main]
-//! fn test_main() -> Result<(), Error> {
-//!     let foo = network::create("foo", NetworkArgs::builder().name("foo").build_struct());
-//! }
+//! ```yaml
+//! resources:
+//!   foo:
+//!     type: docker:Network
+//!     properties:
+//!       name: "foo"
 //! ```
 //! 
 //! then the import command is as follows

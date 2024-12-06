@@ -3,7 +3,6 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
 //! ```ignore
 //! use pulumi_wasm_rust::Output;
 //! use pulumi_wasm_rust::{add_export, pulumi_main};
@@ -19,7 +18,6 @@
 //!     );
 //! }
 //! ```
-//! <!--End PulumiCodeChooser -->
 //! 
 //! ## Import
 //! 
@@ -39,24 +37,16 @@
 //! 
 //! you provide the definition for the resource as follows
 //! 
-//! ```ignore
-//! use pulumi_wasm_rust::Output;
-//! use pulumi_wasm_rust::{add_export, pulumi_main};
-//! #[pulumi_main]
-//! fn test_main() -> Result<(), Error> {
-//!     let foo = container::create(
-//!         "foo",
-//!         ContainerArgs::builder()
-//!             .image("nginx")
-//!             .name("foo")
-//!             .ports(
-//!                 vec![
-//!                     ContainerPort::builder().external(8080).internal(80).build_struct(),
-//!                 ],
-//!             )
-//!             .build_struct(),
-//!     );
-//! }
+//! ```yaml
+//! resources:
+//!   foo:
+//!     type: docker:Container
+//!     properties:
+//!       name: "foo"
+//!       image: "nginx"
+//!       ports:
+//!         - internal: 80
+//!           external: 8080
 //! ```
 //! 
 //! then the import command is as follows

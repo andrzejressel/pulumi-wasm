@@ -13,8 +13,6 @@
 //! unique names during the brief period where both the old and new resources
 //! exist concurrently.
 //! 
-//! ## Example Usage
-//! 
 //! ```yaml
 //! resources:
 //!   # The following example shows how to generate a unique name for an AWS EC2

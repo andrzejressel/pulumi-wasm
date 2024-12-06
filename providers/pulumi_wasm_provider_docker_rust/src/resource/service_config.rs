@@ -6,7 +6,7 @@
 //! 
 //! Assuming you created a `config` as follows
 //! 
-//! ```sh
+//! ```shell
 //! printf '{"a":"b"}' | docker config create foo -
 //! ```
 //! 
@@ -18,18 +18,13 @@
 //! 
 //! you provide the definition for the resource as follows
 //! 
-//! ```ignore
-//! use pulumi_wasm_rust::Output;
-//! use pulumi_wasm_rust::{add_export, pulumi_main};
-//! #[pulumi_main]
-//! fn test_main() -> Result<(), Error> {
-//!     let foo = service_config::create(
-//!         "foo",
-//!         ServiceConfigArgs::builder()
-//!             .data("base64encode(\"{\\\"a\\\": \\\"b\\\"}\")")
-//!             .build_struct(),
-//!     );
-//! }
+//! ```yaml
+//! resources:
+//!   foo:
+//!     type: docker:ServiceConfig
+//!     name: foo
+//!     properties:
+//!       data: 'base64encode("{\"a\": \"b\"}")'
 //! ```
 //! 
 //! then the import command is as follows

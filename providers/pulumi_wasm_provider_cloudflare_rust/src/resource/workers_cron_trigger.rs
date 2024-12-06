@@ -5,7 +5,6 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
 //! ```yaml
 //! resources:
 //!   exampleScript:
@@ -30,7 +29,6 @@
 //!         - '*/5 * * * *'
 //!         - 10 7 * * mon-fri
 //! ```
-//! <!--End PulumiCodeChooser -->
 //! 
 //! ## Import
 //! 

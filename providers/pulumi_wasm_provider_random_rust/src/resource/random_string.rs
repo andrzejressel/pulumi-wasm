@@ -4,8 +4,6 @@
 //! 
 //! Historically this resource's intended usage has been ambiguous as the original example used it in a password. For backwards compatibility it will continue to exist. For unique ids please use random_id, for sensitive random values please use random_password.
 //! 
-//! ## Example Usage
-//! 
 //! ```ignore
 //! use pulumi_wasm_rust::Output;
 //! use pulumi_wasm_rust::{add_export, pulumi_main};
