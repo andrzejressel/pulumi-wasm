@@ -52,8 +52,8 @@ impl<'a> Description<'a> {
     fn initial_transition(line: &str) -> (State, Vec<String>) {
         match line.trim() {
             "<!--Start PulumiCodeChooser -->" | "{{% examples %}}" => (Examples, vec![]),
-            // Rustdoc treats ``` as rust code block
-            "```" => (LanguageOutsideExamples, vec!["```sh".to_string()]),
+            // Rustdoc treats ``` as rust code block. Line may contain whitespace before
+            "```" => (LanguageOutsideExamples, vec![line.to_string() + "sh"]),
             l if l.starts_with("```") => (LanguageOutsideExamples, vec![line.to_string()]),
             _ => (Initial, vec![line.to_string()]),
         }
