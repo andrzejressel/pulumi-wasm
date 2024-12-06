@@ -1,23 +1,15 @@
+use crate::code_generation::yaml::model::Example;
+use crate::code_generation::yaml::model::Expression;
+use crate::code_generation::yaml::model::Resource;
 use crate::model::ElementId;
 use crate::utils::escape_rust_name;
-use crate::yaml::model::{yaml_to_model, Example, Expression, Resource};
-use crate::yaml::yaml_model::YamlFile;
-use anyhow::{anyhow, Context, Result};
+use anyhow::Context;
+use anyhow::Result;
 use convert_case::Case;
 use convert_case::Casing;
+use quote::ToTokens;
 use std::collections::BTreeMap;
-use std::panic;
 use syn::LitStr;
-use syn::__private::ToTokens;
-
-pub fn generate_code_from_string(yaml: String, package: &crate::model::Package) -> Result<String> {
-    let yaml_file =
-        YamlFile::from_yaml(yaml.as_str()).context(format!("Failed to parse YAML: {}", yaml))?;
-    let example = panic::catch_unwind(|| yaml_to_model(yaml_file, package.name.clone(), package))
-        .map_err(|_| anyhow!("Failed to convert YAML to model"))
-        .context(format!("Failed to convert YAML {} to model", yaml))?;
-    generate_code(example)
-}
 
 pub fn generate_code(example: Example) -> Result<String> {
     let mut result = r"
@@ -137,49 +129,5 @@ fn generate_expression(expr: Expression) -> String {
             str.push(']');
             str
         }
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use crate::code_generation::generate_code;
-    use crate::yaml::tests::{
-        access_rule, example_array, example_empty_properties, example_escape_string,
-        example_numbers,
-    };
-
-    #[test]
-    fn test_example_array() {
-        let model = example_array::get_model();
-        let code = generate_code(model).unwrap();
-        assert_eq!(example_array::get_rust_code(), code)
-    }
-
-    #[test]
-    fn test_access_rule() {
-        let model = access_rule::get_model();
-        let code = generate_code(model).unwrap();
-        assert_eq!(access_rule::get_rust_code(), code)
-    }
-
-    #[test]
-    fn test_without_parameters() {
-        let model = example_empty_properties::get_model();
-        let code = generate_code(model).unwrap();
-        assert_eq!(example_empty_properties::get_rust_code(), code)
-    }
-
-    #[test]
-    fn test_numbers() {
-        let model = example_numbers::get_model();
-        let code = generate_code(model).unwrap();
-        assert_eq!(example_numbers::get_rust_code(), code)
-    }
-
-    #[test]
-    fn test_string_escape() {
-        let model = example_escape_string::get_model();
-        let code = generate_code(model).unwrap();
-        assert_eq!(example_escape_string::get_rust_code(), code)
     }
 }
