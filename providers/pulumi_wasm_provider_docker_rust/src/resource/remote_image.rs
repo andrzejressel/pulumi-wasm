@@ -9,7 +9,6 @@
 //! Finds and downloads the latest `ubuntu:precise` image but does not check
 //! for further updates of the image
 //! 
-//! <!--Start PulumiCodeChooser -->
 //! ```ignore
 //! use pulumi_wasm_rust::Output;
 //! use pulumi_wasm_rust::{add_export, pulumi_main};
@@ -21,14 +20,12 @@
 //!     );
 //! }
 //! ```
-//! <!--End PulumiCodeChooser -->
 //! 
 //! ### Dynamic updates
 //! 
 //! To be able to update an image dynamically when the `sha256` sum changes,
 //! you need to use it in combination with `docker.RegistryImage` as follows:
 //! 
-//! <!--Start PulumiCodeChooser -->
 //! ```ignore
 //! use pulumi_wasm_rust::Output;
 //! use pulumi_wasm_rust::{add_export, pulumi_main};
@@ -46,14 +43,12 @@
 //!     );
 //! }
 //! ```
-//! <!--End PulumiCodeChooser -->
 //! 
 //! ### Build
 //! 
 //! You can also use the resource to build an image.
 //! In this case the image "zoo" and "zoo:develop" are built.
 //! 
-//! <!--Start PulumiCodeChooser -->
 //! ```yaml
 //! resources:
 //!   zoo:
@@ -69,7 +64,6 @@
 //!         label:
 //!           author: zoo
 //! ```
-//! <!--End PulumiCodeChooser -->
 //! 
 //! You can use the `triggers` argument to specify when the image should be rebuild. This is for example helpful when you want to rebuild the docker image whenever the source code changes.
 //! 

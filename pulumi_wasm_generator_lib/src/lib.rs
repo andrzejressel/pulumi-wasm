@@ -6,6 +6,7 @@ use std::path::Path;
 use crate::schema::Package;
 use anyhow::{Context, Result};
 mod code_generation;
+mod description;
 mod model;
 mod output;
 mod schema;

@@ -4,7 +4,6 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
 //! ```yaml
 //! configuration:
 //!   # Allowlist office's network IP ranges on all account zones (or other lists of
@@ -52,7 +51,6 @@
 //!             - ${myOffice}
 //!     options: {}
 //! ```
-//! <!--End PulumiCodeChooser -->
 //! 
 //! ## Import
 //! 

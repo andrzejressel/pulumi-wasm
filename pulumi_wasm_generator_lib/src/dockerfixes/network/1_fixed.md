@@ -96,6 +96,7 @@ prints the long ID
 
 you provide the definition for the resource as follows
 
+<!--Start PulumiCodeChooser -->
 ```yaml
 resources:
   foo:
@@ -103,6 +104,7 @@ resources:
     properties:
       name: "foo"
 ```
+<!--End PulumiCodeChooser -->
 
 then the import command is as follows
 
