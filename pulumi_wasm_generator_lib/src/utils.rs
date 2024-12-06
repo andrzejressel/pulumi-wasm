@@ -1,4 +1,4 @@
-use crate::code_generation::generate_code_from_string;
+use crate::description::Description;
 use crate::model::ElementId;
 use regex::Regex;
 use std::collections::HashMap;
@@ -91,85 +91,13 @@ pub(crate) fn to_lines(
         .unwrap_or("".to_string());
     let lines = binding.lines();
 
-    let mut in_yaml = false;
-    let mut in_language = false;
-    let mut in_shell = false;
-
-    let mut yaml_lines = Vec::<String>::new();
-    let mut new_lines = Vec::<String>::new();
+    let mut description = Description::create(package);
 
     for line in lines {
-        if in_yaml && line.trim() == "```" {
-            let yaml_str = yaml_lines.join("\n");
-            let example = generate_code_from_string(yaml_str, package);
-
-            match example {
-                Ok(rust_example) => {
-                    new_lines.push("```ignore".to_string());
-                    new_lines.extend(
-                        rust_example
-                            .lines()
-                            .map(|f| f.to_string())
-                            .collect::<Vec<_>>(),
-                    );
-                    new_lines.push("```".to_string());
-                }
-                Err(err) => {
-                    eprintln!("ERROR: {}", err);
-                    err.chain()
-                        .skip(1)
-                        .for_each(|cause| eprintln!("because: {}", cause));
-                    new_lines.push("```yaml".to_string());
-                    new_lines.extend(yaml_lines.clone());
-                    new_lines.push("```".to_string());
-                }
-            }
-        } else if in_yaml {
-            yaml_lines.push(line.to_string());
-            continue;
-        }
-
-        let l = match line.trim() {
-            "{{% examples %}}" | "{{% /examples %}}" | "{{% example %}}" | "{{% /example %}}" => {
-                vec![]
-            }
-            "```yaml" => {
-                in_yaml = true;
-                vec![]
-            }
-            "```typescript" | "```python" | "```go" | "```java" | "```csharp" => {
-                in_language = true;
-                vec![]
-            }
-            "```" if in_shell => {
-                in_shell = false;
-                vec!["```".to_string()]
-            }
-            "```" if in_yaml || in_language => {
-                in_yaml = false;
-                in_language = false;
-                in_shell = false;
-                yaml_lines.clear();
-                vec![]
-            }
-            _ if in_language || in_yaml => {
-                vec![]
-            }
-            "```" | "```sh" | "```shell" => {
-                in_shell = true;
-                vec!["```sh".to_string()]
-            }
-            "```text" => {
-                in_shell = true;
-                vec!["```text".to_string()]
-            }
-            _ => vec![line.to_string()],
-        };
-
-        new_lines.extend(l);
+        description.transition(line)
     }
 
-    new_lines
+    description.get()
 }
 
 static DOCKER_SERVICE_REPLACEMENTS: LazyLock<HashMap<ElementId, Vec<(&str, &str)>>> =

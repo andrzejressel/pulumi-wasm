@@ -3,7 +3,6 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
 //! ```yaml
 //! resources:
 //!   sample-volume-plugin:
@@ -18,7 +17,6 @@
 //!       forceDisable: true
 //!       grantAllPermissions: true
 //! ```
-//! <!--End PulumiCodeChooser -->
 //! 
 //! ## Import
 //! 

@@ -3,7 +3,6 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
 //! ```yaml
 //! variables:
 //!   all:
@@ -18,7 +17,6 @@
 //!   # Get user level "Memberships Read" permission ID.
 //!   userMembershipsReadId: ${all.user"Memberships Read"[%!s(MISSING)]}
 //! ```
-//! <!--End PulumiCodeChooser -->
 
 
 pub struct GetApiTokenPermissionGroupsResult {

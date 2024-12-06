@@ -5,7 +5,6 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
 //! ```yaml
 //! resources:
 //!   my-domain:
@@ -15,7 +14,6 @@
 //!       projectName: my-example-project
 //!       domain: example.com
 //! ```
-//! <!--End PulumiCodeChooser -->
 //! 
 //! ## Import
 //! 

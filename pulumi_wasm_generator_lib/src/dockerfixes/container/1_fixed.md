@@ -139,6 +139,7 @@ prints the container ID
 
 you provide the definition for the resource as follows
 
+<!--Start PulumiCodeChooser -->
 ```yaml
 resources:
   foo:
@@ -150,6 +151,7 @@ resources:
         - internal: 80
           external: 8080
 ```
+<!--End PulumiCodeChooser -->
 
 then the import command is as follows
 

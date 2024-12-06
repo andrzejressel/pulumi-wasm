@@ -2,7 +2,6 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
 //! ```yaml
 //! resources:
 //!   example:
@@ -11,7 +10,6 @@
 //!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
 //!       enabled: 'true'
 //! ```
-//! <!--End PulumiCodeChooser -->
 //! 
 //! ## Import
 //! 
