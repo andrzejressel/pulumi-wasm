@@ -18,13 +18,18 @@
 //! 
 //! you provide the definition for the resource as follows
 //! 
-//! ```yaml
-//! resources:
-//!   foo:
-//!     type: docker:ServiceConfig
-//!     name: foo
-//!     properties:
-//!       data: 'base64encode("{\"a\": \"b\"}")'
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let foo = service_config::create(
+//!         "foo",
+//!         ServiceConfigArgs::builder()
+//!             .data("base64encode(\"{\\\"a\\\": \\\"b\\\"}\")")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 //! 
 //! then the import command is as follows

@@ -17,7 +17,6 @@
 //!     fn::docker:getPlugin:
 //!       id: "e9a9db917b3bfd6706b5d3a66d4bceb9f"
 //! ```
-//! 
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]

@@ -21,19 +21,36 @@
 //! 
 //! you provide the definition for the resource as follows
 //! 
-//! ```yaml
-//! resources:
-//!   foo:
-//!     type: docker:Service
-//!     name: foo
-//!     properties:
-//!       taskSpec:
-//!         containerSpec:
-//!           image: "nginx"
-//!       endpointSpec:
-//!         ports:
-//!           - targetPort: 80
-//!             publishedPort: 8080
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let foo = service::create(
+//!         "foo",
+//!         ServiceArgs::builder()
+//!             .endpoint_spec(
+//!                 ServiceEndpointSpec::builder()
+//!                     .ports(
+//!                         vec![
+//!                             ServiceEndpointSpecPort::builder().publishedPort(8080)
+//!                             .targetPort(80).build_struct(),
+//!                         ],
+//!                     )
+//!                     .build_struct(),
+//!             )
+//!             .task_spec(
+//!                 ServiceTaskSpec::builder()
+//!                     .containerSpec(
+//!                         ServiceTaskSpecContainerSpec::builder()
+//!                             .image("nginx")
+//!                             .build_struct(),
+//!                     )
+//!                     .build_struct(),
+//!             )
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 //! 
 //! then the import command is as follows

@@ -18,6 +18,7 @@ prints the id
 
 you provide the definition for the resource as follows
 
+<!--Start PulumiCodeChooser -->
 ```yaml
 resources:
   foo:
@@ -26,6 +27,7 @@ resources:
     properties:
       data: 'base64encode("{\"a\": \"b\"}")'
 ```
+<!--End PulumiCodeChooser -->
 
 then the import command is as follows
 

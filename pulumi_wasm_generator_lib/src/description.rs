@@ -1,5 +1,7 @@
 use crate::code_generation::generate_code_from_string;
-use crate::description::State::{Examples, Initial, Language, Shell, YAML};
+use crate::description::State::{
+    Examples, Initial, LanguageInExamples, LanguageOutsideExamples, Shell, Yaml,
+};
 use crate::model::Package;
 
 struct DescriptionState {
@@ -30,8 +32,9 @@ impl<'a> Description<'a> {
             let (new_state, lines) = match state {
                 Initial => Self::initial_transition(line),
                 Examples => Self::examples_transition(line),
-                YAML(yaml_lines) => Self::yaml_transition(line, yaml_lines, self.package),
-                Language => Self::language_transition(line),
+                Yaml(yaml_lines) => Self::yaml_transition(line, yaml_lines, self.package),
+                LanguageInExamples => Self::language_transition(line),
+                LanguageOutsideExamples => Self::language_outside_examples_transition(line),
                 Shell => Self::shell_transition(line),
             };
             result_lines.extend(lines);
@@ -49,15 +52,17 @@ impl<'a> Description<'a> {
     fn initial_transition(line: &str) -> (State, Vec<String>) {
         match line.trim() {
             "<!--Start PulumiCodeChooser -->" | "{{% examples %}}" => (Examples, vec![]),
-            "```" | "```sh" | "```shell" | "```text" => (Shell, vec![line.to_string()]),
+            // Rustdoc treats ``` as rust code block
+            "```" => (Shell, vec!["```sh".to_string()]),
+            l if l.starts_with("```") => (LanguageOutsideExamples, vec![line.to_string()]),
             _ => (Initial, vec![line.to_string()]),
         }
     }
 
     fn examples_transition(line: &str) -> (State, Vec<String>) {
         match line.trim() {
-            "```yaml" => (YAML(vec![]), vec![]),
-            "```typescript" | "```python" | "```java" | "```go" => (Language, vec![]),
+            "```yaml" => (Yaml(vec![]), vec![]),
+            "```typescript" | "```python" | "```java" | "```go" => (LanguageInExamples, vec![]),
             "{{% example %}}" | "{{% /example %}}" => (Examples, vec![]),
             "{{% /examples %}}" | "<!--End PulumiCodeChooser -->" => (Initial, vec![]),
             _ => (Examples, vec![]),
@@ -67,7 +72,7 @@ impl<'a> Description<'a> {
     fn language_transition(line: &str) -> (State, Vec<String>) {
         match line.trim() {
             "```" => (Examples, vec![]),
-            _ => (Language, vec![]),
+            _ => (LanguageInExamples, vec![]),
         }
     }
 
@@ -75,6 +80,13 @@ impl<'a> Description<'a> {
         match line.trim() {
             "```" => (Initial, vec![line.to_string()]),
             _ => (Shell, vec![line.to_string()]),
+        }
+    }
+
+    fn language_outside_examples_transition(line: &str) -> (State, Vec<String>) {
+        match line.trim() {
+            "```" => (Initial, vec![line.to_string()]),
+            _ => (LanguageOutsideExamples, vec![line.to_string()]),
         }
     }
 
@@ -115,7 +127,7 @@ impl<'a> Description<'a> {
             }
             _ => {
                 yaml_lines.push(line.to_string());
-                (YAML(yaml_lines), vec![])
+                (Yaml(yaml_lines), vec![])
             }
         }
     }
@@ -124,8 +136,9 @@ impl<'a> Description<'a> {
 enum State {
     Initial,
     Examples,
-    YAML(Vec<String>),
-    Language,
+    Yaml(Vec<String>),
+    LanguageInExamples,
+    LanguageOutsideExamples,
     Shell,
 }
 

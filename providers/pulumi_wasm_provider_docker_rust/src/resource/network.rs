@@ -33,12 +33,13 @@
 //! 
 //! you provide the definition for the resource as follows
 //! 
-//! ```yaml
-//! resources:
-//!   foo:
-//!     type: docker:Network
-//!     properties:
-//!       name: "foo"
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let foo = network::create("foo", NetworkArgs::builder().name("foo").build_struct());
+//! }
 //! ```
 //! 
 //! then the import command is as follows
