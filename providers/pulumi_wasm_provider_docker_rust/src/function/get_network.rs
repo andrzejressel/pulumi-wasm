@@ -2,7 +2,6 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
 //! ```yaml
 //! variables:
 //!   main:
@@ -11,7 +10,6 @@
 //!       Arguments:
 //!         name: main
 //! ```
-//! <!--End PulumiCodeChooser -->
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]

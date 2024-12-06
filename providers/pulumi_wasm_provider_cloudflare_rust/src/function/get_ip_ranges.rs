@@ -2,7 +2,6 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
 //! ```yaml
 //! resources:
 //!   example:
@@ -20,7 +19,6 @@
 //!       Function: cloudflare:getIpRanges
 //!       Arguments: {}
 //! ```
-//! <!--End PulumiCodeChooser -->
 
 
 pub struct GetIpRangesResult {

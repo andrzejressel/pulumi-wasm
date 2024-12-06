@@ -6,7 +6,6 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
 //! ```yaml
 //! resources:
 //!   # Restrict access to these endpoints to requests from a known IP address range.
@@ -22,7 +21,6 @@
 //!         - target: ip_range
 //!           value: 192.0.2.0/24
 //! ```
-//! <!--End PulumiCodeChooser -->
 //! 
 //! ## Import
 //! 

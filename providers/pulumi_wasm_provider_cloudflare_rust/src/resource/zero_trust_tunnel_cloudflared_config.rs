@@ -2,7 +2,6 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
 //! ```yaml
 //! resources:
 //!   exampleTunnel:
@@ -56,7 +55,6 @@
 //!                   - AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 //!           - service: https://10.0.0.3:8081
 //! ```
-//! <!--End PulumiCodeChooser -->
 //! 
 //! ## Import
 //! 

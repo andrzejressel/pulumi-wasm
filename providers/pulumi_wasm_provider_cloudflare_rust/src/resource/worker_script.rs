@@ -2,7 +2,6 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
 //! ```yaml
 //! resources:
 //!   myNamespace:
@@ -52,7 +51,6 @@
 //!         - name: MY_DATASET
 //!           dataset: dataset1
 //! ```
-//! <!--End PulumiCodeChooser -->
 //! 
 //! ## Import
 //! 

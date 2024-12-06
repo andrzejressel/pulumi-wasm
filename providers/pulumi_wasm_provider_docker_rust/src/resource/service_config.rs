@@ -6,7 +6,7 @@
 //! 
 //! Assuming you created a `config` as follows
 //! 
-//! ```sh
+//! ```shell
 //! printf '{"a":"b"}' | docker config create foo -
 //! ```
 //! 

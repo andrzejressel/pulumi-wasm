@@ -3,7 +3,6 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
 //! ```yaml
 //! resources:
 //!   example:
@@ -27,7 +26,6 @@
 //!       tags:
 //!         - free
 //! ```
-//! <!--End PulumiCodeChooser -->
 //! 
 //! ## Import
 //! 

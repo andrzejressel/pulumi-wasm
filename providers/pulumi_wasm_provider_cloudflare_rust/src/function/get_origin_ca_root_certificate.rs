@@ -4,7 +4,6 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
 //! ```yaml
 //! variables:
 //!   example:
@@ -13,7 +12,6 @@
 //!       Arguments:
 //!         algorithm: rsa
 //! ```
-//! <!--End PulumiCodeChooser -->
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]

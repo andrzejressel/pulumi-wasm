@@ -2,7 +2,6 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
 //! ```yaml
 //! variables:
 //!   example:
@@ -13,7 +12,6 @@
 //!         filter:
 //!           name: example-lb-pool
 //! ```
-//! <!--End PulumiCodeChooser -->
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]
