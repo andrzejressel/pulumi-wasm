@@ -53,7 +53,7 @@ impl<'a> Description<'a> {
         match line.trim() {
             "<!--Start PulumiCodeChooser -->" | "{{% examples %}}" => (Examples, vec![]),
             // Rustdoc treats ``` as rust code block
-            "```" => (Shell, vec!["```sh".to_string()]),
+            "```" => (LanguageOutsideExamples, vec!["```sh".to_string()]),
             l if l.starts_with("```") => (LanguageOutsideExamples, vec![line.to_string()]),
             _ => (Initial, vec![line.to_string()]),
         }
