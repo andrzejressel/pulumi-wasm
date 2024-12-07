@@ -1,6 +1,6 @@
-use crate::code_generation::yaml::model::Example;
 use crate::code_generation::yaml::model::Expression;
 use crate::code_generation::yaml::model::Resource;
+use crate::code_generation::yaml::model::{Example, FnInvoke, Variable};
 use crate::model::ElementId;
 use crate::utils::escape_rust_name;
 use anyhow::Context;
@@ -22,6 +22,11 @@ fn test_main() -> Result<(), Error> {
     .to_string();
     result.push('\n');
 
+    for (name, variable) in example.variables {
+        result.push_str(generate_variable(name, variable).as_str());
+        result.push('\n');
+    }
+
     for (name, resource) in example.resources {
         result.push_str(generate_resource(name, resource).as_str());
         result.push('\n');
@@ -33,6 +38,44 @@ fn test_main() -> Result<(), Error> {
         .context(format!("Failed to parse generated Rust code:\n{}", result))?;
     let formatted = prettyplease::unparse(&syntax_tree);
     Ok(formatted)
+}
+
+fn generate_variable(name: String, variable: Variable) -> String {
+    match variable {
+        Variable::FnInvokeVariable(fn_invoke) => generate_fn_invoke(name, fn_invoke),
+    }
+}
+
+fn generate_fn_invoke(name: String, fn_invoke: FnInvoke) -> String {
+    let mut str = String::new();
+    str.push_str(&format!(
+        r#"
+    let {} = {}::invoke(
+        {}Args::builder()
+        "#,
+        name,
+        fn_invoke.function.get_rust_function_name(),
+        fn_invoke.function.get_rust_struct_name()
+    ));
+    for (property_name, property_expr) in fn_invoke.arguments {
+        let valid_rust_property_name = escape_rust_name(property_name.as_str())
+            .from_case(Case::Camel)
+            .to_case(Case::Snake);
+        str.push_str(&format!(
+            r#"
+           .{}({})
+        "#,
+            valid_rust_property_name,
+            generate_expression(property_expr)
+        ));
+    }
+    str.push_str(
+        r#"
+            .build_struct(),
+    );
+    "#,
+    );
+    str
 }
 
 pub fn generate_resource(name: String, resource: Resource) -> String {

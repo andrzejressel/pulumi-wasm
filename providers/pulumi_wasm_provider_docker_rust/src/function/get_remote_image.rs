@@ -2,28 +2,32 @@
 //! 
 //! ## Example Usage
 //! 
-//! ```yaml
-//! variables:
-//!   latest:
-//!     fn::invoke:
-//!       Function: docker:getRemoteImage
-//!       Arguments:
-//!         name: nginx
-//!   specific:
-//!     fn::invoke:
-//!       Function: docker:getRemoteImage
-//!       Arguments:
-//!         name: nginx:1.17.6
-//!   digest:
-//!     fn::invoke:
-//!       Function: docker:getRemoteImage
-//!       Arguments:
-//!         name: nginx@sha256:36b74457bccb56fbf8b05f79c85569501b721d4db813b684391d63e02287c0b2
-//!   tagAndDigest:
-//!     fn::invoke:
-//!       Function: docker:getRemoteImage
-//!       Arguments:
-//!         name: nginx:1.19.1@sha256:36b74457bccb56fbf8b05f79c85569501b721d4db813b684391d63e02287c0b2
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let digest = get_remote_image::invoke(
+//!         GetRemoteImageArgs::builder()
+//!             .name(
+//!                 "nginx@sha256:36b74457bccb56fbf8b05f79c85569501b721d4db813b684391d63e02287c0b2",
+//!             )
+//!             .build_struct(),
+//!     );
+//!     let latest = get_remote_image::invoke(
+//!         GetRemoteImageArgs::builder().name("nginx").build_struct(),
+//!     );
+//!     let specific = get_remote_image::invoke(
+//!         GetRemoteImageArgs::builder().name("nginx:1.17.6").build_struct(),
+//!     );
+//!     let tagAndDigest = get_remote_image::invoke(
+//!         GetRemoteImageArgs::builder()
+//!             .name(
+//!                 "nginx:1.19.1@sha256:36b74457bccb56fbf8b05f79c85569501b721d4db813b684391d63e02287c0b2",
+//!             )
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 
 #[derive(bon::Builder)]

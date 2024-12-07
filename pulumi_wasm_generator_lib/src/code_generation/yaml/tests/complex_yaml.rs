@@ -13,8 +13,8 @@ pub const YAML: &str = r#"
                 validationEnabled: true
                 source:
                     fn::invoke:
-                      Function: std:file
-                      Arguments:
+                      function: std:file
+                      arguments:
                         input: ./schemas/petstore.json
                       Return: result
 "#;
@@ -58,11 +58,11 @@ pub fn get_yaml_file() -> YamlFile {
                                     YamlExpression::Object({
                                         let mut fn_invoke = BTreeMap::new();
                                         fn_invoke.insert(
-                                            "Function".to_string(),
+                                            "function".to_string(),
                                             YamlExpression::String("std:file".to_string()),
                                         );
                                         fn_invoke.insert(
-                                            "Arguments".to_string(),
+                                            "arguments".to_string(),
                                             YamlExpression::Object({
                                                 let mut arguments = BTreeMap::new();
                                                 arguments.insert(
@@ -90,5 +90,6 @@ pub fn get_yaml_file() -> YamlFile {
             );
             resources
         },
+        variables: BTreeMap::new(),
     }
 }

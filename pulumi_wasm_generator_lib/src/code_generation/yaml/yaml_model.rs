@@ -3,7 +3,10 @@ use std::collections::BTreeMap;
 
 #[derive(Debug, Serialize, Deserialize, PartialEq)]
 pub(crate) struct YamlFile {
+    #[serde(default)]
     pub(crate) resources: BTreeMap<String, YamlResource>,
+    #[serde(default)]
+    pub(crate) variables: BTreeMap<String, YamlVariable>,
 }
 
 #[derive(Debug, Serialize, Deserialize, PartialEq)]
@@ -13,6 +16,21 @@ pub(crate) struct YamlResource {
     pub(crate) name: Option<String>,
     #[serde(default)]
     pub(crate) properties: BTreeMap<String, YamlExpression>,
+}
+
+#[derive(Debug, Serialize, Deserialize, PartialEq)]
+pub(crate) struct YamlVariable {
+    #[serde(rename = "fn::invoke")]
+    pub fn_invoke: YamlFnInvoke,
+}
+
+#[derive(Debug, Serialize, Deserialize, PartialEq)]
+pub(crate) struct YamlFnInvoke {
+    #[serde(rename = "Function")]
+    pub(crate) function: String,
+    #[serde(rename = "Arguments")]
+    #[serde(default)]
+    pub(crate) arguments: BTreeMap<String, YamlExpression>,
 }
 
 #[derive(Debug, Serialize, Deserialize, PartialEq)]

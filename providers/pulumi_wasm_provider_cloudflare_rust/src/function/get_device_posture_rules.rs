@@ -2,15 +2,19 @@
 //! 
 //! ## Example Usage
 //! 
-//! ```yaml
-//! variables:
-//!   example:
-//!     fn::invoke:
-//!       Function: cloudflare:getDevicePostureRules
-//!       Arguments:
-//!         accountId: f037e56e89293a057740de681ac9abbe
-//!         name: check for /dev/random
-//!         type: file
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = get_device_posture_rules::invoke(
+//!         GetDevicePostureRulesArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .name("check for /dev/random")
+//!             .type_("file")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 
 #[derive(bon::Builder)]

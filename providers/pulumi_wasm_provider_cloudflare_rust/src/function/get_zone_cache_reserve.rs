@@ -3,13 +3,17 @@
 //! 
 //! ## Example Usage
 //! 
-//! ```yaml
-//! variables:
-//!   example:
-//!     fn::invoke:
-//!       Function: cloudflare:getZoneCacheReserve
-//!       Arguments:
-//!         zoneId: 0da42c8d2132a9ddaf714f9e7c920711
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = get_zone_cache_reserve::invoke(
+//!         GetZoneCacheReserveArgs::builder()
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 
 #[derive(bon::Builder)]

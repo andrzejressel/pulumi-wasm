@@ -2,14 +2,18 @@
 //! 
 //! ## Example Usage
 //! 
-//! ```yaml
-//! variables:
-//!   example:
-//!     fn::invoke:
-//!       Function: cloudflare:getRecord
-//!       Arguments:
-//!         zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!         hostname: example.com
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = get_record::invoke(
+//!         GetRecordArgs::builder()
+//!             .hostname("example.com")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 
 #[derive(bon::Builder)]

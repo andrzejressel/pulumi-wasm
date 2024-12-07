@@ -1,10 +1,14 @@
-use crate::code_generation::yaml::yaml_model::{YamlExpression, YamlFile, YamlResource};
+use crate::code_generation::yaml::model::Variable::FnInvokeVariable;
+use crate::code_generation::yaml::yaml_model::{
+    YamlExpression, YamlFile, YamlFnInvoke, YamlResource, YamlVariable,
+};
 use crate::model::{ElementId, GlobalType, Package, Ref, Type};
 use std::collections::{BTreeMap, HashMap};
 
 struct PackageContext<'a> {
     package: &'a Package,
     resource_name_map: HashMap<String, &'a crate::model::Resource>,
+    function_name_map: HashMap<String, &'a crate::model::Function>,
 }
 
 pub(crate) fn yaml_to_model(
@@ -25,9 +29,22 @@ pub(crate) fn yaml_to_model(
         resource_name_map.insert(name.clone(), resource);
     }
 
+    let mut function_name_map = HashMap::new();
+    for (element_id, function) in &package.functions {
+        let mut chunks = Vec::new();
+        chunks.push(provider_name.clone());
+        chunks.extend(element_id.namespace.clone());
+        chunks.push(element_id.name.clone());
+
+        let name = chunks.join(":");
+
+        function_name_map.insert(name.clone(), function);
+    }
+
     let context = PackageContext {
         package,
         resource_name_map,
+        function_name_map,
     };
 
     let mut resources = BTreeMap::new();
@@ -37,12 +54,22 @@ pub(crate) fn yaml_to_model(
         resources.insert(name, resource);
     }
 
-    Example { resources }
+    let mut variables = BTreeMap::new();
+    for (name, yaml_variable) in yaml_file.variables {
+        let variable = map_variable(&yaml_variable, &context);
+        variables.insert(name, variable);
+    }
+
+    Example {
+        resources,
+        variables,
+    }
 }
 
 #[derive(Debug, PartialEq)]
 pub(crate) struct Example {
     pub(crate) resources: BTreeMap<String, Resource>,
+    pub(crate) variables: BTreeMap<String, Variable>,
 }
 
 #[derive(Debug, PartialEq)]
@@ -52,7 +79,16 @@ pub(crate) struct Resource {
     pub(crate) properties: BTreeMap<String, Expression>,
 }
 
-struct Variable {}
+#[derive(Debug, PartialEq)]
+pub(crate) enum Variable {
+    FnInvokeVariable(FnInvoke),
+}
+
+#[derive(Debug, PartialEq)]
+pub(crate) struct FnInvoke {
+    pub(crate) function: ElementId,
+    pub(crate) arguments: BTreeMap<String, Expression>,
+}
 
 #[derive(Debug, PartialEq)]
 pub(crate) enum Expression {
@@ -89,11 +125,42 @@ fn map_resource(yaml_resource: YamlResource, context: &PackageContext) -> Resour
     }
 
     Resource {
-        type_: context.resource_name_map[&yaml_resource.type_]
-            .element_id
-            .clone(),
+        type_: resource.element_id.clone(),
         name: yaml_resource.name.clone(),
         properties,
+    }
+}
+
+fn map_variable(yaml_variable: &YamlVariable, context: &PackageContext) -> Variable {
+    FnInvokeVariable(map_fn_invoke(&yaml_variable.fn_invoke, context))
+}
+
+fn map_fn_invoke(yaml_fn_invoke: &YamlFnInvoke, context: &PackageContext) -> FnInvoke {
+    let function = context
+        .function_name_map
+        .get(&yaml_fn_invoke.function)
+        .unwrap_or_else(|| panic!("function not found: {}", yaml_fn_invoke.function));
+
+    let mut arguments = BTreeMap::new();
+
+    for (argument_name, argument_value) in &yaml_fn_invoke.arguments {
+        let function_argument = &function
+            .input_properties
+            .iter()
+            .find(|k| k.name == *argument_name)
+            .unwrap_or_else(|| panic!("argument not found: {}", argument_name));
+
+        let type_without_option = remove_option(&function_argument.r#type);
+
+        arguments.insert(
+            argument_name.clone(),
+            map_expression(context, &type_without_option, argument_value),
+        );
+    }
+
+    FnInvoke {
+        function: function.element_id.clone(),
+        arguments,
     }
 }
 

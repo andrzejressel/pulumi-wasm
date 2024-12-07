@@ -2,13 +2,15 @@
 //! 
 //! ## Example Usage
 //! 
-//! ```yaml
-//! variables:
-//!   example:
-//!     fn::invoke:
-//!       Function: cloudflare:getAccounts
-//!       Arguments:
-//!         name: example account
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = get_accounts::invoke(
+//!         GetAccountsArgs::builder().name("example account").build_struct(),
+//!     );
+//! }
 //! ```
 
 #[derive(bon::Builder)]

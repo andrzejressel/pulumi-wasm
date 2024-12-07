@@ -2,13 +2,17 @@
 //! 
 //! ## Example Usage
 //! 
-//! ```yaml
-//! variables:
-//!   example:
-//!     fn::invoke:
-//!       Function: cloudflare:getDevices
-//!       Arguments:
-//!         accountId: f037e56e89293a057740de681ac9abbe
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = get_devices::invoke(
+//!         GetDevicesArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 
 #[derive(bon::Builder)]

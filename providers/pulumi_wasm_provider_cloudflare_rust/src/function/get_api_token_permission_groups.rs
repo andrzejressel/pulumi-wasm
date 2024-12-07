@@ -3,19 +3,15 @@
 //! 
 //! ## Example Usage
 //! 
-//! ```yaml
-//! variables:
-//!   all:
-//!     fn::invoke:
-//!       Function: cloudflare:getApiTokenPermissionGroups
-//!       Arguments: {}
-//! outputs:
-//!   # Get zone level DNS read permission ID.
-//!   dnsReadPermissionId: ${all.zone"DNS Read"[%!s(MISSING)]}
-//!   # Get account level "Load Balancing: Monitors and Pools Read" permission ID.
-//!   accountLbMonitorsAndReadId: '${all.account"Load Balancing: Monitors and Pools Read"[%!s(MISSING)]}'
-//!   # Get user level "Memberships Read" permission ID.
-//!   userMembershipsReadId: ${all.user"Memberships Read"[%!s(MISSING)]}
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let all = get_api_token_permission_groups::invoke(
+//!         GetApiTokenPermissionGroupsArgs::builder().build_struct(),
+//!     );
+//! }
 //! ```
 
 

@@ -37,6 +37,7 @@ pub(crate) fn get_yaml_file() -> YamlFile {
             );
             resources
         },
+        variables: BTreeMap::new(),
     }
 }
 
@@ -63,6 +64,7 @@ pub fn get_model() -> Example {
             );
             map
         },
+        variables: BTreeMap::new(),
     }
 }
 

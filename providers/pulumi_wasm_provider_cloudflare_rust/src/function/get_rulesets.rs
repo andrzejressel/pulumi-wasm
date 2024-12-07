@@ -2,15 +2,18 @@
 //! 
 //! ## Example Usage
 //! 
-//! ```yaml
-//! variables:
-//!   example:
-//!     fn::invoke:
-//!       Function: cloudflare:getRulesets
-//!       Arguments:
-//!         zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!         filter:
-//!           name: .*OWASP.*
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = get_rulesets::invoke(
+//!         GetRulesetsArgs::builder()
+//!             .filter(GetRulesetsFilter::builder().name(".*OWASP.*").build_struct())
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
 
 #[derive(bon::Builder)]

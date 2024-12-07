@@ -35,6 +35,7 @@ mod tests {
                     concat!("test_cases/", $package_name, ".json").as_ref(),
                 )
                 .unwrap();
+
                 let package = schema::to_model(&schema_package).unwrap();
                 let yaml_file = $test_module::get_yaml_file();
                 let result = yaml_to_model(yaml_file, $package_name.to_string(), &package);
@@ -42,7 +43,7 @@ mod tests {
 
                 let model = $test_module::get_model();
                 let code = generate_code(model).unwrap();
-                assert_eq!($test_module::get_rust_code(), code);
+                assert_eq!(code, $test_module::get_rust_code());
             }
         };
     }
@@ -60,8 +61,9 @@ mod tests {
     );
     full_pipeline_test!(full_pipeline_example_numbers, "cloudflare", example_numbers);
     full_pipeline_test!(
-        full_pipeline_example_variable,
+        full_pipeline_example_interpolation,
         "cloudflare",
-        example_variable
+        example_interpolation
     );
+    full_pipeline_test!(generate_yaml_variables, "cloudflare", example_variables);
 }
