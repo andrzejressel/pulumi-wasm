@@ -14,25 +14,32 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   wordpress:
-//!     type: cloudflare:Filter
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       description: Wordpress break-in attempts that are outside of the office
-//!       expression: (http.request.uri.path ~ ".*wp-login.php" or http.request.uri.path ~ ".*xmlrpc.php") and ip.src ne 192.0.2.1
-//!   wordpressFirewallRule:
-//!     type: cloudflare:FirewallRule
-//!     name: wordpress
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       description: Block wordpress break-in attempts
-//!       filterId: ${wordpress.id}
-//!       action: block
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let wordpress = filter::create(
+//!         "wordpress",
+//!         FilterArgs::builder()
+//!             .description("Wordpress break-in attempts that are outside of the office")
+//!             .expression(
+//!                 "(http.request.uri.path ~ \".*wp-login.php\" or http.request.uri.path ~ \".*xmlrpc.php\") and ip.src ne 192.0.2.1",
+//!             )
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
+//!     let wordpressFirewallRule = firewall_rule::create(
+//!         "wordpressFirewallRule",
+//!         FirewallRuleArgs::builder()
+//!             .action("block")
+//!             .description("Block wordpress break-in attempts")
+//!             .filter_id("${wordpress.id}")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
-//! <!--End PulumiCodeChooser -->
 //! 
 //! ## Import
 //! 

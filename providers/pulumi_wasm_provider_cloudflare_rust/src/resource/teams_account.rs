@@ -3,55 +3,87 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:TeamsAccount
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       tlsDecryptEnabled: true
-//!       protocolDetectionEnabled: true
-//!       blockPage:
-//!         footerText: hello
-//!         headerText: hello
-//!         logoPath: https://example.com/logo.jpg
-//!         backgroundColor: '#000000'
-//!       bodyScanning:
-//!         inspectionMode: deep
-//!       antivirus:
-//!         enabledDownloadPhase: true
-//!         enabledUploadPhase: false
-//!         failClosed: true
-//!         notificationSettings:
-//!           enabled: true
-//!           message: you are blocked
-//!           supportUrl: https://example.com/blocked
-//!       fips:
-//!         tls: true
-//!       proxy:
-//!         tcp: true
-//!         udp: true
-//!         rootCa: true
-//!         virtualIp: false
-//!         disableForTime: 3600
-//!       urlBrowserIsolationEnabled: true
-//!       logging:
-//!         redactPii: true
-//!         settingsByRuleType:
-//!           dns:
-//!             logAll: false
-//!             logBlocks: true
-//!           http:
-//!             logAll: true
-//!             logBlocks: true
-//!           l4:
-//!             logAll: false
-//!             logBlocks: true
-//!       extendedEmailMatching:
-//!         enabled: true
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = teams_account::create(
+//!         "example",
+//!         TeamsAccountArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .antivirus(
+//!                 TeamsAccountAntivirus::builder()
+//!                     .enabledDownloadPhase(true)
+//!                     .enabledUploadPhase(false)
+//!                     .failClosed(true)
+//!                     .notificationSettings(
+//!                         TeamsAccountAntivirusNotificationSettings::builder()
+//!                             .enabled(true)
+//!                             .message("you are blocked")
+//!                             .supportUrl("https://example.com/blocked")
+//!                             .build_struct(),
+//!                     )
+//!                     .build_struct(),
+//!             )
+//!             .block_page(
+//!                 TeamsAccountBlockPage::builder()
+//!                     .backgroundColor("#000000")
+//!                     .footerText("hello")
+//!                     .headerText("hello")
+//!                     .logoPath("https://example.com/logo.jpg")
+//!                     .build_struct(),
+//!             )
+//!             .body_scanning(
+//!                 TeamsAccountBodyScanning::builder().inspectionMode("deep").build_struct(),
+//!             )
+//!             .extended_email_matching(
+//!                 TeamsAccountExtendedEmailMatching::builder().enabled(true).build_struct(),
+//!             )
+//!             .fips(TeamsAccountFips::builder().tls(true).build_struct())
+//!             .logging(
+//!                 TeamsAccountLogging::builder()
+//!                     .redactPii(true)
+//!                     .settingsByRuleType(
+//!                         TeamsAccountLoggingSettingsByRuleType::builder()
+//!                             .dns(
+//!                                 TeamsAccountLoggingSettingsByRuleTypeDns::builder()
+//!                                     .logAll(false)
+//!                                     .logBlocks(true)
+//!                                     .build_struct(),
+//!                             )
+//!                             .http(
+//!                                 TeamsAccountLoggingSettingsByRuleTypeHttp::builder()
+//!                                     .logAll(true)
+//!                                     .logBlocks(true)
+//!                                     .build_struct(),
+//!                             )
+//!                             .l4(
+//!                                 TeamsAccountLoggingSettingsByRuleTypeL4::builder()
+//!                                     .logAll(false)
+//!                                     .logBlocks(true)
+//!                                     .build_struct(),
+//!                             )
+//!                             .build_struct(),
+//!                     )
+//!                     .build_struct(),
+//!             )
+//!             .protocol_detection_enabled(true)
+//!             .proxy(
+//!                 TeamsAccountProxy::builder()
+//!                     .disableForTime(3600)
+//!                     .rootCa(true)
+//!                     .tcp(true)
+//!                     .udp(true)
+//!                     .virtualIp(false)
+//!                     .build_struct(),
+//!             )
+//!             .tls_decrypt_enabled(true)
+//!             .url_browser_isolation_enabled(true)
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
-//! <!--End PulumiCodeChooser -->
 //! 
 //! ## Import
 //! 

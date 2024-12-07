@@ -3,55 +3,91 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:ZeroTrustGatewaySettings
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       tlsDecryptEnabled: true
-//!       protocolDetectionEnabled: true
-//!       blockPage:
-//!         footerText: hello
-//!         headerText: hello
-//!         logoPath: https://example.com/logo.jpg
-//!         backgroundColor: '#000000'
-//!       bodyScanning:
-//!         inspectionMode: deep
-//!       antivirus:
-//!         enabledDownloadPhase: true
-//!         enabledUploadPhase: false
-//!         failClosed: true
-//!         notificationSettings:
-//!           enabled: true
-//!           message: you are blocked
-//!           supportUrl: https://example.com/blocked
-//!       fips:
-//!         tls: true
-//!       proxy:
-//!         tcp: true
-//!         udp: true
-//!         rootCa: true
-//!         virtualIp: false
-//!         disableForTime: 3600
-//!       urlBrowserIsolationEnabled: true
-//!       logging:
-//!         redactPii: true
-//!         settingsByRuleType:
-//!           dns:
-//!             logAll: false
-//!             logBlocks: true
-//!           http:
-//!             logAll: true
-//!             logBlocks: true
-//!           l4:
-//!             logAll: false
-//!             logBlocks: true
-//!       extendedEmailMatching:
-//!         enabled: true
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = zero_trust_gateway_settings::create(
+//!         "example",
+//!         ZeroTrustGatewaySettingsArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .antivirus(
+//!                 ZeroTrustGatewaySettingsAntivirus::builder()
+//!                     .enabledDownloadPhase(true)
+//!                     .enabledUploadPhase(false)
+//!                     .failClosed(true)
+//!                     .notificationSettings(
+//!                         ZeroTrustGatewaySettingsAntivirusNotificationSettings::builder()
+//!                             .enabled(true)
+//!                             .message("you are blocked")
+//!                             .supportUrl("https://example.com/blocked")
+//!                             .build_struct(),
+//!                     )
+//!                     .build_struct(),
+//!             )
+//!             .block_page(
+//!                 ZeroTrustGatewaySettingsBlockPage::builder()
+//!                     .backgroundColor("#000000")
+//!                     .footerText("hello")
+//!                     .headerText("hello")
+//!                     .logoPath("https://example.com/logo.jpg")
+//!                     .build_struct(),
+//!             )
+//!             .body_scanning(
+//!                 ZeroTrustGatewaySettingsBodyScanning::builder()
+//!                     .inspectionMode("deep")
+//!                     .build_struct(),
+//!             )
+//!             .extended_email_matching(
+//!                 ZeroTrustGatewaySettingsExtendedEmailMatching::builder()
+//!                     .enabled(true)
+//!                     .build_struct(),
+//!             )
+//!             .fips(ZeroTrustGatewaySettingsFips::builder().tls(true).build_struct())
+//!             .logging(
+//!                 ZeroTrustGatewaySettingsLogging::builder()
+//!                     .redactPii(true)
+//!                     .settingsByRuleType(
+//!                         ZeroTrustGatewaySettingsLoggingSettingsByRuleType::builder()
+//!                             .dns(
+//!                                 ZeroTrustGatewaySettingsLoggingSettingsByRuleTypeDns::builder()
+//!                                     .logAll(false)
+//!                                     .logBlocks(true)
+//!                                     .build_struct(),
+//!                             )
+//!                             .http(
+//!                                 ZeroTrustGatewaySettingsLoggingSettingsByRuleTypeHttp::builder()
+//!                                     .logAll(true)
+//!                                     .logBlocks(true)
+//!                                     .build_struct(),
+//!                             )
+//!                             .l4(
+//!                                 ZeroTrustGatewaySettingsLoggingSettingsByRuleTypeL4::builder()
+//!                                     .logAll(false)
+//!                                     .logBlocks(true)
+//!                                     .build_struct(),
+//!                             )
+//!                             .build_struct(),
+//!                     )
+//!                     .build_struct(),
+//!             )
+//!             .protocol_detection_enabled(true)
+//!             .proxy(
+//!                 ZeroTrustGatewaySettingsProxy::builder()
+//!                     .disableForTime(3600)
+//!                     .rootCa(true)
+//!                     .tcp(true)
+//!                     .udp(true)
+//!                     .virtualIp(false)
+//!                     .build_struct(),
+//!             )
+//!             .tls_decrypt_enabled(true)
+//!             .url_browser_isolation_enabled(true)
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
-//! <!--End PulumiCodeChooser -->
 //! 
 //! ## Import
 //! 

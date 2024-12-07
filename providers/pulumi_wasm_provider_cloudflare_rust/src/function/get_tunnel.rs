@@ -2,17 +2,19 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! variables:
-//!   example:
-//!     fn::invoke:
-//!       Function: cloudflare:getTunnel
-//!       Arguments:
-//!         accountId: f037e56e89293a057740de681ac9abbe
-//!         name: my-tunnel
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = get_tunnel::invoke(
+//!         GetTunnelArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .name("my-tunnel")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
-//! <!--End PulumiCodeChooser -->
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]

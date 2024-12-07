@@ -5,13 +5,12 @@ use std::path::Path;
 
 use crate::schema::Package;
 use anyhow::{Context, Result};
-
-pub(crate) mod code_generation;
+mod code_generation;
+mod description;
 mod model;
 mod output;
 mod schema;
 mod utils;
-pub(crate) mod yaml;
 
 pub fn generate_rust_library(schema_json: &Path, result_path: &Path) -> Result<()> {
     let schema_package: schema::Package = extract_schema_from_file(schema_json)?;

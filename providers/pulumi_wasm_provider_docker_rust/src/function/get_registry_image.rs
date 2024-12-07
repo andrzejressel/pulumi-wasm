@@ -2,12 +2,14 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
-//! ```rust
+//! ```ignore
 //! use pulumi_wasm_rust::Output;
 //! use pulumi_wasm_rust::{add_export, pulumi_main};
 //! #[pulumi_main]
 //! fn test_main() -> Result<(), Error> {
+//!     let ubuntuRegistryImage = get_registry_image::invoke(
+//!         GetRegistryImageArgs::builder().name("ubuntu:precise").build_struct(),
+//!     );
 //!     let ubuntuRemoteImage = remote_image::create(
 //!         "ubuntuRemoteImage",
 //!         RemoteImageArgs::builder()
@@ -17,7 +19,6 @@
 //!     );
 //! }
 //! ```
-//! <!--End PulumiCodeChooser -->
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]

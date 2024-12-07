@@ -2,8 +2,7 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
-//! ```rust
+//! ```ignore
 //! use pulumi_wasm_rust::Output;
 //! use pulumi_wasm_rust::{add_export, pulumi_main};
 //! #[pulumi_main]
@@ -14,21 +13,16 @@
 //!             .account_id("f037e56e89293a057740de681ac9abbe")
 //!             .ca(true)
 //!             .certificates(
-//!                 "-----BEGIN CERTIFICATE-----
-//! MIIDmDCCAoCgAwIBAgIUKTOAZNj...i4JhqeoTewsxndhDDE
-//! -----END CERTIFICATE-----",
+//!                 "-----BEGIN CERTIFICATE-----\nMIIDmDCCAoCgAwIBAgIUKTOAZNj...i4JhqeoTewsxndhDDE\n-----END CERTIFICATE-----",
 //!             )
 //!             .name("example")
 //!             .private_key(
-//!                 "-----BEGIN PRIVATE KEY-----
-//! MIIEvQIBADANBgkqhkiG9w0BAQE...1IS3EnQRrz6WMYA=
-//! -----END PRIVATE KEY-----",
+//!                 "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQE...1IS3EnQRrz6WMYA=\n-----END PRIVATE KEY-----",
 //!             )
 //!             .build_struct(),
 //!     );
 //! }
 //! ```
-//! <!--End PulumiCodeChooser -->
 //! 
 //! ## Import
 //! 

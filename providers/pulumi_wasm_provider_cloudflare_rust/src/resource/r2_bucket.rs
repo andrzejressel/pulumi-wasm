@@ -1,7 +1,6 @@
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
-//! ```rust
+//! ```ignore
 //! use pulumi_wasm_rust::Output;
 //! use pulumi_wasm_rust::{add_export, pulumi_main};
 //! #[pulumi_main]
@@ -16,7 +15,6 @@
 //!     );
 //! }
 //! ```
-//! <!--End PulumiCodeChooser -->
 //! 
 //! > Available location values can be found in the [R2 documentation](https://developers.cloudflare.com/r2/reference/data-location/#available-hints).
 //! 

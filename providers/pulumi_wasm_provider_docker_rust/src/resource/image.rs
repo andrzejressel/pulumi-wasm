@@ -28,7 +28,7 @@
 //!   ```
 //! * In a GitHub Actions workflow, the [docker/setup-qemu-action](https://github.com/docker/setup-qemu-action) can be used instead by adding this step to your workflow file. Example workflow usage:
 //! 
-//! ```yaml
+//!   ```yaml
 //!   name: Pulumi
 //!   on:
 //!     push:
@@ -50,7 +50,7 @@
 //!             stack-name: org-name/stack-name
 //!           env:
 //!             PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
-//! ```
+//!   ```
 //! 
 //! 
 //! ## Example Usage

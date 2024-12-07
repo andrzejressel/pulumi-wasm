@@ -2,25 +2,33 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   # Add a page rule to the domain
-//!   foobar:
-//!     type: cloudflare:PageRule
-//!     properties:
-//!       zoneId: ${cloudflareZoneId}
-//!       target: sub.${cloudflareZone}/page
-//!       priority: 1
-//!       actions:
-//!         ssl: flexible
-//!         emailObfuscation: on
-//!         minifies:
-//!           - html: off
-//!             css: on
-//!             js: on
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let foobar = page_rule::create(
+//!         "foobar",
+//!         PageRuleArgs::builder()
+//!             .actions(
+//!                 PageRuleActions::builder()
+//!                     .emailObfuscation("on")
+//!                     .minifies(
+//!                         vec![
+//!                             PageRuleActionsMinify::builder().css("on").html("off")
+//!                             .js("on").build_struct(),
+//!                         ],
+//!                     )
+//!                     .ssl("flexible")
+//!                     .build_struct(),
+//!             )
+//!             .priority(1)
+//!             .target("sub.${cloudflareZone}/page")
+//!             .zone_id("${cloudflareZoneId}")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
-//! <!--End PulumiCodeChooser -->
 //! 
 //! ## Import
 //! 

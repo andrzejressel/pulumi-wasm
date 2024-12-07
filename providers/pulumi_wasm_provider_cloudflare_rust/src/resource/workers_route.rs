@@ -2,22 +2,25 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   # Runs the specified worker script for all URLs that match `example.com/*`
-//!   myRoute:
-//!     type: cloudflare:WorkersRoute
-//!     name: my_route
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       pattern: example.com/*
-//!       scriptName: ${myScript.name}
-//!   myScript:
-//!     type: cloudflare:WorkersScript
-//!     name: my_script
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let myRoute = workers_route::create(
+//!         "myRoute",
+//!         WorkersRouteArgs::builder()
+//!             .pattern("example.com/*")
+//!             .script_name("${myScript.name}")
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
+//!     let myScript = workers_script::create(
+//!         "myScript",
+//!         WorkersScriptArgs::builder().build_struct(),
+//!     );
+//! }
 //! ```
-//! <!--End PulumiCodeChooser -->
 //! 
 //! ## Import
 //! 

@@ -2,25 +2,31 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:TeamsRule
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: office
-//!       description: desc
-//!       precedence: 1
-//!       action: block
-//!       filters:
-//!         - http
-//!       traffic: http.request.uri == "https://www.example.com/malicious"
-//!       ruleSettings:
-//!         blockPageEnabled: true
-//!         blockPageReason: access not permitted
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = teams_rule::create(
+//!         "example",
+//!         TeamsRuleArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .action("block")
+//!             .description("desc")
+//!             .filters(vec!["http",])
+//!             .name("office")
+//!             .precedence(1)
+//!             .rule_settings(
+//!                 TeamsRuleRuleSettings::builder()
+//!                     .blockPageEnabled(true)
+//!                     .blockPageReason("access not permitted")
+//!                     .build_struct(),
+//!             )
+//!             .traffic("http.request.uri == \"https://www.example.com/malicious\"")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
-//! <!--End PulumiCodeChooser -->
 //! 
 //! ## Import
 //! 

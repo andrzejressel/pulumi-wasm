@@ -11,7 +11,7 @@
 //! for a feature that is not available on the plan configured for the zone will
 //! result in an error:
 //! 
-//! ```
+//! ```sh
 //! Error: invalid zone setting "\<argument\>" (value: \<value\>) found - cannot be set as it is read only
 //! ```
 //! 
@@ -22,29 +22,42 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   test:
-//!     type: cloudflare:ZoneSettingsOverride
-//!     properties:
-//!       zoneId: 0da42c8d2132a9ddaf714f9e7c920711
-//!       settings:
-//!         brotli: on
-//!         challengeTtl: 2700
-//!         securityLevel: high
-//!         opportunisticEncryption: on
-//!         automaticHttpsRewrites: on
-//!         mirage: on
-//!         waf: on
-//!         minify:
-//!           css: on
-//!           js: off
-//!           html: off
-//!         securityHeader:
-//!           enabled: true
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let test = zone_settings_override::create(
+//!         "test",
+//!         ZoneSettingsOverrideArgs::builder()
+//!             .settings(
+//!                 ZoneSettingsOverrideSettings::builder()
+//!                     .automaticHttpsRewrites("on")
+//!                     .brotli("on")
+//!                     .challengeTtl(2700)
+//!                     .minify(
+//!                         ZoneSettingsOverrideSettingsMinify::builder()
+//!                             .css("on")
+//!                             .html("off")
+//!                             .js("off")
+//!                             .build_struct(),
+//!                     )
+//!                     .mirage("on")
+//!                     .opportunisticEncryption("on")
+//!                     .securityHeader(
+//!                         ZoneSettingsOverrideSettingsSecurityHeader::builder()
+//!                             .enabled(true)
+//!                             .build_struct(),
+//!                     )
+//!                     .securityLevel("high")
+//!                     .waf("on")
+//!                     .build_struct(),
+//!             )
+//!             .zone_id("0da42c8d2132a9ddaf714f9e7c920711")
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
-//! <!--End PulumiCodeChooser -->
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]

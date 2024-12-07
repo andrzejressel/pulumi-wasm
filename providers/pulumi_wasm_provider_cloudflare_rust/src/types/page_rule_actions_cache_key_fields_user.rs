@@ -13,39 +13,58 @@ pub struct PageRuleActionsCacheKeyFieldsUser {
     /// 
     /// Example:
     /// 
-    /// <!--Start PulumiCodeChooser -->
-    /// ```yaml
-    /// resources:
-    ///   # Unrealistic example with all features used
-    ///   foobar:
-    ///     type: cloudflare:PageRule
-    ///     properties:
-    ///       zoneId: ${cloudflareZoneId}
-    ///       target: ${cloudflareZone}/app/*
-    ///       priority: 1
-    ///       actions:
-    ///         cacheKeyFields:
-    ///           cookie:
-    ///             checkPresences:
-    ///               - wordpress_test_cookie
-    ///           header:
-    ///             checkPresences:
-    ///               - header_present
-    ///             excludes:
-    ///               - origin
-    ///             includes:
-    ///               - api-key
-    ///               - dnt
-    ///           host:
-    ///             resolved: true
-    ///           queryString:
-    ///             ignore: true
-    ///           user:
-    ///             deviceType: false
-    ///             geo: true
-    ///             lang: true
+    /// ```ignore
+    /// use pulumi_wasm_rust::Output;
+    /// use pulumi_wasm_rust::{add_export, pulumi_main};
+    /// #[pulumi_main]
+    /// fn test_main() -> Result<(), Error> {
+    ///     let foobar = page_rule::create(
+    ///         "foobar",
+    ///         PageRuleArgs::builder()
+    ///             .actions(
+    ///                 PageRuleActions::builder()
+    ///                     .cacheKeyFields(
+    ///                         PageRuleActionsCacheKeyFields::builder()
+    ///                             .cookie(
+    ///                                 PageRuleActionsCacheKeyFieldsCookie::builder()
+    ///                                     .checkPresences(vec!["wordpress_test_cookie",])
+    ///                                     .build_struct(),
+    ///                             )
+    ///                             .header(
+    ///                                 PageRuleActionsCacheKeyFieldsHeader::builder()
+    ///                                     .checkPresences(vec!["header_present",])
+    ///                                     .excludes(vec!["origin",])
+    ///                                     .includes(vec!["api-key", "dnt",])
+    ///                                     .build_struct(),
+    ///                             )
+    ///                             .host(
+    ///                                 PageRuleActionsCacheKeyFieldsHost::builder()
+    ///                                     .resolved(true)
+    ///                                     .build_struct(),
+    ///                             )
+    ///                             .queryString(
+    ///                                 PageRuleActionsCacheKeyFieldsQueryString::builder()
+    ///                                     .ignore(true)
+    ///                                     .build_struct(),
+    ///                             )
+    ///                             .user(
+    ///                                 PageRuleActionsCacheKeyFieldsUser::builder()
+    ///                                     .deviceType(false)
+    ///                                     .geo(true)
+    ///                                     .lang(true)
+    ///                                     .build_struct(),
+    ///                             )
+    ///                             .build_struct(),
+    ///                     )
+    ///                     .build_struct(),
+    ///             )
+    ///             .priority(1)
+    ///             .target("${cloudflareZone}/app/*")
+    ///             .zone_id("${cloudflareZoneId}")
+    ///             .build_struct(),
+    ///     );
+    /// }
     /// ```
-    /// <!--End PulumiCodeChooser -->
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "lang")]
     pub r#lang: Box<Option<bool>>,

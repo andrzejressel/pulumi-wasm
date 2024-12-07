@@ -3,43 +3,51 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! resources:
-//!   example:
-//!     type: cloudflare:LoadBalancerPool
-//!     properties:
-//!       accountId: f037e56e89293a057740de681ac9abbe
-//!       name: example-pool
-//!       origins:
-//!         - name: example-1
-//!           address: 192.0.2.1
-//!           enabled: false
-//!           headers:
-//!             - header: Host
-//!               values:
-//!                 - example-1
-//!         - name: example-2
-//!           address: 192.0.2.2
-//!           headers:
-//!             - header: Host
-//!               values:
-//!                 - example-2
-//!       latitude: 55
-//!       longitude: -12
-//!       description: example load balancer pool
-//!       enabled: false
-//!       minimumOrigins: 1
-//!       notificationEmail: someone@example.com
-//!       loadSheddings:
-//!         - defaultPercent: 55
-//!           defaultPolicy: random
-//!           sessionPercent: 12
-//!           sessionPolicy: hash
-//!       originSteerings:
-//!         - policy: random
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = load_balancer_pool::create(
+//!         "example",
+//!         LoadBalancerPoolArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .description("example load balancer pool")
+//!             .enabled(false)
+//!             .latitude(55)
+//!             .load_sheddings(
+//!                 vec![
+//!                     LoadBalancerPoolLoadShedding::builder().defaultPercent(55)
+//!                     .defaultPolicy("random").sessionPercent(12).sessionPolicy("hash")
+//!                     .build_struct(),
+//!                 ],
+//!             )
+//!             .longitude(-12)
+//!             .minimum_origins(1)
+//!             .name("example-pool")
+//!             .notification_email("someone@example.com")
+//!             .origin_steerings(
+//!                 vec![
+//!                     LoadBalancerPoolOriginSteering::builder().policy("random")
+//!                     .build_struct(),
+//!                 ],
+//!             )
+//!             .origins(
+//!                 vec![
+//!                     LoadBalancerPoolOrigin::builder().address("192.0.2.1").enabled(false)
+//!                     .headers(vec![LoadBalancerPoolOriginHeader::builder().header("Host")
+//!                     .values(vec!["example-1",]).build_struct(),]).name("example-1")
+//!                     .build_struct(), LoadBalancerPoolOrigin::builder()
+//!                     .address("192.0.2.2")
+//!                     .headers(vec![LoadBalancerPoolOriginHeader::builder().header("Host")
+//!                     .values(vec!["example-2",]).build_struct(),]).name("example-2")
+//!                     .build_struct(),
+//!                 ],
+//!             )
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
-//! <!--End PulumiCodeChooser -->
 //! 
 //! ## Import
 //! 
