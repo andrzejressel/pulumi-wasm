@@ -37,7 +37,7 @@ pub mod component {
                     #[cfg(target_arch = "wasm32")]
                     {
                         #[link(
-                            wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0-DEV"
+                            wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-dd68c66"
                         )]
                         extern "C" {
                             #[link_name = "[resource-drop]output"]
@@ -56,7 +56,7 @@ pub mod component {
                         let len0 = vec0.len();
                         #[cfg(target_arch = "wasm32")]
                         #[link(
-                            wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0-DEV"
+                            wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-dd68c66"
                         )]
                         extern "C" {
                             #[link_name = "[constructor]output"]
@@ -80,7 +80,7 @@ pub mod component {
                         let len0 = vec0.len();
                         #[cfg(target_arch = "wasm32")]
                         #[link(
-                            wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0-DEV"
+                            wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-dd68c66"
                         )]
                         extern "C" {
                             #[link_name = "[method]output.map"]
@@ -125,7 +125,7 @@ pub mod component {
                     }
                     #[cfg(target_arch = "wasm32")]
                     #[link(
-                        wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0-DEV"
+                        wasm_import_module = "component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-dd68c66"
                     )]
                     extern "C" {
                         #[link_name = "combine"]
@@ -345,7 +345,7 @@ pub mod component {
                     let ptr9 = ret_area.0.as_mut_ptr().cast::<u8>();
                     #[cfg(target_arch = "wasm32")]
                     #[link(
-                        wasm_import_module = "component:pulumi-wasm/register-interface@0.0.0-DEV"
+                        wasm_import_module = "component:pulumi-wasm/register-interface@0.0.0-NIGHTLY-dd68c66"
                     )]
                     extern "C" {
                         #[link_name = "register"]
@@ -494,7 +494,7 @@ pub mod component {
                     let ptr8 = ret_area.0.as_mut_ptr().cast::<u8>();
                     #[cfg(target_arch = "wasm32")]
                     #[link(
-                        wasm_import_module = "component:pulumi-wasm/register-interface@0.0.0-DEV"
+                        wasm_import_module = "component:pulumi-wasm/register-interface@0.0.0-NIGHTLY-dd68c66"
                     )]
                     extern "C" {
                         #[link_name = "invoke"]
@@ -1175,16 +1175,16 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_access_application_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_access_application_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/access-application@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/access-application@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8,) -> * mut u8
                         { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_access_application_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_access_application_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 140]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -1293,10 +1293,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_access_ca_certificate_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_access_ca_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/access-ca-certificate@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/access-ca-certificate@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -1304,7 +1304,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_access_ca_certificate_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_access_ca_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -1447,10 +1447,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_access_custom_page_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_access_custom_page_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/access-custom-page@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/access-custom-page@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32,) -> * mut u8 { $($path_to_types)*::
@@ -1459,7 +1459,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_access_custom_page_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_access_custom_page_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -1602,18 +1602,19 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_access_group_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_access_group_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/access-group@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7 : i32,)
-                        -> * mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty >
-                        (arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7) } };
+                        "pulumi:cloudflare/access-group@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
+                        : i32,) -> * mut u8 { $($path_to_types)*::
+                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3, arg4, arg5,
+                        arg6, arg7) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_access_group_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_access_group_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -1756,10 +1757,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_access_identity_provider_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_access_identity_provider_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/access-identity-provider@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/access-identity-provider@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32,) -> * mut u8 { $($path_to_types)*::
@@ -1768,7 +1769,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_access_identity_provider_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_access_identity_provider_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -1862,17 +1863,17 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_access_keys_configuration_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_access_keys_configuration_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/access-keys-configuration@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/access-keys-configuration@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_access_keys_configuration_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_access_keys_configuration_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -2006,10 +2007,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_access_mutual_tls_certificate_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_access_mutual_tls_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/access-mutual-tls-certificate@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/access-mutual-tls-certificate@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> *
                         mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
@@ -2017,7 +2018,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_access_mutual_tls_certificate_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_access_mutual_tls_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -2118,10 +2119,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_access_mutual_tls_hostname_settings_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_access_mutual_tls_hostname_settings_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/access-mutual-tls-hostname-settings@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/access-mutual-tls-hostname-settings@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -2129,7 +2130,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_access_mutual_tls_hostname_settings_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_access_mutual_tls_hostname_settings_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -2408,10 +2409,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_access_organization_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_access_organization_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/access-organization@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/access-organization@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32, arg8 : i32, arg9 : i32, arg10 : i32, arg11 : i32, arg12 :
@@ -2422,7 +2423,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_access_organization_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_access_organization_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 52]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -2725,16 +2726,16 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_access_policy_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_access_policy_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/access-policy@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/access-policy@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8,) -> * mut u8
                         { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_access_policy_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_access_policy_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 64]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -2863,18 +2864,18 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_access_rule_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_access_rule_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/access-rule@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> * mut u8
-                        { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
-                        arg2, arg3, arg4, arg5, arg6) } };
+                        "pulumi:cloudflare/access-rule@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> *
+                        mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
+                        arg1, arg2, arg3, arg4, arg5, arg6) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_access_rule_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_access_rule_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -3016,10 +3017,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_access_service_token_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_access_service_token_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/access-service-token@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/access-service-token@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> *
                         mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
@@ -3027,7 +3028,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_access_service_token_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_access_service_token_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -3142,18 +3143,18 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_access_tag_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_access_tag_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/access-tag@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
+                        "pulumi:cloudflare/access-tag@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
                         arg2, arg3, arg4, arg5) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_access_tag_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_access_tag_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -3255,17 +3256,18 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_account_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_account_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/account@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32, arg4 : i32,) -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3, arg4) } };
+                        "pulumi:cloudflare/account@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
+                        arg2, arg3, arg4) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_account_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_account_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -3380,10 +3382,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_account_member_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_account_member_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/account-member@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/account-member@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -3391,7 +3393,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_account_member_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_account_member_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -3542,18 +3544,19 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_address_map_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_address_map_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/address-map@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7 : i32,)
-                        -> * mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty >
-                        (arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7) } };
+                        "pulumi:cloudflare/address-map@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
+                        : i32,) -> * mut u8 { $($path_to_types)*::
+                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3, arg4, arg5,
+                        arg6, arg7) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_address_map_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_address_map_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -3647,17 +3650,17 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_api_shield_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_api_shield_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/api-shield@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
+                        "pulumi:cloudflare/api-shield@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_api_shield_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_api_shield_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -3772,10 +3775,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_api_shield_operation_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_api_shield_operation_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/api-shield-operation@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/api-shield-operation@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -3783,7 +3786,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_api_shield_operation_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_api_shield_operation_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -3885,10 +3888,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_api_shield_operation_schema_validation_settings_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_api_shield_operation_schema_validation_settings_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/api-shield-operation-schema-validation-settings@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/api-shield-operation-schema-validation-settings@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -3896,7 +3899,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_api_shield_operation_schema_validation_settings_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_api_shield_operation_schema_validation_settings_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -4026,10 +4029,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_api_shield_schema_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_api_shield_schema_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/api-shield-schema@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/api-shield-schema@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> *
                         mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
@@ -4037,7 +4040,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_api_shield_schema_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_api_shield_schema_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -4152,10 +4155,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_api_shield_schema_validation_settings_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_api_shield_schema_validation_settings_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/api-shield-schema-validation-settings@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/api-shield-schema-validation-settings@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -4163,7 +4166,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_api_shield_schema_validation_settings_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_api_shield_schema_validation_settings_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -4308,18 +4311,18 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_api_token_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_api_token_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/api-token@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> * mut u8
-                        { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
-                        arg2, arg3, arg4, arg5, arg6) } };
+                        "pulumi:cloudflare/api-token@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> *
+                        mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
+                        arg1, arg2, arg3, arg4, arg5, arg6) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_api_token_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_api_token_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 36]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -4420,17 +4423,18 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_argo_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_argo_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/argo@5.43.1--0.0.0-DEV#invoke"] unsafe extern
-                        "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 : i32,
-                        arg3 : i32, arg4 : i32,) -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3, arg4) } };
+                        "pulumi:cloudflare/argo@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
+                        arg2, arg3, arg4) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_argo_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_argo_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -4552,10 +4556,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_authenticated_origin_pulls_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_authenticated_origin_pulls_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/authenticated-origin-pulls@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/authenticated-origin-pulls@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -4563,7 +4567,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_authenticated_origin_pulls_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_authenticated_origin_pulls_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -4702,10 +4706,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_authenticated_origin_pulls_certificate_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_authenticated_origin_pulls_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/authenticated-origin-pulls-certificate@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/authenticated-origin-pulls-certificate@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -4713,7 +4717,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_authenticated_origin_pulls_certificate_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_authenticated_origin_pulls_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 40]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -4957,10 +4961,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_bot_management_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_bot_management_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/bot-management@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/bot-management@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32, arg8 : i32, arg9 : i32, arg10 : i32, arg11 : i32, arg12 :
@@ -4970,7 +4974,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_bot_management_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_bot_management_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 48]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -5085,10 +5089,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_byo_ip_prefix_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_byo_ip_prefix_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/byo-ip-prefix@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/byo-ip-prefix@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -5096,7 +5100,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_byo_ip_prefix_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_byo_ip_prefix_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -5308,10 +5312,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_certificate_pack_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_certificate_pack_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/certificate-pack@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/certificate-pack@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32, arg8 : i32, arg9 : i32, arg10 : i32, arg11 : i32,) -> *
@@ -5321,7 +5325,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_certificate_pack_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_certificate_pack_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 40]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -5405,17 +5409,17 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_cloud_connector_rules_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_cloud_connector_rules_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/cloud-connector-rules@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/cloud-connector-rules@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_cloud_connector_rules_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_cloud_connector_rules_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -5602,10 +5606,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_custom_hostname_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_custom_hostname_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/custom-hostname@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/custom-hostname@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32, arg8 : i32,) -> * mut u8 { $($path_to_types)*::
@@ -5614,7 +5618,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_custom_hostname_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_custom_hostname_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 40]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -5701,17 +5705,17 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_custom_hostname_fallback_origin_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_custom_hostname_fallback_origin_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/custom-hostname-fallback-origin@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/custom-hostname-fallback-origin@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_custom_hostname_fallback_origin_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_custom_hostname_fallback_origin_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -5840,18 +5844,18 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_custom_pages_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_custom_pages_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/custom-pages@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> * mut u8
-                        { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
-                        arg2, arg3, arg4, arg5, arg6) } };
+                        "pulumi:cloudflare/custom-pages@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> *
+                        mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
+                        arg1, arg2, arg3, arg4, arg5, arg6) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_custom_pages_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_custom_pages_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -5986,17 +5990,18 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_custom_ssl_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_custom_ssl_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/custom-ssl@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32, arg4 : i32,) -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3, arg4) } };
+                        "pulumi:cloudflare/custom-ssl@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
+                        arg2, arg3, arg4) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_custom_ssl_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_custom_ssl_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 44]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -6087,17 +6092,17 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_d1_database_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_d1_database_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/d1-database@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
+                        "pulumi:cloudflare/d1-database@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_d1_database_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_d1_database_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -6248,10 +6253,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_device_dex_test_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_device_dex_test_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/device-dex-test@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/device-dex-test@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32,) -> * mut u8 { $($path_to_types)*::
@@ -6260,7 +6265,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_device_dex_test_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_device_dex_test_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -6375,10 +6380,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_device_managed_networks_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_device_managed_networks_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/device-managed-networks@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/device-managed-networks@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -6386,7 +6391,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_device_managed_networks_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_device_managed_networks_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -6470,17 +6475,17 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_device_policy_certificates_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_device_policy_certificates_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/device-policy-certificates@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/device-policy-certificates@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_device_policy_certificates_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_device_policy_certificates_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -6623,10 +6628,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_device_posture_integration_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_device_posture_integration_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/device-posture-integration@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/device-posture-integration@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32,) -> * mut u8 { $($path_to_types)*::
@@ -6635,7 +6640,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_device_posture_integration_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_device_posture_integration_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -6806,10 +6811,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_device_posture_rule_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_device_posture_rule_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/device-posture-rule@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/device-posture-rule@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32, arg8 : i32, arg9 : i32,) -> * mut u8 {
@@ -6818,7 +6823,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_device_posture_rule_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_device_posture_rule_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -7152,16 +7157,16 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_device_settings_policy_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_device_settings_policy_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/device-settings-policy@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/device-settings-policy@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8,) -> * mut u8
                         { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_device_settings_policy_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_device_settings_policy_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 76]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -7334,19 +7339,19 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_dlp_profile_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_dlp_profile_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/dlp-profile@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7 : i32,
-                        arg8 : i32, arg9 : i32,) -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3, arg4, arg5,
-                        arg6, arg7, arg8, arg9) } };
+                        "pulumi:cloudflare/dlp-profile@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
+                        : i32, arg8 : i32, arg9 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
+                        arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_dlp_profile_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_dlp_profile_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -7449,17 +7454,17 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_email_routing_address_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_email_routing_address_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/email-routing-address@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/email-routing-address@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_email_routing_address_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_email_routing_address_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -7592,10 +7597,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_email_routing_catch_all_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_email_routing_catch_all_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/email-routing-catch-all@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/email-routing-catch-all@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> *
                         mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
@@ -7603,7 +7608,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_email_routing_catch_all_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_email_routing_catch_all_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -7750,10 +7755,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_email_routing_rule_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_email_routing_rule_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/email-routing-rule@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/email-routing-rule@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32,) -> * mut u8 { $($path_to_types)*::
@@ -7762,7 +7767,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_email_routing_rule_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_email_routing_rule_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 28]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -7883,10 +7888,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_email_routing_settings_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_email_routing_settings_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/email-routing-settings@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/email-routing-settings@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -7894,7 +7899,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_email_routing_settings_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_email_routing_settings_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -7995,10 +8000,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_fallback_domain_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_fallback_domain_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/fallback-domain@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/fallback-domain@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -8006,7 +8011,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_fallback_domain_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_fallback_domain_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -8135,18 +8140,18 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_filter_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_filter_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/filter@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> * mut u8
-                        { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
-                        arg2, arg3, arg4, arg5, arg6) } };
+                        "pulumi:cloudflare/filter@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> *
+                        mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
+                        arg1, arg2, arg3, arg4, arg5, arg6) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_filter_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_filter_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -8303,10 +8308,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_firewall_rule_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_firewall_rule_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/firewall-rule@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/firewall-rule@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32, arg8 : i32,) -> * mut u8 { $($path_to_types)*::
@@ -8315,7 +8320,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_firewall_rule_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_firewall_rule_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 28]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -8540,20 +8545,20 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_gre_tunnel_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_gre_tunnel_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/gre-tunnel@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7 : i32,
-                        arg8 : i32, arg9 : i32, arg10 : i32, arg11 : i32, arg12 : i32,)
-                        -> * mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty >
-                        (arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9,
-                        arg10, arg11, arg12) } };
+                        "pulumi:cloudflare/gre-tunnel@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
+                        : i32, arg8 : i32, arg9 : i32, arg10 : i32, arg11 : i32, arg12 :
+                        i32,) -> * mut u8 { $($path_to_types)*::
+                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3, arg4, arg5,
+                        arg6, arg7, arg8, arg9, arg10, arg11, arg12) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_gre_tunnel_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_gre_tunnel_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 44]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -8906,16 +8911,16 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_healthcheck_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_healthcheck_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/healthcheck@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8,) -> * mut u8 {
-                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
+                        "pulumi:cloudflare/healthcheck@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8,) -> * mut u8
+                        { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_healthcheck_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_healthcheck_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 88]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -9038,10 +9043,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_hostname_tls_setting_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_hostname_tls_setting_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/hostname-tls-setting@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/hostname-tls-setting@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -9049,7 +9054,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_hostname_tls_setting_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_hostname_tls_setting_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -9172,10 +9177,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_hostname_tls_setting_ciphers_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_hostname_tls_setting_ciphers_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/hostname-tls-setting-ciphers@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/hostname-tls-setting-ciphers@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -9183,7 +9188,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_hostname_tls_setting_ciphers_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_hostname_tls_setting_ciphers_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -9312,10 +9317,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_hyperdrive_config_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_hyperdrive_config_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/hyperdrive-config@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/hyperdrive-config@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> *
                         mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
@@ -9323,7 +9328,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_hyperdrive_config_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_hyperdrive_config_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -9432,10 +9437,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_infrastructure_access_target_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_infrastructure_access_target_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/infrastructure-access-target@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/infrastructure-access-target@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -9443,7 +9448,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_infrastructure_access_target_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_infrastructure_access_target_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -9770,16 +9775,16 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_ipsec_tunnel_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_ipsec_tunnel_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/ipsec-tunnel@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8,) -> * mut u8 {
-                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
+                        "pulumi:cloudflare/ipsec-tunnel@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8,) -> * mut u8
+                        { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_ipsec_tunnel_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_ipsec_tunnel_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 72]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -9940,10 +9945,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_keyless_certificate_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_keyless_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/keyless-certificate@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/keyless-certificate@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32, arg8 : i32,) -> * mut u8 { $($path_to_types)*::
@@ -9952,7 +9957,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_keyless_certificate_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_keyless_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -10081,18 +10086,18 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_list_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_list_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/list@5.43.1--0.0.0-DEV#invoke"] unsafe extern
-                        "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 : i32,
-                        arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> * mut u8 {
-                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
-                        arg2, arg3, arg4, arg5, arg6) } };
+                        "pulumi:cloudflare/list@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> *
+                        mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
+                        arg1, arg2, arg3, arg4, arg5, arg6) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_list_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_list_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -10249,19 +10254,19 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_list_item_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_list_item_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/list-item@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7 : i32,
-                        arg8 : i32,) -> * mut u8 { $($path_to_types)*::
+                        "pulumi:cloudflare/list-item@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
+                        : i32, arg8 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3, arg4, arg5,
                         arg6, arg7, arg8) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_list_item_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_list_item_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 28]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -10609,16 +10614,16 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_load_balancer_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_load_balancer_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/load-balancer@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/load-balancer@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8,) -> * mut u8
                         { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_load_balancer_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_load_balancer_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 84]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -10929,16 +10934,16 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_load_balancer_monitor_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_load_balancer_monitor_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/load-balancer-monitor@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/load-balancer-monitor@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8,) -> * mut u8
                         { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_load_balancer_monitor_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_load_balancer_monitor_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 76]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -11191,10 +11196,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_load_balancer_pool_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_load_balancer_pool_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/load-balancer-pool@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/load-balancer-pool@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32, arg8 : i32, arg9 : i32, arg10 : i32, arg11 : i32, arg12 :
@@ -11205,7 +11210,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_load_balancer_pool_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_load_balancer_pool_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 60]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -11289,17 +11294,17 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_logpull_retention_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_logpull_retention_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/logpull-retention@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/logpull-retention@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_logpull_retention_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_logpull_retention_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -11581,16 +11586,16 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_logpush_job_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_logpush_job_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/logpush-job@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8,) -> * mut u8 {
-                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
+                        "pulumi:cloudflare/logpush-job@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8,) -> * mut u8
+                        { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_logpush_job_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_logpush_job_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 60]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -11700,10 +11705,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_logpush_ownership_challenge_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_logpush_ownership_challenge_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/logpush-ownership-challenge@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/logpush-ownership-challenge@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -11711,7 +11716,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_logpush_ownership_challenge_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_logpush_ownership_challenge_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -11826,10 +11831,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_magic_firewall_ruleset_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_magic_firewall_ruleset_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/magic-firewall-ruleset@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/magic-firewall-ruleset@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -11837,7 +11842,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_magic_firewall_ruleset_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_magic_firewall_ruleset_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -12062,10 +12067,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_magic_wan_gre_tunnel_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_magic_wan_gre_tunnel_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/magic-wan-gre-tunnel@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/magic-wan-gre-tunnel@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32, arg8 : i32, arg9 : i32, arg10 : i32, arg11 : i32, arg12 :
@@ -12075,7 +12080,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_magic_wan_gre_tunnel_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_magic_wan_gre_tunnel_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 44]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -12402,16 +12407,16 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_magic_wan_ipsec_tunnel_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_magic_wan_ipsec_tunnel_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/magic-wan-ipsec-tunnel@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/magic-wan-ipsec-tunnel@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8,) -> * mut u8
                         { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_magic_wan_ipsec_tunnel_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_magic_wan_ipsec_tunnel_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 72]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -12582,10 +12587,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_magic_wan_static_route_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_magic_wan_static_route_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/magic-wan-static-route@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/magic-wan-static-route@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32, arg8 : i32, arg9 : i32,) -> * mut u8 {
@@ -12594,7 +12599,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_magic_wan_static_route_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_magic_wan_static_route_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -12709,10 +12714,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_managed_headers_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_managed_headers_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/managed-headers@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/managed-headers@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -12720,7 +12725,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_managed_headers_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_managed_headers_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -12869,10 +12874,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_mtls_certificate_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_mtls_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/mtls-certificate@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/mtls-certificate@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> *
                         mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
@@ -12880,7 +12885,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_mtls_certificate_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_mtls_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 40]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -13082,10 +13087,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_notification_policy_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_notification_policy_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/notification-policy@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/notification-policy@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32, arg8 : i32, arg9 : i32, arg10 : i32,) -> * mut u8 {
@@ -13094,7 +13099,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_notification_policy_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_notification_policy_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 44]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -13225,10 +13230,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_notification_policy_webhooks_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_notification_policy_webhooks_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/notification-policy-webhooks@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/notification-policy-webhooks@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -13236,7 +13241,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_notification_policy_webhooks_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_notification_policy_webhooks_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -13351,10 +13356,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_observatory_scheduled_test_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_observatory_scheduled_test_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/observatory-scheduled-test@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/observatory-scheduled-test@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -13362,7 +13367,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_observatory_scheduled_test_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_observatory_scheduled_test_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -13501,10 +13506,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_origin_ca_certificate_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_origin_ca_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/origin-ca-certificate@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/origin-ca-certificate@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> *
                         mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
@@ -13512,7 +13517,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_origin_ca_certificate_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_origin_ca_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 28]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -13641,18 +13646,18 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_page_rule_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_page_rule_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/page-rule@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> * mut u8
-                        { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
-                        arg2, arg3, arg4, arg5, arg6) } };
+                        "pulumi:cloudflare/page-rule@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> *
+                        mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
+                        arg1, arg2, arg3, arg4, arg5, arg6) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_page_rule_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_page_rule_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -13757,17 +13762,18 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_pages_domain_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_pages_domain_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/pages-domain@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32, arg4 : i32,) -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3, arg4) } };
+                        "pulumi:cloudflare/pages-domain@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
+                        arg2, arg3, arg4) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_pages_domain_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_pages_domain_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -13924,10 +13930,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_pages_project_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_pages_project_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/pages-project@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/pages-project@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32,) -> * mut u8 { $($path_to_types)*::
@@ -13936,7 +13942,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_pages_project_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_pages_project_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 36]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -14020,17 +14026,17 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_queue_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_queue_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/queue@5.43.1--0.0.0-DEV#invoke"] unsafe extern
-                        "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 : i32,
-                        arg3 : i32,) -> * mut u8 { $($path_to_types)*::
+                        "pulumi:cloudflare/queue@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_queue_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_queue_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -14131,17 +14137,18 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_r2_bucket_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_r2_bucket_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/r2-bucket@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32, arg4 : i32,) -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3, arg4) } };
+                        "pulumi:cloudflare/r2-bucket@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
+                        arg2, arg3, arg4) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_r2_bucket_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_r2_bucket_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -14327,19 +14334,19 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_rate_limit_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_rate_limit_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/rate-limit@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7 : i32,
-                        arg8 : i32, arg9 : i32, arg10 : i32,) -> * mut u8 {
+                        "pulumi:cloudflare/rate-limit@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
+                        : i32, arg8 : i32, arg9 : i32, arg10 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
                         arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_rate_limit_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_rate_limit_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 36]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -14587,20 +14594,20 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_record_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_record_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/record@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7 : i32,
-                        arg8 : i32, arg9 : i32, arg10 : i32, arg11 : i32, arg12 : i32,
-                        arg13 : i32,) -> * mut u8 { $($path_to_types)*::
+                        "pulumi:cloudflare/record@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
+                        : i32, arg8 : i32, arg9 : i32, arg10 : i32, arg11 : i32, arg12 :
+                        i32, arg13 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3, arg4, arg5,
                         arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_record_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_record_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 68]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -14705,10 +14712,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_regional_hostname_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_regional_hostname_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/regional-hostname@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/regional-hostname@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -14716,7 +14723,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_regional_hostname_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_regional_hostname_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -14800,17 +14807,17 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_regional_tiered_cache_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_regional_tiered_cache_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/regional-tiered-cache@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/regional-tiered-cache@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_regional_tiered_cache_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_regional_tiered_cache_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -14894,17 +14901,17 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_risk_behavior_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_risk_behavior_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/risk-behavior@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/risk-behavior@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_risk_behavior_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_risk_behavior_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -15061,19 +15068,19 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_ruleset_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_ruleset_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/ruleset@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7 : i32,
-                        arg8 : i32,) -> * mut u8 { $($path_to_types)*::
+                        "pulumi:cloudflare/ruleset@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
+                        : i32, arg8 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3, arg4, arg5,
                         arg6, arg7, arg8) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_ruleset_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_ruleset_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 28]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -15318,10 +15325,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_spectrum_application_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_spectrum_application_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/spectrum-application@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/spectrum-application@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32, arg8 : i32, arg9 : i32, arg10 : i32, arg11 : i32, arg12 :
@@ -15332,7 +15339,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_spectrum_application_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_spectrum_application_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 52]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -15447,18 +15454,18 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_split_tunnel_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_split_tunnel_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/split-tunnel@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
+                        "pulumi:cloudflare/split-tunnel@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
                         arg2, arg3, arg4, arg5) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_split_tunnel_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_split_tunnel_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -15629,19 +15636,19 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_static_route_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_static_route_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/static-route@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7 : i32,
-                        arg8 : i32, arg9 : i32,) -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3, arg4, arg5,
-                        arg6, arg7, arg8, arg9) } };
+                        "pulumi:cloudflare/static-route@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
+                        : i32, arg8 : i32, arg9 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
+                        arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_static_route_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_static_route_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -15971,16 +15978,16 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_teams_account_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_teams_account_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/teams-account@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/teams-account@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8,) -> * mut u8
                         { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_teams_account_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_teams_account_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 68]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -16130,18 +16137,19 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_teams_list_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_teams_list_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/teams-list@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7 : i32,)
-                        -> * mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty >
-                        (arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7) } };
+                        "pulumi:cloudflare/teams-list@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
+                        : i32,) -> * mut u8 { $($path_to_types)*::
+                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3, arg4, arg5,
+                        arg6, arg7) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_teams_list_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_teams_list_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -16295,10 +16303,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_teams_location_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_teams_location_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/teams-location@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/teams-location@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> *
                         mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
@@ -16306,7 +16314,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_teams_location_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_teams_location_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 40]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -16411,10 +16419,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_teams_proxy_endpoint_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_teams_proxy_endpoint_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/teams-proxy-endpoint@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/teams-proxy-endpoint@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -16422,7 +16430,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_teams_proxy_endpoint_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_teams_proxy_endpoint_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -16641,20 +16649,20 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_teams_rule_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_teams_rule_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/teams-rule@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7 : i32,
-                        arg8 : i32, arg9 : i32, arg10 : i32, arg11 : i32, arg12 : i32,)
-                        -> * mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty >
-                        (arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9,
-                        arg10, arg11, arg12) } };
+                        "pulumi:cloudflare/teams-rule@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
+                        : i32, arg8 : i32, arg9 : i32, arg10 : i32, arg11 : i32, arg12 :
+                        i32,) -> * mut u8 { $($path_to_types)*::
+                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3, arg4, arg5,
+                        arg6, arg7, arg8, arg9, arg10, arg11, arg12) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_teams_rule_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_teams_rule_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 48]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -16738,17 +16746,17 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_tiered_cache_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_tiered_cache_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/tiered-cache@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
+                        "pulumi:cloudflare/tiered-cache@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_tiered_cache_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_tiered_cache_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -16850,17 +16858,18 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_total_tls_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_total_tls_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/total-tls@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32, arg4 : i32,) -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3, arg4) } };
+                        "pulumi:cloudflare/total-tls@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
+                        arg2, arg3, arg4) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_total_tls_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_total_tls_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -16983,18 +16992,18 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_tunnel_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_tunnel_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/tunnel@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
+                        "pulumi:cloudflare/tunnel@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
                         arg2, arg3, arg4, arg5) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_tunnel_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_tunnel_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -17095,10 +17104,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_tunnel_config_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_tunnel_config_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/tunnel-config@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/tunnel-config@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -17106,7 +17115,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_tunnel_config_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_tunnel_config_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -17236,18 +17245,18 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_tunnel_route_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_tunnel_route_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/tunnel-route@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> * mut u8
-                        { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
-                        arg2, arg3, arg4, arg5, arg6) } };
+                        "pulumi:cloudflare/tunnel-route@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> *
+                        mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
+                        arg1, arg2, arg3, arg4, arg5, arg6) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_tunnel_route_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_tunnel_route_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -17363,10 +17372,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_tunnel_virtual_network_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_tunnel_virtual_network_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/tunnel-virtual-network@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/tunnel-virtual-network@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -17374,7 +17383,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_tunnel_virtual_network_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_tunnel_virtual_network_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -17535,10 +17544,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_turnstile_widget_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_turnstile_widget_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/turnstile-widget@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/turnstile-widget@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32, arg8 : i32,) -> * mut u8 { $($path_to_types)*::
@@ -17547,7 +17556,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_turnstile_widget_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_turnstile_widget_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -17644,10 +17653,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_url_normalization_settings_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_url_normalization_settings_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/url-normalization-settings@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/url-normalization-settings@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -17655,7 +17664,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_url_normalization_settings_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_url_normalization_settings_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -17784,10 +17793,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_user_agent_blocking_rule_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_user_agent_blocking_rule_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/user-agent-blocking-rule@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/user-agent-blocking-rule@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> *
                         mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
@@ -17795,7 +17804,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_user_agent_blocking_rule_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_user_agent_blocking_rule_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -18149,16 +18158,16 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_waiting_room_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_waiting_room_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/waiting-room@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8,) -> * mut u8 {
-                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
+                        "pulumi:cloudflare/waiting-room@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8,) -> * mut u8
+                        { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_waiting_room_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_waiting_room_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 76]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -18458,16 +18467,16 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_waiting_room_event_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_waiting_room_event_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/waiting-room-event@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/waiting-room-event@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8,) -> * mut u8
                         { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_waiting_room_event_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_waiting_room_event_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 68]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -18568,10 +18577,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_waiting_room_rules_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_waiting_room_rules_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/waiting-room-rules@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/waiting-room-rules@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -18579,7 +18588,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_waiting_room_rules_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_waiting_room_rules_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -18673,17 +18682,17 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_waiting_room_settings_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_waiting_room_settings_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/waiting-room-settings@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/waiting-room-settings@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_waiting_room_settings_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_waiting_room_settings_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -18824,10 +18833,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_web3_hostname_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_web3_hostname_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/web3-hostname@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/web3-hostname@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> *
                         mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
@@ -18835,7 +18844,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_web3_hostname_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_web3_hostname_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -18978,10 +18987,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_web_analytics_rule_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_web_analytics_rule_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/web-analytics-rule@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/web-analytics-rule@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32,) -> * mut u8 { $($path_to_types)*::
@@ -18990,7 +18999,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_web_analytics_rule_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_web_analytics_rule_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -19121,10 +19130,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_web_analytics_site_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_web_analytics_site_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/web-analytics-site@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/web-analytics-site@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -19132,7 +19141,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_web_analytics_site_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_web_analytics_site_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -19233,10 +19242,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_worker_cron_trigger_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_worker_cron_trigger_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/worker-cron-trigger@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/worker-cron-trigger@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -19244,7 +19253,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_worker_cron_trigger_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_worker_cron_trigger_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -19373,10 +19382,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_worker_domain_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_worker_domain_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/worker-domain@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/worker-domain@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> *
                         mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
@@ -19384,7 +19393,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_worker_domain_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_worker_domain_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -19485,17 +19494,18 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_worker_route_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_worker_route_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/worker-route@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32, arg4 : i32,) -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3, arg4) } };
+                        "pulumi:cloudflare/worker-route@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
+                        arg2, arg3, arg4) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_worker_route_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_worker_route_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -19859,16 +19869,16 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_worker_script_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_worker_script_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/worker-script@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/worker-script@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8,) -> * mut u8
                         { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_worker_script_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_worker_script_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 80]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -19983,10 +19993,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_worker_secret_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_worker_secret_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/worker-secret@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/worker-secret@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -19994,7 +20004,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_worker_secret_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_worker_secret_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -20095,10 +20105,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_workers_cron_trigger_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_workers_cron_trigger_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/workers-cron-trigger@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/workers-cron-trigger@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -20106,7 +20116,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_workers_cron_trigger_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_workers_cron_trigger_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -20235,10 +20245,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_workers_domain_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_workers_domain_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/workers-domain@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/workers-domain@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> *
                         mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
@@ -20246,7 +20256,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_workers_domain_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_workers_domain_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -20330,17 +20340,17 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_workers_for_platforms_dispatch_namespace_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_workers_for_platforms_dispatch_namespace_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/workers-for-platforms-dispatch-namespace@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/workers-for-platforms-dispatch-namespace@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_workers_for_platforms_dispatch_namespace_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_workers_for_platforms_dispatch_namespace_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -20424,17 +20434,17 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_workers_for_platforms_namespace_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_workers_for_platforms_namespace_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/workers-for-platforms-namespace@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/workers-for-platforms-namespace@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_workers_for_platforms_namespace_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_workers_for_platforms_namespace_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -20549,18 +20559,18 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_workers_kv_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_workers_kv_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/workers-kv@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
+                        "pulumi:cloudflare/workers-kv@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
                         arg2, arg3, arg4, arg5) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_workers_kv_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_workers_kv_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -20644,17 +20654,17 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_workers_kv_namespace_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_workers_kv_namespace_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/workers-kv-namespace@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/workers-kv-namespace@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_workers_kv_namespace_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_workers_kv_namespace_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -20755,10 +20765,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_workers_route_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_workers_route_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/workers-route@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/workers-route@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -20766,7 +20776,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_workers_route_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_workers_route_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -21130,16 +21140,16 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_workers_script_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_workers_script_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/workers-script@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/workers-script@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8,) -> * mut u8
                         { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_workers_script_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_workers_script_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 80]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -21254,10 +21264,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_workers_secret_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_workers_secret_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/workers-secret@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/workers-secret@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -21265,7 +21275,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_workers_secret_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_workers_secret_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -21871,16 +21881,16 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_access_application_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_access_application_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-access-application@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-access-application@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8,) -> * mut u8
                         { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_access_application_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_access_application_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 140]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -22023,10 +22033,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_access_custom_page_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_access_custom_page_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-access-custom-page@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-access-custom-page@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32,) -> * mut u8 { $($path_to_types)*::
@@ -22035,7 +22045,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_access_custom_page_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_access_custom_page_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -22178,10 +22188,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_access_group_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_access_group_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-access-group@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-access-group@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32,) -> * mut u8 { $($path_to_types)*::
@@ -22190,7 +22200,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_access_group_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_access_group_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -22333,10 +22343,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_access_identity_provider_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_access_identity_provider_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-access-identity-provider@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-access-identity-provider@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32,) -> * mut u8 { $($path_to_types)*::
@@ -22345,7 +22355,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_access_identity_provider_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_access_identity_provider_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -22479,10 +22489,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_access_mtls_certificate_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_access_mtls_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-access-mtls-certificate@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-access-mtls-certificate@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> *
                         mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
@@ -22490,7 +22500,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_access_mtls_certificate_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_access_mtls_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -22591,10 +22601,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_access_mtls_hostname_settings_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_access_mtls_hostname_settings_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-access-mtls-hostname-settings@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-access-mtls-hostname-settings@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -22602,7 +22612,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_access_mtls_hostname_settings_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_access_mtls_hostname_settings_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -22881,10 +22891,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_access_organization_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_access_organization_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-access-organization@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-access-organization@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32, arg8 : i32, arg9 : i32, arg10 : i32, arg11 : i32, arg12 :
@@ -22895,7 +22905,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_access_organization_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_access_organization_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 52]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -23198,16 +23208,16 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_access_policy_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_access_policy_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-access-policy@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-access-policy@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8,) -> * mut u8
                         { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_access_policy_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_access_policy_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 64]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -23349,10 +23359,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_access_service_token_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_access_service_token_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-access-service-token@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-access-service-token@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> *
                         mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
@@ -23360,7 +23370,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_access_service_token_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_access_service_token_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -23469,10 +23479,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_access_short_lived_certificate_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_access_short_lived_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-access-short-lived-certificate@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-access-short-lived-certificate@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -23480,7 +23490,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_access_short_lived_certificate_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_access_short_lived_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -23595,10 +23605,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_access_tag_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_access_tag_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-access-tag@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-access-tag@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -23606,7 +23616,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_access_tag_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_access_tag_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -23690,17 +23700,17 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_device_certificates_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_device_certificates_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-device-certificates@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-device-certificates@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_device_certificates_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_device_certificates_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -23815,10 +23825,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_device_managed_networks_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_device_managed_networks_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-device-managed-networks@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-device-managed-networks@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -23826,7 +23836,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_device_managed_networks_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_device_managed_networks_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -23969,10 +23979,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_device_posture_integration_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_device_posture_integration_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-device-posture-integration@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-device-posture-integration@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32,) -> * mut u8 { $($path_to_types)*::
@@ -23981,7 +23991,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_device_posture_integration_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_device_posture_integration_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -24152,10 +24162,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_device_posture_rule_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_device_posture_rule_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-device-posture-rule@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-device-posture-rule@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32, arg8 : i32, arg9 : i32,) -> * mut u8 {
@@ -24164,7 +24174,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_device_posture_rule_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_device_posture_rule_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -24498,16 +24508,16 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_device_profiles_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_device_profiles_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-device-profiles@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-device-profiles@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8,) -> * mut u8
                         { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_device_profiles_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_device_profiles_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 76]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -24658,10 +24668,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_dex_test_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_dex_test_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-dex-test@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-dex-test@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32,) -> * mut u8 { $($path_to_types)*::
@@ -24670,7 +24680,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_dex_test_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_dex_test_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -24843,10 +24853,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_dlp_profile_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_dlp_profile_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-dlp-profile@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-dlp-profile@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32, arg8 : i32, arg9 : i32,) -> * mut u8 {
@@ -24855,7 +24865,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_dlp_profile_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_dlp_profile_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 32]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -25009,10 +25019,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_dns_location_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_dns_location_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-dns-location@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-dns-location@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> *
                         mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
@@ -25020,7 +25030,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_dns_location_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_dns_location_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 40]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -25175,10 +25185,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_gateway_certificate_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_gateway_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-gateway-certificate@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-gateway-certificate@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> *
                         mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
@@ -25186,7 +25196,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_gateway_certificate_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_gateway_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 44]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -25405,10 +25415,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_gateway_policy_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_gateway_policy_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-gateway-policy@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-gateway-policy@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32, arg8 : i32, arg9 : i32, arg10 : i32, arg11 : i32, arg12 :
@@ -25418,7 +25428,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_gateway_policy_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_gateway_policy_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 48]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -25523,10 +25533,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_gateway_proxy_endpoint_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_gateway_proxy_endpoint_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-gateway-proxy-endpoint@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-gateway-proxy-endpoint@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -25534,7 +25544,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_gateway_proxy_endpoint_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_gateway_proxy_endpoint_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -25864,16 +25874,16 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_gateway_settings_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_gateway_settings_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-gateway-settings@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-gateway-settings@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8,) -> * mut u8
                         { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_gateway_settings_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_gateway_settings_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 68]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -25982,10 +25992,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_infrastructure_access_target_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_infrastructure_access_target_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-infrastructure-access-target@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-infrastructure-access-target@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -25993,7 +26003,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_infrastructure_access_target_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_infrastructure_access_target_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -26087,17 +26097,17 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_key_access_key_configuration_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_key_access_key_configuration_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-key-access-key-configuration@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-key-access-key-configuration@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_key_access_key_configuration_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_key_access_key_configuration_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -26247,10 +26257,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_list_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_list_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-list@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-list@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32,) -> * mut u8 { $($path_to_types)*::
@@ -26259,7 +26269,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_list_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_list_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -26360,10 +26370,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_local_fallback_domain_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_local_fallback_domain_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-local-fallback-domain@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-local-fallback-domain@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -26371,7 +26381,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_local_fallback_domain_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_local_fallback_domain_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -26455,17 +26465,17 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_risk_behavior_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_risk_behavior_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-risk-behavior@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-risk-behavior@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_risk_behavior_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_risk_behavior_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -26599,10 +26609,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_risk_score_integration_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_risk_score_integration_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-risk-score-integration@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-risk-score-integration@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> *
                         mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
@@ -26610,7 +26620,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_risk_score_integration_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_risk_score_integration_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -26725,10 +26735,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_split_tunnel_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_split_tunnel_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-split-tunnel@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-split-tunnel@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -26736,7 +26746,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_split_tunnel_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_split_tunnel_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -26859,10 +26869,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_tunnel_cloudflared_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_tunnel_cloudflared_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-tunnel-cloudflared@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-tunnel-cloudflared@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -26870,7 +26880,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_tunnel_cloudflared_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_tunnel_cloudflared_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -26971,10 +26981,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_tunnel_cloudflared_config_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_tunnel_cloudflared_config_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-tunnel-cloudflared-config@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-tunnel-cloudflared-config@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -26982,7 +26992,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_tunnel_cloudflared_config_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_tunnel_cloudflared_config_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -27112,10 +27122,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_tunnel_route_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_tunnel_route_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-tunnel-route@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-tunnel-route@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32,) -> *
                         mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
@@ -27123,7 +27133,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_tunnel_route_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_tunnel_route_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -27239,10 +27249,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zero_trust_tunnel_virtual_network_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zero_trust_tunnel_virtual_network_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zero-trust-tunnel-virtual-network@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zero-trust-tunnel-virtual-network@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
@@ -27250,7 +27260,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zero_trust_tunnel_virtual_network_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zero_trust_tunnel_virtual_network_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -27425,19 +27435,19 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zone_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zone_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zone@5.43.1--0.0.0-DEV#invoke"] unsafe extern
-                        "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 : i32,
-                        arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7 : i32, arg8
-                        : i32,) -> * mut u8 { $($path_to_types)*::
+                        "pulumi:cloudflare/zone@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
+                        : i32, arg8 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3, arg4, arg5,
                         arg6, arg7, arg8) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zone_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zone_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 44]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -27521,17 +27531,17 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zone_cache_reserve_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zone_cache_reserve_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zone-cache-reserve@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zone-cache-reserve@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zone_cache_reserve_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zone_cache_reserve_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -27758,10 +27768,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zone_cache_variants_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zone_cache_variants_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zone-cache-variants@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zone-cache-variants@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32, arg8 : i32, arg9 : i32, arg10 : i32, arg11 : i32, arg12 :
@@ -27771,7 +27781,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zone_cache_variants_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zone_cache_variants_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 48]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -27899,17 +27909,17 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zone_dnssec_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zone_dnssec_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zone-dnssec@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
+                        "pulumi:cloudflare/zone-dnssec@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zone_dnssec_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zone_dnssec_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 48]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -28025,18 +28035,18 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zone_hold_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zone_hold_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zone-hold@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize, arg2 :
-                        i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
+                        "pulumi:cloudflare/zone-hold@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
+                        arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1,
                         arg2, arg3, arg4, arg5) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zone_hold_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zone_hold_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -28179,10 +28189,10 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zone_lockdown_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zone_lockdown_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zone-lockdown@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zone-lockdown@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7
                         : i32,) -> * mut u8 { $($path_to_types)*::
@@ -28191,7 +28201,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zone_lockdown_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zone_lockdown_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -28304,17 +28314,17 @@ pub mod exports {
                     fn invoke(name: _rt::String, args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_zone_settings_override_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_zone_settings_override_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/zone-settings-override@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/zone-settings-override@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : * mut u8, arg1 : usize,
                         arg2 : i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_zone_settings_override_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_zone_settings_override_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 28]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -28430,17 +28440,17 @@ pub mod exports {
                     fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_access_application_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_access_application_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-access-application@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/get-access-application@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 :
                         i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_access_application_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_access_application_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -28542,17 +28552,17 @@ pub mod exports {
                     fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_access_identity_provider_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_access_identity_provider_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-access-identity-provider@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/get-access-identity-provider@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 :
                         i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_access_identity_provider_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_access_identity_provider_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -28620,16 +28630,16 @@ pub mod exports {
                     fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_account_roles_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_account_roles_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-account-roles@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/get-account-roles@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_account_roles_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_account_roles_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -28695,16 +28705,16 @@ pub mod exports {
                     fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_accounts_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_accounts_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-accounts@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
+                        "pulumi:cloudflare/get-accounts@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_accounts_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_accounts_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -28767,16 +28777,16 @@ pub mod exports {
                     fn invoke() -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_api_token_permission_groups_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_api_token_permission_groups_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-api-token-permission-groups@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/get-api-token-permission-groups@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke() -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > () } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_api_token_permission_groups_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_api_token_permission_groups_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -28842,16 +28852,16 @@ pub mod exports {
                     fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_dcv_delegation_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_dcv_delegation_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-dcv-delegation@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/get-dcv-delegation@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_dcv_delegation_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_dcv_delegation_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -28953,17 +28963,17 @@ pub mod exports {
                     fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_device_posture_rules_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_device_posture_rules_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-device-posture-rules@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/get-device-posture-rules@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 :
                         i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_device_posture_rules_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_device_posture_rules_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -29031,16 +29041,16 @@ pub mod exports {
                     fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_devices_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_devices_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-devices@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
+                        "pulumi:cloudflare/get-devices@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_devices_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_devices_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -29108,16 +29118,16 @@ pub mod exports {
                     fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_dlp_datasets_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_dlp_datasets_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-dlp-datasets@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/get-dlp-datasets@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_dlp_datasets_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_dlp_datasets_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -29189,16 +29199,16 @@ pub mod exports {
                     fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_gateway_app_types_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_gateway_app_types_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-gateway-app-types@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/get-gateway-app-types@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_gateway_app_types_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_gateway_app_types_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -29270,16 +29280,16 @@ pub mod exports {
                     fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_gateway_categories_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_gateway_categories_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-gateway-categories@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/get-gateway-categories@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_gateway_categories_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_gateway_categories_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -29454,10 +29464,10 @@ pub mod exports {
                     fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_infrastructure_access_targets_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_infrastructure_access_targets_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-infrastructure-access-targets@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/get-infrastructure-access-targets@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 :
                         i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7 : i32,)
                         -> * mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty >
@@ -29465,7 +29475,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_infrastructure_access_targets_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_infrastructure_access_targets_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 40]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -29538,16 +29548,16 @@ pub mod exports {
                     fn invoke() -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_ip_ranges_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_ip_ranges_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-ip-ranges@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/get-ip-ranges@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke() -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > () } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_ip_ranges_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_ip_ranges_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -29643,17 +29653,17 @@ pub mod exports {
                     fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_list_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_list_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-list@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : i32, arg1 : i32,) -> * mut u8
-                        { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0, arg1) }
-                        };
+                        "pulumi:cloudflare/get-list@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32,) -> *
+                        mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
+                        arg1) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_list_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_list_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -29721,16 +29731,16 @@ pub mod exports {
                     fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_lists_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_lists_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-lists@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
+                        "pulumi:cloudflare/get-lists@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_lists_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_lists_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -29828,17 +29838,17 @@ pub mod exports {
                     fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_load_balancer_pools_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_load_balancer_pools_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-load-balancer-pools@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/get-load-balancer-pools@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 :
                         i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_load_balancer_pools_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_load_balancer_pools_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 16]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -29920,16 +29930,16 @@ pub mod exports {
                     fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_origin_ca_certificate_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_origin_ca_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-origin-ca-certificate@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/get-origin-ca-certificate@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_origin_ca_certificate_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_origin_ca_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -29997,16 +30007,16 @@ pub mod exports {
                     fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_origin_ca_root_certificate_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_origin_ca_root_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-origin-ca-root-certificate@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/get-origin-ca-root-certificate@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_origin_ca_root_certificate_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_origin_ca_root_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -30148,17 +30158,17 @@ pub mod exports {
                     fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_record_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_record_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-record@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 : i32,
-                        arg3 : i32, arg4 : i32,) -> * mut u8 { $($path_to_types)*::
+                        "pulumi:cloudflare/get-record@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 :
+                        i32, arg3 : i32, arg4 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3, arg4) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_record_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_record_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 40]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -30274,17 +30284,17 @@ pub mod exports {
                     fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_rulesets_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_rulesets_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-rulesets@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 : i32,
-                        arg3 : i32,) -> * mut u8 { $($path_to_types)*::
+                        "pulumi:cloudflare/get-rulesets@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 :
+                        i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_rulesets_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_rulesets_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -30394,17 +30404,17 @@ pub mod exports {
                     fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_tunnel_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_tunnel_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-tunnel@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 : i32,)
-                        -> * mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty >
-                        (arg0, arg1, arg2) } };
+                        "pulumi:cloudflare/get-tunnel@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 :
+                        i32,) -> * mut u8 { $($path_to_types)*::
+                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_tunnel_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_tunnel_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 28]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -30496,17 +30506,17 @@ pub mod exports {
                     fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_tunnel_virtual_network_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_tunnel_virtual_network_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-tunnel-virtual-network@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/get-tunnel-virtual-network@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32,) -> *
                         mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
                         arg1) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_tunnel_virtual_network_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_tunnel_virtual_network_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -30553,16 +30563,16 @@ pub mod exports {
                     fn invoke() -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_user_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_user_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-user@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke() -> * mut u8 { $($path_to_types)*::
-                        _export_invoke_cabi::<$ty > () } };
+                        "pulumi:cloudflare/get-user@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke() -> * mut u8 {
+                        $($path_to_types)*:: _export_invoke_cabi::<$ty > () } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_user_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_user_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -30678,17 +30688,17 @@ pub mod exports {
                     fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_zero_trust_access_application_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_zero_trust_access_application_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-zero-trust-access-application@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/get-zero-trust-access-application@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 :
                         i32, arg3 : i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2, arg3) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_zero_trust_access_application_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_zero_trust_access_application_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 24]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -30790,17 +30800,17 @@ pub mod exports {
                     fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_zero_trust_access_identity_provider_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_zero_trust_access_identity_provider_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-zero-trust-access-identity-provider@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/get-zero-trust-access-identity-provider@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 :
                         i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_zero_trust_access_identity_provider_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_zero_trust_access_identity_provider_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -30975,10 +30985,10 @@ pub mod exports {
                     fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_zero_trust_infrastructure_access_targets_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_zero_trust_infrastructure_access_targets_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-zero-trust-infrastructure-access-targets@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/get-zero-trust-infrastructure-access-targets@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 :
                         i32, arg3 : i32, arg4 : i32, arg5 : i32, arg6 : i32, arg7 : i32,)
                         -> * mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty >
@@ -30986,7 +30996,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_zero_trust_infrastructure_access_targets_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_zero_trust_infrastructure_access_targets_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 40]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -31096,17 +31106,17 @@ pub mod exports {
                     fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_zero_trust_tunnel_cloudflared_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_zero_trust_tunnel_cloudflared_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-zero-trust-tunnel-cloudflared@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/get-zero-trust-tunnel-cloudflared@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 :
                         i32,) -> * mut u8 { $($path_to_types)*::
                         _export_invoke_cabi::<$ty > (arg0, arg1, arg2) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_zero_trust_tunnel_cloudflared_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_zero_trust_tunnel_cloudflared_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 28]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -31198,17 +31208,17 @@ pub mod exports {
                     fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_zero_trust_tunnel_virtual_network_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_zero_trust_tunnel_virtual_network_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-zero-trust-tunnel-virtual-network@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/get-zero-trust-tunnel-virtual-network@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32,) -> *
                         mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0,
                         arg1) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_zero_trust_tunnel_virtual_network_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_zero_trust_tunnel_virtual_network_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 20]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -31327,17 +31337,17 @@ pub mod exports {
                     fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_zone_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_zone_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-zone@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 : i32,)
-                        -> * mut u8 { $($path_to_types)*:: _export_invoke_cabi::<$ty >
-                        (arg0, arg1, arg2) } };
+                        "pulumi:cloudflare/get-zone@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : i32, arg2 :
+                        i32,) -> * mut u8 { $($path_to_types)*::
+                        _export_invoke_cabi::<$ty > (arg0, arg1, arg2) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_zone_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_zone_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 36]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -31403,16 +31413,16 @@ pub mod exports {
                     fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_zone_cache_reserve_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_zone_cache_reserve_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-zone-cache-reserve@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/get-zone-cache-reserve@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_zone_cache_reserve_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_zone_cache_reserve_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -31519,16 +31529,16 @@ pub mod exports {
                     fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_zone_dnssec_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_zone_dnssec_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-zone-dnssec@5.43.1--0.0.0-DEV#invoke"]
+                        "pulumi:cloudflare/get-zone-dnssec@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_zone_dnssec_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_zone_dnssec_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 48]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -31594,16 +31604,16 @@ pub mod exports {
                     fn invoke(args: Args<'_>) -> Res;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_pulumi_cloudflare_get_zones_5_43_1_0_0_0_dev_cabi {
+                macro_rules! __export_pulumi_cloudflare_get_zones_5_43_1_0_0_0_nightly_dd68c66_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "pulumi:cloudflare/get-zones@5.43.1--0.0.0-DEV#invoke"] unsafe
-                        extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
+                        "pulumi:cloudflare/get-zones@5.43.1--0.0.0-NIGHTLY-dd68c66#invoke"]
+                        unsafe extern "C" fn export_invoke(arg0 : i32,) -> * mut u8 {
                         $($path_to_types)*:: _export_invoke_cabi::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_pulumi_cloudflare_get_zones_5_43_1_0_0_0_dev_cabi;
+                pub(crate) use __export_pulumi_cloudflare_get_zones_5_43_1_0_0_0_nightly_dd68c66_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 12]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -31735,973 +31745,1113 @@ macro_rules! __export_cloudflare_pulumi_impl {
     };
     ($ty:ident with_types_in $($path_to_types_root:tt)*) => {
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::access_application::__export_pulumi_cloudflare_access_application_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::access_application::__export_pulumi_cloudflare_access_application_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::access_application); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::access_ca_certificate::__export_pulumi_cloudflare_access_ca_certificate_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::access_ca_certificate::__export_pulumi_cloudflare_access_ca_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::access_ca_certificate); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::access_custom_page::__export_pulumi_cloudflare_access_custom_page_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::access_custom_page::__export_pulumi_cloudflare_access_custom_page_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::access_custom_page); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::access_group::__export_pulumi_cloudflare_access_group_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::access_group::__export_pulumi_cloudflare_access_group_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::access_group); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::access_identity_provider::__export_pulumi_cloudflare_access_identity_provider_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::access_identity_provider::__export_pulumi_cloudflare_access_identity_provider_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::access_identity_provider); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::access_keys_configuration::__export_pulumi_cloudflare_access_keys_configuration_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::access_keys_configuration::__export_pulumi_cloudflare_access_keys_configuration_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::access_keys_configuration);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::access_mutual_tls_certificate::__export_pulumi_cloudflare_access_mutual_tls_certificate_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::access_mutual_tls_certificate::__export_pulumi_cloudflare_access_mutual_tls_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::access_mutual_tls_certificate);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::access_mutual_tls_hostname_settings::__export_pulumi_cloudflare_access_mutual_tls_hostname_settings_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::access_mutual_tls_hostname_settings::__export_pulumi_cloudflare_access_mutual_tls_hostname_settings_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::access_mutual_tls_hostname_settings);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::access_organization::__export_pulumi_cloudflare_access_organization_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::access_organization::__export_pulumi_cloudflare_access_organization_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::access_organization); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::access_policy::__export_pulumi_cloudflare_access_policy_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::access_policy::__export_pulumi_cloudflare_access_policy_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::access_policy); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::access_rule::__export_pulumi_cloudflare_access_rule_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::access_rule::__export_pulumi_cloudflare_access_rule_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::access_rule); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::access_service_token::__export_pulumi_cloudflare_access_service_token_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::access_service_token::__export_pulumi_cloudflare_access_service_token_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::access_service_token); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::access_tag::__export_pulumi_cloudflare_access_tag_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::access_tag::__export_pulumi_cloudflare_access_tag_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::access_tag);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::account::__export_pulumi_cloudflare_account_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::account::__export_pulumi_cloudflare_account_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::account);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::account_member::__export_pulumi_cloudflare_account_member_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::account_member::__export_pulumi_cloudflare_account_member_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::account_member); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::address_map::__export_pulumi_cloudflare_address_map_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::address_map::__export_pulumi_cloudflare_address_map_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::address_map); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::api_shield::__export_pulumi_cloudflare_api_shield_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::api_shield::__export_pulumi_cloudflare_api_shield_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::api_shield);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::api_shield_operation::__export_pulumi_cloudflare_api_shield_operation_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::api_shield_operation::__export_pulumi_cloudflare_api_shield_operation_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::api_shield_operation); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::api_shield_operation_schema_validation_settings::__export_pulumi_cloudflare_api_shield_operation_schema_validation_settings_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::api_shield_operation_schema_validation_settings::__export_pulumi_cloudflare_api_shield_operation_schema_validation_settings_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::api_shield_operation_schema_validation_settings);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::api_shield_schema::__export_pulumi_cloudflare_api_shield_schema_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::api_shield_schema::__export_pulumi_cloudflare_api_shield_schema_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::api_shield_schema); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::api_shield_schema_validation_settings::__export_pulumi_cloudflare_api_shield_schema_validation_settings_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::api_shield_schema_validation_settings::__export_pulumi_cloudflare_api_shield_schema_validation_settings_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::api_shield_schema_validation_settings);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::api_token::__export_pulumi_cloudflare_api_token_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::api_token::__export_pulumi_cloudflare_api_token_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::api_token);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::argo::__export_pulumi_cloudflare_argo_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::argo::__export_pulumi_cloudflare_argo_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::argo);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::authenticated_origin_pulls::__export_pulumi_cloudflare_authenticated_origin_pulls_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::authenticated_origin_pulls::__export_pulumi_cloudflare_authenticated_origin_pulls_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::authenticated_origin_pulls);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::authenticated_origin_pulls_certificate::__export_pulumi_cloudflare_authenticated_origin_pulls_certificate_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::authenticated_origin_pulls_certificate::__export_pulumi_cloudflare_authenticated_origin_pulls_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::authenticated_origin_pulls_certificate);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::bot_management::__export_pulumi_cloudflare_bot_management_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::bot_management::__export_pulumi_cloudflare_bot_management_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::bot_management); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::byo_ip_prefix::__export_pulumi_cloudflare_byo_ip_prefix_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::byo_ip_prefix::__export_pulumi_cloudflare_byo_ip_prefix_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::byo_ip_prefix); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::certificate_pack::__export_pulumi_cloudflare_certificate_pack_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::certificate_pack::__export_pulumi_cloudflare_certificate_pack_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::certificate_pack); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::cloud_connector_rules::__export_pulumi_cloudflare_cloud_connector_rules_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::cloud_connector_rules::__export_pulumi_cloudflare_cloud_connector_rules_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::cloud_connector_rules); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::custom_hostname::__export_pulumi_cloudflare_custom_hostname_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::custom_hostname::__export_pulumi_cloudflare_custom_hostname_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::custom_hostname); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::custom_hostname_fallback_origin::__export_pulumi_cloudflare_custom_hostname_fallback_origin_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::custom_hostname_fallback_origin::__export_pulumi_cloudflare_custom_hostname_fallback_origin_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::custom_hostname_fallback_origin);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::custom_pages::__export_pulumi_cloudflare_custom_pages_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::custom_pages::__export_pulumi_cloudflare_custom_pages_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::custom_pages); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::custom_ssl::__export_pulumi_cloudflare_custom_ssl_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::custom_ssl::__export_pulumi_cloudflare_custom_ssl_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::custom_ssl);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::d1_database::__export_pulumi_cloudflare_d1_database_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::d1_database::__export_pulumi_cloudflare_d1_database_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::d1_database); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::device_dex_test::__export_pulumi_cloudflare_device_dex_test_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::device_dex_test::__export_pulumi_cloudflare_device_dex_test_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::device_dex_test); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::device_managed_networks::__export_pulumi_cloudflare_device_managed_networks_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::device_managed_networks::__export_pulumi_cloudflare_device_managed_networks_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::device_managed_networks); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::device_policy_certificates::__export_pulumi_cloudflare_device_policy_certificates_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::device_policy_certificates::__export_pulumi_cloudflare_device_policy_certificates_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::device_policy_certificates);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::device_posture_integration::__export_pulumi_cloudflare_device_posture_integration_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::device_posture_integration::__export_pulumi_cloudflare_device_posture_integration_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::device_posture_integration);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::device_posture_rule::__export_pulumi_cloudflare_device_posture_rule_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::device_posture_rule::__export_pulumi_cloudflare_device_posture_rule_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::device_posture_rule); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::device_settings_policy::__export_pulumi_cloudflare_device_settings_policy_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::device_settings_policy::__export_pulumi_cloudflare_device_settings_policy_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::device_settings_policy); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::dlp_profile::__export_pulumi_cloudflare_dlp_profile_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::dlp_profile::__export_pulumi_cloudflare_dlp_profile_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::dlp_profile); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::email_routing_address::__export_pulumi_cloudflare_email_routing_address_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::email_routing_address::__export_pulumi_cloudflare_email_routing_address_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::email_routing_address); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::email_routing_catch_all::__export_pulumi_cloudflare_email_routing_catch_all_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::email_routing_catch_all::__export_pulumi_cloudflare_email_routing_catch_all_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::email_routing_catch_all); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::email_routing_rule::__export_pulumi_cloudflare_email_routing_rule_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::email_routing_rule::__export_pulumi_cloudflare_email_routing_rule_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::email_routing_rule); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::email_routing_settings::__export_pulumi_cloudflare_email_routing_settings_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::email_routing_settings::__export_pulumi_cloudflare_email_routing_settings_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::email_routing_settings); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::fallback_domain::__export_pulumi_cloudflare_fallback_domain_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::fallback_domain::__export_pulumi_cloudflare_fallback_domain_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::fallback_domain); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::filter::__export_pulumi_cloudflare_filter_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::filter::__export_pulumi_cloudflare_filter_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::filter);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::firewall_rule::__export_pulumi_cloudflare_firewall_rule_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::firewall_rule::__export_pulumi_cloudflare_firewall_rule_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::firewall_rule); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::gre_tunnel::__export_pulumi_cloudflare_gre_tunnel_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::gre_tunnel::__export_pulumi_cloudflare_gre_tunnel_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::gre_tunnel);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::healthcheck::__export_pulumi_cloudflare_healthcheck_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::healthcheck::__export_pulumi_cloudflare_healthcheck_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::healthcheck); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::hostname_tls_setting::__export_pulumi_cloudflare_hostname_tls_setting_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::hostname_tls_setting::__export_pulumi_cloudflare_hostname_tls_setting_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::hostname_tls_setting); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::hostname_tls_setting_ciphers::__export_pulumi_cloudflare_hostname_tls_setting_ciphers_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::hostname_tls_setting_ciphers::__export_pulumi_cloudflare_hostname_tls_setting_ciphers_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::hostname_tls_setting_ciphers);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::hyperdrive_config::__export_pulumi_cloudflare_hyperdrive_config_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::hyperdrive_config::__export_pulumi_cloudflare_hyperdrive_config_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::hyperdrive_config); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::infrastructure_access_target::__export_pulumi_cloudflare_infrastructure_access_target_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::infrastructure_access_target::__export_pulumi_cloudflare_infrastructure_access_target_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::infrastructure_access_target);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::ipsec_tunnel::__export_pulumi_cloudflare_ipsec_tunnel_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::ipsec_tunnel::__export_pulumi_cloudflare_ipsec_tunnel_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::ipsec_tunnel); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::keyless_certificate::__export_pulumi_cloudflare_keyless_certificate_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::keyless_certificate::__export_pulumi_cloudflare_keyless_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::keyless_certificate); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::list::__export_pulumi_cloudflare_list_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::list::__export_pulumi_cloudflare_list_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::list);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::list_item::__export_pulumi_cloudflare_list_item_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::list_item::__export_pulumi_cloudflare_list_item_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::list_item);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::load_balancer::__export_pulumi_cloudflare_load_balancer_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::load_balancer::__export_pulumi_cloudflare_load_balancer_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::load_balancer); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::load_balancer_monitor::__export_pulumi_cloudflare_load_balancer_monitor_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::load_balancer_monitor::__export_pulumi_cloudflare_load_balancer_monitor_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::load_balancer_monitor); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::load_balancer_pool::__export_pulumi_cloudflare_load_balancer_pool_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::load_balancer_pool::__export_pulumi_cloudflare_load_balancer_pool_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::load_balancer_pool); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::logpull_retention::__export_pulumi_cloudflare_logpull_retention_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::logpull_retention::__export_pulumi_cloudflare_logpull_retention_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::logpull_retention); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::logpush_job::__export_pulumi_cloudflare_logpush_job_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::logpush_job::__export_pulumi_cloudflare_logpush_job_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::logpush_job); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::logpush_ownership_challenge::__export_pulumi_cloudflare_logpush_ownership_challenge_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::logpush_ownership_challenge::__export_pulumi_cloudflare_logpush_ownership_challenge_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::logpush_ownership_challenge);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::magic_firewall_ruleset::__export_pulumi_cloudflare_magic_firewall_ruleset_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::magic_firewall_ruleset::__export_pulumi_cloudflare_magic_firewall_ruleset_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::magic_firewall_ruleset); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::magic_wan_gre_tunnel::__export_pulumi_cloudflare_magic_wan_gre_tunnel_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::magic_wan_gre_tunnel::__export_pulumi_cloudflare_magic_wan_gre_tunnel_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::magic_wan_gre_tunnel); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::magic_wan_ipsec_tunnel::__export_pulumi_cloudflare_magic_wan_ipsec_tunnel_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::magic_wan_ipsec_tunnel::__export_pulumi_cloudflare_magic_wan_ipsec_tunnel_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::magic_wan_ipsec_tunnel); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::magic_wan_static_route::__export_pulumi_cloudflare_magic_wan_static_route_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::magic_wan_static_route::__export_pulumi_cloudflare_magic_wan_static_route_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::magic_wan_static_route); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::managed_headers::__export_pulumi_cloudflare_managed_headers_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::managed_headers::__export_pulumi_cloudflare_managed_headers_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::managed_headers); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::mtls_certificate::__export_pulumi_cloudflare_mtls_certificate_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::mtls_certificate::__export_pulumi_cloudflare_mtls_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::mtls_certificate); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::notification_policy::__export_pulumi_cloudflare_notification_policy_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::notification_policy::__export_pulumi_cloudflare_notification_policy_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::notification_policy); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::notification_policy_webhooks::__export_pulumi_cloudflare_notification_policy_webhooks_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::notification_policy_webhooks::__export_pulumi_cloudflare_notification_policy_webhooks_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::notification_policy_webhooks);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::observatory_scheduled_test::__export_pulumi_cloudflare_observatory_scheduled_test_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::observatory_scheduled_test::__export_pulumi_cloudflare_observatory_scheduled_test_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::observatory_scheduled_test);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::origin_ca_certificate::__export_pulumi_cloudflare_origin_ca_certificate_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::origin_ca_certificate::__export_pulumi_cloudflare_origin_ca_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::origin_ca_certificate); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::page_rule::__export_pulumi_cloudflare_page_rule_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::page_rule::__export_pulumi_cloudflare_page_rule_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::page_rule);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::pages_domain::__export_pulumi_cloudflare_pages_domain_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::pages_domain::__export_pulumi_cloudflare_pages_domain_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::pages_domain); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::pages_project::__export_pulumi_cloudflare_pages_project_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::pages_project::__export_pulumi_cloudflare_pages_project_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::pages_project); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::queue::__export_pulumi_cloudflare_queue_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::queue::__export_pulumi_cloudflare_queue_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::queue);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::r2_bucket::__export_pulumi_cloudflare_r2_bucket_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::r2_bucket::__export_pulumi_cloudflare_r2_bucket_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::r2_bucket);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::rate_limit::__export_pulumi_cloudflare_rate_limit_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::rate_limit::__export_pulumi_cloudflare_rate_limit_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::rate_limit);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::record::__export_pulumi_cloudflare_record_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::record::__export_pulumi_cloudflare_record_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::record);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::regional_hostname::__export_pulumi_cloudflare_regional_hostname_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::regional_hostname::__export_pulumi_cloudflare_regional_hostname_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::regional_hostname); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::regional_tiered_cache::__export_pulumi_cloudflare_regional_tiered_cache_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::regional_tiered_cache::__export_pulumi_cloudflare_regional_tiered_cache_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::regional_tiered_cache); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::risk_behavior::__export_pulumi_cloudflare_risk_behavior_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::risk_behavior::__export_pulumi_cloudflare_risk_behavior_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::risk_behavior); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::ruleset::__export_pulumi_cloudflare_ruleset_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::ruleset::__export_pulumi_cloudflare_ruleset_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::ruleset);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::spectrum_application::__export_pulumi_cloudflare_spectrum_application_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::spectrum_application::__export_pulumi_cloudflare_spectrum_application_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::spectrum_application); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::split_tunnel::__export_pulumi_cloudflare_split_tunnel_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::split_tunnel::__export_pulumi_cloudflare_split_tunnel_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::split_tunnel); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::static_route::__export_pulumi_cloudflare_static_route_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::static_route::__export_pulumi_cloudflare_static_route_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::static_route); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::teams_account::__export_pulumi_cloudflare_teams_account_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::teams_account::__export_pulumi_cloudflare_teams_account_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::teams_account); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::teams_list::__export_pulumi_cloudflare_teams_list_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::teams_list::__export_pulumi_cloudflare_teams_list_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::teams_list);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::teams_location::__export_pulumi_cloudflare_teams_location_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::teams_location::__export_pulumi_cloudflare_teams_location_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::teams_location); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::teams_proxy_endpoint::__export_pulumi_cloudflare_teams_proxy_endpoint_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::teams_proxy_endpoint::__export_pulumi_cloudflare_teams_proxy_endpoint_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::teams_proxy_endpoint); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::teams_rule::__export_pulumi_cloudflare_teams_rule_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::teams_rule::__export_pulumi_cloudflare_teams_rule_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::teams_rule);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::tiered_cache::__export_pulumi_cloudflare_tiered_cache_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::tiered_cache::__export_pulumi_cloudflare_tiered_cache_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::tiered_cache); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::total_tls::__export_pulumi_cloudflare_total_tls_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::total_tls::__export_pulumi_cloudflare_total_tls_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::total_tls);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::tunnel::__export_pulumi_cloudflare_tunnel_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::tunnel::__export_pulumi_cloudflare_tunnel_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::tunnel);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::tunnel_config::__export_pulumi_cloudflare_tunnel_config_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::tunnel_config::__export_pulumi_cloudflare_tunnel_config_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::tunnel_config); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::tunnel_route::__export_pulumi_cloudflare_tunnel_route_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::tunnel_route::__export_pulumi_cloudflare_tunnel_route_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::tunnel_route); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::tunnel_virtual_network::__export_pulumi_cloudflare_tunnel_virtual_network_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::tunnel_virtual_network::__export_pulumi_cloudflare_tunnel_virtual_network_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::tunnel_virtual_network); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::turnstile_widget::__export_pulumi_cloudflare_turnstile_widget_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::turnstile_widget::__export_pulumi_cloudflare_turnstile_widget_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::turnstile_widget); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::url_normalization_settings::__export_pulumi_cloudflare_url_normalization_settings_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::url_normalization_settings::__export_pulumi_cloudflare_url_normalization_settings_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::url_normalization_settings);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::user_agent_blocking_rule::__export_pulumi_cloudflare_user_agent_blocking_rule_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::user_agent_blocking_rule::__export_pulumi_cloudflare_user_agent_blocking_rule_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::user_agent_blocking_rule); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::waiting_room::__export_pulumi_cloudflare_waiting_room_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::waiting_room::__export_pulumi_cloudflare_waiting_room_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::waiting_room); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::waiting_room_event::__export_pulumi_cloudflare_waiting_room_event_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::waiting_room_event::__export_pulumi_cloudflare_waiting_room_event_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::waiting_room_event); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::waiting_room_rules::__export_pulumi_cloudflare_waiting_room_rules_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::waiting_room_rules::__export_pulumi_cloudflare_waiting_room_rules_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::waiting_room_rules); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::waiting_room_settings::__export_pulumi_cloudflare_waiting_room_settings_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::waiting_room_settings::__export_pulumi_cloudflare_waiting_room_settings_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::waiting_room_settings); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::web3_hostname::__export_pulumi_cloudflare_web3_hostname_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::web3_hostname::__export_pulumi_cloudflare_web3_hostname_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::web3_hostname); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::web_analytics_rule::__export_pulumi_cloudflare_web_analytics_rule_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::web_analytics_rule::__export_pulumi_cloudflare_web_analytics_rule_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::web_analytics_rule); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::web_analytics_site::__export_pulumi_cloudflare_web_analytics_site_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::web_analytics_site::__export_pulumi_cloudflare_web_analytics_site_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::web_analytics_site); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::worker_cron_trigger::__export_pulumi_cloudflare_worker_cron_trigger_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::worker_cron_trigger::__export_pulumi_cloudflare_worker_cron_trigger_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::worker_cron_trigger); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::worker_domain::__export_pulumi_cloudflare_worker_domain_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::worker_domain::__export_pulumi_cloudflare_worker_domain_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::worker_domain); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::worker_route::__export_pulumi_cloudflare_worker_route_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::worker_route::__export_pulumi_cloudflare_worker_route_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::worker_route); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::worker_script::__export_pulumi_cloudflare_worker_script_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::worker_script::__export_pulumi_cloudflare_worker_script_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::worker_script); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::worker_secret::__export_pulumi_cloudflare_worker_secret_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::worker_secret::__export_pulumi_cloudflare_worker_secret_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::worker_secret); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::workers_cron_trigger::__export_pulumi_cloudflare_workers_cron_trigger_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::workers_cron_trigger::__export_pulumi_cloudflare_workers_cron_trigger_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::workers_cron_trigger); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::workers_domain::__export_pulumi_cloudflare_workers_domain_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::workers_domain::__export_pulumi_cloudflare_workers_domain_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::workers_domain); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::workers_for_platforms_dispatch_namespace::__export_pulumi_cloudflare_workers_for_platforms_dispatch_namespace_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::workers_for_platforms_dispatch_namespace::__export_pulumi_cloudflare_workers_for_platforms_dispatch_namespace_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::workers_for_platforms_dispatch_namespace);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::workers_for_platforms_namespace::__export_pulumi_cloudflare_workers_for_platforms_namespace_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::workers_for_platforms_namespace::__export_pulumi_cloudflare_workers_for_platforms_namespace_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::workers_for_platforms_namespace);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::workers_kv::__export_pulumi_cloudflare_workers_kv_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::workers_kv::__export_pulumi_cloudflare_workers_kv_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::workers_kv);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::workers_kv_namespace::__export_pulumi_cloudflare_workers_kv_namespace_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::workers_kv_namespace::__export_pulumi_cloudflare_workers_kv_namespace_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::workers_kv_namespace); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::workers_route::__export_pulumi_cloudflare_workers_route_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::workers_route::__export_pulumi_cloudflare_workers_route_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::workers_route); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::workers_script::__export_pulumi_cloudflare_workers_script_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::workers_script::__export_pulumi_cloudflare_workers_script_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::workers_script); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::workers_secret::__export_pulumi_cloudflare_workers_secret_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::workers_secret::__export_pulumi_cloudflare_workers_secret_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::workers_secret); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_access_application::__export_pulumi_cloudflare_zero_trust_access_application_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_access_application::__export_pulumi_cloudflare_zero_trust_access_application_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_access_application);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_access_custom_page::__export_pulumi_cloudflare_zero_trust_access_custom_page_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_access_custom_page::__export_pulumi_cloudflare_zero_trust_access_custom_page_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_access_custom_page);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_access_group::__export_pulumi_cloudflare_zero_trust_access_group_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_access_group::__export_pulumi_cloudflare_zero_trust_access_group_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_access_group); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_access_identity_provider::__export_pulumi_cloudflare_zero_trust_access_identity_provider_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_access_identity_provider::__export_pulumi_cloudflare_zero_trust_access_identity_provider_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_access_identity_provider);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_access_mtls_certificate::__export_pulumi_cloudflare_zero_trust_access_mtls_certificate_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_access_mtls_certificate::__export_pulumi_cloudflare_zero_trust_access_mtls_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_access_mtls_certificate);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_access_mtls_hostname_settings::__export_pulumi_cloudflare_zero_trust_access_mtls_hostname_settings_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_access_mtls_hostname_settings::__export_pulumi_cloudflare_zero_trust_access_mtls_hostname_settings_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_access_mtls_hostname_settings);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_access_organization::__export_pulumi_cloudflare_zero_trust_access_organization_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_access_organization::__export_pulumi_cloudflare_zero_trust_access_organization_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_access_organization);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_access_policy::__export_pulumi_cloudflare_zero_trust_access_policy_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_access_policy::__export_pulumi_cloudflare_zero_trust_access_policy_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_access_policy); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_access_service_token::__export_pulumi_cloudflare_zero_trust_access_service_token_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_access_service_token::__export_pulumi_cloudflare_zero_trust_access_service_token_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_access_service_token);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_access_short_lived_certificate::__export_pulumi_cloudflare_zero_trust_access_short_lived_certificate_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_access_short_lived_certificate::__export_pulumi_cloudflare_zero_trust_access_short_lived_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_access_short_lived_certificate);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_access_tag::__export_pulumi_cloudflare_zero_trust_access_tag_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_access_tag::__export_pulumi_cloudflare_zero_trust_access_tag_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_access_tag); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_device_certificates::__export_pulumi_cloudflare_zero_trust_device_certificates_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_device_certificates::__export_pulumi_cloudflare_zero_trust_device_certificates_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_device_certificates);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_device_managed_networks::__export_pulumi_cloudflare_zero_trust_device_managed_networks_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_device_managed_networks::__export_pulumi_cloudflare_zero_trust_device_managed_networks_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_device_managed_networks);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_device_posture_integration::__export_pulumi_cloudflare_zero_trust_device_posture_integration_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_device_posture_integration::__export_pulumi_cloudflare_zero_trust_device_posture_integration_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_device_posture_integration);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_device_posture_rule::__export_pulumi_cloudflare_zero_trust_device_posture_rule_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_device_posture_rule::__export_pulumi_cloudflare_zero_trust_device_posture_rule_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_device_posture_rule);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_device_profiles::__export_pulumi_cloudflare_zero_trust_device_profiles_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_device_profiles::__export_pulumi_cloudflare_zero_trust_device_profiles_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_device_profiles);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_dex_test::__export_pulumi_cloudflare_zero_trust_dex_test_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_dex_test::__export_pulumi_cloudflare_zero_trust_dex_test_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_dex_test); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_dlp_profile::__export_pulumi_cloudflare_zero_trust_dlp_profile_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_dlp_profile::__export_pulumi_cloudflare_zero_trust_dlp_profile_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_dlp_profile); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_dns_location::__export_pulumi_cloudflare_zero_trust_dns_location_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_dns_location::__export_pulumi_cloudflare_zero_trust_dns_location_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_dns_location); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_gateway_certificate::__export_pulumi_cloudflare_zero_trust_gateway_certificate_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_gateway_certificate::__export_pulumi_cloudflare_zero_trust_gateway_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_gateway_certificate);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_gateway_policy::__export_pulumi_cloudflare_zero_trust_gateway_policy_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_gateway_policy::__export_pulumi_cloudflare_zero_trust_gateway_policy_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_gateway_policy);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_gateway_proxy_endpoint::__export_pulumi_cloudflare_zero_trust_gateway_proxy_endpoint_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_gateway_proxy_endpoint::__export_pulumi_cloudflare_zero_trust_gateway_proxy_endpoint_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_gateway_proxy_endpoint);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_gateway_settings::__export_pulumi_cloudflare_zero_trust_gateway_settings_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_gateway_settings::__export_pulumi_cloudflare_zero_trust_gateway_settings_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_gateway_settings);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_infrastructure_access_target::__export_pulumi_cloudflare_zero_trust_infrastructure_access_target_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_infrastructure_access_target::__export_pulumi_cloudflare_zero_trust_infrastructure_access_target_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_infrastructure_access_target);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_key_access_key_configuration::__export_pulumi_cloudflare_zero_trust_key_access_key_configuration_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_key_access_key_configuration::__export_pulumi_cloudflare_zero_trust_key_access_key_configuration_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_key_access_key_configuration);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_list::__export_pulumi_cloudflare_zero_trust_list_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_list::__export_pulumi_cloudflare_zero_trust_list_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_list); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_local_fallback_domain::__export_pulumi_cloudflare_zero_trust_local_fallback_domain_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_local_fallback_domain::__export_pulumi_cloudflare_zero_trust_local_fallback_domain_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_local_fallback_domain);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_risk_behavior::__export_pulumi_cloudflare_zero_trust_risk_behavior_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_risk_behavior::__export_pulumi_cloudflare_zero_trust_risk_behavior_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_risk_behavior); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_risk_score_integration::__export_pulumi_cloudflare_zero_trust_risk_score_integration_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_risk_score_integration::__export_pulumi_cloudflare_zero_trust_risk_score_integration_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_risk_score_integration);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_split_tunnel::__export_pulumi_cloudflare_zero_trust_split_tunnel_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_split_tunnel::__export_pulumi_cloudflare_zero_trust_split_tunnel_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_split_tunnel); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_tunnel_cloudflared::__export_pulumi_cloudflare_zero_trust_tunnel_cloudflared_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_tunnel_cloudflared::__export_pulumi_cloudflare_zero_trust_tunnel_cloudflared_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_tunnel_cloudflared);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_tunnel_cloudflared_config::__export_pulumi_cloudflare_zero_trust_tunnel_cloudflared_config_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_tunnel_cloudflared_config::__export_pulumi_cloudflare_zero_trust_tunnel_cloudflared_config_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_tunnel_cloudflared_config);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_tunnel_route::__export_pulumi_cloudflare_zero_trust_tunnel_route_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_tunnel_route::__export_pulumi_cloudflare_zero_trust_tunnel_route_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_tunnel_route); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zero_trust_tunnel_virtual_network::__export_pulumi_cloudflare_zero_trust_tunnel_virtual_network_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zero_trust_tunnel_virtual_network::__export_pulumi_cloudflare_zero_trust_tunnel_virtual_network_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zero_trust_tunnel_virtual_network);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zone::__export_pulumi_cloudflare_zone_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zone::__export_pulumi_cloudflare_zone_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::zone);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zone_cache_reserve::__export_pulumi_cloudflare_zone_cache_reserve_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zone_cache_reserve::__export_pulumi_cloudflare_zone_cache_reserve_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zone_cache_reserve); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zone_cache_variants::__export_pulumi_cloudflare_zone_cache_variants_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zone_cache_variants::__export_pulumi_cloudflare_zone_cache_variants_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zone_cache_variants); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zone_dnssec::__export_pulumi_cloudflare_zone_dnssec_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zone_dnssec::__export_pulumi_cloudflare_zone_dnssec_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zone_dnssec); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zone_hold::__export_pulumi_cloudflare_zone_hold_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zone_hold::__export_pulumi_cloudflare_zone_hold_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::zone_hold);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zone_lockdown::__export_pulumi_cloudflare_zone_lockdown_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zone_lockdown::__export_pulumi_cloudflare_zone_lockdown_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zone_lockdown); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::zone_settings_override::__export_pulumi_cloudflare_zone_settings_override_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::zone_settings_override::__export_pulumi_cloudflare_zone_settings_override_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::zone_settings_override); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_access_application::__export_pulumi_cloudflare_get_access_application_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_access_application::__export_pulumi_cloudflare_get_access_application_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::get_access_application); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_access_identity_provider::__export_pulumi_cloudflare_get_access_identity_provider_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_access_identity_provider::__export_pulumi_cloudflare_get_access_identity_provider_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::get_access_identity_provider);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_account_roles::__export_pulumi_cloudflare_get_account_roles_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_account_roles::__export_pulumi_cloudflare_get_account_roles_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::get_account_roles); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_accounts::__export_pulumi_cloudflare_get_accounts_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_accounts::__export_pulumi_cloudflare_get_accounts_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::get_accounts); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_api_token_permission_groups::__export_pulumi_cloudflare_get_api_token_permission_groups_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_api_token_permission_groups::__export_pulumi_cloudflare_get_api_token_permission_groups_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::get_api_token_permission_groups);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_dcv_delegation::__export_pulumi_cloudflare_get_dcv_delegation_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_dcv_delegation::__export_pulumi_cloudflare_get_dcv_delegation_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::get_dcv_delegation); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_device_posture_rules::__export_pulumi_cloudflare_get_device_posture_rules_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_device_posture_rules::__export_pulumi_cloudflare_get_device_posture_rules_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::get_device_posture_rules); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_devices::__export_pulumi_cloudflare_get_devices_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_devices::__export_pulumi_cloudflare_get_devices_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::get_devices); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_dlp_datasets::__export_pulumi_cloudflare_get_dlp_datasets_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_dlp_datasets::__export_pulumi_cloudflare_get_dlp_datasets_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::get_dlp_datasets); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_gateway_app_types::__export_pulumi_cloudflare_get_gateway_app_types_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_gateway_app_types::__export_pulumi_cloudflare_get_gateway_app_types_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::get_gateway_app_types); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_gateway_categories::__export_pulumi_cloudflare_get_gateway_categories_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_gateway_categories::__export_pulumi_cloudflare_get_gateway_categories_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::get_gateway_categories); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_infrastructure_access_targets::__export_pulumi_cloudflare_get_infrastructure_access_targets_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_infrastructure_access_targets::__export_pulumi_cloudflare_get_infrastructure_access_targets_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::get_infrastructure_access_targets);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_ip_ranges::__export_pulumi_cloudflare_get_ip_ranges_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_ip_ranges::__export_pulumi_cloudflare_get_ip_ranges_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::get_ip_ranges); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_list::__export_pulumi_cloudflare_get_list_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_list::__export_pulumi_cloudflare_get_list_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::get_list);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_lists::__export_pulumi_cloudflare_get_lists_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_lists::__export_pulumi_cloudflare_get_lists_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::get_lists);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_load_balancer_pools::__export_pulumi_cloudflare_get_load_balancer_pools_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_load_balancer_pools::__export_pulumi_cloudflare_get_load_balancer_pools_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::get_load_balancer_pools); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_origin_ca_certificate::__export_pulumi_cloudflare_get_origin_ca_certificate_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_origin_ca_certificate::__export_pulumi_cloudflare_get_origin_ca_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::get_origin_ca_certificate);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_origin_ca_root_certificate::__export_pulumi_cloudflare_get_origin_ca_root_certificate_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_origin_ca_root_certificate::__export_pulumi_cloudflare_get_origin_ca_root_certificate_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::get_origin_ca_root_certificate);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_record::__export_pulumi_cloudflare_get_record_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_record::__export_pulumi_cloudflare_get_record_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::get_record);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_rulesets::__export_pulumi_cloudflare_get_rulesets_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_rulesets::__export_pulumi_cloudflare_get_rulesets_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::get_rulesets); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_tunnel::__export_pulumi_cloudflare_get_tunnel_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_tunnel::__export_pulumi_cloudflare_get_tunnel_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::get_tunnel);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_tunnel_virtual_network::__export_pulumi_cloudflare_get_tunnel_virtual_network_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_tunnel_virtual_network::__export_pulumi_cloudflare_get_tunnel_virtual_network_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::get_tunnel_virtual_network);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_user::__export_pulumi_cloudflare_get_user_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_user::__export_pulumi_cloudflare_get_user_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::get_user);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_zero_trust_access_application::__export_pulumi_cloudflare_get_zero_trust_access_application_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_zero_trust_access_application::__export_pulumi_cloudflare_get_zero_trust_access_application_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::get_zero_trust_access_application);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_zero_trust_access_identity_provider::__export_pulumi_cloudflare_get_zero_trust_access_identity_provider_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_zero_trust_access_identity_provider::__export_pulumi_cloudflare_get_zero_trust_access_identity_provider_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::get_zero_trust_access_identity_provider);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_zero_trust_infrastructure_access_targets::__export_pulumi_cloudflare_get_zero_trust_infrastructure_access_targets_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_zero_trust_infrastructure_access_targets::__export_pulumi_cloudflare_get_zero_trust_infrastructure_access_targets_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::get_zero_trust_infrastructure_access_targets);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_zero_trust_tunnel_cloudflared::__export_pulumi_cloudflare_get_zero_trust_tunnel_cloudflared_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_zero_trust_tunnel_cloudflared::__export_pulumi_cloudflare_get_zero_trust_tunnel_cloudflared_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::get_zero_trust_tunnel_cloudflared);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_zero_trust_tunnel_virtual_network::__export_pulumi_cloudflare_get_zero_trust_tunnel_virtual_network_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_zero_trust_tunnel_virtual_network::__export_pulumi_cloudflare_get_zero_trust_tunnel_virtual_network_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::get_zero_trust_tunnel_virtual_network);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_zone::__export_pulumi_cloudflare_get_zone_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_zone::__export_pulumi_cloudflare_get_zone_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::get_zone);
         $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_zone_cache_reserve::__export_pulumi_cloudflare_get_zone_cache_reserve_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_zone_cache_reserve::__export_pulumi_cloudflare_get_zone_cache_reserve_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::get_zone_cache_reserve); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_zone_dnssec::__export_pulumi_cloudflare_get_zone_dnssec_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_zone_dnssec::__export_pulumi_cloudflare_get_zone_dnssec_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::pulumi::cloudflare::get_zone_dnssec); $($path_to_types_root)*::
-        exports::pulumi::cloudflare::get_zones::__export_pulumi_cloudflare_get_zones_5_43_1_0_0_0_dev_cabi!($ty
+        exports::pulumi::cloudflare::get_zones::__export_pulumi_cloudflare_get_zones_5_43_1_0_0_0_nightly_dd68c66_cabi!($ty
         with_types_in $($path_to_types_root)*:: exports::pulumi::cloudflare::get_zones);
     };
 }
 #[doc(inline)]
 pub(crate) use __export_cloudflare_pulumi_impl as export;
 #[cfg(target_arch = "wasm32")]
-#[link_section = "component-type:wit-bindgen:0.35.0:pulumi:cloudflare@5.43.1--0.0.0-DEV:cloudflare-pulumi:encoded world"]
+#[link_section = "component-type:wit-bindgen:0.35.0:pulumi:cloudflare@5.43.1--0.0.0-NIGHTLY-dd68c66:cloudflare-pulumi:encoded world"]
 #[doc(hidden)]
-pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 59642] = *b"\
-\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xf1\xd0\x03\x01A\x02\
+pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 62030] = *b"\
+\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xc5\xe3\x03\x01A\x02\
 \x01A\x8d\x03\x01B\x0a\x04\0\x06output\x03\x01\x01i\0\x01@\x01\x05values\0\x01\x04\
 \0\x13[constructor]output\x01\x02\x01h\0\x01@\x02\x04self\x03\x0dfunction-names\0\
 \x01\x04\0\x12[method]output.map\x01\x04\x01p\x03\x01@\x01\x07outputs\x05\0\x01\x04\
-\0\x07combine\x01\x06\x03\00component:pulumi-wasm/output-interface@0.0.0-DEV\x05\
-\0\x02\x03\0\0\x06output\x01B\x1c\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
-h\x01\x01r\x02\x04names\x05value\x02\x04\0\x0cobject-field\x03\0\x03\x01r\x01\x04\
-names\x04\0\x0cresult-field\x03\0\x05\x01i\x01\x01r\x02\x04names\x06output\x07\x04\
-\0\x1eregister-resource-result-field\x03\0\x08\x01p\x04\x01p\x06\x01r\x04\x04typ\
-es\x04names\x06object\x0a\x07results\x0b\x04\0\x19register-resource-request\x03\0\
-\x0c\x01p\x09\x01r\x01\x06fields\x0e\x04\0\x18register-resource-result\x03\0\x0f\
-\x01r\x02\x04names\x06output\x07\x04\0\x1cresource-invoke-result-field\x03\0\x11\
-\x01r\x03\x05tokens\x06object\x0a\x07results\x0b\x04\0\x17resource-invoke-reques\
-t\x03\0\x13\x01p\x12\x01r\x01\x06fields\x15\x04\0\x16resource-invoke-result\x03\0\
-\x16\x01@\x01\x07request\x0d\0\x10\x04\0\x08register\x01\x18\x01@\x01\x07request\
-\x14\0\x17\x04\0\x06invoke\x01\x19\x03\02component:pulumi-wasm/register-interfac\
-e@0.0.0-DEV\x05\x02\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
-\x01r\"\x0aaccount-id\x02\x1ballow-authenticate-via-warp\x02\x0callowed-idps\x02\
-\x15app-launcher-logo-url\x02\x14app-launcher-visible\x02\x19auto-redirect-to-id\
-entity\x02\x08bg-color\x02\x0ccors-headers\x02\x13custom-deny-message\x02\x0fcus\
-tom-deny-url\x02\x1ccustom-non-identity-deny-url\x02\x0ccustom-pages\x02\x06doma\
-in\x02\x15enable-binding-cookie\x02\x0cfooter-links\x02\x0fheader-bg-color\x02\x1a\
-http-only-cookie-attribute\x02\x13landing-page-design\x02\x08logo-url\x02\x04nam\
-e\x02\x18options-preflight-bypass\x02\x08policies\x02\x08saas-app\x02\x1asame-si\
-te-cookie-attribute\x02\x0bscim-config\x02\x13self-hosted-domains\x02\x18service\
--auth401-redirect\x02\x10session-duration\x02\x1cskip-app-launcher-login-page\x02\
-\x11skip-interstitial\x02\x04tags\x02\x10target-criterias\x02\x04type\x02\x07zon\
-e-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r#\x0aaccount-id\x05\x1ballow-authe\
-nticate-via-warp\x05\x0callowed-idps\x05\x15app-launcher-logo-url\x05\x14app-lau\
-ncher-visible\x05\x03aud\x05\x19auto-redirect-to-identity\x05\x08bg-color\x05\x0c\
-cors-headers\x05\x13custom-deny-message\x05\x0fcustom-deny-url\x05\x1ccustom-non\
--identity-deny-url\x05\x0ccustom-pages\x05\x06domain\x05\x15enable-binding-cooki\
-e\x05\x0cfooter-links\x05\x0fheader-bg-color\x05\x1ahttp-only-cookie-attribute\x05\
-\x13landing-page-design\x05\x08logo-url\x05\x04name\x05\x18options-preflight-byp\
-ass\x05\x08policies\x05\x08saas-app\x05\x1asame-site-cookie-attribute\x05\x0bsci\
-m-config\x05\x13self-hosted-domains\x05\x18service-auth401-redirect\x05\x10sessi\
-on-duration\x05\x1cskip-app-launcher-login-page\x05\x11skip-interstitial\x05\x04\
-tags\x05\x10target-criterias\x05\x04type\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\
-\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\06pulumi:cloudf\
-lare/access-application@5.43.1--0.0.0-DEV\x05\x03\x01B\x0a\x02\x03\x02\x01\x01\x04\
-\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x0eapplication-id\x02\x07\
-zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount-id\x05\x0eappli\
-cation-id\x05\x03aud\x05\x0apublic-key\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\
-\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\09pulumi:cloudf\
-lare/access-ca-certificate@5.43.1--0.0.0-DEV\x05\x04\x01B\x0a\x02\x03\x02\x01\x01\
-\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\x09app-count\x02\x0b\
-custom-html\x02\x04name\x02\x04type\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01\
-i\x01\x01r\x06\x0aaccount-id\x05\x09app-count\x05\x0bcustom-html\x05\x04name\x05\
-\x04type\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
-\0\x07\x04\0\x06invoke\x01\x08\x04\06pulumi:cloudflare/access-custom-page@5.43.1\
---0.0.0-DEV\x05\x05\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
-\x01r\x06\x0aaccount-id\x02\x08excludes\x02\x08includes\x02\x04name\x02\x08requi\
-res\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\
-\x08excludes\x05\x08includes\x05\x04name\x05\x08requires\x05\x07zone-id\x05\x04\0\
-\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\00pulumi:cloudflare/access-group@5.43.1--0.0.0-DEV\x05\x06\x01B\x0a\x02\x03\x02\
-\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\x07configs\x02\
-\x04name\x02\x0cscim-configs\x02\x04type\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\
-\x01i\x01\x01r\x06\x0aaccount-id\x05\x07configs\x05\x04name\x05\x0cscim-configs\x05\
-\x04type\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
-\0\x07\x04\0\x06invoke\x01\x08\x04\0<pulumi:cloudflare/access-identity-provider@\
-5.43.1--0.0.0-DEV\x05\x07\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
-h\x01\x01r\x02\x0aaccount-id\x02\x1akey-rotation-interval-days\x02\x04\0\x04args\
-\x03\0\x03\x01i\x01\x01r\x02\x0aaccount-id\x05\x1akey-rotation-interval-days\x05\
+\0\x07combine\x01\x06\x03\0<component:pulumi-wasm/output-interface@0.0.0-NIGHTLY\
+-dd68c66\x05\0\x02\x03\0\0\x06output\x01B\x1c\x02\x03\x02\x01\x01\x04\0\x06outpu\
+t\x03\0\0\x01h\x01\x01r\x02\x04names\x05value\x02\x04\0\x0cobject-field\x03\0\x03\
+\x01r\x01\x04names\x04\0\x0cresult-field\x03\0\x05\x01i\x01\x01r\x02\x04names\x06\
+output\x07\x04\0\x1eregister-resource-result-field\x03\0\x08\x01p\x04\x01p\x06\x01\
+r\x04\x04types\x04names\x06object\x0a\x07results\x0b\x04\0\x19register-resource-\
+request\x03\0\x0c\x01p\x09\x01r\x01\x06fields\x0e\x04\0\x18register-resource-res\
+ult\x03\0\x0f\x01r\x02\x04names\x06output\x07\x04\0\x1cresource-invoke-result-fi\
+eld\x03\0\x11\x01r\x03\x05tokens\x06object\x0a\x07results\x0b\x04\0\x17resource-\
+invoke-request\x03\0\x13\x01p\x12\x01r\x01\x06fields\x15\x04\0\x16resource-invok\
+e-result\x03\0\x16\x01@\x01\x07request\x0d\0\x10\x04\0\x08register\x01\x18\x01@\x01\
+\x07request\x14\0\x17\x04\0\x06invoke\x01\x19\x03\0>component:pulumi-wasm/regist\
+er-interface@0.0.0-NIGHTLY-dd68c66\x05\x02\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
+output\x03\0\0\x01h\x01\x01r\"\x0aaccount-id\x02\x1ballow-authenticate-via-warp\x02\
+\x0callowed-idps\x02\x15app-launcher-logo-url\x02\x14app-launcher-visible\x02\x19\
+auto-redirect-to-identity\x02\x08bg-color\x02\x0ccors-headers\x02\x13custom-deny\
+-message\x02\x0fcustom-deny-url\x02\x1ccustom-non-identity-deny-url\x02\x0ccusto\
+m-pages\x02\x06domain\x02\x15enable-binding-cookie\x02\x0cfooter-links\x02\x0fhe\
+ader-bg-color\x02\x1ahttp-only-cookie-attribute\x02\x13landing-page-design\x02\x08\
+logo-url\x02\x04name\x02\x18options-preflight-bypass\x02\x08policies\x02\x08saas\
+-app\x02\x1asame-site-cookie-attribute\x02\x0bscim-config\x02\x13self-hosted-dom\
+ains\x02\x18service-auth401-redirect\x02\x10session-duration\x02\x1cskip-app-lau\
+ncher-login-page\x02\x11skip-interstitial\x02\x04tags\x02\x10target-criterias\x02\
+\x04type\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r#\x0aaccount-id\
+\x05\x1ballow-authenticate-via-warp\x05\x0callowed-idps\x05\x15app-launcher-logo\
+-url\x05\x14app-launcher-visible\x05\x03aud\x05\x19auto-redirect-to-identity\x05\
+\x08bg-color\x05\x0ccors-headers\x05\x13custom-deny-message\x05\x0fcustom-deny-u\
+rl\x05\x1ccustom-non-identity-deny-url\x05\x0ccustom-pages\x05\x06domain\x05\x15\
+enable-binding-cookie\x05\x0cfooter-links\x05\x0fheader-bg-color\x05\x1ahttp-onl\
+y-cookie-attribute\x05\x13landing-page-design\x05\x08logo-url\x05\x04name\x05\x18\
+options-preflight-bypass\x05\x08policies\x05\x08saas-app\x05\x1asame-site-cookie\
+-attribute\x05\x0bscim-config\x05\x13self-hosted-domains\x05\x18service-auth401-\
+redirect\x05\x10session-duration\x05\x1cskip-app-launcher-login-page\x05\x11skip\
+-interstitial\x05\x04tags\x05\x10target-criterias\x05\x04type\x05\x07zone-id\x05\
 \x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
-\x04\0=pulumi:cloudflare/access-keys-configuration@5.43.1--0.0.0-DEV\x05\x08\x01\
-B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-i\
-d\x02\x14associated-hostnames\x02\x0bcertificate\x02\x04name\x02\x07zone-id\x02\x04\
-\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x14associated-hostnames\
-\x05\x0bcertificate\x05\x0bfingerprint\x05\x04name\x05\x07zone-id\x05\x04\0\x03r\
-es\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Ap\
-ulumi:cloudflare/access-mutual-tls-certificate@5.43.1--0.0.0-DEV\x05\x09\x01B\x0a\
-\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\
-\x08settings\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x0aacc\
-ount-id\x05\x08settings\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04na\
-mes\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Gpulumi:cloudflare/access-mut\
-ual-tls-hostname-settings@5.43.1--0.0.0-DEV\x05\x0a\x01B\x0a\x02\x03\x02\x01\x01\
-\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0d\x0aaccount-id\x02\x1ballow-authentica\
-te-via-warp\x02\x0bauth-domain\x02\x19auto-redirect-to-identity\x02\x0ccustom-pa\
-ges\x02\x0fis-ui-read-only\x02\x0dlogin-designs\x02\x04name\x02\x10session-durat\
-ion\x02\x1aui-read-only-toggle-reason\x02\"user-seat-expiration-inactive-time\x02\
-\x1awarp-auth-session-duration\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\
-\x01r\x0d\x0aaccount-id\x05\x1ballow-authenticate-via-warp\x05\x0bauth-domain\x05\
-\x19auto-redirect-to-identity\x05\x0ccustom-pages\x05\x0fis-ui-read-only\x05\x0d\
-login-designs\x05\x04name\x05\x10session-duration\x05\x1aui-read-only-toggle-rea\
-son\x05\"user-seat-expiration-inactive-time\x05\x1awarp-auth-session-duration\x05\
+\x04\0Bpulumi:cloudflare/access-application@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x03\
+\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccou\
+nt-id\x02\x0eapplication-id\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
+r\x05\x0aaccount-id\x05\x0eapplication-id\x05\x03aud\x05\x0apublic-key\x05\x07zo\
+ne-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06in\
+voke\x01\x08\x04\0Epulumi:cloudflare/access-ca-certificate@5.43.1--0.0.0-NIGHTLY\
+-dd68c66\x05\x04\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
+r\x06\x0aaccount-id\x02\x09app-count\x02\x0bcustom-html\x02\x04name\x02\x04type\x02\
+\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x09a\
+pp-count\x05\x0bcustom-html\x05\x04name\x05\x04type\x05\x07zone-id\x05\x04\0\x03\
+res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0B\
+pulumi:cloudflare/access-custom-page@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x05\x01B\x0a\
+\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\
+\x08excludes\x02\x08includes\x02\x04name\x02\x08requires\x02\x07zone-id\x02\x04\0\
+\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x08excludes\x05\x08includ\
+es\x05\x04name\x05\x08requires\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\
+\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0<pulumi:cloudflare/acce\
+ss-group@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x06\x01B\x0a\x02\x03\x02\x01\x01\x04\0\
+\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\x07configs\x02\x04name\x02\
+\x0cscim-configs\x02\x04type\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\
+\x01r\x06\x0aaccount-id\x05\x07configs\x05\x04name\x05\x0cscim-configs\x05\x04ty\
+pe\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
+\x04\0\x06invoke\x01\x08\x04\0Hpulumi:cloudflare/access-identity-provider@5.43.1\
+--0.0.0-NIGHTLY-dd68c66\x05\x07\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
+\0\0\x01h\x01\x01r\x02\x0aaccount-id\x02\x1akey-rotation-interval-days\x02\x04\0\
+\x04args\x03\0\x03\x01i\x01\x01r\x02\x0aaccount-id\x05\x1akey-rotation-interval-\
+days\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06inv\
+oke\x01\x08\x04\0Ipulumi:cloudflare/access-keys-configuration@5.43.1--0.0.0-NIGH\
+TLY-dd68c66\x05\x08\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
+\x01r\x05\x0aaccount-id\x02\x14associated-hostnames\x02\x0bcertificate\x02\x04na\
+me\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\
+\x14associated-hostnames\x05\x0bcertificate\x05\x0bfingerprint\x05\x04name\x05\x07\
+zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
+invoke\x01\x08\x04\0Mpulumi:cloudflare/access-mutual-tls-certificate@5.43.1--0.0\
+.0-NIGHTLY-dd68c66\x05\x09\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
+h\x01\x01r\x03\x0aaccount-id\x02\x08settings\x02\x07zone-id\x02\x04\0\x04args\x03\
+\0\x03\x01i\x01\x01r\x03\x0aaccount-id\x05\x08settings\x05\x07zone-id\x05\x04\0\x03\
+res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0S\
+pulumi:cloudflare/access-mutual-tls-hostname-settings@5.43.1--0.0.0-NIGHTLY-dd68\
+c66\x05\x0a\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0d\
+\x0aaccount-id\x02\x1ballow-authenticate-via-warp\x02\x0bauth-domain\x02\x19auto\
+-redirect-to-identity\x02\x0ccustom-pages\x02\x0fis-ui-read-only\x02\x0dlogin-de\
+signs\x02\x04name\x02\x10session-duration\x02\x1aui-read-only-toggle-reason\x02\"\
+user-seat-expiration-inactive-time\x02\x1awarp-auth-session-duration\x02\x07zone\
+-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0d\x0aaccount-id\x05\x1ballow-aut\
+henticate-via-warp\x05\x0bauth-domain\x05\x19auto-redirect-to-identity\x05\x0ccu\
+stom-pages\x05\x0fis-ui-read-only\x05\x0dlogin-designs\x05\x04name\x05\x10sessio\
+n-duration\x05\x1aui-read-only-toggle-reason\x05\"user-seat-expiration-inactive-\
+time\x05\x1awarp-auth-session-duration\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\
+\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Cpulumi:cloudf\
+lare/access-organization@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x0b\x01B\x0a\x02\x03\x02\
+\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x10\x0aaccount-id\x02\x0eapplicat\
+ion-id\x02\x0fapproval-groups\x02\x11approval-required\x02\x10connection-rules\x02\
+\x08decision\x02\x08excludes\x02\x08includes\x02\x12isolation-required\x02\x04na\
+me\x02\x0aprecedence\x02\x1cpurpose-justification-prompt\x02\x1epurpose-justific\
+ation-required\x02\x08requires\x02\x10session-duration\x02\x07zone-id\x02\x04\0\x04\
+args\x03\0\x03\x01i\x01\x01r\x10\x0aaccount-id\x05\x0eapplication-id\x05\x0fappr\
+oval-groups\x05\x11approval-required\x05\x10connection-rules\x05\x08decision\x05\
+\x08excludes\x05\x08includes\x05\x12isolation-required\x05\x04name\x05\x0apreced\
+ence\x05\x1cpurpose-justification-prompt\x05\x1epurpose-justification-required\x05\
+\x08requires\x05\x10session-duration\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01\
+@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0=pulumi:cloudflare\
+/access-policy@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x0c\x01B\x0a\x02\x03\x02\x01\x01\
+\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x0dconfiguration\x02\
+\x04mode\x02\x05notes\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\
+\x0aaccount-id\x05\x0dconfiguration\x05\x04mode\x05\x05notes\x05\x07zone-id\x05\x04\
+\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
+\0;pulumi:cloudflare/access-rule@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x0d\x01B\x0a\x02\
+\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x08\
+duration\x02\x14min-days-for-renewal\x02\x04name\x02\x07zone-id\x02\x04\0\x04arg\
+s\x03\0\x03\x01i\x01\x01r\x08\x0aaccount-id\x05\x09client-id\x05\x0dclient-secre\
+t\x05\x08duration\x05\x0aexpires-at\x05\x14min-days-for-renewal\x05\x04name\x05\x07\
+zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
+invoke\x01\x08\x04\0Dpulumi:cloudflare/access-service-token@5.43.1--0.0.0-NIGHTL\
+Y-dd68c66\x05\x0e\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
+r\x04\x0aaccount-id\x02\x09app-count\x02\x04name\x02\x07zone-id\x02\x04\0\x04arg\
+s\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x09app-count\x05\x04name\x05\x07\
+zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
+invoke\x01\x08\x04\0:pulumi:cloudflare/access-tag@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\
+\x0f\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x11e\
+nforce-twofactor\x02\x04name\x02\x04type\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
+r\x03\x11enforce-twofactor\x05\x04name\x05\x04type\x05\x04\0\x03res\x03\0\x06\x01\
+@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\07pulumi:cloudflare\
+/account@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x10\x01B\x0a\x02\x03\x02\x01\x01\x04\0\
+\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x0demail-address\x02\x08r\
+ole-ids\x02\x06status\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-i\
+d\x05\x0demail-address\x05\x08role-ids\x05\x06status\x05\x04\0\x03res\x03\0\x06\x01\
+@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0>pulumi:cloudflare\
+/account-member@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x11\x01B\x0a\x02\x03\x02\x01\x01\
+\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\x0bdefault-sni\x02\x0b\
+description\x02\x07enabled\x02\x03ips\x02\x0bmemberships\x02\x04\0\x04args\x03\0\
+\x03\x01i\x01\x01r\x08\x0aaccount-id\x05\x0acan-delete\x05\x0ecan-modify-ips\x05\
+\x0bdefault-sni\x05\x0bdescription\x05\x07enabled\x05\x03ips\x05\x0bmemberships\x05\
+\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
+\x04\0;pulumi:cloudflare/address-map@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x12\x01B\x0a\
+\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x17auth-id-charac\
+teristics\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x17auth-i\
+d-characteristics\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
+args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0:pulumi:cloudflare/api-shield@5.43.1\
+--0.0.0-NIGHTLY-dd68c66\x05\x13\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
+\0\0\x01h\x01\x01r\x04\x08endpoint\x02\x04host\x02\x06method\x02\x07zone-id\x02\x04\
+\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x08endpoint\x05\x04host\x05\x06method\x05\
 \x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\
-\x06invoke\x01\x08\x04\07pulumi:cloudflare/access-organization@5.43.1--0.0.0-DEV\
-\x05\x0b\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x10\x0a\
-account-id\x02\x0eapplication-id\x02\x0fapproval-groups\x02\x11approval-required\
-\x02\x10connection-rules\x02\x08decision\x02\x08excludes\x02\x08includes\x02\x12\
-isolation-required\x02\x04name\x02\x0aprecedence\x02\x1cpurpose-justification-pr\
-ompt\x02\x1epurpose-justification-required\x02\x08requires\x02\x10session-durati\
-on\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x10\x0aaccount-id\x05\
-\x0eapplication-id\x05\x0fapproval-groups\x05\x11approval-required\x05\x10connec\
-tion-rules\x05\x08decision\x05\x08excludes\x05\x08includes\x05\x12isolation-requ\
-ired\x05\x04name\x05\x0aprecedence\x05\x1cpurpose-justification-prompt\x05\x1epu\
-rpose-justification-required\x05\x08requires\x05\x10session-duration\x05\x07zone\
--id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invo\
-ke\x01\x08\x04\01pulumi:cloudflare/access-policy@5.43.1--0.0.0-DEV\x05\x0c\x01B\x0a\
-\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\
-\x0dconfiguration\x02\x04mode\x02\x05notes\x02\x07zone-id\x02\x04\0\x04args\x03\0\
-\x03\x01i\x01\x01r\x05\x0aaccount-id\x05\x0dconfiguration\x05\x04mode\x05\x05not\
-es\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
-\x04\0\x06invoke\x01\x08\x04\0/pulumi:cloudflare/access-rule@5.43.1--0.0.0-DEV\x05\
-\x0d\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aa\
-ccount-id\x02\x08duration\x02\x14min-days-for-renewal\x02\x04name\x02\x07zone-id\
-\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x08\x0aaccount-id\x05\x09client-id\x05\
-\x0dclient-secret\x05\x08duration\x05\x0aexpires-at\x05\x14min-days-for-renewal\x05\
-\x04name\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
-\0\x07\x04\0\x06invoke\x01\x08\x04\08pulumi:cloudflare/access-service-token@5.43\
-.1--0.0.0-DEV\x05\x0e\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
-\x01r\x04\x0aaccount-id\x02\x09app-count\x02\x04name\x02\x07zone-id\x02\x04\0\x04\
-args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x09app-count\x05\x04name\x05\x07\
+\x06invoke\x01\x08\x04\0Dpulumi:cloudflare/api-shield-operation@5.43.1--0.0.0-NI\
+GHTLY-dd68c66\x05\x14\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
+\x01r\x03\x11mitigation-action\x02\x0coperation-id\x02\x07zone-id\x02\x04\0\x04a\
+rgs\x03\0\x03\x01i\x01\x01r\x03\x11mitigation-action\x05\x0coperation-id\x05\x07\
 zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
-invoke\x01\x08\x04\0.pulumi:cloudflare/access-tag@5.43.1--0.0.0-DEV\x05\x0f\x01B\
-\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x11enforce-tw\
-ofactor\x02\x04name\x02\x04type\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x11\
-enforce-twofactor\x05\x04name\x05\x04type\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04\
-names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0+pulumi:cloudflare/account@\
-5.43.1--0.0.0-DEV\x05\x10\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
-h\x01\x01r\x04\x0aaccount-id\x02\x0demail-address\x02\x08role-ids\x02\x06status\x02\
-\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x0demail-address\x05\
-\x08role-ids\x05\x06status\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
-\0\x07\x04\0\x06invoke\x01\x08\x04\02pulumi:cloudflare/account-member@5.43.1--0.\
-0.0-DEV\x05\x11\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
-r\x06\x0aaccount-id\x02\x0bdefault-sni\x02\x0bdescription\x02\x07enabled\x02\x03\
-ips\x02\x0bmemberships\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x08\x0aaccount-\
-id\x05\x0acan-delete\x05\x0ecan-modify-ips\x05\x0bdefault-sni\x05\x0bdescription\
-\x05\x07enabled\x05\x03ips\x05\x0bmemberships\x05\x04\0\x03res\x03\0\x06\x01@\x02\
-\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0/pulumi:cloudflare/addr\
-ess-map@5.43.1--0.0.0-DEV\x05\x12\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
-\0\0\x01h\x01\x01r\x02\x17auth-id-characteristics\x02\x07zone-id\x02\x04\0\x04ar\
-gs\x03\0\x03\x01i\x01\x01r\x02\x17auth-id-characteristics\x05\x07zone-id\x05\x04\
-\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\0.pulumi:cloudflare/api-shield@5.43.1--0.0.0-DEV\x05\x13\x01B\x0a\x02\x03\x02\x01\
-\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x08endpoint\x02\x04host\x02\x06me\
-thod\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x08endpoint\x05\
-\x04host\x05\x06method\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04nam\
-es\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\08pulumi:cloudflare/api-shield-\
-operation@5.43.1--0.0.0-DEV\x05\x14\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\
-\x03\0\0\x01h\x01\x01r\x03\x11mitigation-action\x02\x0coperation-id\x02\x07zone-\
-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x11mitigation-action\x05\x0cope\
-ration-id\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
-\0\x07\x04\0\x06invoke\x01\x08\x04\0Spulumi:cloudflare/api-shield-operation-sche\
-ma-validation-settings@5.43.1--0.0.0-DEV\x05\x15\x01B\x0a\x02\x03\x02\x01\x01\x04\
-\0\x06output\x03\0\0\x01h\x01\x01r\x05\x04kind\x02\x04name\x02\x06source\x02\x12\
-validation-enabled\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x04\
-kind\x05\x04name\x05\x06source\x05\x12validation-enabled\x05\x07zone-id\x05\x04\0\
-\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\05pulumi:cloudflare/api-shield-schema@5.43.1--0.0.0-DEV\x05\x16\x01B\x0a\x02\x03\
-\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03$validation-default-mitiga\
-tion-action\x02%validation-override-mitigation-action\x02\x07zone-id\x02\x04\0\x04\
-args\x03\0\x03\x01i\x01\x01r\x03$validation-default-mitigation-action\x05%valida\
-tion-override-mitigation-action\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\
-\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Ipulumi:cloudflare/api-\
-shield-schema-validation-settings@5.43.1--0.0.0-DEV\x05\x17\x01B\x0a\x02\x03\x02\
-\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x09condition\x02\x0aexpires-o\
-n\x02\x04name\x02\x0anot-before\x02\x08policies\x02\x04\0\x04args\x03\0\x03\x01i\
-\x01\x01r\x09\x09condition\x05\x0aexpires-on\x05\x09issued-on\x05\x0bmodified-on\
-\x05\x04name\x05\x0anot-before\x05\x08policies\x05\x06status\x05\x05value\x05\x04\
-\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\0-pulumi:cloudflare/api-token@5.43.1--0.0.0-DEV\x05\x18\x01B\x0a\x02\x03\x02\x01\
-\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0dsmart-routing\x02\x0etiered-ca\
-ching\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x0dsmart-rout\
-ing\x05\x0etiered-caching\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04\
-names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0(pulumi:cloudflare/argo@5.4\
-3.1--0.0.0-DEV\x05\x19\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\
-\x01\x01r\x04&authenticated-origin-pulls-certificate\x02\x07enabled\x02\x08hostn\
-ame\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04&authenticated-o\
-rigin-pulls-certificate\x05\x07enabled\x05\x08hostname\x05\x07zone-id\x05\x04\0\x03\
-res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0>\
-pulumi:cloudflare/authenticated-origin-pulls@5.43.1--0.0.0-DEV\x05\x1a\x01B\x0a\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0bcertificate\x02\x0b\
-private-key\x02\x04type\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\
-\x0a\x0bcertificate\x05\x0aexpires-on\x05\x06issuer\x05\x0bprivate-key\x05\x0dse\
-rial-number\x05\x09signature\x05\x06status\x05\x04type\x05\x0buploaded-on\x05\x07\
-zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
-invoke\x01\x08\x04\0Jpulumi:cloudflare/authenticated-origin-pulls-certificate@5.\
-43.1--0.0.0-DEV\x05\x1b\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
-h\x01\x01r\x0b\x12ai-bots-protection\x02\x11auto-update-model\x02\x09enable-js\x02\
-\x0afight-mode\x02\x12optimize-wordpress\x02\x19sbfm-definitely-automated\x02\x15\
-sbfm-likely-automated\x02\x1fsbfm-static-resource-protection\x02\x12sbfm-verifie\
-d-bots\x02\x16suppress-session-score\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01\
-i\x01\x01r\x0c\x12ai-bots-protection\x05\x11auto-update-model\x05\x09enable-js\x05\
-\x0afight-mode\x05\x12optimize-wordpress\x05\x19sbfm-definitely-automated\x05\x15\
-sbfm-likely-automated\x05\x1fsbfm-static-resource-protection\x05\x12sbfm-verifie\
-d-bots\x05\x16suppress-session-score\x05\x12using-latest-model\x05\x07zone-id\x05\
+invoke\x01\x08\x04\0_pulumi:cloudflare/api-shield-operation-schema-validation-se\
+ttings@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x15\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
+output\x03\0\0\x01h\x01\x01r\x05\x04kind\x02\x04name\x02\x06source\x02\x12valida\
+tion-enabled\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x04kin\
+d\x05\x04name\x05\x06source\x05\x12validation-enabled\x05\x07zone-id\x05\x04\0\x03\
+res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0A\
+pulumi:cloudflare/api-shield-schema@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x16\x01B\x0a\
+\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03$validation-defaul\
+t-mitigation-action\x02%validation-override-mitigation-action\x02\x07zone-id\x02\
+\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03$validation-default-mitigation-action\x05\
+%validation-override-mitigation-action\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\
+\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Upulumi:cloudf\
+lare/api-shield-schema-validation-settings@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x17\
+\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x09condi\
+tion\x02\x0aexpires-on\x02\x04name\x02\x0anot-before\x02\x08policies\x02\x04\0\x04\
+args\x03\0\x03\x01i\x01\x01r\x09\x09condition\x05\x0aexpires-on\x05\x09issued-on\
+\x05\x0bmodified-on\x05\x04name\x05\x0anot-before\x05\x08policies\x05\x06status\x05\
+\x05value\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
+invoke\x01\x08\x04\09pulumi:cloudflare/api-token@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\
+\x18\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0ds\
+mart-routing\x02\x0etiered-caching\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01\
+i\x01\x01r\x03\x0dsmart-routing\x05\x0etiered-caching\x05\x07zone-id\x05\x04\0\x03\
+res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\04\
+pulumi:cloudflare/argo@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x19\x01B\x0a\x02\x03\x02\
+\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04&authenticated-origin-pulls-ce\
+rtificate\x02\x07enabled\x02\x08hostname\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x04&authenticated-origin-pulls-certificate\x05\x07enabled\x05\x08\
+hostname\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
+\0\x07\x04\0\x06invoke\x01\x08\x04\0Jpulumi:cloudflare/authenticated-origin-pull\
+s@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x1a\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06ou\
+tput\x03\0\0\x01h\x01\x01r\x04\x0bcertificate\x02\x0bprivate-key\x02\x04type\x02\
+\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0a\x0bcertificate\x05\x0a\
+expires-on\x05\x06issuer\x05\x0bprivate-key\x05\x0dserial-number\x05\x09signatur\
+e\x05\x06status\x05\x04type\x05\x0buploaded-on\x05\x07zone-id\x05\x04\0\x03res\x03\
+\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Vpulumi:\
+cloudflare/authenticated-origin-pulls-certificate@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\
+\x1b\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0b\x12a\
+i-bots-protection\x02\x11auto-update-model\x02\x09enable-js\x02\x0afight-mode\x02\
+\x12optimize-wordpress\x02\x19sbfm-definitely-automated\x02\x15sbfm-likely-autom\
+ated\x02\x1fsbfm-static-resource-protection\x02\x12sbfm-verified-bots\x02\x16sup\
+press-session-score\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0c\
+\x12ai-bots-protection\x05\x11auto-update-model\x05\x09enable-js\x05\x0afight-mo\
+de\x05\x12optimize-wordpress\x05\x19sbfm-definitely-automated\x05\x15sbfm-likely\
+-automated\x05\x1fsbfm-static-resource-protection\x05\x12sbfm-verified-bots\x05\x16\
+suppress-session-score\x05\x12using-latest-model\x05\x07zone-id\x05\x04\0\x03res\
+\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0>pul\
+umi:cloudflare/bot-management@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x1c\x01B\x0a\x02\
+\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x0d\
+advertisement\x02\x0bdescription\x02\x09prefix-id\x02\x04\0\x04args\x03\0\x03\x01\
+i\x01\x01r\x04\x0aaccount-id\x05\x0dadvertisement\x05\x0bdescription\x05\x09pref\
+ix-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06in\
+voke\x01\x08\x04\0=pulumi:cloudflare/byo-ip-prefix@5.43.1--0.0.0-NIGHTLY-dd68c66\
+\x05\x1d\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0a\x15\
+certificate-authority\x02\x13cloudflare-branding\x02\x05hosts\x02\x04type\x02\x11\
+validation-errors\x02\x11validation-method\x02\x12validation-records\x02\x0dvali\
+dity-days\x02\x16wait-for-active-status\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x0a\x15certificate-authority\x05\x13cloudflare-branding\x05\x05ho\
+sts\x05\x04type\x05\x11validation-errors\x05\x11validation-method\x05\x12validat\
+ion-records\x05\x0dvalidity-days\x05\x16wait-for-active-status\x05\x07zone-id\x05\
 \x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
-\x04\02pulumi:cloudflare/bot-management@5.43.1--0.0.0-DEV\x05\x1c\x01B\x0a\x02\x03\
-\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x0dadve\
-rtisement\x02\x0bdescription\x02\x09prefix-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\
-\x01r\x04\x0aaccount-id\x05\x0dadvertisement\x05\x0bdescription\x05\x09prefix-id\
-\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\
-\x08\x04\01pulumi:cloudflare/byo-ip-prefix@5.43.1--0.0.0-DEV\x05\x1d\x01B\x0a\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0a\x15certificate-author\
-ity\x02\x13cloudflare-branding\x02\x05hosts\x02\x04type\x02\x11validation-errors\
-\x02\x11validation-method\x02\x12validation-records\x02\x0dvalidity-days\x02\x16\
-wait-for-active-status\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0a\
-\x15certificate-authority\x05\x13cloudflare-branding\x05\x05hosts\x05\x04type\x05\
-\x11validation-errors\x05\x11validation-method\x05\x12validation-records\x05\x0d\
-validity-days\x05\x16wait-for-active-status\x05\x07zone-id\x05\x04\0\x03res\x03\0\
-\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\04pulumi:cl\
-oudflare/certificate-pack@5.43.1--0.0.0-DEV\x05\x1e\x01B\x0a\x02\x03\x02\x01\x01\
-\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x05rules\x02\x07zone-id\x02\x04\0\x04\
-args\x03\0\x03\x01i\x01\x01r\x02\x05rules\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\
-\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\09pulumi:cloudf\
-lare/cloud-connector-rules@5.43.1--0.0.0-DEV\x05\x1f\x01B\x0a\x02\x03\x02\x01\x01\
-\x04\0\x06output\x03\0\0\x01h\x01\x01r\x07\x0fcustom-metadata\x02\x14custom-orig\
-in-server\x02\x11custom-origin-sni\x02\x08hostname\x02\x04ssls\x02\x1fwait-for-s\
-sl-pending-validation\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0a\
-\x0fcustom-metadata\x05\x14custom-origin-server\x05\x11custom-origin-sni\x05\x08\
-hostname\x05\x16ownership-verification\x05\x1bownership-verification-http\x05\x04\
-ssls\x05\x06status\x05\x1fwait-for-ssl-pending-validation\x05\x07zone-id\x05\x04\
-\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\03pulumi:cloudflare/custom-hostname@5.43.1--0.0.0-DEV\x05\x20\x01B\x0a\x02\x03\x02\
-\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x06origin\x02\x07zone-id\x02\x04\
-\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x06origin\x05\x06status\x05\x07zone-id\x05\
+\x04\0@pulumi:cloudflare/certificate-pack@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x1e\x01\
+B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x05rules\x02\
+\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x05rules\x05\x07zone-i\
+d\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\
+\x01\x08\x04\0Epulumi:cloudflare/cloud-connector-rules@5.43.1--0.0.0-NIGHTLY-dd6\
+8c66\x05\x1f\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x07\
+\x0fcustom-metadata\x02\x14custom-origin-server\x02\x11custom-origin-sni\x02\x08\
+hostname\x02\x04ssls\x02\x1fwait-for-ssl-pending-validation\x02\x07zone-id\x02\x04\
+\0\x04args\x03\0\x03\x01i\x01\x01r\x0a\x0fcustom-metadata\x05\x14custom-origin-s\
+erver\x05\x11custom-origin-sni\x05\x08hostname\x05\x16ownership-verification\x05\
+\x1bownership-verification-http\x05\x04ssls\x05\x06status\x05\x1fwait-for-ssl-pe\
+nding-validation\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
+args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0?pulumi:cloudflare/custom-hostname@5\
+.43.1--0.0.0-NIGHTLY-dd68c66\x05\x20\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06outpu\
+t\x03\0\0\x01h\x01\x01r\x02\x06origin\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x03\x06origin\x05\x06status\x05\x07zone-id\x05\x04\0\x03res\x03\0\
+\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Opulumi:cl\
+oudflare/custom-hostname-fallback-origin@5.43.1--0.0.0-NIGHTLY-dd68c66\x05!\x01B\
+\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\
+\x02\x05state\x02\x04type\x02\x03url\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01\
+i\x01\x01r\x05\x0aaccount-id\x05\x05state\x05\x04type\x05\x03url\x05\x07zone-id\x05\
 \x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
-\x04\0Cpulumi:cloudflare/custom-hostname-fallback-origin@5.43.1--0.0.0-DEV\x05!\x01\
-B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-i\
-d\x02\x05state\x02\x04type\x02\x03url\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\
-\x01i\x01\x01r\x05\x0aaccount-id\x05\x05state\x05\x04type\x05\x03url\x05\x07zone\
--id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invo\
-ke\x01\x08\x04\00pulumi:cloudflare/custom-pages@5.43.1--0.0.0-DEV\x05\"\x01B\x0a\
+\x04\0<pulumi:cloudflare/custom-pages@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\"\x01B\x0a\
 \x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x12custom-ssl-opt\
 ions\x02\x15custom-ssl-priorities\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01\
 i\x01\x01r\x0b\x12custom-ssl-options\x05\x15custom-ssl-priorities\x05\x0aexpires\
 -on\x05\x05hosts\x05\x06issuer\x05\x0bmodified-on\x05\x08priority\x05\x09signatu\
 re\x05\x06status\x05\x0buploaded-on\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01\
-@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0.pulumi:cloudflare\
-/custom-ssl@5.43.1--0.0.0-DEV\x05#\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
-\0\0\x01h\x01\x01r\x02\x0aaccount-id\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01\
-i\x01\x01r\x03\x0aaccount-id\x05\x04name\x05\x07version\x05\x04\0\x03res\x03\0\x06\
-\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0/pulumi:cloudf\
-lare/d1-database@5.43.1--0.0.0-DEV\x05$\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06ou\
-tput\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\x04data\x02\x0bdescription\x02\x07\
-enabled\x02\x08interval\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x08\
-\x0aaccount-id\x05\x07created\x05\x04data\x05\x0bdescription\x05\x07enabled\x05\x08\
-interval\x05\x04name\x05\x07updated\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\
-\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\03pulumi:cloudflare/device-dex-te\
-st@5.43.1--0.0.0-DEV\x05%\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
-h\x01\x01r\x04\x0aaccount-id\x02\x06config\x02\x04name\x02\x04type\x02\x04\0\x04\
-args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x06config\x05\x04name\x05\x04\
-type\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06inv\
-oke\x01\x08\x04\0;pulumi:cloudflare/device-managed-networks@5.43.1--0.0.0-DEV\x05\
-&\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x07enab\
-led\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x07enabled\x05\x07\
-zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
-invoke\x01\x08\x04\0>pulumi:cloudflare/device-policy-certificates@5.43.1--0.0.0-\
-DEV\x05'\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0a\
-account-id\x02\x07configs\x02\x0aidentifier\x02\x08interval\x02\x04name\x02\x04t\
-ype\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x07configs\x05\
-\x0aidentifier\x05\x08interval\x05\x04name\x05\x04type\x05\x04\0\x03res\x03\0\x06\
-\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0>pulumi:cloudf\
-lare/device-posture-integration@5.43.1--0.0.0-DEV\x05(\x01B\x0a\x02\x03\x02\x01\x01\
-\x04\0\x06output\x03\0\0\x01h\x01\x01r\x08\x0aaccount-id\x02\x0bdescription\x02\x0a\
-expiration\x02\x06inputs\x02\x07matches\x02\x04name\x02\x08schedule\x02\x04type\x02\
-\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x08\x0aaccount-id\x05\x0bdescription\x05\x0a\
-expiration\x05\x06inputs\x05\x07matches\x05\x04name\x05\x08schedule\x05\x04type\x05\
-\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
-\x04\07pulumi:cloudflare/device-posture-rule@5.43.1--0.0.0-DEV\x05)\x01B\x0a\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x13\x0aaccount-id\x02\x11\
-allow-mode-switch\x02\x0dallow-updates\x02\x10allowed-to-leave\x02\x0cauto-conne\
-ct\x02\x0ecaptive-portal\x02\x07default\x02\x0bdescription\x02\x15disable-auto-f\
-allback\x02\x07enabled\x02\x12exclude-office-ips\x02\x05match\x02\x04name\x02\x0a\
-precedence\x02\x14service-mode-v2-mode\x02\x14service-mode-v2-port\x02\x0bsuppor\
-t-url\x02\x0dswitch-locked\x02\x0ftunnel-protocol\x02\x04\0\x04args\x03\0\x03\x01\
-i\x01\x01r\x13\x0aaccount-id\x05\x11allow-mode-switch\x05\x0dallow-updates\x05\x10\
-allowed-to-leave\x05\x0cauto-connect\x05\x0ecaptive-portal\x05\x07default\x05\x0b\
-description\x05\x15disable-auto-fallback\x05\x07enabled\x05\x12exclude-office-ip\
-s\x05\x05match\x05\x04name\x05\x0aprecedence\x05\x14service-mode-v2-mode\x05\x14\
-service-mode-v2-port\x05\x0bsupport-url\x05\x0dswitch-locked\x05\x0ftunnel-proto\
-col\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invo\
-ke\x01\x08\x04\0:pulumi:cloudflare/device-settings-policy@5.43.1--0.0.0-DEV\x05*\
-\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x08\x0aaccou\
-nt-id\x02\x13allowed-match-count\x02\x11context-awareness\x02\x0bdescription\x02\
-\x07entries\x02\x04name\x02\x0bocr-enabled\x02\x04type\x02\x04\0\x04args\x03\0\x03\
-\x01i\x01\x01r\x08\x0aaccount-id\x05\x13allowed-match-count\x05\x11context-aware\
-ness\x05\x0bdescription\x05\x07entries\x05\x04name\x05\x0bocr-enabled\x05\x04typ\
-e\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\
-\x01\x08\x04\0/pulumi:cloudflare/dlp-profile@5.43.1--0.0.0-DEV\x05+\x01B\x0a\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x0aaccount-id\x02\x05\
-email\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x07created\
-\x05\x05email\x05\x08modified\x05\x03tag\x05\x08verified\x05\x04\0\x03res\x03\0\x06\
-\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\09pulumi:cloudf\
-lare/email-routing-address@5.43.1--0.0.0-DEV\x05,\x01B\x0a\x02\x03\x02\x01\x01\x04\
-\0\x06output\x03\0\0\x01h\x01\x01r\x05\x07actions\x02\x07enabled\x02\x08matchers\
-\x02\x04name\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x07act\
-ions\x05\x07enabled\x05\x08matchers\x05\x04name\x05\x03tag\x05\x07zone-id\x05\x04\
-\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\0;pulumi:cloudflare/email-routing-catch-all@5.43.1--0.0.0-DEV\x05-\x01B\x0a\x02\
+@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0:pulumi:cloudflare\
+/custom-ssl@5.43.1--0.0.0-NIGHTLY-dd68c66\x05#\x01B\x0a\x02\x03\x02\x01\x01\x04\0\
+\x06output\x03\0\0\x01h\x01\x01r\x02\x0aaccount-id\x02\x04name\x02\x04\0\x04args\
+\x03\0\x03\x01i\x01\x01r\x03\x0aaccount-id\x05\x04name\x05\x07version\x05\x04\0\x03\
+res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0;\
+pulumi:cloudflare/d1-database@5.43.1--0.0.0-NIGHTLY-dd68c66\x05$\x01B\x0a\x02\x03\
+\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\x04data\
+\x02\x0bdescription\x02\x07enabled\x02\x08interval\x02\x04name\x02\x04\0\x04args\
+\x03\0\x03\x01i\x01\x01r\x08\x0aaccount-id\x05\x07created\x05\x04data\x05\x0bdes\
+cription\x05\x07enabled\x05\x08interval\x05\x04name\x05\x07updated\x05\x04\0\x03\
+res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0?\
+pulumi:cloudflare/device-dex-test@5.43.1--0.0.0-NIGHTLY-dd68c66\x05%\x01B\x0a\x02\
+\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x06\
+config\x02\x04name\x02\x04type\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0a\
+account-id\x05\x06config\x05\x04name\x05\x04type\x05\x04\0\x03res\x03\0\x06\x01@\
+\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Gpulumi:cloudflare/\
+device-managed-networks@5.43.1--0.0.0-NIGHTLY-dd68c66\x05&\x01B\x0a\x02\x03\x02\x01\
+\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x07enabled\x02\x07zone-id\x02\x04\
+\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x07enabled\x05\x07zone-id\x05\x04\0\x03re\
+s\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Jpu\
+lumi:cloudflare/device-policy-certificates@5.43.1--0.0.0-NIGHTLY-dd68c66\x05'\x01\
+B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-i\
+d\x02\x07configs\x02\x0aidentifier\x02\x08interval\x02\x04name\x02\x04type\x02\x04\
+\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x07configs\x05\x0aident\
+ifier\x05\x08interval\x05\x04name\x05\x04type\x05\x04\0\x03res\x03\0\x06\x01@\x02\
+\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Jpulumi:cloudflare/devi\
+ce-posture-integration@5.43.1--0.0.0-NIGHTLY-dd68c66\x05(\x01B\x0a\x02\x03\x02\x01\
+\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x08\x0aaccount-id\x02\x0bdescription\x02\
+\x0aexpiration\x02\x06inputs\x02\x07matches\x02\x04name\x02\x08schedule\x02\x04t\
+ype\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x08\x0aaccount-id\x05\x0bdescripti\
+on\x05\x0aexpiration\x05\x06inputs\x05\x07matches\x05\x04name\x05\x08schedule\x05\
+\x04type\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
+invoke\x01\x08\x04\0Cpulumi:cloudflare/device-posture-rule@5.43.1--0.0.0-NIGHTLY\
+-dd68c66\x05)\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\
+\x13\x0aaccount-id\x02\x11allow-mode-switch\x02\x0dallow-updates\x02\x10allowed-\
+to-leave\x02\x0cauto-connect\x02\x0ecaptive-portal\x02\x07default\x02\x0bdescrip\
+tion\x02\x15disable-auto-fallback\x02\x07enabled\x02\x12exclude-office-ips\x02\x05\
+match\x02\x04name\x02\x0aprecedence\x02\x14service-mode-v2-mode\x02\x14service-m\
+ode-v2-port\x02\x0bsupport-url\x02\x0dswitch-locked\x02\x0ftunnel-protocol\x02\x04\
+\0\x04args\x03\0\x03\x01i\x01\x01r\x13\x0aaccount-id\x05\x11allow-mode-switch\x05\
+\x0dallow-updates\x05\x10allowed-to-leave\x05\x0cauto-connect\x05\x0ecaptive-por\
+tal\x05\x07default\x05\x0bdescription\x05\x15disable-auto-fallback\x05\x07enable\
+d\x05\x12exclude-office-ips\x05\x05match\x05\x04name\x05\x0aprecedence\x05\x14se\
+rvice-mode-v2-mode\x05\x14service-mode-v2-port\x05\x0bsupport-url\x05\x0dswitch-\
+locked\x05\x0ftunnel-protocol\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04ar\
+gs\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Fpulumi:cloudflare/device-settings-pol\
+icy@5.43.1--0.0.0-NIGHTLY-dd68c66\x05*\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06out\
+put\x03\0\0\x01h\x01\x01r\x08\x0aaccount-id\x02\x13allowed-match-count\x02\x11co\
+ntext-awareness\x02\x0bdescription\x02\x07entries\x02\x04name\x02\x0bocr-enabled\
+\x02\x04type\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x08\x0aaccount-id\x05\x13\
+allowed-match-count\x05\x11context-awareness\x05\x0bdescription\x05\x07entries\x05\
+\x04name\x05\x0bocr-enabled\x05\x04type\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04n\
+ames\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0;pulumi:cloudflare/dlp-profi\
+le@5.43.1--0.0.0-NIGHTLY-dd68c66\x05+\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06outp\
+ut\x03\0\0\x01h\x01\x01r\x02\x0aaccount-id\x02\x05email\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x06\x0aaccount-id\x05\x07created\x05\x05email\x05\x08modified\x05\
+\x03tag\x05\x08verified\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
+\0\x07\x04\0\x06invoke\x01\x08\x04\0Epulumi:cloudflare/email-routing-address@5.4\
+3.1--0.0.0-NIGHTLY-dd68c66\x05,\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
+\0\0\x01h\x01\x01r\x05\x07actions\x02\x07enabled\x02\x08matchers\x02\x04name\x02\
+\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x07actions\x05\x07enab\
+led\x05\x08matchers\x05\x04name\x05\x03tag\x05\x07zone-id\x05\x04\0\x03res\x03\0\
+\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Gpulumi:cl\
+oudflare/email-routing-catch-all@5.43.1--0.0.0-NIGHTLY-dd68c66\x05-\x01B\x0a\x02\
 \x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x07actions\x02\x07ena\
 bled\x02\x08matchers\x02\x04name\x02\x08priority\x02\x07zone-id\x02\x04\0\x04arg\
 s\x03\0\x03\x01i\x01\x01r\x07\x07actions\x05\x07enabled\x05\x08matchers\x05\x04n\
 ame\x05\x08priority\x05\x03tag\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\
-\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\06pulumi:cloudflare/emai\
-l-routing-rule@5.43.1--0.0.0-DEV\x05.\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06outp\
-ut\x03\0\0\x01h\x01\x01r\x03\x07enabled\x02\x0bskip-wizard\x02\x07zone-id\x02\x04\
-\0\x04args\x03\0\x03\x01i\x01\x01r\x08\x07created\x05\x07enabled\x05\x08modified\
-\x05\x04name\x05\x0bskip-wizard\x05\x06status\x05\x03tag\x05\x07zone-id\x05\x04\0\
-\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\0:pulumi:cloudflare/email-routing-settings@5.43.1--0.0.0-DEV\x05/\x01B\x0a\x02\x03\
-\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x07doma\
-ins\x02\x09policy-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x0aaccount-id\
-\x05\x07domains\x05\x09policy-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
-args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\03pulumi:cloudflare/fallback-domain@5\
-.43.1--0.0.0-DEV\x050\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
-\x01r\x05\x0bdescription\x02\x0aexpression\x02\x06paused\x02\x03ref\x02\x07zone-\
-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0bdescription\x05\x0aexpressio\
-n\x05\x06paused\x05\x03ref\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04\
-names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0*pulumi:cloudflare/filter@5\
-.43.1--0.0.0-DEV\x051\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
-\x01r\x07\x06action\x02\x0bdescription\x02\x09filter-id\x02\x06paused\x02\x08pri\
-ority\x02\x08products\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\
-\x06action\x05\x0bdescription\x05\x09filter-id\x05\x06paused\x05\x08priority\x05\
-\x08products\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\
-\x04\0\x07\x04\0\x06invoke\x01\x08\x04\01pulumi:cloudflare/firewall-rule@5.43.1-\
--0.0.0-DEV\x052\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
+\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Bpulumi:cloudflare/emai\
+l-routing-rule@5.43.1--0.0.0-NIGHTLY-dd68c66\x05.\x01B\x0a\x02\x03\x02\x01\x01\x04\
+\0\x06output\x03\0\0\x01h\x01\x01r\x03\x07enabled\x02\x0bskip-wizard\x02\x07zone\
+-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x08\x07created\x05\x07enabled\x05\x08\
+modified\x05\x04name\x05\x0bskip-wizard\x05\x06status\x05\x03tag\x05\x07zone-id\x05\
+\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
+\x04\0Fpulumi:cloudflare/email-routing-settings@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\
+/\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aacco\
+unt-id\x02\x07domains\x02\x09policy-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\
+\x03\x0aaccount-id\x05\x07domains\x05\x09policy-id\x05\x04\0\x03res\x03\0\x06\x01\
+@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0?pulumi:cloudflare\
+/fallback-domain@5.43.1--0.0.0-NIGHTLY-dd68c66\x050\x01B\x0a\x02\x03\x02\x01\x01\
+\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0bdescription\x02\x0aexpression\x02\x06\
+paused\x02\x03ref\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0b\
+description\x05\x0aexpression\x05\x06paused\x05\x03ref\x05\x07zone-id\x05\x04\0\x03\
+res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\06\
+pulumi:cloudflare/filter@5.43.1--0.0.0-NIGHTLY-dd68c66\x051\x01B\x0a\x02\x03\x02\
+\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x07\x06action\x02\x0bdescription\x02\
+\x09filter-id\x02\x06paused\x02\x08priority\x02\x08products\x02\x07zone-id\x02\x04\
+\0\x04args\x03\0\x03\x01i\x01\x01r\x07\x06action\x05\x0bdescription\x05\x09filte\
+r-id\x05\x06paused\x05\x08priority\x05\x08products\x05\x07zone-id\x05\x04\0\x03r\
+es\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0=p\
+ulumi:cloudflare/firewall-rule@5.43.1--0.0.0-NIGHTLY-dd68c66\x052\x01B\x0a\x02\x03\
+\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0b\x0aaccount-id\x02\x17clou\
+dflare-gre-endpoint\x02\x15customer-gre-endpoint\x02\x0bdescription\x02\x14healt\
+h-check-enabled\x02\x13health-check-target\x02\x11health-check-type\x02\x11inter\
+face-address\x02\x03mtu\x02\x04name\x02\x03ttl\x02\x04\0\x04args\x03\0\x03\x01i\x01\
+\x01r\x0b\x0aaccount-id\x05\x17cloudflare-gre-endpoint\x05\x15customer-gre-endpo\
+int\x05\x0bdescription\x05\x14health-check-enabled\x05\x13health-check-target\x05\
+\x11health-check-type\x05\x11interface-address\x05\x03mtu\x05\x04name\x05\x03ttl\
+\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\
+\x08\x04\0:pulumi:cloudflare/gre-tunnel@5.43.1--0.0.0-NIGHTLY-dd68c66\x053\x01B\x0a\
+\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x14\x07address\x02\x0e\
+allow-insecure\x02\x0dcheck-regions\x02\x11consecutive-fails\x02\x15consecutive-\
+successes\x02\x0bdescription\x02\x0dexpected-body\x02\x0eexpected-codes\x02\x10f\
+ollow-redirects\x02\x07headers\x02\x08interval\x02\x06method\x02\x04name\x02\x04\
+path\x02\x04port\x02\x07retries\x02\x09suspended\x02\x07timeout\x02\x04type\x02\x07\
+zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x16\x07address\x05\x0eallow-in\
+secure\x05\x0dcheck-regions\x05\x11consecutive-fails\x05\x15consecutive-successe\
+s\x05\x0acreated-on\x05\x0bdescription\x05\x0dexpected-body\x05\x0eexpected-code\
+s\x05\x10follow-redirects\x05\x07headers\x05\x08interval\x05\x06method\x05\x0bmo\
+dified-on\x05\x04name\x05\x04path\x05\x04port\x05\x07retries\x05\x09suspended\x05\
+\x07timeout\x05\x04type\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04na\
+mes\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0;pulumi:cloudflare/healthchec\
+k@5.43.1--0.0.0-NIGHTLY-dd68c66\x054\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06outpu\
+t\x03\0\0\x01h\x01\x01r\x04\x08hostname\x02\x07setting\x02\x05value\x02\x07zone-\
+id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0acreated-at\x05\x08hostname\x05\
+\x07setting\x05\x0aupdated-at\x05\x05value\x05\x07zone-id\x05\x04\0\x03res\x03\0\
+\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Dpulumi:cl\
+oudflare/hostname-tls-setting@5.43.1--0.0.0-NIGHTLY-dd68c66\x055\x01B\x0a\x02\x03\
+\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x08hostname\x02\x05ports\x02\
+\x06values\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0acreat\
+ed-at\x05\x08hostname\x05\x05ports\x05\x0aupdated-at\x05\x06values\x05\x07zone-i\
+d\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\
+\x01\x08\x04\0Lpulumi:cloudflare/hostname-tls-setting-ciphers@5.43.1--0.0.0-NIGH\
+TLY-dd68c66\x056\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
+r\x05\x0aaccount-id\x02\x07caching\x02\x04name\x02\x06origin\x02\x0bresource-id\x02\
+\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount-id\x05\x07caching\x05\x04n\
+ame\x05\x06origin\x05\x0bresource-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04name\
+s\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Apulumi:cloudflare/hyperdrive-c\
+onfig@5.43.1--0.0.0-NIGHTLY-dd68c66\x057\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06o\
+utput\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x08hostname\x02\x02ip\x02\x04\0\
+\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount-id\x05\x0acreated-at\x05\x08host\
+name\x05\x02ip\x05\x0bmodified-at\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
+args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Lpulumi:cloudflare/infrastructure-ac\
+cess-target@5.43.1--0.0.0-NIGHTLY-dd68c66\x058\x01B\x0a\x02\x03\x02\x01\x01\x04\0\
+\x06output\x03\0\0\x01h\x01\x01r\x12\x0aaccount-id\x02\x11allow-null-cipher\x02\x13\
+cloudflare-endpoint\x02\x11customer-endpoint\x02\x0bdescription\x02\x07fqdn-id\x02\
+\x16health-check-direction\x02\x14health-check-enabled\x02\x11health-check-rate\x02\
+\x13health-check-target\x02\x11health-check-type\x02\x06hex-id\x02\x11interface-\
+address\x02\x04name\x02\x03psk\x02\x09remote-id\x02\x11replay-protection\x02\x07\
+user-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x12\x0aaccount-id\x05\x11allow\
+-null-cipher\x05\x13cloudflare-endpoint\x05\x11customer-endpoint\x05\x0bdescript\
+ion\x05\x07fqdn-id\x05\x16health-check-direction\x05\x14health-check-enabled\x05\
+\x11health-check-rate\x05\x13health-check-target\x05\x11health-check-type\x05\x06\
+hex-id\x05\x11interface-address\x05\x04name\x05\x03psk\x05\x09remote-id\x05\x11r\
+eplay-protection\x05\x07user-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
+args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0<pulumi:cloudflare/ipsec-tunnel@5.43\
+.1--0.0.0-NIGHTLY-dd68c66\x059\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\
+\0\x01h\x01\x01r\x07\x0dbundle-method\x02\x0bcertificate\x02\x07enabled\x02\x04h\
+ost\x02\x04name\x02\x04port\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
+r\x08\x0dbundle-method\x05\x0bcertificate\x05\x07enabled\x05\x04host\x05\x04name\
+\x05\x04port\x05\x06status\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04\
+names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Cpulumi:cloudflare/keyless-\
+certificate@5.43.1--0.0.0-NIGHTLY-dd68c66\x05:\x01B\x0a\x02\x03\x02\x01\x01\x04\0\
+\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x0bdescription\x02\x05ite\
+ms\x02\x04kind\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aacco\
+unt-id\x05\x0bdescription\x05\x05items\x05\x04kind\x05\x04name\x05\x04\0\x03res\x03\
+\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\04pulumi:\
+cloudflare/list@5.43.1--0.0.0-NIGHTLY-dd68c66\x05;\x01B\x0a\x02\x03\x02\x01\x01\x04\
+\0\x06output\x03\0\0\x01h\x01\x01r\x07\x0aaccount-id\x02\x03asn\x02\x07comment\x02\
+\x08hostname\x02\x02ip\x02\x07list-id\x02\x08redirect\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x07\x0aaccount-id\x05\x03asn\x05\x07comment\x05\x08hostname\x05\x02\
+ip\x05\x07list-id\x05\x08redirect\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
+args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\09pulumi:cloudflare/list-item@5.43.1-\
+-0.0.0-NIGHTLY-dd68c66\x05<\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\
+\x01h\x01\x01r\x13\x11adaptive-routings\x02\x0dcountry-pools\x02\x10default-pool\
+-ids\x02\x0bdescription\x02\x07enabled\x02\x10fallback-pool-id\x02\x13location-s\
+trategies\x02\x04name\x02\x09pop-pools\x02\x07proxied\x02\x10random-steerings\x02\
+\x0cregion-pools\x02\x05rules\x02\x10session-affinity\x02\x1bsession-affinity-at\
+tributes\x02\x14session-affinity-ttl\x02\x0fsteering-policy\x02\x03ttl\x02\x07zo\
+ne-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x15\x11adaptive-routings\x05\x0d\
+country-pools\x05\x0acreated-on\x05\x10default-pool-ids\x05\x0bdescription\x05\x07\
+enabled\x05\x10fallback-pool-id\x05\x13location-strategies\x05\x0bmodified-on\x05\
+\x04name\x05\x09pop-pools\x05\x07proxied\x05\x10random-steerings\x05\x0cregion-p\
+ools\x05\x05rules\x05\x10session-affinity\x05\x1bsession-affinity-attributes\x05\
+\x14session-affinity-ttl\x05\x0fsteering-policy\x05\x03ttl\x05\x07zone-id\x05\x04\
+\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
+\0=pulumi:cloudflare/load-balancer@5.43.1--0.0.0-NIGHTLY-dd68c66\x05=\x01B\x0a\x02\
+\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x11\x0aaccount-id\x02\x0e\
+allow-insecure\x02\x10consecutive-down\x02\x0econsecutive-up\x02\x0bdescription\x02\
+\x0dexpected-body\x02\x0eexpected-codes\x02\x10follow-redirects\x02\x07headers\x02\
+\x08interval\x02\x06method\x02\x04path\x02\x04port\x02\x0aprobe-zone\x02\x07retr\
+ies\x02\x07timeout\x02\x04type\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x13\x0a\
+account-id\x05\x0eallow-insecure\x05\x10consecutive-down\x05\x0econsecutive-up\x05\
+\x0acreated-on\x05\x0bdescription\x05\x0dexpected-body\x05\x0eexpected-codes\x05\
+\x10follow-redirects\x05\x07headers\x05\x08interval\x05\x06method\x05\x0bmodifie\
+d-on\x05\x04path\x05\x04port\x05\x0aprobe-zone\x05\x07retries\x05\x07timeout\x05\
+\x04type\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
+invoke\x01\x08\x04\0Epulumi:cloudflare/load-balancer-monitor@5.43.1--0.0.0-NIGHT\
+LY-dd68c66\x05>\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
+r\x0d\x0aaccount-id\x02\x0dcheck-regions\x02\x0bdescription\x02\x07enabled\x02\x08\
+latitude\x02\x0eload-sheddings\x02\x09longitude\x02\x0fminimum-origins\x02\x07mo\
+nitor\x02\x04name\x02\x12notification-email\x02\x10origin-steerings\x02\x07origi\
+ns\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0f\x0aaccount-id\x05\x0dcheck-regi\
+ons\x05\x0acreated-on\x05\x0bdescription\x05\x07enabled\x05\x08latitude\x05\x0el\
+oad-sheddings\x05\x09longitude\x05\x0fminimum-origins\x05\x0bmodified-on\x05\x07\
+monitor\x05\x04name\x05\x12notification-email\x05\x10origin-steerings\x05\x07ori\
+gins\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06inv\
+oke\x01\x08\x04\0Bpulumi:cloudflare/load-balancer-pool@5.43.1--0.0.0-NIGHTLY-dd6\
+8c66\x05?\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\
+\x07enabled\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x07enab\
+led\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
+\x04\0\x06invoke\x01\x08\x04\0Apulumi:cloudflare/logpull-retention@5.43.1--0.0.0\
+-NIGHTLY-dd68c66\x05@\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
+\x01r\x0f\x0aaccount-id\x02\x07dataset\x02\x10destination-conf\x02\x07enabled\x02\
+\x06filter\x02\x09frequency\x02\x04kind\x02\x0flogpull-options\x02\x10max-upload\
+-bytes\x02\x1bmax-upload-interval-seconds\x02\x12max-upload-records\x02\x04name\x02\
+\x0eoutput-options\x02\x13ownership-challenge\x02\x07zone-id\x02\x04\0\x04args\x03\
+\0\x03\x01i\x01\x01r\x0f\x0aaccount-id\x05\x07dataset\x05\x10destination-conf\x05\
+\x07enabled\x05\x06filter\x05\x09frequency\x05\x04kind\x05\x0flogpull-options\x05\
+\x10max-upload-bytes\x05\x1bmax-upload-interval-seconds\x05\x12max-upload-record\
+s\x05\x04name\x05\x0eoutput-options\x05\x13ownership-challenge\x05\x07zone-id\x05\
+\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
+\x04\0;pulumi:cloudflare/logpush-job@5.43.1--0.0.0-NIGHTLY-dd68c66\x05A\x01B\x0a\
+\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\
+\x10destination-conf\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\
+\x0aaccount-id\x05\x10destination-conf\x05\x1cownership-challenge-filename\x05\x07\
+zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
+invoke\x01\x08\x04\0Kpulumi:cloudflare/logpush-ownership-challenge@5.43.1--0.0.0\
+-NIGHTLY-dd68c66\x05B\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
+\x01r\x04\x0aaccount-id\x02\x0bdescription\x02\x04name\x02\x05rules\x02\x04\0\x04\
+args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x0bdescription\x05\x04name\x05\
+\x05rules\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
+invoke\x01\x08\x04\0Fpulumi:cloudflare/magic-firewall-ruleset@5.43.1--0.0.0-NIGH\
+TLY-dd68c66\x05C\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
 r\x0b\x0aaccount-id\x02\x17cloudflare-gre-endpoint\x02\x15customer-gre-endpoint\x02\
 \x0bdescription\x02\x14health-check-enabled\x02\x13health-check-target\x02\x11he\
 alth-check-type\x02\x11interface-address\x02\x03mtu\x02\x04name\x02\x03ttl\x02\x04\
@@ -32709,919 +32859,809 @@ alth-check-type\x02\x11interface-address\x02\x03mtu\x02\x04name\x02\x03ttl\x02\x
 int\x05\x15customer-gre-endpoint\x05\x0bdescription\x05\x14health-check-enabled\x05\
 \x13health-check-target\x05\x11health-check-type\x05\x11interface-address\x05\x03\
 mtu\x05\x04name\x05\x03ttl\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
-\0\x07\x04\0\x06invoke\x01\x08\x04\0.pulumi:cloudflare/gre-tunnel@5.43.1--0.0.0-\
-DEV\x053\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x14\x07\
-address\x02\x0eallow-insecure\x02\x0dcheck-regions\x02\x11consecutive-fails\x02\x15\
-consecutive-successes\x02\x0bdescription\x02\x0dexpected-body\x02\x0eexpected-co\
-des\x02\x10follow-redirects\x02\x07headers\x02\x08interval\x02\x06method\x02\x04\
-name\x02\x04path\x02\x04port\x02\x07retries\x02\x09suspended\x02\x07timeout\x02\x04\
-type\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x16\x07address\x05\
-\x0eallow-insecure\x05\x0dcheck-regions\x05\x11consecutive-fails\x05\x15consecut\
-ive-successes\x05\x0acreated-on\x05\x0bdescription\x05\x0dexpected-body\x05\x0ee\
-xpected-codes\x05\x10follow-redirects\x05\x07headers\x05\x08interval\x05\x06meth\
-od\x05\x0bmodified-on\x05\x04name\x05\x04path\x05\x04port\x05\x07retries\x05\x09\
-suspended\x05\x07timeout\x05\x04type\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01\
-@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0/pulumi:cloudflare\
-/healthcheck@5.43.1--0.0.0-DEV\x054\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\
-\x03\0\0\x01h\x01\x01r\x04\x08hostname\x02\x07setting\x02\x05value\x02\x07zone-i\
-d\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0acreated-at\x05\x08hostname\x05\
-\x07setting\x05\x0aupdated-at\x05\x05value\x05\x07zone-id\x05\x04\0\x03res\x03\0\
-\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\08pulumi:cl\
-oudflare/hostname-tls-setting@5.43.1--0.0.0-DEV\x055\x01B\x0a\x02\x03\x02\x01\x01\
-\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x08hostname\x02\x05ports\x02\x06value\
-s\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0acreated-at\x05\
-\x08hostname\x05\x05ports\x05\x0aupdated-at\x05\x06values\x05\x07zone-id\x05\x04\
+\0\x07\x04\0\x06invoke\x01\x08\x04\0Dpulumi:cloudflare/magic-wan-gre-tunnel@5.43\
+.1--0.0.0-NIGHTLY-dd68c66\x05D\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\
+\0\x01h\x01\x01r\x12\x0aaccount-id\x02\x11allow-null-cipher\x02\x13cloudflare-en\
+dpoint\x02\x11customer-endpoint\x02\x0bdescription\x02\x07fqdn-id\x02\x16health-\
+check-direction\x02\x14health-check-enabled\x02\x11health-check-rate\x02\x13heal\
+th-check-target\x02\x11health-check-type\x02\x06hex-id\x02\x11interface-address\x02\
+\x04name\x02\x03psk\x02\x09remote-id\x02\x11replay-protection\x02\x07user-id\x02\
+\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x12\x0aaccount-id\x05\x11allow-null-ciphe\
+r\x05\x13cloudflare-endpoint\x05\x11customer-endpoint\x05\x0bdescription\x05\x07\
+fqdn-id\x05\x16health-check-direction\x05\x14health-check-enabled\x05\x11health-\
+check-rate\x05\x13health-check-target\x05\x11health-check-type\x05\x06hex-id\x05\
+\x11interface-address\x05\x04name\x05\x03psk\x05\x09remote-id\x05\x11replay-prot\
+ection\x05\x07user-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\
+\x07\x04\0\x06invoke\x01\x08\x04\0Fpulumi:cloudflare/magic-wan-ipsec-tunnel@5.43\
+.1--0.0.0-NIGHTLY-dd68c66\x05E\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\
+\0\x01h\x01\x01r\x08\x0aaccount-id\x02\x0acolo-names\x02\x0ccolo-regions\x02\x0b\
+description\x02\x07nexthop\x02\x06prefix\x02\x08priority\x02\x06weight\x02\x04\0\
+\x04args\x03\0\x03\x01i\x01\x01r\x08\x0aaccount-id\x05\x0acolo-names\x05\x0ccolo\
+-regions\x05\x0bdescription\x05\x07nexthop\x05\x06prefix\x05\x08priority\x05\x06\
+weight\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06i\
+nvoke\x01\x08\x04\0Fpulumi:cloudflare/magic-wan-static-route@5.43.1--0.0.0-NIGHT\
+LY-dd68c66\x05F\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
+r\x03\x17managed-request-headers\x02\x18managed-response-headers\x02\x07zone-id\x02\
+\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x17managed-request-headers\x05\x18man\
+aged-response-headers\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04name\
+s\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0?pulumi:cloudflare/managed-head\
+ers@5.43.1--0.0.0-NIGHTLY-dd68c66\x05G\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06out\
+put\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x02ca\x02\x0ccertificates\x02\x04\
+name\x02\x0bprivate-key\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0a\x0aaccount\
+-id\x05\x02ca\x05\x0ccertificates\x05\x0aexpires-on\x05\x06issuer\x05\x04name\x05\
+\x0bprivate-key\x05\x0dserial-number\x05\x09signature\x05\x0buploaded-on\x05\x04\
 \0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\0@pulumi:cloudflare/hostname-tls-setting-ciphers@5.43.1--0.0.0-DEV\x056\x01B\x0a\
-\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\
-\x07caching\x02\x04name\x02\x06origin\x02\x0bresource-id\x02\x04\0\x04args\x03\0\
-\x03\x01i\x01\x01r\x05\x0aaccount-id\x05\x07caching\x05\x04name\x05\x06origin\x05\
-\x0bresource-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\
-\0\x06invoke\x01\x08\x04\05pulumi:cloudflare/hyperdrive-config@5.43.1--0.0.0-DEV\
-\x057\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0a\
-account-id\x02\x08hostname\x02\x02ip\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\
-\x0aaccount-id\x05\x0acreated-at\x05\x08hostname\x05\x02ip\x05\x0bmodified-at\x05\
-\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
-\x04\0@pulumi:cloudflare/infrastructure-access-target@5.43.1--0.0.0-DEV\x058\x01\
-B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x12\x0aaccount-i\
-d\x02\x11allow-null-cipher\x02\x13cloudflare-endpoint\x02\x11customer-endpoint\x02\
-\x0bdescription\x02\x07fqdn-id\x02\x16health-check-direction\x02\x14health-check\
--enabled\x02\x11health-check-rate\x02\x13health-check-target\x02\x11health-check\
--type\x02\x06hex-id\x02\x11interface-address\x02\x04name\x02\x03psk\x02\x09remot\
-e-id\x02\x11replay-protection\x02\x07user-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\
-\x01r\x12\x0aaccount-id\x05\x11allow-null-cipher\x05\x13cloudflare-endpoint\x05\x11\
-customer-endpoint\x05\x0bdescription\x05\x07fqdn-id\x05\x16health-check-directio\
-n\x05\x14health-check-enabled\x05\x11health-check-rate\x05\x13health-check-targe\
-t\x05\x11health-check-type\x05\x06hex-id\x05\x11interface-address\x05\x04name\x05\
-\x03psk\x05\x09remote-id\x05\x11replay-protection\x05\x07user-id\x05\x04\0\x03re\
-s\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\00pu\
-lumi:cloudflare/ipsec-tunnel@5.43.1--0.0.0-DEV\x059\x01B\x0a\x02\x03\x02\x01\x01\
-\x04\0\x06output\x03\0\0\x01h\x01\x01r\x07\x0dbundle-method\x02\x0bcertificate\x02\
-\x07enabled\x02\x04host\x02\x04name\x02\x04port\x02\x07zone-id\x02\x04\0\x04args\
-\x03\0\x03\x01i\x01\x01r\x08\x0dbundle-method\x05\x0bcertificate\x05\x07enabled\x05\
-\x04host\x05\x04name\x05\x04port\x05\x06status\x05\x07zone-id\x05\x04\0\x03res\x03\
-\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\07pulumi:\
-cloudflare/keyless-certificate@5.43.1--0.0.0-DEV\x05:\x01B\x0a\x02\x03\x02\x01\x01\
-\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x0bdescription\x02\x05\
-items\x02\x04kind\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aa\
-ccount-id\x05\x0bdescription\x05\x05items\x05\x04kind\x05\x04name\x05\x04\0\x03r\
-es\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0(p\
-ulumi:cloudflare/list@5.43.1--0.0.0-DEV\x05;\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
-output\x03\0\0\x01h\x01\x01r\x07\x0aaccount-id\x02\x03asn\x02\x07comment\x02\x08\
-hostname\x02\x02ip\x02\x07list-id\x02\x08redirect\x02\x04\0\x04args\x03\0\x03\x01\
-i\x01\x01r\x07\x0aaccount-id\x05\x03asn\x05\x07comment\x05\x08hostname\x05\x02ip\
-\x05\x07list-id\x05\x08redirect\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
-args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0-pulumi:cloudflare/list-item@5.43.1-\
--0.0.0-DEV\x05<\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
-r\x13\x11adaptive-routings\x02\x0dcountry-pools\x02\x10default-pool-ids\x02\x0bd\
-escription\x02\x07enabled\x02\x10fallback-pool-id\x02\x13location-strategies\x02\
-\x04name\x02\x09pop-pools\x02\x07proxied\x02\x10random-steerings\x02\x0cregion-p\
-ools\x02\x05rules\x02\x10session-affinity\x02\x1bsession-affinity-attributes\x02\
-\x14session-affinity-ttl\x02\x0fsteering-policy\x02\x03ttl\x02\x07zone-id\x02\x04\
-\0\x04args\x03\0\x03\x01i\x01\x01r\x15\x11adaptive-routings\x05\x0dcountry-pools\
-\x05\x0acreated-on\x05\x10default-pool-ids\x05\x0bdescription\x05\x07enabled\x05\
-\x10fallback-pool-id\x05\x13location-strategies\x05\x0bmodified-on\x05\x04name\x05\
-\x09pop-pools\x05\x07proxied\x05\x10random-steerings\x05\x0cregion-pools\x05\x05\
-rules\x05\x10session-affinity\x05\x1bsession-affinity-attributes\x05\x14session-\
-affinity-ttl\x05\x0fsteering-policy\x05\x03ttl\x05\x07zone-id\x05\x04\0\x03res\x03\
-\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\01pulumi:\
-cloudflare/load-balancer@5.43.1--0.0.0-DEV\x05=\x01B\x0a\x02\x03\x02\x01\x01\x04\
-\0\x06output\x03\0\0\x01h\x01\x01r\x11\x0aaccount-id\x02\x0eallow-insecure\x02\x10\
-consecutive-down\x02\x0econsecutive-up\x02\x0bdescription\x02\x0dexpected-body\x02\
-\x0eexpected-codes\x02\x10follow-redirects\x02\x07headers\x02\x08interval\x02\x06\
-method\x02\x04path\x02\x04port\x02\x0aprobe-zone\x02\x07retries\x02\x07timeout\x02\
-\x04type\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x13\x0aaccount-id\x05\x0eallo\
-w-insecure\x05\x10consecutive-down\x05\x0econsecutive-up\x05\x0acreated-on\x05\x0b\
-description\x05\x0dexpected-body\x05\x0eexpected-codes\x05\x10follow-redirects\x05\
-\x07headers\x05\x08interval\x05\x06method\x05\x0bmodified-on\x05\x04path\x05\x04\
-port\x05\x0aprobe-zone\x05\x07retries\x05\x07timeout\x05\x04type\x05\x04\0\x03re\
-s\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\09pu\
-lumi:cloudflare/load-balancer-monitor@5.43.1--0.0.0-DEV\x05>\x01B\x0a\x02\x03\x02\
-\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0d\x0aaccount-id\x02\x0dcheck-re\
-gions\x02\x0bdescription\x02\x07enabled\x02\x08latitude\x02\x0eload-sheddings\x02\
-\x09longitude\x02\x0fminimum-origins\x02\x07monitor\x02\x04name\x02\x12notificat\
-ion-email\x02\x10origin-steerings\x02\x07origins\x02\x04\0\x04args\x03\0\x03\x01\
-i\x01\x01r\x0f\x0aaccount-id\x05\x0dcheck-regions\x05\x0acreated-on\x05\x0bdescr\
-iption\x05\x07enabled\x05\x08latitude\x05\x0eload-sheddings\x05\x09longitude\x05\
-\x0fminimum-origins\x05\x0bmodified-on\x05\x07monitor\x05\x04name\x05\x12notific\
-ation-email\x05\x10origin-steerings\x05\x07origins\x05\x04\0\x03res\x03\0\x06\x01\
-@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\06pulumi:cloudflare\
-/load-balancer-pool@5.43.1--0.0.0-DEV\x05?\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
-output\x03\0\0\x01h\x01\x01r\x02\x07enabled\x02\x07zone-id\x02\x04\0\x04args\x03\
-\0\x03\x01i\x01\x01r\x02\x07enabled\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01\
-@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\05pulumi:cloudflare\
-/logpull-retention@5.43.1--0.0.0-DEV\x05@\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
-output\x03\0\0\x01h\x01\x01r\x0f\x0aaccount-id\x02\x07dataset\x02\x10destination\
--conf\x02\x07enabled\x02\x06filter\x02\x09frequency\x02\x04kind\x02\x0flogpull-o\
-ptions\x02\x10max-upload-bytes\x02\x1bmax-upload-interval-seconds\x02\x12max-upl\
-oad-records\x02\x04name\x02\x0eoutput-options\x02\x13ownership-challenge\x02\x07\
-zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0f\x0aaccount-id\x05\x07datas\
-et\x05\x10destination-conf\x05\x07enabled\x05\x06filter\x05\x09frequency\x05\x04\
-kind\x05\x0flogpull-options\x05\x10max-upload-bytes\x05\x1bmax-upload-interval-s\
-econds\x05\x12max-upload-records\x05\x04name\x05\x0eoutput-options\x05\x13owners\
-hip-challenge\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04arg\
-s\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0/pulumi:cloudflare/logpush-job@5.43.1--\
-0.0.0-DEV\x05A\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
-r\x03\x0aaccount-id\x02\x10destination-conf\x02\x07zone-id\x02\x04\0\x04args\x03\
-\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x10destination-conf\x05\x1cownership-\
-challenge-filename\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
-args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0?pulumi:cloudflare/logpush-ownership\
--challenge@5.43.1--0.0.0-DEV\x05B\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
-\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x0bdescription\x02\x04name\x02\x05rules\
-\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x0bdescription\x05\
-\x04name\x05\x05rules\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\
-\x07\x04\0\x06invoke\x01\x08\x04\0:pulumi:cloudflare/magic-firewall-ruleset@5.43\
-.1--0.0.0-DEV\x05C\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
-\x01r\x0b\x0aaccount-id\x02\x17cloudflare-gre-endpoint\x02\x15customer-gre-endpo\
-int\x02\x0bdescription\x02\x14health-check-enabled\x02\x13health-check-target\x02\
-\x11health-check-type\x02\x11interface-address\x02\x03mtu\x02\x04name\x02\x03ttl\
-\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0b\x0aaccount-id\x05\x17cloudflare-g\
-re-endpoint\x05\x15customer-gre-endpoint\x05\x0bdescription\x05\x14health-check-\
-enabled\x05\x13health-check-target\x05\x11health-check-type\x05\x11interface-add\
-ress\x05\x03mtu\x05\x04name\x05\x03ttl\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04na\
-mes\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\08pulumi:cloudflare/magic-wan-\
-gre-tunnel@5.43.1--0.0.0-DEV\x05D\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
-\0\0\x01h\x01\x01r\x12\x0aaccount-id\x02\x11allow-null-cipher\x02\x13cloudflare-\
-endpoint\x02\x11customer-endpoint\x02\x0bdescription\x02\x07fqdn-id\x02\x16healt\
-h-check-direction\x02\x14health-check-enabled\x02\x11health-check-rate\x02\x13he\
-alth-check-target\x02\x11health-check-type\x02\x06hex-id\x02\x11interface-addres\
-s\x02\x04name\x02\x03psk\x02\x09remote-id\x02\x11replay-protection\x02\x07user-i\
-d\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x12\x0aaccount-id\x05\x11allow-null-\
-cipher\x05\x13cloudflare-endpoint\x05\x11customer-endpoint\x05\x0bdescription\x05\
-\x07fqdn-id\x05\x16health-check-direction\x05\x14health-check-enabled\x05\x11hea\
-lth-check-rate\x05\x13health-check-target\x05\x11health-check-type\x05\x06hex-id\
-\x05\x11interface-address\x05\x04name\x05\x03psk\x05\x09remote-id\x05\x11replay-\
-protection\x05\x07user-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
-\0\x07\x04\0\x06invoke\x01\x08\x04\0:pulumi:cloudflare/magic-wan-ipsec-tunnel@5.\
-43.1--0.0.0-DEV\x05E\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
-\x01r\x08\x0aaccount-id\x02\x0acolo-names\x02\x0ccolo-regions\x02\x0bdescription\
-\x02\x07nexthop\x02\x06prefix\x02\x08priority\x02\x06weight\x02\x04\0\x04args\x03\
-\0\x03\x01i\x01\x01r\x08\x0aaccount-id\x05\x0acolo-names\x05\x0ccolo-regions\x05\
-\x0bdescription\x05\x07nexthop\x05\x06prefix\x05\x08priority\x05\x06weight\x05\x04\
-\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\0:pulumi:cloudflare/magic-wan-static-route@5.43.1--0.0.0-DEV\x05F\x01B\x0a\x02\x03\
-\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x17managed-request-header\
-s\x02\x18managed-response-headers\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01\
-i\x01\x01r\x03\x17managed-request-headers\x05\x18managed-response-headers\x05\x07\
-zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
-invoke\x01\x08\x04\03pulumi:cloudflare/managed-headers@5.43.1--0.0.0-DEV\x05G\x01\
-B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-i\
-d\x02\x02ca\x02\x0ccertificates\x02\x04name\x02\x0bprivate-key\x02\x04\0\x04args\
-\x03\0\x03\x01i\x01\x01r\x0a\x0aaccount-id\x05\x02ca\x05\x0ccertificates\x05\x0a\
-expires-on\x05\x06issuer\x05\x04name\x05\x0bprivate-key\x05\x0dserial-number\x05\
-\x09signature\x05\x0buploaded-on\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
-args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\04pulumi:cloudflare/mtls-certificate@\
-5.43.1--0.0.0-DEV\x05H\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\
-\x01\x01r\x09\x0aaccount-id\x02\x0aalert-type\x02\x0bdescription\x02\x12email-in\
-tegrations\x02\x07enabled\x02\x07filters\x02\x04name\x02\x16pagerduty-integratio\
-ns\x02\x15webhooks-integrations\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0b\x0a\
-account-id\x05\x0aalert-type\x05\x07created\x05\x0bdescription\x05\x12email-inte\
-grations\x05\x07enabled\x05\x07filters\x05\x08modified\x05\x04name\x05\x16pagerd\
-uty-integrations\x05\x15webhooks-integrations\x05\x04\0\x03res\x03\0\x06\x01@\x02\
-\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\07pulumi:cloudflare/noti\
-fication-policy@5.43.1--0.0.0-DEV\x05I\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06out\
-put\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x04name\x02\x06secret\x02\x03url\
-\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x08\x0aaccount-id\x05\x0acreated-at\x05\
-\x0clast-failure\x05\x0clast-success\x05\x04name\x05\x06secret\x05\x04type\x05\x03\
-url\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invo\
-ke\x01\x08\x04\0@pulumi:cloudflare/notification-policy-webhooks@5.43.1--0.0.0-DE\
-V\x05J\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x09\
-frequency\x02\x06region\x02\x03url\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01\
-i\x01\x01r\x04\x09frequency\x05\x06region\x05\x03url\x05\x07zone-id\x05\x04\0\x03\
-res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0>\
-pulumi:cloudflare/observatory-scheduled-test@5.43.1--0.0.0-DEV\x05K\x01B\x0a\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x03csr\x02\x09hostnam\
-es\x02\x14min-days-for-renewal\x02\x0crequest-type\x02\x12requested-validity\x02\
-\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\x0bcertificate\x05\x03csr\x05\x0aexpi\
-res-on\x05\x09hostnames\x05\x14min-days-for-renewal\x05\x0crequest-type\x05\x12r\
-equested-validity\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
-\x04\0\x06invoke\x01\x08\x04\09pulumi:cloudflare/origin-ca-certificate@5.43.1--0\
-.0.0-DEV\x05L\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\
-\x05\x07actions\x02\x08priority\x02\x06status\x02\x06target\x02\x07zone-id\x02\x04\
+\0@pulumi:cloudflare/mtls-certificate@5.43.1--0.0.0-NIGHTLY-dd68c66\x05H\x01B\x0a\
+\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x09\x0aaccount-id\x02\
+\x0aalert-type\x02\x0bdescription\x02\x12email-integrations\x02\x07enabled\x02\x07\
+filters\x02\x04name\x02\x16pagerduty-integrations\x02\x15webhooks-integrations\x02\
+\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0b\x0aaccount-id\x05\x0aalert-type\x05\x07\
+created\x05\x0bdescription\x05\x12email-integrations\x05\x07enabled\x05\x07filte\
+rs\x05\x08modified\x05\x04name\x05\x16pagerduty-integrations\x05\x15webhooks-int\
+egrations\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
+invoke\x01\x08\x04\0Cpulumi:cloudflare/notification-policy@5.43.1--0.0.0-NIGHTLY\
+-dd68c66\x05I\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\
+\x04\x0aaccount-id\x02\x04name\x02\x06secret\x02\x03url\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x08\x0aaccount-id\x05\x0acreated-at\x05\x0clast-failure\x05\x0cla\
+st-success\x05\x04name\x05\x06secret\x05\x04type\x05\x03url\x05\x04\0\x03res\x03\
+\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Lpulumi:\
+cloudflare/notification-policy-webhooks@5.43.1--0.0.0-NIGHTLY-dd68c66\x05J\x01B\x0a\
+\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x09frequency\x02\x06\
+region\x02\x03url\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x09\
+frequency\x05\x06region\x05\x03url\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01\
+@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Jpulumi:cloudflare\
+/observatory-scheduled-test@5.43.1--0.0.0-NIGHTLY-dd68c66\x05K\x01B\x0a\x02\x03\x02\
+\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x03csr\x02\x09hostnames\x02\x14\
+min-days-for-renewal\x02\x0crequest-type\x02\x12requested-validity\x02\x04\0\x04\
+args\x03\0\x03\x01i\x01\x01r\x07\x0bcertificate\x05\x03csr\x05\x0aexpires-on\x05\
+\x09hostnames\x05\x14min-days-for-renewal\x05\x0crequest-type\x05\x12requested-v\
+alidity\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
+invoke\x01\x08\x04\0Epulumi:cloudflare/origin-ca-certificate@5.43.1--0.0.0-NIGHT\
+LY-dd68c66\x05L\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
+r\x05\x07actions\x02\x08priority\x02\x06status\x02\x06target\x02\x07zone-id\x02\x04\
 \0\x04args\x03\0\x03\x01i\x01\x01r\x05\x07actions\x05\x08priority\x05\x06status\x05\
 \x06target\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
-\0\x07\x04\0\x06invoke\x01\x08\x04\0-pulumi:cloudflare/page-rule@5.43.1--0.0.0-D\
-EV\x05M\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0a\
-account-id\x02\x06domain\x02\x0cproject-name\x02\x04\0\x04args\x03\0\x03\x01i\x01\
-\x01r\x04\x0aaccount-id\x05\x06domain\x05\x0cproject-name\x05\x06status\x05\x04\0\
+\0\x07\x04\0\x06invoke\x01\x08\x04\09pulumi:cloudflare/page-rule@5.43.1--0.0.0-N\
+IGHTLY-dd68c66\x05M\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
+\x01r\x03\x0aaccount-id\x02\x06domain\x02\x0cproject-name\x02\x04\0\x04args\x03\0\
+\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x06domain\x05\x0cproject-name\x05\x06st\
+atus\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06inv\
+oke\x01\x08\x04\0<pulumi:cloudflare/pages-domain@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\
+N\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aacco\
+unt-id\x02\x0cbuild-config\x02\x12deployment-configs\x02\x04name\x02\x11producti\
+on-branch\x02\x06source\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x09\x0aaccount\
+-id\x05\x0cbuild-config\x05\x0acreated-on\x05\x12deployment-configs\x05\x07domai\
+ns\x05\x04name\x05\x11production-branch\x05\x06source\x05\x09subdomain\x05\x04\0\
 \x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\00pulumi:cloudflare/pages-domain@5.43.1--0.0.0-DEV\x05N\x01B\x0a\x02\x03\x02\x01\
-\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\x0cbuild-config\
-\x02\x12deployment-configs\x02\x04name\x02\x11production-branch\x02\x06source\x02\
-\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x09\x0aaccount-id\x05\x0cbuild-config\x05\
-\x0acreated-on\x05\x12deployment-configs\x05\x07domains\x05\x04name\x05\x11produ\
-ction-branch\x05\x06source\x05\x09subdomain\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04\
-names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\01pulumi:cloudflare/pages-pr\
-oject@5.43.1--0.0.0-DEV\x05O\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\
-\x01h\x01\x01r\x02\x0aaccount-id\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\
-\x01r\x02\x0aaccount-id\x05\x04name\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\
-\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0)pulumi:cloudflare/queue@5.43.1-\
--0.0.0-DEV\x05P\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
-r\x03\x0aaccount-id\x02\x08location\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\
-\x01\x01r\x03\x0aaccount-id\x05\x08location\x05\x04name\x05\x04\0\x03res\x03\0\x06\
-\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0-pulumi:cloudf\
-lare/r2-bucket@5.43.1--0.0.0-DEV\x05Q\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06outp\
-ut\x03\0\0\x01h\x01\x01r\x09\x06action\x02\x13bypass-url-patterns\x02\x09correla\
-te\x02\x0bdescription\x02\x08disabled\x02\x05match\x02\x06period\x02\x09threshol\
-d\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x09\x06action\x05\x13\
-bypass-url-patterns\x05\x09correlate\x05\x0bdescription\x05\x08disabled\x05\x05m\
-atch\x05\x06period\x05\x09threshold\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01\
-@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0.pulumi:cloudflare\
-/rate-limit@5.43.1--0.0.0-DEV\x05R\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
-\0\0\x01h\x01\x01r\x0c\x0fallow-overwrite\x02\x07comment\x02\x07content\x02\x04d\
-ata\x02\x04name\x02\x08priority\x02\x07proxied\x02\x04tags\x02\x03ttl\x02\x04typ\
-e\x02\x05value\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x11\x0fa\
-llow-overwrite\x05\x07comment\x05\x07content\x05\x0acreated-on\x05\x04data\x05\x08\
-hostname\x05\x08metadata\x05\x0bmodified-on\x05\x04name\x05\x08priority\x05\x09p\
-roxiable\x05\x07proxied\x05\x04tags\x05\x03ttl\x05\x04type\x05\x05value\x05\x07z\
-one-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06i\
-nvoke\x01\x08\x04\0*pulumi:cloudflare/record@5.43.1--0.0.0-DEV\x05S\x01B\x0a\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x08hostname\x02\x0are\
-gion-key\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0acreated\
--on\x05\x08hostname\x05\x0aregion-key\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01\
-@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\05pulumi:cloudflare\
-/regional-hostname@5.43.1--0.0.0-DEV\x05T\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
+\0=pulumi:cloudflare/pages-project@5.43.1--0.0.0-NIGHTLY-dd68c66\x05O\x01B\x0a\x02\
+\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x0aaccount-id\x02\x04\
+name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x0aaccount-id\x05\x04name\x05\
+\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
+\x04\05pulumi:cloudflare/queue@5.43.1--0.0.0-NIGHTLY-dd68c66\x05P\x01B\x0a\x02\x03\
+\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x08loca\
+tion\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x0aaccount-id\x05\
+\x08location\x05\x04name\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
+\0\x07\x04\0\x06invoke\x01\x08\x04\09pulumi:cloudflare/r2-bucket@5.43.1--0.0.0-N\
+IGHTLY-dd68c66\x05Q\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
+\x01r\x09\x06action\x02\x13bypass-url-patterns\x02\x09correlate\x02\x0bdescripti\
+on\x02\x08disabled\x02\x05match\x02\x06period\x02\x09threshold\x02\x07zone-id\x02\
+\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x09\x06action\x05\x13bypass-url-patterns\x05\
+\x09correlate\x05\x0bdescription\x05\x08disabled\x05\x05match\x05\x06period\x05\x09\
+threshold\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
+\0\x07\x04\0\x06invoke\x01\x08\x04\0:pulumi:cloudflare/rate-limit@5.43.1--0.0.0-\
+NIGHTLY-dd68c66\x05R\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
+\x01r\x0c\x0fallow-overwrite\x02\x07comment\x02\x07content\x02\x04data\x02\x04na\
+me\x02\x08priority\x02\x07proxied\x02\x04tags\x02\x03ttl\x02\x04type\x02\x05valu\
+e\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x11\x0fallow-overwrit\
+e\x05\x07comment\x05\x07content\x05\x0acreated-on\x05\x04data\x05\x08hostname\x05\
+\x08metadata\x05\x0bmodified-on\x05\x04name\x05\x08priority\x05\x09proxiable\x05\
+\x07proxied\x05\x04tags\x05\x03ttl\x05\x04type\x05\x05value\x05\x07zone-id\x05\x04\
+\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
+\06pulumi:cloudflare/record@5.43.1--0.0.0-NIGHTLY-dd68c66\x05S\x01B\x0a\x02\x03\x02\
+\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x08hostname\x02\x0aregion-key\
+\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0acreated-on\x05\x08\
+hostname\x05\x0aregion-key\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04\
+names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Apulumi:cloudflare/regional\
+-hostname@5.43.1--0.0.0-NIGHTLY-dd68c66\x05T\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
 output\x03\0\0\x01h\x01\x01r\x02\x05value\x02\x07zone-id\x02\x04\0\x04args\x03\0\
 \x03\x01i\x01\x01r\x02\x05value\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\
-\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\09pulumi:cloudflare/regi\
-onal-tiered-cache@5.43.1--0.0.0-DEV\x05U\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06o\
-utput\x03\0\0\x01h\x01\x01r\x02\x0aaccount-id\x02\x09behaviors\x02\x04\0\x04args\
-\x03\0\x03\x01i\x01\x01r\x02\x0aaccount-id\x05\x09behaviors\x05\x04\0\x03res\x03\
-\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\01pulumi:\
-cloudflare/risk-behavior@5.43.1--0.0.0-DEV\x05V\x01B\x0a\x02\x03\x02\x01\x01\x04\
-\0\x06output\x03\0\0\x01h\x01\x01r\x07\x0aaccount-id\x02\x0bdescription\x02\x04k\
-ind\x02\x04name\x02\x05phase\x02\x05rules\x02\x07zone-id\x02\x04\0\x04args\x03\0\
-\x03\x01i\x01\x01r\x07\x0aaccount-id\x05\x0bdescription\x05\x04kind\x05\x04name\x05\
-\x05phase\x05\x05rules\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04nam\
-es\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0+pulumi:cloudflare/ruleset@5.4\
-3.1--0.0.0-DEV\x05W\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
-\x01r\x0d\x12argo-smart-routing\x02\x03dns\x02\x08edge-ips\x02\x0bip-firewall\x02\
-\x0eorigin-directs\x02\x0aorigin-dns\x02\x0borigin-port\x02\x11origin-port-range\
-\x02\x08protocol\x02\x0eproxy-protocol\x02\x03tls\x02\x0ctraffic-type\x02\x07zon\
-e-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0d\x12argo-smart-routing\x05\x03\
-dns\x05\x08edge-ips\x05\x0bip-firewall\x05\x0eorigin-directs\x05\x0aorigin-dns\x05\
-\x0borigin-port\x05\x11origin-port-range\x05\x08protocol\x05\x0eproxy-protocol\x05\
-\x03tls\x05\x0ctraffic-type\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04\
-names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\08pulumi:cloudflare/spectrum\
--application@5.43.1--0.0.0-DEV\x05X\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\
-\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x04mode\x02\x09policy-id\x02\x07tun\
-nels\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x04mode\x05\
-\x09policy-id\x05\x07tunnels\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04arg\
-s\x04\0\x07\x04\0\x06invoke\x01\x08\x04\00pulumi:cloudflare/split-tunnel@5.43.1-\
--0.0.0-DEV\x05Y\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
-r\x08\x0aaccount-id\x02\x0acolo-names\x02\x0ccolo-regions\x02\x0bdescription\x02\
-\x07nexthop\x02\x06prefix\x02\x08priority\x02\x06weight\x02\x04\0\x04args\x03\0\x03\
-\x01i\x01\x01r\x08\x0aaccount-id\x05\x0acolo-names\x05\x0ccolo-regions\x05\x0bde\
-scription\x05\x07nexthop\x05\x06prefix\x05\x08priority\x05\x06weight\x05\x04\0\x03\
-res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\00\
-pulumi:cloudflare/static-route@5.43.1--0.0.0-DEV\x05Z\x01B\x0a\x02\x03\x02\x01\x01\
-\x04\0\x06output\x03\0\0\x01h\x01\x01r\x11\x0aaccount-id\x02\x14activity-log-ena\
-bled\x02\x09antivirus\x02\x0ablock-page\x02\x0dbody-scanning\x02\x0bcertificate\x02\
-\x12custom-certificate\x02\x17extended-email-matching\x02\x04fips\x02\x07logging\
-\x02&non-identity-browser-isolation-enabled\x02\x0bpayload-log\x02\x1aprotocol-d\
-etection-enabled\x02\x05proxy\x02\x0fssh-session-log\x02\x13tls-decrypt-enabled\x02\
-\x1durl-browser-isolation-enabled\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x11\x0a\
-account-id\x05\x14activity-log-enabled\x05\x09antivirus\x05\x0ablock-page\x05\x0d\
-body-scanning\x05\x0bcertificate\x05\x12custom-certificate\x05\x17extended-email\
--matching\x05\x04fips\x05\x07logging\x05&non-identity-browser-isolation-enabled\x05\
-\x0bpayload-log\x05\x1aprotocol-detection-enabled\x05\x05proxy\x05\x0fssh-sessio\
-n-log\x05\x13tls-decrypt-enabled\x05\x1durl-browser-isolation-enabled\x05\x04\0\x03\
-res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\01\
-pulumi:cloudflare/teams-account@5.43.1--0.0.0-DEV\x05[\x01B\x0a\x02\x03\x02\x01\x01\
-\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\x0bdescription\x02\x05\
-items\x02\x17items-with-descriptions\x02\x04name\x02\x04type\x02\x04\0\x04args\x03\
-\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x0bdescription\x05\x05items\x05\x17it\
-ems-with-descriptions\x05\x04name\x05\x04type\x05\x04\0\x03res\x03\0\x06\x01@\x02\
-\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0.pulumi:cloudflare/team\
-s-list@5.43.1--0.0.0-DEV\x05\\\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\
-\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x0eclient-default\x02\x0becs-support\x02\x04\
-name\x02\x08networks\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0a\x0aaccount-id\
-\x05\x17anonymized-logs-enabled\x05\x0eclient-default\x05\x0ddoh-subdomain\x05\x0b\
-ecs-support\x05\x02ip\x05\x10ipv4-destination\x05\x04name\x05\x08networks\x05\x0a\
-policy-ids\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
-invoke\x01\x08\x04\02pulumi:cloudflare/teams-location@5.43.1--0.0.0-DEV\x05]\x01\
-B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-i\
-d\x02\x03ips\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccoun\
-t-id\x05\x03ips\x05\x04name\x05\x09subdomain\x05\x04\0\x03res\x03\0\x06\x01@\x02\
-\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\08pulumi:cloudflare/team\
-s-proxy-endpoint@5.43.1--0.0.0-DEV\x05^\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06ou\
-tput\x03\0\0\x01h\x01\x01r\x0b\x0aaccount-id\x02\x06action\x02\x0bdescription\x02\
-\x0edevice-posture\x02\x07enabled\x02\x07filters\x02\x08identity\x02\x04name\x02\
-\x0aprecedence\x02\x0drule-settings\x02\x07traffic\x02\x04\0\x04args\x03\0\x03\x01\
-i\x01\x01r\x0c\x0aaccount-id\x05\x06action\x05\x0bdescription\x05\x0edevice-post\
-ure\x05\x07enabled\x05\x07filters\x05\x08identity\x05\x04name\x05\x0aprecedence\x05\
-\x0drule-settings\x05\x07traffic\x05\x07version\x05\x04\0\x03res\x03\0\x06\x01@\x02\
-\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0.pulumi:cloudflare/team\
-s-rule@5.43.1--0.0.0-DEV\x05_\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\
-\0\x01h\x01\x01r\x02\x0acache-type\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01\
-i\x01\x01r\x02\x0acache-type\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04\
-names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\00pulumi:cloudflare/tiered-c\
-ache@5.43.1--0.0.0-DEV\x05`\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\
-\x01h\x01\x01r\x03\x15certificate-authority\x02\x07enabled\x02\x07zone-id\x02\x04\
+\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Epulumi:cloudflare/regi\
+onal-tiered-cache@5.43.1--0.0.0-NIGHTLY-dd68c66\x05U\x01B\x0a\x02\x03\x02\x01\x01\
+\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x0aaccount-id\x02\x09behaviors\x02\x04\
+\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x0aaccount-id\x05\x09behaviors\x05\x04\0\x03\
+res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0=\
+pulumi:cloudflare/risk-behavior@5.43.1--0.0.0-NIGHTLY-dd68c66\x05V\x01B\x0a\x02\x03\
+\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x07\x0aaccount-id\x02\x0bdesc\
+ription\x02\x04kind\x02\x04name\x02\x05phase\x02\x05rules\x02\x07zone-id\x02\x04\
+\0\x04args\x03\0\x03\x01i\x01\x01r\x07\x0aaccount-id\x05\x0bdescription\x05\x04k\
+ind\x05\x04name\x05\x05phase\x05\x05rules\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\
+\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\07pulumi:cloudf\
+lare/ruleset@5.43.1--0.0.0-NIGHTLY-dd68c66\x05W\x01B\x0a\x02\x03\x02\x01\x01\x04\
+\0\x06output\x03\0\0\x01h\x01\x01r\x0d\x12argo-smart-routing\x02\x03dns\x02\x08e\
+dge-ips\x02\x0bip-firewall\x02\x0eorigin-directs\x02\x0aorigin-dns\x02\x0borigin\
+-port\x02\x11origin-port-range\x02\x08protocol\x02\x0eproxy-protocol\x02\x03tls\x02\
+\x0ctraffic-type\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0d\x12\
+argo-smart-routing\x05\x03dns\x05\x08edge-ips\x05\x0bip-firewall\x05\x0eorigin-d\
+irects\x05\x0aorigin-dns\x05\x0borigin-port\x05\x11origin-port-range\x05\x08prot\
+ocol\x05\x0eproxy-protocol\x05\x03tls\x05\x0ctraffic-type\x05\x07zone-id\x05\x04\
+\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
+\0Dpulumi:cloudflare/spectrum-application@5.43.1--0.0.0-NIGHTLY-dd68c66\x05X\x01\
+B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-i\
+d\x02\x04mode\x02\x09policy-id\x02\x07tunnels\x02\x04\0\x04args\x03\0\x03\x01i\x01\
+\x01r\x04\x0aaccount-id\x05\x04mode\x05\x09policy-id\x05\x07tunnels\x05\x04\0\x03\
+res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0<\
+pulumi:cloudflare/split-tunnel@5.43.1--0.0.0-NIGHTLY-dd68c66\x05Y\x01B\x0a\x02\x03\
+\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x08\x0aaccount-id\x02\x0acolo\
+-names\x02\x0ccolo-regions\x02\x0bdescription\x02\x07nexthop\x02\x06prefix\x02\x08\
+priority\x02\x06weight\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x08\x0aaccount-\
+id\x05\x0acolo-names\x05\x0ccolo-regions\x05\x0bdescription\x05\x07nexthop\x05\x06\
+prefix\x05\x08priority\x05\x06weight\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04name\
+s\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0<pulumi:cloudflare/static-route\
+@5.43.1--0.0.0-NIGHTLY-dd68c66\x05Z\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\
+\x03\0\0\x01h\x01\x01r\x11\x0aaccount-id\x02\x14activity-log-enabled\x02\x09anti\
+virus\x02\x0ablock-page\x02\x0dbody-scanning\x02\x0bcertificate\x02\x12custom-ce\
+rtificate\x02\x17extended-email-matching\x02\x04fips\x02\x07logging\x02&non-iden\
+tity-browser-isolation-enabled\x02\x0bpayload-log\x02\x1aprotocol-detection-enab\
+led\x02\x05proxy\x02\x0fssh-session-log\x02\x13tls-decrypt-enabled\x02\x1durl-br\
+owser-isolation-enabled\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x11\x0aaccount\
+-id\x05\x14activity-log-enabled\x05\x09antivirus\x05\x0ablock-page\x05\x0dbody-s\
+canning\x05\x0bcertificate\x05\x12custom-certificate\x05\x17extended-email-match\
+ing\x05\x04fips\x05\x07logging\x05&non-identity-browser-isolation-enabled\x05\x0b\
+payload-log\x05\x1aprotocol-detection-enabled\x05\x05proxy\x05\x0fssh-session-lo\
+g\x05\x13tls-decrypt-enabled\x05\x1durl-browser-isolation-enabled\x05\x04\0\x03r\
+es\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0=p\
+ulumi:cloudflare/teams-account@5.43.1--0.0.0-NIGHTLY-dd68c66\x05[\x01B\x0a\x02\x03\
+\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\x0bdesc\
+ription\x02\x05items\x02\x17items-with-descriptions\x02\x04name\x02\x04type\x02\x04\
+\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x0bdescription\x05\x05i\
+tems\x05\x17items-with-descriptions\x05\x04name\x05\x04type\x05\x04\0\x03res\x03\
+\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0:pulumi:\
+cloudflare/teams-list@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\\\x01B\x0a\x02\x03\x02\x01\
+\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x0eclient-defau\
+lt\x02\x0becs-support\x02\x04name\x02\x08networks\x02\x04\0\x04args\x03\0\x03\x01\
+i\x01\x01r\x0a\x0aaccount-id\x05\x17anonymized-logs-enabled\x05\x0eclient-defaul\
+t\x05\x0ddoh-subdomain\x05\x0becs-support\x05\x02ip\x05\x10ipv4-destination\x05\x04\
+name\x05\x08networks\x05\x0apolicy-ids\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04na\
+mes\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0>pulumi:cloudflare/teams-loca\
+tion@5.43.1--0.0.0-NIGHTLY-dd68c66\x05]\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06ou\
+tput\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x03ips\x02\x04name\x02\x04\0\x04\
+args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x03ips\x05\x04name\x05\x09sub\
+domain\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06i\
+nvoke\x01\x08\x04\0Dpulumi:cloudflare/teams-proxy-endpoint@5.43.1--0.0.0-NIGHTLY\
+-dd68c66\x05^\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\
+\x0b\x0aaccount-id\x02\x06action\x02\x0bdescription\x02\x0edevice-posture\x02\x07\
+enabled\x02\x07filters\x02\x08identity\x02\x04name\x02\x0aprecedence\x02\x0drule\
+-settings\x02\x07traffic\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0c\x0aaccoun\
+t-id\x05\x06action\x05\x0bdescription\x05\x0edevice-posture\x05\x07enabled\x05\x07\
+filters\x05\x08identity\x05\x04name\x05\x0aprecedence\x05\x0drule-settings\x05\x07\
+traffic\x05\x07version\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\
+\x07\x04\0\x06invoke\x01\x08\x04\0:pulumi:cloudflare/teams-rule@5.43.1--0.0.0-NI\
+GHTLY-dd68c66\x05_\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
+\x01r\x02\x0acache-type\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\
+\x02\x0acache-type\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
+args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0<pulumi:cloudflare/tiered-cache@5.43\
+.1--0.0.0-NIGHTLY-dd68c66\x05`\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\
+\0\x01h\x01\x01r\x03\x15certificate-authority\x02\x07enabled\x02\x07zone-id\x02\x04\
 \0\x04args\x03\0\x03\x01i\x01\x01r\x03\x15certificate-authority\x05\x07enabled\x05\
 \x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\
-\x06invoke\x01\x08\x04\0-pulumi:cloudflare/total-tls@5.43.1--0.0.0-DEV\x05a\x01B\
-\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\
-\x02\x0aconfig-src\x02\x04name\x02\x06secret\x02\x04\0\x04args\x03\0\x03\x01i\x01\
-\x01r\x06\x0aaccount-id\x05\x05cname\x05\x0aconfig-src\x05\x04name\x05\x06secret\
-\x05\x0ctunnel-token\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
-\x04\0\x06invoke\x01\x08\x04\0*pulumi:cloudflare/tunnel@5.43.1--0.0.0-DEV\x05b\x01\
-B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-i\
-d\x02\x06config\x02\x09tunnel-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x0a\
-account-id\x05\x06config\x05\x09tunnel-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04\
-names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\01pulumi:cloudflare/tunnel-c\
-onfig@5.43.1--0.0.0-DEV\x05c\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\
-\x01h\x01\x01r\x05\x0aaccount-id\x02\x07comment\x02\x07network\x02\x09tunnel-id\x02\
-\x12virtual-network-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount-\
-id\x05\x07comment\x05\x07network\x05\x09tunnel-id\x05\x12virtual-network-id\x05\x04\
-\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\00pulumi:cloudflare/tunnel-route@5.43.1--0.0.0-DEV\x05d\x01B\x0a\x02\x03\x02\x01\
-\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x07comment\x02\x12\
-is-default-network\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0a\
-account-id\x05\x07comment\x05\x12is-default-network\x05\x04name\x05\x04\0\x03res\
-\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0:pul\
-umi:cloudflare/tunnel-virtual-network@5.43.1--0.0.0-DEV\x05e\x01B\x0a\x02\x03\x02\
-\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x07\x0aaccount-id\x02\x0ebot-figh\
-t-mode\x02\x07domains\x02\x04mode\x02\x04name\x02\x08offlabel\x02\x06region\x02\x04\
-\0\x04args\x03\0\x03\x01i\x01\x01r\x08\x0aaccount-id\x05\x0ebot-fight-mode\x05\x07\
-domains\x05\x04mode\x05\x04name\x05\x08offlabel\x05\x06region\x05\x06secret\x05\x04\
-\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\04pulumi:cloudflare/turnstile-widget@5.43.1--0.0.0-DEV\x05f\x01B\x0a\x02\x03\x02\
+\x06invoke\x01\x08\x04\09pulumi:cloudflare/total-tls@5.43.1--0.0.0-NIGHTLY-dd68c\
+66\x05a\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0a\
+account-id\x02\x0aconfig-src\x02\x04name\x02\x06secret\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x06\x0aaccount-id\x05\x05cname\x05\x0aconfig-src\x05\x04name\x05\x06\
+secret\x05\x0ctunnel-token\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
+\0\x07\x04\0\x06invoke\x01\x08\x04\06pulumi:cloudflare/tunnel@5.43.1--0.0.0-NIGH\
+TLY-dd68c66\x05b\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
+r\x03\x0aaccount-id\x02\x06config\x02\x09tunnel-id\x02\x04\0\x04args\x03\0\x03\x01\
+i\x01\x01r\x03\x0aaccount-id\x05\x06config\x05\x09tunnel-id\x05\x04\0\x03res\x03\
+\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0=pulumi:\
+cloudflare/tunnel-config@5.43.1--0.0.0-NIGHTLY-dd68c66\x05c\x01B\x0a\x02\x03\x02\
+\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x07comment\x02\
+\x07network\x02\x09tunnel-id\x02\x12virtual-network-id\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x05\x0aaccount-id\x05\x07comment\x05\x07network\x05\x09tunnel-id\x05\
+\x12virtual-network-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\
+\x07\x04\0\x06invoke\x01\x08\x04\0<pulumi:cloudflare/tunnel-route@5.43.1--0.0.0-\
+NIGHTLY-dd68c66\x05d\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
+\x01r\x04\x0aaccount-id\x02\x07comment\x02\x12is-default-network\x02\x04name\x02\
+\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x07comment\x05\x12i\
+s-default-network\x05\x04name\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04ar\
+gs\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Fpulumi:cloudflare/tunnel-virtual-netw\
+ork@5.43.1--0.0.0-NIGHTLY-dd68c66\x05e\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06out\
+put\x03\0\0\x01h\x01\x01r\x07\x0aaccount-id\x02\x0ebot-fight-mode\x02\x07domains\
+\x02\x04mode\x02\x04name\x02\x08offlabel\x02\x06region\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x08\x0aaccount-id\x05\x0ebot-fight-mode\x05\x07domains\x05\x04mod\
+e\x05\x04name\x05\x08offlabel\x05\x06region\x05\x06secret\x05\x04\0\x03res\x03\0\
+\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0@pulumi:cl\
+oudflare/turnstile-widget@5.43.1--0.0.0-NIGHTLY-dd68c66\x05f\x01B\x0a\x02\x03\x02\
 \x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x05scope\x02\x04type\x02\x07z\
 one-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x05scope\x05\x04type\x05\x07\
 zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
-invoke\x01\x08\x04\0>pulumi:cloudflare/url-normalization-settings@5.43.1--0.0.0-\
-DEV\x05g\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0d\
-configuration\x02\x0bdescription\x02\x04mode\x02\x06paused\x02\x07zone-id\x02\x04\
-\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0dconfiguration\x05\x0bdescription\x05\x04\
-mode\x05\x06paused\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
-args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0<pulumi:cloudflare/user-agent-blocki\
-ng-rule@5.43.1--0.0.0-DEV\x05h\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\
-\0\x01h\x01\x01r\x13\x11additional-routes\x02\x0dcookie-suffix\x02\x10custom-pag\
-e-html\x02\x19default-template-language\x02\x0bdescription\x02\x17disable-sessio\
-n-renewal\x02\x17enabled-origin-commands\x02\x04host\x02\x15json-response-enable\
-d\x02\x04name\x02\x14new-users-per-minute\x02\x04path\x02\x09queue-all\x02\x0fqu\
-eueing-method\x02\x14queueing-status-code\x02\x10session-duration\x02\x09suspend\
-ed\x02\x12total-active-users\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\
-\x01r\x13\x11additional-routes\x05\x0dcookie-suffix\x05\x10custom-page-html\x05\x19\
-default-template-language\x05\x0bdescription\x05\x17disable-session-renewal\x05\x17\
-enabled-origin-commands\x05\x04host\x05\x15json-response-enabled\x05\x04name\x05\
-\x14new-users-per-minute\x05\x04path\x05\x09queue-all\x05\x0fqueueing-method\x05\
-\x14queueing-status-code\x05\x10session-duration\x05\x09suspended\x05\x12total-a\
-ctive-users\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
-\0\x07\x04\0\x06invoke\x01\x08\x04\00pulumi:cloudflare/waiting-room@5.43.1--0.0.\
-0-DEV\x05i\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0f\
-\x10custom-page-html\x02\x0bdescription\x02\x17disable-session-renewal\x02\x0eev\
-ent-end-time\x02\x10event-start-time\x02\x04name\x02\x14new-users-per-minute\x02\
-\x13prequeue-start-time\x02\x0fqueueing-method\x02\x10session-duration\x02\x16sh\
-uffle-at-event-start\x02\x09suspended\x02\x12total-active-users\x02\x0fwaiting-r\
-oom-id\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x11\x0acreated-o\
-n\x05\x10custom-page-html\x05\x0bdescription\x05\x17disable-session-renewal\x05\x0e\
-event-end-time\x05\x10event-start-time\x05\x0bmodified-on\x05\x04name\x05\x14new\
--users-per-minute\x05\x13prequeue-start-time\x05\x0fqueueing-method\x05\x10sessi\
-on-duration\x05\x16shuffle-at-event-start\x05\x09suspended\x05\x12total-active-u\
-sers\x05\x0fwaiting-room-id\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04\
-names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\06pulumi:cloudflare/waiting-\
-room-event@5.43.1--0.0.0-DEV\x05j\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
-\0\0\x01h\x01\x01r\x03\x05rules\x02\x0fwaiting-room-id\x02\x07zone-id\x02\x04\0\x04\
-args\x03\0\x03\x01i\x01\x01r\x03\x05rules\x05\x0fwaiting-room-id\x05\x07zone-id\x05\
-\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
-\x04\06pulumi:cloudflare/waiting-room-rules@5.43.1--0.0.0-DEV\x05k\x01B\x0a\x02\x03\
+invoke\x01\x08\x04\0Jpulumi:cloudflare/url-normalization-settings@5.43.1--0.0.0-\
+NIGHTLY-dd68c66\x05g\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
+\x01r\x05\x0dconfiguration\x02\x0bdescription\x02\x04mode\x02\x06paused\x02\x07z\
+one-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0dconfiguration\x05\x0bdes\
+cription\x05\x04mode\x05\x06paused\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01\
+@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Hpulumi:cloudflare\
+/user-agent-blocking-rule@5.43.1--0.0.0-NIGHTLY-dd68c66\x05h\x01B\x0a\x02\x03\x02\
+\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x13\x11additional-routes\x02\x0dc\
+ookie-suffix\x02\x10custom-page-html\x02\x19default-template-language\x02\x0bdes\
+cription\x02\x17disable-session-renewal\x02\x17enabled-origin-commands\x02\x04ho\
+st\x02\x15json-response-enabled\x02\x04name\x02\x14new-users-per-minute\x02\x04p\
+ath\x02\x09queue-all\x02\x0fqueueing-method\x02\x14queueing-status-code\x02\x10s\
+ession-duration\x02\x09suspended\x02\x12total-active-users\x02\x07zone-id\x02\x04\
+\0\x04args\x03\0\x03\x01i\x01\x01r\x13\x11additional-routes\x05\x0dcookie-suffix\
+\x05\x10custom-page-html\x05\x19default-template-language\x05\x0bdescription\x05\
+\x17disable-session-renewal\x05\x17enabled-origin-commands\x05\x04host\x05\x15js\
+on-response-enabled\x05\x04name\x05\x14new-users-per-minute\x05\x04path\x05\x09q\
+ueue-all\x05\x0fqueueing-method\x05\x14queueing-status-code\x05\x10session-durat\
+ion\x05\x09suspended\x05\x12total-active-users\x05\x07zone-id\x05\x04\0\x03res\x03\
+\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0<pulumi:\
+cloudflare/waiting-room@5.43.1--0.0.0-NIGHTLY-dd68c66\x05i\x01B\x0a\x02\x03\x02\x01\
+\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0f\x10custom-page-html\x02\x0bdescri\
+ption\x02\x17disable-session-renewal\x02\x0eevent-end-time\x02\x10event-start-ti\
+me\x02\x04name\x02\x14new-users-per-minute\x02\x13prequeue-start-time\x02\x0fque\
+ueing-method\x02\x10session-duration\x02\x16shuffle-at-event-start\x02\x09suspen\
+ded\x02\x12total-active-users\x02\x0fwaiting-room-id\x02\x07zone-id\x02\x04\0\x04\
+args\x03\0\x03\x01i\x01\x01r\x11\x0acreated-on\x05\x10custom-page-html\x05\x0bde\
+scription\x05\x17disable-session-renewal\x05\x0eevent-end-time\x05\x10event-star\
+t-time\x05\x0bmodified-on\x05\x04name\x05\x14new-users-per-minute\x05\x13prequeu\
+e-start-time\x05\x0fqueueing-method\x05\x10session-duration\x05\x16shuffle-at-ev\
+ent-start\x05\x09suspended\x05\x12total-active-users\x05\x0fwaiting-room-id\x05\x07\
+zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
+invoke\x01\x08\x04\0Bpulumi:cloudflare/waiting-room-event@5.43.1--0.0.0-NIGHTLY-\
+dd68c66\x05j\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\
+\x05rules\x02\x0fwaiting-room-id\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\
+\x01\x01r\x03\x05rules\x05\x0fwaiting-room-id\x05\x07zone-id\x05\x04\0\x03res\x03\
+\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Bpulumi:\
+cloudflare/waiting-room-rules@5.43.1--0.0.0-NIGHTLY-dd68c66\x05k\x01B\x0a\x02\x03\
 \x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x1csearch-engine-crawler-\
 bypass\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x1csearch-en\
 gine-crawler-bypass\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
-args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\09pulumi:cloudflare/waiting-room-sett\
-ings@5.43.1--0.0.0-DEV\x05l\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\
-\x01h\x01\x01r\x05\x0bdescription\x02\x07dnslink\x02\x04name\x02\x06target\x02\x07\
-zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x08\x0acreated-on\x05\x0bdescr\
-iption\x05\x07dnslink\x05\x0bmodified-on\x05\x04name\x05\x06status\x05\x06target\
-\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\
-\0\x06invoke\x01\x08\x04\01pulumi:cloudflare/web3-hostname@5.43.1--0.0.0-DEV\x05\
-m\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aacco\
-unt-id\x02\x04host\x02\x09inclusive\x02\x09is-paused\x02\x05paths\x02\x0aruleset\
--id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x04host\x05\x09\
-inclusive\x05\x09is-paused\x05\x05paths\x05\x0aruleset-id\x05\x04\0\x03res\x03\0\
-\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\06pulumi:cl\
-oudflare/web-analytics-rule@5.43.1--0.0.0-DEV\x05n\x01B\x0a\x02\x03\x02\x01\x01\x04\
-\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x0cauto-install\x02\x04\
-host\x02\x08zone-tag\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x08\x0aaccount-id\
-\x05\x0cauto-install\x05\x04host\x05\x0aruleset-id\x05\x08site-tag\x05\x0asite-t\
-oken\x05\x07snippet\x05\x08zone-tag\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\
-\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\06pulumi:cloudflare/web-analytics\
--site@5.43.1--0.0.0-DEV\x05o\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\
-\x01h\x01\x01r\x03\x0aaccount-id\x02\x09schedules\x02\x0bscript-name\x02\x04\0\x04\
-args\x03\0\x03\x01i\x01\x01r\x03\x0aaccount-id\x05\x09schedules\x05\x0bscript-na\
-me\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invok\
-e\x01\x08\x04\07pulumi:cloudflare/worker-cron-trigger@5.43.1--0.0.0-DEV\x05p\x01\
-B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-i\
-d\x02\x0benvironment\x02\x08hostname\x02\x07service\x02\x07zone-id\x02\x04\0\x04\
-args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount-id\x05\x0benvironment\x05\x08hostnam\
-e\x05\x07service\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
-args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\01pulumi:cloudflare/worker-domain@5.4\
-3.1--0.0.0-DEV\x05q\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
-\x01r\x03\x07pattern\x02\x0bscript-name\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\
-\x01i\x01\x01r\x03\x07pattern\x05\x0bscript-name\x05\x07zone-id\x05\x04\0\x03res\
-\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\00pul\
-umi:cloudflare/worker-route@5.43.1--0.0.0-DEV\x05r\x01B\x0a\x02\x03\x02\x01\x01\x04\
-\0\x06output\x03\0\0\x01h\x01\x01r\x14\x0aaccount-id\x02\x19analytics-engine-bin\
-dings\x02\x12compatibility-date\x02\x13compatibility-flags\x02\x07content\x02\x14\
-d1-database-bindings\x02\x12dispatch-namespace\x02\x1ahyperdrive-config-bindings\
-\x02\x15kv-namespace-bindings\x02\x07logpush\x02\x06module\x02\x04name\x02\x0apl\
-acements\x02\x13plain-text-bindings\x02\x0equeue-bindings\x02\x12r2-bucket-bindi\
-ngs\x02\x14secret-text-bindings\x02\x10service-bindings\x02\x04tags\x02\x14webas\
-sembly-bindings\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x14\x0aaccount-id\x05\x19\
-analytics-engine-bindings\x05\x12compatibility-date\x05\x13compatibility-flags\x05\
-\x07content\x05\x14d1-database-bindings\x05\x12dispatch-namespace\x05\x1ahyperdr\
-ive-config-bindings\x05\x15kv-namespace-bindings\x05\x07logpush\x05\x06module\x05\
-\x04name\x05\x0aplacements\x05\x13plain-text-bindings\x05\x0equeue-bindings\x05\x12\
-r2-bucket-bindings\x05\x14secret-text-bindings\x05\x10service-bindings\x05\x04ta\
-gs\x05\x14webassembly-bindings\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04a\
-rgs\x04\0\x07\x04\0\x06invoke\x01\x08\x04\01pulumi:cloudflare/worker-script@5.43\
-.1--0.0.0-DEV\x05s\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
-\x01r\x04\x0aaccount-id\x02\x04name\x02\x0bscript-name\x02\x0bsecret-text\x02\x04\
-\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x04name\x05\x0bscript-n\
-ame\x05\x0bsecret-text\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\
-\x07\x04\0\x06invoke\x01\x08\x04\01pulumi:cloudflare/worker-secret@5.43.1--0.0.0\
--DEV\x05t\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\
-\x0aaccount-id\x02\x09schedules\x02\x0bscript-name\x02\x04\0\x04args\x03\0\x03\x01\
-i\x01\x01r\x03\x0aaccount-id\x05\x09schedules\x05\x0bscript-name\x05\x04\0\x03re\
-s\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\08pu\
-lumi:cloudflare/workers-cron-trigger@5.43.1--0.0.0-DEV\x05u\x01B\x0a\x02\x03\x02\
-\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x0benvironm\
-ent\x02\x08hostname\x02\x07service\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01\
-i\x01\x01r\x05\x0aaccount-id\x05\x0benvironment\x05\x08hostname\x05\x07service\x05\
-\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\
-\x06invoke\x01\x08\x04\02pulumi:cloudflare/workers-domain@5.43.1--0.0.0-DEV\x05v\
-\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x0aaccou\
-nt-id\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x0aaccount-id\x05\
-\x04name\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
-invoke\x01\x08\x04\0Lpulumi:cloudflare/workers-for-platforms-dispatch-namespace@\
-5.43.1--0.0.0-DEV\x05w\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\
-\x01\x01r\x02\x0aaccount-id\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
-r\x02\x0aaccount-id\x05\x04name\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
-args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Cpulumi:cloudflare/workers-for-platf\
-orms-namespace@5.43.1--0.0.0-DEV\x05x\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06outp\
-ut\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x03key\x02\x0cnamespace-id\x02\x05\
-value\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x03key\x05\
-\x0cnamespace-id\x05\x05value\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04ar\
-gs\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0.pulumi:cloudflare/workers-kv@5.43.1--\
-0.0.0-DEV\x05y\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
-r\x02\x0aaccount-id\x02\x05title\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x0a\
-account-id\x05\x05title\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
-\0\x07\x04\0\x06invoke\x01\x08\x04\08pulumi:cloudflare/workers-kv-namespace@5.43\
-.1--0.0.0-DEV\x05z\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
-\x01r\x03\x07pattern\x02\x0bscript-name\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\
-\x01i\x01\x01r\x03\x07pattern\x05\x0bscript-name\x05\x07zone-id\x05\x04\0\x03res\
-\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\01pul\
-umi:cloudflare/workers-route@5.43.1--0.0.0-DEV\x05{\x01B\x0a\x02\x03\x02\x01\x01\
-\x04\0\x06output\x03\0\0\x01h\x01\x01r\x14\x0aaccount-id\x02\x19analytics-engine\
--bindings\x02\x12compatibility-date\x02\x13compatibility-flags\x02\x07content\x02\
-\x14d1-database-bindings\x02\x12dispatch-namespace\x02\x1ahyperdrive-config-bind\
-ings\x02\x15kv-namespace-bindings\x02\x07logpush\x02\x06module\x02\x04name\x02\x0a\
-placements\x02\x13plain-text-bindings\x02\x0equeue-bindings\x02\x12r2-bucket-bin\
-dings\x02\x14secret-text-bindings\x02\x10service-bindings\x02\x04tags\x02\x14web\
-assembly-bindings\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x14\x0aaccount-id\x05\
-\x19analytics-engine-bindings\x05\x12compatibility-date\x05\x13compatibility-fla\
-gs\x05\x07content\x05\x14d1-database-bindings\x05\x12dispatch-namespace\x05\x1ah\
-yperdrive-config-bindings\x05\x15kv-namespace-bindings\x05\x07logpush\x05\x06mod\
-ule\x05\x04name\x05\x0aplacements\x05\x13plain-text-bindings\x05\x0equeue-bindin\
-gs\x05\x12r2-bucket-bindings\x05\x14secret-text-bindings\x05\x10service-bindings\
-\x05\x04tags\x05\x14webassembly-bindings\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04\
-names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\02pulumi:cloudflare/workers-\
-script@5.43.1--0.0.0-DEV\x05|\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\
-\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x04name\x02\x0bscript-name\x02\x0bsecret-\
-text\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x04name\x05\
-\x0bscript-name\x05\x0bsecret-text\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
-args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\02pulumi:cloudflare/workers-secret@5.\
-43.1--0.0.0-DEV\x05}\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
-\x01r\"\x0aaccount-id\x02\x1ballow-authenticate-via-warp\x02\x0callowed-idps\x02\
-\x15app-launcher-logo-url\x02\x14app-launcher-visible\x02\x19auto-redirect-to-id\
-entity\x02\x08bg-color\x02\x0ccors-headers\x02\x13custom-deny-message\x02\x0fcus\
-tom-deny-url\x02\x1ccustom-non-identity-deny-url\x02\x0ccustom-pages\x02\x06doma\
-in\x02\x15enable-binding-cookie\x02\x0cfooter-links\x02\x0fheader-bg-color\x02\x1a\
-http-only-cookie-attribute\x02\x13landing-page-design\x02\x08logo-url\x02\x04nam\
-e\x02\x18options-preflight-bypass\x02\x08policies\x02\x08saas-app\x02\x1asame-si\
-te-cookie-attribute\x02\x0bscim-config\x02\x13self-hosted-domains\x02\x18service\
--auth401-redirect\x02\x10session-duration\x02\x1cskip-app-launcher-login-page\x02\
-\x11skip-interstitial\x02\x04tags\x02\x10target-criterias\x02\x04type\x02\x07zon\
-e-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r#\x0aaccount-id\x05\x1ballow-authe\
-nticate-via-warp\x05\x0callowed-idps\x05\x15app-launcher-logo-url\x05\x14app-lau\
-ncher-visible\x05\x03aud\x05\x19auto-redirect-to-identity\x05\x08bg-color\x05\x0c\
-cors-headers\x05\x13custom-deny-message\x05\x0fcustom-deny-url\x05\x1ccustom-non\
--identity-deny-url\x05\x0ccustom-pages\x05\x06domain\x05\x15enable-binding-cooki\
-e\x05\x0cfooter-links\x05\x0fheader-bg-color\x05\x1ahttp-only-cookie-attribute\x05\
-\x13landing-page-design\x05\x08logo-url\x05\x04name\x05\x18options-preflight-byp\
-ass\x05\x08policies\x05\x08saas-app\x05\x1asame-site-cookie-attribute\x05\x0bsci\
-m-config\x05\x13self-hosted-domains\x05\x18service-auth401-redirect\x05\x10sessi\
-on-duration\x05\x1cskip-app-launcher-login-page\x05\x11skip-interstitial\x05\x04\
-tags\x05\x10target-criterias\x05\x04type\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\
-\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Apulumi:cloudf\
-lare/zero-trust-access-application@5.43.1--0.0.0-DEV\x05~\x01B\x0a\x02\x03\x02\x01\
-\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\x09app-count\x02\
-\x0bcustom-html\x02\x04name\x02\x04type\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\
-\x01i\x01\x01r\x06\x0aaccount-id\x05\x09app-count\x05\x0bcustom-html\x05\x04name\
-\x05\x04type\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\
-\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Apulumi:cloudflare/zero-trust-access-cus\
-tom-page@5.43.1--0.0.0-DEV\x05\x7f\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
-\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\x08excludes\x02\x08includes\x02\x04name\
-\x02\x08requires\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0a\
-account-id\x05\x08excludes\x05\x08includes\x05\x04name\x05\x08requires\x05\x07zo\
-ne-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06in\
-voke\x01\x08\x04\0;pulumi:cloudflare/zero-trust-access-group@5.43.1--0.0.0-DEV\x05\
-\x80\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0a\
-account-id\x02\x07configs\x02\x04name\x02\x0cscim-configs\x02\x04type\x02\x07zon\
-e-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x07configs\x05\
-\x04name\x05\x0cscim-configs\x05\x04type\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\
-\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Gpulumi:cloudf\
-lare/zero-trust-access-identity-provider@5.43.1--0.0.0-DEV\x05\x81\x01\x01B\x0a\x02\
+args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Epulumi:cloudflare/waiting-room-sett\
+ings@5.43.1--0.0.0-NIGHTLY-dd68c66\x05l\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06ou\
+tput\x03\0\0\x01h\x01\x01r\x05\x0bdescription\x02\x07dnslink\x02\x04name\x02\x06\
+target\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x08\x0acreated-o\
+n\x05\x0bdescription\x05\x07dnslink\x05\x0bmodified-on\x05\x04name\x05\x06status\
+\x05\x06target\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04ar\
+gs\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0=pulumi:cloudflare/web3-hostname@5.43.\
+1--0.0.0-NIGHTLY-dd68c66\x05m\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\
+\0\x01h\x01\x01r\x06\x0aaccount-id\x02\x04host\x02\x09inclusive\x02\x09is-paused\
+\x02\x05paths\x02\x0aruleset-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0a\
+account-id\x05\x04host\x05\x09inclusive\x05\x09is-paused\x05\x05paths\x05\x0arul\
+eset-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
+invoke\x01\x08\x04\0Bpulumi:cloudflare/web-analytics-rule@5.43.1--0.0.0-NIGHTLY-\
+dd68c66\x05n\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\
+\x0aaccount-id\x02\x0cauto-install\x02\x04host\x02\x08zone-tag\x02\x04\0\x04args\
+\x03\0\x03\x01i\x01\x01r\x08\x0aaccount-id\x05\x0cauto-install\x05\x04host\x05\x0a\
+ruleset-id\x05\x08site-tag\x05\x0asite-token\x05\x07snippet\x05\x08zone-tag\x05\x04\
+\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
+\0Bpulumi:cloudflare/web-analytics-site@5.43.1--0.0.0-NIGHTLY-dd68c66\x05o\x01B\x0a\
+\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\
+\x09schedules\x02\x0bscript-name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x0a\
+account-id\x05\x09schedules\x05\x0bscript-name\x05\x04\0\x03res\x03\0\x06\x01@\x02\
+\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Cpulumi:cloudflare/work\
+er-cron-trigger@5.43.1--0.0.0-NIGHTLY-dd68c66\x05p\x01B\x0a\x02\x03\x02\x01\x01\x04\
+\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x0benvironment\x02\x08h\
+ostname\x02\x07service\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\
+\x0aaccount-id\x05\x0benvironment\x05\x08hostname\x05\x07service\x05\x07zone-id\x05\
+\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
+\x04\0=pulumi:cloudflare/worker-domain@5.43.1--0.0.0-NIGHTLY-dd68c66\x05q\x01B\x0a\
+\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x07pattern\x02\x0b\
+script-name\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x07patt\
+ern\x05\x0bscript-name\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04nam\
+es\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0<pulumi:cloudflare/worker-rout\
+e@5.43.1--0.0.0-NIGHTLY-dd68c66\x05r\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06outpu\
+t\x03\0\0\x01h\x01\x01r\x14\x0aaccount-id\x02\x19analytics-engine-bindings\x02\x12\
+compatibility-date\x02\x13compatibility-flags\x02\x07content\x02\x14d1-database-\
+bindings\x02\x12dispatch-namespace\x02\x1ahyperdrive-config-bindings\x02\x15kv-n\
+amespace-bindings\x02\x07logpush\x02\x06module\x02\x04name\x02\x0aplacements\x02\
+\x13plain-text-bindings\x02\x0equeue-bindings\x02\x12r2-bucket-bindings\x02\x14s\
+ecret-text-bindings\x02\x10service-bindings\x02\x04tags\x02\x14webassembly-bindi\
+ngs\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x14\x0aaccount-id\x05\x19analytics\
+-engine-bindings\x05\x12compatibility-date\x05\x13compatibility-flags\x05\x07con\
+tent\x05\x14d1-database-bindings\x05\x12dispatch-namespace\x05\x1ahyperdrive-con\
+fig-bindings\x05\x15kv-namespace-bindings\x05\x07logpush\x05\x06module\x05\x04na\
+me\x05\x0aplacements\x05\x13plain-text-bindings\x05\x0equeue-bindings\x05\x12r2-\
+bucket-bindings\x05\x14secret-text-bindings\x05\x10service-bindings\x05\x04tags\x05\
+\x14webassembly-bindings\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
+\0\x07\x04\0\x06invoke\x01\x08\x04\0=pulumi:cloudflare/worker-script@5.43.1--0.0\
+.0-NIGHTLY-dd68c66\x05s\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
+h\x01\x01r\x04\x0aaccount-id\x02\x04name\x02\x0bscript-name\x02\x0bsecret-text\x02\
+\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x04name\x05\x0bscri\
+pt-name\x05\x0bsecret-text\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
+\0\x07\x04\0\x06invoke\x01\x08\x04\0=pulumi:cloudflare/worker-secret@5.43.1--0.0\
+.0-NIGHTLY-dd68c66\x05t\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
+h\x01\x01r\x03\x0aaccount-id\x02\x09schedules\x02\x0bscript-name\x02\x04\0\x04ar\
+gs\x03\0\x03\x01i\x01\x01r\x03\x0aaccount-id\x05\x09schedules\x05\x0bscript-name\
+\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\
+\x08\x04\0Dpulumi:cloudflare/workers-cron-trigger@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\
+u\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aacco\
+unt-id\x02\x0benvironment\x02\x08hostname\x02\x07service\x02\x07zone-id\x02\x04\0\
+\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount-id\x05\x0benvironment\x05\x08hos\
+tname\x05\x07service\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\
+\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0>pulumi:cloudflare/workers-domai\
+n@5.43.1--0.0.0-NIGHTLY-dd68c66\x05v\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06outpu\
+t\x03\0\0\x01h\x01\x01r\x02\x0aaccount-id\x02\x04name\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x02\x0aaccount-id\x05\x04name\x05\x04\0\x03res\x03\0\x06\x01@\x02\
+\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Xpulumi:cloudflare/work\
+ers-for-platforms-dispatch-namespace@5.43.1--0.0.0-NIGHTLY-dd68c66\x05w\x01B\x0a\
+\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x0aaccount-id\x02\
+\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x0aaccount-id\x05\x04name\
+\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\
+\x08\x04\0Opulumi:cloudflare/workers-for-platforms-namespace@5.43.1--0.0.0-NIGHT\
+LY-dd68c66\x05x\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
+r\x04\x0aaccount-id\x02\x03key\x02\x0cnamespace-id\x02\x05value\x02\x04\0\x04arg\
+s\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x03key\x05\x0cnamespace-id\x05\x05\
+value\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06in\
+voke\x01\x08\x04\0:pulumi:cloudflare/workers-kv@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\
+y\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x0aacco\
+unt-id\x02\x05title\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x0aaccount-id\x05\
+\x05title\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
+invoke\x01\x08\x04\0Dpulumi:cloudflare/workers-kv-namespace@5.43.1--0.0.0-NIGHTL\
+Y-dd68c66\x05z\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
+r\x03\x07pattern\x02\x0bscript-name\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01\
+i\x01\x01r\x03\x07pattern\x05\x0bscript-name\x05\x07zone-id\x05\x04\0\x03res\x03\
+\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0=pulumi:\
+cloudflare/workers-route@5.43.1--0.0.0-NIGHTLY-dd68c66\x05{\x01B\x0a\x02\x03\x02\
+\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x14\x0aaccount-id\x02\x19analytic\
+s-engine-bindings\x02\x12compatibility-date\x02\x13compatibility-flags\x02\x07co\
+ntent\x02\x14d1-database-bindings\x02\x12dispatch-namespace\x02\x1ahyperdrive-co\
+nfig-bindings\x02\x15kv-namespace-bindings\x02\x07logpush\x02\x06module\x02\x04n\
+ame\x02\x0aplacements\x02\x13plain-text-bindings\x02\x0equeue-bindings\x02\x12r2\
+-bucket-bindings\x02\x14secret-text-bindings\x02\x10service-bindings\x02\x04tags\
+\x02\x14webassembly-bindings\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x14\x0aac\
+count-id\x05\x19analytics-engine-bindings\x05\x12compatibility-date\x05\x13compa\
+tibility-flags\x05\x07content\x05\x14d1-database-bindings\x05\x12dispatch-namesp\
+ace\x05\x1ahyperdrive-config-bindings\x05\x15kv-namespace-bindings\x05\x07logpus\
+h\x05\x06module\x05\x04name\x05\x0aplacements\x05\x13plain-text-bindings\x05\x0e\
+queue-bindings\x05\x12r2-bucket-bindings\x05\x14secret-text-bindings\x05\x10serv\
+ice-bindings\x05\x04tags\x05\x14webassembly-bindings\x05\x04\0\x03res\x03\0\x06\x01\
+@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0>pulumi:cloudflare\
+/workers-script@5.43.1--0.0.0-NIGHTLY-dd68c66\x05|\x01B\x0a\x02\x03\x02\x01\x01\x04\
+\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x04name\x02\x0bscript-n\
+ame\x02\x0bsecret-text\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-\
+id\x05\x04name\x05\x0bscript-name\x05\x0bsecret-text\x05\x04\0\x03res\x03\0\x06\x01\
+@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0>pulumi:cloudflare\
+/workers-secret@5.43.1--0.0.0-NIGHTLY-dd68c66\x05}\x01B\x0a\x02\x03\x02\x01\x01\x04\
+\0\x06output\x03\0\0\x01h\x01\x01r\"\x0aaccount-id\x02\x1ballow-authenticate-via\
+-warp\x02\x0callowed-idps\x02\x15app-launcher-logo-url\x02\x14app-launcher-visib\
+le\x02\x19auto-redirect-to-identity\x02\x08bg-color\x02\x0ccors-headers\x02\x13c\
+ustom-deny-message\x02\x0fcustom-deny-url\x02\x1ccustom-non-identity-deny-url\x02\
+\x0ccustom-pages\x02\x06domain\x02\x15enable-binding-cookie\x02\x0cfooter-links\x02\
+\x0fheader-bg-color\x02\x1ahttp-only-cookie-attribute\x02\x13landing-page-design\
+\x02\x08logo-url\x02\x04name\x02\x18options-preflight-bypass\x02\x08policies\x02\
+\x08saas-app\x02\x1asame-site-cookie-attribute\x02\x0bscim-config\x02\x13self-ho\
+sted-domains\x02\x18service-auth401-redirect\x02\x10session-duration\x02\x1cskip\
+-app-launcher-login-page\x02\x11skip-interstitial\x02\x04tags\x02\x10target-crit\
+erias\x02\x04type\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r#\x0aa\
+ccount-id\x05\x1ballow-authenticate-via-warp\x05\x0callowed-idps\x05\x15app-laun\
+cher-logo-url\x05\x14app-launcher-visible\x05\x03aud\x05\x19auto-redirect-to-ide\
+ntity\x05\x08bg-color\x05\x0ccors-headers\x05\x13custom-deny-message\x05\x0fcust\
+om-deny-url\x05\x1ccustom-non-identity-deny-url\x05\x0ccustom-pages\x05\x06domai\
+n\x05\x15enable-binding-cookie\x05\x0cfooter-links\x05\x0fheader-bg-color\x05\x1a\
+http-only-cookie-attribute\x05\x13landing-page-design\x05\x08logo-url\x05\x04nam\
+e\x05\x18options-preflight-bypass\x05\x08policies\x05\x08saas-app\x05\x1asame-si\
+te-cookie-attribute\x05\x0bscim-config\x05\x13self-hosted-domains\x05\x18service\
+-auth401-redirect\x05\x10session-duration\x05\x1cskip-app-launcher-login-page\x05\
+\x11skip-interstitial\x05\x04tags\x05\x10target-criterias\x05\x04type\x05\x07zon\
+e-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06inv\
+oke\x01\x08\x04\0Mpulumi:cloudflare/zero-trust-access-application@5.43.1--0.0.0-\
+NIGHTLY-dd68c66\x05~\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
+\x01r\x06\x0aaccount-id\x02\x09app-count\x02\x0bcustom-html\x02\x04name\x02\x04t\
+ype\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\
+\x09app-count\x05\x0bcustom-html\x05\x04name\x05\x04type\x05\x07zone-id\x05\x04\0\
+\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
+\0Mpulumi:cloudflare/zero-trust-access-custom-page@5.43.1--0.0.0-NIGHTLY-dd68c66\
+\x05\x7f\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0a\
+account-id\x02\x08excludes\x02\x08includes\x02\x04name\x02\x08requires\x02\x07zo\
+ne-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x08exclude\
+s\x05\x08includes\x05\x04name\x05\x08requires\x05\x07zone-id\x05\x04\0\x03res\x03\
+\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Gpulumi:\
+cloudflare/zero-trust-access-group@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x80\x01\x01\
+B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-i\
+d\x02\x07configs\x02\x04name\x02\x0cscim-configs\x02\x04type\x02\x07zone-id\x02\x04\
+\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x07configs\x05\x04name\x05\
+\x0cscim-configs\x05\x04type\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04\
+names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Spulumi:cloudflare/zero-tru\
+st-access-identity-provider@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x81\x01\x01B\x0a\x02\
 \x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x14\
 associated-hostnames\x02\x0bcertificate\x02\x04name\x02\x07zone-id\x02\x04\0\x04\
 args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x14associated-hostnames\x05\x0b\
 certificate\x05\x0bfingerprint\x05\x04name\x05\x07zone-id\x05\x04\0\x03res\x03\0\
-\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Fpulumi:cl\
-oudflare/zero-trust-access-mtls-certificate@5.43.1--0.0.0-DEV\x05\x82\x01\x01B\x0a\
-\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\
-\x08settings\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x0aacc\
-ount-id\x05\x08settings\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04na\
-mes\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Lpulumi:cloudflare/zero-trust\
--access-mtls-hostname-settings@5.43.1--0.0.0-DEV\x05\x83\x01\x01B\x0a\x02\x03\x02\
-\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0d\x0aaccount-id\x02\x1ballow-au\
-thenticate-via-warp\x02\x0bauth-domain\x02\x19auto-redirect-to-identity\x02\x0cc\
-ustom-pages\x02\x0fis-ui-read-only\x02\x0dlogin-designs\x02\x04name\x02\x10sessi\
-on-duration\x02\x1aui-read-only-toggle-reason\x02\"user-seat-expiration-inactive\
--time\x02\x1awarp-auth-session-duration\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\
-\x01i\x01\x01r\x0d\x0aaccount-id\x05\x1ballow-authenticate-via-warp\x05\x0bauth-\
-domain\x05\x19auto-redirect-to-identity\x05\x0ccustom-pages\x05\x0fis-ui-read-on\
-ly\x05\x0dlogin-designs\x05\x04name\x05\x10session-duration\x05\x1aui-read-only-\
-toggle-reason\x05\"user-seat-expiration-inactive-time\x05\x1awarp-auth-session-d\
-uration\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\
-\x07\x04\0\x06invoke\x01\x08\x04\0Bpulumi:cloudflare/zero-trust-access-organizat\
-ion@5.43.1--0.0.0-DEV\x05\x84\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
-\0\0\x01h\x01\x01r\x10\x0aaccount-id\x02\x0eapplication-id\x02\x0fapproval-group\
-s\x02\x11approval-required\x02\x10connection-rules\x02\x08decision\x02\x08exclud\
-es\x02\x08includes\x02\x12isolation-required\x02\x04name\x02\x0aprecedence\x02\x1c\
-purpose-justification-prompt\x02\x1epurpose-justification-required\x02\x08requir\
-es\x02\x10session-duration\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
-r\x10\x0aaccount-id\x05\x0eapplication-id\x05\x0fapproval-groups\x05\x11approval\
--required\x05\x10connection-rules\x05\x08decision\x05\x08excludes\x05\x08include\
-s\x05\x12isolation-required\x05\x04name\x05\x0aprecedence\x05\x1cpurpose-justifi\
-cation-prompt\x05\x1epurpose-justification-required\x05\x08requires\x05\x10sessi\
-on-duration\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
-\0\x07\x04\0\x06invoke\x01\x08\x04\0<pulumi:cloudflare/zero-trust-access-policy@\
-5.43.1--0.0.0-DEV\x05\x85\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\
-\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x08duration\x02\x14min-days-for-renewal\x02\
-\x04name\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x08\x0aaccount\
--id\x05\x09client-id\x05\x0dclient-secret\x05\x08duration\x05\x0aexpires-at\x05\x14\
-min-days-for-renewal\x05\x04name\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\
-\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Cpulumi:cloudflare/zero\
--trust-access-service-token@5.43.1--0.0.0-DEV\x05\x86\x01\x01B\x0a\x02\x03\x02\x01\
-\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x0eapplication-\
-id\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount-id\x05\
-\x0eapplication-id\x05\x03aud\x05\x0apublic-key\x05\x07zone-id\x05\x04\0\x03res\x03\
-\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Mpulumi:\
-cloudflare/zero-trust-access-short-lived-certificate@5.43.1--0.0.0-DEV\x05\x87\x01\
-\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccou\
-nt-id\x02\x09app-count\x02\x04name\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01\
-i\x01\x01r\x04\x0aaccount-id\x05\x09app-count\x05\x04name\x05\x07zone-id\x05\x04\
-\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
-\09pulumi:cloudflare/zero-trust-access-tag@5.43.1--0.0.0-DEV\x05\x88\x01\x01B\x0a\
-\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x07enabled\x02\x07\
-zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x07enabled\x05\x07zone-id\x05\
-\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
-\x04\0Bpulumi:cloudflare/zero-trust-device-certificates@5.43.1--0.0.0-DEV\x05\x89\
+\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Rpulumi:cl\
+oudflare/zero-trust-access-mtls-certificate@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x82\
+\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aa\
+ccount-id\x02\x08settings\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
+r\x03\x0aaccount-id\x05\x08settings\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01\
+@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Xpulumi:cloudflare\
+/zero-trust-access-mtls-hostname-settings@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x83\x01\
+\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0d\x0aaccou\
+nt-id\x02\x1ballow-authenticate-via-warp\x02\x0bauth-domain\x02\x19auto-redirect\
+-to-identity\x02\x0ccustom-pages\x02\x0fis-ui-read-only\x02\x0dlogin-designs\x02\
+\x04name\x02\x10session-duration\x02\x1aui-read-only-toggle-reason\x02\"user-sea\
+t-expiration-inactive-time\x02\x1awarp-auth-session-duration\x02\x07zone-id\x02\x04\
+\0\x04args\x03\0\x03\x01i\x01\x01r\x0d\x0aaccount-id\x05\x1ballow-authenticate-v\
+ia-warp\x05\x0bauth-domain\x05\x19auto-redirect-to-identity\x05\x0ccustom-pages\x05\
+\x0fis-ui-read-only\x05\x0dlogin-designs\x05\x04name\x05\x10session-duration\x05\
+\x1aui-read-only-toggle-reason\x05\"user-seat-expiration-inactive-time\x05\x1awa\
+rp-auth-session-duration\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04n\
+ames\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Npulumi:cloudflare/zero-trus\
+t-access-organization@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x84\x01\x01B\x0a\x02\x03\
+\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x10\x0aaccount-id\x02\x0eappl\
+ication-id\x02\x0fapproval-groups\x02\x11approval-required\x02\x10connection-rul\
+es\x02\x08decision\x02\x08excludes\x02\x08includes\x02\x12isolation-required\x02\
+\x04name\x02\x0aprecedence\x02\x1cpurpose-justification-prompt\x02\x1epurpose-ju\
+stification-required\x02\x08requires\x02\x10session-duration\x02\x07zone-id\x02\x04\
+\0\x04args\x03\0\x03\x01i\x01\x01r\x10\x0aaccount-id\x05\x0eapplication-id\x05\x0f\
+approval-groups\x05\x11approval-required\x05\x10connection-rules\x05\x08decision\
+\x05\x08excludes\x05\x08includes\x05\x12isolation-required\x05\x04name\x05\x0apr\
+ecedence\x05\x1cpurpose-justification-prompt\x05\x1epurpose-justification-requir\
+ed\x05\x08requires\x05\x10session-duration\x05\x07zone-id\x05\x04\0\x03res\x03\0\
+\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Hpulumi:cl\
+oudflare/zero-trust-access-policy@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x85\x01\x01B\
+\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\
+\x02\x08duration\x02\x14min-days-for-renewal\x02\x04name\x02\x07zone-id\x02\x04\0\
+\x04args\x03\0\x03\x01i\x01\x01r\x08\x0aaccount-id\x05\x09client-id\x05\x0dclien\
+t-secret\x05\x08duration\x05\x0aexpires-at\x05\x14min-days-for-renewal\x05\x04na\
+me\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
+\x04\0\x06invoke\x01\x08\x04\0Opulumi:cloudflare/zero-trust-access-service-token\
+@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x86\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
+output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x0eapplication-id\x02\x07zone\
+-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount-id\x05\x0eapplicati\
+on-id\x05\x03aud\x05\x0apublic-key\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01\
+@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Ypulumi:cloudflare\
+/zero-trust-access-short-lived-certificate@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x87\
 \x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aa\
-ccount-id\x02\x06config\x02\x04name\x02\x04type\x02\x04\0\x04args\x03\0\x03\x01i\
-\x01\x01r\x04\x0aaccount-id\x05\x06config\x05\x04name\x05\x04type\x05\x04\0\x03r\
-es\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Fp\
-ulumi:cloudflare/zero-trust-device-managed-networks@5.43.1--0.0.0-DEV\x05\x8a\x01\
-\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccou\
-nt-id\x02\x07configs\x02\x0aidentifier\x02\x08interval\x02\x04name\x02\x04type\x02\
-\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x07configs\x05\x0ai\
-dentifier\x05\x08interval\x05\x04name\x05\x04type\x05\x04\0\x03res\x03\0\x06\x01\
-@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Ipulumi:cloudflare\
-/zero-trust-device-posture-integration@5.43.1--0.0.0-DEV\x05\x8b\x01\x01B\x0a\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x08\x0aaccount-id\x02\x0b\
-description\x02\x0aexpiration\x02\x06inputs\x02\x07matches\x02\x04name\x02\x08sc\
-hedule\x02\x04type\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x08\x0aaccount-id\x05\
-\x0bdescription\x05\x0aexpiration\x05\x06inputs\x05\x07matches\x05\x04name\x05\x08\
-schedule\x05\x04type\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
-\x04\0\x06invoke\x01\x08\x04\0Bpulumi:cloudflare/zero-trust-device-posture-rule@\
-5.43.1--0.0.0-DEV\x05\x8c\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\
-\0\x01h\x01\x01r\x13\x0aaccount-id\x02\x11allow-mode-switch\x02\x0dallow-updates\
-\x02\x10allowed-to-leave\x02\x0cauto-connect\x02\x0ecaptive-portal\x02\x07defaul\
-t\x02\x0bdescription\x02\x15disable-auto-fallback\x02\x07enabled\x02\x12exclude-\
-office-ips\x02\x05match\x02\x04name\x02\x0aprecedence\x02\x14service-mode-v2-mod\
-e\x02\x14service-mode-v2-port\x02\x0bsupport-url\x02\x0dswitch-locked\x02\x0ftun\
-nel-protocol\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x13\x0aaccount-id\x05\x11\
-allow-mode-switch\x05\x0dallow-updates\x05\x10allowed-to-leave\x05\x0cauto-conne\
-ct\x05\x0ecaptive-portal\x05\x07default\x05\x0bdescription\x05\x15disable-auto-f\
-allback\x05\x07enabled\x05\x12exclude-office-ips\x05\x05match\x05\x04name\x05\x0a\
-precedence\x05\x14service-mode-v2-mode\x05\x14service-mode-v2-port\x05\x0bsuppor\
-t-url\x05\x0dswitch-locked\x05\x0ftunnel-protocol\x05\x04\0\x03res\x03\0\x06\x01\
-@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0>pulumi:cloudflare\
-/zero-trust-device-profiles@5.43.1--0.0.0-DEV\x05\x8d\x01\x01B\x0a\x02\x03\x02\x01\
-\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\x04data\x02\x0b\
-description\x02\x07enabled\x02\x08interval\x02\x04name\x02\x04\0\x04args\x03\0\x03\
-\x01i\x01\x01r\x08\x0aaccount-id\x05\x07created\x05\x04data\x05\x0bdescription\x05\
-\x07enabled\x05\x08interval\x05\x04name\x05\x07updated\x05\x04\0\x03res\x03\0\x06\
-\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\07pulumi:cloudf\
-lare/zero-trust-dex-test@5.43.1--0.0.0-DEV\x05\x8e\x01\x01B\x0a\x02\x03\x02\x01\x01\
-\x04\0\x06output\x03\0\0\x01h\x01\x01r\x08\x0aaccount-id\x02\x13allowed-match-co\
-unt\x02\x11context-awareness\x02\x0bdescription\x02\x07entries\x02\x04name\x02\x0b\
-ocr-enabled\x02\x04type\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x08\x0aaccount\
--id\x05\x13allowed-match-count\x05\x11context-awareness\x05\x0bdescription\x05\x07\
-entries\x05\x04name\x05\x0bocr-enabled\x05\x04type\x05\x04\0\x03res\x03\0\x06\x01\
-@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0:pulumi:cloudflare\
-/zero-trust-dlp-profile@5.43.1--0.0.0-DEV\x05\x8f\x01\x01B\x0a\x02\x03\x02\x01\x01\
-\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x0eclient-default\x02\
-\x0becs-support\x02\x04name\x02\x08networks\x02\x04\0\x04args\x03\0\x03\x01i\x01\
-\x01r\x0a\x0aaccount-id\x05\x17anonymized-logs-enabled\x05\x0eclient-default\x05\
-\x0ddoh-subdomain\x05\x0becs-support\x05\x02ip\x05\x10ipv4-destination\x05\x04na\
-me\x05\x08networks\x05\x0apolicy-ids\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04name\
-s\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0;pulumi:cloudflare/zero-trust-d\
-ns-location@5.43.1--0.0.0-DEV\x05\x90\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
-output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x08activate\x02\x06custom\x02\
-\x0fgateway-managed\x02\x14validity-period-days\x02\x04\0\x04args\x03\0\x03\x01i\
-\x01\x01r\x0b\x0aaccount-id\x05\x08activate\x05\x0ebinding-status\x05\x0acreated\
--at\x05\x06custom\x05\x0aexpires-on\x05\x0fgateway-managed\x05\x06in-use\x05\x0a\
-qs-pack-id\x05\x0buploaded-on\x05\x14validity-period-days\x05\x04\0\x03res\x03\0\
-\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Bpulumi:cl\
-oudflare/zero-trust-gateway-certificate@5.43.1--0.0.0-DEV\x05\x91\x01\x01B\x0a\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0b\x0aaccount-id\x02\x06\
-action\x02\x0bdescription\x02\x0edevice-posture\x02\x07enabled\x02\x07filters\x02\
-\x08identity\x02\x04name\x02\x0aprecedence\x02\x0drule-settings\x02\x07traffic\x02\
-\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0c\x0aaccount-id\x05\x06action\x05\x0bde\
-scription\x05\x0edevice-posture\x05\x07enabled\x05\x07filters\x05\x08identity\x05\
-\x04name\x05\x0aprecedence\x05\x0drule-settings\x05\x07traffic\x05\x07version\x05\
+ccount-id\x02\x09app-count\x02\x04name\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x04\x0aaccount-id\x05\x09app-count\x05\x04name\x05\x07zone-id\x05\
 \x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
-\x04\0=pulumi:cloudflare/zero-trust-gateway-policy@5.43.1--0.0.0-DEV\x05\x92\x01\
-\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccou\
-nt-id\x02\x03ips\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aac\
-count-id\x05\x03ips\x05\x04name\x05\x09subdomain\x05\x04\0\x03res\x03\0\x06\x01@\
-\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Epulumi:cloudflare/\
-zero-trust-gateway-proxy-endpoint@5.43.1--0.0.0-DEV\x05\x93\x01\x01B\x0a\x02\x03\
-\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x11\x0aaccount-id\x02\x14acti\
-vity-log-enabled\x02\x09antivirus\x02\x0ablock-page\x02\x0dbody-scanning\x02\x0b\
-certificate\x02\x12custom-certificate\x02\x17extended-email-matching\x02\x04fips\
-\x02\x07logging\x02&non-identity-browser-isolation-enabled\x02\x0bpayload-log\x02\
-\x1aprotocol-detection-enabled\x02\x05proxy\x02\x0fssh-session-log\x02\x13tls-de\
-crypt-enabled\x02\x1durl-browser-isolation-enabled\x02\x04\0\x04args\x03\0\x03\x01\
-i\x01\x01r\x11\x0aaccount-id\x05\x14activity-log-enabled\x05\x09antivirus\x05\x0a\
-block-page\x05\x0dbody-scanning\x05\x0bcertificate\x05\x12custom-certificate\x05\
-\x17extended-email-matching\x05\x04fips\x05\x07logging\x05&non-identity-browser-\
-isolation-enabled\x05\x0bpayload-log\x05\x1aprotocol-detection-enabled\x05\x05pr\
-oxy\x05\x0fssh-session-log\x05\x13tls-decrypt-enabled\x05\x1durl-browser-isolati\
-on-enabled\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
-invoke\x01\x08\x04\0?pulumi:cloudflare/zero-trust-gateway-settings@5.43.1--0.0.0\
--DEV\x05\x94\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
-r\x03\x0aaccount-id\x02\x08hostname\x02\x02ip\x02\x04\0\x04args\x03\0\x03\x01i\x01\
-\x01r\x05\x0aaccount-id\x05\x0acreated-at\x05\x08hostname\x05\x02ip\x05\x0bmodif\
-ied-at\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06i\
-nvoke\x01\x08\x04\0Kpulumi:cloudflare/zero-trust-infrastructure-access-target@5.\
-43.1--0.0.0-DEV\x05\x95\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\
-\x01h\x01\x01r\x02\x0aaccount-id\x02\x1akey-rotation-interval-days\x02\x04\0\x04\
-args\x03\0\x03\x01i\x01\x01r\x02\x0aaccount-id\x05\x1akey-rotation-interval-days\
-\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\
-\x08\x04\0Kpulumi:cloudflare/zero-trust-key-access-key-configuration@5.43.1--0.0\
-.0-DEV\x05\x96\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
-\x01r\x06\x0aaccount-id\x02\x0bdescription\x02\x05items\x02\x17items-with-descri\
-ptions\x02\x04name\x02\x04type\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0a\
-account-id\x05\x0bdescription\x05\x05items\x05\x17items-with-descriptions\x05\x04\
-name\x05\x04type\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\
-\0\x06invoke\x01\x08\x04\03pulumi:cloudflare/zero-trust-list@5.43.1--0.0.0-DEV\x05\
-\x97\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0a\
-account-id\x02\x07domains\x02\x09policy-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
-r\x03\x0aaccount-id\x05\x07domains\x05\x09policy-id\x05\x04\0\x03res\x03\0\x06\x01\
-@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Dpulumi:cloudflare\
-/zero-trust-local-fallback-domain@5.43.1--0.0.0-DEV\x05\x98\x01\x01B\x0a\x02\x03\
-\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x0aaccount-id\x02\x09beha\
-viors\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x0aaccount-id\x05\x09behavio\
-rs\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invok\
-e\x01\x08\x04\0<pulumi:cloudflare/zero-trust-risk-behavior@5.43.1--0.0.0-DEV\x05\
-\x99\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0a\
-account-id\x02\x06active\x02\x10integration-type\x02\x0creference-id\x02\x0atena\
-nt-url\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x06active\
-\x05\x10integration-type\x05\x0creference-id\x05\x0atenant-url\x05\x0ewell-known\
--url\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06inv\
-oke\x01\x08\x04\0Epulumi:cloudflare/zero-trust-risk-score-integration@5.43.1--0.\
-0.0-DEV\x05\x9a\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
-\x01r\x04\x0aaccount-id\x02\x04mode\x02\x09policy-id\x02\x07tunnels\x02\x04\0\x04\
-args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x04mode\x05\x09policy-id\x05\x07\
-tunnels\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
-invoke\x01\x08\x04\0;pulumi:cloudflare/zero-trust-split-tunnel@5.43.1--0.0.0-DEV\
-\x05\x9b\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\
-\x0aaccount-id\x02\x0aconfig-src\x02\x04name\x02\x06secret\x02\x04\0\x04args\x03\
-\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x05cname\x05\x0aconfig-src\x05\x04nam\
-e\x05\x06secret\x05\x0ctunnel-token\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\
-\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Apulumi:cloudflare/zero-trust-tu\
-nnel-cloudflared@5.43.1--0.0.0-DEV\x05\x9c\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\
+\x04\0Epulumi:cloudflare/zero-trust-access-tag@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\
+\x88\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x07\
+enabled\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x07enabled\x05\
+\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\
+\x06invoke\x01\x08\x04\0Npulumi:cloudflare/zero-trust-device-certificates@5.43.1\
+--0.0.0-NIGHTLY-dd68c66\x05\x89\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\
+\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x06config\x02\x04name\x02\x04type\x02\
+\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x06config\x05\x04na\
+me\x05\x04type\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\
+\0\x06invoke\x01\x08\x04\0Rpulumi:cloudflare/zero-trust-device-managed-networks@\
+5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x8a\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
+output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\x07configs\x02\x0aidentifier\x02\
+\x08interval\x02\x04name\x02\x04type\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\
+\x0aaccount-id\x05\x07configs\x05\x0aidentifier\x05\x08interval\x05\x04name\x05\x04\
+type\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06inv\
+oke\x01\x08\x04\0Upulumi:cloudflare/zero-trust-device-posture-integration@5.43.1\
+--0.0.0-NIGHTLY-dd68c66\x05\x8b\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\
+\x03\0\0\x01h\x01\x01r\x08\x0aaccount-id\x02\x0bdescription\x02\x0aexpiration\x02\
+\x06inputs\x02\x07matches\x02\x04name\x02\x08schedule\x02\x04type\x02\x04\0\x04a\
+rgs\x03\0\x03\x01i\x01\x01r\x08\x0aaccount-id\x05\x0bdescription\x05\x0aexpirati\
+on\x05\x06inputs\x05\x07matches\x05\x04name\x05\x08schedule\x05\x04type\x05\x04\0\
+\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
+\0Npulumi:cloudflare/zero-trust-device-posture-rule@5.43.1--0.0.0-NIGHTLY-dd68c6\
+6\x05\x8c\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\
+\x13\x0aaccount-id\x02\x11allow-mode-switch\x02\x0dallow-updates\x02\x10allowed-\
+to-leave\x02\x0cauto-connect\x02\x0ecaptive-portal\x02\x07default\x02\x0bdescrip\
+tion\x02\x15disable-auto-fallback\x02\x07enabled\x02\x12exclude-office-ips\x02\x05\
+match\x02\x04name\x02\x0aprecedence\x02\x14service-mode-v2-mode\x02\x14service-m\
+ode-v2-port\x02\x0bsupport-url\x02\x0dswitch-locked\x02\x0ftunnel-protocol\x02\x04\
+\0\x04args\x03\0\x03\x01i\x01\x01r\x13\x0aaccount-id\x05\x11allow-mode-switch\x05\
+\x0dallow-updates\x05\x10allowed-to-leave\x05\x0cauto-connect\x05\x0ecaptive-por\
+tal\x05\x07default\x05\x0bdescription\x05\x15disable-auto-fallback\x05\x07enable\
+d\x05\x12exclude-office-ips\x05\x05match\x05\x04name\x05\x0aprecedence\x05\x14se\
+rvice-mode-v2-mode\x05\x14service-mode-v2-port\x05\x0bsupport-url\x05\x0dswitch-\
+locked\x05\x0ftunnel-protocol\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04ar\
+gs\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Jpulumi:cloudflare/zero-trust-device-p\
+rofiles@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x8d\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\
+\0\x06output\x03\0\0\x01h\x01\x01r\x06\x0aaccount-id\x02\x04data\x02\x0bdescript\
+ion\x02\x07enabled\x02\x08interval\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\
+\x01r\x08\x0aaccount-id\x05\x07created\x05\x04data\x05\x0bdescription\x05\x07ena\
+bled\x05\x08interval\x05\x04name\x05\x07updated\x05\x04\0\x03res\x03\0\x06\x01@\x02\
+\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Cpulumi:cloudflare/zero\
+-trust-dex-test@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x8e\x01\x01B\x0a\x02\x03\x02\x01\
+\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x08\x0aaccount-id\x02\x13allowed-matc\
+h-count\x02\x11context-awareness\x02\x0bdescription\x02\x07entries\x02\x04name\x02\
+\x0bocr-enabled\x02\x04type\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x08\x0aacc\
+ount-id\x05\x13allowed-match-count\x05\x11context-awareness\x05\x0bdescription\x05\
+\x07entries\x05\x04name\x05\x0bocr-enabled\x05\x04type\x05\x04\0\x03res\x03\0\x06\
+\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Fpulumi:cloudf\
+lare/zero-trust-dlp-profile@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x8f\x01\x01B\x0a\x02\
+\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x0e\
+client-default\x02\x0becs-support\x02\x04name\x02\x08networks\x02\x04\0\x04args\x03\
+\0\x03\x01i\x01\x01r\x0a\x0aaccount-id\x05\x17anonymized-logs-enabled\x05\x0ecli\
+ent-default\x05\x0ddoh-subdomain\x05\x0becs-support\x05\x02ip\x05\x10ipv4-destin\
+ation\x05\x04name\x05\x08networks\x05\x0apolicy-ids\x05\x04\0\x03res\x03\0\x06\x01\
+@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Gpulumi:cloudflare\
+/zero-trust-dns-location@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x90\x01\x01B\x0a\x02\x03\
+\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x08acti\
+vate\x02\x06custom\x02\x0fgateway-managed\x02\x14validity-period-days\x02\x04\0\x04\
+args\x03\0\x03\x01i\x01\x01r\x0b\x0aaccount-id\x05\x08activate\x05\x0ebinding-st\
+atus\x05\x0acreated-at\x05\x06custom\x05\x0aexpires-on\x05\x0fgateway-managed\x05\
+\x06in-use\x05\x0aqs-pack-id\x05\x0buploaded-on\x05\x14validity-period-days\x05\x04\
+\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
+\0Npulumi:cloudflare/zero-trust-gateway-certificate@5.43.1--0.0.0-NIGHTLY-dd68c6\
+6\x05\x91\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\
+\x0b\x0aaccount-id\x02\x06action\x02\x0bdescription\x02\x0edevice-posture\x02\x07\
+enabled\x02\x07filters\x02\x08identity\x02\x04name\x02\x0aprecedence\x02\x0drule\
+-settings\x02\x07traffic\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0c\x0aaccoun\
+t-id\x05\x06action\x05\x0bdescription\x05\x0edevice-posture\x05\x07enabled\x05\x07\
+filters\x05\x08identity\x05\x04name\x05\x0aprecedence\x05\x0drule-settings\x05\x07\
+traffic\x05\x07version\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\
+\x07\x04\0\x06invoke\x01\x08\x04\0Ipulumi:cloudflare/zero-trust-gateway-policy@5\
+.43.1--0.0.0-NIGHTLY-dd68c66\x05\x92\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06o\
+utput\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x03ips\x02\x04name\x02\x04\0\x04\
+args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x03ips\x05\x04name\x05\x09sub\
+domain\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06i\
+nvoke\x01\x08\x04\0Qpulumi:cloudflare/zero-trust-gateway-proxy-endpoint@5.43.1--\
+0.0.0-NIGHTLY-dd68c66\x05\x93\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
+\0\0\x01h\x01\x01r\x11\x0aaccount-id\x02\x14activity-log-enabled\x02\x09antiviru\
+s\x02\x0ablock-page\x02\x0dbody-scanning\x02\x0bcertificate\x02\x12custom-certif\
+icate\x02\x17extended-email-matching\x02\x04fips\x02\x07logging\x02&non-identity\
+-browser-isolation-enabled\x02\x0bpayload-log\x02\x1aprotocol-detection-enabled\x02\
+\x05proxy\x02\x0fssh-session-log\x02\x13tls-decrypt-enabled\x02\x1durl-browser-i\
+solation-enabled\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x11\x0aaccount-id\x05\
+\x14activity-log-enabled\x05\x09antivirus\x05\x0ablock-page\x05\x0dbody-scanning\
+\x05\x0bcertificate\x05\x12custom-certificate\x05\x17extended-email-matching\x05\
+\x04fips\x05\x07logging\x05&non-identity-browser-isolation-enabled\x05\x0bpayloa\
+d-log\x05\x1aprotocol-detection-enabled\x05\x05proxy\x05\x0fssh-session-log\x05\x13\
+tls-decrypt-enabled\x05\x1durl-browser-isolation-enabled\x05\x04\0\x03res\x03\0\x06\
+\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Kpulumi:cloudf\
+lare/zero-trust-gateway-settings@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x94\x01\x01B\x0a\
+\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\
+\x08hostname\x02\x02ip\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount-\
+id\x05\x0acreated-at\x05\x08hostname\x05\x02ip\x05\x0bmodified-at\x05\x04\0\x03r\
+es\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Wp\
+ulumi:cloudflare/zero-trust-infrastructure-access-target@5.43.1--0.0.0-NIGHTLY-d\
+d68c66\x05\x95\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
+\x01r\x02\x0aaccount-id\x02\x1akey-rotation-interval-days\x02\x04\0\x04args\x03\0\
+\x03\x01i\x01\x01r\x02\x0aaccount-id\x05\x1akey-rotation-interval-days\x05\x04\0\
+\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
+\0Wpulumi:cloudflare/zero-trust-key-access-key-configuration@5.43.1--0.0.0-NIGHT\
+LY-dd68c66\x05\x96\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\
+\x01\x01r\x06\x0aaccount-id\x02\x0bdescription\x02\x05items\x02\x17items-with-de\
+scriptions\x02\x04name\x02\x04type\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\
+\x0aaccount-id\x05\x0bdescription\x05\x05items\x05\x17items-with-descriptions\x05\
+\x04name\x05\x04type\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\
+\x04\0\x06invoke\x01\x08\x04\0?pulumi:cloudflare/zero-trust-list@5.43.1--0.0.0-N\
+IGHTLY-dd68c66\x05\x97\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
+h\x01\x01r\x03\x0aaccount-id\x02\x07domains\x02\x09policy-id\x02\x04\0\x04args\x03\
+\0\x03\x01i\x01\x01r\x03\x0aaccount-id\x05\x07domains\x05\x09policy-id\x05\x04\0\
+\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
+\0Ppulumi:cloudflare/zero-trust-local-fallback-domain@5.43.1--0.0.0-NIGHTLY-dd68\
+c66\x05\x98\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
+r\x02\x0aaccount-id\x02\x09behaviors\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x02\
+\x0aaccount-id\x05\x09behaviors\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
+args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Hpulumi:cloudflare/zero-trust-risk-b\
+ehavior@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x99\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\
+\0\x06output\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x06active\x02\x10integr\
+ation-type\x02\x0creference-id\x02\x0atenant-url\x02\x04\0\x04args\x03\0\x03\x01\
+i\x01\x01r\x06\x0aaccount-id\x05\x06active\x05\x10integration-type\x05\x0crefere\
+nce-id\x05\x0atenant-url\x05\x0ewell-known-url\x05\x04\0\x03res\x03\0\x06\x01@\x02\
+\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Qpulumi:cloudflare/zero\
+-trust-risk-score-integration@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x9a\x01\x01B\x0a\
+\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\
+\x04mode\x02\x09policy-id\x02\x07tunnels\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
+r\x04\x0aaccount-id\x05\x04mode\x05\x09policy-id\x05\x07tunnels\x05\x04\0\x03res\
+\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Gpul\
+umi:cloudflare/zero-trust-split-tunnel@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x9b\x01\
+\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccou\
+nt-id\x02\x0aconfig-src\x02\x04name\x02\x06secret\x02\x04\0\x04args\x03\0\x03\x01\
+i\x01\x01r\x06\x0aaccount-id\x05\x05cname\x05\x0aconfig-src\x05\x04name\x05\x06s\
+ecret\x05\x0ctunnel-token\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
+\0\x07\x04\0\x06invoke\x01\x08\x04\0Mpulumi:cloudflare/zero-trust-tunnel-cloudfl\
+ared@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x9c\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\
 \x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x06config\x02\x09tunnel-i\
 d\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x0aaccount-id\x05\x06config\x05\x09\
 tunnel-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
-invoke\x01\x08\x04\0Hpulumi:cloudflare/zero-trust-tunnel-cloudflared-config@5.43\
-.1--0.0.0-DEV\x05\x9d\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
-h\x01\x01r\x05\x0aaccount-id\x02\x07comment\x02\x07network\x02\x09tunnel-id\x02\x12\
-virtual-network-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount-id\x05\
-\x07comment\x05\x07network\x05\x09tunnel-id\x05\x12virtual-network-id\x05\x04\0\x03\
-res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0;\
-pulumi:cloudflare/zero-trust-tunnel-route@5.43.1--0.0.0-DEV\x05\x9e\x01\x01B\x0a\
-\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\
-\x07comment\x02\x12is-default-network\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01\
-i\x01\x01r\x04\x0aaccount-id\x05\x07comment\x05\x12is-default-network\x05\x04nam\
-e\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\
-\x01\x08\x04\0Epulumi:cloudflare/zero-trust-tunnel-virtual-network@5.43.1--0.0.0\
--DEV\x05\x9f\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
-r\x07\x0aaccount-id\x02\x0ajump-start\x02\x06paused\x02\x04plan\x02\x04type\x02\x13\
-vanity-name-servers\x02\x04zone\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0b\x0a\
-account-id\x05\x0ajump-start\x05\x04meta\x05\x0cname-servers\x05\x06paused\x05\x04\
-plan\x05\x06status\x05\x04type\x05\x13vanity-name-servers\x05\x10verification-ke\
-y\x05\x04zone\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\
-\0\x06invoke\x01\x08\x04\0(pulumi:cloudflare/zone@5.43.1--0.0.0-DEV\x05\xa0\x01\x01\
-B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x07enabled\x02\
-\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x02\x07enabled\x05\x07zone\
--id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invo\
-ke\x01\x08\x04\06pulumi:cloudflare/zone-cache-reserve@5.43.1--0.0.0-DEV\x05\xa1\x01\
-\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0c\x05avifs\
-\x02\x04bmps\x02\x04gifs\x02\x04jp2s\x02\x05jpegs\x02\x05jpg2s\x02\x04jpgs\x02\x04\
-pngs\x02\x05tiffs\x02\x04tifs\x02\x05webps\x02\x07zone-id\x02\x04\0\x04args\x03\0\
-\x03\x01i\x01\x01r\x0c\x05avifs\x05\x04bmps\x05\x04gifs\x05\x04jp2s\x05\x05jpegs\
-\x05\x05jpg2s\x05\x04jpgs\x05\x04pngs\x05\x05tiffs\x05\x04tifs\x05\x05webps\x05\x07\
-zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
-invoke\x01\x08\x04\07pulumi:cloudflare/zone-cache-variants@5.43.1--0.0.0-DEV\x05\
-\xa2\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x0b\
-modified-on\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0c\x09algo\
-rithm\x05\x06digest\x05\x10digest-algorithm\x05\x0bdigest-type\x05\x02ds\x05\x05\
-flags\x05\x07key-tag\x05\x08key-type\x05\x0bmodified-on\x05\x0apublic-key\x05\x06\
-status\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\
-\x07\x04\0\x06invoke\x01\x08\x04\0/pulumi:cloudflare/zone-dnssec@5.43.1--0.0.0-D\
-EV\x05\xa3\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
-r\x04\x04hold\x02\x0ahold-after\x02\x12include-subdomains\x02\x07zone-id\x02\x04\
-\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x04hold\x05\x0ahold-after\x05\x12include-\
-subdomains\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\
-\0\x07\x04\0\x06invoke\x01\x08\x04\0-pulumi:cloudflare/zone-hold@5.43.1--0.0.0-D\
-EV\x05\xa4\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
-r\x06\x0econfigurations\x02\x0bdescription\x02\x06paused\x02\x08priority\x02\x04\
-urls\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0econfigurati\
-ons\x05\x0bdescription\x05\x06paused\x05\x08priority\x05\x04urls\x05\x07zone-id\x05\
+invoke\x01\x08\x04\0Tpulumi:cloudflare/zero-trust-tunnel-cloudflared-config@5.43\
+.1--0.0.0-NIGHTLY-dd68c66\x05\x9d\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06outp\
+ut\x03\0\0\x01h\x01\x01r\x05\x0aaccount-id\x02\x07comment\x02\x07network\x02\x09\
+tunnel-id\x02\x12virtual-network-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\
+\x0aaccount-id\x05\x07comment\x05\x07network\x05\x09tunnel-id\x05\x12virtual-net\
+work-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06\
+invoke\x01\x08\x04\0Gpulumi:cloudflare/zero-trust-tunnel-route@5.43.1--0.0.0-NIG\
+HTLY-dd68c66\x05\x9e\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
+h\x01\x01r\x04\x0aaccount-id\x02\x07comment\x02\x12is-default-network\x02\x04nam\
+e\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x07comment\x05\
+\x12is-default-network\x05\x04name\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
+args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Qpulumi:cloudflare/zero-trust-tunnel\
+-virtual-network@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\x9f\x01\x01B\x0a\x02\x03\x02\x01\
+\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x07\x0aaccount-id\x02\x0ajump-start\x02\
+\x06paused\x02\x04plan\x02\x04type\x02\x13vanity-name-servers\x02\x04zone\x02\x04\
+\0\x04args\x03\0\x03\x01i\x01\x01r\x0b\x0aaccount-id\x05\x0ajump-start\x05\x04me\
+ta\x05\x0cname-servers\x05\x06paused\x05\x04plan\x05\x06status\x05\x04type\x05\x13\
+vanity-name-servers\x05\x10verification-key\x05\x04zone\x05\x04\0\x03res\x03\0\x06\
+\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\04pulumi:cloudf\
+lare/zone@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\xa0\x01\x01B\x0a\x02\x03\x02\x01\x01\
+\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x07enabled\x02\x07zone-id\x02\x04\0\x04\
+args\x03\0\x03\x01i\x01\x01r\x02\x07enabled\x05\x07zone-id\x05\x04\0\x03res\x03\0\
+\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Bpulumi:cl\
+oudflare/zone-cache-reserve@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\xa1\x01\x01B\x0a\x02\
+\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x0c\x05avifs\x02\x04bmps\x02\
+\x04gifs\x02\x04jp2s\x02\x05jpegs\x02\x05jpg2s\x02\x04jpgs\x02\x04pngs\x02\x05ti\
+ffs\x02\x04tifs\x02\x05webps\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\
+\x01r\x0c\x05avifs\x05\x04bmps\x05\x04gifs\x05\x04jp2s\x05\x05jpegs\x05\x05jpg2s\
+\x05\x04jpgs\x05\x04pngs\x05\x05tiffs\x05\x04tifs\x05\x05webps\x05\x07zone-id\x05\
 \x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
-\x04\01pulumi:cloudflare/zone-lockdown@5.43.1--0.0.0-DEV\x05\xa5\x01\x01B\x0a\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x08settings\x02\x07zo\
-ne-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\x10initial-settings\x05\x18i\
-nitial-settings-read-at\x05\x11readonly-settings\x05\x08settings\x05\x07zone-id\x05\
-\x0bzone-status\x05\x09zone-type\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
-args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0:pulumi:cloudflare/zone-settings-ove\
-rride@5.43.1--0.0.0-DEV\x05\xa6\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\
-\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x06domain\x02\x04name\x02\x07zone-i\
-d\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x03aud\x05\x06\
-domain\x05\x02id\x05\x04name\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04\
-args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0:pulumi:cloudflare/get-access-applic\
-ation@5.43.1--0.0.0-DEV\x05\xa7\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\
-\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x04name\x02\x07zone-id\x02\x04\0\x04\
-args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount-id\x05\x02id\x05\x04name\x05\x04type\
-\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06i\
-nvoke\x01\x08\x04\0@pulumi:cloudflare/get-access-identity-provider@5.43.1--0.0.0\
--DEV\x05\xa8\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
-r\x01\x0aaccount-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x0aaccount-id\x05\
-\x02id\x05\x05roles\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06\
-invoke\x01\x08\x04\05pulumi:cloudflare/get-account-roles@5.43.1--0.0.0-DEV\x05\xa9\
+\x04\0Cpulumi:cloudflare/zone-cache-variants@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\xa2\
+\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x0bm\
+odified-on\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0c\x09algor\
+ithm\x05\x06digest\x05\x10digest-algorithm\x05\x0bdigest-type\x05\x02ds\x05\x05f\
+lags\x05\x07key-tag\x05\x08key-type\x05\x0bmodified-on\x05\x0apublic-key\x05\x06\
+status\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\
+\x07\x04\0\x06invoke\x01\x08\x04\0;pulumi:cloudflare/zone-dnssec@5.43.1--0.0.0-N\
+IGHTLY-dd68c66\x05\xa3\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
+h\x01\x01r\x04\x04hold\x02\x0ahold-after\x02\x12include-subdomains\x02\x07zone-i\
+d\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x04hold\x05\x0ahold-after\x05\x12\
+include-subdomains\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04\
+args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\09pulumi:cloudflare/zone-hold@5.43.1-\
+-0.0.0-NIGHTLY-dd68c66\x05\xa4\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
+\0\0\x01h\x01\x01r\x06\x0econfigurations\x02\x0bdescription\x02\x06paused\x02\x08\
+priority\x02\x04urls\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\
+\x0econfigurations\x05\x0bdescription\x05\x06paused\x05\x08priority\x05\x04urls\x05\
+\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\
+\x06invoke\x01\x08\x04\0=pulumi:cloudflare/zone-lockdown@5.43.1--0.0.0-NIGHTLY-d\
+d68c66\x05\xa5\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
+\x01r\x02\x08settings\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\
+\x10initial-settings\x05\x18initial-settings-read-at\x05\x11readonly-settings\x05\
+\x08settings\x05\x07zone-id\x05\x0bzone-status\x05\x09zone-type\x05\x04\0\x03res\
+\x03\0\x06\x01@\x02\x04names\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Fpul\
+umi:cloudflare/zone-settings-override@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\xa6\x01\x01\
+B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-i\
+d\x02\x06domain\x02\x04name\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
+r\x06\x0aaccount-id\x05\x03aud\x05\x06domain\x05\x02id\x05\x04name\x05\x07zone-i\
+d\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\
+\0Fpulumi:cloudflare/get-access-application@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\xa7\
+\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aa\
+ccount-id\x02\x04name\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\
+\x0aaccount-id\x05\x02id\x05\x04name\x05\x04type\x05\x07zone-id\x05\x04\0\x03res\
+\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Lpulumi:cloud\
+flare/get-access-identity-provider@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\xa8\x01\x01\
+B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x0aaccount-i\
+d\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x0aaccount-id\x05\x02id\x05\x05r\
+oles\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
+\x04\0Apulumi:cloudflare/get-account-roles@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\xa9\
 \x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x04n\
 ame\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x08accounts\x05\x02id\x05\x04n\
 ame\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
-\x04\00pulumi:cloudflare/get-accounts@5.43.1--0.0.0-DEV\x05\xaa\x01\x01B\x07\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01i\x01\x01r\x06\x07account\x02\x02id\x02\
-\x0bpermissions\x02\x02r2\x02\x04user\x02\x04zone\x02\x04\0\x03res\x03\0\x03\x01\
-@\0\0\x04\x04\0\x06invoke\x01\x05\x04\0Cpulumi:cloudflare/get-api-token-permissi\
-on-groups@5.43.1--0.0.0-DEV\x05\xab\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06ou\
-tput\x03\0\0\x01h\x01\x01r\x01\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
-r\x03\x08hostname\x05\x02id\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04\
-args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\06pulumi:cloudflare/get-dcv-delegatio\
-n@5.43.1--0.0.0-DEV\x05\xac\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
-\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x04name\x02\x04type\x02\x04\0\x04args\x03\
-\0\x03\x01i\x01\x01r\x05\x0aaccount-id\x05\x02id\x05\x04name\x05\x05rules\x05\x04\
-type\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
-\x04\0<pulumi:cloudflare/get-device-posture-rules@5.43.1--0.0.0-DEV\x05\xad\x01\x01\
-B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x0aaccount-i\
-d\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x0aaccount-id\x05\x07devices\x05\
-\x02id\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\
-\x08\x04\0/pulumi:cloudflare/get-devices@5.43.1--0.0.0-DEV\x05\xae\x01\x01B\x0a\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x0aaccount-id\x02\x04\
-\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x0aaccount-id\x05\x08datasets\x05\x02id\x05\
-\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0\
-4pulumi:cloudflare/get-dlp-datasets@5.43.1--0.0.0-DEV\x05\xaf\x01\x01B\x0a\x02\x03\
-\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x0aaccount-id\x02\x04\0\x04\
-args\x03\0\x03\x01i\x01\x01r\x03\x0aaccount-id\x05\x09app-types\x05\x02id\x05\x04\
-\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\09pul\
-umi:cloudflare/get-gateway-app-types@5.43.1--0.0.0-DEV\x05\xb0\x01\x01B\x0a\x02\x03\
+\x04\0<pulumi:cloudflare/get-accounts@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\xaa\x01\x01\
+B\x07\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01i\x01\x01r\x06\x07account\x02\
+\x02id\x02\x0bpermissions\x02\x02r2\x02\x04user\x02\x04zone\x02\x04\0\x03res\x03\
+\0\x03\x01@\0\0\x04\x04\0\x06invoke\x01\x05\x04\0Opulumi:cloudflare/get-api-toke\
+n-permission-groups@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\xab\x01\x01B\x0a\x02\x03\x02\
+\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x07zone-id\x02\x04\0\x04args\x03\
+\0\x03\x01i\x01\x01r\x03\x08hostname\x05\x02id\x05\x07zone-id\x05\x04\0\x03res\x03\
+\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Bpulumi:cloudflar\
+e/get-dcv-delegation@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\xac\x01\x01B\x0a\x02\x03\x02\
+\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x04name\x02\
+\x04type\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount-id\x05\x02id\x05\
+\x04name\x05\x05rules\x05\x04type\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\
+\0\x07\x04\0\x06invoke\x01\x08\x04\0Hpulumi:cloudflare/get-device-posture-rules@\
+5.43.1--0.0.0-NIGHTLY-dd68c66\x05\xad\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
+output\x03\0\0\x01h\x01\x01r\x01\x0aaccount-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\
+\x01r\x03\x0aaccount-id\x05\x07devices\x05\x02id\x05\x04\0\x03res\x03\0\x06\x01@\
+\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0;pulumi:cloudflare/get-devic\
+es@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\xae\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
+output\x03\0\0\x01h\x01\x01r\x01\x0aaccount-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\
+\x01r\x03\x0aaccount-id\x05\x08datasets\x05\x02id\x05\x04\0\x03res\x03\0\x06\x01\
+@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0@pulumi:cloudflare/get-dlp-\
+datasets@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\xaf\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\
+\0\x06output\x03\0\0\x01h\x01\x01r\x01\x0aaccount-id\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x03\x0aaccount-id\x05\x09app-types\x05\x02id\x05\x04\0\x03res\x03\
+\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Epulumi:cloudflar\
+e/get-gateway-app-types@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\xb0\x01\x01B\x0a\x02\x03\
 \x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x0aaccount-id\x02\x04\0\x04\
 args\x03\0\x03\x01i\x01\x01r\x03\x0aaccount-id\x05\x0acategories\x05\x02id\x05\x04\
-\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0:pul\
-umi:cloudflare/get-gateway-categories@5.43.1--0.0.0-DEV\x05\xb1\x01\x01B\x0a\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x08\x0aaccount-id\x02\x0d\
-created-after\x02\x08hostname\x02\x11hostname-contains\x02\x04ipv4\x02\x04ipv6\x02\
-\x0emodified-after\x02\x12virtual-network-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\
-\x01r\x0a\x0aaccount-id\x05\x0dcreated-after\x05\x08hostname\x05\x11hostname-con\
-tains\x05\x02id\x05\x04ipv4\x05\x04ipv6\x05\x0emodified-after\x05\x07targets\x05\
-\x12virtual-network-id\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\
-\0\x06invoke\x01\x08\x04\0Epulumi:cloudflare/get-infrastructure-access-targets@5\
-.43.1--0.0.0-DEV\x05\xb2\x01\x01B\x07\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\
-\x01i\x01\x01r\x06\x16china-ipv4-cidr-blocks\x02\x16china-ipv6-cidr-blocks\x02\x0b\
-cidr-blocks\x02\x02id\x02\x10ipv4-cidr-blocks\x02\x10ipv6-cidr-blocks\x02\x04\0\x03\
-res\x03\0\x03\x01@\0\0\x04\x04\0\x06invoke\x01\x05\x04\01pulumi:cloudflare/get-i\
-p-ranges@5.43.1--0.0.0-DEV\x05\xb3\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06out\
-put\x03\0\0\x01h\x01\x01r\x02\x0aaccount-id\x02\x04name\x02\x04\0\x04args\x03\0\x03\
-\x01i\x01\x01r\x06\x0aaccount-id\x05\x0bdescription\x05\x02id\x05\x04kind\x05\x04\
-name\x05\x08numitems\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\
-\x06invoke\x01\x08\x04\0,pulumi:cloudflare/get-list@5.43.1--0.0.0-DEV\x05\xb4\x01\
-\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x0aaccou\
-nt-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x0aaccount-id\x05\x02id\x05\x05\
-lists\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
-\x04\0-pulumi:cloudflare/get-lists@5.43.1--0.0.0-DEV\x05\xb5\x01\x01B\x0a\x02\x03\
-\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x06filt\
-er\x02\x05pools\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x06\
-filter\x05\x02id\x05\x05pools\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\
-\x04\0\x06invoke\x01\x08\x04\0;pulumi:cloudflare/get-load-balancer-pools@5.43.1-\
--0.0.0-DEV\x05\xb6\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\
-\x01\x01r\x01\x02id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0bcertificate\
-\x05\x0aexpires-on\x05\x09hostnames\x05\x02id\x05\x0crequest-type\x05\x0arevoked\
--at\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
-\x04\0=pulumi:cloudflare/get-origin-ca-certificate@5.43.1--0.0.0-DEV\x05\xb7\x01\
-\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x09algor\
-ithm\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x09algorithm\x05\x08cert-pem\x05\
-\x02id\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\
-\x08\x04\0Bpulumi:cloudflare/get-origin-ca-root-certificate@5.43.1--0.0.0-DEV\x05\
-\xb8\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x05\x07\
-content\x02\x08hostname\x02\x08priority\x02\x04type\x02\x07zone-id\x02\x04\0\x04\
-args\x03\0\x03\x01i\x01\x01r\x0a\x07content\x05\x08hostname\x05\x02id\x05\x08pri\
-ority\x05\x09proxiable\x05\x07proxied\x05\x03ttl\x05\x04type\x05\x05value\x05\x07\
-zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\
-\x08\x04\0.pulumi:cloudflare/get-record@5.43.1--0.0.0-DEV\x05\xb9\x01\x01B\x0a\x02\
-\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x06\
-filter\x02\x0dinclude-rules\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
-r\x06\x0aaccount-id\x05\x06filter\x05\x02id\x05\x0dinclude-rules\x05\x08rulesets\
-\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06i\
-nvoke\x01\x08\x04\00pulumi:cloudflare/get-rulesets@5.43.1--0.0.0-DEV\x05\xba\x01\
-\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccou\
-nt-id\x02\x0ais-deleted\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\
-\x0aaccount-id\x05\x02id\x05\x0ais-deleted\x05\x04name\x05\x0dremote-config\x05\x06\
-status\x05\x0btunnel-type\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\
-\0\x06invoke\x01\x08\x04\0.pulumi:cloudflare/get-tunnel@5.43.1--0.0.0-DEV\x05\xbb\
-\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x0aa\
-ccount-id\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount-i\
-d\x05\x07comment\x05\x02id\x05\x0ais-default\x05\x04name\x05\x04\0\x03res\x03\0\x06\
-\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0>pulumi:cloudflare/get-\
-tunnel-virtual-network@5.43.1--0.0.0-DEV\x05\xbc\x01\x01B\x07\x02\x03\x02\x01\x01\
-\x04\0\x06output\x03\0\0\x01i\x01\x01r\x03\x05email\x02\x02id\x02\x08username\x02\
-\x04\0\x03res\x03\0\x03\x01@\0\0\x04\x04\0\x06invoke\x01\x05\x04\0,pulumi:cloudf\
-lare/get-user@5.43.1--0.0.0-DEV\x05\xbd\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06\
-output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x06domain\x02\x04name\x02\x07\
-zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x03aud\x05\
-\x06domain\x05\x02id\x05\x04name\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x01\
-\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Epulumi:cloudflare/get-zero-trus\
-t-access-application@5.43.1--0.0.0-DEV\x05\xbe\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\
-\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x04name\x02\x07zone-id\x02\
-\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount-id\x05\x02id\x05\x04name\x05\
-\x04type\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\
-\0\x06invoke\x01\x08\x04\0Kpulumi:cloudflare/get-zero-trust-access-identity-prov\
-ider@5.43.1--0.0.0-DEV\x05\xbf\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\
-\0\0\x01h\x01\x01r\x08\x0aaccount-id\x02\x0dcreated-after\x02\x08hostname\x02\x11\
-hostname-contains\x02\x04ipv4\x02\x04ipv6\x02\x0emodified-after\x02\x12virtual-n\
-etwork-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0a\x0aaccount-id\x05\x0dcre\
-ated-after\x05\x08hostname\x05\x11hostname-contains\x05\x02id\x05\x04ipv4\x05\x04\
-ipv6\x05\x0emodified-after\x05\x07targets\x05\x12virtual-network-id\x05\x04\0\x03\
-res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Ppulumi:cl\
-oudflare/get-zero-trust-infrastructure-access-targets@5.43.1--0.0.0-DEV\x05\xc0\x01\
-\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccou\
-nt-id\x02\x0ais-deleted\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\
-\x0aaccount-id\x05\x02id\x05\x0ais-deleted\x05\x04name\x05\x0dremote-config\x05\x06\
-status\x05\x0btunnel-type\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\
-\0\x06invoke\x01\x08\x04\0Epulumi:cloudflare/get-zero-trust-tunnel-cloudflared@5\
-.43.1--0.0.0-DEV\x05\xc1\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\
-\x01h\x01\x01r\x02\x0aaccount-id\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\
-\x01r\x05\x0aaccount-id\x05\x07comment\x05\x02id\x05\x0ais-default\x05\x04name\x05\
+\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Fpul\
+umi:cloudflare/get-gateway-categories@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\xb1\x01\x01\
+B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x08\x0aaccount-i\
+d\x02\x0dcreated-after\x02\x08hostname\x02\x11hostname-contains\x02\x04ipv4\x02\x04\
+ipv6\x02\x0emodified-after\x02\x12virtual-network-id\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x0a\x0aaccount-id\x05\x0dcreated-after\x05\x08hostname\x05\x11hos\
+tname-contains\x05\x02id\x05\x04ipv4\x05\x04ipv6\x05\x0emodified-after\x05\x07ta\
+rgets\x05\x12virtual-network-id\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\
+\x07\x04\0\x06invoke\x01\x08\x04\0Qpulumi:cloudflare/get-infrastructure-access-t\
+argets@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\xb2\x01\x01B\x07\x02\x03\x02\x01\x01\x04\
+\0\x06output\x03\0\0\x01i\x01\x01r\x06\x16china-ipv4-cidr-blocks\x02\x16china-ip\
+v6-cidr-blocks\x02\x0bcidr-blocks\x02\x02id\x02\x10ipv4-cidr-blocks\x02\x10ipv6-\
+cidr-blocks\x02\x04\0\x03res\x03\0\x03\x01@\0\0\x04\x04\0\x06invoke\x01\x05\x04\0\
+=pulumi:cloudflare/get-ip-ranges@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\xb3\x01\x01B\x0a\
+\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x0aaccount-id\x02\
+\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x0bdesc\
+ription\x05\x02id\x05\x04kind\x05\x04name\x05\x08numitems\x05\x04\0\x03res\x03\0\
+\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\08pulumi:cloudflare/\
+get-list@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\xb4\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\
+\0\x06output\x03\0\0\x01h\x01\x01r\x01\x0aaccount-id\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x03\x0aaccount-id\x05\x02id\x05\x05lists\x05\x04\0\x03res\x03\0\x06\
+\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\09pulumi:cloudflare/get-\
+lists@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\xb5\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\
+\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x06filter\x02\x05pools\x02\
+\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x04\x0aaccount-id\x05\x06filter\x05\x02id\
+\x05\x05pools\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06inv\
+oke\x01\x08\x04\0Gpulumi:cloudflare/get-load-balancer-pools@5.43.1--0.0.0-NIGHTL\
+Y-dd68c66\x05\xb6\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
+\x01r\x01\x02id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0bcertificate\x05\
+\x0aexpires-on\x05\x09hostnames\x05\x02id\x05\x0crequest-type\x05\x0arevoked-at\x05\
 \x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0\
-Ipulumi:cloudflare/get-zero-trust-tunnel-virtual-network@5.43.1--0.0.0-DEV\x05\xc2\
-\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aa\
-ccount-id\x02\x04name\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x09\
-\x0aaccount-id\x05\x02id\x05\x04name\x05\x0cname-servers\x05\x06paused\x05\x04pl\
-an\x05\x06status\x05\x13vanity-name-servers\x05\x07zone-id\x05\x04\0\x03res\x03\0\
-\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0,pulumi:cloudflare/\
-get-zone@5.43.1--0.0.0-DEV\x05\xc3\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06out\
-put\x03\0\0\x01h\x01\x01r\x01\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
-r\x03\x07enabled\x05\x02id\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04\
-args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0:pulumi:cloudflare/get-zone-cache-re\
-serve@5.43.1--0.0.0-DEV\x05\xc4\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\
-\x03\0\0\x01h\x01\x01r\x01\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0c\
-\x09algorithm\x05\x06digest\x05\x10digest-algorithm\x05\x0bdigest-type\x05\x02ds\
-\x05\x05flags\x05\x02id\x05\x07key-tag\x05\x08key-type\x05\x0apublic-key\x05\x06\
-status\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\
-\x06invoke\x01\x08\x04\03pulumi:cloudflare/get-zone-dnssec@5.43.1--0.0.0-DEV\x05\
-\xc5\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x06\
-filter\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x06filter\x05\x02id\x05\x05\
-zones\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\
-\x04\0-pulumi:cloudflare/get-zones@5.43.1--0.0.0-DEV\x05\xc6\x01\x04\05pulumi:cl\
-oudflare/cloudflare-pulumi@5.43.1--0.0.0-DEV\x04\0\x0b\x17\x01\0\x11cloudflare-p\
-ulumi\x03\0\0\0G\x09producers\x01\x0cprocessed-by\x02\x0dwit-component\x070.220.\
-0\x10wit-bindgen-rust\x060.35.0";
+Ipulumi:cloudflare/get-origin-ca-certificate@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\xb7\
+\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x09a\
+lgorithm\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x03\x09algorithm\x05\x08cert-\
+pem\x05\x02id\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06inv\
+oke\x01\x08\x04\0Npulumi:cloudflare/get-origin-ca-root-certificate@5.43.1--0.0.0\
+-NIGHTLY-dd68c66\x05\xb8\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\
+\x01h\x01\x01r\x05\x07content\x02\x08hostname\x02\x08priority\x02\x04type\x02\x07\
+zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x0a\x07content\x05\x08hostname\
+\x05\x02id\x05\x08priority\x05\x09proxiable\x05\x07proxied\x05\x03ttl\x05\x04typ\
+e\x05\x05value\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\
+\x04\0\x06invoke\x01\x08\x04\0:pulumi:cloudflare/get-record@5.43.1--0.0.0-NIGHTL\
+Y-dd68c66\x05\xb9\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\
+\x01r\x04\x0aaccount-id\x02\x06filter\x02\x0dinclude-rules\x02\x07zone-id\x02\x04\
+\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\x06filter\x05\x02id\x05\
+\x0dinclude-rules\x05\x08rulesets\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01@\
+\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0<pulumi:cloudflare/get-rules\
+ets@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\xba\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\
+\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x0ais-deleted\x02\x04name\
+\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\x0aaccount-id\x05\x02id\x05\x0ais\
+-deleted\x05\x04name\x05\x0dremote-config\x05\x06status\x05\x0btunnel-type\x05\x04\
+\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0:pul\
+umi:cloudflare/get-tunnel@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\xbb\x01\x01B\x0a\x02\
+\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x02\x0aaccount-id\x02\x04\
+name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aaccount-id\x05\x07comment\x05\
+\x02id\x05\x0ais-default\x05\x04name\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\
+\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Jpulumi:cloudflare/get-tunnel-virtual-ne\
+twork@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\xbc\x01\x01B\x07\x02\x03\x02\x01\x01\x04\
+\0\x06output\x03\0\0\x01i\x01\x01r\x03\x05email\x02\x02id\x02\x08username\x02\x04\
+\0\x03res\x03\0\x03\x01@\0\0\x04\x04\0\x06invoke\x01\x05\x04\08pulumi:cloudflare\
+/get-user@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\xbd\x01\x01B\x0a\x02\x03\x02\x01\x01\
+\x04\0\x06output\x03\0\0\x01h\x01\x01r\x04\x0aaccount-id\x02\x06domain\x02\x04na\
+me\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x06\x0aaccount-id\x05\
+\x03aud\x05\x06domain\x05\x02id\x05\x04name\x05\x07zone-id\x05\x04\0\x03res\x03\0\
+\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Qpulumi:cloudflare/\
+get-zero-trust-access-application@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\xbe\x01\x01B\
+\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\
+\x02\x04name\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x05\x0aacc\
+ount-id\x05\x02id\x05\x04name\x05\x04type\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\
+\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Wpulumi:cloudflare/get-\
+zero-trust-access-identity-provider@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\xbf\x01\x01\
+B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x08\x0aaccount-i\
+d\x02\x0dcreated-after\x02\x08hostname\x02\x11hostname-contains\x02\x04ipv4\x02\x04\
+ipv6\x02\x0emodified-after\x02\x12virtual-network-id\x02\x04\0\x04args\x03\0\x03\
+\x01i\x01\x01r\x0a\x0aaccount-id\x05\x0dcreated-after\x05\x08hostname\x05\x11hos\
+tname-contains\x05\x02id\x05\x04ipv4\x05\x04ipv6\x05\x0emodified-after\x05\x07ta\
+rgets\x05\x12virtual-network-id\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\
+\x07\x04\0\x06invoke\x01\x08\x04\0\\pulumi:cloudflare/get-zero-trust-infrastruct\
+ure-access-targets@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\xc0\x01\x01B\x0a\x02\x03\x02\
+\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x03\x0aaccount-id\x02\x0ais-delet\
+ed\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01r\x07\x0aaccount-id\x05\x02\
+id\x05\x0ais-deleted\x05\x04name\x05\x0dremote-config\x05\x06status\x05\x0btunne\
+l-type\x05\x04\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\
+\x08\x04\0Qpulumi:cloudflare/get-zero-trust-tunnel-cloudflared@5.43.1--0.0.0-NIG\
+HTLY-dd68c66\x05\xc1\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01\
+h\x01\x01r\x02\x0aaccount-id\x02\x04name\x02\x04\0\x04args\x03\0\x03\x01i\x01\x01\
+r\x05\x0aaccount-id\x05\x07comment\x05\x02id\x05\x0ais-default\x05\x04name\x05\x04\
+\0\x03res\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Upul\
+umi:cloudflare/get-zero-trust-tunnel-virtual-network@5.43.1--0.0.0-NIGHTLY-dd68c\
+66\x05\xc2\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01\
+r\x03\x0aaccount-id\x02\x04name\x02\x07zone-id\x02\x04\0\x04args\x03\0\x03\x01i\x01\
+\x01r\x09\x0aaccount-id\x05\x02id\x05\x04name\x05\x0cname-servers\x05\x06paused\x05\
+\x04plan\x05\x06status\x05\x13vanity-name-servers\x05\x07zone-id\x05\x04\0\x03re\
+s\x03\0\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\08pulumi:clou\
+dflare/get-zone@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\xc3\x01\x01B\x0a\x02\x03\x02\x01\
+\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x07zone-id\x02\x04\0\x04args\x03\0\
+\x03\x01i\x01\x01r\x03\x07enabled\x05\x02id\x05\x07zone-id\x05\x04\0\x03res\x03\0\
+\x06\x01@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0Fpulumi:cloudflare/\
+get-zone-cache-reserve@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\xc4\x01\x01B\x0a\x02\x03\
+\x02\x01\x01\x04\0\x06output\x03\0\0\x01h\x01\x01r\x01\x07zone-id\x02\x04\0\x04a\
+rgs\x03\0\x03\x01i\x01\x01r\x0c\x09algorithm\x05\x06digest\x05\x10digest-algorit\
+hm\x05\x0bdigest-type\x05\x02ds\x05\x05flags\x05\x02id\x05\x07key-tag\x05\x08key\
+-type\x05\x0apublic-key\x05\x06status\x05\x07zone-id\x05\x04\0\x03res\x03\0\x06\x01\
+@\x01\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\0?pulumi:cloudflare/get-zone\
+-dnssec@5.43.1--0.0.0-NIGHTLY-dd68c66\x05\xc5\x01\x01B\x0a\x02\x03\x02\x01\x01\x04\
+\0\x06output\x03\0\0\x01h\x01\x01r\x01\x06filter\x02\x04\0\x04args\x03\0\x03\x01\
+i\x01\x01r\x03\x06filter\x05\x02id\x05\x05zones\x05\x04\0\x03res\x03\0\x06\x01@\x01\
+\x04args\x04\0\x07\x04\0\x06invoke\x01\x08\x04\09pulumi:cloudflare/get-zones@5.4\
+3.1--0.0.0-NIGHTLY-dd68c66\x05\xc6\x01\x04\0Apulumi:cloudflare/cloudflare-pulumi\
+@5.43.1--0.0.0-NIGHTLY-dd68c66\x04\0\x0b\x17\x01\0\x11cloudflare-pulumi\x03\0\0\0\
+G\x09producers\x01\x0cprocessed-by\x02\x0dwit-component\x070.220.0\x10wit-bindge\
+n-rust\x060.35.0";
 #[inline(never)]
 #[doc(hidden)]
 pub fn __link_custom_section_describing_imports() {
