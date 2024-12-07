@@ -57,8 +57,9 @@ fn run_pulumi_generator_test(test_name: &str, provider_name: &str) -> Result<()>
 
     Command::new("cargo")
         .args([
-            "component",
             "build",
+            "--target",
+            "wasm32-wasip2",
             "-p",
             format!("pulumi_wasm_{provider_name}_provider").as_str(),
         ])
