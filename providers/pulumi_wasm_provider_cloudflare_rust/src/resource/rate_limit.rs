@@ -11,7 +11,6 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
 //! ```yaml
 //! resources:
 //!   example:
@@ -62,7 +61,6 @@
 //!         - example.com/bypass1
 //!         - example.com/bypass2
 //! ```
-//! <!--End PulumiCodeChooser -->
 //! 
 //! ## Import
 //! 

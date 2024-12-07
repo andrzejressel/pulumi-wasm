@@ -8,12 +8,14 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
 //! ```ignore
 //! use pulumi_wasm_rust::Output;
 //! use pulumi_wasm_rust::{add_export, pulumi_main};
 //! #[pulumi_main]
 //! fn test_main() -> Result<(), Error> {
+//!     let example = get_zone::invoke(
+//!         GetZoneArgs::builder().name("example.com").build_struct(),
+//!     );
 //!     let exampleRecord = record::create(
 //!         "exampleRecord",
 //!         RecordArgs::builder()
@@ -26,7 +28,6 @@
 //!     );
 //! }
 //! ```
-//! <!--End PulumiCodeChooser -->
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]

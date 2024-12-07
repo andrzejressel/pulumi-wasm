@@ -2,18 +2,23 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
-//! ```yaml
-//! variables:
-//!   example:
-//!     fn::invoke:
-//!       Function: cloudflare:getLoadBalancerPools
-//!       Arguments:
-//!         accountId: f037e56e89293a057740de681ac9abbe
-//!         filter:
-//!           name: example-lb-pool
+//! ```ignore
+//! use pulumi_wasm_rust::Output;
+//! use pulumi_wasm_rust::{add_export, pulumi_main};
+//! #[pulumi_main]
+//! fn test_main() -> Result<(), Error> {
+//!     let example = get_load_balancer_pools::invoke(
+//!         GetLoadBalancerPoolsArgs::builder()
+//!             .account_id("f037e56e89293a057740de681ac9abbe")
+//!             .filter(
+//!                 GetLoadBalancerPoolsFilter::builder()
+//!                     .name("example-lb-pool")
+//!                     .build_struct(),
+//!             )
+//!             .build_struct(),
+//!     );
+//! }
 //! ```
-//! <!--End PulumiCodeChooser -->
 
 #[derive(bon::Builder)]
 #[builder(finish_fn = build_struct)]

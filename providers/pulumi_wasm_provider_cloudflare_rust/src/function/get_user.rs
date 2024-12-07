@@ -2,7 +2,6 @@
 //! 
 //! ## Example Usage
 //! 
-//! <!--Start PulumiCodeChooser -->
 //! ```yaml
 //! resources:
 //!   example:
@@ -24,7 +23,6 @@
 //!       Function: cloudflare:getApiTokenPermissionGroups
 //!       Arguments: {}
 //! ```
-//! <!--End PulumiCodeChooser -->
 
 
 pub struct GetUserResult {

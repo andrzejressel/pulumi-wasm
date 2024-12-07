@@ -9,7 +9,7 @@
 //! 
 //! Assuming you created a `service` as follows
 //! 
-//! ```sh
+//! ```shell
 //! docker service create --name foo -p 8080:80 nginx
 //! ```
 //! 

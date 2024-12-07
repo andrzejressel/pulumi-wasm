@@ -21,6 +21,7 @@ prints this ID
 
 you provide the definition for the resource as follows
 
+<!--Start PulumiCodeChooser -->
 ```yaml
 resources:
   foo:
@@ -35,6 +36,7 @@ resources:
           - targetPort: 80
             publishedPort: 8080
 ```
+<!--End PulumiCodeChooser -->
 
 then the import command is as follows
 
