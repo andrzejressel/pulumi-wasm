@@ -14,20 +14,23 @@ pub(crate) enum Type {
     Object(Box<Type>),
     Ref(Ref),
     Option(Box<Type>),
+    DiscriminatedUnion(String, BTreeMap<String, Ref>),
 }
 
 impl Type {
-    pub(crate) fn get_rust_type(&self) -> String {
+    pub(crate) fn get_rust_type(&self, input_output: &str, property_name: String) -> String {
         match self {
             Type::Boolean => "bool".into(),
             Type::Integer => "i32".into(),
             Type::Number => "f64".into(),
             Type::String => "String".into(),
-            Type::Array(type_) => format!("Vec<{}>", type_.get_rust_type()),
+            Type::Array(type_) => {
+                format!("Vec<{}>", type_.get_rust_type(input_output, property_name))
+            }
             Type::Object(type_) => {
                 format!(
                     "std::collections::HashMap<String, {}>",
-                    type_.get_rust_type()
+                    type_.get_rust_type(input_output, property_name)
                 )
             }
             Type::Ref(r) => match r {
@@ -36,7 +39,11 @@ impl Type {
                 Ref::Asset => "String".to_string(),   //FIXME
                 Ref::Any => "String".to_string(),     //FIXME
             },
-            Type::Option(type_) => format!("Option<{}>", type_.get_rust_type()),
+            Type::Option(type_) => format!(
+                "Option<{}>",
+                type_.get_rust_type(input_output, property_name)
+            ),
+            Type::DiscriminatedUnion(_, _) => format!("{}{}", input_output, property_name),
         }
     }
 }

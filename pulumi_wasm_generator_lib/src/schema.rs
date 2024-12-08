@@ -1,7 +1,7 @@
 use crate::model::{ElementId, GlobalType, GlobalTypeProperty, InputProperty, OutputProperty, Ref};
 use anyhow::{anyhow, Context, Result};
 use serde::Deserialize;
-use std::collections::{BTreeMap, BTreeSet, HashSet};
+use std::collections::{BTreeMap, BTreeSet, HashMap, HashSet};
 
 type PulumiMap<T> = BTreeMap<String, T>;
 
@@ -31,6 +31,22 @@ struct Type {
     items: Option<Box<Type>>,
     #[serde(rename = "additionalProperties")]
     additional_properties: Option<Box<Type>>,
+    #[serde(rename = "oneOf")]
+    one_of: Option<Vec<OneOfType>>,
+    discriminator: Option<Discriminator>,
+}
+
+#[derive(Deserialize, Debug)]
+struct OneOfType {
+    #[serde(rename = "$ref")]
+    ref_: String,
+}
+
+#[derive(Deserialize, Debug)]
+struct Discriminator {
+    #[serde(rename = "propertyName")]
+    property_name: String,
+    mapping: BTreeMap<String, String>,
 }
 
 #[derive(Deserialize, Debug)]
@@ -150,12 +166,49 @@ fn new_type_mapper(type_: &Type) -> Result<crate::model::Type> {
             ..
         } => Err(anyhow!("Object does not have 'additionalProperties' field")),
         Type {
+            one_of: Some(one_of),
+            discriminator: Some(discriminator),
+            ..
+        } => {
+            create_discriminated_union(one_of, discriminator)
+        },
+        Type {
+            one_of: Some(_),
+            discriminator: None,
+            ..
+        } => Err(anyhow!(
+            "Discriminated unions without discriminator are not supported"
+        )),
+        Type {
             type_: None,
             ref_: None,
             ..
         } => Err(anyhow!("'type' and 'ref' fields cannot be empty")),
     })
     .context(format!("Cannot handle type: [{type_:?}]"))
+}
+
+fn create_discriminated_union(one_of: &Vec<OneOfType>, discriminator: &Discriminator) -> Result<crate::model::Type> {
+
+    let dest_to_discriminator: HashMap<_, _> = discriminator.mapping
+        .iter()
+        .map(|(k, v)| (v, k))
+        .collect();
+
+
+    Ok(
+        crate::model::Type::DiscriminatedUnion(
+            discriminator.property_name.clone(),
+            one_of.iter().map(|r| {
+                let discriminator = dest_to_discriminator[&r.ref_];
+                (discriminator.clone(), Ref::new(&*r.ref_).context(format!("Cannot convert ref fo type {r:?}")).unwrap())
+            })
+                .collect()
+        )
+    )
+
+    // panic!()
+    // panic!()
 }
 
 fn resource_to_model(

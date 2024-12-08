@@ -63,7 +63,9 @@ fn convert_model(package: &crate::model::Package) -> Package {
                         name: input_property.name.clone(),
                         arg_name: input_property.get_rust_argument_name(),
                         optional: matches!(input_property.r#type, Type::Option(_)),
-                        type_: input_property.r#type.get_rust_type(),
+                        type_: input_property
+                            .r#type
+                            .get_rust_type("input", input_property.name.clone()),
                         description_lines: crate::utils::to_lines(
                             input_property.description.clone(),
                             package,
@@ -77,7 +79,9 @@ fn convert_model(package: &crate::model::Package) -> Package {
                     .map(|output_property| OutputProperty {
                         name: output_property.name.clone(),
                         arg_name: output_property.get_rust_argument_name(),
-                        type_: output_property.r#type.get_rust_type(),
+                        type_: output_property
+                            .r#type
+                            .get_rust_type("output", output_property.name.clone()),
                         description_lines: crate::utils::to_lines(
                             output_property.description.clone(),
                             package,

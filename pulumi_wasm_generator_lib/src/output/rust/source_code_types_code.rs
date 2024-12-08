@@ -59,7 +59,9 @@ fn convert_model(package: &crate::model::Package) -> Package {
                                 .from_case(Case::Camel)
                                 .to_case(Case::Snake),
                             original_name: global_type_property.name.clone(),
-                            type_: global_type_property.r#type.get_rust_type(),
+                            type_: global_type_property
+                                .r#type
+                                .get_rust_type("input", global_type_property.name.clone()),
                             optional: matches!(global_type_property.r#type, Type::Option(_)),
                             description_lines: crate::utils::to_lines(
                                 global_type_property.description.clone(),
