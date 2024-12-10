@@ -1,9 +1,10 @@
 #[cfg(test)]
 mod tests {
-    use std::panic::catch_unwind;
+    use pulumi_wasm_provider_common::OneOf2;
     use pulumi_wasm_rust::Output;
-    use pulumi_wasm_typesystem::{EnumCase1, ServerPropertiesForRestore};
     use pulumi_wasm_typesystem::typesystem_server::typesystemServerArgs;
+    use pulumi_wasm_typesystem::{EnumCase1, EnumCase2};
+    use std::panic::catch_unwind;
 
     #[test]
     fn test_compilation() {
@@ -45,7 +46,10 @@ mod tests {
         // let _ = typesystemServerArgs::builder().optional_string_array([string_output]);
 
         // Union
-        let _ = typesystemServerArgs::builder().required_union(pulumi_wasm_provider_common::OneOf2::left(EnumCase1 {}));
+        let _ = typesystemServerArgs::builder().required_union(OneOf2::left(EnumCase1 {}));
+        let _ = typesystemServerArgs::builder().required_union(OneOf2::right(EnumCase2 {}));
+        let _ = typesystemServerArgs::builder().optional_union(OneOf2::left(EnumCase1 {}));
+        let _ = typesystemServerArgs::builder().optional_union(OneOf2::right(EnumCase2 {}));
 
         // // Other types
         // let _ = typesystemServerArgs::builder()

@@ -16,6 +16,7 @@ interface typesystem-server {
     record args {
         optional-string-array: borrow<output>,
         optional-string-input: borrow<output>,
+        optional-union: borrow<output>,
         properties-collection: borrow<output>,
         required-string-array: borrow<output>,
         required-string-input: borrow<output>,

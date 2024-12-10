@@ -33,7 +33,6 @@ struct Type {
     additional_properties: Option<Box<Type>>,
     #[serde(rename = "oneOf")]
     one_of: Option<Vec<OneOfType>>,
-    discriminator: Option<Discriminator>,
 }
 
 #[derive(Deserialize, Debug)]
@@ -167,16 +166,8 @@ fn new_type_mapper(type_: &Type) -> Result<crate::model::Type> {
         } => Err(anyhow!("Object does not have 'additionalProperties' field")),
         Type {
             one_of: Some(one_of),
-            discriminator: Some(discriminator),
             ..
-        } => create_discriminated_union(one_of, discriminator),
-        Type {
-            one_of: Some(_),
-            discriminator: None,
-            ..
-        } => Err(anyhow!(
-            "Discriminated unions without discriminator are not supported"
-        )),
+        } => create_discriminated_union(one_of),
         Type {
             type_: None,
             ref_: None,
@@ -186,31 +177,17 @@ fn new_type_mapper(type_: &Type) -> Result<crate::model::Type> {
     .context(format!("Cannot handle type: [{type_:?}]"))
 }
 
-fn create_discriminated_union(
-    one_of: &Vec<OneOfType>,
-    discriminator: &Discriminator,
-) -> Result<crate::model::Type> {
-    let dest_to_discriminator: HashMap<_, _> =
-        discriminator.mapping.iter().map(|(k, v)| (v, k)).collect();
-
+fn create_discriminated_union(one_of: &Vec<OneOfType>) -> Result<crate::model::Type> {
     Ok(crate::model::Type::DiscriminatedUnion(
-        discriminator.property_name.clone(),
         one_of
             .iter()
             .map(|r| {
-                let discriminator = dest_to_discriminator[&r.ref_];
-                (
-                    discriminator.clone(),
-                    Ref::new(&*r.ref_)
-                        .context(format!("Cannot convert ref fo type {r:?}"))
-                        .unwrap(),
-                )
+                Ref::new(&*r.ref_)
+                    .context(format!("Cannot convert ref fo type {r:?}"))
+                    .unwrap()
             })
             .collect(),
     ))
-
-    // panic!()
-    // panic!()
 }
 
 fn resource_to_model(

@@ -30,16 +30,21 @@
             },
             {
               "type": "object",
-              "$ref": "#/types/typesystem:index:ServerPropertiesForRestore"
+              "$ref": "#/types/typesystem:index:EnumCase2"
             }
-          ],
-          "discriminator": {
-            "propertyName": "createMode",
-            "mapping": {
-              "PointInTimeRestore": "#/types/typesystem:index:EnumCase1",
-              "Replica": "#/types/typesystem:index:ServerPropertiesForRestore"
+          ]
+        },
+        "optional_union": {
+          "oneOf": [
+            {
+              "type": "object",
+              "$ref": "#/types/typesystem:index:EnumCase1"
+            },
+            {
+              "type": "object",
+              "$ref": "#/types/typesystem:index:EnumCase2"
             }
-          }
+          ]
         },
         "propertiesCollection": {
           "type": "array",
@@ -74,6 +79,9 @@
   },
   "types": {
     "typesystem:index:EnumCase1": {
+      "type": "object"
+    },
+    "typesystem:index:EnumCase2": {
       "type": "object"
     },
     "typesystem:index:ServerPropertiesForReplica": {
