@@ -93,3 +93,4 @@ pub fn create(name: &str, args: ZeroTrustAccessShortLivedCertificateArgs) -> Zer
         zone_id: crate::into_domain(result.zone_id),
     }
 }
+

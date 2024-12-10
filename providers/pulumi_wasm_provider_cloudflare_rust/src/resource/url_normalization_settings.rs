@@ -58,3 +58,4 @@ pub fn create(name: &str, args: UrlNormalizationSettingsArgs) -> UrlNormalizatio
         zone_id: crate::into_domain(result.zone_id),
     }
 }
+

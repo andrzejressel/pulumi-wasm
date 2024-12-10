@@ -96,3 +96,4 @@ pub fn create(name: &str, args: OriginCaCertificateArgs) -> OriginCaCertificateR
         requested_validity: crate::into_domain(result.requested_validity),
     }
 }
+

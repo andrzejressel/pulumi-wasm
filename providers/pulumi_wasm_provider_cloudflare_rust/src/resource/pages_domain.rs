@@ -65,3 +65,4 @@ pub fn create(name: &str, args: PagesDomainArgs) -> PagesDomainResult {
         status: crate::into_domain(result.status),
     }
 }
+

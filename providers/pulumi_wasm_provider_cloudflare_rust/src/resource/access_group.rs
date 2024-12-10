@@ -68,3 +68,4 @@ pub fn create(name: &str, args: AccessGroupArgs) -> AccessGroupResult {
         zone_id: crate::into_domain(result.zone_id),
     }
 }
+

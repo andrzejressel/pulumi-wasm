@@ -97,3 +97,4 @@ pub fn create(name: &str, args: WebAnalyticsRuleArgs) -> WebAnalyticsRuleResult 
         ruleset_id: crate::into_domain(result.ruleset_id),
     }
 }
+

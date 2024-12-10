@@ -1,0 +1,117 @@
+{
+  "name": "typesystem",
+  "version": "1.0.0",
+  "resources": {
+    "typesystem:index:typesystemServer": {
+      "inputProperties": {
+        "optional_string_input": {
+          "type": "string"
+        },
+        "required_string_input": {
+          "type": "string"
+        },
+        "optional_string_array": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "required_string_array": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "required_union": {
+          "oneOf": [
+            {
+              "type": "object",
+              "$ref": "#/types/typesystem:index:EnumCase1"
+            },
+            {
+              "type": "object",
+              "$ref": "#/types/typesystem:index:ServerPropertiesForRestore"
+            }
+          ],
+          "discriminator": {
+            "propertyName": "createMode",
+            "mapping": {
+              "PointInTimeRestore": "#/types/typesystem:index:EnumCase1",
+              "Replica": "#/types/typesystem:index:ServerPropertiesForRestore"
+            }
+          }
+        },
+        "propertiesCollection": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "object",
+                "$ref": "#/types/typesystem:index:ServerPropertiesForReplica"
+              },
+              {
+                "type": "object",
+                "$ref": "#/types/typesystem:index:ServerPropertiesForRestore"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "createMode",
+              "mapping": {
+                "PointInTimeRestore": "#/types/typesystem:index:ServerPropertiesForRestore",
+                "Replica": "#/types/typesystem:index:ServerPropertiesForReplica"
+              }
+            }
+          }
+        }
+      },
+      "type": "object",
+      "requiredInputs": [
+        "required_string_input",
+        "required_string_array",
+        "required_union"
+      ]
+    }
+  },
+  "types": {
+    "typesystem:index:EnumCase1": {
+      "type": "object"
+    },
+    "typesystem:index:ServerPropertiesForReplica": {
+      "properties": {
+        "createMode": {
+          "type": "string",
+          "const": "Replica"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "createMode"
+      ]
+    },
+    "typesystem:index:ServerPropertiesForRestore": {
+      "properties": {
+        "createMode": {
+          "type": "string",
+          "const": "PointInTimeRestore"
+        },
+        "restorePointInTime": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "required": [
+        "createMode",
+        "restorePointInTime"
+      ]
+    }
+  },
+  "language": {
+    "go": {
+      "importBasePath": "unions-inside-arrays/typesystem",
+      "generics": "side-by-side"
+    }
+  }
+}

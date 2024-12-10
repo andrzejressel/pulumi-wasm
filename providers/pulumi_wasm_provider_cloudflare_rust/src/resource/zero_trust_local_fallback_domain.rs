@@ -41,3 +41,4 @@ pub fn create(name: &str, args: ZeroTrustLocalFallbackDomainArgs) -> ZeroTrustLo
         policy_id: crate::into_domain(result.policy_id),
     }
 }
+

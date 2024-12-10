@@ -195,3 +195,4 @@ pub fn create(name: &str, args: DeviceSettingsPolicyArgs) -> DeviceSettingsPolic
         tunnel_protocol: crate::into_domain(result.tunnel_protocol),
     }
 }
+

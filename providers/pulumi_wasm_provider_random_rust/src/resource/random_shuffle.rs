@@ -71,3 +71,4 @@ pub fn create(name: &str, args: RandomShuffleArgs) -> RandomShuffleResult {
         seed: crate::into_domain(result.seed),
     }
 }
+

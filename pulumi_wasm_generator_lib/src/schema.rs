@@ -169,9 +169,7 @@ fn new_type_mapper(type_: &Type) -> Result<crate::model::Type> {
             one_of: Some(one_of),
             discriminator: Some(discriminator),
             ..
-        } => {
-            create_discriminated_union(one_of, discriminator)
-        },
+        } => create_discriminated_union(one_of, discriminator),
         Type {
             one_of: Some(_),
             discriminator: None,
@@ -188,24 +186,28 @@ fn new_type_mapper(type_: &Type) -> Result<crate::model::Type> {
     .context(format!("Cannot handle type: [{type_:?}]"))
 }
 
-fn create_discriminated_union(one_of: &Vec<OneOfType>, discriminator: &Discriminator) -> Result<crate::model::Type> {
+fn create_discriminated_union(
+    one_of: &Vec<OneOfType>,
+    discriminator: &Discriminator,
+) -> Result<crate::model::Type> {
+    let dest_to_discriminator: HashMap<_, _> =
+        discriminator.mapping.iter().map(|(k, v)| (v, k)).collect();
 
-    let dest_to_discriminator: HashMap<_, _> = discriminator.mapping
-        .iter()
-        .map(|(k, v)| (v, k))
-        .collect();
-
-
-    Ok(
-        crate::model::Type::DiscriminatedUnion(
-            discriminator.property_name.clone(),
-            one_of.iter().map(|r| {
+    Ok(crate::model::Type::DiscriminatedUnion(
+        discriminator.property_name.clone(),
+        one_of
+            .iter()
+            .map(|r| {
                 let discriminator = dest_to_discriminator[&r.ref_];
-                (discriminator.clone(), Ref::new(&*r.ref_).context(format!("Cannot convert ref fo type {r:?}")).unwrap())
+                (
+                    discriminator.clone(),
+                    Ref::new(&*r.ref_)
+                        .context(format!("Cannot convert ref fo type {r:?}"))
+                        .unwrap(),
+                )
             })
-                .collect()
-        )
-    )
+            .collect(),
+    ))
 
     // panic!()
     // panic!()
@@ -468,7 +470,7 @@ mod test {
             vec![
                 "Cannot handle resources",
                 "Cannot handle [test_input] type",
-                "Cannot handle type: [Type { type_: Some(Object), description: None, ref_: None, items: None, additional_properties: None }]",
+                "Cannot handle type: [Type { type_: Some(Object), description: None, ref_: None, items: None, additional_properties: None, one_of: None, discriminator: None }]",
                 "Object does not have 'additionalProperties' field",
             ],
             chain
@@ -504,7 +506,7 @@ mod test {
             vec![
                 "Cannot handle resources",
                 "Cannot handle [test_input] type",
-                "Cannot handle type: [Type { type_: Some(Array), description: None, ref_: None, items: None, additional_properties: None }]",
+                "Cannot handle type: [Type { type_: Some(Array), description: None, ref_: None, items: None, additional_properties: None, one_of: None, discriminator: None }]",
                 "Array does not have 'items' field",
             ],
             chain

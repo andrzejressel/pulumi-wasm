@@ -95,3 +95,4 @@ pub fn create(name: &str, args: DevicePostureIntegrationArgs) -> DevicePostureIn
         type_: crate::into_domain(result.type_),
     }
 }
+

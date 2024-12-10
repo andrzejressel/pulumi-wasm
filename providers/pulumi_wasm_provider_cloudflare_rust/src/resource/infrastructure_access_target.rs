@@ -103,3 +103,4 @@ pub fn create(name: &str, args: InfrastructureAccessTargetArgs) -> Infrastructur
         modified_at: crate::into_domain(result.modified_at),
     }
 }
+

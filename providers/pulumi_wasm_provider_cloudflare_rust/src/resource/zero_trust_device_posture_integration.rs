@@ -95,3 +95,4 @@ pub fn create(name: &str, args: ZeroTrustDevicePostureIntegrationArgs) -> ZeroTr
         type_: crate::into_domain(result.type_),
     }
 }
+

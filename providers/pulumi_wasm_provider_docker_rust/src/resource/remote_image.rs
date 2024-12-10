@@ -142,3 +142,4 @@ pub fn create(name: &str, args: RemoteImageArgs) -> RemoteImageResult {
         triggers: crate::into_domain(result.triggers),
     }
 }
+

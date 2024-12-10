@@ -90,3 +90,4 @@ pub fn create(name: &str, args: ZeroTrustListArgs) -> ZeroTrustListResult {
         type_: crate::into_domain(result.type_),
     }
 }
+

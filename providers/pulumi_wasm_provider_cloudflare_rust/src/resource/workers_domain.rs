@@ -80,3 +80,4 @@ pub fn create(name: &str, args: WorkersDomainArgs) -> WorkersDomainResult {
         zone_id: crate::into_domain(result.zone_id),
     }
 }
+

@@ -57,3 +57,4 @@ pub fn create(name: &str, args: WorkersKvNamespaceArgs) -> WorkersKvNamespaceRes
         title: crate::into_domain(result.title),
     }
 }
+

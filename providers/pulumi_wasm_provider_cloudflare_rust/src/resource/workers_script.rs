@@ -194,3 +194,4 @@ pub fn create(name: &str, args: WorkersScriptArgs) -> WorkersScriptResult {
         webassembly_bindings: crate::into_domain(result.webassembly_bindings),
     }
 }
+

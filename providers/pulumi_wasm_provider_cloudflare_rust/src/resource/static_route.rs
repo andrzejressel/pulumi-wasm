@@ -107,3 +107,4 @@ pub fn create(name: &str, args: StaticRouteArgs) -> StaticRouteResult {
         weight: crate::into_domain(result.weight),
     }
 }
+

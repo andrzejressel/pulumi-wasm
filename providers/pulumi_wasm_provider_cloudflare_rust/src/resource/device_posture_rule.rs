@@ -111,3 +111,4 @@ pub fn create(name: &str, args: DevicePostureRuleArgs) -> DevicePostureRuleResul
         type_: crate::into_domain(result.type_),
     }
 }
+

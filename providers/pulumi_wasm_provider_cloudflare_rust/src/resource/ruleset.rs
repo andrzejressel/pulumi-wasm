@@ -89,3 +89,4 @@ pub fn create(name: &str, args: RulesetArgs) -> RulesetResult {
         zone_id: crate::into_domain(result.zone_id),
     }
 }
+

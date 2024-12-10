@@ -130,3 +130,4 @@ pub fn create(name: &str, args: ZoneCacheVariantsArgs) -> ZoneCacheVariantsResul
         zone_id: crate::into_domain(result.zone_id),
     }
 }
+

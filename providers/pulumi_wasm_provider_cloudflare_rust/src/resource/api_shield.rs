@@ -55,3 +55,4 @@ pub fn create(name: &str, args: ApiShieldArgs) -> ApiShieldResult {
         zone_id: crate::into_domain(result.zone_id),
     }
 }
+

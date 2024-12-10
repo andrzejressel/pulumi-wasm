@@ -102,3 +102,4 @@ pub fn create(name: &str, args: TeamsLocationArgs) -> TeamsLocationResult {
         policy_ids: crate::into_domain(result.policy_ids),
     }
 }
+

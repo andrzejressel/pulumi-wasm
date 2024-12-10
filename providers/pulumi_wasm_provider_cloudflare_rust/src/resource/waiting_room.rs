@@ -193,3 +193,4 @@ pub fn create(name: &str, args: WaitingRoomArgs) -> WaitingRoomResult {
         zone_id: crate::into_domain(result.zone_id),
     }
 }
+

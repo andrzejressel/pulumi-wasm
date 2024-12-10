@@ -100,3 +100,4 @@ pub fn create(name: &str, args: CustomHostnameArgs) -> CustomHostnameResult {
         zone_id: crate::into_domain(result.zone_id),
     }
 }
+

@@ -133,3 +133,4 @@ pub fn create(name: &str, args: TeamsRuleArgs) -> TeamsRuleResult {
         version: crate::into_domain(result.version),
     }
 }
+

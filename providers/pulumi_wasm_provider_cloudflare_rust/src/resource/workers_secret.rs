@@ -73,3 +73,4 @@ pub fn create(name: &str, args: WorkersSecretArgs) -> WorkersSecretResult {
         secret_text: crate::into_domain(result.secret_text),
     }
 }
+

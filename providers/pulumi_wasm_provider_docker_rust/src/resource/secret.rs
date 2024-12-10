@@ -46,3 +46,4 @@ pub fn create(name: &str, args: SecretArgs) -> SecretResult {
         name: crate::into_domain(result.name),
     }
 }
+

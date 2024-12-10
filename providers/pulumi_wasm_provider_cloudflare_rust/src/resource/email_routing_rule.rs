@@ -101,3 +101,4 @@ pub fn create(name: &str, args: EmailRoutingRuleArgs) -> EmailRoutingRuleResult 
         zone_id: crate::into_domain(result.zone_id),
     }
 }
+

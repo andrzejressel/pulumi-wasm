@@ -194,3 +194,4 @@ pub fn create(name: &str, args: ZeroTrustDeviceProfilesArgs) -> ZeroTrustDeviceP
         tunnel_protocol: crate::into_domain(result.tunnel_protocol),
     }
 }
+

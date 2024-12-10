@@ -66,3 +66,4 @@ pub fn create(name: &str, args: ArgoArgs) -> ArgoResult {
         zone_id: crate::into_domain(result.zone_id),
     }
 }
+

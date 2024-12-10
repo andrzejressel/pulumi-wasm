@@ -100,3 +100,4 @@ pub fn create(name: &str, args: ZeroTrustAccessMtlsCertificateArgs) -> ZeroTrust
         zone_id: crate::into_domain(result.zone_id),
     }
 }
+

@@ -228,3 +228,4 @@ pub fn create(name: &str, args: TeamsAccountArgs) -> TeamsAccountResult {
         url_browser_isolation_enabled: crate::into_domain(result.url_browser_isolation_enabled),
     }
 }
+

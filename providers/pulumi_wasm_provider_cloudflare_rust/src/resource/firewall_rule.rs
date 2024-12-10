@@ -116,3 +116,4 @@ pub fn create(name: &str, args: FirewallRuleArgs) -> FirewallRuleResult {
         zone_id: crate::into_domain(result.zone_id),
     }
 }
+

@@ -64,3 +64,4 @@ pub fn create(name: &str, args: RandomBytesArgs) -> RandomBytesResult {
         length: crate::into_domain(result.length),
     }
 }
+

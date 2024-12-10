@@ -142,3 +142,4 @@ pub fn create(name: &str, args: ServiceArgs) -> ServiceResult {
         update_config: crate::into_domain(result.update_config),
     }
 }
+

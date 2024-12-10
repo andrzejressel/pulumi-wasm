@@ -65,3 +65,4 @@ pub fn create(name: &str, args: R2BucketArgs) -> R2BucketResult {
         name: crate::into_domain(result.name),
     }
 }
+

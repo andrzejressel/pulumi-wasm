@@ -43,7 +43,33 @@ impl Type {
                 "Option<{}>",
                 type_.get_rust_type(input_output, property_name)
             ),
-            Type::DiscriminatedUnion(_, _) => format!("{}{}", input_output, property_name),
+            // Type::DiscriminatedUnion(_, _) => format!("{}_{}", input_output, property_name).to_case(Case::Pascal),
+            Type::DiscriminatedUnion(_, mappings) => format!(
+                "pulumi_wasm_provider_common::OneOf{}<{}>",
+                mappings.len(),
+                mappings
+                    .iter()
+                    .map(|(_, t)| Type::Ref(t.clone())
+                        .get_rust_type(input_output, property_name.clone()))
+                    .collect::<Vec<_>>()
+                    .join(", ")
+            ),
+        }
+    }
+
+    pub(crate) fn get_internal_discriminated_union(&self) -> Option<Vec<Type>> {
+        match self {
+            Type::Boolean => None,
+            Type::Integer => None,
+            Type::Number => None,
+            Type::String => None,
+            Type::Array(t) => t.get_internal_discriminated_union(),
+            Type::Object(o) => o.get_internal_discriminated_union(),
+            Type::Ref(_) => None,
+            Type::Option(o) => o.get_internal_discriminated_union(),
+            Type::DiscriminatedUnion(_, m) => {
+                Some(m.iter().map(|(_, t)| Type::Ref(t.clone())).collect())
+            }
         }
     }
 }

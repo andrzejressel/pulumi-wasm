@@ -69,3 +69,4 @@ pub fn create(name: &str, args: WorkerRouteArgs) -> WorkerRouteResult {
         zone_id: crate::into_domain(result.zone_id),
     }
 }
+

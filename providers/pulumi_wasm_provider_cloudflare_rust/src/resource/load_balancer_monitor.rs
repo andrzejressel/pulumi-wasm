@@ -154,3 +154,4 @@ pub fn create(name: &str, args: LoadBalancerMonitorArgs) -> LoadBalancerMonitorR
         type_: crate::into_domain(result.type_),
     }
 }
+

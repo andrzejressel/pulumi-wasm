@@ -75,3 +75,4 @@ pub fn create(name: &str, args: WaitingRoomRulesArgs) -> WaitingRoomRulesResult 
         zone_id: crate::into_domain(result.zone_id),
     }
 }
+

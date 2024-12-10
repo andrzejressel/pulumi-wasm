@@ -76,3 +76,4 @@ pub fn create(name: &str, args: MagicFirewallRulesetArgs) -> MagicFirewallRulese
         rules: crate::into_domain(result.rules),
     }
 }
+

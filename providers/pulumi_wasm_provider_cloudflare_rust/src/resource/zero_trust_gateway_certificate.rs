@@ -69,3 +69,4 @@ pub fn create(name: &str, args: ZeroTrustGatewayCertificateArgs) -> ZeroTrustGat
         validity_period_days: crate::into_domain(result.validity_period_days),
     }
 }
+

@@ -69,3 +69,4 @@ pub fn create(name: &str, args: ApiTokenArgs) -> ApiTokenResult {
         value: crate::into_domain(result.value),
     }
 }
+

@@ -84,3 +84,4 @@ pub fn create(name: &str, args: NotificationPolicyWebhooksArgs) -> NotificationP
         url: crate::into_domain(result.url),
     }
 }
+

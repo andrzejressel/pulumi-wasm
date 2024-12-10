@@ -90,3 +90,4 @@ pub fn create(name: &str, args: TeamsListArgs) -> TeamsListResult {
         type_: crate::into_domain(result.type_),
     }
 }
+

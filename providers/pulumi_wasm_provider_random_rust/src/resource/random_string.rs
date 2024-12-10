@@ -141,3 +141,4 @@ pub fn create(name: &str, args: RandomStringArgs) -> RandomStringResult {
         upper: crate::into_domain(result.upper),
     }
 }
+

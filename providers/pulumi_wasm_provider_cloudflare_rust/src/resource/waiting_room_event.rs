@@ -159,3 +159,4 @@ pub fn create(name: &str, args: WaitingRoomEventArgs) -> WaitingRoomEventResult 
         zone_id: crate::into_domain(result.zone_id),
     }
 }
+

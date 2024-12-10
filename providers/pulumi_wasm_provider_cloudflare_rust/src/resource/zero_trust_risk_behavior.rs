@@ -33,3 +33,4 @@ pub fn create(name: &str, args: ZeroTrustRiskBehaviorArgs) -> ZeroTrustRiskBehav
         behaviors: crate::into_domain(result.behaviors),
     }
 }
+

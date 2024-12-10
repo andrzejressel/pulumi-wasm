@@ -178,3 +178,4 @@ pub fn create(name: &str, args: MagicWanIpsecTunnelArgs) -> MagicWanIpsecTunnelR
         user_id: crate::into_domain(result.user_id),
     }
 }
+

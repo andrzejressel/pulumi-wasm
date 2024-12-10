@@ -78,3 +78,4 @@ pub fn create(name: &str, args: RegistryImageArgs) -> RegistryImageResult {
         triggers: crate::into_domain(result.triggers),
     }
 }
+

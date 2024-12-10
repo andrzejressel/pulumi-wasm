@@ -133,3 +133,4 @@ pub fn create(name: &str, args: ZeroTrustGatewayPolicyArgs) -> ZeroTrustGatewayP
         version: crate::into_domain(result.version),
     }
 }
+

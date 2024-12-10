@@ -80,3 +80,4 @@ pub fn create(name: &str, args: TunnelArgs) -> TunnelResult {
         tunnel_token: crate::into_domain(result.tunnel_token),
     }
 }
+
