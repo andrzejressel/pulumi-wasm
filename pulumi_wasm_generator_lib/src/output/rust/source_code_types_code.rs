@@ -61,7 +61,7 @@ fn convert_model(package: &crate::model::Package) -> Package {
                             original_name: global_type_property.name.clone(),
                             type_: global_type_property
                                 .r#type
-                                .get_rust_type("input", global_type_property.name.clone()),
+                                .get_rust_type(),
                             optional: matches!(global_type_property.r#type, Type::Option(_)),
                             description_lines: crate::utils::to_lines(
                                 global_type_property.description.clone(),

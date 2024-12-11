@@ -44,7 +44,3 @@ pub fn create(name: &str, args: {{interface.struct_name}}Args) -> {{interface.st
     {{/each}}
     }
 }
-
-{{#each interface.discriminated_unions}}
-{{&this}}
-{{/each}}

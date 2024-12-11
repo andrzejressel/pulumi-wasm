@@ -67,7 +67,7 @@ fn convert_model(package: &crate::model::Package) -> Package {
                         optional: matches!(input_property.r#type, Type::Option(_)),
                         type_: input_property
                             .r#type
-                            .get_rust_type("input", input_property.name.clone()),
+                            .get_rust_type(),
                         description_lines: crate::utils::to_lines(
                             input_property.description.clone(),
                             package,
@@ -83,7 +83,7 @@ fn convert_model(package: &crate::model::Package) -> Package {
                         arg_name: output_property.get_rust_argument_name(),
                         type_: output_property
                             .r#type
-                            .get_rust_type("output", output_property.name.clone()),
+                            .get_rust_type(),
                         description_lines: crate::utils::to_lines(
                             output_property.description.clone(),
                             package,
@@ -122,7 +122,7 @@ fn create_discriminated_union(name: String, types: &Vec<Type>) -> String {
         code.push_str(&format!(
             "    El{}(Box<{}>),",
             id,
-            tpe.get_rust_type("", "".to_string())
+            tpe.get_rust_type()
         ));
     });
 

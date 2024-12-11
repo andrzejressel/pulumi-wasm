@@ -18,19 +18,19 @@ pub(crate) enum Type {
 }
 
 impl Type {
-    pub(crate) fn get_rust_type(&self, input_output: &str, property_name: String) -> String {
+    pub(crate) fn get_rust_type(&self) -> String {
         match self {
             Type::Boolean => "bool".into(),
             Type::Integer => "i32".into(),
             Type::Number => "f64".into(),
             Type::String => "String".into(),
             Type::Array(type_) => {
-                format!("Vec<{}>", type_.get_rust_type(input_output, property_name))
+                format!("Vec<{}>", type_.get_rust_type())
             }
             Type::Object(type_) => {
                 format!(
                     "std::collections::HashMap<String, {}>",
-                    type_.get_rust_type(input_output, property_name)
+                    type_.get_rust_type()
                 )
             }
             Type::Ref(r) => match r {
@@ -39,18 +39,12 @@ impl Type {
                 Ref::Asset => "String".to_string(),   //FIXME
                 Ref::Any => "String".to_string(),     //FIXME
             },
-            Type::Option(type_) => format!(
-                "Option<{}>",
-                type_.get_rust_type(input_output, property_name)
-            ),
-            // Type::DiscriminatedUnion(_, _) => format!("{}_{}", input_output, property_name).to_case(Case::Pascal),
+            Type::Option(type_) => format!("Option<{}>", type_.get_rust_type()),
             Type::DiscriminatedUnion(refs) => format!(
                 "pulumi_wasm_provider_common::OneOf{}<{}>",
                 refs.len(),
-                refs
-                    .iter()
-                    .map(|(r)| Type::Ref(r.clone())
-                        .get_rust_type(input_output, property_name.clone()))
+                refs.iter()
+                    .map(|(r)| Type::Ref(r.clone()).get_rust_type())
                     .collect::<Vec<_>>()
                     .join(", ")
             ),
@@ -67,9 +61,7 @@ impl Type {
             Type::Object(o) => o.get_internal_discriminated_union(),
             Type::Ref(_) => None,
             Type::Option(o) => o.get_internal_discriminated_union(),
-            Type::DiscriminatedUnion(m) => {
-                Some(m.iter().map(|(r)| Type::Ref(r.clone())).collect())
-            }
+            Type::DiscriminatedUnion(m) => Some(m.iter().map(|(r)| Type::Ref(r.clone())).collect()),
         }
     }
 }
