@@ -1,0 +1,30 @@
+package pulumi:example@1.0.0--0.0.0-DEV;
+
+world example-pulumi {
+    import component:pulumi-wasm/register-interface@0.0.0-DEV;
+    export example-server;
+}
+
+world example-pulumi-client {
+    import example-server;
+}
+
+interface example-server {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        properties: borrow<output>,
+    }
+
+    record res {
+        name: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+

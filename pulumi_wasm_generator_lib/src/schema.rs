@@ -1,7 +1,7 @@
 use crate::model::{ElementId, GlobalType, GlobalTypeProperty, InputProperty, OutputProperty, Ref};
 use anyhow::{anyhow, Context, Result};
 use serde::Deserialize;
-use std::collections::{BTreeMap, BTreeSet, HashSet};
+use std::collections::{BTreeMap, BTreeSet, HashMap, HashSet};
 
 type PulumiMap<T> = BTreeMap<String, T>;
 
@@ -31,6 +31,21 @@ struct Type {
     items: Option<Box<Type>>,
     #[serde(rename = "additionalProperties")]
     additional_properties: Option<Box<Type>>,
+    #[serde(rename = "oneOf")]
+    one_of: Option<Vec<OneOfType>>,
+}
+
+#[derive(Deserialize, Debug)]
+struct OneOfType {
+    #[serde(rename = "$ref")]
+    ref_: String,
+}
+
+#[derive(Deserialize, Debug)]
+struct Discriminator {
+    #[serde(rename = "propertyName")]
+    property_name: String,
+    mapping: BTreeMap<String, String>,
 }
 
 #[derive(Deserialize, Debug)]
@@ -150,12 +165,29 @@ fn new_type_mapper(type_: &Type) -> Result<crate::model::Type> {
             ..
         } => Err(anyhow!("Object does not have 'additionalProperties' field")),
         Type {
+            one_of: Some(one_of),
+            ..
+        } => create_discriminated_union(one_of),
+        Type {
             type_: None,
             ref_: None,
             ..
         } => Err(anyhow!("'type' and 'ref' fields cannot be empty")),
     })
     .context(format!("Cannot handle type: [{type_:?}]"))
+}
+
+fn create_discriminated_union(one_of: &Vec<OneOfType>) -> Result<crate::model::Type> {
+    Ok(crate::model::Type::DiscriminatedUnion(
+        one_of
+            .iter()
+            .map(|r| {
+                Ref::new(&*r.ref_)
+                    .context(format!("Cannot convert ref fo type {r:?}"))
+                    .unwrap()
+            })
+            .collect(),
+    ))
 }
 
 fn resource_to_model(
@@ -415,7 +447,7 @@ mod test {
             vec![
                 "Cannot handle resources",
                 "Cannot handle [test_input] type",
-                "Cannot handle type: [Type { type_: Some(Object), description: None, ref_: None, items: None, additional_properties: None }]",
+                "Cannot handle type: [Type { type_: Some(Object), description: None, ref_: None, items: None, additional_properties: None, one_of: None }]",
                 "Object does not have 'additionalProperties' field",
             ],
             chain
@@ -451,7 +483,7 @@ mod test {
             vec![
                 "Cannot handle resources",
                 "Cannot handle [test_input] type",
-                "Cannot handle type: [Type { type_: Some(Array), description: None, ref_: None, items: None, additional_properties: None }]",
+                "Cannot handle type: [Type { type_: Some(Array), description: None, ref_: None, items: None, additional_properties: None, one_of: None }]",
                 "Array does not have 'items' field",
             ],
             chain

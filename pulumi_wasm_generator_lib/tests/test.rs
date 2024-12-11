@@ -35,6 +35,16 @@ fn output_funcs_edgeorder() -> Result<()> {
     run_pulumi_generator_test("output-funcs-edgeorder", "myedgeorder")
 }
 
+#[test]
+fn unions_inline() -> Result<()> {
+    run_pulumi_generator_test("unions-inline", "example")
+}
+
+#[test]
+fn unions_inside_arrays() -> Result<()> {
+    run_pulumi_generator_test("unions-inside-arrays", "example")
+}
+
 // provider_name is `name` from yaml file
 fn run_pulumi_generator_test(test_name: &str, provider_name: &str) -> Result<()> {
     let root_path = format!("tests/output/{test_name}");

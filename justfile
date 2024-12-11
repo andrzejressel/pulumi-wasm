@@ -92,7 +92,7 @@ regenerate-provider-list:
     cargo run -p regenerate_providers
 
 # DO NOT EDIT - REGENERATE-PROVIDERS - START
-regenerate-providers:
+regenerate-providers-generated:
     cargo run -p pulumi_wasm_generator -- gen-provider --remove true --schema providers/docker.json --output providers/pulumi_wasm_provider_docker
     cargo run -p pulumi_wasm_generator -- gen-rust     --remove true --schema providers/docker.json --output providers/pulumi_wasm_provider_docker_rust
     cargo run -p pulumi_wasm_generator -- gen-provider --remove true --schema providers/random.json --output providers/pulumi_wasm_provider_random
@@ -100,6 +100,10 @@ regenerate-providers:
     cargo run -p pulumi_wasm_generator -- gen-provider --remove true --schema providers/cloudflare.json --output providers/pulumi_wasm_provider_cloudflare
     cargo run -p pulumi_wasm_generator -- gen-rust     --remove true --schema providers/cloudflare.json --output providers/pulumi_wasm_provider_cloudflare_rust
 # DO NOT EDIT - REGENERATE-PROVIDERS - END
+
+regenerate-providers:
+    just regenerate-providers-generated
+    cargo run -p pulumi_wasm_generator -- gen-rust --remove true --schema providers/typesystem.json --output providers/pulumi_wasm_provider_typesystem_rust
 
 publish:
     cargo publish -p pulumi_wasm_wit --all-features

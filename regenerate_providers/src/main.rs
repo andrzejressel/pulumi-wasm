@@ -81,7 +81,8 @@ fn replace_regenerate_providers(providers: &[Provider], content: &str) -> String
         replacement.push_str(&format!("    cargo run -p pulumi_wasm_generator -- gen-rust     --remove true --schema providers/{}.json --output providers/pulumi_wasm_provider_{}_rust\n", provider.name, provider.name));
     }
 
-    let start_marker = "# DO NOT EDIT - REGENERATE-PROVIDERS - START\nregenerate-providers:";
+    let start_marker =
+        "# DO NOT EDIT - REGENERATE-PROVIDERS - START\nregenerate-providers-generated:";
     let end_marker = "# DO NOT EDIT - REGENERATE-PROVIDERS - END";
     replace_between_markers(content, start_marker, end_marker, &replacement)
 }

@@ -9,3 +9,4 @@ pulumi_wasm_rust.workspace = true
 serde.workspace = true
 pulumi_wasm_wit = { workspace = true, features = ["client"] }
 bon.workspace = true
+pulumi_wasm_provider_common.workspace = true
