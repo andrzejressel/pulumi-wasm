@@ -1,7 +1,7 @@
-package pulumi:aws-native@0.0.1--0.0.0-DEV;
+package pulumi:aws-native@0.0.1--0.0.0-NIGHTLY-94f1731;
 
 world aws-native-pulumi {
-    import component:pulumi-wasm/register-interface@0.0.0-DEV;
+    import component:pulumi-wasm/register-interface@0.0.0-NIGHTLY-94f1731;
 }
 
 world aws-native-pulumi-client {
