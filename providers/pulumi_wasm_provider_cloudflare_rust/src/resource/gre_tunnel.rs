@@ -129,4 +129,3 @@ pub fn create(name: &str, args: GreTunnelArgs) -> GreTunnelResult {
         ttl: crate::into_domain(result.ttl),
     }
 }
-

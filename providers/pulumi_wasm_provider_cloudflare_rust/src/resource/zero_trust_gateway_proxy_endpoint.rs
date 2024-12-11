@@ -70,4 +70,3 @@ pub fn create(name: &str, args: ZeroTrustGatewayProxyEndpointArgs) -> ZeroTrustG
         subdomain: crate::into_domain(result.subdomain),
     }
 }
-

@@ -85,4 +85,3 @@ pub fn create(name: &str, args: RandomIntegerArgs) -> RandomIntegerResult {
         seed: crate::into_domain(result.seed),
     }
 }
-

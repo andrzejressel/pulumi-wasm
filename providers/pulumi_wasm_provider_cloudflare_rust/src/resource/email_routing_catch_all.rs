@@ -86,4 +86,3 @@ pub fn create(name: &str, args: EmailRoutingCatchAllArgs) -> EmailRoutingCatchAl
         zone_id: crate::into_domain(result.zone_id),
     }
 }
-

@@ -39,13 +39,3 @@ pub fn create(name: &str, args: typesystemServerArgs) -> typesystemServerResult 
     typesystemServerResult {
     }
 }
-
-#[derive(serde::Serialize, serde::Deserialize)]
-#[serde(untagged)]pub enum InputOptionalUnion {    El0(Box<crate::types::EnumCase1>),    El1(Box<crate::types::EnumCase2>),}
-
-#[derive(serde::Serialize, serde::Deserialize)]
-#[serde(untagged)]pub enum InputPropertiesCollection {    El0(Box<crate::types::ServerPropertiesForReplica>),    El1(Box<crate::types::ServerPropertiesForRestore>),}
-
-#[derive(serde::Serialize, serde::Deserialize)]
-#[serde(untagged)]pub enum InputRequiredUnion {    El0(Box<crate::types::EnumCase1>),    El1(Box<crate::types::EnumCase2>),}
-

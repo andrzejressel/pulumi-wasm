@@ -57,4 +57,3 @@ pub fn create(name: &str, args: QueueArgs) -> QueueResult {
         name: crate::into_domain(result.name),
     }
 }
-

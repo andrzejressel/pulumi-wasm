@@ -69,4 +69,3 @@ pub fn create(name: &str, args: EmailRoutingAddressArgs) -> EmailRoutingAddressR
         verified: crate::into_domain(result.verified),
     }
 }
-

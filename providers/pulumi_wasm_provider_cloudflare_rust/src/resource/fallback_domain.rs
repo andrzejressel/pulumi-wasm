@@ -50,4 +50,3 @@ pub fn create(name: &str, args: FallbackDomainArgs) -> FallbackDomainResult {
         policy_id: crate::into_domain(result.policy_id),
     }
 }
-

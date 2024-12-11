@@ -107,4 +107,3 @@ pub fn create(name: &str, args: ZoneArgs) -> ZoneResult {
         zone: crate::into_domain(result.zone),
     }
 }
-

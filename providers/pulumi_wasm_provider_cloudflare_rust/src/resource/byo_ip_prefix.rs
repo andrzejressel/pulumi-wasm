@@ -74,4 +74,3 @@ pub fn create(name: &str, args: ByoIpPrefixArgs) -> ByoIpPrefixResult {
         prefix_id: crate::into_domain(result.prefix_id),
     }
 }
-

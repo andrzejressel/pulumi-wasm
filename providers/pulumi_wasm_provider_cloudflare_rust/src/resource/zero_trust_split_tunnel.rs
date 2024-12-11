@@ -48,4 +48,3 @@ pub fn create(name: &str, args: ZeroTrustSplitTunnelArgs) -> ZeroTrustSplitTunne
         tunnels: crate::into_domain(result.tunnels),
     }
 }
-

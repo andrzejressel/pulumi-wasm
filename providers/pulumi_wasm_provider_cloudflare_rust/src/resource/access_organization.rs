@@ -144,4 +144,3 @@ pub fn create(name: &str, args: AccessOrganizationArgs) -> AccessOrganizationRes
         zone_id: crate::into_domain(result.zone_id),
     }
 }
-

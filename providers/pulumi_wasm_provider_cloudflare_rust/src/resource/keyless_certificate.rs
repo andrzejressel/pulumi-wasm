@@ -100,4 +100,3 @@ pub fn create(name: &str, args: KeylessCertificateArgs) -> KeylessCertificateRes
         zone_id: crate::into_domain(result.zone_id),
     }
 }
-

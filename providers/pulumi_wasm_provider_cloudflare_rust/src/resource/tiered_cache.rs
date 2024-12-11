@@ -51,4 +51,3 @@ pub fn create(name: &str, args: TieredCacheArgs) -> TieredCacheResult {
         zone_id: crate::into_domain(result.zone_id),
     }
 }
-

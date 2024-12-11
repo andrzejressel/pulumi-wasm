@@ -129,4 +129,3 @@ pub fn create(name: &str, args: MagicWanGreTunnelArgs) -> MagicWanGreTunnelResul
         ttl: crate::into_domain(result.ttl),
     }
 }
-

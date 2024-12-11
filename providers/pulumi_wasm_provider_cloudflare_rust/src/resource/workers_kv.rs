@@ -80,4 +80,3 @@ pub fn create(name: &str, args: WorkersKvArgs) -> WorkersKvResult {
         value: crate::into_domain(result.value),
     }
 }
-

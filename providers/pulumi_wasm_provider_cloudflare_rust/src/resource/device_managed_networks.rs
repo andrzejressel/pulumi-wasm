@@ -80,4 +80,3 @@ pub fn create(name: &str, args: DeviceManagedNetworksArgs) -> DeviceManagedNetwo
         type_: crate::into_domain(result.type_),
     }
 }
-

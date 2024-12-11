@@ -77,4 +77,3 @@ pub fn create(name: &str, args: WorkerCronTriggerArgs) -> WorkerCronTriggerResul
         script_name: crate::into_domain(result.script_name),
     }
 }
-

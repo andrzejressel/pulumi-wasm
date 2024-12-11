@@ -72,4 +72,3 @@ pub fn create(name: &str, args: ZoneHoldArgs) -> ZoneHoldResult {
         zone_id: crate::into_domain(result.zone_id),
     }
 }
-

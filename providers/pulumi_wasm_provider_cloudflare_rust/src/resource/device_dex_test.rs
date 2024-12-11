@@ -101,4 +101,3 @@ pub fn create(name: &str, args: DeviceDexTestArgs) -> DeviceDexTestResult {
         updated: crate::into_domain(result.updated),
     }
 }
-

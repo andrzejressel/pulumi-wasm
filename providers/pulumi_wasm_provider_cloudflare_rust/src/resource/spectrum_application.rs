@@ -141,4 +141,3 @@ pub fn create(name: &str, args: SpectrumApplicationArgs) -> SpectrumApplicationR
         zone_id: crate::into_domain(result.zone_id),
     }
 }
-

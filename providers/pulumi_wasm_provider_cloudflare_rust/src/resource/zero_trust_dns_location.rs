@@ -102,4 +102,3 @@ pub fn create(name: &str, args: ZeroTrustDnsLocationArgs) -> ZeroTrustDnsLocatio
         policy_ids: crate::into_domain(result.policy_ids),
     }
 }
-

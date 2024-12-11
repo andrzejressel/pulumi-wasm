@@ -75,4 +75,3 @@ pub fn create(name: &str, args: ZeroTrustTunnelVirtualNetworkArgs) -> ZeroTrustT
         name: crate::into_domain(result.name),
     }
 }
-

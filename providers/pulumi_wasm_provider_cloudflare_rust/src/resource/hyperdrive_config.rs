@@ -88,4 +88,3 @@ pub fn create(name: &str, args: HyperdriveConfigArgs) -> HyperdriveConfigResult 
         resource_id: crate::into_domain(result.resource_id),
     }
 }
-

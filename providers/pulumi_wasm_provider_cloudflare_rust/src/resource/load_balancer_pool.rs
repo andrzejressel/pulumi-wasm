@@ -172,4 +172,3 @@ pub fn create(name: &str, args: LoadBalancerPoolArgs) -> LoadBalancerPoolResult 
         origins: crate::into_domain(result.origins),
     }
 }
-

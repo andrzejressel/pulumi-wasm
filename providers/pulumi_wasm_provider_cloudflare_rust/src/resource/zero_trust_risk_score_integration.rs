@@ -57,4 +57,3 @@ pub fn create(name: &str, args: ZeroTrustRiskScoreIntegrationArgs) -> ZeroTrustR
         well_known_url: crate::into_domain(result.well_known_url),
     }
 }
-

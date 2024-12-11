@@ -67,4 +67,3 @@ pub fn create(name: &str, args: WorkersForPlatformsDispatchNamespaceArgs) -> Wor
         name: crate::into_domain(result.name),
     }
 }
-

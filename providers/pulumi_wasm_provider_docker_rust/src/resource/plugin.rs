@@ -112,4 +112,3 @@ pub fn create(name: &str, args: PluginArgs) -> PluginResult {
         plugin_reference: crate::into_domain(result.plugin_reference),
     }
 }
-

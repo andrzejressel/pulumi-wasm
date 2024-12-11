@@ -77,4 +77,3 @@ pub fn create(name: &str, args: AccountMemberArgs) -> AccountMemberResult {
         status: crate::into_domain(result.status),
     }
 }
-

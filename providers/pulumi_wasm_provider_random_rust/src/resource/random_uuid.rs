@@ -53,4 +53,3 @@ pub fn create(name: &str, args: RandomUuidArgs) -> RandomUuidResult {
         result: crate::into_domain(result.result),
     }
 }
-

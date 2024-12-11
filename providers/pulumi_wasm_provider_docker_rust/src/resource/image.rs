@@ -204,4 +204,3 @@ pub fn create(name: &str, args: ImageArgs) -> ImageResult {
         repo_digest: crate::into_domain(result.repo_digest),
     }
 }
-

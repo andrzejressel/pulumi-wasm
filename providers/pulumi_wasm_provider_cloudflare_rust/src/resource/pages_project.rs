@@ -83,4 +83,3 @@ pub fn create(name: &str, args: PagesProjectArgs) -> PagesProjectResult {
         subdomain: crate::into_domain(result.subdomain),
     }
 }
-

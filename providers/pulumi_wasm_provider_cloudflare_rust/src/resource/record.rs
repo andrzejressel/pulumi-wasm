@@ -162,4 +162,3 @@ pub fn create(name: &str, args: RecordArgs) -> RecordResult {
         zone_id: crate::into_domain(result.zone_id),
     }
 }
-

@@ -232,4 +232,3 @@ pub fn create(name: &str, args: LoadBalancerArgs) -> LoadBalancerResult {
         zone_id: crate::into_domain(result.zone_id),
     }
 }
-

@@ -72,4 +72,3 @@ pub fn create(name: &str, args: ServiceConfigArgs) -> ServiceConfigResult {
         name: crate::into_domain(result.name),
     }
 }
-

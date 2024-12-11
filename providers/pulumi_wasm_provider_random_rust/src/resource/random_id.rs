@@ -103,4 +103,3 @@ pub fn create(name: &str, args: RandomIdArgs) -> RandomIdResult {
         prefix: crate::into_domain(result.prefix),
     }
 }
-

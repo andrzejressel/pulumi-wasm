@@ -36,4 +36,3 @@ pub fn create(name: &str, args: TagArgs) -> TagResult {
         target_image: crate::into_domain(result.target_image),
     }
 }
-

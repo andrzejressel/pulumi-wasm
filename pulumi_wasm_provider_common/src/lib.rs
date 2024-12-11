@@ -1,8 +1,6 @@
 mod oneof;
 
 pub use oneof::*;
-use serde::de::Visitor;
-use serde::Deserializer;
 
 #[macro_export]
 macro_rules! generate_string_const {

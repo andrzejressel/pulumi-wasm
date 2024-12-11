@@ -71,4 +71,3 @@ pub fn create(name: &str, args: RandomPetArgs) -> RandomPetResult {
         separator: crate::into_domain(result.separator),
     }
 }
-

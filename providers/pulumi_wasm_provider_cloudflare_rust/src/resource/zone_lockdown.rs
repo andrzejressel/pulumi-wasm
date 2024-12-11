@@ -88,4 +88,3 @@ pub fn create(name: &str, args: ZoneLockdownArgs) -> ZoneLockdownResult {
         zone_id: crate::into_domain(result.zone_id),
     }
 }
-

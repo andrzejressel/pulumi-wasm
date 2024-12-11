@@ -166,4 +166,3 @@ pub fn create(name: &str, args: ListItemArgs) -> ListItemResult {
         redirect: crate::into_domain(result.redirect),
     }
 }
-

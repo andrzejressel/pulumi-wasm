@@ -93,4 +93,3 @@ pub fn create(name: &str, args: AccessCaCertificateArgs) -> AccessCaCertificateR
         zone_id: crate::into_domain(result.zone_id),
     }
 }
-

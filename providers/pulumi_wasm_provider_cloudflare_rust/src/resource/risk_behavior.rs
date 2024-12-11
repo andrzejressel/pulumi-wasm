@@ -33,4 +33,3 @@ pub fn create(name: &str, args: RiskBehaviorArgs) -> RiskBehaviorResult {
         behaviors: crate::into_domain(result.behaviors),
     }
 }
-

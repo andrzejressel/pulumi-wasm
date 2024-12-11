@@ -99,4 +99,3 @@ pub fn create(name: &str, args: TurnstileWidgetArgs) -> TurnstileWidgetResult {
         secret: crate::into_domain(result.secret),
     }
 }
-

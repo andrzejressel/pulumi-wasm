@@ -64,4 +64,3 @@ pub fn create(name: &str, args: D1DatabaseArgs) -> D1DatabaseResult {
         version: crate::into_domain(result.version),
     }
 }
-

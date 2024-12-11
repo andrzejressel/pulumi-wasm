@@ -142,4 +142,3 @@ pub fn create(name: &str, args: ZeroTrustAccessIdentityProviderArgs) -> ZeroTrus
         zone_id: crate::into_domain(result.zone_id),
     }
 }
-

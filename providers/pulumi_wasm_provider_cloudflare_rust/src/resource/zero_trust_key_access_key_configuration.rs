@@ -34,4 +34,3 @@ pub fn create(name: &str, args: ZeroTrustKeyAccessKeyConfigurationArgs) -> ZeroT
         key_rotation_interval_days: crate::into_domain(result.key_rotation_interval_days),
     }
 }
-

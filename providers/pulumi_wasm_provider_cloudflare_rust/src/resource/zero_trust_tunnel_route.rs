@@ -63,4 +63,3 @@ pub fn create(name: &str, args: ZeroTrustTunnelRouteArgs) -> ZeroTrustTunnelRout
         virtual_network_id: crate::into_domain(result.virtual_network_id),
     }
 }
-

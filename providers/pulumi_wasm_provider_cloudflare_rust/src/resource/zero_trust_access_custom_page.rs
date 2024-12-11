@@ -81,4 +81,3 @@ pub fn create(name: &str, args: ZeroTrustAccessCustomPageArgs) -> ZeroTrustAcces
         zone_id: crate::into_domain(result.zone_id),
     }
 }
-

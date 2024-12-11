@@ -109,4 +109,3 @@ pub fn create(name: &str, args: AddressMapArgs) -> AddressMapResult {
         memberships: crate::into_domain(result.memberships),
     }
 }
-

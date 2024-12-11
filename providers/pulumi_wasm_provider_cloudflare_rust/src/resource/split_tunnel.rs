@@ -57,4 +57,3 @@ pub fn create(name: &str, args: SplitTunnelArgs) -> SplitTunnelResult {
         tunnels: crate::into_domain(result.tunnels),
     }
 }
-

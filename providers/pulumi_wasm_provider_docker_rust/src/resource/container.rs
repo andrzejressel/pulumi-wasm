@@ -531,4 +531,3 @@ pub fn create(name: &str, args: ContainerArgs) -> ContainerResult {
         working_dir: crate::into_domain(result.working_dir),
     }
 }
-

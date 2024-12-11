@@ -103,4 +103,3 @@ pub fn create(name: &str, args: ZeroTrustInfrastructureAccessTargetArgs) -> Zero
         modified_at: crate::into_domain(result.modified_at),
     }
 }
-

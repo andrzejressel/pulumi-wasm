@@ -80,4 +80,3 @@ pub fn create(name: &str, args: ZeroTrustDeviceManagedNetworksArgs) -> ZeroTrust
         type_: crate::into_domain(result.type_),
     }
 }
-

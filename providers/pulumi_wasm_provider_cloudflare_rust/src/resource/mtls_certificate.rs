@@ -100,4 +100,3 @@ pub fn create(name: &str, args: MtlsCertificateArgs) -> MtlsCertificateResult {
         uploaded_on: crate::into_domain(result.uploaded_on),
     }
 }
-

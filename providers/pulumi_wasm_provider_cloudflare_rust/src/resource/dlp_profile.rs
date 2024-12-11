@@ -145,4 +145,3 @@ pub fn create(name: &str, args: DlpProfileArgs) -> DlpProfileResult {
         type_: crate::into_domain(result.type_),
     }
 }
-

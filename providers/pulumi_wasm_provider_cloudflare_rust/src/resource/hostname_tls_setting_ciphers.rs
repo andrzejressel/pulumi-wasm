@@ -76,4 +76,3 @@ pub fn create(name: &str, args: HostnameTlsSettingCiphersArgs) -> HostnameTlsSet
         zone_id: crate::into_domain(result.zone_id),
     }
 }
-

@@ -447,7 +447,7 @@ mod test {
             vec![
                 "Cannot handle resources",
                 "Cannot handle [test_input] type",
-                "Cannot handle type: [Type { type_: Some(Object), description: None, ref_: None, items: None, additional_properties: None, one_of: None, discriminator: None }]",
+                "Cannot handle type: [Type { type_: Some(Object), description: None, ref_: None, items: None, additional_properties: None, one_of: None }]",
                 "Object does not have 'additionalProperties' field",
             ],
             chain
@@ -483,7 +483,7 @@ mod test {
             vec![
                 "Cannot handle resources",
                 "Cannot handle [test_input] type",
-                "Cannot handle type: [Type { type_: Some(Array), description: None, ref_: None, items: None, additional_properties: None, one_of: None, discriminator: None }]",
+                "Cannot handle type: [Type { type_: Some(Array), description: None, ref_: None, items: None, additional_properties: None, one_of: None }]",
                 "Array does not have 'items' field",
             ],
             chain

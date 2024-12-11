@@ -100,4 +100,3 @@ pub fn create(name: &str, args: ZoneSettingsOverrideArgs) -> ZoneSettingsOverrid
         zone_type: crate::into_domain(result.zone_type),
     }
 }
-

@@ -234,4 +234,3 @@ pub fn create(name: &str, args: HealthcheckArgs) -> HealthcheckResult {
         zone_id: crate::into_domain(result.zone_id),
     }
 }
-

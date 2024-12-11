@@ -97,4 +97,3 @@ pub fn create(name: &str, args: NotificationPolicyArgs) -> NotificationPolicyRes
         webhooks_integrations: crate::into_domain(result.webhooks_integrations),
     }
 }
-

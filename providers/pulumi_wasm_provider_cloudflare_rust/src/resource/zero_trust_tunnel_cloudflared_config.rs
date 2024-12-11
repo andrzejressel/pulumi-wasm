@@ -103,4 +103,3 @@ pub fn create(name: &str, args: ZeroTrustTunnelCloudflaredConfigArgs) -> ZeroTru
         tunnel_id: crate::into_domain(result.tunnel_id),
     }
 }
-

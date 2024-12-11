@@ -84,4 +84,3 @@ pub fn create(name: &str, args: WebAnalyticsSiteArgs) -> WebAnalyticsSiteResult 
         zone_tag: crate::into_domain(result.zone_tag),
     }
 }
-

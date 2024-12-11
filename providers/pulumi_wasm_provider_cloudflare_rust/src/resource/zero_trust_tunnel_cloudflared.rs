@@ -80,4 +80,3 @@ pub fn create(name: &str, args: ZeroTrustTunnelCloudflaredArgs) -> ZeroTrustTunn
         tunnel_token: crate::into_domain(result.tunnel_token),
     }
 }
-

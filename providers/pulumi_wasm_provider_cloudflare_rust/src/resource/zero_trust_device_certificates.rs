@@ -59,4 +59,3 @@ pub fn create(name: &str, args: ZeroTrustDeviceCertificatesArgs) -> ZeroTrustDev
         zone_id: crate::into_domain(result.zone_id),
     }
 }
-
