@@ -116,6 +116,7 @@ publish:
     cargo publish -p pulumi_wasm_core --all-features
     cargo publish -p pulumi_wasm_runner_component_creator --all-features
     cargo publish -p pulumi_wasm_runner --all-features
+    cargo publish -p pulumi_wasm_provider_common --all-features
     just publish-providers
 
 # DO NOT EDIT - PUBLISH-PROVIDERS - START
