@@ -131,7 +131,7 @@ jobs:
             target/cargo-timings/cargo-timing-*.html
             pulumi_wasm_generator_lib/tests/**/target/cargo-timings/cargo-timing-*.html
       - name: Release
-        uses: softprops/action-gh-release@v2.2.0
+        uses: softprops/action-gh-release@v2
         with:
           name: ${{ env.VERSION }}
           tag_name: ${{ env.GITHUB_REF_NAME }}
@@ -168,7 +168,7 @@ jobs:
         run: just package-language-plugin "$VERSION"
 
       - name: Release
-        uses: softprops/action-gh-release@v2.2.0
+        uses: softprops/action-gh-release@v2
         with:
           name: ${{ env.VERSION }}
           tag_name: ${{ env.GITHUB_REF_NAME }}
@@ -274,7 +274,7 @@ jobs:
         if: matrix.os != 'windows-2022'
 
       - name: Release
-        uses: softprops/action-gh-release@v2.2.0
+        uses: softprops/action-gh-release@v2
         with:
           name: ${{ env.VERSION }}
           tag_name: ${{ env.GITHUB_REF_NAME }}
