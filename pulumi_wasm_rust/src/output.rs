@@ -3,6 +3,7 @@ use log::info;
 use once_cell::sync::Lazy;
 use pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface;
 use pulumi_wasm_wit::client_bindings::component::pulumi_wasm::stack_interface::add_export;
+use serde::de::DeserializeOwned;
 use serde::Serialize;
 use std::collections::HashMap;
 use std::fmt::Debug;
@@ -37,11 +38,9 @@ impl<T: Serialize> From<T> for Output<Option<T>> {
     }
 }
 
-impl<T: Serialize + Clone + Debug + for<'de> serde::Deserialize<'de>> From<Output<T>>
-    for Output<Option<T>>
-{
+impl<T: Serialize + DeserializeOwned> From<Output<T>> for Output<Option<T>> {
     fn from(output: Output<T>) -> Self {
-        output.map(|v| Some(v.clone()))
+        output.map(|v| Some(v))
     }
 }
 
@@ -115,14 +114,12 @@ impl<T> Output<T> {
     pub fn map<B, F>(&self, f: F) -> Output<B>
     where
         F: Fn(T) -> B + Send + 'static,
-        T: serde::de::DeserializeOwned + Debug,
-        B: Serialize + Debug,
+        T: DeserializeOwned,
+        B: Serialize,
     {
         let f = move |arg: &String| {
             let argument = serde_json::from_str(arg)?;
-            info!("Argument: {:?}", argument);
             let result = f(argument);
-            info!("Result: {:?}", result);
             let result = serde_json::to_string(&result)?;
             Ok(result)
         };

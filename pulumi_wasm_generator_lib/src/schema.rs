@@ -1,7 +1,7 @@
 use crate::model::{ElementId, GlobalType, GlobalTypeProperty, InputProperty, OutputProperty, Ref};
 use anyhow::{anyhow, Context, Result};
 use serde::Deserialize;
-use std::collections::{BTreeMap, BTreeSet, HashMap, HashSet};
+use std::collections::{BTreeMap, BTreeSet, HashSet};
 
 type PulumiMap<T> = BTreeMap<String, T>;
 
@@ -182,7 +182,7 @@ fn create_discriminated_union(one_of: &Vec<OneOfType>) -> Result<crate::model::T
         one_of
             .iter()
             .map(|r| {
-                Ref::new(&*r.ref_)
+                Ref::new(&r.ref_)
                     .context(format!("Cannot convert ref fo type {r:?}"))
                     .unwrap()
             })

@@ -18,10 +18,10 @@ macro_rules! generate_string_const {
         }
 
         impl<'de> serde::Deserialize<'de> for $struct_name {
-            fn deserialize<D: Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
+            fn deserialize<D: serde::Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
                 struct ConstantVisitor;
 
-                impl<'de> Visitor<'de> for ConstantVisitor {
+                impl<'de> serde::de::Visitor<'de> for ConstantVisitor {
                     type Value = $struct_name;
 
                     fn expecting(&self, formatter: &mut std::fmt::Formatter) -> std::fmt::Result {

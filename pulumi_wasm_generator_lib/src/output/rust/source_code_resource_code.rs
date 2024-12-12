@@ -1,5 +1,4 @@
 use crate::model::{Resource, Type};
-use crate::utils::to_lines;
 use convert_case::{Case, Casing};
 use handlebars::Handlebars;
 use serde::Serialize;
@@ -120,7 +119,7 @@ fn create_discriminated_union(name: String, types: &Vec<Type>) -> String {
 
     code.push_str("}\n");
 
-    return code;
+    code
 }
 
 pub(crate) fn generate_source_code(package: &crate::model::Package) -> HashMap<PathBuf, String> {
