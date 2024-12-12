@@ -42,13 +42,6 @@ struct OneOfType {
 }
 
 #[derive(Deserialize, Debug)]
-struct Discriminator {
-    #[serde(rename = "propertyName")]
-    property_name: String,
-    mapping: BTreeMap<String, String>,
-}
-
-#[derive(Deserialize, Debug)]
 struct Property {
     #[serde(flatten)]
     r#type: Type,
@@ -177,7 +170,7 @@ fn new_type_mapper(type_: &Type) -> Result<crate::model::Type> {
     .context(format!("Cannot handle type: [{type_:?}]"))
 }
 
-fn create_discriminated_union(one_of: &Vec<OneOfType>) -> Result<crate::model::Type> {
+fn create_discriminated_union(one_of: &[OneOfType]) -> Result<crate::model::Type> {
     Ok(crate::model::Type::DiscriminatedUnion(
         one_of
             .iter()
