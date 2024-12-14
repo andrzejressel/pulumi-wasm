@@ -36,7 +36,7 @@
 //! ```
 //! 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct WebAnalyticsRuleArgs {
     /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**

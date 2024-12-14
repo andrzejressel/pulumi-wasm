@@ -20,7 +20,7 @@
 //! }
 //! ```
 
-#[derive(bon::Builder)]
+    #[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct GetLoadBalancerPoolsArgs {
     /// The account identifier to target for the datasource lookups.

@@ -6,7 +6,7 @@
 //! # Docker secret cannot be imported as the secret data, once set, is never exposed again.
 //! ```
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct SecretArgs {
     /// Base64-url-safe-encoded secret data

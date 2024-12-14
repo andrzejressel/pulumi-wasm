@@ -27,7 +27,7 @@
 //! }
 //! ```
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct ZoneCacheVariantsArgs {
     /// List of strings with the MIME types of all the variants that should be served for avif.

@@ -1,0 +1,103 @@
+{
+  "name": "typesystem",
+  "version": "1.0.0",
+  "resources": {
+    "typesystem:index:TypesystemServer": {
+      "inputProperties": {
+        "optional_string_input": {
+          "type": "string"
+        },
+        "required_string_input": {
+          "type": "string"
+        },
+        "optional_string_array": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "required_string_array": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "required_union": {
+          "oneOf": [
+            {
+              "type": "object",
+              "$ref": "#/types/typesystem:index:EnumCase1"
+            },
+            {
+              "type": "object",
+              "$ref": "#/types/typesystem:index:EnumCase2"
+            }
+          ]
+        },
+        "optional_union": {
+          "oneOf": [
+            {
+              "type": "object",
+              "$ref": "#/types/typesystem:index:EnumCase1"
+            },
+            {
+              "type": "object",
+              "$ref": "#/types/typesystem:index:EnumCase2"
+            }
+          ]
+        },
+        "propertiesCollection": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "object",
+                "$ref": "#/types/typesystem:index:EnumCase1"
+              },
+              {
+                "type": "object",
+                "$ref": "#/types/typesystem:index:EnumCase2"
+              }
+            ]
+          }
+        }
+      },
+      "type": "object",
+      "requiredInputs": [
+        "required_string_input",
+        "required_string_array",
+        "required_union"
+      ]
+    }
+  },
+  "types": {
+    "typesystem:index:EnumCase1": {
+      "type": "object",
+      "properties": {
+        "field1": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "field1"
+      ]
+    },
+    "typesystem:index:EnumCase2": {
+      "type": "object",
+      "properties": {
+        "field2": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "field2"
+      ]
+    }
+  },
+  "language": {
+    "go": {
+      "importBasePath": "unions-inside-arrays/typesystem",
+      "generics": "side-by-side"
+    }
+  }
+}

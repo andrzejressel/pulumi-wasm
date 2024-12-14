@@ -29,7 +29,7 @@
 //! ```
 //! 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct WorkerRouteArgs {
     /// The [route pattern](https://developers.cloudflare.com/workers/about/routes/) to associate the Worker with.

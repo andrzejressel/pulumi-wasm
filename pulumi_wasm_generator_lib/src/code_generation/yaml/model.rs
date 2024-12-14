@@ -199,6 +199,7 @@ fn remove_option(type_: &Type) -> TypeWithoutOption {
         Type::Object(o) => TypeWithoutOption::Object(Box::new(remove_option(o))),
         Type::Ref(r) => TypeWithoutOption::Ref(r.clone()),
         Type::Option(o) => remove_option(o),
+        Type::DiscriminatedUnion(_) => panic!("Discriminated union are not supported"),
     }
 }
 

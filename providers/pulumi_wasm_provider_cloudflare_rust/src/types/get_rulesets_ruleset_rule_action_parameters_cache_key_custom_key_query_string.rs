@@ -1,4 +1,4 @@
-#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug)]
+#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct GetRulesetsRulesetRuleActionParametersCacheKeyCustomKeyQueryString {
     /// List of query string parameters to exclude from the custom key. Conflicts with "include".

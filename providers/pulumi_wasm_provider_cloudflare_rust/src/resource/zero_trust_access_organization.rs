@@ -1,6 +1,6 @@
 //! A Zero Trust organization defines the user login experience.
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct ZeroTrustAccessOrganizationArgs {
     /// The account identifier to target for the resource. Conflicts with `zone_id`.

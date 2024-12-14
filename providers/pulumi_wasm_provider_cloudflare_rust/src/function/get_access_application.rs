@@ -1,7 +1,7 @@
 //! Use this data source to lookup a single [Access Application](https://developers.cloudflare.com/cloudflare-one/applications/)
 //! 
 
-#[derive(bon::Builder)]
+    #[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct GetAccessApplicationArgs {
     /// The account identifier to target for the resource. Must provide only one of `zone_id`, `account_id`.

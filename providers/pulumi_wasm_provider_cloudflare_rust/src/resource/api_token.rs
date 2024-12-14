@@ -4,7 +4,7 @@
 //! [developer documentation](https://developers.cloudflare.com/api/tokens/create/permissions).
 //! 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct ApiTokenArgs {
     /// Conditions under which the token should be considered valid.

@@ -21,7 +21,7 @@
 //!       availabilityZones: ${az.results}
 //! ```
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct RandomShuffleArgs {
     /// The list of strings to shuffle.

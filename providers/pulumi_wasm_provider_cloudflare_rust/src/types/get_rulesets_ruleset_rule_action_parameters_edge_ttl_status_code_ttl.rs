@@ -1,4 +1,4 @@
-#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug)]
+#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct GetRulesetsRulesetRuleActionParametersEdgeTtlStatusCodeTtl {
     /// Status code for which the edge TTL is applied. Conflicts with "status_code_range".

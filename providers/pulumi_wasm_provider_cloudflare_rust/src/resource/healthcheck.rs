@@ -69,7 +69,7 @@
 //! ```
 //! 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct HealthcheckArgs {
     /// The hostname or IP address of the origin server to run health checks on.

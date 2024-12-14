@@ -1,4 +1,4 @@
-#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug)]
+#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct PageRuleActionsCacheTtlByStatus {
     /// A HTTP code (e.g. `404`) or range of codes (e.g. `400-499`)

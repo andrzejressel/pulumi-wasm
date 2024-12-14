@@ -24,7 +24,7 @@
 //! ```
 //! 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct WaitingRoomSettingsArgs {
     /// Whether to allow verified search engine crawlers to bypass all waiting rooms on this zone. Defaults to `false`.

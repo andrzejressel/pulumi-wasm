@@ -1,6 +1,6 @@
 //! Use this datasource to lookup a tunnel virtual network in an account.
 
-#[derive(bon::Builder)]
+    #[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct GetZeroTrustTunnelVirtualNetworkArgs {
     /// The account identifier to target for the resource.

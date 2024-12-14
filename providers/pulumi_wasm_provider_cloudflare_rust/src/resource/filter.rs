@@ -36,7 +36,7 @@
 //! ```
 //! 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct FilterArgs {
     /// A note that you can use to describe the purpose of the filter.

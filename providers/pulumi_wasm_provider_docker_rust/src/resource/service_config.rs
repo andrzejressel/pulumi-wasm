@@ -39,7 +39,7 @@
 //! ```
 //! 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct ServiceConfigArgs {
     /// Base64-url-safe-encoded config data

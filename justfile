@@ -11,7 +11,7 @@ CARGO_LLVM_COV_VERSION := "0.6.13"
 FORMATTABLE_PROJECTS := "-p pulumi_wasm -p pulumi_wasm_common -p pulumi_wasm_generator -p pulumi_wasm_generator_lib \
 -p pulumi_wasm_runner -p pulumi_wasm_runner_component_creator -p pulumi_wasm_rust -p pulumi_wasm_rust_macro \
 -p pulumi_wasm_example_dependencies -p pulumi_wasm_example_docker -p pulumi_wasm_example_multiple_providers \
--p pulumi_wasm_example_simple"
+-p pulumi_wasm_example_simple -p pulumi_wasm_example_typesystem -p regenerate_providers"
 
 @default: build test
 
@@ -92,7 +92,7 @@ regenerate-provider-list:
     cargo run -p regenerate_providers
 
 # DO NOT EDIT - REGENERATE-PROVIDERS - START
-regenerate-providers:
+regenerate-providers-generated:
     cargo run -p pulumi_wasm_generator -- gen-provider --remove true --schema providers/docker.json --output providers/pulumi_wasm_provider_docker
     cargo run -p pulumi_wasm_generator -- gen-rust     --remove true --schema providers/docker.json --output providers/pulumi_wasm_provider_docker_rust
     cargo run -p pulumi_wasm_generator -- gen-provider --remove true --schema providers/random.json --output providers/pulumi_wasm_provider_random
@@ -100,6 +100,10 @@ regenerate-providers:
     cargo run -p pulumi_wasm_generator -- gen-provider --remove true --schema providers/cloudflare.json --output providers/pulumi_wasm_provider_cloudflare
     cargo run -p pulumi_wasm_generator -- gen-rust     --remove true --schema providers/cloudflare.json --output providers/pulumi_wasm_provider_cloudflare_rust
 # DO NOT EDIT - REGENERATE-PROVIDERS - END
+
+regenerate-providers:
+    just regenerate-providers-generated
+    cargo run -p pulumi_wasm_generator -- gen-rust --remove true --schema providers/typesystem.json --output providers/pulumi_wasm_provider_typesystem_rust
 
 publish:
     cargo publish -p pulumi_wasm_wit --all-features
@@ -112,6 +116,7 @@ publish:
     cargo publish -p pulumi_wasm_core --all-features
     cargo publish -p pulumi_wasm_runner_component_creator --all-features
     cargo publish -p pulumi_wasm_runner --all-features
+    cargo publish -p pulumi_wasm_provider_common --all-features
     just publish-providers
 
 # DO NOT EDIT - PUBLISH-PROVIDERS - START
