@@ -25,7 +25,7 @@
 //! ```
 //! 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct TotalTlsArgs {
     /// The Certificate Authority that Total TLS certificates will be issued through. Available values: `google`, `lets_encrypt`.

@@ -29,7 +29,7 @@
 //! ```
 //! 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct WaitingRoomEventArgs {
     /// This is a templated html file that will be rendered at the edge.

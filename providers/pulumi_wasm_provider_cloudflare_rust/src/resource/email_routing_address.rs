@@ -24,7 +24,7 @@
 //! ```
 //! 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct EmailRoutingAddressArgs {
     /// The account identifier to target for the resource.

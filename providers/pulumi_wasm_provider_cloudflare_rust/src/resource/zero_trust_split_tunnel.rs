@@ -1,7 +1,7 @@
 //! Provides a Cloudflare Split Tunnel resource. Split tunnels are used to either
 //! include or exclude lists of routes from the WARP client's tunnel.
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct ZeroTrustSplitTunnelArgs {
     /// The account identifier to target for the resource.

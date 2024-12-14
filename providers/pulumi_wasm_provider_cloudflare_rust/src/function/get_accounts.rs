@@ -13,7 +13,7 @@
 //! }
 //! ```
 
-#[derive(bon::Builder)]
+    #[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct GetAccountsArgs {
     /// The account name to target for the resource.

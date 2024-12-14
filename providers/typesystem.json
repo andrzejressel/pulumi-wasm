@@ -52,20 +52,13 @@
             "oneOf": [
               {
                 "type": "object",
-                "$ref": "#/types/typesystem:index:ServerPropertiesForReplica"
+                "$ref": "#/types/typesystem:index:EnumCase1"
               },
               {
                 "type": "object",
-                "$ref": "#/types/typesystem:index:ServerPropertiesForRestore"
+                "$ref": "#/types/typesystem:index:EnumCase2"
               }
-            ],
-            "discriminator": {
-              "propertyName": "createMode",
-              "mapping": {
-                "PointInTimeRestore": "#/types/typesystem:index:ServerPropertiesForRestore",
-                "Replica": "#/types/typesystem:index:ServerPropertiesForReplica"
-              }
-            }
+            ]
           }
         }
       },
@@ -79,40 +72,25 @@
   },
   "types": {
     "typesystem:index:EnumCase1": {
-      "type": "object"
-    },
-    "typesystem:index:EnumCase2": {
-      "type": "object"
-    },
-    "typesystem:index:ServerPropertiesForReplica": {
+      "type": "object",
       "properties": {
-        "createMode": {
-          "type": "string",
-          "const": "Replica"
-        },
-        "version": {
+        "field1": {
           "type": "string"
         }
       },
-      "type": "object",
       "required": [
-        "createMode"
+        "field1"
       ]
     },
-    "typesystem:index:ServerPropertiesForRestore": {
+    "typesystem:index:EnumCase2": {
+      "type": "object",
       "properties": {
-        "createMode": {
-          "type": "string",
-          "const": "PointInTimeRestore"
-        },
-        "restorePointInTime": {
+        "field2": {
           "type": "string"
         }
       },
-      "type": "object",
       "required": [
-        "createMode",
-        "restorePointInTime"
+        "field2"
       ]
     }
   },

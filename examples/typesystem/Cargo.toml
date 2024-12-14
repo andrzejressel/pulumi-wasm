@@ -9,7 +9,7 @@ edition.workspace = true
 crate-type = ["cdylib"]
 
 [dependencies]
-anyhow.workspace = true
 pulumi_wasm_provider_common.workspace = true
 pulumi_wasm_rust.workspace = true
 pulumi_wasm_typesystem.workspace = true
+serde_json.workspace = true

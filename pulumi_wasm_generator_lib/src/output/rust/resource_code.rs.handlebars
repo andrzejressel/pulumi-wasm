@@ -2,7 +2,7 @@
 //! {{&this}}
 {{/each}}
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct {{interface.struct_name}}Args {
 {{#each interface.input_properties}}

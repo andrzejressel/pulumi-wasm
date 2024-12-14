@@ -23,7 +23,7 @@
 //! ```
 //! 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct CustomSslArgs {
     /// The certificate associated parameters. **Modifying this attribute will force creation of a new resource.**

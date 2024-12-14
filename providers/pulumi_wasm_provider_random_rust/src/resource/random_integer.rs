@@ -35,7 +35,7 @@
 //! 
 //!  
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct RandomIntegerArgs {
     /// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.

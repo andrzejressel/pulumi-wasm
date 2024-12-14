@@ -1,6 +1,6 @@
 //! The [Risk Behavior](https://developers.cloudflare.com/cloudflare-one/insights/risk-score/) resource allows you to configure Cloudflare Risk Behaviors for an account.
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct ZeroTrustRiskBehaviorArgs {
     /// The account identifier to target for the resource.

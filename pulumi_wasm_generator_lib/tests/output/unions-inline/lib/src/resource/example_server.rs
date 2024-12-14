@@ -1,5 +1,5 @@
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct ExampleServerArgs {
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]

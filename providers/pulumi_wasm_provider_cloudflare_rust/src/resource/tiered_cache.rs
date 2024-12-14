@@ -18,7 +18,7 @@
 //! }
 //! ```
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct TieredCacheArgs {
     /// The typed of tiered cache to utilize on the zone. Available values: `generic`, `smart`, `off`.

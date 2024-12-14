@@ -12,7 +12,7 @@
 //!       enabled: 'true'
 //! ```
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct EmailRoutingSettingsArgs {
     /// State of the zone settings for Email Routing. **Modifying this attribute will force creation of a new resource.**

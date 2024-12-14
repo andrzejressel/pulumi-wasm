@@ -20,7 +20,7 @@
 //!           Return: result
 //! ```
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct ApiShieldSchemaArgs {
     /// Kind of schema. Defaults to `openapi_v3`. **Modifying this attribute will force creation of a new resource.**

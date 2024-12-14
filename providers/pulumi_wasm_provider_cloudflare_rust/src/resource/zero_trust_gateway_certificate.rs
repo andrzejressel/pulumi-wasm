@@ -1,7 +1,7 @@
 //! Provides a Cloudflare Teams Gateway Certificate resource. A Teams Certificate can
 //! be specified for Gateway TLS interception and block pages.
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct ZeroTrustGatewayCertificateArgs {
     /// The account identifier to target for the resource.

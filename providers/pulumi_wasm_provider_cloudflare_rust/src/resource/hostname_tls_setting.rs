@@ -26,7 +26,7 @@
 //! ```
 //! 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct HostnameTlsSettingArgs {
     /// Hostname that belongs to this zone name. **Modifying this attribute will force creation of a new resource.**

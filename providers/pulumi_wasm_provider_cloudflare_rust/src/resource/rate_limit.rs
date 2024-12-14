@@ -69,7 +69,7 @@
 //! ```
 //! 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct RateLimitArgs {
     /// The action to be performed when the threshold of matched traffic within the period defined is exceeded.

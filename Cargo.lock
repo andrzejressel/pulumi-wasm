@@ -2321,10 +2321,10 @@ dependencies = [
 name = "pulumi_wasm_example_typesystem"
 version = "0.0.0-DEV"
 dependencies = [
- "anyhow",
  "pulumi_wasm_provider_common",
  "pulumi_wasm_rust",
  "pulumi_wasm_typesystem",
+ "serde_json",
 ]
 
 [[package]]

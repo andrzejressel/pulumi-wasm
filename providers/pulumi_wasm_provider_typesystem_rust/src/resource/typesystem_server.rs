@@ -1,5 +1,5 @@
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct typesystemServerArgs {
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
@@ -9,7 +9,7 @@ pub struct typesystemServerArgs {
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub optional_union: pulumi_wasm_rust::Output<Option<pulumi_wasm_provider_common::OneOf2<crate::types::EnumCase1, crate::types::EnumCase2>>>,
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
-    pub properties_collection: pulumi_wasm_rust::Output<Option<Vec<pulumi_wasm_provider_common::OneOf2<crate::types::ServerPropertiesForReplica, crate::types::ServerPropertiesForRestore>>>>,
+    pub properties_collection: pulumi_wasm_rust::Output<Option<Vec<pulumi_wasm_provider_common::OneOf2<crate::types::EnumCase1, crate::types::EnumCase2>>>>,
     #[builder(into)]
     pub required_string_array: pulumi_wasm_rust::Output<Vec<String>>,
     #[builder(into)]

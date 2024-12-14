@@ -1,6 +1,6 @@
 //! Use this data source to lookup a single [Access Identity Provider](https://developers.cloudflare.com/cloudflare-one/identity/idp-integration) by name.
 
-#[derive(bon::Builder)]
+    #[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct GetZeroTrustAccessIdentityProviderArgs {
     /// The account identifier to target for the resource. Must provide only one of `zone_id`, `account_id`.

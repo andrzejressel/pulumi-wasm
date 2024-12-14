@@ -20,7 +20,7 @@
 //! }
 //! ```
 
-#[derive(bon::Builder)]
+    #[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct GetRegistryImageArgs {
     /// If `true`, the verification of TLS certificates of the server/registry is disabled. Defaults to `false`
