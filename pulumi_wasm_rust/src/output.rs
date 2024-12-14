@@ -1,12 +1,10 @@
 use anyhow::Error;
-use log::info;
 use once_cell::sync::Lazy;
 use pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface;
 use pulumi_wasm_wit::client_bindings::component::pulumi_wasm::stack_interface::add_export;
 use serde::de::DeserializeOwned;
 use serde::Serialize;
 use std::collections::HashMap;
-use std::fmt::Debug;
 use std::marker::PhantomData;
 use std::mem::ManuallyDrop;
 use std::ops::Deref;

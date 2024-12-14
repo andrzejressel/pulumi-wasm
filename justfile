@@ -11,7 +11,7 @@ CARGO_LLVM_COV_VERSION := "0.6.13"
 FORMATTABLE_PROJECTS := "-p pulumi_wasm -p pulumi_wasm_common -p pulumi_wasm_generator -p pulumi_wasm_generator_lib \
 -p pulumi_wasm_runner -p pulumi_wasm_runner_component_creator -p pulumi_wasm_rust -p pulumi_wasm_rust_macro \
 -p pulumi_wasm_example_dependencies -p pulumi_wasm_example_docker -p pulumi_wasm_example_multiple_providers \
--p pulumi_wasm_example_simple"
+-p pulumi_wasm_example_simple -p pulumi_wasm_example_typesystem -p regenerate_providers"
 
 @default: build test
 

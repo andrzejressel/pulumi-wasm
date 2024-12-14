@@ -8,13 +8,17 @@ mod tests {
 
     #[test]
     fn test_compilation() {
-        let _ = catch_unwind(|| compilation_test());
+        let _ = catch_unwind(compilation_test);
     }
-    
+
     #[test]
     fn test_deserialization() {
-        let case1 = EnumCase1::builder().field_1("value1".to_string()).build_struct();
-        let case2 = EnumCase2::builder().field_2("value2".to_string()).build_struct();
+        let case1 = EnumCase1::builder()
+            .field_1("value1".to_string())
+            .build_struct();
+        let case2 = EnumCase2::builder()
+            .field_2("value2".to_string())
+            .build_struct();
 
         let case1_json = serde_json::to_string(&case1).unwrap();
         let case2_json = serde_json::to_string(&case2).unwrap();
@@ -29,7 +33,6 @@ mod tests {
     }
 
     fn compilation_test() {
-
         // String
         let output = Output::new(&"Hello, World!".to_string());
 
@@ -64,21 +67,31 @@ mod tests {
         // let _ = typesystemServerArgs::builder().optional_string_array([string_output]);
 
         // Union
-        let case1 = EnumCase1::builder().field_1("value1".to_string()).build_struct();
-        let case2 = EnumCase2::builder().field_2("value2".to_string()).build_struct();
+        let case1 = EnumCase1::builder()
+            .field_1("value1".to_string())
+            .build_struct();
+        let case2 = EnumCase2::builder()
+            .field_2("value2".to_string())
+            .build_struct();
         let enum_case1_output = Output::new(&case1);
         let enum_case2_output = Output::new(&case2);
         let _ = typesystemServerArgs::builder().required_union(OneOf2::left(case1));
         let _ = typesystemServerArgs::builder().required_union(OneOf2::right(case2));
-        let _ = typesystemServerArgs::builder().required_union(enum_case1_output.map(|c| OneOf2::left(c)));
-        let _ = typesystemServerArgs::builder().required_union(enum_case2_output.map(|c| OneOf2::right(c)));
+        let _ = typesystemServerArgs::builder().required_union(enum_case1_output.map(OneOf2::left));
+        let _ =
+            typesystemServerArgs::builder().required_union(enum_case2_output.map(OneOf2::right));
 
-        let case1 = EnumCase1::builder().field_1("value1".to_string()).build_struct();
-        let case2 = EnumCase2::builder().field_2("value2".to_string()).build_struct();
+        let case1 = EnumCase1::builder()
+            .field_1("value1".to_string())
+            .build_struct();
+        let case2 = EnumCase2::builder()
+            .field_2("value2".to_string())
+            .build_struct();
         let _ = typesystemServerArgs::builder().optional_union(OneOf2::left(case1));
         let _ = typesystemServerArgs::builder().optional_union(OneOf2::right(case2));
-        let _ = typesystemServerArgs::builder().optional_union(enum_case1_output.map(|c| OneOf2::left(c)));
-        let _ = typesystemServerArgs::builder().optional_union(enum_case2_output.map(|c| OneOf2::right(c)));
+        let _ = typesystemServerArgs::builder().optional_union(enum_case1_output.map(OneOf2::left));
+        let _ =
+            typesystemServerArgs::builder().optional_union(enum_case2_output.map(OneOf2::right));
 
         // // Other types
         // let _ = typesystemServerArgs::builder()
