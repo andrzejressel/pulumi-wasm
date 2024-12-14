@@ -2,7 +2,7 @@
   "name": "typesystem",
   "version": "1.0.0",
   "resources": {
-    "typesystem:index:typesystemServer": {
+    "typesystem:index:TypesystemServer": {
       "inputProperties": {
         "optional_string_input": {
           "type": "string"

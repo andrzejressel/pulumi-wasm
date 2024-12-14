@@ -2,7 +2,7 @@
 mod tests {
     use pulumi_wasm_provider_common::OneOf2;
     use pulumi_wasm_rust::Output;
-    use pulumi_wasm_typesystem::typesystem_server::typesystemServerArgs;
+    use pulumi_wasm_typesystem::typesystem_server::TypesystemServerArgs;
     use pulumi_wasm_typesystem::{EnumCase1, EnumCase2};
     use std::panic::catch_unwind;
 
@@ -36,35 +36,35 @@ mod tests {
         // String
         let output = Output::new(&"Hello, World!".to_string());
 
-        let _ = typesystemServerArgs::builder().required_string_input("&str");
-        let _ = typesystemServerArgs::builder().required_string_input("String".to_string());
-        let _ = typesystemServerArgs::builder().required_string_input(output);
+        let _ = TypesystemServerArgs::builder().required_string_input("&str");
+        let _ = TypesystemServerArgs::builder().required_string_input("String".to_string());
+        let _ = TypesystemServerArgs::builder().required_string_input(output);
 
-        let _ = typesystemServerArgs::builder().optional_string_input("&str");
-        let _ = typesystemServerArgs::builder().optional_string_input("String".to_string());
-        let _ = typesystemServerArgs::builder().optional_string_input(output);
+        let _ = TypesystemServerArgs::builder().optional_string_input("&str");
+        let _ = TypesystemServerArgs::builder().optional_string_input("String".to_string());
+        let _ = TypesystemServerArgs::builder().optional_string_input(output);
 
         // Vec<String>
-        let _ = typesystemServerArgs::builder().required_string_array(vec!["&str"]);
-        let _ = typesystemServerArgs::builder().required_string_array(vec!["String".to_string()]);
-        let _ = typesystemServerArgs::builder().required_string_array(output.map(|s| vec![s]));
-        // let _ = typesystemServerArgs::builder().required_string_array(vec![string_output]);
+        let _ = TypesystemServerArgs::builder().required_string_array(vec!["&str"]);
+        let _ = TypesystemServerArgs::builder().required_string_array(vec!["String".to_string()]);
+        let _ = TypesystemServerArgs::builder().required_string_array(output.map(|s| vec![s]));
+        // let _ = TypesystemServerArgs::builder().required_string_array(vec![string_output]);
 
-        let _ = typesystemServerArgs::builder().optional_string_array(vec!["&str"]);
-        let _ = typesystemServerArgs::builder().optional_string_array(vec!["String".to_string()]);
-        let _ = typesystemServerArgs::builder().optional_string_array(output.map(|s| vec![s]));
-        // let _ = typesystemServerArgs::builder().optional_string_array(vec![string_output]);
+        let _ = TypesystemServerArgs::builder().optional_string_array(vec!["&str"]);
+        let _ = TypesystemServerArgs::builder().optional_string_array(vec!["String".to_string()]);
+        let _ = TypesystemServerArgs::builder().optional_string_array(output.map(|s| vec![s]));
+        // let _ = TypesystemServerArgs::builder().optional_string_array(vec![string_output]);
 
         // Vec<String> with array
-        let _ = typesystemServerArgs::builder().required_string_array(["&str"]);
-        let _ = typesystemServerArgs::builder().required_string_array(["String".to_string()]);
-        let _ = typesystemServerArgs::builder().required_string_array(output.map(|s| vec![s]));
-        // let _ = typesystemServerArgs::builder().required_string_array([string_output]);
+        let _ = TypesystemServerArgs::builder().required_string_array(["&str"]);
+        let _ = TypesystemServerArgs::builder().required_string_array(["String".to_string()]);
+        let _ = TypesystemServerArgs::builder().required_string_array(output.map(|s| vec![s]));
+        // let _ = TypesystemServerArgs::builder().required_string_array([string_output]);
 
-        let _ = typesystemServerArgs::builder().optional_string_array(["&str"]);
-        let _ = typesystemServerArgs::builder().optional_string_array(["String".to_string()]);
-        let _ = typesystemServerArgs::builder().optional_string_array(output.map(|s| vec![s]));
-        // let _ = typesystemServerArgs::builder().optional_string_array([string_output]);
+        let _ = TypesystemServerArgs::builder().optional_string_array(["&str"]);
+        let _ = TypesystemServerArgs::builder().optional_string_array(["String".to_string()]);
+        let _ = TypesystemServerArgs::builder().optional_string_array(output.map(|s| vec![s]));
+        // let _ = TypesystemServerArgs::builder().optional_string_array([string_output]);
 
         // Union
         let case1 = EnumCase1::builder()
@@ -75,11 +75,11 @@ mod tests {
             .build_struct();
         let enum_case1_output = Output::new(&case1);
         let enum_case2_output = Output::new(&case2);
-        let _ = typesystemServerArgs::builder().required_union(OneOf2::left(case1));
-        let _ = typesystemServerArgs::builder().required_union(OneOf2::right(case2));
-        let _ = typesystemServerArgs::builder().required_union(enum_case1_output.map(OneOf2::left));
+        let _ = TypesystemServerArgs::builder().required_union(OneOf2::left(case1));
+        let _ = TypesystemServerArgs::builder().required_union(OneOf2::right(case2));
+        let _ = TypesystemServerArgs::builder().required_union(enum_case1_output.map(OneOf2::left));
         let _ =
-            typesystemServerArgs::builder().required_union(enum_case2_output.map(OneOf2::right));
+            TypesystemServerArgs::builder().required_union(enum_case2_output.map(OneOf2::right));
 
         let case1 = EnumCase1::builder()
             .field_1("value1".to_string())
@@ -87,16 +87,16 @@ mod tests {
         let case2 = EnumCase2::builder()
             .field_2("value2".to_string())
             .build_struct();
-        let _ = typesystemServerArgs::builder().optional_union(OneOf2::left(case1));
-        let _ = typesystemServerArgs::builder().optional_union(OneOf2::right(case2));
-        let _ = typesystemServerArgs::builder().optional_union(enum_case1_output.map(OneOf2::left));
+        let _ = TypesystemServerArgs::builder().optional_union(OneOf2::left(case1));
+        let _ = TypesystemServerArgs::builder().optional_union(OneOf2::right(case2));
+        let _ = TypesystemServerArgs::builder().optional_union(enum_case1_output.map(OneOf2::left));
         let _ =
-            typesystemServerArgs::builder().optional_union(enum_case2_output.map(OneOf2::right));
+            TypesystemServerArgs::builder().optional_union(enum_case2_output.map(OneOf2::right));
 
         // // Other types
-        // let _ = typesystemServerArgs::builder()
+        // let _ = TypesystemServerArgs::builder()
         //     .required_string_input(42);
-        // let _ = typesystemServerArgs::builder()
+        // let _ = TypesystemServerArgs::builder()
         //     .required_string_input(true);
     }
 }

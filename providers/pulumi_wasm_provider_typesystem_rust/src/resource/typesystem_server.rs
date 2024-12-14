@@ -1,7 +1,7 @@
 
 #[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
-pub struct typesystemServerArgs {
+pub struct TypesystemServerArgs {
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub optional_string_array: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
@@ -18,13 +18,13 @@ pub struct typesystemServerArgs {
     pub required_union: pulumi_wasm_rust::Output<pulumi_wasm_provider_common::OneOf2<crate::types::EnumCase1, crate::types::EnumCase2>>,
 }
 
-pub struct typesystemServerResult {
+pub struct TypesystemServerResult {
 }
 
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: typesystemServerArgs) -> typesystemServerResult {
+pub fn create(name: &str, args: TypesystemServerArgs) -> TypesystemServerResult {
 
     let result = crate::bindings::pulumi::typesystem::typesystem_server::invoke(name, &crate::bindings::pulumi::typesystem::typesystem_server::Args {
         optional_string_array: &args.optional_string_array.get_inner(),
@@ -36,6 +36,6 @@ pub fn create(name: &str, args: typesystemServerArgs) -> typesystemServerResult 
         required_union: &args.required_union.get_inner(),
     });
 
-    typesystemServerResult {
+    TypesystemServerResult {
     }
 }
