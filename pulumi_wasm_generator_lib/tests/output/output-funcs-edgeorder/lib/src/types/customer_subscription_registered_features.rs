@@ -4,11 +4,11 @@
 #[builder(finish_fn = build_struct)]
 pub struct CustomerSubscriptionRegisteredFeatures {
     /// Name of subscription registered feature
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "name")]
     pub r#name: Box<Option<String>>,
     /// State of subscription registered feature
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "state")]
     pub r#state: Box<Option<String>>,
 }

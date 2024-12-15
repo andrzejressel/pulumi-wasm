@@ -29,7 +29,7 @@
 #[builder(finish_fn = build_struct)]
 pub struct ZoneDnssecArgs {
     /// Zone DNSSEC updated time.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub modified_on: pulumi_wasm_rust::Output<Option<String>>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
     #[builder(into)]

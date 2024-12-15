@@ -8,10 +8,10 @@ pub struct ListConfigurationsArgs {
     #[builder(into)]
     pub configuration_filters: pulumi_wasm_rust::Output<Vec<crate::types::ConfigurationFilters>>,
     /// Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub customer_subscription_details: pulumi_wasm_rust::Output<Option<crate::types::CustomerSubscriptionDetails>>,
     /// $skipToken is supported on list of configurations, which provides the next page in the list of configurations.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub skip_token: pulumi_wasm_rust::Output<Option<String>>,
 }
 

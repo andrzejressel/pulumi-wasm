@@ -77,7 +77,7 @@
 #[builder(finish_fn = build_struct)]
 pub struct AccessRuleArgs {
     /// The account identifier to target for the resource. Must provide only one of `account_id`, `zone_id`. **Modifying this attribute will force creation of a new resource.**
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub account_id: pulumi_wasm_rust::Output<Option<String>>,
     /// Rule configuration to apply to a matched request. **Modifying this attribute will force creation of a new resource.**
     #[builder(into)]
@@ -86,10 +86,10 @@ pub struct AccessRuleArgs {
     #[builder(into)]
     pub mode: pulumi_wasm_rust::Output<String>,
     /// A personal note about the rule. Typically used as a reminder or explanation for the rule.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub notes: pulumi_wasm_rust::Output<Option<String>>,
     /// The zone identifier to target for the resource. Must provide only one of `account_id`, `zone_id`. **Modifying this attribute will force creation of a new resource.**
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 

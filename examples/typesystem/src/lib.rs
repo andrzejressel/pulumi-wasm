@@ -3,7 +3,9 @@ mod tests {
     use pulumi_wasm_provider_common::OneOf2;
     use pulumi_wasm_rust::Output;
     use pulumi_wasm_typesystem::typesystem_server::TypesystemServerArgs;
-    use pulumi_wasm_typesystem::{MyEnum, UnionCase1, UnionCase2, UnionCaseWithConst1, UnionCaseWithConst2};
+    use pulumi_wasm_typesystem::{
+        MyEnum, UnionCase1, UnionCase2, UnionCaseWithConst1, UnionCaseWithConst2,
+    };
     use std::panic::catch_unwind;
 
     #[test]
@@ -49,17 +51,28 @@ mod tests {
 
     #[test]
     fn test_case_deserialization_with_oneof2() {
-        let oneof: OneOf2<UnionCaseWithConst1, UnionCaseWithConst2> = OneOf2::Left(
+        let oneof1: OneOf2<UnionCaseWithConst1, UnionCaseWithConst2> = OneOf2::Left(
             UnionCaseWithConst1::builder()
-               .field_1("value1".to_string())
-               .build_struct(),
+                .field_1("value1".to_string())
+                .build_struct(),
+        );
+        let oneof2: OneOf2<UnionCaseWithConst1, UnionCaseWithConst2> = OneOf2::Right(
+            UnionCaseWithConst2::builder()
+                .field_2("value2".to_string())
+                .build_struct(),
         );
 
-        let json = serde_json::to_string(&oneof).unwrap();
-        assert_eq!(json, r#"{"field1":"value1"}"#);
+        let json1 = serde_json::to_string(&oneof1).unwrap();
+        let json2 = serde_json::to_string(&oneof2).unwrap();
+        assert_eq!(json1, r#"{"field":"1","field1":"value1"}"#);
+        assert_eq!(json2, r#"{"field":"2","field2":"value2"}"#);
 
-        let deserialized: OneOf2<UnionCaseWithConst1, UnionCaseWithConst2> = serde_json::from_str(&json).unwrap();
-        assert_eq!(deserialized, oneof);
+        let deserialized1: OneOf2<UnionCaseWithConst1, UnionCaseWithConst2> =
+            serde_json::from_str(&json1).unwrap();
+        let deserialized2: OneOf2<UnionCaseWithConst1, UnionCaseWithConst2> =
+            serde_json::from_str(&json2).unwrap();
+        assert_eq!(deserialized1, oneof1);
+        assert_eq!(deserialized2, oneof2);
     }
 
     fn compilation_test() {

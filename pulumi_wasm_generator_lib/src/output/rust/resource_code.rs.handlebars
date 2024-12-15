@@ -9,8 +9,8 @@ pub struct {{interface.struct_name}}Args {
     {{#each description_lines}}
     /// {{&this}}
     {{/each}}
-    {{#if optional}}
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    {{#if default}}
+    #[builder(into, default)]
     {{else}}
     #[builder(into)]
     {{/if}}

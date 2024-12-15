@@ -25,7 +25,7 @@ pub struct ApiShieldSchemaValidationSettingsArgs {
     #[builder(into)]
     pub validation_default_mitigation_action: pulumi_wasm_rust::Output<String>,
     /// When set, this overrides both zone level and operation level mitigation actions.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub validation_override_mitigation_action: pulumi_wasm_rust::Output<Option<String>>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
     #[builder(into)]

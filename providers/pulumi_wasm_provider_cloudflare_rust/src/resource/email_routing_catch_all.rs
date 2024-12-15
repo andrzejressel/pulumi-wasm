@@ -36,7 +36,7 @@ pub struct EmailRoutingCatchAllArgs {
     #[builder(into)]
     pub actions: pulumi_wasm_rust::Output<Vec<crate::types::EmailRoutingCatchAllAction>>,
     /// Routing rule status.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
     /// Matching patterns to forward to your actions.
     #[builder(into)]

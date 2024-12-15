@@ -36,12 +36,12 @@ pub struct ZoneLockdownArgs {
     #[builder(into)]
     pub configurations: pulumi_wasm_rust::Output<Vec<crate::types::ZoneLockdownConfiguration>>,
     /// A description about the lockdown entry. Typically used as a reminder or explanation for the lockdown.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub description: pulumi_wasm_rust::Output<Option<String>>,
     /// Boolean of whether this zone lockdown is currently paused. Defaults to `false`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub paused: pulumi_wasm_rust::Output<Option<bool>>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub priority: pulumi_wasm_rust::Output<Option<i32>>,
     /// A list of simple wildcard patterns to match requests against. The order of the urls is unimportant.
     #[builder(into)]

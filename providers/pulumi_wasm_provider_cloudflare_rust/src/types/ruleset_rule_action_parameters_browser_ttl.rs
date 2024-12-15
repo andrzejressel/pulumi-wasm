@@ -2,7 +2,7 @@
 #[builder(finish_fn = build_struct)]
 pub struct RulesetRuleActionParametersBrowserTtl {
     /// Default browser TTL. This value is required when override_origin is set
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "default")]
     pub r#default: Box<Option<i32>>,
     /// Mode of the browser TTL. Available values: `override_origin`, `respect_origin`, `bypass`

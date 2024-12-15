@@ -36,16 +36,16 @@
 #[builder(finish_fn = build_struct)]
 pub struct StaticRouteArgs {
     /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub account_id: pulumi_wasm_rust::Output<Option<String>>,
     /// List of Cloudflare colocation regions for this static route.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub colo_names: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// List of Cloudflare colocation names for this static route.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub colo_regions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// Description of the static route.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub description: pulumi_wasm_rust::Output<Option<String>>,
     /// The nexthop IP address where traffic will be routed to.
     #[builder(into)]
@@ -57,7 +57,7 @@ pub struct StaticRouteArgs {
     #[builder(into)]
     pub priority: pulumi_wasm_rust::Output<i32>,
     /// The optional weight for ECMP routes. **Modifying this attribute will force creation of a new resource.**
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub weight: pulumi_wasm_rust::Output<Option<i32>>,
 }
 

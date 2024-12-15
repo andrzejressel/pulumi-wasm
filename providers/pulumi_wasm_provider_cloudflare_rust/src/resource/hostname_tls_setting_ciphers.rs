@@ -32,7 +32,7 @@ pub struct HostnameTlsSettingCiphersArgs {
     #[builder(into)]
     pub hostname: pulumi_wasm_rust::Output<String>,
     /// Ports to use within the IP rule.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub ports: pulumi_wasm_rust::Output<Option<Vec<i32>>>,
     /// Ciphers suites value.
     #[builder(into)]

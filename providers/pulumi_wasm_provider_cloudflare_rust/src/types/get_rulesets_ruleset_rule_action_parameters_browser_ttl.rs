@@ -2,7 +2,7 @@
 #[builder(finish_fn = build_struct)]
 pub struct GetRulesetsRulesetRuleActionParametersBrowserTtl {
     /// Default browser TTL.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "default")]
     pub r#default: Box<Option<i32>>,
     /// Mode of the browser TTL.

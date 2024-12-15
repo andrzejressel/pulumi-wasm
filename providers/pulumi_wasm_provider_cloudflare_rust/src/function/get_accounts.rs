@@ -17,7 +17,7 @@
 #[builder(finish_fn = build_struct)]
 pub struct GetAccountsArgs {
     /// The account name to target for the resource.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub name: pulumi_wasm_rust::Output<Option<String>>,
 }
 

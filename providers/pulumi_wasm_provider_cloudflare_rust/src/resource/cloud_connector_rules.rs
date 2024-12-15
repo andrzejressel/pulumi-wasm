@@ -21,7 +21,7 @@
 #[builder(finish_fn = build_struct)]
 pub struct CloudConnectorRulesArgs {
     /// List of Cloud Connector Rules
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub rules: pulumi_wasm_rust::Output<Option<Vec<crate::types::CloudConnectorRulesRule>>>,
     /// The zone identifier to target for the resource.
     #[builder(into)]

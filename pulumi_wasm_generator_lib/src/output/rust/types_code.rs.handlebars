@@ -9,8 +9,8 @@ pub struct {{type.struct_name}} {
     {{#each field.description_lines}}
     /// {{&this}}
     {{/each}}
-    {{#if optional}}
-    #[builder(into, default = Box::new(None))]
+    {{#if default}}
+    #[builder(into, default)]
     {{else}}
     #[builder(into)]
     {{/if}}

@@ -3,30 +3,30 @@
 #[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct GetLogsArgs {
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub details: pulumi_wasm_rust::Output<Option<bool>>,
     /// Discard headers that docker appends to each log entry
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub discard_headers: pulumi_wasm_rust::Output<Option<bool>>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub follow: pulumi_wasm_rust::Output<Option<bool>>,
     /// If true populate computed value `logs_list_string`
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub logs_list_string_enabled: pulumi_wasm_rust::Output<Option<bool>>,
     /// The name of the Docker Container
     #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub show_stderr: pulumi_wasm_rust::Output<Option<bool>>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub show_stdout: pulumi_wasm_rust::Output<Option<bool>>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub since: pulumi_wasm_rust::Output<Option<String>>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub tail: pulumi_wasm_rust::Output<Option<String>>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub timestamps: pulumi_wasm_rust::Output<Option<bool>>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub until: pulumi_wasm_rust::Output<Option<String>>,
 }
 

@@ -6,7 +6,7 @@ pub struct ZeroTrustDlpProfileEntryPattern {
     #[serde(rename = "regex")]
     pub r#regex: Box<String>,
     /// The validation algorithm to apply with this pattern.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "validation")]
     pub r#validation: Box<Option<String>>,
 }

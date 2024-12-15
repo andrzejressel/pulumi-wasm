@@ -5,16 +5,16 @@
 #[builder(finish_fn = build_struct)]
 pub struct ListProductFamiliesArgs {
     /// Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub customer_subscription_details: pulumi_wasm_rust::Output<Option<crate::types::CustomerSubscriptionDetails>>,
     /// $expand is supported on configurations parameter for product, which provides details on the configurations for the product.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub expand: pulumi_wasm_rust::Output<Option<String>>,
     /// Dictionary of filterable properties on product family.
     #[builder(into)]
     pub filterable_properties: pulumi_wasm_rust::Output<std::collections::HashMap<String, Vec<crate::types::FilterableProperty>>>,
     /// $skipToken is supported on list of product families, which provides the next page in the list of product families.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub skip_token: pulumi_wasm_rust::Output<Option<String>>,
 }
 

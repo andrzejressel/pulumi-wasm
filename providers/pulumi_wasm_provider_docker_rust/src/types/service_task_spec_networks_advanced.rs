@@ -2,11 +2,11 @@
 #[builder(finish_fn = build_struct)]
 pub struct ServiceTaskSpecNetworksAdvanced {
     /// The network aliases of the container in the specific network.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "aliases")]
     pub r#aliases: Box<Option<Vec<String>>>,
     /// An array of driver options for the network, e.g. `opts1=value`
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "driverOpts")]
     pub r#driver_opts: Box<Option<Vec<String>>>,
     /// The name/id of the network.

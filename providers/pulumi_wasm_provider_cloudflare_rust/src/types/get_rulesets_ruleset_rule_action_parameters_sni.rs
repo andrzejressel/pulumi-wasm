@@ -2,7 +2,7 @@
 #[builder(finish_fn = build_struct)]
 pub struct GetRulesetsRulesetRuleActionParametersSni {
     /// Value to define for SNI.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "value")]
     pub r#value: Box<Option<String>>,
 }

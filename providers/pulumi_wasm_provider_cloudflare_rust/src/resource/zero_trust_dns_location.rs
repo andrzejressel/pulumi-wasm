@@ -41,16 +41,16 @@ pub struct ZeroTrustDnsLocationArgs {
     #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// Indicator that this is the default location.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub client_default: pulumi_wasm_rust::Output<Option<bool>>,
     /// Indicator that this location needs to resolve EDNS queries.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub ecs_support: pulumi_wasm_rust::Output<Option<bool>>,
     /// Name of the teams location.
     #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// The networks CIDRs that comprise the location.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub networks: pulumi_wasm_rust::Output<Option<Vec<crate::types::ZeroTrustDnsLocationNetwork>>>,
 }
 

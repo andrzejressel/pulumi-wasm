@@ -80,10 +80,10 @@ pub struct DlpProfileArgs {
     #[builder(into)]
     pub allowed_match_count: pulumi_wasm_rust::Output<i32>,
     /// Scan the context of predefined entries to only return matches surrounded by keywords.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub context_awareness: pulumi_wasm_rust::Output<Option<crate::types::DlpProfileContextAwareness>>,
     /// Brief summary of the profile and its intended use.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub description: pulumi_wasm_rust::Output<Option<String>>,
     /// List of entries to apply to the profile.
     #[builder(into)]
@@ -92,7 +92,7 @@ pub struct DlpProfileArgs {
     #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// If true, scan images via OCR to determine if any text present matches filters.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub ocr_enabled: pulumi_wasm_rust::Output<Option<bool>>,
     /// The type of the profile. Available values: `custom`, `predefined`. **Modifying this attribute will force creation of a new resource.**
     #[builder(into)]

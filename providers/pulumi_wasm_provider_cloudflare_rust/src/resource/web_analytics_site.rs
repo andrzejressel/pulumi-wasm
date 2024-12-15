@@ -35,10 +35,10 @@ pub struct WebAnalyticsSiteArgs {
     #[builder(into)]
     pub auto_install: pulumi_wasm_rust::Output<bool>,
     /// The hostname to use for gray-clouded sites. Must provide only one of `zone_tag`. **Modifying this attribute will force creation of a new resource.**
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub host: pulumi_wasm_rust::Output<Option<String>>,
     /// The zone identifier for orange-clouded sites. Must provide only one of `host`. **Modifying this attribute will force creation of a new resource.**
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub zone_tag: pulumi_wasm_rust::Output<Option<String>>,
 }
 

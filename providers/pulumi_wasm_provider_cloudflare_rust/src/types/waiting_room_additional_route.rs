@@ -6,7 +6,7 @@ pub struct WaitingRoomAdditionalRoute {
     #[serde(rename = "host")]
     pub r#host: Box<String>,
     /// The path within the additional host to enable the waiting room on. Defaults to `/`.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "path")]
     pub r#path: Box<Option<String>>,
 }

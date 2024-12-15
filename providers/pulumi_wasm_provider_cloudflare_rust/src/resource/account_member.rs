@@ -43,7 +43,7 @@ pub struct AccountMemberArgs {
     #[builder(into)]
     pub role_ids: pulumi_wasm_rust::Output<Vec<String>>,
     /// A member's status in the account. Available values: `accepted`, `pending`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub status: pulumi_wasm_rust::Output<Option<String>>,
 }
 

@@ -8,7 +8,7 @@ pub struct ListStorageAccountKeysArgs {
     #[builder(into)]
     pub account_name: pulumi_wasm_rust::Output<String>,
     /// Specifies type of the key to be listed. Possible value is kerb.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub expand: pulumi_wasm_rust::Output<Option<String>>,
     /// The name of the resource group within the user's subscription. The name is case insensitive.
     #[builder(into)]

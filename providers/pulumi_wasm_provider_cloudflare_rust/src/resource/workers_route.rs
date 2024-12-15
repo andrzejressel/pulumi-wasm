@@ -36,7 +36,7 @@ pub struct WorkersRouteArgs {
     #[builder(into)]
     pub pattern: pulumi_wasm_rust::Output<String>,
     /// Worker script name to invoke for requests that match the route pattern.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub script_name: pulumi_wasm_rust::Output<Option<String>>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
     #[builder(into)]

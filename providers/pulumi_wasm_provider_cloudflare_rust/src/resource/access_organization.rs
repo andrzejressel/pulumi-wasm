@@ -40,42 +40,42 @@
 #[builder(finish_fn = build_struct)]
 pub struct AccessOrganizationArgs {
     /// The account identifier to target for the resource. Conflicts with `zone_id`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub account_id: pulumi_wasm_rust::Output<Option<String>>,
     /// When set to true, users can authenticate via WARP for any application in your organization. Application settings will take precedence over this value.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub allow_authenticate_via_warp: pulumi_wasm_rust::Output<Option<bool>>,
     /// The unique subdomain assigned to your Zero Trust organization.
     #[builder(into)]
     pub auth_domain: pulumi_wasm_rust::Output<String>,
     /// When set to true, users skip the identity provider selection step during login.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub auto_redirect_to_identity: pulumi_wasm_rust::Output<Option<bool>>,
     /// Custom pages for your Zero Trust organization.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub custom_pages: pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessOrganizationCustomPage>>>,
     /// When set to true, this will disable all editing of Access resources via the Zero Trust Dashboard.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub is_ui_read_only: pulumi_wasm_rust::Output<Option<bool>>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub login_designs: pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessOrganizationLoginDesign>>>,
     /// The name of your Zero Trust organization.
     #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// How often a user will be forced to re-authorise. Must be in the format `48h` or `2h45m`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub session_duration: pulumi_wasm_rust::Output<Option<String>>,
     /// A description of the reason why the UI read only field is being toggled.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub ui_read_only_toggle_reason: pulumi_wasm_rust::Output<Option<String>>,
     /// The amount of time a user seat is inactive before it expires. When the user seat exceeds the set time of inactivity, the user is removed as an active seat and no longer counts against your Teams seat count. Must be in the format `300ms` or `2h45m`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub user_seat_expiration_inactive_time: pulumi_wasm_rust::Output<Option<String>>,
     /// The amount of time that tokens issued for applications will be valid. Must be in the format 30m or 2h45m. Valid time units are: m, h.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub warp_auth_session_duration: pulumi_wasm_rust::Output<Option<String>>,
     /// The zone identifier to target for the resource. Conflicts with `account_id`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 

@@ -15,7 +15,7 @@ struct Property {
     original_name: String,
     type_: String,
     description_lines: Vec<String>,
-    optional: bool,
+    default: bool,
 }
 
 #[derive(Serialize)]
@@ -79,7 +79,10 @@ fn convert_model(package: &crate::model::Package) -> Package {
                                 .to_case(Case::Snake),
                             original_name: global_type_property.name.clone(),
                             type_: global_type_property.r#type.get_rust_type(),
-                            optional: matches!(global_type_property.r#type, Type::Option(_)),
+                            default: matches!(
+                                global_type_property.r#type,
+                                Type::Option(_) | Type::ConstString(_)
+                            ),
                             description_lines: crate::utils::to_lines(
                                 global_type_property.description.clone(),
                                 package,
@@ -90,12 +93,12 @@ fn convert_model(package: &crate::model::Package) -> Package {
                     const_strings: properties
                         .iter()
                         .flat_map(|global_type_property| global_type_property.r#type.get_consts())
-                        .collect()
+                        .collect(),
                 };
                 real_types.push(ref_type);
             }
             GlobalType::StringEnum(description, enum_values) => {
-                    let enum_type = Enum {
+                let enum_type = Enum {
                     struct_name: element_id.get_rust_struct_name(),
                     file_name: element_id.get_rust_struct_name().to_case(Case::Snake),
                     description_lines: crate::utils::to_lines(description.clone(), package, None),

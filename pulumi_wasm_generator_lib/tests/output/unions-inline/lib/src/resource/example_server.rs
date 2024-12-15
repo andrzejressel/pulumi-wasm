@@ -2,7 +2,7 @@
 #[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct ExampleServerArgs {
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub properties: pulumi_wasm_rust::Output<Option<pulumi_wasm_provider_common::OneOf2<crate::types::ServerPropertiesForReplica, crate::types::ServerPropertiesForRestore>>>,
 }
 

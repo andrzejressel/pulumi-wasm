@@ -2,7 +2,7 @@
 #[builder(finish_fn = build_struct)]
 pub struct GetRulesetsRuleset {
     /// Brief summary of the ruleset and its intended use.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "description")]
     pub r#description: Box<Option<String>>,
     /// ID of the ruleset.
@@ -22,7 +22,7 @@ pub struct GetRulesetsRuleset {
     #[serde(rename = "phase")]
     pub r#phase: Box<String>,
     /// List of rules to apply to the ruleset.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "rules")]
     pub r#rules: Box<Option<Vec<crate::types::GetRulesetsRulesetRule>>>,
     /// Version of the ruleset.

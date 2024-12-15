@@ -2,7 +2,7 @@
 #[builder(finish_fn = build_struct)]
 pub struct ServiceAuth {
     /// The password
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "password")]
     pub r#password: Box<Option<String>>,
     /// The address of the server for the authentication
@@ -10,7 +10,7 @@ pub struct ServiceAuth {
     #[serde(rename = "serverAddress")]
     pub r#server_address: Box<String>,
     /// The username
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "username")]
     pub r#username: Box<Option<String>>,
 }

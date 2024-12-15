@@ -7,7 +7,7 @@ pub struct RiskBehaviorArgs {
     #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// Zero Trust risk behaviors configured on this account
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub behaviors: pulumi_wasm_rust::Output<Option<Vec<crate::types::RiskBehaviorBehavior>>>,
 }
 

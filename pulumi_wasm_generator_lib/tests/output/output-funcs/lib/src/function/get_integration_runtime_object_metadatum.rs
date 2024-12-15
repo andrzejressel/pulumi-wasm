@@ -11,7 +11,7 @@ pub struct GetIntegrationRuntimeObjectMetadatumArgs {
     #[builder(into)]
     pub integration_runtime_name: pulumi_wasm_rust::Output<String>,
     /// Metadata path.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub metadata_path: pulumi_wasm_rust::Output<Option<String>>,
     /// The resource group name.
     #[builder(into)]

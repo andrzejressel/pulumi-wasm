@@ -24,13 +24,13 @@
 #[builder(finish_fn = build_struct)]
 pub struct AccessCustomPageArgs {
     /// The account identifier to target for the resource. Conflicts with `zone_id`. **Modifying this attribute will force creation of a new resource.**
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub account_id: pulumi_wasm_rust::Output<Option<String>>,
     /// Number of apps to display on the custom page.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub app_count: pulumi_wasm_rust::Output<Option<i32>>,
     /// Custom HTML to display on the custom page.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub custom_html: pulumi_wasm_rust::Output<Option<String>>,
     /// Friendly name of the Access Custom Page configuration.
     #[builder(into)]
@@ -39,7 +39,7 @@ pub struct AccessCustomPageArgs {
     #[builder(into)]
     pub type_: pulumi_wasm_rust::Output<String>,
     /// The zone identifier to target for the resource. Conflicts with `account_id`. **Modifying this attribute will force creation of a new resource.**
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 

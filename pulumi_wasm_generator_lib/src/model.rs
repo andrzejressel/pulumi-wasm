@@ -15,7 +15,7 @@ pub(crate) enum Type {
     Ref(Ref),
     Option(Box<Type>),
     DiscriminatedUnion(Vec<Type>),
-    ConstString(String)
+    ConstString(String),
 }
 
 impl Type {
@@ -49,7 +49,7 @@ impl Type {
                     .collect::<Vec<_>>()
                     .join(", ")
             ),
-            Type::ConstString(s) => format!("crate::__ConstString_{}", s).to_string(),
+            Type::ConstString(s) => format!("crate::ConstString_{}", s).to_string(),
         }
     }
 

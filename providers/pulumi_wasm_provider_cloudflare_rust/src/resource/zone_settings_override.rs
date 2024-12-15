@@ -62,7 +62,7 @@
 #[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct ZoneSettingsOverrideArgs {
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub settings: pulumi_wasm_rust::Output<Option<crate::types::ZoneSettingsOverrideSettings>>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
     #[builder(into)]

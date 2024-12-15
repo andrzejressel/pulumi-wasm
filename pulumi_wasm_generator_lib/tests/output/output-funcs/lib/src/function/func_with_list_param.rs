@@ -3,9 +3,9 @@
 #[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct FuncWithListParamArgs {
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub a: pulumi_wasm_rust::Output<Option<Vec<String>>>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub b: pulumi_wasm_rust::Output<Option<String>>,
 }
 

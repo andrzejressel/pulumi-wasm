@@ -41,19 +41,19 @@
 #[builder(finish_fn = build_struct)]
 pub struct EmailRoutingRuleArgs {
     /// Actions to take when a match is found.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub actions: pulumi_wasm_rust::Output<Option<Vec<crate::types::EmailRoutingRuleAction>>>,
     /// Whether the email routing rule is enabled.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
     /// Matching patterns to forward to your actions.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub matchers: pulumi_wasm_rust::Output<Option<Vec<crate::types::EmailRoutingRuleMatcher>>>,
     /// Routing rule name.
     #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// The priority of the email routing rule.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub priority: pulumi_wasm_rust::Output<Option<i32>>,
     /// The zone identifier to target for the resource.
     #[builder(into)]

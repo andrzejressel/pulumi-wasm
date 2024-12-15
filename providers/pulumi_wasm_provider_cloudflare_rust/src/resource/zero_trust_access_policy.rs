@@ -21,50 +21,50 @@
 #[builder(finish_fn = build_struct)]
 pub struct ZeroTrustAccessPolicyArgs {
     /// The account identifier to target for the resource. Conflicts with `zone_id`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub account_id: pulumi_wasm_rust::Output<Option<String>>,
     /// The ID of the application the policy is associated with. Required when using `precedence`. **Modifying this attribute will force creation of a new resource.**
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub application_id: pulumi_wasm_rust::Output<Option<String>>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub approval_groups: pulumi_wasm_rust::Output<Option<Vec<crate::types::ZeroTrustAccessPolicyApprovalGroup>>>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub approval_required: pulumi_wasm_rust::Output<Option<bool>>,
     /// The rules that define how users may connect to the targets secured by your application. Only applicable to Infrastructure Applications, in which case this field is required.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub connection_rules: pulumi_wasm_rust::Output<Option<crate::types::ZeroTrustAccessPolicyConnectionRules>>,
     /// Defines the action Access will take if the policy matches the user. Available values: `allow`, `deny`, `non_identity`, `bypass`.
     #[builder(into)]
     pub decision: pulumi_wasm_rust::Output<String>,
     /// A series of access conditions, see Access Groups.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub excludes: pulumi_wasm_rust::Output<Option<Vec<crate::types::ZeroTrustAccessPolicyExclude>>>,
     /// A series of access conditions, see Access Groups.
     #[builder(into)]
     pub includes: pulumi_wasm_rust::Output<Vec<crate::types::ZeroTrustAccessPolicyInclude>>,
     /// Require this application to be served in an isolated browser for users matching this policy.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub isolation_required: pulumi_wasm_rust::Output<Option<bool>>,
     /// Friendly name of the Access Policy.
     #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// The unique precedence for policies on a single application. Required when using `application_id`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub precedence: pulumi_wasm_rust::Output<Option<i32>>,
     /// The prompt to display to the user for a justification for accessing the resource. Required when using `purpose_justification_required`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub purpose_justification_prompt: pulumi_wasm_rust::Output<Option<String>>,
     /// Whether to prompt the user for a justification for accessing the resource.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub purpose_justification_required: pulumi_wasm_rust::Output<Option<bool>>,
     /// A series of access conditions, see Access Groups.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub requires: pulumi_wasm_rust::Output<Option<Vec<crate::types::ZeroTrustAccessPolicyRequire>>>,
     /// How often a user will be forced to re-authorise. Must be in the format `48h` or `2h45m`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub session_duration: pulumi_wasm_rust::Output<Option<String>>,
     /// The zone identifier to target for the resource. Conflicts with `account_id`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 
