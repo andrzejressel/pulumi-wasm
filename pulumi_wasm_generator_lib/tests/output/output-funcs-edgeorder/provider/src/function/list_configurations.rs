@@ -29,6 +29,5 @@ impl list_configurations::Guest for Component {
             next_link: hashmap.remove("nextLink").unwrap(),
             value: hashmap.remove("value").unwrap(),
         }
-
     }
 }

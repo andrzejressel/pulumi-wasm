@@ -1,7 +1,7 @@
 //! The list of configurations.
 //! API Version: 2020-12-01-preview.
 
-    #[derive(bon::Builder, Clone)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct ListConfigurationsArgs {
     /// Holds details about product hierarchy information and filterable property.

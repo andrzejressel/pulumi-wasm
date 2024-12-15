@@ -14,7 +14,7 @@ pub(crate) enum Type {
     Object(Box<Type>),
     Ref(Ref),
     Option(Box<Type>),
-    DiscriminatedUnion(Vec<Box<Type>>),
+    DiscriminatedUnion(Vec<Type>),
 }
 
 impl Type {
@@ -64,20 +64,11 @@ impl Type {
             Type::DiscriminatedUnion(types) => Some(
                 types
                     .iter()
-                    .flat_map(|t| {
-                        let o = t.get_internal_discriminated_union();
-                        o.unwrap_or_else(|| vec![])
-                    })
+                    .flat_map(|t| t.get_internal_discriminated_union().unwrap_or_default())
                     .collect(),
-            ), // Type::DiscriminatedUnion(m) => //Some(m.iter().map(|r| Type::Ref(r.clone())).collect()),
+            ),
         }
     }
-}
-
-#[derive(Clone, Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
-pub(crate) enum DiscriminatedUnionElement {
-    Ref(Ref),
-    String,
 }
 
 #[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]

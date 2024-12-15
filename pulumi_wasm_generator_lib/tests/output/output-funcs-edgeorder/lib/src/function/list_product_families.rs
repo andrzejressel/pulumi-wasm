@@ -1,7 +1,7 @@
 //! The list of product families.
 //! API Version: 2020-12-01-preview.
 
-    #[derive(bon::Builder, Clone)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct ListProductFamiliesArgs {
     /// Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details

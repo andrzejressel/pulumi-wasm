@@ -205,7 +205,6 @@ fn create_discriminated_union(one_of: &[OneOfType]) -> Result<crate::model::Type
                     OneOfTypePrimitiveType::String => crate::model::Type::String,
                 },
             })
-            .map(|t| Box::new(t))
             .collect(),
     ))
 }
