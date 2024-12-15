@@ -195,7 +195,7 @@ fn remove_option(type_: &Type) -> TypeWithoutOption {
         Type::Integer => TypeWithoutOption::Integer,
         Type::Number => TypeWithoutOption::Number,
         Type::String => TypeWithoutOption::String,
-        Type::ConstString(s) => TypeWithoutOption::String,
+        Type::ConstString(_) => TypeWithoutOption::String,
         Type::Array(a) => TypeWithoutOption::Array(Box::new(remove_option(a))),
         Type::Object(o) => TypeWithoutOption::Object(Box::new(remove_option(o))),
         Type::Ref(r) => TypeWithoutOption::Ref(r.clone()),

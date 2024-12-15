@@ -3,7 +3,7 @@
 pub struct UnionCaseWithConst2 {
     #[builder(into, default)]
     #[serde(rename = "field")]
-    pub r#field: Box<crate::ConstString_2>,
+    pub r#field: Box<crate::ConstString2>,
     #[builder(into)]
     #[serde(rename = "field2")]
     pub r#field_2: Box<String>,

@@ -1,6 +1,7 @@
 use crate::utils::{escape_rust_name, escape_wit_identifier, replace_multiple_dashes};
 use anyhow::{Context, Result};
 use convert_case::Case;
+use convert_case::Case::UpperCamel;
 use convert_case::Casing;
 use std::collections::BTreeMap;
 
@@ -49,7 +50,9 @@ impl Type {
                     .collect::<Vec<_>>()
                     .join(", ")
             ),
-            Type::ConstString(s) => format!("crate::ConstString_{}", s).to_string(),
+            Type::ConstString(s) => {
+                format!("crate::ConstString{}", s.to_case(UpperCamel)).to_string()
+            }
         }
     }
 

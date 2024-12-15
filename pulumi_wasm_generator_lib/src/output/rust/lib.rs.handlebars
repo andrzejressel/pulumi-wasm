@@ -36,5 +36,5 @@ fn into_domain<F: serde::Serialize>(output: WitOutput) -> Output<F> {
 }
 {{/if}}
 {{#each package.const_strings}}
-pulumi_wasm_provider_common::generate_string_const!(ConstString_{{&this}}, "{{&this}}");
+pulumi_wasm_provider_common::generate_string_const!(ConstString{{&this}}, "{{&this}}");
 {{/each}}

@@ -1,5 +1,7 @@
 use crate::model::GlobalType;
 use crate::output::get_main_version;
+use convert_case::Case::UpperCamel;
+use convert_case::Casing;
 use handlebars::Handlebars;
 use itertools::Itertools;
 use serde::Serialize;
@@ -59,7 +61,11 @@ fn find_consts(package: &crate::model::Package) -> Vec<String> {
             }
         }
     }
-    consts.into_iter().sorted().collect()
+    consts
+        .into_iter()
+        .map(|s| s.to_case(UpperCamel))
+        .sorted()
+        .collect()
 }
 
 pub(crate) fn generate_source_code(package: &crate::model::Package) -> String {

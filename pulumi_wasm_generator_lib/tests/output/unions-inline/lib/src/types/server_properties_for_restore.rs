@@ -3,7 +3,7 @@
 pub struct ServerPropertiesForRestore {
     #[builder(into, default)]
     #[serde(rename = "createMode")]
-    pub r#create_mode: Box<crate::ConstString_PointInTimeRestore>,
+    pub r#create_mode: Box<crate::ConstStringPointInTimeRestore>,
     #[builder(into)]
     #[serde(rename = "restorePointInTime")]
     pub r#restore_point_in_time: Box<String>,

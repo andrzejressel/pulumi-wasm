@@ -20,8 +20,8 @@ mod bindings {
 fn into_domain<F: serde::Serialize>(output: WitOutput) -> Output<F> {
     unsafe { Output::<F>::new_from_handle(output) }
 }
-pulumi_wasm_provider_common::generate_string_const!(ConstString_Environment, "Environment");
-pulumi_wasm_provider_common::generate_string_const!(ConstString_Folder, "Folder");
-pulumi_wasm_provider_common::generate_string_const!(ConstString_Package, "Package");
-pulumi_wasm_provider_common::generate_string_const!(ConstString_Project, "Project");
-pulumi_wasm_provider_common::generate_string_const!(ConstString_fixed, "fixed");
+pulumi_wasm_provider_common::generate_string_const!(ConstStringEnvironment, "Environment");
+pulumi_wasm_provider_common::generate_string_const!(ConstStringFixed, "Fixed");
+pulumi_wasm_provider_common::generate_string_const!(ConstStringFolder, "Folder");
+pulumi_wasm_provider_common::generate_string_const!(ConstStringPackage, "Package");
+pulumi_wasm_provider_common::generate_string_const!(ConstStringProject, "Project");
