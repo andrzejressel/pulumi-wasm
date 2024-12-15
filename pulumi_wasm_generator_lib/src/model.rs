@@ -108,11 +108,19 @@ pub(crate) struct GlobalTypeProperty {
 
 #[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
 pub(crate) enum GlobalType {
-    Object(Vec<GlobalTypeProperty>),
+    Object(Option<String>, Vec<GlobalTypeProperty>),
+    StringEnum(Option<String>, Vec<StringEnumElement>),
     String,
     Boolean,
     Number,
     Integer,
+}
+
+#[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
+pub(crate) struct StringEnumElement {
+    pub(crate) name: String,
+    pub(crate) value: Option<String>,
+    pub(crate) description: Option<String>,
 }
 
 #[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]

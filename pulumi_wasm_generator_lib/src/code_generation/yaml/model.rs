@@ -251,7 +251,8 @@ fn map_type(
     let tpe = &context.package.types[element_id];
 
     let gtp = match tpe {
-        GlobalType::Object(gtp) => gtp,
+        GlobalType::Object(_, gtp) => gtp,
+        GlobalType::StringEnum(_, _) => panic!("StringEnum type is not supported"),
         GlobalType::String => panic!("String type is not supported"),
         GlobalType::Boolean => panic!("Boolean type is not supported"),
         GlobalType::Number => panic!("Number type is not supported"),
