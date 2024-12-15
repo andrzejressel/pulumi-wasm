@@ -35,6 +35,5 @@ impl get_device_posture_rules::Guest for Component {
             rules: hashmap.remove("rules").unwrap(),
             type_: hashmap.remove("type").unwrap(),
         }
-
     }
 }

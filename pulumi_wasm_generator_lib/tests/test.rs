@@ -22,8 +22,6 @@ fn functions_secrets() -> Result<()> {
 }
 
 #[test]
-// https://github.com/andrzejressel/pulumi-wasm/issues/394
-#[ignore]
 fn output_funcs() -> Result<()> {
     run_pulumi_generator_test("output-funcs", "mypkg")
 }

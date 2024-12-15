@@ -33,6 +33,5 @@ impl get_ip_ranges::Guest for Component {
             ipv4_cidr_blocks: hashmap.remove("ipv4CidrBlocks").unwrap(),
             ipv6_cidr_blocks: hashmap.remove("ipv6CidrBlocks").unwrap(),
         }
-
     }
 }

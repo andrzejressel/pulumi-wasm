@@ -1,0 +1,10 @@
+pub mod func_with_all_optional_inputs;
+pub mod func_with_const_input;
+pub mod func_with_default_value;
+pub mod func_with_dict_param;
+pub mod func_with_empty_outputs;
+pub mod func_with_list_param;
+pub mod get_bastion_shareable_link;
+pub mod get_client_config;
+pub mod get_integration_runtime_object_metadatum;
+pub mod list_storage_account_keys;

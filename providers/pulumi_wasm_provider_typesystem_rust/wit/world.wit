@@ -23,13 +23,11 @@ interface typesystem-server {
         required-union: borrow<output>,
     }
 
-    record res {
-    }
 
     invoke: func(
         name: string,
         args: args
-    ) -> res;
+    );
 
 }
 

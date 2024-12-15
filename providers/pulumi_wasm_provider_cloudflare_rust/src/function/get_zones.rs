@@ -1,7 +1,7 @@
 //! Use this data source to look up Zone results for use in other resources.
 //! 
 
-    #[derive(bon::Builder, Clone)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct GetZonesArgs {
     /// One or more values used to look up zone records. If more than one value is given all values must match in order to be included.

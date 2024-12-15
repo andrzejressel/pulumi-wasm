@@ -37,6 +37,5 @@ impl get_network::Guest for Component {
             options: hashmap.remove("options").unwrap(),
             scope: hashmap.remove("scope").unwrap(),
         }
-
     }
 }
