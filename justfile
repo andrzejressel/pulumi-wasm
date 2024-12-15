@@ -145,6 +145,8 @@ rust-docs:
 
 update-version NEW_VERSION:
     sd "0.0.0-DEV" "{{NEW_VERSION}}" "pulumi_wasm_wit/wit/world.wit" "pulumi_wasm_rust_macro/src/lib.rs" \
+    "providers/pulumi_wasm_provider_cloudflare_rust/Cargo.toml" \
     "providers/pulumi_wasm_provider_docker_rust/Cargo.toml" \
     "providers/pulumi_wasm_provider_random_rust/Cargo.toml" \
+    "providers/pulumi_wasm_provider_typesystem_rust/Cargo.toml" \
     "Cargo.toml"

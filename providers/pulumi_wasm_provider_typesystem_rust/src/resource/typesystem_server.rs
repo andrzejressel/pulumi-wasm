@@ -7,15 +7,15 @@ pub struct TypesystemServerArgs {
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
     pub optional_string_input: pulumi_wasm_rust::Output<Option<String>>,
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
-    pub optional_union: pulumi_wasm_rust::Output<Option<pulumi_wasm_provider_common::OneOf2<crate::types::EnumCase1, crate::types::EnumCase2>>>,
+    pub optional_union: pulumi_wasm_rust::Output<Option<pulumi_wasm_provider_common::OneOf2<crate::types::UnionCase1, crate::types::UnionCase2>>>,
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
-    pub properties_collection: pulumi_wasm_rust::Output<Option<Vec<pulumi_wasm_provider_common::OneOf2<crate::types::EnumCase1, crate::types::EnumCase2>>>>,
+    pub properties_collection: pulumi_wasm_rust::Output<Option<Vec<pulumi_wasm_provider_common::OneOf2<crate::types::UnionCase1, crate::types::UnionCase2>>>>,
     #[builder(into)]
     pub required_string_array: pulumi_wasm_rust::Output<Vec<String>>,
     #[builder(into)]
     pub required_string_input: pulumi_wasm_rust::Output<String>,
     #[builder(into)]
-    pub required_union: pulumi_wasm_rust::Output<pulumi_wasm_provider_common::OneOf2<crate::types::EnumCase1, crate::types::EnumCase2>>,
+    pub required_union: pulumi_wasm_rust::Output<pulumi_wasm_provider_common::OneOf2<crate::types::UnionCase1, crate::types::UnionCase2>>,
 }
 
 pub struct TypesystemServerResult {

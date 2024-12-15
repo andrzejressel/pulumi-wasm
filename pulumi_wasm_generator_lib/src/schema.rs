@@ -1,4 +1,7 @@
-use crate::model::{ElementId, GlobalType, GlobalTypeProperty, InputProperty, OutputProperty, Ref};
+use crate::model::{
+    ElementId, GlobalType, GlobalTypeProperty, InputProperty, OutputProperty, Ref,
+    StringEnumElement,
+};
 use anyhow::{anyhow, Context, Result};
 use serde::Deserialize;
 use std::collections::{BTreeMap, BTreeSet, HashSet};
@@ -55,6 +58,8 @@ struct ObjectType {
     properties: PulumiMap<Property>,
     #[serde(default)]
     required: BTreeSet<String>,
+    #[serde(rename = "enum")]
+    enum_: Option<Vec<EnumValue>>,
 }
 
 #[derive(Deserialize, Debug)]
@@ -69,17 +74,15 @@ struct Resource {
 
 #[derive(Deserialize, Debug)]
 struct EnumValue {
-    name: Option<String>,
+    name: String,
     description: Option<String>,
-    // value: Option<String>, //apparently any
+    value: Option<String>,
 }
 
 #[derive(Deserialize, Debug)]
 struct ComplexType {
     #[serde(flatten)]
     object_type: ObjectType,
-    #[serde(default)]
-    r#enum: Vec<EnumValue>,
 }
 
 #[derive(Deserialize, Debug)]
@@ -305,45 +308,7 @@ pub(crate) fn to_model(package: &Package) -> Result<crate::model::Package> {
         .iter()
         .map(|(type_name, type_)| {
             //TODO: Enums, support non objects
-            let element_id = ElementId::new(type_name)?;
-            let tpe = match type_.object_type {
-                ObjectType { r#type: None, .. } => Err(anyhow!("Unknown complex type")),
-                ObjectType {
-                    r#type: Some(TypeEnum::Object),
-                    ..
-                } => Ok(GlobalType::Object(
-                    convert_output_property_object_type(&element_id, &type_.object_type)?
-                        .iter()
-                        .map(|p| GlobalTypeProperty {
-                            name: p.name.clone(),
-                            r#type: p.r#type.clone(),
-                            description: p.description.clone(),
-                        })
-                        .collect(),
-                )),
-                ObjectType {
-                    r#type: Some(TypeEnum::Array),
-                    ..
-                } => Err(anyhow!("Array not supported")),
-                ObjectType {
-                    r#type: Some(TypeEnum::Boolean),
-                    ..
-                } => Ok(GlobalType::Boolean),
-                ObjectType {
-                    r#type: Some(TypeEnum::Integer),
-                    ..
-                } => Ok(GlobalType::Integer),
-                ObjectType {
-                    r#type: Some(TypeEnum::Number),
-                    ..
-                } => Ok(GlobalType::Number),
-                ObjectType {
-                    r#type: Some(TypeEnum::String),
-                    ..
-                } => Ok(GlobalType::String),
-            }
-            .context(format!("Cannot convert type [{type_name}]"))?;
-            Ok((element_id, tpe))
+            convert_to_global_type(type_name, &type_)
         })
         .collect::<Result<BTreeMap<_, _>>>()
         .context("Cannot handle types")?;
@@ -355,6 +320,72 @@ pub(crate) fn to_model(package: &Package) -> Result<crate::model::Package> {
         resources,
         functions,
     })
+}
+
+fn convert_to_global_type(
+    type_name: &String,
+    type_: &&ComplexType,
+) -> Result<(ElementId, GlobalType)> {
+    let element_id = ElementId::new(type_name)?;
+    let tpe = match &type_.object_type {
+        ObjectType { r#type: None, .. } => Err(anyhow!("Unknown complex type")),
+        ObjectType {
+            r#type: Some(TypeEnum::Object),
+            ..
+        } => Ok(GlobalType::Object(
+            type_.object_type.description.clone(),
+            convert_output_property_object_type(&element_id, &type_.object_type)?
+                .iter()
+                .map(|p| GlobalTypeProperty {
+                    name: p.name.clone(),
+                    r#type: p.r#type.clone(),
+                    description: p.description.clone(),
+                })
+                .collect(),
+        )),
+        ObjectType {
+            r#type: Some(TypeEnum::Array),
+            ..
+        } => Err(anyhow!("Array not supported")),
+        ObjectType {
+            r#type: Some(TypeEnum::Boolean),
+            ..
+        } => Ok(GlobalType::Boolean),
+        ObjectType {
+            r#type: Some(TypeEnum::Integer),
+            ..
+        } => Ok(GlobalType::Integer),
+        ObjectType {
+            r#type: Some(TypeEnum::Number),
+            ..
+        } => Ok(GlobalType::Number),
+        ObjectType {
+            r#type: Some(TypeEnum::String),
+            enum_: Some(enum_cases),
+            description,
+            ..
+        } => Ok(create_string_enum(description, enum_cases)),
+        ObjectType {
+            r#type: Some(TypeEnum::String),
+            ..
+        } => Ok(GlobalType::String),
+    }
+    .context(format!("Cannot convert type [{type_name}]"))?;
+    Ok((element_id, tpe))
+}
+
+fn create_string_enum(description: &Option<String>, enum_values: &[EnumValue]) -> GlobalType {
+    GlobalType::StringEnum(
+        description.clone(),
+        enum_values
+            .iter()
+            .map(|enum_value| StringEnumElement {
+                name: enum_value.name.clone(),
+                value: enum_value.value.clone(),
+                description: enum_value.description.clone(),
+            })
+            .collect(),
+    )
 }
 
 fn invalid_required_complextype_required_fields() -> HashSet<(ElementId, String)> {

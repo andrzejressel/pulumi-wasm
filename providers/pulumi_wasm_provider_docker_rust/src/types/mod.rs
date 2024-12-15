@@ -1,3 +1,5 @@
+mod builder_version;
+pub use builder_version::*;
 mod cache_from;
 pub use cache_from::*;
 mod container_capabilities;
@@ -127,4 +129,3 @@ pub use get_network_ipam_config::*;
 mod registry_auth;
 pub use registry_auth::*;
 
-pub type BuilderVersion = String;
