@@ -3,7 +3,7 @@
 pub struct ServerPropertiesForReplica {
     #[builder(into)]
     #[serde(rename = "createMode")]
-    pub r#create_mode: Box<String>,
+    pub r#create_mode: Box<crate::__ConstString_Replica>,
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "version")]
     pub r#version: Box<Option<String>>,

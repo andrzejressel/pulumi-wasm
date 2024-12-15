@@ -20,3 +20,5 @@ mod bindings {
 fn into_domain<F: serde::Serialize>(output: WitOutput) -> Output<F> {
     unsafe { Output::<F>::new_from_handle(output) }
 }
+pulumi_wasm_provider_common::generate_string_const!(__ConstString_PointInTimeRestore, "PointInTimeRestore");
+pulumi_wasm_provider_common::generate_string_const!(__ConstString_Replica, "Replica");

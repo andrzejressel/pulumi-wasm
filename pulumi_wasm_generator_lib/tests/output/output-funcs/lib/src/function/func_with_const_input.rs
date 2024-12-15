@@ -4,7 +4,7 @@
 #[builder(finish_fn = build_struct)]
 pub struct FuncWithConstInputArgs {
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
-    pub plain_input: pulumi_wasm_rust::Output<Option<String>>,
+    pub plain_input: pulumi_wasm_rust::Output<Option<crate::__ConstString_fixed>>,
 }
 
 pub struct FuncWithConstInputResult {

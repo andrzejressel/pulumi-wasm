@@ -3,7 +3,7 @@ mod tests {
     use pulumi_wasm_provider_common::OneOf2;
     use pulumi_wasm_rust::Output;
     use pulumi_wasm_typesystem::typesystem_server::TypesystemServerArgs;
-    use pulumi_wasm_typesystem::{MyEnum, UnionCase1, UnionCase2};
+    use pulumi_wasm_typesystem::{MyEnum, UnionCase1, UnionCase2, UnionCaseWithConst1, UnionCaseWithConst2};
     use std::panic::catch_unwind;
 
     #[test]
@@ -45,6 +45,21 @@ mod tests {
         let deserialized_enum2: MyEnum = serde_json::from_str(&enum2_json).unwrap();
         assert_eq!(deserialized_enum1, enum1);
         assert_eq!(deserialized_enum2, enum2);
+    }
+
+    #[test]
+    fn test_case_deserialization_with_oneof2() {
+        let oneof: OneOf2<UnionCaseWithConst1, UnionCaseWithConst2> = OneOf2::Left(
+            UnionCaseWithConst1::builder()
+               .field_1("value1".to_string())
+               .build_struct(),
+        );
+
+        let json = serde_json::to_string(&oneof).unwrap();
+        assert_eq!(json, r#"{"field1":"value1"}"#);
+
+        let deserialized: OneOf2<UnionCaseWithConst1, UnionCaseWithConst2> = serde_json::from_str(&json).unwrap();
+        assert_eq!(deserialized, oneof);
     }
 
     fn compilation_test() {

@@ -35,5 +35,5 @@ pub struct SsisPackageResponse {
     /// Expected value is 'Package'.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type: Box<crate::__ConstString_Package>,
 }

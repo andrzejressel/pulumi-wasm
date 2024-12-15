@@ -36,6 +36,8 @@ struct Type {
     additional_properties: Option<Box<Type>>,
     #[serde(rename = "oneOf")]
     one_of: Option<Vec<OneOfType>>,
+    #[serde(rename = "const")]
+    const_: Option<String>
 }
 
 #[derive(Deserialize, Debug)]
@@ -118,6 +120,7 @@ pub(crate) struct Package {
 
 //TODO: Fix formatting
 fn new_type_mapper(type_: &Type) -> Result<crate::model::Type> {
+    println!("{:?}", type_);
     (match type_ {
         Type {
             ref_: Some(ref r), ..
@@ -136,6 +139,11 @@ fn new_type_mapper(type_: &Type) -> Result<crate::model::Type> {
             type_: Some(TypeEnum::Number),
             ..
         } => Ok(crate::model::Type::Number),
+        Type {
+            type_: Some(TypeEnum::String),
+            const_: Some(const_),
+            ..
+        } => Ok(crate::model::Type::ConstString(const_.clone())),
         Type {
             type_: Some(TypeEnum::String),
             ..

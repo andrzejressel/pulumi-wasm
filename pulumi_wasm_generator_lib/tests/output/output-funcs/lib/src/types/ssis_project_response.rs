@@ -31,7 +31,7 @@ pub struct SsisProjectResponse {
     /// Expected value is 'Project'.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type: Box<crate::__ConstString_Project>,
     /// Project version.
     #[builder(into, default = Box::new(None))]
     #[serde(rename = "version")]

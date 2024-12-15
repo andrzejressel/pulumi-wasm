@@ -15,6 +15,7 @@ pub(crate) enum Type {
     Ref(Ref),
     Option(Box<Type>),
     DiscriminatedUnion(Vec<Ref>),
+    ConstString(String)
 }
 
 impl Type {
@@ -48,6 +49,7 @@ impl Type {
                     .collect::<Vec<_>>()
                     .join(", ")
             ),
+            Type::ConstString(s) => format!("crate::__ConstString_{}", s).to_string(),
         }
     }
 
@@ -57,11 +59,27 @@ impl Type {
             Type::Integer => None,
             Type::Number => None,
             Type::String => None,
+            Type::ConstString(_) => None,
+            Type::Ref(_) => None,
             Type::Array(t) => t.get_internal_discriminated_union(),
             Type::Object(o) => o.get_internal_discriminated_union(),
-            Type::Ref(_) => None,
             Type::Option(o) => o.get_internal_discriminated_union(),
             Type::DiscriminatedUnion(m) => Some(m.iter().map(|r| Type::Ref(r.clone())).collect()),
+        }
+    }
+
+    pub(crate) fn get_consts(&self) -> Vec<String> {
+        match self {
+            Type::Boolean => vec![],
+            Type::Integer => vec![],
+            Type::Number => vec![],
+            Type::String => vec![],
+            Type::ConstString(s) => vec![s.clone()],
+            Type::Ref(_) => vec![],
+            Type::Array(t) => t.get_consts(),
+            Type::Object(o) => o.get_consts(),
+            Type::Option(o) => o.get_consts(),
+            Type::DiscriminatedUnion(_) => vec![],
         }
     }
 }
