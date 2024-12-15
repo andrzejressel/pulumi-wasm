@@ -12,7 +12,7 @@ mod bindings {
         // the name of the world in the `*.wit` input file
         world: "mypkg-pulumi-client",
         with: {
-            "component:pulumi-wasm/output-interface@0.0.0-DEV": pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface
+            "component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-1cd7896": pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface
         }
     });
 }
