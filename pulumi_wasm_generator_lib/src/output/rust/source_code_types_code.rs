@@ -7,6 +7,7 @@ use std::collections::HashMap;
 use std::path::PathBuf;
 
 static TEMPLATE: &str = include_str!("types_code.rs.handlebars");
+static ENUM_TEMPLATE: &str = include_str!("types_code_enum.rs.handlebars");
 
 #[derive(Serialize)]
 struct Property {
@@ -21,8 +22,24 @@ struct Property {
 struct RefType {
     // name: String,
     fields: Vec<Property>,
+    description_lines: Vec<String>,
     struct_name: String,
     file_name: String,
+}
+
+#[derive(Serialize)]
+struct Enum {
+    struct_name: String,
+    file_name: String,
+    description_lines: Vec<String>,
+    values: Vec<EnumValue>,
+}
+
+#[derive(Serialize)]
+struct EnumValue {
+    name: String,
+    description_lines: Vec<String>,
+    value: Option<String>,
 }
 
 #[derive(Serialize)]
@@ -35,21 +52,22 @@ struct AliasType {
 struct Package {
     name: String,
     types: Vec<RefType>,
-    aliases: Vec<AliasType>,
+    enums: Vec<Enum>,
 }
 
 fn convert_model(package: &crate::model::Package) -> Package {
     let mut real_types = Vec::new();
-    let mut aliases = Vec::new();
+    let mut enums = Vec::new();
 
     package
         .types
         .iter()
         .for_each(|(element_id, resource)| match resource {
-            GlobalType::Object(properties) => {
+            GlobalType::Object(description, properties) => {
                 let ref_type = RefType {
                     struct_name: element_id.get_rust_struct_name(),
                     file_name: element_id.get_rust_struct_name().to_case(Case::Snake),
+                    description_lines: crate::utils::to_lines(description.clone(), package, None),
                     fields: properties
                         .iter()
                         .map(|global_type_property| Property {
@@ -71,28 +89,36 @@ fn convert_model(package: &crate::model::Package) -> Package {
                 };
                 real_types.push(ref_type);
             }
-            GlobalType::String => aliases.push(AliasType {
-                name: element_id.name.to_string(),
-                type_: "String".to_string(),
-            }),
-            GlobalType::Boolean => aliases.push(AliasType {
-                name: element_id.name.to_string(),
-                type_: "bool".to_string(),
-            }),
-            GlobalType::Number => aliases.push(AliasType {
-                name: element_id.name.to_string(),
-                type_: "f64".to_string(),
-            }),
-            GlobalType::Integer => aliases.push(AliasType {
-                name: element_id.name.to_string(),
-                type_: "i32".to_string(),
-            }),
+            GlobalType::StringEnum(description, enum_values) => {
+                let enum_type = Enum {
+                    struct_name: element_id.get_rust_struct_name(),
+                    file_name: element_id.get_rust_struct_name().to_case(Case::Snake),
+                    description_lines: crate::utils::to_lines(description.clone(), package, None),
+                    values: enum_values
+                        .iter()
+                        .map(|enum_value| EnumValue {
+                            name: enum_value.name.clone(),
+                            value: enum_value.value.clone(),
+                            description_lines: crate::utils::to_lines(
+                                enum_value.description.clone(),
+                                package,
+                                None,
+                            ),
+                        })
+                        .collect(),
+                };
+                enums.push(enum_type);
+            }
+            GlobalType::String => {}
+            GlobalType::Boolean => {}
+            GlobalType::Number => {}
+            GlobalType::Integer => {}
         });
 
     Package {
         name: package.name.clone(),
         types: real_types,
-        aliases,
+        enums,
     }
 }
 
@@ -100,17 +126,43 @@ pub(crate) fn generate_source_code(package: &crate::model::Package) -> HashMap<P
     let handlebars = Handlebars::new();
     let package = convert_model(package);
 
-    package
+    let types: HashMap<_, _> = package
         .types
         .iter()
         .map(|type_| {
             let rendered_file = handlebars
                 .render_template(TEMPLATE, &json!({"type": type_}))
-                .unwrap();
+                .unwrap()
+                .trim_start()
+                .to_string(); //FIXME
             (
                 PathBuf::from(format!("{}.rs", type_.file_name)),
                 rendered_file,
             )
         })
-        .collect()
+        .collect();
+
+    let enums: HashMap<_, _> = package
+        .enums
+        .iter()
+        .map(|enum_| {
+            let rendered_file = handlebars
+                .render_template(ENUM_TEMPLATE, &json!({"enum": enum_}))
+                .unwrap()
+                .trim_start()
+                .to_string(); //FIXME
+            (
+                PathBuf::from(format!("{}.rs", enum_.file_name)),
+                rendered_file,
+            )
+        })
+        .collect();
+
+    let mut result = HashMap::new();
+    result.extend(types);
+    result.extend(enums);
+
+    result
+
+    // let enums =
 }

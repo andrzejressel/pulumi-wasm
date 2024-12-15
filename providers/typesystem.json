@@ -26,11 +26,11 @@
           "oneOf": [
             {
               "type": "object",
-              "$ref": "#/types/typesystem:index:EnumCase1"
+              "$ref": "#/types/typesystem:index:UnionCase1"
             },
             {
               "type": "object",
-              "$ref": "#/types/typesystem:index:EnumCase2"
+              "$ref": "#/types/typesystem:index:UnionCase2"
             }
           ]
         },
@@ -38,11 +38,11 @@
           "oneOf": [
             {
               "type": "object",
-              "$ref": "#/types/typesystem:index:EnumCase1"
+              "$ref": "#/types/typesystem:index:UnionCase1"
             },
             {
               "type": "object",
-              "$ref": "#/types/typesystem:index:EnumCase2"
+              "$ref": "#/types/typesystem:index:UnionCase2"
             }
           ]
         },
@@ -52,11 +52,11 @@
             "oneOf": [
               {
                 "type": "object",
-                "$ref": "#/types/typesystem:index:EnumCase1"
+                "$ref": "#/types/typesystem:index:UnionCase1"
               },
               {
                 "type": "object",
-                "$ref": "#/types/typesystem:index:EnumCase2"
+                "$ref": "#/types/typesystem:index:UnionCase2"
               }
             ]
           }
@@ -71,7 +71,7 @@
     }
   },
   "types": {
-    "typesystem:index:EnumCase1": {
+    "typesystem:index:UnionCase1": {
       "type": "object",
       "properties": {
         "field1": {
@@ -82,7 +82,7 @@
         "field1"
       ]
     },
-    "typesystem:index:EnumCase2": {
+    "typesystem:index:UnionCase2": {
       "type": "object",
       "properties": {
         "field2": {
@@ -91,6 +91,18 @@
       },
       "required": [
         "field2"
+      ]
+    },
+    "typesystem:index:MyEnum": {
+      "type": "string",
+      "enum": [
+        {
+          "name": "Value1",
+          "value": "VALUE1"
+        },
+        {
+          "name": "Value2"
+        }
       ]
     }
   },
