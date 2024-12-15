@@ -43,6 +43,5 @@ impl get_zone::Guest for Component {
             vanity_name_servers: hashmap.remove("vanityNameServers").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

@@ -29,6 +29,5 @@ impl get_gateway_app_types::Guest for Component {
             app_types: hashmap.remove("appTypes").unwrap(),
             id: hashmap.remove("id").unwrap(),
         }
-
     }
 }

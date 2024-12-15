@@ -33,6 +33,5 @@ impl get_load_balancer_pools::Guest for Component {
             id: hashmap.remove("id").unwrap(),
             pools: hashmap.remove("pools").unwrap(),
         }
-
     }
 }

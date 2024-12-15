@@ -35,6 +35,5 @@ impl get_zero_trust_access_identity_provider::Guest for Component {
             type_: hashmap.remove("type").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

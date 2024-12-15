@@ -47,6 +47,5 @@ impl get_record::Guest for Component {
             value: hashmap.remove("value").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

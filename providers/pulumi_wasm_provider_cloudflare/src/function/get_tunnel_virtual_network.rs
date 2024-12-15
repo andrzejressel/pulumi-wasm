@@ -34,6 +34,5 @@ impl get_tunnel_virtual_network::Guest for Component {
             is_default: hashmap.remove("isDefault").unwrap(),
             name: hashmap.remove("name").unwrap(),
         }
-
     }
 }

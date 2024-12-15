@@ -1,6 +1,6 @@
 //! Use this data source to retrieve the DCV Delegation unique identifier for a zone.
 
-    #[derive(bon::Builder, Clone)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct GetDcvDelegationArgs {
     /// The zone identifier to target for the resource.

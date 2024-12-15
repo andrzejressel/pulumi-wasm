@@ -15,7 +15,7 @@
 //! }
 //! ```
 
-    #[derive(bon::Builder, Clone)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct GetOriginCaRootCertificateArgs {
     /// The name of the algorithm used when creating an Origin CA certificate. Available values: `rsa`, `ecc`.

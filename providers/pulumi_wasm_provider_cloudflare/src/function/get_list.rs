@@ -36,6 +36,5 @@ impl get_list::Guest for Component {
             name: hashmap.remove("name").unwrap(),
             numitems: hashmap.remove("numitems").unwrap(),
         }
-
     }
 }

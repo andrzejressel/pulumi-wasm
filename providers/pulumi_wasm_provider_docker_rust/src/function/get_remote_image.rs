@@ -30,7 +30,7 @@
 //! }
 //! ```
 
-    #[derive(bon::Builder, Clone)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct GetRemoteImageArgs {
     /// The name of the Docker image, including any tags or SHA256 repo digests.

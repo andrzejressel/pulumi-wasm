@@ -1,6 +1,6 @@
 //! `docker.getLogs` provides logs from specific container
 
-    #[derive(bon::Builder, Clone)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct GetLogsArgs {
     #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]

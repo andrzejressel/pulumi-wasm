@@ -33,6 +33,5 @@ impl get_api_token_permission_groups::Guest for Component {
             user: hashmap.remove("user").unwrap(),
             zone: hashmap.remove("zone").unwrap(),
         }
-
     }
 }
