@@ -15,7 +15,7 @@
 //! }
 //! ```
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct GetGatewayCategoriesArgs {
     /// The account ID to fetch Gateway Categories from.

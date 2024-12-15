@@ -22,17 +22,25 @@ fn functions_secrets() -> Result<()> {
 }
 
 #[test]
-// https://github.com/andrzejressel/pulumi-wasm/issues/394
-#[ignore]
 fn output_funcs() -> Result<()> {
     run_pulumi_generator_test("output-funcs", "mypkg")
 }
 
 #[test]
-// https://github.com/andrzejressel/pulumi-wasm/issues/394
+// https://github.com/andrzejressel/pulumi-wasm/issues/563
 #[ignore]
 fn output_funcs_edgeorder() -> Result<()> {
     run_pulumi_generator_test("output-funcs-edgeorder", "myedgeorder")
+}
+
+#[test]
+fn unions_inline() -> Result<()> {
+    run_pulumi_generator_test("unions-inline", "example")
+}
+
+#[test]
+fn unions_inside_arrays() -> Result<()> {
+    run_pulumi_generator_test("unions-inside-arrays", "example")
 }
 
 // provider_name is `name` from yaml file

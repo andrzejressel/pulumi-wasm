@@ -14,6 +14,7 @@ pub(crate) enum Type {
     Object(Box<Type>),
     Ref(Ref),
     Option(Box<Type>),
+    DiscriminatedUnion(Vec<Ref>),
 }
 
 impl Type {
@@ -23,7 +24,9 @@ impl Type {
             Type::Integer => "i32".into(),
             Type::Number => "f64".into(),
             Type::String => "String".into(),
-            Type::Array(type_) => format!("Vec<{}>", type_.get_rust_type()),
+            Type::Array(type_) => {
+                format!("Vec<{}>", type_.get_rust_type())
+            }
             Type::Object(type_) => {
                 format!(
                     "std::collections::HashMap<String, {}>",
@@ -37,6 +40,28 @@ impl Type {
                 Ref::Any => "String".to_string(),     //FIXME
             },
             Type::Option(type_) => format!("Option<{}>", type_.get_rust_type()),
+            Type::DiscriminatedUnion(refs) => format!(
+                "pulumi_wasm_provider_common::OneOf{}<{}>",
+                refs.len(),
+                refs.iter()
+                    .map(|r| Type::Ref(r.clone()).get_rust_type())
+                    .collect::<Vec<_>>()
+                    .join(", ")
+            ),
+        }
+    }
+
+    pub(crate) fn get_internal_discriminated_union(&self) -> Option<Vec<Type>> {
+        match self {
+            Type::Boolean => None,
+            Type::Integer => None,
+            Type::Number => None,
+            Type::String => None,
+            Type::Array(t) => t.get_internal_discriminated_union(),
+            Type::Object(o) => o.get_internal_discriminated_union(),
+            Type::Ref(_) => None,
+            Type::Option(o) => o.get_internal_discriminated_union(),
+            Type::DiscriminatedUnion(m) => Some(m.iter().map(|r| Type::Ref(r.clone())).collect()),
         }
     }
 }
@@ -83,11 +108,19 @@ pub(crate) struct GlobalTypeProperty {
 
 #[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
 pub(crate) enum GlobalType {
-    Object(Vec<GlobalTypeProperty>),
+    Object(Option<String>, Vec<GlobalTypeProperty>),
+    StringEnum(Option<String>, Vec<StringEnumElement>),
     String,
     Boolean,
     Number,
     Integer,
+}
+
+#[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
+pub(crate) struct StringEnumElement {
+    pub(crate) name: String,
+    pub(crate) value: Option<String>,
+    pub(crate) description: Option<String>,
 }
 
 #[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]

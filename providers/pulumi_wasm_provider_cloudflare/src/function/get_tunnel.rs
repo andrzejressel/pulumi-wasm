@@ -39,6 +39,5 @@ impl get_tunnel::Guest for Component {
             status: hashmap.remove("status").unwrap(),
             tunnel_type: hashmap.remove("tunnelType").unwrap(),
         }
-
     }
 }

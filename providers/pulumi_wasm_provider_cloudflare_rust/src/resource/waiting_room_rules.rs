@@ -35,7 +35,7 @@
 //! ```
 //! 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct WaitingRoomRulesArgs {
     /// List of rules to apply to the ruleset.

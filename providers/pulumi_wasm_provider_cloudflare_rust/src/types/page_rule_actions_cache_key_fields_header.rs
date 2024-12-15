@@ -1,4 +1,4 @@
-#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug)]
+#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct PageRuleActionsCacheKeyFieldsHeader {
     /// Check for presence of specified HTTP headers, without including their actual values.

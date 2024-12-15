@@ -1,7 +1,7 @@
 //! Access Keys Configuration defines the rotation policy for the keys
 //! that access will use to sign data.
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct ZeroTrustKeyAccessKeyConfigurationArgs {
     /// The account identifier to target for the resource.

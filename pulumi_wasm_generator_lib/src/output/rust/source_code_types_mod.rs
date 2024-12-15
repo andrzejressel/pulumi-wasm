@@ -31,7 +31,13 @@ fn convert_model(package: &crate::model::Package) -> Package {
         .types
         .iter()
         .for_each(|(element_id, resource)| match resource {
-            GlobalType::Object(_properties) => {
+            GlobalType::Object(_, _) => {
+                let ref_type = RefType {
+                    file_name: element_id.get_rust_struct_name().to_case(Case::Snake),
+                };
+                real_types.push(ref_type);
+            }
+            GlobalType::StringEnum(_, _) => {
                 let ref_type = RefType {
                     file_name: element_id.get_rust_struct_name().to_case(Case::Snake),
                 };

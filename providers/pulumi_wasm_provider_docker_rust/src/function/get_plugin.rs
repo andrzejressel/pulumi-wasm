@@ -18,7 +18,7 @@
 //!       id: "e9a9db917b3bfd6706b5d3a66d4bceb9f"
 //! ```
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct GetPluginArgs {
     /// The alias of the Docker plugin. If the tag is omitted, `:latest` is complemented to the attribute value.

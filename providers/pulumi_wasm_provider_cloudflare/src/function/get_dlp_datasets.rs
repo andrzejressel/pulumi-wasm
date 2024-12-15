@@ -29,6 +29,5 @@ impl get_dlp_datasets::Guest for Component {
             datasets: hashmap.remove("datasets").unwrap(),
             id: hashmap.remove("id").unwrap(),
         }
-
     }
 }

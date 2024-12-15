@@ -1,4 +1,8 @@
-#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug)]
+{{#each type.description_lines}}
+    //! {{&this}}
+{{/each}}
+
+#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct {{type.struct_name}} {
     {{#each type.fields as |field|}}

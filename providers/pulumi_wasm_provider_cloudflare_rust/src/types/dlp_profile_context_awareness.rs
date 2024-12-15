@@ -1,4 +1,4 @@
-#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug)]
+#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct DlpProfileContextAwareness {
     /// Scan the context of predefined entries to only return matches surrounded by keywords.

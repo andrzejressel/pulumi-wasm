@@ -1,6 +1,6 @@
 //! The [Risk Score Integration](https://developers.cloudflare.com/cloudflare-one/insights/risk-score/#send-risk-score-to-okta) resource allows you to transmit changes in User Risk Score to a specified vendor such as Okta.
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct ZeroTrustRiskScoreIntegrationArgs {
     /// The account identifier to target for the resource.

@@ -1,4 +1,6 @@
-#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug)]
+//! The Docker build context
+
+#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct DockerBuild {
     /// Custom host-to-IP mappings to use while building (format: "host:ip")

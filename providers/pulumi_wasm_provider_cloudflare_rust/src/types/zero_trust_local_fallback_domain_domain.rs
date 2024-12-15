@@ -1,4 +1,4 @@
-#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug)]
+#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct ZeroTrustLocalFallbackDomainDomain {
     /// A description of the fallback domain, displayed in the client UI.

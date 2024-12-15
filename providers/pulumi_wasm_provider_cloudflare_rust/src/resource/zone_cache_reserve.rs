@@ -28,7 +28,7 @@
 //! ```
 //! 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct ZoneCacheReserveArgs {
     /// Whether to enable or disable Cache Reserve support for a given zone.

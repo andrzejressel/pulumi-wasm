@@ -26,7 +26,7 @@
 //! ```
 //! 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct AccountArgs {
     /// Whether 2FA is enforced on the account. Defaults to `false`.

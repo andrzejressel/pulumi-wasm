@@ -41,7 +41,7 @@
 //! ```
 //! 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct WaitingRoomArgs {
     /// A list of additional hostname and paths combination to be applied on the waiting room.

@@ -16,7 +16,7 @@
 //! }
 //! ```
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct GetRulesetsArgs {
     /// The account identifier to target for the resource. Must provide only one of `zone_id`, `account_id`.

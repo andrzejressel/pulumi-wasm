@@ -38,6 +38,5 @@ impl get_zero_trust_access_application::Guest for Component {
             name: hashmap.remove("name").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

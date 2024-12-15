@@ -35,7 +35,7 @@
 //! ```
 //! 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct BotManagementArgs {
     /// Enable rule to block AI Scrapers and Crawlers.

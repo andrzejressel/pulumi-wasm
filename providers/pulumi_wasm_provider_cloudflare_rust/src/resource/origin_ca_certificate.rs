@@ -38,7 +38,7 @@
 //! ```
 //! 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct OriginCaCertificateArgs {
     /// The Certificate Signing Request. Must be newline-encoded. **Modifying this attribute will force creation of a new resource.**

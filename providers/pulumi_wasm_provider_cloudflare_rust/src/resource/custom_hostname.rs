@@ -25,7 +25,7 @@
 //! ```
 //! 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct CustomHostnameArgs {
     /// Custom metadata associated with custom hostname. Only supports primitive string values, all other values are accessible via the API directly.

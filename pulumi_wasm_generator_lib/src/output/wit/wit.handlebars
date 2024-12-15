@@ -32,18 +32,20 @@ interface {{name}} {
     }
     {{/if}}
 
+    {{#if results}}
     record res {
         {{#each results}}
         {{name}}: output,
         {{/each}}
     }
+    {{/if}}
 
     invoke: func(
         name: string,
 {{#if arguments}}
         args: args
 {{/if}}
-    ) -> res;
+    ){{#if results}} -> res{{/if}};
 
 }
 {{/each}}
@@ -61,17 +63,19 @@ interface {{name}} {
     }
     {{/if}}
 
+    {{#if results}}
     record res {
         {{#each results}}
         {{name}}: output,
         {{/each}}
     }
+    {{/if}}
 
     invoke: func(
     {{#if arguments}}
         args: args
     {{/if}}
-    ) -> res;
+    ){{#if results}} -> res{{/if}};
 
 }
 {{/each}}

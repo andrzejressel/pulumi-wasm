@@ -1,4 +1,4 @@
-#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug)]
+#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct ZeroTrustTunnelCloudflaredConfigConfigIngressRule {
     /// Hostname to match the incoming request with. If the hostname matches, the request will be sent to the service.

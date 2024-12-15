@@ -22,7 +22,7 @@
 //! }
 //! ```
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct ApiShieldArgs {
     /// Characteristics define properties across which auth-ids can be computed in a privacy-preserving manner.

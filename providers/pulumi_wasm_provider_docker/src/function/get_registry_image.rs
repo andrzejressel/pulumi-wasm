@@ -32,6 +32,5 @@ impl get_registry_image::Guest for Component {
             name: hashmap.remove("name").unwrap(),
             sha256_digest: hashmap.remove("sha256Digest").unwrap(),
         }
-
     }
 }

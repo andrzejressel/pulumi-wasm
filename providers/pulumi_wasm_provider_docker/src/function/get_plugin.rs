@@ -38,6 +38,5 @@ impl get_plugin::Guest for Component {
             name: hashmap.remove("name").unwrap(),
             plugin_reference: hashmap.remove("pluginReference").unwrap(),
         }
-
     }
 }

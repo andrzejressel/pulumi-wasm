@@ -1,7 +1,7 @@
 //! Provides a resource to customize the pages your end users will see
 //! when trying to reach applications behind Cloudflare Access.
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct AccessTagArgs {
     /// The account identifier to target for the resource. Conflicts with `zone_id`. **Modifying this attribute will force creation of a new resource.**

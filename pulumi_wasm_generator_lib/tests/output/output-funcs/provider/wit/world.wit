@@ -1,0 +1,205 @@
+package pulumi:mypkg@0.0.1--0.0.0-DEV;
+
+world mypkg-pulumi {
+    import component:pulumi-wasm/register-interface@0.0.0-DEV;
+    export func-with-all-optional-inputs;
+    export func-with-const-input;
+    export func-with-default-value;
+    export func-with-dict-param;
+    export func-with-empty-outputs;
+    export func-with-list-param;
+    export get-bastion-shareable-link;
+    export get-client-config;
+    export get-integration-runtime-object-metadatum;
+    export list-storage-account-keys;
+}
+
+world mypkg-pulumi-client {
+    import func-with-all-optional-inputs;
+    import func-with-const-input;
+    import func-with-default-value;
+    import func-with-dict-param;
+    import func-with-empty-outputs;
+    import func-with-list-param;
+    import get-bastion-shareable-link;
+    import get-client-config;
+    import get-integration-runtime-object-metadatum;
+    import list-storage-account-keys;
+}
+
+
+interface func-with-all-optional-inputs {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        a: borrow<output>,
+        b: borrow<output>,
+    }
+
+    record res {
+        r: output,
+    }
+
+    invoke: func(
+        args: args
+    ) -> res;
+
+}
+interface func-with-const-input {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        plain-input: borrow<output>,
+    }
+
+
+    invoke: func(
+        args: args
+    );
+
+}
+interface func-with-default-value {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        a: borrow<output>,
+        b: borrow<output>,
+    }
+
+    record res {
+        r: output,
+    }
+
+    invoke: func(
+        args: args
+    ) -> res;
+
+}
+interface func-with-dict-param {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        a: borrow<output>,
+        b: borrow<output>,
+    }
+
+    record res {
+        r: output,
+    }
+
+    invoke: func(
+        args: args
+    ) -> res;
+
+}
+interface func-with-empty-outputs {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        name: borrow<output>,
+    }
+
+
+    invoke: func(
+        args: args
+    );
+
+}
+interface func-with-list-param {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        a: borrow<output>,
+        b: borrow<output>,
+    }
+
+    record res {
+        r: output,
+    }
+
+    invoke: func(
+        args: args
+    ) -> res;
+
+}
+interface get-bastion-shareable-link {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        bastion-host-name: borrow<output>,
+        resource-group-name: borrow<output>,
+        vms: borrow<output>,
+    }
+
+    record res {
+        next-link: output,
+    }
+
+    invoke: func(
+        args: args
+    ) -> res;
+
+}
+interface get-client-config {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+
+    record res {
+        client-id: output,
+        object-id: output,
+        subscription-id: output,
+        tenant-id: output,
+    }
+
+    invoke: func(
+    ) -> res;
+
+}
+interface get-integration-runtime-object-metadatum {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        factory-name: borrow<output>,
+        integration-runtime-name: borrow<output>,
+        metadata-path: borrow<output>,
+        resource-group-name: borrow<output>,
+    }
+
+    record res {
+        next-link: output,
+        value: output,
+    }
+
+    invoke: func(
+        args: args
+    ) -> res;
+
+}
+interface list-storage-account-keys {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        account-name: borrow<output>,
+        expand: borrow<output>,
+        resource-group-name: borrow<output>,
+    }
+
+    record res {
+        keys: output,
+    }
+
+    invoke: func(
+        args: args
+    ) -> res;
+
+}

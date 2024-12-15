@@ -35,6 +35,5 @@ impl get_origin_ca_certificate::Guest for Component {
             request_type: hashmap.remove("requestType").unwrap(),
             revoked_at: hashmap.remove("revokedAt").unwrap(),
         }
-
     }
 }

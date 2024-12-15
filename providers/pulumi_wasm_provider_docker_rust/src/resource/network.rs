@@ -49,7 +49,7 @@
 //! ```
 //! 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct NetworkArgs {
     /// Enable manual container attachment to the network.

@@ -32,7 +32,7 @@
 //! 
 //! This command will encode the `supersecret` token in Pulumi state and generate a code suggestion to include a new RandomPassword resource in your Pulumi program. Include the suggested code and do a `pulumi up`. Your secret password is now securely stored in Pulumi, and you can reference it in your Pulumi program as `newPassword.result`. 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct RandomPasswordArgs {
     /// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.

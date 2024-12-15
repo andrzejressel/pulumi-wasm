@@ -17,7 +17,7 @@
 //!             - host: mystorage.s3.ams.amazonaws.com
 //! ```
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct CloudConnectorRulesArgs {
     /// List of Cloud Connector Rules

@@ -35,7 +35,7 @@
 //! If the data needs to be stored securily as a secret, consider using the RandomPassword resource instead.
 //! 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct RandomStringArgs {
     /// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.

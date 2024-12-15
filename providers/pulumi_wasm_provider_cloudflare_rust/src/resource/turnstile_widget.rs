@@ -28,7 +28,7 @@
 //! ```
 //! 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct TurnstileWidgetArgs {
     /// The account identifier to target for the resource.
