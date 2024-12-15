@@ -14,7 +14,7 @@ pub(crate) enum Type {
     Object(Box<Type>),
     Ref(Ref),
     Option(Box<Type>),
-    DiscriminatedUnion(Vec<Ref>),
+    DiscriminatedUnion(Vec<Type>),
     ConstString(String)
 }
 
@@ -45,7 +45,7 @@ impl Type {
                 "pulumi_wasm_provider_common::OneOf{}<{}>",
                 refs.len(),
                 refs.iter()
-                    .map(|r| Type::Ref(r.clone()).get_rust_type())
+                    .map(|r| r.get_rust_type())
                     .collect::<Vec<_>>()
                     .join(", ")
             ),
@@ -64,7 +64,12 @@ impl Type {
             Type::Array(t) => t.get_internal_discriminated_union(),
             Type::Object(o) => o.get_internal_discriminated_union(),
             Type::Option(o) => o.get_internal_discriminated_union(),
-            Type::DiscriminatedUnion(m) => Some(m.iter().map(|r| Type::Ref(r.clone())).collect()),
+            Type::DiscriminatedUnion(types) => Some(
+                types
+                    .iter()
+                    .flat_map(|t| t.get_internal_discriminated_union().unwrap_or_default())
+                    .collect(),
+            ),
         }
     }
 
