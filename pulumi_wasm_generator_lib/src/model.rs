@@ -14,7 +14,7 @@ pub(crate) enum Type {
     Object(Box<Type>),
     Ref(Ref),
     Option(Box<Type>),
-    DiscriminatedUnion(Vec<Ref>),
+    DiscriminatedUnion(Vec<Box<Type>>),
 }
 
 impl Type {
@@ -44,7 +44,7 @@ impl Type {
                 "pulumi_wasm_provider_common::OneOf{}<{}>",
                 refs.len(),
                 refs.iter()
-                    .map(|r| Type::Ref(r.clone()).get_rust_type())
+                    .map(|r| r.get_rust_type())
                     .collect::<Vec<_>>()
                     .join(", ")
             ),
@@ -61,9 +61,23 @@ impl Type {
             Type::Object(o) => o.get_internal_discriminated_union(),
             Type::Ref(_) => None,
             Type::Option(o) => o.get_internal_discriminated_union(),
-            Type::DiscriminatedUnion(m) => Some(m.iter().map(|r| Type::Ref(r.clone())).collect()),
+            Type::DiscriminatedUnion(types) => Some(
+                types
+                    .iter()
+                    .flat_map(|t| {
+                        let o = t.get_internal_discriminated_union();
+                        o.unwrap_or_else(|| vec![])
+                    })
+                    .collect(),
+            ), // Type::DiscriminatedUnion(m) => //Some(m.iter().map(|r| Type::Ref(r.clone())).collect()),
         }
     }
+}
+
+#[derive(Clone, Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
+pub(crate) enum DiscriminatedUnionElement {
+    Ref(Ref),
+    String,
 }
 
 #[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]

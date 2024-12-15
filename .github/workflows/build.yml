@@ -93,7 +93,12 @@ jobs:
         workspaces: |
           ./
           pulumi_wasm_generator_lib/tests/output/cyclic-types/
+          pulumi_wasm_generator_lib/tests/output/functions-secrets/
           pulumi_wasm_generator_lib/tests/output/mini-awsnative/
+          pulumi_wasm_generator_lib/tests/output/output-funcs/
+          pulumi_wasm_generator_lib/tests/output/output-funcs-edgeorder/
+          pulumi_wasm_generator_lib/tests/output/unions-inline/
+          pulumi_wasm_generator_lib/tests/output/unions-inside-arrays/
     - name: Regenerate provider list
       run: just regenerate-provider-list
     - name: Check
@@ -204,7 +209,12 @@ jobs:
         workspaces: |
           ./
           pulumi_wasm_generator_lib/tests/output/cyclic-types/
+          pulumi_wasm_generator_lib/tests/output/functions-secrets/
           pulumi_wasm_generator_lib/tests/output/mini-awsnative/
+          pulumi_wasm_generator_lib/tests/output/output-funcs/
+          pulumi_wasm_generator_lib/tests/output/output-funcs-edgeorder/
+          pulumi_wasm_generator_lib/tests/output/unions-inline/
+          pulumi_wasm_generator_lib/tests/output/unions-inside-arrays/
 
     - uses: benjlevesque/short-sha@v3.0
       id: short-sha

@@ -29,8 +29,6 @@ fn output_funcs() -> Result<()> {
 }
 
 #[test]
-// https://github.com/andrzejressel/pulumi-wasm/issues/563
-#[ignore]
 fn output_funcs_edgeorder() -> Result<()> {
     run_pulumi_generator_test("output-funcs-edgeorder", "myedgeorder")
 }
