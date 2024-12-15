@@ -327,7 +327,6 @@ fn convert_to_global_type(
     type_: &&ComplexType,
 ) -> Result<(ElementId, GlobalType)> {
     let element_id = ElementId::new(type_name)?;
-    println!("Converting type: {:?}", type_);
     let tpe = match &type_.object_type {
         ObjectType { r#type: None, .. } => Err(anyhow!("Unknown complex type")),
         ObjectType {
