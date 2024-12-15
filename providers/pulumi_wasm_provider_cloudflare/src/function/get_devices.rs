@@ -29,6 +29,5 @@ impl get_devices::Guest for Component {
             devices: hashmap.remove("devices").unwrap(),
             id: hashmap.remove("id").unwrap(),
         }
-
     }
 }

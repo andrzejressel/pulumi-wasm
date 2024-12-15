@@ -32,6 +32,5 @@ impl func_with_secrets::Guest for Component {
             id: hashmap.remove("id").unwrap(),
             plaintext: hashmap.remove("plaintext").unwrap(),
         }
-
     }
 }

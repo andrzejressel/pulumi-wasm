@@ -29,6 +29,5 @@ impl get_zone_cache_reserve::Guest for Component {
             id: hashmap.remove("id").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

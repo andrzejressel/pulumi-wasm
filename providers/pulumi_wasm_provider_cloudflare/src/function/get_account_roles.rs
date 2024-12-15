@@ -29,6 +29,5 @@ impl get_account_roles::Guest for Component {
             id: hashmap.remove("id").unwrap(),
             roles: hashmap.remove("roles").unwrap(),
         }
-
     }
 }

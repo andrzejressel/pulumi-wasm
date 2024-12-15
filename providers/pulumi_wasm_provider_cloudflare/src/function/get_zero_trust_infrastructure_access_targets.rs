@@ -50,6 +50,5 @@ impl get_zero_trust_infrastructure_access_targets::Guest for Component {
             targets: hashmap.remove("targets").unwrap(),
             virtual_network_id: hashmap.remove("virtualNetworkId").unwrap(),
         }
-
     }
 }

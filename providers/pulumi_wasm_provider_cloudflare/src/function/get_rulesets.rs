@@ -38,6 +38,5 @@ impl get_rulesets::Guest for Component {
             rulesets: hashmap.remove("rulesets").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

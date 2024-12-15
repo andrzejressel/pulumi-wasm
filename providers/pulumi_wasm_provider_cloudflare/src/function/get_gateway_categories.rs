@@ -29,6 +29,5 @@ impl get_gateway_categories::Guest for Component {
             categories: hashmap.remove("categories").unwrap(),
             id: hashmap.remove("id").unwrap(),
         }
-
     }
 }

@@ -29,6 +29,5 @@ impl get_lists::Guest for Component {
             id: hashmap.remove("id").unwrap(),
             lists: hashmap.remove("lists").unwrap(),
         }
-
     }
 }

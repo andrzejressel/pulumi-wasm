@@ -47,6 +47,5 @@ impl get_zone_dnssec::Guest for Component {
             status: hashmap.remove("status").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }
