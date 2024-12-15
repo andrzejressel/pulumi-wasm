@@ -1,9 +1,9 @@
 #[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct UnionCaseWithConst2 {
-    #[builder(into, default)]
+    #[builder(skip)]
     #[serde(rename = "field")]
-    pub r#field: Box<crate::ConstString2>,
+    r#field: Box<crate::ConstString2>,
     #[builder(into)]
     #[serde(rename = "field2")]
     pub r#field_2: Box<String>,

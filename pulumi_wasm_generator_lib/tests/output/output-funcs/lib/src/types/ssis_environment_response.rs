@@ -21,9 +21,9 @@ pub struct SsisEnvironmentResponse {
     pub r#name: Box<Option<String>>,
     /// The type of SSIS object metadata.
     /// Expected value is 'Environment'.
-    #[builder(into, default)]
+    #[builder(skip)]
     #[serde(rename = "type")]
-    pub r#type: Box<crate::ConstStringEnvironment>,
+    r#type: Box<crate::ConstStringEnvironment>,
     /// Variable in environment
     #[builder(into, default)]
     #[serde(rename = "variables")]

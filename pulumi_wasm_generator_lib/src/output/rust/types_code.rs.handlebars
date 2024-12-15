@@ -11,10 +11,12 @@ pub struct {{type.struct_name}} {
     {{/each}}
     {{#if default}}
     #[builder(into, default)]
+    {{else if skip}}
+    #[builder(skip)]
     {{else}}
     #[builder(into)]
     {{/if}}
     #[serde(rename = "{{field.original_name}}")]
-    pub r#{{field.name}}: Box<{{&field.type_}}>,
+    {{#unless private}}pub {{/unless}}r#{{field.name}}: Box<{{&field.type_}}>,
     {{/each}}
 }

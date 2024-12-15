@@ -12,10 +12,12 @@ pub struct {{interface.struct_name}}Args {
     {{/each}}
     {{#if default}}
     #[builder(into, default)]
+    {{else if skip}}
+    #[builder(skip)]
     {{else}}
     #[builder(into)]
     {{/if}}
-    pub {{arg_name}}: pulumi_wasm_rust::Output<{{&type_}}>,
+    {{#unless private}}pub {{/unless}}{{arg_name}}: pulumi_wasm_rust::Output<{{&type_}}>,
 {{/each}}
 }
 {{/if}}

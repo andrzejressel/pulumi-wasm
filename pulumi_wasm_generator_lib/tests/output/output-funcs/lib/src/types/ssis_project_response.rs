@@ -29,9 +29,9 @@ pub struct SsisProjectResponse {
     pub r#parameters: Box<Option<Vec<crate::types::SsisParameterResponse>>>,
     /// The type of SSIS object metadata.
     /// Expected value is 'Project'.
-    #[builder(into, default)]
+    #[builder(skip)]
     #[serde(rename = "type")]
-    pub r#type: Box<crate::ConstStringProject>,
+    r#type: Box<crate::ConstStringProject>,
     /// Project version.
     #[builder(into, default)]
     #[serde(rename = "version")]

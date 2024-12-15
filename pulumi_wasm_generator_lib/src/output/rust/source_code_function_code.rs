@@ -15,7 +15,8 @@ struct InputProperty {
     type_: String,
     description_lines: Vec<String>,
     default: bool,
-    const_string: bool,
+    skip: bool,
+    private: bool,
 }
 
 #[derive(Serialize)]
@@ -63,11 +64,9 @@ fn convert_model(package: &crate::model::Package) -> Package {
                     .map(|input_property| InputProperty {
                         name: input_property.name.clone(),
                         arg_name: input_property.get_rust_argument_name(),
-                        default: matches!(
-                            input_property.r#type,
-                            Type::Option(_) | Type::ConstString(_)
-                        ),
-                        const_string: matches!(input_property.r#type, Type::ConstString(_)),
+                        default: matches!(input_property.r#type, Type::Option(_)),
+                        skip: matches!(input_property.r#type, Type::ConstString(_)),
+                        private: matches!(input_property.r#type, Type::ConstString(_)),
                         type_: input_property.r#type.get_rust_type(),
                         description_lines: crate::utils::to_lines(
                             input_property.description.clone(),

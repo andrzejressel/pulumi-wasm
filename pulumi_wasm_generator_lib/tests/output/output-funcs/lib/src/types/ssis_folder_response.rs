@@ -17,7 +17,7 @@ pub struct SsisFolderResponse {
     pub r#name: Box<Option<String>>,
     /// The type of SSIS object metadata.
     /// Expected value is 'Folder'.
-    #[builder(into, default)]
+    #[builder(skip)]
     #[serde(rename = "type")]
-    pub r#type: Box<crate::ConstStringFolder>,
+    r#type: Box<crate::ConstStringFolder>,
 }

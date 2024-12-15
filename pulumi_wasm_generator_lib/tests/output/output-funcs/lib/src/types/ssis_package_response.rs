@@ -33,7 +33,7 @@ pub struct SsisPackageResponse {
     pub r#project_version: Box<Option<f64>>,
     /// The type of SSIS object metadata.
     /// Expected value is 'Package'.
-    #[builder(into, default)]
+    #[builder(skip)]
     #[serde(rename = "type")]
-    pub r#type: Box<crate::ConstStringPackage>,
+    r#type: Box<crate::ConstStringPackage>,
 }

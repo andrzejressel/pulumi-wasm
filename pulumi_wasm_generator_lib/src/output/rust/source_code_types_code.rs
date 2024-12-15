@@ -16,6 +16,8 @@ struct Property {
     type_: String,
     description_lines: Vec<String>,
     default: bool,
+    skip: bool,
+    private: bool,
 }
 
 #[derive(Serialize)]
@@ -79,10 +81,9 @@ fn convert_model(package: &crate::model::Package) -> Package {
                                 .to_case(Case::Snake),
                             original_name: global_type_property.name.clone(),
                             type_: global_type_property.r#type.get_rust_type(),
-                            default: matches!(
-                                global_type_property.r#type,
-                                Type::Option(_) | Type::ConstString(_)
-                            ),
+                            default: matches!(global_type_property.r#type, Type::Option(_)),
+                            skip: matches!(global_type_property.r#type, Type::ConstString(_)),
+                            private: matches!(global_type_property.r#type, Type::ConstString(_)),
                             description_lines: crate::utils::to_lines(
                                 global_type_property.description.clone(),
                                 package,
