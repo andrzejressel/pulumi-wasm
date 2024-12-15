@@ -1,0 +1,33 @@
+package pulumi:typesystem@1.0.0--0.0.0-DEV;
+
+world typesystem-pulumi {
+    import component:pulumi-wasm/register-interface@0.0.0-DEV;
+    export typesystem-server;
+}
+
+world typesystem-pulumi-client {
+    import typesystem-server;
+}
+
+interface typesystem-server {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        optional-string-array: borrow<output>,
+        optional-string-input: borrow<output>,
+        optional-union: borrow<output>,
+        properties-collection: borrow<output>,
+        required-string-array: borrow<output>,
+        required-string-input: borrow<output>,
+        required-union: borrow<output>,
+    }
+
+
+    invoke: func(
+        name: string,
+        args: args
+    );
+
+}
+

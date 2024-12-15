@@ -1,6 +1,6 @@
 //! Manages Web3 hostnames for IPFS and Ethereum gateways.
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct Web3HostnameArgs {
     /// An optional description of the hostname.

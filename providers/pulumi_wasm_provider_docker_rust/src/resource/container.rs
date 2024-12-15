@@ -64,7 +64,7 @@
 //! ```
 //! 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct ContainerArgs {
     /// If `true` attach to the container after its creation and waits the end of its execution. Defaults to `false`.

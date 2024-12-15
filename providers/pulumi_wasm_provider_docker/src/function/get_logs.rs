@@ -59,6 +59,5 @@ impl get_logs::Guest for Component {
             timestamps: hashmap.remove("timestamps").unwrap(),
             until: hashmap.remove("until").unwrap(),
         }
-
     }
 }

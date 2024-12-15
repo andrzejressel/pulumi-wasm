@@ -29,6 +29,5 @@ impl get_zones::Guest for Component {
             id: hashmap.remove("id").unwrap(),
             zones: hashmap.remove("zones").unwrap(),
         }
-
     }
 }

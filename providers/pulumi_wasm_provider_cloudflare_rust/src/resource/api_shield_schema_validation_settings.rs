@@ -18,7 +18,7 @@
 //! }
 //! ```
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct ApiShieldSchemaValidationSettingsArgs {
     /// The default mitigation action used when there is no mitigation action defined on the operation.

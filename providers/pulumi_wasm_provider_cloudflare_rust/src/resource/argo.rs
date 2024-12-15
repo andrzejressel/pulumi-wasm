@@ -26,7 +26,7 @@
 //! ```
 //! 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct ArgoArgs {
     /// Whether smart routing is enabled. Available values: `on`, `off`.

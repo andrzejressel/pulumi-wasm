@@ -278,9 +278,9 @@ dependencies = [
 
 [[package]]
 name = "bon"
-version = "3.2.0"
+version = "3.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9276fe602371cd8a7f70fe68c4db55b2d3e92c570627d6ed0427646edfa5cf47"
+checksum = "f265cdb2e8501f1c952749e78babe8f1937be92c98120e5f78fc72d634682bad"
 dependencies = [
  "bon-macros",
  "rustversion",
@@ -288,9 +288,9 @@ dependencies = [
 
 [[package]]
 name = "bon-macros"
-version = "3.2.0"
+version = "3.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "94828b84b32b4f3ac3865f692fcdbc46c7d0dd87b29658a391d58a244e1ce45a"
+checksum = "38aa5c627cd7706490e5b003d685f8b9d69bc343b1a00b9fdd01e75fdf6827cf"
 dependencies = [
  "darling",
  "ident_case",
@@ -2212,6 +2212,7 @@ name = "pulumi_wasm_cloudflare"
 version = "5.43.1-0.0.0-DEV"
 dependencies = [
  "bon",
+ "pulumi_wasm_provider_common",
  "pulumi_wasm_rust",
  "pulumi_wasm_wit",
  "serde",
@@ -2252,6 +2253,7 @@ name = "pulumi_wasm_docker"
 version = "4.5.3-0.0.0-DEV"
 dependencies = [
  "bon",
+ "pulumi_wasm_provider_common",
  "pulumi_wasm_rust",
  "pulumi_wasm_wit",
  "serde",
@@ -2316,6 +2318,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "pulumi_wasm_example_typesystem"
+version = "0.0.0-DEV"
+dependencies = [
+ "pulumi_wasm_provider_common",
+ "pulumi_wasm_rust",
+ "pulumi_wasm_typesystem",
+ "serde_json",
+]
+
+[[package]]
 name = "pulumi_wasm_generator"
 version = "0.0.0-DEV"
 dependencies = [
@@ -2353,10 +2365,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "pulumi_wasm_provider_common"
+version = "0.0.0-DEV"
+dependencies = [
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "pulumi_wasm_random"
 version = "4.15.0-0.0.0-DEV"
 dependencies = [
  "bon",
+ "pulumi_wasm_provider_common",
  "pulumi_wasm_rust",
  "pulumi_wasm_wit",
  "serde",
@@ -2432,6 +2453,18 @@ version = "0.0.0-DEV"
 dependencies = [
  "quote",
  "syn 2.0.90",
+]
+
+[[package]]
+name = "pulumi_wasm_typesystem"
+version = "1.0.0-0.0.0-DEV"
+dependencies = [
+ "bon",
+ "pulumi_wasm_provider_common",
+ "pulumi_wasm_rust",
+ "pulumi_wasm_wit",
+ "serde",
+ "wit-bindgen",
 ]
 
 [[package]]
@@ -2752,9 +2785,9 @@ dependencies = [
 
 [[package]]
 name = "serde"
-version = "1.0.215"
+version = "1.0.216"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6513c1ad0b11a9376da888e3e0baa0077f1aed55c17f50e7b2397136129fb88f"
+checksum = "0b9781016e935a97e8beecf0c933758c97a5520d32930e460142b4cd80c6338e"
 dependencies = [
  "serde_derive",
 ]
@@ -2771,9 +2804,9 @@ dependencies = [
 
 [[package]]
 name = "serde_derive"
-version = "1.0.215"
+version = "1.0.216"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ad1e866f866923f252f05c889987993144fb74e722403468a4ebd70c3cd756c0"
+checksum = "46f859dbbf73865c6627ed570e78961cd3ac92407a2d117204c49232485da55e"
 dependencies = [
  "proc-macro2",
  "quote",

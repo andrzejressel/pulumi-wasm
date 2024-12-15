@@ -3,7 +3,7 @@
 //! requests will be passed back to other DNS servers configured on
 //! existing network interfaces on the device.
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct ZeroTrustLocalFallbackDomainArgs {
     /// The account identifier to target for the resource.

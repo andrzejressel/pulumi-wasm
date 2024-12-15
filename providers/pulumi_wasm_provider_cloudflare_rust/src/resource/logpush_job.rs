@@ -15,7 +15,7 @@
 //! ```
 //! 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct LogpushJobArgs {
     /// The account identifier to target for the resource. Must provide only one of `account_id`, `zone_id`.

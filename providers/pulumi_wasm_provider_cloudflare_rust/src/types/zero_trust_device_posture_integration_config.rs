@@ -1,4 +1,4 @@
-#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug)]
+#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct ZeroTrustDevicePostureIntegrationConfig {
     /// The Access client ID to be used as the `Cf-Access-Client-ID` header when making a request to the `api_url`.

@@ -60,7 +60,7 @@
 //! ```
 //! 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct ServiceArgs {
     /// Configuration for the authentication for pulling the images of the service

@@ -1,4 +1,4 @@
-#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug)]
+#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct UserAgentBlockingRuleConfiguration {
     /// The configuration target for this rule. You must set the target to ua for User Agent Blocking rules.

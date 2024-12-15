@@ -27,6 +27,5 @@ impl get_user::Guest for Component {
             id: hashmap.remove("id").unwrap(),
             username: hashmap.remove("username").unwrap(),
         }
-
     }
 }

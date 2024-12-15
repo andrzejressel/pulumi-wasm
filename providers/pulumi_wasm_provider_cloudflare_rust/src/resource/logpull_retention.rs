@@ -18,7 +18,7 @@
 //! ```
 //! 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct LogpullRetentionArgs {
     /// Whether you wish to retain logs or not.

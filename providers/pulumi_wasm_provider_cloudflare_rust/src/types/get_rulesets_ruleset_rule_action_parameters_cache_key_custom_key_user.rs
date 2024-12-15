@@ -1,4 +1,4 @@
-#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug)]
+#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct GetRulesetsRulesetRuleActionParametersCacheKeyCustomKeyUser {
     /// Add device type to the custom key. Conflicts with "cache_key.cache_by_device_type".

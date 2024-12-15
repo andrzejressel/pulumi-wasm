@@ -33,7 +33,7 @@
 //! ```
 //! 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct DeviceManagedNetworksArgs {
     /// The account identifier to target for the resource.

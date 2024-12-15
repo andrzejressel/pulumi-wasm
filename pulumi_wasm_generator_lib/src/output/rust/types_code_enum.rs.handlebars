@@ -1,0 +1,16 @@
+{{#each enum.description_lines}}
+    //! {{&this}}
+{{/each}}
+
+#[derive(serde::Deserialize, serde::Serialize, Debug, PartialEq, Clone)]
+pub enum {{enum.struct_name}} {
+    {{#each enum.values as |value|}}
+    {{#each value.description_lines}}
+    /// {{&this}}
+    {{/each}}
+    {{#if value.value}}
+    #[serde(rename = "{{value.value}}")]
+    {{/if}}
+    {{value.name}},
+    {{/each}}
+}

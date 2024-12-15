@@ -12,6 +12,7 @@ members = [
     "examples/docker",
     "examples/multiple_providers",
     "examples/simple",
+    "examples/typesystem",
     # DO NOT EDIT - START
     "providers/pulumi_wasm_provider_docker",
     "providers/pulumi_wasm_provider_docker_rust",
@@ -26,6 +27,7 @@ members = [
     "pulumi_wasm_generator",
     "pulumi_wasm_generator_lib",
     "pulumi_wasm_proto",
+    "pulumi_wasm_provider_common",
     "pulumi_wasm_runner",
     "pulumi_wasm_runner_component_creator",
     "pulumi_wasm_rust",
@@ -50,6 +52,8 @@ pulumi_wasm_common = { version = "=0.0.0-DEV", path = "pulumi_wasm_common", regi
 pulumi_wasm_proto = { version = "=0.0.0-DEV", path = "pulumi_wasm_proto", registry = "cloudsmith" }
 pulumi_wasm_wit = { version = "=0.0.0-DEV", path = "pulumi_wasm_wit", registry = "cloudsmith" }
 pulumi_wasm_runner_component_creator = { version = "=0.0.0-DEV", path = "pulumi_wasm_runner_component_creator", registry = "cloudsmith" }
+pulumi_wasm_provider_common = { version = "=0.0.0-DEV", path = "pulumi_wasm_provider_common", registry = "cloudsmith" }
+pulumi_wasm_typesystem = { version = "=1.0.0-0.0.0-DEV", path = "providers/pulumi_wasm_provider_typesystem_rust", registry = "cloudsmith" }
 
 anyhow = "1.0.82"
 prost = "0.13.1"

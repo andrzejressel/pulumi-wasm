@@ -29,7 +29,7 @@
 //! ```
 //! 
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct ZoneLockdownArgs {
     /// A list of IP addresses or IP ranges to match the request against specified in target, value pairs.

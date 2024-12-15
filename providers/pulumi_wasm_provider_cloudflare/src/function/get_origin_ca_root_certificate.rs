@@ -29,6 +29,5 @@ impl get_origin_ca_root_certificate::Guest for Component {
             cert_pem: hashmap.remove("certPem").unwrap(),
             id: hashmap.remove("id").unwrap(),
         }
-
     }
 }

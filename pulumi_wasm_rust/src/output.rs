@@ -1,10 +1,10 @@
 use anyhow::Error;
-use log::info;
 use once_cell::sync::Lazy;
 use pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface;
 use pulumi_wasm_wit::client_bindings::component::pulumi_wasm::stack_interface::add_export;
+use serde::de::DeserializeOwned;
+use serde::Serialize;
 use std::collections::HashMap;
-use std::fmt::Debug;
 use std::marker::PhantomData;
 use std::mem::ManuallyDrop;
 use std::ops::Deref;
@@ -24,15 +24,21 @@ impl<T> Clone for Output<T> {
     }
 }
 
-impl<T: serde::Serialize> From<T> for Output<T> {
+impl<T: Serialize> From<T> for Output<T> {
     fn from(value: T) -> Output<T> {
         Output::new(&value)
     }
 }
 
-impl<T: serde::Serialize> From<T> for Output<Option<T>> {
+impl<T: Serialize> From<T> for Output<Option<T>> {
     fn from(value: T) -> Self {
         Output::new(&Some(value))
+    }
+}
+
+impl<T: Serialize + DeserializeOwned> From<Output<T>> for Output<Option<T>> {
+    fn from(output: Output<T>) -> Self {
+        output.map(|v| Some(v))
     }
 }
 
@@ -60,18 +66,18 @@ impl From<Vec<&str>> for Output<Option<Vec<String>>> {
     }
 }
 
-impl<T: serde::Serialize, const N: usize> From<[T; N]> for Output<Vec<T>>
+impl<T: Serialize, const N: usize> From<[T; N]> for Output<Vec<T>>
 where
-    T: serde::Serialize,
+    T: Serialize,
 {
     fn from(value: [T; N]) -> Self {
         Output::new(&value.into_iter().collect())
     }
 }
 
-impl<T: serde::Serialize, const N: usize> From<[T; N]> for Output<Option<Vec<T>>>
+impl<T: Serialize, const N: usize> From<[T; N]> for Output<Option<Vec<T>>>
 where
-    T: serde::Serialize,
+    T: Serialize,
 {
     fn from(value: [T; N]) -> Self {
         Output::new(&Some(value.into_iter().collect()))
@@ -106,14 +112,12 @@ impl<T> Output<T> {
     pub fn map<B, F>(&self, f: F) -> Output<B>
     where
         F: Fn(T) -> B + Send + 'static,
-        T: serde::de::DeserializeOwned + Debug,
-        B: serde::Serialize + Debug,
+        T: DeserializeOwned,
+        B: Serialize,
     {
         let f = move |arg: &String| {
             let argument = serde_json::from_str(arg)?;
-            info!("Argument: {:?}", argument);
             let result = f(argument);
-            info!("Result: {:?}", result);
             let result = serde_json::to_string(&result)?;
             Ok(result)
         };
@@ -142,7 +146,7 @@ impl<T> Output<T> {
     /// # Safety
     ///
     /// Underlying output must be of type `F`.
-    pub unsafe fn transmute<F: serde::Serialize>(&self) -> Output<F> {
+    pub unsafe fn transmute<F: Serialize>(&self) -> Output<F> {
         Output {
             phantom: PhantomData::<F>,
             underlying_id: self.underlying_id,
@@ -154,9 +158,7 @@ impl<T> Output<T> {
     /// # Safety
     ///
     /// Underlying output must be of type `F`.
-    pub unsafe fn new_from_handle<F: serde::Serialize>(
-        handle: output_interface::Output,
-    ) -> Output<F> {
+    pub unsafe fn new_from_handle<F: Serialize>(handle: output_interface::Output) -> Output<F> {
         Output {
             phantom: PhantomData::<F>,
             underlying_id: output_interface::Output::take_handle(&handle),
@@ -169,7 +171,7 @@ impl<T> Output<T> {
     }
 }
 
-impl<T: serde::Serialize> Output<T> {
+impl<T: Serialize> Output<T> {
     pub fn new(value: &T) -> Self {
         let binding = serde_json::to_string(&value).unwrap();
         let resource = output_interface::Output::new(binding.as_str());

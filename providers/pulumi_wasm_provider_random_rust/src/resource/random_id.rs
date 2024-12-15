@@ -51,7 +51,7 @@
 //! 
 //!  
 
-#[derive(bon::Builder)]
+#[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct RandomIdArgs {
     /// The number of random bytes to produce. The minimum value is 1, which produces eight bits of randomness.

@@ -29,6 +29,5 @@ impl get_remote_image::Guest for Component {
             name: hashmap.remove("name").unwrap(),
             repo_digest: hashmap.remove("repoDigest").unwrap(),
         }
-
     }
 }
