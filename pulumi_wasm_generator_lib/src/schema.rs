@@ -489,7 +489,10 @@ fn create_string_enum(description: &Option<String>, enum_values: &[StringEnumVal
             .iter()
             .map(|enum_value| {
                 let (name, value) = match (&enum_value.name, &enum_value.value) {
-                    (Some(name), Some(value)) => (sanitize_identifier(name), value.clone()),
+                    (Some(name), Some(value)) => (
+                        sanitize_identifier(name).to_case(Case::UpperCamel),
+                        value.clone(),
+                    ),
                     (Some(name), None) => (
                         sanitize_identifier(name).to_case(Case::UpperCamel),
                         name.clone(),
@@ -503,7 +506,7 @@ fn create_string_enum(description: &Option<String>, enum_values: &[StringEnumVal
                     }
                 };
 
-                let (real_name, real_value) = if (name == value) {
+                let (real_name, real_value) = if name == value {
                     (name, None)
                 } else {
                     (name, Some(value))
@@ -528,8 +531,8 @@ fn create_integer_enum(
         enum_values
             .iter()
             .map(|enum_value| IntegerEnumElement {
-                name: enum_value.name.clone(),
-                value: enum_value.value.clone(),
+                name: enum_value.name.to_case(Case::UpperCamel),
+                value: enum_value.value,
                 description: enum_value.description.clone(),
             })
             .collect(),
@@ -542,8 +545,8 @@ fn create_number_enum(description: &Option<String>, enum_values: &[NumberEnumVal
         enum_values
             .iter()
             .map(|enum_value| NumberEnumElement {
-                name: enum_value.name.clone(),
-                value: enum_value.value.clone(),
+                name: enum_value.name.to_case(Case::UpperCamel),
+                value: enum_value.value,
                 description: enum_value.description.clone(),
             })
             .collect(),

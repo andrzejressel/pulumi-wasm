@@ -38,7 +38,7 @@ mod tests {
     fn test_string_enum_deserialization() {
         let enum1 = MyEnum::Value1;
         let enum2 = MyEnum::Value2;
-        let enum3 = MyEnum::special_characters;
+        let enum3 = MyEnum::SpecialCharacters;
 
         let enum1_json = serde_json::to_string(&enum1).unwrap();
         let enum2_json = serde_json::to_string(&enum2).unwrap();

@@ -4,5 +4,5 @@ pub enum MyEnum {
     Value1,
     Value2,
     #[serde(rename = "Plants'R'Us")]
-    special_characters,
+    SpecialCharacters,
 }
