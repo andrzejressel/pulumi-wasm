@@ -1,10 +1,10 @@
 #[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct ServerPropertiesForReplica {
-    #[builder(into)]
+    #[builder(skip)]
     #[serde(rename = "createMode")]
-    pub r#create_mode: Box<String>,
-    #[builder(into, default = Box::new(None))]
+    r#create_mode: Box<crate::ConstStringReplica>,
+    #[builder(into, default)]
     #[serde(rename = "version")]
     pub r#version: Box<Option<String>>,
 }

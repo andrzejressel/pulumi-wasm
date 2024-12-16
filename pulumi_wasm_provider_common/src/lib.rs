@@ -7,6 +7,11 @@ macro_rules! generate_string_const {
     ($struct_name:ident, $constant:tt) => {
         #[derive(Debug, PartialEq, Eq, Copy, Clone, Hash)]
         struct $struct_name;
+        impl Default for $struct_name {
+           fn default() -> Self {
+               Self {}
+           }
+        }
 
         impl serde::Serialize for $struct_name {
             fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
@@ -64,7 +69,7 @@ mod tests {
     #[test]
     fn string_const_should_serialize() {
         let my_struct = MyStruct {
-            tpe: StringConstants {},
+            tpe: StringConstants::default(),
             age: 0,
         };
         assert_eq!(
@@ -76,7 +81,7 @@ mod tests {
     #[test]
     fn string_const_should_deserialize() {
         let my_struct: MyStruct = serde_json::from_str(r#"{"tpe":"HELLO WORLD","age":0}"#).unwrap();
-        assert_eq!(my_struct.tpe, StringConstants {});
+        assert_eq!(my_struct.tpe, StringConstants::default());
         assert_eq!(my_struct.age, 0);
     }
 

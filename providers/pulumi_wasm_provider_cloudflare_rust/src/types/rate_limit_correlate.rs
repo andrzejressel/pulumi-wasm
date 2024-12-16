@@ -2,7 +2,7 @@
 #[builder(finish_fn = build_struct)]
 pub struct RateLimitCorrelate {
     /// If set to 'nat', NAT support will be enabled for rate limiting. Available values: `nat`.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "by")]
     pub r#by: Box<Option<String>>,
 }

@@ -49,37 +49,37 @@
 #[derive(bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
 pub struct RecordArgs {
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub allow_overwrite: pulumi_wasm_rust::Output<Option<bool>>,
     /// Comments or notes about the DNS record. This field has no effect on DNS responses.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub comment: pulumi_wasm_rust::Output<Option<String>>,
     /// The content of the record. Must provide only one of `data`, `content`, `value`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub content: pulumi_wasm_rust::Output<Option<String>>,
     /// Map of attributes that constitute the record value. Must provide only one of `data`, `content`, `value`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub data: pulumi_wasm_rust::Output<Option<crate::types::RecordData>>,
     /// The name of the record. **Modifying this attribute will force creation of a new resource.**
     #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// The priority of the record.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub priority: pulumi_wasm_rust::Output<Option<i32>>,
     /// Whether the record gets Cloudflare's origin protection.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub proxied: pulumi_wasm_rust::Output<Option<bool>>,
     /// Custom tags for the DNS record.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub tags: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// The TTL of the record.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub ttl: pulumi_wasm_rust::Output<Option<i32>>,
     /// The type of the record. Available values: `A`, `AAAA`, `CAA`, `CNAME`, `TXT`, `SRV`, `LOC`, `MX`, `NS`, `SPF`, `CERT`, `DNSKEY`, `DS`, `NAPTR`, `SMIMEA`, `SSHFP`, `TLSA`, `URI`, `PTR`, `HTTPS`, `SVCB`. **Modifying this attribute will force creation of a new resource.**
     #[builder(into)]
     pub type_: pulumi_wasm_rust::Output<String>,
     /// The value of the record. Must provide only one of `data`, `content`, `value`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub value: pulumi_wasm_rust::Output<Option<String>>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
     #[builder(into)]

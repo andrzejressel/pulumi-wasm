@@ -45,10 +45,10 @@ pub struct PageRuleArgs {
     #[builder(into)]
     pub actions: pulumi_wasm_rust::Output<crate::types::PageRuleActions>,
     /// The priority of the page rule among others for this target, the higher the number the higher the priority as per [API documentation](https://api.cloudflare.com/#page-rules-for-a-zone-create-page-rule).
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub priority: pulumi_wasm_rust::Output<Option<i32>>,
     /// Whether the page rule is active or disabled.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub status: pulumi_wasm_rust::Output<Option<String>>,
     /// The URL pattern to target with the page rule.
     #[builder(into)]

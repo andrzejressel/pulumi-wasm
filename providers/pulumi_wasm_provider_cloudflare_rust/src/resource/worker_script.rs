@@ -65,50 +65,50 @@ pub struct WorkerScriptArgs {
     /// The account identifier to target for the resource.
     #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub analytics_engine_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptAnalyticsEngineBinding>>>,
     /// The date to use for the compatibility flag.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub compatibility_date: pulumi_wasm_rust::Output<Option<String>>,
     /// Compatibility flags used for Worker Scripts.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub compatibility_flags: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// The script content.
     #[builder(into)]
     pub content: pulumi_wasm_rust::Output<String>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub d1_database_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptD1DatabaseBinding>>>,
     /// Name of the Workers for Platforms dispatch namespace.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub dispatch_namespace: pulumi_wasm_rust::Output<Option<String>>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub hyperdrive_config_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptHyperdriveConfigBinding>>>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub kv_namespace_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptKvNamespaceBinding>>>,
     /// Enabling allows Worker events to be sent to a defined Logpush destination.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub logpush: pulumi_wasm_rust::Output<Option<bool>>,
     /// Whether to upload Worker as a module.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub module: pulumi_wasm_rust::Output<Option<bool>>,
     /// The name for the script. **Modifying this attribute will force creation of a new resource.**
     #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub placements: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptPlacement>>>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub plain_text_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptPlainTextBinding>>>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub queue_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptQueueBinding>>>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub r2_bucket_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptR2BucketBinding>>>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub secret_text_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptSecretTextBinding>>>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub service_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptServiceBinding>>>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub tags: pulumi_wasm_rust::Output<Option<Vec<String>>>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub webassembly_bindings: pulumi_wasm_rust::Output<Option<Vec<crate::types::WorkerScriptWebassemblyBinding>>>,
 }
 

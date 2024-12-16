@@ -2,11 +2,11 @@
 #[builder(finish_fn = build_struct)]
 pub struct PageRuleActionsCacheKeyFields {
     /// Controls what cookies go into Cache Key:
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "cookie")]
     pub r#cookie: Box<Option<crate::types::PageRuleActionsCacheKeyFieldsCookie>>,
     /// Controls what HTTP headers go into Cache Key:
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "header")]
     pub r#header: Box<Option<crate::types::PageRuleActionsCacheKeyFieldsHeader>>,
     /// Controls which Host header goes into Cache Key:

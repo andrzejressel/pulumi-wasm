@@ -27,9 +27,9 @@
 #[builder(finish_fn = build_struct)]
 pub struct CustomSslArgs {
     /// The certificate associated parameters. **Modifying this attribute will force creation of a new resource.**
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub custom_ssl_options: pulumi_wasm_rust::Output<Option<crate::types::CustomSslCustomSslOptions>>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub custom_ssl_priorities: pulumi_wasm_rust::Output<Option<Vec<crate::types::CustomSslCustomSslPriority>>>,
     /// The zone identifier to target for the resource.
     #[builder(into)]

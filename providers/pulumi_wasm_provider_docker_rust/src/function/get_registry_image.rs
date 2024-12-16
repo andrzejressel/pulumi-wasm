@@ -24,7 +24,7 @@
 #[builder(finish_fn = build_struct)]
 pub struct GetRegistryImageArgs {
     /// If `true`, the verification of TLS certificates of the server/registry is disabled. Defaults to `false`
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub insecure_skip_verify: pulumi_wasm_rust::Output<Option<bool>>,
     /// The name of the Docker image, including any tags. e.g. `alpine:latest`
     #[builder(into)]

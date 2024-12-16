@@ -46,7 +46,7 @@ pub struct ServiceConfigArgs {
     #[builder(into)]
     pub data: pulumi_wasm_rust::Output<String>,
     /// User-defined name of the config
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub name: pulumi_wasm_rust::Output<Option<String>>,
 }
 

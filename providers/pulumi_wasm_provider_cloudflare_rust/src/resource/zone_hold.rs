@@ -32,10 +32,10 @@ pub struct ZoneHoldArgs {
     #[builder(into)]
     pub hold: pulumi_wasm_rust::Output<bool>,
     /// The RFC3339 compatible timestamp when to automatically re-enable the zone hold.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub hold_after: pulumi_wasm_rust::Output<Option<String>>,
     /// Whether to extend to block any subdomain of the given zone.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub include_subdomains: pulumi_wasm_rust::Output<Option<bool>>,
     /// The zone identifier to target for the resource.
     #[builder(into)]

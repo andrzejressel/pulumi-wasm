@@ -47,13 +47,13 @@ pub struct OriginCaCertificateArgs {
     /// A list of hostnames or wildcard names bound to the certificate. **Modifying this attribute will force creation of a new resource.**
     #[builder(into)]
     pub hostnames: pulumi_wasm_rust::Output<Vec<String>>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub min_days_for_renewal: pulumi_wasm_rust::Output<Option<i32>>,
     /// The signature type desired on the certificate. Available values: `origin-rsa`, `origin-ecc`, `keyless-certificate`. **Modifying this attribute will force creation of a new resource.**
     #[builder(into)]
     pub request_type: pulumi_wasm_rust::Output<String>,
     /// The number of days for which the certificate should be valid. Available values: `7`, `30`, `90`, `365`, `730`, `1095`, `5475`. **Modifying this attribute will force creation of a new resource.**
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub requested_validity: pulumi_wasm_rust::Output<Option<i32>>,
 }
 

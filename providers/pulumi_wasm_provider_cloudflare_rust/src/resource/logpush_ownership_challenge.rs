@@ -24,13 +24,13 @@
 #[builder(finish_fn = build_struct)]
 pub struct LogpushOwnershipChallengeArgs {
     /// The account identifier to target for the resource. Must provide only one of `account_id`, `zone_id`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub account_id: pulumi_wasm_rust::Output<Option<String>>,
     /// Uniquely identifies a resource (such as an s3 bucket) where data will be pushed. Additional configuration parameters supported by the destination may be included. See [Logpush destination documentation](https://developers.cloudflare.com/logs/logpush/logpush-configuration-api/understanding-logpush-api/#destination). **Modifying this attribute will force creation of a new resource.**
     #[builder(into)]
     pub destination_conf: pulumi_wasm_rust::Output<String>,
     /// The zone identifier to target for the resource. Must provide only one of `account_id`, `zone_id`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 

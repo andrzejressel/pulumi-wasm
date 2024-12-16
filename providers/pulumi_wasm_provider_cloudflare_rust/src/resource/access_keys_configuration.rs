@@ -8,7 +8,7 @@ pub struct AccessKeysConfigurationArgs {
     #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// Number of days to trigger a rotation of the keys.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub key_rotation_interval_days: pulumi_wasm_rust::Output<Option<i32>>,
 }
 

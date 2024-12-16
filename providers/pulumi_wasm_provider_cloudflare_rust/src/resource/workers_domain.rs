@@ -33,7 +33,7 @@ pub struct WorkersDomainArgs {
     #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// The name of the Worker environment. Defaults to `production`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub environment: pulumi_wasm_rust::Output<Option<String>>,
     /// Hostname of the Worker Domain.
     #[builder(into)]

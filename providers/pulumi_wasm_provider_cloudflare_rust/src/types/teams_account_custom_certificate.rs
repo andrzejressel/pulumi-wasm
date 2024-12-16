@@ -6,10 +6,10 @@ pub struct TeamsAccountCustomCertificate {
     #[serde(rename = "enabled")]
     pub r#enabled: Box<bool>,
     /// ID of custom certificate.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "id")]
     pub r#id: Box<Option<String>>,
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "updatedAt")]
     pub r#updated_at: Box<Option<String>>,
 }

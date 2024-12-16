@@ -38,12 +38,12 @@ pub struct MagicFirewallRulesetArgs {
     #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// A note that can be used to annotate the rule.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub description: pulumi_wasm_rust::Output<Option<String>>,
     /// The name of the ruleset.
     #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub rules: pulumi_wasm_rust::Output<Option<Vec<std::collections::HashMap<String, String>>>>,
 }
 

@@ -8,16 +8,16 @@ pub struct ZeroTrustGatewayCertificateArgs {
     #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// Whether or not to activate a certificate. A certificate must be activated to use in Gateway certificate settings. Defaults to `false`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub activate: pulumi_wasm_rust::Output<Option<bool>>,
     /// The type of certificate (custom or Gateway-managed). Must provide only one of `custom`, `gateway_managed`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub custom: pulumi_wasm_rust::Output<Option<bool>>,
     /// The type of certificate (custom or Gateway-managed). Must provide only one of `custom`, `gateway_managed`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub gateway_managed: pulumi_wasm_rust::Output<Option<bool>>,
     /// Number of days the generated certificate will be valid, minimum 1 day and maximum 30 years. Defaults to 5 years. Defaults to `1826`. Required when using `gateway_managed`. Conflicts with `custom`. **Modifying this attribute will force creation of a new resource.**
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub validity_period_days: pulumi_wasm_rust::Output<Option<i32>>,
 }
 

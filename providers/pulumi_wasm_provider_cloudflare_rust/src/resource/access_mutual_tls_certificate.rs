@@ -48,19 +48,19 @@
 #[builder(finish_fn = build_struct)]
 pub struct AccessMutualTlsCertificateArgs {
     /// The account identifier to target for the resource. Conflicts with `zone_id`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub account_id: pulumi_wasm_rust::Output<Option<String>>,
     /// The hostnames that will be prompted for this certificate.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub associated_hostnames: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// The Root CA for your certificates.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub certificate: pulumi_wasm_rust::Output<Option<String>>,
     /// The name of the certificate.
     #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// The zone identifier to target for the resource. Conflicts with `account_id`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 

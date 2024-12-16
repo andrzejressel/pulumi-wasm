@@ -28,16 +28,16 @@
 #[builder(finish_fn = build_struct)]
 pub struct RandomPetArgs {
     /// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub keepers: pulumi_wasm_rust::Output<Option<std::collections::HashMap<String, String>>>,
     /// The length (in words) of the pet name. Defaults to 2
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub length: pulumi_wasm_rust::Output<Option<i32>>,
     /// A string to prefix the name with.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub prefix: pulumi_wasm_rust::Output<Option<String>>,
     /// The character to separate words in the pet name. Defaults to "-"
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub separator: pulumi_wasm_rust::Output<Option<String>>,
 }
 

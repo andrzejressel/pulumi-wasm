@@ -24,7 +24,7 @@
 #[builder(finish_fn = build_struct)]
 pub struct ApiShieldSchemaArgs {
     /// Kind of schema. Defaults to `openapi_v3`. **Modifying this attribute will force creation of a new resource.**
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub kind: pulumi_wasm_rust::Output<Option<String>>,
     /// Name of the schema. **Modifying this attribute will force creation of a new resource.**
     #[builder(into)]
@@ -33,7 +33,7 @@ pub struct ApiShieldSchemaArgs {
     #[builder(into)]
     pub source: pulumi_wasm_rust::Output<String>,
     /// Flag whether schema is enabled for validation.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub validation_enabled: pulumi_wasm_rust::Output<Option<bool>>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
     #[builder(into)]

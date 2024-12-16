@@ -2,7 +2,7 @@
 #[builder(finish_fn = build_struct)]
 pub struct TunnelConfigConfigWarpRouting {
     /// Whether WARP routing is enabled.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "enabled")]
     pub r#enabled: Box<Option<bool>>,
 }

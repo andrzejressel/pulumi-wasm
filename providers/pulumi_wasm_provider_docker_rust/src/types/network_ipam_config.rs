@@ -2,19 +2,19 @@
 #[builder(finish_fn = build_struct)]
 pub struct NetworkIpamConfig {
     /// Auxiliary IPv4 or IPv6 addresses used by Network driver
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "auxAddress")]
     pub r#aux_address: Box<Option<std::collections::HashMap<String, String>>>,
     /// The IP address of the gateway
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "gateway")]
     pub r#gateway: Box<Option<String>>,
     /// The ip range in CIDR form
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "ipRange")]
     pub r#ip_range: Box<Option<String>>,
     /// The subnet in CIDR form
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "subnet")]
     pub r#subnet: Box<Option<String>>,
 }

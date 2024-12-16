@@ -7,7 +7,7 @@ pub struct GetZeroTrustTunnelCloudflaredArgs {
     #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// If true, only include deleted tunnels. If false, exclude deleted tunnels. If empty, all tunnels will be included. **Modifying this attribute will force creation of a new resource.**
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub is_deleted: pulumi_wasm_rust::Output<Option<bool>>,
     /// Name of the tunnel. **Modifying this attribute will force creation of a new resource.**
     #[builder(into)]

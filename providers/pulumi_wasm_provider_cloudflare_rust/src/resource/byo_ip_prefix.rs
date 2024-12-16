@@ -34,10 +34,10 @@ pub struct ByoIpPrefixArgs {
     #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// Whether or not the prefix shall be announced. A prefix can be activated or deactivated once every 15 minutes (attempting more regular updates will trigger rate limiting). Available values: `on`, `off`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub advertisement: pulumi_wasm_rust::Output<Option<String>>,
     /// Description of the BYO IP prefix.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub description: pulumi_wasm_rust::Output<Option<String>>,
     /// The assigned Bring-Your-Own-IP prefix ID. **Modifying this attribute will force creation of a new resource.**
     #[builder(into)]

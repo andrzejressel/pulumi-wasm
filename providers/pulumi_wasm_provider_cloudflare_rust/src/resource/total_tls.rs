@@ -29,7 +29,7 @@
 #[builder(finish_fn = build_struct)]
 pub struct TotalTlsArgs {
     /// The Certificate Authority that Total TLS certificates will be issued through. Available values: `google`, `lets_encrypt`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub certificate_authority: pulumi_wasm_rust::Output<Option<String>>,
     /// Enable Total TLS for the zone.
     #[builder(into)]

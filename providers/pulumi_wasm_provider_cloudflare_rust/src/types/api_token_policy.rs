@@ -2,7 +2,7 @@
 #[builder(finish_fn = build_struct)]
 pub struct ApiTokenPolicy {
     /// Effect of the policy. Available values: `allow`, `deny`. Defaults to `allow`.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "effect")]
     pub r#effect: Box<Option<String>>,
     /// List of permissions groups IDs. See [documentation](https://developers.cloudflare.com/api/tokens/create/permissions) for more information.

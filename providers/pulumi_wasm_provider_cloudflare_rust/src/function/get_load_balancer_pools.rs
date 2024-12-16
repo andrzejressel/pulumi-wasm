@@ -27,10 +27,10 @@ pub struct GetLoadBalancerPoolsArgs {
     #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// One or more values used to look up Load Balancer pools. If more than one value is given all values must match in order to be included.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub filter: pulumi_wasm_rust::Output<Option<crate::types::GetLoadBalancerPoolsFilter>>,
     /// A list of Load Balancer Pools details.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub pools: pulumi_wasm_rust::Output<Option<Vec<crate::types::GetLoadBalancerPoolsPool>>>,
 }
 

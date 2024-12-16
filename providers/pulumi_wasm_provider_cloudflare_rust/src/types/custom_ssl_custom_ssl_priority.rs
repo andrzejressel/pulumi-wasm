@@ -2,10 +2,10 @@
 #[builder(finish_fn = build_struct)]
 pub struct CustomSslCustomSslPriority {
     /// The ID of this resource.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "id")]
     pub r#id: Box<Option<String>>,
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "priority")]
     pub r#priority: Box<Option<i32>>,
 }

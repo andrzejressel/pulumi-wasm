@@ -4,10 +4,10 @@
 #[builder(finish_fn = build_struct)]
 pub struct Web3HostnameArgs {
     /// An optional description of the hostname.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub description: pulumi_wasm_rust::Output<Option<String>>,
     /// DNSLink value used if the target is ipfs.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub dnslink: pulumi_wasm_rust::Output<Option<String>>,
     /// The hostname that will point to the target gateway via CNAME.
     #[builder(into)]

@@ -32,13 +32,13 @@
 #[builder(finish_fn = build_struct)]
 pub struct GetAccessIdentityProviderArgs {
     /// The account identifier to target for the resource. Must provide only one of `zone_id`, `account_id`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub account_id: pulumi_wasm_rust::Output<Option<String>>,
     /// Access Identity Provider name to search for.
     #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// The zone identifier to target for the resource. Must provide only one of `zone_id`, `account_id`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 

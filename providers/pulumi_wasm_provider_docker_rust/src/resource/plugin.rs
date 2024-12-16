@@ -31,31 +31,31 @@
 #[builder(finish_fn = build_struct)]
 pub struct PluginArgs {
     /// Docker Plugin alias
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub alias: pulumi_wasm_rust::Output<Option<String>>,
     /// HTTP client timeout to enable the plugin
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub enable_timeout: pulumi_wasm_rust::Output<Option<i32>>,
     /// If `true` the plugin is enabled. Defaults to `true`
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
     /// The environment variables in the form of `KEY=VALUE`, e.g. `DEBUG=0`
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub envs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// If true, then the plugin is destroyed forcibly
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
     /// If true, then the plugin is disabled forcibly
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub force_disable: pulumi_wasm_rust::Output<Option<bool>>,
     /// If true, grant all permissions necessary to run the plugin
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub grant_all_permissions: pulumi_wasm_rust::Output<Option<bool>>,
     /// Grant specific permissions only
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub grant_permissions: pulumi_wasm_rust::Output<Option<Vec<crate::types::PluginGrantPermission>>>,
     /// The name of the permission
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub name: pulumi_wasm_rust::Output<Option<String>>,
 }
 

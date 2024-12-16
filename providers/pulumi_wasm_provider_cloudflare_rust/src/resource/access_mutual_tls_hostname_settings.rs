@@ -42,12 +42,12 @@
 #[builder(finish_fn = build_struct)]
 pub struct AccessMutualTlsHostnameSettingsArgs {
     /// The account identifier to target for the resource.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub account_id: pulumi_wasm_rust::Output<Option<String>>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub settings: pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessMutualTlsHostnameSettingsSetting>>>,
     /// The zone identifier to target for the resource.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 

@@ -36,13 +36,13 @@ pub struct ZeroTrustListArgs {
     #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// The description of the teams list.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub description: pulumi_wasm_rust::Output<Option<String>>,
     /// The items of the teams list.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub items: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// The items of the teams list that has explicit description.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub items_with_descriptions: pulumi_wasm_rust::Output<Option<Vec<crate::types::ZeroTrustListItemsWithDescription>>>,
     /// Name of the teams list.
     #[builder(into)]

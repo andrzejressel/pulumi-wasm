@@ -2,7 +2,7 @@
 #[builder(finish_fn = build_struct)]
 pub struct PagesProjectDeploymentConfigsPreviewPlacement {
     /// Placement Mode for the Pages Function.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "mode")]
     pub r#mode: Box<Option<String>>,
 }

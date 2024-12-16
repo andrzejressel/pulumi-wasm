@@ -4,7 +4,7 @@
 #[builder(finish_fn = build_struct)]
 pub struct CacheFrom {
     /// Specifies cached images
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "images")]
     pub r#images: Box<Option<Vec<String>>>,
 }
