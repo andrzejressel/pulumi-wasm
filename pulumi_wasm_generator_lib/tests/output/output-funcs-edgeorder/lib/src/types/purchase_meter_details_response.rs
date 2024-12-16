@@ -5,9 +5,9 @@
 pub struct PurchaseMeterDetailsResponse {
     /// Represents billing type.
     /// Expected value is 'Purchase'.
-    #[builder(into)]
+    #[builder(skip)]
     #[serde(rename = "billingType")]
-    pub r#billing_type: Box<String>,
+    r#billing_type: Box<crate::ConstStringPurchase>,
     /// Charging type.
     #[builder(into)]
     #[serde(rename = "chargingType")]

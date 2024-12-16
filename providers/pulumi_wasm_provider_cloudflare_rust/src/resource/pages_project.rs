@@ -20,10 +20,10 @@ pub struct PagesProjectArgs {
     #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// Configuration for the project build process. Read more about the build configuration in the [developer documentation](https://developers.cloudflare.com/pages/platform/build-configuration).
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub build_config: pulumi_wasm_rust::Output<Option<crate::types::PagesProjectBuildConfig>>,
     /// Configuration for deployments in a project.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub deployment_configs: pulumi_wasm_rust::Output<Option<crate::types::PagesProjectDeploymentConfigs>>,
     /// Name of the project.
     #[builder(into)]
@@ -32,7 +32,7 @@ pub struct PagesProjectArgs {
     #[builder(into)]
     pub production_branch: pulumi_wasm_rust::Output<String>,
     /// Configuration for the project source. Read more about the source configuration in the [developer documentation](https://developers.cloudflare.com/pages/platform/branch-build-controls/).
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub source: pulumi_wasm_rust::Output<Option<crate::types::PagesProjectSource>>,
 }
 

@@ -20,3 +20,5 @@ mod bindings {
 fn into_domain<F: serde::Serialize>(output: WitOutput) -> Output<F> {
     unsafe { Output::<F>::new_from_handle(output) }
 }
+pulumi_wasm_provider_common::generate_string_const!(ConstStringPav2, "Pav2");
+pulumi_wasm_provider_common::generate_string_const!(ConstStringPurchase, "Purchase");

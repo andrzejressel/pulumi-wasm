@@ -11,7 +11,7 @@ pub struct GetBastionShareableLinkArgs {
     #[builder(into)]
     pub resource_group_name: pulumi_wasm_rust::Output<String>,
     /// List of VM references.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub vms: pulumi_wasm_rust::Output<Option<Vec<crate::types::BastionShareableLink>>>,
 }
 

@@ -5,7 +5,7 @@ pub struct NotificationPolicyPagerdutyIntegration {
     #[builder(into)]
     #[serde(rename = "id")]
     pub r#id: Box<String>,
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "name")]
     pub r#name: Box<Option<String>>,
 }

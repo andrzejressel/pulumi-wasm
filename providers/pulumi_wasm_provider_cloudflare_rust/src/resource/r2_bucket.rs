@@ -32,7 +32,7 @@ pub struct R2BucketArgs {
     #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// The location hint of the R2 bucket. Available values: `WNAM`, `ENAM`, `WEUR`, `EEUR`, `APAC`
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub location: pulumi_wasm_rust::Output<Option<String>>,
     /// The name of the R2 bucket.
     #[builder(into)]

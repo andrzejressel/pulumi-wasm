@@ -2,7 +2,7 @@
 #[builder(finish_fn = build_struct)]
 pub struct TeamsLocationNetwork {
     /// The ID of this resource.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "id")]
     pub r#id: Box<Option<String>>,
     /// CIDR notation representation of the network IP.

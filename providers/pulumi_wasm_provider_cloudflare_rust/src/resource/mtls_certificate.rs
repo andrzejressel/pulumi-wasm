@@ -44,10 +44,10 @@ pub struct MtlsCertificateArgs {
     #[builder(into)]
     pub certificates: pulumi_wasm_rust::Output<String>,
     /// Optional unique name for the certificate. **Modifying this attribute will force creation of a new resource.**
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub name: pulumi_wasm_rust::Output<Option<String>>,
     /// The certificate's private key. **Modifying this attribute will force creation of a new resource.**
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub private_key: pulumi_wasm_rust::Output<Option<String>>,
 }
 

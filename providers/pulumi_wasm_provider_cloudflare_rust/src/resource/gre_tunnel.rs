@@ -37,7 +37,7 @@
 #[builder(finish_fn = build_struct)]
 pub struct GreTunnelArgs {
     /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub account_id: pulumi_wasm_rust::Output<Option<String>>,
     /// The IP address assigned to the Cloudflare side of the GRE tunnel.
     #[builder(into)]
@@ -46,28 +46,28 @@ pub struct GreTunnelArgs {
     #[builder(into)]
     pub customer_gre_endpoint: pulumi_wasm_rust::Output<String>,
     /// Description of the GRE tunnel intent.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub description: pulumi_wasm_rust::Output<Option<String>>,
     /// Specifies if ICMP tunnel health checks are enabled.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub health_check_enabled: pulumi_wasm_rust::Output<Option<bool>>,
     /// The IP address of the customer endpoint that will receive tunnel health checks.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub health_check_target: pulumi_wasm_rust::Output<Option<String>>,
     /// Specifies the ICMP echo type for the health check. Available values: `request`, `reply`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub health_check_type: pulumi_wasm_rust::Output<Option<String>>,
     /// 31-bit prefix (/31 in CIDR notation) supporting 2 hosts, one for each side of the tunnel.
     #[builder(into)]
     pub interface_address: pulumi_wasm_rust::Output<String>,
     /// Maximum Transmission Unit (MTU) in bytes for the GRE tunnel.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub mtu: pulumi_wasm_rust::Output<Option<i32>>,
     /// Name of the GRE tunnel.
     #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// Time To Live (TTL) in number of hops of the GRE tunnel.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub ttl: pulumi_wasm_rust::Output<Option<i32>>,
 }
 

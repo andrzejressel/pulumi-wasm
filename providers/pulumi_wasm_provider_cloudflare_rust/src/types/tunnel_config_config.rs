@@ -5,11 +5,11 @@ pub struct TunnelConfigConfig {
     #[builder(into)]
     #[serde(rename = "ingressRules")]
     pub r#ingress_rules: Box<Vec<crate::types::TunnelConfigConfigIngressRule>>,
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "originRequest")]
     pub r#origin_request: Box<Option<crate::types::TunnelConfigConfigOriginRequest>>,
     /// If you're exposing a [private network](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/private-net/), you need to add the `warp-routing` key and set it to `true`.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "warpRouting")]
     pub r#warp_routing: Box<Option<crate::types::TunnelConfigConfigWarpRouting>>,
 }

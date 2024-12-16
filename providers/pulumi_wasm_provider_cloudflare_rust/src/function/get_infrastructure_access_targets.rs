@@ -24,25 +24,25 @@ pub struct GetInfrastructureAccessTargetsArgs {
     #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// A date and time after a target was created to filter on.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub created_after: pulumi_wasm_rust::Output<Option<String>>,
     /// The hostname of the target.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub hostname: pulumi_wasm_rust::Output<Option<String>>,
     /// Partial match to the hostname of a target
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub hostname_contains: pulumi_wasm_rust::Output<Option<String>>,
     /// The target's IPv4 address.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub ipv4: pulumi_wasm_rust::Output<Option<String>>,
     /// The target's IPv6 address.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub ipv6: pulumi_wasm_rust::Output<Option<String>>,
     /// A date and time after a target was modified to filter on.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub modified_after: pulumi_wasm_rust::Output<Option<String>>,
     /// The private virtual network identifier for the target.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub virtual_network_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 

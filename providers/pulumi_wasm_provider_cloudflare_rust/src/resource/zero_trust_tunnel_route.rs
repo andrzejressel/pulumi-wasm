@@ -16,7 +16,7 @@ pub struct ZeroTrustTunnelRouteArgs {
     #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// Description of the tunnel route.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub comment: pulumi_wasm_rust::Output<Option<String>>,
     /// The IPv4 or IPv6 network that should use this tunnel route, in CIDR notation.
     #[builder(into)]
@@ -25,7 +25,7 @@ pub struct ZeroTrustTunnelRouteArgs {
     #[builder(into)]
     pub tunnel_id: pulumi_wasm_rust::Output<String>,
     /// The ID of the virtual network for which this route is being added; uses the default virtual network of the account if none is provided. **Modifying this attribute will force creation of a new resource.**
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub virtual_network_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 

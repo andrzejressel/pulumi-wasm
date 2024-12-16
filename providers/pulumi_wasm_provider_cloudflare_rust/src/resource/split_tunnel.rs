@@ -20,7 +20,7 @@ pub struct SplitTunnelArgs {
     #[builder(into)]
     pub mode: pulumi_wasm_rust::Output<String>,
     /// The settings policy for which to configure this split tunnel policy.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub policy_id: pulumi_wasm_rust::Output<Option<String>>,
     /// The value of the tunnel attributes.
     #[builder(into)]

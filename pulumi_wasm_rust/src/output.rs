@@ -24,6 +24,12 @@ impl<T> Clone for Output<T> {
     }
 }
 
+impl<T: Default + Serialize> Default for Output<T> {
+    fn default() -> Self {
+        Output::new(&T::default())
+    }
+}
+
 impl<T: Serialize> From<T> for Output<T> {
     fn from(value: T) -> Output<T> {
         Output::new(&value)

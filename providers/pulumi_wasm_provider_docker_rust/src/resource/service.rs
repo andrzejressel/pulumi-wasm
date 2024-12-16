@@ -64,31 +64,31 @@
 #[builder(finish_fn = build_struct)]
 pub struct ServiceArgs {
     /// Configuration for the authentication for pulling the images of the service
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub auth: pulumi_wasm_rust::Output<Option<crate::types::ServiceAuth>>,
     /// A configuration to ensure that a service converges aka reaches the desired that of all task up and running
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub converge_config: pulumi_wasm_rust::Output<Option<crate::types::ServiceConvergeConfig>>,
     /// Properties that can be configured to access and load balance a service
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub endpoint_spec: pulumi_wasm_rust::Output<Option<crate::types::ServiceEndpointSpec>>,
     /// User-defined key/value metadata
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub labels: pulumi_wasm_rust::Output<Option<Vec<crate::types::ServiceLabel>>>,
     /// Scheduling mode for the service
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub mode: pulumi_wasm_rust::Output<Option<crate::types::ServiceMode>>,
     /// Name of the service
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub name: pulumi_wasm_rust::Output<Option<String>>,
     /// Specification for the rollback strategy of the service
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub rollback_config: pulumi_wasm_rust::Output<Option<crate::types::ServiceRollbackConfig>>,
     /// User modifiable task configuration
     #[builder(into)]
     pub task_spec: pulumi_wasm_rust::Output<crate::types::ServiceTaskSpec>,
     /// Specification for the update strategy of the service
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub update_config: pulumi_wasm_rust::Output<Option<crate::types::ServiceUpdateConfig>>,
 }
 

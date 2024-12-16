@@ -30,10 +30,10 @@
 #[builder(finish_fn = build_struct)]
 pub struct ArgoArgs {
     /// Whether smart routing is enabled. Available values: `on`, `off`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub smart_routing: pulumi_wasm_rust::Output<Option<String>>,
     /// Whether tiered caching is enabled. Available values: `on`, `off`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub tiered_caching: pulumi_wasm_rust::Output<Option<String>>,
     /// The zone identifier to target for the resource.
     #[builder(into)]

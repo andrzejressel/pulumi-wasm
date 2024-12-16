@@ -5,9 +5,9 @@
 pub struct Pav2MeterDetailsResponse {
     /// Represents billing type.
     /// Expected value is 'Pav2'.
-    #[builder(into)]
+    #[builder(skip)]
     #[serde(rename = "billingType")]
-    pub r#billing_type: Box<String>,
+    r#billing_type: Box<crate::ConstStringPav2>,
     /// Charging type.
     #[builder(into)]
     #[serde(rename = "chargingType")]

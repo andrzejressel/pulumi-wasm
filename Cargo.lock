@@ -2344,6 +2344,7 @@ dependencies = [
  "assert_cmd",
  "convert_case",
  "handlebars",
+ "itertools 0.13.0",
  "prettyplease",
  "proc-macro2",
  "quote",

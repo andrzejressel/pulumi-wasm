@@ -1,6 +1,7 @@
 use crate::utils::{escape_rust_name, escape_wit_identifier, replace_multiple_dashes};
 use anyhow::{Context, Result};
 use convert_case::Case;
+use convert_case::Case::UpperCamel;
 use convert_case::Casing;
 use std::collections::BTreeMap;
 
@@ -15,6 +16,7 @@ pub(crate) enum Type {
     Ref(Ref),
     Option(Box<Type>),
     DiscriminatedUnion(Vec<Type>),
+    ConstString(String),
 }
 
 impl Type {
@@ -48,6 +50,9 @@ impl Type {
                     .collect::<Vec<_>>()
                     .join(", ")
             ),
+            Type::ConstString(s) => {
+                format!("crate::ConstString{}", s.to_case(UpperCamel)).to_string()
+            }
         }
     }
 
@@ -57,9 +62,10 @@ impl Type {
             Type::Integer => None,
             Type::Number => None,
             Type::String => None,
+            Type::ConstString(_) => None,
+            Type::Ref(_) => None,
             Type::Array(t) => t.get_internal_discriminated_union(),
             Type::Object(o) => o.get_internal_discriminated_union(),
-            Type::Ref(_) => None,
             Type::Option(o) => o.get_internal_discriminated_union(),
             Type::DiscriminatedUnion(types) => Some(
                 types
@@ -67,6 +73,21 @@ impl Type {
                     .flat_map(|t| t.get_internal_discriminated_union().unwrap_or_default())
                     .collect(),
             ),
+        }
+    }
+
+    pub(crate) fn get_consts(&self) -> Vec<String> {
+        match self {
+            Type::Boolean => vec![],
+            Type::Integer => vec![],
+            Type::Number => vec![],
+            Type::String => vec![],
+            Type::ConstString(s) => vec![s.clone()],
+            Type::Ref(_) => vec![],
+            Type::Array(t) => t.get_consts(),
+            Type::Object(o) => o.get_consts(),
+            Type::Option(o) => o.get_consts(),
+            Type::DiscriminatedUnion(_) => vec![],
         }
     }
 }

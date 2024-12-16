@@ -20,15 +20,15 @@
 #[builder(finish_fn = build_struct)]
 pub struct GetRulesetsArgs {
     /// The account identifier to target for the resource. Must provide only one of `zone_id`, `account_id`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub account_id: pulumi_wasm_rust::Output<Option<String>>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub filter: pulumi_wasm_rust::Output<Option<crate::types::GetRulesetsFilter>>,
     /// Include rule data in response.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub include_rules: pulumi_wasm_rust::Output<Option<bool>>,
     /// The zone identifier to target for the resource. Must provide only one of `zone_id`, `account_id`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 

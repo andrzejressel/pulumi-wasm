@@ -20,16 +20,16 @@
 #[builder(finish_fn = build_struct)]
 pub struct GetRecordArgs {
     /// Content to filter record results on.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub content: pulumi_wasm_rust::Output<Option<String>>,
     /// Hostname to filter DNS record results on.
     #[builder(into)]
     pub hostname: pulumi_wasm_rust::Output<String>,
     /// DNS priority to filter record results on.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub priority: pulumi_wasm_rust::Output<Option<i32>>,
     /// DNS record type to filter record results on. Defaults to `A`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub type_: pulumi_wasm_rust::Output<Option<String>>,
     /// The zone identifier to target for the resource.
     #[builder(into)]

@@ -43,12 +43,12 @@ pub struct DevicePostureIntegrationArgs {
     #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// The device posture integration's connection authorization parameters.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub configs: pulumi_wasm_rust::Output<Option<Vec<crate::types::DevicePostureIntegrationConfig>>>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub identifier: pulumi_wasm_rust::Output<Option<String>>,
     /// Indicates the frequency with which to poll the third-party API. Must be in the format `1h` or `30m`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub interval: pulumi_wasm_rust::Output<Option<String>>,
     /// Name of the device posture integration.
     #[builder(into)]

@@ -33,13 +33,13 @@
 #[builder(finish_fn = build_struct)]
 pub struct GetZoneArgs {
     /// The account identifier to target for the resource.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub account_id: pulumi_wasm_rust::Output<Option<String>>,
     /// The name of the zone. Must provide only one of `zone_id`, `name`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub name: pulumi_wasm_rust::Output<Option<String>>,
     /// The zone identifier to target for the resource. Must provide only one of `zone_id`, `name`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 

@@ -36,6 +36,8 @@ struct Type {
     additional_properties: Option<Box<Type>>,
     #[serde(rename = "oneOf")]
     one_of: Option<Vec<OneOfType>>,
+    #[serde(rename = "const")]
+    const_: Option<String>,
 }
 
 #[derive(Deserialize, Debug)]
@@ -154,6 +156,11 @@ fn new_type_mapper(type_: &Type) -> Result<crate::model::Type> {
             type_: Some(TypeEnum::Number),
             ..
         } => Ok(crate::model::Type::Number),
+        Type {
+            type_: Some(TypeEnum::String),
+            const_: Some(const_),
+            ..
+        } => Ok(crate::model::Type::ConstString(const_.clone())),
         Type {
             type_: Some(TypeEnum::String),
             ..
@@ -505,7 +512,7 @@ mod test {
             vec![
                 "Cannot handle resources",
                 "Cannot handle [test_input] type",
-                "Cannot handle type: [Type { type_: Some(Object), description: None, ref_: None, items: None, additional_properties: None, one_of: None }]",
+                "Cannot handle type: [Type { type_: Some(Object), description: None, ref_: None, items: None, additional_properties: None, one_of: None, const_: None }]",
                 "Object does not have 'additionalProperties' field",
             ],
             chain
@@ -541,7 +548,7 @@ mod test {
             vec![
                 "Cannot handle resources",
                 "Cannot handle [test_input] type",
-                "Cannot handle type: [Type { type_: Some(Array), description: None, ref_: None, items: None, additional_properties: None, one_of: None }]",
+                "Cannot handle type: [Type { type_: Some(Array), description: None, ref_: None, items: None, additional_properties: None, one_of: None, const_: None }]",
                 "Array does not have 'items' field",
             ],
             chain

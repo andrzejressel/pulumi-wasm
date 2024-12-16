@@ -5,7 +5,7 @@
 pub struct FuncWithDefaultValueArgs {
     #[builder(into)]
     pub a: pulumi_wasm_rust::Output<String>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub b: pulumi_wasm_rust::Output<Option<String>>,
 }
 

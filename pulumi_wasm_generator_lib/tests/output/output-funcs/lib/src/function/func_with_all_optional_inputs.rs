@@ -4,10 +4,10 @@
 #[builder(finish_fn = build_struct)]
 pub struct FuncWithAllOptionalInputsArgs {
     /// Property A
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub a: pulumi_wasm_rust::Output<Option<String>>,
     /// Property B
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub b: pulumi_wasm_rust::Output<Option<String>>,
 }
 

@@ -29,7 +29,7 @@
 #[builder(finish_fn = build_struct)]
 pub struct RandomBytesArgs {
     /// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub keepers: pulumi_wasm_rust::Output<Option<std::collections::HashMap<String, String>>>,
     /// The number of bytes requested. The minimum value for length is 1.
     #[builder(into)]

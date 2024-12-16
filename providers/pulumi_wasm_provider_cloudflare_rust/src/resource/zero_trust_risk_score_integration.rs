@@ -7,13 +7,13 @@ pub struct ZeroTrustRiskScoreIntegrationArgs {
     #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// Whether this integration is enabled. If disabled, no risk changes will be exported to the third-party.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub active: pulumi_wasm_rust::Output<Option<bool>>,
     /// The type of integration, e.g. 'Okta'. Full list of allowed values can be found here: https://developers.cloudflare.com/api/operations/dlp-zt-risk-score-integration-create#request-body
     #[builder(into)]
     pub integration_type: pulumi_wasm_rust::Output<String>,
     /// A reference id that can be supplied by the client. Currently this should be set to the Access-Okta IDP ID (a UUIDv4). If omitted, a random UUIDv4 is used. https://developers.cloudflare.com/api/operations/access-identity-providers-get-an-access-identity-provider
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub reference_id: pulumi_wasm_rust::Output<Option<String>>,
     /// The base url of the tenant, e.g. 'https://tenant.okta.com'. Must be your Okta Tenant URL and not your custom domain.
     #[builder(into)]

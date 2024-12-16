@@ -4,7 +4,7 @@
 #[builder(finish_fn = build_struct)]
 pub struct ConfigurationFilters {
     /// Filters specific to product
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "filterableProperty")]
     pub r#filterable_property: Box<Option<Vec<crate::types::FilterableProperty>>>,
     /// Product hierarchy information

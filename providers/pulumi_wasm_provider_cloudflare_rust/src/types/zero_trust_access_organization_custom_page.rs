@@ -2,11 +2,11 @@
 #[builder(finish_fn = build_struct)]
 pub struct ZeroTrustAccessOrganizationCustomPage {
     /// The id of the forbidden page.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "forbidden")]
     pub r#forbidden: Box<Option<String>>,
     /// The id of the identity denied page.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "identityDenied")]
     pub r#identity_denied: Box<Option<String>>,
 }

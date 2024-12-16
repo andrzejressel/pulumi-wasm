@@ -99,51 +99,51 @@ pub struct TeamsAccountArgs {
     #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// Whether to enable the activity log.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub activity_log_enabled: pulumi_wasm_rust::Output<Option<bool>>,
     /// Configuration block for antivirus traffic scanning.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub antivirus: pulumi_wasm_rust::Output<Option<crate::types::TeamsAccountAntivirus>>,
     /// Configuration for a custom block page.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub block_page: pulumi_wasm_rust::Output<Option<crate::types::TeamsAccountBlockPage>>,
     /// Configuration for body scanning.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub body_scanning: pulumi_wasm_rust::Output<Option<crate::types::TeamsAccountBodyScanning>>,
     /// Configuration for TLS interception certificate. This will be required starting Feb 2025.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub certificate: pulumi_wasm_rust::Output<Option<crate::types::TeamsAccountCertificate>>,
     /// Configuration for custom certificates / BYO-PKI. Conflicts with `certificate`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub custom_certificate: pulumi_wasm_rust::Output<Option<crate::types::TeamsAccountCustomCertificate>>,
     /// Configuration for extended e-mail matching.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub extended_email_matching: pulumi_wasm_rust::Output<Option<crate::types::TeamsAccountExtendedEmailMatching>>,
     /// Configure compliance with Federal Information Processing Standards.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub fips: pulumi_wasm_rust::Output<Option<crate::types::TeamsAccountFips>>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub logging: pulumi_wasm_rust::Output<Option<crate::types::TeamsAccountLogging>>,
     /// Enable non-identity onramp for Browser Isolation. Defaults to `false`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub non_identity_browser_isolation_enabled: pulumi_wasm_rust::Output<Option<bool>>,
     /// Configuration for DLP Payload Logging.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub payload_log: pulumi_wasm_rust::Output<Option<crate::types::TeamsAccountPayloadLog>>,
     /// Indicator that protocol detection is enabled.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub protocol_detection_enabled: pulumi_wasm_rust::Output<Option<bool>>,
     /// Configuration block for specifying which protocols are proxied.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub proxy: pulumi_wasm_rust::Output<Option<crate::types::TeamsAccountProxy>>,
     /// Configuration for SSH Session Logging.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub ssh_session_log: pulumi_wasm_rust::Output<Option<crate::types::TeamsAccountSshSessionLog>>,
     /// Indicator that decryption of TLS traffic is enabled.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub tls_decrypt_enabled: pulumi_wasm_rust::Output<Option<bool>>,
     /// Safely browse websites in Browser Isolation through a URL. Defaults to `false`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub url_browser_isolation_enabled: pulumi_wasm_rust::Output<Option<bool>>,
 }
 
