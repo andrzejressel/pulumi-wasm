@@ -49,58 +49,58 @@ pub struct ZeroTrustDeviceProfilesArgs {
     #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// Whether to allow mode switch for this policy.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub allow_mode_switch: pulumi_wasm_rust::Output<Option<bool>>,
     /// Whether to allow updates under this policy.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub allow_updates: pulumi_wasm_rust::Output<Option<bool>>,
     /// Whether to allow devices to leave the organization. Defaults to `true`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub allowed_to_leave: pulumi_wasm_rust::Output<Option<bool>>,
     /// The amount of time in seconds to reconnect after having been disabled.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub auto_connect: pulumi_wasm_rust::Output<Option<i32>>,
     /// The captive portal value for this policy. Defaults to `180`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub captive_portal: pulumi_wasm_rust::Output<Option<i32>>,
     /// Whether the policy refers to the default account policy.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub default: pulumi_wasm_rust::Output<Option<bool>>,
     /// Description of Policy.
     #[builder(into)]
     pub description: pulumi_wasm_rust::Output<String>,
     /// Whether to disable auto fallback for this policy.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub disable_auto_fallback: pulumi_wasm_rust::Output<Option<bool>>,
     /// Whether the policy is enabled (cannot be set for default policies). Defaults to `true`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
     /// Whether to add Microsoft IPs to split tunnel exclusions.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub exclude_office_ips: pulumi_wasm_rust::Output<Option<bool>>,
     /// Wirefilter expression to match a device against when evaluating whether this policy should take effect for that device.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub match_: pulumi_wasm_rust::Output<Option<String>>,
     /// Name of the policy.
     #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// The precedence of the policy. Lower values indicate higher precedence.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub precedence: pulumi_wasm_rust::Output<Option<i32>>,
     /// The service mode. Available values: `1dot1`, `warp`, `proxy`, `posture_only`, `warp_tunnel_only`. Defaults to `warp`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub service_mode_v2_mode: pulumi_wasm_rust::Output<Option<String>>,
     /// The port to use for the proxy service mode. Required when using `service_mode_v2_mode`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub service_mode_v2_port: pulumi_wasm_rust::Output<Option<i32>>,
     /// The support URL that will be opened when sending feedback.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub support_url: pulumi_wasm_rust::Output<Option<String>>,
     /// Enablement of the ZT client switch lock.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub switch_locked: pulumi_wasm_rust::Output<Option<bool>>,
     /// Determines which tunnel protocol to use. Available values: `""`, `wireguard`, `masque`. Defaults to `wireguard`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub tunnel_protocol: pulumi_wasm_rust::Output<Option<String>>,
 }
 

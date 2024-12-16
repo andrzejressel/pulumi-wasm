@@ -2,11 +2,11 @@
 #[builder(finish_fn = build_struct)]
 pub struct ZeroTrustAccessApplicationFooterLink {
     /// The name of the footer link.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "name")]
     pub r#name: Box<Option<String>>,
     /// The URL of the footer link.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "url")]
     pub r#url: Box<Option<String>>,
 }

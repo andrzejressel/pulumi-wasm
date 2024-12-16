@@ -2,7 +2,7 @@
 #[builder(finish_fn = build_struct)]
 pub struct RulesetRuleActionParametersCacheKeyCustomKeyHost {
     /// Resolve hostname to IP address.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "resolved")]
     pub r#resolved: Box<Option<bool>>,
 }

@@ -10,7 +10,7 @@ pub struct DeviceDexTestData {
     #[serde(rename = "kind")]
     pub r#kind: Box<String>,
     /// The http request method. Available values: `GET`.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "method")]
     pub r#method: Box<Option<String>>,
 }

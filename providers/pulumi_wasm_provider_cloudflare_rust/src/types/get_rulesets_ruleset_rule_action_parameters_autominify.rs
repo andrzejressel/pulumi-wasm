@@ -2,15 +2,15 @@
 #[builder(finish_fn = build_struct)]
 pub struct GetRulesetsRulesetRuleActionParametersAutominify {
     /// SSL minification.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "css")]
     pub r#css: Box<Option<bool>>,
     /// HTML minification.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "html")]
     pub r#html: Box<Option<bool>>,
     /// JS minification.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "js")]
     pub r#js: Box<Option<bool>>,
 }

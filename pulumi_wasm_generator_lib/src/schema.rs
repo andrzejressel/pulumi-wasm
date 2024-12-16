@@ -36,12 +36,32 @@ struct Type {
     additional_properties: Option<Box<Type>>,
     #[serde(rename = "oneOf")]
     one_of: Option<Vec<OneOfType>>,
+    #[serde(rename = "const")]
+    const_: Option<String>,
 }
 
 #[derive(Deserialize, Debug)]
-struct OneOfType {
+#[serde(untagged)]
+enum OneOfType {
+    Ref(OneOfTypeRef),
+    Primitive(OneOfTypePrimitive),
+}
+
+#[derive(Deserialize, Debug)]
+struct OneOfTypeRef {
     #[serde(rename = "$ref")]
     ref_: String,
+}
+#[derive(Deserialize, Debug)]
+struct OneOfTypePrimitive {
+    #[serde(rename = "type")]
+    type_: OneOfTypePrimitiveType,
+}
+#[derive(Deserialize, Debug)]
+
+enum OneOfTypePrimitiveType {
+    #[serde(rename = "string")]
+    String,
 }
 
 #[derive(Deserialize, Debug)]
@@ -74,7 +94,7 @@ struct Resource {
 
 #[derive(Deserialize, Debug)]
 struct EnumValue {
-    name: String,
+    name: Option<String>,
     description: Option<String>,
     value: Option<String>,
 }
@@ -138,6 +158,11 @@ fn new_type_mapper(type_: &Type) -> Result<crate::model::Type> {
         } => Ok(crate::model::Type::Number),
         Type {
             type_: Some(TypeEnum::String),
+            const_: Some(const_),
+            ..
+        } => Ok(crate::model::Type::ConstString(const_.clone())),
+        Type {
+            type_: Some(TypeEnum::String),
             ..
         } => Ok(crate::model::Type::String),
         Type {
@@ -177,10 +202,15 @@ fn create_discriminated_union(one_of: &[OneOfType]) -> Result<crate::model::Type
     Ok(crate::model::Type::DiscriminatedUnion(
         one_of
             .iter()
-            .map(|r| {
-                Ref::new(&r.ref_)
-                    .context(format!("Cannot convert ref fo type {r:?}"))
-                    .unwrap()
+            .map(|r| match r {
+                OneOfType::Ref(r) => crate::model::Type::Ref(
+                    Ref::new(&r.ref_)
+                        .context(format!("Cannot convert ref fo type {r:?}"))
+                        .unwrap(),
+                ),
+                OneOfType::Primitive(primitive) => match primitive.type_ {
+                    OneOfTypePrimitiveType::String => crate::model::Type::String,
+                },
             })
             .collect(),
     ))
@@ -379,10 +409,21 @@ fn create_string_enum(description: &Option<String>, enum_values: &[EnumValue]) -
         description.clone(),
         enum_values
             .iter()
-            .map(|enum_value| StringEnumElement {
-                name: enum_value.name.clone(),
-                value: enum_value.value.clone(),
-                description: enum_value.description.clone(),
+            .map(|enum_value| {
+                let (real_name, real_value) = match (&enum_value.name, &enum_value.value) {
+                    (Some(name), Some(value)) => (name.clone(), Some(value.clone())),
+                    (Some(name), None) => (name.clone(), None),
+                    (None, Some(value)) => (value.clone(), None),
+                    (None, None) => {
+                        panic!("Invalid enum value: {enum_value:?}")
+                    }
+                };
+
+                StringEnumElement {
+                    name: real_name,
+                    value: real_value,
+                    description: enum_value.description.clone(),
+                }
             })
             .collect(),
     )
@@ -471,7 +512,7 @@ mod test {
             vec![
                 "Cannot handle resources",
                 "Cannot handle [test_input] type",
-                "Cannot handle type: [Type { type_: Some(Object), description: None, ref_: None, items: None, additional_properties: None, one_of: None }]",
+                "Cannot handle type: [Type { type_: Some(Object), description: None, ref_: None, items: None, additional_properties: None, one_of: None, const_: None }]",
                 "Object does not have 'additionalProperties' field",
             ],
             chain
@@ -507,7 +548,7 @@ mod test {
             vec![
                 "Cannot handle resources",
                 "Cannot handle [test_input] type",
-                "Cannot handle type: [Type { type_: Some(Array), description: None, ref_: None, items: None, additional_properties: None, one_of: None }]",
+                "Cannot handle type: [Type { type_: Some(Array), description: None, ref_: None, items: None, additional_properties: None, one_of: None, const_: None }]",
                 "Array does not have 'items' field",
             ],
             chain

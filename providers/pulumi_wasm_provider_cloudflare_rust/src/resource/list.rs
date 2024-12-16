@@ -14,10 +14,10 @@ pub struct ListArgs {
     #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// An optional description of the list.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub description: pulumi_wasm_rust::Output<Option<String>>,
     /// The items in the list.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub items: pulumi_wasm_rust::Output<Option<Vec<crate::types::ListItem>>>,
     /// The type of items the list will contain. Must provide only one of: `ip`, `redirect`, `hostname`, `asn`..
     #[builder(into)]

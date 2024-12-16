@@ -19,18 +19,18 @@
 #[builder(finish_fn = build_struct)]
 pub struct AccessGroupArgs {
     /// The account identifier to target for the resource. Conflicts with `zone_id`. **Modifying this attribute will force creation of a new resource.**
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub account_id: pulumi_wasm_rust::Output<Option<String>>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub excludes: pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessGroupExclude>>>,
     #[builder(into)]
     pub includes: pulumi_wasm_rust::Output<Vec<crate::types::AccessGroupInclude>>,
     #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub requires: pulumi_wasm_rust::Output<Option<Vec<crate::types::AccessGroupRequire>>>,
     /// The zone identifier to target for the resource. Conflicts with `account_id`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 

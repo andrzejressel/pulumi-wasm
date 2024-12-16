@@ -1,7 +1,7 @@
-use std::fmt::Debug;
 use serde::{Deserialize, Serialize};
+use std::fmt::Debug;
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 #[serde(untagged)]
 pub enum OneOf2<A: Serialize + Debug, B: Serialize + Debug> {
     Left(A),
@@ -39,14 +39,21 @@ impl<A: Serialize + Debug, B: Serialize + Debug, C: Serialize + Debug> OneOf3<A,
 
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum OneOf4<A: Serialize + Debug, B: Serialize + Debug, C: Serialize + Debug, D: Serialize + Debug> {
+pub enum OneOf4<
+    A: Serialize + Debug,
+    B: Serialize + Debug,
+    C: Serialize + Debug,
+    D: Serialize + Debug,
+> {
     Left(A),
     Middle1(B),
     Middle2(C),
     Right(D),
 }
 
-impl<A: Serialize + Debug, B: Serialize + Debug, C: Serialize + Debug, D: Serialize + Debug> OneOf4<A, B, C, D> {
+impl<A: Serialize + Debug, B: Serialize + Debug, C: Serialize + Debug, D: Serialize + Debug>
+    OneOf4<A, B, C, D>
+{
     pub fn left(a: A) -> Self {
         OneOf4::Left(a)
     }

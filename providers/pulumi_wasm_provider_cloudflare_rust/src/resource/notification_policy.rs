@@ -19,25 +19,25 @@ pub struct NotificationPolicyArgs {
     #[builder(into)]
     pub alert_type: pulumi_wasm_rust::Output<String>,
     /// Description of the notification policy.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub description: pulumi_wasm_rust::Output<Option<String>>,
     /// The email ID to which the notification should be dispatched.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub email_integrations: pulumi_wasm_rust::Output<Option<Vec<crate::types::NotificationPolicyEmailIntegration>>>,
     /// The status of the notification policy.
     #[builder(into)]
     pub enabled: pulumi_wasm_rust::Output<bool>,
     /// An optional nested block of filters that applies to the selected `alert_type`. A key-value map that specifies the type of filter and the values to match against (refer to the alert type block for available fields).
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub filters: pulumi_wasm_rust::Output<Option<crate::types::NotificationPolicyFilters>>,
     /// The name of the notification policy.
     #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// The unique ID of a configured pagerduty endpoint to which the notification should be dispatched.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub pagerduty_integrations: pulumi_wasm_rust::Output<Option<Vec<crate::types::NotificationPolicyPagerdutyIntegration>>>,
     /// The unique ID of a configured webhooks endpoint to which the notification should be dispatched.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub webhooks_integrations: pulumi_wasm_rust::Output<Option<Vec<crate::types::NotificationPolicyWebhooksIntegration>>>,
 }
 

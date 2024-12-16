@@ -2,11 +2,11 @@
 #[builder(finish_fn = build_struct)]
 pub struct HyperdriveConfigOrigin {
     /// Client ID associated with the Cloudflare Access Service Token used to connect via Access.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "accessClientId")]
     pub r#access_client_id: Box<Option<String>>,
     /// Client Secret associated with the Cloudflare Access Service Token used to connect via Access.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "accessClientSecret")]
     pub r#access_client_secret: Box<Option<String>>,
     /// The name of your origin database.
@@ -22,7 +22,7 @@ pub struct HyperdriveConfigOrigin {
     #[serde(rename = "password")]
     pub r#password: Box<String>,
     /// The port (default: 5432 for Postgres) of your origin database.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "port")]
     pub r#port: Box<Option<i32>>,
     /// Specifies the URL scheme used to connect to your origin database.

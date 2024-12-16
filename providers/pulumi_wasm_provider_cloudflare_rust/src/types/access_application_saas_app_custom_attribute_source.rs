@@ -6,7 +6,7 @@ pub struct AccessApplicationSaasAppCustomAttributeSource {
     #[serde(rename = "name")]
     pub r#name: Box<String>,
     /// A mapping from IdP ID to claim name.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "nameByIdp")]
     pub r#name_by_idp: Box<Option<std::collections::HashMap<String, String>>>,
 }

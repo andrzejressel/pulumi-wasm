@@ -13,10 +13,10 @@ pub struct SecretArgs {
     #[builder(into)]
     pub data: pulumi_wasm_rust::Output<String>,
     /// User-defined key/value metadata
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub labels: pulumi_wasm_rust::Output<Option<Vec<crate::types::SecretLabel>>>,
     /// User-defined name of the secret
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub name: pulumi_wasm_rust::Output<Option<String>>,
 }
 

@@ -14,7 +14,7 @@ pub struct ZeroTrustGatewaySettingsAntivirus {
     #[serde(rename = "failClosed")]
     pub r#fail_closed: Box<bool>,
     /// Set notifications for antivirus.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "notificationSettings")]
     pub r#notification_settings: Box<Option<crate::types::ZeroTrustGatewaySettingsAntivirusNotificationSettings>>,
 }

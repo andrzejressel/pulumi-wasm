@@ -25,10 +25,10 @@
 #[builder(finish_fn = build_struct)]
 pub struct RulesetArgs {
     /// The account identifier to target for the resource.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub account_id: pulumi_wasm_rust::Output<Option<String>>,
     /// Brief summary of the ruleset and its intended use.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub description: pulumi_wasm_rust::Output<Option<String>>,
     /// Type of Ruleset to create. Available values: `custom`, `managed`, `root`, `zone`.
     #[builder(into)]
@@ -40,10 +40,10 @@ pub struct RulesetArgs {
     #[builder(into)]
     pub phase: pulumi_wasm_rust::Output<String>,
     /// List of rules to apply to the ruleset.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub rules: pulumi_wasm_rust::Output<Option<Vec<crate::types::RulesetRule>>>,
     /// The zone identifier to target for the resource.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 

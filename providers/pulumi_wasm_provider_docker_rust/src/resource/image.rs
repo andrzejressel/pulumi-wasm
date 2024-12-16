@@ -141,20 +141,20 @@
 #[builder(finish_fn = build_struct)]
 pub struct ImageArgs {
     /// The Docker build context
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub build: pulumi_wasm_rust::Output<Option<crate::types::DockerBuild>>,
     /// A flag to build an image on preview
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub build_on_preview: pulumi_wasm_rust::Output<Option<bool>>,
     /// The image name, of the format repository[:tag], e.g. `docker.io/username/demo-image:v1`.
     /// This reference is not unique to each build and push.For the unique manifest SHA of a pushed docker image, or the local image ID, please use `repoDigest`.
     #[builder(into)]
     pub image_name: pulumi_wasm_rust::Output<String>,
     /// The registry to push the image to
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub registry: pulumi_wasm_rust::Output<Option<crate::types::Registry>>,
     /// A flag to skip a registry push.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub skip_push: pulumi_wasm_rust::Output<Option<bool>>,
 }
 

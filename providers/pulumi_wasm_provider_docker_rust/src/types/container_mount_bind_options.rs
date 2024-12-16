@@ -2,7 +2,7 @@
 #[builder(finish_fn = build_struct)]
 pub struct ContainerMountBindOptions {
     /// A propagation mode with the value.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "propagation")]
     pub r#propagation: Box<Option<String>>,
 }

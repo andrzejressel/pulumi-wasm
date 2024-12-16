@@ -93,6 +93,36 @@
         "field2"
       ]
     },
+    "typesystem:index:UnionCaseWithConst1": {
+      "type": "object",
+      "properties": {
+        "field": {
+          "type": "string",
+          "const": "1"
+        },
+        "field1": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "field", "field1"
+      ]
+    },
+    "typesystem:index:UnionCaseWithConst2": {
+      "type": "object",
+      "properties": {
+        "field": {
+          "type": "string",
+          "const": "2"
+        },
+        "field2": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "field", "field2"
+      ]
+    },
     "typesystem:index:MyEnum": {
       "type": "string",
       "enum": [

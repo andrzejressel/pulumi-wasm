@@ -63,37 +63,37 @@ pub struct LoadBalancerPoolArgs {
     #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// A list of regions (specified by region code) from which to run health checks. Empty means every Cloudflare data center (the default), but requires an Enterprise plan. Region codes can be found [here](https://developers.cloudflare.com/load-balancing/reference/region-mapping-api).
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub check_regions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// Free text description.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub description: pulumi_wasm_rust::Output<Option<String>>,
     /// Whether to enable (the default) this pool. Disabled pools will not receive traffic and are excluded from health checks. Disabling a pool will cause any load balancers using it to failover to the next pool (if any). Defaults to `true`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
     /// The latitude this pool is physically located at; used for proximity steering.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub latitude: pulumi_wasm_rust::Output<Option<f64>>,
     /// Setting for controlling load shedding for this pool.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub load_sheddings: pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerPoolLoadShedding>>>,
     /// The longitude this pool is physically located at; used for proximity steering.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub longitude: pulumi_wasm_rust::Output<Option<f64>>,
     /// The minimum number of origins that must be healthy for this pool to serve traffic. If the number of healthy origins falls below this number, the pool will be marked unhealthy and we will failover to the next available pool. Defaults to `1`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub minimum_origins: pulumi_wasm_rust::Output<Option<i32>>,
     /// The ID of the Monitor to use for health checking origins within this pool.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub monitor: pulumi_wasm_rust::Output<Option<String>>,
     /// A short name (tag) for the pool.
     #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// The email address to send health status notifications to. This can be an individual mailbox or a mailing list. Multiple emails can be supplied as a comma delimited list.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub notification_email: pulumi_wasm_rust::Output<Option<String>>,
     /// Set an origin steering policy to control origin selection within a pool.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub origin_steerings: pulumi_wasm_rust::Output<Option<Vec<crate::types::LoadBalancerPoolOriginSteering>>>,
     /// The list of origins within this pool. Traffic directed at this pool is balanced across all currently healthy origins, provided the pool itself is healthy.
     #[builder(into)]

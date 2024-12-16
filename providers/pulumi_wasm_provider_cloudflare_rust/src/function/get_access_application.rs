@@ -5,16 +5,16 @@
 #[builder(finish_fn = build_struct)]
 pub struct GetAccessApplicationArgs {
     /// The account identifier to target for the resource. Must provide only one of `zone_id`, `account_id`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub account_id: pulumi_wasm_rust::Output<Option<String>>,
     /// The primary hostname and path that Access will secure. Must provide only one of `name`, `domain`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub domain: pulumi_wasm_rust::Output<Option<String>>,
     /// Friendly name of the Access Application. Must provide only one of `name`, `domain`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub name: pulumi_wasm_rust::Output<Option<String>>,
     /// The zone identifier to target for the resource. Must provide only one of `zone_id`, `account_id`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 

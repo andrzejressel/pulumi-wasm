@@ -2,7 +2,7 @@
 #[builder(finish_fn = build_struct)]
 pub struct ServiceModeReplicated {
     /// The amount of replicas of the service. Defaults to `1`
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "replicas")]
     pub r#replicas: Box<Option<i32>>,
 }

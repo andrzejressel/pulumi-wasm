@@ -4,15 +4,15 @@
 #[builder(finish_fn = build_struct)]
 pub struct Registry {
     /// The password to authenticate to the registry. Does not cause image rebuild when changed.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "password")]
     pub r#password: Box<Option<String>>,
     /// The URL of the Docker registry server
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "server")]
     pub r#server: Box<Option<String>>,
     /// The username to authenticate to the registry. Does not cause image rebuild when changed.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "username")]
     pub r#username: Box<Option<String>>,
 }

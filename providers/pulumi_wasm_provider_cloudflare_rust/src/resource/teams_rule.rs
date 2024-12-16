@@ -48,16 +48,16 @@ pub struct TeamsRuleArgs {
     #[builder(into)]
     pub description: pulumi_wasm_rust::Output<String>,
     /// The wirefilter expression to be used for device_posture check matching.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub device_posture: pulumi_wasm_rust::Output<Option<String>>,
     /// Indicator of rule enablement.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
     /// The protocol or layer to evaluate the traffic and identity expressions.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub filters: pulumi_wasm_rust::Output<Option<Vec<String>>>,
     /// The wirefilter expression to be used for identity matching.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub identity: pulumi_wasm_rust::Output<Option<String>>,
     /// The name of the teams rule.
     #[builder(into)]
@@ -66,10 +66,10 @@ pub struct TeamsRuleArgs {
     #[builder(into)]
     pub precedence: pulumi_wasm_rust::Output<i32>,
     /// Additional rule settings.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub rule_settings: pulumi_wasm_rust::Output<Option<crate::types::TeamsRuleRuleSettings>>,
     /// The wirefilter expression to be used for traffic matching.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub traffic: pulumi_wasm_rust::Output<Option<String>>,
 }
 

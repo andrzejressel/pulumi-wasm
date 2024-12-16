@@ -2,7 +2,7 @@
 #[builder(finish_fn = build_struct)]
 pub struct WorkersScriptServiceBinding {
     /// The name of the Worker environment to bind to.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "environment")]
     pub r#environment: Box<Option<String>>,
     /// The global variable for the binding in your Worker code.

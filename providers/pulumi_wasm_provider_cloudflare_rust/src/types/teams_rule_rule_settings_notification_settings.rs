@@ -2,15 +2,15 @@
 #[builder(finish_fn = build_struct)]
 pub struct TeamsRuleRuleSettingsNotificationSettings {
     /// Enable notification settings.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "enabled")]
     pub r#enabled: Box<Option<bool>>,
     /// Notification content.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "message")]
     pub r#message: Box<Option<String>>,
     /// Support URL to show in the notification.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "supportUrl")]
     pub r#support_url: Box<Option<String>>,
 }

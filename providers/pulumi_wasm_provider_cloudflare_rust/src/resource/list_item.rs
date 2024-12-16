@@ -105,22 +105,22 @@ pub struct ListItemArgs {
     #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// Autonomous system number to include in the list. Must provide only one of: `ip`, `asn`, `redirect`, `hostname`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub asn: pulumi_wasm_rust::Output<Option<i32>>,
     /// An optional comment for the item.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub comment: pulumi_wasm_rust::Output<Option<String>>,
     /// Hostname to store in the list. Must provide only one of: `ip`, `asn`, `redirect`, `hostname`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub hostname: pulumi_wasm_rust::Output<Option<crate::types::ListItemHostname>>,
     /// IP address to include in the list. Must provide only one of: `ip`, `asn`, `redirect`, `hostname`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub ip: pulumi_wasm_rust::Output<Option<String>>,
     /// The list identifier to target for the resource.
     #[builder(into)]
     pub list_id: pulumi_wasm_rust::Output<String>,
     /// Redirect configuration to store in the list. Must provide only one of: `ip`, `asn`, `redirect`, `hostname`.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub redirect: pulumi_wasm_rust::Output<Option<crate::types::ListItemRedirect>>,
 }
 

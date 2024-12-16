@@ -2,11 +2,11 @@
 #[builder(finish_fn = build_struct)]
 pub struct PagesProjectDeploymentConfigs {
     /// Configuration for preview deploys.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "preview")]
     pub r#preview: Box<Option<crate::types::PagesProjectDeploymentConfigsPreview>>,
     /// Configuration for production deploys.
-    #[builder(into, default = Box::new(None))]
+    #[builder(into, default)]
     #[serde(rename = "production")]
     pub r#production: Box<Option<crate::types::PagesProjectDeploymentConfigsProduction>>,
 }

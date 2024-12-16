@@ -3,7 +3,7 @@ use convert_case::{Case, Casing};
 use handlebars::Handlebars;
 use serde::Serialize;
 use serde_json::json;
-use std::collections::HashMap;
+use std::collections::{BTreeSet, HashMap};
 use std::path::PathBuf;
 
 static TEMPLATE: &str = include_str!("types_code.rs.handlebars");
@@ -15,7 +15,9 @@ struct Property {
     original_name: String,
     type_: String,
     description_lines: Vec<String>,
-    optional: bool,
+    default: bool,
+    skip: bool,
+    private: bool,
 }
 
 #[derive(Serialize)]
@@ -25,6 +27,7 @@ struct RefType {
     description_lines: Vec<String>,
     struct_name: String,
     file_name: String,
+    const_strings: BTreeSet<String>,
 }
 
 #[derive(Serialize)]
@@ -78,13 +81,19 @@ fn convert_model(package: &crate::model::Package) -> Package {
                                 .to_case(Case::Snake),
                             original_name: global_type_property.name.clone(),
                             type_: global_type_property.r#type.get_rust_type(),
-                            optional: matches!(global_type_property.r#type, Type::Option(_)),
+                            default: matches!(global_type_property.r#type, Type::Option(_)),
+                            skip: matches!(global_type_property.r#type, Type::ConstString(_)),
+                            private: matches!(global_type_property.r#type, Type::ConstString(_)),
                             description_lines: crate::utils::to_lines(
                                 global_type_property.description.clone(),
                                 package,
                                 None,
                             ),
                         })
+                        .collect(),
+                    const_strings: properties
+                        .iter()
+                        .flat_map(|global_type_property| global_type_property.r#type.get_consts())
                         .collect(),
                 };
                 real_types.push(ref_type);

@@ -41,7 +41,7 @@ pub struct HyperdriveConfigArgs {
     #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// The caching details for the Hyperdrive configuration.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub caching: pulumi_wasm_rust::Output<Option<crate::types::HyperdriveConfigCaching>>,
     /// The name of the Hyperdrive configuration.
     #[builder(into)]
@@ -50,7 +50,7 @@ pub struct HyperdriveConfigArgs {
     #[builder(into)]
     pub origin: pulumi_wasm_rust::Output<crate::types::HyperdriveConfigOrigin>,
     /// The identifier of this resource. This is the hyperdrive config value.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub resource_id: pulumi_wasm_rust::Output<Option<String>>,
 }
 

@@ -39,7 +39,7 @@
 #[builder(finish_fn = build_struct)]
 pub struct RandomIntegerArgs {
     /// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub keepers: pulumi_wasm_rust::Output<Option<std::collections::HashMap<String, String>>>,
     /// The maximum inclusive value of the range.
     #[builder(into)]
@@ -48,7 +48,7 @@ pub struct RandomIntegerArgs {
     #[builder(into)]
     pub min: pulumi_wasm_rust::Output<i32>,
     /// A custom seed to always produce the same value.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub seed: pulumi_wasm_rust::Output<Option<String>>,
 }
 

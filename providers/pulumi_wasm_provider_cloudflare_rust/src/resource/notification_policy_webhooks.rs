@@ -36,10 +36,10 @@ pub struct NotificationPolicyWebhooksArgs {
     #[builder(into)]
     pub name: pulumi_wasm_rust::Output<String>,
     /// An optional secret can be provided that will be passed in the `cf-webhook-auth` header when dispatching a webhook notification. Secrets are not returned in any API response body. Refer to the [documentation](https://api.cloudflare.com/#notification-webhooks-create-webhook) for more details.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub secret: pulumi_wasm_rust::Output<Option<String>>,
     /// The URL of the webhook destinations. **Modifying this attribute will force creation of a new resource.**
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub url: pulumi_wasm_rust::Output<Option<String>>,
 }
 

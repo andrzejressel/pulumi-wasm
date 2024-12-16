@@ -39,7 +39,7 @@
 #[builder(finish_fn = build_struct)]
 pub struct WaitingRoomRulesArgs {
     /// List of rules to apply to the ruleset.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub rules: pulumi_wasm_rust::Output<Option<Vec<crate::types::WaitingRoomRulesRule>>>,
     /// The Waiting Room ID the rules should apply to. **Modifying this attribute will force creation of a new resource.**
     #[builder(into)]

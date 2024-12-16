@@ -19,7 +19,7 @@ pub struct EmailRoutingSettingsArgs {
     #[builder(into)]
     pub enabled: pulumi_wasm_rust::Output<bool>,
     /// Flag to check if the user skipped the configuration wizard.
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub skip_wizard: pulumi_wasm_rust::Output<Option<bool>>,
     /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
     #[builder(into)]

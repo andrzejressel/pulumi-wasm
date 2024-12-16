@@ -34,7 +34,7 @@ pub struct ZeroTrustTunnelCloudflaredArgs {
     #[builder(into)]
     pub account_id: pulumi_wasm_rust::Output<String>,
     /// Indicates if this is a locally or remotely configured tunnel. If `local`, manage the tunnel using a YAML file on the origin machine. If `cloudflare`, manage the tunnel on the Zero Trust dashboard or using tunnel*config, tunnel*route or tunnel*virtual*network resources. Available values: `local`, `cloudflare`. **Modifying this attribute will force creation of a new resource.**
-    #[builder(into, default = ::pulumi_wasm_rust::Output::empty())]
+    #[builder(into, default)]
     pub config_src: pulumi_wasm_rust::Output<Option<String>>,
     /// A user-friendly name chosen when the tunnel is created. **Modifying this attribute will force creation of a new resource.**
     #[builder(into)]
