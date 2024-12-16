@@ -132,10 +132,12 @@ pub(crate) struct GlobalTypeProperty {
     pub(crate) description: Option<String>,
 }
 
-#[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
+#[derive(Debug, PartialEq, PartialOrd)]
 pub(crate) enum GlobalType {
     Object(Option<String>, Vec<GlobalTypeProperty>),
     StringEnum(Option<String>, Vec<StringEnumElement>),
+    NumberEnum(Option<String>, Vec<NumberEnumElement>),
+    IntegerEnum(Option<String>, Vec<IntegerEnumElement>),
     String,
     Boolean,
     Number,
@@ -146,6 +148,20 @@ pub(crate) enum GlobalType {
 pub(crate) struct StringEnumElement {
     pub(crate) name: String,
     pub(crate) value: Option<String>,
+    pub(crate) description: Option<String>,
+}
+
+#[derive(Debug, PartialEq, PartialOrd)]
+pub(crate) struct NumberEnumElement {
+    pub(crate) name: String,
+    pub(crate) value: f64,
+    pub(crate) description: Option<String>,
+}
+
+#[derive(Debug, PartialEq, PartialOrd)]
+pub(crate) struct IntegerEnumElement {
+    pub(crate) name: String,
+    pub(crate) value: i64,
     pub(crate) description: Option<String>,
 }
 
@@ -167,7 +183,7 @@ pub(crate) struct Function {
     pub(crate) output_properties: Vec<OutputProperty>,
 }
 
-#[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
+#[derive(Debug, PartialEq)]
 pub(crate) struct Package {
     pub(crate) name: String,
     pub(crate) display_name: Option<String>,

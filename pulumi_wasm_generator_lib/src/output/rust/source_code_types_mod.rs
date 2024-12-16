@@ -37,7 +37,9 @@ fn convert_model(package: &crate::model::Package) -> Package {
                 };
                 real_types.push(ref_type);
             }
-            GlobalType::StringEnum(_, _) => {
+            GlobalType::StringEnum(_, _)
+            | GlobalType::IntegerEnum(_, _)
+            | GlobalType::NumberEnum(_, _) => {
                 let ref_type = RefType {
                     file_name: element_id.get_rust_struct_name().to_case(Case::Snake),
                 };
