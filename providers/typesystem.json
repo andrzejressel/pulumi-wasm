@@ -132,6 +132,36 @@
         },
         {
           "name": "Value2"
+        },
+        {
+          "name": "special_characters",
+          "value": "Plants'R'Us"
+        }
+      ]
+    },
+    "typesystem:index:NumberEnum": {
+      "type": "number",
+      "enum": [
+        {
+          "name": "Value1",
+          "value": 1.0
+        },
+        {
+          "name": "Value2",
+          "value": 2.0
+        }
+      ]
+    },
+    "typesystem:index:IntegerEnum": {
+      "type": "integer",
+      "enum": [
+        {
+          "name": "Value1",
+          "value": 1
+        },
+        {
+          "name": "Value2",
+          "value": 2
         }
       ]
     }

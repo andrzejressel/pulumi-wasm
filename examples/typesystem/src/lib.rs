@@ -4,7 +4,8 @@ mod tests {
     use pulumi_wasm_rust::Output;
     use pulumi_wasm_typesystem::typesystem_server::TypesystemServerArgs;
     use pulumi_wasm_typesystem::{
-        MyEnum, UnionCase1, UnionCase2, UnionCaseWithConst1, UnionCaseWithConst2,
+        IntegerEnum, MyEnum, NumberEnum, UnionCase1, UnionCase2, UnionCaseWithConst1,
+        UnionCaseWithConst2,
     };
     use std::panic::catch_unwind;
 
@@ -34,17 +35,54 @@ mod tests {
     }
 
     #[test]
-    fn test_enum_deserialization() {
+    fn test_string_enum_deserialization() {
         let enum1 = MyEnum::Value1;
         let enum2 = MyEnum::Value2;
+        let enum3 = MyEnum::SpecialCharacters;
 
         let enum1_json = serde_json::to_string(&enum1).unwrap();
         let enum2_json = serde_json::to_string(&enum2).unwrap();
+        let enum3_json = serde_json::to_string(&enum3).unwrap();
         assert_eq!(enum1_json, r#""VALUE1""#);
         assert_eq!(enum2_json, r#""Value2""#);
+        assert_eq!(enum3_json, r#""Plants'R'Us""#);
 
         let deserialized_enum1: MyEnum = serde_json::from_str(&enum1_json).unwrap();
         let deserialized_enum2: MyEnum = serde_json::from_str(&enum2_json).unwrap();
+        let deserialized_enum3: MyEnum = serde_json::from_str(&enum3_json).unwrap();
+        assert_eq!(deserialized_enum1, enum1);
+        assert_eq!(deserialized_enum2, enum2);
+        assert_eq!(deserialized_enum3, enum3);
+    }
+
+    #[test]
+    fn test_integer_enum_deserialization() {
+        let enum1 = IntegerEnum::Value1;
+        let enum2 = IntegerEnum::Value2;
+
+        let enum1_json = serde_json::to_string(&enum1).unwrap();
+        let enum2_json = serde_json::to_string(&enum2).unwrap();
+        assert_eq!(enum1_json, "1");
+        assert_eq!(enum2_json, "2");
+
+        let deserialized_enum1: IntegerEnum = serde_json::from_str(&enum1_json).unwrap();
+        let deserialized_enum2: IntegerEnum = serde_json::from_str(&enum2_json).unwrap();
+        assert_eq!(deserialized_enum1, enum1);
+        assert_eq!(deserialized_enum2, enum2);
+    }
+
+    #[test]
+    fn test_number_enum_deserialization() {
+        let enum1 = NumberEnum::Value1;
+        let enum2 = NumberEnum::Value2;
+
+        let enum1_json = serde_json::to_string(&enum1).unwrap();
+        let enum2_json = serde_json::to_string(&enum2).unwrap();
+        assert_eq!(enum1_json, "1.0");
+        assert_eq!(enum2_json, "2.0");
+
+        let deserialized_enum1: NumberEnum = serde_json::from_str(&enum1_json).unwrap();
+        let deserialized_enum2: NumberEnum = serde_json::from_str(&enum2_json).unwrap();
         assert_eq!(deserialized_enum1, enum1);
         assert_eq!(deserialized_enum2, enum2);
     }

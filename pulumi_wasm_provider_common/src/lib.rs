@@ -8,9 +8,9 @@ macro_rules! generate_string_const {
         #[derive(Debug, PartialEq, Eq, Copy, Clone, Hash)]
         struct $struct_name;
         impl Default for $struct_name {
-           fn default() -> Self {
-               Self {}
-           }
+            fn default() -> Self {
+                Self {}
+            }
         }
 
         impl serde::Serialize for $struct_name {

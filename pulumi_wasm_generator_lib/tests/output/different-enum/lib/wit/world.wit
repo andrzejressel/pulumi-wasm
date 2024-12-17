@@ -1,0 +1,56 @@
+package pulumi:plant@0.0.1--0.0.0-DEV;
+
+world plant-pulumi {
+    import component:pulumi-wasm/register-interface@0.0.0-DEV;
+    export tree-nursery;
+    export tree-rubber-tree;
+}
+
+world plant-pulumi-client {
+    import tree-nursery;
+    import tree-rubber-tree;
+}
+
+interface tree-nursery {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        sizes: borrow<output>,
+        varieties: borrow<output>,
+    }
+
+
+    invoke: func(
+        name: string,
+        args: args
+    );
+
+}
+interface tree-rubber-tree {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        container: borrow<output>,
+        diameter: borrow<output>,
+        farm: borrow<output>,
+        size: borrow<output>,
+        %type: borrow<output>,
+    }
+
+    record res {
+        container: output,
+        diameter: output,
+        farm: output,
+        size: output,
+        %type: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+
