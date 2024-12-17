@@ -1,8 +1,10 @@
 use crate::model::{
-    ElementId, GlobalType, GlobalTypeProperty, InputProperty, OutputProperty, Ref,
-    StringEnumElement,
+    ElementId, GlobalType, GlobalTypeProperty, InputProperty, IntegerEnumElement,
+    NumberEnumElement, OutputProperty, Ref, StringEnumElement,
 };
+use crate::utils::sanitize_identifier;
 use anyhow::{anyhow, Context, Result};
+use convert_case::{Case, Casing};
 use serde::Deserialize;
 use std::collections::{BTreeMap, BTreeSet, HashSet};
 
@@ -79,7 +81,7 @@ struct ObjectType {
     #[serde(default)]
     required: BTreeSet<String>,
     #[serde(rename = "enum")]
-    enum_: Option<Vec<EnumValue>>,
+    enum_: Option<ObjectTypeEnum>,
 }
 
 #[derive(Deserialize, Debug)]
@@ -93,7 +95,29 @@ struct Resource {
 }
 
 #[derive(Deserialize, Debug)]
-struct EnumValue {
+#[serde(untagged)]
+enum ObjectTypeEnum {
+    String(Vec<StringEnumValue>),
+    Integer(Vec<IntegerEnumValue>),
+    Number(Vec<NumberEnumValue>),
+}
+
+#[derive(Deserialize, Debug)]
+struct IntegerEnumValue {
+    name: String,
+    description: Option<String>,
+    value: i64,
+}
+
+#[derive(Deserialize, Debug)]
+struct NumberEnumValue {
+    name: String,
+    description: Option<String>,
+    value: f64,
+}
+
+#[derive(Deserialize, Debug)]
+struct StringEnumValue {
     name: Option<String>,
     description: Option<String>,
     value: Option<String>,
@@ -381,20 +405,57 @@ fn convert_to_global_type(
             r#type: Some(TypeEnum::Boolean),
             ..
         } => Ok(GlobalType::Boolean),
+
+        ObjectType {
+            r#type: Some(TypeEnum::Integer),
+            enum_: Some(ObjectTypeEnum::Integer(enum_cases)),
+            description,
+            ..
+        } => Ok(create_integer_enum(description, enum_cases)),
+        ObjectType {
+            r#type: Some(TypeEnum::Integer),
+            enum_: Some(e),
+            ..
+        } => Err(anyhow!("Invalid integer enum combination {:?}", e)),
         ObjectType {
             r#type: Some(TypeEnum::Integer),
             ..
         } => Ok(GlobalType::Integer),
+
+        ObjectType {
+            r#type: Some(TypeEnum::Number),
+            enum_: Some(ObjectTypeEnum::Number(enum_cases)),
+            description,
+            ..
+        } => Ok(create_number_enum(description, enum_cases)),
+        ObjectType {
+            r#type: Some(TypeEnum::Number),
+            enum_: Some(ObjectTypeEnum::Integer(enum_cases)),
+            description,
+            ..
+        } => Ok(create_number_integer_enum(description, enum_cases)),
+
+        ObjectType {
+            r#type: Some(TypeEnum::Number),
+            enum_: Some(e),
+            ..
+        } => Err(anyhow!("Invalid number enum combination {:?}", e)),
         ObjectType {
             r#type: Some(TypeEnum::Number),
             ..
         } => Ok(GlobalType::Number),
+
         ObjectType {
             r#type: Some(TypeEnum::String),
-            enum_: Some(enum_cases),
+            enum_: Some(ObjectTypeEnum::String(enum_cases)),
             description,
             ..
         } => Ok(create_string_enum(description, enum_cases)),
+        ObjectType {
+            r#type: Some(TypeEnum::String),
+            enum_: Some(e),
+            ..
+        } => Err(anyhow!("Invalid string enum combination {:?}", e)),
         ObjectType {
             r#type: Some(TypeEnum::String),
             ..
@@ -404,19 +465,51 @@ fn convert_to_global_type(
     Ok((element_id, tpe))
 }
 
-fn create_string_enum(description: &Option<String>, enum_values: &[EnumValue]) -> GlobalType {
+fn create_number_integer_enum(
+    description: &Option<String>,
+    enum_values: &[IntegerEnumValue],
+) -> GlobalType {
+    GlobalType::NumberEnum(
+        description.clone(),
+        enum_values
+            .iter()
+            .map(|enum_value| NumberEnumElement {
+                name: enum_value.name.clone(),
+                value: enum_value.value as f64,
+                description: enum_value.description.clone(),
+            })
+            .collect(),
+    )
+}
+
+fn create_string_enum(description: &Option<String>, enum_values: &[StringEnumValue]) -> GlobalType {
     GlobalType::StringEnum(
         description.clone(),
         enum_values
             .iter()
             .map(|enum_value| {
-                let (real_name, real_value) = match (&enum_value.name, &enum_value.value) {
-                    (Some(name), Some(value)) => (name.clone(), Some(value.clone())),
-                    (Some(name), None) => (name.clone(), None),
-                    (None, Some(value)) => (value.clone(), None),
+                let (name, value) = match (&enum_value.name, &enum_value.value) {
+                    (Some(name), Some(value)) => (
+                        sanitize_identifier(name).to_case(Case::UpperCamel),
+                        value.clone(),
+                    ),
+                    (Some(name), None) => (
+                        sanitize_identifier(name).to_case(Case::UpperCamel),
+                        name.clone(),
+                    ),
+                    (None, Some(value)) => (
+                        sanitize_identifier(value).to_case(Case::UpperCamel),
+                        value.clone(),
+                    ),
                     (None, None) => {
                         panic!("Invalid enum value: {enum_value:?}")
                     }
+                };
+
+                let (real_name, real_value) = if name == value {
+                    (name, None)
+                } else {
+                    (name, Some(value))
                 };
 
                 StringEnumElement {
@@ -424,6 +517,37 @@ fn create_string_enum(description: &Option<String>, enum_values: &[EnumValue]) -
                     value: real_value,
                     description: enum_value.description.clone(),
                 }
+            })
+            .collect(),
+    )
+}
+
+fn create_integer_enum(
+    description: &Option<String>,
+    enum_values: &[IntegerEnumValue],
+) -> GlobalType {
+    GlobalType::IntegerEnum(
+        description.clone(),
+        enum_values
+            .iter()
+            .map(|enum_value| IntegerEnumElement {
+                name: enum_value.name.to_case(Case::UpperCamel),
+                value: enum_value.value,
+                description: enum_value.description.clone(),
+            })
+            .collect(),
+    )
+}
+
+fn create_number_enum(description: &Option<String>, enum_values: &[NumberEnumValue]) -> GlobalType {
+    GlobalType::NumberEnum(
+        description.clone(),
+        enum_values
+            .iter()
+            .map(|enum_value| NumberEnumElement {
+                name: enum_value.name.to_case(Case::UpperCamel),
+                value: enum_value.value,
+                description: enum_value.description.clone(),
             })
             .collect(),
     )

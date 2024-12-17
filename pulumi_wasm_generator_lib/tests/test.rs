@@ -7,6 +7,16 @@ use std::path::{Path, PathBuf};
 use std::process::Command;
 
 #[test]
+fn array_of_enum_map() -> Result<()> {
+    run_pulumi_generator_test("array-of-enum-map", "example")
+}
+
+#[test]
+fn different_enum() -> Result<()> {
+    run_pulumi_generator_test("different-enum", "plant")
+}
+
+#[test]
 fn mini_awsnative() -> Result<()> {
     run_pulumi_generator_test("mini-awsnative", "aws-native")
 }
