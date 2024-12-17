@@ -8,7 +8,7 @@ use convert_case::{Case, Casing};
 use serde::Deserialize;
 use std::collections::{BTreeMap, BTreeSet, HashSet};
 
-type PulumiMap<T> = BTreeMap<String, T>;
+pub(crate) type PulumiMap<T> = BTreeMap<String, T>;
 
 #[derive(Deserialize, Debug)]
 pub(crate) enum TypeEnum {
@@ -67,7 +67,7 @@ enum OneOfTypePrimitiveType {
 }
 
 #[derive(Deserialize, Debug)]
-struct Property {
+pub(crate) struct Property {
     #[serde(flatten)]
     r#type: Type,
 }
@@ -103,21 +103,21 @@ enum ObjectTypeEnum {
 }
 
 #[derive(Deserialize, Debug)]
-struct IntegerEnumValue {
+pub(crate) struct IntegerEnumValue {
     name: String,
     description: Option<String>,
     value: i64,
 }
 
 #[derive(Deserialize, Debug)]
-struct NumberEnumValue {
+pub(crate) struct NumberEnumValue {
     name: String,
     description: Option<String>,
     value: f64,
 }
 
 #[derive(Deserialize, Debug)]
-struct StringEnumValue {
+pub(crate) struct StringEnumValue {
     name: Option<String>,
     description: Option<String>,
     value: Option<String>,
@@ -149,16 +149,6 @@ pub(crate) struct Package {
     #[serde(default)]
     functions: PulumiMap<Function>,
 }
-
-// fn complex_type_mapper(complex_type: ComplexType) -> Result<crate::model::Type> {
-//     //TODO: Enums
-//     object_type_mapper(complex_type.object_type)
-// }
-//
-// fn object_type_mapper(object_type: ObjectType) -> Result<crate::model::Type> {
-//
-//
-// }
 
 //TODO: Fix formatting
 fn new_type_mapper(type_: &Type) -> Result<crate::model::Type> {
