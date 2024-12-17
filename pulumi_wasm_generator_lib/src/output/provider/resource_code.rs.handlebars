@@ -4,7 +4,7 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl {{interface.name}}::Guest for Component {
-    fn invoke(name: String, args: {{interface.name}}::Args) -> {{interface.name}}::Res {
+    fn invoke(name: String, args: {{interface.name}}::Args){{#if interface.output_properties}} -> {{interface.name}}::Res{{/if}} {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "{{interface.type}}".into(),
@@ -25,11 +25,13 @@ impl {{interface.name}}::Guest for Component {
 
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
 
+{{#if interface.output_properties}}
         {{interface.name}}::Res {
             {{#each interface.output_properties}}
             {{arg_name}}: hashmap.remove("{{name}}").unwrap(),
             {{/each}}
         }
+{{/if}}
 
     }
 }

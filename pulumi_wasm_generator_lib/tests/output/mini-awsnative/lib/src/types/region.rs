@@ -4,77 +4,77 @@
 pub enum Region {
     /// Africa (Cape Town)
     #[serde(rename = "af-south-1")]
-    AFSouth1,
+    AfSouth1,
     /// Asia Pacific (Hong Kong)
     #[serde(rename = "ap-east-1")]
-    APEast1,
+    ApEast1,
     /// Asia Pacific (Tokyo)
     #[serde(rename = "ap-northeast-1")]
-    APNortheast1,
+    ApNortheast1,
     /// Asia Pacific (Seoul)
     #[serde(rename = "ap-northeast-2")]
-    APNortheast2,
+    ApNortheast2,
     /// Asia Pacific (Osaka)
     #[serde(rename = "ap-northeast-3")]
-    APNortheast3,
+    ApNortheast3,
     /// Asia Pacific (Mumbai)
     #[serde(rename = "ap-south-1")]
-    APSouth1,
+    ApSouth1,
     /// Asia Pacific (Singapore)
     #[serde(rename = "ap-southeast-1")]
-    APSoutheast1,
+    ApSoutheast1,
     /// Asia Pacific (Sydney)
     #[serde(rename = "ap-southeast-2")]
-    APSoutheast2,
+    ApSoutheast2,
     /// Canada (Central)
     #[serde(rename = "ca-central-1")]
-    CACentral,
+    CaCentral,
     /// China (Beijing)
     #[serde(rename = "cn-north-1")]
-    CNNorth1,
+    CnNorth1,
     /// China (Ningxia)
     #[serde(rename = "cn-northwest-1")]
-    CNNorthwest1,
+    CnNorthwest1,
     /// Europe (Frankfurt)
     #[serde(rename = "eu-central-1")]
-    EUCentral1,
+    EuCentral1,
     /// Europe (Stockholm)
     #[serde(rename = "eu-north-1")]
-    EUNorth1,
+    EuNorth1,
     /// Europe (Ireland)
     #[serde(rename = "eu-west-1")]
-    EUWest1,
+    EuWest1,
     /// Europe (London)
     #[serde(rename = "eu-west-2")]
-    EUWest2,
+    EuWest2,
     /// Europe (Paris)
     #[serde(rename = "eu-west-3")]
-    EUWest3,
+    EuWest3,
     /// Europe (Milan)
     #[serde(rename = "eu-south-1")]
-    EUSouth1,
+    EuSouth1,
     /// Middle East (Bahrain)
     #[serde(rename = "me-south-1")]
-    MESouth1,
+    MeSouth1,
     /// South America (São Paulo)
     #[serde(rename = "sa-east-1")]
-    SAEast1,
+    SaEast1,
     /// AWS GovCloud (US-East)
     #[serde(rename = "us-gov-east-1")]
-    USGovEast1,
+    UsGovEast1,
     /// AWS GovCloud (US-West)
     #[serde(rename = "us-gov-west-1")]
-    USGovWest1,
+    UsGovWest1,
     /// US East (N. Virginia)
     #[serde(rename = "us-east-1")]
-    USEast1,
+    UsEast1,
     /// US East (Ohio)
     #[serde(rename = "us-east-2")]
-    USEast2,
+    UsEast2,
     /// US West (N. California)
     #[serde(rename = "us-west-1")]
-    USWest1,
+    UsWest1,
     /// US West (Oregon)
     #[serde(rename = "us-west-2")]
-    USWest2,
+    UsWest2,
 }

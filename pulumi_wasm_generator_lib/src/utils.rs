@@ -80,6 +80,14 @@ pub(crate) fn escape_wit_identifier(s: &str) -> &str {
     }
 }
 
+pub(crate) fn sanitize_identifier(input: &str) -> String {
+    // Filter characters that are valid for an identifier in Rust
+    input
+        .chars()
+        .filter(|c| c.is_alphanumeric() || *c == '_') // Keep letters, digits, and underscores
+        .collect()
+}
+
 pub(crate) fn to_lines(
     s: Option<String>,
     package: &crate::model::Package,

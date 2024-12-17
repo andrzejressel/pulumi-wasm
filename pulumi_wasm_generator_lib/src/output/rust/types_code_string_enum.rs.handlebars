@@ -9,7 +9,7 @@ pub enum {{enum.struct_name}} {
     /// {{&this}}
     {{/each}}
     {{#if value.value}}
-    #[serde(rename = "{{value.value}}")]
+    #[serde(rename = {{{value.value}}})]
     {{/if}}
     {{value.name}},
     {{/each}}
