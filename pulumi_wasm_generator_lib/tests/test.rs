@@ -1,24 +1,15 @@
-use anyhow::Result;
-use assert_cmd::assert::OutputAssertExt;
-
-use pulumi_wasm_generator_lib::{generate_rust_library, generate_wasm_provider};
 use std::fs;
 use std::path::{Path, PathBuf};
 use std::process::Command;
+use anyhow::Result;
+use assert_cmd::assert::OutputAssertExt;
+use pulumi_wasm_generator_lib::{generate_rust_library, generate_wasm_provider};
+
+// DO NOT EDIT - START
 
 #[test]
 fn array_of_enum_map() -> Result<()> {
     run_pulumi_generator_test("array-of-enum-map", "example")
-}
-
-#[test]
-fn different_enum() -> Result<()> {
-    run_pulumi_generator_test("different-enum", "plant")
-}
-
-#[test]
-fn mini_awsnative() -> Result<()> {
-    run_pulumi_generator_test("mini-awsnative", "aws-native")
 }
 
 #[test]
@@ -27,8 +18,18 @@ fn cyclic_types() -> Result<()> {
 }
 
 #[test]
+fn different_enum() -> Result<()> {
+    run_pulumi_generator_test("different-enum", "plant")
+}
+
+#[test]
 fn functions_secrets() -> Result<()> {
     run_pulumi_generator_test("functions-secrets", "mypkg")
+}
+
+#[test]
+fn mini_awsnative() -> Result<()> {
+    run_pulumi_generator_test("mini-awsnative", "aws-native")
 }
 
 #[test]
@@ -50,9 +51,10 @@ fn unions_inline() -> Result<()> {
 fn unions_inside_arrays() -> Result<()> {
     run_pulumi_generator_test("unions-inside-arrays", "example")
 }
+// DO NOT EDIT - END
 
 // provider_name is `name` from yaml file
-fn run_pulumi_generator_test(test_name: &str, provider_name: &str) -> Result<()> {
+pub fn run_pulumi_generator_test(test_name: &str, provider_name: &str) -> Result<()> {
     let root_path = format!("tests/output/{test_name}");
     let root = Path::new(&root_path);
     let provider_output_path = root.join("provider");
@@ -99,7 +101,7 @@ fn run_pulumi_generator_test(test_name: &str, provider_name: &str) -> Result<()>
     Ok(())
 }
 
-fn find_schema_files(name: &str) -> PathBuf {
+pub fn find_schema_files(name: &str) -> PathBuf {
     let possible_paths = vec![
         Path::new("../pulumi/tests/testdata/codegen")
             .join(name)

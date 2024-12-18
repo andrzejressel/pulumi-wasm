@@ -258,7 +258,7 @@ jobs:
         with:
           shared-key: build
           save-if: false
-          workspaces: |
+          workspaces: | # DO NOT EDIT - START 1
             ./
             pulumi_wasm_generator_lib/tests/output/array-of-enum-map/
             pulumi_wasm_generator_lib/tests/output/azure-native-nested-types/
@@ -270,7 +270,7 @@ jobs:
             pulumi_wasm_generator_lib/tests/output/output-funcs-edgeorder/
             pulumi_wasm_generator_lib/tests/output/unions-inline/
             pulumi_wasm_generator_lib/tests/output/unions-inside-arrays/
-
+# DO NOT EDIT - END 1
       - name: Add target
         run: rustup target add ${{ matrix.rust-target }}
       - name: Build runner (Debug)
