@@ -1,6 +1,6 @@
 [package]
 name = "pulumi_wasm_plant"
-version = "0.0.1-0.0.0-DEV"
+version = "0.0.1-0.0.0-NIGHTLY-89ca01e"
 edition = "2021"
 
 [dependencies]
