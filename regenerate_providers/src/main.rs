@@ -124,15 +124,16 @@ fn update_test_rs(tests: BTreeMap<&str, &str>) {
 
     let mut replacement = String::new();
     for (test_directory, provider_name) in tests {
-
         let method_name = test_directory.replace("-", "_");
 
-        let code = format!(r#"
+        let code = format!(
+            r#"
 #[test]
 fn {method_name}() -> Result<()> {{
     run_pulumi_generator_test("{test_directory}", "{provider_name}")
 }}
-"#);
+"#
+        );
 
         replacement.push_str(&code);
     }

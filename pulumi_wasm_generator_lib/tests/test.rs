@@ -1,9 +1,9 @@
-use std::fs;
-use std::path::{Path, PathBuf};
-use std::process::Command;
 use anyhow::Result;
 use assert_cmd::assert::OutputAssertExt;
 use pulumi_wasm_generator_lib::{generate_rust_library, generate_wasm_provider};
+use std::fs;
+use std::path::{Path, PathBuf};
+use std::process::Command;
 
 // DO NOT EDIT - START
 
