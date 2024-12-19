@@ -23,18 +23,6 @@ fn main() {
             version: "5.43.1",
         },
     ];
-    let tests = vec![
-        "array-of-enum-map",
-        "azure-native-nested-types",
-        "cyclic-types",
-        "different-enum",
-        "functions-secrets",
-        "mini-awsnative",
-        "output-funcs",
-        "output-funcs-edgeorder",
-        "unions-inline",
-        "unions-inside-arrays",
-    ];
     let test_map = BTreeMap::from([
         ("array-of-enum-map", "example"),
         ("different-enum", "plant"),
@@ -45,6 +33,12 @@ fn main() {
         ("output-funcs-edgeorder", "myedgeorder"),
         ("unions-inline", "example"),
         ("unions-inside-arrays", "example"),
+        ("azure-native-nested-types", "example"),
+        ("hyphenated-symbols", "repro"),
+        ("naming-collisions", "example"),
+        ("plain-and-default", "foobar"),
+        ("plain-object-defaults", "example"),
+        ("plain-object-disable-defaults", "example"),
     ]);
 
     for provider in &providers {
@@ -65,22 +59,22 @@ fn main() {
 
     update_cargo_toml(&providers);
     update_justfile(&providers);
-    update_tests(&tests, test_map);
+    update_tests(&test_map);
 }
 
-fn update_tests(tests: &[&str], test_map: BTreeMap<&str, &str>) {
-    update_github_actions_build(tests);
-    update_github_actions_deploy(tests);
-    update_test_rs(test_map);
+fn update_tests(test_map: &BTreeMap<&str, &str>) {
+    update_github_actions_build(&test_map);
+    update_github_actions_deploy(&test_map);
+    update_test_rs(&test_map);
 }
 
-fn update_github_actions_build(tests: &[&str]) {
+fn update_github_actions_build(tests: &BTreeMap<&str, &str>) {
     let content = fs::read_to_string(".github/workflows/deploy.yml")
         .expect("Failed to read .github/workflows/deploy.yml");
 
     let mut replacement = String::new();
     replacement.push_str("            ./\n");
-    for test in tests {
+    for (test, _) in tests {
         replacement.push_str(&format!(
             "            pulumi_wasm_generator_lib/tests/output/{}/\n",
             test
@@ -94,13 +88,13 @@ fn update_github_actions_build(tests: &[&str]) {
         .expect("Failed to write to .github/workflows/deploy.yml");
 }
 
-fn update_github_actions_deploy(tests: &[&str]) {
+fn update_github_actions_deploy(tests: &BTreeMap<&str, &str>) {
     let content = fs::read_to_string(".github/workflows/build.yml")
         .expect("Failed to read .github/workflows/build.yml");
 
     let mut replacement = String::new();
     replacement.push_str("          ./\n");
-    for test in tests {
+    for (test, _) in tests {
         replacement.push_str(&format!(
             "          pulumi_wasm_generator_lib/tests/output/{}/\n",
             test
@@ -118,7 +112,7 @@ fn update_github_actions_deploy(tests: &[&str]) {
         .expect("Failed to write to .github/workflows/build.yml");
 }
 
-fn update_test_rs(tests: BTreeMap<&str, &str>) {
+fn update_test_rs(tests: &BTreeMap<&str, &str>) {
     let content = fs::read_to_string("pulumi_wasm_generator_lib/tests/test.rs")
         .expect("Failed to read pulumi_wasm_generator_lib/tests/test.rs");
 

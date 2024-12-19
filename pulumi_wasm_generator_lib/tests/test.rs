@@ -28,8 +28,18 @@ fn functions_secrets() -> Result<()> {
 }
 
 #[test]
+fn hyphenated_symbols() -> Result<()> {
+    run_pulumi_generator_test("hyphenated-symbols", "repro")
+}
+
+#[test]
 fn mini_awsnative() -> Result<()> {
     run_pulumi_generator_test("mini-awsnative", "aws-native")
+}
+
+#[test]
+fn naming_collisions() -> Result<()> {
+    run_pulumi_generator_test("naming-collisions", "example")
 }
 
 #[test]
@@ -40,6 +50,21 @@ fn output_funcs() -> Result<()> {
 #[test]
 fn output_funcs_edgeorder() -> Result<()> {
     run_pulumi_generator_test("output-funcs-edgeorder", "myedgeorder")
+}
+
+#[test]
+fn plain_and_default() -> Result<()> {
+    run_pulumi_generator_test("plain-and-default", "foobar")
+}
+
+#[test]
+fn plain_object_defaults() -> Result<()> {
+    run_pulumi_generator_test("plain-object-defaults", "example")
+}
+
+#[test]
+fn plain_object_disable_defaults() -> Result<()> {
+    run_pulumi_generator_test("plain-object-disable-defaults", "example")
 }
 
 #[test]
