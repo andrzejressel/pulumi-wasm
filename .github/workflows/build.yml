@@ -138,7 +138,7 @@ jobs:
       run: git add . && git diff --quiet && git diff --cached --quiet
 
     - uses: actions/upload-artifact@v4
-      if: matrix.os != "windows-2025" && matrix.os != "macos-15"
+      if: matrix.os != 'windows-2025' && matrix.os != 'macos-15'
       with:
         name: "timings_${{ runner.os }}"
         path: |
