@@ -1,6 +1,6 @@
 [package]
 name = "pulumi_wasm_aws-native"
-version = "0.0.1-0.0.0-DEV"
+version = "0.0.1-0.0.0-NIGHTLY-43ac32d"
 edition = "2021"
 
 [dependencies]
