@@ -5,6 +5,8 @@ use std::path::Path;
 
 use crate::schema::Package;
 use anyhow::{Context, Result};
+use crate::output::rust::generate_types_code;
+
 mod code_generation;
 mod description;
 mod model;
@@ -76,6 +78,8 @@ pub fn generate_rust_library(schema_json: &Path, result_path: &Path) -> Result<(
                 File::create(result_path.join("src").join("function").join(path)).unwrap();
             lib_file.write_all(content.as_bytes()).unwrap();
         });
+
+    generate_types_code(&package);
 
     Ok(())
 }

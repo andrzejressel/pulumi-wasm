@@ -10,4 +10,3 @@ mod indirect_cycle_s;
 pub use indirect_cycle_s::*;
 mod indirect_cycle_t;
 pub use indirect_cycle_t::*;
-

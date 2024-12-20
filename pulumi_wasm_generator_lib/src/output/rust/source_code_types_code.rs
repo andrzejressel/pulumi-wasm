@@ -194,10 +194,6 @@ fn convert_model(package: &crate::model::Package) -> Package {
                 };
                 integer_enums.push(enum_type);
             }
-            GlobalType::String => {}
-            GlobalType::Boolean => {}
-            GlobalType::Number => {}
-            GlobalType::Integer => {}
         });
 
     Package {
