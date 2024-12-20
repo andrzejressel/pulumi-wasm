@@ -5,6 +5,7 @@ use crate::model::{
 use crate::utils::sanitize_identifier;
 use anyhow::{anyhow, Context, Result};
 use convert_case::{Case, Casing};
+use itertools::any;
 use serde::Deserialize;
 use std::collections::{BTreeMap, BTreeSet, HashSet};
 
@@ -143,7 +144,7 @@ pub(crate) struct Package {
     display_name: Option<String>,
     #[serde(default)]
     resources: PulumiMap<Resource>,
-    version: String,
+    version: Option<String>,
     #[serde(default)]
     types: PulumiMap<ComplexType>,
     #[serde(default)]
@@ -368,7 +369,7 @@ pub(crate) fn to_model(package: &Package) -> Result<crate::model::Package> {
         .context("Cannot handle types")?;
     Ok(crate::model::Package {
         name: package.name.clone(),
-        version: package.version.clone(),
+        version: package.version.clone().unwrap_or("0.0.1".to_string()),
         display_name: package.display_name.clone(),
         types,
         resources,
@@ -404,7 +405,7 @@ fn convert_to_global_type(
         ObjectType {
             r#type: Some(TypeEnum::Boolean),
             ..
-        } => Ok(GlobalType::Boolean),
+        } => Err(anyhow!("Boolean not supported")),
 
         ObjectType {
             r#type: Some(TypeEnum::Integer),
@@ -420,7 +421,7 @@ fn convert_to_global_type(
         ObjectType {
             r#type: Some(TypeEnum::Integer),
             ..
-        } => Ok(GlobalType::Integer),
+        } => Err(anyhow!("Invalid integer without enum")),
 
         ObjectType {
             r#type: Some(TypeEnum::Number),
@@ -443,7 +444,7 @@ fn convert_to_global_type(
         ObjectType {
             r#type: Some(TypeEnum::Number),
             ..
-        } => Ok(GlobalType::Number),
+        } => Err(anyhow!("Invalid number without enum")),
 
         ObjectType {
             r#type: Some(TypeEnum::String),
@@ -459,7 +460,7 @@ fn convert_to_global_type(
         ObjectType {
             r#type: Some(TypeEnum::String),
             ..
-        } => Ok(GlobalType::String),
+        } => Err(anyhow!("Invalid string without enum")),
     }
     .context(format!("Cannot convert type [{type_name}]"))?;
     Ok((element_id, tpe))

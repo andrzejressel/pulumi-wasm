@@ -256,10 +256,6 @@ fn map_type(
         GlobalType::NumberEnum(_, _) => panic!("NumberEnum type is not supported"),
         GlobalType::IntegerEnum(_, _) => panic!("IntegerEnum type is not supported"),
         GlobalType::StringEnum(_, _) => panic!("StringEnum type is not supported"),
-        GlobalType::String => panic!("String type is not supported"),
-        GlobalType::Boolean => panic!("Boolean type is not supported"),
-        GlobalType::Number => panic!("Number type is not supported"),
-        GlobalType::Integer => panic!("Integer type is not supported"),
     };
 
     let mut new_properties = BTreeMap::new();

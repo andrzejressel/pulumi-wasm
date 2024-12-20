@@ -20,12 +20,10 @@ struct AliasType {
 #[derive(Serialize)]
 struct Package {
     types: Vec<RefType>,
-    aliases: Vec<AliasType>,
 }
 
 fn convert_model(package: &crate::model::Package) -> Package {
     let mut real_types = Vec::new();
-    let mut aliases = Vec::new();
 
     package
         .types
@@ -45,28 +43,9 @@ fn convert_model(package: &crate::model::Package) -> Package {
                 };
                 real_types.push(ref_type);
             }
-            GlobalType::String => aliases.push(AliasType {
-                name: element_id.name.to_string(),
-                type_: "String".to_string(),
-            }),
-            GlobalType::Boolean => aliases.push(AliasType {
-                name: element_id.name.to_string(),
-                type_: "bool".to_string(),
-            }),
-            GlobalType::Number => aliases.push(AliasType {
-                name: element_id.name.to_string(),
-                type_: "f64".to_string(),
-            }),
-            GlobalType::Integer => aliases.push(AliasType {
-                name: element_id.name.to_string(),
-                type_: "i32".to_string(),
-            }),
         });
 
-    Package {
-        types: real_types,
-        aliases,
-    }
+    Package { types: real_types }
 }
 
 pub(crate) fn generate_source_code(package: &crate::model::Package) -> String {

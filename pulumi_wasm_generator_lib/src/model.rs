@@ -138,10 +138,6 @@ pub(crate) enum GlobalType {
     StringEnum(Option<String>, Vec<StringEnumElement>),
     NumberEnum(Option<String>, Vec<NumberEnumElement>),
     IntegerEnum(Option<String>, Vec<IntegerEnumElement>),
-    String,
-    Boolean,
-    Number,
-    Integer,
 }
 
 #[derive(Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
