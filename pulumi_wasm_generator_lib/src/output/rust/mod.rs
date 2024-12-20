@@ -1,7 +1,10 @@
 use crate::model::ElementId;
-use std::collections::{BTreeMap, HashMap};
+use std::collections::BTreeMap;
+use std::fs::File;
 use std::ops::{Deref, DerefMut};
-use std::sync::Mutex;
+use crate::output::rust::source_code_types_code::generate_single_source_file;
+use std::io::{BufReader, Write};
+use std::path::Path;
 
 pub(crate) mod cargo;
 pub(crate) mod source_code_function_code;
@@ -24,33 +27,7 @@ impl TreeNode {
         TreeNode::Namespace(BTreeMap::new())
     }
 
-    // Insert an ElementId into the tree
-    // pub(crate) fn insert(&self, element: ElementId) {
-    //     match self {
-    //         TreeNode::Namespace(children) => {
-    //             let mut current_node = self;
-    //             let mut mutexes = Vec::new();
-    //             for segment in element.namespace.iter() {
-    //                 let lock = children.lock().unwrap();
-    //                 current_node = lock
-    //                     .deref()
-    //                     .entry(segment.clone())
-    //                     .or_insert_with(TreeNode::new);
-    //                 mutexes.push(lock);
-    //             }
-    //
-    //             let t = Vec::new();
-    //
-    //             // Add the ElementId as a leaf at the final namespace level
-    //             if let TreeNode::Namespace(children) = current_node {
-    //                 children.lock().unwrap().deref_mut().insert(element.name.clone(), TreeNode::Leaf(element));
-    //             }
-    //         }
-    //         TreeNode::Leaf(_) => panic!("Cannot insert into a leaf node!"),
-    //     }
-    // }
-
-    pub(crate) fn insert(&mut self, element: ElementId) {
+    fn insert(&mut self, element: ElementId) {
         self.insert_priv(element, 0);
     }
 
@@ -74,12 +51,37 @@ impl TreeNode {
     }
 }
 
-pub(crate) fn generate_types_code(package: &crate::model::Package) {
+pub(crate) fn generate_types_code(package: &crate::model::Package, result_path: &std::path::Path) {
     let mut tree = TreeNode::new();
 
     for (element_id, _) in &package.types {
+        println!("{:?}", element_id);
         tree.insert(element_id.clone());
     }
 
-    println!("Tree {:?}", tree)
+    let root = result_path.join("src").join("types");
+    println!("Tree {:?}", tree);
+
+    generate_files(package, tree, &root);
+
+    // let mut lib_file =
+    //     File::create(result_path.join("src").join("types").join(path)).unwrap();
+
+}
+
+pub(crate) fn generate_files(package: &crate::model::Package, tree_node: TreeNode, current_path: &std::path::Path) {
+    match tree_node {
+        TreeNode::Namespace(ns) => {
+            for (name, node) in ns {
+                let new_path = current_path.join(name);
+                std::fs::create_dir_all(&new_path).unwrap();
+                generate_files(package, node, &new_path);
+            }
+        }
+        TreeNode::Leaf(ref leaf) => {
+            let (file_name, content) = generate_single_source_file(package, leaf);
+            let mut file = File::create(current_path.join(file_name)).unwrap();
+            file.write_all(content.as_bytes()).unwrap();
+        }
+    }
 }

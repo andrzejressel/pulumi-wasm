@@ -1,4 +1,4 @@
-use crate::model::{GlobalType, Type};
+use crate::model::{ElementId, GlobalType, Type};
 use convert_case::{Case, Casing};
 use handlebars::Handlebars;
 use serde::Serialize;
@@ -98,103 +98,14 @@ fn convert_model(package: &crate::model::Package) -> Package {
     let mut number_enums = Vec::new();
     let mut integer_enums = Vec::new();
 
-    package
-        .types
-        .iter()
-        .for_each(|(element_id, resource)| match resource {
-            GlobalType::Object(description, properties) => {
-                let ref_type = RefType {
-                    struct_name: element_id.get_rust_struct_name(),
-                    file_name: element_id.get_rust_struct_name().to_case(Case::Snake),
-                    description_lines: crate::utils::to_lines(description.clone(), package, None),
-                    fields: properties
-                        .iter()
-                        .map(|global_type_property| Property {
-                            name: global_type_property
-                                .name
-                                .clone()
-                                .from_case(Case::Camel)
-                                .to_case(Case::Snake),
-                            original_name: global_type_property.name.clone(),
-                            type_: global_type_property.r#type.get_rust_type(),
-                            default: matches!(global_type_property.r#type, Type::Option(_)),
-                            skip: matches!(global_type_property.r#type, Type::ConstString(_)),
-                            private: matches!(global_type_property.r#type, Type::ConstString(_)),
-                            description_lines: crate::utils::to_lines(
-                                global_type_property.description.clone(),
-                                package,
-                                None,
-                            ),
-                        })
-                        .collect(),
-                    const_strings: properties
-                        .iter()
-                        .flat_map(|global_type_property| global_type_property.r#type.get_consts())
-                        .collect(),
-                };
-                real_types.push(ref_type);
-            }
-            GlobalType::StringEnum(description, enum_values) => {
-                let enum_type = StringEnum {
-                    struct_name: element_id.get_rust_struct_name(),
-                    file_name: element_id.get_rust_struct_name().to_case(Case::Snake),
-                    description_lines: crate::utils::to_lines(description.clone(), package, None),
-                    values: enum_values
-                        .iter()
-                        .map(|enum_value| StringEnumValue {
-                            name: enum_value.name.clone(),
-                            value: enum_value.value.clone().map(|s| format!("\"{}\"", s)),
-                            description_lines: crate::utils::to_lines(
-                                enum_value.description.clone(),
-                                package,
-                                None,
-                            ),
-                        })
-                        .collect(),
-                };
-                string_enums.push(enum_type);
-            }
-            GlobalType::NumberEnum(description, enum_values) => {
-                let enum_type = NumberEnum {
-                    struct_name: element_id.get_rust_struct_name(),
-                    file_name: element_id.get_rust_struct_name().to_case(Case::Snake),
-                    description_lines: crate::utils::to_lines(description.clone(), package, None),
-                    values: enum_values
-                        .iter()
-                        .map(|enum_value| NumberEnumValue {
-                            name: enum_value.name.clone(),
-                            value: enum_value.value,
-                            description_lines: crate::utils::to_lines(
-                                enum_value.description.clone(),
-                                package,
-                                None,
-                            ),
-                        })
-                        .collect(),
-                };
-                number_enums.push(enum_type);
-            }
-            GlobalType::IntegerEnum(description, enum_values) => {
-                let enum_type = IntegerEnum {
-                    struct_name: element_id.get_rust_struct_name(),
-                    file_name: element_id.get_rust_struct_name().to_case(Case::Snake),
-                    description_lines: crate::utils::to_lines(description.clone(), package, None),
-                    values: enum_values
-                        .iter()
-                        .map(|enum_value| IntegerEnumValue {
-                            name: enum_value.name.clone(),
-                            value: enum_value.value,
-                            description_lines: crate::utils::to_lines(
-                                enum_value.description.clone(),
-                                package,
-                                None,
-                            ),
-                        })
-                        .collect(),
-                };
-                integer_enums.push(enum_type);
-            }
-        });
+    package.types.keys().for_each(|element_id| {
+        match convert_resource(package, element_id) {
+            GenerateResource::RealType(ref_type) => real_types.push(ref_type),
+            GenerateResource::StringEnum(string_enum) => string_enums.push(string_enum),
+            GenerateResource::NumberEnum(number_enum) => number_enums.push(number_enum),
+            GenerateResource::IntegerEnum(integer_enum) => integer_enums.push(integer_enum),
+        }
+    });
 
     Package {
         name: package.name.clone(),
@@ -202,6 +113,114 @@ fn convert_model(package: &crate::model::Package) -> Package {
         string_enums,
         number_enums,
         integer_enums,
+    }
+}
+
+enum GenerateResource {
+    RealType(RefType),
+    StringEnum(StringEnum),
+    NumberEnum(NumberEnum),
+    IntegerEnum(IntegerEnum),
+}
+
+fn convert_resource(
+    package: &crate::model::Package,
+    element_id: &ElementId,
+) -> GenerateResource {
+    let resource = package.types.get(element_id).unwrap();
+    match resource {
+        GlobalType::Object(description, properties) => {
+            let ref_type = RefType {
+                struct_name: element_id.get_rust_struct_name(),
+                file_name: element_id.get_rust_struct_name().to_case(Case::Snake),
+                description_lines: crate::utils::to_lines(description.clone(), package, None),
+                fields: properties
+                    .iter()
+                    .map(|global_type_property| Property {
+                        name: global_type_property
+                            .name
+                            .clone()
+                            .from_case(Case::Camel)
+                            .to_case(Case::Snake),
+                        original_name: global_type_property.name.clone(),
+                        type_: global_type_property.r#type.get_rust_type(),
+                        default: matches!(global_type_property.r#type, Type::Option(_)),
+                        skip: matches!(global_type_property.r#type, Type::ConstString(_)),
+                        private: matches!(global_type_property.r#type, Type::ConstString(_)),
+                        description_lines: crate::utils::to_lines(
+                            global_type_property.description.clone(),
+                            package,
+                            None,
+                        ),
+                    })
+                    .collect(),
+                const_strings: properties
+                    .iter()
+                    .flat_map(|global_type_property| global_type_property.r#type.get_consts())
+                    .collect(),
+            };
+            GenerateResource::RealType(ref_type)
+        }
+        GlobalType::StringEnum(description, enum_values) => {
+            let enum_type = StringEnum {
+                struct_name: element_id.get_rust_struct_name(),
+                file_name: element_id.get_rust_struct_name().to_case(Case::Snake),
+                description_lines: crate::utils::to_lines(description.clone(), package, None),
+                values: enum_values
+                    .iter()
+                    .map(|enum_value| StringEnumValue {
+                        name: enum_value.name.clone(),
+                        value: enum_value.value.clone().map(|s| format!("\"{}\"", s)),
+                        description_lines: crate::utils::to_lines(
+                            enum_value.description.clone(),
+                            package,
+                            None,
+                        ),
+                    })
+                    .collect(),
+            };
+            GenerateResource::StringEnum(enum_type)
+        }
+        GlobalType::NumberEnum(description, enum_values) => {
+            let enum_type = NumberEnum {
+                struct_name: element_id.get_rust_struct_name(),
+                file_name: element_id.get_rust_struct_name().to_case(Case::Snake),
+                description_lines: crate::utils::to_lines(description.clone(), package, None),
+                values: enum_values
+                    .iter()
+                    .map(|enum_value| NumberEnumValue {
+                        name: enum_value.name.clone(),
+                        value: enum_value.value,
+                        description_lines: crate::utils::to_lines(
+                            enum_value.description.clone(),
+                            package,
+                            None,
+                        ),
+                    })
+                    .collect(),
+            };
+            GenerateResource::NumberEnum(enum_type)
+        }
+        GlobalType::IntegerEnum(description, enum_values) => {
+            let enum_type = IntegerEnum {
+                struct_name: element_id.get_rust_struct_name(),
+                file_name: element_id.get_rust_struct_name().to_case(Case::Snake),
+                description_lines: crate::utils::to_lines(description.clone(), package, None),
+                values: enum_values
+                    .iter()
+                    .map(|enum_value| IntegerEnumValue {
+                        name: enum_value.name.clone(),
+                        value: enum_value.value,
+                        description_lines: crate::utils::to_lines(
+                            enum_value.description.clone(),
+                            package,
+                            None,
+                        ),
+                    })
+                    .collect(),
+            };
+            GenerateResource::IntegerEnum(enum_type)
+        }
     }
 }
 
@@ -282,4 +301,55 @@ pub(crate) fn generate_source_code(package: &crate::model::Package) -> HashMap<P
     result
 
     // let enums =
+}
+
+pub(crate) fn generate_single_source_file(package: &crate::model::Package, element_id: &ElementId) -> (PathBuf, String) {
+    let handlebars = Handlebars::new();
+
+    match convert_resource(package, element_id) {
+        GenerateResource::RealType(type_) => {
+            let rendered_file = handlebars
+                .render_template(TEMPLATE, &json!({"type": type_}))
+                .unwrap()
+                .trim_start()
+                .to_string(); //FIXME
+            (
+                PathBuf::from(format!("{}.rs", type_.file_name)),
+                rendered_file,
+            )
+        }
+        GenerateResource::StringEnum(enum_) => {
+            let rendered_file = handlebars
+                .render_template(STRING_ENUM_TEMPLATE, &json!({"enum": enum_}))
+                .unwrap()
+                .trim_start()
+                .to_string(); //FIXME
+            (
+                PathBuf::from(format!("{}.rs", enum_.file_name)),
+                rendered_file,
+            )
+        }
+        GenerateResource::NumberEnum(enum_) => {
+            let rendered_file = handlebars
+                .render_template(NUMBER_ENUM_TEMPLATE, &json!({"enum": enum_}))
+                .unwrap()
+                .trim_start()
+                .to_string(); //FIXME
+            (
+                PathBuf::from(format!("{}.rs", enum_.file_name)),
+                rendered_file,
+            )
+        }
+        GenerateResource::IntegerEnum(enum_) => {
+            let rendered_file = handlebars
+                .render_template(INTEGER_ENUM_TEMPLATE, &json!({"enum": enum_}))
+                .unwrap()
+                .trim_start()
+                .to_string(); //FIXME
+            (
+                PathBuf::from(format!("{}.rs", enum_.file_name)),
+                rendered_file,
+            )
+        }
+    }
 }

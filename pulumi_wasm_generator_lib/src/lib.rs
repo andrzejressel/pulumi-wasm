@@ -6,7 +6,6 @@ use std::path::Path;
 use crate::schema::Package;
 use anyhow::{Context, Result};
 use crate::output::rust::generate_types_code;
-
 mod code_generation;
 mod description;
 mod model;
@@ -48,20 +47,22 @@ pub fn generate_rust_library(schema_json: &Path, result_path: &Path) -> Result<(
         output::rust::source_code_function_mod::generate_source_code(&package).as_bytes(),
     )?;
 
-    output::rust::source_code_types_code::generate_source_code(&package)
-        .iter()
-        .for_each(|(path, content)| {
-            let mut lib_file =
-                File::create(result_path.join("src").join("types").join(path)).unwrap();
-            lib_file.write_all(content.as_bytes()).unwrap();
-        });
+    generate_types_code(&package, result_path);
+
+    // output::rust::source_code_types_code::generate_source_code(&package)
+    //     .iter()
+    //     .for_each(|(path, content)| {
+    //         let mut lib_file =
+    //             File::create(result_path.join("src").join("types").join(path)).unwrap();
+    //         lib_file.write_all(content.as_bytes()).unwrap();
+    //     });
 
     // let mut types_file = File::create(result_path.join("src").join("types.rs"))?;
     // types_file
     //     .write_all(output::rust::source_code_types::generate_source_code(&package).as_ref())?;
 
-    File::create(result_path.join("src").join("types").join("mod.rs"))?
-        .write_all(output::rust::source_code_types_mod::generate_source_code(&package).as_ref())?;
+    // File::create(result_path.join("src").join("types").join("mod.rs"))?
+    //     .write_all(output::rust::source_code_types_mod::generate_source_code(&package).as_ref())?;
 
     output::rust::source_code_resource_code::generate_source_code(&package)
         .iter()
@@ -78,8 +79,6 @@ pub fn generate_rust_library(schema_json: &Path, result_path: &Path) -> Result<(
                 File::create(result_path.join("src").join("function").join(path)).unwrap();
             lib_file.write_all(content.as_bytes()).unwrap();
         });
-
-    generate_types_code(&package);
 
     Ok(())
 }
