@@ -1,0 +1,71 @@
+package pulumi:example@0.0.1--0.0.0-DEV;
+
+world example-pulumi {
+    import component:pulumi-wasm/register-interface@0.0.0-DEV;
+    export foo;
+    export module-test;
+    export func-with-all-optional-inputs;
+}
+
+world example-pulumi-client {
+    import foo;
+    import module-test;
+    import func-with-all-optional-inputs;
+}
+
+interface foo {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        argument: borrow<output>,
+        backup-kube-client-settings: borrow<output>,
+        kube-client-settings: borrow<output>,
+        settings: borrow<output>,
+    }
+
+    record res {
+        default-kube-client-settings: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+interface module-test {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        mod1: borrow<output>,
+        val: borrow<output>,
+    }
+
+
+    invoke: func(
+        name: string,
+        args: args
+    );
+
+}
+
+interface func-with-all-optional-inputs {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        a: borrow<output>,
+        b: borrow<output>,
+    }
+
+    record res {
+        r: output,
+    }
+
+    invoke: func(
+        args: args
+    ) -> res;
+
+}

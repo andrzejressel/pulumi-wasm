@@ -12,4 +12,3 @@ mod union_case_with_const_1;
 pub use union_case_with_const_1::*;
 mod union_case_with_const_2;
 pub use union_case_with_const_2::*;
-
