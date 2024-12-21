@@ -2356,6 +2356,7 @@ dependencies = [
  "itertools 0.13.0",
  "prettyplease",
  "proc-macro2",
+ "pulumi_wasm_provider_common",
  "quote",
  "regex",
  "serde",
