@@ -69,7 +69,7 @@ use std::collections::BTreeMap;
 // }
 
 #[derive(Template)]
-#[template(path = "types_mod.rs.jinja", whitespace = "suppress")]
+#[template(path = "types_mod.rs.jinja")]
 struct TemplateModel {
     files: Vec<String>,
     directories: Vec<String>,
