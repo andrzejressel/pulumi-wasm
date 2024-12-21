@@ -22,10 +22,3 @@ pull_request_rules:
       - merged
     actions:
       delete_head_branch:
-
-  - name: Block WIP PRs
-    conditions:
-      - title~=WIP  # This condition matches PRs with "WIP" in the title
-    actions:
-      comment:
-        message: "This pull request is marked as WIP and cannot be merged. Please remove 'WIP' from the title to proceed."
