@@ -1,7 +1,7 @@
-package pulumi:example@1.0.0--0.0.0-DEV;
+package pulumi:example@1.0.0--0.0.0-NIGHTLY-7cdd58f;
 
 world example-pulumi {
-    import component:pulumi-wasm/register-interface@0.0.0-DEV;
+    import component:pulumi-wasm/register-interface@0.0.0-NIGHTLY-7cdd58f;
     export example-server;
 }
 
@@ -11,7 +11,7 @@ world example-pulumi-client {
 
 interface example-server {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-7cdd58f.{output};
 
     record args {
         properties: borrow<output>,
