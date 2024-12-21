@@ -3,9 +3,9 @@ use std::fs::File;
 use std::io::{BufReader, Write};
 use std::path::Path;
 
+use crate::output::rust::generate_types_code;
 use crate::schema::Package;
 use anyhow::{Context, Result};
-use crate::output::rust::generate_types_code;
 mod code_generation;
 mod description;
 mod model;

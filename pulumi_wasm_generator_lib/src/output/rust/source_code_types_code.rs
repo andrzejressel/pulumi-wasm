@@ -98,14 +98,15 @@ fn convert_model(package: &crate::model::Package) -> Package {
     let mut number_enums = Vec::new();
     let mut integer_enums = Vec::new();
 
-    package.types.keys().for_each(|element_id| {
-        match convert_resource(package, element_id) {
+    package
+        .types
+        .keys()
+        .for_each(|element_id| match convert_resource(package, element_id) {
             GenerateResource::RealType(ref_type) => real_types.push(ref_type),
             GenerateResource::StringEnum(string_enum) => string_enums.push(string_enum),
             GenerateResource::NumberEnum(number_enum) => number_enums.push(number_enum),
             GenerateResource::IntegerEnum(integer_enum) => integer_enums.push(integer_enum),
-        }
-    });
+        });
 
     Package {
         name: package.name.clone(),
@@ -123,10 +124,7 @@ enum GenerateResource {
     IntegerEnum(IntegerEnum),
 }
 
-fn convert_resource(
-    package: &crate::model::Package,
-    element_id: &ElementId,
-) -> GenerateResource {
+fn convert_resource(package: &crate::model::Package, element_id: &ElementId) -> GenerateResource {
     let resource = package.types.get(element_id).unwrap();
     match resource {
         GlobalType::Object(description, properties) => {
@@ -299,11 +297,12 @@ pub(crate) fn generate_source_code(package: &crate::model::Package) -> HashMap<P
     result.extend(integer_enums);
 
     result
-
-    // let enums =
 }
 
-pub(crate) fn generate_single_source_file(package: &crate::model::Package, element_id: &ElementId) -> (PathBuf, String) {
+pub(crate) fn generate_single_source_file(
+    package: &crate::model::Package,
+    element_id: &ElementId,
+) -> (PathBuf, String) {
     let handlebars = Handlebars::new();
 
     match convert_resource(package, element_id) {

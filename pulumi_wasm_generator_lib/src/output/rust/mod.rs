@@ -1,10 +1,9 @@
 use crate::model::ElementId;
+use crate::output::rust::source_code_types_code::generate_single_source_file;
+use crate::output::rust::source_code_types_mod::generate_mod;
 use std::collections::BTreeMap;
 use std::fs::File;
-use std::ops::{Deref, DerefMut};
-use crate::output::rust::source_code_types_code::generate_single_source_file;
-use std::io::{BufReader, Write};
-use std::path::Path;
+use std::io::Write;
 
 pub(crate) mod cargo;
 pub(crate) mod source_code_function_code;
@@ -54,33 +53,34 @@ impl TreeNode {
 pub(crate) fn generate_types_code(package: &crate::model::Package, result_path: &std::path::Path) {
     let mut tree = TreeNode::new();
 
-    for (element_id, _) in &package.types {
-        println!("{:?}", element_id);
+    for element_id in package.types.keys() {
         tree.insert(element_id.clone());
     }
 
     let root = result_path.join("src").join("types");
-    println!("Tree {:?}", tree);
 
-    generate_files(package, tree, &root);
-
-    // let mut lib_file =
-    //     File::create(result_path.join("src").join("types").join(path)).unwrap();
-
+    generate_files(package, &tree, &root);
 }
 
-pub(crate) fn generate_files(package: &crate::model::Package, tree_node: TreeNode, current_path: &std::path::Path) {
+fn generate_files(
+    package: &crate::model::Package,
+    tree_node: &TreeNode,
+    current_path: &std::path::Path,
+) {
     match tree_node {
         TreeNode::Namespace(ns) => {
             for (name, node) in ns {
-                let new_path = current_path.join(name);
-                std::fs::create_dir_all(&new_path).unwrap();
-                generate_files(package, node, &new_path);
+                generate_files(package, node, &current_path.join(name));
             }
+            let content = generate_mod(ns);
+            let mut file = File::create(current_path.join("mod.rs")).unwrap();
+            file.write_all(content.as_bytes()).unwrap();
         }
         TreeNode::Leaf(ref leaf) => {
             let (file_name, content) = generate_single_source_file(package, leaf);
-            let mut file = File::create(current_path.join(file_name)).unwrap();
+            let dir = current_path.parent().unwrap();
+            std::fs::create_dir_all(dir).unwrap();
+            let mut file = File::create(current_path.parent().unwrap().join(file_name)).unwrap();
             file.write_all(content.as_bytes()).unwrap();
         }
     }

@@ -4,10 +4,10 @@
 pub struct NurseryArgs {
     /// The sizes of trees available
     #[builder(into, default)]
-    pub sizes: pulumi_wasm_rust::Output<Option<std::collections::HashMap<String, crate::types::TreeSize>>>,
+    pub sizes: pulumi_wasm_rust::Output<Option<std::collections::HashMap<String, crate::types::tree::TreeSize>>>,
     /// The varieties available
     #[builder(into)]
-    pub varieties: pulumi_wasm_rust::Output<Vec<crate::types::RubberTreeVariety>>,
+    pub varieties: pulumi_wasm_rust::Output<Vec<crate::types::tree::RubberTreeVariety>>,
 }
 
 pub struct NurseryResult {

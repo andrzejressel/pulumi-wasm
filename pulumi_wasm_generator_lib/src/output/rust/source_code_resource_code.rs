@@ -137,7 +137,7 @@ pub(crate) fn generate_source_code(package: &crate::model::Package) -> HashMap<P
             let rendered_file = handlebars
                 .render_template(
                     TEMPLATE,
-                    &json!({"package_name": package.name, "interface": interface}),
+                    &json!({"package_name": package.name.replace("-", "_"), "interface": interface}),
                 )
                 .unwrap();
             (

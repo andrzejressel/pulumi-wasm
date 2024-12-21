@@ -5,7 +5,6 @@ use crate::model::{
 use crate::utils::sanitize_identifier;
 use anyhow::{anyhow, Context, Result};
 use convert_case::{Case, Casing};
-use itertools::any;
 use serde::Deserialize;
 use std::collections::{BTreeMap, BTreeSet, HashSet};
 

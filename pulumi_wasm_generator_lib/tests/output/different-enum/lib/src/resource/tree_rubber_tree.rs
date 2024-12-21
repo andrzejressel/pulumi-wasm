@@ -5,21 +5,21 @@ pub struct RubberTreeArgs {
     #[builder(into, default)]
     pub container: pulumi_wasm_rust::Output<Option<crate::types::Container>>,
     #[builder(into)]
-    pub diameter: pulumi_wasm_rust::Output<crate::types::Diameter>,
+    pub diameter: pulumi_wasm_rust::Output<crate::types::tree::Diameter>,
     #[builder(into, default)]
-    pub farm: pulumi_wasm_rust::Output<Option<pulumi_wasm_provider_common::OneOf2<crate::types::Farm, String>>>,
+    pub farm: pulumi_wasm_rust::Output<Option<pulumi_wasm_provider_common::OneOf2<crate::types::tree::Farm, String>>>,
     #[builder(into, default)]
-    pub size: pulumi_wasm_rust::Output<Option<crate::types::TreeSize>>,
+    pub size: pulumi_wasm_rust::Output<Option<crate::types::tree::TreeSize>>,
     #[builder(into)]
-    pub type_: pulumi_wasm_rust::Output<crate::types::RubberTreeVariety>,
+    pub type_: pulumi_wasm_rust::Output<crate::types::tree::RubberTreeVariety>,
 }
 
 pub struct RubberTreeResult {
     pub container: pulumi_wasm_rust::Output<Option<crate::types::Container>>,
-    pub diameter: pulumi_wasm_rust::Output<crate::types::Diameter>,
-    pub farm: pulumi_wasm_rust::Output<Option<pulumi_wasm_provider_common::OneOf2<crate::types::Farm, String>>>,
-    pub size: pulumi_wasm_rust::Output<Option<crate::types::TreeSize>>,
-    pub type_: pulumi_wasm_rust::Output<crate::types::RubberTreeVariety>,
+    pub diameter: pulumi_wasm_rust::Output<crate::types::tree::Diameter>,
+    pub farm: pulumi_wasm_rust::Output<Option<pulumi_wasm_provider_common::OneOf2<crate::types::tree::Farm, String>>>,
+    pub size: pulumi_wasm_rust::Output<Option<crate::types::tree::TreeSize>>,
+    pub type_: pulumi_wasm_rust::Output<crate::types::tree::RubberTreeVariety>,
 }
 
 ///

@@ -1,0 +1,7 @@
+{% for file in files +%}
+mod {{+ file }};
+pub use {{+ file }}::*;
+{% endfor %}
+{% for directory in directories +%}
+pub mod {{+ directory }};
+{% endfor %}

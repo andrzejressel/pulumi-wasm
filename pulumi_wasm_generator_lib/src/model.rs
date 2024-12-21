@@ -3,6 +3,7 @@ use anyhow::{Context, Result};
 use convert_case::Case;
 use convert_case::Case::UpperCamel;
 use convert_case::Casing;
+use itertools::Itertools;
 use std::collections::BTreeMap;
 
 #[derive(Clone, Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
@@ -36,7 +37,7 @@ impl Type {
                 )
             }
             Type::Ref(r) => match r {
-                Ref::Type(tpe) => format!("crate::types::{}", tpe.get_rust_struct_name()),
+                Ref::Type(tpe) => format!("crate::types::{}", tpe.get_rust_absolute_name()),
                 Ref::Archive => "String".to_string(), //FIXME
                 Ref::Asset => "String".to_string(),   //FIXME
                 Ref::Any => "String".to_string(),     //FIXME
@@ -215,6 +216,17 @@ impl ElementId {
         self.name.clone().to_case(Case::Pascal)
     }
 
+    pub(crate) fn get_rust_absolute_name(&self) -> String {
+        let mut parts = self.namespace.clone();
+        parts.push(self.name.clone().to_case(Case::Pascal));
+        parts.join("::")
+    }
+    pub(crate) fn get_wit_compatible_combined_namespace(&self) -> String {
+        let mut parts = self.namespace.clone();
+        parts.push(self.name.clone());
+        parts.iter().map(|s| s.replace("-", "_")).join("::")
+    }
+
     pub(crate) fn get_rust_function_name(&self) -> String {
         self.name
             .clone()
@@ -285,55 +297,24 @@ impl Ref {
 impl ElementId {
     pub(crate) fn new(raw: &str) -> Result<Self> {
         let raw = raw.replace("%2F", "/");
-        if raw.contains('/') {
-            let parts: Vec<&str> = raw.split('/').collect();
-            if parts.len() != 2 {
-                return Err(anyhow::anyhow!("Cannot generate element id from [{raw}]"));
-            }
-
-            let left = parts[0];
-            let right = parts[1];
-
-            let parts = right.split(':').collect::<Vec<&str>>();
-            if parts.len() != 2 {
-                return Err(anyhow::anyhow!("Cannot generate element id from [{raw}]"));
-            }
-
-            let name = parts[1].to_string();
-
-            let parts = left.split(':').collect::<Vec<&str>>();
-            if parts.len() != 2 {
-                return Err(anyhow::anyhow!("Cannot generate element id from [{raw}]"));
-            }
-
-            let namespace = match &parts[1] {
-                &"index" => vec![],
-                package => vec![package.to_string()],
-            };
-
-            Ok(ElementId {
-                namespace,
-                name,
-                raw: raw.to_string(),
-            })
-        } else {
-            let parts: Vec<&str> = raw.split(':').collect();
-            if parts.len() != 3 {
-                return Err(anyhow::anyhow!("Cannot generate element id from [{raw}]"));
-            }
-
-            let _package = parts[0].to_string();
-            let namespace = match &parts[1] {
-                &"index" => vec![],
-                package => vec![package.to_string()],
-            };
-            let name = parts[2].to_string();
-            Ok(ElementId {
-                namespace,
-                name,
-                raw: raw.to_string(),
-            })
+        let parts: Vec<&str> = raw.split(':').collect();
+        if parts.len() != 3 {
+            return Err(anyhow::anyhow!("Cannot generate element id from [{raw}]"));
         }
+        let name = parts[2].to_string();
+        let namespace = parts[1].split('/').collect::<Vec<_>>();
+
+        let final_namespaces = namespace
+            .into_iter()
+            .filter(|s| *s != "index" && s.to_lowercase() != name.to_lowercase() && !s.is_empty())
+            .map(|s| s.replace("-", "_").to_string())
+            .collect::<Vec<_>>();
+
+        Ok(ElementId {
+            namespace: final_namespaces.iter().map(|s| s.to_string()).collect(),
+            name,
+            raw: raw.to_string(),
+        })
     }
 }
 
@@ -378,5 +359,35 @@ mod tests {
                 raw: "docker:index/ContainerPort:ContainerPort".to_string(),
             }
         );
+    }
+
+    #[test]
+    fn should_handle_without_namespace() {
+        let id = "mypkg::BastionShareableLink";
+        assert_eq!(
+            ElementId::new(id).unwrap(),
+            ElementId {
+                namespace: vec![],
+                name: "BastionShareableLink".to_string(),
+                raw: id.to_string(),
+            }
+        );
+    }
+
+    #[test]
+    fn should_handle_deeply_nested() {
+        let id = "foo-bar:deeply/nested/module:Resource";
+        assert_eq!(
+            ElementId::new(id).unwrap(),
+            ElementId {
+                namespace: vec![
+                    "deeply".to_string(),
+                    "nested".to_string(),
+                    "module".to_string()
+                ],
+                name: "Resource".to_string(),
+                raw: id.to_string(),
+            }
+        )
     }
 }
