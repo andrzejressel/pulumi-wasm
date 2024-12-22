@@ -228,10 +228,7 @@ impl ElementId {
     }
 
     pub(crate) fn get_rust_function_name(&self) -> String {
-        self.name
-            .clone()
-            .from_case(Case::UpperCamel)
-            .to_case(Case::Snake)
+        self.name.clone().from_case(UpperCamel).to_case(Case::Snake)
     }
 
     pub(crate) fn get_rust_namespace_name(&self) -> String {

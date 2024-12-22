@@ -1,1 +1,1 @@
-pub mod deeply_nested_module_resource;
+pub mod deeply;

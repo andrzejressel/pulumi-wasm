@@ -1,0 +1,48 @@
+{{#each resource.description_lines}}
+//! {{&this}}
+{{/each}}
+
+#[derive(bon::Builder, Clone)]
+#[builder(finish_fn = build_struct)]
+pub struct {{resource.struct_name}}Args {
+{{#each resource.input_properties}}
+    {{#each description_lines}}
+    /// {{&this}}
+    {{/each}}
+    {{#if default}}
+    #[builder(into, default)]
+    {{else if skip}}
+    #[builder(skip)]
+    {{else}}
+    #[builder(into)]
+    {{/if}}
+    {{#unless private}}pub {{/unless}}{{arg_name}}: pulumi_wasm_rust::Output<{{&type_}}>,
+{{/each}}
+}
+
+pub struct {{resource.struct_name}}Result {
+{{#each resource.output_properties}}
+    {{#each description_lines}}
+    /// {{&this}}
+    {{/each}}
+    pub {{arg_name}}: pulumi_wasm_rust::Output<{{&type_}}>,
+{{/each}}
+}
+
+///
+/// Registers a new resource with the given unique name and arguments
+///
+pub fn create(name: &str, args: {{resource.struct_name}}Args) -> {{resource.struct_name}}Result {
+
+    let result = crate::bindings::pulumi::{{resource.package_name}}::{{resource.name}}::invoke(name, &crate::bindings::pulumi::{{resource.package_name}}::{{resource.name}}::Args {
+{{#each resource.input_properties}}
+        {{arg_name}}: &args.{{arg_name}}.get_inner(),
+{{/each}}
+    });
+
+    {{resource.struct_name}}Result {
+    {{#each resource.output_properties}}
+        {{arg_name}}: crate::into_domain(result.{{arg_name}}),
+    {{/each}}
+    }
+}

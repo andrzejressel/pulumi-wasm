@@ -3,10 +3,14 @@ package pulumi:typesystem@1.0.0--0.0.0-DEV;
 world typesystem-pulumi {
     import component:pulumi-wasm/register-interface@0.0.0-DEV;
     export typesystem-server;
+    export deep-nested-module-some-resource;
+    export deep-nested-module-some-function;
 }
 
 world typesystem-pulumi-client {
     import typesystem-server;
+    import deep-nested-module-some-resource;
+    import deep-nested-module-some-function;
 }
 
 interface typesystem-server {
@@ -30,4 +34,29 @@ interface typesystem-server {
     );
 
 }
+interface deep-nested-module-some-resource {
 
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        string-input: borrow<output>,
+    }
+
+
+    invoke: func(
+        name: string,
+        args: args
+    );
+
+}
+
+interface deep-nested-module-some-function {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+
+
+    invoke: func(
+    );
+
+}
