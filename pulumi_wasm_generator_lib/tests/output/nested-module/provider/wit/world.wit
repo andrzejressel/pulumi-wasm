@@ -1,7 +1,7 @@
-package pulumi:foo@0.0.1--0.0.0-DEV;
+package pulumi:foo@0.0.1--0.0.0-NIGHTLY-5ed5873;
 
 world foo-pulumi {
-    import component:pulumi-wasm/register-interface@0.0.0-DEV;
+    import component:pulumi-wasm/register-interface@0.0.0-NIGHTLY-5ed5873;
     export nested-module-resource;
 }
 
@@ -11,7 +11,7 @@ world foo-pulumi-client {
 
 interface nested-module-resource {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-5ed5873.{output};
 
     record args {
         bar: borrow<output>,
