@@ -1,7 +1,7 @@
-package pulumi:azure-native@0.0.1--0.0.0-DEV;
+package pulumi:azure-native@0.0.1--0.0.0-NIGHTLY-0ff3043;
 
 world azure-native-pulumi {
-    import component:pulumi-wasm/register-interface@0.0.0-DEV;
+    import component:pulumi-wasm/register-interface@0.0.0-NIGHTLY-0ff3043;
     export documentdb-sql-resource-sql-container;
 }
 
@@ -11,7 +11,7 @@ world azure-native-pulumi-client {
 
 interface documentdb-sql-resource-sql-container {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-0ff3043.{output};
 
 
     record res {

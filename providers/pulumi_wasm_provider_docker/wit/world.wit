@@ -1,7 +1,7 @@
-package pulumi:docker@4.5.3--0.0.0-DEV;
+package pulumi:docker@4.5.3--0.0.0-NIGHTLY-0ff3043;
 
 world docker-pulumi {
-    import component:pulumi-wasm/register-interface@0.0.0-DEV;
+    import component:pulumi-wasm/register-interface@0.0.0-NIGHTLY-0ff3043;
     export container;
     export image;
     export network;
@@ -41,7 +41,7 @@ world docker-pulumi-client {
 
 interface container {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-0ff3043.{output};
 
     record args {
         attach: borrow<output>,
@@ -185,7 +185,7 @@ interface container {
 }
 interface image {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-0ff3043.{output};
 
     record args {
         build: borrow<output>,
@@ -213,7 +213,7 @@ interface image {
 }
 interface network {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-0ff3043.{output};
 
     record args {
         attachable: borrow<output>,
@@ -254,7 +254,7 @@ interface network {
 }
 interface plugin {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-0ff3043.{output};
 
     record args {
         alias: borrow<output>,
@@ -289,7 +289,7 @@ interface plugin {
 }
 interface registry-image {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-0ff3043.{output};
 
     record args {
         insecure-skip-verify: borrow<output>,
@@ -314,7 +314,7 @@ interface registry-image {
 }
 interface remote-image {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-0ff3043.{output};
 
     record args {
         build: borrow<output>,
@@ -346,7 +346,7 @@ interface remote-image {
 }
 interface secret {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-0ff3043.{output};
 
     record args {
         data: borrow<output>,
@@ -368,7 +368,7 @@ interface secret {
 }
 interface service {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-0ff3043.{output};
 
     record args {
         auth: borrow<output>,
@@ -402,7 +402,7 @@ interface service {
 }
 interface service-config {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-0ff3043.{output};
 
     record args {
         data: borrow<output>,
@@ -422,7 +422,7 @@ interface service-config {
 }
 interface tag {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-0ff3043.{output};
 
     record args {
         source-image: borrow<output>,
@@ -443,7 +443,7 @@ interface tag {
 }
 interface volume {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-0ff3043.{output};
 
     record args {
         driver: borrow<output>,
@@ -469,7 +469,7 @@ interface volume {
 
 interface get-logs {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-0ff3043.{output};
 
     record args {
         details: borrow<output>,
@@ -508,7 +508,7 @@ interface get-logs {
 }
 interface get-network {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-0ff3043.{output};
 
     record args {
         name: borrow<output>,
@@ -531,7 +531,7 @@ interface get-network {
 }
 interface get-plugin {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-0ff3043.{output};
 
     record args {
         alias: borrow<output>,
@@ -555,7 +555,7 @@ interface get-plugin {
 }
 interface get-registry-image {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-0ff3043.{output};
 
     record args {
         insecure-skip-verify: borrow<output>,
@@ -576,7 +576,7 @@ interface get-registry-image {
 }
 interface get-remote-image {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-0ff3043.{output};
 
     record args {
         name: borrow<output>,
