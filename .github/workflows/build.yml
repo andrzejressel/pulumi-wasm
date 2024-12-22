@@ -28,6 +28,8 @@ jobs:
 
     env:
       RUST_BACKTRACE: "full"
+      SCCACHE_GHA_ENABLED: "true"
+      RUSTC_WRAPPER: "sccache"
 
     steps:
     - name: Cleanup unused stuff
@@ -87,26 +89,8 @@ jobs:
     - run: pulumi version
     - run: pulumi login --local
 
-    - uses: Swatinem/rust-cache@v2
-      with:
-        shared-key: build
-        workspaces: | # DO NOT EDIT - START 1
-          ./
-          pulumi_wasm_generator_lib/tests/output/array-of-enum-map/
-          pulumi_wasm_generator_lib/tests/output/azure-native-nested-types/
-          pulumi_wasm_generator_lib/tests/output/cyclic-types/
-          pulumi_wasm_generator_lib/tests/output/different-enum/
-          pulumi_wasm_generator_lib/tests/output/functions-secrets/
-          pulumi_wasm_generator_lib/tests/output/mini-awsnative/
-          pulumi_wasm_generator_lib/tests/output/output-funcs/
-          pulumi_wasm_generator_lib/tests/output/output-funcs-edgeorder/
-          pulumi_wasm_generator_lib/tests/output/unions-inline/
-          pulumi_wasm_generator_lib/tests/output/unions-inside-arrays/
-          pulumi_wasm_generator_lib/tests/output/plain-object-defaults/
-          pulumi_wasm_generator_lib/tests/output/plain-object-disable-defaults/
-          pulumi_wasm_generator_lib/tests/output/nested-module/
-          pulumi_wasm_generator_lib/tests/output/nested-module-thirdparty/
-# DO NOT EDIT - END 1
+    - name: Run sccache-cache
+      uses: mozilla-actions/sccache-action@v0.0.7
     - name: Regenerate provider list
       run: just regenerate-provider-list
     - name: Check
