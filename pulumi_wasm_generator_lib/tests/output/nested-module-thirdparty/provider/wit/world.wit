@@ -1,7 +1,7 @@
-package pulumi:foo-bar@0.0.1--0.0.0-DEV;
+package pulumi:foo-bar@0.0.1--0.0.0-NIGHTLY-ef13e21;
 
 world foo-bar-pulumi {
-    import component:pulumi-wasm/register-interface@0.0.0-DEV;
+    import component:pulumi-wasm/register-interface@0.0.0-NIGHTLY-ef13e21;
     export deeply-nested-module-resource;
 }
 
@@ -11,7 +11,7 @@ world foo-bar-pulumi-client {
 
 interface deeply-nested-module-resource {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-ef13e21.{output};
 
     record args {
         baz: borrow<output>,
