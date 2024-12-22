@@ -1,7 +1,7 @@
-package pulumi:mypkg@0.0.1--0.0.0-DEV;
+package pulumi:mypkg@0.0.1--0.0.0-NIGHTLY-e45055e;
 
 world mypkg-pulumi {
-    import component:pulumi-wasm/register-interface@0.0.0-DEV;
+    import component:pulumi-wasm/register-interface@0.0.0-NIGHTLY-e45055e;
     export func-with-all-optional-inputs;
     export func-with-const-input;
     export func-with-default-value;
@@ -30,7 +30,7 @@ world mypkg-pulumi-client {
 
 interface func-with-all-optional-inputs {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-e45055e.{output};
 
     record args {
         a: borrow<output>,
@@ -48,7 +48,7 @@ interface func-with-all-optional-inputs {
 }
 interface func-with-const-input {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-e45055e.{output};
 
     record args {
         plain-input: borrow<output>,
@@ -62,7 +62,7 @@ interface func-with-const-input {
 }
 interface func-with-default-value {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-e45055e.{output};
 
     record args {
         a: borrow<output>,
@@ -80,7 +80,7 @@ interface func-with-default-value {
 }
 interface func-with-dict-param {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-e45055e.{output};
 
     record args {
         a: borrow<output>,
@@ -98,7 +98,7 @@ interface func-with-dict-param {
 }
 interface func-with-empty-outputs {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-e45055e.{output};
 
     record args {
         name: borrow<output>,
@@ -112,7 +112,7 @@ interface func-with-empty-outputs {
 }
 interface func-with-list-param {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-e45055e.{output};
 
     record args {
         a: borrow<output>,
@@ -130,7 +130,7 @@ interface func-with-list-param {
 }
 interface get-bastion-shareable-link {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-e45055e.{output};
 
     record args {
         bastion-host-name: borrow<output>,
@@ -149,7 +149,7 @@ interface get-bastion-shareable-link {
 }
 interface get-client-config {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-e45055e.{output};
 
 
     record res {
@@ -165,7 +165,7 @@ interface get-client-config {
 }
 interface get-integration-runtime-object-metadatum {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-e45055e.{output};
 
     record args {
         factory-name: borrow<output>,
@@ -186,7 +186,7 @@ interface get-integration-runtime-object-metadatum {
 }
 interface list-storage-account-keys {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-e45055e.{output};
 
     record args {
         account-name: borrow<output>,

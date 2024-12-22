@@ -1,7 +1,7 @@
-package pulumi:myedgeorder@0.0.1--0.0.0-DEV;
+package pulumi:myedgeorder@0.0.1--0.0.0-NIGHTLY-e45055e;
 
 world myedgeorder-pulumi {
-    import component:pulumi-wasm/register-interface@0.0.0-DEV;
+    import component:pulumi-wasm/register-interface@0.0.0-NIGHTLY-e45055e;
     export list-configurations;
     export list-product-families;
 }
@@ -14,7 +14,7 @@ world myedgeorder-pulumi-client {
 
 interface list-configurations {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-e45055e.{output};
 
     record args {
         configuration-filters: borrow<output>,
@@ -34,7 +34,7 @@ interface list-configurations {
 }
 interface list-product-families {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-e45055e.{output};
 
     record args {
         customer-subscription-details: borrow<output>,
