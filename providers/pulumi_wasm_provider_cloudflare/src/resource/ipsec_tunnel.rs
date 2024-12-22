@@ -55,9 +55,7 @@ impl ipsec_tunnel::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         ipsec_tunnel::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             allow_null_cipher: hashmap.remove("allowNullCipher").unwrap(),
@@ -78,6 +76,5 @@ impl ipsec_tunnel::Guest for Component {
             replay_protection: hashmap.remove("replayProtection").unwrap(),
             user_id: hashmap.remove("userId").unwrap(),
         }
-
     }
 }

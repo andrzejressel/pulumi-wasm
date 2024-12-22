@@ -25,14 +25,11 @@ impl total_tls::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         total_tls::Res {
             certificate_authority: hashmap.remove("certificateAuthority").unwrap(),
             enabled: hashmap.remove("enabled").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

@@ -21,9 +21,7 @@ impl get_remote_image::Guest for Component {
         };
 
         let o = invoke(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         get_remote_image::Res {
             id: hashmap.remove("id").unwrap(),
             name: hashmap.remove("name").unwrap(),

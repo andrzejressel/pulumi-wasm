@@ -35,9 +35,7 @@ impl remote_image::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         remote_image::Res {
             build: hashmap.remove("build").unwrap(),
             force_remove: hashmap.remove("forceRemove").unwrap(),
@@ -49,6 +47,5 @@ impl remote_image::Guest for Component {
             repo_digest: hashmap.remove("repoDigest").unwrap(),
             triggers: hashmap.remove("triggers").unwrap(),
         }
-
     }
 }

@@ -31,9 +31,7 @@ impl web_analytics_rule::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         web_analytics_rule::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             host: hashmap.remove("host").unwrap(),
@@ -42,6 +40,5 @@ impl web_analytics_rule::Guest for Component {
             paths: hashmap.remove("paths").unwrap(),
             ruleset_id: hashmap.remove("rulesetId").unwrap(),
         }
-
     }
 }

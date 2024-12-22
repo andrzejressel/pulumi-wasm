@@ -24,9 +24,7 @@ impl get_load_balancer_pools::Guest for Component {
         };
 
         let o = invoke(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         get_load_balancer_pools::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             filter: hashmap.remove("filter").unwrap(),

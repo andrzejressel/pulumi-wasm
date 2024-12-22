@@ -24,14 +24,11 @@ impl d1_database::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         d1_database::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             name: hashmap.remove("name").unwrap(),
             version: hashmap.remove("version").unwrap(),
         }
-
     }
 }

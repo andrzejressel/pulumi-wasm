@@ -42,9 +42,7 @@ impl zero_trust_gateway_policy::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         zero_trust_gateway_policy::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             action: hashmap.remove("action").unwrap(),
@@ -59,6 +57,5 @@ impl zero_trust_gateway_policy::Guest for Component {
             traffic: hashmap.remove("traffic").unwrap(),
             version: hashmap.remove("version").unwrap(),
         }
-
     }
 }

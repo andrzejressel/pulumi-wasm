@@ -26,15 +26,12 @@ impl logpush_ownership_challenge::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         logpush_ownership_challenge::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             destination_conf: hashmap.remove("destinationConf").unwrap(),
             ownership_challenge_filename: hashmap.remove("ownershipChallengeFilename").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

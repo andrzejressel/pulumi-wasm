@@ -29,9 +29,7 @@ impl tunnel_route::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         tunnel_route::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             comment: hashmap.remove("comment").unwrap(),
@@ -39,6 +37,5 @@ impl tunnel_route::Guest for Component {
             tunnel_id: hashmap.remove("tunnelId").unwrap(),
             virtual_network_id: hashmap.remove("virtualNetworkId").unwrap(),
         }
-
     }
 }

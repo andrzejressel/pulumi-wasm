@@ -22,9 +22,7 @@ impl list_configurations::Guest for Component {
         };
 
         let o = invoke(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         list_configurations::Res {
             next_link: hashmap.remove("nextLink").unwrap(),
             value: hashmap.remove("value").unwrap(),

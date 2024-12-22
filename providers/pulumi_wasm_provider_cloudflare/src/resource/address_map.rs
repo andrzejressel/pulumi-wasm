@@ -33,9 +33,7 @@ impl address_map::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         address_map::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             can_delete: hashmap.remove("canDelete").unwrap(),
@@ -46,6 +44,5 @@ impl address_map::Guest for Component {
             ips: hashmap.remove("ips").unwrap(),
             memberships: hashmap.remove("memberships").unwrap(),
         }
-
     }
 }

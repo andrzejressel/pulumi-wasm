@@ -25,14 +25,11 @@ impl argo::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         argo::Res {
             smart_routing: hashmap.remove("smartRouting").unwrap(),
             tiered_caching: hashmap.remove("tieredCaching").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

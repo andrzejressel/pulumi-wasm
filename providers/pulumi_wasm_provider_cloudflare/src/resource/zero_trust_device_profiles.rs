@@ -57,9 +57,7 @@ impl zero_trust_device_profiles::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         zero_trust_device_profiles::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             allow_mode_switch: hashmap.remove("allowModeSwitch").unwrap(),
@@ -81,6 +79,5 @@ impl zero_trust_device_profiles::Guest for Component {
             switch_locked: hashmap.remove("switchLocked").unwrap(),
             tunnel_protocol: hashmap.remove("tunnelProtocol").unwrap(),
         }
-
     }
 }

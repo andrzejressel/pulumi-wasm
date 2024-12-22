@@ -21,12 +21,9 @@ impl deeply_nested_module_resource::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         deeply_nested_module_resource::Res {
             baz: hashmap.remove("baz").unwrap(),
         }
-
     }
 }

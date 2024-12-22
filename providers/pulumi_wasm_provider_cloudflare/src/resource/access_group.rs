@@ -31,9 +31,7 @@ impl access_group::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         access_group::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             excludes: hashmap.remove("excludes").unwrap(),
@@ -42,6 +40,5 @@ impl access_group::Guest for Component {
             requires: hashmap.remove("requires").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

@@ -49,9 +49,7 @@ impl logpush_job::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         logpush_job::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             dataset: hashmap.remove("dataset").unwrap(),
@@ -69,6 +67,5 @@ impl logpush_job::Guest for Component {
             ownership_challenge: hashmap.remove("ownershipChallenge").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

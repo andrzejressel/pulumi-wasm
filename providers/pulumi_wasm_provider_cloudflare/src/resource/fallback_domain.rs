@@ -25,14 +25,11 @@ impl fallback_domain::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         fallback_domain::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             domains: hashmap.remove("domains").unwrap(),
             policy_id: hashmap.remove("policyId").unwrap(),
         }
-
     }
 }

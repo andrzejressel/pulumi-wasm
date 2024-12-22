@@ -44,9 +44,7 @@ impl random_string::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         random_string::Res {
             keepers: hashmap.remove("keepers").unwrap(),
             length: hashmap.remove("length").unwrap(),
@@ -62,6 +60,5 @@ impl random_string::Guest for Component {
             special: hashmap.remove("special").unwrap(),
             upper: hashmap.remove("upper").unwrap(),
         }
-
     }
 }

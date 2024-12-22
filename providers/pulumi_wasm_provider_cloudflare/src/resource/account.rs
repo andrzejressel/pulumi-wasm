@@ -25,14 +25,11 @@ impl account::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         account::Res {
             enforce_twofactor: hashmap.remove("enforceTwofactor").unwrap(),
             name: hashmap.remove("name").unwrap(),
             type_: hashmap.remove("type").unwrap(),
         }
-
     }
 }

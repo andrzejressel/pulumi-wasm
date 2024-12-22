@@ -22,13 +22,10 @@ impl random_uuid::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         random_uuid::Res {
             keepers: hashmap.remove("keepers").unwrap(),
             result: hashmap.remove("result").unwrap(),
         }
-
     }
 }

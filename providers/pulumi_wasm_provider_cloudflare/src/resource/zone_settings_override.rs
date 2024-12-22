@@ -28,9 +28,7 @@ impl zone_settings_override::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         zone_settings_override::Res {
             initial_settings: hashmap.remove("initialSettings").unwrap(),
             initial_settings_read_at: hashmap.remove("initialSettingsReadAt").unwrap(),
@@ -40,6 +38,5 @@ impl zone_settings_override::Guest for Component {
             zone_status: hashmap.remove("zoneStatus").unwrap(),
             zone_type: hashmap.remove("zoneType").unwrap(),
         }
-
     }
 }

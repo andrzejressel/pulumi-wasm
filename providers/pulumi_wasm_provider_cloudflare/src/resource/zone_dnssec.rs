@@ -33,9 +33,7 @@ impl zone_dnssec::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         zone_dnssec::Res {
             algorithm: hashmap.remove("algorithm").unwrap(),
             digest: hashmap.remove("digest").unwrap(),
@@ -50,6 +48,5 @@ impl zone_dnssec::Guest for Component {
             status: hashmap.remove("status").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

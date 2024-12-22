@@ -27,15 +27,12 @@ impl byo_ip_prefix::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         byo_ip_prefix::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             advertisement: hashmap.remove("advertisement").unwrap(),
             description: hashmap.remove("description").unwrap(),
             prefix_id: hashmap.remove("prefixId").unwrap(),
         }
-
     }
 }

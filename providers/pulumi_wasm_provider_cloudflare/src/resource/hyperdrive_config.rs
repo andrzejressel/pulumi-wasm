@@ -29,9 +29,7 @@ impl hyperdrive_config::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         hyperdrive_config::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             caching: hashmap.remove("caching").unwrap(),
@@ -39,6 +37,5 @@ impl hyperdrive_config::Guest for Component {
             origin: hashmap.remove("origin").unwrap(),
             resource_id: hashmap.remove("resourceId").unwrap(),
         }
-
     }
 }

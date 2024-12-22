@@ -32,9 +32,7 @@ impl access_service_token::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         access_service_token::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             client_id: hashmap.remove("clientId").unwrap(),
@@ -45,6 +43,5 @@ impl access_service_token::Guest for Component {
             name: hashmap.remove("name").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

@@ -42,9 +42,7 @@ impl bot_management::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         bot_management::Res {
             ai_bots_protection: hashmap.remove("aiBotsProtection").unwrap(),
             auto_update_model: hashmap.remove("autoUpdateModel").unwrap(),
@@ -59,6 +57,5 @@ impl bot_management::Guest for Component {
             using_latest_model: hashmap.remove("usingLatestModel").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

@@ -48,9 +48,7 @@ impl record::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         record::Res {
             allow_overwrite: hashmap.remove("allowOverwrite").unwrap(),
             comment: hashmap.remove("comment").unwrap(),
@@ -70,6 +68,5 @@ impl record::Guest for Component {
             value: hashmap.remove("value").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

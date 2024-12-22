@@ -33,9 +33,7 @@ impl authenticated_origin_pulls_certificate::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         authenticated_origin_pulls_certificate::Res {
             certificate: hashmap.remove("certificate").unwrap(),
             expires_on: hashmap.remove("expiresOn").unwrap(),
@@ -48,6 +46,5 @@ impl authenticated_origin_pulls_certificate::Guest for Component {
             uploaded_on: hashmap.remove("uploadedOn").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

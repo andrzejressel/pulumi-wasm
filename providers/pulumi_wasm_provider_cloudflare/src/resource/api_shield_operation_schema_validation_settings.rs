@@ -25,14 +25,11 @@ impl api_shield_operation_schema_validation_settings::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         api_shield_operation_schema_validation_settings::Res {
             mitigation_action: hashmap.remove("mitigationAction").unwrap(),
             operation_id: hashmap.remove("operationId").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

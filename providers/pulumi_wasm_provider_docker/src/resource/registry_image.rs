@@ -28,9 +28,7 @@ impl registry_image::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         registry_image::Res {
             insecure_skip_verify: hashmap.remove("insecureSkipVerify").unwrap(),
             keep_remotely: hashmap.remove("keepRemotely").unwrap(),
@@ -38,6 +36,5 @@ impl registry_image::Guest for Component {
             sha256_digest: hashmap.remove("sha256Digest").unwrap(),
             triggers: hashmap.remove("triggers").unwrap(),
         }
-
     }
 }

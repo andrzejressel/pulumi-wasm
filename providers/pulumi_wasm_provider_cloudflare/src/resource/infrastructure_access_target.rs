@@ -27,9 +27,7 @@ impl infrastructure_access_target::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         infrastructure_access_target::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             created_at: hashmap.remove("createdAt").unwrap(),
@@ -37,6 +35,5 @@ impl infrastructure_access_target::Guest for Component {
             ip: hashmap.remove("ip").unwrap(),
             modified_at: hashmap.remove("modifiedAt").unwrap(),
         }
-
     }
 }

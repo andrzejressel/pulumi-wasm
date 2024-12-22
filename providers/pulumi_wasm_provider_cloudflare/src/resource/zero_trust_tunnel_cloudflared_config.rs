@@ -25,14 +25,11 @@ impl zero_trust_tunnel_cloudflared_config::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         zero_trust_tunnel_cloudflared_config::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             config: hashmap.remove("config").unwrap(),
             tunnel_id: hashmap.remove("tunnelId").unwrap(),
         }
-
     }
 }

@@ -27,15 +27,12 @@ impl zone_hold::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         zone_hold::Res {
             hold: hashmap.remove("hold").unwrap(),
             hold_after: hashmap.remove("holdAfter").unwrap(),
             include_subdomains: hashmap.remove("includeSubdomains").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

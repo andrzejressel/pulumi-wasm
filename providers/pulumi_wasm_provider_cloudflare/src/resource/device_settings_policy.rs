@@ -57,9 +57,7 @@ impl device_settings_policy::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         device_settings_policy::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             allow_mode_switch: hashmap.remove("allowModeSwitch").unwrap(),
@@ -81,6 +79,5 @@ impl device_settings_policy::Guest for Component {
             switch_locked: hashmap.remove("switchLocked").unwrap(),
             tunnel_protocol: hashmap.remove("tunnelProtocol").unwrap(),
         }
-
     }
 }

@@ -24,14 +24,11 @@ impl tag::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         tag::Res {
             source_image: hashmap.remove("sourceImage").unwrap(),
             source_image_id: hashmap.remove("sourceImageId").unwrap(),
             target_image: hashmap.remove("targetImage").unwrap(),
         }
-
     }
 }

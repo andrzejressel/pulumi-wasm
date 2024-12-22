@@ -27,9 +27,7 @@ impl zero_trust_access_short_lived_certificate::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         zero_trust_access_short_lived_certificate::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             application_id: hashmap.remove("applicationId").unwrap(),
@@ -37,6 +35,5 @@ impl zero_trust_access_short_lived_certificate::Guest for Component {
             public_key: hashmap.remove("publicKey").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

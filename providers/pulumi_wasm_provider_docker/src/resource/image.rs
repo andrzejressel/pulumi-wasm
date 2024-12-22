@@ -31,9 +31,7 @@ impl image::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         image::Res {
             base_image_name: hashmap.remove("baseImageName").unwrap(),
             context: hashmap.remove("context").unwrap(),
@@ -43,6 +41,5 @@ impl image::Guest for Component {
             registry_server: hashmap.remove("registryServer").unwrap(),
             repo_digest: hashmap.remove("repoDigest").unwrap(),
         }
-
     }
 }

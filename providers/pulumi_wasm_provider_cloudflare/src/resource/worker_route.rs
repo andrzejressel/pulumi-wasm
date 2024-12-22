@@ -25,14 +25,11 @@ impl worker_route::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         worker_route::Res {
             pattern: hashmap.remove("pattern").unwrap(),
             script_name: hashmap.remove("scriptName").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

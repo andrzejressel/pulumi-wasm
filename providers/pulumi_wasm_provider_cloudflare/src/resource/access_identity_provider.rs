@@ -31,9 +31,7 @@ impl access_identity_provider::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         access_identity_provider::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             configs: hashmap.remove("configs").unwrap(),
@@ -42,6 +40,5 @@ impl access_identity_provider::Guest for Component {
             type_: hashmap.remove("type").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

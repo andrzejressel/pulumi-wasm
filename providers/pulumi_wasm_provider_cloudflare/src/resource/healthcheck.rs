@@ -61,9 +61,7 @@ impl healthcheck::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         healthcheck::Res {
             address: hashmap.remove("address").unwrap(),
             allow_insecure: hashmap.remove("allowInsecure").unwrap(),
@@ -88,6 +86,5 @@ impl healthcheck::Guest for Component {
             type_: hashmap.remove("type").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

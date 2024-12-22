@@ -33,9 +33,7 @@ impl api_token::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         api_token::Res {
             condition: hashmap.remove("condition").unwrap(),
             expires_on: hashmap.remove("expiresOn").unwrap(),
@@ -47,6 +45,5 @@ impl api_token::Guest for Component {
             status: hashmap.remove("status").unwrap(),
             value: hashmap.remove("value").unwrap(),
         }
-
     }
 }

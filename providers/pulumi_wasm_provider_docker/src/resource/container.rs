@@ -147,9 +147,7 @@ impl container::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         container::Res {
             attach: hashmap.remove("attach").unwrap(),
             bridge: hashmap.remove("bridge").unwrap(),
@@ -218,6 +216,5 @@ impl container::Guest for Component {
             wait_timeout: hashmap.remove("waitTimeout").unwrap(),
             working_dir: hashmap.remove("workingDir").unwrap(),
         }
-
     }
 }

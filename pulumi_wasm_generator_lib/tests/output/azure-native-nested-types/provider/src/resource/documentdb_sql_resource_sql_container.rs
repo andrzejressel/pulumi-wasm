@@ -19,12 +19,9 @@ impl documentdb_sql_resource_sql_container::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         documentdb_sql_resource_sql_container::Res {
             resource: hashmap.remove("resource").unwrap(),
         }
-
     }
 }

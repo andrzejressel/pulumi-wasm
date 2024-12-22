@@ -25,14 +25,11 @@ impl waiting_room_rules::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         waiting_room_rules::Res {
             rules: hashmap.remove("rules").unwrap(),
             waiting_room_id: hashmap.remove("waitingRoomId").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

@@ -33,9 +33,7 @@ impl list_item::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         list_item::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             asn: hashmap.remove("asn").unwrap(),
@@ -45,6 +43,5 @@ impl list_item::Guest for Component {
             list_id: hashmap.remove("listId").unwrap(),
             redirect: hashmap.remove("redirect").unwrap(),
         }
-
     }
 }

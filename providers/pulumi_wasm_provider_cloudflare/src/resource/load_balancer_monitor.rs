@@ -55,9 +55,7 @@ impl load_balancer_monitor::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         load_balancer_monitor::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             allow_insecure: hashmap.remove("allowInsecure").unwrap(),
@@ -79,6 +77,5 @@ impl load_balancer_monitor::Guest for Component {
             timeout: hashmap.remove("timeout").unwrap(),
             type_: hashmap.remove("type").unwrap(),
         }
-
     }
 }

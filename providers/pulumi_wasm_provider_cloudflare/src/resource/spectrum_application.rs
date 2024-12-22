@@ -45,9 +45,7 @@ impl spectrum_application::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         spectrum_application::Res {
             argo_smart_routing: hashmap.remove("argoSmartRouting").unwrap(),
             dns: hashmap.remove("dns").unwrap(),
@@ -63,6 +61,5 @@ impl spectrum_application::Guest for Component {
             traffic_type: hashmap.remove("trafficType").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

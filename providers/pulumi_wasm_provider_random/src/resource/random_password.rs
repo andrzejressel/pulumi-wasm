@@ -45,9 +45,7 @@ impl random_password::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         random_password::Res {
             bcrypt_hash: hashmap.remove("bcryptHash").unwrap(),
             keepers: hashmap.remove("keepers").unwrap(),
@@ -64,6 +62,5 @@ impl random_password::Guest for Component {
             special: hashmap.remove("special").unwrap(),
             upper: hashmap.remove("upper").unwrap(),
         }
-
     }
 }

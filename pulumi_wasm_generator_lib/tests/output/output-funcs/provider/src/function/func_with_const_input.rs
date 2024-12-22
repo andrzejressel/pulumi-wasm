@@ -17,7 +17,6 @@ impl func_with_const_input::Guest for Component {
             ],
         };
 
-        let o = invoke(&request);
-
+        invoke(&request);
     }
 }

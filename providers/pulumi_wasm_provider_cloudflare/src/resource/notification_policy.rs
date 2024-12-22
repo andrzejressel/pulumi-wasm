@@ -39,9 +39,7 @@ impl notification_policy::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         notification_policy::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             alert_type: hashmap.remove("alertType").unwrap(),
@@ -55,6 +53,5 @@ impl notification_policy::Guest for Component {
             pagerduty_integrations: hashmap.remove("pagerdutyIntegrations").unwrap(),
             webhooks_integrations: hashmap.remove("webhooksIntegrations").unwrap(),
         }
-
     }
 }

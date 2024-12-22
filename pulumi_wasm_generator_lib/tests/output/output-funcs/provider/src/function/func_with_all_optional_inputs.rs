@@ -20,9 +20,7 @@ impl func_with_all_optional_inputs::Guest for Component {
         };
 
         let o = invoke(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         func_with_all_optional_inputs::Res {
             r: hashmap.remove("r").unwrap(),
         }

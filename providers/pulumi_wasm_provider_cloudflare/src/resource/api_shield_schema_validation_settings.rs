@@ -25,14 +25,11 @@ impl api_shield_schema_validation_settings::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         api_shield_schema_validation_settings::Res {
             validation_default_mitigation_action: hashmap.remove("validationDefaultMitigationAction").unwrap(),
             validation_override_mitigation_action: hashmap.remove("validationOverrideMitigationAction").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

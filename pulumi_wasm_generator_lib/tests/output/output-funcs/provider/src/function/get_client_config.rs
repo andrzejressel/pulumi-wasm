@@ -20,9 +20,7 @@ impl get_client_config::Guest for Component {
         };
 
         let o = invoke(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         get_client_config::Res {
             client_id: hashmap.remove("clientId").unwrap(),
             object_id: hashmap.remove("objectId").unwrap(),

@@ -27,15 +27,12 @@ impl observatory_scheduled_test::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         observatory_scheduled_test::Res {
             frequency: hashmap.remove("frequency").unwrap(),
             region: hashmap.remove("region").unwrap(),
             url: hashmap.remove("url").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

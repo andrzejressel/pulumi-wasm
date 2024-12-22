@@ -21,9 +21,7 @@ impl get_account_roles::Guest for Component {
         };
 
         let o = invoke(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         get_account_roles::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             id: hashmap.remove("id").unwrap(),

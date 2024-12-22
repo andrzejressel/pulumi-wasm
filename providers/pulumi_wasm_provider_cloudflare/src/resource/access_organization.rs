@@ -45,9 +45,7 @@ impl access_organization::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         access_organization::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             allow_authenticate_via_warp: hashmap.remove("allowAuthenticateViaWarp").unwrap(),
@@ -63,6 +61,5 @@ impl access_organization::Guest for Component {
             warp_auth_session_duration: hashmap.remove("warpAuthSessionDuration").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

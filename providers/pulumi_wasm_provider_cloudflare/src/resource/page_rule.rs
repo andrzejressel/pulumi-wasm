@@ -29,9 +29,7 @@ impl page_rule::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         page_rule::Res {
             actions: hashmap.remove("actions").unwrap(),
             priority: hashmap.remove("priority").unwrap(),
@@ -39,6 +37,5 @@ impl page_rule::Guest for Component {
             target: hashmap.remove("target").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

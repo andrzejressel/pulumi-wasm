@@ -21,12 +21,9 @@ impl nested_module_resource::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         nested_module_resource::Res {
             bar: hashmap.remove("bar").unwrap(),
         }
-
     }
 }

@@ -29,9 +29,7 @@ impl custom_pages::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         custom_pages::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             state: hashmap.remove("state").unwrap(),
@@ -39,6 +37,5 @@ impl custom_pages::Guest for Component {
             url: hashmap.remove("url").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

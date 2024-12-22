@@ -30,9 +30,7 @@ impl zero_trust_risk_score_integration::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         zero_trust_risk_score_integration::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             active: hashmap.remove("active").unwrap(),
@@ -41,6 +39,5 @@ impl zero_trust_risk_score_integration::Guest for Component {
             tenant_url: hashmap.remove("tenantUrl").unwrap(),
             well_known_url: hashmap.remove("wellKnownUrl").unwrap(),
         }
-
     }
 }

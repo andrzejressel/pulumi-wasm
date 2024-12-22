@@ -25,15 +25,12 @@ impl random_bytes::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         random_bytes::Res {
             base64: hashmap.remove("base64").unwrap(),
             hex: hashmap.remove("hex").unwrap(),
             keepers: hashmap.remove("keepers").unwrap(),
             length: hashmap.remove("length").unwrap(),
         }
-
     }
 }

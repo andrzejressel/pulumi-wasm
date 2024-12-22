@@ -34,9 +34,7 @@ impl turnstile_widget::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         turnstile_widget::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             bot_fight_mode: hashmap.remove("botFightMode").unwrap(),
@@ -47,6 +45,5 @@ impl turnstile_widget::Guest for Component {
             region: hashmap.remove("region").unwrap(),
             secret: hashmap.remove("secret").unwrap(),
         }
-
     }
 }

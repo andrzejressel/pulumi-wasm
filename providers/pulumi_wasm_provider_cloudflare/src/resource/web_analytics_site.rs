@@ -31,9 +31,7 @@ impl web_analytics_site::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         web_analytics_site::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             auto_install: hashmap.remove("autoInstall").unwrap(),
@@ -44,6 +42,5 @@ impl web_analytics_site::Guest for Component {
             snippet: hashmap.remove("snippet").unwrap(),
             zone_tag: hashmap.remove("zoneTag").unwrap(),
         }
-
     }
 }

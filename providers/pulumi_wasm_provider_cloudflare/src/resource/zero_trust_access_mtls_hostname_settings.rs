@@ -25,14 +25,11 @@ impl zero_trust_access_mtls_hostname_settings::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         zero_trust_access_mtls_hostname_settings::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             settings: hashmap.remove("settings").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

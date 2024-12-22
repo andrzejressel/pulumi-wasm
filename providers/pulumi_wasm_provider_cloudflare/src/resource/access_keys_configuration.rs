@@ -23,13 +23,10 @@ impl access_keys_configuration::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         access_keys_configuration::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             key_rotation_interval_days: hashmap.remove("keyRotationIntervalDays").unwrap(),
         }
-
     }
 }

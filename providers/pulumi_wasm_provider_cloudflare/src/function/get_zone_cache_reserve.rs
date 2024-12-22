@@ -21,9 +21,7 @@ impl get_zone_cache_reserve::Guest for Component {
         };
 
         let o = invoke(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         get_zone_cache_reserve::Res {
             enabled: hashmap.remove("enabled").unwrap(),
             id: hashmap.remove("id").unwrap(),

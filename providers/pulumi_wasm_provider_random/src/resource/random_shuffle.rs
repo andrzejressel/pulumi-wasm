@@ -28,9 +28,7 @@ impl random_shuffle::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         random_shuffle::Res {
             inputs: hashmap.remove("inputs").unwrap(),
             keepers: hashmap.remove("keepers").unwrap(),
@@ -38,6 +36,5 @@ impl random_shuffle::Guest for Component {
             results: hashmap.remove("results").unwrap(),
             seed: hashmap.remove("seed").unwrap(),
         }
-
     }
 }

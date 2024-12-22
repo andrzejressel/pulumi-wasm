@@ -25,14 +25,11 @@ impl workers_cron_trigger::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         workers_cron_trigger::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             schedules: hashmap.remove("schedules").unwrap(),
             script_name: hashmap.remove("scriptName").unwrap(),
         }
-
     }
 }

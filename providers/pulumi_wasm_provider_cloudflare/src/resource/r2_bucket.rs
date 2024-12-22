@@ -25,14 +25,11 @@ impl r2_bucket::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         r2_bucket::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             location: hashmap.remove("location").unwrap(),
             name: hashmap.remove("name").unwrap(),
         }
-
     }
 }

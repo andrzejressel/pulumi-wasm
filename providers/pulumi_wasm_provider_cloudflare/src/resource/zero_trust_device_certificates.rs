@@ -23,13 +23,10 @@ impl zero_trust_device_certificates::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         zero_trust_device_certificates::Res {
             enabled: hashmap.remove("enabled").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

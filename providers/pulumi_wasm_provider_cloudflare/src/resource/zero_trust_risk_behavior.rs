@@ -23,13 +23,10 @@ impl zero_trust_risk_behavior::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         zero_trust_risk_behavior::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             behaviors: hashmap.remove("behaviors").unwrap(),
         }
-
     }
 }

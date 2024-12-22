@@ -24,14 +24,11 @@ impl custom_hostname_fallback_origin::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         custom_hostname_fallback_origin::Res {
             origin: hashmap.remove("origin").unwrap(),
             status: hashmap.remove("status").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

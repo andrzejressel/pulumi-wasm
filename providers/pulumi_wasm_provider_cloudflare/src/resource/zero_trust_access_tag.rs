@@ -27,15 +27,12 @@ impl zero_trust_access_tag::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         zero_trust_access_tag::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             app_count: hashmap.remove("appCount").unwrap(),
             name: hashmap.remove("name").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

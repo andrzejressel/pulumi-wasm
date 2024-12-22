@@ -31,9 +31,7 @@ impl origin_ca_certificate::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         origin_ca_certificate::Res {
             certificate: hashmap.remove("certificate").unwrap(),
             csr: hashmap.remove("csr").unwrap(),
@@ -43,6 +41,5 @@ impl origin_ca_certificate::Guest for Component {
             request_type: hashmap.remove("requestType").unwrap(),
             requested_validity: hashmap.remove("requestedValidity").unwrap(),
         }
-
     }
 }

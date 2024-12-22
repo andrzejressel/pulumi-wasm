@@ -34,9 +34,7 @@ impl zero_trust_dns_location::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         zero_trust_dns_location::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             anonymized_logs_enabled: hashmap.remove("anonymizedLogsEnabled").unwrap(),
@@ -49,6 +47,5 @@ impl zero_trust_dns_location::Guest for Component {
             networks: hashmap.remove("networks").unwrap(),
             policy_ids: hashmap.remove("policyIds").unwrap(),
         }
-
     }
 }

@@ -53,9 +53,7 @@ impl teams_account::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         teams_account::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             activity_log_enabled: hashmap.remove("activityLogEnabled").unwrap(),
@@ -75,6 +73,5 @@ impl teams_account::Guest for Component {
             tls_decrypt_enabled: hashmap.remove("tlsDecryptEnabled").unwrap(),
             url_browser_isolation_enabled: hashmap.remove("urlBrowserIsolationEnabled").unwrap(),
         }
-
     }
 }

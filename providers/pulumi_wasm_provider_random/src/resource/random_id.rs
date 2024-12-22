@@ -29,9 +29,7 @@ impl random_id::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         random_id::Res {
             b64_std: hashmap.remove("b64Std").unwrap(),
             b64_url: hashmap.remove("b64Url").unwrap(),
@@ -41,6 +39,5 @@ impl random_id::Guest for Component {
             keepers: hashmap.remove("keepers").unwrap(),
             prefix: hashmap.remove("prefix").unwrap(),
         }
-
     }
 }

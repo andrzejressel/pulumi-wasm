@@ -17,7 +17,6 @@ impl func_with_empty_outputs::Guest for Component {
             ],
         };
 
-        let o = invoke(&request);
-
+        invoke(&request);
     }
 }

@@ -30,9 +30,7 @@ impl email_routing_settings::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         email_routing_settings::Res {
             created: hashmap.remove("created").unwrap(),
             enabled: hashmap.remove("enabled").unwrap(),
@@ -43,6 +41,5 @@ impl email_routing_settings::Guest for Component {
             tag: hashmap.remove("tag").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

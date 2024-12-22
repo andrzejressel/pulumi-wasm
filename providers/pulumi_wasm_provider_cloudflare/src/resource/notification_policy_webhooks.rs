@@ -31,9 +31,7 @@ impl notification_policy_webhooks::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         notification_policy_webhooks::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             created_at: hashmap.remove("createdAt").unwrap(),
@@ -44,6 +42,5 @@ impl notification_policy_webhooks::Guest for Component {
             type_: hashmap.remove("type").unwrap(),
             url: hashmap.remove("url").unwrap(),
         }
-
     }
 }

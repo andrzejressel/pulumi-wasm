@@ -27,15 +27,12 @@ impl split_tunnel::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         split_tunnel::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             mode: hashmap.remove("mode").unwrap(),
             policy_id: hashmap.remove("policyId").unwrap(),
             tunnels: hashmap.remove("tunnels").unwrap(),
         }
-
     }
 }

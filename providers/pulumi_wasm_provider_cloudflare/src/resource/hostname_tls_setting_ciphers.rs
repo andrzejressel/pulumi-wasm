@@ -29,9 +29,7 @@ impl hostname_tls_setting_ciphers::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         hostname_tls_setting_ciphers::Res {
             created_at: hashmap.remove("createdAt").unwrap(),
             hostname: hashmap.remove("hostname").unwrap(),
@@ -40,6 +38,5 @@ impl hostname_tls_setting_ciphers::Guest for Component {
             values: hashmap.remove("values").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

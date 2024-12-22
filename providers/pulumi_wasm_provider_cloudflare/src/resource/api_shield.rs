@@ -23,13 +23,10 @@ impl api_shield::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         api_shield::Res {
             auth_id_characteristics: hashmap.remove("authIdCharacteristics").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

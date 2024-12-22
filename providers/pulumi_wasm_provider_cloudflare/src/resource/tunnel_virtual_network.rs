@@ -27,15 +27,12 @@ impl tunnel_virtual_network::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         tunnel_virtual_network::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             comment: hashmap.remove("comment").unwrap(),
             is_default_network: hashmap.remove("isDefaultNetwork").unwrap(),
             name: hashmap.remove("name").unwrap(),
         }
-
     }
 }

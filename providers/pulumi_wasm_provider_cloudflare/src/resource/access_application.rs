@@ -88,9 +88,7 @@ impl access_application::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         access_application::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             allow_authenticate_via_warp: hashmap.remove("allowAuthenticateViaWarp").unwrap(),
@@ -128,6 +126,5 @@ impl access_application::Guest for Component {
             type_: hashmap.remove("type").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

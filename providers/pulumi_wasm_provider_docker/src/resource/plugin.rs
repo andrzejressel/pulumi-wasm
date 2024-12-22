@@ -38,9 +38,7 @@ impl plugin::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         plugin::Res {
             alias: hashmap.remove("alias").unwrap(),
             enable_timeout: hashmap.remove("enableTimeout").unwrap(),
@@ -53,6 +51,5 @@ impl plugin::Guest for Component {
             name: hashmap.remove("name").unwrap(),
             plugin_reference: hashmap.remove("pluginReference").unwrap(),
         }
-
     }
 }

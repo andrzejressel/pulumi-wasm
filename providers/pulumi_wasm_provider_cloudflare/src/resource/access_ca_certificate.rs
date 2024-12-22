@@ -27,9 +27,7 @@ impl access_ca_certificate::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         access_ca_certificate::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             application_id: hashmap.remove("applicationId").unwrap(),
@@ -37,6 +35,5 @@ impl access_ca_certificate::Guest for Component {
             public_key: hashmap.remove("publicKey").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

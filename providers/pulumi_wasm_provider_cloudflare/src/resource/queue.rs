@@ -23,13 +23,10 @@ impl queue::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         queue::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             name: hashmap.remove("name").unwrap(),
         }
-
     }
 }

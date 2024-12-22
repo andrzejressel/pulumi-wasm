@@ -24,9 +24,7 @@ impl get_origin_ca_certificate::Guest for Component {
         };
 
         let o = invoke(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         get_origin_ca_certificate::Res {
             certificate: hashmap.remove("certificate").unwrap(),
             expires_on: hashmap.remove("expiresOn").unwrap(),

@@ -59,9 +59,7 @@ impl load_balancer::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         load_balancer::Res {
             adaptive_routings: hashmap.remove("adaptiveRoutings").unwrap(),
             country_pools: hashmap.remove("countryPools").unwrap(),
@@ -85,6 +83,5 @@ impl load_balancer::Guest for Component {
             ttl: hashmap.remove("ttl").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

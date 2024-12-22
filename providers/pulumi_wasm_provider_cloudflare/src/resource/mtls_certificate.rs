@@ -34,9 +34,7 @@ impl mtls_certificate::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         mtls_certificate::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             ca: hashmap.remove("ca").unwrap(),
@@ -49,6 +47,5 @@ impl mtls_certificate::Guest for Component {
             signature: hashmap.remove("signature").unwrap(),
             uploaded_on: hashmap.remove("uploadedOn").unwrap(),
         }
-
     }
 }

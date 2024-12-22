@@ -51,9 +51,7 @@ impl access_policy::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         access_policy::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             application_id: hashmap.remove("applicationId").unwrap(),
@@ -72,6 +70,5 @@ impl access_policy::Guest for Component {
             session_duration: hashmap.remove("sessionDuration").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

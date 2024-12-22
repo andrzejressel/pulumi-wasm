@@ -35,9 +35,7 @@ impl zero_trust_gateway_certificate::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         zero_trust_gateway_certificate::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             activate: hashmap.remove("activate").unwrap(),
@@ -51,6 +49,5 @@ impl zero_trust_gateway_certificate::Guest for Component {
             uploaded_on: hashmap.remove("uploadedOn").unwrap(),
             validity_period_days: hashmap.remove("validityPeriodDays").unwrap(),
         }
-
     }
 }

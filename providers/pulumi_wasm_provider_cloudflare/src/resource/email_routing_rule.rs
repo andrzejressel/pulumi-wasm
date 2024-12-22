@@ -32,9 +32,7 @@ impl email_routing_rule::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         email_routing_rule::Res {
             actions: hashmap.remove("actions").unwrap(),
             enabled: hashmap.remove("enabled").unwrap(),
@@ -44,6 +42,5 @@ impl email_routing_rule::Guest for Component {
             tag: hashmap.remove("tag").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

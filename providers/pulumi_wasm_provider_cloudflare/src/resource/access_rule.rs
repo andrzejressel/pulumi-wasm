@@ -29,9 +29,7 @@ impl access_rule::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         access_rule::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             configuration: hashmap.remove("configuration").unwrap(),
@@ -39,6 +37,5 @@ impl access_rule::Guest for Component {
             notes: hashmap.remove("notes").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

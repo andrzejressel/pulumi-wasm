@@ -39,9 +39,7 @@ impl certificate_pack::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         certificate_pack::Res {
             certificate_authority: hashmap.remove("certificateAuthority").unwrap(),
             cloudflare_branding: hashmap.remove("cloudflareBranding").unwrap(),
@@ -54,6 +52,5 @@ impl certificate_pack::Guest for Component {
             wait_for_active_status: hashmap.remove("waitForActiveStatus").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

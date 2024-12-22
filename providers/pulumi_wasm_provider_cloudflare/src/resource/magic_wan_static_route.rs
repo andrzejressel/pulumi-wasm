@@ -35,9 +35,7 @@ impl magic_wan_static_route::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         magic_wan_static_route::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             colo_names: hashmap.remove("coloNames").unwrap(),
@@ -48,6 +46,5 @@ impl magic_wan_static_route::Guest for Component {
             priority: hashmap.remove("priority").unwrap(),
             weight: hashmap.remove("weight").unwrap(),
         }
-
     }
 }

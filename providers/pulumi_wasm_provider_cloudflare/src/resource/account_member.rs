@@ -27,15 +27,12 @@ impl account_member::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         account_member::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             email_address: hashmap.remove("emailAddress").unwrap(),
             role_ids: hashmap.remove("roleIds").unwrap(),
             status: hashmap.remove("status").unwrap(),
         }
-
     }
 }

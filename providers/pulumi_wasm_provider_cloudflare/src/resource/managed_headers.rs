@@ -25,14 +25,11 @@ impl managed_headers::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         managed_headers::Res {
             managed_request_headers: hashmap.remove("managedRequestHeaders").unwrap(),
             managed_response_headers: hashmap.remove("managedResponseHeaders").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

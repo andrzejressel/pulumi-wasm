@@ -21,12 +21,9 @@ impl example_server::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         example_server::Res {
             name: hashmap.remove("name").unwrap(),
         }
-
     }
 }

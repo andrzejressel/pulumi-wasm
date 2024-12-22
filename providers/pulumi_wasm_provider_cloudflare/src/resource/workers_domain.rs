@@ -29,9 +29,7 @@ impl workers_domain::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         workers_domain::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             environment: hashmap.remove("environment").unwrap(),
@@ -39,6 +37,5 @@ impl workers_domain::Guest for Component {
             service: hashmap.remove("service").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

@@ -35,9 +35,7 @@ impl dlp_profile::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         dlp_profile::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             allowed_match_count: hashmap.remove("allowedMatchCount").unwrap(),
@@ -48,6 +46,5 @@ impl dlp_profile::Guest for Component {
             ocr_enabled: hashmap.remove("ocrEnabled").unwrap(),
             type_: hashmap.remove("type").unwrap(),
         }
-
     }
 }

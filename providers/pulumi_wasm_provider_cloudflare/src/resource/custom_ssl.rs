@@ -33,9 +33,7 @@ impl custom_ssl::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         custom_ssl::Res {
             custom_ssl_options: hashmap.remove("customSslOptions").unwrap(),
             custom_ssl_priorities: hashmap.remove("customSslPriorities").unwrap(),
@@ -49,6 +47,5 @@ impl custom_ssl::Guest for Component {
             uploaded_on: hashmap.remove("uploadedOn").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

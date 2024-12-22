@@ -34,9 +34,7 @@ impl pages_project::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         pages_project::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             build_config: hashmap.remove("buildConfig").unwrap(),
@@ -48,6 +46,5 @@ impl pages_project::Guest for Component {
             source: hashmap.remove("source").unwrap(),
             subdomain: hashmap.remove("subdomain").unwrap(),
         }
-
     }
 }

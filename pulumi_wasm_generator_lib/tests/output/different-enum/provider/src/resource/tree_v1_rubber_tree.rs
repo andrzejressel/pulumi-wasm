@@ -29,9 +29,7 @@ impl tree_v1_rubber_tree::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         tree_v1_rubber_tree::Res {
             container: hashmap.remove("container").unwrap(),
             diameter: hashmap.remove("diameter").unwrap(),
@@ -39,6 +37,5 @@ impl tree_v1_rubber_tree::Guest for Component {
             size: hashmap.remove("size").unwrap(),
             type_: hashmap.remove("type").unwrap(),
         }
-
     }
 }
