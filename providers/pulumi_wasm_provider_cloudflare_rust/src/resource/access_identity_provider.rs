@@ -121,16 +121,22 @@ pub struct AccessIdentityProviderResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: AccessIdentityProviderArgs) -> AccessIdentityProviderResult {
+pub fn create(
+    name: &str,
+    args: AccessIdentityProviderArgs
+) -> AccessIdentityProviderResult {
 
-    let result = crate::bindings::pulumi::cloudflare::access_identity_provider::invoke(name, &crate::bindings::pulumi::cloudflare::access_identity_provider::Args {
-        account_id: &args.account_id.get_inner(),
-        configs: &args.configs.get_inner(),
-        name: &args.name.get_inner(),
-        scim_configs: &args.scim_configs.get_inner(),
-        type_: &args.type_.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::access_identity_provider::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::access_identity_provider::Args {
+                account_id: &args.account_id.get_inner(),
+                configs: &args.configs.get_inner(),
+                name: &args.name.get_inner(),
+                scim_configs: &args.scim_configs.get_inner(),
+                type_: &args.type_.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     AccessIdentityProviderResult {
         account_id: crate::into_domain(result.account_id),

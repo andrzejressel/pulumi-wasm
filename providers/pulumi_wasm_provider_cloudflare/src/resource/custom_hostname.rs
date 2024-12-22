@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl custom_hostname::Guest for Component {
-    fn invoke(name: String, args: custom_hostname::Args) -> custom_hostname::Res {
+    fn invoke(
+        name: String,
+        args: custom_hostname::Args
+    ) -> custom_hostname::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/customHostname:CustomHostname".into(),
@@ -33,9 +36,7 @@ impl custom_hostname::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         custom_hostname::Res {
             custom_metadata: hashmap.remove("customMetadata").unwrap(),
             custom_origin_server: hashmap.remove("customOriginServer").unwrap(),
@@ -48,6 +49,5 @@ impl custom_hostname::Guest for Component {
             wait_for_ssl_pending_validation: hashmap.remove("waitForSslPendingValidation").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

@@ -81,17 +81,23 @@ pub struct ZoneResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ZoneArgs) -> ZoneResult {
+pub fn create(
+    name: &str,
+    args: ZoneArgs
+) -> ZoneResult {
 
-    let result = crate::bindings::pulumi::cloudflare::zone::invoke(name, &crate::bindings::pulumi::cloudflare::zone::Args {
-        account_id: &args.account_id.get_inner(),
-        jump_start: &args.jump_start.get_inner(),
-        paused: &args.paused.get_inner(),
-        plan: &args.plan.get_inner(),
-        type_: &args.type_.get_inner(),
-        vanity_name_servers: &args.vanity_name_servers.get_inner(),
-        zone: &args.zone.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::zone::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::zone::Args {
+                account_id: &args.account_id.get_inner(),
+                jump_start: &args.jump_start.get_inner(),
+                paused: &args.paused.get_inner(),
+                plan: &args.plan.get_inner(),
+                type_: &args.type_.get_inner(),
+                vanity_name_servers: &args.vanity_name_servers.get_inner(),
+                zone: &args.zone.get_inner(),
+        }
+    );
 
     ZoneResult {
         account_id: crate::into_domain(result.account_id),

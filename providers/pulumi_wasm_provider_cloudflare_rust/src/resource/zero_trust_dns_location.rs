@@ -79,15 +79,21 @@ pub struct ZeroTrustDnsLocationResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ZeroTrustDnsLocationArgs) -> ZeroTrustDnsLocationResult {
+pub fn create(
+    name: &str,
+    args: ZeroTrustDnsLocationArgs
+) -> ZeroTrustDnsLocationResult {
 
-    let result = crate::bindings::pulumi::cloudflare::zero_trust_dns_location::invoke(name, &crate::bindings::pulumi::cloudflare::zero_trust_dns_location::Args {
-        account_id: &args.account_id.get_inner(),
-        client_default: &args.client_default.get_inner(),
-        ecs_support: &args.ecs_support.get_inner(),
-        name: &args.name.get_inner(),
-        networks: &args.networks.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::zero_trust_dns_location::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::zero_trust_dns_location::Args {
+                account_id: &args.account_id.get_inner(),
+                client_default: &args.client_default.get_inner(),
+                ecs_support: &args.ecs_support.get_inner(),
+                name: &args.name.get_inner(),
+                networks: &args.networks.get_inner(),
+        }
+    );
 
     ZeroTrustDnsLocationResult {
         account_id: crate::into_domain(result.account_id),

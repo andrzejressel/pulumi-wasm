@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl workers_secret::Guest for Component {
-    fn invoke(name: String, args: workers_secret::Args) -> workers_secret::Res {
+    fn invoke(
+        name: String,
+        args: workers_secret::Args
+    ) -> workers_secret::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/workersSecret:WorkersSecret".into(),
@@ -24,15 +27,12 @@ impl workers_secret::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         workers_secret::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             name: hashmap.remove("name").unwrap(),
             script_name: hashmap.remove("scriptName").unwrap(),
             secret_text: hashmap.remove("secretText").unwrap(),
         }
-
     }
 }

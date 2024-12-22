@@ -32,14 +32,20 @@ pub struct ZeroTrustSplitTunnelResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ZeroTrustSplitTunnelArgs) -> ZeroTrustSplitTunnelResult {
+pub fn create(
+    name: &str,
+    args: ZeroTrustSplitTunnelArgs
+) -> ZeroTrustSplitTunnelResult {
 
-    let result = crate::bindings::pulumi::cloudflare::zero_trust_split_tunnel::invoke(name, &crate::bindings::pulumi::cloudflare::zero_trust_split_tunnel::Args {
-        account_id: &args.account_id.get_inner(),
-        mode: &args.mode.get_inner(),
-        policy_id: &args.policy_id.get_inner(),
-        tunnels: &args.tunnels.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::zero_trust_split_tunnel::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::zero_trust_split_tunnel::Args {
+                account_id: &args.account_id.get_inner(),
+                mode: &args.mode.get_inner(),
+                policy_id: &args.policy_id.get_inner(),
+                tunnels: &args.tunnels.get_inner(),
+        }
+    );
 
     ZeroTrustSplitTunnelResult {
         account_id: crate::into_domain(result.account_id),

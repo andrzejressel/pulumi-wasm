@@ -41,14 +41,20 @@ pub struct SplitTunnelResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: SplitTunnelArgs) -> SplitTunnelResult {
+pub fn create(
+    name: &str,
+    args: SplitTunnelArgs
+) -> SplitTunnelResult {
 
-    let result = crate::bindings::pulumi::cloudflare::split_tunnel::invoke(name, &crate::bindings::pulumi::cloudflare::split_tunnel::Args {
-        account_id: &args.account_id.get_inner(),
-        mode: &args.mode.get_inner(),
-        policy_id: &args.policy_id.get_inner(),
-        tunnels: &args.tunnels.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::split_tunnel::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::split_tunnel::Args {
+                account_id: &args.account_id.get_inner(),
+                mode: &args.mode.get_inner(),
+                policy_id: &args.policy_id.get_inner(),
+                tunnels: &args.tunnels.get_inner(),
+        }
+    );
 
     SplitTunnelResult {
         account_id: crate::into_domain(result.account_id),

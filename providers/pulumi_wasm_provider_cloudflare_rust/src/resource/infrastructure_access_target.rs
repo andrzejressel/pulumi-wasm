@@ -87,13 +87,19 @@ pub struct InfrastructureAccessTargetResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: InfrastructureAccessTargetArgs) -> InfrastructureAccessTargetResult {
+pub fn create(
+    name: &str,
+    args: InfrastructureAccessTargetArgs
+) -> InfrastructureAccessTargetResult {
 
-    let result = crate::bindings::pulumi::cloudflare::infrastructure_access_target::invoke(name, &crate::bindings::pulumi::cloudflare::infrastructure_access_target::Args {
-        account_id: &args.account_id.get_inner(),
-        hostname: &args.hostname.get_inner(),
-        ip: &args.ip.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::infrastructure_access_target::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::infrastructure_access_target::Args {
+                account_id: &args.account_id.get_inner(),
+                hostname: &args.hostname.get_inner(),
+                ip: &args.ip.get_inner(),
+        }
+    );
 
     InfrastructureAccessTargetResult {
         account_id: crate::into_domain(result.account_id),

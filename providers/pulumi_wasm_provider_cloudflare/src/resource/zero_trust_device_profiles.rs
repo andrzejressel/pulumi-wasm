@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl zero_trust_device_profiles::Guest for Component {
-    fn invoke(name: String, args: zero_trust_device_profiles::Args) -> zero_trust_device_profiles::Res {
+    fn invoke(
+        name: String,
+        args: zero_trust_device_profiles::Args
+    ) -> zero_trust_device_profiles::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustDeviceProfiles:ZeroTrustDeviceProfiles".into(),
@@ -54,9 +57,7 @@ impl zero_trust_device_profiles::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         zero_trust_device_profiles::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             allow_mode_switch: hashmap.remove("allowModeSwitch").unwrap(),
@@ -78,6 +79,5 @@ impl zero_trust_device_profiles::Guest for Component {
             switch_locked: hashmap.remove("switchLocked").unwrap(),
             tunnel_protocol: hashmap.remove("tunnelProtocol").unwrap(),
         }
-
     }
 }

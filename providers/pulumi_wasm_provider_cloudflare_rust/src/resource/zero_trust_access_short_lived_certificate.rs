@@ -77,13 +77,19 @@ pub struct ZeroTrustAccessShortLivedCertificateResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ZeroTrustAccessShortLivedCertificateArgs) -> ZeroTrustAccessShortLivedCertificateResult {
+pub fn create(
+    name: &str,
+    args: ZeroTrustAccessShortLivedCertificateArgs
+) -> ZeroTrustAccessShortLivedCertificateResult {
 
-    let result = crate::bindings::pulumi::cloudflare::zero_trust_access_short_lived_certificate::invoke(name, &crate::bindings::pulumi::cloudflare::zero_trust_access_short_lived_certificate::Args {
-        account_id: &args.account_id.get_inner(),
-        application_id: &args.application_id.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::zero_trust_access_short_lived_certificate::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::zero_trust_access_short_lived_certificate::Args {
+                account_id: &args.account_id.get_inner(),
+                application_id: &args.application_id.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     ZeroTrustAccessShortLivedCertificateResult {
         account_id: crate::into_domain(result.account_id),

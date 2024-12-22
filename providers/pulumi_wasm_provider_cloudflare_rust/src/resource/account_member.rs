@@ -61,14 +61,20 @@ pub struct AccountMemberResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: AccountMemberArgs) -> AccountMemberResult {
+pub fn create(
+    name: &str,
+    args: AccountMemberArgs
+) -> AccountMemberResult {
 
-    let result = crate::bindings::pulumi::cloudflare::account_member::invoke(name, &crate::bindings::pulumi::cloudflare::account_member::Args {
-        account_id: &args.account_id.get_inner(),
-        email_address: &args.email_address.get_inner(),
-        role_ids: &args.role_ids.get_inner(),
-        status: &args.status.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::account_member::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::account_member::Args {
+                account_id: &args.account_id.get_inner(),
+                email_address: &args.email_address.get_inner(),
+                role_ids: &args.role_ids.get_inner(),
+                status: &args.status.get_inner(),
+        }
+    );
 
     AccountMemberResult {
         account_id: crate::into_domain(result.account_id),

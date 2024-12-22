@@ -1,4 +1,3 @@
-use std::collections::BTreeMap;
 use std::fs;
 use std::process::Command;
 
@@ -34,19 +33,11 @@ fn main() {
         "output-funcs-edgeorder",
         "unions-inline",
         "unions-inside-arrays",
+        "plain-object-defaults",
+        "plain-object-disable-defaults",
+        "nested-module",
+        "nested-module-thirdparty",
     ];
-    let test_map = BTreeMap::from([
-        ("array-of-enum-map", "example"),
-        ("different-enum", "plant"),
-        ("mini-awsnative", "aws-native"),
-        ("cyclic-types", "example"),
-        ("functions-secrets", "mypkg"),
-        ("output-funcs", "mypkg"),
-        ("output-funcs-edgeorder", "myedgeorder"),
-        ("unions-inline", "example"),
-        ("unions-inside-arrays", "example"),
-    ]);
-
     for provider in &providers {
         println!("{:?}", provider);
         let schema_output = Command::new("pulumi")
@@ -65,13 +56,13 @@ fn main() {
 
     update_cargo_toml(&providers);
     update_justfile(&providers);
-    update_tests(&tests, test_map);
+    update_tests(&tests);
 }
 
-fn update_tests(tests: &[&str], test_map: BTreeMap<&str, &str>) {
+fn update_tests(tests: &[&str]) {
     update_github_actions_build(tests);
     update_github_actions_deploy(tests);
-    update_test_rs(test_map);
+    update_test_rs(tests);
 }
 
 fn update_github_actions_build(tests: &[&str]) {
@@ -118,19 +109,19 @@ fn update_github_actions_deploy(tests: &[&str]) {
         .expect("Failed to write to .github/workflows/build.yml");
 }
 
-fn update_test_rs(tests: BTreeMap<&str, &str>) {
+fn update_test_rs(tests: &[&str]) {
     let content = fs::read_to_string("pulumi_wasm_generator_lib/tests/test.rs")
         .expect("Failed to read pulumi_wasm_generator_lib/tests/test.rs");
 
     let mut replacement = String::new();
-    for (test_directory, provider_name) in tests {
+    for test_directory in tests {
         let method_name = test_directory.replace("-", "_");
 
         let code = format!(
             r#"
 #[test]
 fn {method_name}() -> Result<()> {{
-    run_pulumi_generator_test("{test_directory}", "{provider_name}")
+    run_pulumi_generator_test("{test_directory}")
 }}
 "#
         );

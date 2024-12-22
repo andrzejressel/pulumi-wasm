@@ -21,9 +21,7 @@ impl get_zones::Guest for Component {
         };
 
         let o = invoke(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         get_zones::Res {
             filter: hashmap.remove("filter").unwrap(),
             id: hashmap.remove("id").unwrap(),

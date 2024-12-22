@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl zone_cache_variants::Guest for Component {
-    fn invoke(name: String, args: zone_cache_variants::Args) -> zone_cache_variants::Res {
+    fn invoke(
+        name: String,
+        args: zone_cache_variants::Args
+    ) -> zone_cache_variants::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/zoneCacheVariants:ZoneCacheVariants".into(),
@@ -40,9 +43,7 @@ impl zone_cache_variants::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         zone_cache_variants::Res {
             avifs: hashmap.remove("avifs").unwrap(),
             bmps: hashmap.remove("bmps").unwrap(),
@@ -57,6 +58,5 @@ impl zone_cache_variants::Guest for Component {
             webps: hashmap.remove("webps").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

@@ -134,28 +134,34 @@ pub struct MagicWanIpsecTunnelResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: MagicWanIpsecTunnelArgs) -> MagicWanIpsecTunnelResult {
+pub fn create(
+    name: &str,
+    args: MagicWanIpsecTunnelArgs
+) -> MagicWanIpsecTunnelResult {
 
-    let result = crate::bindings::pulumi::cloudflare::magic_wan_ipsec_tunnel::invoke(name, &crate::bindings::pulumi::cloudflare::magic_wan_ipsec_tunnel::Args {
-        account_id: &args.account_id.get_inner(),
-        allow_null_cipher: &args.allow_null_cipher.get_inner(),
-        cloudflare_endpoint: &args.cloudflare_endpoint.get_inner(),
-        customer_endpoint: &args.customer_endpoint.get_inner(),
-        description: &args.description.get_inner(),
-        fqdn_id: &args.fqdn_id.get_inner(),
-        health_check_direction: &args.health_check_direction.get_inner(),
-        health_check_enabled: &args.health_check_enabled.get_inner(),
-        health_check_rate: &args.health_check_rate.get_inner(),
-        health_check_target: &args.health_check_target.get_inner(),
-        health_check_type: &args.health_check_type.get_inner(),
-        hex_id: &args.hex_id.get_inner(),
-        interface_address: &args.interface_address.get_inner(),
-        name: &args.name.get_inner(),
-        psk: &args.psk.get_inner(),
-        remote_id: &args.remote_id.get_inner(),
-        replay_protection: &args.replay_protection.get_inner(),
-        user_id: &args.user_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::magic_wan_ipsec_tunnel::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::magic_wan_ipsec_tunnel::Args {
+                account_id: &args.account_id.get_inner(),
+                allow_null_cipher: &args.allow_null_cipher.get_inner(),
+                cloudflare_endpoint: &args.cloudflare_endpoint.get_inner(),
+                customer_endpoint: &args.customer_endpoint.get_inner(),
+                description: &args.description.get_inner(),
+                fqdn_id: &args.fqdn_id.get_inner(),
+                health_check_direction: &args.health_check_direction.get_inner(),
+                health_check_enabled: &args.health_check_enabled.get_inner(),
+                health_check_rate: &args.health_check_rate.get_inner(),
+                health_check_target: &args.health_check_target.get_inner(),
+                health_check_type: &args.health_check_type.get_inner(),
+                hex_id: &args.hex_id.get_inner(),
+                interface_address: &args.interface_address.get_inner(),
+                name: &args.name.get_inner(),
+                psk: &args.psk.get_inner(),
+                remote_id: &args.remote_id.get_inner(),
+                replay_protection: &args.replay_protection.get_inner(),
+                user_id: &args.user_id.get_inner(),
+        }
+    );
 
     MagicWanIpsecTunnelResult {
         account_id: crate::into_domain(result.account_id),

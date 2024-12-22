@@ -50,12 +50,18 @@ pub struct RandomBytesResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: RandomBytesArgs) -> RandomBytesResult {
+pub fn create(
+    name: &str,
+    args: RandomBytesArgs
+) -> RandomBytesResult {
 
-    let result = crate::bindings::pulumi::random::random_bytes::invoke(name, &crate::bindings::pulumi::random::random_bytes::Args {
-        keepers: &args.keepers.get_inner(),
-        length: &args.length.get_inner(),
-    });
+    let result = crate::bindings::pulumi::random::random_bytes::invoke(
+        name,
+        &crate::bindings::pulumi::random::random_bytes::Args {
+                keepers: &args.keepers.get_inner(),
+                length: &args.length.get_inner(),
+        }
+    );
 
     RandomBytesResult {
         base64: crate::into_domain(result.base64),

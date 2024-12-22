@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl zero_trust_access_custom_page::Guest for Component {
-    fn invoke(name: String, args: zero_trust_access_custom_page::Args) -> zero_trust_access_custom_page::Res {
+    fn invoke(
+        name: String,
+        args: zero_trust_access_custom_page::Args
+    ) -> zero_trust_access_custom_page::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustAccessCustomPage:ZeroTrustAccessCustomPage".into(),
@@ -28,9 +31,7 @@ impl zero_trust_access_custom_page::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         zero_trust_access_custom_page::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             app_count: hashmap.remove("appCount").unwrap(),
@@ -39,6 +40,5 @@ impl zero_trust_access_custom_page::Guest for Component {
             type_: hashmap.remove("type").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

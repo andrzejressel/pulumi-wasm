@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl waiting_room::Guest for Component {
-    fn invoke(name: String, args: waiting_room::Args) -> waiting_room::Res {
+    fn invoke(
+        name: String,
+        args: waiting_room::Args
+    ) -> waiting_room::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/waitingRoom:WaitingRoom".into(),
@@ -54,9 +57,7 @@ impl waiting_room::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         waiting_room::Res {
             additional_routes: hashmap.remove("additionalRoutes").unwrap(),
             cookie_suffix: hashmap.remove("cookieSuffix").unwrap(),
@@ -78,6 +79,5 @@ impl waiting_room::Guest for Component {
             total_active_users: hashmap.remove("totalActiveUsers").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

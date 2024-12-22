@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl network::Guest for Component {
-    fn invoke(name: String, args: network::Args) -> network::Res {
+    fn invoke(
+        name: String,
+        args: network::Args
+    ) -> network::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "docker:index/network:Network".into(),
@@ -41,9 +44,7 @@ impl network::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         network::Res {
             attachable: hashmap.remove("attachable").unwrap(),
             check_duplicate: hashmap.remove("checkDuplicate").unwrap(),
@@ -59,6 +60,5 @@ impl network::Guest for Component {
             options: hashmap.remove("options").unwrap(),
             scope: hashmap.remove("scope").unwrap(),
         }
-
     }
 }

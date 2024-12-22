@@ -62,15 +62,21 @@ pub struct CustomPagesResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: CustomPagesArgs) -> CustomPagesResult {
+pub fn create(
+    name: &str,
+    args: CustomPagesArgs
+) -> CustomPagesResult {
 
-    let result = crate::bindings::pulumi::cloudflare::custom_pages::invoke(name, &crate::bindings::pulumi::cloudflare::custom_pages::Args {
-        account_id: &args.account_id.get_inner(),
-        state: &args.state.get_inner(),
-        type_: &args.type_.get_inner(),
-        url: &args.url.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::custom_pages::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::custom_pages::Args {
+                account_id: &args.account_id.get_inner(),
+                state: &args.state.get_inner(),
+                type_: &args.type_.get_inner(),
+                url: &args.url.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     CustomPagesResult {
         account_id: crate::into_domain(result.account_id),

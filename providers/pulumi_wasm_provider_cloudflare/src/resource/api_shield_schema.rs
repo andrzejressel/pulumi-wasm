@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl api_shield_schema::Guest for Component {
-    fn invoke(name: String, args: api_shield_schema::Args) -> api_shield_schema::Res {
+    fn invoke(
+        name: String,
+        args: api_shield_schema::Args
+    ) -> api_shield_schema::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/apiShieldSchema:ApiShieldSchema".into(),
@@ -26,9 +29,7 @@ impl api_shield_schema::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         api_shield_schema::Res {
             kind: hashmap.remove("kind").unwrap(),
             name: hashmap.remove("name").unwrap(),
@@ -36,6 +37,5 @@ impl api_shield_schema::Guest for Component {
             validation_enabled: hashmap.remove("validationEnabled").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

@@ -54,14 +54,20 @@ pub struct RandomShuffleResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: RandomShuffleArgs) -> RandomShuffleResult {
+pub fn create(
+    name: &str,
+    args: RandomShuffleArgs
+) -> RandomShuffleResult {
 
-    let result = crate::bindings::pulumi::random::random_shuffle::invoke(name, &crate::bindings::pulumi::random::random_shuffle::Args {
-        inputs: &args.inputs.get_inner(),
-        keepers: &args.keepers.get_inner(),
-        result_count: &args.result_count.get_inner(),
-        seed: &args.seed.get_inner(),
-    });
+    let result = crate::bindings::pulumi::random::random_shuffle::invoke(
+        name,
+        &crate::bindings::pulumi::random::random_shuffle::Args {
+                inputs: &args.inputs.get_inner(),
+                keepers: &args.keepers.get_inner(),
+                result_count: &args.result_count.get_inner(),
+                seed: &args.seed.get_inner(),
+        }
+    );
 
     RandomShuffleResult {
         inputs: crate::into_domain(result.inputs),

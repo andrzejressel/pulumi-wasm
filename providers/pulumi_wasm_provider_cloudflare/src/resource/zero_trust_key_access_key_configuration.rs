@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl zero_trust_key_access_key_configuration::Guest for Component {
-    fn invoke(name: String, args: zero_trust_key_access_key_configuration::Args) -> zero_trust_key_access_key_configuration::Res {
+    fn invoke(
+        name: String,
+        args: zero_trust_key_access_key_configuration::Args
+    ) -> zero_trust_key_access_key_configuration::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustKeyAccessKeyConfiguration:ZeroTrustKeyAccessKeyConfiguration".into(),
@@ -20,13 +23,10 @@ impl zero_trust_key_access_key_configuration::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         zero_trust_key_access_key_configuration::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             key_rotation_interval_days: hashmap.remove("keyRotationIntervalDays").unwrap(),
         }
-
     }
 }

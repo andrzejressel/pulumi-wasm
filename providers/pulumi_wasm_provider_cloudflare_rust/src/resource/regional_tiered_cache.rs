@@ -46,12 +46,18 @@ pub struct RegionalTieredCacheResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: RegionalTieredCacheArgs) -> RegionalTieredCacheResult {
+pub fn create(
+    name: &str,
+    args: RegionalTieredCacheArgs
+) -> RegionalTieredCacheResult {
 
-    let result = crate::bindings::pulumi::cloudflare::regional_tiered_cache::invoke(name, &crate::bindings::pulumi::cloudflare::regional_tiered_cache::Args {
-        value: &args.value.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::regional_tiered_cache::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::regional_tiered_cache::Args {
+                value: &args.value.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     RegionalTieredCacheResult {
         value: crate::into_domain(result.value),

@@ -77,15 +77,21 @@ pub struct MtlsCertificateResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: MtlsCertificateArgs) -> MtlsCertificateResult {
+pub fn create(
+    name: &str,
+    args: MtlsCertificateArgs
+) -> MtlsCertificateResult {
 
-    let result = crate::bindings::pulumi::cloudflare::mtls_certificate::invoke(name, &crate::bindings::pulumi::cloudflare::mtls_certificate::Args {
-        account_id: &args.account_id.get_inner(),
-        ca: &args.ca.get_inner(),
-        certificates: &args.certificates.get_inner(),
-        name: &args.name.get_inner(),
-        private_key: &args.private_key.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::mtls_certificate::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::mtls_certificate::Args {
+                account_id: &args.account_id.get_inner(),
+                ca: &args.ca.get_inner(),
+                certificates: &args.certificates.get_inner(),
+                name: &args.name.get_inner(),
+                private_key: &args.private_key.get_inner(),
+        }
+    );
 
     MtlsCertificateResult {
         account_id: crate::into_domain(result.account_id),

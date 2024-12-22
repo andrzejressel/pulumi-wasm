@@ -42,4 +42,3 @@ mod specification_response;
 pub use specification_response::*;
 mod supported_filter_types;
 pub use supported_filter_types::*;
-

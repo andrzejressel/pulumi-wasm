@@ -60,14 +60,20 @@ pub struct MagicFirewallRulesetResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: MagicFirewallRulesetArgs) -> MagicFirewallRulesetResult {
+pub fn create(
+    name: &str,
+    args: MagicFirewallRulesetArgs
+) -> MagicFirewallRulesetResult {
 
-    let result = crate::bindings::pulumi::cloudflare::magic_firewall_ruleset::invoke(name, &crate::bindings::pulumi::cloudflare::magic_firewall_ruleset::Args {
-        account_id: &args.account_id.get_inner(),
-        description: &args.description.get_inner(),
-        name: &args.name.get_inner(),
-        rules: &args.rules.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::magic_firewall_ruleset::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::magic_firewall_ruleset::Args {
+                account_id: &args.account_id.get_inner(),
+                description: &args.description.get_inner(),
+                name: &args.name.get_inner(),
+                rules: &args.rules.get_inner(),
+        }
+    );
 
     MagicFirewallRulesetResult {
         account_id: crate::into_domain(result.account_id),

@@ -38,15 +38,21 @@ pub struct ZeroTrustRiskScoreIntegrationResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ZeroTrustRiskScoreIntegrationArgs) -> ZeroTrustRiskScoreIntegrationResult {
+pub fn create(
+    name: &str,
+    args: ZeroTrustRiskScoreIntegrationArgs
+) -> ZeroTrustRiskScoreIntegrationResult {
 
-    let result = crate::bindings::pulumi::cloudflare::zero_trust_risk_score_integration::invoke(name, &crate::bindings::pulumi::cloudflare::zero_trust_risk_score_integration::Args {
-        account_id: &args.account_id.get_inner(),
-        active: &args.active.get_inner(),
-        integration_type: &args.integration_type.get_inner(),
-        reference_id: &args.reference_id.get_inner(),
-        tenant_url: &args.tenant_url.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::zero_trust_risk_score_integration::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::zero_trust_risk_score_integration::Args {
+                account_id: &args.account_id.get_inner(),
+                active: &args.active.get_inner(),
+                integration_type: &args.integration_type.get_inner(),
+                reference_id: &args.reference_id.get_inner(),
+                tenant_url: &args.tenant_url.get_inner(),
+        }
+    );
 
     ZeroTrustRiskScoreIntegrationResult {
         account_id: crate::into_domain(result.account_id),

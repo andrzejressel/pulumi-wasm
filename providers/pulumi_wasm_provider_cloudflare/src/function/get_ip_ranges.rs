@@ -22,9 +22,7 @@ impl get_ip_ranges::Guest for Component {
         };
 
         let o = invoke(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         get_ip_ranges::Res {
             china_ipv4_cidr_blocks: hashmap.remove("chinaIpv4CidrBlocks").unwrap(),
             china_ipv6_cidr_blocks: hashmap.remove("chinaIpv6CidrBlocks").unwrap(),

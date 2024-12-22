@@ -1,0 +1,30 @@
+package pulumi:foo-bar@0.0.1--0.0.0-DEV;
+
+world foo-bar-pulumi {
+    import component:pulumi-wasm/register-interface@0.0.0-DEV;
+    export deeply-nested-module-resource;
+}
+
+world foo-bar-pulumi-client {
+    import deeply-nested-module-resource;
+}
+
+interface deeply-nested-module-resource {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+    record args {
+        baz: borrow<output>,
+    }
+
+    record res {
+        baz: output,
+    }
+
+    invoke: func(
+        name: string,
+        args: args
+    ) -> res;
+
+}
+

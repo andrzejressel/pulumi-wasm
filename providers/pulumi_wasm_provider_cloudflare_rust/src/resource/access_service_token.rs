@@ -56,15 +56,21 @@ pub struct AccessServiceTokenResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: AccessServiceTokenArgs) -> AccessServiceTokenResult {
+pub fn create(
+    name: &str,
+    args: AccessServiceTokenArgs
+) -> AccessServiceTokenResult {
 
-    let result = crate::bindings::pulumi::cloudflare::access_service_token::invoke(name, &crate::bindings::pulumi::cloudflare::access_service_token::Args {
-        account_id: &args.account_id.get_inner(),
-        duration: &args.duration.get_inner(),
-        min_days_for_renewal: &args.min_days_for_renewal.get_inner(),
-        name: &args.name.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::access_service_token::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::access_service_token::Args {
+                account_id: &args.account_id.get_inner(),
+                duration: &args.duration.get_inner(),
+                min_days_for_renewal: &args.min_days_for_renewal.get_inner(),
+                name: &args.name.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     AccessServiceTokenResult {
         account_id: crate::into_domain(result.account_id),

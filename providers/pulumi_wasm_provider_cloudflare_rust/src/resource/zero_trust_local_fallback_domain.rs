@@ -27,13 +27,19 @@ pub struct ZeroTrustLocalFallbackDomainResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ZeroTrustLocalFallbackDomainArgs) -> ZeroTrustLocalFallbackDomainResult {
+pub fn create(
+    name: &str,
+    args: ZeroTrustLocalFallbackDomainArgs
+) -> ZeroTrustLocalFallbackDomainResult {
 
-    let result = crate::bindings::pulumi::cloudflare::zero_trust_local_fallback_domain::invoke(name, &crate::bindings::pulumi::cloudflare::zero_trust_local_fallback_domain::Args {
-        account_id: &args.account_id.get_inner(),
-        domains: &args.domains.get_inner(),
-        policy_id: &args.policy_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::zero_trust_local_fallback_domain::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::zero_trust_local_fallback_domain::Args {
+                account_id: &args.account_id.get_inner(),
+                domains: &args.domains.get_inner(),
+                policy_id: &args.policy_id.get_inner(),
+        }
+    );
 
     ZeroTrustLocalFallbackDomainResult {
         account_id: crate::into_domain(result.account_id),

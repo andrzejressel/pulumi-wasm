@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl ruleset::Guest for Component {
-    fn invoke(name: String, args: ruleset::Args) -> ruleset::Res {
+    fn invoke(
+        name: String,
+        args: ruleset::Args
+    ) -> ruleset::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/ruleset:Ruleset".into(),
@@ -30,9 +33,7 @@ impl ruleset::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         ruleset::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             description: hashmap.remove("description").unwrap(),
@@ -42,6 +43,5 @@ impl ruleset::Guest for Component {
             rules: hashmap.remove("rules").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

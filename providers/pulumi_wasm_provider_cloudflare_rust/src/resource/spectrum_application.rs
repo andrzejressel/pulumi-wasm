@@ -107,23 +107,29 @@ pub struct SpectrumApplicationResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: SpectrumApplicationArgs) -> SpectrumApplicationResult {
+pub fn create(
+    name: &str,
+    args: SpectrumApplicationArgs
+) -> SpectrumApplicationResult {
 
-    let result = crate::bindings::pulumi::cloudflare::spectrum_application::invoke(name, &crate::bindings::pulumi::cloudflare::spectrum_application::Args {
-        argo_smart_routing: &args.argo_smart_routing.get_inner(),
-        dns: &args.dns.get_inner(),
-        edge_ips: &args.edge_ips.get_inner(),
-        ip_firewall: &args.ip_firewall.get_inner(),
-        origin_directs: &args.origin_directs.get_inner(),
-        origin_dns: &args.origin_dns.get_inner(),
-        origin_port: &args.origin_port.get_inner(),
-        origin_port_range: &args.origin_port_range.get_inner(),
-        protocol: &args.protocol.get_inner(),
-        proxy_protocol: &args.proxy_protocol.get_inner(),
-        tls: &args.tls.get_inner(),
-        traffic_type: &args.traffic_type.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::spectrum_application::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::spectrum_application::Args {
+                argo_smart_routing: &args.argo_smart_routing.get_inner(),
+                dns: &args.dns.get_inner(),
+                edge_ips: &args.edge_ips.get_inner(),
+                ip_firewall: &args.ip_firewall.get_inner(),
+                origin_directs: &args.origin_directs.get_inner(),
+                origin_dns: &args.origin_dns.get_inner(),
+                origin_port: &args.origin_port.get_inner(),
+                origin_port_range: &args.origin_port_range.get_inner(),
+                protocol: &args.protocol.get_inner(),
+                proxy_protocol: &args.proxy_protocol.get_inner(),
+                tls: &args.tls.get_inner(),
+                traffic_type: &args.traffic_type.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     SpectrumApplicationResult {
         argo_smart_routing: crate::into_domain(result.argo_smart_routing),

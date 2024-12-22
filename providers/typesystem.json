@@ -68,6 +68,13 @@
         "required_string_array",
         "required_union"
       ]
+    },
+    "typesystem:deep/nested/module:SomeResource": {
+      "inputProperties": {
+        "string_input": {
+          "type": "string"
+        }
+      }
     }
   },
   "types": {
@@ -164,6 +171,13 @@
           "value": 2
         }
       ]
+    },
+    "typesystem:deep/nested/module:SomeType": {
+      "type": "object"
+    }
+  },
+  "functions": {
+    "typesystem:deep/nested/module:someFunction": {
     }
   },
   "language": {

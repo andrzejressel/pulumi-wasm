@@ -67,15 +67,21 @@ pub struct EmailRoutingCatchAllResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: EmailRoutingCatchAllArgs) -> EmailRoutingCatchAllResult {
+pub fn create(
+    name: &str,
+    args: EmailRoutingCatchAllArgs
+) -> EmailRoutingCatchAllResult {
 
-    let result = crate::bindings::pulumi::cloudflare::email_routing_catch_all::invoke(name, &crate::bindings::pulumi::cloudflare::email_routing_catch_all::Args {
-        actions: &args.actions.get_inner(),
-        enabled: &args.enabled.get_inner(),
-        matchers: &args.matchers.get_inner(),
-        name: &args.name.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::email_routing_catch_all::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::email_routing_catch_all::Args {
+                actions: &args.actions.get_inner(),
+                enabled: &args.enabled.get_inner(),
+                matchers: &args.matchers.get_inner(),
+                name: &args.name.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     EmailRoutingCatchAllResult {
         actions: crate::into_domain(result.actions),

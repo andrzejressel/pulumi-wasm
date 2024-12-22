@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl email_routing_address::Guest for Component {
-    fn invoke(name: String, args: email_routing_address::Args) -> email_routing_address::Res {
+    fn invoke(
+        name: String,
+        args: email_routing_address::Args
+    ) -> email_routing_address::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/emailRoutingAddress:EmailRoutingAddress".into(),
@@ -24,9 +27,7 @@ impl email_routing_address::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         email_routing_address::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             created: hashmap.remove("created").unwrap(),
@@ -35,6 +36,5 @@ impl email_routing_address::Guest for Component {
             tag: hashmap.remove("tag").unwrap(),
             verified: hashmap.remove("verified").unwrap(),
         }
-
     }
 }

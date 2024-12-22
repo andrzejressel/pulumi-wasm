@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl dlp_profile::Guest for Component {
-    fn invoke(name: String, args: dlp_profile::Args) -> dlp_profile::Res {
+    fn invoke(
+        name: String,
+        args: dlp_profile::Args
+    ) -> dlp_profile::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/dlpProfile:DlpProfile".into(),
@@ -32,9 +35,7 @@ impl dlp_profile::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         dlp_profile::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             allowed_match_count: hashmap.remove("allowedMatchCount").unwrap(),
@@ -45,6 +46,5 @@ impl dlp_profile::Guest for Component {
             ocr_enabled: hashmap.remove("ocrEnabled").unwrap(),
             type_: hashmap.remove("type").unwrap(),
         }
-
     }
 }

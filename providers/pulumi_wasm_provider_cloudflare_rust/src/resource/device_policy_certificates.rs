@@ -47,12 +47,18 @@ pub struct DevicePolicyCertificatesResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: DevicePolicyCertificatesArgs) -> DevicePolicyCertificatesResult {
+pub fn create(
+    name: &str,
+    args: DevicePolicyCertificatesArgs
+) -> DevicePolicyCertificatesResult {
 
-    let result = crate::bindings::pulumi::cloudflare::device_policy_certificates::invoke(name, &crate::bindings::pulumi::cloudflare::device_policy_certificates::Args {
-        enabled: &args.enabled.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::device_policy_certificates::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::device_policy_certificates::Args {
+                enabled: &args.enabled.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     DevicePolicyCertificatesResult {
         enabled: crate::into_domain(result.enabled),

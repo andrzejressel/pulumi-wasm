@@ -126,6 +126,4 @@ mod volume_label;
 pub use volume_label::*;
 mod get_network_ipam_config;
 pub use get_network_ipam_config::*;
-mod registry_auth;
-pub use registry_auth::*;
-
+pub mod config;

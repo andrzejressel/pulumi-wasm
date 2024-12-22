@@ -102,6 +102,10 @@ jobs:
           pulumi_wasm_generator_lib/tests/output/output-funcs-edgeorder/
           pulumi_wasm_generator_lib/tests/output/unions-inline/
           pulumi_wasm_generator_lib/tests/output/unions-inside-arrays/
+          pulumi_wasm_generator_lib/tests/output/plain-object-defaults/
+          pulumi_wasm_generator_lib/tests/output/plain-object-disable-defaults/
+          pulumi_wasm_generator_lib/tests/output/nested-module/
+          pulumi_wasm_generator_lib/tests/output/nested-module-thirdparty/
 # DO NOT EDIT - END 1
     - name: Regenerate provider list
       run: just regenerate-provider-list
@@ -222,6 +226,10 @@ jobs:
           pulumi_wasm_generator_lib/tests/output/output-funcs-edgeorder/
           pulumi_wasm_generator_lib/tests/output/unions-inline/
           pulumi_wasm_generator_lib/tests/output/unions-inside-arrays/
+          pulumi_wasm_generator_lib/tests/output/plain-object-defaults/
+          pulumi_wasm_generator_lib/tests/output/plain-object-disable-defaults/
+          pulumi_wasm_generator_lib/tests/output/nested-module/
+          pulumi_wasm_generator_lib/tests/output/nested-module-thirdparty/
 # DO NOT EDIT - END 2
     - uses: benjlevesque/short-sha@v3.0
       id: short-sha

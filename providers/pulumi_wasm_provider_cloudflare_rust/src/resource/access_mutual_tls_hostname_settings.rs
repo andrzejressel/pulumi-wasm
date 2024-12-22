@@ -62,13 +62,19 @@ pub struct AccessMutualTlsHostnameSettingsResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: AccessMutualTlsHostnameSettingsArgs) -> AccessMutualTlsHostnameSettingsResult {
+pub fn create(
+    name: &str,
+    args: AccessMutualTlsHostnameSettingsArgs
+) -> AccessMutualTlsHostnameSettingsResult {
 
-    let result = crate::bindings::pulumi::cloudflare::access_mutual_tls_hostname_settings::invoke(name, &crate::bindings::pulumi::cloudflare::access_mutual_tls_hostname_settings::Args {
-        account_id: &args.account_id.get_inner(),
-        settings: &args.settings.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::access_mutual_tls_hostname_settings::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::access_mutual_tls_hostname_settings::Args {
+                account_id: &args.account_id.get_inner(),
+                settings: &args.settings.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     AccessMutualTlsHostnameSettingsResult {
         account_id: crate::into_domain(result.account_id),

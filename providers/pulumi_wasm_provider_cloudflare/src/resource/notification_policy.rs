@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl notification_policy::Guest for Component {
-    fn invoke(name: String, args: notification_policy::Args) -> notification_policy::Res {
+    fn invoke(
+        name: String,
+        args: notification_policy::Args
+    ) -> notification_policy::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/notificationPolicy:NotificationPolicy".into(),
@@ -36,9 +39,7 @@ impl notification_policy::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         notification_policy::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             alert_type: hashmap.remove("alertType").unwrap(),
@@ -52,6 +53,5 @@ impl notification_policy::Guest for Component {
             pagerduty_integrations: hashmap.remove("pagerdutyIntegrations").unwrap(),
             webhooks_integrations: hashmap.remove("webhooksIntegrations").unwrap(),
         }
-
     }
 }

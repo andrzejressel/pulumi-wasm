@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl service::Guest for Component {
-    fn invoke(name: String, args: service::Args) -> service::Res {
+    fn invoke(
+        name: String,
+        args: service::Args
+    ) -> service::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "docker:index/service:Service".into(),
@@ -34,9 +37,7 @@ impl service::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         service::Res {
             auth: hashmap.remove("auth").unwrap(),
             converge_config: hashmap.remove("convergeConfig").unwrap(),
@@ -48,6 +49,5 @@ impl service::Guest for Component {
             task_spec: hashmap.remove("taskSpec").unwrap(),
             update_config: hashmap.remove("updateConfig").unwrap(),
         }
-
     }
 }

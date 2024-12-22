@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl turnstile_widget::Guest for Component {
-    fn invoke(name: String, args: turnstile_widget::Args) -> turnstile_widget::Res {
+    fn invoke(
+        name: String,
+        args: turnstile_widget::Args
+    ) -> turnstile_widget::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/turnstileWidget:TurnstileWidget".into(),
@@ -31,9 +34,7 @@ impl turnstile_widget::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         turnstile_widget::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             bot_fight_mode: hashmap.remove("botFightMode").unwrap(),
@@ -44,6 +45,5 @@ impl turnstile_widget::Guest for Component {
             region: hashmap.remove("region").unwrap(),
             secret: hashmap.remove("secret").unwrap(),
         }
-
     }
 }

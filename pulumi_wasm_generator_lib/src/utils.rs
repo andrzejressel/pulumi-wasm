@@ -76,6 +76,7 @@ pub(crate) fn escape_wit_identifier(s: &str) -> &str {
         "result" => "%result",
         "record" => "%record",
         "type" => "%type",
+        "resource" => "%resource",
         s => s,
     }
 }

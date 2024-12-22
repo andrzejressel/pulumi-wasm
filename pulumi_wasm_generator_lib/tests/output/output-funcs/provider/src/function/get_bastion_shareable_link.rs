@@ -21,9 +21,7 @@ impl get_bastion_shareable_link::Guest for Component {
         };
 
         let o = invoke(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         get_bastion_shareable_link::Res {
             next_link: hashmap.remove("nextLink").unwrap(),
         }

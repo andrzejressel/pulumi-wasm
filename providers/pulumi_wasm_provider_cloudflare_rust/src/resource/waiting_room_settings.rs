@@ -45,12 +45,18 @@ pub struct WaitingRoomSettingsResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: WaitingRoomSettingsArgs) -> WaitingRoomSettingsResult {
+pub fn create(
+    name: &str,
+    args: WaitingRoomSettingsArgs
+) -> WaitingRoomSettingsResult {
 
-    let result = crate::bindings::pulumi::cloudflare::waiting_room_settings::invoke(name, &crate::bindings::pulumi::cloudflare::waiting_room_settings::Args {
-        search_engine_crawler_bypass: &args.search_engine_crawler_bypass.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::waiting_room_settings::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::waiting_room_settings::Args {
+                search_engine_crawler_bypass: &args.search_engine_crawler_bypass.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     WaitingRoomSettingsResult {
         search_engine_crawler_bypass: crate::into_domain(result.search_engine_crawler_bypass),

@@ -55,13 +55,19 @@ pub struct WorkersRouteResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: WorkersRouteArgs) -> WorkersRouteResult {
+pub fn create(
+    name: &str,
+    args: WorkersRouteArgs
+) -> WorkersRouteResult {
 
-    let result = crate::bindings::pulumi::cloudflare::workers_route::invoke(name, &crate::bindings::pulumi::cloudflare::workers_route::Args {
-        pattern: &args.pattern.get_inner(),
-        script_name: &args.script_name.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::workers_route::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::workers_route::Args {
+                pattern: &args.pattern.get_inner(),
+                script_name: &args.script_name.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     WorkersRouteResult {
         pattern: crate::into_domain(result.pattern),

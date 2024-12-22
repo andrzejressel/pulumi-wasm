@@ -56,15 +56,21 @@ pub struct ApiShieldSchemaResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ApiShieldSchemaArgs) -> ApiShieldSchemaResult {
+pub fn create(
+    name: &str,
+    args: ApiShieldSchemaArgs
+) -> ApiShieldSchemaResult {
 
-    let result = crate::bindings::pulumi::cloudflare::api_shield_schema::invoke(name, &crate::bindings::pulumi::cloudflare::api_shield_schema::Args {
-        kind: &args.kind.get_inner(),
-        name: &args.name.get_inner(),
-        source: &args.source.get_inner(),
-        validation_enabled: &args.validation_enabled.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::api_shield_schema::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::api_shield_schema::Args {
+                kind: &args.kind.get_inner(),
+                name: &args.name.get_inner(),
+                source: &args.source.get_inner(),
+                validation_enabled: &args.validation_enabled.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     ApiShieldSchemaResult {
         kind: crate::into_domain(result.kind),

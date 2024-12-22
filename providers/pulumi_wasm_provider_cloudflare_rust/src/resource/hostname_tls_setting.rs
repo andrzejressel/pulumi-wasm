@@ -59,14 +59,20 @@ pub struct HostnameTlsSettingResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: HostnameTlsSettingArgs) -> HostnameTlsSettingResult {
+pub fn create(
+    name: &str,
+    args: HostnameTlsSettingArgs
+) -> HostnameTlsSettingResult {
 
-    let result = crate::bindings::pulumi::cloudflare::hostname_tls_setting::invoke(name, &crate::bindings::pulumi::cloudflare::hostname_tls_setting::Args {
-        hostname: &args.hostname.get_inner(),
-        setting: &args.setting.get_inner(),
-        value: &args.value.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::hostname_tls_setting::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::hostname_tls_setting::Args {
+                hostname: &args.hostname.get_inner(),
+                setting: &args.setting.get_inner(),
+                value: &args.value.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     HostnameTlsSettingResult {
         created_at: crate::into_domain(result.created_at),

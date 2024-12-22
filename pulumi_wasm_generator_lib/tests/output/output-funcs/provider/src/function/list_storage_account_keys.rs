@@ -21,9 +21,7 @@ impl list_storage_account_keys::Guest for Component {
         };
 
         let o = invoke(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         list_storage_account_keys::Res {
             keys: hashmap.remove("keys").unwrap(),
         }

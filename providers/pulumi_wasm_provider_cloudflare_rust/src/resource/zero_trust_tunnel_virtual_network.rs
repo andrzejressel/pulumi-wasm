@@ -59,14 +59,20 @@ pub struct ZeroTrustTunnelVirtualNetworkResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ZeroTrustTunnelVirtualNetworkArgs) -> ZeroTrustTunnelVirtualNetworkResult {
+pub fn create(
+    name: &str,
+    args: ZeroTrustTunnelVirtualNetworkArgs
+) -> ZeroTrustTunnelVirtualNetworkResult {
 
-    let result = crate::bindings::pulumi::cloudflare::zero_trust_tunnel_virtual_network::invoke(name, &crate::bindings::pulumi::cloudflare::zero_trust_tunnel_virtual_network::Args {
-        account_id: &args.account_id.get_inner(),
-        comment: &args.comment.get_inner(),
-        is_default_network: &args.is_default_network.get_inner(),
-        name: &args.name.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::zero_trust_tunnel_virtual_network::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::zero_trust_tunnel_virtual_network::Args {
+                account_id: &args.account_id.get_inner(),
+                comment: &args.comment.get_inner(),
+                is_default_network: &args.is_default_network.get_inner(),
+                name: &args.name.get_inner(),
+        }
+    );
 
     ZeroTrustTunnelVirtualNetworkResult {
         account_id: crate::into_domain(result.account_id),

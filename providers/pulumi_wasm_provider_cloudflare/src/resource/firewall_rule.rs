@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl firewall_rule::Guest for Component {
-    fn invoke(name: String, args: firewall_rule::Args) -> firewall_rule::Res {
+    fn invoke(
+        name: String,
+        args: firewall_rule::Args
+    ) -> firewall_rule::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/firewallRule:FirewallRule".into(),
@@ -30,9 +33,7 @@ impl firewall_rule::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         firewall_rule::Res {
             action: hashmap.remove("action").unwrap(),
             description: hashmap.remove("description").unwrap(),
@@ -42,6 +43,5 @@ impl firewall_rule::Guest for Component {
             products: hashmap.remove("products").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

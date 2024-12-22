@@ -68,14 +68,20 @@ pub struct RandomIntegerResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: RandomIntegerArgs) -> RandomIntegerResult {
+pub fn create(
+    name: &str,
+    args: RandomIntegerArgs
+) -> RandomIntegerResult {
 
-    let result = crate::bindings::pulumi::random::random_integer::invoke(name, &crate::bindings::pulumi::random::random_integer::Args {
-        keepers: &args.keepers.get_inner(),
-        max: &args.max.get_inner(),
-        min: &args.min.get_inner(),
-        seed: &args.seed.get_inner(),
-    });
+    let result = crate::bindings::pulumi::random::random_integer::invoke(
+        name,
+        &crate::bindings::pulumi::random::random_integer::Args {
+                keepers: &args.keepers.get_inner(),
+                max: &args.max.get_inner(),
+                min: &args.min.get_inner(),
+                seed: &args.seed.get_inner(),
+        }
+    );
 
     RandomIntegerResult {
         keepers: crate::into_domain(result.keepers),

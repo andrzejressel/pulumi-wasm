@@ -50,13 +50,19 @@ pub struct PagesDomainResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: PagesDomainArgs) -> PagesDomainResult {
+pub fn create(
+    name: &str,
+    args: PagesDomainArgs
+) -> PagesDomainResult {
 
-    let result = crate::bindings::pulumi::cloudflare::pages_domain::invoke(name, &crate::bindings::pulumi::cloudflare::pages_domain::Args {
-        account_id: &args.account_id.get_inner(),
-        domain: &args.domain.get_inner(),
-        project_name: &args.project_name.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::pages_domain::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::pages_domain::Args {
+                account_id: &args.account_id.get_inner(),
+                domain: &args.domain.get_inner(),
+                project_name: &args.project_name.get_inner(),
+        }
+    );
 
     PagesDomainResult {
         account_id: crate::into_domain(result.account_id),

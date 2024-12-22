@@ -125,22 +125,28 @@ pub struct RecordResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: RecordArgs) -> RecordResult {
+pub fn create(
+    name: &str,
+    args: RecordArgs
+) -> RecordResult {
 
-    let result = crate::bindings::pulumi::cloudflare::record::invoke(name, &crate::bindings::pulumi::cloudflare::record::Args {
-        allow_overwrite: &args.allow_overwrite.get_inner(),
-        comment: &args.comment.get_inner(),
-        content: &args.content.get_inner(),
-        data: &args.data.get_inner(),
-        name: &args.name.get_inner(),
-        priority: &args.priority.get_inner(),
-        proxied: &args.proxied.get_inner(),
-        tags: &args.tags.get_inner(),
-        ttl: &args.ttl.get_inner(),
-        type_: &args.type_.get_inner(),
-        value: &args.value.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::record::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::record::Args {
+                allow_overwrite: &args.allow_overwrite.get_inner(),
+                comment: &args.comment.get_inner(),
+                content: &args.content.get_inner(),
+                data: &args.data.get_inner(),
+                name: &args.name.get_inner(),
+                priority: &args.priority.get_inner(),
+                proxied: &args.proxied.get_inner(),
+                tags: &args.tags.get_inner(),
+                ttl: &args.ttl.get_inner(),
+                type_: &args.type_.get_inner(),
+                value: &args.value.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     RecordResult {
         allow_overwrite: crate::into_domain(result.allow_overwrite),

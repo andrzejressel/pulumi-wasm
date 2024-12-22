@@ -21,9 +21,7 @@ impl get_accounts::Guest for Component {
         };
 
         let o = invoke(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         get_accounts::Res {
             accounts: hashmap.remove("accounts").unwrap(),
             id: hashmap.remove("id").unwrap(),

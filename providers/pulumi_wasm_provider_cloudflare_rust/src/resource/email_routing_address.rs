@@ -53,12 +53,18 @@ pub struct EmailRoutingAddressResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: EmailRoutingAddressArgs) -> EmailRoutingAddressResult {
+pub fn create(
+    name: &str,
+    args: EmailRoutingAddressArgs
+) -> EmailRoutingAddressResult {
 
-    let result = crate::bindings::pulumi::cloudflare::email_routing_address::invoke(name, &crate::bindings::pulumi::cloudflare::email_routing_address::Args {
-        account_id: &args.account_id.get_inner(),
-        email: &args.email.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::email_routing_address::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::email_routing_address::Args {
+                account_id: &args.account_id.get_inner(),
+                email: &args.email.get_inner(),
+        }
+    );
 
     EmailRoutingAddressResult {
         account_id: crate::into_domain(result.account_id),

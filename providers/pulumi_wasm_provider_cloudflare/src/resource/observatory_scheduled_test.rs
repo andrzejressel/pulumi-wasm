@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl observatory_scheduled_test::Guest for Component {
-    fn invoke(name: String, args: observatory_scheduled_test::Args) -> observatory_scheduled_test::Res {
+    fn invoke(
+        name: String,
+        args: observatory_scheduled_test::Args
+    ) -> observatory_scheduled_test::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/observatoryScheduledTest:ObservatoryScheduledTest".into(),
@@ -24,15 +27,12 @@ impl observatory_scheduled_test::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         observatory_scheduled_test::Res {
             frequency: hashmap.remove("frequency").unwrap(),
             region: hashmap.remove("region").unwrap(),
             url: hashmap.remove("url").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

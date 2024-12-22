@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl load_balancer::Guest for Component {
-    fn invoke(name: String, args: load_balancer::Args) -> load_balancer::Res {
+    fn invoke(
+        name: String,
+        args: load_balancer::Args
+    ) -> load_balancer::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/loadBalancer:LoadBalancer".into(),
@@ -56,9 +59,7 @@ impl load_balancer::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         load_balancer::Res {
             adaptive_routings: hashmap.remove("adaptiveRoutings").unwrap(),
             country_pools: hashmap.remove("countryPools").unwrap(),
@@ -82,6 +83,5 @@ impl load_balancer::Guest for Component {
             ttl: hashmap.remove("ttl").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

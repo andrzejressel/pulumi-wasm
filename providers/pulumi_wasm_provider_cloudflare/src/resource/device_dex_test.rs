@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl device_dex_test::Guest for Component {
-    fn invoke(name: String, args: device_dex_test::Args) -> device_dex_test::Res {
+    fn invoke(
+        name: String,
+        args: device_dex_test::Args
+    ) -> device_dex_test::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/deviceDexTest:DeviceDexTest".into(),
@@ -30,9 +33,7 @@ impl device_dex_test::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         device_dex_test::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             created: hashmap.remove("created").unwrap(),
@@ -43,6 +44,5 @@ impl device_dex_test::Guest for Component {
             name: hashmap.remove("name").unwrap(),
             updated: hashmap.remove("updated").unwrap(),
         }
-
     }
 }

@@ -24,17 +24,23 @@ pub struct TypesystemServerResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: TypesystemServerArgs) -> TypesystemServerResult {
+pub fn create(
+    name: &str,
+    args: TypesystemServerArgs
+) -> TypesystemServerResult {
 
-    let result = crate::bindings::pulumi::typesystem::typesystem_server::invoke(name, &crate::bindings::pulumi::typesystem::typesystem_server::Args {
-        optional_string_array: &args.optional_string_array.get_inner(),
-        optional_string_input: &args.optional_string_input.get_inner(),
-        optional_union: &args.optional_union.get_inner(),
-        properties_collection: &args.properties_collection.get_inner(),
-        required_string_array: &args.required_string_array.get_inner(),
-        required_string_input: &args.required_string_input.get_inner(),
-        required_union: &args.required_union.get_inner(),
-    });
+    let result = crate::bindings::pulumi::typesystem::typesystem_server::invoke(
+        name,
+        &crate::bindings::pulumi::typesystem::typesystem_server::Args {
+                optional_string_array: &args.optional_string_array.get_inner(),
+                optional_string_input: &args.optional_string_input.get_inner(),
+                optional_union: &args.optional_union.get_inner(),
+                properties_collection: &args.properties_collection.get_inner(),
+                required_string_array: &args.required_string_array.get_inner(),
+                required_string_input: &args.required_string_input.get_inner(),
+                required_union: &args.required_union.get_inner(),
+        }
+    );
 
     TypesystemServerResult {
     }

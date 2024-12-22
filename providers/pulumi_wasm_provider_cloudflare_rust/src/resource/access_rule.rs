@@ -109,15 +109,21 @@ pub struct AccessRuleResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: AccessRuleArgs) -> AccessRuleResult {
+pub fn create(
+    name: &str,
+    args: AccessRuleArgs
+) -> AccessRuleResult {
 
-    let result = crate::bindings::pulumi::cloudflare::access_rule::invoke(name, &crate::bindings::pulumi::cloudflare::access_rule::Args {
-        account_id: &args.account_id.get_inner(),
-        configuration: &args.configuration.get_inner(),
-        mode: &args.mode.get_inner(),
-        notes: &args.notes.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::access_rule::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::access_rule::Args {
+                account_id: &args.account_id.get_inner(),
+                configuration: &args.configuration.get_inner(),
+                mode: &args.mode.get_inner(),
+                notes: &args.notes.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     AccessRuleResult {
         account_id: crate::into_domain(result.account_id),

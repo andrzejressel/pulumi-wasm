@@ -55,13 +55,19 @@ pub struct CustomSslResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: CustomSslArgs) -> CustomSslResult {
+pub fn create(
+    name: &str,
+    args: CustomSslArgs
+) -> CustomSslResult {
 
-    let result = crate::bindings::pulumi::cloudflare::custom_ssl::invoke(name, &crate::bindings::pulumi::cloudflare::custom_ssl::Args {
-        custom_ssl_options: &args.custom_ssl_options.get_inner(),
-        custom_ssl_priorities: &args.custom_ssl_priorities.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::custom_ssl::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::custom_ssl::Args {
+                custom_ssl_options: &args.custom_ssl_options.get_inner(),
+                custom_ssl_priorities: &args.custom_ssl_priorities.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     CustomSslResult {
         custom_ssl_options: crate::into_domain(result.custom_ssl_options),

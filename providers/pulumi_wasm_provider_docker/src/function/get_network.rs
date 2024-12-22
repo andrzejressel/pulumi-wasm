@@ -25,9 +25,7 @@ impl get_network::Guest for Component {
         };
 
         let o = invoke(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         get_network::Res {
             driver: hashmap.remove("driver").unwrap(),
             id: hashmap.remove("id").unwrap(),

@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl registry_image::Guest for Component {
-    fn invoke(name: String, args: registry_image::Args) -> registry_image::Res {
+    fn invoke(
+        name: String,
+        args: registry_image::Args
+    ) -> registry_image::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "docker:index/registryImage:RegistryImage".into(),
@@ -25,9 +28,7 @@ impl registry_image::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         registry_image::Res {
             insecure_skip_verify: hashmap.remove("insecureSkipVerify").unwrap(),
             keep_remotely: hashmap.remove("keepRemotely").unwrap(),
@@ -35,6 +36,5 @@ impl registry_image::Guest for Component {
             sha256_digest: hashmap.remove("sha256Digest").unwrap(),
             triggers: hashmap.remove("triggers").unwrap(),
         }
-
     }
 }

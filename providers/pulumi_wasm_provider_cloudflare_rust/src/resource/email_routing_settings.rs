@@ -48,13 +48,19 @@ pub struct EmailRoutingSettingsResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: EmailRoutingSettingsArgs) -> EmailRoutingSettingsResult {
+pub fn create(
+    name: &str,
+    args: EmailRoutingSettingsArgs
+) -> EmailRoutingSettingsResult {
 
-    let result = crate::bindings::pulumi::cloudflare::email_routing_settings::invoke(name, &crate::bindings::pulumi::cloudflare::email_routing_settings::Args {
-        enabled: &args.enabled.get_inner(),
-        skip_wizard: &args.skip_wizard.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::email_routing_settings::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::email_routing_settings::Args {
+                enabled: &args.enabled.get_inner(),
+                skip_wizard: &args.skip_wizard.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     EmailRoutingSettingsResult {
         created: crate::into_domain(result.created),

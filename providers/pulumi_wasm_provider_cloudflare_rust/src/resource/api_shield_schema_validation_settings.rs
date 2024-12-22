@@ -44,13 +44,19 @@ pub struct ApiShieldSchemaValidationSettingsResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ApiShieldSchemaValidationSettingsArgs) -> ApiShieldSchemaValidationSettingsResult {
+pub fn create(
+    name: &str,
+    args: ApiShieldSchemaValidationSettingsArgs
+) -> ApiShieldSchemaValidationSettingsResult {
 
-    let result = crate::bindings::pulumi::cloudflare::api_shield_schema_validation_settings::invoke(name, &crate::bindings::pulumi::cloudflare::api_shield_schema_validation_settings::Args {
-        validation_default_mitigation_action: &args.validation_default_mitigation_action.get_inner(),
-        validation_override_mitigation_action: &args.validation_override_mitigation_action.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::api_shield_schema_validation_settings::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::api_shield_schema_validation_settings::Args {
+                validation_default_mitigation_action: &args.validation_default_mitigation_action.get_inner(),
+                validation_override_mitigation_action: &args.validation_override_mitigation_action.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     ApiShieldSchemaValidationSettingsResult {
         validation_default_mitigation_action: crate::into_domain(result.validation_default_mitigation_action),

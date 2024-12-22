@@ -61,13 +61,19 @@ pub struct WaitingRoomRulesResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: WaitingRoomRulesArgs) -> WaitingRoomRulesResult {
+pub fn create(
+    name: &str,
+    args: WaitingRoomRulesArgs
+) -> WaitingRoomRulesResult {
 
-    let result = crate::bindings::pulumi::cloudflare::waiting_room_rules::invoke(name, &crate::bindings::pulumi::cloudflare::waiting_room_rules::Args {
-        rules: &args.rules.get_inner(),
-        waiting_room_id: &args.waiting_room_id.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::waiting_room_rules::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::waiting_room_rules::Args {
+                rules: &args.rules.get_inner(),
+                waiting_room_id: &args.waiting_room_id.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     WaitingRoomRulesResult {
         rules: crate::into_domain(result.rules),

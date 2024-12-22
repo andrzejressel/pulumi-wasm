@@ -76,15 +76,21 @@ pub struct OriginCaCertificateResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: OriginCaCertificateArgs) -> OriginCaCertificateResult {
+pub fn create(
+    name: &str,
+    args: OriginCaCertificateArgs
+) -> OriginCaCertificateResult {
 
-    let result = crate::bindings::pulumi::cloudflare::origin_ca_certificate::invoke(name, &crate::bindings::pulumi::cloudflare::origin_ca_certificate::Args {
-        csr: &args.csr.get_inner(),
-        hostnames: &args.hostnames.get_inner(),
-        min_days_for_renewal: &args.min_days_for_renewal.get_inner(),
-        request_type: &args.request_type.get_inner(),
-        requested_validity: &args.requested_validity.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::origin_ca_certificate::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::origin_ca_certificate::Args {
+                csr: &args.csr.get_inner(),
+                hostnames: &args.hostnames.get_inner(),
+                min_days_for_renewal: &args.min_days_for_renewal.get_inner(),
+                request_type: &args.request_type.get_inner(),
+                requested_validity: &args.requested_validity.get_inner(),
+        }
+    );
 
     OriginCaCertificateResult {
         certificate: crate::into_domain(result.certificate),

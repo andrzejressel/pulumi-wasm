@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl random_pet::Guest for Component {
-    fn invoke(name: String, args: random_pet::Args) -> random_pet::Res {
+    fn invoke(
+        name: String,
+        args: random_pet::Args
+    ) -> random_pet::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "random:index/randomPet:RandomPet".into(),
@@ -24,15 +27,12 @@ impl random_pet::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         random_pet::Res {
             keepers: hashmap.remove("keepers").unwrap(),
             length: hashmap.remove("length").unwrap(),
             prefix: hashmap.remove("prefix").unwrap(),
             separator: hashmap.remove("separator").unwrap(),
         }
-
     }
 }

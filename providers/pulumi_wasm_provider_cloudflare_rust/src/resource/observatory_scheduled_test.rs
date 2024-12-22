@@ -57,14 +57,20 @@ pub struct ObservatoryScheduledTestResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ObservatoryScheduledTestArgs) -> ObservatoryScheduledTestResult {
+pub fn create(
+    name: &str,
+    args: ObservatoryScheduledTestArgs
+) -> ObservatoryScheduledTestResult {
 
-    let result = crate::bindings::pulumi::cloudflare::observatory_scheduled_test::invoke(name, &crate::bindings::pulumi::cloudflare::observatory_scheduled_test::Args {
-        frequency: &args.frequency.get_inner(),
-        region: &args.region.get_inner(),
-        url: &args.url.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::observatory_scheduled_test::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::observatory_scheduled_test::Args {
+                frequency: &args.frequency.get_inner(),
+                region: &args.region.get_inner(),
+                url: &args.url.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     ObservatoryScheduledTestResult {
         frequency: crate::into_domain(result.frequency),
