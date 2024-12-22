@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl cloud_connector_rules::Guest for Component {
-    fn invoke(name: String, args: cloud_connector_rules::Args) -> cloud_connector_rules::Res {
+    fn invoke(
+        name: String,
+        args: cloud_connector_rules::Args
+    ) -> cloud_connector_rules::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/cloudConnectorRules:CloudConnectorRules".into(),

@@ -77,13 +77,19 @@ pub struct AccessCaCertificateResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: AccessCaCertificateArgs) -> AccessCaCertificateResult {
+pub fn create(
+    name: &str,
+    args: AccessCaCertificateArgs
+) -> AccessCaCertificateResult {
 
-    let result = crate::bindings::pulumi::cloudflare::access_ca_certificate::invoke(name, &crate::bindings::pulumi::cloudflare::access_ca_certificate::Args {
-        account_id: &args.account_id.get_inner(),
-        application_id: &args.application_id.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::access_ca_certificate::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::access_ca_certificate::Args {
+                account_id: &args.account_id.get_inner(),
+                application_id: &args.application_id.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     AccessCaCertificateResult {
         account_id: crate::into_domain(result.account_id),

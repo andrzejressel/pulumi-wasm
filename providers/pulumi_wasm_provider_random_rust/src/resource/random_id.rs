@@ -85,13 +85,19 @@ pub struct RandomIdResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: RandomIdArgs) -> RandomIdResult {
+pub fn create(
+    name: &str,
+    args: RandomIdArgs
+) -> RandomIdResult {
 
-    let result = crate::bindings::pulumi::random::random_id::invoke(name, &crate::bindings::pulumi::random::random_id::Args {
-        byte_length: &args.byte_length.get_inner(),
-        keepers: &args.keepers.get_inner(),
-        prefix: &args.prefix.get_inner(),
-    });
+    let result = crate::bindings::pulumi::random::random_id::invoke(
+        name,
+        &crate::bindings::pulumi::random::random_id::Args {
+                byte_length: &args.byte_length.get_inner(),
+                keepers: &args.keepers.get_inner(),
+                prefix: &args.prefix.get_inner(),
+        }
+    );
 
     RandomIdResult {
         b64_std: crate::into_domain(result.b64_std),

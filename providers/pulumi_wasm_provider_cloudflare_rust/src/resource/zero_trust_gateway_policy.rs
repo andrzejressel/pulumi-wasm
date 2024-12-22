@@ -102,21 +102,27 @@ pub struct ZeroTrustGatewayPolicyResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ZeroTrustGatewayPolicyArgs) -> ZeroTrustGatewayPolicyResult {
+pub fn create(
+    name: &str,
+    args: ZeroTrustGatewayPolicyArgs
+) -> ZeroTrustGatewayPolicyResult {
 
-    let result = crate::bindings::pulumi::cloudflare::zero_trust_gateway_policy::invoke(name, &crate::bindings::pulumi::cloudflare::zero_trust_gateway_policy::Args {
-        account_id: &args.account_id.get_inner(),
-        action: &args.action.get_inner(),
-        description: &args.description.get_inner(),
-        device_posture: &args.device_posture.get_inner(),
-        enabled: &args.enabled.get_inner(),
-        filters: &args.filters.get_inner(),
-        identity: &args.identity.get_inner(),
-        name: &args.name.get_inner(),
-        precedence: &args.precedence.get_inner(),
-        rule_settings: &args.rule_settings.get_inner(),
-        traffic: &args.traffic.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::zero_trust_gateway_policy::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::zero_trust_gateway_policy::Args {
+                account_id: &args.account_id.get_inner(),
+                action: &args.action.get_inner(),
+                description: &args.description.get_inner(),
+                device_posture: &args.device_posture.get_inner(),
+                enabled: &args.enabled.get_inner(),
+                filters: &args.filters.get_inner(),
+                identity: &args.identity.get_inner(),
+                name: &args.name.get_inner(),
+                precedence: &args.precedence.get_inner(),
+                rule_settings: &args.rule_settings.get_inner(),
+                traffic: &args.traffic.get_inner(),
+        }
+    );
 
     ZeroTrustGatewayPolicyResult {
         account_id: crate::into_domain(result.account_id),

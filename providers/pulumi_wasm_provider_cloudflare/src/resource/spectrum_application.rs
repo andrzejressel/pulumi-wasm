@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl spectrum_application::Guest for Component {
-    fn invoke(name: String, args: spectrum_application::Args) -> spectrum_application::Res {
+    fn invoke(
+        name: String,
+        args: spectrum_application::Args
+    ) -> spectrum_application::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/spectrumApplication:SpectrumApplication".into(),

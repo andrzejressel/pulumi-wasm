@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl rate_limit::Guest for Component {
-    fn invoke(name: String, args: rate_limit::Args) -> rate_limit::Res {
+    fn invoke(
+        name: String,
+        args: rate_limit::Args
+    ) -> rate_limit::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/rateLimit:RateLimit".into(),

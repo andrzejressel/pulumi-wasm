@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl device_settings_policy::Guest for Component {
-    fn invoke(name: String, args: device_settings_policy::Args) -> device_settings_policy::Res {
+    fn invoke(
+        name: String,
+        args: device_settings_policy::Args
+    ) -> device_settings_policy::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/deviceSettingsPolicy:DeviceSettingsPolicy".into(),

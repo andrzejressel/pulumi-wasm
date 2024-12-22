@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl device_posture_rule::Guest for Component {
-    fn invoke(name: String, args: device_posture_rule::Args) -> device_posture_rule::Res {
+    fn invoke(
+        name: String,
+        args: device_posture_rule::Args
+    ) -> device_posture_rule::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/devicePostureRule:DevicePostureRule".into(),

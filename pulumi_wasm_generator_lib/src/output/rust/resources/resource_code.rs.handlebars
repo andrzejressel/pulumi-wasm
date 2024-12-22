@@ -32,13 +32,23 @@ pub struct {{resource.struct_name}}Result {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: {{resource.struct_name}}Args) -> {{resource.struct_name}}Result {
+pub fn create(
+    name: &str,
+{{#if resource.input_properties}}
+    args: {{resource.struct_name}}Args
+{{/if}}
+) -> {{resource.struct_name}}Result {
 
-    let result = crate::bindings::pulumi::{{resource.package_name}}::{{resource.name}}::invoke(name, &crate::bindings::pulumi::{{resource.package_name}}::{{resource.name}}::Args {
-{{#each resource.input_properties}}
-        {{arg_name}}: &args.{{arg_name}}.get_inner(),
-{{/each}}
-    });
+    let result = crate::bindings::pulumi::{{resource.package_name}}::{{resource.name}}::invoke(
+        name,
+        {{#if resource.input_properties}}
+        &crate::bindings::pulumi::{{resource.package_name}}::{{resource.name}}::Args {
+        {{#each resource.input_properties}}
+                {{arg_name}}: &args.{{arg_name}}.get_inner(),
+        {{/each}}
+        }
+        {{/if}}
+    );
 
     {{resource.struct_name}}Result {
     {{#each resource.output_properties}}

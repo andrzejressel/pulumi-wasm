@@ -48,13 +48,19 @@ pub struct LogpushOwnershipChallengeResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: LogpushOwnershipChallengeArgs) -> LogpushOwnershipChallengeResult {
+pub fn create(
+    name: &str,
+    args: LogpushOwnershipChallengeArgs
+) -> LogpushOwnershipChallengeResult {
 
-    let result = crate::bindings::pulumi::cloudflare::logpush_ownership_challenge::invoke(name, &crate::bindings::pulumi::cloudflare::logpush_ownership_challenge::Args {
-        account_id: &args.account_id.get_inner(),
-        destination_conf: &args.destination_conf.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::logpush_ownership_challenge::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::logpush_ownership_challenge::Args {
+                account_id: &args.account_id.get_inner(),
+                destination_conf: &args.destination_conf.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     LogpushOwnershipChallengeResult {
         account_id: crate::into_domain(result.account_id),

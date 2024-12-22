@@ -51,12 +51,18 @@ pub struct D1DatabaseResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: D1DatabaseArgs) -> D1DatabaseResult {
+pub fn create(
+    name: &str,
+    args: D1DatabaseArgs
+) -> D1DatabaseResult {
 
-    let result = crate::bindings::pulumi::cloudflare::d1_database::invoke(name, &crate::bindings::pulumi::cloudflare::d1_database::Args {
-        account_id: &args.account_id.get_inner(),
-        name: &args.name.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::d1_database::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::d1_database::Args {
+                account_id: &args.account_id.get_inner(),
+                name: &args.name.get_inner(),
+        }
+    );
 
     D1DatabaseResult {
         account_id: crate::into_domain(result.account_id),

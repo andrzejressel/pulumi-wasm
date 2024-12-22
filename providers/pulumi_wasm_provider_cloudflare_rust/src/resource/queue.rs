@@ -45,12 +45,18 @@ pub struct QueueResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: QueueArgs) -> QueueResult {
+pub fn create(
+    name: &str,
+    args: QueueArgs
+) -> QueueResult {
 
-    let result = crate::bindings::pulumi::cloudflare::queue::invoke(name, &crate::bindings::pulumi::cloudflare::queue::Args {
-        account_id: &args.account_id.get_inner(),
-        name: &args.name.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::queue::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::queue::Args {
+                account_id: &args.account_id.get_inner(),
+                name: &args.name.get_inner(),
+        }
+    );
 
     QueueResult {
         account_id: crate::into_domain(result.account_id),

@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl zone_settings_override::Guest for Component {
-    fn invoke(name: String, args: zone_settings_override::Args) -> zone_settings_override::Res {
+    fn invoke(
+        name: String,
+        args: zone_settings_override::Args
+    ) -> zone_settings_override::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/zoneSettingsOverride:ZoneSettingsOverride".into(),

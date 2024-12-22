@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl ipsec_tunnel::Guest for Component {
-    fn invoke(name: String, args: ipsec_tunnel::Args) -> ipsec_tunnel::Res {
+    fn invoke(
+        name: String,
+        args: ipsec_tunnel::Args
+    ) -> ipsec_tunnel::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/ipsecTunnel:IpsecTunnel".into(),

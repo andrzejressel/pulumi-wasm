@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl service_config::Guest for Component {
-    fn invoke(name: String, args: service_config::Args) -> service_config::Res {
+    fn invoke(
+        name: String,
+        args: service_config::Args
+    ) -> service_config::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "docker:index/serviceConfig:ServiceConfig".into(),

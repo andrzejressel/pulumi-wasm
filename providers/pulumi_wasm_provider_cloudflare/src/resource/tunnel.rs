@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl tunnel::Guest for Component {
-    fn invoke(name: String, args: tunnel::Args) -> tunnel::Res {
+    fn invoke(
+        name: String,
+        args: tunnel::Args
+    ) -> tunnel::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/tunnel:Tunnel".into(),

@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl logpull_retention::Guest for Component {
-    fn invoke(name: String, args: logpull_retention::Args) -> logpull_retention::Res {
+    fn invoke(
+        name: String,
+        args: logpull_retention::Args
+    ) -> logpull_retention::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/logpullRetention:LogpullRetention".into(),

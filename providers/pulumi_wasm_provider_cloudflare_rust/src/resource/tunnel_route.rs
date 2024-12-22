@@ -45,15 +45,21 @@ pub struct TunnelRouteResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: TunnelRouteArgs) -> TunnelRouteResult {
+pub fn create(
+    name: &str,
+    args: TunnelRouteArgs
+) -> TunnelRouteResult {
 
-    let result = crate::bindings::pulumi::cloudflare::tunnel_route::invoke(name, &crate::bindings::pulumi::cloudflare::tunnel_route::Args {
-        account_id: &args.account_id.get_inner(),
-        comment: &args.comment.get_inner(),
-        network: &args.network.get_inner(),
-        tunnel_id: &args.tunnel_id.get_inner(),
-        virtual_network_id: &args.virtual_network_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::tunnel_route::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::tunnel_route::Args {
+                account_id: &args.account_id.get_inner(),
+                comment: &args.comment.get_inner(),
+                network: &args.network.get_inner(),
+                tunnel_id: &args.tunnel_id.get_inner(),
+                virtual_network_id: &args.virtual_network_id.get_inner(),
+        }
+    );
 
     TunnelRouteResult {
         account_id: crate::into_domain(result.account_id),

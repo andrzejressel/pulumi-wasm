@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl logpush_ownership_challenge::Guest for Component {
-    fn invoke(name: String, args: logpush_ownership_challenge::Args) -> logpush_ownership_challenge::Res {
+    fn invoke(
+        name: String,
+        args: logpush_ownership_challenge::Args
+    ) -> logpush_ownership_challenge::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/logpushOwnershipChallenge:LogpushOwnershipChallenge".into(),

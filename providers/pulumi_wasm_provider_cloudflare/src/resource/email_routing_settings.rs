@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl email_routing_settings::Guest for Component {
-    fn invoke(name: String, args: email_routing_settings::Args) -> email_routing_settings::Res {
+    fn invoke(
+        name: String,
+        args: email_routing_settings::Args
+    ) -> email_routing_settings::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/emailRoutingSettings:EmailRoutingSettings".into(),

@@ -16,12 +16,18 @@ pub struct NurseryResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: NurseryArgs) -> NurseryResult {
+pub fn create(
+    name: &str,
+    args: NurseryArgs
+) -> NurseryResult {
 
-    let result = crate::bindings::pulumi::plant::tree_v1_nursery::invoke(name, &crate::bindings::pulumi::plant::tree_v1_nursery::Args {
-        sizes: &args.sizes.get_inner(),
-        varieties: &args.varieties.get_inner(),
-    });
+    let result = crate::bindings::pulumi::plant::tree_v1_nursery::invoke(
+        name,
+        &crate::bindings::pulumi::plant::tree_v1_nursery::Args {
+                sizes: &args.sizes.get_inner(),
+                varieties: &args.varieties.get_inner(),
+        }
+    );
 
     NurseryResult {
     }

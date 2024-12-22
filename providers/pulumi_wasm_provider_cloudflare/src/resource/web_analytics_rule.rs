@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl web_analytics_rule::Guest for Component {
-    fn invoke(name: String, args: web_analytics_rule::Args) -> web_analytics_rule::Res {
+    fn invoke(
+        name: String,
+        args: web_analytics_rule::Args
+    ) -> web_analytics_rule::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/webAnalyticsRule:WebAnalyticsRule".into(),

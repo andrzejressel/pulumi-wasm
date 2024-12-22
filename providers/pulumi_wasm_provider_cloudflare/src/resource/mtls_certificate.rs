@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl mtls_certificate::Guest for Component {
-    fn invoke(name: String, args: mtls_certificate::Args) -> mtls_certificate::Res {
+    fn invoke(
+        name: String,
+        args: mtls_certificate::Args
+    ) -> mtls_certificate::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/mtlsCertificate:MtlsCertificate".into(),

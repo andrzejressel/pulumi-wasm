@@ -104,26 +104,32 @@ pub struct AccessPolicyResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: AccessPolicyArgs) -> AccessPolicyResult {
+pub fn create(
+    name: &str,
+    args: AccessPolicyArgs
+) -> AccessPolicyResult {
 
-    let result = crate::bindings::pulumi::cloudflare::access_policy::invoke(name, &crate::bindings::pulumi::cloudflare::access_policy::Args {
-        account_id: &args.account_id.get_inner(),
-        application_id: &args.application_id.get_inner(),
-        approval_groups: &args.approval_groups.get_inner(),
-        approval_required: &args.approval_required.get_inner(),
-        connection_rules: &args.connection_rules.get_inner(),
-        decision: &args.decision.get_inner(),
-        excludes: &args.excludes.get_inner(),
-        includes: &args.includes.get_inner(),
-        isolation_required: &args.isolation_required.get_inner(),
-        name: &args.name.get_inner(),
-        precedence: &args.precedence.get_inner(),
-        purpose_justification_prompt: &args.purpose_justification_prompt.get_inner(),
-        purpose_justification_required: &args.purpose_justification_required.get_inner(),
-        requires: &args.requires.get_inner(),
-        session_duration: &args.session_duration.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::access_policy::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::access_policy::Args {
+                account_id: &args.account_id.get_inner(),
+                application_id: &args.application_id.get_inner(),
+                approval_groups: &args.approval_groups.get_inner(),
+                approval_required: &args.approval_required.get_inner(),
+                connection_rules: &args.connection_rules.get_inner(),
+                decision: &args.decision.get_inner(),
+                excludes: &args.excludes.get_inner(),
+                includes: &args.includes.get_inner(),
+                isolation_required: &args.isolation_required.get_inner(),
+                name: &args.name.get_inner(),
+                precedence: &args.precedence.get_inner(),
+                purpose_justification_prompt: &args.purpose_justification_prompt.get_inner(),
+                purpose_justification_required: &args.purpose_justification_required.get_inner(),
+                requires: &args.requires.get_inner(),
+                session_duration: &args.session_duration.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     AccessPolicyResult {
         account_id: crate::into_domain(result.account_id),

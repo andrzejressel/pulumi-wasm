@@ -39,12 +39,18 @@ pub struct LogpullRetentionResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: LogpullRetentionArgs) -> LogpullRetentionResult {
+pub fn create(
+    name: &str,
+    args: LogpullRetentionArgs
+) -> LogpullRetentionResult {
 
-    let result = crate::bindings::pulumi::cloudflare::logpull_retention::invoke(name, &crate::bindings::pulumi::cloudflare::logpull_retention::Args {
-        enabled: &args.enabled.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::logpull_retention::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::logpull_retention::Args {
+                enabled: &args.enabled.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     LogpullRetentionResult {
         enabled: crate::into_domain(result.enabled),

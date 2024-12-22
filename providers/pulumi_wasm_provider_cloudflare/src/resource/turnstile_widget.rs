@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl turnstile_widget::Guest for Component {
-    fn invoke(name: String, args: turnstile_widget::Args) -> turnstile_widget::Res {
+    fn invoke(
+        name: String,
+        args: turnstile_widget::Args
+    ) -> turnstile_widget::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/turnstileWidget:TurnstileWidget".into(),

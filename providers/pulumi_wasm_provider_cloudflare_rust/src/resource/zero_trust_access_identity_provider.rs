@@ -122,16 +122,22 @@ pub struct ZeroTrustAccessIdentityProviderResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ZeroTrustAccessIdentityProviderArgs) -> ZeroTrustAccessIdentityProviderResult {
+pub fn create(
+    name: &str,
+    args: ZeroTrustAccessIdentityProviderArgs
+) -> ZeroTrustAccessIdentityProviderResult {
 
-    let result = crate::bindings::pulumi::cloudflare::zero_trust_access_identity_provider::invoke(name, &crate::bindings::pulumi::cloudflare::zero_trust_access_identity_provider::Args {
-        account_id: &args.account_id.get_inner(),
-        configs: &args.configs.get_inner(),
-        name: &args.name.get_inner(),
-        scim_configs: &args.scim_configs.get_inner(),
-        type_: &args.type_.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::zero_trust_access_identity_provider::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::zero_trust_access_identity_provider::Args {
+                account_id: &args.account_id.get_inner(),
+                configs: &args.configs.get_inner(),
+                name: &args.name.get_inner(),
+                scim_configs: &args.scim_configs.get_inner(),
+                type_: &args.type_.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     ZeroTrustAccessIdentityProviderResult {
         account_id: crate::into_domain(result.account_id),

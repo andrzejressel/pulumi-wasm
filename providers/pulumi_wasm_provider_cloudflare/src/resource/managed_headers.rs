@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl managed_headers::Guest for Component {
-    fn invoke(name: String, args: managed_headers::Args) -> managed_headers::Res {
+    fn invoke(
+        name: String,
+        args: managed_headers::Args
+    ) -> managed_headers::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/managedHeaders:ManagedHeaders".into(),

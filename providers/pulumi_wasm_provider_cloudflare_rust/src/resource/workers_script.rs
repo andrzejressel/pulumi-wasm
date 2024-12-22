@@ -146,30 +146,36 @@ pub struct WorkersScriptResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: WorkersScriptArgs) -> WorkersScriptResult {
+pub fn create(
+    name: &str,
+    args: WorkersScriptArgs
+) -> WorkersScriptResult {
 
-    let result = crate::bindings::pulumi::cloudflare::workers_script::invoke(name, &crate::bindings::pulumi::cloudflare::workers_script::Args {
-        account_id: &args.account_id.get_inner(),
-        analytics_engine_bindings: &args.analytics_engine_bindings.get_inner(),
-        compatibility_date: &args.compatibility_date.get_inner(),
-        compatibility_flags: &args.compatibility_flags.get_inner(),
-        content: &args.content.get_inner(),
-        d1_database_bindings: &args.d1_database_bindings.get_inner(),
-        dispatch_namespace: &args.dispatch_namespace.get_inner(),
-        hyperdrive_config_bindings: &args.hyperdrive_config_bindings.get_inner(),
-        kv_namespace_bindings: &args.kv_namespace_bindings.get_inner(),
-        logpush: &args.logpush.get_inner(),
-        module: &args.module.get_inner(),
-        name: &args.name.get_inner(),
-        placements: &args.placements.get_inner(),
-        plain_text_bindings: &args.plain_text_bindings.get_inner(),
-        queue_bindings: &args.queue_bindings.get_inner(),
-        r2_bucket_bindings: &args.r2_bucket_bindings.get_inner(),
-        secret_text_bindings: &args.secret_text_bindings.get_inner(),
-        service_bindings: &args.service_bindings.get_inner(),
-        tags: &args.tags.get_inner(),
-        webassembly_bindings: &args.webassembly_bindings.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::workers_script::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::workers_script::Args {
+                account_id: &args.account_id.get_inner(),
+                analytics_engine_bindings: &args.analytics_engine_bindings.get_inner(),
+                compatibility_date: &args.compatibility_date.get_inner(),
+                compatibility_flags: &args.compatibility_flags.get_inner(),
+                content: &args.content.get_inner(),
+                d1_database_bindings: &args.d1_database_bindings.get_inner(),
+                dispatch_namespace: &args.dispatch_namespace.get_inner(),
+                hyperdrive_config_bindings: &args.hyperdrive_config_bindings.get_inner(),
+                kv_namespace_bindings: &args.kv_namespace_bindings.get_inner(),
+                logpush: &args.logpush.get_inner(),
+                module: &args.module.get_inner(),
+                name: &args.name.get_inner(),
+                placements: &args.placements.get_inner(),
+                plain_text_bindings: &args.plain_text_bindings.get_inner(),
+                queue_bindings: &args.queue_bindings.get_inner(),
+                r2_bucket_bindings: &args.r2_bucket_bindings.get_inner(),
+                secret_text_bindings: &args.secret_text_bindings.get_inner(),
+                service_bindings: &args.service_bindings.get_inner(),
+                tags: &args.tags.get_inner(),
+                webassembly_bindings: &args.webassembly_bindings.get_inner(),
+        }
+    );
 
     WorkersScriptResult {
         account_id: crate::into_domain(result.account_id),

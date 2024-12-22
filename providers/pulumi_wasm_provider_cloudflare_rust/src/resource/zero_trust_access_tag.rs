@@ -32,14 +32,20 @@ pub struct ZeroTrustAccessTagResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ZeroTrustAccessTagArgs) -> ZeroTrustAccessTagResult {
+pub fn create(
+    name: &str,
+    args: ZeroTrustAccessTagArgs
+) -> ZeroTrustAccessTagResult {
 
-    let result = crate::bindings::pulumi::cloudflare::zero_trust_access_tag::invoke(name, &crate::bindings::pulumi::cloudflare::zero_trust_access_tag::Args {
-        account_id: &args.account_id.get_inner(),
-        app_count: &args.app_count.get_inner(),
-        name: &args.name.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::zero_trust_access_tag::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::zero_trust_access_tag::Args {
+                account_id: &args.account_id.get_inner(),
+                app_count: &args.app_count.get_inner(),
+                name: &args.name.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     ZeroTrustAccessTagResult {
         account_id: crate::into_domain(result.account_id),

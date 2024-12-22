@@ -184,15 +184,21 @@ pub struct ImageResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ImageArgs) -> ImageResult {
+pub fn create(
+    name: &str,
+    args: ImageArgs
+) -> ImageResult {
 
-    let result = crate::bindings::pulumi::docker::image::invoke(name, &crate::bindings::pulumi::docker::image::Args {
-        build: &args.build.get_inner(),
-        build_on_preview: &args.build_on_preview.get_inner(),
-        image_name: &args.image_name.get_inner(),
-        registry: &args.registry.get_inner(),
-        skip_push: &args.skip_push.get_inner(),
-    });
+    let result = crate::bindings::pulumi::docker::image::invoke(
+        name,
+        &crate::bindings::pulumi::docker::image::Args {
+                build: &args.build.get_inner(),
+                build_on_preview: &args.build_on_preview.get_inner(),
+                image_name: &args.image_name.get_inner(),
+                registry: &args.registry.get_inner(),
+                skip_push: &args.skip_push.get_inner(),
+        }
+    );
 
     ImageResult {
         base_image_name: crate::into_domain(result.base_image_name),

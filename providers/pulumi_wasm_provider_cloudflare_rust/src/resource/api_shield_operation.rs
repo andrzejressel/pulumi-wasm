@@ -50,14 +50,20 @@ pub struct ApiShieldOperationResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ApiShieldOperationArgs) -> ApiShieldOperationResult {
+pub fn create(
+    name: &str,
+    args: ApiShieldOperationArgs
+) -> ApiShieldOperationResult {
 
-    let result = crate::bindings::pulumi::cloudflare::api_shield_operation::invoke(name, &crate::bindings::pulumi::cloudflare::api_shield_operation::Args {
-        endpoint: &args.endpoint.get_inner(),
-        host: &args.host.get_inner(),
-        method: &args.method.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::api_shield_operation::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::api_shield_operation::Args {
+                endpoint: &args.endpoint.get_inner(),
+                host: &args.host.get_inner(),
+                method: &args.method.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     ApiShieldOperationResult {
         endpoint: crate::into_domain(result.endpoint),

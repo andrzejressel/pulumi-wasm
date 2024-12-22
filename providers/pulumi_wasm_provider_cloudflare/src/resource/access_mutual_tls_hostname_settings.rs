@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl access_mutual_tls_hostname_settings::Guest for Component {
-    fn invoke(name: String, args: access_mutual_tls_hostname_settings::Args) -> access_mutual_tls_hostname_settings::Res {
+    fn invoke(
+        name: String,
+        args: access_mutual_tls_hostname_settings::Args
+    ) -> access_mutual_tls_hostname_settings::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/accessMutualTlsHostnameSettings:AccessMutualTlsHostnameSettings".into(),

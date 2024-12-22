@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl workers_for_platforms_dispatch_namespace::Guest for Component {
-    fn invoke(name: String, args: workers_for_platforms_dispatch_namespace::Args) -> workers_for_platforms_dispatch_namespace::Res {
+    fn invoke(
+        name: String,
+        args: workers_for_platforms_dispatch_namespace::Args
+    ) -> workers_for_platforms_dispatch_namespace::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/workersForPlatformsDispatchNamespace:WorkersForPlatformsDispatchNamespace".into(),

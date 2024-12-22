@@ -76,17 +76,23 @@ pub struct TurnstileWidgetResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: TurnstileWidgetArgs) -> TurnstileWidgetResult {
+pub fn create(
+    name: &str,
+    args: TurnstileWidgetArgs
+) -> TurnstileWidgetResult {
 
-    let result = crate::bindings::pulumi::cloudflare::turnstile_widget::invoke(name, &crate::bindings::pulumi::cloudflare::turnstile_widget::Args {
-        account_id: &args.account_id.get_inner(),
-        bot_fight_mode: &args.bot_fight_mode.get_inner(),
-        domains: &args.domains.get_inner(),
-        mode: &args.mode.get_inner(),
-        name: &args.name.get_inner(),
-        offlabel: &args.offlabel.get_inner(),
-        region: &args.region.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::turnstile_widget::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::turnstile_widget::Args {
+                account_id: &args.account_id.get_inner(),
+                bot_fight_mode: &args.bot_fight_mode.get_inner(),
+                domains: &args.domains.get_inner(),
+                mode: &args.mode.get_inner(),
+                name: &args.name.get_inner(),
+                offlabel: &args.offlabel.get_inner(),
+                region: &args.region.get_inner(),
+        }
+    );
 
     TurnstileWidgetResult {
         account_id: crate::into_domain(result.account_id),

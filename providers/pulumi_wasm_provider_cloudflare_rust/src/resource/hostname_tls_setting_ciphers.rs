@@ -58,14 +58,20 @@ pub struct HostnameTlsSettingCiphersResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: HostnameTlsSettingCiphersArgs) -> HostnameTlsSettingCiphersResult {
+pub fn create(
+    name: &str,
+    args: HostnameTlsSettingCiphersArgs
+) -> HostnameTlsSettingCiphersResult {
 
-    let result = crate::bindings::pulumi::cloudflare::hostname_tls_setting_ciphers::invoke(name, &crate::bindings::pulumi::cloudflare::hostname_tls_setting_ciphers::Args {
-        hostname: &args.hostname.get_inner(),
-        ports: &args.ports.get_inner(),
-        values: &args.values.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::hostname_tls_setting_ciphers::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::hostname_tls_setting_ciphers::Args {
+                hostname: &args.hostname.get_inner(),
+                ports: &args.ports.get_inner(),
+                values: &args.values.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     HostnameTlsSettingCiphersResult {
         created_at: crate::into_domain(result.created_at),

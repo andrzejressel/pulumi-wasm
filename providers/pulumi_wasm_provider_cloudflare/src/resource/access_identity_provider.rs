@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl access_identity_provider::Guest for Component {
-    fn invoke(name: String, args: access_identity_provider::Args) -> access_identity_provider::Res {
+    fn invoke(
+        name: String,
+        args: access_identity_provider::Args
+    ) -> access_identity_provider::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/accessIdentityProvider:AccessIdentityProvider".into(),

@@ -79,15 +79,21 @@ pub struct TeamsLocationResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: TeamsLocationArgs) -> TeamsLocationResult {
+pub fn create(
+    name: &str,
+    args: TeamsLocationArgs
+) -> TeamsLocationResult {
 
-    let result = crate::bindings::pulumi::cloudflare::teams_location::invoke(name, &crate::bindings::pulumi::cloudflare::teams_location::Args {
-        account_id: &args.account_id.get_inner(),
-        client_default: &args.client_default.get_inner(),
-        ecs_support: &args.ecs_support.get_inner(),
-        name: &args.name.get_inner(),
-        networks: &args.networks.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::teams_location::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::teams_location::Args {
+                account_id: &args.account_id.get_inner(),
+                client_default: &args.client_default.get_inner(),
+                ecs_support: &args.ecs_support.get_inner(),
+                name: &args.name.get_inner(),
+                networks: &args.networks.get_inner(),
+        }
+    );
 
     TeamsLocationResult {
         account_id: crate::into_domain(result.account_id),

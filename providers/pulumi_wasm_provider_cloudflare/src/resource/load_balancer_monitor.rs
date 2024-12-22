@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl load_balancer_monitor::Guest for Component {
-    fn invoke(name: String, args: load_balancer_monitor::Args) -> load_balancer_monitor::Res {
+    fn invoke(
+        name: String,
+        args: load_balancer_monitor::Args
+    ) -> load_balancer_monitor::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/loadBalancerMonitor:LoadBalancerMonitor".into(),

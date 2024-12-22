@@ -121,18 +121,24 @@ pub struct ZeroTrustDlpProfileResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ZeroTrustDlpProfileArgs) -> ZeroTrustDlpProfileResult {
+pub fn create(
+    name: &str,
+    args: ZeroTrustDlpProfileArgs
+) -> ZeroTrustDlpProfileResult {
 
-    let result = crate::bindings::pulumi::cloudflare::zero_trust_dlp_profile::invoke(name, &crate::bindings::pulumi::cloudflare::zero_trust_dlp_profile::Args {
-        account_id: &args.account_id.get_inner(),
-        allowed_match_count: &args.allowed_match_count.get_inner(),
-        context_awareness: &args.context_awareness.get_inner(),
-        description: &args.description.get_inner(),
-        entries: &args.entries.get_inner(),
-        name: &args.name.get_inner(),
-        ocr_enabled: &args.ocr_enabled.get_inner(),
-        type_: &args.type_.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::zero_trust_dlp_profile::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::zero_trust_dlp_profile::Args {
+                account_id: &args.account_id.get_inner(),
+                allowed_match_count: &args.allowed_match_count.get_inner(),
+                context_awareness: &args.context_awareness.get_inner(),
+                description: &args.description.get_inner(),
+                entries: &args.entries.get_inner(),
+                name: &args.name.get_inner(),
+                ocr_enabled: &args.ocr_enabled.get_inner(),
+                type_: &args.type_.get_inner(),
+        }
+    );
 
     ZeroTrustDlpProfileResult {
         account_id: crate::into_domain(result.account_id),

@@ -58,14 +58,20 @@ pub struct ByoIpPrefixResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ByoIpPrefixArgs) -> ByoIpPrefixResult {
+pub fn create(
+    name: &str,
+    args: ByoIpPrefixArgs
+) -> ByoIpPrefixResult {
 
-    let result = crate::bindings::pulumi::cloudflare::byo_ip_prefix::invoke(name, &crate::bindings::pulumi::cloudflare::byo_ip_prefix::Args {
-        account_id: &args.account_id.get_inner(),
-        advertisement: &args.advertisement.get_inner(),
-        description: &args.description.get_inner(),
-        prefix_id: &args.prefix_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::byo_ip_prefix::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::byo_ip_prefix::Args {
+                account_id: &args.account_id.get_inner(),
+                advertisement: &args.advertisement.get_inner(),
+                description: &args.description.get_inner(),
+                prefix_id: &args.prefix_id.get_inner(),
+        }
+    );
 
     ByoIpPrefixResult {
         account_id: crate::into_domain(result.account_id),

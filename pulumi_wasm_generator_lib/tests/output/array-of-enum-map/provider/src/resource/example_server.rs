@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl example_server::Guest for Component {
-    fn invoke(name: String, args: example_server::Args) -> example_server::Res {
+    fn invoke(
+        name: String,
+        args: example_server::Args
+    ) -> example_server::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "example:index:ExampleServer".into(),

@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl logpush_job::Guest for Component {
-    fn invoke(name: String, args: logpush_job::Args) -> logpush_job::Res {
+    fn invoke(
+        name: String,
+        args: logpush_job::Args
+    ) -> logpush_job::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/logpushJob:LogpushJob".into(),

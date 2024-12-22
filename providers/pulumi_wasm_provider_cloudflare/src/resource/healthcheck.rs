@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl healthcheck::Guest for Component {
-    fn invoke(name: String, args: healthcheck::Args) -> healthcheck::Res {
+    fn invoke(
+        name: String,
+        args: healthcheck::Args
+    ) -> healthcheck::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/healthcheck:Healthcheck".into(),

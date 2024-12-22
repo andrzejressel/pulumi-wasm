@@ -184,29 +184,35 @@ pub struct LoadBalancerResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: LoadBalancerArgs) -> LoadBalancerResult {
+pub fn create(
+    name: &str,
+    args: LoadBalancerArgs
+) -> LoadBalancerResult {
 
-    let result = crate::bindings::pulumi::cloudflare::load_balancer::invoke(name, &crate::bindings::pulumi::cloudflare::load_balancer::Args {
-        adaptive_routings: &args.adaptive_routings.get_inner(),
-        country_pools: &args.country_pools.get_inner(),
-        default_pool_ids: &args.default_pool_ids.get_inner(),
-        description: &args.description.get_inner(),
-        enabled: &args.enabled.get_inner(),
-        fallback_pool_id: &args.fallback_pool_id.get_inner(),
-        location_strategies: &args.location_strategies.get_inner(),
-        name: &args.name.get_inner(),
-        pop_pools: &args.pop_pools.get_inner(),
-        proxied: &args.proxied.get_inner(),
-        random_steerings: &args.random_steerings.get_inner(),
-        region_pools: &args.region_pools.get_inner(),
-        rules: &args.rules.get_inner(),
-        session_affinity: &args.session_affinity.get_inner(),
-        session_affinity_attributes: &args.session_affinity_attributes.get_inner(),
-        session_affinity_ttl: &args.session_affinity_ttl.get_inner(),
-        steering_policy: &args.steering_policy.get_inner(),
-        ttl: &args.ttl.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::load_balancer::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::load_balancer::Args {
+                adaptive_routings: &args.adaptive_routings.get_inner(),
+                country_pools: &args.country_pools.get_inner(),
+                default_pool_ids: &args.default_pool_ids.get_inner(),
+                description: &args.description.get_inner(),
+                enabled: &args.enabled.get_inner(),
+                fallback_pool_id: &args.fallback_pool_id.get_inner(),
+                location_strategies: &args.location_strategies.get_inner(),
+                name: &args.name.get_inner(),
+                pop_pools: &args.pop_pools.get_inner(),
+                proxied: &args.proxied.get_inner(),
+                random_steerings: &args.random_steerings.get_inner(),
+                region_pools: &args.region_pools.get_inner(),
+                rules: &args.rules.get_inner(),
+                session_affinity: &args.session_affinity.get_inner(),
+                session_affinity_attributes: &args.session_affinity_attributes.get_inner(),
+                session_affinity_ttl: &args.session_affinity_ttl.get_inner(),
+                steering_policy: &args.steering_policy.get_inner(),
+                ttl: &args.ttl.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     LoadBalancerResult {
         adaptive_routings: crate::into_domain(result.adaptive_routings),

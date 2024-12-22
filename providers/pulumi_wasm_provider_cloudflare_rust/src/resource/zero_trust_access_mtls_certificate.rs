@@ -81,15 +81,21 @@ pub struct ZeroTrustAccessMtlsCertificateResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ZeroTrustAccessMtlsCertificateArgs) -> ZeroTrustAccessMtlsCertificateResult {
+pub fn create(
+    name: &str,
+    args: ZeroTrustAccessMtlsCertificateArgs
+) -> ZeroTrustAccessMtlsCertificateResult {
 
-    let result = crate::bindings::pulumi::cloudflare::zero_trust_access_mtls_certificate::invoke(name, &crate::bindings::pulumi::cloudflare::zero_trust_access_mtls_certificate::Args {
-        account_id: &args.account_id.get_inner(),
-        associated_hostnames: &args.associated_hostnames.get_inner(),
-        certificate: &args.certificate.get_inner(),
-        name: &args.name.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::zero_trust_access_mtls_certificate::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::zero_trust_access_mtls_certificate::Args {
+                account_id: &args.account_id.get_inner(),
+                associated_hostnames: &args.associated_hostnames.get_inner(),
+                certificate: &args.certificate.get_inner(),
+                name: &args.name.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     ZeroTrustAccessMtlsCertificateResult {
         account_id: crate::into_domain(result.account_id),

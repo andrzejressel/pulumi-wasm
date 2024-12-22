@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl random_integer::Guest for Component {
-    fn invoke(name: String, args: random_integer::Args) -> random_integer::Res {
+    fn invoke(
+        name: String,
+        args: random_integer::Args
+    ) -> random_integer::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "random:index/randomInteger:RandomInteger".into(),

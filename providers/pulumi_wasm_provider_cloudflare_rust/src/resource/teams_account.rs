@@ -186,27 +186,33 @@ pub struct TeamsAccountResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: TeamsAccountArgs) -> TeamsAccountResult {
+pub fn create(
+    name: &str,
+    args: TeamsAccountArgs
+) -> TeamsAccountResult {
 
-    let result = crate::bindings::pulumi::cloudflare::teams_account::invoke(name, &crate::bindings::pulumi::cloudflare::teams_account::Args {
-        account_id: &args.account_id.get_inner(),
-        activity_log_enabled: &args.activity_log_enabled.get_inner(),
-        antivirus: &args.antivirus.get_inner(),
-        block_page: &args.block_page.get_inner(),
-        body_scanning: &args.body_scanning.get_inner(),
-        certificate: &args.certificate.get_inner(),
-        custom_certificate: &args.custom_certificate.get_inner(),
-        extended_email_matching: &args.extended_email_matching.get_inner(),
-        fips: &args.fips.get_inner(),
-        logging: &args.logging.get_inner(),
-        non_identity_browser_isolation_enabled: &args.non_identity_browser_isolation_enabled.get_inner(),
-        payload_log: &args.payload_log.get_inner(),
-        protocol_detection_enabled: &args.protocol_detection_enabled.get_inner(),
-        proxy: &args.proxy.get_inner(),
-        ssh_session_log: &args.ssh_session_log.get_inner(),
-        tls_decrypt_enabled: &args.tls_decrypt_enabled.get_inner(),
-        url_browser_isolation_enabled: &args.url_browser_isolation_enabled.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::teams_account::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::teams_account::Args {
+                account_id: &args.account_id.get_inner(),
+                activity_log_enabled: &args.activity_log_enabled.get_inner(),
+                antivirus: &args.antivirus.get_inner(),
+                block_page: &args.block_page.get_inner(),
+                body_scanning: &args.body_scanning.get_inner(),
+                certificate: &args.certificate.get_inner(),
+                custom_certificate: &args.custom_certificate.get_inner(),
+                extended_email_matching: &args.extended_email_matching.get_inner(),
+                fips: &args.fips.get_inner(),
+                logging: &args.logging.get_inner(),
+                non_identity_browser_isolation_enabled: &args.non_identity_browser_isolation_enabled.get_inner(),
+                payload_log: &args.payload_log.get_inner(),
+                protocol_detection_enabled: &args.protocol_detection_enabled.get_inner(),
+                proxy: &args.proxy.get_inner(),
+                ssh_session_log: &args.ssh_session_log.get_inner(),
+                tls_decrypt_enabled: &args.tls_decrypt_enabled.get_inner(),
+                url_browser_isolation_enabled: &args.url_browser_isolation_enabled.get_inner(),
+        }
+    );
 
     TeamsAccountResult {
         account_id: crate::into_domain(result.account_id),

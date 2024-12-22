@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl tree_v1_nursery::Guest for Component {
-    fn invoke(name: String, args: tree_v1_nursery::Args) {
+    fn invoke(
+        name: String,
+        args: tree_v1_nursery::Args
+    ) {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "plant:tree/v1:Nursery".into(),

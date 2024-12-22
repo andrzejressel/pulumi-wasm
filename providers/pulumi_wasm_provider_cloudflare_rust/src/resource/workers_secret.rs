@@ -57,14 +57,20 @@ pub struct WorkersSecretResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: WorkersSecretArgs) -> WorkersSecretResult {
+pub fn create(
+    name: &str,
+    args: WorkersSecretArgs
+) -> WorkersSecretResult {
 
-    let result = crate::bindings::pulumi::cloudflare::workers_secret::invoke(name, &crate::bindings::pulumi::cloudflare::workers_secret::Args {
-        account_id: &args.account_id.get_inner(),
-        name: &args.name.get_inner(),
-        script_name: &args.script_name.get_inner(),
-        secret_text: &args.secret_text.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::workers_secret::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::workers_secret::Args {
+                account_id: &args.account_id.get_inner(),
+                name: &args.name.get_inner(),
+                script_name: &args.script_name.get_inner(),
+                secret_text: &args.secret_text.get_inner(),
+        }
+    );
 
     WorkersSecretResult {
         account_id: crate::into_domain(result.account_id),

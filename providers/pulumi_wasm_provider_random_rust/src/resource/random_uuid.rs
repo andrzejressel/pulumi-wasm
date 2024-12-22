@@ -42,11 +42,17 @@ pub struct RandomUuidResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: RandomUuidArgs) -> RandomUuidResult {
+pub fn create(
+    name: &str,
+    args: RandomUuidArgs
+) -> RandomUuidResult {
 
-    let result = crate::bindings::pulumi::random::random_uuid::invoke(name, &crate::bindings::pulumi::random::random_uuid::Args {
-        keepers: &args.keepers.get_inner(),
-    });
+    let result = crate::bindings::pulumi::random::random_uuid::invoke(
+        name,
+        &crate::bindings::pulumi::random::random_uuid::Args {
+                keepers: &args.keepers.get_inner(),
+        }
+    );
 
     RandomUuidResult {
         keepers: crate::into_domain(result.keepers),

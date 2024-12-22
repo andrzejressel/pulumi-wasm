@@ -116,19 +116,25 @@ pub struct ServiceResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ServiceArgs) -> ServiceResult {
+pub fn create(
+    name: &str,
+    args: ServiceArgs
+) -> ServiceResult {
 
-    let result = crate::bindings::pulumi::docker::service::invoke(name, &crate::bindings::pulumi::docker::service::Args {
-        auth: &args.auth.get_inner(),
-        converge_config: &args.converge_config.get_inner(),
-        endpoint_spec: &args.endpoint_spec.get_inner(),
-        labels: &args.labels.get_inner(),
-        mode: &args.mode.get_inner(),
-        name: &args.name.get_inner(),
-        rollback_config: &args.rollback_config.get_inner(),
-        task_spec: &args.task_spec.get_inner(),
-        update_config: &args.update_config.get_inner(),
-    });
+    let result = crate::bindings::pulumi::docker::service::invoke(
+        name,
+        &crate::bindings::pulumi::docker::service::Args {
+                auth: &args.auth.get_inner(),
+                converge_config: &args.converge_config.get_inner(),
+                endpoint_spec: &args.endpoint_spec.get_inner(),
+                labels: &args.labels.get_inner(),
+                mode: &args.mode.get_inner(),
+                name: &args.name.get_inner(),
+                rollback_config: &args.rollback_config.get_inner(),
+                task_spec: &args.task_spec.get_inner(),
+                update_config: &args.update_config.get_inner(),
+        }
+    );
 
     ServiceResult {
         auth: crate::into_domain(result.auth),

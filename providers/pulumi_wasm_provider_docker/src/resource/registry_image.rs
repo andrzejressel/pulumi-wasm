@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl registry_image::Guest for Component {
-    fn invoke(name: String, args: registry_image::Args) -> registry_image::Res {
+    fn invoke(
+        name: String,
+        args: registry_image::Args
+    ) -> registry_image::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "docker:index/registryImage:RegistryImage".into(),

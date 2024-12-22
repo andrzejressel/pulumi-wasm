@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl access_policy::Guest for Component {
-    fn invoke(name: String, args: access_policy::Args) -> access_policy::Res {
+    fn invoke(
+        name: String,
+        args: access_policy::Args
+    ) -> access_policy::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/accessPolicy:AccessPolicy".into(),

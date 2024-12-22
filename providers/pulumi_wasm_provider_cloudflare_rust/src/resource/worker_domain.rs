@@ -62,15 +62,21 @@ pub struct WorkerDomainResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: WorkerDomainArgs) -> WorkerDomainResult {
+pub fn create(
+    name: &str,
+    args: WorkerDomainArgs
+) -> WorkerDomainResult {
 
-    let result = crate::bindings::pulumi::cloudflare::worker_domain::invoke(name, &crate::bindings::pulumi::cloudflare::worker_domain::Args {
-        account_id: &args.account_id.get_inner(),
-        environment: &args.environment.get_inner(),
-        hostname: &args.hostname.get_inner(),
-        service: &args.service.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::worker_domain::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::worker_domain::Args {
+                account_id: &args.account_id.get_inner(),
+                environment: &args.environment.get_inner(),
+                hostname: &args.hostname.get_inner(),
+                service: &args.service.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     WorkerDomainResult {
         account_id: crate::into_domain(result.account_id),

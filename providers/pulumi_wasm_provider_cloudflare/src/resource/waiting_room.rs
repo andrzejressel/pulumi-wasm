@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl waiting_room::Guest for Component {
-    fn invoke(name: String, args: waiting_room::Args) -> waiting_room::Res {
+    fn invoke(
+        name: String,
+        args: waiting_room::Args
+    ) -> waiting_room::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/waitingRoom:WaitingRoom".into(),

@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl nested_module_resource::Guest for Component {
-    fn invoke(name: String, args: nested_module_resource::Args) -> nested_module_resource::Res {
+    fn invoke(
+        name: String,
+        args: nested_module_resource::Args
+    ) -> nested_module_resource::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "foo:nested/module:Resource".into(),

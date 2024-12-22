@@ -3,8 +3,6 @@ use convert_case::{Case, Casing};
 use handlebars::Handlebars;
 use serde::Serialize;
 use serde_json::json;
-use std::collections::HashMap;
-use std::path::PathBuf;
 
 static TEMPLATE: &str = include_str!("function_code.rs.handlebars");
 

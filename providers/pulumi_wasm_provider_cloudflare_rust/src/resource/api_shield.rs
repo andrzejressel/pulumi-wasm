@@ -43,12 +43,18 @@ pub struct ApiShieldResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ApiShieldArgs) -> ApiShieldResult {
+pub fn create(
+    name: &str,
+    args: ApiShieldArgs
+) -> ApiShieldResult {
 
-    let result = crate::bindings::pulumi::cloudflare::api_shield::invoke(name, &crate::bindings::pulumi::cloudflare::api_shield::Args {
-        auth_id_characteristics: &args.auth_id_characteristics.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::api_shield::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::api_shield::Args {
+                auth_id_characteristics: &args.auth_id_characteristics.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     ApiShieldResult {
         auth_id_characteristics: crate::into_domain(result.auth_id_characteristics),

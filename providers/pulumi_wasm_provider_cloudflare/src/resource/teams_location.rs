@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl teams_location::Guest for Component {
-    fn invoke(name: String, args: teams_location::Args) -> teams_location::Res {
+    fn invoke(
+        name: String,
+        args: teams_location::Args
+    ) -> teams_location::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/teamsLocation:TeamsLocation".into(),

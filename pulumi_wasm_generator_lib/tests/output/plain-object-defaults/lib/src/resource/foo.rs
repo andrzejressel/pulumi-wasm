@@ -24,14 +24,20 @@ pub struct FooResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: FooArgs) -> FooResult {
+pub fn create(
+    name: &str,
+    args: FooArgs
+) -> FooResult {
 
-    let result = crate::bindings::pulumi::example::foo::invoke(name, &crate::bindings::pulumi::example::foo::Args {
-        argument: &args.argument.get_inner(),
-        backup_kube_client_settings: &args.backup_kube_client_settings.get_inner(),
-        kube_client_settings: &args.kube_client_settings.get_inner(),
-        settings: &args.settings.get_inner(),
-    });
+    let result = crate::bindings::pulumi::example::foo::invoke(
+        name,
+        &crate::bindings::pulumi::example::foo::Args {
+                argument: &args.argument.get_inner(),
+                backup_kube_client_settings: &args.backup_kube_client_settings.get_inner(),
+                kube_client_settings: &args.kube_client_settings.get_inner(),
+                settings: &args.settings.get_inner(),
+        }
+    );
 
     FooResult {
         default_kube_client_settings: crate::into_domain(result.default_kube_client_settings),

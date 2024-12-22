@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl deeply_nested_module_resource::Guest for Component {
-    fn invoke(name: String, args: deeply_nested_module_resource::Args) -> deeply_nested_module_resource::Res {
+    fn invoke(
+        name: String,
+        args: deeply_nested_module_resource::Args
+    ) -> deeply_nested_module_resource::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "foo-bar:deeply/nested/module:Resource".into(),

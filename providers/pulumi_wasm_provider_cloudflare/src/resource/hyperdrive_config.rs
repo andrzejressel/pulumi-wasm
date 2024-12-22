@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl hyperdrive_config::Guest for Component {
-    fn invoke(name: String, args: hyperdrive_config::Args) -> hyperdrive_config::Res {
+    fn invoke(
+        name: String,
+        args: hyperdrive_config::Args
+    ) -> hyperdrive_config::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/hyperdriveConfig:HyperdriveConfig".into(),

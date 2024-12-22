@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl url_normalization_settings::Guest for Component {
-    fn invoke(name: String, args: url_normalization_settings::Args) -> url_normalization_settings::Res {
+    fn invoke(
+        name: String,
+        args: url_normalization_settings::Args
+    ) -> url_normalization_settings::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/urlNormalizationSettings:UrlNormalizationSettings".into(),

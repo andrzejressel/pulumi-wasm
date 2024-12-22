@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl hostname_tls_setting_ciphers::Guest for Component {
-    fn invoke(name: String, args: hostname_tls_setting_ciphers::Args) -> hostname_tls_setting_ciphers::Res {
+    fn invoke(
+        name: String,
+        args: hostname_tls_setting_ciphers::Args
+    ) -> hostname_tls_setting_ciphers::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/hostnameTlsSettingCiphers:HostnameTlsSettingCiphers".into(),

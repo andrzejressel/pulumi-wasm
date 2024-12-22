@@ -1,0 +1,26 @@
+package pulumi:azure-native@0.0.1--0.0.0-DEV;
+
+world azure-native-pulumi {
+    import component:pulumi-wasm/register-interface@0.0.0-DEV;
+    export documentdb-sql-resource-sql-container;
+}
+
+world azure-native-pulumi-client {
+    import documentdb-sql-resource-sql-container;
+}
+
+interface documentdb-sql-resource-sql-container {
+
+    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+
+
+    record res {
+        %resource: output,
+    }
+
+    invoke: func(
+        name: string,
+    ) -> res;
+
+}
+

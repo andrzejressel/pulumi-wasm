@@ -15,6 +15,11 @@ fn array_of_enum_map() -> Result<()> {
 }
 
 #[test]
+fn azure_native_nested_types() -> Result<()> {
+    run_pulumi_generator_test("azure-native-nested-types")
+}
+
+#[test]
 fn cyclic_types() -> Result<()> {
     run_pulumi_generator_test("cyclic-types")
 }

@@ -70,16 +70,22 @@ pub struct ZeroTrustListResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ZeroTrustListArgs) -> ZeroTrustListResult {
+pub fn create(
+    name: &str,
+    args: ZeroTrustListArgs
+) -> ZeroTrustListResult {
 
-    let result = crate::bindings::pulumi::cloudflare::zero_trust_list::invoke(name, &crate::bindings::pulumi::cloudflare::zero_trust_list::Args {
-        account_id: &args.account_id.get_inner(),
-        description: &args.description.get_inner(),
-        items: &args.items.get_inner(),
-        items_with_descriptions: &args.items_with_descriptions.get_inner(),
-        name: &args.name.get_inner(),
-        type_: &args.type_.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::zero_trust_list::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::zero_trust_list::Args {
+                account_id: &args.account_id.get_inner(),
+                description: &args.description.get_inner(),
+                items: &args.items.get_inner(),
+                items_with_descriptions: &args.items_with_descriptions.get_inner(),
+                name: &args.name.get_inner(),
+                type_: &args.type_.get_inner(),
+        }
+    );
 
     ZeroTrustListResult {
         account_id: crate::into_domain(result.account_id),

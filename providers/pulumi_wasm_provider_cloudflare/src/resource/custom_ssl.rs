@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl custom_ssl::Guest for Component {
-    fn invoke(name: String, args: custom_ssl::Args) -> custom_ssl::Res {
+    fn invoke(
+        name: String,
+        args: custom_ssl::Args
+    ) -> custom_ssl::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/customSsl:CustomSsl".into(),

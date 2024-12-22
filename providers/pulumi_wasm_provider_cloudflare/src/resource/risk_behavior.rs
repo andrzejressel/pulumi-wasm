@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl risk_behavior::Guest for Component {
-    fn invoke(name: String, args: risk_behavior::Args) -> risk_behavior::Res {
+    fn invoke(
+        name: String,
+        args: risk_behavior::Args
+    ) -> risk_behavior::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/riskBehavior:RiskBehavior".into(),

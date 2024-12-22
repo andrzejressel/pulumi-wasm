@@ -24,7 +24,7 @@ fn main() {
     ];
     let tests = vec![
         "array-of-enum-map",
-        // "azure-native-nested-types",
+        "azure-native-nested-types",
         "cyclic-types",
         "different-enum",
         "functions-secrets",

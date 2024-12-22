@@ -4,7 +4,12 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl {{interface.name}}::Guest for Component {
-    fn invoke(name: String, args: {{interface.name}}::Args){{#if interface.output_properties}} -> {{interface.name}}::Res{{/if}} {
+    fn invoke(
+        name: String,
+{{#if interface.input_properties}}
+        args: {{interface.name}}::Args
+{{/if}}
+    ){{#if interface.output_properties}} -> {{interface.name}}::Res{{/if}} {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "{{interface.type}}".into(),

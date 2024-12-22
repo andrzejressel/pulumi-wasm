@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl web3_hostname::Guest for Component {
-    fn invoke(name: String, args: web3_hostname::Args) -> web3_hostname::Res {
+    fn invoke(
+        name: String,
+        args: web3_hostname::Args
+    ) -> web3_hostname::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/web3Hostname:Web3Hostname".into(),

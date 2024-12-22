@@ -60,12 +60,18 @@ pub struct ServiceConfigResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ServiceConfigArgs) -> ServiceConfigResult {
+pub fn create(
+    name: &str,
+    args: ServiceConfigArgs
+) -> ServiceConfigResult {
 
-    let result = crate::bindings::pulumi::docker::service_config::invoke(name, &crate::bindings::pulumi::docker::service_config::Args {
-        data: &args.data.get_inner(),
-        name: &args.name.get_inner(),
-    });
+    let result = crate::bindings::pulumi::docker::service_config::invoke(
+        name,
+        &crate::bindings::pulumi::docker::service_config::Args {
+                data: &args.data.get_inner(),
+                name: &args.name.get_inner(),
+        }
+    );
 
     ServiceConfigResult {
         data: crate::into_domain(result.data),

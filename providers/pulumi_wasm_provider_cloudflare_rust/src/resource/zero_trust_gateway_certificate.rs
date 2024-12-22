@@ -45,15 +45,21 @@ pub struct ZeroTrustGatewayCertificateResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ZeroTrustGatewayCertificateArgs) -> ZeroTrustGatewayCertificateResult {
+pub fn create(
+    name: &str,
+    args: ZeroTrustGatewayCertificateArgs
+) -> ZeroTrustGatewayCertificateResult {
 
-    let result = crate::bindings::pulumi::cloudflare::zero_trust_gateway_certificate::invoke(name, &crate::bindings::pulumi::cloudflare::zero_trust_gateway_certificate::Args {
-        account_id: &args.account_id.get_inner(),
-        activate: &args.activate.get_inner(),
-        custom: &args.custom.get_inner(),
-        gateway_managed: &args.gateway_managed.get_inner(),
-        validity_period_days: &args.validity_period_days.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::zero_trust_gateway_certificate::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::zero_trust_gateway_certificate::Args {
+                account_id: &args.account_id.get_inner(),
+                activate: &args.activate.get_inner(),
+                custom: &args.custom.get_inner(),
+                gateway_managed: &args.gateway_managed.get_inner(),
+                validity_period_days: &args.validity_period_days.get_inner(),
+        }
+    );
 
     ZeroTrustGatewayCertificateResult {
         account_id: crate::into_domain(result.account_id),

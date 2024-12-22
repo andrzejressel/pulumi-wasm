@@ -56,13 +56,19 @@ pub struct ManagedHeadersResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ManagedHeadersArgs) -> ManagedHeadersResult {
+pub fn create(
+    name: &str,
+    args: ManagedHeadersArgs
+) -> ManagedHeadersResult {
 
-    let result = crate::bindings::pulumi::cloudflare::managed_headers::invoke(name, &crate::bindings::pulumi::cloudflare::managed_headers::Args {
-        managed_request_headers: &args.managed_request_headers.get_inner(),
-        managed_response_headers: &args.managed_response_headers.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::managed_headers::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::managed_headers::Args {
+                managed_request_headers: &args.managed_request_headers.get_inner(),
+                managed_response_headers: &args.managed_response_headers.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     ManagedHeadersResult {
         managed_request_headers: crate::into_domain(result.managed_request_headers),

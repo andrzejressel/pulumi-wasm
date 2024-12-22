@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl secret::Guest for Component {
-    fn invoke(name: String, args: secret::Args) -> secret::Res {
+    fn invoke(
+        name: String,
+        args: secret::Args
+    ) -> secret::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "docker:index/secret:Secret".into(),

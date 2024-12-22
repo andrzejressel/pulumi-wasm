@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl zero_trust_tunnel_cloudflared::Guest for Component {
-    fn invoke(name: String, args: zero_trust_tunnel_cloudflared::Args) -> zero_trust_tunnel_cloudflared::Res {
+    fn invoke(
+        name: String,
+        args: zero_trust_tunnel_cloudflared::Args
+    ) -> zero_trust_tunnel_cloudflared::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustTunnelCloudflared:ZeroTrustTunnelCloudflared".into(),

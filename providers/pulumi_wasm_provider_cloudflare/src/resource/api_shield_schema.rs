@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl api_shield_schema::Guest for Component {
-    fn invoke(name: String, args: api_shield_schema::Args) -> api_shield_schema::Res {
+    fn invoke(
+        name: String,
+        args: api_shield_schema::Args
+    ) -> api_shield_schema::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/apiShieldSchema:ApiShieldSchema".into(),

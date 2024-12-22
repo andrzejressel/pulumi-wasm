@@ -1,4 +1,4 @@
-use crate::model::{ElementId, Package};
+use crate::model::Package;
 use crate::output::rust::functions::source_code_function_code::generate_single_function_source_code;
 use crate::output::rust::functions::source_code_function_mod::generate_mod;
 use crate::output::rust::TreeNode;

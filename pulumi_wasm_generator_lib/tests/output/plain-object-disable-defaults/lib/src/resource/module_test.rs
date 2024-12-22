@@ -14,12 +14,18 @@ pub struct moduleTestResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: moduleTestArgs) -> moduleTestResult {
+pub fn create(
+    name: &str,
+    args: moduleTestArgs
+) -> moduleTestResult {
 
-    let result = crate::bindings::pulumi::example::module_test::invoke(name, &crate::bindings::pulumi::example::module_test::Args {
-        mod1: &args.mod1.get_inner(),
-        val: &args.val.get_inner(),
-    });
+    let result = crate::bindings::pulumi::example::module_test::invoke(
+        name,
+        &crate::bindings::pulumi::example::module_test::Args {
+                mod1: &args.mod1.get_inner(),
+                val: &args.val.get_inner(),
+        }
+    );
 
     moduleTestResult {
     }

@@ -25,15 +25,21 @@ pub struct RubberTreeResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: RubberTreeArgs) -> RubberTreeResult {
+pub fn create(
+    name: &str,
+    args: RubberTreeArgs
+) -> RubberTreeResult {
 
-    let result = crate::bindings::pulumi::plant::tree_v1_rubber_tree::invoke(name, &crate::bindings::pulumi::plant::tree_v1_rubber_tree::Args {
-        container: &args.container.get_inner(),
-        diameter: &args.diameter.get_inner(),
-        farm: &args.farm.get_inner(),
-        size: &args.size.get_inner(),
-        type_: &args.type_.get_inner(),
-    });
+    let result = crate::bindings::pulumi::plant::tree_v1_rubber_tree::invoke(
+        name,
+        &crate::bindings::pulumi::plant::tree_v1_rubber_tree::Args {
+                container: &args.container.get_inner(),
+                diameter: &args.diameter.get_inner(),
+                farm: &args.farm.get_inner(),
+                size: &args.size.get_inner(),
+                type_: &args.type_.get_inner(),
+        }
+    );
 
     RubberTreeResult {
         container: crate::into_domain(result.container),

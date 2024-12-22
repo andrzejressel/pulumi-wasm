@@ -22,12 +22,18 @@ pub struct ZeroTrustKeyAccessKeyConfigurationResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ZeroTrustKeyAccessKeyConfigurationArgs) -> ZeroTrustKeyAccessKeyConfigurationResult {
+pub fn create(
+    name: &str,
+    args: ZeroTrustKeyAccessKeyConfigurationArgs
+) -> ZeroTrustKeyAccessKeyConfigurationResult {
 
-    let result = crate::bindings::pulumi::cloudflare::zero_trust_key_access_key_configuration::invoke(name, &crate::bindings::pulumi::cloudflare::zero_trust_key_access_key_configuration::Args {
-        account_id: &args.account_id.get_inner(),
-        key_rotation_interval_days: &args.key_rotation_interval_days.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::zero_trust_key_access_key_configuration::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::zero_trust_key_access_key_configuration::Args {
+                account_id: &args.account_id.get_inner(),
+                key_rotation_interval_days: &args.key_rotation_interval_days.get_inner(),
+        }
+    );
 
     ZeroTrustKeyAccessKeyConfigurationResult {
         account_id: crate::into_domain(result.account_id),

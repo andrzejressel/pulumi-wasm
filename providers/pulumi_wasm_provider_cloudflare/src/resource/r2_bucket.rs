@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl r2_bucket::Guest for Component {
-    fn invoke(name: String, args: r2_bucket::Args) -> r2_bucket::Res {
+    fn invoke(
+        name: String,
+        args: r2_bucket::Args
+    ) -> r2_bucket::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/r2Bucket:R2Bucket".into(),

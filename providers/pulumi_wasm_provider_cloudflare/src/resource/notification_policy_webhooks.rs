@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl notification_policy_webhooks::Guest for Component {
-    fn invoke(name: String, args: notification_policy_webhooks::Args) -> notification_policy_webhooks::Res {
+    fn invoke(
+        name: String,
+        args: notification_policy_webhooks::Args
+    ) -> notification_policy_webhooks::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/notificationPolicyWebhooks:NotificationPolicyWebhooks".into(),

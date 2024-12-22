@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl split_tunnel::Guest for Component {
-    fn invoke(name: String, args: split_tunnel::Args) -> split_tunnel::Res {
+    fn invoke(
+        name: String,
+        args: split_tunnel::Args
+    ) -> split_tunnel::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/splitTunnel:SplitTunnel".into(),

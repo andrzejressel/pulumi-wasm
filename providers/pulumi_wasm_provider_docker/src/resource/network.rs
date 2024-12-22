@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl network::Guest for Component {
-    fn invoke(name: String, args: network::Args) -> network::Res {
+    fn invoke(
+        name: String,
+        args: network::Args
+    ) -> network::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "docker:index/network:Network".into(),

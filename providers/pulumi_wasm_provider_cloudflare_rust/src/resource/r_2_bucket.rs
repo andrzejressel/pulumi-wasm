@@ -51,13 +51,19 @@ pub struct R2BucketResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: R2BucketArgs) -> R2BucketResult {
+pub fn create(
+    name: &str,
+    args: R2BucketArgs
+) -> R2BucketResult {
 
-    let result = crate::bindings::pulumi::cloudflare::r2_bucket::invoke(name, &crate::bindings::pulumi::cloudflare::r2_bucket::Args {
-        account_id: &args.account_id.get_inner(),
-        location: &args.location.get_inner(),
-        name: &args.name.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::r2_bucket::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::r2_bucket::Args {
+                account_id: &args.account_id.get_inner(),
+                location: &args.location.get_inner(),
+                name: &args.name.get_inner(),
+        }
+    );
 
     R2BucketResult {
         account_id: crate::into_domain(result.account_id),

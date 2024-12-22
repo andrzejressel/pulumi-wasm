@@ -3,8 +3,7 @@ use convert_case::{Case, Casing};
 use handlebars::Handlebars;
 use serde::Serialize;
 use serde_json::json;
-use std::collections::{BTreeSet, HashMap};
-use std::path::PathBuf;
+use std::collections::BTreeSet;
 
 static TEMPLATE: &str = include_str!("types_code.rs.handlebars");
 static STRING_ENUM_TEMPLATE: &str = include_str!("types_code_string_enum.rs.handlebars");

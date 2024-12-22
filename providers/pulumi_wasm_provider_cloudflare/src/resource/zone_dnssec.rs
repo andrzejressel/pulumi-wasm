@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl zone_dnssec::Guest for Component {
-    fn invoke(name: String, args: zone_dnssec::Args) -> zone_dnssec::Res {
+    fn invoke(
+        name: String,
+        args: zone_dnssec::Args
+    ) -> zone_dnssec::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/zoneDnssec:ZoneDnssec".into(),

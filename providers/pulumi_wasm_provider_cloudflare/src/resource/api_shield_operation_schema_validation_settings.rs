@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl api_shield_operation_schema_validation_settings::Guest for Component {
-    fn invoke(name: String, args: api_shield_operation_schema_validation_settings::Args) -> api_shield_operation_schema_validation_settings::Res {
+    fn invoke(
+        name: String,
+        args: api_shield_operation_schema_validation_settings::Args
+    ) -> api_shield_operation_schema_validation_settings::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/apiShieldOperationSchemaValidationSettings:ApiShieldOperationSchemaValidationSettings".into(),

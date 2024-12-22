@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl total_tls::Guest for Component {
-    fn invoke(name: String, args: total_tls::Args) -> total_tls::Res {
+    fn invoke(
+        name: String,
+        args: total_tls::Args
+    ) -> total_tls::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/totalTls:TotalTls".into(),
