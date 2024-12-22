@@ -221,11 +221,6 @@ impl ElementId {
         parts.push(self.name.clone().to_case(Case::Pascal));
         parts.join("::")
     }
-    pub(crate) fn get_wit_compatible_combined_namespace(&self) -> String {
-        let mut parts = self.namespace.clone();
-        parts.push(self.name.clone());
-        parts.iter().map(|s| s.replace("-", "_")).join("::")
-    }
 
     pub(crate) fn get_rust_function_name(&self) -> String {
         self.name.clone().from_case(UpperCamel).to_case(Case::Snake)
