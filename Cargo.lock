@@ -2741,7 +2741,7 @@ dependencies = [
  "rinja_parser",
  "rustc-hash",
  "serde",
- "syn 2.0.90",
+ "syn 2.0.91",
 ]
 
 [[package]]
