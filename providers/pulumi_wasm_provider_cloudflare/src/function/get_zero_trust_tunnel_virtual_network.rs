@@ -24,9 +24,7 @@ impl get_zero_trust_tunnel_virtual_network::Guest for Component {
         };
 
         let o = invoke(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         get_zero_trust_tunnel_virtual_network::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             comment: hashmap.remove("comment").unwrap(),

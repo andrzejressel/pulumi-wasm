@@ -83,12 +83,18 @@ pub struct ZoneSettingsOverrideResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ZoneSettingsOverrideArgs) -> ZoneSettingsOverrideResult {
+pub fn create(
+    name: &str,
+    args: ZoneSettingsOverrideArgs
+) -> ZoneSettingsOverrideResult {
 
-    let result = crate::bindings::pulumi::cloudflare::zone_settings_override::invoke(name, &crate::bindings::pulumi::cloudflare::zone_settings_override::Args {
-        settings: &args.settings.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::zone_settings_override::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::zone_settings_override::Args {
+                settings: &args.settings.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     ZoneSettingsOverrideResult {
         initial_settings: crate::into_domain(result.initial_settings),

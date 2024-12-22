@@ -103,21 +103,27 @@ pub struct BotManagementResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: BotManagementArgs) -> BotManagementResult {
+pub fn create(
+    name: &str,
+    args: BotManagementArgs
+) -> BotManagementResult {
 
-    let result = crate::bindings::pulumi::cloudflare::bot_management::invoke(name, &crate::bindings::pulumi::cloudflare::bot_management::Args {
-        ai_bots_protection: &args.ai_bots_protection.get_inner(),
-        auto_update_model: &args.auto_update_model.get_inner(),
-        enable_js: &args.enable_js.get_inner(),
-        fight_mode: &args.fight_mode.get_inner(),
-        optimize_wordpress: &args.optimize_wordpress.get_inner(),
-        sbfm_definitely_automated: &args.sbfm_definitely_automated.get_inner(),
-        sbfm_likely_automated: &args.sbfm_likely_automated.get_inner(),
-        sbfm_static_resource_protection: &args.sbfm_static_resource_protection.get_inner(),
-        sbfm_verified_bots: &args.sbfm_verified_bots.get_inner(),
-        suppress_session_score: &args.suppress_session_score.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::bot_management::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::bot_management::Args {
+                ai_bots_protection: &args.ai_bots_protection.get_inner(),
+                auto_update_model: &args.auto_update_model.get_inner(),
+                enable_js: &args.enable_js.get_inner(),
+                fight_mode: &args.fight_mode.get_inner(),
+                optimize_wordpress: &args.optimize_wordpress.get_inner(),
+                sbfm_definitely_automated: &args.sbfm_definitely_automated.get_inner(),
+                sbfm_likely_automated: &args.sbfm_likely_automated.get_inner(),
+                sbfm_static_resource_protection: &args.sbfm_static_resource_protection.get_inner(),
+                sbfm_verified_bots: &args.sbfm_verified_bots.get_inner(),
+                suppress_session_score: &args.suppress_session_score.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     BotManagementResult {
         ai_bots_protection: crate::into_domain(result.ai_bots_protection),

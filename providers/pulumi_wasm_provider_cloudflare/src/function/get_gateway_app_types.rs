@@ -21,9 +21,7 @@ impl get_gateway_app_types::Guest for Component {
         };
 
         let o = invoke(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         get_gateway_app_types::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             app_types: hashmap.remove("appTypes").unwrap(),

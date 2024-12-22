@@ -79,16 +79,22 @@ pub struct DeviceDexTestResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: DeviceDexTestArgs) -> DeviceDexTestResult {
+pub fn create(
+    name: &str,
+    args: DeviceDexTestArgs
+) -> DeviceDexTestResult {
 
-    let result = crate::bindings::pulumi::cloudflare::device_dex_test::invoke(name, &crate::bindings::pulumi::cloudflare::device_dex_test::Args {
-        account_id: &args.account_id.get_inner(),
-        data: &args.data.get_inner(),
-        description: &args.description.get_inner(),
-        enabled: &args.enabled.get_inner(),
-        interval: &args.interval.get_inner(),
-        name: &args.name.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::device_dex_test::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::device_dex_test::Args {
+                account_id: &args.account_id.get_inner(),
+                data: &args.data.get_inner(),
+                description: &args.description.get_inner(),
+                enabled: &args.enabled.get_inner(),
+                interval: &args.interval.get_inner(),
+                name: &args.name.get_inner(),
+        }
+    );
 
     DeviceDexTestResult {
         account_id: crate::into_domain(result.account_id),

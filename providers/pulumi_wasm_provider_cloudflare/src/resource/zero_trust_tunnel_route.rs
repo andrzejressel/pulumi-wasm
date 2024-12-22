@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl zero_trust_tunnel_route::Guest for Component {
-    fn invoke(name: String, args: zero_trust_tunnel_route::Args) -> zero_trust_tunnel_route::Res {
+    fn invoke(
+        name: String,
+        args: zero_trust_tunnel_route::Args
+    ) -> zero_trust_tunnel_route::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustTunnelRoute:ZeroTrustTunnelRoute".into(),
@@ -26,9 +29,7 @@ impl zero_trust_tunnel_route::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         zero_trust_tunnel_route::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             comment: hashmap.remove("comment").unwrap(),
@@ -36,6 +37,5 @@ impl zero_trust_tunnel_route::Guest for Component {
             tunnel_id: hashmap.remove("tunnelId").unwrap(),
             virtual_network_id: hashmap.remove("virtualNetworkId").unwrap(),
         }
-
     }
 }

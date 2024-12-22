@@ -144,17 +144,23 @@ pub struct ListItemResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ListItemArgs) -> ListItemResult {
+pub fn create(
+    name: &str,
+    args: ListItemArgs
+) -> ListItemResult {
 
-    let result = crate::bindings::pulumi::cloudflare::list_item::invoke(name, &crate::bindings::pulumi::cloudflare::list_item::Args {
-        account_id: &args.account_id.get_inner(),
-        asn: &args.asn.get_inner(),
-        comment: &args.comment.get_inner(),
-        hostname: &args.hostname.get_inner(),
-        ip: &args.ip.get_inner(),
-        list_id: &args.list_id.get_inner(),
-        redirect: &args.redirect.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::list_item::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::list_item::Args {
+                account_id: &args.account_id.get_inner(),
+                asn: &args.asn.get_inner(),
+                comment: &args.comment.get_inner(),
+                hostname: &args.hostname.get_inner(),
+                ip: &args.ip.get_inner(),
+                list_id: &args.list_id.get_inner(),
+                redirect: &args.redirect.get_inner(),
+        }
+    );
 
     ListItemResult {
         account_id: crate::into_domain(result.account_id),

@@ -48,16 +48,22 @@ pub struct ZeroTrustAccessGroupResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ZeroTrustAccessGroupArgs) -> ZeroTrustAccessGroupResult {
+pub fn create(
+    name: &str,
+    args: ZeroTrustAccessGroupArgs
+) -> ZeroTrustAccessGroupResult {
 
-    let result = crate::bindings::pulumi::cloudflare::zero_trust_access_group::invoke(name, &crate::bindings::pulumi::cloudflare::zero_trust_access_group::Args {
-        account_id: &args.account_id.get_inner(),
-        excludes: &args.excludes.get_inner(),
-        includes: &args.includes.get_inner(),
-        name: &args.name.get_inner(),
-        requires: &args.requires.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::zero_trust_access_group::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::zero_trust_access_group::Args {
+                account_id: &args.account_id.get_inner(),
+                excludes: &args.excludes.get_inner(),
+                includes: &args.includes.get_inner(),
+                name: &args.name.get_inner(),
+                requires: &args.requires.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     ZeroTrustAccessGroupResult {
         account_id: crate::into_domain(result.account_id),

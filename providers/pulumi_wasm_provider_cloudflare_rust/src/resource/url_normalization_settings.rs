@@ -44,13 +44,19 @@ pub struct UrlNormalizationSettingsResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: UrlNormalizationSettingsArgs) -> UrlNormalizationSettingsResult {
+pub fn create(
+    name: &str,
+    args: UrlNormalizationSettingsArgs
+) -> UrlNormalizationSettingsResult {
 
-    let result = crate::bindings::pulumi::cloudflare::url_normalization_settings::invoke(name, &crate::bindings::pulumi::cloudflare::url_normalization_settings::Args {
-        scope: &args.scope.get_inner(),
-        type_: &args.type_.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::url_normalization_settings::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::url_normalization_settings::Args {
+                scope: &args.scope.get_inner(),
+                type_: &args.type_.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     UrlNormalizationSettingsResult {
         scope: crate::into_domain(result.scope),

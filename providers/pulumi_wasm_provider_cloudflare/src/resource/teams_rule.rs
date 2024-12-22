@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl teams_rule::Guest for Component {
-    fn invoke(name: String, args: teams_rule::Args) -> teams_rule::Res {
+    fn invoke(
+        name: String,
+        args: teams_rule::Args
+    ) -> teams_rule::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/teamsRule:TeamsRule".into(),
@@ -39,9 +42,7 @@ impl teams_rule::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         teams_rule::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             action: hashmap.remove("action").unwrap(),
@@ -56,6 +57,5 @@ impl teams_rule::Guest for Component {
             traffic: hashmap.remove("traffic").unwrap(),
             version: hashmap.remove("version").unwrap(),
         }
-
     }
 }

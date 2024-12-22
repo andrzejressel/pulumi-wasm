@@ -21,9 +21,7 @@ impl get_origin_ca_root_certificate::Guest for Component {
         };
 
         let o = invoke(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         get_origin_ca_root_certificate::Res {
             algorithm: hashmap.remove("algorithm").unwrap(),
             cert_pem: hashmap.remove("certPem").unwrap(),

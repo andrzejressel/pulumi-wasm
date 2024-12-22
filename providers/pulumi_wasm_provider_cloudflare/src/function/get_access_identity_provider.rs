@@ -25,9 +25,7 @@ impl get_access_identity_provider::Guest for Component {
         };
 
         let o = invoke(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         get_access_identity_provider::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             id: hashmap.remove("id").unwrap(),

@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl teams_proxy_endpoint::Guest for Component {
-    fn invoke(name: String, args: teams_proxy_endpoint::Args) -> teams_proxy_endpoint::Res {
+    fn invoke(
+        name: String,
+        args: teams_proxy_endpoint::Args
+    ) -> teams_proxy_endpoint::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/teamsProxyEndpoint:TeamsProxyEndpoint".into(),
@@ -23,15 +26,12 @@ impl teams_proxy_endpoint::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         teams_proxy_endpoint::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             ips: hashmap.remove("ips").unwrap(),
             name: hashmap.remove("name").unwrap(),
             subdomain: hashmap.remove("subdomain").unwrap(),
         }
-
     }
 }

@@ -118,17 +118,23 @@ pub struct RemoteImageResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: RemoteImageArgs) -> RemoteImageResult {
+pub fn create(
+    name: &str,
+    args: RemoteImageArgs
+) -> RemoteImageResult {
 
-    let result = crate::bindings::pulumi::docker::remote_image::invoke(name, &crate::bindings::pulumi::docker::remote_image::Args {
-        build: &args.build.get_inner(),
-        force_remove: &args.force_remove.get_inner(),
-        keep_locally: &args.keep_locally.get_inner(),
-        name: &args.name.get_inner(),
-        platform: &args.platform.get_inner(),
-        pull_triggers: &args.pull_triggers.get_inner(),
-        triggers: &args.triggers.get_inner(),
-    });
+    let result = crate::bindings::pulumi::docker::remote_image::invoke(
+        name,
+        &crate::bindings::pulumi::docker::remote_image::Args {
+                build: &args.build.get_inner(),
+                force_remove: &args.force_remove.get_inner(),
+                keep_locally: &args.keep_locally.get_inner(),
+                name: &args.name.get_inner(),
+                platform: &args.platform.get_inner(),
+                pull_triggers: &args.pull_triggers.get_inner(),
+                triggers: &args.triggers.get_inner(),
+        }
+    );
 
     RemoteImageResult {
         build: crate::into_domain(result.build),

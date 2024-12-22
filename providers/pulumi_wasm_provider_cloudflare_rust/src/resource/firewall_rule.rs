@@ -94,17 +94,23 @@ pub struct FirewallRuleResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: FirewallRuleArgs) -> FirewallRuleResult {
+pub fn create(
+    name: &str,
+    args: FirewallRuleArgs
+) -> FirewallRuleResult {
 
-    let result = crate::bindings::pulumi::cloudflare::firewall_rule::invoke(name, &crate::bindings::pulumi::cloudflare::firewall_rule::Args {
-        action: &args.action.get_inner(),
-        description: &args.description.get_inner(),
-        filter_id: &args.filter_id.get_inner(),
-        paused: &args.paused.get_inner(),
-        priority: &args.priority.get_inner(),
-        products: &args.products.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::firewall_rule::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::firewall_rule::Args {
+                action: &args.action.get_inner(),
+                description: &args.description.get_inner(),
+                filter_id: &args.filter_id.get_inner(),
+                paused: &args.paused.get_inner(),
+                priority: &args.priority.get_inner(),
+                products: &args.products.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     FirewallRuleResult {
         action: crate::into_domain(result.action),

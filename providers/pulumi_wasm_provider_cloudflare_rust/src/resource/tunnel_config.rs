@@ -89,13 +89,19 @@ pub struct TunnelConfigResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: TunnelConfigArgs) -> TunnelConfigResult {
+pub fn create(
+    name: &str,
+    args: TunnelConfigArgs
+) -> TunnelConfigResult {
 
-    let result = crate::bindings::pulumi::cloudflare::tunnel_config::invoke(name, &crate::bindings::pulumi::cloudflare::tunnel_config::Args {
-        account_id: &args.account_id.get_inner(),
-        config: &args.config.get_inner(),
-        tunnel_id: &args.tunnel_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::tunnel_config::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::tunnel_config::Args {
+                account_id: &args.account_id.get_inner(),
+                config: &args.config.get_inner(),
+                tunnel_id: &args.tunnel_id.get_inner(),
+        }
+    );
 
     TunnelConfigResult {
         account_id: crate::into_domain(result.account_id),

@@ -23,9 +23,7 @@ impl list_product_families::Guest for Component {
         };
 
         let o = invoke(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         list_product_families::Res {
             next_link: hashmap.remove("nextLink").unwrap(),
             value: hashmap.remove("value").unwrap(),

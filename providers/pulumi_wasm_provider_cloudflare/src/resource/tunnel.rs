@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl tunnel::Guest for Component {
-    fn invoke(name: String, args: tunnel::Args) -> tunnel::Res {
+    fn invoke(
+        name: String,
+        args: tunnel::Args
+    ) -> tunnel::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/tunnel:Tunnel".into(),
@@ -26,9 +29,7 @@ impl tunnel::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         tunnel::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             cname: hashmap.remove("cname").unwrap(),
@@ -37,6 +38,5 @@ impl tunnel::Guest for Component {
             secret: hashmap.remove("secret").unwrap(),
             tunnel_token: hashmap.remove("tunnelToken").unwrap(),
         }
-
     }
 }

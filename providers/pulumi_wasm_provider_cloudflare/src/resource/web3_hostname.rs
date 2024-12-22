@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl web3_hostname::Guest for Component {
-    fn invoke(name: String, args: web3_hostname::Args) -> web3_hostname::Res {
+    fn invoke(
+        name: String,
+        args: web3_hostname::Args
+    ) -> web3_hostname::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/web3Hostname:Web3Hostname".into(),
@@ -29,9 +32,7 @@ impl web3_hostname::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         web3_hostname::Res {
             created_on: hashmap.remove("createdOn").unwrap(),
             description: hashmap.remove("description").unwrap(),
@@ -42,6 +43,5 @@ impl web3_hostname::Guest for Component {
             target: hashmap.remove("target").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

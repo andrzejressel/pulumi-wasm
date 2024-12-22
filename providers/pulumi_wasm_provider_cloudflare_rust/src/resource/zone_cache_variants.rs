@@ -98,22 +98,28 @@ pub struct ZoneCacheVariantsResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ZoneCacheVariantsArgs) -> ZoneCacheVariantsResult {
+pub fn create(
+    name: &str,
+    args: ZoneCacheVariantsArgs
+) -> ZoneCacheVariantsResult {
 
-    let result = crate::bindings::pulumi::cloudflare::zone_cache_variants::invoke(name, &crate::bindings::pulumi::cloudflare::zone_cache_variants::Args {
-        avifs: &args.avifs.get_inner(),
-        bmps: &args.bmps.get_inner(),
-        gifs: &args.gifs.get_inner(),
-        jp2s: &args.jp2s.get_inner(),
-        jpegs: &args.jpegs.get_inner(),
-        jpg2s: &args.jpg2s.get_inner(),
-        jpgs: &args.jpgs.get_inner(),
-        pngs: &args.pngs.get_inner(),
-        tiffs: &args.tiffs.get_inner(),
-        tifs: &args.tifs.get_inner(),
-        webps: &args.webps.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::zone_cache_variants::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::zone_cache_variants::Args {
+                avifs: &args.avifs.get_inner(),
+                bmps: &args.bmps.get_inner(),
+                gifs: &args.gifs.get_inner(),
+                jp2s: &args.jp2s.get_inner(),
+                jpegs: &args.jpegs.get_inner(),
+                jpg2s: &args.jpg2s.get_inner(),
+                jpgs: &args.jpgs.get_inner(),
+                pngs: &args.pngs.get_inner(),
+                tiffs: &args.tiffs.get_inner(),
+                tifs: &args.tifs.get_inner(),
+                webps: &args.webps.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     ZoneCacheVariantsResult {
         avifs: crate::into_domain(result.avifs),

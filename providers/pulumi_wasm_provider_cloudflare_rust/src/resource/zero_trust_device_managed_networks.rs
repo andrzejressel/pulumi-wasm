@@ -64,14 +64,20 @@ pub struct ZeroTrustDeviceManagedNetworksResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ZeroTrustDeviceManagedNetworksArgs) -> ZeroTrustDeviceManagedNetworksResult {
+pub fn create(
+    name: &str,
+    args: ZeroTrustDeviceManagedNetworksArgs
+) -> ZeroTrustDeviceManagedNetworksResult {
 
-    let result = crate::bindings::pulumi::cloudflare::zero_trust_device_managed_networks::invoke(name, &crate::bindings::pulumi::cloudflare::zero_trust_device_managed_networks::Args {
-        account_id: &args.account_id.get_inner(),
-        config: &args.config.get_inner(),
-        name: &args.name.get_inner(),
-        type_: &args.type_.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::zero_trust_device_managed_networks::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::zero_trust_device_managed_networks::Args {
+                account_id: &args.account_id.get_inner(),
+                config: &args.config.get_inner(),
+                name: &args.name.get_inner(),
+                type_: &args.type_.get_inner(),
+        }
+    );
 
     ZeroTrustDeviceManagedNetworksResult {
         account_id: crate::into_domain(result.account_id),

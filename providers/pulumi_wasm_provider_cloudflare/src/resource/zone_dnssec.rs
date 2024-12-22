@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl zone_dnssec::Guest for Component {
-    fn invoke(name: String, args: zone_dnssec::Args) -> zone_dnssec::Res {
+    fn invoke(
+        name: String,
+        args: zone_dnssec::Args
+    ) -> zone_dnssec::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/zoneDnssec:ZoneDnssec".into(),
@@ -30,9 +33,7 @@ impl zone_dnssec::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         zone_dnssec::Res {
             algorithm: hashmap.remove("algorithm").unwrap(),
             digest: hashmap.remove("digest").unwrap(),
@@ -47,6 +48,5 @@ impl zone_dnssec::Guest for Component {
             status: hashmap.remove("status").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

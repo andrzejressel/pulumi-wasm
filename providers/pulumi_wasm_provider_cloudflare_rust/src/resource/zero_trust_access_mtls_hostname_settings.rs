@@ -62,13 +62,19 @@ pub struct ZeroTrustAccessMtlsHostnameSettingsResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ZeroTrustAccessMtlsHostnameSettingsArgs) -> ZeroTrustAccessMtlsHostnameSettingsResult {
+pub fn create(
+    name: &str,
+    args: ZeroTrustAccessMtlsHostnameSettingsArgs
+) -> ZeroTrustAccessMtlsHostnameSettingsResult {
 
-    let result = crate::bindings::pulumi::cloudflare::zero_trust_access_mtls_hostname_settings::invoke(name, &crate::bindings::pulumi::cloudflare::zero_trust_access_mtls_hostname_settings::Args {
-        account_id: &args.account_id.get_inner(),
-        settings: &args.settings.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::zero_trust_access_mtls_hostname_settings::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::zero_trust_access_mtls_hostname_settings::Args {
+                account_id: &args.account_id.get_inner(),
+                settings: &args.settings.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     ZeroTrustAccessMtlsHostnameSettingsResult {
         account_id: crate::into_domain(result.account_id),

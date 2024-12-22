@@ -55,12 +55,18 @@ pub struct WorkersForPlatformsNamespaceResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: WorkersForPlatformsNamespaceArgs) -> WorkersForPlatformsNamespaceResult {
+pub fn create(
+    name: &str,
+    args: WorkersForPlatformsNamespaceArgs
+) -> WorkersForPlatformsNamespaceResult {
 
-    let result = crate::bindings::pulumi::cloudflare::workers_for_platforms_namespace::invoke(name, &crate::bindings::pulumi::cloudflare::workers_for_platforms_namespace::Args {
-        account_id: &args.account_id.get_inner(),
-        name: &args.name.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::workers_for_platforms_namespace::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::workers_for_platforms_namespace::Args {
+                account_id: &args.account_id.get_inner(),
+                name: &args.name.get_inner(),
+        }
+    );
 
     WorkersForPlatformsNamespaceResult {
         account_id: crate::into_domain(result.account_id),

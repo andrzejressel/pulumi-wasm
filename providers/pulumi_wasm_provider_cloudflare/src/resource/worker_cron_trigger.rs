@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl worker_cron_trigger::Guest for Component {
-    fn invoke(name: String, args: worker_cron_trigger::Args) -> worker_cron_trigger::Res {
+    fn invoke(
+        name: String,
+        args: worker_cron_trigger::Args
+    ) -> worker_cron_trigger::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/workerCronTrigger:WorkerCronTrigger".into(),
@@ -22,14 +25,11 @@ impl worker_cron_trigger::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         worker_cron_trigger::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             schedules: hashmap.remove("schedules").unwrap(),
             script_name: hashmap.remove("scriptName").unwrap(),
         }
-
     }
 }

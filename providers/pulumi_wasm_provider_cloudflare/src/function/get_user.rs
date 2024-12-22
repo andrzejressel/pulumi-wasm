@@ -19,9 +19,7 @@ impl get_user::Guest for Component {
         };
 
         let o = invoke(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         get_user::Res {
             email: hashmap.remove("email").unwrap(),
             id: hashmap.remove("id").unwrap(),

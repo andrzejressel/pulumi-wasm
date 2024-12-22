@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl zone_lockdown::Guest for Component {
-    fn invoke(name: String, args: zone_lockdown::Args) -> zone_lockdown::Res {
+    fn invoke(
+        name: String,
+        args: zone_lockdown::Args
+    ) -> zone_lockdown::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/zoneLockdown:ZoneLockdown".into(),
@@ -28,9 +31,7 @@ impl zone_lockdown::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         zone_lockdown::Res {
             configurations: hashmap.remove("configurations").unwrap(),
             description: hashmap.remove("description").unwrap(),
@@ -39,6 +40,5 @@ impl zone_lockdown::Guest for Component {
             urls: hashmap.remove("urls").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

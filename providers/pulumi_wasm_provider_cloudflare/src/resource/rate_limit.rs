@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl rate_limit::Guest for Component {
-    fn invoke(name: String, args: rate_limit::Args) -> rate_limit::Res {
+    fn invoke(
+        name: String,
+        args: rate_limit::Args
+    ) -> rate_limit::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/rateLimit:RateLimit".into(),
@@ -34,9 +37,7 @@ impl rate_limit::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         rate_limit::Res {
             action: hashmap.remove("action").unwrap(),
             bypass_url_patterns: hashmap.remove("bypassUrlPatterns").unwrap(),
@@ -48,6 +49,5 @@ impl rate_limit::Guest for Component {
             threshold: hashmap.remove("threshold").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

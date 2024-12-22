@@ -47,12 +47,18 @@ pub struct CustomHostnameFallbackOriginResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: CustomHostnameFallbackOriginArgs) -> CustomHostnameFallbackOriginResult {
+pub fn create(
+    name: &str,
+    args: CustomHostnameFallbackOriginArgs
+) -> CustomHostnameFallbackOriginResult {
 
-    let result = crate::bindings::pulumi::cloudflare::custom_hostname_fallback_origin::invoke(name, &crate::bindings::pulumi::cloudflare::custom_hostname_fallback_origin::Args {
-        origin: &args.origin.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::custom_hostname_fallback_origin::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::custom_hostname_fallback_origin::Args {
+                origin: &args.origin.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     CustomHostnameFallbackOriginResult {
         origin: crate::into_domain(result.origin),

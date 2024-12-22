@@ -45,12 +45,18 @@ pub struct WorkersKvNamespaceResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: WorkersKvNamespaceArgs) -> WorkersKvNamespaceResult {
+pub fn create(
+    name: &str,
+    args: WorkersKvNamespaceArgs
+) -> WorkersKvNamespaceResult {
 
-    let result = crate::bindings::pulumi::cloudflare::workers_kv_namespace::invoke(name, &crate::bindings::pulumi::cloudflare::workers_kv_namespace::Args {
-        account_id: &args.account_id.get_inner(),
-        title: &args.title.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::workers_kv_namespace::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::workers_kv_namespace::Args {
+                account_id: &args.account_id.get_inner(),
+                title: &args.title.get_inner(),
+        }
+    );
 
     WorkersKvNamespaceResult {
         account_id: crate::into_domain(result.account_id),

@@ -108,22 +108,28 @@ pub struct RandomStringResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: RandomStringArgs) -> RandomStringResult {
+pub fn create(
+    name: &str,
+    args: RandomStringArgs
+) -> RandomStringResult {
 
-    let result = crate::bindings::pulumi::random::random_string::invoke(name, &crate::bindings::pulumi::random::random_string::Args {
-        keepers: &args.keepers.get_inner(),
-        length: &args.length.get_inner(),
-        lower: &args.lower.get_inner(),
-        min_lower: &args.min_lower.get_inner(),
-        min_numeric: &args.min_numeric.get_inner(),
-        min_special: &args.min_special.get_inner(),
-        min_upper: &args.min_upper.get_inner(),
-        number: &args.number.get_inner(),
-        numeric: &args.numeric.get_inner(),
-        override_special: &args.override_special.get_inner(),
-        special: &args.special.get_inner(),
-        upper: &args.upper.get_inner(),
-    });
+    let result = crate::bindings::pulumi::random::random_string::invoke(
+        name,
+        &crate::bindings::pulumi::random::random_string::Args {
+                keepers: &args.keepers.get_inner(),
+                length: &args.length.get_inner(),
+                lower: &args.lower.get_inner(),
+                min_lower: &args.min_lower.get_inner(),
+                min_numeric: &args.min_numeric.get_inner(),
+                min_special: &args.min_special.get_inner(),
+                min_upper: &args.min_upper.get_inner(),
+                number: &args.number.get_inner(),
+                numeric: &args.numeric.get_inner(),
+                override_special: &args.override_special.get_inner(),
+                special: &args.special.get_inner(),
+                upper: &args.upper.get_inner(),
+        }
+    );
 
     RandomStringResult {
         keepers: crate::into_domain(result.keepers),

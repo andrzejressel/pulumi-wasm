@@ -2,16 +2,16 @@ package pulumi:plant@0.0.1--0.0.0-DEV;
 
 world plant-pulumi {
     import component:pulumi-wasm/register-interface@0.0.0-DEV;
-    export tree-nursery;
-    export tree-rubber-tree;
+    export tree-v1-nursery;
+    export tree-v1-rubber-tree;
 }
 
 world plant-pulumi-client {
-    import tree-nursery;
-    import tree-rubber-tree;
+    import tree-v1-nursery;
+    import tree-v1-rubber-tree;
 }
 
-interface tree-nursery {
+interface tree-v1-nursery {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
 
@@ -27,7 +27,7 @@ interface tree-nursery {
     );
 
 }
-interface tree-rubber-tree {
+interface tree-v1-rubber-tree {
 
     use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
 

@@ -1,7 +1,6 @@
 use pulumi_wasm_rust::Output;
 #[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
-mod types;
-pub use types::*;
+pub mod types;
 
 mod bindings {
     wit_bindgen::generate!({

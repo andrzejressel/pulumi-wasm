@@ -21,12 +21,18 @@ pub struct ZeroTrustRiskBehaviorResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ZeroTrustRiskBehaviorArgs) -> ZeroTrustRiskBehaviorResult {
+pub fn create(
+    name: &str,
+    args: ZeroTrustRiskBehaviorArgs
+) -> ZeroTrustRiskBehaviorResult {
 
-    let result = crate::bindings::pulumi::cloudflare::zero_trust_risk_behavior::invoke(name, &crate::bindings::pulumi::cloudflare::zero_trust_risk_behavior::Args {
-        account_id: &args.account_id.get_inner(),
-        behaviors: &args.behaviors.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::zero_trust_risk_behavior::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::zero_trust_risk_behavior::Args {
+                account_id: &args.account_id.get_inner(),
+                behaviors: &args.behaviors.get_inner(),
+        }
+    );
 
     ZeroTrustRiskBehaviorResult {
         account_id: crate::into_domain(result.account_id),

@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl fallback_domain::Guest for Component {
-    fn invoke(name: String, args: fallback_domain::Args) -> fallback_domain::Res {
+    fn invoke(
+        name: String,
+        args: fallback_domain::Args
+    ) -> fallback_domain::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/fallbackDomain:FallbackDomain".into(),
@@ -22,14 +25,11 @@ impl fallback_domain::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         fallback_domain::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             domains: hashmap.remove("domains").unwrap(),
             policy_id: hashmap.remove("policyId").unwrap(),
         }
-
     }
 }

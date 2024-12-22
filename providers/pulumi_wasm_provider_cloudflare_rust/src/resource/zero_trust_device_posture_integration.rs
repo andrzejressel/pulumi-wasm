@@ -75,16 +75,22 @@ pub struct ZeroTrustDevicePostureIntegrationResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ZeroTrustDevicePostureIntegrationArgs) -> ZeroTrustDevicePostureIntegrationResult {
+pub fn create(
+    name: &str,
+    args: ZeroTrustDevicePostureIntegrationArgs
+) -> ZeroTrustDevicePostureIntegrationResult {
 
-    let result = crate::bindings::pulumi::cloudflare::zero_trust_device_posture_integration::invoke(name, &crate::bindings::pulumi::cloudflare::zero_trust_device_posture_integration::Args {
-        account_id: &args.account_id.get_inner(),
-        configs: &args.configs.get_inner(),
-        identifier: &args.identifier.get_inner(),
-        interval: &args.interval.get_inner(),
-        name: &args.name.get_inner(),
-        type_: &args.type_.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::zero_trust_device_posture_integration::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::zero_trust_device_posture_integration::Args {
+                account_id: &args.account_id.get_inner(),
+                configs: &args.configs.get_inner(),
+                identifier: &args.identifier.get_inner(),
+                interval: &args.interval.get_inner(),
+                name: &args.name.get_inner(),
+                type_: &args.type_.get_inner(),
+        }
+    );
 
     ZeroTrustDevicePostureIntegrationResult {
         account_id: crate::into_domain(result.account_id),

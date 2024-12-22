@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl device_settings_policy::Guest for Component {
-    fn invoke(name: String, args: device_settings_policy::Args) -> device_settings_policy::Res {
+    fn invoke(
+        name: String,
+        args: device_settings_policy::Args
+    ) -> device_settings_policy::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/deviceSettingsPolicy:DeviceSettingsPolicy".into(),
@@ -54,9 +57,7 @@ impl device_settings_policy::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         device_settings_policy::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             allow_mode_switch: hashmap.remove("allowModeSwitch").unwrap(),
@@ -78,6 +79,5 @@ impl device_settings_policy::Guest for Component {
             switch_locked: hashmap.remove("switchLocked").unwrap(),
             tunnel_protocol: hashmap.remove("tunnelProtocol").unwrap(),
         }
-
     }
 }

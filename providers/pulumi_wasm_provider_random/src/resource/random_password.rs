@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl random_password::Guest for Component {
-    fn invoke(name: String, args: random_password::Args) -> random_password::Res {
+    fn invoke(
+        name: String,
+        args: random_password::Args
+    ) -> random_password::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "random:index/randomPassword:RandomPassword".into(),
@@ -42,9 +45,7 @@ impl random_password::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         random_password::Res {
             bcrypt_hash: hashmap.remove("bcryptHash").unwrap(),
             keepers: hashmap.remove("keepers").unwrap(),
@@ -61,6 +62,5 @@ impl random_password::Guest for Component {
             special: hashmap.remove("special").unwrap(),
             upper: hashmap.remove("upper").unwrap(),
         }
-
     }
 }

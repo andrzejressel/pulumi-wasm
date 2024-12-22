@@ -39,12 +39,18 @@ pub struct TieredCacheResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: TieredCacheArgs) -> TieredCacheResult {
+pub fn create(
+    name: &str,
+    args: TieredCacheArgs
+) -> TieredCacheResult {
 
-    let result = crate::bindings::pulumi::cloudflare::tiered_cache::invoke(name, &crate::bindings::pulumi::cloudflare::tiered_cache::Args {
-        cache_type: &args.cache_type.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::tiered_cache::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::tiered_cache::Args {
+                cache_type: &args.cache_type.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     TieredCacheResult {
         cache_type: crate::into_domain(result.cache_type),

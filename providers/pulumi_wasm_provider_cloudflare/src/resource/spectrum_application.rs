@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl spectrum_application::Guest for Component {
-    fn invoke(name: String, args: spectrum_application::Args) -> spectrum_application::Res {
+    fn invoke(
+        name: String,
+        args: spectrum_application::Args
+    ) -> spectrum_application::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/spectrumApplication:SpectrumApplication".into(),
@@ -42,9 +45,7 @@ impl spectrum_application::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         spectrum_application::Res {
             argo_smart_routing: hashmap.remove("argoSmartRouting").unwrap(),
             dns: hashmap.remove("dns").unwrap(),
@@ -60,6 +61,5 @@ impl spectrum_application::Guest for Component {
             traffic_type: hashmap.remove("trafficType").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

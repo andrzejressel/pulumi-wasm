@@ -80,14 +80,20 @@ pub struct AuthenticatedOriginPullsCertificateResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: AuthenticatedOriginPullsCertificateArgs) -> AuthenticatedOriginPullsCertificateResult {
+pub fn create(
+    name: &str,
+    args: AuthenticatedOriginPullsCertificateArgs
+) -> AuthenticatedOriginPullsCertificateResult {
 
-    let result = crate::bindings::pulumi::cloudflare::authenticated_origin_pulls_certificate::invoke(name, &crate::bindings::pulumi::cloudflare::authenticated_origin_pulls_certificate::Args {
-        certificate: &args.certificate.get_inner(),
-        private_key: &args.private_key.get_inner(),
-        type_: &args.type_.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::authenticated_origin_pulls_certificate::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::authenticated_origin_pulls_certificate::Args {
+                certificate: &args.certificate.get_inner(),
+                private_key: &args.private_key.get_inner(),
+                type_: &args.type_.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     AuthenticatedOriginPullsCertificateResult {
         certificate: crate::into_domain(result.certificate),

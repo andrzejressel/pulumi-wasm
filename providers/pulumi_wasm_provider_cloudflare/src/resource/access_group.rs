@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl access_group::Guest for Component {
-    fn invoke(name: String, args: access_group::Args) -> access_group::Res {
+    fn invoke(
+        name: String,
+        args: access_group::Args
+    ) -> access_group::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/accessGroup:AccessGroup".into(),
@@ -28,9 +31,7 @@ impl access_group::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         access_group::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             excludes: hashmap.remove("excludes").unwrap(),
@@ -39,6 +40,5 @@ impl access_group::Guest for Component {
             requires: hashmap.remove("requires").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

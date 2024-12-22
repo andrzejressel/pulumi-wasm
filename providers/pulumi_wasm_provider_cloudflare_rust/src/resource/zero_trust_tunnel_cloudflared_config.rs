@@ -89,13 +89,19 @@ pub struct ZeroTrustTunnelCloudflaredConfigResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ZeroTrustTunnelCloudflaredConfigArgs) -> ZeroTrustTunnelCloudflaredConfigResult {
+pub fn create(
+    name: &str,
+    args: ZeroTrustTunnelCloudflaredConfigArgs
+) -> ZeroTrustTunnelCloudflaredConfigResult {
 
-    let result = crate::bindings::pulumi::cloudflare::zero_trust_tunnel_cloudflared_config::invoke(name, &crate::bindings::pulumi::cloudflare::zero_trust_tunnel_cloudflared_config::Args {
-        account_id: &args.account_id.get_inner(),
-        config: &args.config.get_inner(),
-        tunnel_id: &args.tunnel_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::zero_trust_tunnel_cloudflared_config::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::zero_trust_tunnel_cloudflared_config::Args {
+                account_id: &args.account_id.get_inner(),
+                config: &args.config.get_inner(),
+                tunnel_id: &args.tunnel_id.get_inner(),
+        }
+    );
 
     ZeroTrustTunnelCloudflaredConfigResult {
         account_id: crate::into_domain(result.account_id),

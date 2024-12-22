@@ -72,15 +72,21 @@ pub struct FilterResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: FilterArgs) -> FilterResult {
+pub fn create(
+    name: &str,
+    args: FilterArgs
+) -> FilterResult {
 
-    let result = crate::bindings::pulumi::cloudflare::filter::invoke(name, &crate::bindings::pulumi::cloudflare::filter::Args {
-        description: &args.description.get_inner(),
-        expression: &args.expression.get_inner(),
-        paused: &args.paused.get_inner(),
-        ref_: &args.ref_.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::filter::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::filter::Args {
+                description: &args.description.get_inner(),
+                expression: &args.expression.get_inner(),
+                paused: &args.paused.get_inner(),
+                ref_: &args.ref_.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     FilterResult {
         description: crate::into_domain(result.description),

@@ -52,13 +52,19 @@ pub struct ArgoResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ArgoArgs) -> ArgoResult {
+pub fn create(
+    name: &str,
+    args: ArgoArgs
+) -> ArgoResult {
 
-    let result = crate::bindings::pulumi::cloudflare::argo::invoke(name, &crate::bindings::pulumi::cloudflare::argo::Args {
-        smart_routing: &args.smart_routing.get_inner(),
-        tiered_caching: &args.tiered_caching.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::argo::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::argo::Args {
+                smart_routing: &args.smart_routing.get_inner(),
+                tiered_caching: &args.tiered_caching.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     ArgoResult {
         smart_routing: crate::into_domain(result.smart_routing),

@@ -87,13 +87,19 @@ pub struct ZeroTrustInfrastructureAccessTargetResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ZeroTrustInfrastructureAccessTargetArgs) -> ZeroTrustInfrastructureAccessTargetResult {
+pub fn create(
+    name: &str,
+    args: ZeroTrustInfrastructureAccessTargetArgs
+) -> ZeroTrustInfrastructureAccessTargetResult {
 
-    let result = crate::bindings::pulumi::cloudflare::zero_trust_infrastructure_access_target::invoke(name, &crate::bindings::pulumi::cloudflare::zero_trust_infrastructure_access_target::Args {
-        account_id: &args.account_id.get_inner(),
-        hostname: &args.hostname.get_inner(),
-        ip: &args.ip.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::zero_trust_infrastructure_access_target::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::zero_trust_infrastructure_access_target::Args {
+                account_id: &args.account_id.get_inner(),
+                hostname: &args.hostname.get_inner(),
+                ip: &args.ip.get_inner(),
+        }
+    );
 
     ZeroTrustInfrastructureAccessTargetResult {
         account_id: crate::into_domain(result.account_id),

@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl device_posture_integration::Guest for Component {
-    fn invoke(name: String, args: device_posture_integration::Args) -> device_posture_integration::Res {
+    fn invoke(
+        name: String,
+        args: device_posture_integration::Args
+    ) -> device_posture_integration::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/devicePostureIntegration:DevicePostureIntegration".into(),
@@ -28,9 +31,7 @@ impl device_posture_integration::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         device_posture_integration::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             configs: hashmap.remove("configs").unwrap(),
@@ -39,6 +40,5 @@ impl device_posture_integration::Guest for Component {
             name: hashmap.remove("name").unwrap(),
             type_: hashmap.remove("type").unwrap(),
         }
-
     }
 }

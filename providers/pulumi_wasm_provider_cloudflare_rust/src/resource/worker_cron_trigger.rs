@@ -63,13 +63,19 @@ pub struct WorkerCronTriggerResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: WorkerCronTriggerArgs) -> WorkerCronTriggerResult {
+pub fn create(
+    name: &str,
+    args: WorkerCronTriggerArgs
+) -> WorkerCronTriggerResult {
 
-    let result = crate::bindings::pulumi::cloudflare::worker_cron_trigger::invoke(name, &crate::bindings::pulumi::cloudflare::worker_cron_trigger::Args {
-        account_id: &args.account_id.get_inner(),
-        schedules: &args.schedules.get_inner(),
-        script_name: &args.script_name.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::worker_cron_trigger::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::worker_cron_trigger::Args {
+                account_id: &args.account_id.get_inner(),
+                schedules: &args.schedules.get_inner(),
+                script_name: &args.script_name.get_inner(),
+        }
+    );
 
     WorkerCronTriggerResult {
         account_id: crate::into_domain(result.account_id),

@@ -38,12 +38,18 @@ pub struct CloudConnectorRulesResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: CloudConnectorRulesArgs) -> CloudConnectorRulesResult {
+pub fn create(
+    name: &str,
+    args: CloudConnectorRulesArgs
+) -> CloudConnectorRulesResult {
 
-    let result = crate::bindings::pulumi::cloudflare::cloud_connector_rules::invoke(name, &crate::bindings::pulumi::cloudflare::cloud_connector_rules::Args {
-        rules: &args.rules.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::cloud_connector_rules::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::cloud_connector_rules::Args {
+                rules: &args.rules.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     CloudConnectorRulesResult {
         rules: crate::into_domain(result.rules),

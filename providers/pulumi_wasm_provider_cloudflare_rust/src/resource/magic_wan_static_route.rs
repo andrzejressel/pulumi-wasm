@@ -83,18 +83,24 @@ pub struct MagicWanStaticRouteResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: MagicWanStaticRouteArgs) -> MagicWanStaticRouteResult {
+pub fn create(
+    name: &str,
+    args: MagicWanStaticRouteArgs
+) -> MagicWanStaticRouteResult {
 
-    let result = crate::bindings::pulumi::cloudflare::magic_wan_static_route::invoke(name, &crate::bindings::pulumi::cloudflare::magic_wan_static_route::Args {
-        account_id: &args.account_id.get_inner(),
-        colo_names: &args.colo_names.get_inner(),
-        colo_regions: &args.colo_regions.get_inner(),
-        description: &args.description.get_inner(),
-        nexthop: &args.nexthop.get_inner(),
-        prefix: &args.prefix.get_inner(),
-        priority: &args.priority.get_inner(),
-        weight: &args.weight.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::magic_wan_static_route::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::magic_wan_static_route::Args {
+                account_id: &args.account_id.get_inner(),
+                colo_names: &args.colo_names.get_inner(),
+                colo_regions: &args.colo_regions.get_inner(),
+                description: &args.description.get_inner(),
+                nexthop: &args.nexthop.get_inner(),
+                prefix: &args.prefix.get_inner(),
+                priority: &args.priority.get_inner(),
+                weight: &args.weight.get_inner(),
+        }
+    );
 
     MagicWanStaticRouteResult {
         account_id: crate::into_domain(result.account_id),

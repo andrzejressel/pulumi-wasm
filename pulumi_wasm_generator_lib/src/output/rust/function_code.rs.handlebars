@@ -50,6 +50,8 @@ pub fn invoke(
 {{/if}}
     );
 
+    let _ = &result;
+
     {{interface.struct_name}}Result {
     {{#each interface.output_properties}}
         {{arg_name}}: crate::into_domain(result.{{arg_name}}),

@@ -23,9 +23,7 @@ impl get_registry_image::Guest for Component {
         };
 
         let o = invoke(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         get_registry_image::Res {
             id: hashmap.remove("id").unwrap(),
             insecure_skip_verify: hashmap.remove("insecureSkipVerify").unwrap(),

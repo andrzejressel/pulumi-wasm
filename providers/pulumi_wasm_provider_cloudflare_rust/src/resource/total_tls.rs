@@ -51,13 +51,19 @@ pub struct TotalTlsResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: TotalTlsArgs) -> TotalTlsResult {
+pub fn create(
+    name: &str,
+    args: TotalTlsArgs
+) -> TotalTlsResult {
 
-    let result = crate::bindings::pulumi::cloudflare::total_tls::invoke(name, &crate::bindings::pulumi::cloudflare::total_tls::Args {
-        certificate_authority: &args.certificate_authority.get_inner(),
-        enabled: &args.enabled.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::total_tls::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::total_tls::Args {
+                certificate_authority: &args.certificate_authority.get_inner(),
+                enabled: &args.enabled.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     TotalTlsResult {
         certificate_authority: crate::into_domain(result.certificate_authority),

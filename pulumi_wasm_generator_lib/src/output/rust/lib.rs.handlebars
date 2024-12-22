@@ -9,13 +9,11 @@ pub use resource::*;
 {{/if}}
 {{#if package.contains_functions}}
 #[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
-mod function;
-pub use function::*;
+pub mod function;
 {{/if}}
 {{#if package.contains_types}}
 #[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
-mod types;
-pub use types::*;
+pub mod types;
 {{/if}}
 
 mod bindings {

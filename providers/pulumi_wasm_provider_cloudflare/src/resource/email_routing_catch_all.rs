@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl email_routing_catch_all::Guest for Component {
-    fn invoke(name: String, args: email_routing_catch_all::Args) -> email_routing_catch_all::Res {
+    fn invoke(
+        name: String,
+        args: email_routing_catch_all::Args
+    ) -> email_routing_catch_all::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/emailRoutingCatchAll:EmailRoutingCatchAll".into(),
@@ -27,9 +30,7 @@ impl email_routing_catch_all::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         email_routing_catch_all::Res {
             actions: hashmap.remove("actions").unwrap(),
             enabled: hashmap.remove("enabled").unwrap(),
@@ -38,6 +39,5 @@ impl email_routing_catch_all::Guest for Component {
             tag: hashmap.remove("tag").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

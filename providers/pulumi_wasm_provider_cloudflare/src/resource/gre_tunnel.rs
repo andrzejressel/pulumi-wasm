@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl gre_tunnel::Guest for Component {
-    fn invoke(name: String, args: gre_tunnel::Args) -> gre_tunnel::Res {
+    fn invoke(
+        name: String,
+        args: gre_tunnel::Args
+    ) -> gre_tunnel::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/greTunnel:GreTunnel".into(),
@@ -38,9 +41,7 @@ impl gre_tunnel::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         gre_tunnel::Res {
             account_id: hashmap.remove("accountId").unwrap(),
             cloudflare_gre_endpoint: hashmap.remove("cloudflareGreEndpoint").unwrap(),
@@ -54,6 +55,5 @@ impl gre_tunnel::Guest for Component {
             name: hashmap.remove("name").unwrap(),
             ttl: hashmap.remove("ttl").unwrap(),
         }
-
     }
 }

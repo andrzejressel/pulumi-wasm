@@ -70,15 +70,21 @@ pub struct HyperdriveConfigResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: HyperdriveConfigArgs) -> HyperdriveConfigResult {
+pub fn create(
+    name: &str,
+    args: HyperdriveConfigArgs
+) -> HyperdriveConfigResult {
 
-    let result = crate::bindings::pulumi::cloudflare::hyperdrive_config::invoke(name, &crate::bindings::pulumi::cloudflare::hyperdrive_config::Args {
-        account_id: &args.account_id.get_inner(),
-        caching: &args.caching.get_inner(),
-        name: &args.name.get_inner(),
-        origin: &args.origin.get_inner(),
-        resource_id: &args.resource_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::hyperdrive_config::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::hyperdrive_config::Args {
+                account_id: &args.account_id.get_inner(),
+                caching: &args.caching.get_inner(),
+                name: &args.name.get_inner(),
+                origin: &args.origin.get_inner(),
+                resource_id: &args.resource_id.get_inner(),
+        }
+    );
 
     HyperdriveConfigResult {
         account_id: crate::into_domain(result.account_id),

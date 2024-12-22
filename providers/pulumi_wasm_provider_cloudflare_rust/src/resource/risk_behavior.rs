@@ -21,12 +21,18 @@ pub struct RiskBehaviorResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: RiskBehaviorArgs) -> RiskBehaviorResult {
+pub fn create(
+    name: &str,
+    args: RiskBehaviorArgs
+) -> RiskBehaviorResult {
 
-    let result = crate::bindings::pulumi::cloudflare::risk_behavior::invoke(name, &crate::bindings::pulumi::cloudflare::risk_behavior::Args {
-        account_id: &args.account_id.get_inner(),
-        behaviors: &args.behaviors.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::risk_behavior::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::risk_behavior::Args {
+                account_id: &args.account_id.get_inner(),
+                behaviors: &args.behaviors.get_inner(),
+        }
+    );
 
     RiskBehaviorResult {
         account_id: crate::into_domain(result.account_id),

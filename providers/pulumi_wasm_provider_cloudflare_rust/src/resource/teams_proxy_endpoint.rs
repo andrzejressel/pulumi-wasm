@@ -55,13 +55,19 @@ pub struct TeamsProxyEndpointResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: TeamsProxyEndpointArgs) -> TeamsProxyEndpointResult {
+pub fn create(
+    name: &str,
+    args: TeamsProxyEndpointArgs
+) -> TeamsProxyEndpointResult {
 
-    let result = crate::bindings::pulumi::cloudflare::teams_proxy_endpoint::invoke(name, &crate::bindings::pulumi::cloudflare::teams_proxy_endpoint::Args {
-        account_id: &args.account_id.get_inner(),
-        ips: &args.ips.get_inner(),
-        name: &args.name.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::teams_proxy_endpoint::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::teams_proxy_endpoint::Args {
+                account_id: &args.account_id.get_inner(),
+                ips: &args.ips.get_inner(),
+                name: &args.name.get_inner(),
+        }
+    );
 
     TeamsProxyEndpointResult {
         account_id: crate::into_domain(result.account_id),

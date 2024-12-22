@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl custom_ssl::Guest for Component {
-    fn invoke(name: String, args: custom_ssl::Args) -> custom_ssl::Res {
+    fn invoke(
+        name: String,
+        args: custom_ssl::Args
+    ) -> custom_ssl::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/customSsl:CustomSsl".into(),
@@ -30,9 +33,7 @@ impl custom_ssl::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         custom_ssl::Res {
             custom_ssl_options: hashmap.remove("customSslOptions").unwrap(),
             custom_ssl_priorities: hashmap.remove("customSslPriorities").unwrap(),
@@ -46,6 +47,5 @@ impl custom_ssl::Guest for Component {
             uploaded_on: hashmap.remove("uploadedOn").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

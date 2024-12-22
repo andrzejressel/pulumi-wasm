@@ -147,29 +147,35 @@ pub struct WaitingRoomResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: WaitingRoomArgs) -> WaitingRoomResult {
+pub fn create(
+    name: &str,
+    args: WaitingRoomArgs
+) -> WaitingRoomResult {
 
-    let result = crate::bindings::pulumi::cloudflare::waiting_room::invoke(name, &crate::bindings::pulumi::cloudflare::waiting_room::Args {
-        additional_routes: &args.additional_routes.get_inner(),
-        cookie_suffix: &args.cookie_suffix.get_inner(),
-        custom_page_html: &args.custom_page_html.get_inner(),
-        default_template_language: &args.default_template_language.get_inner(),
-        description: &args.description.get_inner(),
-        disable_session_renewal: &args.disable_session_renewal.get_inner(),
-        enabled_origin_commands: &args.enabled_origin_commands.get_inner(),
-        host: &args.host.get_inner(),
-        json_response_enabled: &args.json_response_enabled.get_inner(),
-        name: &args.name.get_inner(),
-        new_users_per_minute: &args.new_users_per_minute.get_inner(),
-        path: &args.path.get_inner(),
-        queue_all: &args.queue_all.get_inner(),
-        queueing_method: &args.queueing_method.get_inner(),
-        queueing_status_code: &args.queueing_status_code.get_inner(),
-        session_duration: &args.session_duration.get_inner(),
-        suspended: &args.suspended.get_inner(),
-        total_active_users: &args.total_active_users.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::waiting_room::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::waiting_room::Args {
+                additional_routes: &args.additional_routes.get_inner(),
+                cookie_suffix: &args.cookie_suffix.get_inner(),
+                custom_page_html: &args.custom_page_html.get_inner(),
+                default_template_language: &args.default_template_language.get_inner(),
+                description: &args.description.get_inner(),
+                disable_session_renewal: &args.disable_session_renewal.get_inner(),
+                enabled_origin_commands: &args.enabled_origin_commands.get_inner(),
+                host: &args.host.get_inner(),
+                json_response_enabled: &args.json_response_enabled.get_inner(),
+                name: &args.name.get_inner(),
+                new_users_per_minute: &args.new_users_per_minute.get_inner(),
+                path: &args.path.get_inner(),
+                queue_all: &args.queue_all.get_inner(),
+                queueing_method: &args.queueing_method.get_inner(),
+                queueing_status_code: &args.queueing_status_code.get_inner(),
+                session_duration: &args.session_duration.get_inner(),
+                suspended: &args.suspended.get_inner(),
+                total_active_users: &args.total_active_users.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     WaitingRoomResult {
         additional_routes: crate::into_domain(result.additional_routes),

@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl image::Guest for Component {
-    fn invoke(name: String, args: image::Args) -> image::Res {
+    fn invoke(
+        name: String,
+        args: image::Args
+    ) -> image::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "docker:index/image:Image".into(),
@@ -28,9 +31,7 @@ impl image::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         image::Res {
             base_image_name: hashmap.remove("baseImageName").unwrap(),
             context: hashmap.remove("context").unwrap(),
@@ -40,6 +41,5 @@ impl image::Guest for Component {
             registry_server: hashmap.remove("registryServer").unwrap(),
             repo_digest: hashmap.remove("repoDigest").unwrap(),
         }
-
     }
 }

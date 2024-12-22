@@ -59,14 +59,20 @@ pub struct TunnelVirtualNetworkResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: TunnelVirtualNetworkArgs) -> TunnelVirtualNetworkResult {
+pub fn create(
+    name: &str,
+    args: TunnelVirtualNetworkArgs
+) -> TunnelVirtualNetworkResult {
 
-    let result = crate::bindings::pulumi::cloudflare::tunnel_virtual_network::invoke(name, &crate::bindings::pulumi::cloudflare::tunnel_virtual_network::Args {
-        account_id: &args.account_id.get_inner(),
-        comment: &args.comment.get_inner(),
-        is_default_network: &args.is_default_network.get_inner(),
-        name: &args.name.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::tunnel_virtual_network::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::tunnel_virtual_network::Args {
+                account_id: &args.account_id.get_inner(),
+                comment: &args.comment.get_inner(),
+                is_default_network: &args.is_default_network.get_inner(),
+                name: &args.name.get_inner(),
+        }
+    );
 
     TunnelVirtualNetworkResult {
         account_id: crate::into_domain(result.account_id),

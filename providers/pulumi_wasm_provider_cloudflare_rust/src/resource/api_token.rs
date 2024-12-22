@@ -47,15 +47,21 @@ pub struct ApiTokenResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ApiTokenArgs) -> ApiTokenResult {
+pub fn create(
+    name: &str,
+    args: ApiTokenArgs
+) -> ApiTokenResult {
 
-    let result = crate::bindings::pulumi::cloudflare::api_token::invoke(name, &crate::bindings::pulumi::cloudflare::api_token::Args {
-        condition: &args.condition.get_inner(),
-        expires_on: &args.expires_on.get_inner(),
-        name: &args.name.get_inner(),
-        not_before: &args.not_before.get_inner(),
-        policies: &args.policies.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::api_token::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::api_token::Args {
+                condition: &args.condition.get_inner(),
+                expires_on: &args.expires_on.get_inner(),
+                name: &args.name.get_inner(),
+                not_before: &args.not_before.get_inner(),
+                policies: &args.policies.get_inner(),
+        }
+    );
 
     ApiTokenResult {
         condition: crate::into_domain(result.condition),

@@ -99,21 +99,27 @@ pub struct MagicWanGreTunnelResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: MagicWanGreTunnelArgs) -> MagicWanGreTunnelResult {
+pub fn create(
+    name: &str,
+    args: MagicWanGreTunnelArgs
+) -> MagicWanGreTunnelResult {
 
-    let result = crate::bindings::pulumi::cloudflare::magic_wan_gre_tunnel::invoke(name, &crate::bindings::pulumi::cloudflare::magic_wan_gre_tunnel::Args {
-        account_id: &args.account_id.get_inner(),
-        cloudflare_gre_endpoint: &args.cloudflare_gre_endpoint.get_inner(),
-        customer_gre_endpoint: &args.customer_gre_endpoint.get_inner(),
-        description: &args.description.get_inner(),
-        health_check_enabled: &args.health_check_enabled.get_inner(),
-        health_check_target: &args.health_check_target.get_inner(),
-        health_check_type: &args.health_check_type.get_inner(),
-        interface_address: &args.interface_address.get_inner(),
-        mtu: &args.mtu.get_inner(),
-        name: &args.name.get_inner(),
-        ttl: &args.ttl.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::magic_wan_gre_tunnel::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::magic_wan_gre_tunnel::Args {
+                account_id: &args.account_id.get_inner(),
+                cloudflare_gre_endpoint: &args.cloudflare_gre_endpoint.get_inner(),
+                customer_gre_endpoint: &args.customer_gre_endpoint.get_inner(),
+                description: &args.description.get_inner(),
+                health_check_enabled: &args.health_check_enabled.get_inner(),
+                health_check_target: &args.health_check_target.get_inner(),
+                health_check_type: &args.health_check_type.get_inner(),
+                interface_address: &args.interface_address.get_inner(),
+                mtu: &args.mtu.get_inner(),
+                name: &args.name.get_inner(),
+                ttl: &args.ttl.get_inner(),
+        }
+    );
 
     MagicWanGreTunnelResult {
         account_id: crate::into_domain(result.account_id),

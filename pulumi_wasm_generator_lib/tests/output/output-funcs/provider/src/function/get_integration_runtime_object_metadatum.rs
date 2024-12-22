@@ -23,9 +23,7 @@ impl get_integration_runtime_object_metadatum::Guest for Component {
         };
 
         let o = invoke(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         get_integration_runtime_object_metadatum::Res {
             next_link: hashmap.remove("nextLink").unwrap(),
             value: hashmap.remove("value").unwrap(),

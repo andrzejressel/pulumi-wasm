@@ -55,13 +55,19 @@ pub struct ZeroTrustGatewayProxyEndpointResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: ZeroTrustGatewayProxyEndpointArgs) -> ZeroTrustGatewayProxyEndpointResult {
+pub fn create(
+    name: &str,
+    args: ZeroTrustGatewayProxyEndpointArgs
+) -> ZeroTrustGatewayProxyEndpointResult {
 
-    let result = crate::bindings::pulumi::cloudflare::zero_trust_gateway_proxy_endpoint::invoke(name, &crate::bindings::pulumi::cloudflare::zero_trust_gateway_proxy_endpoint::Args {
-        account_id: &args.account_id.get_inner(),
-        ips: &args.ips.get_inner(),
-        name: &args.name.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::zero_trust_gateway_proxy_endpoint::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::zero_trust_gateway_proxy_endpoint::Args {
+                account_id: &args.account_id.get_inner(),
+                ips: &args.ips.get_inner(),
+                name: &args.name.get_inner(),
+        }
+    );
 
     ZeroTrustGatewayProxyEndpointResult {
         account_id: crate::into_domain(result.account_id),

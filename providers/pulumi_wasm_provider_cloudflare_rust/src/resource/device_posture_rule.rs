@@ -87,18 +87,24 @@ pub struct DevicePostureRuleResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: DevicePostureRuleArgs) -> DevicePostureRuleResult {
+pub fn create(
+    name: &str,
+    args: DevicePostureRuleArgs
+) -> DevicePostureRuleResult {
 
-    let result = crate::bindings::pulumi::cloudflare::device_posture_rule::invoke(name, &crate::bindings::pulumi::cloudflare::device_posture_rule::Args {
-        account_id: &args.account_id.get_inner(),
-        description: &args.description.get_inner(),
-        expiration: &args.expiration.get_inner(),
-        inputs: &args.inputs.get_inner(),
-        matches: &args.matches.get_inner(),
-        name: &args.name.get_inner(),
-        schedule: &args.schedule.get_inner(),
-        type_: &args.type_.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::device_posture_rule::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::device_posture_rule::Args {
+                account_id: &args.account_id.get_inner(),
+                description: &args.description.get_inner(),
+                expiration: &args.expiration.get_inner(),
+                inputs: &args.inputs.get_inner(),
+                matches: &args.matches.get_inner(),
+                name: &args.name.get_inner(),
+                schedule: &args.schedule.get_inner(),
+                type_: &args.type_.get_inner(),
+        }
+    );
 
     DevicePostureRuleResult {
         account_id: crate::into_domain(result.account_id),

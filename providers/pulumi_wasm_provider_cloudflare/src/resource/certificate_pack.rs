@@ -4,7 +4,10 @@ use crate::bindings::component::pulumi_wasm::register_interface::{ObjectField, r
 use crate::Component;
 
 impl certificate_pack::Guest for Component {
-    fn invoke(name: String, args: certificate_pack::Args) -> certificate_pack::Res {
+    fn invoke(
+        name: String,
+        args: certificate_pack::Args
+    ) -> certificate_pack::Res {
         pulumi_wasm_common::setup_logger();
         let request = RegisterResourceRequest {
             type_: "cloudflare:index/certificatePack:CertificatePack".into(),
@@ -36,9 +39,7 @@ impl certificate_pack::Guest for Component {
         };
 
         let o = register(&request);
-
         let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
-
         certificate_pack::Res {
             certificate_authority: hashmap.remove("certificateAuthority").unwrap(),
             cloudflare_branding: hashmap.remove("cloudflareBranding").unwrap(),
@@ -51,6 +52,5 @@ impl certificate_pack::Guest for Component {
             wait_for_active_status: hashmap.remove("waitForActiveStatus").unwrap(),
             zone_id: hashmap.remove("zoneId").unwrap(),
         }
-
     }
 }

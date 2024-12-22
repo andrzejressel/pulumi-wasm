@@ -83,15 +83,21 @@ pub struct UserAgentBlockingRuleResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-pub fn create(name: &str, args: UserAgentBlockingRuleArgs) -> UserAgentBlockingRuleResult {
+pub fn create(
+    name: &str,
+    args: UserAgentBlockingRuleArgs
+) -> UserAgentBlockingRuleResult {
 
-    let result = crate::bindings::pulumi::cloudflare::user_agent_blocking_rule::invoke(name, &crate::bindings::pulumi::cloudflare::user_agent_blocking_rule::Args {
-        configuration: &args.configuration.get_inner(),
-        description: &args.description.get_inner(),
-        mode: &args.mode.get_inner(),
-        paused: &args.paused.get_inner(),
-        zone_id: &args.zone_id.get_inner(),
-    });
+    let result = crate::bindings::pulumi::cloudflare::user_agent_blocking_rule::invoke(
+        name,
+        &crate::bindings::pulumi::cloudflare::user_agent_blocking_rule::Args {
+                configuration: &args.configuration.get_inner(),
+                description: &args.description.get_inner(),
+                mode: &args.mode.get_inner(),
+                paused: &args.paused.get_inner(),
+                zone_id: &args.zone_id.get_inner(),
+        }
+    );
 
     UserAgentBlockingRuleResult {
         configuration: crate::into_domain(result.configuration),
