@@ -61,7 +61,6 @@ fn main() {
 
 fn update_tests(tests: &[&str]) {
     update_github_actions_build(tests);
-    update_github_actions_deploy(tests);
     update_test_rs(tests);
 }
 
@@ -83,30 +82,6 @@ fn update_github_actions_build(tests: &[&str]) {
 
     fs::write(".github/workflows/deploy.yml", content)
         .expect("Failed to write to .github/workflows/deploy.yml");
-}
-
-fn update_github_actions_deploy(tests: &[&str]) {
-    let content = fs::read_to_string(".github/workflows/build.yml")
-        .expect("Failed to read .github/workflows/build.yml");
-
-    let mut replacement = String::new();
-    replacement.push_str("          ./\n");
-    for test in tests {
-        replacement.push_str(&format!(
-            "          pulumi_wasm_generator_lib/tests/output/{}/\n",
-            test
-        ));
-    }
-    let start_marker = " # DO NOT EDIT - START 1";
-    let end_marker = "# DO NOT EDIT - END 1";
-    let content = replace_between_markers(&content, start_marker, end_marker, &replacement);
-
-    let start_marker = " # DO NOT EDIT - START 2";
-    let end_marker = "# DO NOT EDIT - END 2";
-    let content = replace_between_markers(&content, start_marker, end_marker, &replacement);
-
-    fs::write(".github/workflows/build.yml", content)
-        .expect("Failed to write to .github/workflows/build.yml");
 }
 
 fn update_test_rs(tests: &[&str]) {
