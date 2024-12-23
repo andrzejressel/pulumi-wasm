@@ -1,7 +1,7 @@
-package pulumi:typesystem@1.0.0--0.0.0-DEV;
+package pulumi:typesystem@1.0.0--0.0.0-NIGHTLY-335bfdc;
 
 world typesystem-pulumi {
-    import component:pulumi-wasm/register-interface@0.0.0-DEV;
+    import component:pulumi-wasm/register-interface@0.0.0-NIGHTLY-335bfdc;
     export typesystem-server;
     export deep-nested-module-some-resource;
     export deep-nested-module-some-function;
@@ -15,7 +15,7 @@ world typesystem-pulumi-client {
 
 interface typesystem-server {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-335bfdc.{output};
 
     record args {
         optional-string-array: borrow<output>,
@@ -36,7 +36,7 @@ interface typesystem-server {
 }
 interface deep-nested-module-some-resource {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-335bfdc.{output};
 
     record args {
         string-input: borrow<output>,
@@ -52,7 +52,7 @@ interface deep-nested-module-some-resource {
 
 interface deep-nested-module-some-function {
 
-    use component:pulumi-wasm/output-interface@0.0.0-DEV.{output};
+    use component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-335bfdc.{output};
 
 
 
