@@ -13,6 +13,7 @@ world pulumi-wasm {
 world client {
     import output-interface;
     import stack-interface;
+    import register-interface;
     export component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV; // Used by macro
 }
 

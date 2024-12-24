@@ -1,5 +1,9 @@
 package component:pulumi-wasm@{{pulumi_wasm_version}};
 
+world my-world {
+    import output-interface;
+}
+
 interface output-interface {
 
     resource output {

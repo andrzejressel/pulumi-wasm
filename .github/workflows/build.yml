@@ -107,8 +107,8 @@ jobs:
           pulumi_wasm_generator_lib/tests/output/nested-module/
           pulumi_wasm_generator_lib/tests/output/nested-module-thirdparty/
 # DO NOT EDIT - END 1
-    - name: Regenerate provider list
-      run: just regenerate-provider-list
+    - name: Regenerator
+      run: just regenerator
     - name: Check
       run: just check
     - name: Build

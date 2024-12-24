@@ -9,3 +9,4 @@ edition.workspace = true
 clap.workspace = true
 pulumi_wasm_generator_lib.workspace = true
 anyhow.workspace = true
+tempfile = "3.14.0"

@@ -3,13 +3,7 @@ name = "main"
 version = "0.0.1"
 edition = "2021"
 
-[workspace]
-members = [
-    "provider",
-    "lib"
-]
-
-[workspace.dependencies]
+[dependencies]
 wit-bindgen-rt = "0.33.0"
 wit-bindgen = "0.33.0"
 automod = "1.0.14"
@@ -19,3 +13,5 @@ pulumi_wasm_wit = { path = "../../../../pulumi_wasm_wit" }
 pulumi_wasm_provider_common = { path = "../../../../pulumi_wasm_provider_common" }
 serde = "1.0.197"
 bon = "2.2.1"
+
+[workspace]

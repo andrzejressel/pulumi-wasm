@@ -1,0 +1,28 @@
+{{+ resources|safe }}
+
+pub mod functions {
+    {{+ functions|safe }}
+}
+
+pub mod types {
+    {{+ types|safe }}
+}
+
+#[doc(hidden)]
+pub mod constants {
+{% for constant in constants +%}
+    pulumi_wasm_provider_common::generate_string_const!(ConstString{{ constant }}, "{{ constant }}");
+{% endfor %}
+}
+
+mod bindings {
+    wit_bindgen::generate!({
+        // the name of the world in the `*.wit` input file
+        inline: r"
+            {{ pulumi_wasm_wit|safe }}
+        ",
+        with: {
+            "component:pulumi-wasm/output-interface@{{pulumi_wasm_version}}": pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface
+        }
+    });
+}

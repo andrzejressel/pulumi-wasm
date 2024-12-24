@@ -21,38 +21,50 @@ pub(crate) enum Type {
 }
 
 impl Type {
-    pub(crate) fn get_rust_type(&self) -> String {
+    pub(crate) fn get_rust_type(&self, depth: usize) -> String {
         match self {
             Type::Boolean => "bool".into(),
             Type::Integer => "i32".into(),
             Type::Number => "f64".into(),
             Type::String => "String".into(),
             Type::Array(type_) => {
-                format!("Vec<{}>", type_.get_rust_type())
+                format!("Vec<{}>", type_.get_rust_type(depth))
             }
             Type::Object(type_) => {
                 format!(
                     "std::collections::HashMap<String, {}>",
-                    type_.get_rust_type()
+                    type_.get_rust_type(depth)
                 )
             }
             Type::Ref(r) => match r {
-                Ref::Type(tpe) => format!("crate::types::{}", tpe.get_rust_absolute_name()),
+                Ref::Type(tpe) => {
+                    let prefix = if depth > 0 {
+                        "super::".repeat(depth)
+                    } else {
+                        "self::".to_string()
+                    };
+                    format!("{}types::{}", prefix, tpe.get_rust_absolute_name())
+                }
                 Ref::Archive => "String".to_string(), //FIXME
                 Ref::Asset => "String".to_string(),   //FIXME
                 Ref::Any => "String".to_string(),     //FIXME
             },
-            Type::Option(type_) => format!("Option<{}>", type_.get_rust_type()),
+            Type::Option(type_) => format!("Option<{}>", type_.get_rust_type(depth)),
             Type::DiscriminatedUnion(refs) => format!(
                 "pulumi_wasm_provider_common::OneOf{}<{}>",
                 refs.len(),
                 refs.iter()
-                    .map(|r| r.get_rust_type())
+                    .map(|r| r.get_rust_type(depth))
                     .collect::<Vec<_>>()
                     .join(", ")
             ),
             Type::ConstString(s) => {
-                format!("crate::ConstString{}", s.to_case(UpperCamel)).to_string()
+                let prefix = if depth > 0 {
+                    "super::".repeat(depth)
+                } else {
+                    "self::".to_string()
+                };
+                format!("{}constants::ConstString{}", prefix, s.to_case(UpperCamel)).to_string()
             }
         }
     }
