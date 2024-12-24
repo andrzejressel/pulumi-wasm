@@ -1,5 +1,5 @@
 use crate::model::{ElementId, Type};
-use crate::output::combined::get_register_interface;
+use crate::output::get_register_interface;
 use handlebars::Handlebars;
 use serde::Serialize;
 use serde_json::json;

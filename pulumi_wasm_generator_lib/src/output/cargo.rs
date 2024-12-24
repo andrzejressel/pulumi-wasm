@@ -1,4 +1,4 @@
-use crate::output::get_main_version;
+use crate::utils::get_main_version;
 use handlebars::Handlebars;
 use serde::Serialize;
 use serde_json::json;

@@ -1,4 +1,5 @@
-use crate::output::get_main_version;
+use crate::output::wit;
+use crate::utils::get_main_version;
 use rinja::Template;
 
 #[derive(Template)]
@@ -18,7 +19,7 @@ pub(crate) fn generate(
     types: String,
     constants: Vec<String>,
 ) -> anyhow::Result<String> {
-    let wit = crate::output::wit::get_dependencies()?;
+    let wit = wit::get_dependencies()?;
 
     let file = TemplateModel {
         functions,

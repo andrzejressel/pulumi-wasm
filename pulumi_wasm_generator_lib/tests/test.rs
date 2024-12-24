@@ -1,11 +1,7 @@
-use anyhow::{Context, Result};
+use anyhow::Result;
 use assert_cmd::assert::OutputAssertExt;
-use pulumi_wasm_generator_lib::{
-    extract_micro_package, generate_combined, generate_rust_library, generate_wasm_provider,
-};
+use pulumi_wasm_generator_lib::generate_combined;
 use std::fs;
-use std::fs::File;
-use std::io::BufReader;
 use std::path::{Path, PathBuf};
 use std::process::Command;
 

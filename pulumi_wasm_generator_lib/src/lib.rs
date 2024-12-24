@@ -1,13 +1,9 @@
-use std::fs;
-use std::fs::File;
-use std::io::{BufReader, Write};
-use std::path::Path;
-
-use crate::output::rust::functions::generate_function_code;
-use crate::output::rust::resources::generate_resources_code;
 use crate::schema::Package;
 use anyhow::{Context, Result};
-use output::rust::types::generate_types_code;
+use std::fs;
+use std::fs::File;
+use std::io::BufReader;
+use std::path::Path;
 
 mod code_generation;
 mod description;
@@ -16,96 +12,13 @@ mod output;
 mod schema;
 mod utils;
 
-pub fn generate_rust_library(schema_json: &Path, result_path: &Path) -> Result<()> {
-    let schema_package: schema::Package = extract_schema_from_file(schema_json)?;
-    let package = schema::to_model(&schema_package)?;
-
-    fs::create_dir_all(result_path.join("wit").join("deps"))?;
-    fs::create_dir_all(result_path.join("src"))?;
-    fs::create_dir_all(result_path.join("src").join("resource"))?;
-    fs::create_dir_all(result_path.join("src").join("types"))?;
-    fs::create_dir_all(result_path.join("src").join("function"))?;
-
-    let mut wit_file = File::create(result_path.join("wit").join("world.wit"))?;
-    wit_file.write_all(output::wit::generate_wit(&package)?.as_ref())?;
-
-    let mut deps_wit_file =
-        File::create(result_path.join("wit").join("deps").join("pulumi-wasm.wit"))?;
-    deps_wit_file.write_all(output::wit::get_dependencies()?.as_ref())?;
-
-    let mut cargo_file = File::create(result_path.join("Cargo.toml"))?;
-    cargo_file.write_all(output::rust::cargo::generate_cargo(&package).as_bytes())?;
-
-    let mut lib_file = File::create(result_path.join("src").join("lib.rs"))?;
-    lib_file
-        .write_all(output::rust::source_code_librs::generate_source_code(&package).as_bytes())?;
-
-    generate_types_code(&package, result_path);
-    generate_resources_code(&package, result_path);
-    generate_function_code(&package, result_path);
-
-    Ok(())
-}
-
-pub fn generate_wasm_provider(schema_json: &Path, result_path: &Path) -> Result<()> {
-    let schema_package: schema::Package = extract_schema_from_file(schema_json)?;
-    let package = schema::to_model(&schema_package)?;
-
-    fs::create_dir_all(result_path.join("wit").join("deps"))?;
-    fs::create_dir_all(result_path.join("src").join("resource"))?;
-    fs::create_dir_all(result_path.join("src").join("function"))?;
-
-    let mut wit_file = File::create(result_path.join("wit").join("world.wit"))?;
-    wit_file.write_all(output::wit::generate_wit(&package)?.as_ref())?;
-
-    let mut deps_wit_file =
-        File::create(result_path.join("wit").join("deps").join("pulumi-wasm.wit"))?;
-    deps_wit_file.write_all(output::wit::get_dependencies()?.as_ref())?;
-
-    let mut cargo_file = File::create(result_path.join("Cargo.toml"))?;
-    cargo_file.write_all(output::provider::cargo::generate_cargo(&package).as_bytes())?;
-
-    let mut lib_file = File::create(result_path.join("src").join("lib.rs"))?;
-    lib_file.write_all(
-        output::provider::source_code_librs::generate_source_code(&package).as_bytes(),
-    )?;
-
-    let mut source_file = File::create(result_path.join("src").join("resource").join("mod.rs"))?;
-    source_file.write_all(
-        output::provider::source_code_resource_mod::generate_source_code(&package).as_bytes(),
-    )?;
-
-    output::provider::source_code_resource_code::generate_source_code(&package)
-        .iter()
-        .for_each(|(path, content)| {
-            let mut lib_file =
-                File::create(result_path.join("src").join("resource").join(path)).unwrap();
-            lib_file.write_all(content.as_bytes()).unwrap();
-        });
-
-    let mut source_file = File::create(result_path.join("src").join("function").join("mod.rs"))?;
-    source_file.write_all(
-        output::provider::source_code_function_mod::generate_source_code(&package).as_bytes(),
-    )?;
-
-    output::provider::source_code_function_code::generate_source_code(&package)
-        .iter()
-        .for_each(|(path, content)| {
-            let mut lib_file =
-                File::create(result_path.join("src").join("function").join(path)).unwrap();
-            lib_file.write_all(content.as_bytes()).unwrap();
-        });
-
-    Ok(())
-}
-
 pub fn generate_combined(schema_json: &Path, result_path: &Path) -> Result<()> {
     let schema_package: schema::Package = extract_schema_from_file(schema_json)?;
     let package = schema::to_model(&schema_package)?;
 
     fs::create_dir_all(result_path)?;
 
-    output::combined::generate_combined_code(&package, result_path);
+    output::generate_combined_code(&package, result_path);
 
     Ok(())
 }

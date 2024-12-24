@@ -1,5 +1,5 @@
 use crate::model::GlobalType;
-use crate::output::get_main_version;
+use crate::utils::get_main_version;
 use convert_case::Case::UpperCamel;
 use convert_case::Casing;
 use handlebars::Handlebars;

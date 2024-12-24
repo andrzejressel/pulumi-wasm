@@ -1,10 +1,6 @@
-use anyhow::{Context, Result};
 use clap::{Parser, Subcommand};
-use tempfile;
 
-use pulumi_wasm_generator_lib::{
-    extract_micro_package, generate_combined, generate_rust_library, generate_wasm_provider,
-};
+use pulumi_wasm_generator_lib::{extract_micro_package, generate_combined};
 use std::path::Path;
 use std::{env, fs};
 
@@ -71,77 +67,4 @@ pub fn generate_from_schema(schema_file: &Path) {
 
     generate_combined(schema_file, &location).unwrap();
     println!("cargo::rerun-if-changed=build.rs");
-}
-
-fn main() -> Result<()> {
-    let args = App::parse();
-
-    match args.command {
-        Command::GenProvider {
-            schema,
-            output: destination,
-            remove,
-        } => {
-            check_if_schema_exists(schema.as_ref())?;
-            check_if_not_empty(destination.as_ref(), remove)?;
-            generate_wasm_provider(schema.as_ref(), destination.as_ref())?;
-        }
-        Command::GenRust {
-            schema,
-            output: destination,
-            remove,
-        } => {
-            check_if_schema_exists(schema.as_ref())?;
-            check_if_not_empty(destination.as_ref(), remove)?;
-            generate_rust_library(schema.as_ref(), destination.as_ref())?;
-        }
-    };
-
-    Ok(())
-}
-
-fn check_if_schema_exists(schema: &Path) -> Result<()> {
-    if !schema.exists() {
-        Err(anyhow::anyhow!(
-            "Schema file [{}] does not exist",
-            schema.display()
-        ))
-    } else if !schema.is_file() {
-        Err(anyhow::anyhow!(
-            "Schema [{}] is not a file",
-            schema.display()
-        ))
-    } else {
-        Ok(())
-    }
-}
-
-fn check_if_not_empty(output_directory: &Path, remove: Option<bool>) -> Result<()> {
-    let remove = remove.unwrap_or(false);
-    if output_directory.exists() && remove {
-        fs::remove_dir_all(output_directory).context(format!(
-            "Cannot remove directory [{}]",
-            output_directory.display()
-        ))?;
-    }
-    fs::create_dir_all(output_directory).context(format!(
-        "Cannot create directory [{}]",
-        output_directory.display()
-    ))?;
-    let is_empty = output_directory
-        .read_dir()
-        .context(format!(
-            "Cannot read directory [{}]",
-            output_directory.display()
-        ))?
-        .next()
-        .is_none();
-    if !is_empty {
-        Err(anyhow::anyhow!(
-            "Directory \"{}\" is not empty",
-            output_directory.display()
-        ))
-    } else {
-        Ok(())
-    }
 }

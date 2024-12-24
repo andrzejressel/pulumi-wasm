@@ -186,14 +186,14 @@ mod tests {
     }
 
     fn resource_compilation_test() {
-        let _ = pulumi_wasm_providers_typesystem::deep::nested::module::some_resource::create(
+        pulumi_wasm_providers_typesystem::deep::nested::module::some_resource::create(
             "test",
             SomeResourceArgs::builder().build_struct(),
         );
     }
 
     fn function_compilation_test() {
-        let _ = pulumi_wasm_providers_typesystem::functions::deep::nested::module::some_function::invoke();
+        pulumi_wasm_providers_typesystem::functions::deep::nested::module::some_function::invoke();
     }
 
     fn types_compilation_test() {
