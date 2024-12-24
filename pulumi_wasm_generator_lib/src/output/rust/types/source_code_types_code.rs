@@ -91,6 +91,7 @@ enum GenerateResource {
 
 fn convert_resource(package: &crate::model::Package, element_id: &ElementId) -> GenerateResource {
     let resource = package.types.get(element_id).unwrap();
+    let depth = element_id.namespace.len();
     match resource {
         GlobalType::Object(description, properties) => {
             let ref_type = RefType {
@@ -106,7 +107,7 @@ fn convert_resource(package: &crate::model::Package, element_id: &ElementId) -> 
                             .from_case(Case::Camel)
                             .to_case(Case::Snake),
                         original_name: global_type_property.name.clone(),
-                        type_: global_type_property.r#type.get_rust_type(),
+                        type_: global_type_property.r#type.get_rust_type(depth),
                         default: matches!(global_type_property.r#type, Type::Option(_)),
                         skip: matches!(global_type_property.r#type, Type::ConstString(_)),
                         private: matches!(global_type_property.r#type, Type::ConstString(_)),

@@ -1,6 +1,8 @@
 use anyhow::{Context, Result};
 use assert_cmd::assert::OutputAssertExt;
-use pulumi_wasm_generator_lib::{generate_rust_library, generate_wasm_provider};
+use pulumi_wasm_generator_lib::{
+    extract_micro_package, generate_combined, generate_rust_library, generate_wasm_provider,
+};
 use std::fs;
 use std::fs::File;
 use std::io::BufReader;
@@ -80,46 +82,40 @@ fn nested_module_thirdparty() -> Result<()> {
 }
 // DO NOT EDIT - END
 
+#[test]
+fn cloudflare() -> Result<()> {
+    run_pulumi_generator_test("cloudflare")
+}
+
+#[test]
+fn docker() -> Result<()> {
+    run_pulumi_generator_test("docker")
+}
+
+#[test]
+fn random() -> Result<()> {
+    run_pulumi_generator_test("random")
+}
+
 // provider_name is `name` from yaml file
 pub fn run_pulumi_generator_test(test_name: &str) -> Result<()> {
     let root_path = format!("tests/output/{test_name}");
     let root = Path::new(&root_path);
-    let provider_output_path = root.join("provider");
-    let output = Path::new(&provider_output_path);
-    fs::create_dir_all(root.join("lib"))?;
 
     let schema = find_schema_files(test_name);
-    let micropackage = extract_micro_package(&schema)?;
+    fs::create_dir_all(root)?;
 
     fs::copy(schema.clone(), root.join(schema.file_name().unwrap()))?;
 
-    generate_wasm_provider(schema.as_path(), output)?;
-    generate_rust_library(schema.as_path(), &root.join("lib"))?;
+    generate_combined(schema.as_path(), &root.join("src").join("generated"))?;
 
     fs::copy("tests/input/Cargo.toml", root.join("Cargo.toml"))?;
     fs::create_dir_all(root.join("src"))?;
-    fs::write(root.join("src/lib.rs"), "")?;
+    fs::write(root.join("src/lib.rs"), "include!(\"generated/main.rs\");")?;
     fs::copy("../rust-toolchain.toml", root.join("rust-toolchain.toml"))?;
 
     Command::new("cargo")
-        .args([
-            "component",
-            "build",
-            "-p",
-            format!("pulumi_wasm_{}_provider", micropackage.name).as_str(),
-        ])
-        .env_remove("CARGO_LLVM_COV")
-        .env_remove("RUSTFLAGS")
-        .current_dir(root)
-        .assert()
-        .success();
-
-    Command::new("cargo")
-        .args([
-            "build",
-            "-p",
-            format!("pulumi_wasm_{}", micropackage.name).as_str(),
-        ])
+        .args(["component", "build"])
         .env_remove("CARGO_LLVM_COV")
         .env_remove("RUSTFLAGS")
         .current_dir(root)
@@ -147,6 +143,7 @@ pub fn find_schema_files(name: &str) -> PathBuf {
             .join("schema.json"),
         Path::new("../pulumi-java/pkg/codegen/testing/test/testdata").join(format!("{name}.yaml")),
         Path::new("../pulumi-java/pkg/codegen/testing/test/testdata").join(format!("{name}.json")),
+        Path::new("test_cases").join(format!("{name}.json")),
     ];
 
     for path in possible_paths {
@@ -156,27 +153,4 @@ pub fn find_schema_files(name: &str) -> PathBuf {
     }
 
     panic!("No schema file found for provider: {name}");
-}
-
-fn extract_micro_package(schema_json: &Path) -> anyhow::Result<MicroPackage> {
-    let file = File::open(schema_json)
-        .with_context(|| format!("Error opening schema file [{:?}]", schema_json))?;
-    let reader = BufReader::new(file);
-    match schema_json.extension().and_then(|s| s.to_str()) {
-        None => Err(anyhow::anyhow!(
-            "No extensions for schema file: {}.",
-            schema_json.display()
-        )),
-        Some("yml" | "yaml") => serde_yaml::from_reader(reader).map_err(anyhow::Error::new),
-        Some("json") => serde_json::from_reader(reader).map_err(anyhow::Error::new),
-        Some(ext) => Err(anyhow::anyhow!(
-            "Unsupported schema file extension: {}.",
-            ext
-        )),
-    }
-}
-
-#[derive(serde::Deserialize, Debug)]
-struct MicroPackage {
-    name: String,
 }

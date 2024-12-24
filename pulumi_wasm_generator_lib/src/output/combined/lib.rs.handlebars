@@ -1,0 +1,38 @@
+use pulumi_wasm_rust::Output;
+{{#if package.contains_elements}}
+use pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface::Output as WitOutput;
+{{/if}}
+{{#if package.contains_resources}}
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
+mod resource;
+pub use resource::*;
+{{/if}}
+{{#if package.contains_functions}}
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
+pub mod function;
+{{/if}}
+{{#if package.contains_types}}
+#[allow(clippy::doc_lazy_continuation, clippy::tabs_in_doc_comments)]
+pub mod types;
+{{/if}}
+
+mod bindings {
+    wit_bindgen::generate!({
+        // the name of the world in the `*.wit` input file
+        world: "{{package.name}}-pulumi-client",
+{{#if package.contains_elements}}
+        with: {
+            "component:pulumi-wasm/output-interface@{{package.pulumi_wasm_version}}": pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface
+        }
+{{/if}}
+    });
+}
+
+{{#if package.contains_elements}}
+fn into_domain<F: serde::Serialize>(output: WitOutput) -> Output<F> {
+    unsafe { Output::<F>::new_from_handle(output) }
+}
+{{/if}}
+{{#each package.const_strings}}
+pulumi_wasm_provider_common::generate_string_const!(ConstString{{&this}}, "{{&this}}");
+{{/each}}

@@ -37,6 +37,7 @@ struct Resource {
 
 fn convert_resource(package: &crate::model::Package, element_id: &ElementId) -> Resource {
     let resource = package.resources.get(element_id).unwrap();
+    let depth = element_id.namespace.len();
     Resource {
         name: element_id.get_rust_namespace_name(),
         package_name: package.name.clone().replace("-", "_"),
@@ -56,7 +57,7 @@ fn convert_resource(package: &crate::model::Package, element_id: &ElementId) -> 
                 default: matches!(input_property.r#type, Type::Option(_)),
                 skip: matches!(input_property.r#type, Type::ConstString(_)),
                 private: matches!(input_property.r#type, Type::ConstString(_)),
-                type_: input_property.r#type.get_rust_type(),
+                type_: input_property.r#type.get_rust_type(depth),
                 description_lines: crate::utils::to_lines(
                     input_property.description.clone(),
                     package,
@@ -70,7 +71,7 @@ fn convert_resource(package: &crate::model::Package, element_id: &ElementId) -> 
             .map(|output_property| OutputProperty {
                 name: output_property.name.clone(),
                 arg_name: output_property.get_rust_argument_name(),
-                type_: output_property.r#type.get_rust_type(),
+                type_: output_property.r#type.get_rust_type(depth),
                 description_lines: crate::utils::to_lines(
                     output_property.description.clone(),
                     package,

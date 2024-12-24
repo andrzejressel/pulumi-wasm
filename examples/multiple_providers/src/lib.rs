@@ -1,8 +1,8 @@
 use anyhow::Error;
-use pulumi_wasm_docker::container;
-use pulumi_wasm_docker::container::ContainerArgs;
-use pulumi_wasm_random::random_string;
-use pulumi_wasm_random::random_string::RandomStringArgs;
+use pulumi_wasm_providers_docker::container;
+use pulumi_wasm_providers_docker::container::ContainerArgs;
+use pulumi_wasm_providers_random::random_string;
+use pulumi_wasm_providers_random::random_string::RandomStringArgs;
 use pulumi_wasm_rust::Output;
 use pulumi_wasm_rust::{add_export, pulumi_main};
 

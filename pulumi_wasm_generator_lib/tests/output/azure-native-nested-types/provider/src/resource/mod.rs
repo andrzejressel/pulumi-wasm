@@ -1,1 +1,0 @@
-pub mod documentdb_sql_resource_sql_container;

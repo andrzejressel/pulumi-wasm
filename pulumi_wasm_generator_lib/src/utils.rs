@@ -173,3 +173,8 @@ fn fix_pulumi_docker_docs(s: String, element_id: Option<ElementId>) -> String {
 
     s
 }
+
+pub fn reformat_code(code: &str) -> anyhow::Result<String> {
+    let syntax_tree = syn::parse_file(code)?;
+    Ok(prettyplease::unparse(&syntax_tree))
+}

@@ -1,7 +1,8 @@
 use anyhow::Error;
-use pulumi_wasm_docker::function::get_remote_image::GetRemoteImageArgs;
-use pulumi_wasm_docker::types::{ContainerLabel, DockerBuild};
-use pulumi_wasm_docker::{container, image};
+use pulumi_wasm_providers_docker::functions::get_remote_image;
+use pulumi_wasm_providers_docker::functions::get_remote_image::GetRemoteImageArgs;
+use pulumi_wasm_providers_docker::types::{ContainerLabel, DockerBuild};
+use pulumi_wasm_providers_docker::{container, image};
 use pulumi_wasm_rust::{add_export, pulumi_main};
 
 #[pulumi_main]
@@ -34,7 +35,7 @@ fn test_main() -> Result<(), Error> {
             .build_struct(),
     );
 
-    let remote_image = pulumi_wasm_docker::function::get_remote_image::invoke(
+    let remote_image = get_remote_image::invoke(
         GetRemoteImageArgs::builder()
             .name("public.ecr.aws/ubuntu/ubuntu:latest")
             .build_struct(),

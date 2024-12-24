@@ -2,7 +2,7 @@ use crate::code_generation::yaml::model::Expression;
 use crate::code_generation::yaml::model::Resource;
 use crate::code_generation::yaml::model::{Example, FnInvoke, Variable};
 use crate::model::ElementId;
-use crate::utils::escape_rust_name;
+use crate::utils::{escape_rust_name, reformat_code};
 use anyhow::Context;
 use anyhow::Result;
 use convert_case::Case;
@@ -34,9 +34,8 @@ fn test_main() -> Result<(), Error> {
 
     result.push('}');
 
-    let syntax_tree = syn::parse_file(result.as_str())
+    let formatted = reformat_code(result.as_str())
         .context(format!("Failed to parse generated Rust code:\n{}", result))?;
-    let formatted = prettyplease::unparse(&syntax_tree);
     Ok(formatted)
 }
 

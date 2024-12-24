@@ -1,13 +1,13 @@
 #[cfg(test)]
 mod tests {
     use pulumi_wasm_provider_common::OneOf2;
-    use pulumi_wasm_rust::Output;
-    use pulumi_wasm_typesystem::deep::nested::module::some_resource::SomeResourceArgs;
-    use pulumi_wasm_typesystem::types::{
+    use pulumi_wasm_providers_typesystem::deep::nested::module::some_resource::SomeResourceArgs;
+    use pulumi_wasm_providers_typesystem::types::{
         IntegerEnum, MyEnum, NumberEnum, UnionCase1, UnionCase2, UnionCaseWithConst1,
         UnionCaseWithConst2,
     };
-    use pulumi_wasm_typesystem::typesystem_server::TypesystemServerArgs;
+    use pulumi_wasm_providers_typesystem::typesystem_server::TypesystemServerArgs;
+    use pulumi_wasm_rust::Output;
     use std::panic::catch_unwind;
 
     #[test]
@@ -186,18 +186,18 @@ mod tests {
     }
 
     fn resource_compilation_test() {
-        let _ = pulumi_wasm_typesystem::deep::nested::module::some_resource::create(
+        let _ = pulumi_wasm_providers_typesystem::deep::nested::module::some_resource::create(
             "test",
             SomeResourceArgs::builder().build_struct(),
         );
     }
 
     fn function_compilation_test() {
-        let _ = pulumi_wasm_typesystem::function::deep::nested::module::some_function::invoke();
+        let _ = pulumi_wasm_providers_typesystem::functions::deep::nested::module::some_function::invoke();
     }
 
     fn types_compilation_test() {
-        let _ =
-            pulumi_wasm_typesystem::types::deep::nested::module::SomeType::builder().build_struct();
+        let _ = pulumi_wasm_providers_typesystem::types::deep::nested::module::SomeType::builder()
+            .build_struct();
     }
 }

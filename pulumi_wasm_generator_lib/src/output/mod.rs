@@ -1,3 +1,4 @@
+pub(crate) mod combined;
 pub(crate) mod provider;
 pub(crate) mod rust;
 pub(crate) mod wit;
