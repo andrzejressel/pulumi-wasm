@@ -2246,11 +2246,11 @@ dependencies = [
 
 [[package]]
 name = "pulumi-wasm-parent"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-16eef8e"
 
 [[package]]
 name = "pulumi_wasm"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-16eef8e"
 dependencies = [
  "log",
  "pulumi_wasm_common",
@@ -2262,7 +2262,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_cloudflare"
-version = "5.43.1-0.0.0-DEV"
+version = "5.43.1-0.0.0-NIGHTLY-16eef8e"
 dependencies = [
  "bon",
  "pulumi_wasm_provider_common",
@@ -2274,7 +2274,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_cloudflare_provider"
-version = "5.43.1-0.0.0-DEV"
+version = "5.43.1-0.0.0-NIGHTLY-16eef8e"
 dependencies = [
  "pulumi_wasm_common",
  "wit-bindgen-rt",
@@ -2282,7 +2282,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_common"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-16eef8e"
 dependencies = [
  "log",
  "pulumi_wasm_wit",
@@ -2290,7 +2290,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_core"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-16eef8e"
 dependencies = [
  "log",
  "mockall",
@@ -2303,7 +2303,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_docker"
-version = "4.5.3-0.0.0-DEV"
+version = "4.5.3-0.0.0-NIGHTLY-16eef8e"
 dependencies = [
  "bon",
  "pulumi_wasm_provider_common",
@@ -2315,7 +2315,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_docker_provider"
-version = "4.5.3-0.0.0-DEV"
+version = "4.5.3-0.0.0-NIGHTLY-16eef8e"
 dependencies = [
  "pulumi_wasm_common",
  "wit-bindgen-rt",
@@ -2323,7 +2323,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_example_dependencies"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-16eef8e"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -2335,7 +2335,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_example_docker"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-16eef8e"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -2347,7 +2347,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_example_multiple_providers"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-16eef8e"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -2360,7 +2360,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_example_simple"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-16eef8e"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -2372,7 +2372,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_example_typesystem"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-16eef8e"
 dependencies = [
  "pulumi_wasm_provider_common",
  "pulumi_wasm_rust",
@@ -2382,7 +2382,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_generator"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-16eef8e"
 dependencies = [
  "anyhow",
  "clap",
@@ -2391,7 +2391,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_generator_lib"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-16eef8e"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -2411,7 +2411,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_proto"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-16eef8e"
 dependencies = [
  "prost",
  "prost-types",
@@ -2421,7 +2421,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_provider_common"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-16eef8e"
 dependencies = [
  "serde",
  "serde_json",
@@ -2429,7 +2429,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_random"
-version = "4.15.0-0.0.0-DEV"
+version = "4.15.0-0.0.0-NIGHTLY-16eef8e"
 dependencies = [
  "bon",
  "pulumi_wasm_provider_common",
@@ -2441,7 +2441,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_random_provider"
-version = "4.15.0-0.0.0-DEV"
+version = "4.15.0-0.0.0-NIGHTLY-16eef8e"
 dependencies = [
  "pulumi_wasm_common",
  "wit-bindgen-rt",
@@ -2449,7 +2449,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_runner"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-16eef8e"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -2469,7 +2469,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_runner_component_creator"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-16eef8e"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -2486,7 +2486,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_rust"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-16eef8e"
 dependencies = [
  "anyhow",
  "log",
@@ -2504,7 +2504,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_rust_macro"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-16eef8e"
 dependencies = [
  "quote",
  "syn 2.0.91",
@@ -2512,7 +2512,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_typesystem"
-version = "1.0.0-0.0.0-DEV"
+version = "1.0.0-0.0.0-NIGHTLY-16eef8e"
 dependencies = [
  "bon",
  "pulumi_wasm_provider_common",
@@ -2524,7 +2524,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_wit"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-16eef8e"
 dependencies = [
  "wasmtime",
  "wit-bindgen",
@@ -2625,7 +2625,7 @@ dependencies = [
 
 [[package]]
 name = "regenerate_providers"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-16eef8e"
 
 [[package]]
 name = "regex"
