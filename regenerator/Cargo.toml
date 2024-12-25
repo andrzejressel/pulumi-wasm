@@ -1,0 +1,4 @@
+[package]
+name = "regenerator"
+version.workspace = true
+edition.workspace = true

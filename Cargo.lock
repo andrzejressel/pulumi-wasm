@@ -2261,26 +2261,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "pulumi_wasm_cloudflare"
-version = "5.43.1-0.0.0-DEV"
-dependencies = [
- "bon",
- "pulumi_wasm_provider_common",
- "pulumi_wasm_rust",
- "pulumi_wasm_wit",
- "serde",
- "wit-bindgen",
-]
-
-[[package]]
-name = "pulumi_wasm_cloudflare_provider"
-version = "5.43.1-0.0.0-DEV"
-dependencies = [
- "pulumi_wasm_common",
- "wit-bindgen-rt",
-]
-
-[[package]]
 name = "pulumi_wasm_common"
 version = "0.0.0-DEV"
 dependencies = [
@@ -2302,33 +2282,13 @@ dependencies = [
 ]
 
 [[package]]
-name = "pulumi_wasm_docker"
-version = "4.5.3-0.0.0-DEV"
-dependencies = [
- "bon",
- "pulumi_wasm_provider_common",
- "pulumi_wasm_rust",
- "pulumi_wasm_wit",
- "serde",
- "wit-bindgen",
-]
-
-[[package]]
-name = "pulumi_wasm_docker_provider"
-version = "4.5.3-0.0.0-DEV"
-dependencies = [
- "pulumi_wasm_common",
- "wit-bindgen-rt",
-]
-
-[[package]]
 name = "pulumi_wasm_example_dependencies"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
  "assert_cmd",
  "predicates",
- "pulumi_wasm_random",
+ "pulumi_wasm_providers_random",
  "pulumi_wasm_rust",
  "serde_json",
 ]
@@ -2340,7 +2300,7 @@ dependencies = [
  "anyhow",
  "assert_cmd",
  "predicates",
- "pulumi_wasm_docker",
+ "pulumi_wasm_providers_docker",
  "pulumi_wasm_rust",
  "serde_json",
 ]
@@ -2352,8 +2312,8 @@ dependencies = [
  "anyhow",
  "assert_cmd",
  "predicates",
- "pulumi_wasm_docker",
- "pulumi_wasm_random",
+ "pulumi_wasm_providers_docker",
+ "pulumi_wasm_providers_random",
  "pulumi_wasm_rust",
  "serde_json",
 ]
@@ -2365,7 +2325,7 @@ dependencies = [
  "anyhow",
  "assert_cmd",
  "predicates",
- "pulumi_wasm_random",
+ "pulumi_wasm_providers_random",
  "pulumi_wasm_rust",
  "serde_json",
 ]
@@ -2375,8 +2335,8 @@ name = "pulumi_wasm_example_typesystem"
 version = "0.0.0-DEV"
 dependencies = [
  "pulumi_wasm_provider_common",
+ "pulumi_wasm_providers_typesystem",
  "pulumi_wasm_rust",
- "pulumi_wasm_typesystem",
  "serde_json",
 ]
 
@@ -2385,8 +2345,8 @@ name = "pulumi_wasm_generator"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
- "clap",
  "pulumi_wasm_generator_lib",
+ "tempfile",
 ]
 
 [[package]]
@@ -2428,11 +2388,11 @@ dependencies = [
 ]
 
 [[package]]
-name = "pulumi_wasm_random"
-version = "4.15.0-0.0.0-DEV"
+name = "pulumi_wasm_providers_cloudflare"
+version = "0.0.0-DEV"
 dependencies = [
  "bon",
- "pulumi_wasm_provider_common",
+ "pulumi_wasm_generator",
  "pulumi_wasm_rust",
  "pulumi_wasm_wit",
  "serde",
@@ -2440,11 +2400,40 @@ dependencies = [
 ]
 
 [[package]]
-name = "pulumi_wasm_random_provider"
-version = "4.15.0-0.0.0-DEV"
+name = "pulumi_wasm_providers_docker"
+version = "0.0.0-DEV"
 dependencies = [
- "pulumi_wasm_common",
- "wit-bindgen-rt",
+ "bon",
+ "pulumi_wasm_generator",
+ "pulumi_wasm_rust",
+ "pulumi_wasm_wit",
+ "serde",
+ "wit-bindgen",
+]
+
+[[package]]
+name = "pulumi_wasm_providers_random"
+version = "0.0.0-DEV"
+dependencies = [
+ "bon",
+ "pulumi_wasm_generator",
+ "pulumi_wasm_rust",
+ "pulumi_wasm_wit",
+ "serde",
+ "wit-bindgen",
+]
+
+[[package]]
+name = "pulumi_wasm_providers_typesystem"
+version = "0.0.0-DEV"
+dependencies = [
+ "bon",
+ "pulumi_wasm_generator",
+ "pulumi_wasm_provider_common",
+ "pulumi_wasm_rust",
+ "pulumi_wasm_wit",
+ "serde",
+ "wit-bindgen",
 ]
 
 [[package]]
@@ -2508,18 +2497,6 @@ version = "0.0.0-DEV"
 dependencies = [
  "quote",
  "syn 2.0.91",
-]
-
-[[package]]
-name = "pulumi_wasm_typesystem"
-version = "1.0.0-0.0.0-DEV"
-dependencies = [
- "bon",
- "pulumi_wasm_provider_common",
- "pulumi_wasm_rust",
- "pulumi_wasm_wit",
- "serde",
- "wit-bindgen",
 ]
 
 [[package]]
@@ -2624,7 +2601,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "regenerate_providers"
+name = "regenerator"
 version = "0.0.0-DEV"
 
 [[package]]

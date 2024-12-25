@@ -1,8 +1,8 @@
 use crate::code_generation::yaml::model::Expression;
 use crate::code_generation::yaml::model::{Example, Resource};
-use crate::code_generation::yaml::tests::reformat_code;
 use crate::code_generation::YamlFile;
 use crate::model::ElementId;
+use crate::utils::reformat_code;
 use std::collections::BTreeMap;
 
 //language=YAML
@@ -85,4 +85,5 @@ pub fn get_rust_code() -> String {
     }
     "#,
     )
+    .unwrap()
 }

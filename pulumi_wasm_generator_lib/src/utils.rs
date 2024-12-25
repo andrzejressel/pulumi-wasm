@@ -173,3 +173,12 @@ fn fix_pulumi_docker_docs(s: String, element_id: Option<ElementId>) -> String {
 
     s
 }
+
+pub(crate) fn reformat_code(code: &str) -> anyhow::Result<String> {
+    let syntax_tree = syn::parse_file(code)?;
+    Ok(prettyplease::unparse(&syntax_tree))
+}
+
+pub(crate) fn get_main_version() -> String {
+    env!("CARGO_PKG_VERSION").to_string()
+}

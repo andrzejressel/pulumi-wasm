@@ -1,0 +1,14 @@
+[package]
+name = "pulumi_wasm_providers_docker"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+wit-bindgen.workspace = true
+pulumi_wasm_rust.workspace = true
+serde.workspace = true
+pulumi_wasm_wit = { workspace = true, features = ["client"] }
+bon.workspace = true
+
+[build-dependencies]
+pulumi_wasm_generator.workspace = true

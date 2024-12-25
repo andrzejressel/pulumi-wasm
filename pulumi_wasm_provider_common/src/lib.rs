@@ -6,7 +6,7 @@ pub use oneof::*;
 macro_rules! generate_string_const {
     ($struct_name:ident, $constant:tt) => {
         #[derive(Debug, PartialEq, Eq, Copy, Clone, Hash)]
-        struct $struct_name;
+        pub(crate) struct $struct_name;
         impl Default for $struct_name {
             fn default() -> Self {
                 Self {}

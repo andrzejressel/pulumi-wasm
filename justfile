@@ -11,11 +11,11 @@ CARGO_LLVM_COV_VERSION := "0.6.13"
 FORMATTABLE_PROJECTS := "-p pulumi_wasm -p pulumi_wasm_common -p pulumi_wasm_generator -p pulumi_wasm_generator_lib \
 -p pulumi_wasm_runner -p pulumi_wasm_runner_component_creator -p pulumi_wasm_rust -p pulumi_wasm_rust_macro \
 -p pulumi_wasm_example_dependencies -p pulumi_wasm_example_docker -p pulumi_wasm_example_multiple_providers \
--p pulumi_wasm_example_simple -p pulumi_wasm_example_typesystem -p regenerate_providers"
+-p pulumi_wasm_example_simple -p pulumi_wasm_example_typesystem -p regenerator"
 
 @default: build test
 
-build: build-language-plugin regenerate-providers install-requirements build-wasm-components build-all-wasm-projects-release fmt
+build: build-language-plugin regenerator install-requirements build-wasm-components build-all-wasm-projects-release fmt
 
 # https://stackoverflow.com/questions/74524817/why-is-anyhow-not-working-in-the-stable-version
 fix-issues:
@@ -38,41 +38,20 @@ install-requirements:
 
 # Compiling everything together causes linking issues
 build-wasm-components:
-    cargo component build -p pulumi_wasm --timings
-    cargo component build -p pulumi_wasm_example_simple --timings
-    cargo component build -p pulumi_wasm_example_docker --timings
-    cargo component build -p pulumi_wasm_example_dependencies --timings
-    cargo component build -p pulumi_wasm_example_multiple_providers --timings
-    just build-wasm-providers
-    cargo build -p pulumi_wasm_runner --timings
+    cargo build -p pulumi_wasm_runner
+    cargo component build -p pulumi_wasm
+    cargo component build -p pulumi_wasm_example_simple
+    cargo component build -p pulumi_wasm_example_docker
+    cargo component build -p pulumi_wasm_example_dependencies
+    cargo component build -p pulumi_wasm_example_multiple_providers
 
 build-all-wasm-projects-release:
-    just build-wasm-components-release
     cargo build -p pulumi_wasm_runner --release
+    cargo component build -p pulumi_wasm --release
     cargo component build -p pulumi_wasm_example_simple --release
     cargo component build -p pulumi_wasm_example_docker --release
     cargo component build -p pulumi_wasm_example_dependencies --release
     cargo component build -p pulumi_wasm_example_multiple_providers --release
-
-build-wasm-components-release:
-    cargo component build -p pulumi_wasm --timings --release
-    just build-wasm-providers-release
-
-# DO NOT EDIT - BUILD-WASM-COMPONENTS - START
-build-wasm-providers:
-    cargo component build \
-      -p pulumi_wasm_docker_provider \
-      -p pulumi_wasm_random_provider \
-      -p pulumi_wasm_cloudflare_provider \
-      --timings
-
-build-wasm-providers-release:
-    cargo component build \
-      -p pulumi_wasm_docker_provider \
-      -p pulumi_wasm_random_provider \
-      -p pulumi_wasm_cloudflare_provider \
-      --timings --release
-# DO NOT EDIT - BUILD-WASM-COMPONENTS - END
 
 check:
     cargo fmt {{FORMATTABLE_PROJECTS}} -- --check
@@ -88,22 +67,8 @@ fmt-clippy:
 clippy-to-file:
     cargo clippy --all-features --message-format=json {{FORMATTABLE_PROJECTS}} | clippy-sarif | tee rust-clippy-results.sarif | sarif-fmt
 
-regenerate-provider-list:
-    cargo run -p regenerate_providers
-
-# DO NOT EDIT - REGENERATE-PROVIDERS - START
-regenerate-providers-generated:
-    cargo run -p pulumi_wasm_generator -- gen-provider --remove true --schema providers/docker.json --output providers/pulumi_wasm_provider_docker
-    cargo run -p pulumi_wasm_generator -- gen-rust     --remove true --schema providers/docker.json --output providers/pulumi_wasm_provider_docker_rust
-    cargo run -p pulumi_wasm_generator -- gen-provider --remove true --schema providers/random.json --output providers/pulumi_wasm_provider_random
-    cargo run -p pulumi_wasm_generator -- gen-rust     --remove true --schema providers/random.json --output providers/pulumi_wasm_provider_random_rust
-    cargo run -p pulumi_wasm_generator -- gen-provider --remove true --schema providers/cloudflare.json --output providers/pulumi_wasm_provider_cloudflare
-    cargo run -p pulumi_wasm_generator -- gen-rust     --remove true --schema providers/cloudflare.json --output providers/pulumi_wasm_provider_cloudflare_rust
-# DO NOT EDIT - REGENERATE-PROVIDERS - END
-
-regenerate-providers:
-    just regenerate-providers-generated
-    cargo run -p pulumi_wasm_generator -- gen-rust --remove true --schema providers/typesystem.json --output providers/pulumi_wasm_provider_typesystem_rust
+regenerator:
+    cargo run -p regenerator
 
 publish:
     cargo publish -p pulumi_wasm_wit --all-features
@@ -117,14 +82,6 @@ publish:
     cargo publish -p pulumi_wasm_runner_component_creator --all-features
     cargo publish -p pulumi_wasm_runner --all-features
     cargo publish -p pulumi_wasm_provider_common --all-features
-    just publish-providers
-
-# DO NOT EDIT - PUBLISH-PROVIDERS - START
-publish-providers:
-    cargo publish -p pulumi_wasm_docker
-    cargo publish -p pulumi_wasm_random
-    cargo publish -p pulumi_wasm_cloudflare
-# DO NOT EDIT - PUBLISH-PROVIDERS - END
 
 test:
     cargo nextest run --profile ci --workspace --timings
@@ -139,14 +96,10 @@ docs:
 
 # DO NOT EDIT - GENERATE-RUST-DOCS - START
 rust-docs:
-    cargo test --doc -p pulumi_wasm_random -p pulumi_wasm_cloudflare
-    cargo doc --no-deps -p pulumi_wasm_rust -p pulumi_wasm_docker -p pulumi_wasm_random -p pulumi_wasm_cloudflare
+    cargo test --doc -p pulumi_wasm_providers_random -p pulumi_wasm_providers_cloudflare
+    cargo doc --no-deps -p pulumi_wasm_rust -p pulumi_wasm_providers_docker -p pulumi_wasm_providers_random -p pulumi_wasm_providers_cloudflare
 # DO NOT EDIT - GENERATE-RUST-DOCS - END
 
 update-version NEW_VERSION:
     sd "0.0.0-DEV" "{{NEW_VERSION}}" "pulumi_wasm_wit/wit/world.wit" "pulumi_wasm_rust_macro/src/lib.rs" \
-    "providers/pulumi_wasm_provider_cloudflare_rust/Cargo.toml" \
-    "providers/pulumi_wasm_provider_docker_rust/Cargo.toml" \
-    "providers/pulumi_wasm_provider_random_rust/Cargo.toml" \
-    "providers/pulumi_wasm_provider_typesystem_rust/Cargo.toml" \
     "Cargo.toml"
