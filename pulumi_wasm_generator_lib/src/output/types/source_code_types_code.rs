@@ -217,16 +217,3 @@ pub(crate) fn generate_single_type_source_file(
             .to_string(),
     }
 }
-
-pub(crate) fn generate_docs(
-    package: &crate::model::Package,
-    element_id: &ElementId,
-) -> Vec<String> {
-    let resource = convert_resource(package, element_id);
-    match resource {
-        GenerateResource::RealType(a) => a.description_lines,
-        GenerateResource::StringEnum(a) => a.description_lines,
-        GenerateResource::NumberEnum(a) => a.description_lines,
-        GenerateResource::IntegerEnum(a) => a.description_lines,
-    }
-}

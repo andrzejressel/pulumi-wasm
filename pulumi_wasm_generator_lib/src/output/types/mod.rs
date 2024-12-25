@@ -1,25 +1,11 @@
 mod source_code_types_code;
 
-use crate::model::{ElementId, Package};
-use crate::output::types::source_code_types_code::{
-    generate_docs, generate_single_type_source_file,
-};
+use crate::model::Package;
+use crate::output::types::source_code_types_code::generate_single_type_source_file;
 use crate::output::TreeNode;
-use crate::utils::reformat_code;
-use anyhow::Context;
 use convert_case::{Case, Casing};
 use std::fs::File;
 use std::io::Write;
-
-pub(crate) fn generate_single_file(package: &Package, element_id: &ElementId) -> String {
-    reformat_code(&generate_single_type_source_file(package, element_id))
-        .context("Failed to generate type source code")
-        .unwrap()
-}
-
-pub(crate) fn generate_single_file_docs(package: &Package, element_id: &ElementId) -> Vec<String> {
-    generate_docs(package, element_id)
-}
 
 pub(crate) fn generate_types_code(package: &Package, result_path: &std::path::Path) {
     if package.types.is_empty() {
@@ -62,25 +48,17 @@ pub(crate) fn generate_module_imports(package: &Package) -> String {
         tree.insert(element_id.clone());
     }
 
-    generate_module_imports_1(package, &tree, std::path::Path::new("types"))
+    generate_module_imports_1(&tree, std::path::Path::new("types"))
 }
 
-fn generate_module_imports_1(
-    package: &Package,
-    tree_node: &TreeNode,
-    current_path: &std::path::Path,
-) -> String {
+fn generate_module_imports_1(tree_node: &TreeNode, current_path: &std::path::Path) -> String {
     match tree_node {
         TreeNode::Namespace(ns, functions) => {
             let mut s = String::new();
 
             for (name, node) in ns {
                 s.push_str(&format!("pub mod {}{{\n", name));
-                s.push_str(&generate_module_imports_1(
-                    package,
-                    node,
-                    &current_path.join(name),
-                ));
+                s.push_str(&generate_module_imports_1(node, &current_path.join(name)));
                 s.push_str("}\n");
             }
 
