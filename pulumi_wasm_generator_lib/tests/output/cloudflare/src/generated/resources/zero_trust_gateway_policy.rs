@@ -67,6 +67,7 @@ pub struct ZeroTrustGatewayPolicyResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
+#[allow(non_snake_case, unused_imports)]
 pub fn create(
     name: &str,
     args: ZeroTrustGatewayPolicyArgs,

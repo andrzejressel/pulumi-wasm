@@ -32,6 +32,7 @@ pub struct {{function.struct_name}}Result {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
+#[allow(non_snake_case, unused_imports)]
 pub fn invoke(
 {{#if function.input_properties}}
     args: {{function.struct_name}}Args
@@ -45,7 +46,6 @@ pub fn invoke(
 {{#each function.input_properties}}
     let {{arg_name}}_binding = args.{{arg_name}}.get_inner();
 {{/each}}
-
 
     let request = register_interface::ResourceInvokeRequest {
         token: "{{function.type}}".into(),

@@ -38,6 +38,7 @@ pub struct Web3HostnameResult {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
+#[allow(non_snake_case, unused_imports)]
 pub fn create(name: &str, args: Web3HostnameArgs) -> Web3HostnameResult {
     use pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
     use pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface::Output as WitOutput;
