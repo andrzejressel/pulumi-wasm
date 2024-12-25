@@ -1,5 +1,4 @@
 use std::fs;
-use std::process::Command;
 
 #[derive(Debug)]
 struct Provider<'a> {

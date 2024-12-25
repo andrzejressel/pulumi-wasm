@@ -2345,7 +2345,6 @@ name = "pulumi_wasm_generator"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
- "clap",
  "pulumi_wasm_generator_lib",
  "tempfile",
 ]

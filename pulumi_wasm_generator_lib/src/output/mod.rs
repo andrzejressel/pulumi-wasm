@@ -44,10 +44,7 @@ impl TreeNode {
     }
 }
 
-pub(crate) fn generate_combined_code(
-    package: &crate::model::Package,
-    result_path: &std::path::Path,
-) {
+pub(crate) fn generate_combined_code(package: &Package, result_path: &std::path::Path) {
     generate_files(
         package,
         &result_path.join("functions"),

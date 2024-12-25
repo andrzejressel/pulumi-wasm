@@ -53,8 +53,6 @@ build-all-wasm-projects-release:
     cargo component build -p pulumi_wasm_example_dependencies --release
     cargo component build -p pulumi_wasm_example_multiple_providers --release
 
-build-wasm-components-release:
-
 check:
     cargo fmt {{FORMATTABLE_PROJECTS}} -- --check
 
