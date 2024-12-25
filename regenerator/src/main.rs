@@ -83,6 +83,10 @@ fn update_github_actions_build(tests: &[&str]) {
     let end_marker = "# DO NOT EDIT - END 1";
     let content = replace_between_markers(&content, start_marker, end_marker, &replacement);
 
+    let start_marker = " # DO NOT EDIT - START 2";
+    let end_marker = "# DO NOT EDIT - END 2";
+    let content = replace_between_markers(&content, start_marker, end_marker, &replacement);
+
     fs::write(".github/workflows/deploy.yml", content)
         .expect("Failed to write to .github/workflows/deploy.yml");
 }
