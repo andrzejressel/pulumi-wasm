@@ -18,8 +18,9 @@ pub(crate) fn generate(
     resources: String,
     types: String,
     constants: Vec<String>,
+    provider_name: String,
 ) -> anyhow::Result<String> {
-    let wit = wit::get_dependencies()?;
+    let wit = wit::get_dependencies(provider_name)?;
 
     let file = TemplateModel {
         functions,

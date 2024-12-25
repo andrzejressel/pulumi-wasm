@@ -16,7 +16,7 @@ mod bindings {
         { inline :
         r"package component:pulumi-wasm@0.0.0-DEV;
 
-world my-world {
+world world-foo-bar {
     import output-interface;
 }
 

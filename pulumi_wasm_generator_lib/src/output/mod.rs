@@ -7,11 +7,9 @@ use std::collections::{BTreeMap, BTreeSet};
 use std::fs::File;
 use std::io::Write;
 
-pub(crate) mod cargo;
 pub(crate) mod functions;
 mod main;
 pub(crate) mod resources;
-pub(crate) mod source_code_librs;
 pub(crate) mod types;
 pub(crate) mod wit;
 
@@ -79,6 +77,7 @@ pub(crate) fn generate_combined_code(
         ),
         types::generate_module_imports(package),
         find_consts(package),
+        package.name.clone()
     )
     .unwrap();
 
