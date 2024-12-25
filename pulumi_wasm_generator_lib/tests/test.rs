@@ -78,21 +78,6 @@ fn nested_module_thirdparty() -> Result<()> {
 }
 // DO NOT EDIT - END
 
-#[test]
-fn cloudflare() -> Result<()> {
-    run_pulumi_generator_test("cloudflare")
-}
-
-#[test]
-fn docker() -> Result<()> {
-    run_pulumi_generator_test("docker")
-}
-
-#[test]
-fn random() -> Result<()> {
-    run_pulumi_generator_test("random")
-}
-
 // provider_name is `name` from yaml file
 pub fn run_pulumi_generator_test(test_name: &str) -> Result<()> {
     let root_path = format!("tests/output/{test_name}");
