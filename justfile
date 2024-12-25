@@ -15,7 +15,7 @@ FORMATTABLE_PROJECTS := "-p pulumi_wasm -p pulumi_wasm_common -p pulumi_wasm_gen
 
 @default: build test
 
-build: build-language-plugin install-requirements build-wasm-components build-all-wasm-projects-release fmt
+build: build-language-plugin regenerator install-requirements build-wasm-components build-all-wasm-projects-release fmt
 
 # https://stackoverflow.com/questions/74524817/why-is-anyhow-not-working-in-the-stable-version
 fix-issues:
