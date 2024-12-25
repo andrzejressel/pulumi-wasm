@@ -18,6 +18,11 @@ fn azure_native_nested_types() -> Result<()> {
 }
 
 #[test]
+fn cloudflare() -> Result<()> {
+    run_pulumi_generator_test("cloudflare")
+}
+
+#[test]
 fn cyclic_types() -> Result<()> {
     run_pulumi_generator_test("cyclic-types")
 }
@@ -25,6 +30,11 @@ fn cyclic_types() -> Result<()> {
 #[test]
 fn different_enum() -> Result<()> {
     run_pulumi_generator_test("different-enum")
+}
+
+#[test]
+fn docker() -> Result<()> {
+    run_pulumi_generator_test("docker")
 }
 
 #[test]
@@ -38,6 +48,16 @@ fn mini_awsnative() -> Result<()> {
 }
 
 #[test]
+fn nested_module() -> Result<()> {
+    run_pulumi_generator_test("nested-module")
+}
+
+#[test]
+fn nested_module_thirdparty() -> Result<()> {
+    run_pulumi_generator_test("nested-module-thirdparty")
+}
+
+#[test]
 fn output_funcs() -> Result<()> {
     run_pulumi_generator_test("output-funcs")
 }
@@ -45,16 +65,6 @@ fn output_funcs() -> Result<()> {
 #[test]
 fn output_funcs_edgeorder() -> Result<()> {
     run_pulumi_generator_test("output-funcs-edgeorder")
-}
-
-#[test]
-fn unions_inline() -> Result<()> {
-    run_pulumi_generator_test("unions-inline")
-}
-
-#[test]
-fn unions_inside_arrays() -> Result<()> {
-    run_pulumi_generator_test("unions-inside-arrays")
 }
 
 #[test]
@@ -68,13 +78,18 @@ fn plain_object_disable_defaults() -> Result<()> {
 }
 
 #[test]
-fn nested_module() -> Result<()> {
-    run_pulumi_generator_test("nested-module")
+fn random() -> Result<()> {
+    run_pulumi_generator_test("random")
 }
 
 #[test]
-fn nested_module_thirdparty() -> Result<()> {
-    run_pulumi_generator_test("nested-module-thirdparty")
+fn unions_inline() -> Result<()> {
+    run_pulumi_generator_test("unions-inline")
+}
+
+#[test]
+fn unions_inside_arrays() -> Result<()> {
+    run_pulumi_generator_test("unions-inside-arrays")
 }
 // DO NOT EDIT - END
 

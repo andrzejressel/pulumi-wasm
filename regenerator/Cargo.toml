@@ -1,4 +1,4 @@
 [package]
-name = "regenerate_providers"
+name = "regenerator"
 version.workspace = true
 edition.workspace = true
