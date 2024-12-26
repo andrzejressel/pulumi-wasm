@@ -1,47 +1,65 @@
+use crate::schema::Package;
 use anyhow::{Context, Result};
-use pulumi_wasm_generator_lib::{extract_micro_package, generate_combined};
+use std::fs;
+use std::fs::File;
+use std::io::BufReader;
 use std::path::Path;
-use std::{env, fs};
 
-pub fn generate(provider_name: &str, provider_version: &str) -> Result<()> {
-    let schema_output = std::process::Command::new("pulumi")
-        .arg("package")
-        .arg("get-schema")
-        .arg(format!("{}@{}", provider_name, provider_version))
-        .output()
-        .context("Failed to execute pulumi command")?;
+mod code_generation;
+mod description;
+mod model;
+mod output;
+mod schema;
+mod utils;
 
-    let schema = String::from_utf8(schema_output.stdout).expect("Invalid UTF-8 in pulumi output");
+pub fn generate_combined(schema_json: &Path, result_path: &Path) -> Result<()> {
+    let schema_package: schema::Package = extract_schema_from_file(schema_json)?;
+    let package = schema::to_model(&schema_package)?;
 
-    let out_dir = env::var_os("OUT_DIR").context("Failed to get OUT_DIR environment variable")?;
-    let out_dir = out_dir
-        .to_str()
-        .context(format!("Failed to convert [{:?}] to string", out_dir))?;
+    fs::create_dir_all(result_path)?;
 
-    let location = Path::new(out_dir).join("pulumi").join(provider_name);
-
-    let temp_dir = tempfile::tempdir().context("Failed to create temporary directory")?;
-    let file = temp_dir.path().join("schema.json");
-    fs::write(&file, &schema).context("Failed to write schema")?;
-
-    generate_combined(file.as_path(), &location).context("Failed to generate glue files")?;
-    println!("cargo::rerun-if-changed=build.rs");
+    output::generate_combined_code(&package, result_path);
 
     Ok(())
 }
 
-pub fn generate_from_schema(schema_file: &Path) -> Result<()> {
-    let package = extract_micro_package(schema_file).context("Failed to deserialize package")?;
-    let provider_name = package.name;
+fn extract_schema_from_file(schema_json: &Path) -> anyhow::Result<Package> {
+    let file = File::open(schema_json)
+        .with_context(|| format!("Error opening schema file [{:?}]", schema_json))?;
+    let reader = BufReader::new(file);
+    match schema_json.extension().and_then(|s| s.to_str()) {
+        None => Err(anyhow::anyhow!(
+            "No extensions for schema file: {}.",
+            schema_json.display()
+        )),
+        Some("yml" | "yaml") => serde_yaml::from_reader(reader).map_err(anyhow::Error::new),
+        Some("json") => serde_json::from_reader(reader).map_err(anyhow::Error::new),
+        Some(ext) => Err(anyhow::anyhow!(
+            "Unsupported schema file extension: {}.",
+            ext
+        )),
+    }
+}
 
-    let out_dir = env::var_os("OUT_DIR").context("Failed to get OUT_DIR environment variable")?;
-    let out_dir = out_dir
-        .to_str()
-        .context(format!("Failed to convert [{:?}] to string", out_dir))?;
-    let location = Path::new(out_dir).join("pulumi").join(provider_name);
+pub fn extract_micro_package(schema_json: &Path) -> anyhow::Result<MicroPackage> {
+    let file = File::open(schema_json)
+        .with_context(|| format!("Error opening schema file [{:?}]", schema_json))?;
+    let reader = BufReader::new(file);
+    match schema_json.extension().and_then(|s| s.to_str()) {
+        None => Err(anyhow::anyhow!(
+            "No extensions for schema file: {}.",
+            schema_json.display()
+        )),
+        Some("yml" | "yaml") => serde_yaml::from_reader(reader).map_err(anyhow::Error::new),
+        Some("json") => serde_json::from_reader(reader).map_err(anyhow::Error::new),
+        Some(ext) => Err(anyhow::anyhow!(
+            "Unsupported schema file extension: {}.",
+            ext
+        )),
+    }
+}
 
-    generate_combined(schema_file, &location).context("Failed to generate glue files")?;
-    println!("cargo::rerun-if-changed=build.rs");
-    println!("cargo::rerun-if-changed={}", schema_file.display());
-    Ok(())
+#[derive(serde::Deserialize, Debug)]
+pub struct MicroPackage {
+    pub name: String,
 }

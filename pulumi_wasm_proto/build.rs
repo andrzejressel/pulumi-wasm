@@ -1,7 +1,8 @@
 use std::env::var_os;
+use std::error::Error;
 use std::fs;
 
-fn main() -> Result<(), Box<dyn std::error::Error>> {
+fn main() -> Result<(), Box<dyn Error>> {
     let model_location = format!("{}/mini", var_os("OUT_DIR").unwrap().to_str().unwrap());
     fs::create_dir_all(&model_location)?;
     let full_location = format!("{}/full", var_os("OUT_DIR").unwrap().to_str().unwrap());

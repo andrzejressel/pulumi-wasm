@@ -11,3 +11,8 @@ proc-macro = true
 [dependencies]
 syn.workspace = true
 quote.workspace = true
+
+[dev-dependencies]
+anyhow.workspace = true
+pulumi_wasm_rust.workspace = true
+pulumi_wasm_providers_random.workspace = true
