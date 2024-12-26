@@ -7,6 +7,8 @@ CARGO_COMPONENT_VERSION := "0.19.0"
 SD_VERSION := "1.0.0"
 # renovate: datasource=crate depName=cargo-llvm-cov packageName=cargo-llvm-cov
 CARGO_LLVM_COV_VERSION := "0.6.13"
+# renovate: datasource=crate depName=cargo-hack packageName=cargo-hack
+CARGO_HACK_VERSION := "0.6.33"
 
 FORMATTABLE_PROJECTS := "-p pulumi_wasm -p pulumi_wasm_common -p pulumi_wasm_build -p pulumi_wasm_generator \
 -p pulumi_wasm_runner -p pulumi_wasm_runner_component_creator -p pulumi_wasm_rust -p pulumi_wasm_rust_macro \
@@ -35,6 +37,7 @@ install-requirements:
     cargo binstall --no-confirm cargo-component@{{CARGO_COMPONENT_VERSION}}
     cargo binstall --no-confirm sd@{{SD_VERSION}}
     cargo binstall --no-confirm cargo-llvm-cov@{{CARGO_LLVM_COV_VERSION}}
+    cargo binstall --no-confirm cargo-hack@{{CARGO_HACK_VERSION}}
 
 # Compiling everything together causes linking issues
 build-wasm-components:
@@ -71,17 +74,17 @@ regenerator:
     cargo run -p regenerator
 
 publish:
-    cargo publish -p pulumi_wasm_wit --all-features
-    cargo publish -p pulumi_wasm_proto --all-features
-    cargo publish -p pulumi_wasm_common --all-features
-    cargo publish -p pulumi_wasm_rust_macro --all-features
-    cargo publish -p pulumi_wasm_rust --all-features
-    cargo publish -p pulumi_wasm_generator --all-features
-    cargo publish -p pulumi_wasm_build --all-features
-    cargo publish -p pulumi_wasm_core --all-features
-    cargo publish -p pulumi_wasm_runner_component_creator --all-features
-    cargo publish -p pulumi_wasm_runner --all-features
-    cargo publish -p pulumi_wasm_provider_common --all-features
+    cargo hack publish -p pulumi_wasm_wit --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_wasm_proto --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_wasm_common --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_wasm_rust_macro --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_wasm_rust --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_wasm_generator --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_wasm_build --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_wasm_core --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_wasm_runner_component_creator --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_wasm_runner --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_wasm_provider_common --all-features --no-dev-deps --allow-dirty
 
 test:
     cargo nextest run --profile ci --workspace --timings

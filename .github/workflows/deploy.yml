@@ -132,10 +132,7 @@ jobs:
           just build-wasm-components
           just build-wasm-components-release
 
-          for i in target/wasm32-wasip1/debug/*_provider.wasm; do cp "$i" "${i%.*}-debug.wasm"; done
           cp target/wasm32-wasip1/debug/pulumi_wasm.wasm target/wasm32-wasip1/debug/pulumi_wasm-debug.wasm
-
-          for i in target/wasm32-wasip1/release/*_provider.wasm; do cp "$i" "${i%.*}-release.wasm"; done
           cp target/wasm32-wasip1/release/pulumi_wasm.wasm target/wasm32-wasip1/release/pulumi_wasm-release.wasm
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
