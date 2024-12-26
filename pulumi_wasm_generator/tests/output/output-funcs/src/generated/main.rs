@@ -67,7 +67,7 @@ pub mod constants {
 mod bindings {
     wit_bindgen::generate!(
         { inline :
-        r"package component:pulumi-wasm@0.0.0-DEV;
+        r"package component:pulumi-wasm@0.0.0-NIGHTLY-ddb7c54;
 
 world world-mypkg {
     import output-interface;
@@ -130,7 +130,7 @@ interface register-interface {
 
     invoke: func(request: resource-invoke-request) -> resource-invoke-result;
 }",
-        with : { "component:pulumi-wasm/output-interface@0.0.0-DEV" :
+        with : { "component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-ddb7c54" :
         pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface } }
     );
 }
