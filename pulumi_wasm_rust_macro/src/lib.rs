@@ -4,6 +4,22 @@ use proc_macro::TokenStream;
 use quote::quote;
 use syn::parse_macro_input;
 
+/// Marks function to be executed by Pulumi WASM Runner - basically makes it special `fn main()`
+/// ```rust,no_run
+/// use anyhow::{Context, Error, Result};
+/// use pulumi_wasm_rust_macro::pulumi_main;
+/// use pulumi_wasm_providers_random::random_string::RandomStringArgs;
+/// use pulumi_wasm_providers_random::random_string;
+///
+/// #[pulumi_main]
+/// fn main() -> Result<()> {
+///   let random_string = random_string::create(
+///     "test",
+///     RandomStringArgs::builder().length(32).build_struct()
+///   );
+///   Ok(())
+/// }
+/// ```
 #[proc_macro_attribute]
 pub fn pulumi_main(_attr: TokenStream, item: TokenStream) -> TokenStream {
     let input_fn = parse_macro_input!(item as syn::ItemFn);

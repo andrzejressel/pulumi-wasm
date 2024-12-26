@@ -1,6 +1,6 @@
 use anyhow::Result;
 use assert_cmd::assert::OutputAssertExt;
-use pulumi_wasm_generator_lib::generate_combined;
+use pulumi_wasm_generator::generate_combined;
 use std::fs;
 use std::path::{Path, PathBuf};
 use std::process::Command;

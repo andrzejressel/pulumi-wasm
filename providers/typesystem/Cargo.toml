@@ -12,4 +12,4 @@ bon.workspace = true
 pulumi_wasm_provider_common.workspace = true
 
 [build-dependencies]
-pulumi_wasm_generator.workspace = true
+pulumi_wasm_build.workspace = true

@@ -11,6 +11,7 @@ use std::ops::Deref;
 use std::sync::Mutex;
 use uuid::Uuid;
 
+/// Not yet known value
 pub struct Output<T> {
     phantom: PhantomData<T>,
     underlying_id: u32,

@@ -22,8 +22,8 @@ members = [
     "pulumi_wasm",
     "pulumi_wasm_common",
     "pulumi_wasm_core",
+    "pulumi_wasm_build",
     "pulumi_wasm_generator",
-    "pulumi_wasm_generator_lib",
     "pulumi_wasm_proto",
     "pulumi_wasm_provider_common",
     "pulumi_wasm_runner",
@@ -41,8 +41,8 @@ repository = "https://github.com/andrzejressel/pulumi-wasm"
 
 [workspace.dependencies]
 pulumi_wasm_core = { version = "=0.0.0-DEV", path = "pulumi_wasm_core", registry = "cloudsmith" }
+pulumi_wasm_build = { version = "=0.0.0-DEV", path = "pulumi_wasm_build", registry = "cloudsmith" }
 pulumi_wasm_generator = { version = "=0.0.0-DEV", path = "pulumi_wasm_generator", registry = "cloudsmith" }
-pulumi_wasm_generator_lib = { version = "=0.0.0-DEV", path = "pulumi_wasm_generator_lib", registry = "cloudsmith" }
 pulumi_wasm_rust = { version = "=0.0.0-DEV", path = "pulumi_wasm_rust", registry = "cloudsmith" }
 pulumi_wasm_rust_macro = { version = "=0.0.0-DEV", path = "pulumi_wasm_rust_macro", registry = "cloudsmith" }
 pulumi_wasm_common = { version = "=0.0.0-DEV", path = "pulumi_wasm_common", registry = "cloudsmith" }
@@ -93,3 +93,4 @@ wit-parser = "0.222.0"
 bon = "3.0.0"
 proc-macro2 = "1.0.92"
 rinja = "0.3.5"
+tempfile = "3.14.0"

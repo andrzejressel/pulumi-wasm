@@ -23,3 +23,6 @@ pulumi_wasm_rust_macro.workspace = true
 pulumi_wasm_common.workspace = true
 pulumi_wasm_wit = { workspace = true, features = ["client"] }
 once_cell.workspace = true
+
+[dev-dependencies]
+pulumi_wasm_build.workspace = true

@@ -8,14 +8,14 @@ SD_VERSION := "1.0.0"
 # renovate: datasource=crate depName=cargo-llvm-cov packageName=cargo-llvm-cov
 CARGO_LLVM_COV_VERSION := "0.6.13"
 
-FORMATTABLE_PROJECTS := "-p pulumi_wasm -p pulumi_wasm_common -p pulumi_wasm_generator -p pulumi_wasm_generator_lib \
+FORMATTABLE_PROJECTS := "-p pulumi_wasm -p pulumi_wasm_common -p pulumi_wasm_build -p pulumi_wasm_generator \
 -p pulumi_wasm_runner -p pulumi_wasm_runner_component_creator -p pulumi_wasm_rust -p pulumi_wasm_rust_macro \
 -p pulumi_wasm_example_dependencies -p pulumi_wasm_example_docker -p pulumi_wasm_example_multiple_providers \
 -p pulumi_wasm_example_simple -p pulumi_wasm_example_typesystem -p regenerator"
 
 @default: build test
 
-build: build-language-plugin regenerator install-requirements build-wasm-components build-all-wasm-projects-release fmt
+build: build-language-plugin regenerator install-requirements build-wasm-components build-wasm-components-release fmt
 
 # https://stackoverflow.com/questions/74524817/why-is-anyhow-not-working-in-the-stable-version
 fix-issues:
@@ -45,7 +45,7 @@ build-wasm-components:
     cargo component build -p pulumi_wasm_example_dependencies
     cargo component build -p pulumi_wasm_example_multiple_providers
 
-build-all-wasm-projects-release:
+build-wasm-components-release:
     cargo build -p pulumi_wasm_runner --release
     cargo component build -p pulumi_wasm --release
     cargo component build -p pulumi_wasm_example_simple --release
@@ -76,8 +76,8 @@ publish:
     cargo publish -p pulumi_wasm_common --all-features
     cargo publish -p pulumi_wasm_rust_macro --all-features
     cargo publish -p pulumi_wasm_rust --all-features
-    cargo publish -p pulumi_wasm_generator_lib --all-features
     cargo publish -p pulumi_wasm_generator --all-features
+    cargo publish -p pulumi_wasm_build --all-features
     cargo publish -p pulumi_wasm_core --all-features
     cargo publish -p pulumi_wasm_runner_component_creator --all-features
     cargo publish -p pulumi_wasm_runner --all-features
@@ -85,10 +85,11 @@ publish:
 
 test:
     cargo nextest run --profile ci --workspace --timings
+    cargo test --doc --workspace
     just rust-docs
 
 test-coverage:
-    cargo llvm-cov --no-report -p pulumi_wasm_core -p pulumi_wasm_generator_lib
+    cargo llvm-cov --no-report -p pulumi_wasm_core -p pulumi_wasm_generator
     cargo llvm-cov report --lcov --output-path lcov.info
 
 docs:
@@ -96,8 +97,7 @@ docs:
 
 # DO NOT EDIT - GENERATE-RUST-DOCS - START
 rust-docs:
-    cargo test --doc -p pulumi_wasm_providers_random -p pulumi_wasm_providers_cloudflare
-    cargo doc --no-deps -p pulumi_wasm_rust -p pulumi_wasm_providers_docker -p pulumi_wasm_providers_random -p pulumi_wasm_providers_cloudflare
+    cargo doc --no-deps -p pulumi_wasm_rust -p pulumi_wasm_build -p pulumi_wasm_rust_macro -p pulumi_wasm_providers_docker -p pulumi_wasm_providers_random -p pulumi_wasm_providers_cloudflare
 # DO NOT EDIT - GENERATE-RUST-DOCS - END
 
 update-version NEW_VERSION:

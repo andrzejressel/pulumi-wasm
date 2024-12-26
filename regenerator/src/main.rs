@@ -75,7 +75,7 @@ fn update_github_actions_build(tests: &[&str]) {
     replacement.push_str("            ./\n");
     for test in tests {
         replacement.push_str(&format!(
-            "            pulumi_wasm_generator_lib/tests/output/{}/\n",
+            "            pulumi_wasm_generator/tests/output/{}/\n",
             test
         ));
     }
@@ -99,7 +99,7 @@ fn update_github_actions_deploy(tests: &[&str]) {
     replacement.push_str("          ./\n");
     for test in tests {
         replacement.push_str(&format!(
-            "          pulumi_wasm_generator_lib/tests/output/{}/\n",
+            "          pulumi_wasm_generator/tests/output/{}/\n",
             test
         ));
     }
@@ -116,8 +116,8 @@ fn update_github_actions_deploy(tests: &[&str]) {
 }
 
 fn update_test_rs(tests: &[&str]) {
-    let content = fs::read_to_string("pulumi_wasm_generator_lib/tests/test.rs")
-        .expect("Failed to read pulumi_wasm_generator_lib/tests/test.rs");
+    let content = fs::read_to_string("pulumi_wasm_generator/tests/test.rs")
+        .expect("Failed to read pulumi_wasm_generator/tests/test.rs");
 
     let mut replacement = String::new();
     for test_directory in tests {
@@ -138,8 +138,8 @@ fn {method_name}() -> Result<()> {{
     let end_marker = "// DO NOT EDIT - END";
     let new_content = replace_between_markers(&content, start_marker, end_marker, &replacement);
 
-    fs::write("pulumi_wasm_generator_lib/tests/test.rs", new_content)
-        .expect("Failed to write to pulumi_wasm_generator_lib/tests/test.rs");
+    fs::write("pulumi_wasm_generator/tests/test.rs", new_content)
+        .expect("Failed to write to pulumi_wasm_generator/tests/test.rs");
 }
 
 fn update_cargo_toml(providers: &[Provider]) {
@@ -166,16 +166,7 @@ fn update_justfile(providers: &[Provider]) {
 fn replace_generate_rust_docs(providers: &[Provider], content: &str) -> String {
     let mut replacement = String::new();
     replacement.push_str("rust-docs:\n");
-    replacement.push_str("    cargo test --doc");
-    for provider in providers {
-        // Docker docs are untested, because Pulumi can't get their shit together:
-        // https://github.com/pulumi/pulumi-docker/issues/1278
-        if provider.name != "docker" {
-            replacement.push_str(&format!(" -p pulumi_wasm_providers_{}", provider.name));
-        }
-    }
-    replacement.push('\n');
-    replacement.push_str("    cargo doc --no-deps -p pulumi_wasm_rust");
+    replacement.push_str("    cargo doc --no-deps -p pulumi_wasm_rust -p pulumi_wasm_build -p pulumi_wasm_rust_macro");
     for provider in providers {
         replacement.push_str(&format!(" -p pulumi_wasm_providers_{}", provider.name));
     }
