@@ -1,5 +1,6 @@
-#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug, PartialEq, Clone)]
+#[derive(pulumi_wasm_rust::__private::serde::Deserialize, pulumi_wasm_rust::__private::serde::Serialize, pulumi_wasm_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
+#[allow(dead_code)]
 pub struct FilterableProperty {
     /// Values to be filtered.
     #[builder(into)]
@@ -8,5 +9,5 @@ pub struct FilterableProperty {
     /// Type of product filter.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<pulumi_wasm_provider_common::OneOf2<String, super::types::SupportedFilterTypes>>,
+    pub r#type: Box<pulumi_wasm_rust::OneOf2<String, super::types::SupportedFilterTypes>>,
 }

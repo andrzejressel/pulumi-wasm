@@ -1,13 +1,12 @@
 #[cfg(test)]
 mod tests {
-    use pulumi_wasm_provider_common::OneOf2;
     use pulumi_wasm_providers_typesystem::deep::nested::module::some_resource::SomeResourceArgs;
     use pulumi_wasm_providers_typesystem::types::{
         IntegerEnum, MyEnum, NumberEnum, UnionCase1, UnionCase2, UnionCaseWithConst1,
         UnionCaseWithConst2,
     };
     use pulumi_wasm_providers_typesystem::typesystem_server::TypesystemServerArgs;
-    use pulumi_wasm_rust::Output;
+    use pulumi_wasm_rust::{OneOf2, Output};
     use std::panic::catch_unwind;
 
     #[test]

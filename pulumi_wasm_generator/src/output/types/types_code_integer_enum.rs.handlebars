@@ -1,4 +1,5 @@
 #[derive(Debug, PartialEq, Clone)]
+#[allow(dead_code)]
 pub enum {{enum.struct_name}} {
     {{#each enum.values as |value|}}
     {{#each value.description_lines}}
@@ -8,7 +9,7 @@ pub enum {{enum.struct_name}} {
     {{/each}}
 }
 
-impl serde::Serialize for {{enum.struct_name}} {
+impl pulumi_wasm_rust::__private::serde::Serialize for {{enum.struct_name}} {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: serde::Serializer,
@@ -22,7 +23,7 @@ impl serde::Serialize for {{enum.struct_name}} {
     }
 }
 
-impl<'de> serde::Deserialize<'de> for {{enum.struct_name}} {
+impl<'de> pulumi_wasm_rust::__private::serde::Deserialize<'de> for {{enum.struct_name}} {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
         D: serde::Deserializer<'de>,

@@ -1,5 +1,6 @@
-#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug, PartialEq, Clone)]
+#[derive(pulumi_wasm_rust::__private::serde::Deserialize, pulumi_wasm_rust::__private::serde::Serialize, pulumi_wasm_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
+#[allow(dead_code)]
 pub struct SpectrumApplicationEdgeIps {
     /// The IP versions supported for inbound connections on Spectrum anycast IPs. Required when `type` is not `static`. Available values: `all`, `ipv4`, `ipv6`.
     #[builder(into, default)]

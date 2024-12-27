@@ -1,12 +1,13 @@
-#[derive(serde::Deserialize, serde::Serialize, bon::Builder, Debug, PartialEq, Clone)]
+#[derive(pulumi_wasm_rust::__private::serde::Deserialize, pulumi_wasm_rust::__private::serde::Serialize, pulumi_wasm_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
 #[builder(finish_fn = build_struct)]
+#[allow(dead_code)]
 pub struct Container {
     #[builder(into, default)]
     #[serde(rename = "brightness")]
     pub r#brightness: Box<Option<super::types::ContainerBrightness>>,
     #[builder(into, default)]
     #[serde(rename = "color")]
-    pub r#color: Box<Option<pulumi_wasm_provider_common::OneOf2<super::types::ContainerColor, String>>>,
+    pub r#color: Box<Option<pulumi_wasm_rust::OneOf2<super::types::ContainerColor, String>>>,
     #[builder(into, default)]
     #[serde(rename = "material")]
     pub r#material: Box<Option<String>>,

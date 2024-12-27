@@ -3,7 +3,6 @@ use anyhow::{Context, Result};
 use convert_case::Case;
 use convert_case::Case::UpperCamel;
 use convert_case::Casing;
-use itertools::Itertools;
 use std::collections::BTreeMap;
 
 #[derive(Clone, Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
@@ -51,7 +50,7 @@ impl Type {
             },
             Type::Option(type_) => format!("Option<{}>", type_.get_rust_type(depth)),
             Type::DiscriminatedUnion(refs) => format!(
-                "pulumi_wasm_provider_common::OneOf{}<{}>",
+                "pulumi_wasm_rust::OneOf{}<{}>",
                 refs.len(),
                 refs.iter()
                     .map(|r| r.get_rust_type(depth))

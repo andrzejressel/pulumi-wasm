@@ -1,14 +1,6 @@
 pub mod functions {
-    /// The list of configurations.
-    /// API Version: 2020-12-01-preview.
-    pub mod list_configurations {
-        include!("functions/list_configurations.rs");
-    }
-    /// The list of product families.
-    /// API Version: 2020-12-01-preview.
-    pub mod list_product_families {
-        include!("functions/list_product_families.rs");
-    }
+    include!("functions/list_configurations.rs");
+    include!("functions/list_product_families.rs");
 }
 pub mod types {
     include!("types/availability_information_response.rs");
@@ -36,11 +28,15 @@ pub mod types {
 }
 #[doc(hidden)]
 pub mod constants {
-    pulumi_wasm_provider_common::generate_string_const!(ConstStringPav2, "Pav2");
-    pulumi_wasm_provider_common::generate_string_const!(ConstStringPurchase, "Purchase");
+    pulumi_wasm_rust::__private::constant::generate_string_const!(
+        ConstStringPav2, "Pav2"
+    );
+    pulumi_wasm_rust::__private::constant::generate_string_const!(
+        ConstStringPurchase, "Purchase"
+    );
 }
 mod bindings {
-    wit_bindgen::generate!(
+    pulumi_wasm_rust::__private::wit_bindgen::generate!(
         { inline :
         r"package component:pulumi-wasm@0.0.0-DEV;
 
@@ -106,6 +102,7 @@ interface register-interface {
     invoke: func(request: resource-invoke-request) -> resource-invoke-result;
 }",
         with : { "component:pulumi-wasm/output-interface@0.0.0-DEV" :
-        pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface } }
+        pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface
+        } }
     );
 }

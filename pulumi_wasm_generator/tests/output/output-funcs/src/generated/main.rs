@@ -1,47 +1,14 @@
 pub mod functions {
-    /// Check codegen of functions with all optional inputs.
-    pub mod func_with_all_optional_inputs {
-        include!("functions/func_with_all_optional_inputs.rs");
-    }
-    /// Codegen demo with const inputs
-    pub mod func_with_const_input {
-        include!("functions/func_with_const_input.rs");
-    }
-    /// Check codegen of functions with default values.
-    pub mod func_with_default_value {
-        include!("functions/func_with_default_value.rs");
-    }
-    /// Check codegen of functions with a Dict<str,str> parameter.
-    pub mod func_with_dict_param {
-        include!("functions/func_with_dict_param.rs");
-    }
-    /// n/a
-    pub mod func_with_empty_outputs {
-        include!("functions/func_with_empty_outputs.rs");
-    }
-    /// Check codegen of functions with a List parameter.
-    pub mod func_with_list_param {
-        include!("functions/func_with_list_param.rs");
-    }
-    /// Response for all the Bastion Shareable Link endpoints.
-    /// API Version: 2020-11-01.
-    pub mod get_bastion_shareable_link {
-        include!("functions/get_bastion_shareable_link.rs");
-    }
-    /// Failing example taken from azure-native. Original doc: Use this function to access the current configuration of the native Azure provider.
-    pub mod get_client_config {
-        include!("functions/get_client_config.rs");
-    }
-    /// Another failing example. A list of SSIS object metadata.
-    /// API Version: 2018-06-01.
-    pub mod get_integration_runtime_object_metadatum {
-        include!("functions/get_integration_runtime_object_metadatum.rs");
-    }
-    /// The response from the ListKeys operation.
-    /// API Version: 2021-02-01.
-    pub mod list_storage_account_keys {
-        include!("functions/list_storage_account_keys.rs");
-    }
+    include!("functions/func_with_all_optional_inputs.rs");
+    include!("functions/func_with_const_input.rs");
+    include!("functions/func_with_default_value.rs");
+    include!("functions/func_with_dict_param.rs");
+    include!("functions/func_with_empty_outputs.rs");
+    include!("functions/func_with_list_param.rs");
+    include!("functions/get_bastion_shareable_link.rs");
+    include!("functions/get_client_config.rs");
+    include!("functions/get_integration_runtime_object_metadatum.rs");
+    include!("functions/list_storage_account_keys.rs");
 }
 pub mod types {
     include!("types/bastion_shareable_link.rs");
@@ -56,16 +23,24 @@ pub mod types {
 }
 #[doc(hidden)]
 pub mod constants {
-    pulumi_wasm_provider_common::generate_string_const!(
+    pulumi_wasm_rust::__private::constant::generate_string_const!(
         ConstStringEnvironment, "Environment"
     );
-    pulumi_wasm_provider_common::generate_string_const!(ConstStringFixed, "Fixed");
-    pulumi_wasm_provider_common::generate_string_const!(ConstStringFolder, "Folder");
-    pulumi_wasm_provider_common::generate_string_const!(ConstStringPackage, "Package");
-    pulumi_wasm_provider_common::generate_string_const!(ConstStringProject, "Project");
+    pulumi_wasm_rust::__private::constant::generate_string_const!(
+        ConstStringFixed, "Fixed"
+    );
+    pulumi_wasm_rust::__private::constant::generate_string_const!(
+        ConstStringFolder, "Folder"
+    );
+    pulumi_wasm_rust::__private::constant::generate_string_const!(
+        ConstStringPackage, "Package"
+    );
+    pulumi_wasm_rust::__private::constant::generate_string_const!(
+        ConstStringProject, "Project"
+    );
 }
 mod bindings {
-    wit_bindgen::generate!(
+    pulumi_wasm_rust::__private::wit_bindgen::generate!(
         { inline :
         r"package component:pulumi-wasm@0.0.0-DEV;
 
@@ -131,6 +106,7 @@ interface register-interface {
     invoke: func(request: resource-invoke-request) -> resource-invoke-result;
 }",
         with : { "component:pulumi-wasm/output-interface@0.0.0-DEV" :
-        pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface } }
+        pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface
+        } }
     );
 }

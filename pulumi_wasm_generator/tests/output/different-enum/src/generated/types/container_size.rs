@@ -1,11 +1,12 @@
 #[derive(Debug, PartialEq, Clone)]
+#[allow(dead_code)]
 pub enum ContainerSize {
     FourInch,
     SixInch,
     EightInch,
 }
 
-impl serde::Serialize for ContainerSize {
+impl pulumi_wasm_rust::__private::serde::Serialize for ContainerSize {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: serde::Serializer,
@@ -19,7 +20,7 @@ impl serde::Serialize for ContainerSize {
     }
 }
 
-impl<'de> serde::Deserialize<'de> for ContainerSize {
+impl<'de> pulumi_wasm_rust::__private::serde::Deserialize<'de> for ContainerSize {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
         D: serde::Deserializer<'de>,

@@ -1,4 +1,4 @@
-use anyhow::Error;
+use anyhow::Result;
 use pulumi_wasm_providers_docker::container;
 use pulumi_wasm_providers_docker::container::ContainerArgs;
 use pulumi_wasm_providers_random::random_string;
@@ -7,7 +7,7 @@ use pulumi_wasm_rust::Output;
 use pulumi_wasm_rust::{add_export, pulumi_main};
 
 #[pulumi_main]
-fn test_main() -> Result<(), Error> {
+fn test_main() -> Result<()> {
     let length: Output<i32> = Output::new(&12).map(|i: i32| i * 3);
     let random_string = random_string::create(
         "test",

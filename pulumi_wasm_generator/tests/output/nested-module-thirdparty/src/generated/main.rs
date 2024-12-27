@@ -1,9 +1,7 @@
 pub mod deeply {
     pub mod nested {
         pub mod module {
-            pub mod resource {
-                include!("resources/deeply/nested/module/resource.rs");
-            }
+            include!("resources/deeply/nested/module/resource.rs");
         }
     }
 }
@@ -12,7 +10,7 @@ pub mod types {}
 #[doc(hidden)]
 pub mod constants {}
 mod bindings {
-    wit_bindgen::generate!(
+    pulumi_wasm_rust::__private::wit_bindgen::generate!(
         { inline :
         r"package component:pulumi-wasm@0.0.0-DEV;
 
@@ -78,6 +76,7 @@ interface register-interface {
     invoke: func(request: resource-invoke-request) -> resource-invoke-result;
 }",
         with : { "component:pulumi-wasm/output-interface@0.0.0-DEV" :
-        pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface } }
+        pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface
+        } }
     );
 }

@@ -1,7 +1,3 @@
-mod oneof;
-
-pub use oneof::*;
-
 #[macro_export]
 macro_rules! generate_string_const {
     ($struct_name:ident, $constant:tt) => {
@@ -54,6 +50,8 @@ macro_rules! generate_string_const {
     };
 }
 
+pub use generate_string_const;
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -69,7 +67,7 @@ mod tests {
     #[test]
     fn string_const_should_serialize() {
         let my_struct = MyStruct {
-            tpe: StringConstants::default(),
+            tpe: StringConstants,
             age: 0,
         };
         assert_eq!(
@@ -81,7 +79,7 @@ mod tests {
     #[test]
     fn string_const_should_deserialize() {
         let my_struct: MyStruct = serde_json::from_str(r#"{"tpe":"HELLO WORLD","age":0}"#).unwrap();
-        assert_eq!(my_struct.tpe, StringConstants::default());
+        assert_eq!(my_struct.tpe, StringConstants);
         assert_eq!(my_struct.age, 0);
     }
 

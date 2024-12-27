@@ -4,7 +4,12 @@ mod output;
 pub use output::Output;
 
 #[doc(hidden)]
-pub mod runner;
+#[path = "private/mod.rs"]
+pub mod __private;
+mod oneof;
+pub use oneof::OneOf2;
+pub use oneof::OneOf3;
+pub use oneof::OneOf4;
 
 /// Add given [Output] to [Stack Output](https://www.pulumi.com/tutorials/building-with-pulumi/stack-outputs/)
 pub fn add_export<T>(name: &str, output: &Output<T>) {

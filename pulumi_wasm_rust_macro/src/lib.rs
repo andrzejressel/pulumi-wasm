@@ -7,7 +7,7 @@ use syn::parse_macro_input;
 /// Marks function to be executed by Pulumi WASM Runner - basically makes it special `fn main()`
 /// ```rust,no_run
 /// use anyhow::{Context, Error, Result};
-/// use pulumi_wasm_rust_macro::pulumi_main;
+/// use pulumi_wasm_rust::pulumi_main;
 /// use pulumi_wasm_providers_random::random_string::RandomStringArgs;
 /// use pulumi_wasm_providers_random::random_string;
 ///
@@ -35,7 +35,7 @@ pub fn pulumi_main(_attr: TokenStream, item: TokenStream) -> TokenStream {
 
         #[export_name = "component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV#main"]
         unsafe extern "C" fn __exported() {
-            pulumi_wasm_rust::runner::run(|| {
+            pulumi_wasm_rust::__private::runner::run(|| {
                 #fn_name()
             }).unwrap();
         }

@@ -1,4 +1,5 @@
-#[derive(serde::Deserialize, serde::Serialize, Debug, PartialEq, Clone)]
+#[derive(pulumi_wasm_rust::__private::serde::Deserialize, pulumi_wasm_rust::__private::serde::Serialize, Debug, PartialEq, Clone)]
+#[allow(dead_code)]
 pub enum Region {
     /// Africa (Cape Town)
     #[serde(rename = "af-south-1")]
