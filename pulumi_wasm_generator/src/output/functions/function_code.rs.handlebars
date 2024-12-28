@@ -1,6 +1,12 @@
+{{#each interface.description_lines}}
+    /// {{&this}}
+{{/each}}
+pub mod {{function.package_name}} {
+
 {{#if function.input_properties}}
-#[derive(bon::Builder, Clone)]
+#[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
 #[builder(finish_fn = build_struct)]
+#[allow(dead_code)]
 pub struct {{function.struct_name}}Args {
 {{#each function.input_properties}}
     {{#each description_lines}}
@@ -19,6 +25,7 @@ pub struct {{function.struct_name}}Args {
 {{/if}}
 
 {{#if function.output_properties}}
+#[allow(dead_code)]
 pub struct {{function.struct_name}}Result {
 {{#each function.output_properties}}
     {{#each description_lines}}
@@ -32,15 +39,13 @@ pub struct {{function.struct_name}}Result {
 ///
 /// Registers a new resource with the given unique name and arguments
 ///
-#[allow(non_snake_case, unused_imports)]
+#[allow(non_snake_case, unused_imports, dead_code)]
 pub fn invoke(
 {{#if function.input_properties}}
     args: {{function.struct_name}}Args
 {{/if}}
 ){{#if function.output_properties}} -> {{function.struct_name}}Result{{/if}} {
-    use pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
-    use pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface::Output as WitOutput;
-    use pulumi_wasm_rust::Output;
+    use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
     use std::collections::HashMap;
 
 {{#each function.input_properties}}
@@ -54,26 +59,24 @@ pub fn invoke(
             register_interface::ObjectField { name: "{{name}}".into(), value: &{{arg_name}}_binding },
             {{/each}}
         ]),
-        results: vec![
+        results: Vec::from([
             {{#each function.output_properties}}
             register_interface::ResultField { name: "{{name}}".into() },
             {{/each}}
-        ],
+        ]),
     };
 
 {{#if function.output_properties}}
-    fn into_domain<F: serde::Serialize>(output: WitOutput) -> Output<F> {
-        unsafe { Output::<F>::new_from_handle(output) }
-    }
-
     let o = register_interface::invoke(&request);
     let mut hashmap: HashMap<String, _> = o.fields.into_iter().map(|f| (f.name, f.output)).collect();
     {{function.struct_name}}Result {
     {{#each function.output_properties}}
-        {{arg_name}}: into_domain(hashmap.remove("{{name}}").unwrap()),
+        {{arg_name}}: pulumi_wasm_rust::__private::into_domain(hashmap.remove("{{name}}").unwrap()),
     {{/each}}
     }
 {{else}}
     register_interface::invoke(&request);
 {{/if}}
+}
+
 }

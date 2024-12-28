@@ -1,5 +1,6 @@
 use crate::model::{ElementId, Type};
 use crate::output::get_register_interface;
+use convert_case::{Case, Casing};
 use handlebars::Handlebars;
 use serde::Serialize;
 use serde_json::json;
@@ -44,7 +45,7 @@ fn convert_resource(package: &crate::model::Package, element_id: &ElementId) -> 
     Resource {
         name: element_id.get_rust_namespace_name(),
         r#type: element_id.raw.clone(),
-        package_name: package.name.clone().replace("-", "_"),
+        package_name: element_id.get_rust_struct_name().to_case(Case::Snake),
         register_interface: get_register_interface(element_id),
         struct_name: element_id.name.clone(),
         function_name: element_id.get_rust_function_name(),

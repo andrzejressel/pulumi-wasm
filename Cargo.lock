@@ -2344,7 +2344,6 @@ dependencies = [
 name = "pulumi_wasm_example_typesystem"
 version = "0.0.0-DEV"
 dependencies = [
- "pulumi_wasm_provider_common",
  "pulumi_wasm_providers_typesystem",
  "pulumi_wasm_rust",
  "serde_json",
@@ -2381,21 +2380,12 @@ dependencies = [
 ]
 
 [[package]]
-name = "pulumi_wasm_provider_common"
-version = "0.0.0-DEV"
-dependencies = [
- "serde",
- "serde_json",
-]
-
-[[package]]
 name = "pulumi_wasm_providers_cloudflare"
 version = "0.0.0-DEV"
 dependencies = [
  "bon",
  "pulumi_wasm_build",
  "pulumi_wasm_rust",
- "pulumi_wasm_wit",
  "serde",
  "wit-bindgen",
 ]
@@ -2407,7 +2397,6 @@ dependencies = [
  "bon",
  "pulumi_wasm_build",
  "pulumi_wasm_rust",
- "pulumi_wasm_wit",
  "serde",
  "wit-bindgen",
 ]
@@ -2419,7 +2408,6 @@ dependencies = [
  "bon",
  "pulumi_wasm_build",
  "pulumi_wasm_rust",
- "pulumi_wasm_wit",
  "serde",
  "wit-bindgen",
 ]
@@ -2430,9 +2418,7 @@ version = "0.0.0-DEV"
 dependencies = [
  "bon",
  "pulumi_wasm_build",
- "pulumi_wasm_provider_common",
  "pulumi_wasm_rust",
- "pulumi_wasm_wit",
  "serde",
  "wit-bindgen",
 ]
@@ -2479,6 +2465,7 @@ name = "pulumi_wasm_rust"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
+ "bon",
  "log",
  "once_cell",
  "prettyplease",
@@ -2491,6 +2478,7 @@ dependencies = [
  "serde_json",
  "syn 2.0.92",
  "uuid",
+ "wit-bindgen",
 ]
 
 [[package]]

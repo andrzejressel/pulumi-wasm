@@ -84,7 +84,6 @@ publish:
     cargo hack publish -p pulumi_wasm_core --all-features --no-dev-deps --allow-dirty
     cargo hack publish -p pulumi_wasm_runner_component_creator --all-features --no-dev-deps --allow-dirty
     cargo hack publish -p pulumi_wasm_runner --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_wasm_provider_common --all-features --no-dev-deps --allow-dirty
 
 test:
     cargo nextest run --profile ci --workspace --timings
@@ -100,7 +99,7 @@ docs:
 
 # DO NOT EDIT - GENERATE-RUST-DOCS - START
 rust-docs:
-    cargo doc --no-deps -p pulumi_wasm_rust -p pulumi_wasm_build -p pulumi_wasm_rust_macro -p pulumi_wasm_providers_docker -p pulumi_wasm_providers_random -p pulumi_wasm_providers_cloudflare
+    cargo doc --no-deps -p pulumi_wasm_rust -p pulumi_wasm_build -p pulumi_wasm_providers_docker -p pulumi_wasm_providers_random -p pulumi_wasm_providers_cloudflare
 # DO NOT EDIT - GENERATE-RUST-DOCS - END
 
 update-version NEW_VERSION:

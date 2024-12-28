@@ -2,11 +2,9 @@ set windows-shell := ["pwsh.exe", "-c"]
 binary := "../../target/release/pulumi_wasm_runner"
 wasm := "../../target/wasm32-wasip1/release/pulumi_wasm_example_multiple_providers.wasm"
 pulumi_wasm := "../../target/wasm32-wasip1/release/pulumi_wasm.wasm"
-docker := "../../target/wasm32-wasip1/release/pulumi_wasm_docker_provider.wasm"
-random := "../../target/wasm32-wasip1/release/pulumi_wasm_random_provider.wasm"
 
 run:
-    {{binary}} run --pulumi-wasm "{{pulumi_wasm}}" --provider "docker={{docker}}" --provider "random={{random}}" "{{wasm}}"
+    {{binary}} run --pulumi-wasm "{{pulumi_wasm}}" "{{wasm}}"
 
 [windows]
 local-test:
@@ -18,8 +16,6 @@ local-test:
     cargo build -p pulumi_wasm_runner --release
     cargo component build -p pulumi_wasm --release
     cargo component build -p pulumi_wasm_example_multiple_providers --release
-    cargo component build -p pulumi_wasm_docker_provider --release
-    cargo component build -p pulumi_wasm_random_provider --release
     $env:PULUMI_CONFIG_PASSPHRASE=" "
     pulumi destroy -y
     pulumi up -y

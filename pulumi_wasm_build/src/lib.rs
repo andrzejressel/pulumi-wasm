@@ -8,13 +8,14 @@
 //! $ cargo new --lib random && cd random
 //! ```
 //!
-//! First, add `pulumi_wasm_build`, `bon`, `serde` and `anyhow` to `Cargo.toml`:
+//! First, add `pulumi_wasm_build`, `bon`, `serde`, `anyhow` and `wit-bindgen` to `Cargo.toml`:
 //!
 //! ```bash
 //! $ cargo add --build pulumi_wasm_build
 //! $ cargo add bon
 //! $ cargo add serde --features derive
 //! $ cargo add anyhow
+//! $ cargo add wit-bindgen
 //! ```
 //!
 //! To generate glue code, use `pulumi_wasm_build` in `build.rs`

@@ -1,10 +1,11 @@
 #[derive(Debug, PartialEq, Clone)]
+#[allow(dead_code)]
 pub enum ContainerBrightness {
     ZeroPointOne,
     One,
 }
 
-impl serde::Serialize for ContainerBrightness {
+impl pulumi_wasm_rust::__private::serde::Serialize for ContainerBrightness {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: serde::Serializer,
@@ -17,7 +18,7 @@ impl serde::Serialize for ContainerBrightness {
     }
 }
 
-impl<'de> serde::Deserialize<'de> for ContainerBrightness {
+impl<'de> pulumi_wasm_rust::__private::serde::Deserialize<'de> for ContainerBrightness {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
         D: serde::Deserializer<'de>,

@@ -1,15 +1,7 @@
-/// test new feature with resoruces
-pub mod foo {
-    include!("resources/foo.rs");
-}
-pub mod module_test {
-    include!("resources/module_test.rs");
-}
+include!("resources/foo.rs");
+include!("resources/module_test.rs");
 pub mod functions {
-    /// Check codegen of functions with all optional inputs.
-    pub mod func_with_all_optional_inputs {
-        include!("functions/func_with_all_optional_inputs.rs");
-    }
+    include!("functions/func_with_all_optional_inputs.rs");
 }
 pub mod types {
     pub mod mod1 {
@@ -26,7 +18,7 @@ pub mod types {
 #[doc(hidden)]
 pub mod constants {}
 mod bindings {
-    wit_bindgen::generate!(
+    pulumi_wasm_rust::__private::wit_bindgen::generate!(
         { inline :
         r"package component:pulumi-wasm@0.0.0-DEV;
 
@@ -92,6 +84,7 @@ interface register-interface {
     invoke: func(request: resource-invoke-request) -> resource-invoke-result;
 }",
         with : { "component:pulumi-wasm/output-interface@0.0.0-DEV" :
-        pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface } }
+        pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface
+        } }
     );
 }

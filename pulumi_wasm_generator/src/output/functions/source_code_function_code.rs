@@ -45,7 +45,7 @@ fn convert_function(package: &crate::model::Package, element_id: &ElementId) -> 
     Function {
         name: element_id.get_rust_namespace_name(),
         r#type: element_id.raw.clone(),
-        package_name: package.name.clone().replace("-", "_"),
+        package_name: element_id.get_rust_struct_name().to_case(Case::Snake),
         struct_name: element_id.name.clone().to_case(Case::Pascal),
         register_interface: get_register_interface(element_id),
         function_name: element_id.get_rust_function_name(),

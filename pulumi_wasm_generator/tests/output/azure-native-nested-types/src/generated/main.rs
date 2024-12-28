@@ -1,24 +1,5 @@
 pub mod documentdb {
-    /// An Azure Cosmos DB container.
-    /// API Version: 2021-03-15.
-    ///
-    /// ## Example Usage
-    /// ### CosmosDBSqlContainerCreateUpdate
-    ///
-    ///
-    ///
-    ///
-    ///
-    /// ## Import
-    ///
-    /// An existing resource can be imported using its type token, name, and identifier, e.g.
-    ///
-    /// ```sh
-    /// $ pulumi import azure-native:documentdb:SqlResourceSqlContainer containerName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/sqlDatabases/databaseName/sqlContainers/containerName
-    /// ```
-    pub mod sql_resource_sql_container {
-        include!("resources/documentdb/sql_resource_sql_container.rs");
-    }
+    include!("resources/documentdb/sql_resource_sql_container.rs");
 }
 pub mod functions {}
 pub mod types {
@@ -31,7 +12,7 @@ pub mod types {
 #[doc(hidden)]
 pub mod constants {}
 mod bindings {
-    wit_bindgen::generate!(
+    pulumi_wasm_rust::__private::wit_bindgen::generate!(
         { inline :
         r"package component:pulumi-wasm@0.0.0-DEV;
 
@@ -97,6 +78,7 @@ interface register-interface {
     invoke: func(request: resource-invoke-request) -> resource-invoke-result;
 }",
         with : { "component:pulumi-wasm/output-interface@0.0.0-DEV" :
-        pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface } }
+        pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface
+        } }
     );
 }

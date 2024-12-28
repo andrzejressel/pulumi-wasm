@@ -1,11 +1,7 @@
 pub mod tree {
     pub mod v1 {
-        pub mod nursery {
-            include!("resources/tree/v1/nursery.rs");
-        }
-        pub mod rubber_tree {
-            include!("resources/tree/v1/rubber_tree.rs");
-        }
+        include!("resources/tree/v1/nursery.rs");
+        include!("resources/tree/v1/rubber_tree.rs");
     }
 }
 pub mod functions {}
@@ -27,7 +23,7 @@ pub mod types {
 #[doc(hidden)]
 pub mod constants {}
 mod bindings {
-    wit_bindgen::generate!(
+    pulumi_wasm_rust::__private::wit_bindgen::generate!(
         { inline :
         r"package component:pulumi-wasm@0.0.0-DEV;
 
@@ -93,6 +89,7 @@ interface register-interface {
     invoke: func(request: resource-invoke-request) -> resource-invoke-result;
 }",
         with : { "component:pulumi-wasm/output-interface@0.0.0-DEV" :
-        pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface } }
+        pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface
+        } }
     );
 }
