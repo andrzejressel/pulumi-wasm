@@ -162,19 +162,11 @@ fn generate_includes_looper(
             }
 
             for function in functions {
-                // for line in generator(package, function) {
-                //     s.push_str(&format!("/// {}\n", line));
-                // }
-                // s.push_str(&format!(
-                //     "pub mod {}{{\n",
-                //     function.get_rust_struct_name().to_case(Case::Snake)
-                // ));
                 s.push_str(&format!(
                     "include!(\"{}/{}.rs\");\n",
                     current_path.to_str().unwrap().replace("\\", "/"),
                     function.get_rust_struct_name().to_case(Case::Snake)
                 ));
-                // s.push_str("}\n");
             }
 
             s
