@@ -3,7 +3,6 @@ use assert_cmd::assert::OutputAssertExt;
 use pulumi_wasm_generator::generate_combined;
 use std::fs;
 use std::fs::{File, FileTimes};
-use std::os::windows::fs::FileTimesExt;
 use std::path::{Path, PathBuf};
 use std::process::Command;
 use std::time::SystemTime;
@@ -108,8 +107,7 @@ pub fn run_pulumi_generator_test(test_name: &str) -> Result<()> {
     generate_combined(schema.as_path(), &root.join("src").join("generated"))?;
 
     let times = FileTimes::new()
-        .set_modified(SystemTime::UNIX_EPOCH)
-        .set_created(SystemTime::UNIX_EPOCH);
+        .set_modified(SystemTime::UNIX_EPOCH);
 
     let lib_rs = root.join("src/lib.rs");
     fs::copy("tests/input/Cargo.toml", root.join("Cargo.toml"))?;

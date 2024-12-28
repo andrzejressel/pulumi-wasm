@@ -6,7 +6,6 @@ use crate::output::TreeNode;
 use convert_case::{Case, Casing};
 use std::fs::{File, FileTimes};
 use std::io::Write;
-use std::os::windows::fs::FileTimesExt;
 use std::time::SystemTime;
 
 pub(crate) fn generate_types_code(package: &Package, result_path: &std::path::Path) {
@@ -36,8 +35,7 @@ fn generate_files(package: &Package, tree_node: &TreeNode, current_path: &std::p
                 let mut file = File::create(current_path.join(file_name)).unwrap();
                 file.write_all(content.as_bytes()).unwrap();
                 let times = FileTimes::new()
-                    .set_modified(SystemTime::UNIX_EPOCH)
-                    .set_created(SystemTime::UNIX_EPOCH);
+                    .set_modified(SystemTime::UNIX_EPOCH);
                 file.set_times(times).unwrap();
             }
         }
