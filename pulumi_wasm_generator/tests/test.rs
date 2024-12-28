@@ -106,8 +106,7 @@ pub fn run_pulumi_generator_test(test_name: &str) -> Result<()> {
 
     generate_combined(schema.as_path(), &root.join("src").join("generated"))?;
 
-    let times = FileTimes::new()
-        .set_modified(SystemTime::UNIX_EPOCH);
+    let times = FileTimes::new().set_modified(SystemTime::UNIX_EPOCH);
 
     let lib_rs = root.join("src/lib.rs");
     fs::copy("tests/input/Cargo.toml", root.join("Cargo.toml"))?;

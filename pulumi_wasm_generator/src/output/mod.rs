@@ -79,8 +79,7 @@ pub(crate) fn generate_combined_code(package: &Package, result_path: &std::path:
     )
     .unwrap();
 
-    let times = FileTimes::new()
-        .set_modified(SystemTime::UNIX_EPOCH);
+    let times = FileTimes::new().set_modified(SystemTime::UNIX_EPOCH);
     let mut file = File::create(result_path.join("main.rs")).unwrap();
     file.write_all(main.as_bytes()).unwrap();
     file.set_times(times).unwrap();
@@ -122,8 +121,7 @@ fn generate_files_looper(
                 let content = generator(package, type_);
                 let mut file = File::create(current_path.join(file_name)).unwrap();
                 file.write_all(content.as_bytes()).unwrap();
-                let times = FileTimes::new()
-                    .set_modified(SystemTime::UNIX_EPOCH);
+                let times = FileTimes::new().set_modified(SystemTime::UNIX_EPOCH);
                 file.set_times(times).unwrap();
             }
         }

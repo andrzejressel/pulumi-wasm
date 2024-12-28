@@ -34,8 +34,7 @@ fn generate_files(package: &Package, tree_node: &TreeNode, current_path: &std::p
                 let content = generate_single_type_source_file(package, type_);
                 let mut file = File::create(current_path.join(file_name)).unwrap();
                 file.write_all(content.as_bytes()).unwrap();
-                let times = FileTimes::new()
-                    .set_modified(SystemTime::UNIX_EPOCH);
+                let times = FileTimes::new().set_modified(SystemTime::UNIX_EPOCH);
                 file.set_times(times).unwrap();
             }
         }
