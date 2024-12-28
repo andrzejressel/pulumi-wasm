@@ -144,12 +144,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: actions/upload-artifact@v4
-        with:
-          name: "timings_rust_wasm_${{ runner.os }}"
-          path: |
-            target/cargo-timings/cargo-timing-*.html
-            pulumi_wasm_generator/tests/**/target/cargo-timings/cargo-timing-*.html
       - name: Release
         uses: softprops/action-gh-release@v2
         with:

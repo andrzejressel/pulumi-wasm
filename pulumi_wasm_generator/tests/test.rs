@@ -1,10 +1,11 @@
-use anyhow::Result;
+use anyhow::{Context, Result};
 use assert_cmd::assert::OutputAssertExt;
 use pulumi_wasm_generator::generate_combined;
 use std::fs;
+use std::fs::{File, FileTimes};
 use std::path::{Path, PathBuf};
 use std::process::Command;
-
+use std::time::SystemTime;
 // DO NOT EDIT - START
 
 #[test]
@@ -105,10 +106,19 @@ pub fn run_pulumi_generator_test(test_name: &str) -> Result<()> {
 
     generate_combined(schema.as_path(), &root.join("src").join("generated"))?;
 
+    let times = FileTimes::new().set_modified(SystemTime::UNIX_EPOCH);
+
+    let lib_rs = root.join("src/lib.rs");
     fs::copy("tests/input/Cargo.toml", root.join("Cargo.toml"))?;
     fs::create_dir_all(root.join("src"))?;
-    fs::write(root.join("src/lib.rs"), "include!(\"generated/main.rs\");")?;
+    fs::write(&lib_rs, "include!(\"generated/main.rs\");")?;
     fs::copy("../rust-toolchain.toml", root.join("rust-toolchain.toml"))?;
+    File::options()
+        .write(true)
+        .open(lib_rs)
+        .context("Cannot open file")?
+        .set_times(times)
+        .context("Cannot set times")?;
 
     Command::new("cargo")
         .args(["component", "build"])

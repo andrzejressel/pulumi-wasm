@@ -144,13 +144,6 @@ jobs:
     - name: Ensure no files have changed
       run: git add . && git diff --quiet && git diff --cached --quiet
 
-    - uses: actions/upload-artifact@v4
-      with:
-        name: "timings_${{ runner.os }}"
-        path: |
-          target/cargo-timings/cargo-timing-*.html
-          pulumi_wasm_generator/tests/**/target/cargo-timings/cargo-timing-*.html
-
   deploy:
     runs-on: ubuntu-24.04
     needs: build

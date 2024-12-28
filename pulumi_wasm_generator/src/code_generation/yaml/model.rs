@@ -166,7 +166,7 @@ fn map_fn_invoke(yaml_fn_invoke: &YamlFnInvoke, context: &PackageContext) -> FnI
 
 fn map_array(
     context: &PackageContext,
-    type_without_option: &Box<TypeWithoutOption>,
+    type_without_option: &TypeWithoutOption,
     yaml_expressions: &Vec<YamlExpression>,
 ) -> Expression {
     let mut expressions = Vec::new();

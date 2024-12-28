@@ -1,4 +1,4 @@
-use crate::utils::{escape_rust_name, escape_wit_identifier, replace_multiple_dashes};
+use crate::utils::{escape_rust_name, replace_multiple_dashes};
 use anyhow::{Context, Result};
 use convert_case::Case;
 use convert_case::Case::UpperCamel;
@@ -68,26 +68,6 @@ impl Type {
         }
     }
 
-    pub(crate) fn get_internal_discriminated_union(&self) -> Option<Vec<Type>> {
-        match self {
-            Type::Boolean => None,
-            Type::Integer => None,
-            Type::Number => None,
-            Type::String => None,
-            Type::ConstString(_) => None,
-            Type::Ref(_) => None,
-            Type::Array(t) => t.get_internal_discriminated_union(),
-            Type::Object(o) => o.get_internal_discriminated_union(),
-            Type::Option(o) => o.get_internal_discriminated_union(),
-            Type::DiscriminatedUnion(types) => Some(
-                types
-                    .iter()
-                    .flat_map(|t| t.get_internal_discriminated_union().unwrap_or_default())
-                    .collect(),
-            ),
-        }
-    }
-
     pub(crate) fn get_consts(&self) -> Vec<String> {
         match self {
             Type::Boolean => vec![],
@@ -112,10 +92,6 @@ pub(crate) struct InputProperty {
 }
 
 impl InputProperty {
-    pub(crate) fn get_wit_argument_name(&self) -> String {
-        escape_wit_identifier(ElementId::create_valid_wit_id(self.name.as_str()).as_str()).into()
-    }
-
     pub(crate) fn get_rust_argument_name(&self) -> String {
         escape_rust_name(ElementId::create_valid_wit_rust_id(self.name.as_str()).as_str()).into()
     }
@@ -129,9 +105,6 @@ pub(crate) struct OutputProperty {
 }
 
 impl OutputProperty {
-    pub(crate) fn get_wit_argument_name(&self) -> String {
-        escape_wit_identifier(ElementId::create_valid_wit_id(self.name.as_str()).as_str()).into()
-    }
     pub(crate) fn get_rust_argument_name(&self) -> String {
         escape_rust_name(ElementId::create_valid_wit_rust_id(self.name.as_str()).as_str()).into()
     }
@@ -201,12 +174,6 @@ pub(crate) struct Package {
     pub(crate) types: BTreeMap<ElementId, GlobalType>,
 }
 
-impl Package {
-    pub(crate) fn get_wit_name(&self) -> String {
-        ElementId::create_valid_wit_id(self.name.as_str())
-    }
-}
-
 #[derive(Clone, Eq, PartialEq, Hash, Ord, PartialOrd, Debug)]
 pub(crate) enum Ref {
     Type(ElementId),
@@ -241,12 +208,6 @@ impl ElementId {
         let mut vec = self.namespace.clone();
         vec.push(self.name.clone());
         Self::create_valid_id(&vec.join("-"))
-    }
-
-    pub(crate) fn get_wit_interface_name(&self) -> String {
-        let mut vec = self.namespace.clone();
-        vec.push(self.name.clone());
-        escape_wit_identifier(Self::create_valid_wit_id(&vec.join("-")).as_str()).into()
     }
 
     fn create_valid_wit_rust_id(s: &str) -> String {
