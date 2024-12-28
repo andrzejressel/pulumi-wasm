@@ -24,7 +24,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-24.04, windows-2022, macos-14]
+        os: [ubuntu-24.04, windows-2022, windows-2025, macos-14, macos-15]
 
     env:
       RUST_BACKTRACE: "full"
@@ -145,6 +145,7 @@ jobs:
       run: git add . && git diff --quiet && git diff --cached --quiet
 
     - uses: actions/upload-artifact@v4
+      if: (matrix.os != 'windows-2025') && (matrix.os != 'macos-15')
       with:
         name: "timings_${{ runner.os }}"
         path: |
