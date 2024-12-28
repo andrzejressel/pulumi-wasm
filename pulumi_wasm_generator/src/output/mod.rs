@@ -4,8 +4,10 @@ use convert_case::Case::UpperCamel;
 use convert_case::{Case, Casing};
 use itertools::Itertools;
 use std::collections::{BTreeMap, BTreeSet};
-use std::fs::File;
+use std::fs::{File, FileTimes};
 use std::io::Write;
+use std::os::windows::fs::FileTimesExt;
+use std::time::SystemTime;
 
 pub(crate) mod functions;
 mod main;
@@ -78,7 +80,12 @@ pub(crate) fn generate_combined_code(package: &Package, result_path: &std::path:
     )
     .unwrap();
 
-    std::fs::write(result_path.join("main.rs"), main).unwrap();
+    let times = FileTimes::new()
+        .set_modified(SystemTime::UNIX_EPOCH)
+        .set_created(SystemTime::UNIX_EPOCH);
+    let mut file = File::create(result_path.join("main.rs")).unwrap();
+    file.write_all(main.as_bytes()).unwrap();
+    file.set_times(times).unwrap();
 }
 
 fn generate_files<T>(
@@ -117,6 +124,10 @@ fn generate_files_looper(
                 let content = generator(package, type_);
                 let mut file = File::create(current_path.join(file_name)).unwrap();
                 file.write_all(content.as_bytes()).unwrap();
+                let times = FileTimes::new()
+                    .set_modified(SystemTime::UNIX_EPOCH)
+                    .set_created(SystemTime::UNIX_EPOCH);
+                file.set_times(times).unwrap();
             }
         }
     }
@@ -137,14 +148,13 @@ fn generate_includes<T>(
         tree.insert(element_id.clone());
     }
 
-    generate_includes_looper(package, &tree, std::path::Path::new(name), generator)
+    generate_includes_looper(package, &tree, std::path::Path::new(name))
 }
 
 fn generate_includes_looper(
     package: &Package,
     tree_node: &TreeNode,
     current_path: &std::path::Path,
-    generator: &dyn Fn(&Package, &ElementId) -> Vec<String>,
 ) -> String {
     match tree_node {
         TreeNode::Namespace(ns, functions) => {
@@ -156,7 +166,6 @@ fn generate_includes_looper(
                     package,
                     node,
                     &current_path.join(name),
-                    generator,
                 ));
                 s.push_str("}\n");
             }
