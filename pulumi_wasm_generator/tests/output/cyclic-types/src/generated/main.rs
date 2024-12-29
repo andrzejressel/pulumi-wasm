@@ -12,7 +12,7 @@ pub mod constants {}
 mod bindings {
     pulumi_wasm_rust::__private::wit_bindgen::generate!(
         { inline :
-        r"package component:pulumi-wasm@0.0.0-DEV;
+        r"package component:pulumi-wasm@0.0.0-NIGHTLY-b3b976c;
 
 world world-example {
     import output-interface;
@@ -75,7 +75,7 @@ interface register-interface {
 
     invoke: func(request: resource-invoke-request) -> resource-invoke-result;
 }",
-        with : { "component:pulumi-wasm/output-interface@0.0.0-DEV" :
+        with : { "component:pulumi-wasm/output-interface@0.0.0-NIGHTLY-b3b976c" :
         pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface
         } }
     );

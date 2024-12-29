@@ -226,7 +226,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_common"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-b3b976c"
 dependencies = [
  "log",
  "pulumi_wasm_wit",
@@ -234,7 +234,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_rust"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-b3b976c"
 dependencies = [
  "anyhow",
  "bon",
@@ -254,7 +254,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_rust_macro"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-b3b976c"
 dependencies = [
  "quote",
  "syn",
@@ -262,7 +262,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_wit"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-b3b976c"
 dependencies = [
  "wit-bindgen",
 ]
