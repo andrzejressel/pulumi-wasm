@@ -14,11 +14,9 @@ members = [
     "examples/simple",
     "examples/typesystem",
     "providers/typesystem",
-    # DO NOT EDIT - START
     "providers/docker",
     "providers/random",
     "providers/cloudflare",
-    # DO NOT EDIT - END
     "pulumi_wasm",
     "pulumi_wasm_common",
     "pulumi_wasm_core",
@@ -88,7 +86,7 @@ directories = "5.0"
 reqwest = "0.12.5"
 wit-component = "0.222.0"
 wit-parser = "0.222.0"
-bon = "3.0.0"
+bon = "3.3.2"
 proc-macro2 = "1.0.92"
 rinja = "0.3.5"
 tempfile = "3.14.0"

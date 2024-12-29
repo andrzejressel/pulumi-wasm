@@ -93,6 +93,7 @@ jobs:
         workspaces: | # DO NOT EDIT - START 1
           ./
           pulumi_wasm_generator/tests/output/array-of-enum-map/
+          pulumi_wasm_generator/tests/output/aws/
           pulumi_wasm_generator/tests/output/azure-native-nested-types/
           pulumi_wasm_generator/tests/output/cloudflare/
           pulumi_wasm_generator/tests/output/cyclic-types/
@@ -213,6 +214,7 @@ jobs:
         workspaces: | # DO NOT EDIT - START 2
           ./
           pulumi_wasm_generator/tests/output/array-of-enum-map/
+          pulumi_wasm_generator/tests/output/aws/
           pulumi_wasm_generator/tests/output/azure-native-nested-types/
           pulumi_wasm_generator/tests/output/cloudflare/
           pulumi_wasm_generator/tests/output/cyclic-types/

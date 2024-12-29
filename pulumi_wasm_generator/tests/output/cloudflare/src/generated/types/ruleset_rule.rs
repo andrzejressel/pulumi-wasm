@@ -45,7 +45,7 @@ pub struct RulesetRule {
     /// Rule reference.
     #[builder(into, default)]
     #[serde(rename = "ref")]
-    pub r#ref: Box<Option<String>>,
+    pub r#ref_: Box<Option<String>>,
     /// Version of the ruleset to deploy.
     #[builder(into, default)]
     #[serde(rename = "version")]

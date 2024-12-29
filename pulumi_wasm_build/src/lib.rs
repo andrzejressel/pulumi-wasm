@@ -59,6 +59,7 @@ pub fn generate(provider_name: &str, provider_version: &str) -> Result<()> {
         .arg("package")
         .arg("get-schema")
         .arg(format!("{}@{}", provider_name, provider_version))
+        .env("PULUMI_AWS_MINIMAL_SCHEMA", "true")
         .output()
         .context("Failed to execute pulumi command")?;
 

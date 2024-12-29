@@ -101,11 +101,7 @@ fn convert_resource(package: &crate::model::Package, element_id: &ElementId) -> 
                 fields: properties
                     .iter()
                     .map(|global_type_property| Property {
-                        name: global_type_property
-                            .name
-                            .clone()
-                            .from_case(Case::Camel)
-                            .to_case(Case::Snake),
+                        name: global_type_property.get_field_name(),
                         original_name: global_type_property.name.clone(),
                         type_: global_type_property.r#type.get_rust_type(depth),
                         default: matches!(global_type_property.r#type, Type::Option(_)),
@@ -134,7 +130,7 @@ fn convert_resource(package: &crate::model::Package, element_id: &ElementId) -> 
                     .iter()
                     .map(|enum_value| StringEnumValue {
                         name: enum_value.name.clone(),
-                        value: enum_value.value.clone().map(|s| format!("\"{}\"", s)),
+                        value: enum_value.value.clone(),
                         description_lines: crate::utils::to_lines(
                             enum_value.description.clone(),
                             package,

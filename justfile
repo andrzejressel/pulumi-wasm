@@ -97,10 +97,8 @@ test-coverage:
 docs:
     docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material
 
-# DO NOT EDIT - GENERATE-RUST-DOCS - START
 rust-docs:
-    cargo doc --no-deps -p pulumi_wasm_rust -p pulumi_wasm_build -p pulumi_wasm_providers_docker -p pulumi_wasm_providers_random -p pulumi_wasm_providers_cloudflare
-# DO NOT EDIT - GENERATE-RUST-DOCS - END
+    cargo doc --no-deps -p pulumi_wasm_rust -p pulumi_wasm_build
 
 update-version NEW_VERSION:
     sd "0.0.0-DEV" "{{NEW_VERSION}}" "pulumi_wasm_wit/wit/world.wit" "pulumi_wasm_rust_macro/src/lib.rs" \

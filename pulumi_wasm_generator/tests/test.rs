@@ -14,6 +14,11 @@ fn array_of_enum_map() -> Result<()> {
 }
 
 #[test]
+fn aws() -> Result<()> {
+    run_pulumi_generator_test("aws")
+}
+
+#[test]
 fn azure_native_nested_types() -> Result<()> {
     run_pulumi_generator_test("azure-native-nested-types")
 }
@@ -94,11 +99,11 @@ fn unions_inside_arrays() -> Result<()> {
 }
 // DO NOT EDIT - END
 
-// provider_name is `name` from yaml file
 pub fn run_pulumi_generator_test(test_name: &str) -> Result<()> {
     let root_path = format!("tests/output/{test_name}");
     let root = Path::new(&root_path);
 
+    eprintln!("Generating");
     let schema = find_schema_files(test_name);
     fs::create_dir_all(root)?;
 
@@ -120,6 +125,7 @@ pub fn run_pulumi_generator_test(test_name: &str) -> Result<()> {
         .set_times(times)
         .context("Cannot set times")?;
 
+    eprintln!("Compiling");
     Command::new("cargo")
         .args(["component", "build"])
         .env_remove("CARGO_LLVM_COV")
@@ -133,6 +139,7 @@ pub fn run_pulumi_generator_test(test_name: &str) -> Result<()> {
 
 pub fn find_schema_files(name: &str) -> PathBuf {
     let possible_paths = vec![
+        Path::new("../providers").join(format!("{name}.json")),
         Path::new("../pulumi/tests/testdata/codegen")
             .join(name)
             .join("schema.yaml"),
@@ -149,7 +156,6 @@ pub fn find_schema_files(name: &str) -> PathBuf {
             .join("schema.json"),
         Path::new("../pulumi-java/pkg/codegen/testing/test/testdata").join(format!("{name}.yaml")),
         Path::new("../pulumi-java/pkg/codegen/testing/test/testdata").join(format!("{name}.json")),
-        Path::new("test_cases").join(format!("{name}.json")),
     ];
 
     for path in possible_paths {
