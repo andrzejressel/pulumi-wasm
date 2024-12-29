@@ -37,6 +37,7 @@ fn main() {
         "plain-object-defaults",
         "plain-object-disable-defaults",
         "random",
+        "reserved_names",
         "unions-inline",
         "unions-inside-arrays",
     ];

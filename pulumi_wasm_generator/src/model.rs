@@ -204,6 +204,10 @@ impl ElementId {
         self.name.clone().from_case(UpperCamel).to_case(Case::Snake)
     }
 
+    pub(crate) fn get_rust_package_name(&self) -> String {
+        escape_rust_name(&self.name.clone().to_case(Case::Snake)).to_string()
+    }
+
     pub(crate) fn get_rust_namespace_name(&self) -> String {
         let mut vec = self.namespace.clone();
         vec.push(self.name.clone());
@@ -272,6 +276,7 @@ impl ElementId {
             .into_iter()
             .filter(|s| *s != "index" && s.to_lowercase() != name.to_lowercase() && !s.is_empty())
             .map(|s| s.replace("-", "_").to_string())
+            .map(|s| escape_rust_name(&s).to_string())
             .collect::<Vec<_>>();
 
         Ok(ElementId {

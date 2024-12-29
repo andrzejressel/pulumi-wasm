@@ -130,6 +130,7 @@ jobs:
             pulumi_wasm_generator/tests/output/plain-object-defaults/
             pulumi_wasm_generator/tests/output/plain-object-disable-defaults/
             pulumi_wasm_generator/tests/output/random/
+            pulumi_wasm_generator/tests/output/reserved_names/
             pulumi_wasm_generator/tests/output/unions-inline/
             pulumi_wasm_generator/tests/output/unions-inside-arrays/
 # DO NOT EDIT - END 1
@@ -281,6 +282,7 @@ jobs:
             pulumi_wasm_generator/tests/output/plain-object-defaults/
             pulumi_wasm_generator/tests/output/plain-object-disable-defaults/
             pulumi_wasm_generator/tests/output/random/
+            pulumi_wasm_generator/tests/output/reserved_names/
             pulumi_wasm_generator/tests/output/unions-inline/
             pulumi_wasm_generator/tests/output/unions-inside-arrays/
 # DO NOT EDIT - END 2
