@@ -1,0 +1,47 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "resources": {
+    "example:impl/let/loop:Type": {
+      "inputProperties": {
+        "type": {
+          "type": "object",
+          "$ref": "#/types/example:impl/let/loop:Type"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "functions": {
+    "example:impl/let/loop:Type": {
+      "inputs": {
+        "properties": {
+          "type": {
+            "type": "object",
+            "$ref": "#/types/example:impl/let/loop:Type"
+          }
+        },
+        "type": "object"
+      },
+      "outputs": {
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "types": {
+    "example:impl/let/loop:Type": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": ["type"]
+    }
+  }
+}

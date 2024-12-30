@@ -84,6 +84,11 @@ fn random() -> Result<()> {
 }
 
 #[test]
+fn reserved_names() -> Result<()> {
+    run_pulumi_generator_test("reserved_names")
+}
+
+#[test]
 fn unions_inline() -> Result<()> {
     run_pulumi_generator_test("unions-inline")
 }

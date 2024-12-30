@@ -134,7 +134,7 @@ fn convert_resource(package: &crate::model::Package, element_id: &ElementId) -> 
                     .iter()
                     .map(|enum_value| StringEnumValue {
                         name: enum_value.name.clone(),
-                        value: enum_value.value.clone().map(|s| format!("\"{}\"", s)),
+                        value: enum_value.value.clone(),
                         description_lines: crate::utils::to_lines(
                             enum_value.description.clone(),
                             package,
