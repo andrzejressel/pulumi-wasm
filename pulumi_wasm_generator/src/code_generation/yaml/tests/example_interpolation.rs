@@ -8,7 +8,7 @@ use std::collections::BTreeMap;
 pub const YAML: &str = r#"
     resources:
         myCert:
-            type: cloudflare:AccessMutualTlsCertificate
+            type: yamltests:AccessMutualTlsCertificate
             name: my_cert
             properties:
                 certificate: ${caPem}
@@ -23,7 +23,7 @@ pub fn get_yaml_file() -> YamlFile {
             resources.insert(
                 "myCert".to_string(),
                 YamlResource {
-                    type_: "cloudflare:AccessMutualTlsCertificate".to_string(),
+                    type_: "yamltests:AccessMutualTlsCertificate".to_string(),
                     name: Some("my_cert".to_string()),
                     properties: {
                         let mut properties = BTreeMap::new();
@@ -49,7 +49,7 @@ pub fn get_model() -> Example {
                 "myCert".to_string(),
                 Resource {
                     type_: ElementId::new(
-                        "cloudflare:index/accessMutualTlsCertificate:AccessMutualTlsCertificate",
+                        "yamltests:index/accessMutualTlsCertificate:AccessMutualTlsCertificate",
                     )
                     .unwrap(),
                     name: Some("my_cert".to_string()),

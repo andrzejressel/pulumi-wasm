@@ -12,7 +12,7 @@ pub const YAML: &str = r#"
     variables:
       example:
         fn::invoke:
-          Function: cloudflare:getGatewayCategories
+          Function: yamltests:getGatewayCategories
           Arguments:
             accountId: f037e56e89293a057740de681ac9abbe
 "#;
@@ -28,7 +28,7 @@ pub fn get_yaml_file() -> YamlFile {
                 "example".to_string(),
                 YamlVariable {
                     fn_invoke: YamlFnInvoke {
-                        function: "cloudflare:getGatewayCategories".to_string(),
+                        function: "yamltests:getGatewayCategories".to_string(),
                         arguments: {
                             let mut arguments = BTreeMap::new();
                             arguments.insert(
@@ -56,7 +56,7 @@ pub fn get_model() -> Example {
                 "example".to_string(),
                 FnInvokeVariable(FnInvoke {
                     function: ElementId::new(
-                        "cloudflare:index/getGatewayCategories:getGatewayCategories",
+                        "yamltests:index/getGatewayCategories:getGatewayCategories",
                     )
                     .unwrap(),
                     arguments: {

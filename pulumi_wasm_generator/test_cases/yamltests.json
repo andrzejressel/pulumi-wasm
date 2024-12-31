@@ -1,0 +1,115 @@
+{
+  "name": "yamltests",
+  "version": "1.0.0",
+  "resources": {
+    "yamltests:index/accessMutualTlsCertificate:AccessMutualTlsCertificate": {
+      "properties": {
+        "certificate": {
+          "type": "string"
+        },
+        "associatedHostnames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "inputProperties": {
+        "certificate": {
+          "type": "string"
+        },
+        "associatedHostnames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "yamltests:index/keylessCertificate:KeylessCertificate": {
+      "properties": {
+        "port": {
+          "type": "integer"
+        }
+      },
+      "inputProperties": {
+        "port": {
+          "type": "integer"
+        }
+      }
+    },
+    "yamltests:index/apiShieldSchema:ApiShieldSchema": {
+      "properties": {
+        "zoneId": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "validationEnabled": {
+          "type": "boolean"
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "inputProperties": {
+        "zoneId": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "validationEnabled": {
+          "type": "boolean"
+        },
+        "source": {
+          "type": "string"
+        }
+      }
+    },
+    "yamltests:index/accessOrganization:AccessOrganization": {
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "inputProperties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "functions": {
+    "yamltests:index/getGatewayCategories:getGatewayCategories": {
+      "inputs": {
+        "description": "A collection of arguments for invoking getGatewayCategories.\n",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "The account ID to fetch Gateway Categories from.\n"
+          }
+        },
+        "type": "object",
+        "required": [
+          "accountId"
+        ]
+      },
+      "outputs": {
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
