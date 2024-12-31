@@ -1,3 +1,4 @@
+include!("resources/random_bytes.rs");
 include!("resources/random_id.rs");
 include!("resources/random_integer.rs");
 include!("resources/random_password.rs");

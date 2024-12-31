@@ -10,7 +10,7 @@ use std::collections::BTreeMap;
 pub const YAML: &str = r#"
     resources:
       example:
-        type: cloudflare:KeylessCertificate
+        type: yamltests:KeylessCertificate
         properties:
           port: 24008
 "#;
@@ -24,7 +24,7 @@ pub fn get_yaml_file() -> YamlFile {
             resources.insert(
                 "example".to_string(),
                 YamlResource {
-                    type_: "cloudflare:KeylessCertificate".to_string(),
+                    type_: "yamltests:KeylessCertificate".to_string(),
                     name: None,
                     properties: {
                         let mut properties = BTreeMap::new();
@@ -46,9 +46,9 @@ pub fn get_model() -> Example {
             map.insert(
                 "example".to_string(),
                 Resource {
-                    type_: ElementId::new("cloudflare:index/keylessCertificate:KeylessCertificate")
+                    type_: ElementId::new("yamltests:index/keylessCertificate:KeylessCertificate")
                         .unwrap(),
-                    // type_: "cloudflare:AccessMutualTlsCertificate".to_string(),
+                    // type_: "yamltests:AccessMutualTlsCertificate".to_string(),
                     name: None,
                     properties: {
                         let mut props = BTreeMap::new();

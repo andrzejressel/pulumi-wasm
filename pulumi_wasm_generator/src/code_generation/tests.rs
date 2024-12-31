@@ -49,22 +49,22 @@ mod tests {
         };
     }
 
-    full_pipeline_test!(full_pipeline_example_array, "cloudflare", example_array);
+    full_pipeline_test!(full_pipeline_example_array, "yamltests", example_array);
     full_pipeline_test!(
         full_pipeline_example_empty_properties,
-        "cloudflare",
+        "yamltests",
         example_empty_properties
     );
     full_pipeline_test!(
         full_pipeline_example_escape_string,
-        "cloudflare",
+        "yamltests",
         example_escape_string
     );
-    full_pipeline_test!(full_pipeline_example_numbers, "cloudflare", example_numbers);
+    full_pipeline_test!(full_pipeline_example_numbers, "yamltests", example_numbers);
     full_pipeline_test!(
         full_pipeline_example_interpolation,
-        "cloudflare",
+        "yamltests",
         example_interpolation
     );
-    full_pipeline_test!(generate_yaml_variables, "cloudflare", example_variables);
+    full_pipeline_test!(generate_yaml_variables, "yamltests", example_variables);
 }

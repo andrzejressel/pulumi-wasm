@@ -1,4 +1,5 @@
 use std::fs;
+use std::process::Command;
 
 #[derive(Debug)]
 struct Provider<'a> {
@@ -41,23 +42,22 @@ fn main() {
         "unions-inline",
         "unions-inside-arrays",
     ];
-    // for provider in &providers {
-    //     println!("{:?}", provider);
-    //     let schema_output = Command::new("pulumi")
-    //         .arg("package")
-    //         .arg("get-schema")
-    //         .arg(format!("{}@{}", provider.name, provider.version))
-    //         .output()
-    //         .expect("Failed to execute pulumi command");
-    //
-    //     let schema =
-    //         String::from_utf8(schema_output.stdout).expect("Invalid UTF-8 in pulumi output");
-    //
-    //     fs::write(format!("providers/{}.json", provider.name), schema)
-    //         .expect("Failed to write schema to file");
-    // }
+    for provider in &providers {
+        println!("{:?}", provider);
+        let schema_output = Command::new("pulumi")
+            .arg("package")
+            .arg("get-schema")
+            .arg(format!("{}@{}", provider.name, provider.version))
+            .output()
+            .expect("Failed to execute pulumi command");
 
-    update_cargo_toml(&providers);
+        let schema =
+            String::from_utf8(schema_output.stdout).expect("Invalid UTF-8 in pulumi output");
+
+        fs::write(format!("providers/{}.json", provider.name), schema)
+            .expect("Failed to write schema to file");
+    }
+
     update_justfile(&providers);
     update_tests(&tests);
 }
@@ -141,20 +141,6 @@ fn {method_name}() -> Result<()> {{
 
     fs::write("pulumi_wasm_generator/tests/test.rs", new_content)
         .expect("Failed to write to pulumi_wasm_generator/tests/test.rs");
-}
-
-fn update_cargo_toml(providers: &[Provider]) {
-    let content = fs::read_to_string("Cargo.toml").expect("Failed to read Cargo.toml");
-
-    let mut replacement = String::new();
-    for provider in providers {
-        replacement.push_str(&format!("    \"providers/{}\",\n", provider.name));
-    }
-    let start_marker = "    # DO NOT EDIT - START";
-    let end_marker = "    # DO NOT EDIT - END";
-    let new_content = replace_between_markers(&content, start_marker, end_marker, &replacement);
-
-    fs::write("Cargo.toml", new_content).expect("Failed to write to Cargo.toml");
 }
 
 fn update_justfile(providers: &[Provider]) {

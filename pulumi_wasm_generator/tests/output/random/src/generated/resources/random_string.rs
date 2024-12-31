@@ -1,142 +1,113 @@
-/// The resource `random.RandomString` generates a random permutation of alphanumeric
-/// characters and optionally special characters.
+/// The resource `random.RandomString` generates a random permutation of alphanumeric characters and optionally special characters.
 ///
 /// This resource *does* use a cryptographic random number generator.
 ///
-/// Historically this resource's intended usage has been ambiguous as the original example
-/// used it in a password. For backwards compatibility it will
-/// continue to exist. For unique ids please use the `random.RandomId` resource, for sensitive
-/// random values please use the `random.RandomPassword` resource.
-///
+/// Historically this resource's intended usage has been ambiguous as the original example used it in a password. For backwards compatibility it will continue to exist. For unique ids please use random_id, for sensitive random values please use random_password.
 ///
 /// ## Example Usage
 ///
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let random = random_string::create(
+///         "random",
+///         RandomStringArgs::builder()
+///             .length(16)
+///             .override_special("/@£$")
+///             .special(true)
+///             .build_struct(),
+///     );
+/// }
+/// ```
 ///
 /// ## Import
 ///
-/// Strings can be imported by just specifying the value of the string
+/// You can import external strings into your Pulumi programs as RandomString resources as follows:
 ///
 /// ```sh
-///  $ pulumi import random:index/randomString:RandomString test test
+///  $ import random:index/randomString:RandomString newString myspecialdata
 /// ```
 ///
+/// This command will encode the `myspecialdata` token in Pulumi state and generate a code suggestion to include a new RandomString resource in your Pulumi program. Include the suggested code and do a `pulumi up`. Your data is now stored in Pulumi, and you can reference it in your Pulumi program as `newString.result`.
+///
+/// If the data needs to be stored securily as a secret, consider using the RandomPassword resource instead.
 ///
 pub mod random_string {
     #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RandomStringArgs {
-        /// Arbitrary map of values that, when changed, will
-        /// trigger a new id to be generated.
-        ///
+        /// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
         #[builder(into, default)]
         pub keepers: pulumi_wasm_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        /// The length of the string desired
-        ///
+        /// The length of the string desired. The minimum value for length is 1 and, length must also be >= (`min_upper` + `min_lower` + `min_numeric` + `min_special`).
         #[builder(into)]
         pub length: pulumi_wasm_rust::Output<i32>,
-        /// (default true) Include lowercase alphabet characters
-        /// in random string.
-        ///
+        /// Include lowercase alphabet characters in the result. Default value is `true`.
         #[builder(into, default)]
         pub lower: pulumi_wasm_rust::Output<Option<bool>>,
-        /// (default 0) Minimum number of lowercase alphabet
-        /// characters in random string.
-        ///
+        /// Minimum number of lowercase alphabet characters in the result. Default value is `0`.
         #[builder(into, default)]
         pub min_lower: pulumi_wasm_rust::Output<Option<i32>>,
-        /// (default 0) Minimum number of numeric characters
-        /// in random string.
-        ///
+        /// Minimum number of numeric characters in the result. Default value is `0`.
         #[builder(into, default)]
         pub min_numeric: pulumi_wasm_rust::Output<Option<i32>>,
-        /// (default 0) Minimum number of special characters
-        /// in random string.
-        ///
+        /// Minimum number of special characters in the result. Default value is `0`.
         #[builder(into, default)]
         pub min_special: pulumi_wasm_rust::Output<Option<i32>>,
-        /// (default 0) Minimum number of uppercase alphabet
-        /// characters in random string.
-        ///
+        /// Minimum number of uppercase alphabet characters in the result. Default value is `0`.
         #[builder(into, default)]
         pub min_upper: pulumi_wasm_rust::Output<Option<i32>>,
-        /// (default true) Include numeric characters in random
-        /// string.
-        ///
+        /// Include numeric characters in the result. Default value is `true`. **NOTE**: This is deprecated, use `numeric` instead.
         #[builder(into, default)]
         pub number: pulumi_wasm_rust::Output<Option<bool>>,
-        /// Supply your own list of special characters to
-        /// use for string generation.  This overrides the default character list in the special
-        /// argument.  The special argument must still be set to true for any overwritten
-        /// characters to be used in generation.
-        ///
+        /// Include numeric characters in the result. Default value is `true`.
+        #[builder(into, default)]
+        pub numeric: pulumi_wasm_rust::Output<Option<bool>>,
+        /// Supply your own list of special characters to use for string generation.  This overrides the default character list in the special argument.  The `special` argument must still be set to true for any overwritten characters to be used in generation.
         #[builder(into, default)]
         pub override_special: pulumi_wasm_rust::Output<Option<String>>,
-        /// (default true) Include special characters in random
-        /// string. These are `!@#$%&*()-_=+[]{}<>:?`
-        ///
+        /// Include special characters in the result. These are `!@#$%&*()-_=+[]{}<>:?`. Default value is `true`.
         #[builder(into, default)]
         pub special: pulumi_wasm_rust::Output<Option<bool>>,
-        /// (default true) Include uppercase alphabet characters
-        /// in random string.
-        ///
+        /// Include uppercase alphabet characters in the result. Default value is `true`.
         #[builder(into, default)]
         pub upper: pulumi_wasm_rust::Output<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct RandomStringResult {
-        /// Arbitrary map of values that, when changed, will
-        /// trigger a new id to be generated.
-        ///
+        /// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
         pub keepers: pulumi_wasm_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        /// The length of the string desired
-        ///
+        /// The length of the string desired. The minimum value for length is 1 and, length must also be >= (`min_upper` + `min_lower` + `min_numeric` + `min_special`).
         pub length: pulumi_wasm_rust::Output<i32>,
-        /// (default true) Include lowercase alphabet characters
-        /// in random string.
-        ///
-        pub lower: pulumi_wasm_rust::Output<Option<bool>>,
-        /// (default 0) Minimum number of lowercase alphabet
-        /// characters in random string.
-        ///
-        pub min_lower: pulumi_wasm_rust::Output<Option<i32>>,
-        /// (default 0) Minimum number of numeric characters
-        /// in random string.
-        ///
-        pub min_numeric: pulumi_wasm_rust::Output<Option<i32>>,
-        /// (default 0) Minimum number of special characters
-        /// in random string.
-        ///
-        pub min_special: pulumi_wasm_rust::Output<Option<i32>>,
-        /// (default 0) Minimum number of uppercase alphabet
-        /// characters in random string.
-        ///
-        pub min_upper: pulumi_wasm_rust::Output<Option<i32>>,
-        /// (default true) Include numeric characters in random
-        /// string.
-        ///
-        pub number: pulumi_wasm_rust::Output<Option<bool>>,
-        /// Supply your own list of special characters to
-        /// use for string generation.  This overrides the default character list in the special
-        /// argument.  The special argument must still be set to true for any overwritten
-        /// characters to be used in generation.
-        ///
+        /// Include lowercase alphabet characters in the result. Default value is `true`.
+        pub lower: pulumi_wasm_rust::Output<bool>,
+        /// Minimum number of lowercase alphabet characters in the result. Default value is `0`.
+        pub min_lower: pulumi_wasm_rust::Output<i32>,
+        /// Minimum number of numeric characters in the result. Default value is `0`.
+        pub min_numeric: pulumi_wasm_rust::Output<i32>,
+        /// Minimum number of special characters in the result. Default value is `0`.
+        pub min_special: pulumi_wasm_rust::Output<i32>,
+        /// Minimum number of uppercase alphabet characters in the result. Default value is `0`.
+        pub min_upper: pulumi_wasm_rust::Output<i32>,
+        /// Include numeric characters in the result. Default value is `true`. **NOTE**: This is deprecated, use `numeric` instead.
+        pub number: pulumi_wasm_rust::Output<bool>,
+        /// Include numeric characters in the result. Default value is `true`.
+        pub numeric: pulumi_wasm_rust::Output<bool>,
+        /// Supply your own list of special characters to use for string generation.  This overrides the default character list in the special argument.  The `special` argument must still be set to true for any overwritten characters to be used in generation.
         pub override_special: pulumi_wasm_rust::Output<Option<String>>,
-        /// Random string generated.
-        ///
+        /// The generated random string.
         pub result: pulumi_wasm_rust::Output<String>,
-        /// (default true) Include special characters in random
-        /// string. These are `!@#$%&*()-_=+[]{}<>:?`
-        ///
-        pub special: pulumi_wasm_rust::Output<Option<bool>>,
-        /// (default true) Include uppercase alphabet characters
-        /// in random string.
-        ///
-        pub upper: pulumi_wasm_rust::Output<Option<bool>>,
+        /// Include special characters in the result. These are `!@#$%&*()-_=+[]{}<>:?`. Default value is `true`.
+        pub special: pulumi_wasm_rust::Output<bool>,
+        /// Include uppercase alphabet characters in the result. Default value is `true`.
+        pub upper: pulumi_wasm_rust::Output<bool>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
@@ -153,6 +124,7 @@ pub mod random_string {
         let min_special_binding = args.min_special.get_inner();
         let min_upper_binding = args.min_upper.get_inner();
         let number_binding = args.number.get_inner();
+        let numeric_binding = args.numeric.get_inner();
         let override_special_binding = args.override_special.get_inner();
         let special_binding = args.special.get_inner();
         let upper_binding = args.upper.get_inner();
@@ -193,6 +165,10 @@ pub mod random_string {
                     value: &number_binding,
                 },
                 register_interface::ObjectField {
+                    name: "numeric".into(),
+                    value: &numeric_binding,
+                },
+                register_interface::ObjectField {
                     name: "overrideSpecial".into(),
                     value: &override_special_binding,
                 },
@@ -229,6 +205,9 @@ pub mod random_string {
                 },
                 register_interface::ResultField {
                     name: "number".into(),
+                },
+                register_interface::ResultField {
+                    name: "numeric".into(),
                 },
                 register_interface::ResultField {
                     name: "overrideSpecial".into(),
@@ -274,6 +253,9 @@ pub mod random_string {
             ),
             number: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("number").unwrap(),
+            ),
+            numeric: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("numeric").unwrap(),
             ),
             override_special: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("overrideSpecial").unwrap(),
