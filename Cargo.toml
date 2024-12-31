@@ -17,11 +17,9 @@ members = [
     "examples/simple",
     "examples/typesystem",
     "providers/typesystem",
-    # DO NOT EDIT - START
+    "providers/cloudflare",
     "providers/docker",
     "providers/random",
-    "providers/cloudflare",
-    # DO NOT EDIT - END
     "pulumi_wasm",
     "pulumi_wasm_common",
     "pulumi_wasm_core",
@@ -51,7 +49,6 @@ pulumi_wasm_common = { version = "=0.0.0-DEV", path = "pulumi_wasm_common", regi
 pulumi_wasm_proto = { version = "=0.0.0-DEV", path = "pulumi_wasm_proto", registry = "cloudsmith" }
 pulumi_wasm_wit = { version = "=0.0.0-DEV", path = "pulumi_wasm_wit", registry = "cloudsmith" }
 pulumi_wasm_runner_component_creator = { version = "=0.0.0-DEV", path = "pulumi_wasm_runner_component_creator", registry = "cloudsmith" }
-pulumi_wasm_providers_cloudflare = { version = "=0.0.0-DEV", path = "providers/cloudflare", registry = "cloudsmith" }
 pulumi_wasm_providers_docker = { version = "=0.0.0-DEV", path = "providers/docker", registry = "cloudsmith" }
 pulumi_wasm_providers_random = { version = "=0.0.0-DEV", path = "providers/random", registry = "cloudsmith" }
 pulumi_wasm_providers_typesystem = { version = "=0.0.0-DEV", path = "providers/typesystem", registry = "cloudsmith" }

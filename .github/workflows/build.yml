@@ -111,8 +111,17 @@ jobs:
           pulumi_wasm_generator/tests/output/unions-inline/
           pulumi_wasm_generator/tests/output/unions-inside-arrays/
 # DO NOT EDIT - END 1
+    - name: Cache Pulumi providers
+      uses: actions/cache@v4
+      with:
+        path: ~/.pulumi/plugins
+        key: ${{ runner.os }}-pulumi-${{ hashFiles('regenerator/src/main.rs') }}
+        restore-keys: |
+          ${{ runner.os }}-pulumi-
     - name: Regenerator
       run: just regenerator
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Check
       run: just check
     - name: Build

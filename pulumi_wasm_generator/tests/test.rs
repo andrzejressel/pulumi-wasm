@@ -138,6 +138,8 @@ pub fn run_pulumi_generator_test(test_name: &str) -> Result<()> {
 
 pub fn find_schema_files(name: &str) -> PathBuf {
     let possible_paths = vec![
+        Path::new("test_cases").join(format!("{name}.json")),
+        Path::new("../providers").join(format!("{name}.json")),
         Path::new("../pulumi/tests/testdata/codegen")
             .join(name)
             .join("schema.yaml"),
@@ -154,7 +156,6 @@ pub fn find_schema_files(name: &str) -> PathBuf {
             .join("schema.json"),
         Path::new("../pulumi-java/pkg/codegen/testing/test/testdata").join(format!("{name}.yaml")),
         Path::new("../pulumi-java/pkg/codegen/testing/test/testdata").join(format!("{name}.json")),
-        Path::new("test_cases").join(format!("{name}.json")),
     ];
 
     for path in possible_paths {

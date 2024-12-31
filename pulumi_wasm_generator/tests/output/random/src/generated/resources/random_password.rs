@@ -1,70 +1,112 @@
-/// Identical to the `random.RandomString` resource with the exception that the
-/// result is treated as sensitive and, thus, _not_ displayed in console output.
-///
-/// > **Note:** All attributes including the generated password will be stored in
-/// the raw state as plain-text.
+/// Identical to random_string.
 ///
 /// This resource *does* use a cryptographic random number generator.
 ///
-///
 /// ## Example Usage
 ///
+/// ```yaml
+/// resources:
+///   password:
+///     type: random:RandomPassword
+///     properties:
+///       length: 16
+///       special: true
+///       overrideSpecial: '!#$%&*()-_=+[]{}<>:?'
+///   example:
+///     type: aws:rds:Instance
+///     properties:
+///       instanceClass: db.t3.micro
+///       allocatedStorage: 64
+///       engine: mysql
+///       username: someone
+///       password: ${password.result}
+/// ```
 ///
 /// ## Import
 ///
-/// Random Password can be imported by specifying the value of the string
+/// You can import external passwords into your Pulumi programs as follows:
 ///
 /// ```sh
-///  $ pulumi import random:index/randomPassword:RandomPassword password securepassword
+///  $ import random:index/randomPassword:RandomPassword newPassword supersecret
 /// ```
 ///
-///
+/// This command will encode the `supersecret` token in Pulumi state and generate a code suggestion to include a new RandomPassword resource in your Pulumi program. Include the suggested code and do a `pulumi up`. Your secret password is now securely stored in Pulumi, and you can reference it in your Pulumi program as `newPassword.result`.
 pub mod random_password {
     #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RandomPasswordArgs {
+        /// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
         #[builder(into, default)]
         pub keepers: pulumi_wasm_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
+        /// The length of the string desired. The minimum value for length is 1 and, length must also be >= (`min_upper` + `min_lower` + `min_numeric` + `min_special`).
         #[builder(into)]
         pub length: pulumi_wasm_rust::Output<i32>,
+        /// Include lowercase alphabet characters in the result. Default value is `true`.
         #[builder(into, default)]
         pub lower: pulumi_wasm_rust::Output<Option<bool>>,
+        /// Minimum number of lowercase alphabet characters in the result. Default value is `0`.
         #[builder(into, default)]
         pub min_lower: pulumi_wasm_rust::Output<Option<i32>>,
+        /// Minimum number of numeric characters in the result. Default value is `0`.
         #[builder(into, default)]
         pub min_numeric: pulumi_wasm_rust::Output<Option<i32>>,
+        /// Minimum number of special characters in the result. Default value is `0`.
         #[builder(into, default)]
         pub min_special: pulumi_wasm_rust::Output<Option<i32>>,
+        /// Minimum number of uppercase alphabet characters in the result. Default value is `0`.
         #[builder(into, default)]
         pub min_upper: pulumi_wasm_rust::Output<Option<i32>>,
+        /// Include numeric characters in the result. Default value is `true`. **NOTE**: This is deprecated, use `numeric` instead.
         #[builder(into, default)]
         pub number: pulumi_wasm_rust::Output<Option<bool>>,
+        /// Include numeric characters in the result. Default value is `true`.
+        #[builder(into, default)]
+        pub numeric: pulumi_wasm_rust::Output<Option<bool>>,
+        /// Supply your own list of special characters to use for string generation.  This overrides the default character list in the special argument.  The `special` argument must still be set to true for any overwritten characters to be used in generation.
         #[builder(into, default)]
         pub override_special: pulumi_wasm_rust::Output<Option<String>>,
+        /// Include special characters in the result. These are `!@#$%&*()-_=+[]{}<>:?`. Default value is `true`.
         #[builder(into, default)]
         pub special: pulumi_wasm_rust::Output<Option<bool>>,
+        /// Include uppercase alphabet characters in the result. Default value is `true`.
         #[builder(into, default)]
         pub upper: pulumi_wasm_rust::Output<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct RandomPasswordResult {
+        /// A bcrypt hash of the generated random string. **NOTE**: If the generated random string is greater than 72 bytes in length, `bcrypt_hash` will contain a hash of the first 72 bytes.
+        pub bcrypt_hash: pulumi_wasm_rust::Output<String>,
+        /// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
         pub keepers: pulumi_wasm_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
+        /// The length of the string desired. The minimum value for length is 1 and, length must also be >= (`min_upper` + `min_lower` + `min_numeric` + `min_special`).
         pub length: pulumi_wasm_rust::Output<i32>,
-        pub lower: pulumi_wasm_rust::Output<Option<bool>>,
-        pub min_lower: pulumi_wasm_rust::Output<Option<i32>>,
-        pub min_numeric: pulumi_wasm_rust::Output<Option<i32>>,
-        pub min_special: pulumi_wasm_rust::Output<Option<i32>>,
-        pub min_upper: pulumi_wasm_rust::Output<Option<i32>>,
-        pub number: pulumi_wasm_rust::Output<Option<bool>>,
+        /// Include lowercase alphabet characters in the result. Default value is `true`.
+        pub lower: pulumi_wasm_rust::Output<bool>,
+        /// Minimum number of lowercase alphabet characters in the result. Default value is `0`.
+        pub min_lower: pulumi_wasm_rust::Output<i32>,
+        /// Minimum number of numeric characters in the result. Default value is `0`.
+        pub min_numeric: pulumi_wasm_rust::Output<i32>,
+        /// Minimum number of special characters in the result. Default value is `0`.
+        pub min_special: pulumi_wasm_rust::Output<i32>,
+        /// Minimum number of uppercase alphabet characters in the result. Default value is `0`.
+        pub min_upper: pulumi_wasm_rust::Output<i32>,
+        /// Include numeric characters in the result. Default value is `true`. **NOTE**: This is deprecated, use `numeric` instead.
+        pub number: pulumi_wasm_rust::Output<bool>,
+        /// Include numeric characters in the result. Default value is `true`.
+        pub numeric: pulumi_wasm_rust::Output<bool>,
+        /// Supply your own list of special characters to use for string generation.  This overrides the default character list in the special argument.  The `special` argument must still be set to true for any overwritten characters to be used in generation.
         pub override_special: pulumi_wasm_rust::Output<Option<String>>,
+        /// The generated random string.
         pub result: pulumi_wasm_rust::Output<String>,
-        pub special: pulumi_wasm_rust::Output<Option<bool>>,
-        pub upper: pulumi_wasm_rust::Output<Option<bool>>,
+        /// Include special characters in the result. These are `!@#$%&*()-_=+[]{}<>:?`. Default value is `true`.
+        pub special: pulumi_wasm_rust::Output<bool>,
+        /// Include uppercase alphabet characters in the result. Default value is `true`.
+        pub upper: pulumi_wasm_rust::Output<bool>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
@@ -81,6 +123,7 @@ pub mod random_password {
         let min_special_binding = args.min_special.get_inner();
         let min_upper_binding = args.min_upper.get_inner();
         let number_binding = args.number.get_inner();
+        let numeric_binding = args.numeric.get_inner();
         let override_special_binding = args.override_special.get_inner();
         let special_binding = args.special.get_inner();
         let upper_binding = args.upper.get_inner();
@@ -121,6 +164,10 @@ pub mod random_password {
                     value: &number_binding,
                 },
                 register_interface::ObjectField {
+                    name: "numeric".into(),
+                    value: &numeric_binding,
+                },
+                register_interface::ObjectField {
                     name: "overrideSpecial".into(),
                     value: &override_special_binding,
                 },
@@ -134,6 +181,9 @@ pub mod random_password {
                 },
             ]),
             results: Vec::from([
+                register_interface::ResultField {
+                    name: "bcryptHash".into(),
+                },
                 register_interface::ResultField {
                     name: "keepers".into(),
                 },
@@ -159,6 +209,9 @@ pub mod random_password {
                     name: "number".into(),
                 },
                 register_interface::ResultField {
+                    name: "numeric".into(),
+                },
+                register_interface::ResultField {
                     name: "overrideSpecial".into(),
                 },
                 register_interface::ResultField {
@@ -179,6 +232,9 @@ pub mod random_password {
             .map(|f| (f.name, f.output))
             .collect();
         RandomPasswordResult {
+            bcrypt_hash: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("bcryptHash").unwrap(),
+            ),
             keepers: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("keepers").unwrap(),
             ),
@@ -202,6 +258,9 @@ pub mod random_password {
             ),
             number: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("number").unwrap(),
+            ),
+            numeric: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("numeric").unwrap(),
             ),
             override_special: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("overrideSpecial").unwrap(),
