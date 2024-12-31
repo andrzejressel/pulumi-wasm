@@ -5,6 +5,14 @@ edition.workspace = true
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[features]
+fast = []
+# DO NOT EDIT - START
+cloudflare = []
+docker = []
+random = []
+# DO NOT EDIT - END
+
 [lints]
 workspace = true
 

@@ -25,10 +25,8 @@ fn main() {
     let tests = vec![
         "array-of-enum-map",
         "azure-native-nested-types",
-        "cloudflare",
         "cyclic-types",
         "different-enum",
-        "docker",
         "functions-secrets",
         "mini-awsnative",
         "nested-module",
@@ -37,7 +35,6 @@ fn main() {
         "output-funcs-edgeorder",
         "plain-object-defaults",
         "plain-object-disable-defaults",
-        "random",
         "reserved_names",
         "unions-inline",
         "unions-inside-arrays",
@@ -59,13 +56,13 @@ fn main() {
     }
 
     update_justfile(&providers);
-    update_tests(&tests);
+    update_tests(&tests, &providers);
 }
 
-fn update_tests(tests: &[&str]) {
+fn update_tests(tests: &[&str], providers: &Vec<Provider>) {
     update_github_actions_build(tests);
     update_github_actions_deploy(tests);
-    update_test_rs(tests);
+    update_test_rs(tests, providers);
 }
 
 fn update_github_actions_build(tests: &[&str]) {
@@ -116,7 +113,7 @@ fn update_github_actions_deploy(tests: &[&str]) {
         .expect("Failed to write to .github/workflows/build.yml");
 }
 
-fn update_test_rs(tests: &[&str]) {
+fn update_test_rs(tests: &[&str], providers: &Vec<Provider>) {
     let content = fs::read_to_string("pulumi_wasm_generator/tests/test.rs")
         .expect("Failed to read pulumi_wasm_generator/tests/test.rs");
 
@@ -127,6 +124,7 @@ fn update_test_rs(tests: &[&str]) {
         let code = format!(
             r#"
 #[test]
+#[cfg_attr(not(feature = "fast"), ignore)]
 fn {method_name}() -> Result<()> {{
     run_pulumi_generator_test("{test_directory}")
 }}
@@ -135,6 +133,23 @@ fn {method_name}() -> Result<()> {{
 
         replacement.push_str(&code);
     }
+
+    for provider in providers {
+        let method_name = provider.name.replace("-", "_");
+        let provider_name = provider.name;
+
+        let code = format!(
+            r#"
+#[test]
+#[cfg_attr(not(feature = "{provider_name}"), ignore)]
+fn {method_name}() -> Result<()> {{
+    run_pulumi_generator_test("{provider_name}")
+}}
+"#
+        );
+        replacement.push_str(&code);
+    }
+
     let start_marker = "// DO NOT EDIT - START";
     let end_marker = "// DO NOT EDIT - END";
     let new_content = replace_between_markers(&content, start_marker, end_marker, &replacement);

@@ -85,14 +85,18 @@ publish:
     cargo hack publish -p pulumi_wasm_runner_component_creator --all-features --no-dev-deps --allow-dirty
     cargo hack publish -p pulumi_wasm_runner --all-features --no-dev-deps --allow-dirty
 
-test:
-    cargo nextest run --profile ci --workspace --timings
+test-provider-compilation COMPILATION_NAME:
+    cargo llvm-cov nextest -p pulumi_wasm_generator --cobertura --output-path covertura.xml --features {{COMPILATION_NAME}} --test '*'
+
+test-all:
     cargo test --doc --workspace
+    cargo llvm-cov nextest --workspace --cobertura --output-path covertura.xml --all-features
     just rust-docs
 
-test-coverage:
-    cargo llvm-cov --no-report -p pulumi_wasm_core -p pulumi_wasm_generator
-    cargo llvm-cov report --lcov --output-path lcov.info
+test:
+    cargo test --doc --workspace
+    cargo llvm-cov nextest --workspace --cobertura --output-path covertura.xml --features fast
+    just rust-docs
 
 docs:
     docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material

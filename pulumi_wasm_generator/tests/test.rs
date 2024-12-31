@@ -9,93 +9,111 @@ use std::time::SystemTime;
 // DO NOT EDIT - START
 
 #[test]
+#[cfg_attr(not(feature = "fast"), ignore)]
 fn array_of_enum_map() -> Result<()> {
     run_pulumi_generator_test("array-of-enum-map")
 }
 
 #[test]
+#[cfg_attr(not(feature = "fast"), ignore)]
 fn azure_native_nested_types() -> Result<()> {
     run_pulumi_generator_test("azure-native-nested-types")
 }
 
 #[test]
-fn cloudflare() -> Result<()> {
-    run_pulumi_generator_test("cloudflare")
-}
-
-#[test]
+#[cfg_attr(not(feature = "fast"), ignore)]
 fn cyclic_types() -> Result<()> {
     run_pulumi_generator_test("cyclic-types")
 }
 
 #[test]
+#[cfg_attr(not(feature = "fast"), ignore)]
 fn different_enum() -> Result<()> {
     run_pulumi_generator_test("different-enum")
 }
 
 #[test]
-fn docker() -> Result<()> {
-    run_pulumi_generator_test("docker")
-}
-
-#[test]
+#[cfg_attr(not(feature = "fast"), ignore)]
 fn functions_secrets() -> Result<()> {
     run_pulumi_generator_test("functions-secrets")
 }
 
 #[test]
+#[cfg_attr(not(feature = "fast"), ignore)]
 fn mini_awsnative() -> Result<()> {
     run_pulumi_generator_test("mini-awsnative")
 }
 
 #[test]
+#[cfg_attr(not(feature = "fast"), ignore)]
 fn nested_module() -> Result<()> {
     run_pulumi_generator_test("nested-module")
 }
 
 #[test]
+#[cfg_attr(not(feature = "fast"), ignore)]
 fn nested_module_thirdparty() -> Result<()> {
     run_pulumi_generator_test("nested-module-thirdparty")
 }
 
 #[test]
+#[cfg_attr(not(feature = "fast"), ignore)]
 fn output_funcs() -> Result<()> {
     run_pulumi_generator_test("output-funcs")
 }
 
 #[test]
+#[cfg_attr(not(feature = "fast"), ignore)]
 fn output_funcs_edgeorder() -> Result<()> {
     run_pulumi_generator_test("output-funcs-edgeorder")
 }
 
 #[test]
+#[cfg_attr(not(feature = "fast"), ignore)]
 fn plain_object_defaults() -> Result<()> {
     run_pulumi_generator_test("plain-object-defaults")
 }
 
 #[test]
+#[cfg_attr(not(feature = "fast"), ignore)]
 fn plain_object_disable_defaults() -> Result<()> {
     run_pulumi_generator_test("plain-object-disable-defaults")
 }
 
 #[test]
-fn random() -> Result<()> {
-    run_pulumi_generator_test("random")
-}
-
-#[test]
+#[cfg_attr(not(feature = "fast"), ignore)]
 fn reserved_names() -> Result<()> {
     run_pulumi_generator_test("reserved_names")
 }
 
 #[test]
+#[cfg_attr(not(feature = "fast"), ignore)]
 fn unions_inline() -> Result<()> {
     run_pulumi_generator_test("unions-inline")
 }
 
 #[test]
+#[cfg_attr(not(feature = "fast"), ignore)]
 fn unions_inside_arrays() -> Result<()> {
     run_pulumi_generator_test("unions-inside-arrays")
+}
+
+#[test]
+#[cfg_attr(not(feature = "docker"), ignore)]
+fn docker() -> Result<()> {
+    run_pulumi_generator_test("docker")
+}
+
+#[test]
+#[cfg_attr(not(feature = "random"), ignore)]
+fn random() -> Result<()> {
+    run_pulumi_generator_test("random")
+}
+
+#[test]
+#[cfg_attr(not(feature = "cloudflare"), ignore)]
+fn cloudflare() -> Result<()> {
+    run_pulumi_generator_test("cloudflare")
 }
 // DO NOT EDIT - END
 
