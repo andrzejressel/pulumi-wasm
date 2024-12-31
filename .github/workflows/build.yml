@@ -169,11 +169,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: Swatinem/rust-cache@v2
         with:
-          shared-key: build-real-{{ matrix.provider }}
+          shared-key: build-real-${{ matrix.provider }}
           workspaces: |
             ./
-            pulumi_wasm_generator/tests/output/{{ matrix.provider }}/
-      - run: just test-provider-compilation {{ matrix.provider }}
+            pulumi_wasm_generator/tests/output/${{ matrix.provider }}/
+      - run: just test-provider-compilation ${{ matrix.provider }}
       - name: Upload coverage data to codecov
         uses: codecov/codecov-action@v5
         with:
