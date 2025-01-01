@@ -1,0 +1,94 @@
+pub mod get_bucket_objects {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct GetBucketObjectsArgs {
+        /// The name of the containing bucket.
+        #[builder(into)]
+        pub bucket: pulumi_wasm_rust::Output<String>,
+        /// A glob pattern used to filter results (for example, `foo*bar`).
+        #[builder(into, default)]
+        pub match_glob: pulumi_wasm_rust::Output<Option<String>>,
+        /// Filter results to include only objects whose names begin with this prefix.
+        #[builder(into, default)]
+        pub prefix: pulumi_wasm_rust::Output<Option<String>>,
+    }
+    #[allow(dead_code)]
+    pub struct GetBucketObjectsResult {
+        pub bucket: pulumi_wasm_rust::Output<String>,
+        /// A list of retrieved objects contained in the provided GCS bucket. Structure is defined below.
+        pub bucket_objects: pulumi_wasm_rust::Output<
+            Vec<super::super::super::types::storage::GetBucketObjectsBucketObject>,
+        >,
+        /// The provider-assigned unique ID for this managed resource.
+        pub id: pulumi_wasm_rust::Output<String>,
+        pub match_glob: pulumi_wasm_rust::Output<Option<String>>,
+        pub prefix: pulumi_wasm_rust::Output<Option<String>>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn invoke(args: GetBucketObjectsArgs) -> GetBucketObjectsResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let bucket_binding = args.bucket.get_inner();
+        let match_glob_binding = args.match_glob.get_inner();
+        let prefix_binding = args.prefix.get_inner();
+        let request = register_interface::ResourceInvokeRequest {
+            token: "gcp:storage/getBucketObjects:getBucketObjects".into(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "bucket".into(),
+                    value: &bucket_binding,
+                },
+                register_interface::ObjectField {
+                    name: "matchGlob".into(),
+                    value: &match_glob_binding,
+                },
+                register_interface::ObjectField {
+                    name: "prefix".into(),
+                    value: &prefix_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "bucket".into(),
+                },
+                register_interface::ResultField {
+                    name: "bucketObjects".into(),
+                },
+                register_interface::ResultField {
+                    name: "id".into(),
+                },
+                register_interface::ResultField {
+                    name: "matchGlob".into(),
+                },
+                register_interface::ResultField {
+                    name: "prefix".into(),
+                },
+            ]),
+        };
+        let o = register_interface::invoke(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        GetBucketObjectsResult {
+            bucket: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("bucket").unwrap(),
+            ),
+            bucket_objects: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("bucketObjects").unwrap(),
+            ),
+            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            match_glob: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("matchGlob").unwrap(),
+            ),
+            prefix: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("prefix").unwrap(),
+            ),
+        }
+    }
+}

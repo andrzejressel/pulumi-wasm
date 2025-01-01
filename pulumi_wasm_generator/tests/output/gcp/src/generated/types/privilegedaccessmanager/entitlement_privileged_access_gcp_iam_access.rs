@@ -1,0 +1,18 @@
+#[derive(pulumi_wasm_rust::__private::serde::Deserialize, pulumi_wasm_rust::__private::serde::Serialize, pulumi_wasm_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
+#[builder(finish_fn = build_struct)]
+#[allow(dead_code)]
+pub struct EntitlementPrivilegedAccessGcpIamAccess {
+    /// Name of the resource.
+    #[builder(into)]
+    #[serde(rename = "resource")]
+    pub r#resource: Box<String>,
+    /// The type of this resource.
+    #[builder(into)]
+    #[serde(rename = "resourceType")]
+    pub r#resource_type: Box<String>,
+    /// Role bindings to be created on successful grant.
+    /// Structure is documented below.
+    #[builder(into)]
+    #[serde(rename = "roleBindings")]
+    pub r#role_bindings: Box<Vec<super::super::types::privilegedaccessmanager::EntitlementPrivilegedAccessGcpIamAccessRoleBinding>>,
+}

@@ -1,0 +1,95 @@
+pub mod get_iam_policy {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct GetIamPolicyArgs {
+        /// A nested configuration block that defines logging additional configuration for your project. This field is only supported on `gcp.projects.IAMPolicy`, `gcp.folder.IAMPolicy` and `gcp.organizations.IAMPolicy`.
+        #[builder(into, default)]
+        pub audit_configs: pulumi_wasm_rust::Output<
+            Option<
+                Vec<super::super::super::types::organizations::GetIamPolicyAuditConfig>,
+            >,
+        >,
+        /// A nested configuration block (described below)
+        /// defining a binding to be included in the policy document. Multiple
+        /// `binding` arguments are supported.
+        ///
+        /// Each document configuration must have one or more `binding` blocks, which
+        /// each accept the following arguments:
+        #[builder(into, default)]
+        pub bindings: pulumi_wasm_rust::Output<
+            Option<Vec<super::super::super::types::organizations::GetIamPolicyBinding>>,
+        >,
+    }
+    #[allow(dead_code)]
+    pub struct GetIamPolicyResult {
+        pub audit_configs: pulumi_wasm_rust::Output<
+            Option<
+                Vec<super::super::super::types::organizations::GetIamPolicyAuditConfig>,
+            >,
+        >,
+        pub bindings: pulumi_wasm_rust::Output<
+            Option<Vec<super::super::super::types::organizations::GetIamPolicyBinding>>,
+        >,
+        /// The provider-assigned unique ID for this managed resource.
+        pub id: pulumi_wasm_rust::Output<String>,
+        /// The above bindings serialized in a format suitable for
+        /// referencing from a resource that supports IAM.
+        pub policy_data: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn invoke(args: GetIamPolicyArgs) -> GetIamPolicyResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let audit_configs_binding = args.audit_configs.get_inner();
+        let bindings_binding = args.bindings.get_inner();
+        let request = register_interface::ResourceInvokeRequest {
+            token: "gcp:organizations/getIAMPolicy:getIAMPolicy".into(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "auditConfigs".into(),
+                    value: &audit_configs_binding,
+                },
+                register_interface::ObjectField {
+                    name: "bindings".into(),
+                    value: &bindings_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "auditConfigs".into(),
+                },
+                register_interface::ResultField {
+                    name: "bindings".into(),
+                },
+                register_interface::ResultField {
+                    name: "id".into(),
+                },
+                register_interface::ResultField {
+                    name: "policyData".into(),
+                },
+            ]),
+        };
+        let o = register_interface::invoke(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        GetIamPolicyResult {
+            audit_configs: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("auditConfigs").unwrap(),
+            ),
+            bindings: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("bindings").unwrap(),
+            ),
+            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            policy_data: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("policyData").unwrap(),
+            ),
+        }
+    }
+}

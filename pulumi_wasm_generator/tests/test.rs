@@ -111,6 +111,12 @@ fn docker() -> Result<()> {
 }
 
 #[test]
+#[cfg_attr(not(feature = "generator_gcp"), ignore)]
+fn gcp() -> Result<()> {
+    run_pulumi_generator_test("gcp")
+}
+
+#[test]
 #[cfg_attr(not(feature = "generator_random"), ignore)]
 fn random() -> Result<()> {
     run_pulumi_generator_test("random")

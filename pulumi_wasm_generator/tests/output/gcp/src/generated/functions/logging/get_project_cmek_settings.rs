@@ -1,0 +1,111 @@
+pub mod get_project_cmek_settings {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct GetProjectCmekSettingsArgs {
+        /// The resource name for the configured Cloud KMS key.
+        /// KMS key name format:
+        /// `'projects/[PROJECT_ID]/locations/[LOCATION]/keyRings/[KEYRING]/cryptoKeys/[KEY]'`
+        /// To enable CMEK for the bucket, set this field to a valid kmsKeyName for which the associated service account has the required cloudkms.cryptoKeyEncrypterDecrypter roles assigned for the key.
+        /// The Cloud KMS key used by the bucket can be updated by changing the kmsKeyName to a new valid key name. Encryption operations that are in progress will be completed with the key that was in use when they started. Decryption operations will be completed using the key that was used at the time of encryption unless access to that key has been revoked.
+        /// See [Enabling CMEK for Logging Buckets](https://cloud.google.com/logging/docs/routing/managed-encryption-storage) for more information.
+        #[builder(into, default)]
+        pub kms_key_name: pulumi_wasm_rust::Output<Option<String>>,
+        /// The ID of the project.
+        #[builder(into)]
+        pub project: pulumi_wasm_rust::Output<String>,
+    }
+    #[allow(dead_code)]
+    pub struct GetProjectCmekSettingsResult {
+        /// The provider-assigned unique ID for this managed resource.
+        pub id: pulumi_wasm_rust::Output<String>,
+        /// The resource name for the configured Cloud KMS key.
+        /// KMS key name format:
+        /// `'projects/[PROJECT_ID]/locations/[LOCATION]/keyRings/[KEYRING]/cryptoKeys/[KEY]'`
+        /// To enable CMEK for the bucket, set this field to a valid kmsKeyName for which the associated service account has the required cloudkms.cryptoKeyEncrypterDecrypter roles assigned for the key.
+        /// The Cloud KMS key used by the bucket can be updated by changing the kmsKeyName to a new valid key name. Encryption operations that are in progress will be completed with the key that was in use when they started. Decryption operations will be completed using the key that was used at the time of encryption unless access to that key has been revoked.
+        /// See [Enabling CMEK for Logging Buckets](https://cloud.google.com/logging/docs/routing/managed-encryption-storage) for more information.
+        pub kms_key_name: pulumi_wasm_rust::Output<Option<String>>,
+        /// The CryptoKeyVersion resource name for the configured Cloud KMS key.
+        /// KMS key name format:
+        /// `'projects/[PROJECT_ID]/locations/[LOCATION]/keyRings/[KEYRING]/cryptoKeys/[KEY]/cryptoKeyVersions/[VERSION]'`
+        /// For example:
+        /// "projects/my-project/locations/us-central1/keyRings/my-ring/cryptoKeys/my-key/cryptoKeyVersions/1"
+        /// This is a read-only field used to convey the specific configured CryptoKeyVersion of kms_key that has been configured. It will be populated in cases where the CMEK settings are bound to a single key version.
+        pub kms_key_version_name: pulumi_wasm_rust::Output<String>,
+        /// The resource name of the CMEK settings.
+        pub name: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_wasm_rust::Output<String>,
+        /// The service account associated with a project for which CMEK will apply.
+        /// Before enabling CMEK for a logging bucket, you must first assign the cloudkms.cryptoKeyEncrypterDecrypter role to the service account associated with the project for which CMEK will apply. Use [v2.getCmekSettings](https://cloud.google.com/logging/docs/reference/v2/rest/v2/TopLevel/getCmekSettings#google.logging.v2.ConfigServiceV2.GetCmekSettings) to obtain the service account ID.
+        /// See [Enabling CMEK for Logging Buckets](https://cloud.google.com/logging/docs/routing/managed-encryption-storage) for more information.
+        pub service_account_id: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn invoke(args: GetProjectCmekSettingsArgs) -> GetProjectCmekSettingsResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let kms_key_name_binding = args.kms_key_name.get_inner();
+        let project_binding = args.project.get_inner();
+        let request = register_interface::ResourceInvokeRequest {
+            token: "gcp:logging/getProjectCmekSettings:getProjectCmekSettings".into(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "kmsKeyName".into(),
+                    value: &kms_key_name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "id".into(),
+                },
+                register_interface::ResultField {
+                    name: "kmsKeyName".into(),
+                },
+                register_interface::ResultField {
+                    name: "kmsKeyVersionName".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+                register_interface::ResultField {
+                    name: "serviceAccountId".into(),
+                },
+            ]),
+        };
+        let o = register_interface::invoke(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        GetProjectCmekSettingsResult {
+            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            kms_key_name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("kmsKeyName").unwrap(),
+            ),
+            kms_key_version_name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("kmsKeyVersionName").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+            service_account_id: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("serviceAccountId").unwrap(),
+            ),
+        }
+    }
+}

@@ -1,0 +1,195 @@
+/// By default, your agent responds to a matched intent with a static response. If you're using one of the integration options, you can provide a more dynamic response by using fulfillment. When you enable fulfillment for an intent, Dialogflow responds to that intent by calling a service that you define. For example, if an end-user wants to schedule a haircut on Friday, your service can check your database and respond to the end-user with availability information for Friday.
+///
+///
+/// To get more information about Fulfillment, see:
+///
+/// * [API documentation](https://cloud.google.com/dialogflow/es/docs/reference/rest/v2/projects.agent/getFulfillment)
+/// * How-to Guides
+///     * [Official Documentation](https://cloud.google.com/dialogflow/es/docs/fulfillment-overview)
+///
+/// ## Example Usage
+///
+/// ### Dialogflow Fulfillment Basic
+///
+///
+/// ```yaml
+/// resources:
+///   basicAgent:
+///     type: gcp:diagflow:Agent
+///     name: basic_agent
+///     properties:
+///       displayName: example_agent
+///       defaultLanguageCode: en
+///       timeZone: America/New_York
+///   basicFulfillment:
+///     type: gcp:diagflow:Fulfillment
+///     name: basic_fulfillment
+///     properties:
+///       displayName: basic-fulfillment
+///       enabled: true
+///       genericWebService:
+///         uri: https://google.com
+///         username: admin
+///         password: password
+///         requestHeaders:
+///           name: wrench
+///     options:
+///       dependsOn:
+///         - ${basicAgent}
+/// ```
+///
+/// ## Import
+///
+/// Fulfillment can be imported using any of these accepted formats:
+///
+/// * `{{name}}`
+///
+/// When using the `pulumi import` command, Fulfillment can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:diagflow/fulfillment:Fulfillment default {{name}}
+/// ```
+///
+pub mod fulfillment {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct FulfillmentArgs {
+        /// The human-readable name of the fulfillment, unique within the agent.
+        ///
+        ///
+        /// - - -
+        #[builder(into)]
+        pub display_name: pulumi_wasm_rust::Output<String>,
+        /// Whether fulfillment is enabled.
+        #[builder(into, default)]
+        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        /// The field defines whether the fulfillment is enabled for certain features.
+        /// Structure is documented below.
+        #[builder(into, default)]
+        pub features: pulumi_wasm_rust::Output<
+            Option<Vec<super::super::types::diagflow::FulfillmentFeature>>,
+        >,
+        /// Represents configuration for a generic web service. Dialogflow supports two mechanisms for authentications: - Basic authentication with username and password. - Authentication with additional authentication headers.
+        /// Structure is documented below.
+        #[builder(into, default)]
+        pub generic_web_service: pulumi_wasm_rust::Output<
+            Option<super::super::types::diagflow::FulfillmentGenericWebService>,
+        >,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        #[builder(into, default)]
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+    }
+    #[allow(dead_code)]
+    pub struct FulfillmentResult {
+        /// The human-readable name of the fulfillment, unique within the agent.
+        ///
+        ///
+        /// - - -
+        pub display_name: pulumi_wasm_rust::Output<String>,
+        /// Whether fulfillment is enabled.
+        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        /// The field defines whether the fulfillment is enabled for certain features.
+        /// Structure is documented below.
+        pub features: pulumi_wasm_rust::Output<
+            Option<Vec<super::super::types::diagflow::FulfillmentFeature>>,
+        >,
+        /// Represents configuration for a generic web service. Dialogflow supports two mechanisms for authentications: - Basic authentication with username and password. - Authentication with additional authentication headers.
+        /// Structure is documented below.
+        pub generic_web_service: pulumi_wasm_rust::Output<
+            Option<super::super::types::diagflow::FulfillmentGenericWebService>,
+        >,
+        /// The unique identifier of the fulfillment.
+        /// Format: projects/<Project ID>/agent/fulfillment - projects/<Project ID>/locations/<Location ID>/agent/fulfillment
+        pub name: pulumi_wasm_rust::Output<String>,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        pub project: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: FulfillmentArgs) -> FulfillmentResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let display_name_binding = args.display_name.get_inner();
+        let enabled_binding = args.enabled.get_inner();
+        let features_binding = args.features.get_inner();
+        let generic_web_service_binding = args.generic_web_service.get_inner();
+        let project_binding = args.project.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:diagflow/fulfillment:Fulfillment".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "displayName".into(),
+                    value: &display_name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "enabled".into(),
+                    value: &enabled_binding,
+                },
+                register_interface::ObjectField {
+                    name: "features".into(),
+                    value: &features_binding,
+                },
+                register_interface::ObjectField {
+                    name: "genericWebService".into(),
+                    value: &generic_web_service_binding,
+                },
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "displayName".into(),
+                },
+                register_interface::ResultField {
+                    name: "enabled".into(),
+                },
+                register_interface::ResultField {
+                    name: "features".into(),
+                },
+                register_interface::ResultField {
+                    name: "genericWebService".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        FulfillmentResult {
+            display_name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("displayName").unwrap(),
+            ),
+            enabled: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("enabled").unwrap(),
+            ),
+            features: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("features").unwrap(),
+            ),
+            generic_web_service: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("genericWebService").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+        }
+    }
+}

@@ -1,0 +1,15 @@
+#[derive(pulumi_wasm_rust::__private::serde::Deserialize, pulumi_wasm_rust::__private::serde::Serialize, pulumi_wasm_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
+#[builder(finish_fn = build_struct)]
+#[allow(dead_code)]
+pub struct FleetDefaultClusterConfigSecurityPostureConfig {
+    /// Sets which mode to use for Security Posture features.
+    /// Possible values are: `DISABLED`, `BASIC`, `ENTERPRISE`.
+    #[builder(into, default)]
+    #[serde(rename = "mode")]
+    pub r#mode: Box<Option<String>>,
+    /// Sets which mode to use for vulnerability scanning.
+    /// Possible values are: `VULNERABILITY_DISABLED`, `VULNERABILITY_BASIC`, `VULNERABILITY_ENTERPRISE`.
+    #[builder(into, default)]
+    #[serde(rename = "vulnerabilityMode")]
+    pub r#vulnerability_mode: Box<Option<String>>,
+}

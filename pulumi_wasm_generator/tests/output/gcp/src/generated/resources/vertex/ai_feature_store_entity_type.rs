@@ -1,0 +1,304 @@
+/// An entity type is a type of object in a system that needs to be modeled and have stored information about. For example, driver is an entity type, and driver0 is an instance of an entity type driver.
+///
+///
+/// To get more information about FeaturestoreEntitytype, see:
+///
+/// * [API documentation](https://cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.featurestores.entityTypes)
+/// * How-to Guides
+///     * [Official Documentation](https://cloud.google.com/vertex-ai/docs)
+///
+/// ## Example Usage
+///
+/// ### Vertex Ai Featurestore Entitytype
+///
+///
+/// ```yaml
+/// resources:
+///   featurestore:
+///     type: gcp:vertex:AiFeatureStore
+///     properties:
+///       name: terraform
+///       labels:
+///         foo: bar
+///       region: us-central1
+///       onlineServingConfig:
+///         fixedNodeCount: 2
+///       encryptionSpec:
+///         kmsKeyName: kms-name
+///   entity:
+///     type: gcp:vertex:AiFeatureStoreEntityType
+///     properties:
+///       name: terraform
+///       labels:
+///         foo: bar
+///       description: test description
+///       featurestore: ${featurestore.id}
+///       monitoringConfig:
+///         snapshotAnalysis:
+///           disabled: false
+///           monitoringIntervalDays: 1
+///           stalenessDays: 21
+///         numericalThresholdConfig:
+///           value: 0.8
+///         categoricalThresholdConfig:
+///           value: 10
+///         importFeaturesAnalysis:
+///           state: ENABLED
+///           anomalyDetectionBaseline: PREVIOUS_IMPORT_FEATURES_STATS
+/// ```
+/// ### Vertex Ai Featurestore Entitytype With Beta Fields
+///
+///
+/// ```yaml
+/// resources:
+///   featurestore:
+///     type: gcp:vertex:AiFeatureStore
+///     properties:
+///       name: terraform2
+///       labels:
+///         foo: bar
+///       region: us-central1
+///       onlineServingConfig:
+///         fixedNodeCount: 2
+///       encryptionSpec:
+///         kmsKeyName: kms-name
+///   entity:
+///     type: gcp:vertex:AiFeatureStoreEntityType
+///     properties:
+///       name: terraform2
+///       labels:
+///         foo: bar
+///       featurestore: ${featurestore.id}
+///       monitoringConfig:
+///         snapshotAnalysis:
+///           disabled: false
+///           monitoringInterval: 86400s
+///         categoricalThresholdConfig:
+///           value: 0.3
+///         numericalThresholdConfig:
+///           value: 0.3
+///       offlineStorageTtlDays: 30
+/// ```
+///
+/// ## Import
+///
+/// FeaturestoreEntitytype can be imported using any of these accepted formats:
+///
+/// * `{{featurestore}}/entityTypes/{{name}}`
+///
+/// When using the `pulumi import` command, FeaturestoreEntitytype can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:vertex/aiFeatureStoreEntityType:AiFeatureStoreEntityType default {{featurestore}}/entityTypes/{{name}}
+/// ```
+///
+pub mod ai_feature_store_entity_type {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct AiFeatureStoreEntityTypeArgs {
+        /// Optional. Description of the EntityType.
+        #[builder(into, default)]
+        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        /// The name of the Featurestore to use, in the format projects/{project}/locations/{location}/featurestores/{featurestore}.
+        ///
+        ///
+        /// - - -
+        #[builder(into)]
+        pub featurestore: pulumi_wasm_rust::Output<String>,
+        /// A set of key/value label pairs to assign to this EntityType.
+        ///
+        /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
+        /// Please refer to the field `effective_labels` for all of the labels present on the resource.
+        #[builder(into, default)]
+        pub labels: pulumi_wasm_rust::Output<
+            Option<std::collections::HashMap<String, String>>,
+        >,
+        /// The default monitoring configuration for all Features under this EntityType.
+        /// If this is populated with [FeaturestoreMonitoringConfig.monitoring_interval] specified, snapshot analysis monitoring is enabled. Otherwise, snapshot analysis monitoring is disabled.
+        /// Structure is documented below.
+        #[builder(into, default)]
+        pub monitoring_config: pulumi_wasm_rust::Output<
+            Option<super::super::types::vertex::AiFeatureStoreEntityTypeMonitoringConfig>,
+        >,
+        /// The name of the EntityType. This value may be up to 60 characters, and valid characters are [a-z0-9_]. The first character cannot be a number.
+        #[builder(into, default)]
+        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        /// Config for data retention policy in offline storage. TTL in days for feature values that will be stored in offline storage. The Feature Store offline storage periodically removes obsolete feature values older than offlineStorageTtlDays since the feature generation time. If unset (or explicitly set to 0), default to 4000 days TTL.
+        #[builder(into, default)]
+        pub offline_storage_ttl_days: pulumi_wasm_rust::Output<Option<i32>>,
+    }
+    #[allow(dead_code)]
+    pub struct AiFeatureStoreEntityTypeResult {
+        /// The timestamp of when the featurestore was created in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits.
+        pub create_time: pulumi_wasm_rust::Output<String>,
+        /// Optional. Description of the EntityType.
+        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
+        pub effective_labels: pulumi_wasm_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
+        /// Used to perform consistent read-modify-write updates.
+        pub etag: pulumi_wasm_rust::Output<String>,
+        /// The name of the Featurestore to use, in the format projects/{project}/locations/{location}/featurestores/{featurestore}.
+        ///
+        ///
+        /// - - -
+        pub featurestore: pulumi_wasm_rust::Output<String>,
+        /// A set of key/value label pairs to assign to this EntityType.
+        ///
+        /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
+        /// Please refer to the field `effective_labels` for all of the labels present on the resource.
+        pub labels: pulumi_wasm_rust::Output<
+            Option<std::collections::HashMap<String, String>>,
+        >,
+        /// The default monitoring configuration for all Features under this EntityType.
+        /// If this is populated with [FeaturestoreMonitoringConfig.monitoring_interval] specified, snapshot analysis monitoring is enabled. Otherwise, snapshot analysis monitoring is disabled.
+        /// Structure is documented below.
+        pub monitoring_config: pulumi_wasm_rust::Output<
+            Option<super::super::types::vertex::AiFeatureStoreEntityTypeMonitoringConfig>,
+        >,
+        /// The name of the EntityType. This value may be up to 60 characters, and valid characters are [a-z0-9_]. The first character cannot be a number.
+        pub name: pulumi_wasm_rust::Output<String>,
+        /// Config for data retention policy in offline storage. TTL in days for feature values that will be stored in offline storage. The Feature Store offline storage periodically removes obsolete feature values older than offlineStorageTtlDays since the feature generation time. If unset (or explicitly set to 0), default to 4000 days TTL.
+        pub offline_storage_ttl_days: pulumi_wasm_rust::Output<Option<i32>>,
+        /// The combination of labels configured directly on the resource
+        /// and default labels configured on the provider.
+        pub pulumi_labels: pulumi_wasm_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
+        /// The region of the EntityType.
+        pub region: pulumi_wasm_rust::Output<String>,
+        /// The timestamp of when the featurestore was last updated in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits.
+        pub update_time: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(
+        name: &str,
+        args: AiFeatureStoreEntityTypeArgs,
+    ) -> AiFeatureStoreEntityTypeResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let description_binding = args.description.get_inner();
+        let featurestore_binding = args.featurestore.get_inner();
+        let labels_binding = args.labels.get_inner();
+        let monitoring_config_binding = args.monitoring_config.get_inner();
+        let name_binding = args.name.get_inner();
+        let offline_storage_ttl_days_binding = args.offline_storage_ttl_days.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:vertex/aiFeatureStoreEntityType:AiFeatureStoreEntityType".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "description".into(),
+                    value: &description_binding,
+                },
+                register_interface::ObjectField {
+                    name: "featurestore".into(),
+                    value: &featurestore_binding,
+                },
+                register_interface::ObjectField {
+                    name: "labels".into(),
+                    value: &labels_binding,
+                },
+                register_interface::ObjectField {
+                    name: "monitoringConfig".into(),
+                    value: &monitoring_config_binding,
+                },
+                register_interface::ObjectField {
+                    name: "name".into(),
+                    value: &name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "offlineStorageTtlDays".into(),
+                    value: &offline_storage_ttl_days_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "createTime".into(),
+                },
+                register_interface::ResultField {
+                    name: "description".into(),
+                },
+                register_interface::ResultField {
+                    name: "effectiveLabels".into(),
+                },
+                register_interface::ResultField {
+                    name: "etag".into(),
+                },
+                register_interface::ResultField {
+                    name: "featurestore".into(),
+                },
+                register_interface::ResultField {
+                    name: "labels".into(),
+                },
+                register_interface::ResultField {
+                    name: "monitoringConfig".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "offlineStorageTtlDays".into(),
+                },
+                register_interface::ResultField {
+                    name: "pulumiLabels".into(),
+                },
+                register_interface::ResultField {
+                    name: "region".into(),
+                },
+                register_interface::ResultField {
+                    name: "updateTime".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        AiFeatureStoreEntityTypeResult {
+            create_time: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("createTime").unwrap(),
+            ),
+            description: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("description").unwrap(),
+            ),
+            effective_labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("effectiveLabels").unwrap(),
+            ),
+            etag: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("etag").unwrap(),
+            ),
+            featurestore: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("featurestore").unwrap(),
+            ),
+            labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("labels").unwrap(),
+            ),
+            monitoring_config: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("monitoringConfig").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            offline_storage_ttl_days: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("offlineStorageTtlDays").unwrap(),
+            ),
+            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("pulumiLabels").unwrap(),
+            ),
+            region: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("region").unwrap(),
+            ),
+            update_time: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("updateTime").unwrap(),
+            ),
+        }
+    }
+}
