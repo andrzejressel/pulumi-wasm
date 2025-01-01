@@ -119,10 +119,8 @@ test-docs:
     cargo test --doc --workspace
     just rust-docs
 
-# DO NOT EDIT - GENERATE-RUST-DOCS - START
 rust-docs:
-    cargo doc --no-deps -p pulumi_wasm_rust -p pulumi_wasm_build -p pulumi_wasm_providers_aws -p pulumi_wasm_providers_cloudflare -p pulumi_wasm_providers_docker -p pulumi_wasm_providers_random
-# DO NOT EDIT - GENERATE-RUST-DOCS - END
+    cargo doc --no-deps -p pulumi_wasm_rust -p pulumi_wasm_build -p pulumi_wasm_providers_cloudflare -p pulumi_wasm_providers_docker -p pulumi_wasm_providers_random
 
 update-version NEW_VERSION:
     sd "0.0.0-DEV" "{{NEW_VERSION}}" "pulumi_wasm_wit/wit/world.wit" "pulumi_wasm_rust_macro/src/lib.rs" \
