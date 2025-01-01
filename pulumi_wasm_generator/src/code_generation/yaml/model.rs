@@ -3,6 +3,8 @@ use crate::code_generation::yaml::yaml_model::{
     YamlExpression, YamlFile, YamlFnInvoke, YamlResource, YamlVariable,
 };
 use crate::model::{ElementId, GlobalType, Package, Ref, Type};
+use anyhow::Result;
+use anyhow::{anyhow, Context};
 use std::collections::{BTreeMap, HashMap};
 
 struct PackageContext<'a> {
@@ -15,7 +17,7 @@ pub(crate) fn yaml_to_model(
     yaml_file: YamlFile,
     provider_name: String,
     package: &Package,
-) -> Example {
+) -> Result<Example> {
     let mut resource_name_map = HashMap::new();
 
     for (element_id, resource) in &package.resources {
@@ -50,20 +52,30 @@ pub(crate) fn yaml_to_model(
     let mut resources = BTreeMap::new();
 
     for (name, yaml_resource) in yaml_file.resources {
-        let resource = map_resource(yaml_resource, &context);
+        let resource = map_resource(&yaml_resource, &context).with_context(|| {
+            format!(
+                "Failed to map YAML resource name [{}] value [{:?}]",
+                name, yaml_resource
+            )
+        })?;
         resources.insert(name, resource);
     }
 
     let mut variables = BTreeMap::new();
     for (name, yaml_variable) in yaml_file.variables {
-        let variable = map_variable(&yaml_variable, &context);
+        let variable = map_variable(&yaml_variable, &context).with_context(|| {
+            format!(
+                "Failed to map YAML variable name [{}] value [{:?}]",
+                name, yaml_variable
+            )
+        })?;
         variables.insert(name, variable);
     }
 
-    Example {
+    Ok(Example {
         resources,
         variables,
-    }
+    })
 }
 
 #[derive(Debug, PartialEq)]
@@ -101,11 +113,11 @@ pub(crate) enum Expression {
     Array(Vec<Expression>),
 }
 
-fn map_resource(yaml_resource: YamlResource, context: &PackageContext) -> Resource {
+fn map_resource(yaml_resource: &YamlResource, context: &PackageContext) -> Result<Resource> {
     let resource = context
         .resource_name_map
         .get(&yaml_resource.type_)
-        .unwrap_or_else(|| panic!("resource type not found: {}", yaml_resource.type_));
+        .with_context(|| format!("resource type not found: {}", yaml_resource.type_))?;
 
     let mut properties = BTreeMap::new();
 
@@ -114,32 +126,45 @@ fn map_resource(yaml_resource: YamlResource, context: &PackageContext) -> Resour
             .input_properties
             .iter()
             .find(|k| k.name == *argument_name)
-            .unwrap_or_else(|| panic!("argument not found: {}", argument_name));
+            .with_context(|| format!("argument not found: {}", argument_name))?;
 
-        let type_without_option = remove_option(&resource_argument.r#type);
+        let type_without_option = remove_option(&resource_argument.r#type).with_context(|| {
+            format!(
+                "Cannot remove option from argument [{}] type [{:?}]",
+                argument_name, argument_value
+            )
+        })?;
 
-        properties.insert(
-            argument_name.clone(),
-            map_expression(context, &type_without_option, argument_value),
-        );
+        let expression = map_expression(context, &type_without_option, argument_value)
+            .with_context(|| {
+                format!(
+                    "Failed to map argument name [{}] value [{:?}]",
+                    argument_name, argument_value
+                )
+            })?;
+
+        properties.insert(argument_name.clone(), expression);
     }
 
-    Resource {
+    Ok(Resource {
         type_: resource.element_id.clone(),
         name: yaml_resource.name.clone(),
         properties,
-    }
+    })
 }
 
-fn map_variable(yaml_variable: &YamlVariable, context: &PackageContext) -> Variable {
-    FnInvokeVariable(map_fn_invoke(&yaml_variable.fn_invoke, context))
+fn map_variable(yaml_variable: &YamlVariable, context: &PackageContext) -> Result<Variable> {
+    Ok(FnInvokeVariable(
+        map_fn_invoke(&yaml_variable.fn_invoke, context)
+            .with_context(|| format!("Failed to map yaml variable [{:?}]", yaml_variable))?,
+    ))
 }
 
-fn map_fn_invoke(yaml_fn_invoke: &YamlFnInvoke, context: &PackageContext) -> FnInvoke {
+fn map_fn_invoke(yaml_fn_invoke: &YamlFnInvoke, context: &PackageContext) -> Result<FnInvoke> {
     let function = context
         .function_name_map
         .get(&yaml_fn_invoke.function)
-        .unwrap_or_else(|| panic!("function not found: {}", yaml_fn_invoke.function));
+        .with_context(|| format!("function not found: {}", yaml_fn_invoke.function))?;
 
     let mut arguments = BTreeMap::new();
 
@@ -148,34 +173,46 @@ fn map_fn_invoke(yaml_fn_invoke: &YamlFnInvoke, context: &PackageContext) -> FnI
             .input_properties
             .iter()
             .find(|k| k.name == *argument_name)
-            .unwrap_or_else(|| panic!("argument not found: {}", argument_name));
+            .with_context(|| format!("argument not found: {}", argument_name))?;
 
-        let type_without_option = remove_option(&function_argument.r#type);
+        let type_without_option = remove_option(&function_argument.r#type).with_context(|| {
+            format!(
+                "Cannot remove option from argument [{}] type [{:?}]",
+                argument_name, argument_value
+            )
+        })?;
 
-        arguments.insert(
-            argument_name.clone(),
-            map_expression(context, &type_without_option, argument_value),
-        );
+        let expression = map_expression(context, &type_without_option, argument_value)
+            .with_context(|| {
+                format!(
+                    "Failed to map argument name [{}] value [{:?}]",
+                    argument_name, argument_value
+                )
+            })?;
+
+        arguments.insert(argument_name.clone(), expression);
     }
 
-    FnInvoke {
+    Ok(FnInvoke {
         function: function.element_id.clone(),
         arguments,
-    }
+    })
 }
 
 fn map_array(
     context: &PackageContext,
     type_without_option: &TypeWithoutOption,
     yaml_expressions: &Vec<YamlExpression>,
-) -> Expression {
+) -> Result<Expression> {
     let mut expressions = Vec::new();
 
     for expression in yaml_expressions {
-        expressions.push(map_expression(context, type_without_option, expression));
+        let mapped_expression = map_expression(context, type_without_option, expression)
+            .with_context(|| format!("Failed to map yaml expression [{:?}]", expression))?;
+        expressions.push(mapped_expression);
     }
 
-    Expression::Array(expressions)
+    Ok(Expression::Array(expressions))
 }
 
 #[derive(Debug)]
@@ -189,18 +226,18 @@ enum TypeWithoutOption {
     Ref(Ref),
 }
 
-fn remove_option(type_: &Type) -> TypeWithoutOption {
+fn remove_option(type_: &Type) -> Result<TypeWithoutOption> {
     match type_ {
-        Type::Boolean => TypeWithoutOption::Boolean,
-        Type::Integer => TypeWithoutOption::Integer,
-        Type::Number => TypeWithoutOption::Number,
-        Type::String => TypeWithoutOption::String,
-        Type::ConstString(_) => TypeWithoutOption::String,
-        Type::Array(a) => TypeWithoutOption::Array(Box::new(remove_option(a))),
-        Type::Object(o) => TypeWithoutOption::Object(Box::new(remove_option(o))),
-        Type::Ref(r) => TypeWithoutOption::Ref(r.clone()),
+        Type::Boolean => Ok(TypeWithoutOption::Boolean),
+        Type::Integer => Ok(TypeWithoutOption::Integer),
+        Type::Number => Ok(TypeWithoutOption::Number),
+        Type::String => Ok(TypeWithoutOption::String),
+        Type::ConstString(_) => Ok(TypeWithoutOption::String),
+        Type::Array(a) => Ok(TypeWithoutOption::Array(Box::new(remove_option(a)?))),
+        Type::Object(o) => Ok(TypeWithoutOption::Object(Box::new(remove_option(o)?))),
+        Type::Ref(r) => Ok(TypeWithoutOption::Ref(r.clone())),
         Type::Option(o) => remove_option(o),
-        Type::DiscriminatedUnion(_) => panic!("Discriminated union are not supported"),
+        Type::DiscriminatedUnion(_) => Err(anyhow!("Discriminated union are not supported")),
     }
 }
 
@@ -208,32 +245,39 @@ fn map_expression(
     package_context: &PackageContext,
     type_without_option: &TypeWithoutOption,
     yaml_expression: &YamlExpression,
-) -> Expression {
+) -> Result<Expression> {
     if let YamlExpression::Object(map) = &yaml_expression {
         if map.len() == 1 {
             let key = map.keys().next().unwrap();
             if key.starts_with("fn::") {
-                panic!("fn:: are not supported")
+                return Err(anyhow!("fn:: are not supported"));
             }
         }
     }
 
     match (type_without_option, yaml_expression) {
         (TypeWithoutOption::String, YamlExpression::String(value)) => {
-            Expression::String(value.clone())
+            Ok(Expression::String(value.clone()))
         }
-        (TypeWithoutOption::Boolean, YamlExpression::Boolean(value)) => Expression::Boolean(*value),
+        (TypeWithoutOption::Boolean, YamlExpression::Boolean(value)) => {
+            Ok(Expression::Boolean(*value))
+        }
         (TypeWithoutOption::Array(arr), YamlExpression::Array(expression)) => {
-            map_array(package_context, arr, expression)
+            map_array(package_context, arr, expression).with_context(|| {
+                format!(
+                    "Failed to map array type [{:?}] with expression [{:?}]",
+                    arr, expression
+                )
+            })
         }
         (TypeWithoutOption::Ref(r), YamlExpression::Object(properties)) => {
             map_type(package_context, r, properties)
         }
         (TypeWithoutOption::Integer, YamlExpression::Number(f)) => {
-            Expression::Integer(f.round() as i64)
+            Ok(Expression::Integer(f.round() as i64))
         }
-        (TypeWithoutOption::Number, YamlExpression::Number(f)) => Expression::Number(*f),
-        (a, b) => panic!("Invalid type combination: {:?} with {:?}", a, b),
+        (TypeWithoutOption::Number, YamlExpression::Number(f)) => Ok(Expression::Number(*f)),
+        (a, b) => Err(anyhow!("Invalid type combination: {:?} with {:?}", a, b)),
     }
 }
 
@@ -241,21 +285,21 @@ fn map_type(
     context: &PackageContext,
     ref_: &Ref,
     properties: &BTreeMap<String, YamlExpression>,
-) -> Expression {
+) -> Result<Expression> {
     let element_id = match ref_ {
         Ref::Type(element_id) => element_id,
-        Ref::Archive => panic!("Archive ref is not supported"),
-        Ref::Asset => panic!("Asset ref is not supported"),
-        Ref::Any => panic!("Any ref is not supported"),
+        Ref::Archive => return Err(anyhow!("Archive ref is not supported")),
+        Ref::Asset => return Err(anyhow!("Asset ref is not supported")),
+        Ref::Any => return Err(anyhow!("Any ref is not supported")),
     };
 
     let tpe = &context.package.types[element_id];
 
     let gtp = match tpe {
         GlobalType::Object(_, gtp) => gtp,
-        GlobalType::NumberEnum(_, _) => panic!("NumberEnum type is not supported"),
-        GlobalType::IntegerEnum(_, _) => panic!("IntegerEnum type is not supported"),
-        GlobalType::StringEnum(_, _) => panic!("StringEnum type is not supported"),
+        GlobalType::NumberEnum(_, _) => return Err(anyhow!("NumberEnum type is not supported")),
+        GlobalType::IntegerEnum(_, _) => return Err(anyhow!("IntegerEnum type is not supported")),
+        GlobalType::StringEnum(_, _) => return Err(anyhow!("StringEnum type is not supported")),
     };
 
     let mut new_properties = BTreeMap::new();
@@ -264,14 +308,25 @@ fn map_type(
         let field = gtp
             .iter()
             .find(|f| f.name == *property_name)
-            .unwrap_or_else(|| panic!("property not found: {}", property_name));
-        let type_without_option = remove_option(&field.r#type);
-        // map_expression(&type_without_option, property_value);
-        new_properties.insert(
-            property_name.clone(),
-            map_expression(context, &type_without_option, property_value),
-        );
+            .with_context(|| format!("property not found: {}", property_name))?;
+
+        let type_without_option = remove_option(&field.r#type).with_context(|| {
+            format!(
+                "Cannot remove option from argument [{}] type [{:?}]",
+                property_name, property_value
+            )
+        })?;
+
+        let expression = map_expression(context, &type_without_option, property_value)
+            .with_context(|| {
+                format!(
+                    "Failed to map proparty name [{}] value [{:?}]",
+                    property_name, property_value
+                )
+            })?;
+
+        new_properties.insert(property_name.clone(), expression);
     }
 
-    Expression::Object(element_id.clone(), new_properties)
+    Ok(Expression::Object(element_id.clone(), new_properties))
 }

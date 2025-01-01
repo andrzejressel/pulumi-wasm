@@ -1,62 +1,60 @@
-/// The resource `random.RandomPet` generates random pet names that are intended to be
-/// used as unique identifiers for other resources.
+/// The resource `random.RandomPet` generates random pet names that are intended to be used as unique identifiers for other resources.
 ///
-/// This resource can be used in conjunction with resources that have
-/// the `create_before_destroy` lifecycle flag set, to avoid conflicts with
-/// unique names during the brief period where both the old and new resources
-/// exist concurrently.
-///
+/// This resource can be used in conjunction with resources that have the `create_before_destroy` lifecycle flag set, to avoid conflicts with unique names during the brief period where both the old and new resources exist concurrently.
 ///
 /// ## Example Usage
 ///
-/// The following example shows how to generate a unique pet name for an AWS EC2
-/// instance that changes each time a new AMI id is selected.
-///
-///
-/// The result of the above will set the Name of the AWS Instance to
-/// `web-server-simple-snake`.
+/// ```yaml
+/// resources:
+///   # The following example shows how to generate a unique pet name
+///   # for an AWS EC2 instance that changes each time a new AMI id is
+///   # selected.
+///   serverRandomPet:
+///     type: random:RandomPet
+///     properties:
+///       keepers:
+///         ami_id: ${var.ami_id}
+///   serverInstance:
+///     type: aws:ec2:Instance
+///     properties:
+///       tags:
+///         Name: web-server-${serverRandomPet.id}
+///       # Read the AMI id "through" the random_pet resource to ensure that
+///       #   # both will change together.
+///       ami: ${serverRandomPet.keepers.amiId}
+/// ```
 pub mod random_pet {
     #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RandomPetArgs {
-        /// Arbitrary map of values that, when changed, will
-        /// trigger a new id to be generated.
-        ///
+        /// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
         #[builder(into, default)]
         pub keepers: pulumi_wasm_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        /// The length (in words) of the pet name.
-        ///
+        /// The length (in words) of the pet name. Defaults to 2
         #[builder(into, default)]
         pub length: pulumi_wasm_rust::Output<Option<i32>>,
         /// A string to prefix the name with.
-        ///
         #[builder(into, default)]
         pub prefix: pulumi_wasm_rust::Output<Option<String>>,
-        /// The character to separate words in the pet name.
-        ///
+        /// The character to separate words in the pet name. Defaults to "-"
         #[builder(into, default)]
         pub separator: pulumi_wasm_rust::Output<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct RandomPetResult {
-        /// Arbitrary map of values that, when changed, will
-        /// trigger a new id to be generated.
-        ///
+        /// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
         pub keepers: pulumi_wasm_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        /// The length (in words) of the pet name.
-        ///
-        pub length: pulumi_wasm_rust::Output<Option<i32>>,
+        /// The length (in words) of the pet name. Defaults to 2
+        pub length: pulumi_wasm_rust::Output<i32>,
         /// A string to prefix the name with.
-        ///
         pub prefix: pulumi_wasm_rust::Output<Option<String>>,
-        /// The character to separate words in the pet name.
-        ///
-        pub separator: pulumi_wasm_rust::Output<Option<String>>,
+        /// The character to separate words in the pet name. Defaults to "-"
+        pub separator: pulumi_wasm_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments

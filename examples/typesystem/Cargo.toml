@@ -8,6 +8,9 @@ edition.workspace = true
 [lib]
 crate-type = ["cdylib"]
 
+[features]
+example_test = []
+
 [dependencies]
 pulumi_wasm_rust.workspace = true
 pulumi_wasm_providers_typesystem.workspace = true

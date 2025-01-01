@@ -6,6 +6,9 @@ repository.workspace = true
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[workspace.lints.clippy]
+panic = "deny"
+
 [workspace]
 members = [
     "examples/dependencies",
@@ -14,9 +17,9 @@ members = [
     "examples/simple",
     "examples/typesystem",
     "providers/typesystem",
+    "providers/cloudflare",
     "providers/docker",
     "providers/random",
-    "providers/cloudflare",
     "pulumi_wasm",
     "pulumi_wasm_common",
     "pulumi_wasm_core",
@@ -46,7 +49,6 @@ pulumi_wasm_common = { version = "=0.0.0-DEV", path = "pulumi_wasm_common", regi
 pulumi_wasm_proto = { version = "=0.0.0-DEV", path = "pulumi_wasm_proto", registry = "cloudsmith" }
 pulumi_wasm_wit = { version = "=0.0.0-DEV", path = "pulumi_wasm_wit", registry = "cloudsmith" }
 pulumi_wasm_runner_component_creator = { version = "=0.0.0-DEV", path = "pulumi_wasm_runner_component_creator", registry = "cloudsmith" }
-pulumi_wasm_providers_cloudflare = { version = "=0.0.0-DEV", path = "providers/cloudflare", registry = "cloudsmith" }
 pulumi_wasm_providers_docker = { version = "=0.0.0-DEV", path = "providers/docker", registry = "cloudsmith" }
 pulumi_wasm_providers_random = { version = "=0.0.0-DEV", path = "providers/random", registry = "cloudsmith" }
 pulumi_wasm_providers_typesystem = { version = "=0.0.0-DEV", path = "providers/typesystem", registry = "cloudsmith" }
@@ -75,7 +77,7 @@ syn = { version = "2.0.60", features = ["full"] }
 quote = "1.0.36"
 assert_cmd = "2.0.14"
 predicates = "3.1.0"
-itertools = "0.13.0"
+itertools = "0.14.0"
 handlebars = "6.0.0"
 convert_case = "0.6.0"
 mockall = "0.13.0"
@@ -86,7 +88,7 @@ directories = "5.0"
 reqwest = "0.12.5"
 wit-component = "0.222.0"
 wit-parser = "0.222.0"
-bon = "3.3.2"
+bon = "3.0.0"
 proc-macro2 = "1.0.92"
 rinja = "0.3.5"
 tempfile = "3.14.0"

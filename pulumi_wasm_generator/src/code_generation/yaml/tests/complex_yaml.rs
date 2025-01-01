@@ -4,7 +4,7 @@ use crate::code_generation::YamlFile;
 pub const YAML: &str = r#"
     resources:
         petstoreSchema:
-            type: cloudflare:ApiShieldSchema
+            type: yamltests:ApiShieldSchema
             name: petstore_schema
             properties:
                 zoneId: 0da42c8d2132a9ddaf714f9e7c920711
@@ -29,7 +29,7 @@ pub fn get_yaml_file() -> YamlFile {
             resources.insert(
                 "petstoreSchema".to_string(),
                 YamlResource {
-                    type_: "cloudflare:ApiShieldSchema".to_string(),
+                    type_: "yamltests:ApiShieldSchema".to_string(),
                     name: Some("petstore_schema".to_string()),
                     properties: {
                         let mut properties = BTreeMap::new();

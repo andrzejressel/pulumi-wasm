@@ -1,19 +1,22 @@
-/// The resource `random.RandomUuid` generates random uuid string that is intended to be
-/// used as unique identifiers for other resources.
+/// The resource `random.RandomUuid` generates a random uuid string that is intended to be used as a unique identifier for other resources.
 ///
-/// This resource uses the `hashicorp/go-uuid` to generate a UUID-formatted string
-/// for use with services needed a unique string identifier.
-///
-///
+/// This resource uses [hashicorp/go-uuid](https://github.com/hashicorp/go-uuid) to generate a UUID-formatted string for use with services needing a unique string identifier.
 ///
 /// ## Example Usage
 ///
-/// The following example shows how to generate a unique name for an Azure Resource Group.
-///
+/// ```yaml
+/// resources:
+///   testRandomUuid:
+///     type: random:RandomUuid
+///   testResourceGroup:
+///     type: azure:core:ResourceGroup
+///     properties:
+///       location: Central US
+/// ```
 ///
 /// ## Import
 ///
-/// Random UUID's can be imported. This can be used to replace a config value with a value interpolated from the random provider without experiencing diffs. Example
+/// Random UUID's can be imported. This can be used to replace a config value with a value interpolated from the random provider without experiencing diffs.
 ///
 /// ```sh
 ///  $ pulumi import random:index/randomUuid:RandomUuid main aabbccdd-eeff-0011-2233-445566778899
@@ -25,9 +28,7 @@ pub mod random_uuid {
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RandomUuidArgs {
-        /// Arbitrary map of values that, when changed, will
-        /// trigger a new uuid to be generated.
-        ///
+        /// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
         #[builder(into, default)]
         pub keepers: pulumi_wasm_rust::Output<
             Option<std::collections::HashMap<String, String>>,
@@ -35,14 +36,11 @@ pub mod random_uuid {
     }
     #[allow(dead_code)]
     pub struct RandomUuidResult {
-        /// Arbitrary map of values that, when changed, will
-        /// trigger a new uuid to be generated.
-        ///
+        /// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
         pub keepers: pulumi_wasm_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The generated uuid presented in string format.
-        ///
         pub result: pulumi_wasm_rust::Output<String>,
     }
     ///

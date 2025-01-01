@@ -111,29 +111,8 @@ jobs:
 
       - uses: Swatinem/rust-cache@v2
         with:
-          shared-key: build
+          shared-key: build-base
           save-if: false
-          workspaces: | # DO NOT EDIT - START 1
-            ./
-            pulumi_wasm_generator/tests/output/array-of-enum-map/
-            pulumi_wasm_generator/tests/output/aws/
-            pulumi_wasm_generator/tests/output/azure-native-nested-types/
-            pulumi_wasm_generator/tests/output/cloudflare/
-            pulumi_wasm_generator/tests/output/cyclic-types/
-            pulumi_wasm_generator/tests/output/different-enum/
-            pulumi_wasm_generator/tests/output/docker/
-            pulumi_wasm_generator/tests/output/functions-secrets/
-            pulumi_wasm_generator/tests/output/mini-awsnative/
-            pulumi_wasm_generator/tests/output/nested-module/
-            pulumi_wasm_generator/tests/output/nested-module-thirdparty/
-            pulumi_wasm_generator/tests/output/output-funcs/
-            pulumi_wasm_generator/tests/output/output-funcs-edgeorder/
-            pulumi_wasm_generator/tests/output/plain-object-defaults/
-            pulumi_wasm_generator/tests/output/plain-object-disable-defaults/
-            pulumi_wasm_generator/tests/output/random/
-            pulumi_wasm_generator/tests/output/unions-inline/
-            pulumi_wasm_generator/tests/output/unions-inside-arrays/
-# DO NOT EDIT - END 1
 
       - name: Build
         run: |
@@ -263,29 +242,8 @@ jobs:
 
       - uses: Swatinem/rust-cache@v2
         with:
-          shared-key: build
+          shared-key: build-base
           save-if: false
-          workspaces: | # DO NOT EDIT - START 2
-            ./
-            pulumi_wasm_generator/tests/output/array-of-enum-map/
-            pulumi_wasm_generator/tests/output/aws/
-            pulumi_wasm_generator/tests/output/azure-native-nested-types/
-            pulumi_wasm_generator/tests/output/cloudflare/
-            pulumi_wasm_generator/tests/output/cyclic-types/
-            pulumi_wasm_generator/tests/output/different-enum/
-            pulumi_wasm_generator/tests/output/docker/
-            pulumi_wasm_generator/tests/output/functions-secrets/
-            pulumi_wasm_generator/tests/output/mini-awsnative/
-            pulumi_wasm_generator/tests/output/nested-module/
-            pulumi_wasm_generator/tests/output/nested-module-thirdparty/
-            pulumi_wasm_generator/tests/output/output-funcs/
-            pulumi_wasm_generator/tests/output/output-funcs-edgeorder/
-            pulumi_wasm_generator/tests/output/plain-object-defaults/
-            pulumi_wasm_generator/tests/output/plain-object-disable-defaults/
-            pulumi_wasm_generator/tests/output/random/
-            pulumi_wasm_generator/tests/output/unions-inline/
-            pulumi_wasm_generator/tests/output/unions-inside-arrays/
-# DO NOT EDIT - END 2
       - name: Add target
         run: rustup target add ${{ matrix.rust-target }}
       - name: Build runner (Debug)

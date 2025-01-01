@@ -9,7 +9,7 @@ use std::collections::BTreeMap;
 pub(crate) const YAML: &str = r#"
     resources:
         example:
-            type: cloudflare:AccessOrganization
+            type: yamltests:AccessOrganization
             properties:
                 name: my "name"
 "#;
@@ -23,7 +23,7 @@ pub(crate) fn get_yaml_file() -> YamlFile {
             resources.insert(
                 "example".to_string(),
                 YamlResource {
-                    type_: "cloudflare:AccessOrganization".to_string(),
+                    type_: "yamltests:AccessOrganization".to_string(),
                     name: None,
                     properties: {
                         let mut properties = BTreeMap::new();
@@ -48,9 +48,9 @@ pub fn get_model() -> Example {
             map.insert(
                 "example".to_string(),
                 Resource {
-                    type_: ElementId::new("cloudflare:index/accessOrganization:AccessOrganization")
+                    type_: ElementId::new("yamltests:index/accessOrganization:AccessOrganization")
                         .unwrap(),
-                    // type_: "cloudflare:AccessMutualTlsCertificate".to_string(),
+                    // type_: "yamltests:AccessMutualTlsCertificate".to_string(),
                     name: None,
                     properties: {
                         let mut props = BTreeMap::new();

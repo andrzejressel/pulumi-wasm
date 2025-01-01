@@ -1,10 +1,10 @@
 use crate::description::Description;
 use crate::model::ElementId;
+use anyhow::Context;
 use regex::Regex;
 use std::collections::HashMap;
 use std::fs;
 use std::sync::LazyLock;
-use anyhow::Context;
 
 pub(crate) fn replace_multiple_dashes(s: &str) -> String {
     let re = Regex::new("-+").unwrap();
@@ -177,8 +177,8 @@ fn fix_pulumi_docker_docs(s: String, element_id: Option<ElementId>) -> String {
 
 pub(crate) fn reformat_code(code: &str) -> anyhow::Result<String> {
     let syntax_tree = syn::parse_file(code)
-        .context("Failed to parse")
-        .with_context(|| code.to_string())?;
+        .with_context(|| code.to_string())
+        .with_context(|| "Failed to parse code".to_string())?;
     Ok(prettyplease::unparse(&syntax_tree))
 }
 

@@ -26,7 +26,7 @@ mod tests {
     macro_rules! full_pipeline_test {
         ($test_name:ident, $package_name:expr, $test_module:ident) => {
             #[test]
-            fn $test_name() {
+            fn $test_name() -> anyhow::Result<()> {
                 let yaml_file = YamlFile::from_yaml($test_module::YAML).unwrap();
                 let expected_yaml_file = $test_module::get_yaml_file();
                 assert_eq!(yaml_file, expected_yaml_file);
@@ -38,32 +38,33 @@ mod tests {
 
                 let package = schema::to_model(&schema_package).unwrap();
                 let yaml_file = $test_module::get_yaml_file();
-                let result = yaml_to_model(yaml_file, $package_name.to_string(), &package);
+                let result = yaml_to_model(yaml_file, $package_name.to_string(), &package)?;
                 assert_eq!(result, $test_module::get_model());
 
                 let model = $test_module::get_model();
-                let code = generate_code(model).unwrap();
+                let code = generate_code(model)?;
                 assert_eq!(code, $test_module::get_rust_code());
+                Ok(())
             }
         };
     }
 
-    full_pipeline_test!(full_pipeline_example_array, "cloudflare", example_array);
+    full_pipeline_test!(full_pipeline_example_array, "yamltests", example_array);
     full_pipeline_test!(
         full_pipeline_example_empty_properties,
-        "cloudflare",
+        "yamltests",
         example_empty_properties
     );
     full_pipeline_test!(
         full_pipeline_example_escape_string,
-        "cloudflare",
+        "yamltests",
         example_escape_string
     );
-    full_pipeline_test!(full_pipeline_example_numbers, "cloudflare", example_numbers);
+    full_pipeline_test!(full_pipeline_example_numbers, "yamltests", example_numbers);
     full_pipeline_test!(
         full_pipeline_example_interpolation,
-        "cloudflare",
+        "yamltests",
         example_interpolation
     );
-    full_pipeline_test!(generate_yaml_variables, "cloudflare", example_variables);
+    full_pipeline_test!(generate_yaml_variables, "yamltests", example_variables);
 }
