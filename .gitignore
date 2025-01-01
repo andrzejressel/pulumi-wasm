@@ -21,7 +21,7 @@ target
 
 output.log
 *.wasm
-lcov.info
+covertura.xml
 
 # codecov
 /codecov
