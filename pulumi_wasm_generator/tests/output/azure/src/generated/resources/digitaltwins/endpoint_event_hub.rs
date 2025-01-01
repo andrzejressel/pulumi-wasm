@@ -1,0 +1,184 @@
+/// Manages a Digital Twins Event Hub Endpoint.
+///
+/// ## Example Usage
+///
+/// ```yaml
+/// resources:
+///   example:
+///     type: azure:core:ResourceGroup
+///     properties:
+///       name: example_resources
+///       location: West Europe
+///   exampleInstance:
+///     type: azure:digitaltwins:Instance
+///     name: example
+///     properties:
+///       name: example-DT
+///       resourceGroupName: ${example.name}
+///       location: ${example.location}
+///   exampleEventHubNamespace:
+///     type: azure:eventhub:EventHubNamespace
+///     name: example
+///     properties:
+///       name: example-eh-ns
+///       location: ${example.location}
+///       resourceGroupName: ${example.name}
+///       sku: Standard
+///   exampleEventHub:
+///     type: azure:eventhub:EventHub
+///     name: example
+///     properties:
+///       name: example-eh
+///       namespaceName: ${exampleEventHubNamespace.name}
+///       resourceGroupName: ${example.name}
+///       partitionCount: 2
+///       messageRetention: 1
+///   exampleAuthorizationRule:
+///     type: azure:eventhub:AuthorizationRule
+///     name: example
+///     properties:
+///       name: example-ar
+///       namespaceName: ${exampleEventHubNamespace.name}
+///       eventhubName: ${exampleEventHub.name}
+///       resourceGroupName: ${example.name}
+///       listen: false
+///       send: true
+///       manage: false
+///   exampleEndpointEventHub:
+///     type: azure:digitaltwins:EndpointEventHub
+///     name: example
+///     properties:
+///       name: example-EH
+///       digitalTwinsId: ${exampleInstance.id}
+///       eventhubPrimaryConnectionString: ${exampleAuthorizationRule.primaryConnectionString}
+///       eventhubSecondaryConnectionString: ${exampleAuthorizationRule.secondaryConnectionString}
+/// ```
+///
+/// ## Import
+///
+/// Digital Twins Eventhub Endpoints can be imported using the `resource id`, e.g.
+///
+/// ```sh
+/// $ pulumi import azure:digitaltwins/endpointEventHub:EndpointEventHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DigitalTwins/digitalTwinsInstances/dt1/endpoints/ep1
+/// ```
+///
+pub mod endpoint_event_hub {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct EndpointEventHubArgs {
+        /// The storage secret of the dead-lettering, whose format is `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
+        #[builder(into, default)]
+        pub dead_letter_storage_secret: pulumi_wasm_rust::Output<Option<String>>,
+        /// The resource ID of the Digital Twins Instance. Changing this forces a new Digital Twins Event Hub Endpoint to be created.
+        #[builder(into)]
+        pub digital_twins_id: pulumi_wasm_rust::Output<String>,
+        /// The primary connection string of the Event Hub Authorization Rule with a minimum of `send` permission.
+        #[builder(into)]
+        pub eventhub_primary_connection_string: pulumi_wasm_rust::Output<String>,
+        /// The secondary connection string of the Event Hub Authorization Rule with a minimum of `send` permission.
+        #[builder(into)]
+        pub eventhub_secondary_connection_string: pulumi_wasm_rust::Output<String>,
+        /// The name which should be used for this Digital Twins Event Hub Endpoint. Changing this forces a new Digital Twins Event Hub Endpoint to be created.
+        #[builder(into, default)]
+        pub name: pulumi_wasm_rust::Output<Option<String>>,
+    }
+    #[allow(dead_code)]
+    pub struct EndpointEventHubResult {
+        /// The storage secret of the dead-lettering, whose format is `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
+        pub dead_letter_storage_secret: pulumi_wasm_rust::Output<Option<String>>,
+        /// The resource ID of the Digital Twins Instance. Changing this forces a new Digital Twins Event Hub Endpoint to be created.
+        pub digital_twins_id: pulumi_wasm_rust::Output<String>,
+        /// The primary connection string of the Event Hub Authorization Rule with a minimum of `send` permission.
+        pub eventhub_primary_connection_string: pulumi_wasm_rust::Output<String>,
+        /// The secondary connection string of the Event Hub Authorization Rule with a minimum of `send` permission.
+        pub eventhub_secondary_connection_string: pulumi_wasm_rust::Output<String>,
+        /// The name which should be used for this Digital Twins Event Hub Endpoint. Changing this forces a new Digital Twins Event Hub Endpoint to be created.
+        pub name: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: EndpointEventHubArgs) -> EndpointEventHubResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let dead_letter_storage_secret_binding = args
+            .dead_letter_storage_secret
+            .get_inner();
+        let digital_twins_id_binding = args.digital_twins_id.get_inner();
+        let eventhub_primary_connection_string_binding = args
+            .eventhub_primary_connection_string
+            .get_inner();
+        let eventhub_secondary_connection_string_binding = args
+            .eventhub_secondary_connection_string
+            .get_inner();
+        let name_binding = args.name.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "azure:digitaltwins/endpointEventHub:EndpointEventHub".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "deadLetterStorageSecret".into(),
+                    value: &dead_letter_storage_secret_binding,
+                },
+                register_interface::ObjectField {
+                    name: "digitalTwinsId".into(),
+                    value: &digital_twins_id_binding,
+                },
+                register_interface::ObjectField {
+                    name: "eventhubPrimaryConnectionString".into(),
+                    value: &eventhub_primary_connection_string_binding,
+                },
+                register_interface::ObjectField {
+                    name: "eventhubSecondaryConnectionString".into(),
+                    value: &eventhub_secondary_connection_string_binding,
+                },
+                register_interface::ObjectField {
+                    name: "name".into(),
+                    value: &name_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "deadLetterStorageSecret".into(),
+                },
+                register_interface::ResultField {
+                    name: "digitalTwinsId".into(),
+                },
+                register_interface::ResultField {
+                    name: "eventhubPrimaryConnectionString".into(),
+                },
+                register_interface::ResultField {
+                    name: "eventhubSecondaryConnectionString".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        EndpointEventHubResult {
+            dead_letter_storage_secret: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("deadLetterStorageSecret").unwrap(),
+            ),
+            digital_twins_id: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("digitalTwinsId").unwrap(),
+            ),
+            eventhub_primary_connection_string: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("eventhubPrimaryConnectionString").unwrap(),
+            ),
+            eventhub_secondary_connection_string: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("eventhubSecondaryConnectionString").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+        }
+    }
+}

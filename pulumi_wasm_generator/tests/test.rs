@@ -99,6 +99,12 @@ fn unions_inside_arrays() -> Result<()> {
 }
 
 #[test]
+#[cfg_attr(not(feature = "generator_azure"), ignore)]
+fn azure() -> Result<()> {
+    run_pulumi_generator_test("azure")
+}
+
+#[test]
 #[cfg_attr(not(feature = "generator_cloudflare"), ignore)]
 fn cloudflare() -> Result<()> {
     run_pulumi_generator_test("cloudflare")
