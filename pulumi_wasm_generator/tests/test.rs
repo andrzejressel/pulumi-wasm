@@ -151,6 +151,22 @@ pub fn run_pulumi_generator_test(test_name: &str) -> Result<()> {
         .assert()
         .success();
 
+    Command::new("cargo")
+        .args(["test", "--doc"])
+        .env_remove("CARGO_LLVM_COV")
+        .env_remove("RUSTFLAGS")
+        .current_dir(root)
+        .assert()
+        .success();
+
+    Command::new("cargo")
+        .args(["doc", "--no-deps"])
+        .env_remove("CARGO_LLVM_COV")
+        .env_remove("RUSTFLAGS")
+        .current_dir(root)
+        .assert()
+        .success();
+
     Ok(())
 }
 
