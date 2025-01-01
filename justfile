@@ -10,7 +10,7 @@ CARGO_LLVM_COV_VERSION := "0.6.13"
 # renovate: datasource=crate depName=cargo-hack packageName=cargo-hack
 CARGO_HACK_VERSION := "0.6.33"
 
-@default: build-language-plugin regenerator install-requirements build-wasm-components build-wasm-components-release test-all fmt
+@default: build-language-plugin regenerator install-requirements build-wasm-components build-wasm-components-release test-all rust-docs fmt
 
 # Checks formatting and regenerator
 househeeping-ci-flow: regenerator fmt
@@ -108,7 +108,6 @@ test-examples:
 
 test-all:
     cargo llvm-cov nextest --workspace --cobertura --output-path covertura.xml --all-features
-    just rust-docs
 
 test:
     cargo llvm-cov nextest --workspace --cobertura --output-path covertura.xml
