@@ -1,7 +1,6 @@
 use itertools::Itertools;
 use std::fs;
 use std::process::Command;
-use itertools;
 
 #[derive(Debug)]
 struct Provider<'a> {
@@ -74,15 +73,8 @@ fn update_github_actions_build(tests: &[&str], providers: &[Provider]) {
 
     let mut replacement = String::new();
     replacement.push_str("        provider: [");
-    replacement.push_str(
-        &itertools::chain!(
-            providers
-                .iter()
-                .map(|p| p.name.to_string()),
-            tests.iter().map(|t| t.to_string())
-        )
-            .join(", ")
-    );
+    replacement
+        .push_str(&itertools::chain!(providers.iter().map(|p| &p.name), tests.iter()).join(", "));
     replacement.push_str("]\n");
     let start_marker = "# DO NOT EDIT - PROVIDER START";
     let end_marker = "# DO NOT EDIT - PROVIDER END";
