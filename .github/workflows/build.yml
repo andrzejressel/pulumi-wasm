@@ -30,9 +30,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: true
-      - uses: testspace-com/setup-testspace@v1
-        with:
-          domain: ${{github.repository_owner}}
+#      - uses: testspace-com/setup-testspace@v1
+#        with:
+#          domain: ${{github.repository_owner}}
       - uses: extractions/setup-just@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -64,8 +64,8 @@ jobs:
           files: target/nextest/default/junit.xml
           fail_ci_if_error: true
           token: ${{ secrets.CODECOV_TOKEN }}
-      - name: Publish Results to Testspace
-        run: testspace "[ examples/${{ matrix.os }} ]target/nextest/default/junit.xml"
+#      - name: Publish Results to Testspace
+#        run: testspace "[ examples/${{ matrix.os }} ]target/nextest/default/junit.xml"
       - run: git add . && git diff
       - run: git diff --cached
       - name: Ensure no files have changed
@@ -83,9 +83,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: true
-      - uses: testspace-com/setup-testspace@v1
-        with:
-          domain: ${{github.repository_owner}}
+#      - uses: testspace-com/setup-testspace@v1
+#        with:
+#          domain: ${{github.repository_owner}}
       - uses: extractions/setup-just@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -116,8 +116,8 @@ jobs:
           files: target/nextest/default/junit.xml
           fail_ci_if_error: true
           token: ${{ secrets.CODECOV_TOKEN }}
-      - name: Publish Results to Testspace
-        run: testspace "[ provider/${{ matrix.provider }} ]target/nextest/default/junit.xml"
+#      - name: Publish Results to Testspace
+#        run: testspace "[ provider/${{ matrix.provider }} ]target/nextest/default/junit.xml"
       - run: git add . && git diff
       - run: git diff --cached
       - name: Ensure no files have changed
@@ -134,9 +134,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: true
-      - uses: testspace-com/setup-testspace@v1
-        with:
-          domain: ${{github.repository_owner}}
       - uses: extractions/setup-just@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -176,9 +173,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: true
-      - uses: testspace-com/setup-testspace@v1
-        with:
-          domain: ${{github.repository_owner}}
+#      - uses: testspace-com/setup-testspace@v1
+#        with:
+#          domain: ${{github.repository_owner}}
       - uses: extractions/setup-just@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -226,8 +223,8 @@ jobs:
           files: target/nextest/default/junit.xml
           fail_ci_if_error: true
           token: ${{ secrets.CODECOV_TOKEN }}
-      - name: Publish Results to Testspace
-        run: testspace "[ examples/${{ matrix.os }} ]target/nextest/default/junit.xml"
+#      - name: Publish Results to Testspace
+#        run: testspace "[ examples/${{ matrix.os }} ]target/nextest/default/junit.xml"
       - run: git add . && git diff
       - run: git diff --cached
       - name: Ensure no files have changed
