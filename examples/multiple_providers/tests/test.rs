@@ -5,6 +5,7 @@ use std::process::Command;
 use std::str;
 
 #[test]
+#[cfg_attr(not(feature = "example_test"), ignore)]
 fn test_integration() -> Result<(), anyhow::Error> {
     if std::env::var("GITHUB_ACTIONS").is_ok() && !cfg!(target_os = "linux") {
         return Ok(());

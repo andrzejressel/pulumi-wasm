@@ -101,7 +101,7 @@ test-examples:
         -p pulumi_wasm_example_dependencies \
         -p pulumi_wasm_example_multiple_providers \
         -p pulumi_wasm_example_typesystem \
-        --cobertura --output-path covertura.xml
+        --cobertura --output-path covertura.xml --features example_test
 
 test-all:
     cargo test --doc --workspace
