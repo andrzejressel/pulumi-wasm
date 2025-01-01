@@ -27,6 +27,8 @@ jobs:
       matrix:
         os: [ubuntu-24.04, windows-2022, macos-14]
     steps:
+      - run: git config --system core.longpaths true
+        if: runner.os == 'Windows'
       - uses: actions/checkout@v4
         with:
           submodules: true
@@ -144,6 +146,8 @@ jobs:
       matrix:
         os: [ubuntu-24.04, windows-2022, macos-14]
     steps:
+      - run: git config --system core.longpaths true
+        if: runner.os == 'Windows'
       - uses: actions/checkout@v4
         with:
           submodules: true
@@ -187,6 +191,8 @@ jobs:
       matrix:
         os: [ubuntu-24.04, windows-2022, macos-14]
     steps:
+      - run: git config --system core.longpaths true
+        if: runner.os == 'Windows'
       - uses: actions/checkout@v4
         with:
           submodules: true
@@ -236,6 +242,8 @@ jobs:
       matrix:
         os: [ubuntu-24.04, windows-2022, macos-14]
     steps:
+      - run: git config --system core.longpaths true
+        if: runner.os == 'Windows'
       - uses: actions/checkout@v4
         with:
           submodules: true
