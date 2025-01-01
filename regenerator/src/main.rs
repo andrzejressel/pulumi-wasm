@@ -12,7 +12,7 @@ fn main() {
     let mut providers = vec![
         Provider {
             name: "azure",
-            version: "6.14.0"
+            version: "6.14.0",
         },
         Provider {
             name: "docker",
