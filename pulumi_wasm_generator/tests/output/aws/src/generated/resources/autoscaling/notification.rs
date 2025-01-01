@@ -6,33 +6,39 @@
 ///
 /// Basic usage:
 ///
-/// ```yaml
-/// resources:
-///   exampleNotifications:
-///     type: aws:autoscaling:Notification
-///     name: example_notifications
-///     properties:
-///       groupNames:
-///         - ${bar.name}
-///         - ${foo.name}
-///       notifications:
-///         - autoscaling:EC2_INSTANCE_LAUNCH
-///         - autoscaling:EC2_INSTANCE_TERMINATE
-///         - autoscaling:EC2_INSTANCE_LAUNCH_ERROR
-///         - autoscaling:EC2_INSTANCE_TERMINATE_ERROR
-///       topicArn: ${example.arn}
-///   example:
-///     type: aws:sns:Topic
-///     properties:
-///       name: example-topic
-///   bar:
-///     type: aws:autoscaling:Group
-///     properties:
-///       name: foobar1-test
-///   foo:
-///     type: aws:autoscaling:Group
-///     properties:
-///       name: barfoo-test
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let bar = group::create(
+///         "bar",
+///         GroupArgs::builder().name("foobar1-test").build_struct(),
+///     );
+///     let example = topic::create(
+///         "example",
+///         TopicArgs::builder().name("example-topic").build_struct(),
+///     );
+///     let exampleNotifications = notification::create(
+///         "exampleNotifications",
+///         NotificationArgs::builder()
+///             .group_names(vec!["${bar.name}", "${foo.name}",])
+///             .notifications(
+///                 vec![
+///                     "autoscaling:EC2_INSTANCE_LAUNCH",
+///                     "autoscaling:EC2_INSTANCE_TERMINATE",
+///                     "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
+///                     "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+///                 ],
+///             )
+///             .topic_arn("${example.arn}")
+///             .build_struct(),
+///     );
+///     let foo = group::create(
+///         "foo",
+///         GroupArgs::builder().name("barfoo-test").build_struct(),
+///     );
+/// }
 /// ```
 pub mod notification {
     #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
@@ -45,9 +51,7 @@ pub mod notification {
         /// List of Notification Types that trigger
         /// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
         #[builder(into)]
-        pub notifications: pulumi_wasm_rust::Output<
-            Vec<super::super::types::autoscaling::NotificationType>,
-        >,
+        pub notifications: pulumi_wasm_rust::Output<Vec<String>>,
         /// Topic ARN for notifications to be sent through
         #[builder(into)]
         pub topic_arn: pulumi_wasm_rust::Output<String>,
@@ -58,9 +62,7 @@ pub mod notification {
         pub group_names: pulumi_wasm_rust::Output<Vec<String>>,
         /// List of Notification Types that trigger
         /// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-        pub notifications: pulumi_wasm_rust::Output<
-            Vec<super::super::types::autoscaling::NotificationType>,
-        >,
+        pub notifications: pulumi_wasm_rust::Output<Vec<String>>,
         /// Topic ARN for notifications to be sent through
         pub topic_arn: pulumi_wasm_rust::Output<String>,
     }

@@ -233,7 +233,7 @@ pub mod analytics_application {
     #[allow(dead_code)]
     pub struct AnalyticsApplicationResult {
         /// The ARN of the Kinesis Analytics Appliation.
-        pub arn: pulumi_wasm_rust::Output<super::super::types::Arn>,
+        pub arn: pulumi_wasm_rust::Output<String>,
         /// The CloudWatch log stream options to monitor application errors.
         /// See CloudWatch Logging Options below for more details.
         pub cloudwatch_logging_options: pulumi_wasm_rust::Output<

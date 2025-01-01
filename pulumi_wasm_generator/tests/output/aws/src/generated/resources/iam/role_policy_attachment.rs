@@ -64,7 +64,7 @@ pub mod role_policy_attachment {
     pub struct RolePolicyAttachmentArgs {
         /// The ARN of the policy you want to apply
         #[builder(into)]
-        pub policy_arn: pulumi_wasm_rust::Output<super::super::types::Arn>,
+        pub policy_arn: pulumi_wasm_rust::Output<String>,
         /// The name of the IAM role to which the policy should be applied
         #[builder(into)]
         pub role: pulumi_wasm_rust::Output<String>,
@@ -72,7 +72,7 @@ pub mod role_policy_attachment {
     #[allow(dead_code)]
     pub struct RolePolicyAttachmentResult {
         /// The ARN of the policy you want to apply
-        pub policy_arn: pulumi_wasm_rust::Output<super::super::types::Arn>,
+        pub policy_arn: pulumi_wasm_rust::Output<String>,
         /// The name of the IAM role to which the policy should be applied
         pub role: pulumi_wasm_rust::Output<String>,
     }

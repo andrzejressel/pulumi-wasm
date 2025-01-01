@@ -17,29 +17,32 @@
 ///
 /// ## Example Usage
 ///
-/// ```yaml
-/// resources:
-///   clusterInstances:
-///     type: aws:rds:ClusterInstance
-///     name: cluster_instances
-///     properties:
-///       identifier: aurora-cluster-demo-${range.value}
-///       clusterIdentifier: ${default.id}
-///       instanceClass: db.r4.large
-///       engine: ${default.engine}
-///       engineVersion: ${default.engineVersion}
-///     options: {}
-///   default:
-///     type: aws:rds:Cluster
-///     properties:
-///       clusterIdentifier: aurora-cluster-demo
-///       availabilityZones:
-///         - us-west-2a
-///         - us-west-2b
-///         - us-west-2c
-///       databaseName: mydb
-///       masterUsername: foo
-///       masterPassword: barbut8chars
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let clusterInstances = cluster_instance::create(
+///         "clusterInstances",
+///         ClusterInstanceArgs::builder()
+///             .cluster_identifier("${default.id}")
+///             .engine("${default.engine}")
+///             .engine_version("${default.engineVersion}")
+///             .identifier("aurora-cluster-demo-${range.value}")
+///             .instance_class("db.r4.large")
+///             .build_struct(),
+///     );
+///     let default = cluster::create(
+///         "default",
+///         ClusterArgs::builder()
+///             .availability_zones(vec!["us-west-2a", "us-west-2b", "us-west-2c",])
+///             .cluster_identifier("aurora-cluster-demo")
+///             .database_name("mydb")
+///             .master_password("barbut8chars")
+///             .master_username("foo")
+///             .build_struct(),
+///     );
+/// }
 /// ```
 ///
 /// ## Import
@@ -84,7 +87,7 @@ pub mod cluster_instance {
         /// Name of the database engine to be used for the RDS cluster instance.
         /// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         #[builder(into)]
-        pub engine: pulumi_wasm_rust::Output<super::super::types::rds::EngineType>,
+        pub engine: pulumi_wasm_rust::Output<String>,
         /// Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `aws.rds.Cluster` `engine_version`. Trying to upgrade in `aws_cluster_instance` will not update the `engine_version`.
         #[builder(into, default)]
         pub engine_version: pulumi_wasm_rust::Output<Option<String>>,
@@ -161,7 +164,7 @@ pub mod cluster_instance {
         pub endpoint: pulumi_wasm_rust::Output<String>,
         /// Name of the database engine to be used for the RDS cluster instance.
         /// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
-        pub engine: pulumi_wasm_rust::Output<super::super::types::rds::EngineType>,
+        pub engine: pulumi_wasm_rust::Output<String>,
         /// Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `aws.rds.Cluster` `engine_version`. Trying to upgrade in `aws_cluster_instance` will not update the `engine_version`.
         pub engine_version: pulumi_wasm_rust::Output<String>,
         /// Database engine version

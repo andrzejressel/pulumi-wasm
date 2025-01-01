@@ -40,14 +40,14 @@ pub mod group_policy_attachment {
         pub group: pulumi_wasm_rust::Output<String>,
         /// The ARN of the policy you want to apply
         #[builder(into)]
-        pub policy_arn: pulumi_wasm_rust::Output<super::super::types::Arn>,
+        pub policy_arn: pulumi_wasm_rust::Output<String>,
     }
     #[allow(dead_code)]
     pub struct GroupPolicyAttachmentResult {
         /// The group the policy should be applied to
         pub group: pulumi_wasm_rust::Output<String>,
         /// The ARN of the policy you want to apply
-        pub policy_arn: pulumi_wasm_rust::Output<super::super::types::Arn>,
+        pub policy_arn: pulumi_wasm_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments

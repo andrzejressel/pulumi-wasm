@@ -525,9 +525,7 @@ pub mod group {
         pub desired_capacity_type: pulumi_wasm_rust::Output<Option<String>>,
         /// List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         #[builder(into, default)]
-        pub enabled_metrics: pulumi_wasm_rust::Output<
-            Option<Vec<super::super::types::autoscaling::metrics::Metric>>,
-        >,
+        pub enabled_metrics: pulumi_wasm_rust::Output<Option<Vec<String>>>,
         /// Allows deleting the Auto Scaling Group without waiting
         /// for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
         /// even if it's in the process of scaling a resource. Normally, this provider
@@ -695,9 +693,7 @@ pub mod group {
         /// The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
         pub desired_capacity_type: pulumi_wasm_rust::Output<Option<String>>,
         /// List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
-        pub enabled_metrics: pulumi_wasm_rust::Output<
-            Option<Vec<super::super::types::autoscaling::metrics::Metric>>,
-        >,
+        pub enabled_metrics: pulumi_wasm_rust::Output<Option<Vec<String>>>,
         /// Allows deleting the Auto Scaling Group without waiting
         /// for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
         /// even if it's in the process of scaling a resource. Normally, this provider

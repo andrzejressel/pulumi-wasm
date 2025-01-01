@@ -51,6 +51,7 @@ fn main() {
             .arg("package")
             .arg("get-schema")
             .arg(format!("{}@{}", provider.name, provider.version))
+            .env("PULUMI_AWS_MINIMAL_SCHEMA", "true") // https://github.com/pulumi/pulumi-aws/issues/2565
             .output()
             .expect("Failed to execute pulumi command");
 

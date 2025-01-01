@@ -2,15 +2,24 @@
 ///
 /// ## Example Usage
 ///
-/// ```yaml
-/// resources:
-///   example:
-///     type: aws:datasync:S3Location
-///     properties:
-///       s3BucketArn: ${exampleAwsS3Bucket.arn}
-///       subdirectory: /example/prefix
-///       s3Config:
-///         bucketAccessRoleArn: ${exampleAwsIamRole.arn}
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let example = s_3_location::create(
+///         "example",
+///         S3LocationArgs::builder()
+///             .s_3_bucket_arn("${exampleAwsS3Bucket.arn}")
+///             .s_3_config(
+///                 S3LocationS3Config::builder()
+///                     .bucketAccessRoleArn("${exampleAwsIamRole.arn}")
+///                     .build_struct(),
+///             )
+///             .subdirectory("/example/prefix")
+///             .build_struct(),
+///     );
+/// }
 /// ```
 ///
 /// ## Import
@@ -30,7 +39,7 @@ pub mod s_3_location {
         pub agent_arns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
         /// Amazon Resource Name (ARN) of the S3 Bucket.
         #[builder(into)]
-        pub s3_bucket_arn: pulumi_wasm_rust::Output<super::super::types::Arn>,
+        pub s3_bucket_arn: pulumi_wasm_rust::Output<String>,
         /// Configuration block containing information for connecting to S3.
         #[builder(into)]
         pub s3_config: pulumi_wasm_rust::Output<
@@ -55,7 +64,7 @@ pub mod s_3_location {
         /// Amazon Resource Name (ARN) of the DataSync Location.
         pub arn: pulumi_wasm_rust::Output<String>,
         /// Amazon Resource Name (ARN) of the S3 Bucket.
-        pub s3_bucket_arn: pulumi_wasm_rust::Output<super::super::types::Arn>,
+        pub s3_bucket_arn: pulumi_wasm_rust::Output<String>,
         /// Configuration block containing information for connecting to S3.
         pub s3_config: pulumi_wasm_rust::Output<
             super::super::types::datasync::S3LocationS3Config,

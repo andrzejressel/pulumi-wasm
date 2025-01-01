@@ -121,31 +121,41 @@
 ///
 /// To create a Serverless v2 RDS cluster, you must additionally specify the `engine_mode` and `serverlessv2_scaling_configuration` attributes. An `aws.rds.ClusterInstance` resource must also be added to the cluster with the `instance_class` attribute specified.
 ///
-/// ```yaml
-/// resources:
-///   example:
-///     type: aws:rds:Cluster
-///     properties:
-///       clusterIdentifier: example
-///       engine: aurora-postgresql
-///       engineMode: provisioned
-///       engineVersion: '13.6'
-///       databaseName: test
-///       masterUsername: test
-///       masterPassword: must_be_eight_characters
-///       storageEncrypted: true
-///       serverlessv2ScalingConfiguration:
-///         maxCapacity: 1
-///         minCapacity: 0
-///         secondsUntilAutoPause: 3600
-///   exampleClusterInstance:
-///     type: aws:rds:ClusterInstance
-///     name: example
-///     properties:
-///       clusterIdentifier: ${example.id}
-///       instanceClass: db.serverless
-///       engine: ${example.engine}
-///       engineVersion: ${example.engineVersion}
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let example = cluster::create(
+///         "example",
+///         ClusterArgs::builder()
+///             .cluster_identifier("example")
+///             .database_name("test")
+///             .engine("aurora-postgresql")
+///             .engine_mode("provisioned")
+///             .engine_version("13.6")
+///             .master_password("must_be_eight_characters")
+///             .master_username("test")
+///             .serverlessv_2_scaling_configuration(
+///                 ClusterServerlessv2ScalingConfiguration::builder()
+///                     .maxCapacity(1)
+///                     .minCapacity(0)
+///                     .secondsUntilAutoPause(3600)
+///                     .build_struct(),
+///             )
+///             .storage_encrypted(true)
+///             .build_struct(),
+///     );
+///     let exampleClusterInstance = cluster_instance::create(
+///         "exampleClusterInstance",
+///         ClusterInstanceArgs::builder()
+///             .cluster_identifier("${example.id}")
+///             .engine("${example.engine}")
+///             .engine_version("${example.engineVersion}")
+///             .instance_class("db.serverless")
+///             .build_struct(),
+///     );
+/// }
 /// ```
 ///
 /// ### RDS/Aurora Managed Master Passwords via Secrets Manager, default KMS Key

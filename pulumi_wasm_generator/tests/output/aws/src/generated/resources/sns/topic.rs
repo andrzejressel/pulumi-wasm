@@ -191,7 +191,7 @@ pub mod topic {
         /// The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
         pub archive_policy: pulumi_wasm_rust::Output<Option<String>>,
         /// The ARN of the SNS topic, as a more obvious property (clone of id)
-        pub arn: pulumi_wasm_rust::Output<super::super::types::Arn>,
+        pub arn: pulumi_wasm_rust::Output<String>,
         /// The oldest timestamp at which a FIFO topic subscriber can start a replay.
         pub beginning_archive_time: pulumi_wasm_rust::Output<String>,
         /// Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)

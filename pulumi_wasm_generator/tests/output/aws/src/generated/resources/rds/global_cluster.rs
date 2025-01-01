@@ -6,113 +6,131 @@
 ///
 /// ### New MySQL Global Cluster
 ///
-/// ```yaml
-/// resources:
-///   example:
-///     type: aws:rds:GlobalCluster
-///     properties:
-///       globalClusterIdentifier: global-test
-///       engine: aurora
-///       engineVersion: 5.6.mysql_aurora.1.22.2
-///       databaseName: example_db
-///   primary:
-///     type: aws:rds:Cluster
-///     properties:
-///       engine: ${example.engine}
-///       engineVersion: ${example.engineVersion}
-///       clusterIdentifier: test-primary-cluster
-///       masterUsername: username
-///       masterPassword: somepass123
-///       databaseName: example_db
-///       globalClusterIdentifier: ${example.id}
-///       dbSubnetGroupName: default
-///   primaryClusterInstance:
-///     type: aws:rds:ClusterInstance
-///     name: primary
-///     properties:
-///       engine: ${example.engine}
-///       engineVersion: ${example.engineVersion}
-///       identifier: test-primary-cluster-instance
-///       clusterIdentifier: ${primary.id}
-///       instanceClass: db.r4.large
-///       dbSubnetGroupName: default
-///   secondary:
-///     type: aws:rds:Cluster
-///     properties:
-///       engine: ${example.engine}
-///       engineVersion: ${example.engineVersion}
-///       clusterIdentifier: test-secondary-cluster
-///       globalClusterIdentifier: ${example.id}
-///       dbSubnetGroupName: default
-///     options:
-///       dependsOn:
-///         - ${primaryClusterInstance}
-///   secondaryClusterInstance:
-///     type: aws:rds:ClusterInstance
-///     name: secondary
-///     properties:
-///       engine: ${example.engine}
-///       engineVersion: ${example.engineVersion}
-///       identifier: test-secondary-cluster-instance
-///       clusterIdentifier: ${secondary.id}
-///       instanceClass: db.r4.large
-///       dbSubnetGroupName: default
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let example = global_cluster::create(
+///         "example",
+///         GlobalClusterArgs::builder()
+///             .database_name("example_db")
+///             .engine("aurora")
+///             .engine_version("5.6.mysql_aurora.1.22.2")
+///             .global_cluster_identifier("global-test")
+///             .build_struct(),
+///     );
+///     let primary = cluster::create(
+///         "primary",
+///         ClusterArgs::builder()
+///             .cluster_identifier("test-primary-cluster")
+///             .database_name("example_db")
+///             .db_subnet_group_name("default")
+///             .engine("${example.engine}")
+///             .engine_version("${example.engineVersion}")
+///             .global_cluster_identifier("${example.id}")
+///             .master_password("somepass123")
+///             .master_username("username")
+///             .build_struct(),
+///     );
+///     let primaryClusterInstance = cluster_instance::create(
+///         "primaryClusterInstance",
+///         ClusterInstanceArgs::builder()
+///             .cluster_identifier("${primary.id}")
+///             .db_subnet_group_name("default")
+///             .engine("${example.engine}")
+///             .engine_version("${example.engineVersion}")
+///             .identifier("test-primary-cluster-instance")
+///             .instance_class("db.r4.large")
+///             .build_struct(),
+///     );
+///     let secondary = cluster::create(
+///         "secondary",
+///         ClusterArgs::builder()
+///             .cluster_identifier("test-secondary-cluster")
+///             .db_subnet_group_name("default")
+///             .engine("${example.engine}")
+///             .engine_version("${example.engineVersion}")
+///             .global_cluster_identifier("${example.id}")
+///             .build_struct(),
+///     );
+///     let secondaryClusterInstance = cluster_instance::create(
+///         "secondaryClusterInstance",
+///         ClusterInstanceArgs::builder()
+///             .cluster_identifier("${secondary.id}")
+///             .db_subnet_group_name("default")
+///             .engine("${example.engine}")
+///             .engine_version("${example.engineVersion}")
+///             .identifier("test-secondary-cluster-instance")
+///             .instance_class("db.r4.large")
+///             .build_struct(),
+///     );
+/// }
 /// ```
 ///
 /// ### New PostgreSQL Global Cluster
 ///
-/// ```yaml
-/// resources:
-///   example:
-///     type: aws:rds:GlobalCluster
-///     properties:
-///       globalClusterIdentifier: global-test
-///       engine: aurora-postgresql
-///       engineVersion: '11.9'
-///       databaseName: example_db
-///   primary:
-///     type: aws:rds:Cluster
-///     properties:
-///       engine: ${example.engine}
-///       engineVersion: ${example.engineVersion}
-///       clusterIdentifier: test-primary-cluster
-///       masterUsername: username
-///       masterPassword: somepass123
-///       databaseName: example_db
-///       globalClusterIdentifier: ${example.id}
-///       dbSubnetGroupName: default
-///   primaryClusterInstance:
-///     type: aws:rds:ClusterInstance
-///     name: primary
-///     properties:
-///       engine: ${example.engine}
-///       engineVersion: ${example.engineVersion}
-///       identifier: test-primary-cluster-instance
-///       clusterIdentifier: ${primary.id}
-///       instanceClass: db.r4.large
-///       dbSubnetGroupName: default
-///   secondary:
-///     type: aws:rds:Cluster
-///     properties:
-///       engine: ${example.engine}
-///       engineVersion: ${example.engineVersion}
-///       clusterIdentifier: test-secondary-cluster
-///       globalClusterIdentifier: ${example.id}
-///       skipFinalSnapshot: true
-///       dbSubnetGroupName: default
-///     options:
-///       dependsOn:
-///         - ${primaryClusterInstance}
-///   secondaryClusterInstance:
-///     type: aws:rds:ClusterInstance
-///     name: secondary
-///     properties:
-///       engine: ${example.engine}
-///       engineVersion: ${example.engineVersion}
-///       identifier: test-secondary-cluster-instance
-///       clusterIdentifier: ${secondary.id}
-///       instanceClass: db.r4.large
-///       dbSubnetGroupName: default
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let example = global_cluster::create(
+///         "example",
+///         GlobalClusterArgs::builder()
+///             .database_name("example_db")
+///             .engine("aurora-postgresql")
+///             .engine_version("11.9")
+///             .global_cluster_identifier("global-test")
+///             .build_struct(),
+///     );
+///     let primary = cluster::create(
+///         "primary",
+///         ClusterArgs::builder()
+///             .cluster_identifier("test-primary-cluster")
+///             .database_name("example_db")
+///             .db_subnet_group_name("default")
+///             .engine("${example.engine}")
+///             .engine_version("${example.engineVersion}")
+///             .global_cluster_identifier("${example.id}")
+///             .master_password("somepass123")
+///             .master_username("username")
+///             .build_struct(),
+///     );
+///     let primaryClusterInstance = cluster_instance::create(
+///         "primaryClusterInstance",
+///         ClusterInstanceArgs::builder()
+///             .cluster_identifier("${primary.id}")
+///             .db_subnet_group_name("default")
+///             .engine("${example.engine}")
+///             .engine_version("${example.engineVersion}")
+///             .identifier("test-primary-cluster-instance")
+///             .instance_class("db.r4.large")
+///             .build_struct(),
+///     );
+///     let secondary = cluster::create(
+///         "secondary",
+///         ClusterArgs::builder()
+///             .cluster_identifier("test-secondary-cluster")
+///             .db_subnet_group_name("default")
+///             .engine("${example.engine}")
+///             .engine_version("${example.engineVersion}")
+///             .global_cluster_identifier("${example.id}")
+///             .skip_final_snapshot(true)
+///             .build_struct(),
+///     );
+///     let secondaryClusterInstance = cluster_instance::create(
+///         "secondaryClusterInstance",
+///         ClusterInstanceArgs::builder()
+///             .cluster_identifier("${secondary.id}")
+///             .db_subnet_group_name("default")
+///             .engine("${example.engine}")
+///             .engine_version("${example.engineVersion}")
+///             .identifier("test-secondary-cluster-instance")
+///             .instance_class("db.r4.large")
+///             .build_struct(),
+///     );
+/// }
 /// ```
 ///
 /// ### New Global Cluster From Existing DB Cluster
@@ -138,37 +156,46 @@
 ///
 /// When you upgrade the version of an `aws.rds.GlobalCluster`, the provider will attempt to in-place upgrade the engine versions of all associated clusters. Since the `aws.rds.Cluster` resource is being updated through the `aws.rds.GlobalCluster`, you are likely to get an error (`Provider produced inconsistent final plan`). To avoid this, use the `lifecycle` `ignore_changes` meta argument as shown below on the `aws.rds.Cluster`.
 ///
-/// ```yaml
-/// resources:
-///   example:
-///     type: aws:rds:GlobalCluster
-///     properties:
-///       globalClusterIdentifier: kyivkharkiv
-///       engine: aurora-mysql
-///       engineVersion: 5.7.mysql_aurora.2.07.5
-///   primary:
-///     type: aws:rds:Cluster
-///     properties:
-///       allowMajorVersionUpgrade: true
-///       applyImmediately: true
-///       clusterIdentifier: odessadnipro
-///       databaseName: totoro
-///       engine: ${example.engine}
-///       engineVersion: ${example.engineVersion}
-///       globalClusterIdentifier: ${example.id}
-///       masterPassword: satsukimae
-///       masterUsername: maesatsuki
-///       skipFinalSnapshot: true
-///   primaryClusterInstance:
-///     type: aws:rds:ClusterInstance
-///     name: primary
-///     properties:
-///       applyImmediately: true
-///       clusterIdentifier: ${primary.id}
-///       engine: ${primary.engine}
-///       engineVersion: ${primary.engineVersion}
-///       identifier: donetsklviv
-///       instanceClass: db.r4.large
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let example = global_cluster::create(
+///         "example",
+///         GlobalClusterArgs::builder()
+///             .engine("aurora-mysql")
+///             .engine_version("5.7.mysql_aurora.2.07.5")
+///             .global_cluster_identifier("kyivkharkiv")
+///             .build_struct(),
+///     );
+///     let primary = cluster::create(
+///         "primary",
+///         ClusterArgs::builder()
+///             .allow_major_version_upgrade(true)
+///             .apply_immediately(true)
+///             .cluster_identifier("odessadnipro")
+///             .database_name("totoro")
+///             .engine("${example.engine}")
+///             .engine_version("${example.engineVersion}")
+///             .global_cluster_identifier("${example.id}")
+///             .master_password("satsukimae")
+///             .master_username("maesatsuki")
+///             .skip_final_snapshot(true)
+///             .build_struct(),
+///     );
+///     let primaryClusterInstance = cluster_instance::create(
+///         "primaryClusterInstance",
+///         ClusterInstanceArgs::builder()
+///             .apply_immediately(true)
+///             .cluster_identifier("${primary.id}")
+///             .engine("${primary.engine}")
+///             .engine_version("${primary.engineVersion}")
+///             .identifier("donetsklviv")
+///             .instance_class("db.r4.large")
+///             .build_struct(),
+///     );
+/// }
 /// ```
 ///
 /// ## Import

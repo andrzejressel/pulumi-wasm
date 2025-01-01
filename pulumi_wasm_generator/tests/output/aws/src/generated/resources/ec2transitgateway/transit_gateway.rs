@@ -71,7 +71,7 @@ pub mod transit_gateway {
         /// > **NOTE:** Modifying `amazon_side_asn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazon_side_asn`.
         pub amazon_side_asn: pulumi_wasm_rust::Output<Option<i32>>,
         /// EC2 Transit Gateway Amazon Resource Name (ARN)
-        pub arn: pulumi_wasm_rust::Output<super::super::types::Arn>,
+        pub arn: pulumi_wasm_rust::Output<String>,
         /// Identifier of the default association route table
         pub association_default_route_table_id: pulumi_wasm_rust::Output<String>,
         /// Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.

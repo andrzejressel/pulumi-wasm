@@ -80,7 +80,7 @@ pub mod policy_attachment {
         pub name: pulumi_wasm_rust::Output<Option<String>>,
         /// ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
         #[builder(into)]
-        pub policy_arn: pulumi_wasm_rust::Output<super::super::types::Arn>,
+        pub policy_arn: pulumi_wasm_rust::Output<String>,
         /// Role(s) the policy should be applied to.
         #[builder(into, default)]
         pub roles: pulumi_wasm_rust::Output<Option<Vec<String>>>,
@@ -95,7 +95,7 @@ pub mod policy_attachment {
         /// Name of the attachment. This cannot be an empty string.
         pub name: pulumi_wasm_rust::Output<String>,
         /// ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
-        pub policy_arn: pulumi_wasm_rust::Output<super::super::types::Arn>,
+        pub policy_arn: pulumi_wasm_rust::Output<String>,
         /// Role(s) the policy should be applied to.
         pub roles: pulumi_wasm_rust::Output<Option<Vec<String>>>,
         /// User(s) the policy should be applied to.

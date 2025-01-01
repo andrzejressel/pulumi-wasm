@@ -334,7 +334,7 @@ pub mod function {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub role: pulumi_wasm_rust::Output<super::super::types::Arn>,
+        pub role: pulumi_wasm_rust::Output<String>,
         /// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
         #[builder(into, default)]
         pub runtime: pulumi_wasm_rust::Output<Option<String>>,
@@ -454,7 +454,7 @@ pub mod function {
         /// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
         ///
         /// The following arguments are optional:
-        pub role: pulumi_wasm_rust::Output<super::super::types::Arn>,
+        pub role: pulumi_wasm_rust::Output<String>,
         /// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
         pub runtime: pulumi_wasm_rust::Output<Option<String>>,
         /// S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.

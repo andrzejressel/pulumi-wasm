@@ -139,9 +139,7 @@ pub mod environment {
         /// The name of the Elastic Beanstalk Application Version
         /// to use in deployment.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::Output<
-            Option<super::super::types::elasticbeanstalk::ApplicationVersion>,
-        >,
+        pub version: pulumi_wasm_rust::Output<Option<String>>,
         /// The maximum
         /// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
         /// wait for an Elastic Beanstalk Environment to be in a ready state before timing
@@ -218,9 +216,7 @@ pub mod environment {
         pub triggers: pulumi_wasm_rust::Output<Vec<String>>,
         /// The name of the Elastic Beanstalk Application Version
         /// to use in deployment.
-        pub version: pulumi_wasm_rust::Output<
-            super::super::types::elasticbeanstalk::ApplicationVersion,
-        >,
+        pub version: pulumi_wasm_rust::Output<String>,
         /// The maximum
         /// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
         /// wait for an Elastic Beanstalk Environment to be in a ready state before timing
