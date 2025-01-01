@@ -10,14 +10,23 @@ CARGO_LLVM_COV_VERSION := "0.6.13"
 # renovate: datasource=crate depName=cargo-hack packageName=cargo-hack
 CARGO_HACK_VERSION := "0.6.33"
 
-FORMATTABLE_PROJECTS := "-p pulumi_wasm -p pulumi_wasm_common -p pulumi_wasm_build -p pulumi_wasm_generator \
--p pulumi_wasm_runner -p pulumi_wasm_runner_component_creator -p pulumi_wasm_rust -p pulumi_wasm_rust_macro \
--p pulumi_wasm_example_dependencies -p pulumi_wasm_example_docker -p pulumi_wasm_example_multiple_providers \
--p pulumi_wasm_example_simple -p pulumi_wasm_example_typesystem -p regenerator"
+@default: build-language-plugin regenerator install-requirements build-wasm-components build-wasm-components-release test-all rust-docs fmt
 
-@default: build test
+# Checks formatting and regenerator
+househeeping-ci-flow: regenerator fmt
 
-build: build-language-plugin regenerator install-requirements build-wasm-components build-wasm-components-release fmt
+# Runs all amd64 unit and doc tests tests
+base-ci-flow: test
+
+# Runs all examples/*
+examples-ci-flow: build-language-plugin build-wasm-components build-wasm-components-release test-examples
+
+# Regenerates provider from generator's integration test
+generator-ci-flow COMPILATION_NAME:
+    just test-provider-compilation {{COMPILATION_NAME}}
+
+# Test docs examples and creates docs
+test-docs-ci-flow: test-docs
 
 # https://stackoverflow.com/questions/74524817/why-is-anyhow-not-working-in-the-stable-version
 fix-issues:
@@ -57,18 +66,18 @@ build-wasm-components-release:
     cargo component build -p pulumi_wasm_example_multiple_providers --release
 
 check:
-    cargo fmt {{FORMATTABLE_PROJECTS}} -- --check
+    cargo fmt -- --check
 
 fmt:
     cd pulumi-language-wasm && just fmt
-    cargo fmt {{FORMATTABLE_PROJECTS}}
+    cargo fmt
 
 fmt-clippy:
-    cargo clippy --all-features --fix --allow-dirty --allow-staged {{FORMATTABLE_PROJECTS}}
+    cargo clippy --all-features --fix --allow-dirty --allow-staged
     just fmt
 
 clippy-to-file:
-    cargo clippy --all-features --message-format=json {{FORMATTABLE_PROJECTS}} | clippy-sarif | tee rust-clippy-results.sarif | sarif-fmt
+    cargo clippy --all-features --message-format=json | clippy-sarif | tee rust-clippy-results.sarif | sarif-fmt
 
 regenerator:
     cargo run -p regenerator
@@ -85,21 +94,34 @@ publish:
     cargo hack publish -p pulumi_wasm_runner_component_creator --all-features --no-dev-deps --allow-dirty
     cargo hack publish -p pulumi_wasm_runner --all-features --no-dev-deps --allow-dirty
 
-test:
-    cargo nextest run --profile ci --workspace --timings
-    cargo test --doc --workspace
-    just rust-docs
+test-provider-compilation COMPILATION_NAME:
+    cargo llvm-cov nextest -p pulumi_wasm_generator --cobertura --output-path covertura.xml --features generator_{{COMPILATION_NAME}} --test '*'
 
-test-coverage:
-    cargo llvm-cov --no-report -p pulumi_wasm_core -p pulumi_wasm_generator
-    cargo llvm-cov report --lcov --output-path lcov.info
+test-examples:
+    cargo llvm-cov nextest \
+        -p pulumi_wasm_example_simple \
+        -p pulumi_wasm_example_docker \
+        -p pulumi_wasm_example_dependencies \
+        -p pulumi_wasm_example_multiple_providers \
+        -p pulumi_wasm_example_typesystem \
+        --cobertura --output-path covertura.xml --features example_test
+
+test-all:
+    cargo llvm-cov nextest --workspace --cobertura --output-path covertura.xml --all-features
+
+test:
+    cargo llvm-cov nextest --workspace --cobertura --output-path covertura.xml
 
 docs:
     docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material
 
+test-docs:
+    cargo test --doc --workspace
+    just rust-docs
+
 # DO NOT EDIT - GENERATE-RUST-DOCS - START
 rust-docs:
-    cargo doc --no-deps -p pulumi_wasm_rust -p pulumi_wasm_build -p pulumi_wasm_providers_docker -p pulumi_wasm_providers_random -p pulumi_wasm_providers_cloudflare
+    cargo doc --no-deps -p pulumi_wasm_rust -p pulumi_wasm_build -p pulumi_wasm_providers_cloudflare -p pulumi_wasm_providers_docker -p pulumi_wasm_providers_random
 # DO NOT EDIT - GENERATE-RUST-DOCS - END
 
 update-version NEW_VERSION:

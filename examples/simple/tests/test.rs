@@ -5,6 +5,7 @@ use std::process::Command;
 use std::str;
 
 #[test]
+#[cfg_attr(not(feature = "example_test"), ignore)]
 fn test_integration() -> Result<(), anyhow::Error> {
     let github_token_env_vars = if let Ok(token) = std::env::var("GITHUB_TOKEN") {
         vec![("GITHUB_TOKEN".to_string(), token)]

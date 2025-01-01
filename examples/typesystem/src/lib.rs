@@ -1,4 +1,5 @@
 #[cfg(test)]
+#[cfg_attr(not(feature = "example_test"), ignore)]
 mod tests {
     use pulumi_wasm_providers_typesystem::deep::nested::module::some_resource::SomeResourceArgs;
     use pulumi_wasm_providers_typesystem::types::{
