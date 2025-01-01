@@ -157,7 +157,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+# DO NOT EDIT - PROVIDER START
         provider: [cloudflare, docker, random]
+# DO NOT EDIT - PROVIDER END
     steps:
       - uses: actions/checkout@v4
         with:

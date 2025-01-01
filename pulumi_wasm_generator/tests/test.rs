@@ -99,6 +99,12 @@ fn unions_inside_arrays() -> Result<()> {
 }
 
 #[test]
+#[cfg_attr(not(feature = "cloudflare"), ignore)]
+fn cloudflare() -> Result<()> {
+    run_pulumi_generator_test("cloudflare")
+}
+
+#[test]
 #[cfg_attr(not(feature = "docker"), ignore)]
 fn docker() -> Result<()> {
     run_pulumi_generator_test("docker")
@@ -108,12 +114,6 @@ fn docker() -> Result<()> {
 #[cfg_attr(not(feature = "random"), ignore)]
 fn random() -> Result<()> {
     run_pulumi_generator_test("random")
-}
-
-#[test]
-#[cfg_attr(not(feature = "cloudflare"), ignore)]
-fn cloudflare() -> Result<()> {
-    run_pulumi_generator_test("cloudflare")
 }
 // DO NOT EDIT - END
 

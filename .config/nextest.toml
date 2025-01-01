@@ -1,2 +1,2 @@
-[profile.default.junit]  # this can be some other profile, too
+[profile.default.junit]
 path = "junit.xml"

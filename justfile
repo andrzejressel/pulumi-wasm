@@ -103,7 +103,7 @@ docs:
 
 # DO NOT EDIT - GENERATE-RUST-DOCS - START
 rust-docs:
-    cargo doc --no-deps -p pulumi_wasm_rust -p pulumi_wasm_build -p pulumi_wasm_providers_docker -p pulumi_wasm_providers_random -p pulumi_wasm_providers_cloudflare
+    cargo doc --no-deps -p pulumi_wasm_rust -p pulumi_wasm_build -p pulumi_wasm_providers_cloudflare -p pulumi_wasm_providers_docker -p pulumi_wasm_providers_random
 # DO NOT EDIT - GENERATE-RUST-DOCS - END
 
 update-version NEW_VERSION:
