@@ -55,6 +55,10 @@ jobs:
           version: "25.3"
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       - run: protoc --version
+      - uses: Swatinem/rust-cache@v2
+        with:
+          shared-key: build-examples
+          save-if: false
 
       - name: Publish to registry
         run: just publish
@@ -111,7 +115,7 @@ jobs:
 
       - uses: Swatinem/rust-cache@v2
         with:
-          shared-key: build-base
+          shared-key: build-examples
           save-if: false
 
       - name: Build
@@ -242,7 +246,7 @@ jobs:
 
       - uses: Swatinem/rust-cache@v2
         with:
-          shared-key: build-base
+          shared-key: build-examples
           save-if: false
       - name: Add target
         run: rustup target add ${{ matrix.rust-target }}
