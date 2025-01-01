@@ -111,7 +111,7 @@ jobs:
 
       - uses: Swatinem/rust-cache@v2
         with:
-          shared-key: build
+          shared-key: build-base
           save-if: false
 
       - name: Build

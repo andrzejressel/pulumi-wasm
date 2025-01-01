@@ -25,6 +25,9 @@ examples-ci-flow: build-language-plugin build-wasm-components build-wasm-compone
 generator-ci-flow COMPILATION_NAME:
     just test-provider-compilation {{COMPILATION_NAME}}
 
+# Test docs examples and creates docs
+test-docs-ci-flow: test-docs
+
 # https://stackoverflow.com/questions/74524817/why-is-anyhow-not-working-in-the-stable-version
 fix-issues:
     cargo component check --workspace
@@ -104,17 +107,18 @@ test-examples:
         --cobertura --output-path covertura.xml --features example_test
 
 test-all:
-    cargo test --doc --workspace
     cargo llvm-cov nextest --workspace --cobertura --output-path covertura.xml --all-features
     just rust-docs
 
 test:
-    cargo test --doc --workspace
     cargo llvm-cov nextest --workspace --cobertura --output-path covertura.xml
-    just rust-docs
 
 docs:
     docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material
+
+test-docs:
+    cargo test --doc --workspace
+    just rust-docs
 
 # DO NOT EDIT - GENERATE-RUST-DOCS - START
 rust-docs:

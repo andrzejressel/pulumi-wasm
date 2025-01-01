@@ -54,6 +54,8 @@ jobs:
       - run: pulumi version
       - run: pulumi login --local
       - uses: Swatinem/rust-cache@v2
+        with:
+          shared-key: build-base
       - run: just base-ci-flow
       - name: Upload coverage data to codecov
         uses: codecov/codecov-action@v5
@@ -170,6 +172,49 @@ jobs:
       - name: Ensure no files have changed
         run: git add . && git diff --quiet && git diff --cached --quiet
 
+  build-rust-docs:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-2022, macos-14]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - uses: extractions/setup-just@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: cargo-bins/cargo-binstall@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install requirements
+        run: just install-requirements
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: brew install pulumi
+        if: runner.os == 'macOS'
+      - run: pulumi version
+      - run: pulumi login --local
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '^1.22.0'
+          cache-dependency-path: "**/go.sum"
+      - uses: Swatinem/rust-cache@v2
+      - name: Cache Pulumi providers
+        uses: actions/cache@v4
+        with:
+          path: ~/.pulumi/plugins
+          key: ${{ runner.os }}-pulumi-${{ hashFiles('regenerator/src/main.rs') }}
+          restore-keys: |
+            ${{ runner.os }}-pulumi-
+      - run: just test-docs-ci-flow
+      - run: git add . && git diff
+      - run: git diff --cached
+      - name: Ensure no files have changed
+        run: git add . && git diff --quiet && git diff --cached --quiet
+
   build-examples:
     runs-on: ${{ matrix.os }}
 
@@ -240,7 +285,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-24.04
-    needs: [build-base, build-generated-provider, build-examples, build-housekeeping]
+    needs: [build-base, build-generated-provider, build-examples, build-housekeeping, build-rust-docs]
     if: success() && github.ref == 'refs/heads/main'
     steps:
     - name: Cleanup unused stuff
