@@ -26,7 +26,7 @@ pub mod get_inference_profile {
         >,
         /// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
         pub status: pulumi_wasm_rust::Output<String>,
-        /// The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock.
+        /// The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
         pub type_: pulumi_wasm_rust::Output<String>,
         /// The time at which the inference profile was last updated.
         pub updated_at: pulumi_wasm_rust::Output<String>,

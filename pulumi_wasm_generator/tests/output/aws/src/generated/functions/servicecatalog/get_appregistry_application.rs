@@ -20,6 +20,8 @@ pub mod get_appregistry_application {
         pub id: pulumi_wasm_rust::Output<String>,
         /// Name of the application.
         pub name: pulumi_wasm_rust::Output<String>,
+        /// A map of tags assigned to the Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
@@ -56,6 +58,9 @@ pub mod get_appregistry_application {
                 register_interface::ResultField {
                     name: "name".into(),
                 },
+                register_interface::ResultField {
+                    name: "tags".into(),
+                },
             ]),
         };
         let o = register_interface::invoke(&request);
@@ -77,6 +82,9 @@ pub mod get_appregistry_application {
             id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
             name: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("name").unwrap(),
+            ),
+            tags: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("tags").unwrap(),
             ),
         }
     }

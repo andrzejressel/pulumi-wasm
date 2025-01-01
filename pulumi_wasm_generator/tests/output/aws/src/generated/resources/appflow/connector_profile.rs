@@ -21,7 +21,7 @@
 ///           Statement:
 ///             - Action: sts:AssumeRole
 ///               Effect: Allow
-///               Sid:
+///               Sid: ""
 ///               Principal:
 ///                 Service: ec2.amazonaws.com
 ///   exampleBucketV2:
@@ -59,8 +59,8 @@
 /// variables:
 ///   example:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicy
-///       Arguments:
+///       function: aws:iam:getPolicy
+///       arguments:
 ///         name: AmazonRedshiftAllCommandsFullAccess
 /// ```
 ///

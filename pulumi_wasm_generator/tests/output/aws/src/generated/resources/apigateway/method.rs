@@ -74,8 +74,8 @@
 /// variables:
 ///   this:
 ///     fn::invoke:
-///       Function: aws:cognito:getUserPools
-///       Arguments:
+///       function: aws:cognito:getUserPools
+///       arguments:
 ///         name: ${cognitoUserPoolName}
 /// ```
 ///

@@ -6,39 +6,39 @@
 ///
 /// ### Basic
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let test = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["execute-api:Invoke",])
-///                     .conditions(vec![GetPolicyDocumentStatementCondition::builder()
-///                     .test("IpAddress").values(vec!["123.123.123.123/32",])
-///                     .variable("aws:SourceIp").build_struct(),]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["*",]). type ("AWS").build_struct(),])
-///                     .resources(vec!["${testRestApi.executionArn}",]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let testRestApi = rest_api::create(
-///         "testRestApi",
-///         RestApiArgs::builder().name("example-rest-api").build_struct(),
-///     );
-///     let testRestApiPolicy = rest_api_policy::create(
-///         "testRestApiPolicy",
-///         RestApiPolicyArgs::builder()
-///             .policy("${test.json}")
-///             .rest_api_id("${testRestApi.id}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   testRestApi:
+///     type: aws:apigateway:RestApi
+///     name: test
+///     properties:
+///       name: example-rest-api
+///   testRestApiPolicy:
+///     type: aws:apigateway:RestApiPolicy
+///     name: test
+///     properties:
+///       restApiId: ${testRestApi.id}
+///       policy: ${test.json}
+/// variables:
+///   test:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: AWS
+///                 identifiers:
+///                   - '*'
+///             actions:
+///               - execute-api:Invoke
+///             resources:
+///               - ${testRestApi.executionArn}
+///             conditions:
+///               - test: IpAddress
+///                 variable: aws:SourceIp
+///                 values:
+///                   - 123.123.123.123/32
 /// ```
 ///
 /// ## Import

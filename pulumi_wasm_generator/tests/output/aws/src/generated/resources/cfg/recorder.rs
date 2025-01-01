@@ -6,36 +6,31 @@
 ///
 /// ### Basic Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let assumeRole = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sts:AssumeRole",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["config.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let foo = recorder::create(
-///         "foo",
-///         RecorderArgs::builder().name("example").role_arn("${r.arn}").build_struct(),
-///     );
-///     let r = role::create(
-///         "r",
-///         RoleArgs::builder()
-///             .assume_role_policy("${assumeRole.json}")
-///             .name("awsconfig-example")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   foo:
+///     type: aws:cfg:Recorder
+///     properties:
+///       name: example
+///       roleArn: ${r.arn}
+///   r:
+///     type: aws:iam:Role
+///     properties:
+///       name: awsconfig-example
+///       assumeRolePolicy: ${assumeRole.json}
+/// variables:
+///   assumeRole:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - config.amazonaws.com
+///             actions:
+///               - sts:AssumeRole
 /// ```
 ///
 /// ### Exclude Resources Types Usage

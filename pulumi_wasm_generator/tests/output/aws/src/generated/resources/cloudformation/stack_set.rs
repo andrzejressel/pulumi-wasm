@@ -49,8 +49,8 @@
 /// variables:
 ///   aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - actions:
 ///               - sts:AssumeRole
@@ -61,8 +61,8 @@
 ///                 type: Service
 ///   aWSCloudFormationStackSetAdministrationRoleExecutionPolicy:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - actions:
 ///               - sts:AssumeRole

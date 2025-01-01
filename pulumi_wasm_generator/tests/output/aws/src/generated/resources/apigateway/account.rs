@@ -4,59 +4,54 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let assumeRole = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sts:AssumeRole",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["apigateway.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let cloudwatch = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["logs:CreateLogGroup", "logs:CreateLogStream",
-///                     "logs:DescribeLogGroups", "logs:DescribeLogStreams",
-///                     "logs:PutLogEvents", "logs:GetLogEvents", "logs:FilterLogEvents",])
-///                     .effect("Allow").resources(vec!["*",]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let cloudwatchRole = role::create(
-///         "cloudwatchRole",
-///         RoleArgs::builder()
-///             .assume_role_policy("${assumeRole.json}")
-///             .name("api_gateway_cloudwatch_global")
-///             .build_struct(),
-///     );
-///     let cloudwatchRolePolicy = role_policy::create(
-///         "cloudwatchRolePolicy",
-///         RolePolicyArgs::builder()
-///             .name("default")
-///             .policy("${cloudwatch.json}")
-///             .role("${cloudwatchRole.id}")
-///             .build_struct(),
-///     );
-///     let demo = account::create(
-///         "demo",
-///         AccountArgs::builder()
-///             .cloudwatch_role_arn("${cloudwatchRole.arn}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   demo:
+///     type: aws:apigateway:Account
+///     properties:
+///       cloudwatchRoleArn: ${cloudwatchRole.arn}
+///   cloudwatchRole:
+///     type: aws:iam:Role
+///     name: cloudwatch
+///     properties:
+///       name: api_gateway_cloudwatch_global
+///       assumeRolePolicy: ${assumeRole.json}
+///   cloudwatchRolePolicy:
+///     type: aws:iam:RolePolicy
+///     name: cloudwatch
+///     properties:
+///       name: default
+///       role: ${cloudwatchRole.id}
+///       policy: ${cloudwatch.json}
+/// variables:
+///   assumeRole:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - apigateway.amazonaws.com
+///             actions:
+///               - sts:AssumeRole
+///   cloudwatch:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             actions:
+///               - logs:CreateLogGroup
+///               - logs:CreateLogStream
+///               - logs:DescribeLogGroups
+///               - logs:DescribeLogStreams
+///               - logs:PutLogEvents
+///               - logs:GetLogEvents
+///               - logs:FilterLogEvents
+///             resources:
+///               - '*'
 /// ```
 ///
 /// ## Import

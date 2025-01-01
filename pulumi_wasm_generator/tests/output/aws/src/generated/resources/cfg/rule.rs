@@ -8,66 +8,59 @@
 ///
 /// AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let assumeRole = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sts:AssumeRole",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["config.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let p = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder().actions(vec!["config:Put*",])
-///                     .effect("Allow").resources(vec!["*",]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let foo = recorder::create(
-///         "foo",
-///         RecorderArgs::builder().name("example").role_arn("${rRole.arn}").build_struct(),
-///     );
-///     let pRolePolicy = role_policy::create(
-///         "pRolePolicy",
-///         RolePolicyArgs::builder()
-///             .name("my-awsconfig-policy")
-///             .policy("${p.json}")
-///             .role("${rRole.id}")
-///             .build_struct(),
-///     );
-///     let r = rule::create(
-///         "r",
-///         RuleArgs::builder()
-///             .name("example")
-///             .source(
-///                 RuleSource::builder()
-///                     .owner("AWS")
-///                     .sourceIdentifier("S3_BUCKET_VERSIONING_ENABLED")
-///                     .build_struct(),
-///             )
-///             .build_struct(),
-///     );
-///     let rRole = role::create(
-///         "rRole",
-///         RoleArgs::builder()
-///             .assume_role_policy("${assumeRole.json}")
-///             .name("my-awsconfig-role")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   r:
+///     type: aws:cfg:Rule
+///     properties:
+///       name: example
+///       source:
+///         owner: AWS
+///         sourceIdentifier: S3_BUCKET_VERSIONING_ENABLED
+///     options:
+///       dependsOn:
+///         - ${foo}
+///   foo:
+///     type: aws:cfg:Recorder
+///     properties:
+///       name: example
+///       roleArn: ${rRole.arn}
+///   rRole:
+///     type: aws:iam:Role
+///     name: r
+///     properties:
+///       name: my-awsconfig-role
+///       assumeRolePolicy: ${assumeRole.json}
+///   pRolePolicy:
+///     type: aws:iam:RolePolicy
+///     name: p
+///     properties:
+///       name: my-awsconfig-policy
+///       role: ${rRole.id}
+///       policy: ${p.json}
+/// variables:
+///   assumeRole:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - config.amazonaws.com
+///             actions:
+///               - sts:AssumeRole
+///   p:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             actions:
+///               - config:Put*
+///             resources:
+///               - '*'
 /// ```
 ///
 /// ### Custom Rules

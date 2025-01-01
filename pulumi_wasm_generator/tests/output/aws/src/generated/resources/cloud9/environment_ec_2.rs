@@ -22,54 +22,50 @@
 ///
 /// Get the URL of the Cloud9 environment after creation:
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let cloud9Instance = get_instance::invoke(
-///         GetInstanceArgs::builder()
-///             .filters(
-///                 vec![
-///                     GetInstanceFilter::builder().name("tag:aws:cloud9:environment")
-///                     .values(vec!["${example.id}",]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let example = environment_ec_2::create(
-///         "example",
-///         EnvironmentEc2Args::builder().instance_type("t2.micro").build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:cloud9:EnvironmentEC2
+///     properties:
+///       instanceType: t2.micro
+/// variables:
+///   cloud9Instance:
+///     fn::invoke:
+///       function: aws:ec2:getInstance
+///       arguments:
+///         filters:
+///           - name: tag:aws:cloud9:environment
+///             values:
+///               - ${example.id}
+/// outputs:
+///   cloud9Url: https://${region}.console.aws.amazon.com/cloud9/ide/${example.id}
 /// ```
 ///
 /// Allocate a static IP to the Cloud9 environment:
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let cloud9Instance = get_instance::invoke(
-///         GetInstanceArgs::builder()
-///             .filters(
-///                 vec![
-///                     GetInstanceFilter::builder().name("tag:aws:cloud9:environment")
-///                     .values(vec!["${example.id}",]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let cloud9Eip = eip::create(
-///         "cloud9Eip",
-///         EipArgs::builder().domain("vpc").instance("${cloud9Instance.id}").build_struct(),
-///     );
-///     let example = environment_ec_2::create(
-///         "example",
-///         EnvironmentEc2Args::builder().instance_type("t2.micro").build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:cloud9:EnvironmentEC2
+///     properties:
+///       instanceType: t2.micro
+///   cloud9Eip:
+///     type: aws:ec2:Eip
+///     name: cloud9_eip
+///     properties:
+///       instance: ${cloud9Instance.id}
+///       domain: vpc
+/// variables:
+///   cloud9Instance:
+///     fn::invoke:
+///       function: aws:ec2:getInstance
+///       arguments:
+///         filters:
+///           - name: tag:aws:cloud9:environment
+///             values:
+///               - ${example.id}
+/// outputs:
+///   cloud9PublicIp: ${cloud9Eip.publicIp}
 /// ```
 pub mod environment_ec_2 {
     #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]

@@ -2,45 +2,45 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_caller_identity::invoke(
-///         GetCallerIdentityArgs::builder().build_struct(),
-///     );
-///     let example = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["backup:DescribeBackupVault",
-///                     "backup:DeleteBackupVault", "backup:PutBackupVaultAccessPolicy",
-///                     "backup:DeleteBackupVaultAccessPolicy",
-///                     "backup:GetBackupVaultAccessPolicy", "backup:StartBackupJob",
-///                     "backup:GetBackupVaultNotifications",
-///                     "backup:PutBackupVaultNotifications",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["${current.accountId}",]). type ("AWS")
-///                     .build_struct(),]).resources(vec!["${exampleVault.arn}",])
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let exampleVault = vault::create(
-///         "exampleVault",
-///         VaultArgs::builder().name("example").build_struct(),
-///     );
-///     let exampleVaultPolicy = vault_policy::create(
-///         "exampleVaultPolicy",
-///         VaultPolicyArgs::builder()
-///             .backup_vault_name("${exampleVault.name}")
-///             .policy("${example.json}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleVault:
+///     type: aws:backup:Vault
+///     name: example
+///     properties:
+///       name: example
+///   exampleVaultPolicy:
+///     type: aws:backup:VaultPolicy
+///     name: example
+///     properties:
+///       backupVaultName: ${exampleVault.name}
+///       policy: ${example.json}
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getCallerIdentity
+///       arguments: {}
+///   example:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: AWS
+///                 identifiers:
+///                   - ${current.accountId}
+///             actions:
+///               - backup:DescribeBackupVault
+///               - backup:DeleteBackupVault
+///               - backup:PutBackupVaultAccessPolicy
+///               - backup:DeleteBackupVaultAccessPolicy
+///               - backup:GetBackupVaultAccessPolicy
+///               - backup:StartBackupJob
+///               - backup:GetBackupVaultNotifications
+///               - backup:PutBackupVaultNotifications
+///             resources:
+///               - ${exampleVault.arn}
 /// ```
 ///
 /// ## Import

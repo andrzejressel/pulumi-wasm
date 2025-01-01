@@ -4,47 +4,49 @@
 ///
 /// ### Basic
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["acm-pca:DescribeCertificateAuthority",
-///                     "acm-pca:GetCertificate",
-///                     "acm-pca:GetCertificateAuthorityCertificate",
-///                     "acm-pca:ListPermissions", "acm-pca:ListTags",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["${current.accountId}",]). type ("AWS")
-///                     .build_struct(),])
-///                     .resources(vec!["${exampleAwsAcmpcaCertificateAuthority.arn}",])
-///                     .sid("1").build_struct(), GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["acm-pca:IssueCertificate",])
-///                     .conditions(vec![GetPolicyDocumentStatementCondition::builder()
-///                     .test("StringEquals")
-///                     .values(vec!["arn:aws:acm-pca:::template/EndEntityCertificate/V1",])
-///                     .variable("acm-pca:TemplateArn").build_struct(),]).effect("${allow}")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["${current.accountId}",]). type ("AWS")
-///                     .build_struct(),])
-///                     .resources(vec!["${exampleAwsAcmpcaCertificateAuthority.arn}",])
-///                     .sid("2").build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let examplePolicy = policy::create(
-///         "examplePolicy",
-///         PolicyArgs::builder()
-///             .policy("${example.json}")
-///             .resource_arn("${exampleAwsAcmpcaCertificateAuthority.arn}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   examplePolicy:
+///     type: aws:acmpca:Policy
+///     name: example
+///     properties:
+///       resourceArn: ${exampleAwsAcmpcaCertificateAuthority.arn}
+///       policy: ${example.json}
+/// variables:
+///   example:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - sid: '1'
+///             effect: Allow
+///             principals:
+///               - type: AWS
+///                 identifiers:
+///                   - ${current.accountId}
+///             actions:
+///               - acm-pca:DescribeCertificateAuthority
+///               - acm-pca:GetCertificate
+///               - acm-pca:GetCertificateAuthorityCertificate
+///               - acm-pca:ListPermissions
+///               - acm-pca:ListTags
+///             resources:
+///               - ${exampleAwsAcmpcaCertificateAuthority.arn}
+///           - sid: '2'
+///             effect: ${allow}
+///             principals:
+///               - type: AWS
+///                 identifiers:
+///                   - ${current.accountId}
+///             actions:
+///               - acm-pca:IssueCertificate
+///             resources:
+///               - ${exampleAwsAcmpcaCertificateAuthority.arn}
+///             conditions:
+///               - test: StringEquals
+///                 variable: acm-pca:TemplateArn
+///                 values:
+///                   - arn:aws:acm-pca:::template/EndEntityCertificate/V1
 /// ```
 ///
 /// ## Import

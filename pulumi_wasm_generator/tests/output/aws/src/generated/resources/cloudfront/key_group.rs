@@ -10,10 +10,10 @@
 ///       comment: example public key
 ///       encodedKey:
 ///         fn::invoke:
-///           Function: std:file
-///           Arguments:
+///           function: std:file
+///           arguments:
 ///             input: public_key.pem
-///           Return: result
+///           return: result
 ///       name: example-key
 ///   exampleKeyGroup:
 ///     type: aws:cloudfront:KeyGroup

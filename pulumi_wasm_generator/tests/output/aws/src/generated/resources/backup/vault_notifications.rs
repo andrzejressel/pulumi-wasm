@@ -2,46 +2,45 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let test = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .policy_id("__default_policy_ID")
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder().actions(vec!["SNS:Publish",])
-///                     .effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["backup.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).resources(vec!["${testTopic.arn}",])
-///                     .sid("__default_statement_ID").build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let testTopic = topic::create(
-///         "testTopic",
-///         TopicArgs::builder().name("backup-vault-events").build_struct(),
-///     );
-///     let testTopicPolicy = topic_policy::create(
-///         "testTopicPolicy",
-///         TopicPolicyArgs::builder()
-///             .arn("${testTopic.arn}")
-///             .policy("${test.json}")
-///             .build_struct(),
-///     );
-///     let testVaultNotifications = vault_notifications::create(
-///         "testVaultNotifications",
-///         VaultNotificationsArgs::builder()
-///             .backup_vault_events(vec!["BACKUP_JOB_STARTED", "RESTORE_JOB_COMPLETED",])
-///             .backup_vault_name("example_backup_vault")
-///             .sns_topic_arn("${testTopic.arn}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   testTopic:
+///     type: aws:sns:Topic
+///     name: test
+///     properties:
+///       name: backup-vault-events
+///   testTopicPolicy:
+///     type: aws:sns:TopicPolicy
+///     name: test
+///     properties:
+///       arn: ${testTopic.arn}
+///       policy: ${test.json}
+///   testVaultNotifications:
+///     type: aws:backup:VaultNotifications
+///     name: test
+///     properties:
+///       backupVaultName: example_backup_vault
+///       snsTopicArn: ${testTopic.arn}
+///       backupVaultEvents:
+///         - BACKUP_JOB_STARTED
+///         - RESTORE_JOB_COMPLETED
+/// variables:
+///   test:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         policyId: __default_policy_ID
+///         statements:
+///           - actions:
+///               - SNS:Publish
+///             effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - backup.amazonaws.com
+///             resources:
+///               - ${testTopic.arn}
+///             sid: __default_statement_ID
 /// ```
 ///
 /// ## Import

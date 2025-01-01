@@ -100,10 +100,17 @@
 ///
 /// ## Import
 ///
-/// Using `pulumi import`, import API Gateway domain names using their `name`. For example:
+/// For a private custom domain name:
+///
+/// Using `pulumi import`, import API Gateway domain names using their `name` or `name` and `domain_name_id` (for private custom domain names). For example:
 ///
 /// ```sh
 /// $ pulumi import aws:apigateway/domainName:DomainName example dev.example.com
+/// ```
+/// For a private custom domain name:
+///
+/// ```sh
+/// $ pulumi import aws:apigateway/domainName:DomainName example dev.api.internal.example.com/abcde12345
 /// ```
 pub mod domain_name {
     #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
@@ -143,6 +150,9 @@ pub mod domain_name {
         pub ownership_verification_certificate_arn: pulumi_wasm_rust::Output<
             Option<String>,
         >,
+        /// A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+        #[builder(into, default)]
+        pub policy: pulumi_wasm_rust::Output<Option<String>>,
         /// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
         ///
         /// When uploading a certificate, the following arguments are supported:
@@ -184,6 +194,8 @@ pub mod domain_name {
         pub cloudfront_zone_id: pulumi_wasm_rust::Output<String>,
         /// Fully-qualified domain name to register.
         pub domain_name: pulumi_wasm_rust::Output<String>,
+        /// The identifier for the domain name resource. Supported only for private custom domain names.
+        pub domain_name_id: pulumi_wasm_rust::Output<String>,
         /// Configuration block defining API endpoint information including type. See below.
         pub endpoint_configuration: pulumi_wasm_rust::Output<
             super::super::types::apigateway::DomainNameEndpointConfiguration,
@@ -194,6 +206,8 @@ pub mod domain_name {
         >,
         /// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
         pub ownership_verification_certificate_arn: pulumi_wasm_rust::Output<String>,
+        /// A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+        pub policy: pulumi_wasm_rust::Output<Option<String>>,
         /// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
         ///
         /// When uploading a certificate, the following arguments are supported:
@@ -237,6 +251,7 @@ pub mod domain_name {
         let ownership_verification_certificate_arn_binding = args
             .ownership_verification_certificate_arn
             .get_inner();
+        let policy_binding = args.policy.get_inner();
         let regional_certificate_arn_binding = args.regional_certificate_arn.get_inner();
         let regional_certificate_name_binding = args
             .regional_certificate_name
@@ -282,6 +297,10 @@ pub mod domain_name {
                 register_interface::ObjectField {
                     name: "ownershipVerificationCertificateArn".into(),
                     value: &ownership_verification_certificate_arn_binding,
+                },
+                register_interface::ObjectField {
+                    name: "policy".into(),
+                    value: &policy_binding,
                 },
                 register_interface::ObjectField {
                     name: "regionalCertificateArn".into(),
@@ -332,6 +351,9 @@ pub mod domain_name {
                     name: "domainName".into(),
                 },
                 register_interface::ResultField {
+                    name: "domainNameId".into(),
+                },
+                register_interface::ResultField {
                     name: "endpointConfiguration".into(),
                 },
                 register_interface::ResultField {
@@ -339,6 +361,9 @@ pub mod domain_name {
                 },
                 register_interface::ResultField {
                     name: "ownershipVerificationCertificateArn".into(),
+                },
+                register_interface::ResultField {
+                    name: "policy".into(),
                 },
                 register_interface::ResultField {
                     name: "regionalCertificateArn".into(),
@@ -400,6 +425,9 @@ pub mod domain_name {
             domain_name: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("domainName").unwrap(),
             ),
+            domain_name_id: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("domainNameId").unwrap(),
+            ),
             endpoint_configuration: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("endpointConfiguration").unwrap(),
             ),
@@ -408,6 +436,9 @@ pub mod domain_name {
             ),
             ownership_verification_certificate_arn: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("ownershipVerificationCertificateArn").unwrap(),
+            ),
+            policy: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("policy").unwrap(),
             ),
             regional_certificate_arn: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("regionalCertificateArn").unwrap(),

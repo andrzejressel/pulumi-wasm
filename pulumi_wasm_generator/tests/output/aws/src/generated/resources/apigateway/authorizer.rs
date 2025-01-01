@@ -45,15 +45,15 @@
 ///       handler: exports.example
 ///       sourceCodeHash:
 ///         fn::invoke:
-///           Function: std:filebase64sha256
-///           Arguments:
+///           function: std:filebase64sha256
+///           arguments:
 ///             input: lambda-function.zip
-///           Return: result
+///           return: result
 /// variables:
 ///   invocationAssumeRole:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - effect: Allow
 ///             principals:
@@ -64,8 +64,8 @@
 ///               - sts:AssumeRole
 ///   invocationPolicy:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - effect: Allow
 ///             actions:
@@ -74,8 +74,8 @@
 ///               - ${authorizer.arn}
 ///   lambdaAssumeRole:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - effect: Allow
 ///             actions:

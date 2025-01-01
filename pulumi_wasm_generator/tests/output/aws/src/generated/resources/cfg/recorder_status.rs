@@ -4,80 +4,73 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let assumeRole = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sts:AssumeRole",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["config.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let p = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder().actions(vec!["s3:*",])
-///                     .effect("Allow").resources(vec!["${b.arn}", "${b.arn}/*",])
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let a = role_policy_attachment::create(
-///         "a",
-///         RolePolicyAttachmentArgs::builder()
-///             .policy_arn("arn:aws:iam::aws:policy/service-role/AWS_ConfigRole")
-///             .role("${r.name}")
-///             .build_struct(),
-///     );
-///     let b = bucket_v_2::create(
-///         "b",
-///         BucketV2Args::builder().bucket("awsconfig-example").build_struct(),
-///     );
-///     let foo = recorder_status::create(
-///         "foo",
-///         RecorderStatusArgs::builder()
-///             .is_enabled(true)
-///             .name("${fooRecorder.name}")
-///             .build_struct(),
-///     );
-///     let fooDeliveryChannel = delivery_channel::create(
-///         "fooDeliveryChannel",
-///         DeliveryChannelArgs::builder()
-///             .name("example")
-///             .s_3_bucket_name("${b.bucket}")
-///             .build_struct(),
-///     );
-///     let fooRecorder = recorder::create(
-///         "fooRecorder",
-///         RecorderArgs::builder().name("example").role_arn("${r.arn}").build_struct(),
-///     );
-///     let pRolePolicy = role_policy::create(
-///         "pRolePolicy",
-///         RolePolicyArgs::builder()
-///             .name("awsconfig-example")
-///             .policy("${p.json}")
-///             .role("${r.id}")
-///             .build_struct(),
-///     );
-///     let r = role::create(
-///         "r",
-///         RoleArgs::builder()
-///             .assume_role_policy("${assumeRole.json}")
-///             .name("example-awsconfig")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   foo:
+///     type: aws:cfg:RecorderStatus
+///     properties:
+///       name: ${fooRecorder.name}
+///       isEnabled: true
+///     options:
+///       dependsOn:
+///         - ${fooDeliveryChannel}
+///   a:
+///     type: aws:iam:RolePolicyAttachment
+///     properties:
+///       role: ${r.name}
+///       policyArn: arn:aws:iam::aws:policy/service-role/AWS_ConfigRole
+///   b:
+///     type: aws:s3:BucketV2
+///     properties:
+///       bucket: awsconfig-example
+///   fooDeliveryChannel:
+///     type: aws:cfg:DeliveryChannel
+///     name: foo
+///     properties:
+///       name: example
+///       s3BucketName: ${b.bucket}
+///   fooRecorder:
+///     type: aws:cfg:Recorder
+///     name: foo
+///     properties:
+///       name: example
+///       roleArn: ${r.arn}
+///   r:
+///     type: aws:iam:Role
+///     properties:
+///       name: example-awsconfig
+///       assumeRolePolicy: ${assumeRole.json}
+///   pRolePolicy:
+///     type: aws:iam:RolePolicy
+///     name: p
+///     properties:
+///       name: awsconfig-example
+///       role: ${r.id}
+///       policy: ${p.json}
+/// variables:
+///   assumeRole:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - config.amazonaws.com
+///             actions:
+///               - sts:AssumeRole
+///   p:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             actions:
+///               - s3:*
+///             resources:
+///               - ${b.arn}
+///               - ${b.arn}/*
 /// ```
 ///
 /// ## Import

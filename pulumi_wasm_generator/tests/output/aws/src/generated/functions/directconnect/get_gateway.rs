@@ -11,6 +11,8 @@ pub mod get_gateway {
     pub struct GetGatewayResult {
         /// ASN on the Amazon side of the connection.
         pub amazon_side_asn: pulumi_wasm_rust::Output<String>,
+        /// ARN of the gateway.
+        pub arn: pulumi_wasm_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
         pub id: pulumi_wasm_rust::Output<String>,
         pub name: pulumi_wasm_rust::Output<String>,
@@ -38,6 +40,9 @@ pub mod get_gateway {
                     name: "amazonSideAsn".into(),
                 },
                 register_interface::ResultField {
+                    name: "arn".into(),
+                },
+                register_interface::ResultField {
                     name: "id".into(),
                 },
                 register_interface::ResultField {
@@ -57,6 +62,9 @@ pub mod get_gateway {
         GetGatewayResult {
             amazon_side_asn: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("amazonSideAsn").unwrap(),
+            ),
+            arn: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("arn").unwrap(),
             ),
             id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
             name: pulumi_wasm_rust::__private::into_domain(

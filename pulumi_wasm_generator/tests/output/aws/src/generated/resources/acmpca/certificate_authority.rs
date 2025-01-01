@@ -60,66 +60,56 @@
 ///
 /// ### Enable Certificate Revocation List
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let acmpcaBucketAccess = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder().actions(vec!["s3:GetBucketAcl",
-///                     "s3:GetBucketLocation", "s3:PutObject", "s3:PutObjectAcl",])
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["acm-pca.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).resources(vec!["${example.arn}",
-///                     "${example.arn}/*",]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let example = bucket_v_2::create(
-///         "example",
-///         BucketV2Args::builder().bucket("example").force_destroy(true).build_struct(),
-///     );
-///     let exampleBucketPolicy = bucket_policy::create(
-///         "exampleBucketPolicy",
-///         BucketPolicyArgs::builder()
-///             .bucket("${example.id}")
-///             .policy("${acmpcaBucketAccess.json}")
-///             .build_struct(),
-///     );
-///     let exampleCertificateAuthority = certificate_authority::create(
-///         "exampleCertificateAuthority",
-///         CertificateAuthorityArgs::builder()
-///             .certificate_authority_configuration(
-///                 CertificateAuthorityCertificateAuthorityConfiguration::builder()
-///                     .keyAlgorithm("RSA_4096")
-///                     .signingAlgorithm("SHA512WITHRSA")
-///                     .subject(
-///                         CertificateAuthorityCertificateAuthorityConfigurationSubject::builder()
-///                             .commonName("example.com")
-///                             .build_struct(),
-///                     )
-///                     .build_struct(),
-///             )
-///             .revocation_configuration(
-///                 CertificateAuthorityRevocationConfiguration::builder()
-///                     .crlConfiguration(
-///                         CertificateAuthorityRevocationConfigurationCrlConfiguration::builder()
-///                             .customCname("crl.example.com")
-///                             .enabled(true)
-///                             .expirationInDays(7)
-///                             .s3BucketName("${example.id}")
-///                             .s3ObjectAcl("BUCKET_OWNER_FULL_CONTROL")
-///                             .build_struct(),
-///                     )
-///                     .build_struct(),
-///             )
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:s3:BucketV2
+///     properties:
+///       bucket: example
+///       forceDestroy: true
+///   exampleBucketPolicy:
+///     type: aws:s3:BucketPolicy
+///     name: example
+///     properties:
+///       bucket: ${example.id}
+///       policy: ${acmpcaBucketAccess.json}
+///   exampleCertificateAuthority:
+///     type: aws:acmpca:CertificateAuthority
+///     name: example
+///     properties:
+///       certificateAuthorityConfiguration:
+///         keyAlgorithm: RSA_4096
+///         signingAlgorithm: SHA512WITHRSA
+///         subject:
+///           commonName: example.com
+///       revocationConfiguration:
+///         crlConfiguration:
+///           customCname: crl.example.com
+///           enabled: true
+///           expirationInDays: 7
+///           s3BucketName: ${example.id}
+///           s3ObjectAcl: BUCKET_OWNER_FULL_CONTROL
+///     options:
+///       dependsOn:
+///         - ${exampleBucketPolicy}
+/// variables:
+///   acmpcaBucketAccess:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - actions:
+///               - s3:GetBucketAcl
+///               - s3:GetBucketLocation
+///               - s3:PutObject
+///               - s3:PutObjectAcl
+///             resources:
+///               - ${example.arn}
+///               - ${example.arn}/*
+///             principals:
+///               - identifiers:
+///                   - acm-pca.amazonaws.com
+///                 type: Service
 /// ```
 ///
 /// ## Import

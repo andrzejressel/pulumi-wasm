@@ -36,8 +36,8 @@
 /// variables:
 ///   current:
 ///     fn::invoke:
-///       Function: aws:getPartition
-///       Arguments: {}
+///       function: aws:getPartition
+///       arguments: {}
 /// ```
 ///
 /// ### Certificate for Subordinate Certificate Authority
@@ -84,8 +84,8 @@
 /// variables:
 ///   current:
 ///     fn::invoke:
-///       Function: aws:getPartition
-///       Arguments: {}
+///       function: aws:getPartition
+///       arguments: {}
 /// ```
 pub mod certificate_authority_certificate {
     #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]

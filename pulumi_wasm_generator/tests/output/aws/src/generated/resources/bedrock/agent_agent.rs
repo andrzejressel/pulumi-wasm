@@ -4,73 +4,69 @@
 ///
 /// ### Basic Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_caller_identity::invoke(
-///         GetCallerIdentityArgs::builder().build_struct(),
-///     );
-///     let currentGetPartition = get_partition::invoke(
-///         GetPartitionArgs::builder().build_struct(),
-///     );
-///     let currentGetRegion = get_region::invoke(GetRegionArgs::builder().build_struct());
-///     let exampleAgentPermissions = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["bedrock:InvokeModel",])
-///                     .resources(vec!["arn:${currentGetPartition.partition}:bedrock:${currentGetRegion.name}::foundation-model/anthropic.claude-v2",])
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let exampleAgentTrust = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sts:AssumeRole",])
-///                     .conditions(vec![GetPolicyDocumentStatementCondition::builder()
-///                     .test("StringEquals").values(vec!["${current.accountId}",])
-///                     .variable("aws:SourceAccount").build_struct(),
-///                     GetPolicyDocumentStatementCondition::builder().test("ArnLike")
-///                     .values(vec!["arn:${currentGetPartition.partition}:bedrock:${currentGetRegion.name}:${current.accountId}:agent/*",])
-///                     .variable("AWS:SourceArn").build_struct(),])
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["bedrock.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let example = role::create(
-///         "example",
-///         RoleArgs::builder()
-///             .assume_role_policy("${exampleAgentTrust.json}")
-///             .name_prefix("AmazonBedrockExecutionRoleForAgents_")
-///             .build_struct(),
-///     );
-///     let exampleAgentAgent = agent_agent::create(
-///         "exampleAgentAgent",
-///         AgentAgentArgs::builder()
-///             .agent_name("my-agent-name")
-///             .agent_resource_role_arn("${example.arn}")
-///             .foundation_model("anthropic.claude-v2")
-///             .idle_session_ttl_in_seconds(500)
-///             .build_struct(),
-///     );
-///     let exampleRolePolicy = role_policy::create(
-///         "exampleRolePolicy",
-///         RolePolicyArgs::builder()
-///             .policy("${exampleAgentPermissions.json}")
-///             .role("${example.id}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:iam:Role
+///     properties:
+///       assumeRolePolicy: ${exampleAgentTrust.json}
+///       namePrefix: AmazonBedrockExecutionRoleForAgents_
+///   exampleRolePolicy:
+///     type: aws:iam:RolePolicy
+///     name: example
+///     properties:
+///       policy: ${exampleAgentPermissions.json}
+///       role: ${example.id}
+///   exampleAgentAgent:
+///     type: aws:bedrock:AgentAgent
+///     name: example
+///     properties:
+///       agentName: my-agent-name
+///       agentResourceRoleArn: ${example.arn}
+///       idleSessionTtlInSeconds: 500
+///       foundationModel: anthropic.claude-v2
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getCallerIdentity
+///       arguments: {}
+///   currentGetPartition:
+///     fn::invoke:
+///       function: aws:getPartition
+///       arguments: {}
+///   currentGetRegion:
+///     fn::invoke:
+///       function: aws:getRegion
+///       arguments: {}
+///   exampleAgentTrust:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - actions:
+///               - sts:AssumeRole
+///             principals:
+///               - identifiers:
+///                   - bedrock.amazonaws.com
+///                 type: Service
+///             conditions:
+///               - test: StringEquals
+///                 values:
+///                   - ${current.accountId}
+///                 variable: aws:SourceAccount
+///               - test: ArnLike
+///                 values:
+///                   - arn:${currentGetPartition.partition}:bedrock:${currentGetRegion.name}:${current.accountId}:agent/*
+///                 variable: AWS:SourceArn
+///   exampleAgentPermissions:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - actions:
+///               - bedrock:InvokeModel
+///             resources:
+///               - arn:${currentGetPartition.partition}:bedrock:${currentGetRegion.name}::foundation-model/anthropic.claude-v2
 /// ```
 ///
 /// ## Import
@@ -85,6 +81,9 @@ pub mod agent_agent {
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AgentAgentArgs {
+        /// Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
+        #[builder(into, default)]
+        pub agent_collaboration: pulumi_wasm_rust::Output<Option<String>>,
         /// Name of the agent.
         #[builder(into)]
         pub agent_name: pulumi_wasm_rust::Output<String>,
@@ -102,6 +101,7 @@ pub mod agent_agent {
         /// The following arguments are optional:
         #[builder(into)]
         pub foundation_model: pulumi_wasm_rust::Output<String>,
+        /// Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
         #[builder(into, default)]
         pub guardrail_configurations: pulumi_wasm_rust::Output<
             Option<Vec<super::super::types::bedrock::AgentAgentGuardrailConfiguration>>,
@@ -109,7 +109,7 @@ pub mod agent_agent {
         /// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
         #[builder(into, default)]
         pub idle_session_ttl_in_seconds: pulumi_wasm_rust::Output<Option<i32>>,
-        /// Instructions that tell the agent what it should do and how it should interact with users.
+        /// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
         #[builder(into, default)]
         pub instruction: pulumi_wasm_rust::Output<Option<String>>,
         /// Whether to prepare the agent after creation or modification. Defaults to `true`.
@@ -139,6 +139,8 @@ pub mod agent_agent {
     pub struct AgentAgentResult {
         /// ARN of the agent.
         pub agent_arn: pulumi_wasm_rust::Output<String>,
+        /// Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
+        pub agent_collaboration: pulumi_wasm_rust::Output<String>,
         /// Unique identifier of the agent.
         pub agent_id: pulumi_wasm_rust::Output<String>,
         /// Name of the agent.
@@ -155,12 +157,13 @@ pub mod agent_agent {
         ///
         /// The following arguments are optional:
         pub foundation_model: pulumi_wasm_rust::Output<String>,
+        /// Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
         pub guardrail_configurations: pulumi_wasm_rust::Output<
             Option<Vec<super::super::types::bedrock::AgentAgentGuardrailConfiguration>>,
         >,
         /// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
         pub idle_session_ttl_in_seconds: pulumi_wasm_rust::Output<i32>,
-        /// Instructions that tell the agent what it should do and how it should interact with users.
+        /// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
         pub instruction: pulumi_wasm_rust::Output<String>,
         /// Whether to prepare the agent after creation or modification. Defaults to `true`.
         pub prepare_agent: pulumi_wasm_rust::Output<bool>,
@@ -189,6 +192,7 @@ pub mod agent_agent {
     pub fn create(name: &str, args: AgentAgentArgs) -> AgentAgentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
+        let agent_collaboration_binding = args.agent_collaboration.get_inner();
         let agent_name_binding = args.agent_name.get_inner();
         let agent_resource_role_arn_binding = args.agent_resource_role_arn.get_inner();
         let customer_encryption_key_arn_binding = args
@@ -214,6 +218,10 @@ pub mod agent_agent {
             type_: "aws:bedrock/agentAgent:AgentAgent".into(),
             name: name.to_string(),
             object: Vec::from([
+                register_interface::ObjectField {
+                    name: "agentCollaboration".into(),
+                    value: &agent_collaboration_binding,
+                },
                 register_interface::ObjectField {
                     name: "agentName".into(),
                     value: &agent_name_binding,
@@ -270,6 +278,9 @@ pub mod agent_agent {
             results: Vec::from([
                 register_interface::ResultField {
                     name: "agentArn".into(),
+                },
+                register_interface::ResultField {
+                    name: "agentCollaboration".into(),
                 },
                 register_interface::ResultField {
                     name: "agentId".into(),
@@ -330,6 +341,9 @@ pub mod agent_agent {
         AgentAgentResult {
             agent_arn: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("agentArn").unwrap(),
+            ),
+            agent_collaboration: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("agentCollaboration").unwrap(),
             ),
             agent_id: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("agentId").unwrap(),

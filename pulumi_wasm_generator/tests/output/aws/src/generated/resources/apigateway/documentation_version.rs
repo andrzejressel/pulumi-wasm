@@ -11,7 +11,7 @@
 ///       restApiId: ${exampleRestApi.id}
 ///       description: Example description
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${exampleDocumentationPart}
 ///   exampleRestApi:
 ///     type: aws:apigateway:RestApi

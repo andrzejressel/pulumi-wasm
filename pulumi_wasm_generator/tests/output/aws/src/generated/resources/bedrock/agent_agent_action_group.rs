@@ -18,10 +18,10 @@
 ///       apiSchema:
 ///         payload:
 ///           fn::invoke:
-///             Function: std:file
-///             Arguments:
+///             function: std:file
+///             arguments:
 ///               input: path/to/schema.yaml
-///             Return: result
+///             return: result
 /// ```
 ///
 /// ### API Schema in S3 Bucket
@@ -123,10 +123,10 @@
 ///       apiSchema:
 ///         payload:
 ///           fn::invoke:
-///             Function: std:file
-///             Arguments:
+///             function: std:file
+///             arguments:
 ///               input: path/to/schema.yaml
-///             Return: result
+///             return: result
 /// ```
 ///
 /// ## Import

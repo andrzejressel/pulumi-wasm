@@ -29,77 +29,62 @@
 ///
 /// ### Example Usage With Media Insights
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let assumeRole = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sts:AssumeRole",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["mediapipelines.chime.amazonaws.com",]). type
-///                     ("Service").build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let default = voice_connector::create(
-///         "default",
-///         VoiceConnectorArgs::builder()
-///             .name("vc-name-test")
-///             .require_encryption(true)
-///             .build_struct(),
-///     );
-///     let defaultVoiceConnectorStreaming = voice_connector_streaming::create(
-///         "defaultVoiceConnectorStreaming",
-///         VoiceConnectorStreamingArgs::builder()
-///             .data_retention(7)
-///             .disabled(false)
-///             .media_insights_configuration(
-///                 VoiceConnectorStreamingMediaInsightsConfiguration::builder()
-///                     .configurationArn("${example.arn}")
-///                     .disabled(false)
-///                     .build_struct(),
-///             )
-///             .streaming_notification_targets(vec!["SQS",])
-///             .voice_connector_id("${default.id}")
-///             .build_struct(),
-///     );
-///     let example = media_insights_pipeline_configuration::create(
-///         "example",
-///         MediaInsightsPipelineConfigurationArgs::builder()
-///             .elements(
-///                 vec![
-///                     MediaInsightsPipelineConfigurationElement::builder()
-///                     .amazonTranscribeCallAnalyticsProcessorConfiguration(MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration::builder()
-///                     .languageCode("en-US").build_struct()). type
-///                     ("AmazonTranscribeCallAnalyticsProcessor").build_struct(),
-///                     MediaInsightsPipelineConfigurationElement::builder()
-///                     .kinesisDataStreamSinkConfiguration(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration::builder()
-///                     .insightsTarget("${exampleStream.arn}").build_struct()). type
-///                     ("KinesisDataStreamSink").build_struct(),
-///                 ],
-///             )
-///             .name("ExampleConfig")
-///             .resource_access_role_arn("${exampleRole.arn}")
-///             .build_struct(),
-///     );
-///     let exampleRole = role::create(
-///         "exampleRole",
-///         RoleArgs::builder()
-///             .assume_role_policy("${assumeRole.json}")
-///             .name("ExampleResourceAccessRole")
-///             .build_struct(),
-///     );
-///     let exampleStream = stream::create(
-///         "exampleStream",
-///         StreamArgs::builder().name("ExampleStream").shard_count(2).build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   default:
+///     type: aws:chime:VoiceConnector
+///     properties:
+///       name: vc-name-test
+///       requireEncryption: true
+///   defaultVoiceConnectorStreaming:
+///     type: aws:chime:VoiceConnectorStreaming
+///     name: default
+///     properties:
+///       disabled: false
+///       voiceConnectorId: ${default.id}
+///       dataRetention: 7
+///       streamingNotificationTargets:
+///         - SQS
+///       mediaInsightsConfiguration:
+///         disabled: false
+///         configurationArn: ${example.arn}
+///   example:
+///     type: aws:chimesdkmediapipelines:MediaInsightsPipelineConfiguration
+///     properties:
+///       name: ExampleConfig
+///       resourceAccessRoleArn: ${exampleRole.arn}
+///       elements:
+///         - type: AmazonTranscribeCallAnalyticsProcessor
+///           amazonTranscribeCallAnalyticsProcessorConfiguration:
+///             languageCode: en-US
+///         - type: KinesisDataStreamSink
+///           kinesisDataStreamSinkConfiguration:
+///             insightsTarget: ${exampleStream.arn}
+///   exampleRole:
+///     type: aws:iam:Role
+///     name: example
+///     properties:
+///       name: ExampleResourceAccessRole
+///       assumeRolePolicy: ${assumeRole.json}
+///   exampleStream:
+///     type: aws:kinesis:Stream
+///     name: example
+///     properties:
+///       name: ExampleStream
+///       shardCount: 2
+/// variables:
+///   assumeRole:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - mediapipelines.chime.amazonaws.com
+///             actions:
+///               - sts:AssumeRole
 /// ```
 ///
 /// ## Import

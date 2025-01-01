@@ -64,8 +64,8 @@
 /// variables:
 ///   exampleSource:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - sid: AllowAppFlowSourceActions
 ///             effect: Allow
@@ -81,8 +81,8 @@
 ///               - arn:aws:s3:::example-source/*
 ///   exampleDestination:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - sid: AllowAppFlowDestinationActions
 ///             effect: Allow

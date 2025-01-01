@@ -26,6 +26,10 @@ pub mod get_cluster {
         >,
         /// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
         pub cluster_id: pulumi_wasm_rust::Output<String>,
+        /// Nested attribute containing compute capability configuration for EKS Auto Mode enabled cluster.
+        pub compute_configs: pulumi_wasm_rust::Output<
+            Vec<super::super::super::types::eks::GetClusterComputeConfig>,
+        >,
         /// Unix epoch time stamp in seconds for when the cluster was created.
         pub created_at: pulumi_wasm_rust::Output<String>,
         /// The enabled control plane logs.
@@ -49,13 +53,21 @@ pub mod get_cluster {
         >,
         /// Platform version for the cluster.
         pub platform_version: pulumi_wasm_rust::Output<String>,
+        /// Contains remote network configuration for EKS Hybrid Nodes.
+        pub remote_network_configs: pulumi_wasm_rust::Output<
+            Vec<super::super::super::types::eks::GetClusterRemoteNetworkConfig>,
+        >,
         /// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
         pub role_arn: pulumi_wasm_rust::Output<String>,
         /// Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
         pub status: pulumi_wasm_rust::Output<String>,
+        /// Contains storage configuration for EKS Auto Mode enabled cluster.
+        pub storage_configs: pulumi_wasm_rust::Output<
+            Vec<super::super::super::types::eks::GetClusterStorageConfig>,
+        >,
         /// Key-value map of resource tags.
         pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
-        /// (Optional) Configuration block for the support policy to use for the cluster.
+        /// Configuration block for the support policy to use for the cluster.
         pub upgrade_policies: pulumi_wasm_rust::Output<
             Vec<super::super::super::types::eks::GetClusterUpgradePolicy>,
         >,
@@ -105,6 +117,9 @@ pub mod get_cluster {
                     name: "clusterId".into(),
                 },
                 register_interface::ResultField {
+                    name: "computeConfigs".into(),
+                },
+                register_interface::ResultField {
                     name: "createdAt".into(),
                 },
                 register_interface::ResultField {
@@ -132,10 +147,16 @@ pub mod get_cluster {
                     name: "platformVersion".into(),
                 },
                 register_interface::ResultField {
+                    name: "remoteNetworkConfigs".into(),
+                },
+                register_interface::ResultField {
                     name: "roleArn".into(),
                 },
                 register_interface::ResultField {
                     name: "status".into(),
+                },
+                register_interface::ResultField {
+                    name: "storageConfigs".into(),
                 },
                 register_interface::ResultField {
                     name: "tags".into(),
@@ -173,6 +194,9 @@ pub mod get_cluster {
             cluster_id: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("clusterId").unwrap(),
             ),
+            compute_configs: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("computeConfigs").unwrap(),
+            ),
             created_at: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("createdAt").unwrap(),
             ),
@@ -198,11 +222,17 @@ pub mod get_cluster {
             platform_version: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("platformVersion").unwrap(),
             ),
+            remote_network_configs: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("remoteNetworkConfigs").unwrap(),
+            ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("roleArn").unwrap(),
             ),
             status: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("status").unwrap(),
+            ),
+            storage_configs: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("storageConfigs").unwrap(),
             ),
             tags: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("tags").unwrap(),

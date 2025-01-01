@@ -26,55 +26,48 @@
 ///
 /// ### Example IAM Setup in Target Account
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sts:AssumeRole",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["${aWSCloudFormationStackSetAdministrationRole.arn}",])
-///                     . type ("AWS").build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["cloudformation:*", "s3:*", "sns:*",]).effect("Allow")
-///                     .resources(vec!["*",]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let aWSCloudFormationStackSetExecutionRole = role::create(
-///         "aWSCloudFormationStackSetExecutionRole",
-///         RoleArgs::builder()
-///             .assume_role_policy(
-///                 "${aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.json}",
-///             )
-///             .name("AWSCloudFormationStackSetExecutionRole")
-///             .build_struct(),
-///     );
-///     let aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy = role_policy::create(
-///         "aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy",
-///         RolePolicyArgs::builder()
-///             .name("MinimumExecutionPolicy")
-///             .policy(
-///                 "${aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy.json}",
-///             )
-///             .role("${aWSCloudFormationStackSetExecutionRole.name}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   aWSCloudFormationStackSetExecutionRole:
+///     type: aws:iam:Role
+///     name: AWSCloudFormationStackSetExecutionRole
+///     properties:
+///       assumeRolePolicy: ${aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.json}
+///       name: AWSCloudFormationStackSetExecutionRole
+///   aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy:
+///     type: aws:iam:RolePolicy
+///     name: AWSCloudFormationStackSetExecutionRole_MinimumExecutionPolicy
+///     properties:
+///       name: MinimumExecutionPolicy
+///       policy: ${aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy.json}
+///       role: ${aWSCloudFormationStackSetExecutionRole.name}
+/// variables:
+///   aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - actions:
+///               - sts:AssumeRole
+///             effect: Allow
+///             principals:
+///               - identifiers:
+///                   - ${aWSCloudFormationStackSetAdministrationRole.arn}
+///                 type: AWS
+///   # Documentation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html
+///   # Additional IAM permissions necessary depend on the resources defined in the StackSet template
+///   aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicy:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - actions:
+///               - cloudformation:*
+///               - s3:*
+///               - sns:*
+///             effect: Allow
+///             resources:
+///               - '*'
 /// ```
 ///
 /// ### Example Deployment across Organizations account

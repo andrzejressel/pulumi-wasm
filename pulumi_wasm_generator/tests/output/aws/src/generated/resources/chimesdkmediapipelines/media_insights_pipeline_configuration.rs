@@ -37,8 +37,8 @@
 /// variables:
 ///   mediaPipelinesAssumeRole:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - effect: Allow
 ///             principals:
@@ -53,63 +53,57 @@
 ///
 /// ### Transcribe Call Analytics processor usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let transcribeAssumeRole = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sts:AssumeRole",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["transcribe.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let myConfiguration = media_insights_pipeline_configuration::create(
-///         "myConfiguration",
-///         MediaInsightsPipelineConfigurationArgs::builder()
-///             .elements(
-///                 vec![
-///                     MediaInsightsPipelineConfigurationElement::builder()
-///                     .amazonTranscribeCallAnalyticsProcessorConfiguration(MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration::builder()
-///                     .callAnalyticsStreamCategories(vec!["category_1", "category_2",])
-///                     .contentRedactionType("PII").enablePartialResultsStabilization(true)
-///                     .filterPartialResults(true).languageCode("en-US")
-///                     .languageModelName("MyLanguageModel").partialResultsStability("high")
-///                     .piiEntityTypes("ADDRESS,BANK_ACCOUNT_NUMBER")
-///                     .postCallAnalyticsSettings(MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings::builder()
-///                     .contentRedactionOutput("redacted")
-///                     .dataAccessRoleArn("${postCallRole.arn}")
-///                     .outputEncryptionKmsKeyId("MyKmsKeyId")
-///                     .outputLocation("s3://MyBucket").build_struct())
-///                     .vocabularyFilterMethod("mask")
-///                     .vocabularyFilterName("MyVocabularyFilter")
-///                     .vocabularyName("MyVocabulary").build_struct()). type
-///                     ("AmazonTranscribeCallAnalyticsProcessor").build_struct(),
-///                     MediaInsightsPipelineConfigurationElement::builder()
-///                     .kinesisDataStreamSinkConfiguration(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration::builder()
-///                     .insightsTarget("${example.arn}").build_struct()). type
-///                     ("KinesisDataStreamSink").build_struct(),
-///                 ],
-///             )
-///             .name("MyCallAnalyticsConfiguration")
-///             .resource_access_role_arn("${exampleAwsIamRole.arn}")
-///             .build_struct(),
-///     );
-///     let postCallRole = role::create(
-///         "postCallRole",
-///         RoleArgs::builder()
-///             .assume_role_policy("${transcribeAssumeRole.json}")
-///             .name("PostCallAccessRole")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   myConfiguration:
+///     type: aws:chimesdkmediapipelines:MediaInsightsPipelineConfiguration
+///     name: my_configuration
+///     properties:
+///       name: MyCallAnalyticsConfiguration
+///       resourceAccessRoleArn: ${exampleAwsIamRole.arn}
+///       elements:
+///         - type: AmazonTranscribeCallAnalyticsProcessor
+///           amazonTranscribeCallAnalyticsProcessorConfiguration:
+///             callAnalyticsStreamCategories:
+///               - category_1
+///               - category_2
+///             contentRedactionType: PII
+///             enablePartialResultsStabilization: true
+///             filterPartialResults: true
+///             languageCode: en-US
+///             languageModelName: MyLanguageModel
+///             partialResultsStability: high
+///             piiEntityTypes: ADDRESS,BANK_ACCOUNT_NUMBER
+///             postCallAnalyticsSettings:
+///               contentRedactionOutput: redacted
+///               dataAccessRoleArn: ${postCallRole.arn}
+///               outputEncryptionKmsKeyId: MyKmsKeyId
+///               outputLocation: s3://MyBucket
+///             vocabularyFilterMethod: mask
+///             vocabularyFilterName: MyVocabularyFilter
+///             vocabularyName: MyVocabulary
+///         - type: KinesisDataStreamSink
+///           kinesisDataStreamSinkConfiguration:
+///             insightsTarget: ${example.arn}
+///   postCallRole:
+///     type: aws:iam:Role
+///     name: post_call_role
+///     properties:
+///       name: PostCallAccessRole
+///       assumeRolePolicy: ${transcribeAssumeRole.json}
+/// variables:
+///   transcribeAssumeRole:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - transcribe.amazonaws.com
+///             actions:
+///               - sts:AssumeRole
 /// ```
 ///
 /// ### Real time alerts usage

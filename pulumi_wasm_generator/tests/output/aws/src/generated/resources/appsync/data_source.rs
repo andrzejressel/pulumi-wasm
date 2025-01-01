@@ -2,86 +2,71 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let assumeRole = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sts:AssumeRole",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["appsync.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let example = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder().actions(vec!["dynamodb:*",])
-///                     .effect("Allow").resources(vec!["${exampleTable.arn}",])
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let exampleDataSource = data_source::create(
-///         "exampleDataSource",
-///         DataSourceArgs::builder()
-///             .api_id("${exampleGraphQLApi.id}")
-///             .dynamodb_config(
-///                 DataSourceDynamodbConfig::builder()
-///                     .tableName("${exampleTable.name}")
-///                     .build_struct(),
-///             )
-///             .name("my_appsync_example")
-///             .service_role_arn("${exampleRole.arn}")
-///             .type_("AMAZON_DYNAMODB")
-///             .build_struct(),
-///     );
-///     let exampleGraphQLApi = graph_ql_api::create(
-///         "exampleGraphQLApi",
-///         GraphQlApiArgs::builder()
-///             .authentication_type("API_KEY")
-///             .name("my_appsync_example")
-///             .build_struct(),
-///     );
-///     let exampleRole = role::create(
-///         "exampleRole",
-///         RoleArgs::builder()
-///             .assume_role_policy("${assumeRole.json}")
-///             .name("example")
-///             .build_struct(),
-///     );
-///     let exampleRolePolicy = role_policy::create(
-///         "exampleRolePolicy",
-///         RolePolicyArgs::builder()
-///             .name("example")
-///             .policy("${example.json}")
-///             .role("${exampleRole.id}")
-///             .build_struct(),
-///     );
-///     let exampleTable = table::create(
-///         "exampleTable",
-///         TableArgs::builder()
-///             .attributes(
-///                 vec![
-///                     TableAttribute::builder().name("UserId"). type ("S").build_struct(),
-///                 ],
-///             )
-///             .hash_key("UserId")
-///             .name("example")
-///             .read_capacity(1)
-///             .write_capacity(1)
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleTable:
+///     type: aws:dynamodb:Table
+///     name: example
+///     properties:
+///       name: example
+///       readCapacity: 1
+///       writeCapacity: 1
+///       hashKey: UserId
+///       attributes:
+///         - name: UserId
+///           type: S
+///   exampleRole:
+///     type: aws:iam:Role
+///     name: example
+///     properties:
+///       name: example
+///       assumeRolePolicy: ${assumeRole.json}
+///   exampleRolePolicy:
+///     type: aws:iam:RolePolicy
+///     name: example
+///     properties:
+///       name: example
+///       role: ${exampleRole.id}
+///       policy: ${example.json}
+///   exampleGraphQLApi:
+///     type: aws:appsync:GraphQLApi
+///     name: example
+///     properties:
+///       authenticationType: API_KEY
+///       name: my_appsync_example
+///   exampleDataSource:
+///     type: aws:appsync:DataSource
+///     name: example
+///     properties:
+///       apiId: ${exampleGraphQLApi.id}
+///       name: my_appsync_example
+///       serviceRoleArn: ${exampleRole.arn}
+///       type: AMAZON_DYNAMODB
+///       dynamodbConfig:
+///         tableName: ${exampleTable.name}
+/// variables:
+///   assumeRole:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - appsync.amazonaws.com
+///             actions:
+///               - sts:AssumeRole
+///   example:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             actions:
+///               - dynamodb:*
+///             resources:
+///               - ${exampleTable.arn}
 /// ```
 ///
 /// ## Import

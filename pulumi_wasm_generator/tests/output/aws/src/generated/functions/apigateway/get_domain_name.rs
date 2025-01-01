@@ -6,6 +6,9 @@ pub mod get_domain_name {
         /// Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
         #[builder(into)]
         pub domain_name: pulumi_wasm_rust::Output<String>,
+        /// The identifier for the domain name resource. Supported only for private custom domain names.
+        #[builder(into, default)]
+        pub domain_name_id: pulumi_wasm_rust::Output<Option<String>>,
         /// Key-value map of tags for the resource.
         #[builder(into, default)]
         pub tags: pulumi_wasm_rust::Output<
@@ -27,6 +30,7 @@ pub mod get_domain_name {
         /// For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
         pub cloudfront_zone_id: pulumi_wasm_rust::Output<String>,
         pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name_id: pulumi_wasm_rust::Output<String>,
         /// List of objects with the endpoint configuration of this domain name.
         pub endpoint_configurations: pulumi_wasm_rust::Output<
             Vec<
@@ -35,6 +39,8 @@ pub mod get_domain_name {
         >,
         /// The provider-assigned unique ID for this managed resource.
         pub id: pulumi_wasm_rust::Output<String>,
+        /// A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+        pub policy: pulumi_wasm_rust::Output<String>,
         /// ARN for an AWS-managed certificate that is used for validating the regional domain name.
         pub regional_certificate_arn: pulumi_wasm_rust::Output<String>,
         /// User-friendly name of the certificate that is used by regional endpoint for this domain name.
@@ -56,6 +62,7 @@ pub mod get_domain_name {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let domain_name_binding = args.domain_name.get_inner();
+        let domain_name_id_binding = args.domain_name_id.get_inner();
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:apigateway/getDomainName:getDomainName".into(),
@@ -63,6 +70,10 @@ pub mod get_domain_name {
                 register_interface::ObjectField {
                     name: "domainName".into(),
                     value: &domain_name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "domainNameId".into(),
+                    value: &domain_name_id_binding,
                 },
                 register_interface::ObjectField {
                     name: "tags".into(),
@@ -92,10 +103,16 @@ pub mod get_domain_name {
                     name: "domainName".into(),
                 },
                 register_interface::ResultField {
+                    name: "domainNameId".into(),
+                },
+                register_interface::ResultField {
                     name: "endpointConfigurations".into(),
                 },
                 register_interface::ResultField {
                     name: "id".into(),
+                },
+                register_interface::ResultField {
+                    name: "policy".into(),
                 },
                 register_interface::ResultField {
                     name: "regionalCertificateArn".into(),
@@ -145,10 +162,16 @@ pub mod get_domain_name {
             domain_name: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("domainName").unwrap(),
             ),
+            domain_name_id: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("domainNameId").unwrap(),
+            ),
             endpoint_configurations: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("endpointConfigurations").unwrap(),
             ),
             id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            policy: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("policy").unwrap(),
+            ),
             regional_certificate_arn: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("regionalCertificateArn").unwrap(),
             ),

@@ -133,10 +133,14 @@ pub mod load_balancer {
         pub internal: pulumi_wasm_rust::Output<Option<bool>>,
         /// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
         #[builder(into, default)]
-        pub ip_address_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_address_type: pulumi_wasm_rust::Output<
+            Option<super::super::types::alb::IpAddressType>,
+        >,
         /// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         #[builder(into, default)]
-        pub load_balancer_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub load_balancer_type: pulumi_wasm_rust::Output<
+            Option<super::super::types::alb::LoadBalancerType>,
+        >,
         /// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
         #[builder(into, default)]
         pub name: pulumi_wasm_rust::Output<Option<String>>,
@@ -217,9 +221,13 @@ pub mod load_balancer {
         /// If true, the LB will be internal. Defaults to `false`.
         pub internal: pulumi_wasm_rust::Output<bool>,
         /// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
-        pub ip_address_type: pulumi_wasm_rust::Output<String>,
+        pub ip_address_type: pulumi_wasm_rust::Output<
+            super::super::types::alb::IpAddressType,
+        >,
         /// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
-        pub load_balancer_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub load_balancer_type: pulumi_wasm_rust::Output<
+            Option<super::super::types::alb::LoadBalancerType>,
+        >,
         /// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
         pub name: pulumi_wasm_rust::Output<String>,
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.

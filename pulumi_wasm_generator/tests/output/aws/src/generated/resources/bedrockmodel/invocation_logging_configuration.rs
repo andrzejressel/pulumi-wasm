@@ -56,13 +56,13 @@
 ///             - bucketName: ${example.id}
 ///               keyPrefix: bedrock
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${exampleBucketPolicy}
 /// variables:
 ///   current:
 ///     fn::invoke:
-///       Function: aws:getCallerIdentity
-///       Arguments: {}
+///       function: aws:getCallerIdentity
+///       arguments: {}
 /// ```
 ///
 /// ## Import

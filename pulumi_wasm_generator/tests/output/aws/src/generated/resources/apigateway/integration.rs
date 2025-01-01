@@ -104,10 +104,10 @@
 ///       runtime: python3.12
 ///       sourceCodeHash:
 ///         fn::invoke:
-///           Function: std:filebase64sha256
-///           Arguments:
+///           function: std:filebase64sha256
+///           arguments:
 ///             input: lambda.zip
-///           Return: result
+///           return: result
 ///   role:
 ///     type: aws:iam:Role
 ///     properties:
@@ -117,8 +117,8 @@
 ///   # IAM
 ///   assumeRole:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - effect: Allow
 ///             principals:
@@ -182,7 +182,7 @@
 ///       resourceId: ${testResource.id}
 ///       httpMethod: ${testMethod.httpMethod}
 ///       requestTemplates:
-///         application/json:
+///         application/json: ""
 ///         application/xml: |-
 ///           #set($inputRoot = $input.path('$'))
 ///           { }

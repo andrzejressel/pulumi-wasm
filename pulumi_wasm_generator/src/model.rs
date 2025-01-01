@@ -124,8 +124,9 @@ impl GlobalTypeProperty {
                 .name
                 .clone()
                 .from_case(Case::Camel)
-                .to_case(Case::Snake)
-        ).to_string()
+                .to_case(Case::Snake),
+        )
+        .to_string()
     }
 }
 

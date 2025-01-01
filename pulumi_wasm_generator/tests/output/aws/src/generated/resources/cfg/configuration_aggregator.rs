@@ -26,53 +26,43 @@
 ///
 /// ### Organization Based Aggregation
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let assumeRole = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sts:AssumeRole",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["config.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let organization = configuration_aggregator::create(
-///         "organization",
-///         ConfigurationAggregatorArgs::builder()
-///             .name("example")
-///             .organization_aggregation_source(
-///                 ConfigurationAggregatorOrganizationAggregationSource::builder()
-///                     .allRegions(true)
-///                     .roleArn("${organizationRole.arn}")
-///                     .build_struct(),
-///             )
-///             .build_struct(),
-///     );
-///     let organizationRole = role::create(
-///         "organizationRole",
-///         RoleArgs::builder()
-///             .assume_role_policy("${assumeRole.json}")
-///             .name("example")
-///             .build_struct(),
-///     );
-///     let organizationRolePolicyAttachment = role_policy_attachment::create(
-///         "organizationRolePolicyAttachment",
-///         RolePolicyAttachmentArgs::builder()
-///             .policy_arn(
-///                 "arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations",
-///             )
-///             .role("${organizationRole.name}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   organization:
+///     type: aws:cfg:ConfigurationAggregator
+///     properties:
+///       name: example
+///       organizationAggregationSource:
+///         allRegions: true
+///         roleArn: ${organizationRole.arn}
+///     options:
+///       dependsOn:
+///         - ${organizationRolePolicyAttachment}
+///   organizationRole:
+///     type: aws:iam:Role
+///     name: organization
+///     properties:
+///       name: example
+///       assumeRolePolicy: ${assumeRole.json}
+///   organizationRolePolicyAttachment:
+///     type: aws:iam:RolePolicyAttachment
+///     name: organization
+///     properties:
+///       role: ${organizationRole.name}
+///       policyArn: arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations
+/// variables:
+///   assumeRole:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - config.amazonaws.com
+///             actions:
+///               - sts:AssumeRole
 /// ```
 ///
 /// ## Import

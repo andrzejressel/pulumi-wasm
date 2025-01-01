@@ -22,8 +22,8 @@
 /// variables:
 ///   example:
 ///     fn::invoke:
-///       Function: aws:bedrockfoundation:getModel
-///       Arguments:
+///       function: aws:bedrockfoundation:getModel
+///       arguments:
 ///         modelId: amazon.titan-text-express-v1
 /// ```
 ///

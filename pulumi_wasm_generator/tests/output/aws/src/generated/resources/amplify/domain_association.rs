@@ -2,32 +2,46 @@
 ///
 /// ## Example Usage
 ///
-/// ```yaml
-/// resources:
-///   example:
-///     type: aws:amplify:App
-///     properties:
-///       name: app
-///       customRules:
-///         - source: https://example.com
-///           status: '302'
-///           target: https://www.example.com
-///   master:
-///     type: aws:amplify:Branch
-///     properties:
-///       appId: ${example.id}
-///       branchName: master
-///   exampleDomainAssociation:
-///     type: aws:amplify:DomainAssociation
-///     name: example
-///     properties:
-///       appId: ${example.id}
-///       domainName: example.com
-///       subDomains:
-///         - branchName: ${master.branchName}
-///           prefix:
-///         - branchName: ${master.branchName}
-///           prefix: www
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let example = app::create(
+///         "example",
+///         AppArgs::builder()
+///             .custom_rules(
+///                 vec![
+///                     AppCustomRule::builder().source("https://example.com").status("302")
+///                     .target("https://www.example.com").build_struct(),
+///                 ],
+///             )
+///             .name("app")
+///             .build_struct(),
+///     );
+///     let exampleDomainAssociation = domain_association::create(
+///         "exampleDomainAssociation",
+///         DomainAssociationArgs::builder()
+///             .app_id("${example.id}")
+///             .domain_name("example.com")
+///             .sub_domains(
+///                 vec![
+///                     DomainAssociationSubDomain::builder()
+///                     .branchName("${master.branchName}").prefix("").build_struct(),
+///                     DomainAssociationSubDomain::builder()
+///                     .branchName("${master.branchName}").prefix("www").build_struct(),
+///                 ],
+///             )
+///             .build_struct(),
+///     );
+///     let master = branch::create(
+///         "master",
+///         BranchArgs::builder()
+///             .app_id("${example.id}")
+///             .branch_name("master")
+///             .build_struct(),
+///     );
+/// }
 /// ```
 ///
 /// ## Import
@@ -73,7 +87,7 @@ pub mod domain_association {
         pub arn: pulumi_wasm_rust::Output<String>,
         /// The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
         pub certificate_settings: pulumi_wasm_rust::Output<
-            Option<super::super::types::amplify::DomainAssociationCertificateSettings>,
+            super::super::types::amplify::DomainAssociationCertificateSettings,
         >,
         /// DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
         pub certificate_verification_dns_record: pulumi_wasm_rust::Output<String>,

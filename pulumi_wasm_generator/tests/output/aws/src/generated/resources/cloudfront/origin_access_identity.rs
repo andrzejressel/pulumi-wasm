@@ -57,32 +57,27 @@
 /// `aws.s3.BucketV2` bucket policy, causing spurious diffs. If
 /// you see this behavior, use the `iam_arn` instead:
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let s3Policy = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder().actions(vec!["s3:GetObject",])
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["${exampleAwsCloudfrontOriginAccessIdentity.iamArn}",])
-///                     . type ("AWS").build_struct(),])
-///                     .resources(vec!["${exampleAwsS3Bucket.arn}/*",]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let example = bucket_policy::create(
-///         "example",
-///         BucketPolicyArgs::builder()
-///             .bucket("${exampleAwsS3Bucket.id}")
-///             .policy("${s3Policy.json}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:s3:BucketPolicy
+///     properties:
+///       bucket: ${exampleAwsS3Bucket.id}
+///       policy: ${s3Policy.json}
+/// variables:
+///   s3Policy:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - actions:
+///               - s3:GetObject
+///             resources:
+///               - ${exampleAwsS3Bucket.arn}/*
+///             principals:
+///               - type: AWS
+///                 identifiers:
+///                   - ${exampleAwsCloudfrontOriginAccessIdentity.iamArn}
 /// ```
 ///
 /// [1]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html

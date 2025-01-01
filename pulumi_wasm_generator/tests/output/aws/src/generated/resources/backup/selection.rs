@@ -8,45 +8,37 @@
 ///
 /// The below example creates an IAM role with the default managed IAM Policy for allowing AWS Backup to create backups.
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let assumeRole = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sts:AssumeRole",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["backup.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let example = role::create(
-///         "example",
-///         RoleArgs::builder()
-///             .assume_role_policy("${assumeRole.json}")
-///             .name("example")
-///             .build_struct(),
-///     );
-///     let exampleRolePolicyAttachment = role_policy_attachment::create(
-///         "exampleRolePolicyAttachment",
-///         RolePolicyAttachmentArgs::builder()
-///             .policy_arn(
-///                 "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup",
-///             )
-///             .role("${example.name}")
-///             .build_struct(),
-///     );
-///     let exampleSelection = selection::create(
-///         "exampleSelection",
-///         SelectionArgs::builder().iam_role_arn("${example.arn}").build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:iam:Role
+///     properties:
+///       name: example
+///       assumeRolePolicy: ${assumeRole.json}
+///   exampleRolePolicyAttachment:
+///     type: aws:iam:RolePolicyAttachment
+///     name: example
+///     properties:
+///       policyArn: arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup
+///       role: ${example.name}
+///   exampleSelection:
+///     type: aws:backup:Selection
+///     name: example
+///     properties:
+///       iamRoleArn: ${example.arn}
+/// variables:
+///   assumeRole:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - backup.amazonaws.com
+///             actions:
+///               - sts:AssumeRole
 /// ```
 ///
 /// ### Selecting Backups By Tag

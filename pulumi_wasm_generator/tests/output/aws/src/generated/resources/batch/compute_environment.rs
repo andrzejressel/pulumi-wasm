@@ -89,13 +89,13 @@
 ///       serviceRole: ${awsBatchServiceRole.arn}
 ///       type: MANAGED
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${awsBatchServiceRoleRolePolicyAttachment}
 /// variables:
 ///   ec2AssumeRole:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - effect: Allow
 ///             principals:
@@ -106,8 +106,8 @@
 ///               - sts:AssumeRole
 ///   batchAssumeRole:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - effect: Allow
 ///             principals:
@@ -136,7 +136,7 @@
 ///       serviceRole: ${awsBatchServiceRoleAwsIamRole.arn}
 ///       type: MANAGED
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${awsBatchServiceRole}
 /// ```
 ///

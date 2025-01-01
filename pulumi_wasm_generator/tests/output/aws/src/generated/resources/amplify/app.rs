@@ -92,10 +92,10 @@
 ///       enableBasicAuth: true
 ///       basicAuthCredentials:
 ///         fn::invoke:
-///           Function: std:base64encode
-///           Arguments:
+///           function: std:base64encode
+///           arguments:
 ///             input: username1:password1
-///           Return: result
+///           return: result
 /// ```
 ///
 /// ### Rewrites and Redirects

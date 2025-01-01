@@ -89,10 +89,10 @@
 ///       kind: PIPELINE
 ///       code:
 ///         fn::invoke:
-///           Function: std:file
-///           Arguments:
+///           function: std:file
+///           arguments:
 ///             input: some-code-dir
-///           Return: result
+///           return: result
 ///       runtime:
 ///         name: APPSYNC_JS
 ///         runtimeVersion: 1.0.0

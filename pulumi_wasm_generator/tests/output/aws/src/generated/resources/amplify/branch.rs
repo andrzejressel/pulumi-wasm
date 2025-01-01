@@ -35,10 +35,10 @@
 ///       enableBasicAuth: true
 ///       basicAuthCredentials:
 ///         fn::invoke:
-///           Function: std:base64encode
-///           Arguments:
+///           function: std:base64encode
+///           arguments:
 ///             input: username:password
-///           Return: result
+///           return: result
 /// ```
 ///
 /// ### Notifications
@@ -115,8 +115,8 @@
 /// variables:
 ///   amplifyAppMaster:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - sid: Allow_Publish_Events ${master.arn}
 ///             effect: Allow

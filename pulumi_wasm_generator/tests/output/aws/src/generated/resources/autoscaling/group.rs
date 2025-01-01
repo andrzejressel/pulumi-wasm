@@ -335,63 +335,48 @@
 ///
 /// ### Automatically refresh all instances after the group is updated
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = get_ami::invoke(
-///         GetAmiArgs::builder()
-///             .filters(
-///                 vec![
-///                     GetAmiFilter::builder().name("name")
-///                     .values(vec!["amzn-ami-hvm-*-x86_64-gp2",]).build_struct(),
-///                 ],
-///             )
-///             .most_recent(true)
-///             .owners(vec!["amazon",])
-///             .build_struct(),
-///     );
-///     let exampleGroup = group::create(
-///         "exampleGroup",
-///         GroupArgs::builder()
-///             .availability_zones(vec!["us-east-1a",])
-///             .desired_capacity(1)
-///             .instance_refresh(
-///                 GroupInstanceRefresh::builder()
-///                     .preferences(
-///                         GroupInstanceRefreshPreferences::builder()
-///                             .minHealthyPercentage(50)
-///                             .build_struct(),
-///                     )
-///                     .strategy("Rolling")
-///                     .triggers(vec!["tag",])
-///                     .build_struct(),
-///             )
-///             .launch_template(
-///                 GroupLaunchTemplate::builder()
-///                     .id("${exampleLaunchTemplate.id}")
-///                     .version("${exampleLaunchTemplate.latestVersion}")
-///                     .build_struct(),
-///             )
-///             .max_size(2)
-///             .min_size(1)
-///             .tags(
-///                 vec![
-///                     GroupTag::builder().key("Key").propagateAtLaunch(true).value("Value")
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let exampleLaunchTemplate = launch_template::create(
-///         "exampleLaunchTemplate",
-///         LaunchTemplateArgs::builder()
-///             .image_id("${example.id}")
-///             .instance_type("t3.nano")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleGroup:
+///     type: aws:autoscaling:Group
+///     name: example
+///     properties:
+///       availabilityZones:
+///         - us-east-1a
+///       desiredCapacity: 1
+///       maxSize: 2
+///       minSize: 1
+///       launchTemplate:
+///         id: ${exampleLaunchTemplate.id}
+///         version: ${exampleLaunchTemplate.latestVersion}
+///       tags:
+///         - key: Key
+///           value: Value
+///           propagateAtLaunch: true
+///       instanceRefresh:
+///         strategy: Rolling
+///         preferences:
+///           minHealthyPercentage: 50
+///         triggers:
+///           - tag
+///   exampleLaunchTemplate:
+///     type: aws:ec2:LaunchTemplate
+///     name: example
+///     properties:
+///       imageId: ${example.id}
+///       instanceType: t3.nano
+/// variables:
+///   example:
+///     fn::invoke:
+///       function: aws:ec2:getAmi
+///       arguments:
+///         mostRecent: true
+///         owners:
+///           - amazon
+///         filters:
+///           - name: name
+///             values:
+///               - amzn-ami-hvm-*-x86_64-gp2
 /// ```
 ///
 /// ### Auto Scaling group with Warm Pool
@@ -510,6 +495,11 @@ pub mod group {
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GroupArgs {
+        /// The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+        #[builder(into, default)]
+        pub availability_zone_distribution: pulumi_wasm_rust::Output<
+            Option<super::super::types::autoscaling::GroupAvailabilityZoneDistribution>,
+        >,
         /// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
         #[builder(into, default)]
         pub availability_zones: pulumi_wasm_rust::Output<Option<Vec<String>>>,
@@ -535,7 +525,9 @@ pub mod group {
         pub desired_capacity_type: pulumi_wasm_rust::Output<Option<String>>,
         /// List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         #[builder(into, default)]
-        pub enabled_metrics: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub enabled_metrics: pulumi_wasm_rust::Output<
+            Option<Vec<super::super::types::autoscaling::metrics::Metric>>,
+        >,
         /// Allows deleting the Auto Scaling Group without waiting
         /// for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
         /// even if it's in the process of scaling a resource. Normally, this provider
@@ -682,6 +674,10 @@ pub mod group {
     pub struct GroupResult {
         /// ARN for this Auto Scaling Group
         pub arn: pulumi_wasm_rust::Output<String>,
+        /// The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+        pub availability_zone_distribution: pulumi_wasm_rust::Output<
+            super::super::types::autoscaling::GroupAvailabilityZoneDistribution,
+        >,
         /// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
         pub availability_zones: pulumi_wasm_rust::Output<Vec<String>>,
         /// Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
@@ -699,7 +695,9 @@ pub mod group {
         /// The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
         pub desired_capacity_type: pulumi_wasm_rust::Output<Option<String>>,
         /// List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
-        pub enabled_metrics: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub enabled_metrics: pulumi_wasm_rust::Output<
+            Option<Vec<super::super::types::autoscaling::metrics::Metric>>,
+        >,
         /// Allows deleting the Auto Scaling Group without waiting
         /// for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
         /// even if it's in the process of scaling a resource. Normally, this provider
@@ -822,6 +820,9 @@ pub mod group {
     pub fn create(name: &str, args: GroupArgs) -> GroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
+        let availability_zone_distribution_binding = args
+            .availability_zone_distribution
+            .get_inner();
         let availability_zones_binding = args.availability_zones.get_inner();
         let capacity_rebalance_binding = args.capacity_rebalance.get_inner();
         let context_binding = args.context.get_inner();
@@ -873,6 +874,10 @@ pub mod group {
             type_: "aws:autoscaling/group:Group".into(),
             name: name.to_string(),
             object: Vec::from([
+                register_interface::ObjectField {
+                    name: "availabilityZoneDistribution".into(),
+                    value: &availability_zone_distribution_binding,
+                },
                 register_interface::ObjectField {
                     name: "availabilityZones".into(),
                     value: &availability_zones_binding,
@@ -1035,6 +1040,9 @@ pub mod group {
                     name: "arn".into(),
                 },
                 register_interface::ResultField {
+                    name: "availabilityZoneDistribution".into(),
+                },
+                register_interface::ResultField {
                     name: "availabilityZones".into(),
                 },
                 register_interface::ResultField {
@@ -1168,6 +1176,9 @@ pub mod group {
         GroupResult {
             arn: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("arn").unwrap(),
+            ),
+            availability_zone_distribution: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("availabilityZoneDistribution").unwrap(),
             ),
             availability_zones: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("availabilityZones").unwrap(),
