@@ -202,9 +202,6 @@ pub(crate) struct ElementId {
 }
 
 impl ElementId {
-    pub(crate) fn get_rust_package_name(&self) -> String {
-       escape_rust_name(&self.name.clone().to_case(Case::Snake)).to_string()
-    }
     pub(crate) fn get_rust_struct_name(&self) -> String {
         self.name.clone().to_case(Case::Pascal)
     }

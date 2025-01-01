@@ -11,6 +11,10 @@ struct Provider<'a> {
 fn main() {
     let mut providers = vec![
         Provider {
+            name: "aws",
+            version: "6.66.2",
+        },
+        Provider {
             name: "docker",
             version: "4.5.3",
         },
