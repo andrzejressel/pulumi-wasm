@@ -57,7 +57,7 @@
 ///       tags:
 ///         Name: example-id
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${example}
 /// ```
 ///

@@ -24,13 +24,13 @@
 ///       iamRole: ${testRole.id}
 ///       registrationLimit: '5'
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${testAttach}
 /// variables:
 ///   assumeRole:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - effect: Allow
 ///             principals:

@@ -2,31 +2,24 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let available = get_availability_zones::invoke(
-///         GetAvailabilityZonesArgs::builder()
-///             .filters(
-///                 vec![
-///                     GetAvailabilityZonesFilter::builder().name("opt-in-status")
-///                     .values(vec!["opt-in-not-required",]).build_struct(),
-///                 ],
-///             )
-///             .state("available")
-///             .build_struct(),
-///     );
-///     let test = disk::create(
-///         "test",
-///         DiskArgs::builder()
-///             .availability_zone("${available.names[0]}")
-///             .name("test")
-///             .size_in_gb(8)
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   test:
+///     type: aws:lightsail:Disk
+///     properties:
+///       name: test
+///       sizeInGb: 8
+///       availabilityZone: ${available.names[0]}
+/// variables:
+///   available:
+///     fn::invoke:
+///       function: aws:getAvailabilityZones
+///       arguments:
+///         state: available
+///         filters:
+///           - name: opt-in-status
+///             values:
+///               - opt-in-not-required
 /// ```
 ///
 /// ## Import

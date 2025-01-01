@@ -252,7 +252,7 @@
 ///               seedUrls:
 ///                 - REPLACE_WITH_YOUR_URL
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${exampleAwsSecretsmanagerSecretVersion}
 /// ```
 ///
@@ -389,7 +389,7 @@
 ///               seedUrls:
 ///                 - REPLACE_WITH_YOUR_URL
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${exampleAwsSecretsmanagerSecretVersion}
 /// ```
 ///

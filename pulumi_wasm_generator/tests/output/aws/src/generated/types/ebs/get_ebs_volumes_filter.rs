@@ -6,22 +6,17 @@ pub struct GetEbsVolumesFilter {
     /// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
     /// For example, if matching against the `size` filter, use:
     /// 
-    /// ```ignore
-    /// use pulumi_wasm_rust::Output;
-    /// use pulumi_wasm_rust::{add_export, pulumi_main};
-    /// #[pulumi_main]
-    /// fn test_main() -> Result<(), Error> {
-    ///     let tenOrTwentyGbVolumes = get_ebs_volumes::invoke(
-    ///         GetEbsVolumesArgs::builder()
-    ///             .filters(
-    ///                 vec![
-    ///                     GetEbsVolumesFilter::builder().name("size").values(vec!["10", "20",])
-    ///                     .build_struct(),
-    ///                 ],
-    ///             )
-    ///             .build_struct(),
-    ///     );
-    /// }
+    /// ```yaml
+    /// variables:
+    ///   tenOrTwentyGbVolumes:
+    ///     fn::invoke:
+    ///       function: aws:ebs:getEbsVolumes
+    ///       arguments:
+    ///         filters:
+    ///           - name: size
+    ///             values:
+    ///               - '10'
+    ///               - '20'
     /// ```
     #[builder(into)]
     #[serde(rename = "name")]

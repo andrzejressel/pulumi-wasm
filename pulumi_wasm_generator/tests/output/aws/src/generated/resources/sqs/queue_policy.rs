@@ -3,36 +3,39 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let test = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sqs:SendMessage",])
-///                     .conditions(vec![GetPolicyDocumentStatementCondition::builder()
-///                     .test("ArnEquals").values(vec!["${example.arn}",])
-///                     .variable("aws:SourceArn").build_struct(),]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["*",]). type ("*").build_struct(),])
-///                     .resources(vec!["${q.arn}",]).sid("First").build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let q = queue::create("q", QueueArgs::builder().name("examplequeue").build_struct());
-///     let testQueuePolicy = queue_policy::create(
-///         "testQueuePolicy",
-///         QueuePolicyArgs::builder()
-///             .policy("${test.json}")
-///             .queue_url("${q.id}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   q:
+///     type: aws:sqs:Queue
+///     properties:
+///       name: examplequeue
+///   testQueuePolicy:
+///     type: aws:sqs:QueuePolicy
+///     name: test
+///     properties:
+///       queueUrl: ${q.id}
+///       policy: ${test.json}
+/// variables:
+///   test:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - sid: First
+///             effect: Allow
+///             principals:
+///               - type: '*'
+///                 identifiers:
+///                   - '*'
+///             actions:
+///               - sqs:SendMessage
+///             resources:
+///               - ${q.arn}
+///             conditions:
+///               - test: ArnEquals
+///                 variable: aws:SourceArn
+///                 values:
+///                   - ${example.arn}
 /// ```
 ///
 /// ## Import

@@ -67,7 +67,7 @@
 ///         key1: tag1
 ///         key2: tag2
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${exampleAwsSsmincidentsReplicationSet}
 /// ```
 ///

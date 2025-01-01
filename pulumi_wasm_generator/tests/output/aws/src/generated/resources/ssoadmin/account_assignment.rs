@@ -4,92 +4,84 @@
 ///
 /// ### Basic Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = get_instances::invoke(GetInstancesArgs::builder().build_struct());
-///     let exampleGetGroup = get_group::invoke(
-///         GetGroupArgs::builder()
-///             .alternate_identifier(
-///                 GetGroupAlternateIdentifier::builder()
-///                     .uniqueAttribute(
-///                         GetGroupAlternateIdentifierUniqueAttribute::builder()
-///                             .attributePath("DisplayName")
-///                             .attributeValue("ExampleGroup")
-///                             .build_struct(),
-///                     )
-///                     .build_struct(),
-///             )
-///             .identity_store_id("${example.identityStoreIds[0]}")
-///             .build_struct(),
-///     );
-///     let exampleGetPermissionSet = get_permission_set::invoke(
-///         GetPermissionSetArgs::builder()
-///             .instance_arn("${example.arns[0]}")
-///             .name("AWSReadOnlyAccess")
-///             .build_struct(),
-///     );
-///     let exampleAccountAssignment = account_assignment::create(
-///         "exampleAccountAssignment",
-///         AccountAssignmentArgs::builder()
-///             .instance_arn("${example.arns[0]}")
-///             .permission_set_arn("${exampleGetPermissionSet.arn}")
-///             .principal_id("${exampleGetGroup.groupId}")
-///             .principal_type("GROUP")
-///             .target_id("123456789012")
-///             .target_type("AWS_ACCOUNT")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleAccountAssignment:
+///     type: aws:ssoadmin:AccountAssignment
+///     name: example
+///     properties:
+///       instanceArn: ${example.arns[0]}
+///       permissionSetArn: ${exampleGetPermissionSet.arn}
+///       principalId: ${exampleGetGroup.groupId}
+///       principalType: GROUP
+///       targetId: '123456789012'
+///       targetType: AWS_ACCOUNT
+/// variables:
+///   example:
+///     fn::invoke:
+///       function: aws:ssoadmin:getInstances
+///       arguments: {}
+///   exampleGetPermissionSet:
+///     fn::invoke:
+///       function: aws:ssoadmin:getPermissionSet
+///       arguments:
+///         instanceArn: ${example.arns[0]}
+///         name: AWSReadOnlyAccess
+///   exampleGetGroup:
+///     fn::invoke:
+///       function: aws:identitystore:getGroup
+///       arguments:
+///         identityStoreId: ${example.identityStoreIds[0]}
+///         alternateIdentifier:
+///           uniqueAttribute:
+///             attributePath: DisplayName
+///             attributeValue: ExampleGroup
 /// ```
 ///
 /// ### With Managed Policy Attachment
 ///
 /// > Because destruction of a managed policy attachment resource also re-provisions the associated permission set to all accounts, explicitly indicating the dependency with the account assignment resource via the `depends_on` meta argument is necessary to ensure proper deletion order when these resources are used together.
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = get_instances::invoke(GetInstancesArgs::builder().build_struct());
-///     let accountAssignment = account_assignment::create(
-///         "accountAssignment",
-///         AccountAssignmentArgs::builder()
-///             .instance_arn("${example.arns[0]}")
-///             .permission_set_arn("${examplePermissionSet.arn}")
-///             .principal_id("${exampleGroup.groupId}")
-///             .principal_type("GROUP")
-///             .target_id("123456789012")
-///             .target_type("AWS_ACCOUNT")
-///             .build_struct(),
-///     );
-///     let exampleGroup = group::create(
-///         "exampleGroup",
-///         GroupArgs::builder()
-///             .description("Admin Group")
-///             .display_name("Admin")
-///             .identity_store_id("${example.identityStoreIds[0]}")
-///             .build_struct(),
-///     );
-///     let exampleManagedPolicyAttachment = managed_policy_attachment::create(
-///         "exampleManagedPolicyAttachment",
-///         ManagedPolicyAttachmentArgs::builder()
-///             .instance_arn("${example.arns[0]}")
-///             .managed_policy_arn("arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup")
-///             .permission_set_arn("${examplePermissionSet.arn}")
-///             .build_struct(),
-///     );
-///     let examplePermissionSet = permission_set::create(
-///         "examplePermissionSet",
-///         PermissionSetArgs::builder()
-///             .instance_arn("${example.arns[0]}")
-///             .name("Example")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   examplePermissionSet:
+///     type: aws:ssoadmin:PermissionSet
+///     name: example
+///     properties:
+///       name: Example
+///       instanceArn: ${example.arns[0]}
+///   exampleGroup:
+///     type: aws:identitystore:Group
+///     name: example
+///     properties:
+///       identityStoreId: ${example.identityStoreIds[0]}
+///       displayName: Admin
+///       description: Admin Group
+///   accountAssignment:
+///     type: aws:ssoadmin:AccountAssignment
+///     name: account_assignment
+///     properties:
+///       instanceArn: ${example.arns[0]}
+///       permissionSetArn: ${examplePermissionSet.arn}
+///       principalId: ${exampleGroup.groupId}
+///       principalType: GROUP
+///       targetId: '123456789012'
+///       targetType: AWS_ACCOUNT
+///   exampleManagedPolicyAttachment:
+///     type: aws:ssoadmin:ManagedPolicyAttachment
+///     name: example
+///     properties:
+///       instanceArn: ${example.arns[0]}
+///       managedPolicyArn: arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup
+///       permissionSetArn: ${examplePermissionSet.arn}
+///     options:
+///       dependsOn:
+///         - ${exampleAwsSsoadminAccountAssignment}
+/// variables:
+///   example:
+///     fn::invoke:
+///       function: aws:ssoadmin:getInstances
+///       arguments: {}
 /// ```
 ///
 /// ## Import

@@ -48,10 +48,10 @@
 ///       filename: manifest_1915_GI.json
 ///       manifestHash:
 ///         fn::invoke:
-///           Function: std:filebase64sha256
-///           Arguments:
+///           function: std:filebase64sha256
+///           arguments:
 ///             input: ${json}
-///           Return: result
+///           return: result
 ///       tags:
 ///         Name: example
 ///         Key: value

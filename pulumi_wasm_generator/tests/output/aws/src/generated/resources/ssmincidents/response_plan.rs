@@ -16,7 +16,7 @@
 ///       tags:
 ///         key: value
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${exampleAwsSsmincidentsReplicationSet}
 /// ```
 ///
@@ -68,7 +68,7 @@
 ///       tags:
 ///         key: value
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${exampleAwsSsmincidentsReplicationSet}
 /// ```
 ///

@@ -4,21 +4,17 @@
 ///
 /// Basic usage:
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let delegated = get_caller_identity::invoke(
-///         GetCallerIdentityArgs::builder().build_struct(),
-///     );
-///     let example = vpc_ipam_organization_admin_account::create(
-///         "example",
-///         VpcIpamOrganizationAdminAccountArgs::builder()
-///             .delegated_admin_account_id("${delegated.accountId}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:ec2:VpcIpamOrganizationAdminAccount
+///     properties:
+///       delegatedAdminAccountId: ${delegated.accountId}
+/// variables:
+///   delegated:
+///     fn::invoke:
+///       function: aws:getCallerIdentity
+///       arguments: {}
 /// ```
 ///
 /// ## Import

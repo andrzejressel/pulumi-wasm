@@ -49,13 +49,13 @@
 ///             type: double
 ///           - name: my_date
 ///             type: date
-///             comment:
+///             comment: ""
 ///           - name: my_bigint
 ///             type: bigint
-///             comment:
+///             comment: ""
 ///           - name: my_struct
 ///             type: struct<my_nested_string:string>
-///             comment:
+///             comment: ""
 /// ```
 ///
 /// ## Import

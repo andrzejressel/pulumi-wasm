@@ -65,10 +65,10 @@
 ///       filename: contact_flow.json
 ///       contentHash:
 ///         fn::invoke:
-///           Function: std:filebase64sha256
-///           Arguments:
+///           function: std:filebase64sha256
+///           arguments:
 ///             input: contact_flow.json
-///           Return: result
+///           return: result
 ///       tags:
 ///         Name: Test Contact Flow
 ///         Application: Example

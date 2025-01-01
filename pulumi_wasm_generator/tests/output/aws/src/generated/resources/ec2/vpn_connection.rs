@@ -106,8 +106,8 @@
 /// variables:
 ///   example:
 ///     fn::invoke:
-///       Function: aws:ec2transitgateway:getDirectConnectGatewayAttachment
-///       Arguments:
+///       function: aws:ec2transitgateway:getDirectConnectGatewayAttachment
+///       arguments:
 ///         transitGatewayId: ${exampleTransitGateway.id}
 ///         dxGatewayId: ${exampleGateway.id}
 /// ```

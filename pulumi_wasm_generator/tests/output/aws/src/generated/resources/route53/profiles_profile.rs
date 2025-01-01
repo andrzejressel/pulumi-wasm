@@ -4,16 +4,14 @@
 ///
 /// ### Empty Profile
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = profiles_profile::create(
-///         "example",
-///         ProfilesProfileArgs::builder().name("example").build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:route53:ProfilesProfile
+///     properties:
+///       name: example
+///       tags:
+///         Environment: dev
 /// ```
 ///
 /// ## Import
@@ -31,6 +29,7 @@ pub mod profiles_profile {
         /// Name of the Profile.
         #[builder(into, default)]
         pub name: pulumi_wasm_rust::Output<Option<String>>,
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
         pub tags: pulumi_wasm_rust::Output<
             Option<std::collections::HashMap<String, String>>,
@@ -47,12 +46,13 @@ pub mod profiles_profile {
         /// Name of the Profile.
         pub name: pulumi_wasm_rust::Output<String>,
         pub owner_id: pulumi_wasm_rust::Output<String>,
-        /// Share status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+        /// Share status of the Profile.
         pub share_status: pulumi_wasm_rust::Output<String>,
-        /// Status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+        /// Status of the Profile.
         pub status: pulumi_wasm_rust::Output<String>,
         /// Status message of the Profile.
         pub status_message: pulumi_wasm_rust::Output<String>,
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         pub tags: pulumi_wasm_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,

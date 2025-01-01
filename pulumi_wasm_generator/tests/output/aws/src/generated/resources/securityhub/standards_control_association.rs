@@ -2,26 +2,30 @@
 ///
 /// ### Basic usage
 ///
-/// ```yaml
-/// resources:
-///   example:
-///     type: aws:securityhub:Account
-///   cisAwsFoundationsBenchmark:
-///     type: aws:securityhub:StandardsSubscription
-///     name: cis_aws_foundations_benchmark
-///     properties:
-///       standardsArn: arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0
-///     options:
-///       dependson:
-///         - ${example}
-///   cisAwsFoundationsBenchmarkDisableIam1:
-///     type: aws:standardsControlAssociation
-///     name: cis_aws_foundations_benchmark_disable_iam_1
-///     properties:
-///       standardsArn: ${cisAwsFoundationsBenchmark.standardsArn}
-///       securityControlId: IAM.1
-///       associationStatus: DISABLED
-///       updatedReason: Not needed
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let cisAwsFoundationsBenchmark = standards_subscription::create(
+///         "cisAwsFoundationsBenchmark",
+///         StandardsSubscriptionArgs::builder()
+///             .standards_arn(
+///                 "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
+///             )
+///             .build_struct(),
+///     );
+///     let cisAwsFoundationsBenchmarkDisableIam1 = standards_control_association::create(
+///         "cisAwsFoundationsBenchmarkDisableIam1",
+///         StandardsControlAssociationArgs::builder()
+///             .association_status("DISABLED")
+///             .security_control_id("IAM.1")
+///             .standards_arn("${cisAwsFoundationsBenchmark.standardsArn}")
+///             .updated_reason("Not needed")
+///             .build_struct(),
+///     );
+///     let example = account::create("example", AccountArgs::builder().build_struct());
+/// }
 /// ```
 ///
 pub mod standards_control_association {

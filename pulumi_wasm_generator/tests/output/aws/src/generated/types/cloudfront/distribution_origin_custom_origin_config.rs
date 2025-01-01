@@ -10,7 +10,6 @@ pub struct DistributionOriginCustomOriginConfig {
     #[builder(into)]
     #[serde(rename = "httpsPort")]
     pub r#https_port: Box<i32>,
-    /// The Custom KeepAlive timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `5`.
     #[builder(into, default)]
     #[serde(rename = "originKeepaliveTimeout")]
     pub r#origin_keepalive_timeout: Box<Option<i32>>,
@@ -18,7 +17,6 @@ pub struct DistributionOriginCustomOriginConfig {
     #[builder(into)]
     #[serde(rename = "originProtocolPolicy")]
     pub r#origin_protocol_policy: Box<String>,
-    /// The Custom Read timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `30`.
     #[builder(into, default)]
     #[serde(rename = "originReadTimeout")]
     pub r#origin_read_timeout: Box<Option<i32>>,

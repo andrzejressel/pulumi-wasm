@@ -14,6 +14,10 @@ pub struct GetReceivedLicenseEntitlement {
     #[builder(into)]
     #[serde(rename = "name")]
     pub r#name: Box<String>,
+    /// Indicates whether overages are allowed.
+    #[builder(into)]
+    #[serde(rename = "overage")]
+    pub r#overage: Box<bool>,
     /// Entitlement unit.
     #[builder(into)]
     #[serde(rename = "unit")]

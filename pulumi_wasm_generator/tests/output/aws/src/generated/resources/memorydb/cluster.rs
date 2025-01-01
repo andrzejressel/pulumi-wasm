@@ -65,6 +65,9 @@ pub mod cluster {
         /// Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
         #[builder(into, default)]
         pub maintenance_window: pulumi_wasm_rust::Output<Option<String>>,
+        /// The multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
+        #[builder(into, default)]
+        pub multi_region_cluster_name: pulumi_wasm_rust::Output<Option<String>>,
         /// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         #[builder(into, default)]
         pub name: pulumi_wasm_rust::Output<Option<String>>,
@@ -145,6 +148,8 @@ pub mod cluster {
         pub kms_key_arn: pulumi_wasm_rust::Output<Option<String>>,
         /// Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
         pub maintenance_window: pulumi_wasm_rust::Output<String>,
+        /// The multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
+        pub multi_region_cluster_name: pulumi_wasm_rust::Output<Option<String>>,
         /// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         pub name: pulumi_wasm_rust::Output<String>,
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -208,6 +213,9 @@ pub mod cluster {
         let final_snapshot_name_binding = args.final_snapshot_name.get_inner();
         let kms_key_arn_binding = args.kms_key_arn.get_inner();
         let maintenance_window_binding = args.maintenance_window.get_inner();
+        let multi_region_cluster_name_binding = args
+            .multi_region_cluster_name
+            .get_inner();
         let name_binding = args.name.get_inner();
         let name_prefix_binding = args.name_prefix.get_inner();
         let node_type_binding = args.node_type.get_inner();
@@ -263,6 +271,10 @@ pub mod cluster {
                 register_interface::ObjectField {
                     name: "maintenanceWindow".into(),
                     value: &maintenance_window_binding,
+                },
+                register_interface::ObjectField {
+                    name: "multiRegionClusterName".into(),
+                    value: &multi_region_cluster_name_binding,
                 },
                 register_interface::ObjectField {
                     name: "name".into(),
@@ -367,6 +379,9 @@ pub mod cluster {
                     name: "maintenanceWindow".into(),
                 },
                 register_interface::ResultField {
+                    name: "multiRegionClusterName".into(),
+                },
+                register_interface::ResultField {
                     name: "name".into(),
                 },
                 register_interface::ResultField {
@@ -464,6 +479,9 @@ pub mod cluster {
             ),
             maintenance_window: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("maintenanceWindow").unwrap(),
+            ),
+            multi_region_cluster_name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("multiRegionClusterName").unwrap(),
             ),
             name: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("name").unwrap(),

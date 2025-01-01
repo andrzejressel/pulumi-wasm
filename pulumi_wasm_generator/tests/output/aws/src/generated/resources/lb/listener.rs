@@ -266,6 +266,8 @@ pub mod listener {
         #[builder(into, default)]
         pub ssl_policy: pulumi_wasm_rust::Output<Option<String>>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        ///
+        /// > **Note::** When a `Name` key is specified in the map, the AWS Console maps the value to the `Name Tag` column value inside the `Listener Rules` table within a specific load balancer listener page. Otherwise, the value resolves to `Default`.
         #[builder(into, default)]
         pub tags: pulumi_wasm_rust::Output<
             Option<std::collections::HashMap<String, String>>,
@@ -301,6 +303,8 @@ pub mod listener {
         /// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
         pub ssl_policy: pulumi_wasm_rust::Output<String>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        ///
+        /// > **Note::** When a `Name` key is specified in the map, the AWS Console maps the value to the `Name Tag` column value inside the `Listener Rules` table within a specific load balancer listener page. Otherwise, the value resolves to `Default`.
         pub tags: pulumi_wasm_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,

@@ -38,8 +38,8 @@
 /// variables:
 ///   example:
 ///     fn::invoke:
-///       Function: aws:ssoadmin:getInstances
-///       Arguments: {}
+///       function: aws:ssoadmin:getInstances
+///       arguments: {}
 /// ```
 ///
 /// ## Import

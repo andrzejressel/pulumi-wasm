@@ -18,8 +18,8 @@
 /// variables:
 ///   example:
 ///     fn::invoke:
-///       Function: aws:elasticache:getReservedCacheNodeOffering
-///       Arguments:
+///       function: aws:elasticache:getReservedCacheNodeOffering
+///       arguments:
 ///         cacheNodeType: cache.t4g.small
 ///         duration: P1Y
 ///         offeringType: No Upfront

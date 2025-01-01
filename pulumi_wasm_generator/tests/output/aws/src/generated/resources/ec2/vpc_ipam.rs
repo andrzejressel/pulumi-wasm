@@ -17,8 +17,8 @@
 /// variables:
 ///   current:
 ///     fn::invoke:
-///       Function: aws:getRegion
-///       Arguments: {}
+///       function: aws:getRegion
+///       arguments: {}
 /// ```
 ///
 /// Shared with multiple operating_regions:

@@ -2,51 +2,47 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["codeartifact:ReadFromRepository",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["*",]). type ("*").build_struct(),])
-///                     .resources(vec!["${exampleRepository.arn}",]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let exampleDomain = domain::create(
-///         "exampleDomain",
-///         DomainArgs::builder()
-///             .domain("example")
-///             .encryption_key("${exampleKey.arn}")
-///             .build_struct(),
-///     );
-///     let exampleKey = key::create(
-///         "exampleKey",
-///         KeyArgs::builder().description("domain key").build_struct(),
-///     );
-///     let exampleRepository = repository::create(
-///         "exampleRepository",
-///         RepositoryArgs::builder()
-///             .domain("${exampleDomain.domain}")
-///             .repository("example")
-///             .build_struct(),
-///     );
-///     let exampleRepositoryPermissionsPolicy = repository_permissions_policy::create(
-///         "exampleRepositoryPermissionsPolicy",
-///         RepositoryPermissionsPolicyArgs::builder()
-///             .domain("${exampleDomain.domain}")
-///             .policy_document("${example.json}")
-///             .repository("${exampleRepository.repository}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleKey:
+///     type: aws:kms:Key
+///     name: example
+///     properties:
+///       description: domain key
+///   exampleDomain:
+///     type: aws:codeartifact:Domain
+///     name: example
+///     properties:
+///       domain: example
+///       encryptionKey: ${exampleKey.arn}
+///   exampleRepository:
+///     type: aws:codeartifact:Repository
+///     name: example
+///     properties:
+///       repository: example
+///       domain: ${exampleDomain.domain}
+///   exampleRepositoryPermissionsPolicy:
+///     type: aws:codeartifact:RepositoryPermissionsPolicy
+///     name: example
+///     properties:
+///       repository: ${exampleRepository.repository}
+///       domain: ${exampleDomain.domain}
+///       policyDocument: ${example.json}
+/// variables:
+///   example:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: '*'
+///                 identifiers:
+///                   - '*'
+///             actions:
+///               - codeartifact:ReadFromRepository
+///             resources:
+///               - ${exampleRepository.arn}
 /// ```
 ///
 /// ## Import

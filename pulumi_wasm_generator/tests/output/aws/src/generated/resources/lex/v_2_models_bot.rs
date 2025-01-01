@@ -29,7 +29,7 @@
 ///           Statement:
 ///             - Action: sts:AssumeRole
 ///               Effect: Allow
-///               Sid:
+///               Sid: ""
 ///               Principal:
 ///                 Service: lexv2.amazonaws.com
 ///       tags:

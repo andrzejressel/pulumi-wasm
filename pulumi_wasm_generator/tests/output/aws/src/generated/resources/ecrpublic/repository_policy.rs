@@ -6,42 +6,46 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["ecr:GetDownloadUrlForLayer", "ecr:BatchGetImage",
-///                     "ecr:BatchCheckLayerAvailability", "ecr:PutImage",
-///                     "ecr:InitiateLayerUpload", "ecr:UploadLayerPart",
-///                     "ecr:CompleteLayerUpload", "ecr:DescribeRepositories",
-///                     "ecr:GetRepositoryPolicy", "ecr:ListImages", "ecr:DeleteRepository",
-///                     "ecr:BatchDeleteImage", "ecr:SetRepositoryPolicy",
-///                     "ecr:DeleteRepositoryPolicy",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["123456789012",]). type ("AWS").build_struct(),])
-///                     .sid("new policy").build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let exampleRepository = repository::create(
-///         "exampleRepository",
-///         RepositoryArgs::builder().repository_name("example").build_struct(),
-///     );
-///     let exampleRepositoryPolicy = repository_policy::create(
-///         "exampleRepositoryPolicy",
-///         RepositoryPolicyArgs::builder()
-///             .policy("${example.json}")
-///             .repository_name("${exampleRepository.repositoryName}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleRepository:
+///     type: aws:ecrpublic:Repository
+///     name: example
+///     properties:
+///       repositoryName: example
+///   exampleRepositoryPolicy:
+///     type: aws:ecrpublic:RepositoryPolicy
+///     name: example
+///     properties:
+///       repositoryName: ${exampleRepository.repositoryName}
+///       policy: ${example.json}
+/// variables:
+///   example:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - sid: new policy
+///             effect: Allow
+///             principals:
+///               - type: AWS
+///                 identifiers:
+///                   - '123456789012'
+///             actions:
+///               - ecr:GetDownloadUrlForLayer
+///               - ecr:BatchGetImage
+///               - ecr:BatchCheckLayerAvailability
+///               - ecr:PutImage
+///               - ecr:InitiateLayerUpload
+///               - ecr:UploadLayerPart
+///               - ecr:CompleteLayerUpload
+///               - ecr:DescribeRepositories
+///               - ecr:GetRepositoryPolicy
+///               - ecr:ListImages
+///               - ecr:DeleteRepository
+///               - ecr:BatchDeleteImage
+///               - ecr:SetRepositoryPolicy
+///               - ecr:DeleteRepositoryPolicy
 /// ```
 ///
 /// ## Import

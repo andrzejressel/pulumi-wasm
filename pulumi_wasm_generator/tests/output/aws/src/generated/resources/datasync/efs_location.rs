@@ -4,24 +4,16 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = efs_location::create(
-///         "example",
-///         EfsLocationArgs::builder()
-///             .ec_2_config(
-///                 EfsLocationEc2Config::builder()
-///                     .securityGroupArns(vec!["${exampleAwsSecurityGroup.arn}",])
-///                     .subnetArn("${exampleAwsSubnet.arn}")
-///                     .build_struct(),
-///             )
-///             .efs_file_system_arn("${exampleAwsEfsMountTarget.fileSystemArn}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:datasync:EfsLocation
+///     properties:
+///       efsFileSystemArn: ${exampleAwsEfsMountTarget.fileSystemArn}
+///       ec2Config:
+///         securityGroupArns:
+///           - ${exampleAwsSecurityGroup.arn}
+///         subnetArn: ${exampleAwsSubnet.arn}
 /// ```
 ///
 /// ## Import
@@ -46,7 +38,7 @@ pub mod efs_location {
         >,
         /// Amazon Resource Name (ARN) of EFS File System.
         #[builder(into)]
-        pub efs_file_system_arn: pulumi_wasm_rust::Output<String>,
+        pub efs_file_system_arn: pulumi_wasm_rust::Output<super::super::types::Arn>,
         /// Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
         #[builder(into, default)]
         pub file_system_access_role_arn: pulumi_wasm_rust::Output<Option<String>>,
@@ -73,7 +65,7 @@ pub mod efs_location {
             super::super::types::datasync::EfsLocationEc2Config,
         >,
         /// Amazon Resource Name (ARN) of EFS File System.
-        pub efs_file_system_arn: pulumi_wasm_rust::Output<String>,
+        pub efs_file_system_arn: pulumi_wasm_rust::Output<super::super::types::Arn>,
         /// Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
         pub file_system_access_role_arn: pulumi_wasm_rust::Output<Option<String>>,
         /// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.

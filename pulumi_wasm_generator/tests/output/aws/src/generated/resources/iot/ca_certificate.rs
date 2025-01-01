@@ -56,8 +56,8 @@
 /// variables:
 ///   example:
 ///     fn::invoke:
-///       Function: aws:iot:getRegistrationCode
-///       Arguments: {}
+///       function: aws:iot:getRegistrationCode
+///       arguments: {}
 /// ```
 pub mod ca_certificate {
     #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]

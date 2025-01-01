@@ -15,10 +15,10 @@
 ///       tokenSigningPublicKeys:
 ///         Key1:
 ///           fn::invoke:
-///             Function: std:file
-///             Arguments:
+///             function: std:file
+///             arguments:
 ///               input: test-fixtures/iot-authorizer-signing-key.pem
-///             Return: result
+///             return: result
 ///       tags:
 ///         Name: example
 /// ```

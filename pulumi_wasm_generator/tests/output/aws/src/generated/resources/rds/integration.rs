@@ -63,12 +63,12 @@
 /// variables:
 ///   current:
 ///     fn::invoke:
-///       Function: aws:getCallerIdentity
-///       Arguments: {}
+///       function: aws:getCallerIdentity
+///       arguments: {}
 ///   keyPolicy:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - actions:
 ///               - kms:*

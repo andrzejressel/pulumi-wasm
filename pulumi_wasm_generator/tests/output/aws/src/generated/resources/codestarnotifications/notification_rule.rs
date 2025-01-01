@@ -2,55 +2,45 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let notifAccess = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder().actions(vec!["sns:Publish",])
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["codestar-notifications.amazonaws.com",]). type
-///                     ("Service").build_struct(),]).resources(vec!["${notif.arn}",])
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let code = repository::create(
-///         "code",
-///         RepositoryArgs::builder().repository_name("example-code-repo").build_struct(),
-///     );
-///     let commits = notification_rule::create(
-///         "commits",
-///         NotificationRuleArgs::builder()
-///             .detail_type("BASIC")
-///             .event_type_ids(vec!["codecommit-repository-comments-on-commits",])
-///             .name("example-code-repo-commits")
-///             .resource("${code.arn}")
-///             .targets(
-///                 vec![
-///                     NotificationRuleTarget::builder().address("${notif.arn}")
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let default = topic_policy::create(
-///         "default",
-///         TopicPolicyArgs::builder()
-///             .arn("${notif.arn}")
-///             .policy("${notifAccess.json}")
-///             .build_struct(),
-///     );
-///     let notif = topic::create(
-///         "notif",
-///         TopicArgs::builder().name("notification").build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   code:
+///     type: aws:codecommit:Repository
+///     properties:
+///       repositoryName: example-code-repo
+///   notif:
+///     type: aws:sns:Topic
+///     properties:
+///       name: notification
+///   default:
+///     type: aws:sns:TopicPolicy
+///     properties:
+///       arn: ${notif.arn}
+///       policy: ${notifAccess.json}
+///   commits:
+///     type: aws:codestarnotifications:NotificationRule
+///     properties:
+///       detailType: BASIC
+///       eventTypeIds:
+///         - codecommit-repository-comments-on-commits
+///       name: example-code-repo-commits
+///       resource: ${code.arn}
+///       targets:
+///         - address: ${notif.arn}
+/// variables:
+///   notifAccess:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - actions:
+///               - sns:Publish
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - codestar-notifications.amazonaws.com
+///             resources:
+///               - ${notif.arn}
 /// ```
 ///
 /// ## Import

@@ -4,33 +4,26 @@
 ///
 /// ### Basic Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = get_instances::invoke(GetInstancesArgs::builder().build_struct());
-///     let exampleTrustedTokenIssuer = trusted_token_issuer::create(
-///         "exampleTrustedTokenIssuer",
-///         TrustedTokenIssuerArgs::builder()
-///             .instance_arn("${example.arns[0]}")
-///             .name("example")
-///             .trusted_token_issuer_configuration(
-///                 TrustedTokenIssuerTrustedTokenIssuerConfiguration::builder()
-///                     .oidcJwtConfiguration(
-///                         TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration::builder()
-///                             .claimAttributePath("email")
-///                             .identityStoreAttributePath("emails.value")
-///                             .issuerUrl("https://example.com")
-///                             .jwksRetrievalOption("OPEN_ID_DISCOVERY")
-///                             .build_struct(),
-///                     )
-///                     .build_struct(),
-///             )
-///             .trusted_token_issuer_type("OIDC_JWT")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleTrustedTokenIssuer:
+///     type: aws:ssoadmin:TrustedTokenIssuer
+///     name: example
+///     properties:
+///       name: example
+///       instanceArn: ${example.arns[0]}
+///       trustedTokenIssuerType: OIDC_JWT
+///       trustedTokenIssuerConfiguration:
+///         oidcJwtConfiguration:
+///           claimAttributePath: email
+///           identityStoreAttributePath: emails.value
+///           issuerUrl: https://example.com
+///           jwksRetrievalOption: OPEN_ID_DISCOVERY
+/// variables:
+///   example:
+///     fn::invoke:
+///       function: aws:ssoadmin:getInstances
+///       arguments: {}
 /// ```
 ///
 /// ## Import

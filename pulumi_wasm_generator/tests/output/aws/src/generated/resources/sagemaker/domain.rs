@@ -4,47 +4,38 @@
 ///
 /// ### Basic usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sts:AssumeRole",])
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["sagemaker.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let exampleDomain = domain::create(
-///         "exampleDomain",
-///         DomainArgs::builder()
-///             .auth_mode("IAM")
-///             .default_user_settings(
-///                 DomainDefaultUserSettings::builder()
-///                     .executionRole("${exampleRole.arn}")
-///                     .build_struct(),
-///             )
-///             .domain_name("example")
-///             .subnet_ids(vec!["${exampleAwsSubnet.id}",])
-///             .vpc_id("${exampleAwsVpc.id}")
-///             .build_struct(),
-///     );
-///     let exampleRole = role::create(
-///         "exampleRole",
-///         RoleArgs::builder()
-///             .assume_role_policy("${example.json}")
-///             .name("example")
-///             .path("/")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleDomain:
+///     type: aws:sagemaker:Domain
+///     name: example
+///     properties:
+///       domainName: example
+///       authMode: IAM
+///       vpcId: ${exampleAwsVpc.id}
+///       subnetIds:
+///         - ${exampleAwsSubnet.id}
+///       defaultUserSettings:
+///         executionRole: ${exampleRole.arn}
+///   exampleRole:
+///     type: aws:iam:Role
+///     name: example
+///     properties:
+///       name: example
+///       path: /
+///       assumeRolePolicy: ${example.json}
+/// variables:
+///   example:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - actions:
+///               - sts:AssumeRole
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - sagemaker.amazonaws.com
 /// ```
 ///
 /// ### Using Custom Images

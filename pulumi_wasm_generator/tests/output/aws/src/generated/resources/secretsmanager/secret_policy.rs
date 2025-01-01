@@ -4,37 +4,35 @@
 ///
 /// ### Basic
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["secretsmanager:GetSecretValue",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["arn:aws:iam::123456789012:root",]). type ("AWS")
-///                     .build_struct(),]).resources(vec!["*",])
-///                     .sid("EnableAnotherAWSAccountToReadTheSecret").build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let exampleSecret = secret::create(
-///         "exampleSecret",
-///         SecretArgs::builder().name("example").build_struct(),
-///     );
-///     let exampleSecretPolicy = secret_policy::create(
-///         "exampleSecretPolicy",
-///         SecretPolicyArgs::builder()
-///             .policy("${example.json}")
-///             .secret_arn("${exampleSecret.arn}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleSecret:
+///     type: aws:secretsmanager:Secret
+///     name: example
+///     properties:
+///       name: example
+///   exampleSecretPolicy:
+///     type: aws:secretsmanager:SecretPolicy
+///     name: example
+///     properties:
+///       secretArn: ${exampleSecret.arn}
+///       policy: ${example.json}
+/// variables:
+///   example:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - sid: EnableAnotherAWSAccountToReadTheSecret
+///             effect: Allow
+///             principals:
+///               - type: AWS
+///                 identifiers:
+///                   - arn:aws:iam::123456789012:root
+///             actions:
+///               - secretsmanager:GetSecretValue
+///             resources:
+///               - '*'
 /// ```
 ///
 /// ## Import

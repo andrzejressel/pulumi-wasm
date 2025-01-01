@@ -33,12 +33,12 @@
 /// variables:
 ///   current:
 ///     fn::invoke:
-///       Function: aws:getCallerIdentity
-///       Arguments: {}
+///       function: aws:getCallerIdentity
+///       arguments: {}
 ///   example:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - sid: Enable IAM User Permissions
 ///             effect: Allow

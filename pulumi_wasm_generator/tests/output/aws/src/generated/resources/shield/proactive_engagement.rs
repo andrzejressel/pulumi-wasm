@@ -19,7 +19,7 @@
 ///           emailAddress: contact2@example.com
 ///           phoneNumber: '+12358132134'
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${exampleDrtAccessRoleArnAssociation}
 ///   exampleRole:
 ///     type: aws:iam:Role
@@ -30,7 +30,7 @@
 ///         fn::toJSON:
 ///           Version: 2012-10-17
 ///           Statement:
-///             - Sid:
+///             - Sid: ""
 ///               Effect: Allow
 ///               Principal:
 ///                 Service: drt.shield.amazonaws.com

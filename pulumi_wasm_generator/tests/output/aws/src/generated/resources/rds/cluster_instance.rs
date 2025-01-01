@@ -17,32 +17,29 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let clusterInstances = cluster_instance::create(
-///         "clusterInstances",
-///         ClusterInstanceArgs::builder()
-///             .cluster_identifier("${default.id}")
-///             .engine("${default.engine}")
-///             .engine_version("${default.engineVersion}")
-///             .identifier("aurora-cluster-demo-${range.value}")
-///             .instance_class("db.r4.large")
-///             .build_struct(),
-///     );
-///     let default = cluster::create(
-///         "default",
-///         ClusterArgs::builder()
-///             .availability_zones(vec!["us-west-2a", "us-west-2b", "us-west-2c",])
-///             .cluster_identifier("aurora-cluster-demo")
-///             .database_name("mydb")
-///             .master_password("barbut8chars")
-///             .master_username("foo")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   clusterInstances:
+///     type: aws:rds:ClusterInstance
+///     name: cluster_instances
+///     properties:
+///       identifier: aurora-cluster-demo-${range.value}
+///       clusterIdentifier: ${default.id}
+///       instanceClass: db.r4.large
+///       engine: ${default.engine}
+///       engineVersion: ${default.engineVersion}
+///     options: {}
+///   default:
+///     type: aws:rds:Cluster
+///     properties:
+///       clusterIdentifier: aurora-cluster-demo
+///       availabilityZones:
+///         - us-west-2a
+///         - us-west-2b
+///         - us-west-2c
+///       databaseName: mydb
+///       masterUsername: foo
+///       masterPassword: barbut8chars
 /// ```
 ///
 /// ## Import
@@ -87,10 +84,13 @@ pub mod cluster_instance {
         /// Name of the database engine to be used for the RDS cluster instance.
         /// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         #[builder(into)]
-        pub engine: pulumi_wasm_rust::Output<String>,
+        pub engine: pulumi_wasm_rust::Output<super::super::types::rds::EngineType>,
         /// Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `aws.rds.Cluster` `engine_version`. Trying to upgrade in `aws_cluster_instance` will not update the `engine_version`.
         #[builder(into, default)]
         pub engine_version: pulumi_wasm_rust::Output<Option<String>>,
+        /// Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
+        #[builder(into, default)]
+        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
         /// Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.
         #[builder(into, default)]
         pub identifier: pulumi_wasm_rust::Output<Option<String>>,
@@ -161,11 +161,13 @@ pub mod cluster_instance {
         pub endpoint: pulumi_wasm_rust::Output<String>,
         /// Name of the database engine to be used for the RDS cluster instance.
         /// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
-        pub engine: pulumi_wasm_rust::Output<String>,
+        pub engine: pulumi_wasm_rust::Output<super::super::types::rds::EngineType>,
         /// Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `aws.rds.Cluster` `engine_version`. Trying to upgrade in `aws_cluster_instance` will not update the `engine_version`.
         pub engine_version: pulumi_wasm_rust::Output<String>,
         /// Database engine version
         pub engine_version_actual: pulumi_wasm_rust::Output<String>,
+        /// Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
+        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
         /// Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.
         pub identifier: pulumi_wasm_rust::Output<String>,
         /// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
@@ -231,6 +233,7 @@ pub mod cluster_instance {
         let db_subnet_group_name_binding = args.db_subnet_group_name.get_inner();
         let engine_binding = args.engine.get_inner();
         let engine_version_binding = args.engine_version.get_inner();
+        let force_destroy_binding = args.force_destroy.get_inner();
         let identifier_binding = args.identifier.get_inner();
         let identifier_prefix_binding = args.identifier_prefix.get_inner();
         let instance_class_binding = args.instance_class.get_inner();
@@ -299,6 +302,10 @@ pub mod cluster_instance {
                 register_interface::ObjectField {
                     name: "engineVersion".into(),
                     value: &engine_version_binding,
+                },
+                register_interface::ObjectField {
+                    name: "forceDestroy".into(),
+                    value: &force_destroy_binding,
                 },
                 register_interface::ObjectField {
                     name: "identifier".into(),
@@ -398,6 +405,9 @@ pub mod cluster_instance {
                 },
                 register_interface::ResultField {
                     name: "engineVersionActual".into(),
+                },
+                register_interface::ResultField {
+                    name: "forceDestroy".into(),
                 },
                 register_interface::ResultField {
                     name: "identifier".into(),
@@ -509,6 +519,9 @@ pub mod cluster_instance {
             ),
             engine_version_actual: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("engineVersionActual").unwrap(),
+            ),
+            force_destroy: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("forceDestroy").unwrap(),
             ),
             identifier: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("identifier").unwrap(),

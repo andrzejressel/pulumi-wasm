@@ -40,7 +40,7 @@
 ///         - regionName: us-east-1
 ///         - regionName: us-west-2
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${["us-east-1"]}
 ///         - ${["us-west-2"]}
 /// ```

@@ -2,6 +2,10 @@
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
 pub struct ConfigurationSetDeliveryOptions {
+    /// The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+    #[builder(into, default)]
+    #[serde(rename = "maxDeliverySeconds")]
+    pub r#max_delivery_seconds: Box<Option<i32>>,
     /// The name of the dedicated IP pool to associate with the configuration set.
     #[builder(into, default)]
     #[serde(rename = "sendingPoolName")]

@@ -4,23 +4,22 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = get_instances::invoke(GetInstancesArgs::builder().build_struct());
-///     let examplePermissionSet = permission_set::create(
-///         "examplePermissionSet",
-///         PermissionSetArgs::builder()
-///             .description("An example")
-///             .instance_arn("${example.arns[0]}")
-///             .name("Example")
-///             .relay_state("https://s3.console.aws.amazon.com/s3/home?region=us-east-1#")
-///             .session_duration("PT2H")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   examplePermissionSet:
+///     type: aws:ssoadmin:PermissionSet
+///     name: example
+///     properties:
+///       name: Example
+///       description: An example
+///       instanceArn: ${example.arns[0]}
+///       relayState: https://s3.console.aws.amazon.com/s3/home?region=us-east-1#
+///       sessionDuration: PT2H
+/// variables:
+///   example:
+///     fn::invoke:
+///       function: aws:ssoadmin:getInstances
+///       arguments: {}
 /// ```
 ///
 /// ## Import

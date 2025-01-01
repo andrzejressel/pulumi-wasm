@@ -10,22 +10,19 @@
 ///
 /// Basic usage:
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_caller_identity::invoke(
-///         GetCallerIdentityArgs::builder().build_struct(),
-///     );
-///     let allowMeToFoo = vpc_endpoint_service_allowed_principle::create(
-///         "allowMeToFoo",
-///         VpcEndpointServiceAllowedPrincipleArgs::builder()
-///             .principal_arn("${current.arn}")
-///             .vpc_endpoint_service_id("${foo.id}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   allowMeToFoo:
+///     type: aws:ec2:VpcEndpointServiceAllowedPrinciple
+///     name: allow_me_to_foo
+///     properties:
+///       vpcEndpointServiceId: ${foo.id}
+///       principalArn: ${current.arn}
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getCallerIdentity
+///       arguments: {}
 /// ```
 pub mod vpc_endpoint_service_allowed_principle {
     #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]

@@ -120,48 +120,43 @@
 ///
 /// ### Using Structured Logging Destinations
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let transferAssumeRole = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sts:AssumeRole",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["transfer.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let iamForTransfer = role::create(
-///         "iamForTransfer",
-///         RoleArgs::builder()
-///             .assume_role_policy("${transferAssumeRole.json}")
-///             .managed_policy_arns(
-///                 vec!["arn:aws:iam::aws:policy/service-role/AWSTransferLoggingAccess",],
-///             )
-///             .name_prefix("iam_for_transfer_")
-///             .build_struct(),
-///     );
-///     let transfer = log_group::create(
-///         "transfer",
-///         LogGroupArgs::builder().name_prefix("transfer_test_").build_struct(),
-///     );
-///     let transferServer = server::create(
-///         "transferServer",
-///         ServerArgs::builder()
-///             .endpoint_type("PUBLIC")
-///             .logging_role("${iamForTransfer.arn}")
-///             .protocols(vec!["SFTP",])
-///             .structured_log_destinations(vec!["${transfer.arn}:*",])
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   transfer:
+///     type: aws:cloudwatch:LogGroup
+///     properties:
+///       namePrefix: transfer_test_
+///   iamForTransfer:
+///     type: aws:iam:Role
+///     name: iam_for_transfer
+///     properties:
+///       namePrefix: iam_for_transfer_
+///       assumeRolePolicy: ${transferAssumeRole.json}
+///       managedPolicyArns:
+///         - arn:aws:iam::aws:policy/service-role/AWSTransferLoggingAccess
+///   transferServer:
+///     type: aws:transfer:Server
+///     name: transfer
+///     properties:
+///       endpointType: PUBLIC
+///       loggingRole: ${iamForTransfer.arn}
+///       protocols:
+///         - SFTP
+///       structuredLogDestinations:
+///         - ${transfer.arn}:*
+/// variables:
+///   transferAssumeRole:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - transfer.amazonaws.com
+///             actions:
+///               - sts:AssumeRole
 /// ```
 ///
 /// ## Import

@@ -19,7 +19,7 @@
 ///       bgpAsn: 65352 # The aws_dx_hosted_transit_virtual_interface
 ///       #   # must be destroyed before the aws_dx_gateway.
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${example}
 ///   # Accepter's side of the VIF.
 ///   example:
@@ -38,8 +38,8 @@
 /// variables:
 ///   accepter:
 ///     fn::invoke:
-///       Function: aws:getCallerIdentity
-///       Arguments: {}
+///       function: aws:getCallerIdentity
+///       arguments: {}
 /// ```
 ///
 /// ## Import

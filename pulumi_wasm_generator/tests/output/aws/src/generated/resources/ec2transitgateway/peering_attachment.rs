@@ -28,8 +28,8 @@
 /// variables:
 ///   peer:
 ///     fn::invoke:
-///       Function: aws:getRegion
-///       Arguments: {}
+///       function: aws:getRegion
+///       arguments: {}
 /// ```
 ///
 /// ## Import

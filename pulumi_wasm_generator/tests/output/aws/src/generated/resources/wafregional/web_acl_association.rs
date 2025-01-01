@@ -72,8 +72,8 @@
 /// variables:
 ///   available:
 ///     fn::invoke:
-///       Function: aws:getAvailabilityZones
-///       Arguments: {}
+///       function: aws:getAvailabilityZones
+///       arguments: {}
 /// ```
 ///
 /// ## Import

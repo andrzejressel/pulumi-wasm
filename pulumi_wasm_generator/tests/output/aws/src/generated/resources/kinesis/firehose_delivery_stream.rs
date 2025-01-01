@@ -59,8 +59,8 @@
 /// variables:
 ///   firehoseAssumeRole:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - effect: Allow
 ///             principals:
@@ -71,8 +71,8 @@
 ///               - sts:AssumeRole
 ///   lambdaAssumeRole:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - effect: Allow
 ///             principals:
@@ -295,13 +295,13 @@
 ///             - ${first.id}
 ///           roleArn: ${firehose.arn}
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${["firehose-elasticsearchRolePolicy"]}
 /// variables:
 ///   firehose-elasticsearch:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - effect: Allow
 ///             actions:
@@ -436,7 +436,7 @@
 ///             - ${first.id}
 ///           roleArn: ${firehose.arn}
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${["firehose-opensearch"]}
 /// ```
 ///
@@ -532,16 +532,16 @@
 /// variables:
 ///   current:
 ///     fn::invoke:
-///       Function: aws:getCallerIdentity
-///       Arguments: {}
+///       function: aws:getCallerIdentity
+///       arguments: {}
 ///   currentGetPartition:
 ///     fn::invoke:
-///       Function: aws:getPartition
-///       Arguments: {}
+///       function: aws:getPartition
+///       arguments: {}
 ///   currentGetRegion:
 ///     fn::invoke:
-///       Function: aws:getRegion
-///       Arguments: {}
+///       function: aws:getRegion
+///       arguments: {}
 /// ```
 ///
 /// ### Splunk Destination

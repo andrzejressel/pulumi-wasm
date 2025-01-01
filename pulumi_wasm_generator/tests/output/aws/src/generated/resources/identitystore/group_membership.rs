@@ -2,38 +2,37 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = get_instances::invoke(GetInstancesArgs::builder().build_struct());
-///     let exampleGroup = group::create(
-///         "exampleGroup",
-///         GroupArgs::builder()
-///             .description("Some group name")
-///             .display_name("MyGroup")
-///             .identity_store_id("${example.identityStoreIds[0]}")
-///             .build_struct(),
-///     );
-///     let exampleGroupMembership = group_membership::create(
-///         "exampleGroupMembership",
-///         GroupMembershipArgs::builder()
-///             .group_id("${exampleGroup.groupId}")
-///             .identity_store_id("${example.identityStoreIds[0]}")
-///             .member_id("${exampleUser.userId}")
-///             .build_struct(),
-///     );
-///     let exampleUser = user::create(
-///         "exampleUser",
-///         UserArgs::builder()
-///             .display_name("John Doe")
-///             .identity_store_id("${example.identityStoreIds[0]}")
-///             .name(UserName::builder().familyName("Doe").givenName("John").build_struct())
-///             .user_name("john.doe@example.com")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleUser:
+///     type: aws:identitystore:User
+///     name: example
+///     properties:
+///       identityStoreId: ${example.identityStoreIds[0]}
+///       displayName: John Doe
+///       userName: john.doe@example.com
+///       name:
+///         familyName: Doe
+///         givenName: John
+///   exampleGroup:
+///     type: aws:identitystore:Group
+///     name: example
+///     properties:
+///       identityStoreId: ${example.identityStoreIds[0]}
+///       displayName: MyGroup
+///       description: Some group name
+///   exampleGroupMembership:
+///     type: aws:identitystore:GroupMembership
+///     name: example
+///     properties:
+///       identityStoreId: ${example.identityStoreIds[0]}
+///       groupId: ${exampleGroup.groupId}
+///       memberId: ${exampleUser.userId}
+/// variables:
+///   example:
+///     fn::invoke:
+///       function: aws:ssoadmin:getInstances
+///       arguments: {}
 /// ```
 ///
 /// ## Import

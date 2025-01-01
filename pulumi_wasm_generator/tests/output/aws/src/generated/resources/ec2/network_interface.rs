@@ -61,6 +61,9 @@ pub mod network_interface {
         /// Description for the network interface.
         #[builder(into, default)]
         pub description: pulumi_wasm_rust::Output<Option<String>>,
+        /// Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
+        #[builder(into, default)]
+        pub enable_primary_ipv6: pulumi_wasm_rust::Output<Option<bool>>,
         /// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
         #[builder(into, default)]
         pub interface_type: pulumi_wasm_rust::Output<Option<String>>,
@@ -73,7 +76,7 @@ pub mod network_interface {
         /// Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
         #[builder(into, default)]
         pub ipv6_address_count: pulumi_wasm_rust::Output<Option<i32>>,
-        /// Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default false.
+        /// Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default is `false`.
         #[builder(into, default)]
         pub ipv6_address_list_enabled: pulumi_wasm_rust::Output<Option<bool>>,
         /// List of private IPs to assign to the ENI in sequential order.
@@ -90,7 +93,7 @@ pub mod network_interface {
         pub ipv6_prefixes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
         #[builder(into, default)]
         pub private_ip: pulumi_wasm_rust::Output<Option<String>>,
-        /// Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default false.
+        /// Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default is `false`.
         #[builder(into, default)]
         pub private_ip_list_enabled: pulumi_wasm_rust::Output<Option<bool>>,
         /// List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
@@ -129,6 +132,8 @@ pub mod network_interface {
         >,
         /// Description for the network interface.
         pub description: pulumi_wasm_rust::Output<Option<String>>,
+        /// Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
+        pub enable_primary_ipv6: pulumi_wasm_rust::Output<bool>,
         /// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
         pub interface_type: pulumi_wasm_rust::Output<String>,
         /// Number of IPv4 prefixes that AWS automatically assigns to the network interface.
@@ -137,7 +142,7 @@ pub mod network_interface {
         pub ipv4_prefixes: pulumi_wasm_rust::Output<Vec<String>>,
         /// Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
         pub ipv6_address_count: pulumi_wasm_rust::Output<i32>,
-        /// Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default false.
+        /// Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default is `false`.
         pub ipv6_address_list_enabled: pulumi_wasm_rust::Output<Option<bool>>,
         /// List of private IPs to assign to the ENI in sequential order.
         pub ipv6_address_lists: pulumi_wasm_rust::Output<Vec<String>>,
@@ -155,7 +160,7 @@ pub mod network_interface {
         /// Private DNS name of the network interface (IPv4).
         pub private_dns_name: pulumi_wasm_rust::Output<String>,
         pub private_ip: pulumi_wasm_rust::Output<String>,
-        /// Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default false.
+        /// Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default is `false`.
         pub private_ip_list_enabled: pulumi_wasm_rust::Output<Option<bool>>,
         /// List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
         pub private_ip_lists: pulumi_wasm_rust::Output<Vec<String>>,
@@ -189,6 +194,7 @@ pub mod network_interface {
         use std::collections::HashMap;
         let attachments_binding = args.attachments.get_inner();
         let description_binding = args.description.get_inner();
+        let enable_primary_ipv6_binding = args.enable_primary_ipv6.get_inner();
         let interface_type_binding = args.interface_type.get_inner();
         let ipv4_prefix_count_binding = args.ipv4_prefix_count.get_inner();
         let ipv4_prefixes_binding = args.ipv4_prefixes.get_inner();
@@ -220,6 +226,10 @@ pub mod network_interface {
                 register_interface::ObjectField {
                     name: "description".into(),
                     value: &description_binding,
+                },
+                register_interface::ObjectField {
+                    name: "enablePrimaryIpv6".into(),
+                    value: &enable_primary_ipv6_binding,
                 },
                 register_interface::ObjectField {
                     name: "interfaceType".into(),
@@ -303,6 +313,9 @@ pub mod network_interface {
                 },
                 register_interface::ResultField {
                     name: "description".into(),
+                },
+                register_interface::ResultField {
+                    name: "enablePrimaryIpv6".into(),
                 },
                 register_interface::ResultField {
                     name: "interfaceType".into(),
@@ -390,6 +403,9 @@ pub mod network_interface {
             ),
             description: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("description").unwrap(),
+            ),
+            enable_primary_ipv6: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("enablePrimaryIpv6").unwrap(),
             ),
             interface_type: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("interfaceType").unwrap(),

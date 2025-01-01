@@ -2,92 +2,102 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let bucketPol = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder().actions(vec!["s3:PutObject",])
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["guardduty.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).resources(vec!["${gdBucket.arn}/*",])
-///                     .sid("Allow PutObject").build_struct(),
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["s3:GetBucketLocation",])
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["guardduty.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).resources(vec!["${gdBucket.arn}",])
-///                     .sid("Allow GetBucketLocation").build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let current = get_caller_identity::invoke(
-///         GetCallerIdentityArgs::builder().build_struct(),
-///     );
-///     let currentGetRegion = get_region::invoke(GetRegionArgs::builder().build_struct());
-///     let kmsPol = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["kms:GenerateDataKey",])
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["guardduty.amazonaws.com",]). type ("Service")
-///                     .build_struct(),])
-///                     .resources(vec!["arn:aws:kms:${currentGetRegion.name}:${current.accountId}:key/*",])
-///                     .sid("Allow GuardDuty to encrypt findings").build_struct(),
-///                     GetPolicyDocumentStatement::builder().actions(vec!["kms:*",])
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["arn:aws:iam::${current.accountId}:root",]). type
-///                     ("AWS").build_struct(),])
-///                     .resources(vec!["arn:aws:kms:${currentGetRegion.name}:${current.accountId}:key/*",])
-///                     .sid("Allow all users to modify/delete key (test only)")
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let gdBucket = bucket_v_2::create(
-///         "gdBucket",
-///         BucketV2Args::builder().bucket("example").force_destroy(true).build_struct(),
-///     );
-///     let gdBucketAcl = bucket_acl_v_2::create(
-///         "gdBucketAcl",
-///         BucketAclV2Args::builder().acl("private").bucket("${gdBucket.id}").build_struct(),
-///     );
-///     let gdBucketPolicy = bucket_policy::create(
-///         "gdBucketPolicy",
-///         BucketPolicyArgs::builder()
-///             .bucket("${gdBucket.id}")
-///             .policy("${bucketPol.json}")
-///             .build_struct(),
-///     );
-///     let gdKey = key::create(
-///         "gdKey",
-///         KeyArgs::builder()
-///             .deletion_window_in_days(7)
-///             .description("Temporary key for AccTest of TF")
-///             .policy("${kmsPol.json}")
-///             .build_struct(),
-///     );
-///     let test = publishing_destination::create(
-///         "test",
-///         PublishingDestinationArgs::builder()
-///             .destination_arn("${gdBucket.arn}")
-///             .detector_id("${testGd.id}")
-///             .kms_key_arn("${gdKey.arn}")
-///             .build_struct(),
-///     );
-///     let testGd = detector::create(
-///         "testGd",
-///         DetectorArgs::builder().enable(true).build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   testGd:
+///     type: aws:guardduty:Detector
+///     name: test_gd
+///     properties:
+///       enable: true
+///   gdBucket:
+///     type: aws:s3:BucketV2
+///     name: gd_bucket
+///     properties:
+///       bucket: example
+///       forceDestroy: true
+///   gdBucketAcl:
+///     type: aws:s3:BucketAclV2
+///     name: gd_bucket_acl
+///     properties:
+///       bucket: ${gdBucket.id}
+///       acl: private
+///   gdBucketPolicy:
+///     type: aws:s3:BucketPolicy
+///     name: gd_bucket_policy
+///     properties:
+///       bucket: ${gdBucket.id}
+///       policy: ${bucketPol.json}
+///   gdKey:
+///     type: aws:kms:Key
+///     name: gd_key
+///     properties:
+///       description: Temporary key for AccTest of TF
+///       deletionWindowInDays: 7
+///       policy: ${kmsPol.json}
+///   test:
+///     type: aws:guardduty:PublishingDestination
+///     properties:
+///       detectorId: ${testGd.id}
+///       destinationArn: ${gdBucket.arn}
+///       kmsKeyArn: ${gdKey.arn}
+///     options:
+///       dependsOn:
+///         - ${gdBucketPolicy}
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getCallerIdentity
+///       arguments: {}
+///   currentGetRegion:
+///     fn::invoke:
+///       function: aws:getRegion
+///       arguments: {}
+///   bucketPol:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - sid: Allow PutObject
+///             actions:
+///               - s3:PutObject
+///             resources:
+///               - ${gdBucket.arn}/*
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - guardduty.amazonaws.com
+///           - sid: Allow GetBucketLocation
+///             actions:
+///               - s3:GetBucketLocation
+///             resources:
+///               - ${gdBucket.arn}
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - guardduty.amazonaws.com
+///   kmsPol:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - sid: Allow GuardDuty to encrypt findings
+///             actions:
+///               - kms:GenerateDataKey
+///             resources:
+///               - arn:aws:kms:${currentGetRegion.name}:${current.accountId}:key/*
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - guardduty.amazonaws.com
+///           - sid: Allow all users to modify/delete key (test only)
+///             actions:
+///               - kms:*
+///             resources:
+///               - arn:aws:kms:${currentGetRegion.name}:${current.accountId}:key/*
+///             principals:
+///               - type: AWS
+///                 identifiers:
+///                   - arn:aws:iam::${current.accountId}:root
 /// ```
 ///
 /// > **Note:** Please do not use this simple example for Bucket-Policy and KMS Key Policy in a production environment. It is much too open for such a use-case. Refer to the AWS documentation here: https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html

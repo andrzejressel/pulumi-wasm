@@ -30,7 +30,7 @@
 ///   main:
 ///     type: aws:cognito:UserPoolDomain
 ///     properties:
-///       domain: example-domain
+///       domain: auth.example.com
 ///       certificateArn: ${cert.arn}
 ///       userPoolId: ${exampleUserPool.id}
 ///   exampleUserPool:
@@ -51,8 +51,8 @@
 /// variables:
 ///   example:
 ///     fn::invoke:
-///       Function: aws:route53:getZone
-///       Arguments:
+///       function: aws:route53:getZone
+///       arguments:
 ///         name: example.com
 /// ```
 ///

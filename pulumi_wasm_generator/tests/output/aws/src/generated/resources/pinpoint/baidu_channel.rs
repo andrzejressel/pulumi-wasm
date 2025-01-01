@@ -3,16 +3,21 @@
 /// > **Note:** All arguments including the Api Key and Secret Key will be stored in the raw state as plain-text.
 /// ## Example Usage
 ///
-/// ```yaml
-/// resources:
-///   app:
-///     type: aws:pinpoint:App
-///   channel:
-///     type: aws:pinpoint:BaiduChannel
-///     properties:
-///       applicationId: ${app.applicationId}
-///       apiKey:
-///       secretKey:
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let app = app::create("app", AppArgs::builder().build_struct());
+///     let channel = baidu_channel::create(
+///         "channel",
+///         BaiduChannelArgs::builder()
+///             .api_key("")
+///             .application_id("${app.applicationId}")
+///             .secret_key("")
+///             .build_struct(),
+///     );
+/// }
 /// ```
 ///
 /// ## Import

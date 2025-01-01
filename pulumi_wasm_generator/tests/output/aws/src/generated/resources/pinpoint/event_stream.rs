@@ -2,62 +2,58 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let assumeRole = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sts:AssumeRole",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["pinpoint.us-east-1.amazonaws.com",]). type
-///                     ("Service").build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let testRolePolicy = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["kinesis:PutRecords", "kinesis:DescribeStream",])
-///                     .effect("Allow").resources(vec!["arn:aws:kinesis:us-east-1:*:*/*",])
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let app = app::create("app", AppArgs::builder().build_struct());
-///     let stream = event_stream::create(
-///         "stream",
-///         EventStreamArgs::builder()
-///             .application_id("${app.applicationId}")
-///             .destination_stream_arn("${testStream.arn}")
-///             .role_arn("${testRole.arn}")
-///             .build_struct(),
-///     );
-///     let testRole = role::create(
-///         "testRole",
-///         RoleArgs::builder().assume_role_policy("${assumeRole.json}").build_struct(),
-///     );
-///     let testRolePolicyRolePolicy = role_policy::create(
-///         "testRolePolicyRolePolicy",
-///         RolePolicyArgs::builder()
-///             .name("test_policy")
-///             .policy("${testRolePolicy.json}")
-///             .role("${testRole.id}")
-///             .build_struct(),
-///     );
-///     let testStream = stream::create(
-///         "testStream",
-///         StreamArgs::builder().name("pinpoint-kinesis-test").shard_count(1).build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   stream:
+///     type: aws:pinpoint:EventStream
+///     properties:
+///       applicationId: ${app.applicationId}
+///       destinationStreamArn: ${testStream.arn}
+///       roleArn: ${testRole.arn}
+///   app:
+///     type: aws:pinpoint:App
+///   testStream:
+///     type: aws:kinesis:Stream
+///     name: test_stream
+///     properties:
+///       name: pinpoint-kinesis-test
+///       shardCount: 1
+///   testRole:
+///     type: aws:iam:Role
+///     name: test_role
+///     properties:
+///       assumeRolePolicy: ${assumeRole.json}
+///   testRolePolicyRolePolicy:
+///     type: aws:iam:RolePolicy
+///     name: test_role_policy
+///     properties:
+///       name: test_policy
+///       role: ${testRole.id}
+///       policy: ${testRolePolicy.json}
+/// variables:
+///   assumeRole:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - pinpoint.us-east-1.amazonaws.com
+///             actions:
+///               - sts:AssumeRole
+///   testRolePolicy:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             actions:
+///               - kinesis:PutRecords
+///               - kinesis:DescribeStream
+///             resources:
+///               - arn:aws:kinesis:us-east-1:*:*/*
 /// ```
 ///
 /// ## Import

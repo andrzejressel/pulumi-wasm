@@ -17,7 +17,7 @@
 ///       namePrefix: AmazonOpenSearchService-example
 ///       userPoolId: ${exampleUserPool.id}
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${exampleDomain}
 ///   exampleUserPool:
 ///     type: aws:cognito:UserPool
@@ -43,7 +43,7 @@
 ///         ebsEnabled: true
 ///         volumeSize: 10
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${exampleAwsCognitoUserPoolDomain}
 ///         - ${exampleRolePolicyAttachment}
 ///   exampleRole:
@@ -62,10 +62,10 @@
 /// variables:
 ///   example:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
-///           - sid:
+///           - sid: ""
 ///             actions:
 ///               - sts:AssumeRole
 ///             effect: Allow
@@ -75,8 +75,8 @@
 ///                   - es.${current.dnsSuffix}
 ///   current:
 ///     fn::invoke:
-///       Function: aws:getPartition
-///       Arguments: {}
+///       function: aws:getPartition
+///       arguments: {}
 /// ```
 ///
 /// ## Import

@@ -42,16 +42,16 @@
 /// variables:
 ///   current:
 ///     fn::invoke:
-///       Function: aws:getRegion
-///       Arguments: {}
+///       function: aws:getRegion
+///       arguments: {}
 ///   currentGetCallerIdentity:
 ///     fn::invoke:
-///       Function: aws:getCallerIdentity
-///       Arguments: {}
+///       function: aws:getCallerIdentity
+///       arguments: {}
 ///   currentGetPartition:
 ///     fn::invoke:
-///       Function: aws:getPartition
-///       Arguments: {}
+///       function: aws:getPartition
+///       arguments: {}
 /// ```
 ///
 /// ## Import

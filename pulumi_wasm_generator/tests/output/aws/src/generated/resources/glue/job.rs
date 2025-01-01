@@ -108,7 +108,7 @@
 ///         --continuous-log-logGroup: ${example.name}
 ///         --enable-continuous-cloudwatch-log: 'true'
 ///         --enable-continuous-log-filter: 'true'
-///         --enable-metrics:
+///         --enable-metrics: ""
 /// ```
 ///
 /// ## Import

@@ -120,27 +120,27 @@
 ///     properties:
 ///       resourceArn:
 ///         fn::invoke:
-///           Function: std:replace
-///           Arguments:
+///           function: std:replace
+///           arguments:
 ///             text: ${example.arn}
 ///             search: ${current.name}
 ///             replace: ${alternate.name}
-///           Return: result
+///           return: result
 ///       key: Architect
 ///       value: Gigi
 /// variables:
 ///   current:
 ///     fn::invoke:
-///       Function: aws:getRegion
-///       Arguments: {}
+///       function: aws:getRegion
+///       arguments: {}
 ///   alternate:
 ///     fn::invoke:
-///       Function: aws:getRegion
-///       Arguments: {}
+///       function: aws:getRegion
+///       arguments: {}
 ///   third:
 ///     fn::invoke:
-///       Function: aws:getRegion
-///       Arguments: {}
+///       function: aws:getRegion
+///       arguments: {}
 /// ```
 ///
 /// ## Import

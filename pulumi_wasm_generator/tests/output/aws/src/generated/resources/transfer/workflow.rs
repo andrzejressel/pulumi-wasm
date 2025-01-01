@@ -16,7 +16,7 @@
 ///                 vec![
 ///                     WorkflowStep::builder()
 ///                     .deleteStepDetails(WorkflowStepDeleteStepDetails::builder()
-///                     .name("example").sourceFileLocation("${original.file}")
+///                     .name("example").sourceFileLocation("$${original.file}")
 ///                     .build_struct()). type ("DELETE").build_struct(),
 ///                 ],
 ///             )
@@ -39,12 +39,12 @@
 ///                 vec![
 ///                     WorkflowStep::builder()
 ///                     .customStepDetails(WorkflowStepCustomStepDetails::builder()
-///                     .name("example").sourceFileLocation("${original.file}")
+///                     .name("example").sourceFileLocation("$${original.file}")
 ///                     .target("${exampleAwsLambdaFunction.arn}").timeoutSeconds(60)
 ///                     .build_struct()). type ("CUSTOM").build_struct(),
 ///                     WorkflowStep::builder()
 ///                     .tagStepDetails(WorkflowStepTagStepDetails::builder().name("example")
-///                     .sourceFileLocation("${original.file}")
+///                     .sourceFileLocation("$${original.file}")
 ///                     .tags(vec![WorkflowStepTagStepDetailsTag::builder().key("Name")
 ///                     .value("Hello World").build_struct(),]).build_struct()). type ("TAG")
 ///                     .build_struct(),

@@ -13,10 +13,10 @@
 ///       studioLifecycleConfigAppType: JupyterServer
 ///       studioLifecycleConfigContent:
 ///         fn::invoke:
-///           Function: std:base64encode
-///           Arguments:
+///           function: std:base64encode
+///           arguments:
 ///             input: echo Hello
-///           Return: result
+///           return: result
 /// ```
 ///
 /// ## Import

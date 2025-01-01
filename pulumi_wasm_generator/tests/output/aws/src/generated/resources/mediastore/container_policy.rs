@@ -1,43 +1,47 @@
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_region::invoke(GetRegionArgs::builder().build_struct());
-///     let currentGetCallerIdentity = get_caller_identity::invoke(
-///         GetCallerIdentityArgs::builder().build_struct(),
-///     );
-///     let example = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder().actions(vec!["mediastore:*",])
-///                     .conditions(vec![GetPolicyDocumentStatementCondition::builder()
-///                     .test("Bool").values(vec!["true",]).variable("aws:SecureTransport")
-///                     .build_struct(),]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["arn:aws:iam::${currentGetCallerIdentity.accountId}:root",])
-///                     . type ("AWS").build_struct(),])
-///                     .resources(vec!["arn:aws:mediastore:${current.name}:${currentGetCallerIdentity.accountId}:container/${exampleContainer.name}/*",])
-///                     .sid("MediaStoreFullAccess").build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let exampleContainer = container::create(
-///         "exampleContainer",
-///         ContainerArgs::builder().name("example").build_struct(),
-///     );
-///     let exampleContainerPolicy = container_policy::create(
-///         "exampleContainerPolicy",
-///         ContainerPolicyArgs::builder()
-///             .container_name("${exampleContainer.name}")
-///             .policy("${example.json}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleContainer:
+///     type: aws:mediastore:Container
+///     name: example
+///     properties:
+///       name: example
+///   exampleContainerPolicy:
+///     type: aws:mediastore:ContainerPolicy
+///     name: example
+///     properties:
+///       containerName: ${exampleContainer.name}
+///       policy: ${example.json}
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getRegion
+///       arguments: {}
+///   currentGetCallerIdentity:
+///     fn::invoke:
+///       function: aws:getCallerIdentity
+///       arguments: {}
+///   example:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - sid: MediaStoreFullAccess
+///             effect: Allow
+///             principals:
+///               - type: AWS
+///                 identifiers:
+///                   - arn:aws:iam::${currentGetCallerIdentity.accountId}:root
+///             actions:
+///               - mediastore:*
+///             resources:
+///               - arn:aws:mediastore:${current.name}:${currentGetCallerIdentity.accountId}:container/${exampleContainer.name}/*
+///             conditions:
+///               - test: Bool
+///                 variable: aws:SecureTransport
+///                 values:
+///                   - 'true'
 /// ```
 ///
 /// ## Import

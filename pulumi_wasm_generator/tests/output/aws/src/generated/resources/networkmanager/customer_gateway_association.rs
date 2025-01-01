@@ -45,7 +45,7 @@
 ///       globalNetworkId: ${example.id}
 ///       transitGatewayArn: ${exampleTransitGateway.arn}
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${exampleVpnConnection}
 ///   exampleCustomerGatewayAssociation:
 ///     type: aws:networkmanager:CustomerGatewayAssociation
@@ -55,7 +55,7 @@
 ///       customerGatewayArn: ${exampleCustomerGateway.arn}
 ///       deviceId: ${exampleDevice.id}
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${exampleTransitGatewayRegistration}
 /// ```
 ///

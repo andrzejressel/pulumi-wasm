@@ -53,6 +53,11 @@ pub mod appregistry_application {
         /// The following arguments are optional:
         #[builder(into, default)]
         pub name: pulumi_wasm_rust::Output<Option<String>>,
+        /// A map of tags assigned to the Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        #[builder(into, default)]
+        pub tags: pulumi_wasm_rust::Output<
+            Option<std::collections::HashMap<String, String>>,
+        >,
     }
     #[allow(dead_code)]
     pub struct AppregistryApplicationResult {
@@ -68,6 +73,14 @@ pub mod appregistry_application {
         ///
         /// The following arguments are optional:
         pub name: pulumi_wasm_rust::Output<String>,
+        /// A map of tags assigned to the Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        pub tags: pulumi_wasm_rust::Output<
+            Option<std::collections::HashMap<String, String>>,
+        >,
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        pub tags_all: pulumi_wasm_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
@@ -81,6 +94,7 @@ pub mod appregistry_application {
         use std::collections::HashMap;
         let description_binding = args.description.get_inner();
         let name_binding = args.name.get_inner();
+        let tags_binding = args.tags.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:servicecatalog/appregistryApplication:AppregistryApplication"
                 .into(),
@@ -93,6 +107,10 @@ pub mod appregistry_application {
                 register_interface::ObjectField {
                     name: "name".into(),
                     value: &name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "tags".into(),
+                    value: &tags_binding,
                 },
             ]),
             results: Vec::from([
@@ -107,6 +125,12 @@ pub mod appregistry_application {
                 },
                 register_interface::ResultField {
                     name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "tags".into(),
+                },
+                register_interface::ResultField {
+                    name: "tagsAll".into(),
                 },
             ]),
         };
@@ -128,6 +152,12 @@ pub mod appregistry_application {
             ),
             name: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("name").unwrap(),
+            ),
+            tags: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("tags").unwrap(),
+            ),
+            tags_all: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("tagsAll").unwrap(),
             ),
         }
     }

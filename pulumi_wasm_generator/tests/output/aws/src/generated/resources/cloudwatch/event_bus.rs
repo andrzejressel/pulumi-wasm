@@ -16,25 +16,21 @@
 /// }
 /// ```
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let examplepartner = get_event_source::invoke(
-///         GetEventSourceArgs::builder()
-///             .name_prefix("aws.partner/examplepartner.com")
-///             .build_struct(),
-///     );
-///     let examplepartnerEventBus = event_bus::create(
-///         "examplepartnerEventBus",
-///         EventBusArgs::builder()
-///             .description("Event bus for example partner events")
-///             .event_source_name("${examplepartner.name}")
-///             .name("${examplepartner.name}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   examplepartnerEventBus:
+///     type: aws:cloudwatch:EventBus
+///     name: examplepartner
+///     properties:
+///       name: ${examplepartner.name}
+///       description: Event bus for example partner events
+///       eventSourceName: ${examplepartner.name}
+/// variables:
+///   examplepartner:
+///     fn::invoke:
+///       function: aws:cloudwatch:getEventSource
+///       arguments:
+///         namePrefix: aws.partner/examplepartner.com
 /// ```
 ///
 /// ## Import

@@ -36,8 +36,8 @@
 /// variables:
 ///   assumeRole:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - effect: Allow
 ///             principals:
@@ -48,8 +48,8 @@
 ///               - sts:AssumeRole
 ///   foo:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - sid: AllowFullAccesstoS3
 ///             effect: Allow

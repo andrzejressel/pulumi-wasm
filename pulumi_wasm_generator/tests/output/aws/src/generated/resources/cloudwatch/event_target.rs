@@ -104,8 +104,8 @@
 /// variables:
 ///   ssmLifecycleTrust:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - actions:
 ///               - sts:AssumeRole
@@ -115,8 +115,8 @@
 ///                   - events.amazonaws.com
 ///   ssmLifecycle:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - effect: Allow
 ///             actions:
@@ -207,8 +207,8 @@
 /// variables:
 ///   assumeRole:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - effect: Allow
 ///             principals:
@@ -219,8 +219,8 @@
 ///               - sts:AssumeRole
 ///   ecsEventsRunTaskWithAnyRole:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - effect: Allow
 ///             actions:
@@ -232,12 +232,12 @@
 ///               - ecs:RunTask
 ///             resources:
 ///               - fn::invoke:
-///                   Function: std:replace
-///                   Arguments:
+///                   function: std:replace
+///                   arguments:
 ///                     text: ${taskName.arn}
 ///                     search: /:\d+$/
 ///                     replace: :*
-///                   Return: result
+///                   return: result
 /// ```
 ///
 /// ### API Gateway target
@@ -272,75 +272,64 @@
 ///
 /// ### Cross-Account Event Bus target
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let assumeRole = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sts:AssumeRole",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["events.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let eventBusInvokeRemoteEventBus = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["events:PutEvents",]).effect("Allow")
-///                     .resources(vec!["arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus",])
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let eventBusInvokeRemoteEventBusPolicy = policy::create(
-///         "eventBusInvokeRemoteEventBusPolicy",
-///         PolicyArgs::builder()
-///             .name("event_bus_invoke_remote_event_bus")
-///             .policy("${eventBusInvokeRemoteEventBus.json}")
-///             .build_struct(),
-///     );
-///     let eventBusInvokeRemoteEventBusRole = role::create(
-///         "eventBusInvokeRemoteEventBusRole",
-///         RoleArgs::builder()
-///             .assume_role_policy("${assumeRole.json}")
-///             .name("event-bus-invoke-remote-event-bus")
-///             .build_struct(),
-///     );
-///     let eventBusInvokeRemoteEventBusRolePolicyAttachment = role_policy_attachment::create(
-///         "eventBusInvokeRemoteEventBusRolePolicyAttachment",
-///         RolePolicyAttachmentArgs::builder()
-///             .policy_arn("${eventBusInvokeRemoteEventBusPolicy.arn}")
-///             .role("${eventBusInvokeRemoteEventBusRole.name}")
-///             .build_struct(),
-///     );
-///     let stopInstances = event_rule::create(
-///         "stopInstances",
-///         EventRuleArgs::builder()
-///             .description("Stop instances nightly")
-///             .name("StopInstance")
-///             .schedule_expression("cron(0 0 * * ? *)")
-///             .build_struct(),
-///     );
-///     let stopInstancesEventTarget = event_target::create(
-///         "stopInstancesEventTarget",
-///         EventTargetArgs::builder()
-///             .arn("arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus")
-///             .role_arn("${eventBusInvokeRemoteEventBusRole.arn}")
-///             .rule("${stopInstances.name}")
-///             .target_id("StopInstance")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   eventBusInvokeRemoteEventBusRole:
+///     type: aws:iam:Role
+///     name: event_bus_invoke_remote_event_bus
+///     properties:
+///       name: event-bus-invoke-remote-event-bus
+///       assumeRolePolicy: ${assumeRole.json}
+///   eventBusInvokeRemoteEventBusPolicy:
+///     type: aws:iam:Policy
+///     name: event_bus_invoke_remote_event_bus
+///     properties:
+///       name: event_bus_invoke_remote_event_bus
+///       policy: ${eventBusInvokeRemoteEventBus.json}
+///   eventBusInvokeRemoteEventBusRolePolicyAttachment:
+///     type: aws:iam:RolePolicyAttachment
+///     name: event_bus_invoke_remote_event_bus
+///     properties:
+///       role: ${eventBusInvokeRemoteEventBusRole.name}
+///       policyArn: ${eventBusInvokeRemoteEventBusPolicy.arn}
+///   stopInstances:
+///     type: aws:cloudwatch:EventRule
+///     name: stop_instances
+///     properties:
+///       name: StopInstance
+///       description: Stop instances nightly
+///       scheduleExpression: cron(0 0 * * ? *)
+///   stopInstancesEventTarget:
+///     type: aws:cloudwatch:EventTarget
+///     name: stop_instances
+///     properties:
+///       targetId: StopInstance
+///       arn: arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus
+///       rule: ${stopInstances.name}
+///       roleArn: ${eventBusInvokeRemoteEventBusRole.arn}
+/// variables:
+///   assumeRole:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - events.amazonaws.com
+///             actions:
+///               - sts:AssumeRole
+///   eventBusInvokeRemoteEventBus:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             actions:
+///               - events:PutEvents
+///             resources:
+///               - arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus
 /// ```
 ///
 /// ### Input Transformer Usage - JSON Object
@@ -421,8 +410,8 @@
 /// variables:
 ///   exampleLogPolicy:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - effect: Allow
 ///             actions:
@@ -468,12 +457,12 @@
 ///     properties:
 ///       arn:
 ///         fn::invoke:
-///           Function: std:replace
-///           Arguments:
+///           function: std:replace
+///           arguments:
 ///             text: ${["graphql-api"].arn}
 ///             search: apis
 ///             replace: endpoints/graphql-api
-///           Return: result
+///           return: result
 ///       rule: ${invokeAppsyncMutation.id}
 ///       roleArn: ${appsyncMutationRole.arn}
 ///       inputTransformer:
@@ -532,8 +521,8 @@
 /// variables:
 ///   appsyncMutationRoleTrust:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - actions:
 ///               - sts:AssumeRole
@@ -543,8 +532,8 @@
 ///                   - events.amazonaws.com
 ///   appsyncMutationRolePolicyDocument:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - actions:
 ///               - appsync:GraphQL

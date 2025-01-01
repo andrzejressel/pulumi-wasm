@@ -31,8 +31,8 @@
 /// variables:
 ///   accepter:
 ///     fn::invoke:
-///       Function: aws:getCallerIdentity
-///       Arguments: {}
+///       function: aws:getCallerIdentity
+///       arguments: {}
 /// ```
 ///
 /// ## Import

@@ -35,15 +35,15 @@
 ///       cloudwatchLogGroupArn: ${awsRoute53ExampleCom.arn}
 ///       zoneId: ${exampleCom.zoneId}
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${["route53-query-logging-policyLogResourcePolicy"]}
 /// variables:
 ///   # Example CloudWatch log resource policy to allow Route53 to write logs
 ///   # to any log group under /aws/route53/*
 ///   route53-query-logging-policy:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - actions:
 ///               - logs:CreateLogStream

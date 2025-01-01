@@ -10,10 +10,10 @@
 ///       name: my-saml-provider
 ///       samlMetadataDocument:
 ///         fn::invoke:
-///           Function: std:file
-///           Arguments:
+///           function: std:file
+///           arguments:
 ///             input: saml-metadata.xml
-///           Return: result
+///           return: result
 ///   main:
 ///     type: aws:cognito:IdentityPool
 ///     properties:

@@ -61,13 +61,13 @@
 ///     properties:
 ///       hostedZoneId: ${exampleKeySigningKey.hostedZoneId}
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${exampleKeySigningKey}
 /// variables:
 ///   current:
 ///     fn::invoke:
-///       Function: aws:getCallerIdentity
-///       Arguments: {}
+///       function: aws:getCallerIdentity
+///       arguments: {}
 /// ```
 ///
 /// ## Import

@@ -29,7 +29,7 @@
 ///       tags:
 ///         key: value
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${exampleAwsSsmincidentsReplicationSet}
 /// ```
 ///

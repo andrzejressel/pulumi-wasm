@@ -7,19 +7,19 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = get_bucket::invoke(
-///         GetBucketArgs::builder().bucket("an-example-bucket").build_struct(),
-///     );
-///     let exampleResource = resource::create(
-///         "exampleResource",
-///         ResourceArgs::builder().arn("${example.arn}").build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleResource:
+///     type: aws:lakeformation:Resource
+///     name: example
+///     properties:
+///       arn: ${example.arn}
+/// variables:
+///   example:
+///     fn::invoke:
+///       function: aws:s3:getBucket
+///       arguments:
+///         bucket: an-example-bucket
 /// ```
 pub mod resource {
     #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]

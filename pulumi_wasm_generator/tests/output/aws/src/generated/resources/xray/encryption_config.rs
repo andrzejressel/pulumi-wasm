@@ -19,44 +19,41 @@
 ///
 /// ### With KMS Key
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_caller_identity::invoke(
-///         GetCallerIdentityArgs::builder().build_struct(),
-///     );
-///     let example = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder().actions(vec!["kms:*",])
-///                     .effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["arn:aws:iam::${current.accountId}:root",]). type
-///                     ("AWS").build_struct(),]).resources(vec!["*",])
-///                     .sid("Enable IAM User Permissions").build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let exampleEncryptionConfig = encryption_config::create(
-///         "exampleEncryptionConfig",
-///         EncryptionConfigArgs::builder()
-///             .key_id("${exampleKey.arn}")
-///             .type_("KMS")
-///             .build_struct(),
-///     );
-///     let exampleKey = key::create(
-///         "exampleKey",
-///         KeyArgs::builder()
-///             .deletion_window_in_days(7)
-///             .description("Some Key")
-///             .policy("${example.json}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleKey:
+///     type: aws:kms:Key
+///     name: example
+///     properties:
+///       description: Some Key
+///       deletionWindowInDays: 7
+///       policy: ${example.json}
+///   exampleEncryptionConfig:
+///     type: aws:xray:EncryptionConfig
+///     name: example
+///     properties:
+///       type: KMS
+///       keyId: ${exampleKey.arn}
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getCallerIdentity
+///       arguments: {}
+///   example:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - sid: Enable IAM User Permissions
+///             effect: Allow
+///             principals:
+///               - type: AWS
+///                 identifiers:
+///                   - arn:aws:iam::${current.accountId}:root
+///             actions:
+///               - kms:*
+///             resources:
+///               - '*'
 /// ```
 ///
 /// ## Import

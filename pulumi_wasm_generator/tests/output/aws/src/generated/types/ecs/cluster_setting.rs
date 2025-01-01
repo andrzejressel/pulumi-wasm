@@ -6,7 +6,7 @@ pub struct ClusterSetting {
     #[builder(into)]
     #[serde(rename = "name")]
     pub r#name: Box<String>,
-    /// Value to assign to the setting. Valid values: `enabled`, `disabled`.
+    /// Value to assign to the setting. Valid values: `enhanced`, `enabled`, `disabled`.
     #[builder(into)]
     #[serde(rename = "value")]
     pub r#value: Box<String>,

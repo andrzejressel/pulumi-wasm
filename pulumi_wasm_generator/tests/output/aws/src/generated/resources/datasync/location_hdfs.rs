@@ -43,16 +43,16 @@
 ///       kerberosPrincipal: user@example.com
 ///       kerberosKeytabBase64:
 ///         fn::invoke:
-///           Function: std:filebase64
-///           Arguments:
+///           function: std:filebase64
+///           arguments:
 ///             input: user.keytab
-///           Return: result
+///           return: result
 ///       kerberosKrb5Conf:
 ///         fn::invoke:
-///           Function: std:file
-///           Arguments:
+///           function: std:file
+///           arguments:
 ///             input: krb5.conf
-///           Return: result
+///           return: result
 /// ```
 ///
 /// ## Import

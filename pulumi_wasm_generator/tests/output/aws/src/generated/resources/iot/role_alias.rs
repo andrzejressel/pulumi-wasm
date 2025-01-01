@@ -17,8 +17,8 @@
 /// variables:
 ///   assumeRole:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         effect: Allow
 ///         principals:
 ///           - type: Service

@@ -8,111 +8,114 @@
 ///
 /// ### Account Access
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let test = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["events:PutEvents",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["123456789012",]). type ("AWS").build_struct(),])
-///                     .resources(vec!["arn:aws:events:eu-west-1:123456789012:event-bus/default",])
-///                     .sid("DevAccountAccess").build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let testEventBusPolicy = event_bus_policy::create(
-///         "testEventBusPolicy",
-///         EventBusPolicyArgs::builder()
-///             .event_bus_name("${testAwsCloudwatchEventBus.name}")
-///             .policy("${test.json}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   testEventBusPolicy:
+///     type: aws:cloudwatch:EventBusPolicy
+///     name: test
+///     properties:
+///       policy: ${test.json}
+///       eventBusName: ${testAwsCloudwatchEventBus.name}
+/// variables:
+///   test:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - sid: DevAccountAccess
+///             effect: Allow
+///             actions:
+///               - events:PutEvents
+///             resources:
+///               - arn:aws:events:eu-west-1:123456789012:event-bus/default
+///             principals:
+///               - type: AWS
+///                 identifiers:
+///                   - '123456789012'
 /// ```
 ///
 /// ### Organization Access
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let test = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["events:DescribeRule", "events:ListRules",
-///                     "events:ListTargetsByRule", "events:ListTagsForResource",])
-///                     .conditions(vec![GetPolicyDocumentStatementCondition::builder()
-///                     .test("StringEquals").values(vec!["${example.id}",])
-///                     .variable("aws:PrincipalOrgID").build_struct(),]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["*",]). type ("AWS").build_struct(),])
-///                     .resources(vec!["arn:aws:events:eu-west-1:123456789012:rule/*",
-///                     "arn:aws:events:eu-west-1:123456789012:event-bus/default",])
-///                     .sid("OrganizationAccess").build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let testEventBusPolicy = event_bus_policy::create(
-///         "testEventBusPolicy",
-///         EventBusPolicyArgs::builder()
-///             .event_bus_name("${testAwsCloudwatchEventBus.name}")
-///             .policy("${test.json}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   testEventBusPolicy:
+///     type: aws:cloudwatch:EventBusPolicy
+///     name: test
+///     properties:
+///       policy: ${test.json}
+///       eventBusName: ${testAwsCloudwatchEventBus.name}
+/// variables:
+///   test:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - sid: OrganizationAccess
+///             effect: Allow
+///             actions:
+///               - events:DescribeRule
+///               - events:ListRules
+///               - events:ListTargetsByRule
+///               - events:ListTagsForResource
+///             resources:
+///               - arn:aws:events:eu-west-1:123456789012:rule/*
+///               - arn:aws:events:eu-west-1:123456789012:event-bus/default
+///             principals:
+///               - type: AWS
+///                 identifiers:
+///                   - '*'
+///             conditions:
+///               - test: StringEquals
+///                 variable: aws:PrincipalOrgID
+///                 values:
+///                   - ${example.id}
 /// ```
 ///
 /// ### Multiple Statements
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let test = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["events:PutEvents",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["123456789012",]). type ("AWS").build_struct(),])
-///                     .resources(vec!["arn:aws:events:eu-west-1:123456789012:event-bus/default",])
-///                     .sid("DevAccountAccess").build_struct(),
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["events:DescribeRule", "events:ListRules",
-///                     "events:ListTargetsByRule", "events:ListTagsForResource",])
-///                     .conditions(vec![GetPolicyDocumentStatementCondition::builder()
-///                     .test("StringEquals").values(vec!["${example.id}",])
-///                     .variable("aws:PrincipalOrgID").build_struct(),]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["*",]). type ("AWS").build_struct(),])
-///                     .resources(vec!["arn:aws:events:eu-west-1:123456789012:rule/*",
-///                     "arn:aws:events:eu-west-1:123456789012:event-bus/default",])
-///                     .sid("OrganizationAccess").build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let testEventBusPolicy = event_bus_policy::create(
-///         "testEventBusPolicy",
-///         EventBusPolicyArgs::builder()
-///             .event_bus_name("${testAwsCloudwatchEventBus.name}")
-///             .policy("${test.json}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   testEventBusPolicy:
+///     type: aws:cloudwatch:EventBusPolicy
+///     name: test
+///     properties:
+///       policy: ${test.json}
+///       eventBusName: ${testAwsCloudwatchEventBus.name}
+/// variables:
+///   test:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - sid: DevAccountAccess
+///             effect: Allow
+///             actions:
+///               - events:PutEvents
+///             resources:
+///               - arn:aws:events:eu-west-1:123456789012:event-bus/default
+///             principals:
+///               - type: AWS
+///                 identifiers:
+///                   - '123456789012'
+///           - sid: OrganizationAccess
+///             effect: Allow
+///             actions:
+///               - events:DescribeRule
+///               - events:ListRules
+///               - events:ListTargetsByRule
+///               - events:ListTagsForResource
+///             resources:
+///               - arn:aws:events:eu-west-1:123456789012:rule/*
+///               - arn:aws:events:eu-west-1:123456789012:event-bus/default
+///             principals:
+///               - type: AWS
+///                 identifiers:
+///                   - '*'
+///             conditions:
+///               - test: StringEquals
+///                 variable: aws:PrincipalOrgID
+///                 values:
+///                   - ${example.id}
 /// ```
 ///
 /// ## Import

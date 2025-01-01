@@ -10,47 +10,44 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let default = cluster::create(
-///         "default",
-///         ClusterArgs::builder()
-///             .availability_zones(vec!["us-west-2a", "us-west-2b", "us-west-2c",])
-///             .cluster_identifier("aurora-cluster-demo")
-///             .database_name("mydb")
-///             .engine("aurora-postgresql")
-///             .engine_version("13.4")
-///             .master_password("mustbeeightcharaters")
-///             .master_username("foo")
-///             .build_struct(),
-///     );
-///     let defaultClusterActivityStream = cluster_activity_stream::create(
-///         "defaultClusterActivityStream",
-///         ClusterActivityStreamArgs::builder()
-///             .kms_key_id("${defaultKey.keyId}")
-///             .mode("async")
-///             .resource_arn("${default.arn}")
-///             .build_struct(),
-///     );
-///     let defaultClusterInstance = cluster_instance::create(
-///         "defaultClusterInstance",
-///         ClusterInstanceArgs::builder()
-///             .cluster_identifier("${default.clusterIdentifier}")
-///             .engine("${default.engine}")
-///             .identifier("aurora-instance-demo")
-///             .instance_class("db.r6g.large")
-///             .build_struct(),
-///     );
-///     let defaultKey = key::create(
-///         "defaultKey",
-///         KeyArgs::builder()
-///             .description("AWS KMS Key to encrypt Database Activity Stream")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   default:
+///     type: aws:rds:Cluster
+///     properties:
+///       clusterIdentifier: aurora-cluster-demo
+///       availabilityZones:
+///         - us-west-2a
+///         - us-west-2b
+///         - us-west-2c
+///       databaseName: mydb
+///       masterUsername: foo
+///       masterPassword: mustbeeightcharaters
+///       engine: aurora-postgresql
+///       engineVersion: '13.4'
+///   defaultClusterInstance:
+///     type: aws:rds:ClusterInstance
+///     name: default
+///     properties:
+///       identifier: aurora-instance-demo
+///       clusterIdentifier: ${default.clusterIdentifier}
+///       engine: ${default.engine}
+///       instanceClass: db.r6g.large
+///   defaultKey:
+///     type: aws:kms:Key
+///     name: default
+///     properties:
+///       description: AWS KMS Key to encrypt Database Activity Stream
+///   defaultClusterActivityStream:
+///     type: aws:rds:ClusterActivityStream
+///     name: default
+///     properties:
+///       resourceArn: ${default.arn}
+///       mode: async
+///       kmsKeyId: ${defaultKey.keyId}
+///     options:
+///       dependsOn:
+///         - ${defaultClusterInstance}
 /// ```
 ///
 /// ## Import

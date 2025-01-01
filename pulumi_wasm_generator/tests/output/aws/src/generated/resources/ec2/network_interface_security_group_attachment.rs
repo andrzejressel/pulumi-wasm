@@ -40,8 +40,8 @@
 /// variables:
 ///   ami:
 ///     fn::invoke:
-///       Function: aws:ec2:getAmi
-///       Arguments:
+///       function: aws:ec2:getAmi
+///       arguments:
 ///         mostRecent: true
 ///         filters:
 ///           - name: name
@@ -71,8 +71,8 @@
 /// variables:
 ///   instance:
 ///     fn::invoke:
-///       Function: aws:ec2:getInstance
-///       Arguments:
+///       function: aws:ec2:getInstance
+///       arguments:
 ///         instanceId: i-1234567890abcdef0
 /// ```
 ///

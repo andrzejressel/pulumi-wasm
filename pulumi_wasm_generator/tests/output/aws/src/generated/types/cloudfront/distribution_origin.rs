@@ -41,4 +41,8 @@ pub struct DistributionOrigin {
     #[builder(into, default)]
     #[serde(rename = "s3OriginConfig")]
     pub r#s_3_origin_config: Box<Option<super::super::types::cloudfront::DistributionOriginS3OriginConfig>>,
+    /// The VPC origin configuration.
+    #[builder(into, default)]
+    #[serde(rename = "vpcOriginConfig")]
+    pub r#vpc_origin_config: Box<Option<super::super::types::cloudfront::DistributionOriginVpcOriginConfig>>,
 }

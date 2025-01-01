@@ -275,7 +275,14 @@ pub mod callback_function {
         pub reserved_concurrent_executions: pulumi_wasm_rust::Output<Option<i32>>,
         /// The execution role for the Lambda Function. The role provides the function's identity and access to AWS services and resources. Only one of `role` or `policies` can be provided. If neither is provided, the default policies will be used instead.
         #[builder(into, default)]
-        pub role: pulumi_wasm_rust::Output<Option<String>>,
+        pub role: pulumi_wasm_rust::Output<
+            Option<
+                pulumi_wasm_rust::OneOf2<
+                    super::super::types::iam::Role,
+                    super::super::types::Arn,
+                >,
+            >,
+        >,
         /// The Lambda runtime to use. If not provided, will default to `NodeJS20dX`.
         #[builder(into, default)]
         pub runtime: pulumi_wasm_rust::Output<
@@ -397,7 +404,7 @@ pub mod callback_function {
         /// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
         ///
         /// The following arguments are optional:
-        pub role: pulumi_wasm_rust::Output<Option<String>>,
+        pub role: pulumi_wasm_rust::Output<Option<super::super::types::Arn>>,
         /// The IAM role assigned to this Lambda function. Will be undefined if an ARN was provided for the role input property.
         pub role_instance: pulumi_wasm_rust::Output<Option<String>>,
         /// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.

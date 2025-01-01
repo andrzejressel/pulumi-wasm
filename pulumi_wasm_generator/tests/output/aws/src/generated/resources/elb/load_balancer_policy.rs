@@ -28,10 +28,10 @@
 ///         - name: PublicKey
 ///           value:
 ///             fn::invoke:
-///               Function: std:file
-///               Arguments:
+///               function: std:file
+///               arguments:
 ///                 input: wu-tang-pubkey
-///               Return: result
+///               return: result
 ///   wu-tang-root-ca-backend-auth-policy:
 ///     type: aws:elb:LoadBalancerPolicy
 ///     properties:

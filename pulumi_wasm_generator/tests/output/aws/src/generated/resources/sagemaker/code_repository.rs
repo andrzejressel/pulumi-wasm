@@ -49,7 +49,7 @@
 ///         repositoryUrl: https://github.com/github/docs.git
 ///         secretArn: ${example.arn}
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${exampleSecretVersion}
 /// ```
 ///

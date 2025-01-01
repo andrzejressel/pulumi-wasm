@@ -15,7 +15,7 @@
 ///           Statement:
 ///             - Action: sts:AssumeRole
 ///               Effect: Allow
-///               Sid:
+///               Sid: ""
 ///               Principal:
 ///                 Service: osis-pipelines.amazonaws.com
 ///   examplePipeline:
@@ -44,8 +44,8 @@
 /// variables:
 ///   current:
 ///     fn::invoke:
-///       Function: aws:getRegion
-///       Arguments: {}
+///       function: aws:getRegion
+///       arguments: {}
 /// ```
 ///
 /// ### Using file function
@@ -58,10 +58,10 @@
 ///       pipelineName: example
 ///       pipelineConfigurationBody:
 ///         fn::invoke:
-///           Function: std:file
-///           Arguments:
+///           function: std:file
+///           arguments:
 ///             input: example.yaml
-///           Return: result
+///           return: result
 ///       maxUnits: 1
 ///       minUnits: 1
 /// ```

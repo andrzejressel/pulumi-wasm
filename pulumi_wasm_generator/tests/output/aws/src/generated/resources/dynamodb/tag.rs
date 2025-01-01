@@ -18,23 +18,23 @@
 ///     properties:
 ///       resourceArn:
 ///         fn::invoke:
-///           Function: std:replace
-///           Arguments:
+///           function: std:replace
+///           arguments:
 ///             text: ${example.arn}
 ///             search: ${current.name}
 ///             replace: ${replica.name}
-///           Return: result
+///           return: result
 ///       key: testkey
 ///       value: testvalue
 /// variables:
 ///   replica:
 ///     fn::invoke:
-///       Function: aws:getRegion
-///       Arguments: {}
+///       function: aws:getRegion
+///       arguments: {}
 ///   current:
 ///     fn::invoke:
-///       Function: aws:getRegion
-///       Arguments: {}
+///       function: aws:getRegion
+///       arguments: {}
 /// ```
 ///
 /// ## Import

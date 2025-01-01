@@ -4,22 +4,20 @@
 ///
 /// The following example below creates an HSM module in CloudHSM cluster.
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let cluster = get_cluster::invoke(
-///         GetClusterArgs::builder().cluster_id("${cloudhsmClusterId}").build_struct(),
-///     );
-///     let cloudhsmV2Hsm = hsm::create(
-///         "cloudhsmV2Hsm",
-///         HsmArgs::builder()
-///             .cluster_id("${cluster.clusterId}")
-///             .subnet_id("${cluster.subnetIds[0]}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   cloudhsmV2Hsm:
+///     type: aws:cloudhsmv2:Hsm
+///     name: cloudhsm_v2_hsm
+///     properties:
+///       subnetId: ${cluster.subnetIds[0]}
+///       clusterId: ${cluster.clusterId}
+/// variables:
+///   cluster:
+///     fn::invoke:
+///       function: aws:cloudhsmv2:getCluster
+///       arguments:
+///         clusterId: ${cloudhsmClusterId}
 /// ```
 ///
 /// ## Import

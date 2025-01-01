@@ -70,10 +70,10 @@
 ///       type: STATEFUL
 ///       rules:
 ///         fn::invoke:
-///           Function: std:file
-///           Arguments:
+///           function: std:file
+///           arguments:
 ///             input: example.rules
-///           Return: result
+///           return: result
 ///       tags:
 ///         Tag1: Value1
 ///         Tag2: Value2
@@ -111,10 +111,10 @@
 ///         rulesSource:
 ///           rulesString:
 ///             fn::invoke:
-///               Function: std:file
-///               Arguments:
+///               function: std:file
+///               arguments:
 ///                 input: suricata_rules_file
-///               Return: result
+///               return: result
 ///       tags:
 ///         Tag1: Value1
 ///         Tag2: Value2

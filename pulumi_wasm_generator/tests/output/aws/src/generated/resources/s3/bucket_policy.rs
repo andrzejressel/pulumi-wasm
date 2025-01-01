@@ -6,37 +6,34 @@
 ///
 /// ### Basic Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let allowAccessFromAnotherAccount = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder().actions(vec!["s3:GetObject",
-///                     "s3:ListBucket",])
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["123456789012",]). type ("AWS").build_struct(),])
-///                     .resources(vec!["${example.arn}", "${example.arn}/*",])
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let allowAccessFromAnotherAccountBucketPolicy = bucket_policy::create(
-///         "allowAccessFromAnotherAccountBucketPolicy",
-///         BucketPolicyArgs::builder()
-///             .bucket("${example.id}")
-///             .policy("${allowAccessFromAnotherAccount.json}")
-///             .build_struct(),
-///     );
-///     let example = bucket_v_2::create(
-///         "example",
-///         BucketV2Args::builder().bucket("my-tf-test-bucket").build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:s3:BucketV2
+///     properties:
+///       bucket: my-tf-test-bucket
+///   allowAccessFromAnotherAccountBucketPolicy:
+///     type: aws:s3:BucketPolicy
+///     name: allow_access_from_another_account
+///     properties:
+///       bucket: ${example.id}
+///       policy: ${allowAccessFromAnotherAccount.json}
+/// variables:
+///   allowAccessFromAnotherAccount:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - principals:
+///               - type: AWS
+///                 identifiers:
+///                   - '123456789012'
+///             actions:
+///               - s3:GetObject
+///               - s3:ListBucket
+///             resources:
+///               - ${example.arn}
+///               - ${example.arn}/*
 /// ```
 ///
 /// ## Import

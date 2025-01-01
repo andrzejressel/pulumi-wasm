@@ -3,17 +3,22 @@
 /// > **Note:** All arguments including the Client ID and Client Secret will be stored in the raw state as plain-text.
 /// ## Example Usage
 ///
-/// ```yaml
-/// resources:
-///   app:
-///     type: aws:pinpoint:App
-///   channel:
-///     type: aws:pinpoint:AdmChannel
-///     properties:
-///       applicationId: ${app.applicationId}
-///       clientId:
-///       clientSecret:
-///       enabled: true
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let app = app::create("app", AppArgs::builder().build_struct());
+///     let channel = adm_channel::create(
+///         "channel",
+///         AdmChannelArgs::builder()
+///             .application_id("${app.applicationId}")
+///             .client_id("")
+///             .client_secret("")
+///             .enabled(true)
+///             .build_struct(),
+///     );
+/// }
 /// ```
 ///
 /// ## Import

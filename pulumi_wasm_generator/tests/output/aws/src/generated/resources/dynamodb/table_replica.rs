@@ -45,6 +45,9 @@ pub mod table_replica {
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TableReplicaArgs {
+        /// Whether deletion protection is enabled (true) or disabled (false) on the table replica.
+        #[builder(into, default)]
+        pub deletion_protection_enabled: pulumi_wasm_rust::Output<Option<bool>>,
         /// ARN of the _main_ or global table which this resource will replicate.
         ///
         /// Optional arguments:
@@ -53,7 +56,7 @@ pub mod table_replica {
         /// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
         #[builder(into, default)]
         pub kms_key_arn: pulumi_wasm_rust::Output<Option<String>>,
-        /// Whether to enable Point In Time Recovery for the replica. Default is `false`.
+        /// Whether to enable Point In Time Recovery for the table replica. Default is `false`.
         #[builder(into, default)]
         pub point_in_time_recovery: pulumi_wasm_rust::Output<Option<bool>>,
         /// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
@@ -69,13 +72,15 @@ pub mod table_replica {
     pub struct TableReplicaResult {
         /// ARN of the table replica.
         pub arn: pulumi_wasm_rust::Output<String>,
+        /// Whether deletion protection is enabled (true) or disabled (false) on the table replica.
+        pub deletion_protection_enabled: pulumi_wasm_rust::Output<bool>,
         /// ARN of the _main_ or global table which this resource will replicate.
         ///
         /// Optional arguments:
         pub global_table_arn: pulumi_wasm_rust::Output<String>,
         /// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
         pub kms_key_arn: pulumi_wasm_rust::Output<String>,
-        /// Whether to enable Point In Time Recovery for the replica. Default is `false`.
+        /// Whether to enable Point In Time Recovery for the table replica. Default is `false`.
         pub point_in_time_recovery: pulumi_wasm_rust::Output<Option<bool>>,
         /// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
         pub table_class_override: pulumi_wasm_rust::Output<Option<String>>,
@@ -95,6 +100,9 @@ pub mod table_replica {
     pub fn create(name: &str, args: TableReplicaArgs) -> TableReplicaResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
+        let deletion_protection_enabled_binding = args
+            .deletion_protection_enabled
+            .get_inner();
         let global_table_arn_binding = args.global_table_arn.get_inner();
         let kms_key_arn_binding = args.kms_key_arn.get_inner();
         let point_in_time_recovery_binding = args.point_in_time_recovery.get_inner();
@@ -104,6 +112,10 @@ pub mod table_replica {
             type_: "aws:dynamodb/tableReplica:TableReplica".into(),
             name: name.to_string(),
             object: Vec::from([
+                register_interface::ObjectField {
+                    name: "deletionProtectionEnabled".into(),
+                    value: &deletion_protection_enabled_binding,
+                },
                 register_interface::ObjectField {
                     name: "globalTableArn".into(),
                     value: &global_table_arn_binding,
@@ -128,6 +140,9 @@ pub mod table_replica {
             results: Vec::from([
                 register_interface::ResultField {
                     name: "arn".into(),
+                },
+                register_interface::ResultField {
+                    name: "deletionProtectionEnabled".into(),
                 },
                 register_interface::ResultField {
                     name: "globalTableArn".into(),
@@ -158,6 +173,9 @@ pub mod table_replica {
         TableReplicaResult {
             arn: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("arn").unwrap(),
+            ),
+            deletion_protection_enabled: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("deletionProtectionEnabled").unwrap(),
             ),
             global_table_arn: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("globalTableArn").unwrap(),

@@ -18,7 +18,7 @@
 ///                   - '12345678901'
 ///               Action:
 ///                 - redshift-serverless:RestoreFromSnapshot
-///               Sid:
+///               Sid: ""
 /// ```
 ///
 /// ## Import

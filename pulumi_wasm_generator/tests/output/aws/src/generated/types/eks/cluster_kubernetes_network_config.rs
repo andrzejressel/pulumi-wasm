@@ -2,6 +2,10 @@
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
 pub struct ClusterKubernetesNetworkConfig {
+    /// Configuration block with elastic load balancing configuration for the cluster. Detailed below.
+    #[builder(into, default)]
+    #[serde(rename = "elasticLoadBalancing")]
+    pub r#elastic_load_balancing: Box<Option<super::super::types::eks::ClusterKubernetesNetworkConfigElasticLoadBalancing>>,
     /// The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
     #[builder(into, default)]
     #[serde(rename = "ipFamily")]
@@ -16,7 +20,7 @@ pub struct ClusterKubernetesNetworkConfig {
     #[builder(into, default)]
     #[serde(rename = "serviceIpv4Cidr")]
     pub r#service_ipv_4_cidr: Box<Option<String>>,
-    /// The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for ipFamily when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
+    /// The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for `ip_family` when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
     #[builder(into, default)]
     #[serde(rename = "serviceIpv6Cidr")]
     pub r#service_ipv_6_cidr: Box<Option<String>>,

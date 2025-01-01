@@ -38,86 +38,87 @@
 ///
 /// > See also: `aws.opensearch.DomainPolicy` resource
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_region::invoke(GetRegionArgs::builder().build_struct());
-///     let currentGetCallerIdentity = get_caller_identity::invoke(
-///         GetCallerIdentityArgs::builder().build_struct(),
-///     );
-///     let example = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder().actions(vec!["es:*",])
-///                     .conditions(vec![GetPolicyDocumentStatementCondition::builder()
-///                     .test("IpAddress").values(vec!["66.193.100.22/32",])
-///                     .variable("aws:SourceIp").build_struct(),]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["*",]). type ("*").build_struct(),])
-///                     .resources(vec!["arn:aws:es:${current.name}:${currentGetCallerIdentity.accountId}:domain/${domain}/*",])
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let exampleDomain = domain::create(
-///         "exampleDomain",
-///         DomainArgs::builder()
-///             .access_policies("${example.json}")
-///             .domain_name("${domain}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// configuration:
+///   domain:
+///     type: string
+///     default: tf-test
+/// resources:
+///   exampleDomain:
+///     type: aws:opensearch:Domain
+///     name: example
+///     properties:
+///       domainName: ${domain}
+///       accessPolicies: ${example.json}
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getRegion
+///       arguments: {}
+///   currentGetCallerIdentity:
+///     fn::invoke:
+///       function: aws:getCallerIdentity
+///       arguments: {}
+///   example:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: '*'
+///                 identifiers:
+///                   - '*'
+///             actions:
+///               - es:*
+///             resources:
+///               - arn:aws:es:${current.name}:${currentGetCallerIdentity.accountId}:domain/${domain}/*
+///             conditions:
+///               - test: IpAddress
+///                 variable: aws:SourceIp
+///                 values:
+///                   - 66.193.100.22/32
 /// ```
 ///
 /// ### Log publishing to CloudWatch Logs
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["logs:PutLogEvents", "logs:PutLogEventsBatch",
-///                     "logs:CreateLogStream",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["es.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).resources(vec!["arn:aws:logs:*",]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let exampleDomain = domain::create(
-///         "exampleDomain",
-///         DomainArgs::builder()
-///             .log_publishing_options(
-///                 vec![
-///                     DomainLogPublishingOption::builder()
-///                     .cloudwatchLogGroupArn("${exampleLogGroup.arn}")
-///                     .logType("INDEX_SLOW_LOGS").build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let exampleLogGroup = log_group::create(
-///         "exampleLogGroup",
-///         LogGroupArgs::builder().name("example").build_struct(),
-///     );
-///     let exampleLogResourcePolicy = log_resource_policy::create(
-///         "exampleLogResourcePolicy",
-///         LogResourcePolicyArgs::builder()
-///             .policy_document("${example.json}")
-///             .policy_name("example")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleLogGroup:
+///     type: aws:cloudwatch:LogGroup
+///     name: example
+///     properties:
+///       name: example
+///   exampleLogResourcePolicy:
+///     type: aws:cloudwatch:LogResourcePolicy
+///     name: example
+///     properties:
+///       policyName: example
+///       policyDocument: ${example.json}
+///   exampleDomain:
+///     type: aws:opensearch:Domain
+///     name: example
+///     properties:
+///       logPublishingOptions:
+///         - cloudwatchLogGroupArn: ${exampleLogGroup.arn}
+///           logType: INDEX_SLOW_LOGS
+/// variables:
+///   example:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - es.amazonaws.com
+///             actions:
+///               - logs:PutLogEvents
+///               - logs:PutLogEventsBatch
+///               - logs:CreateLogStream
+///             resources:
+///               - arn:aws:logs:*
 /// ```
 ///
 /// ### VPC based OpenSearch
@@ -169,19 +170,19 @@
 ///       tags:
 ///         Domain: TestDomain
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${exampleServiceLinkedRole}
 /// variables:
 ///   example:
 ///     fn::invoke:
-///       Function: aws:ec2:getVpc
-///       Arguments:
+///       function: aws:ec2:getVpc
+///       arguments:
 ///         tags:
 ///           Name: ${vpc}
 ///   exampleGetSubnets:
 ///     fn::invoke:
-///       Function: aws:ec2:getSubnets
-///       Arguments:
+///       function: aws:ec2:getSubnets
+///       arguments:
 ///         filters:
 ///           - name: vpc-id
 ///             values:
@@ -190,16 +191,16 @@
 ///           Tier: private
 ///   current:
 ///     fn::invoke:
-///       Function: aws:getRegion
-///       Arguments: {}
+///       function: aws:getRegion
+///       arguments: {}
 ///   currentGetCallerIdentity:
 ///     fn::invoke:
-///       Function: aws:getCallerIdentity
-///       Arguments: {}
+///       function: aws:getCallerIdentity
+///       arguments: {}
 ///   exampleGetPolicyDocument:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - effect: Allow
 ///             principals:

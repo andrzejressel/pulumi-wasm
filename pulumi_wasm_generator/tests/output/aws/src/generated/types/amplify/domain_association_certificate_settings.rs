@@ -7,10 +7,12 @@ pub struct DomainAssociationCertificateSettings {
     #[serde(rename = "certificateVerificationDnsRecord")]
     pub r#certificate_verification_dns_record: Box<Option<String>>,
     /// The Amazon resource name (ARN) for the custom certificate.
+    /// Required when `type` is `CUSTOM`.
     #[builder(into, default)]
     #[serde(rename = "customCertificateArn")]
     pub r#custom_certificate_arn: Box<Option<String>>,
-    /// The certificate type. Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
+    /// The certificate type.
+    /// Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
     #[builder(into)]
     #[serde(rename = "type")]
     pub r#type_: Box<String>,

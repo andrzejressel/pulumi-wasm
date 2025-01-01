@@ -11,10 +11,10 @@
 ///       uiTemplate:
 ///         content:
 ///           fn::invoke:
-///             Function: std:file
-///             Arguments:
+///             function: std:file
+///             arguments:
 ///               input: sagemaker-human-task-ui-template.html
-///             Return: result
+///             return: result
 /// ```
 ///
 /// ## Import

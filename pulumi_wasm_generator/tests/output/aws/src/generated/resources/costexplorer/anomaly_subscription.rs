@@ -126,71 +126,79 @@
 ///
 /// ### SNS Example
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let snsTopicPolicy = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .policy_id("__default_policy_ID")
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder().actions(vec!["SNS:Publish",])
-///                     .effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["costalerts.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).resources(vec!["${costAnomalyUpdates.arn}",])
-///                     .sid("AWSAnomalyDetectionSNSPublishingPermissions").build_struct(),
-///                     GetPolicyDocumentStatement::builder().actions(vec!["SNS:Subscribe",
-///                     "SNS:SetTopicAttributes", "SNS:RemovePermission", "SNS:Receive",
-///                     "SNS:Publish", "SNS:ListSubscriptionsByTopic",
-///                     "SNS:GetTopicAttributes", "SNS:DeleteTopic", "SNS:AddPermission",])
-///                     .conditions(vec![GetPolicyDocumentStatementCondition::builder()
-///                     .test("StringEquals").values(vec!["${accountId}",])
-///                     .variable("AWS:SourceOwner").build_struct(),]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["*",]). type ("AWS").build_struct(),])
-///                     .resources(vec!["${costAnomalyUpdates.arn}",])
-///                     .sid("__default_statement_ID").build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let anomalyMonitor = anomaly_monitor::create(
-///         "anomalyMonitor",
-///         AnomalyMonitorArgs::builder()
-///             .monitor_dimension("SERVICE")
-///             .monitor_type("DIMENSIONAL")
-///             .name("AWSServiceMonitor")
-///             .build_struct(),
-///     );
-///     let costAnomalyUpdates = topic::create(
-///         "costAnomalyUpdates",
-///         TopicArgs::builder().name("CostAnomalyUpdates").build_struct(),
-///     );
-///     let default = topic_policy::create(
-///         "default",
-///         TopicPolicyArgs::builder()
-///             .arn("${costAnomalyUpdates.arn}")
-///             .policy("${snsTopicPolicy.json}")
-///             .build_struct(),
-///     );
-///     let realtimeSubscription = anomaly_subscription::create(
-///         "realtimeSubscription",
-///         AnomalySubscriptionArgs::builder()
-///             .frequency("IMMEDIATE")
-///             .monitor_arn_lists(vec!["${anomalyMonitor.arn}",])
-///             .name("RealtimeAnomalySubscription")
-///             .subscribers(
-///                 vec![
-///                     AnomalySubscriptionSubscriber::builder()
-///                     .address("${costAnomalyUpdates.arn}"). type ("SNS").build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   costAnomalyUpdates:
+///     type: aws:sns:Topic
+///     name: cost_anomaly_updates
+///     properties:
+///       name: CostAnomalyUpdates
+///   default:
+///     type: aws:sns:TopicPolicy
+///     properties:
+///       arn: ${costAnomalyUpdates.arn}
+///       policy: ${snsTopicPolicy.json}
+///   anomalyMonitor:
+///     type: aws:costexplorer:AnomalyMonitor
+///     name: anomaly_monitor
+///     properties:
+///       name: AWSServiceMonitor
+///       monitorType: DIMENSIONAL
+///       monitorDimension: SERVICE
+///   realtimeSubscription:
+///     type: aws:costexplorer:AnomalySubscription
+///     name: realtime_subscription
+///     properties:
+///       name: RealtimeAnomalySubscription
+///       frequency: IMMEDIATE
+///       monitorArnLists:
+///         - ${anomalyMonitor.arn}
+///       subscribers:
+///         - type: SNS
+///           address: ${costAnomalyUpdates.arn}
+///     options:
+///       dependsOn:
+///         - ${default}
+/// variables:
+///   snsTopicPolicy:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         policyId: __default_policy_ID
+///         statements:
+///           - sid: AWSAnomalyDetectionSNSPublishingPermissions
+///             actions:
+///               - SNS:Publish
+///             effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - costalerts.amazonaws.com
+///             resources:
+///               - ${costAnomalyUpdates.arn}
+///           - sid: __default_statement_ID
+///             actions:
+///               - SNS:Subscribe
+///               - SNS:SetTopicAttributes
+///               - SNS:RemovePermission
+///               - SNS:Receive
+///               - SNS:Publish
+///               - SNS:ListSubscriptionsByTopic
+///               - SNS:GetTopicAttributes
+///               - SNS:DeleteTopic
+///               - SNS:AddPermission
+///             conditions:
+///               - test: StringEquals
+///                 variable: AWS:SourceOwner
+///                 values:
+///                   - ${accountId}
+///             effect: Allow
+///             principals:
+///               - type: AWS
+///                 identifiers:
+///                   - '*'
+///             resources:
+///               - ${costAnomalyUpdates.arn}
 /// ```
 ///
 /// ## Import

@@ -752,6 +752,10 @@ pub struct Endpoints {
     pub r#memorydb: Box<Option<String>>,
     /// Use this to override the default service endpoint URL
     #[builder(into, default)]
+    #[serde(rename = "mgn")]
+    pub r#mgn: Box<Option<String>>,
+    /// Use this to override the default service endpoint URL
+    #[builder(into, default)]
     #[serde(rename = "mq")]
     pub r#mq: Box<Option<String>>,
     /// Use this to override the default service endpoint URL
@@ -976,6 +980,10 @@ pub struct Endpoints {
     pub r#s_3_outposts: Box<Option<String>>,
     /// Use this to override the default service endpoint URL
     #[builder(into, default)]
+    #[serde(rename = "s3tables")]
+    pub r#s_3_tables: Box<Option<String>>,
+    /// Use this to override the default service endpoint URL
+    #[builder(into, default)]
     #[serde(rename = "sagemaker")]
     pub r#sagemaker: Box<Option<String>>,
     /// Use this to override the default service endpoint URL
@@ -1118,6 +1126,10 @@ pub struct Endpoints {
     #[builder(into, default)]
     #[serde(rename = "timestreaminfluxdb")]
     pub r#timestreaminfluxdb: Box<Option<String>>,
+    /// Use this to override the default service endpoint URL
+    #[builder(into, default)]
+    #[serde(rename = "timestreamquery")]
+    pub r#timestreamquery: Box<Option<String>>,
     /// Use this to override the default service endpoint URL
     #[builder(into, default)]
     #[serde(rename = "timestreamwrite")]

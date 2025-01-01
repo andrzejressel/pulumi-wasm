@@ -4,86 +4,71 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let assumeRole = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sts:AssumeRole",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["codedeploy.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let aWSCodeDeployRole = role_policy_attachment::create(
-///         "aWSCodeDeployRole",
-///         RolePolicyAttachmentArgs::builder()
-///             .policy_arn("arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole")
-///             .role("${example.name}")
-///             .build_struct(),
-///     );
-///     let example = role::create(
-///         "example",
-///         RoleArgs::builder()
-///             .assume_role_policy("${assumeRole.json}")
-///             .name("example-role")
-///             .build_struct(),
-///     );
-///     let exampleApplication = application::create(
-///         "exampleApplication",
-///         ApplicationArgs::builder().name("example-app").build_struct(),
-///     );
-///     let exampleDeploymentGroup = deployment_group::create(
-///         "exampleDeploymentGroup",
-///         DeploymentGroupArgs::builder()
-///             .alarm_configuration(
-///                 DeploymentGroupAlarmConfiguration::builder()
-///                     .alarms(vec!["my-alarm-name",])
-///                     .enabled(true)
-///                     .build_struct(),
-///             )
-///             .app_name("${exampleApplication.name}")
-///             .auto_rollback_configuration(
-///                 DeploymentGroupAutoRollbackConfiguration::builder()
-///                     .enabled(true)
-///                     .events(vec!["DEPLOYMENT_FAILURE",])
-///                     .build_struct(),
-///             )
-///             .deployment_group_name("example-group")
-///             .ec_2_tag_sets(
-///                 vec![
-///                     DeploymentGroupEc2TagSet::builder()
-///                     .ec2TagFilters(vec![DeploymentGroupEc2TagSetEc2TagFilter::builder()
-///                     .key("filterkey1"). type ("KEY_AND_VALUE").value("filtervalue")
-///                     .build_struct(), DeploymentGroupEc2TagSetEc2TagFilter::builder()
-///                     .key("filterkey2"). type ("KEY_AND_VALUE").value("filtervalue")
-///                     .build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .outdated_instances_strategy("UPDATE")
-///             .service_role_arn("${example.arn}")
-///             .trigger_configurations(
-///                 vec![
-///                     DeploymentGroupTriggerConfiguration::builder()
-///                     .triggerEvents(vec!["DeploymentFailure",])
-///                     .triggerName("example-trigger")
-///                     .triggerTargetArn("${exampleTopic.arn}").build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let exampleTopic = topic::create(
-///         "exampleTopic",
-///         TopicArgs::builder().name("example-topic").build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:iam:Role
+///     properties:
+///       name: example-role
+///       assumeRolePolicy: ${assumeRole.json}
+///   aWSCodeDeployRole:
+///     type: aws:iam:RolePolicyAttachment
+///     name: AWSCodeDeployRole
+///     properties:
+///       policyArn: arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole
+///       role: ${example.name}
+///   exampleApplication:
+///     type: aws:codedeploy:Application
+///     name: example
+///     properties:
+///       name: example-app
+///   exampleTopic:
+///     type: aws:sns:Topic
+///     name: example
+///     properties:
+///       name: example-topic
+///   exampleDeploymentGroup:
+///     type: aws:codedeploy:DeploymentGroup
+///     name: example
+///     properties:
+///       appName: ${exampleApplication.name}
+///       deploymentGroupName: example-group
+///       serviceRoleArn: ${example.arn}
+///       ec2TagSets:
+///         - ec2TagFilters:
+///             - key: filterkey1
+///               type: KEY_AND_VALUE
+///               value: filtervalue
+///             - key: filterkey2
+///               type: KEY_AND_VALUE
+///               value: filtervalue
+///       triggerConfigurations:
+///         - triggerEvents:
+///             - DeploymentFailure
+///           triggerName: example-trigger
+///           triggerTargetArn: ${exampleTopic.arn}
+///       autoRollbackConfiguration:
+///         enabled: true
+///         events:
+///           - DEPLOYMENT_FAILURE
+///       alarmConfiguration:
+///         alarms:
+///           - my-alarm-name
+///         enabled: true
+///       outdatedInstancesStrategy: UPDATE
+/// variables:
+///   assumeRole:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - codedeploy.amazonaws.com
+///             actions:
+///               - sts:AssumeRole
 /// ```
 ///
 /// ### Blue Green Deployments with ECS

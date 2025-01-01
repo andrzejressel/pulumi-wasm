@@ -34,8 +34,8 @@
 /// variables:
 ///   example:
 ///     fn::invoke:
-///       Function: aws:ec2:getVpcEndpointService
-///       Arguments:
+///       function: aws:ec2:getVpcEndpointService
+///       arguments:
 ///         service: dynamodb
 /// ```
 ///

@@ -25,8 +25,8 @@
 /// variables:
 ///   defaultDataLake:
 ///     fn::invoke:
-///       Function: aws:datazone:getEnvironmentBlueprint
-///       Arguments:
+///       function: aws:datazone:getEnvironmentBlueprint
+///       arguments:
 ///         domainId: ${example.id}
 ///         name: DefaultDataLake
 ///         managed: true

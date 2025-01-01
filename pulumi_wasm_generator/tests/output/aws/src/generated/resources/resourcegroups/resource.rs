@@ -31,27 +31,31 @@
 ///     );
 /// }
 /// ```
+///
+/// ## Import
+///
+/// Using `pulumi import`, import an AWS Resource Groups Resource using `group_arn` and `resource_arn`, separated by a comma (`,`). For example:
+///
+/// ```sh
+/// $ pulumi import aws:resourcegroups/resource:Resource example arn:aws:resource-groups:us-west-2:012345678901:group/example,arn:aws:lambda:us-west-2:012345678901:function:example
+/// ```
 pub mod resource {
     #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResourceArgs {
-        /// The name or the ARN of the resource group to add resources to.
-        ///
-        /// The following arguments are optional:
+        /// Name or ARN of the resource group to add resources to.
         #[builder(into)]
         pub group_arn: pulumi_wasm_rust::Output<String>,
-        /// The ARN of the resource to be added to the group.
+        /// ARN of the resource to be added to the group.
         #[builder(into)]
         pub resource_arn: pulumi_wasm_rust::Output<String>,
     }
     #[allow(dead_code)]
     pub struct ResourceResult {
-        /// The name or the ARN of the resource group to add resources to.
-        ///
-        /// The following arguments are optional:
+        /// Name or ARN of the resource group to add resources to.
         pub group_arn: pulumi_wasm_rust::Output<String>,
-        /// The ARN of the resource to be added to the group.
+        /// ARN of the resource to be added to the group.
         pub resource_arn: pulumi_wasm_rust::Output<String>,
         /// The resource type of a resource, such as `AWS::EC2::Instance`.
         pub resource_type: pulumi_wasm_rust::Output<String>,

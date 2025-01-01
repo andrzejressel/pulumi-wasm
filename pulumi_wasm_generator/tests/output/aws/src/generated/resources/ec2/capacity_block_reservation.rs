@@ -18,8 +18,8 @@
 /// variables:
 ///   test:
 ///     fn::invoke:
-///       Function: aws:ec2:getCapacityBlockOffering
-///       Arguments:
+///       function: aws:ec2:getCapacityBlockOffering
+///       arguments:
 ///         capacityDurationHours: 24
 ///         endDateRange: 2024-05-30T15:04:05Z
 ///         instanceCount: 1

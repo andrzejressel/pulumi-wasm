@@ -14,7 +14,7 @@
 ///       tags:
 ///         Name: gw NAT
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${exampleAwsInternetGateway}
 /// ```
 ///

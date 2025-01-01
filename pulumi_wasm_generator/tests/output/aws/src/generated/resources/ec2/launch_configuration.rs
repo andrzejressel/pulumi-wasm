@@ -6,34 +6,30 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let ubuntu = get_ami::invoke(
-///         GetAmiArgs::builder()
-///             .filters(
-///                 vec![
-///                     GetAmiFilter::builder().name("name")
-///                     .values(vec!["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*",])
-///                     .build_struct(), GetAmiFilter::builder().name("virtualization-type")
-///                     .values(vec!["hvm",]).build_struct(),
-///                 ],
-///             )
-///             .most_recent(true)
-///             .owners(vec!["099720109477",])
-///             .build_struct(),
-///     );
-///     let asConf = launch_configuration::create(
-///         "asConf",
-///         LaunchConfigurationArgs::builder()
-///             .image_id("${ubuntu.id}")
-///             .instance_type("t2.micro")
-///             .name("web_config")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   asConf:
+///     type: aws:ec2:LaunchConfiguration
+///     name: as_conf
+///     properties:
+///       name: web_config
+///       imageId: ${ubuntu.id}
+///       instanceType: t2.micro
+/// variables:
+///   ubuntu:
+///     fn::invoke:
+///       function: aws:ec2:getAmi
+///       arguments:
+///         mostRecent: true
+///         filters:
+///           - name: name
+///             values:
+///               - ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*
+///           - name: virtualization-type
+///             values:
+///               - hvm
+///         owners:
+///           - '099720109477'
 /// ```
 ///
 /// ## Import

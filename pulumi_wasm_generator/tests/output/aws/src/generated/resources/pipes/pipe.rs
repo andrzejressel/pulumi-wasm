@@ -69,14 +69,14 @@
 ///       source: ${sourceQueue.arn}
 ///       target: ${targetQueue.arn}
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${source}
 ///         - ${target}
 /// variables:
 ///   main:
 ///     fn::invoke:
-///       Function: aws:getCallerIdentity
-///       Arguments: {}
+///       function: aws:getCallerIdentity
+///       arguments: {}
 /// ```
 ///
 /// ### Enrichment Usage

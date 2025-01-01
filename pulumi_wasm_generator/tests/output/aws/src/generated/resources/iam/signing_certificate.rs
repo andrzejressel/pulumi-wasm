@@ -14,10 +14,10 @@
 ///       username: some_test_cert
 ///       certificateBody:
 ///         fn::invoke:
-///           Function: std:file
-///           Arguments:
+///           function: std:file
+///           arguments:
 ///             input: self-ca-cert.pem
-///           Return: result
+///           return: result
 /// ```
 ///
 /// **Example with cert in-line:**

@@ -11,72 +11,83 @@
 /// Enable CloudTrail to capture all compatible management events in region.
 /// For capturing events from services like IAM, `include_global_service_events` must be enabled.
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_caller_identity::invoke(
-///         GetCallerIdentityArgs::builder().build_struct(),
-///     );
-///     let currentGetPartition = get_partition::invoke(
-///         GetPartitionArgs::builder().build_struct(),
-///     );
-///     let currentGetRegion = get_region::invoke(GetRegionArgs::builder().build_struct());
-///     let example = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["s3:GetBucketAcl",])
-///                     .conditions(vec![GetPolicyDocumentStatementCondition::builder()
-///                     .test("StringEquals")
-///                     .values(vec!["arn:${currentGetPartition.partition}:cloudtrail:${currentGetRegion.name}:${current.accountId}:trail/example",])
-///                     .variable("aws:SourceArn").build_struct(),]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["cloudtrail.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).resources(vec!["${exampleBucketV2.arn}",])
-///                     .sid("AWSCloudTrailAclCheck").build_struct(),
-///                     GetPolicyDocumentStatement::builder().actions(vec!["s3:PutObject",])
-///                     .conditions(vec![GetPolicyDocumentStatementCondition::builder()
-///                     .test("StringEquals").values(vec!["bucket-owner-full-control",])
-///                     .variable("s3:x-amz-acl").build_struct(),
-///                     GetPolicyDocumentStatementCondition::builder().test("StringEquals")
-///                     .values(vec!["arn:${currentGetPartition.partition}:cloudtrail:${currentGetRegion.name}:${current.accountId}:trail/example",])
-///                     .variable("aws:SourceArn").build_struct(),]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["cloudtrail.amazonaws.com",]). type ("Service")
-///                     .build_struct(),])
-///                     .resources(vec!["${exampleBucketV2.arn}/prefix/AWSLogs/${current.accountId}/*",])
-///                     .sid("AWSCloudTrailWrite").build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let exampleBucketPolicy = bucket_policy::create(
-///         "exampleBucketPolicy",
-///         BucketPolicyArgs::builder()
-///             .bucket("${exampleBucketV2.id}")
-///             .policy("${example.json}")
-///             .build_struct(),
-///     );
-///     let exampleBucketV2 = bucket_v_2::create(
-///         "exampleBucketV2",
-///         BucketV2Args::builder()
-///             .bucket("my-test-trail")
-///             .force_destroy(true)
-///             .build_struct(),
-///     );
-///     let exampleTrail = trail::create(
-///         "exampleTrail",
-///         TrailArgs::builder()
-///             .include_global_service_events(false)
-///             .name("example")
-///             .s_3_bucket_name("${exampleBucketV2.id}")
-///             .s_3_key_prefix("prefix")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleTrail:
+///     type: aws:cloudtrail:Trail
+///     name: example
+///     properties:
+///       name: example
+///       s3BucketName: ${exampleBucketV2.id}
+///       s3KeyPrefix: prefix
+///       includeGlobalServiceEvents: false
+///     options:
+///       dependsOn:
+///         - ${exampleBucketPolicy}
+///   exampleBucketV2:
+///     type: aws:s3:BucketV2
+///     name: example
+///     properties:
+///       bucket: my-test-trail
+///       forceDestroy: true
+///   exampleBucketPolicy:
+///     type: aws:s3:BucketPolicy
+///     name: example
+///     properties:
+///       bucket: ${exampleBucketV2.id}
+///       policy: ${example.json}
+/// variables:
+///   example:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - sid: AWSCloudTrailAclCheck
+///             effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - cloudtrail.amazonaws.com
+///             actions:
+///               - s3:GetBucketAcl
+///             resources:
+///               - ${exampleBucketV2.arn}
+///             conditions:
+///               - test: StringEquals
+///                 variable: aws:SourceArn
+///                 values:
+///                   - arn:${currentGetPartition.partition}:cloudtrail:${currentGetRegion.name}:${current.accountId}:trail/example
+///           - sid: AWSCloudTrailWrite
+///             effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - cloudtrail.amazonaws.com
+///             actions:
+///               - s3:PutObject
+///             resources:
+///               - ${exampleBucketV2.arn}/prefix/AWSLogs/${current.accountId}/*
+///             conditions:
+///               - test: StringEquals
+///                 variable: s3:x-amz-acl
+///                 values:
+///                   - bucket-owner-full-control
+///               - test: StringEquals
+///                 variable: aws:SourceArn
+///                 values:
+///                   - arn:${currentGetPartition.partition}:cloudtrail:${currentGetRegion.name}:${current.accountId}:trail/example
+///   current:
+///     fn::invoke:
+///       function: aws:getCallerIdentity
+///       arguments: {}
+///   currentGetPartition:
+///     fn::invoke:
+///       function: aws:getPartition
+///       arguments: {}
+///   currentGetRegion:
+///     fn::invoke:
+///       function: aws:getRegion
+///       arguments: {}
 /// ```
 ///
 /// ### Data Event Logging
@@ -150,8 +161,8 @@
 /// variables:
 ///   important-bucket:
 ///     fn::invoke:
-///       Function: aws:s3:getBucket
-///       Arguments:
+///       function: aws:s3:getBucket
+///       arguments:
 ///         bucket: important-bucket
 /// ```
 ///
@@ -183,13 +194,13 @@
 /// variables:
 ///   not-important-bucket-1:
 ///     fn::invoke:
-///       Function: aws:s3:getBucket
-///       Arguments:
+///       function: aws:s3:getBucket
+///       arguments:
 ///         bucket: not-important-bucket-1
 ///   not-important-bucket-2:
 ///     fn::invoke:
-///       Function: aws:s3:getBucket
-///       Arguments:
+///       function: aws:s3:getBucket
+///       arguments:
 ///         bucket: not-important-bucket-2
 /// ```
 ///
@@ -240,18 +251,18 @@
 /// variables:
 ///   important-bucket-1:
 ///     fn::invoke:
-///       Function: aws:s3:getBucket
-///       Arguments:
+///       function: aws:s3:getBucket
+///       arguments:
 ///         bucket: important-bucket-1
 ///   important-bucket-2:
 ///     fn::invoke:
-///       Function: aws:s3:getBucket
-///       Arguments:
+///       function: aws:s3:getBucket
+///       arguments:
 ///         bucket: important-bucket-2
 ///   important-bucket-3:
 ///     fn::invoke:
-///       Function: aws:s3:getBucket
-///       Arguments:
+///       function: aws:s3:getBucket
+///       arguments:
 ///         bucket: important-bucket-3
 /// ```
 ///

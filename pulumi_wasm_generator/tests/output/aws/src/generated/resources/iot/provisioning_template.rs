@@ -49,8 +49,8 @@
 /// variables:
 ///   iotAssumeRolePolicy:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - actions:
 ///               - sts:AssumeRole
@@ -60,8 +60,8 @@
 ///                   - iot.amazonaws.com
 ///   devicePolicy:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - actions:
 ///               - iot:Subscribe

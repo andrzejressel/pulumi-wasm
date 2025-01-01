@@ -2,59 +2,57 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let hoge = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["s3:GetBucketAcl",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["ssm.amazonaws.com",]). type ("Service")
-///                     .build_struct(),])
-///                     .resources(vec!["arn:aws:s3:::tf-test-bucket-1234",])
-///                     .sid("SSMBucketPermissionsCheck").build_struct(),
-///                     GetPolicyDocumentStatement::builder().actions(vec!["s3:PutObject",])
-///                     .conditions(vec![GetPolicyDocumentStatementCondition::builder()
-///                     .test("StringEquals").values(vec!["bucket-owner-full-control",])
-///                     .variable("s3:x-amz-acl").build_struct(),]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["ssm.amazonaws.com",]). type ("Service")
-///                     .build_struct(),])
-///                     .resources(vec!["arn:aws:s3:::tf-test-bucket-1234/*",])
-///                     .sid("SSMBucketDelivery").build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let foo = resource_data_sync::create(
-///         "foo",
-///         ResourceDataSyncArgs::builder()
-///             .name("foo")
-///             .s_3_destination(
-///                 ResourceDataSyncS3Destination::builder()
-///                     .bucketName("${hogeBucketV2.bucket}")
-///                     .region("${hogeBucketV2.region}")
-///                     .build_struct(),
-///             )
-///             .build_struct(),
-///     );
-///     let hogeBucketPolicy = bucket_policy::create(
-///         "hogeBucketPolicy",
-///         BucketPolicyArgs::builder()
-///             .bucket("${hogeBucketV2.id}")
-///             .policy("${hoge.json}")
-///             .build_struct(),
-///     );
-///     let hogeBucketV2 = bucket_v_2::create(
-///         "hogeBucketV2",
-///         BucketV2Args::builder().bucket("tf-test-bucket-1234").build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   hogeBucketV2:
+///     type: aws:s3:BucketV2
+///     name: hoge
+///     properties:
+///       bucket: tf-test-bucket-1234
+///   hogeBucketPolicy:
+///     type: aws:s3:BucketPolicy
+///     name: hoge
+///     properties:
+///       bucket: ${hogeBucketV2.id}
+///       policy: ${hoge.json}
+///   foo:
+///     type: aws:ssm:ResourceDataSync
+///     properties:
+///       name: foo
+///       s3Destination:
+///         bucketName: ${hogeBucketV2.bucket}
+///         region: ${hogeBucketV2.region}
+/// variables:
+///   hoge:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - sid: SSMBucketPermissionsCheck
+///             effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - ssm.amazonaws.com
+///             actions:
+///               - s3:GetBucketAcl
+///             resources:
+///               - arn:aws:s3:::tf-test-bucket-1234
+///           - sid: SSMBucketDelivery
+///             effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - ssm.amazonaws.com
+///             actions:
+///               - s3:PutObject
+///             resources:
+///               - arn:aws:s3:::tf-test-bucket-1234/*
+///             conditions:
+///               - test: StringEquals
+///                 variable: s3:x-amz-acl
+///                 values:
+///                   - bucket-owner-full-control
 /// ```
 ///
 /// ## Import

@@ -59,8 +59,10 @@ pub mod attachment_accepter {
         pub core_network_arn: pulumi_wasm_rust::Output<String>,
         /// The id of a core network.
         pub core_network_id: pulumi_wasm_rust::Output<String>,
-        /// The Region where the edge is located.
+        /// The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns `edge_locations`.
         pub edge_location: pulumi_wasm_rust::Output<String>,
+        /// The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`
+        pub edge_locations: pulumi_wasm_rust::Output<Vec<String>>,
         /// The ID of the attachment account owner.
         pub owner_account_id: pulumi_wasm_rust::Output<String>,
         /// The attachment resource ARN.
@@ -112,6 +114,9 @@ pub mod attachment_accepter {
                     name: "edgeLocation".into(),
                 },
                 register_interface::ResultField {
+                    name: "edgeLocations".into(),
+                },
+                register_interface::ResultField {
                     name: "ownerAccountId".into(),
                 },
                 register_interface::ResultField {
@@ -149,6 +154,9 @@ pub mod attachment_accepter {
             ),
             edge_location: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("edgeLocation").unwrap(),
+            ),
+            edge_locations: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("edgeLocations").unwrap(),
             ),
             owner_account_id: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("ownerAccountId").unwrap(),

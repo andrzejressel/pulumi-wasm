@@ -6,131 +6,113 @@
 ///
 /// ### New MySQL Global Cluster
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = global_cluster::create(
-///         "example",
-///         GlobalClusterArgs::builder()
-///             .database_name("example_db")
-///             .engine("aurora")
-///             .engine_version("5.6.mysql_aurora.1.22.2")
-///             .global_cluster_identifier("global-test")
-///             .build_struct(),
-///     );
-///     let primary = cluster::create(
-///         "primary",
-///         ClusterArgs::builder()
-///             .cluster_identifier("test-primary-cluster")
-///             .database_name("example_db")
-///             .db_subnet_group_name("default")
-///             .engine("${example.engine}")
-///             .engine_version("${example.engineVersion}")
-///             .global_cluster_identifier("${example.id}")
-///             .master_password("somepass123")
-///             .master_username("username")
-///             .build_struct(),
-///     );
-///     let primaryClusterInstance = cluster_instance::create(
-///         "primaryClusterInstance",
-///         ClusterInstanceArgs::builder()
-///             .cluster_identifier("${primary.id}")
-///             .db_subnet_group_name("default")
-///             .engine("${example.engine}")
-///             .engine_version("${example.engineVersion}")
-///             .identifier("test-primary-cluster-instance")
-///             .instance_class("db.r4.large")
-///             .build_struct(),
-///     );
-///     let secondary = cluster::create(
-///         "secondary",
-///         ClusterArgs::builder()
-///             .cluster_identifier("test-secondary-cluster")
-///             .db_subnet_group_name("default")
-///             .engine("${example.engine}")
-///             .engine_version("${example.engineVersion}")
-///             .global_cluster_identifier("${example.id}")
-///             .build_struct(),
-///     );
-///     let secondaryClusterInstance = cluster_instance::create(
-///         "secondaryClusterInstance",
-///         ClusterInstanceArgs::builder()
-///             .cluster_identifier("${secondary.id}")
-///             .db_subnet_group_name("default")
-///             .engine("${example.engine}")
-///             .engine_version("${example.engineVersion}")
-///             .identifier("test-secondary-cluster-instance")
-///             .instance_class("db.r4.large")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:rds:GlobalCluster
+///     properties:
+///       globalClusterIdentifier: global-test
+///       engine: aurora
+///       engineVersion: 5.6.mysql_aurora.1.22.2
+///       databaseName: example_db
+///   primary:
+///     type: aws:rds:Cluster
+///     properties:
+///       engine: ${example.engine}
+///       engineVersion: ${example.engineVersion}
+///       clusterIdentifier: test-primary-cluster
+///       masterUsername: username
+///       masterPassword: somepass123
+///       databaseName: example_db
+///       globalClusterIdentifier: ${example.id}
+///       dbSubnetGroupName: default
+///   primaryClusterInstance:
+///     type: aws:rds:ClusterInstance
+///     name: primary
+///     properties:
+///       engine: ${example.engine}
+///       engineVersion: ${example.engineVersion}
+///       identifier: test-primary-cluster-instance
+///       clusterIdentifier: ${primary.id}
+///       instanceClass: db.r4.large
+///       dbSubnetGroupName: default
+///   secondary:
+///     type: aws:rds:Cluster
+///     properties:
+///       engine: ${example.engine}
+///       engineVersion: ${example.engineVersion}
+///       clusterIdentifier: test-secondary-cluster
+///       globalClusterIdentifier: ${example.id}
+///       dbSubnetGroupName: default
+///     options:
+///       dependsOn:
+///         - ${primaryClusterInstance}
+///   secondaryClusterInstance:
+///     type: aws:rds:ClusterInstance
+///     name: secondary
+///     properties:
+///       engine: ${example.engine}
+///       engineVersion: ${example.engineVersion}
+///       identifier: test-secondary-cluster-instance
+///       clusterIdentifier: ${secondary.id}
+///       instanceClass: db.r4.large
+///       dbSubnetGroupName: default
 /// ```
 ///
 /// ### New PostgreSQL Global Cluster
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = global_cluster::create(
-///         "example",
-///         GlobalClusterArgs::builder()
-///             .database_name("example_db")
-///             .engine("aurora-postgresql")
-///             .engine_version("11.9")
-///             .global_cluster_identifier("global-test")
-///             .build_struct(),
-///     );
-///     let primary = cluster::create(
-///         "primary",
-///         ClusterArgs::builder()
-///             .cluster_identifier("test-primary-cluster")
-///             .database_name("example_db")
-///             .db_subnet_group_name("default")
-///             .engine("${example.engine}")
-///             .engine_version("${example.engineVersion}")
-///             .global_cluster_identifier("${example.id}")
-///             .master_password("somepass123")
-///             .master_username("username")
-///             .build_struct(),
-///     );
-///     let primaryClusterInstance = cluster_instance::create(
-///         "primaryClusterInstance",
-///         ClusterInstanceArgs::builder()
-///             .cluster_identifier("${primary.id}")
-///             .db_subnet_group_name("default")
-///             .engine("${example.engine}")
-///             .engine_version("${example.engineVersion}")
-///             .identifier("test-primary-cluster-instance")
-///             .instance_class("db.r4.large")
-///             .build_struct(),
-///     );
-///     let secondary = cluster::create(
-///         "secondary",
-///         ClusterArgs::builder()
-///             .cluster_identifier("test-secondary-cluster")
-///             .db_subnet_group_name("default")
-///             .engine("${example.engine}")
-///             .engine_version("${example.engineVersion}")
-///             .global_cluster_identifier("${example.id}")
-///             .skip_final_snapshot(true)
-///             .build_struct(),
-///     );
-///     let secondaryClusterInstance = cluster_instance::create(
-///         "secondaryClusterInstance",
-///         ClusterInstanceArgs::builder()
-///             .cluster_identifier("${secondary.id}")
-///             .db_subnet_group_name("default")
-///             .engine("${example.engine}")
-///             .engine_version("${example.engineVersion}")
-///             .identifier("test-secondary-cluster-instance")
-///             .instance_class("db.r4.large")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:rds:GlobalCluster
+///     properties:
+///       globalClusterIdentifier: global-test
+///       engine: aurora-postgresql
+///       engineVersion: '11.9'
+///       databaseName: example_db
+///   primary:
+///     type: aws:rds:Cluster
+///     properties:
+///       engine: ${example.engine}
+///       engineVersion: ${example.engineVersion}
+///       clusterIdentifier: test-primary-cluster
+///       masterUsername: username
+///       masterPassword: somepass123
+///       databaseName: example_db
+///       globalClusterIdentifier: ${example.id}
+///       dbSubnetGroupName: default
+///   primaryClusterInstance:
+///     type: aws:rds:ClusterInstance
+///     name: primary
+///     properties:
+///       engine: ${example.engine}
+///       engineVersion: ${example.engineVersion}
+///       identifier: test-primary-cluster-instance
+///       clusterIdentifier: ${primary.id}
+///       instanceClass: db.r4.large
+///       dbSubnetGroupName: default
+///   secondary:
+///     type: aws:rds:Cluster
+///     properties:
+///       engine: ${example.engine}
+///       engineVersion: ${example.engineVersion}
+///       clusterIdentifier: test-secondary-cluster
+///       globalClusterIdentifier: ${example.id}
+///       skipFinalSnapshot: true
+///       dbSubnetGroupName: default
+///     options:
+///       dependsOn:
+///         - ${primaryClusterInstance}
+///   secondaryClusterInstance:
+///     type: aws:rds:ClusterInstance
+///     name: secondary
+///     properties:
+///       engine: ${example.engine}
+///       engineVersion: ${example.engineVersion}
+///       identifier: test-secondary-cluster-instance
+///       clusterIdentifier: ${secondary.id}
+///       instanceClass: db.r4.large
+///       dbSubnetGroupName: default
 /// ```
 ///
 /// ### New Global Cluster From Existing DB Cluster
@@ -156,46 +138,37 @@
 ///
 /// When you upgrade the version of an `aws.rds.GlobalCluster`, the provider will attempt to in-place upgrade the engine versions of all associated clusters. Since the `aws.rds.Cluster` resource is being updated through the `aws.rds.GlobalCluster`, you are likely to get an error (`Provider produced inconsistent final plan`). To avoid this, use the `lifecycle` `ignore_changes` meta argument as shown below on the `aws.rds.Cluster`.
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = global_cluster::create(
-///         "example",
-///         GlobalClusterArgs::builder()
-///             .engine("aurora-mysql")
-///             .engine_version("5.7.mysql_aurora.2.07.5")
-///             .global_cluster_identifier("kyivkharkiv")
-///             .build_struct(),
-///     );
-///     let primary = cluster::create(
-///         "primary",
-///         ClusterArgs::builder()
-///             .allow_major_version_upgrade(true)
-///             .apply_immediately(true)
-///             .cluster_identifier("odessadnipro")
-///             .database_name("totoro")
-///             .engine("${example.engine}")
-///             .engine_version("${example.engineVersion}")
-///             .global_cluster_identifier("${example.id}")
-///             .master_password("satsukimae")
-///             .master_username("maesatsuki")
-///             .skip_final_snapshot(true)
-///             .build_struct(),
-///     );
-///     let primaryClusterInstance = cluster_instance::create(
-///         "primaryClusterInstance",
-///         ClusterInstanceArgs::builder()
-///             .apply_immediately(true)
-///             .cluster_identifier("${primary.id}")
-///             .engine("${primary.engine}")
-///             .engine_version("${primary.engineVersion}")
-///             .identifier("donetsklviv")
-///             .instance_class("db.r4.large")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:rds:GlobalCluster
+///     properties:
+///       globalClusterIdentifier: kyivkharkiv
+///       engine: aurora-mysql
+///       engineVersion: 5.7.mysql_aurora.2.07.5
+///   primary:
+///     type: aws:rds:Cluster
+///     properties:
+///       allowMajorVersionUpgrade: true
+///       applyImmediately: true
+///       clusterIdentifier: odessadnipro
+///       databaseName: totoro
+///       engine: ${example.engine}
+///       engineVersion: ${example.engineVersion}
+///       globalClusterIdentifier: ${example.id}
+///       masterPassword: satsukimae
+///       masterUsername: maesatsuki
+///       skipFinalSnapshot: true
+///   primaryClusterInstance:
+///     type: aws:rds:ClusterInstance
+///     name: primary
+///     properties:
+///       applyImmediately: true
+///       clusterIdentifier: ${primary.id}
+///       engine: ${primary.engine}
+///       engineVersion: ${primary.engineVersion}
+///       identifier: donetsklviv
+///       instanceClass: db.r4.large
 /// ```
 ///
 /// ## Import
@@ -214,7 +187,7 @@ pub mod global_cluster {
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GlobalClusterArgs {
-        /// Name for an automatically created database on cluster creation.
+        /// Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
         #[builder(into, default)]
         pub database_name: pulumi_wasm_rust::Output<Option<String>>,
         /// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
@@ -241,13 +214,18 @@ pub mod global_cluster {
         /// Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         #[builder(into, default)]
         pub storage_encrypted: pulumi_wasm_rust::Output<Option<bool>>,
+        /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        #[builder(into, default)]
+        pub tags: pulumi_wasm_rust::Output<
+            Option<std::collections::HashMap<String, String>>,
+        >,
     }
     #[allow(dead_code)]
     pub struct GlobalClusterResult {
-        /// RDS Global Cluster Amazon Resource Name (ARN)
+        /// RDS Global Cluster Amazon Resource Name (ARN).
         pub arn: pulumi_wasm_rust::Output<String>,
-        /// Name for an automatically created database on cluster creation.
-        pub database_name: pulumi_wasm_rust::Output<Option<String>>,
+        /// Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
+        pub database_name: pulumi_wasm_rust::Output<String>,
         /// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         pub deletion_protection: pulumi_wasm_rust::Output<Option<bool>>,
         /// Writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
@@ -267,12 +245,20 @@ pub mod global_cluster {
         pub global_cluster_members: pulumi_wasm_rust::Output<
             Vec<super::super::types::rds::GlobalClusterGlobalClusterMember>,
         >,
-        /// AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
+        /// AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
         pub global_cluster_resource_id: pulumi_wasm_rust::Output<String>,
         /// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
         pub source_db_cluster_identifier: pulumi_wasm_rust::Output<String>,
         /// Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         pub storage_encrypted: pulumi_wasm_rust::Output<bool>,
+        /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        pub tags: pulumi_wasm_rust::Output<
+            Option<std::collections::HashMap<String, String>>,
+        >,
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        pub tags_all: pulumi_wasm_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
@@ -294,6 +280,7 @@ pub mod global_cluster {
             .source_db_cluster_identifier
             .get_inner();
         let storage_encrypted_binding = args.storage_encrypted.get_inner();
+        let tags_binding = args.tags.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/globalCluster:GlobalCluster".into(),
             name: name.to_string(),
@@ -333,6 +320,10 @@ pub mod global_cluster {
                 register_interface::ObjectField {
                     name: "storageEncrypted".into(),
                     value: &storage_encrypted_binding,
+                },
+                register_interface::ObjectField {
+                    name: "tags".into(),
+                    value: &tags_binding,
                 },
             ]),
             results: Vec::from([
@@ -377,6 +368,12 @@ pub mod global_cluster {
                 },
                 register_interface::ResultField {
                     name: "storageEncrypted".into(),
+                },
+                register_interface::ResultField {
+                    name: "tags".into(),
+                },
+                register_interface::ResultField {
+                    name: "tagsAll".into(),
                 },
             ]),
         };
@@ -428,6 +425,12 @@ pub mod global_cluster {
             ),
             storage_encrypted: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("storageEncrypted").unwrap(),
+            ),
+            tags: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("tags").unwrap(),
+            ),
+            tags_all: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("tagsAll").unwrap(),
             ),
         }
     }

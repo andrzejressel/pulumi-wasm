@@ -2,31 +2,27 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = get_instances::invoke(GetInstancesArgs::builder().build_struct());
-///     let exampleInstanceAccessControlAttributes = instance_access_control_attributes::create(
-///         "exampleInstanceAccessControlAttributes",
-///         InstanceAccessControlAttributesArgs::builder()
-///             .attributes(
-///                 vec![
-///                     InstanceAccessControlAttributesAttribute::builder().key("name")
-///                     .values(vec![InstanceAccessControlAttributesAttributeValue::builder()
-///                     .sources(vec!["${path:name.givenName}",]).build_struct(),])
-///                     .build_struct(), InstanceAccessControlAttributesAttribute::builder()
-///                     .key("last")
-///                     .values(vec![InstanceAccessControlAttributesAttributeValue::builder()
-///                     .sources(vec!["${path:name.familyName}",]).build_struct(),])
-///                     .build_struct(),
-///                 ],
-///             )
-///             .instance_arn("${example.arns[0]}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleInstanceAccessControlAttributes:
+///     type: aws:ssoadmin:InstanceAccessControlAttributes
+///     name: example
+///     properties:
+///       instanceArn: ${example.arns[0]}
+///       attributes:
+///         - key: name
+///           values:
+///             - sources:
+///                 - $${path:name.givenName}
+///         - key: last
+///           values:
+///             - sources:
+///                 - $${path:name.familyName}
+/// variables:
+///   example:
+///     fn::invoke:
+///       function: aws:ssoadmin:getInstances
+///       arguments: {}
 /// ```
 ///
 /// ## Import

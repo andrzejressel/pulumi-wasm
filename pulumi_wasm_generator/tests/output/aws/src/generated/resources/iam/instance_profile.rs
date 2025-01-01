@@ -4,40 +4,33 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let assumeRole = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sts:AssumeRole",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["ec2.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let role = role::create(
-///         "role",
-///         RoleArgs::builder()
-///             .assume_role_policy("${assumeRole.json}")
-///             .name("test_role")
-///             .path("/")
-///             .build_struct(),
-///     );
-///     let testProfile = instance_profile::create(
-///         "testProfile",
-///         InstanceProfileArgs::builder()
-///             .name("test_profile")
-///             .role("${role.name}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   testProfile:
+///     type: aws:iam:InstanceProfile
+///     name: test_profile
+///     properties:
+///       name: test_profile
+///       role: ${role.name}
+///   role:
+///     type: aws:iam:Role
+///     properties:
+///       name: test_role
+///       path: /
+///       assumeRolePolicy: ${assumeRole.json}
+/// variables:
+///   assumeRole:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - ec2.amazonaws.com
+///             actions:
+///               - sts:AssumeRole
 /// ```
 ///
 /// ## Import

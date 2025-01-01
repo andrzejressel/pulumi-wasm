@@ -17,7 +17,7 @@
 ///       bgpAsn: 65352 # The aws_dx_hosted_private_virtual_interface
 ///       #   # must be destroyed before the aws_vpn_gateway.
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${vpnGw}
 ///   # Accepter's side of the VIF.
 ///   vpnGw:
@@ -34,8 +34,8 @@
 /// variables:
 ///   accepter:
 ///     fn::invoke:
-///       Function: aws:getCallerIdentity
-///       Arguments: {}
+///       function: aws:getCallerIdentity
+///       arguments: {}
 /// ```
 ///
 /// ## Import

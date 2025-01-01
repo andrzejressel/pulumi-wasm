@@ -27,8 +27,8 @@
 /// variables:
 ///   myArchive:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - sid: add-read-only-perm
 ///             effect: Allow

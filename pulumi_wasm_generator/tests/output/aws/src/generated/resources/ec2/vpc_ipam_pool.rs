@@ -4,84 +4,65 @@
 ///
 /// Basic usage:
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_region::invoke(GetRegionArgs::builder().build_struct());
-///     let example = vpc_ipam::create(
-///         "example",
-///         VpcIpamArgs::builder()
-///             .operating_regions(
-///                 vec![
-///                     VpcIpamOperatingRegion::builder().regionName("${current.name}")
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let exampleVpcIpamPool = vpc_ipam_pool::create(
-///         "exampleVpcIpamPool",
-///         VpcIpamPoolArgs::builder()
-///             .address_family("ipv4")
-///             .ipam_scope_id("${example.privateDefaultScopeId}")
-///             .locale("${current.name}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:ec2:VpcIpam
+///     properties:
+///       operatingRegions:
+///         - regionName: ${current.name}
+///   exampleVpcIpamPool:
+///     type: aws:ec2:VpcIpamPool
+///     name: example
+///     properties:
+///       addressFamily: ipv4
+///       ipamScopeId: ${example.privateDefaultScopeId}
+///       locale: ${current.name}
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getRegion
+///       arguments: {}
 /// ```
 ///
 /// Nested Pools:
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_region::invoke(GetRegionArgs::builder().build_struct());
-///     let child = vpc_ipam_pool::create(
-///         "child",
-///         VpcIpamPoolArgs::builder()
-///             .address_family("ipv4")
-///             .ipam_scope_id("${example.privateDefaultScopeId}")
-///             .locale("${current.name}")
-///             .source_ipam_pool_id("${parent.id}")
-///             .build_struct(),
-///     );
-///     let childTest = vpc_ipam_pool_cidr::create(
-///         "childTest",
-///         VpcIpamPoolCidrArgs::builder()
-///             .cidr("172.20.0.0/24")
-///             .ipam_pool_id("${child.id}")
-///             .build_struct(),
-///     );
-///     let example = vpc_ipam::create(
-///         "example",
-///         VpcIpamArgs::builder()
-///             .operating_regions(
-///                 vec![
-///                     VpcIpamOperatingRegion::builder().regionName("${current.name}")
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let parent = vpc_ipam_pool::create(
-///         "parent",
-///         VpcIpamPoolArgs::builder()
-///             .address_family("ipv4")
-///             .ipam_scope_id("${example.privateDefaultScopeId}")
-///             .build_struct(),
-///     );
-///     let parentTest = vpc_ipam_pool_cidr::create(
-///         "parentTest",
-///         VpcIpamPoolCidrArgs::builder()
-///             .cidr("172.20.0.0/16")
-///             .ipam_pool_id("${parent.id}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:ec2:VpcIpam
+///     properties:
+///       operatingRegions:
+///         - regionName: ${current.name}
+///   parent:
+///     type: aws:ec2:VpcIpamPool
+///     properties:
+///       addressFamily: ipv4
+///       ipamScopeId: ${example.privateDefaultScopeId}
+///   parentTest:
+///     type: aws:ec2:VpcIpamPoolCidr
+///     name: parent_test
+///     properties:
+///       ipamPoolId: ${parent.id}
+///       cidr: 172.20.0.0/16
+///   child:
+///     type: aws:ec2:VpcIpamPool
+///     properties:
+///       addressFamily: ipv4
+///       ipamScopeId: ${example.privateDefaultScopeId}
+///       locale: ${current.name}
+///       sourceIpamPoolId: ${parent.id}
+///   childTest:
+///     type: aws:ec2:VpcIpamPoolCidr
+///     name: child_test
+///     properties:
+///       ipamPoolId: ${child.id}
+///       cidr: 172.20.0.0/24
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getRegion
+///       arguments: {}
 /// ```
 ///
 /// ## Import

@@ -43,17 +43,17 @@
 ///           key1: value1
 ///           key2: value2
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${exampleRolePolicyAttachment}
 /// variables:
 ///   current:
 ///     fn::invoke:
-///       Function: aws:getRegion
-///       Arguments: {}
+///       function: aws:getRegion
+///       arguments: {}
 ///   currentGetPartition:
 ///     fn::invoke:
-///       Function: aws:getPartition
-///       Arguments: {}
+///       function: aws:getPartition
+///       arguments: {}
 /// ```
 ///
 /// ## Import

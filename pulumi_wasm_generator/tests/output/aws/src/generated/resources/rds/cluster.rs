@@ -121,40 +121,31 @@
 ///
 /// To create a Serverless v2 RDS cluster, you must additionally specify the `engine_mode` and `serverlessv2_scaling_configuration` attributes. An `aws.rds.ClusterInstance` resource must also be added to the cluster with the `instance_class` attribute specified.
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = cluster::create(
-///         "example",
-///         ClusterArgs::builder()
-///             .cluster_identifier("example")
-///             .database_name("test")
-///             .engine("aurora-postgresql")
-///             .engine_mode("provisioned")
-///             .engine_version("13.6")
-///             .master_password("must_be_eight_characters")
-///             .master_username("test")
-///             .serverlessv_2_scaling_configuration(
-///                 ClusterServerlessv2ScalingConfiguration::builder()
-///                     .maxCapacity(1)
-///                     .minCapacity(0.5)
-///                     .build_struct(),
-///             )
-///             .storage_encrypted(true)
-///             .build_struct(),
-///     );
-///     let exampleClusterInstance = cluster_instance::create(
-///         "exampleClusterInstance",
-///         ClusterInstanceArgs::builder()
-///             .cluster_identifier("${example.id}")
-///             .engine("${example.engine}")
-///             .engine_version("${example.engineVersion}")
-///             .instance_class("db.serverless")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:rds:Cluster
+///     properties:
+///       clusterIdentifier: example
+///       engine: aurora-postgresql
+///       engineMode: provisioned
+///       engineVersion: '13.6'
+///       databaseName: test
+///       masterUsername: test
+///       masterPassword: must_be_eight_characters
+///       storageEncrypted: true
+///       serverlessv2ScalingConfiguration:
+///         maxCapacity: 1
+///         minCapacity: 0
+///         secondsUntilAutoPause: 3600
+///   exampleClusterInstance:
+///     type: aws:rds:ClusterInstance
+///     name: example
+///     properties:
+///       clusterIdentifier: ${example.id}
+///       instanceClass: db.serverless
+///       engine: ${example.engine}
+///       engineVersion: ${example.engineVersion}
 /// ```
 ///
 /// ### RDS/Aurora Managed Master Passwords via Secrets Manager, default KMS Key
@@ -210,35 +201,30 @@
 ///
 /// ### Global Cluster Restored From Snapshot
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = get_cluster_snapshot::invoke(
-///         GetClusterSnapshotArgs::builder()
-///             .db_cluster_identifier("example-original-cluster")
-///             .most_recent(true)
-///             .build_struct(),
-///     );
-///     let exampleCluster = cluster::create(
-///         "exampleCluster",
-///         ClusterArgs::builder()
-///             .cluster_identifier("example")
-///             .engine("aurora")
-///             .engine_version("5.6.mysql_aurora.1.22.4")
-///             .snapshot_identifier("${example.id}")
-///             .build_struct(),
-///     );
-///     let exampleGlobalCluster = global_cluster::create(
-///         "exampleGlobalCluster",
-///         GlobalClusterArgs::builder()
-///             .force_destroy(true)
-///             .global_cluster_identifier("example")
-///             .source_db_cluster_identifier("${exampleCluster.arn}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleCluster:
+///     type: aws:rds:Cluster
+///     name: example
+///     properties:
+///       engine: aurora
+///       engineVersion: 5.6.mysql_aurora.1.22.4
+///       clusterIdentifier: example
+///       snapshotIdentifier: ${example.id}
+///   exampleGlobalCluster:
+///     type: aws:rds:GlobalCluster
+///     name: example
+///     properties:
+///       globalClusterIdentifier: example
+///       sourceDbClusterIdentifier: ${exampleCluster.arn}
+///       forceDestroy: true
+/// variables:
+///   example:
+///     fn::invoke:
+///       function: aws:rds:getClusterSnapshot
+///       arguments:
+///         dbClusterIdentifier: example-original-cluster
+///         mostRecent: true
 /// ```
 ///
 /// ## Import
@@ -381,13 +367,13 @@ pub mod cluster {
         /// Network type of the cluster. Valid values: `IPV4`, `DUAL`.
         #[builder(into, default)]
         pub network_type: pulumi_wasm_rust::Output<Option<String>>,
-        /// Valid only for Non-Aurora Multi-AZ DB Clusters. Enables Performance Insights for the RDS Cluster
+        /// Enables Performance Insights for the RDS Cluster
         #[builder(into, default)]
         pub performance_insights_enabled: pulumi_wasm_rust::Output<Option<bool>>,
-        /// Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+        /// Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
         #[builder(into, default)]
         pub performance_insights_kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
-        /// Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+        /// Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
         #[builder(into, default)]
         pub performance_insights_retention_period: pulumi_wasm_rust::Output<Option<i32>>,
         /// Port on which the DB accepts connections.
@@ -399,7 +385,7 @@ pub mod cluster {
         /// Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
         #[builder(into, default)]
         pub preferred_maintenance_window: pulumi_wasm_rust::Output<Option<String>>,
-        /// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
+        /// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
         #[builder(into, default)]
         pub replication_source_identifier: pulumi_wasm_rust::Output<Option<String>>,
         /// Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
@@ -551,11 +537,11 @@ pub mod cluster {
         pub master_username: pulumi_wasm_rust::Output<String>,
         /// Network type of the cluster. Valid values: `IPV4`, `DUAL`.
         pub network_type: pulumi_wasm_rust::Output<String>,
-        /// Valid only for Non-Aurora Multi-AZ DB Clusters. Enables Performance Insights for the RDS Cluster
+        /// Enables Performance Insights for the RDS Cluster
         pub performance_insights_enabled: pulumi_wasm_rust::Output<Option<bool>>,
-        /// Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+        /// Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
         pub performance_insights_kms_key_id: pulumi_wasm_rust::Output<String>,
-        /// Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+        /// Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
         pub performance_insights_retention_period: pulumi_wasm_rust::Output<i32>,
         /// Port on which the DB accepts connections.
         pub port: pulumi_wasm_rust::Output<i32>,
@@ -566,7 +552,7 @@ pub mod cluster {
         /// Read-only endpoint for the Aurora cluster, automatically
         /// load-balanced across replicas
         pub reader_endpoint: pulumi_wasm_rust::Output<String>,
-        /// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
+        /// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
         pub replication_source_identifier: pulumi_wasm_rust::Output<Option<String>>,
         /// Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
         pub restore_to_point_in_time: pulumi_wasm_rust::Output<

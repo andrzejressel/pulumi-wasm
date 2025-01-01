@@ -2,7 +2,7 @@
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
 pub struct GetClusterUpgradePolicy {
-    /// (Optional) Support type to use for the cluster.
+    /// Support type to use for the cluster.
     #[builder(into)]
     #[serde(rename = "supportType")]
     pub r#support_type: Box<String>,

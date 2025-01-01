@@ -97,8 +97,8 @@
 /// variables:
 ///   sns-topic-policy:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         policyId: __default_policy_ID
 ///         statements:
 ///           - actions:
@@ -141,8 +141,8 @@
 ///             sid: __console_sub_0
 ///   sqs-queue-policy:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         policyId: arn:aws:sqs:${sqs.region}:${sqs"account-id"[%!s(MISSING)]}:${sqs.name}/SQSDefaultPolicy
 ///         statements:
 ///           - sid: example-sns-topic

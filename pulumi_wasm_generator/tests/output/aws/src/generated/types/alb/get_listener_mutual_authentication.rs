@@ -3,6 +3,9 @@
 #[allow(dead_code)]
 pub struct GetListenerMutualAuthentication {
     #[builder(into)]
+    #[serde(rename = "advertiseTrustStoreCaNames")]
+    pub r#advertise_trust_store_ca_names: Box<String>,
+    #[builder(into)]
     #[serde(rename = "ignoreClientCertificateExpiry")]
     pub r#ignore_client_certificate_expiry: Box<bool>,
     #[builder(into)]

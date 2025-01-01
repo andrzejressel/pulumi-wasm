@@ -2,43 +2,39 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let test = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["codeartifact:CreateRepository",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["*",]). type ("*").build_struct(),])
-///                     .resources(vec!["${exampleDomain.arn}",]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let example = key::create(
-///         "example",
-///         KeyArgs::builder().description("domain key").build_struct(),
-///     );
-///     let exampleDomain = domain::create(
-///         "exampleDomain",
-///         DomainArgs::builder()
-///             .domain("example")
-///             .encryption_key("${example.arn}")
-///             .build_struct(),
-///     );
-///     let testDomainPermissions = domain_permissions::create(
-///         "testDomainPermissions",
-///         DomainPermissionsArgs::builder()
-///             .domain("${exampleDomain.domain}")
-///             .policy_document("${test.json}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:kms:Key
+///     properties:
+///       description: domain key
+///   exampleDomain:
+///     type: aws:codeartifact:Domain
+///     name: example
+///     properties:
+///       domain: example
+///       encryptionKey: ${example.arn}
+///   testDomainPermissions:
+///     type: aws:codeartifact:DomainPermissions
+///     name: test
+///     properties:
+///       domain: ${exampleDomain.domain}
+///       policyDocument: ${test.json}
+/// variables:
+///   test:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: '*'
+///                 identifiers:
+///                   - '*'
+///             actions:
+///               - codeartifact:CreateRepository
+///             resources:
+///               - ${exampleDomain.arn}
 /// ```
 ///
 /// ## Import

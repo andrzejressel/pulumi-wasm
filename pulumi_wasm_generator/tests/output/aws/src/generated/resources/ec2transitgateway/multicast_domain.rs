@@ -113,13 +113,13 @@
 /// variables:
 ///   available:
 ///     fn::invoke:
-///       Function: aws:getAvailabilityZones
-///       Arguments:
+///       function: aws:getAvailabilityZones
+///       arguments:
 ///         state: available
 ///   amazonLinux:
 ///     fn::invoke:
-///       Function: aws:ec2:getAmi
-///       Arguments:
+///       function: aws:ec2:getAmi
+///       arguments:
 ///         mostRecent: true
 ///         owners:
 ///           - amazon

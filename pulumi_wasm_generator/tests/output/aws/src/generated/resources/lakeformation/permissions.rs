@@ -15,24 +15,23 @@
 ///
 /// This example shows removing the `IAMAllowedPrincipals` default security settings and making the caller a Lake Formation admin. Since `create_database_default_permissions` and `create_table_default_permissions` are not set in the `aws.lakeformation.DataLakeSettings` resource, they are cleared.
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_caller_identity::invoke(
-///         GetCallerIdentityArgs::builder().build_struct(),
-///     );
-///     let currentGetSessionContext = get_session_context::invoke(
-///         GetSessionContextArgs::builder().arn("${current.arn}").build_struct(),
-///     );
-///     let test = data_lake_settings::create(
-///         "test",
-///         DataLakeSettingsArgs::builder()
-///             .admins(vec!["${currentGetSessionContext.issuerArn}",])
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   test:
+///     type: aws:lakeformation:DataLakeSettings
+///     properties:
+///       admins:
+///         - ${currentGetSessionContext.issuerArn}
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getCallerIdentity
+///       arguments: {}
+///   currentGetSessionContext:
+///     fn::invoke:
+///       function: aws:iam:getSessionContext
+///       arguments:
+///         arn: ${current.arn}
 /// ```
 ///
 /// To remove existing `IAMAllowedPrincipals` permissions, use the [AWS Lake Formation Console](https://console.aws.amazon.com/lakeformation/) or [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lakeformation/batch-revoke-permissions.html).
@@ -98,6 +97,21 @@
 /// | Result With IAP | Result Without IAP |
 /// | ---- | ---- |
 /// | `SELECT` column wildcard (i.e., all columns) | `SELECT` on `"event"` (as expected) |
+///
+/// ## `ALLIAMPrincipals` group
+///
+/// AllIAMPrincipals is a pseudo-entity group that acts like a Lake Formation principal. The group includes all IAMs in the account that is defined.
+///
+/// resource "aws.lakeformation.Permissions" "example" {
+///   permissions = ["SELECT"]
+///   principal   = "123456789012:IAMPrincipals"
+///
+///   table_with_columns {
+///     database_name = aws_glue_catalog_table.example.database_name
+///     name          = aws_glue_catalog_table.example.name
+///     column_names  = ["event"]
+///   }
+/// }
 ///
 /// ## Using Lake Formation Permissions
 ///

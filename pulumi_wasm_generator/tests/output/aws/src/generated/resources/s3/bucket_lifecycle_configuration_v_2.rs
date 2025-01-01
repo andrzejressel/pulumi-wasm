@@ -311,7 +311,7 @@
 ///               storageClass: GLACIER
 ///           status: Enabled
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${versioning}
 /// ```
 ///

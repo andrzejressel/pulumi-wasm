@@ -32,10 +32,10 @@
 ///       acl: public-read
 ///       policy:
 ///         fn::invoke:
-///           Function: std:file
-///           Arguments:
+///           function: std:file
+///           arguments:
 ///             input: policy.json
-///           Return: result
+///           return: result
 ///       website:
 ///         indexDocument: index.html
 ///         errorDocument: error.html
@@ -312,31 +312,27 @@
 ///
 /// ### Using ACL policy grants
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let currentUser = get_canonical_user_id::invoke(
-///         GetCanonicalUserIdArgs::builder().build_struct(),
-///     );
-///     let bucket = bucket::create(
-///         "bucket",
-///         BucketArgs::builder()
-///             .bucket("mybucket")
-///             .grants(
-///                 vec![
-///                     BucketGrant::builder().id("${currentUser.id}")
-///                     .permissions(vec!["FULL_CONTROL",]). type ("CanonicalUser")
-///                     .build_struct(), BucketGrant::builder().permissions(vec!["READ_ACP",
-///                     "WRITE",]). type ("Group")
-///                     .uri("http://acs.amazonaws.com/groups/s3/LogDelivery")
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   bucket:
+///     type: aws:s3:Bucket
+///     properties:
+///       bucket: mybucket
+///       grants:
+///         - id: ${currentUser.id}
+///           type: CanonicalUser
+///           permissions:
+///             - FULL_CONTROL
+///         - type: Group
+///           permissions:
+///             - READ_ACP
+///             - WRITE
+///           uri: http://acs.amazonaws.com/groups/s3/LogDelivery
+/// variables:
+///   currentUser:
+///     fn::invoke:
+///       function: aws:s3:getCanonicalUserId
+///       arguments: {}
 /// ```
 ///
 /// ## Import

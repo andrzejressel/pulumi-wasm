@@ -61,8 +61,8 @@
 /// variables:
 ///   current:
 ///     fn::invoke:
-///       Function: aws:getCallerIdentity
-///       Arguments: {}
+///       function: aws:getCallerIdentity
+///       arguments: {}
 /// ```
 ///
 /// ### Symmetric Encryption KMS Key With Standalone Policy Resource
@@ -94,8 +94,8 @@
 /// variables:
 ///   current:
 ///     fn::invoke:
-///       Function: aws:getCallerIdentity
-///       Arguments: {}
+///       function: aws:getCallerIdentity
+///       arguments: {}
 /// ```
 ///
 /// ### Asymmetric KMS Key
@@ -150,8 +150,8 @@
 /// variables:
 ///   current:
 ///     fn::invoke:
-///       Function: aws:getCallerIdentity
-///       Arguments: {}
+///       function: aws:getCallerIdentity
+///       arguments: {}
 /// ```
 ///
 /// ### HMAC KMS key
@@ -206,8 +206,8 @@
 /// variables:
 ///   current:
 ///     fn::invoke:
-///       Function: aws:getCallerIdentity
-///       Arguments: {}
+///       function: aws:getCallerIdentity
+///       arguments: {}
 /// ```
 ///
 /// ### Multi-Region Primary Key
@@ -266,8 +266,8 @@
 /// variables:
 ///   current:
 ///     fn::invoke:
-///       Function: aws:getCallerIdentity
-///       Arguments: {}
+///       function: aws:getCallerIdentity
+///       arguments: {}
 /// ```
 ///
 /// ## Import

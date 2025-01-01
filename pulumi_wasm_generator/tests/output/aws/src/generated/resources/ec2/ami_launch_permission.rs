@@ -38,22 +38,18 @@
 ///
 /// ### Organization Access
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_organization::invoke(
-///         GetOrganizationArgs::builder().build_struct(),
-///     );
-///     let example = ami_launch_permission::create(
-///         "example",
-///         AmiLaunchPermissionArgs::builder()
-///             .image_id("ami-12345678")
-///             .organization_arn("${current.arn}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:ec2:AmiLaunchPermission
+///     properties:
+///       imageId: ami-12345678
+///       organizationArn: ${current.arn}
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:organizations:getOrganization
+///       arguments: {}
 /// ```
 ///
 /// ## Import

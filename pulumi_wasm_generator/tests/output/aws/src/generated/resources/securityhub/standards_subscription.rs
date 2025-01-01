@@ -2,30 +2,30 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_region::invoke(GetRegionArgs::builder().build_struct());
-///     let cis = standards_subscription::create(
-///         "cis",
-///         StandardsSubscriptionArgs::builder()
-///             .standards_arn(
-///                 "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
-///             )
-///             .build_struct(),
-///     );
-///     let example = account::create("example", AccountArgs::builder().build_struct());
-///     let pci321 = standards_subscription::create(
-///         "pci321",
-///         StandardsSubscriptionArgs::builder()
-///             .standards_arn(
-///                 "arn:aws:securityhub:${current.name}::standards/pci-dss/v/3.2.1",
-///             )
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:securityhub:Account
+///   cis:
+///     type: aws:securityhub:StandardsSubscription
+///     properties:
+///       standardsArn: arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0
+///     options:
+///       dependsOn:
+///         - ${example}
+///   pci321:
+///     type: aws:securityhub:StandardsSubscription
+///     name: pci_321
+///     properties:
+///       standardsArn: arn:aws:securityhub:${current.name}::standards/pci-dss/v/3.2.1
+///     options:
+///       dependsOn:
+///         - ${example}
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getRegion
+///       arguments: {}
 /// ```
 ///
 /// ## Import

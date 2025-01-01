@@ -15,8 +15,8 @@
 /// variables:
 ///   elasticsearch-log-publishing-policy:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - actions:
 ///               - logs:CreateLogStream
@@ -43,8 +43,8 @@
 /// variables:
 ///   route53-query-logging-policy:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - actions:
 ///               - logs:CreateLogStream

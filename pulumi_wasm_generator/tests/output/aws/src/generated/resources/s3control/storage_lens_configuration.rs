@@ -2,77 +2,42 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_caller_identity::invoke(
-///         GetCallerIdentityArgs::builder().build_struct(),
-///     );
-///     let example = storage_lens_configuration::create(
-///         "example",
-///         StorageLensConfigurationArgs::builder()
-///             .config_id("example-1")
-///             .storage_lens_configuration(
-///                 StorageLensConfigurationStorageLensConfiguration::builder()
-///                     .accountLevel(
-///                         StorageLensConfigurationStorageLensConfigurationAccountLevel::builder()
-///                             .activityMetrics(
-///                                 StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics::builder()
-///                                     .enabled(true)
-///                                     .build_struct(),
-///                             )
-///                             .bucketLevel(
-///                                 StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel::builder()
-///                                     .activityMetrics(
-///                                         StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics::builder()
-///                                             .enabled(true)
-///                                             .build_struct(),
-///                                     )
-///                                     .build_struct(),
-///                             )
-///                             .build_struct(),
-///                     )
-///                     .dataExport(
-///                         StorageLensConfigurationStorageLensConfigurationDataExport::builder()
-///                             .cloudWatchMetrics(
-///                                 StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics::builder()
-///                                     .enabled(true)
-///                                     .build_struct(),
-///                             )
-///                             .s3BucketDestination(
-///                                 StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination::builder()
-///                                     .accountId("${current.accountId}")
-///                                     .arn("${target.arn}")
-///                                     .encryption(
-///                                         StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption::builder()
-///                                             .sseS3s(
-///                                                 vec![
-///                                                     StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3::builder()
-///                                                     .build_struct(),
-///                                                 ],
-///                                             )
-///                                             .build_struct(),
-///                                     )
-///                                     .format("CSV")
-///                                     .outputSchemaVersion("V_1")
-///                                     .build_struct(),
-///                             )
-///                             .build_struct(),
-///                     )
-///                     .enabled(true)
-///                     .exclude(
-///                         StorageLensConfigurationStorageLensConfigurationExclude::builder()
-///                             .buckets(vec!["${b1.arn}", "${b2.arn}",])
-///                             .regions(vec!["us-east-2",])
-///                             .build_struct(),
-///                     )
-///                     .build_struct(),
-///             )
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:s3control:StorageLensConfiguration
+///     properties:
+///       configId: example-1
+///       storageLensConfiguration:
+///         enabled: true
+///         accountLevel:
+///           activityMetrics:
+///             enabled: true
+///           bucketLevel:
+///             activityMetrics:
+///               enabled: true
+///         dataExport:
+///           cloudWatchMetrics:
+///             enabled: true
+///           s3BucketDestination:
+///             accountId: ${current.accountId}
+///             arn: ${target.arn}
+///             format: CSV
+///             outputSchemaVersion: V_1
+///             encryption:
+///               sseS3s:
+///                 - {}
+///         exclude:
+///           buckets:
+///             - ${b1.arn}
+///             - ${b2.arn}
+///           regions:
+///             - us-east-2
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getCallerIdentity
+///       arguments: {}
 /// ```
 ///
 /// ## Import

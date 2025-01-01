@@ -40,7 +40,7 @@
 ///         enableMaintenanceMode: true
 ///         userEnabledAsLocalAdministrator: true
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${workspacesDefaultServiceAccess}
 ///         - ${workspacesDefaultSelfServiceAccess}
 ///   exampleDirectory:
@@ -109,8 +109,8 @@
 /// variables:
 ///   workspaces:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - actions:
 ///               - sts:AssumeRole

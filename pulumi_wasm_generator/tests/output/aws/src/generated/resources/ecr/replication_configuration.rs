@@ -2,103 +2,79 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_caller_identity::invoke(
-///         GetCallerIdentityArgs::builder().build_struct(),
-///     );
-///     let example = get_regions::invoke(GetRegionsArgs::builder().build_struct());
-///     let exampleReplicationConfiguration = replication_configuration::create(
-///         "exampleReplicationConfiguration",
-///         ReplicationConfigurationArgs::builder()
-///             .replication_configuration(
-///                 ReplicationConfigurationReplicationConfiguration::builder()
-///                     .rules(
-///                         vec![
-///                             ReplicationConfigurationReplicationConfigurationRule::builder()
-///                             .destinations(vec![ReplicationConfigurationReplicationConfigurationRuleDestination::builder()
-///                             .region("${example.names[0]}")
-///                             .registryId("${current.accountId}").build_struct(),])
-///                             .build_struct(),
-///                         ],
-///                     )
-///                     .build_struct(),
-///             )
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleReplicationConfiguration:
+///     type: aws:ecr:ReplicationConfiguration
+///     name: example
+///     properties:
+///       replicationConfiguration:
+///         rules:
+///           - destinations:
+///               - region: ${example.names[0]}
+///                 registryId: ${current.accountId}
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getCallerIdentity
+///       arguments: {}
+///   example:
+///     fn::invoke:
+///       function: aws:getRegions
+///       arguments: {}
 /// ```
 ///
 /// ## Multiple Region Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_caller_identity::invoke(
-///         GetCallerIdentityArgs::builder().build_struct(),
-///     );
-///     let example = get_regions::invoke(GetRegionsArgs::builder().build_struct());
-///     let exampleReplicationConfiguration = replication_configuration::create(
-///         "exampleReplicationConfiguration",
-///         ReplicationConfigurationArgs::builder()
-///             .replication_configuration(
-///                 ReplicationConfigurationReplicationConfiguration::builder()
-///                     .rules(
-///                         vec![
-///                             ReplicationConfigurationReplicationConfigurationRule::builder()
-///                             .destinations(vec![ReplicationConfigurationReplicationConfigurationRuleDestination::builder()
-///                             .region("${example.names[0]}")
-///                             .registryId("${current.accountId}").build_struct(),
-///                             ReplicationConfigurationReplicationConfigurationRuleDestination::builder()
-///                             .region("${example.names[1]}")
-///                             .registryId("${current.accountId}").build_struct(),])
-///                             .build_struct(),
-///                         ],
-///                     )
-///                     .build_struct(),
-///             )
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleReplicationConfiguration:
+///     type: aws:ecr:ReplicationConfiguration
+///     name: example
+///     properties:
+///       replicationConfiguration:
+///         rules:
+///           - destinations:
+///               - region: ${example.names[0]}
+///                 registryId: ${current.accountId}
+///               - region: ${example.names[1]}
+///                 registryId: ${current.accountId}
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getCallerIdentity
+///       arguments: {}
+///   example:
+///     fn::invoke:
+///       function: aws:getRegions
+///       arguments: {}
 /// ```
 ///
 /// ## Repository Filter Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_caller_identity::invoke(
-///         GetCallerIdentityArgs::builder().build_struct(),
-///     );
-///     let example = get_regions::invoke(GetRegionsArgs::builder().build_struct());
-///     let exampleReplicationConfiguration = replication_configuration::create(
-///         "exampleReplicationConfiguration",
-///         ReplicationConfigurationArgs::builder()
-///             .replication_configuration(
-///                 ReplicationConfigurationReplicationConfiguration::builder()
-///                     .rules(
-///                         vec![
-///                             ReplicationConfigurationReplicationConfigurationRule::builder()
-///                             .destinations(vec![ReplicationConfigurationReplicationConfigurationRuleDestination::builder()
-///                             .region("${example.names[0]}")
-///                             .registryId("${current.accountId}").build_struct(),])
-///                             .repositoryFilters(vec![ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter::builder()
-///                             .filter("prod-microservice").filterType("PREFIX_MATCH")
-///                             .build_struct(),]).build_struct(),
-///                         ],
-///                     )
-///                     .build_struct(),
-///             )
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleReplicationConfiguration:
+///     type: aws:ecr:ReplicationConfiguration
+///     name: example
+///     properties:
+///       replicationConfiguration:
+///         rules:
+///           - destinations:
+///               - region: ${example.names[0]}
+///                 registryId: ${current.accountId}
+///             repositoryFilters:
+///               - filter: prod-microservice
+///                 filterType: PREFIX_MATCH
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getCallerIdentity
+///       arguments: {}
+///   example:
+///     fn::invoke:
+///       function: aws:getRegions
+///       arguments: {}
 /// ```
 ///
 /// ## Import

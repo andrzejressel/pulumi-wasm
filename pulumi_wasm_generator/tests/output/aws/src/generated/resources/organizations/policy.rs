@@ -2,26 +2,25 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder().actions(vec!["*",])
-///                     .effect("Allow").resources(vec!["*",]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let examplePolicy = policy::create(
-///         "examplePolicy",
-///         PolicyArgs::builder().content("${example.json}").name("example").build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   examplePolicy:
+///     type: aws:organizations:Policy
+///     name: example
+///     properties:
+///       name: example
+///       content: ${example.json}
+/// variables:
+///   example:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             actions:
+///               - '*'
+///             resources:
+///               - '*'
 /// ```
 ///
 /// ## Import

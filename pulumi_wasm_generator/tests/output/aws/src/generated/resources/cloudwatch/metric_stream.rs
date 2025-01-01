@@ -4,130 +4,120 @@
 ///
 /// ### Filters
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let firehoseAssumeRole = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sts:AssumeRole",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["firehose.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let firehoseToS3 = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["s3:AbortMultipartUpload", "s3:GetBucketLocation",
-///                     "s3:GetObject", "s3:ListBucket", "s3:ListBucketMultipartUploads",
-///                     "s3:PutObject",]).effect("Allow").resources(vec!["${bucket.arn}",
-///                     "${bucket.arn}/*",]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let metricStreamToFirehose = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["firehose:PutRecord", "firehose:PutRecordBatch",])
-///                     .effect("Allow").resources(vec!["${s3Stream.arn}",]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let streamsAssumeRole = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sts:AssumeRole",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["streams.metrics.cloudwatch.amazonaws.com",]). type
-///                     ("Service").build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let bucket = bucket_v_2::create(
-///         "bucket",
-///         BucketV2Args::builder().bucket("metric-stream-test-bucket").build_struct(),
-///     );
-///     let bucketAcl = bucket_acl_v_2::create(
-///         "bucketAcl",
-///         BucketAclV2Args::builder().acl("private").bucket("${bucket.id}").build_struct(),
-///     );
-///     let firehoseToS3Role = role::create(
-///         "firehoseToS3Role",
-///         RoleArgs::builder()
-///             .assume_role_policy("${firehoseAssumeRole.json}")
-///             .build_struct(),
-///     );
-///     let firehoseToS3RolePolicy = role_policy::create(
-///         "firehoseToS3RolePolicy",
-///         RolePolicyArgs::builder()
-///             .name("default")
-///             .policy("${firehoseToS3.json}")
-///             .role("${firehoseToS3Role.id}")
-///             .build_struct(),
-///     );
-///     let main = metric_stream::create(
-///         "main",
-///         MetricStreamArgs::builder()
-///             .firehose_arn("${s3Stream.arn}")
-///             .include_filters(
-///                 vec![
-///                     MetricStreamIncludeFilter::builder()
-///                     .metricNames(vec!["CPUUtilization", "NetworkOut",])
-///                     .namespace("AWS/EC2").build_struct(),
-///                     MetricStreamIncludeFilter::builder().metricNames(vec![])
-///                     .namespace("AWS/EBS").build_struct(),
-///                 ],
-///             )
-///             .name("my-metric-stream")
-///             .output_format("json")
-///             .role_arn("${metricStreamToFirehoseRole.arn}")
-///             .build_struct(),
-///     );
-///     let metricStreamToFirehoseRole = role::create(
-///         "metricStreamToFirehoseRole",
-///         RoleArgs::builder()
-///             .assume_role_policy("${streamsAssumeRole.json}")
-///             .name("metric_stream_to_firehose_role")
-///             .build_struct(),
-///     );
-///     let metricStreamToFirehoseRolePolicy = role_policy::create(
-///         "metricStreamToFirehoseRolePolicy",
-///         RolePolicyArgs::builder()
-///             .name("default")
-///             .policy("${metricStreamToFirehose.json}")
-///             .role("${metricStreamToFirehoseRole.id}")
-///             .build_struct(),
-///     );
-///     let s3Stream = firehose_delivery_stream::create(
-///         "s3Stream",
-///         FirehoseDeliveryStreamArgs::builder()
-///             .destination("extended_s3")
-///             .extended_s_3_configuration(
-///                 FirehoseDeliveryStreamExtendedS3Configuration::builder()
-///                     .bucketArn("${bucket.arn}")
-///                     .roleArn("${firehoseToS3Role.arn}")
-///                     .build_struct(),
-///             )
-///             .name("metric-stream-test-stream")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   main:
+///     type: aws:cloudwatch:MetricStream
+///     properties:
+///       name: my-metric-stream
+///       roleArn: ${metricStreamToFirehoseRole.arn}
+///       firehoseArn: ${s3Stream.arn}
+///       outputFormat: json
+///       includeFilters:
+///         - namespace: AWS/EC2
+///           metricNames:
+///             - CPUUtilization
+///             - NetworkOut
+///         - namespace: AWS/EBS
+///           metricNames: []
+///   metricStreamToFirehoseRole:
+///     type: aws:iam:Role
+///     name: metric_stream_to_firehose
+///     properties:
+///       name: metric_stream_to_firehose_role
+///       assumeRolePolicy: ${streamsAssumeRole.json}
+///   metricStreamToFirehoseRolePolicy:
+///     type: aws:iam:RolePolicy
+///     name: metric_stream_to_firehose
+///     properties:
+///       name: default
+///       role: ${metricStreamToFirehoseRole.id}
+///       policy: ${metricStreamToFirehose.json}
+///   bucket:
+///     type: aws:s3:BucketV2
+///     properties:
+///       bucket: metric-stream-test-bucket
+///   bucketAcl:
+///     type: aws:s3:BucketAclV2
+///     name: bucket_acl
+///     properties:
+///       bucket: ${bucket.id}
+///       acl: private
+///   firehoseToS3Role:
+///     type: aws:iam:Role
+///     name: firehose_to_s3
+///     properties:
+///       assumeRolePolicy: ${firehoseAssumeRole.json}
+///   firehoseToS3RolePolicy:
+///     type: aws:iam:RolePolicy
+///     name: firehose_to_s3
+///     properties:
+///       name: default
+///       role: ${firehoseToS3Role.id}
+///       policy: ${firehoseToS3.json}
+///   s3Stream:
+///     type: aws:kinesis:FirehoseDeliveryStream
+///     name: s3_stream
+///     properties:
+///       name: metric-stream-test-stream
+///       destination: extended_s3
+///       extendedS3Configuration:
+///         roleArn: ${firehoseToS3Role.arn}
+///         bucketArn: ${bucket.arn}
+/// variables:
+///   # https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html
+///   streamsAssumeRole:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - streams.metrics.cloudwatch.amazonaws.com
+///             actions:
+///               - sts:AssumeRole
+///   # https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html
+///   metricStreamToFirehose:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             actions:
+///               - firehose:PutRecord
+///               - firehose:PutRecordBatch
+///             resources:
+///               - ${s3Stream.arn}
+///   firehoseAssumeRole:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - firehose.amazonaws.com
+///             actions:
+///               - sts:AssumeRole
+///   firehoseToS3:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             actions:
+///               - s3:AbortMultipartUpload
+///               - s3:GetBucketLocation
+///               - s3:GetObject
+///               - s3:ListBucket
+///               - s3:ListBucketMultipartUploads
+///               - s3:PutObject
+///             resources:
+///               - ${bucket.arn}
+///               - ${bucket.arn}/*
 /// ```
 ///
 /// ### Additional Statistics

@@ -22,8 +22,8 @@
 /// variables:
 ///   ubuntu:
 ///     fn::invoke:
-///       Function: aws:ec2:getAmi
-///       Arguments:
+///       function: aws:ec2:getAmi
+///       arguments:
 ///         mostRecent: true
 ///         filters:
 ///           - name: name

@@ -32,6 +32,9 @@ pub mod snapshot_copy {
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SnapshotCopyArgs {
+        /// Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
+        #[builder(into, default)]
+        pub completion_duration_minutes: pulumi_wasm_rust::Output<Option<i32>>,
         /// A description of what the snapshot is.
         #[builder(into, default)]
         pub description: pulumi_wasm_rust::Output<Option<String>>,
@@ -66,6 +69,8 @@ pub mod snapshot_copy {
     pub struct SnapshotCopyResult {
         /// Amazon Resource Name (ARN) of the EBS Snapshot.
         pub arn: pulumi_wasm_rust::Output<String>,
+        /// Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
+        pub completion_duration_minutes: pulumi_wasm_rust::Output<Option<i32>>,
         /// The data encryption key identifier for the snapshot.
         pub data_encryption_key_id: pulumi_wasm_rust::Output<String>,
         /// A description of what the snapshot is.
@@ -108,6 +113,9 @@ pub mod snapshot_copy {
     pub fn create(name: &str, args: SnapshotCopyArgs) -> SnapshotCopyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
+        let completion_duration_minutes_binding = args
+            .completion_duration_minutes
+            .get_inner();
         let description_binding = args.description.get_inner();
         let encrypted_binding = args.encrypted.get_inner();
         let kms_key_id_binding = args.kms_key_id.get_inner();
@@ -121,6 +129,10 @@ pub mod snapshot_copy {
             type_: "aws:ebs/snapshotCopy:SnapshotCopy".into(),
             name: name.to_string(),
             object: Vec::from([
+                register_interface::ObjectField {
+                    name: "completionDurationMinutes".into(),
+                    value: &completion_duration_minutes_binding,
+                },
                 register_interface::ObjectField {
                     name: "description".into(),
                     value: &description_binding,
@@ -161,6 +173,9 @@ pub mod snapshot_copy {
             results: Vec::from([
                 register_interface::ResultField {
                     name: "arn".into(),
+                },
+                register_interface::ResultField {
+                    name: "completionDurationMinutes".into(),
                 },
                 register_interface::ResultField {
                     name: "dataEncryptionKeyId".into(),
@@ -221,6 +236,9 @@ pub mod snapshot_copy {
         SnapshotCopyResult {
             arn: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("arn").unwrap(),
+            ),
+            completion_duration_minutes: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("completionDurationMinutes").unwrap(),
             ),
             data_encryption_key_id: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("dataEncryptionKeyId").unwrap(),

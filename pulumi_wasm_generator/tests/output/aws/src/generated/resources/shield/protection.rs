@@ -22,16 +22,16 @@
 /// variables:
 ///   available:
 ///     fn::invoke:
-///       Function: aws:getAvailabilityZones
-///       Arguments: {}
+///       function: aws:getAvailabilityZones
+///       arguments: {}
 ///   current:
 ///     fn::invoke:
-///       Function: aws:getRegion
-///       Arguments: {}
+///       function: aws:getRegion
+///       arguments: {}
 ///   currentGetCallerIdentity:
 ///     fn::invoke:
-///       Function: aws:getCallerIdentity
-///       Arguments: {}
+///       function: aws:getCallerIdentity
+///       arguments: {}
 /// ```
 ///
 /// ## Import

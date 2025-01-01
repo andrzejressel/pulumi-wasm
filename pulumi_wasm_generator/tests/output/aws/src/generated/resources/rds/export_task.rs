@@ -49,7 +49,7 @@
 ///           Statement:
 ///             - Action: sts:AssumeRole
 ///               Effect: Allow
-///               Sid:
+///               Sid: ""
 ///               Principal:
 ///                 Service: export.rds.amazonaws.com
 ///   examplePolicy:
@@ -104,8 +104,8 @@
 /// variables:
 ///   example:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - actions:
 ///               - s3:ListAllMyBuckets

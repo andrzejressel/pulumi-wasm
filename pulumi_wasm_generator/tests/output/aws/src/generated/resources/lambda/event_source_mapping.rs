@@ -67,6 +67,9 @@
 ///       topics:
 ///         - Example
 ///       startingPosition: TRIM_HORIZON
+///       provisionedPollerConfig:
+///         maximumPoller: 80
+///         minimumPoller: 10
 ///       selfManagedEventSource:
 ///         endpoints:
 ///           KAFKA_BOOTSTRAP_SERVERS: kafka1.example.com:9092,kafka2.example.com:9092
@@ -242,9 +245,21 @@ pub mod event_source_mapping {
         /// - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
         #[builder(into, default)]
         pub maximum_retry_attempts: pulumi_wasm_rust::Output<Option<i32>>,
+        /// - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
+        #[builder(into, default)]
+        pub metrics_config: pulumi_wasm_rust::Output<
+            Option<super::super::types::lambda::EventSourceMappingMetricsConfig>,
+        >,
         /// - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
         #[builder(into, default)]
         pub parallelization_factor: pulumi_wasm_rust::Output<Option<i32>>,
+        /// - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
+        #[builder(into, default)]
+        pub provisioned_poller_config: pulumi_wasm_rust::Output<
+            Option<
+                super::super::types::lambda::EventSourceMappingProvisionedPollerConfig,
+            >,
+        >,
         /// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
         #[builder(into, default)]
         pub queues: pulumi_wasm_rust::Output<Option<String>>,
@@ -340,8 +355,18 @@ pub mod event_source_mapping {
         pub maximum_record_age_in_seconds: pulumi_wasm_rust::Output<i32>,
         /// - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
         pub maximum_retry_attempts: pulumi_wasm_rust::Output<i32>,
+        /// - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
+        pub metrics_config: pulumi_wasm_rust::Output<
+            Option<super::super::types::lambda::EventSourceMappingMetricsConfig>,
+        >,
         /// - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
         pub parallelization_factor: pulumi_wasm_rust::Output<i32>,
+        /// - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
+        pub provisioned_poller_config: pulumi_wasm_rust::Output<
+            Option<
+                super::super::types::lambda::EventSourceMappingProvisionedPollerConfig,
+            >,
+        >,
         /// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
         pub queues: pulumi_wasm_rust::Output<Option<String>>,
         /// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
@@ -418,7 +443,11 @@ pub mod event_source_mapping {
             .maximum_record_age_in_seconds
             .get_inner();
         let maximum_retry_attempts_binding = args.maximum_retry_attempts.get_inner();
+        let metrics_config_binding = args.metrics_config.get_inner();
         let parallelization_factor_binding = args.parallelization_factor.get_inner();
+        let provisioned_poller_config_binding = args
+            .provisioned_poller_config
+            .get_inner();
         let queues_binding = args.queues.get_inner();
         let scaling_config_binding = args.scaling_config.get_inner();
         let self_managed_event_source_binding = args
@@ -500,8 +529,16 @@ pub mod event_source_mapping {
                     value: &maximum_retry_attempts_binding,
                 },
                 register_interface::ObjectField {
+                    name: "metricsConfig".into(),
+                    value: &metrics_config_binding,
+                },
+                register_interface::ObjectField {
                     name: "parallelizationFactor".into(),
                     value: &parallelization_factor_binding,
+                },
+                register_interface::ObjectField {
+                    name: "provisionedPollerConfig".into(),
+                    value: &provisioned_poller_config_binding,
                 },
                 register_interface::ObjectField {
                     name: "queues".into(),
@@ -600,7 +637,13 @@ pub mod event_source_mapping {
                     name: "maximumRetryAttempts".into(),
                 },
                 register_interface::ResultField {
+                    name: "metricsConfig".into(),
+                },
+                register_interface::ResultField {
                     name: "parallelizationFactor".into(),
+                },
+                register_interface::ResultField {
+                    name: "provisionedPollerConfig".into(),
                 },
                 register_interface::ResultField {
                     name: "queues".into(),
@@ -707,8 +750,14 @@ pub mod event_source_mapping {
             maximum_retry_attempts: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("maximumRetryAttempts").unwrap(),
             ),
+            metrics_config: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("metricsConfig").unwrap(),
+            ),
             parallelization_factor: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("parallelizationFactor").unwrap(),
+            ),
+            provisioned_poller_config: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("provisionedPollerConfig").unwrap(),
             ),
             queues: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("queues").unwrap(),

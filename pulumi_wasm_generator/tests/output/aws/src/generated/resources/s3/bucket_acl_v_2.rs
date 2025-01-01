@@ -82,58 +82,44 @@
 ///
 /// ### With Grants
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_canonical_user_id::invoke(
-///         GetCanonicalUserIdArgs::builder().build_struct(),
-///     );
-///     let example = bucket_v_2::create(
-///         "example",
-///         BucketV2Args::builder().bucket("my-tf-example-bucket").build_struct(),
-///     );
-///     let exampleBucketAclV2 = bucket_acl_v_2::create(
-///         "exampleBucketAclV2",
-///         BucketAclV2Args::builder()
-///             .access_control_policy(
-///                 BucketAclV2AccessControlPolicy::builder()
-///                     .grants(
-///                         vec![
-///                             BucketAclV2AccessControlPolicyGrant::builder()
-///                             .grantee(BucketAclV2AccessControlPolicyGrantGrantee::builder()
-///                             .id("${current.id}"). type ("CanonicalUser").build_struct())
-///                             .permission("READ").build_struct(),
-///                             BucketAclV2AccessControlPolicyGrant::builder()
-///                             .grantee(BucketAclV2AccessControlPolicyGrantGrantee::builder()
-///                             . type ("Group")
-///                             .uri("http://acs.amazonaws.com/groups/s3/LogDelivery")
-///                             .build_struct()).permission("READ_ACP").build_struct(),
-///                         ],
-///                     )
-///                     .owner(
-///                         BucketAclV2AccessControlPolicyOwner::builder()
-///                             .id("${current.id}")
-///                             .build_struct(),
-///                     )
-///                     .build_struct(),
-///             )
-///             .bucket("${example.id}")
-///             .build_struct(),
-///     );
-///     let exampleBucketOwnershipControls = bucket_ownership_controls::create(
-///         "exampleBucketOwnershipControls",
-///         BucketOwnershipControlsArgs::builder()
-///             .bucket("${example.id}")
-///             .rule(
-///                 BucketOwnershipControlsRule::builder()
-///                     .objectOwnership("BucketOwnerPreferred")
-///                     .build_struct(),
-///             )
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:s3:BucketV2
+///     properties:
+///       bucket: my-tf-example-bucket
+///   exampleBucketOwnershipControls:
+///     type: aws:s3:BucketOwnershipControls
+///     name: example
+///     properties:
+///       bucket: ${example.id}
+///       rule:
+///         objectOwnership: BucketOwnerPreferred
+///   exampleBucketAclV2:
+///     type: aws:s3:BucketAclV2
+///     name: example
+///     properties:
+///       bucket: ${example.id}
+///       accessControlPolicy:
+///         grants:
+///           - grantee:
+///               id: ${current.id}
+///               type: CanonicalUser
+///             permission: READ
+///           - grantee:
+///               type: Group
+///               uri: http://acs.amazonaws.com/groups/s3/LogDelivery
+///             permission: READ_ACP
+///         owner:
+///           id: ${current.id}
+///     options:
+///       dependsOn:
+///         - ${exampleBucketOwnershipControls}
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:s3:getCanonicalUserId
+///       arguments: {}
 /// ```
 ///
 /// ## Import

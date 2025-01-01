@@ -4,22 +4,18 @@
 ///
 /// ### Basic Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_caller_identity::invoke(
-///         GetCallerIdentityArgs::builder().build_struct(),
-///     );
-///     let test = authorize_vpc_endpoint_access::create(
-///         "test",
-///         AuthorizeVpcEndpointAccessArgs::builder()
-///             .account("${current.accountId}")
-///             .domain_name("${testAwsOpensearchDomain.domainName}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   test:
+///     type: aws:opensearch:AuthorizeVpcEndpointAccess
+///     properties:
+///       domainName: ${testAwsOpensearchDomain.domainName}
+///       account: ${current.accountId}
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getCallerIdentity
+///       arguments: {}
 /// ```
 ///
 /// ## Import

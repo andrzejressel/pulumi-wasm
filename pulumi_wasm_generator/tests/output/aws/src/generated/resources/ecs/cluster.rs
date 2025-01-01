@@ -127,13 +127,13 @@
 ///         managedStorageConfiguration:
 ///           fargateEphemeralStorageKmsKeyId: ${example.id}
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${exampleKeyPolicy}
 /// variables:
 ///   current:
 ///     fn::invoke:
-///       Function: aws:getCallerIdentity
-///       Arguments: {}
+///       function: aws:getCallerIdentity
+///       arguments: {}
 /// ```
 ///
 /// ## Import

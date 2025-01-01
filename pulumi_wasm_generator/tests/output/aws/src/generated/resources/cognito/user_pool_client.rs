@@ -51,79 +51,70 @@
 ///
 /// ### Create a user pool client with pinpoint analytics
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let assumeRole = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sts:AssumeRole",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["cognito-idp.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let current = get_caller_identity::invoke(
-///         GetCallerIdentityArgs::builder().build_struct(),
-///     );
-///     let test = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["mobiletargeting:UpdateEndpoint",
-///                     "mobiletargeting:PutEvents",]).effect("Allow")
-///                     .resources(vec!["arn:aws:mobiletargeting:*:${current.accountId}:apps/${testApp.applicationId}*",])
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let testApp = app::create(
-///         "testApp",
-///         AppArgs::builder().name("pinpoint").build_struct(),
-///     );
-///     let testRole = role::create(
-///         "testRole",
-///         RoleArgs::builder()
-///             .assume_role_policy("${assumeRole.json}")
-///             .name("role")
-///             .build_struct(),
-///     );
-///     let testRolePolicy = role_policy::create(
-///         "testRolePolicy",
-///         RolePolicyArgs::builder()
-///             .name("role_policy")
-///             .policy("${test.json}")
-///             .role("${testRole.id}")
-///             .build_struct(),
-///     );
-///     let testUserPool = user_pool::create(
-///         "testUserPool",
-///         UserPoolArgs::builder().name("pool").build_struct(),
-///     );
-///     let testUserPoolClient = user_pool_client::create(
-///         "testUserPoolClient",
-///         UserPoolClientArgs::builder()
-///             .analytics_configuration(
-///                 UserPoolClientAnalyticsConfiguration::builder()
-///                     .applicationId("${testApp.applicationId}")
-///                     .externalId("some_id")
-///                     .roleArn("${testRole.arn}")
-///                     .userDataShared(true)
-///                     .build_struct(),
-///             )
-///             .name("pool_client")
-///             .user_pool_id("${testUserPool.id}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   testUserPoolClient:
+///     type: aws:cognito:UserPoolClient
+///     name: test
+///     properties:
+///       name: pool_client
+///       userPoolId: ${testUserPool.id}
+///       analyticsConfiguration:
+///         applicationId: ${testApp.applicationId}
+///         externalId: some_id
+///         roleArn: ${testRole.arn}
+///         userDataShared: true
+///   testUserPool:
+///     type: aws:cognito:UserPool
+///     name: test
+///     properties:
+///       name: pool
+///   testApp:
+///     type: aws:pinpoint:App
+///     name: test
+///     properties:
+///       name: pinpoint
+///   testRole:
+///     type: aws:iam:Role
+///     name: test
+///     properties:
+///       name: role
+///       assumeRolePolicy: ${assumeRole.json}
+///   testRolePolicy:
+///     type: aws:iam:RolePolicy
+///     name: test
+///     properties:
+///       name: role_policy
+///       role: ${testRole.id}
+///       policy: ${test.json}
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getCallerIdentity
+///       arguments: {}
+///   assumeRole:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - cognito-idp.amazonaws.com
+///             actions:
+///               - sts:AssumeRole
+///   test:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             actions:
+///               - mobiletargeting:UpdateEndpoint
+///               - mobiletargeting:PutEvents
+///             resources:
+///               - arn:aws:mobiletargeting:*:${current.accountId}:apps/${testApp.applicationId}*
 /// ```
 ///
 /// ### Create a user pool client with Cognito as the identity provider

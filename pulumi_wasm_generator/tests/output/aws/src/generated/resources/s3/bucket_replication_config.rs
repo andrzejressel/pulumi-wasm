@@ -8,116 +8,109 @@
 ///
 /// ### Using replication configuration
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let assumeRole = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sts:AssumeRole",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["s3.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let replication = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["s3:GetReplicationConfiguration", "s3:ListBucket",])
-///                     .effect("Allow").resources(vec!["${source.arn}",]).build_struct(),
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["s3:GetObjectVersionForReplication",
-///                     "s3:GetObjectVersionAcl", "s3:GetObjectVersionTagging",])
-///                     .effect("Allow").resources(vec!["${source.arn}/*",]).build_struct(),
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["s3:ReplicateObject", "s3:ReplicateDelete",
-///                     "s3:ReplicateTags",]).effect("Allow")
-///                     .resources(vec!["${destination.arn}/*",]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let destination = bucket_v_2::create(
-///         "destination",
-///         BucketV2Args::builder().bucket("tf-test-bucket-destination-12345").build_struct(),
-///     );
-///     let destinationBucketVersioningV2 = bucket_versioning_v_2::create(
-///         "destinationBucketVersioningV2",
-///         BucketVersioningV2Args::builder()
-///             .bucket("${destination.id}")
-///             .versioning_configuration(
-///                 BucketVersioningV2VersioningConfiguration::builder()
-///                     .status("Enabled")
-///                     .build_struct(),
-///             )
-///             .build_struct(),
-///     );
-///     let replicationBucketReplicationConfig = bucket_replication_config::create(
-///         "replicationBucketReplicationConfig",
-///         BucketReplicationConfigArgs::builder()
-///             .bucket("${source.id}")
-///             .role("${replicationRole.arn}")
-///             .rules(
-///                 vec![
-///                     BucketReplicationConfigRule::builder()
-///                     .destination(BucketReplicationConfigRuleDestination::builder()
-///                     .bucket("${destination.arn}").storageClass("STANDARD")
-///                     .build_struct()).filter(BucketReplicationConfigRuleFilter::builder()
-///                     .prefix("foo").build_struct()).id("foobar").status("Enabled")
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let replicationPolicy = policy::create(
-///         "replicationPolicy",
-///         PolicyArgs::builder()
-///             .name("tf-iam-role-policy-replication-12345")
-///             .policy("${replication.json}")
-///             .build_struct(),
-///     );
-///     let replicationRole = role::create(
-///         "replicationRole",
-///         RoleArgs::builder()
-///             .assume_role_policy("${assumeRole.json}")
-///             .name("tf-iam-role-replication-12345")
-///             .build_struct(),
-///     );
-///     let replicationRolePolicyAttachment = role_policy_attachment::create(
-///         "replicationRolePolicyAttachment",
-///         RolePolicyAttachmentArgs::builder()
-///             .policy_arn("${replicationPolicy.arn}")
-///             .role("${replicationRole.name}")
-///             .build_struct(),
-///     );
-///     let source = bucket_v_2::create(
-///         "source",
-///         BucketV2Args::builder().bucket("tf-test-bucket-source-12345").build_struct(),
-///     );
-///     let sourceBucketAcl = bucket_acl_v_2::create(
-///         "sourceBucketAcl",
-///         BucketAclV2Args::builder().acl("private").bucket("${source.id}").build_struct(),
-///     );
-///     let sourceBucketVersioningV2 = bucket_versioning_v_2::create(
-///         "sourceBucketVersioningV2",
-///         BucketVersioningV2Args::builder()
-///             .bucket("${source.id}")
-///             .versioning_configuration(
-///                 BucketVersioningV2VersioningConfiguration::builder()
-///                     .status("Enabled")
-///                     .build_struct(),
-///             )
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   replicationRole:
+///     type: aws:iam:Role
+///     name: replication
+///     properties:
+///       name: tf-iam-role-replication-12345
+///       assumeRolePolicy: ${assumeRole.json}
+///   replicationPolicy:
+///     type: aws:iam:Policy
+///     name: replication
+///     properties:
+///       name: tf-iam-role-policy-replication-12345
+///       policy: ${replication.json}
+///   replicationRolePolicyAttachment:
+///     type: aws:iam:RolePolicyAttachment
+///     name: replication
+///     properties:
+///       role: ${replicationRole.name}
+///       policyArn: ${replicationPolicy.arn}
+///   destination:
+///     type: aws:s3:BucketV2
+///     properties:
+///       bucket: tf-test-bucket-destination-12345
+///   destinationBucketVersioningV2:
+///     type: aws:s3:BucketVersioningV2
+///     name: destination
+///     properties:
+///       bucket: ${destination.id}
+///       versioningConfiguration:
+///         status: Enabled
+///   source:
+///     type: aws:s3:BucketV2
+///     properties:
+///       bucket: tf-test-bucket-source-12345
+///   sourceBucketAcl:
+///     type: aws:s3:BucketAclV2
+///     name: source_bucket_acl
+///     properties:
+///       bucket: ${source.id}
+///       acl: private
+///   sourceBucketVersioningV2:
+///     type: aws:s3:BucketVersioningV2
+///     name: source
+///     properties:
+///       bucket: ${source.id}
+///       versioningConfiguration:
+///         status: Enabled
+///   replicationBucketReplicationConfig:
+///     type: aws:s3:BucketReplicationConfig
+///     name: replication
+///     properties:
+///       role: ${replicationRole.arn}
+///       bucket: ${source.id}
+///       rules:
+///         - id: foobar
+///           filter:
+///             prefix: foo
+///           status: Enabled
+///           destination:
+///             bucket: ${destination.arn}
+///             storageClass: STANDARD
+///     options:
+///       dependsOn:
+///         - ${sourceBucketVersioningV2}
+/// variables:
+///   assumeRole:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - s3.amazonaws.com
+///             actions:
+///               - sts:AssumeRole
+///   replication:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             actions:
+///               - s3:GetReplicationConfiguration
+///               - s3:ListBucket
+///             resources:
+///               - ${source.arn}
+///           - effect: Allow
+///             actions:
+///               - s3:GetObjectVersionForReplication
+///               - s3:GetObjectVersionAcl
+///               - s3:GetObjectVersionTagging
+///             resources:
+///               - ${source.arn}/*
+///           - effect: Allow
+///             actions:
+///               - s3:ReplicateObject
+///               - s3:ReplicateDelete
+///               - s3:ReplicateTags
+///             resources:
+///               - ${destination.arn}/*
 /// ```
 ///
 /// ### Bi-Directional Replication

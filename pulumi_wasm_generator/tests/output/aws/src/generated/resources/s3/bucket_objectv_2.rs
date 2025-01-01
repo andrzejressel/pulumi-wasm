@@ -15,10 +15,10 @@
 ///         fn::FileAsset: path/to/file
 ///       etag:
 ///         fn::invoke:
-///           Function: std:filemd5
-///           Arguments:
+///           function: std:filemd5
+///           arguments:
 ///             input: path/to/file
-///           Return: result
+///           return: result
 /// ```
 ///
 /// ### Encrypting with KMS Key
@@ -132,7 +132,7 @@
 ///       objectLockRetainUntilDate: 2021-12-31T23:59:60Z
 ///       forceDestroy: true
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${exampleBucketVersioningV2}
 /// ```
 ///

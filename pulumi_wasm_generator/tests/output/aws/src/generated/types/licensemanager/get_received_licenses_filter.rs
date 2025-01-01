@@ -10,12 +10,12 @@ pub struct GetReceivedLicensesFilter {
     /// variables:
     ///   selected:
     ///     fn::invoke:
-    ///       Function: aws:licensemanager:getReceivedLicenses
-    ///       Arguments:
+    ///       function: aws:licensemanager:getReceivedLicenses
+    ///       arguments:
     ///         filters:
     ///           - name: ProductSKU
     ///             values:
-    ///               -
+    ///               - ""
     /// ```
     #[builder(into)]
     #[serde(rename = "name")]

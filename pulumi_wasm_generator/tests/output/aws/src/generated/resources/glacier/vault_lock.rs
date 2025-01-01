@@ -2,39 +2,36 @@
 ///
 /// ### Testing Glacier Vault Lock Policy
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["glacier:DeleteArchive",])
-///                     .conditions(vec![GetPolicyDocumentStatementCondition::builder()
-///                     .test("NumericLessThanEquals").values(vec!["365",])
-///                     .variable("glacier:ArchiveAgeinDays").build_struct(),])
-///                     .effect("Deny").resources(vec!["${exampleVault.arn}",])
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let exampleVault = vault::create(
-///         "exampleVault",
-///         VaultArgs::builder().name("example").build_struct(),
-///     );
-///     let exampleVaultLock = vault_lock::create(
-///         "exampleVaultLock",
-///         VaultLockArgs::builder()
-///             .complete_lock(false)
-///             .policy("${example.json}")
-///             .vault_name("${exampleVault.name}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleVault:
+///     type: aws:glacier:Vault
+///     name: example
+///     properties:
+///       name: example
+///   exampleVaultLock:
+///     type: aws:glacier:VaultLock
+///     name: example
+///     properties:
+///       completeLock: false
+///       policy: ${example.json}
+///       vaultName: ${exampleVault.name}
+/// variables:
+///   example:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - actions:
+///               - glacier:DeleteArchive
+///             effect: Deny
+///             resources:
+///               - ${exampleVault.arn}
+///             conditions:
+///               - test: NumericLessThanEquals
+///                 variable: glacier:ArchiveAgeinDays
+///                 values:
+///                   - '365'
 /// ```
 ///
 /// ### Permanently Applying Glacier Vault Lock Policy

@@ -87,16 +87,16 @@
 /// variables:
 ///   test:
 ///     fn::invoke:
-///       Function: aws:getCallerIdentity
-///       Arguments: {}
+///       function: aws:getCallerIdentity
+///       arguments: {}
 ///   testGetRegion:
 ///     fn::invoke:
-///       Function: aws:getRegion
-///       Arguments: {}
+///       function: aws:getRegion
+///       arguments: {}
 ///   testGetEnvironmentBlueprint:
 ///     fn::invoke:
-///       Function: aws:datazone:getEnvironmentBlueprint
-///       Arguments:
+///       function: aws:datazone:getEnvironmentBlueprint
+///       arguments:
 ///         domainId: ${testDomain.id}
 ///         name: DefaultDataLake
 ///         managed: true

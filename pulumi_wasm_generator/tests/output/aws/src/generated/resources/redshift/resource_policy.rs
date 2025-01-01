@@ -17,7 +17,7 @@
 ///                 AWS: arn:aws:iam::12345678901:root
 ///               Action: redshift:CreateInboundIntegration
 ///               Resource: ${exampleAwsRedshiftCluster.clusterNamespaceArn}
-///               Sid:
+///               Sid: ""
 /// ```
 ///
 /// ## Import

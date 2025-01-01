@@ -10,12 +10,12 @@ pub struct GetSubnetsFilter {
     /// variables:
     ///   selected:
     ///     fn::invoke:
-    ///       Function: aws:ec2:getSubnets
-    ///       Arguments:
+    ///       function: aws:ec2:getSubnets
+    ///       arguments:
     ///         filters:
     ///           - name: tag:Name
     ///             values:
-    ///               -
+    ///               - ""
     /// ```
     #[builder(into)]
     #[serde(rename = "name")]

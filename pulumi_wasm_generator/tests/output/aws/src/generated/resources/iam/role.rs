@@ -23,7 +23,7 @@
 ///           Statement:
 ///             - Action: sts:AssumeRole
 ///               Effect: Allow
-///               Sid:
+///               Sid: ""
 ///               Principal:
 ///                 Service: ec2.amazonaws.com
 ///       tags:
@@ -32,33 +32,26 @@
 ///
 /// ### Example of Using Data Source for Assume Role Policy
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let instanceAssumeRolePolicy = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sts:AssumeRole",])
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["ec2.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let instance = role::create(
-///         "instance",
-///         RoleArgs::builder()
-///             .assume_role_policy("${instanceAssumeRolePolicy.json}")
-///             .name("instance_role")
-///             .path("/system/")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   instance:
+///     type: aws:iam:Role
+///     properties:
+///       name: instance_role
+///       path: /system/
+///       assumeRolePolicy: ${instanceAssumeRolePolicy.json}
+/// variables:
+///   instanceAssumeRolePolicy:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - actions:
+///               - sts:AssumeRole
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - ec2.amazonaws.com
 /// ```
 ///
 /// ### Example of Exclusive Inline Policies
@@ -89,8 +82,8 @@
 /// variables:
 ///   inlinePolicy:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - actions:
 ///               - ec2:DescribeAccountAttributes

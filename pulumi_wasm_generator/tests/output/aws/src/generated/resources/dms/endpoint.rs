@@ -15,7 +15,7 @@
 ///       endpointId: test-dms-endpoint-tf
 ///       endpointType: source
 ///       engineName: aurora
-///       extraConnectionAttributes:
+///       extraConnectionAttributes: ""
 ///       kmsKeyArn: arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
 ///       password: test
 ///       port: 3306

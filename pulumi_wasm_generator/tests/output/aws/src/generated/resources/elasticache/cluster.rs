@@ -154,12 +154,12 @@
 /// variables:
 ///   example:
 ///     fn::invoke:
-///       Function: aws:outposts:getOutposts
-///       Arguments: {}
+///       function: aws:outposts:getOutposts
+///       arguments: {}
 ///   exampleGetOutpost:
 ///     fn::invoke:
-///       Function: aws:outposts:getOutpost
-///       Arguments:
+///       function: aws:outposts:getOutpost
+///       arguments:
 ///         id: ${example.ids[0]}
 /// ```
 ///

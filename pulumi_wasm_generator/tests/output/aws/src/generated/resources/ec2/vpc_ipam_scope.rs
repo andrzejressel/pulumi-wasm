@@ -4,31 +4,24 @@
 ///
 /// Basic usage:
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_region::invoke(GetRegionArgs::builder().build_struct());
-///     let example = vpc_ipam::create(
-///         "example",
-///         VpcIpamArgs::builder()
-///             .operating_regions(
-///                 vec![
-///                     VpcIpamOperatingRegion::builder().regionName("${current.name}")
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let exampleVpcIpamScope = vpc_ipam_scope::create(
-///         "exampleVpcIpamScope",
-///         VpcIpamScopeArgs::builder()
-///             .description("Another Scope")
-///             .ipam_id("${example.id}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:ec2:VpcIpam
+///     properties:
+///       operatingRegions:
+///         - regionName: ${current.name}
+///   exampleVpcIpamScope:
+///     type: aws:ec2:VpcIpamScope
+///     name: example
+///     properties:
+///       ipamId: ${example.id}
+///       description: Another Scope
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getRegion
+///       arguments: {}
 /// ```
 ///
 /// ## Import

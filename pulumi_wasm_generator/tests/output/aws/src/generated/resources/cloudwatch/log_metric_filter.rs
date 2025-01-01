@@ -2,22 +2,31 @@
 ///
 /// ## Example Usage
 ///
-/// ```yaml
-/// resources:
-///   yada:
-///     type: aws:cloudwatch:LogMetricFilter
-///     properties:
-///       name: MyAppAccessCount
-///       pattern:
-///       logGroupName: ${dada.name}
-///       metricTransformation:
-///         name: EventCount
-///         namespace: YourNamespace
-///         value: '1'
-///   dada:
-///     type: aws:cloudwatch:LogGroup
-///     properties:
-///       name: MyApp/access.log
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let dada = log_group::create(
+///         "dada",
+///         LogGroupArgs::builder().name("MyApp/access.log").build_struct(),
+///     );
+///     let yada = log_metric_filter::create(
+///         "yada",
+///         LogMetricFilterArgs::builder()
+///             .log_group_name("${dada.name}")
+///             .metric_transformation(
+///                 LogMetricFilterMetricTransformation::builder()
+///                     .name("EventCount")
+///                     .namespace("YourNamespace")
+///                     .value("1")
+///                     .build_struct(),
+///             )
+///             .name("MyAppAccessCount")
+///             .pattern("")
+///             .build_struct(),
+///     );
+/// }
 /// ```
 ///
 /// ## Import

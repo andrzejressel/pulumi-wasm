@@ -42,35 +42,25 @@
 ///
 /// ### EventBridge Destination
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let default = get_event_bus::invoke(
-///         GetEventBusArgs::builder().name("default").build_struct(),
-///     );
-///     let example = configuration_set_event_destination::create(
-///         "example",
-///         ConfigurationSetEventDestinationArgs::builder()
-///             .configuration_set_name(
-///                 "${exampleAwsSesv2ConfigurationSet.configurationSetName}",
-///             )
-///             .event_destination(
-///                 ConfigurationSetEventDestinationEventDestination::builder()
-///                     .enabled(true)
-///                     .eventBridgeDestination(
-///                         ConfigurationSetEventDestinationEventDestinationEventBridgeDestination::builder()
-///                             .eventBusArn("${default.arn}")
-///                             .build_struct(),
-///                     )
-///                     .matchingEventTypes(vec!["SEND",])
-///                     .build_struct(),
-///             )
-///             .event_destination_name("example")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:sesv2:ConfigurationSetEventDestination
+///     properties:
+///       configurationSetName: ${exampleAwsSesv2ConfigurationSet.configurationSetName}
+///       eventDestinationName: example
+///       eventDestination:
+///         eventBridgeDestination:
+///           eventBusArn: ${default.arn}
+///         enabled: true
+///         matchingEventTypes:
+///           - SEND
+/// variables:
+///   default:
+///     fn::invoke:
+///       function: aws:cloudwatch:getEventBus
+///       arguments:
+///         name: default
 /// ```
 ///
 /// ### Kinesis Firehose Destination

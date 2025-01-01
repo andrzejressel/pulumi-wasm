@@ -29,7 +29,7 @@
 ///         tag1: value1
 ///         tag2: value3
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${object}
 /// ```
 ///

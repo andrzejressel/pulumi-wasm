@@ -15,10 +15,10 @@
 ///     properties:
 ///       csr:
 ///         fn::invoke:
-///           Function: std:file
-///           Arguments:
+///           function: std:file
+///           arguments:
 ///             input: csr.pem
-///           Return: result
+///           return: result
 ///       active: true
 ///   att:
 ///     type: aws:iot:PolicyAttachment
@@ -28,8 +28,8 @@
 /// variables:
 ///   pubsub:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - effect: Allow
 ///             actions:
@@ -47,14 +47,14 @@ pub mod policy_attachment {
         pub policy: pulumi_wasm_rust::Output<String>,
         /// The identity to which the policy is attached.
         #[builder(into)]
-        pub target: pulumi_wasm_rust::Output<String>,
+        pub target: pulumi_wasm_rust::Output<super::super::types::Arn>,
     }
     #[allow(dead_code)]
     pub struct PolicyAttachmentResult {
         /// The name of the policy to attach.
         pub policy: pulumi_wasm_rust::Output<String>,
         /// The identity to which the policy is attached.
-        pub target: pulumi_wasm_rust::Output<String>,
+        pub target: pulumi_wasm_rust::Output<super::super::types::Arn>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments

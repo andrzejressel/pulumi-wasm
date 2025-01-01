@@ -18,6 +18,9 @@ pub struct ReplicatorReplicationInfoListTopicReplication {
     #[builder(into, default)]
     #[serde(rename = "startingPosition")]
     pub r#starting_position: Box<Option<super::super::types::msk::ReplicatorReplicationInfoListTopicReplicationStartingPosition>>,
+    #[builder(into, default)]
+    #[serde(rename = "topicNameConfiguration")]
+    pub r#topic_name_configuration: Box<Option<super::super::types::msk::ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration>>,
     /// List of regular expression patterns indicating the topics that should not be replica.
     #[builder(into, default)]
     #[serde(rename = "topicsToExcludes")]

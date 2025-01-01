@@ -107,13 +107,13 @@
 /// variables:
 ///   example:
 ///     fn::invoke:
-///       Function: tls:getCertificate
-///       Arguments:
+///       function: tls:getCertificate
+///       arguments:
 ///         url: ${exampleCluster.identities[0].oidcs[0].issuer}
 ///   exampleAssumeRolePolicy:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - actions:
 ///               - sts:AssumeRoleWithWebIdentity
@@ -122,14 +122,14 @@
 ///               - test: StringEquals
 ///                 variable:
 ///                   fn::join:
-///                     -
+///                     - ""
 ///                     - - fn::invoke:
-///                           Function: std:replace
-///                           Arguments:
+///                           function: std:replace
+///                           arguments:
 ///                             text: ${exampleOpenIdConnectProvider.url}
 ///                             search: https://
-///                             replace:
-///                           Return: result
+///                             replace: ""
+///                           return: result
 ///                       - :sub
 ///                 values:
 ///                   - system:serviceaccount:kube-system:aws-node

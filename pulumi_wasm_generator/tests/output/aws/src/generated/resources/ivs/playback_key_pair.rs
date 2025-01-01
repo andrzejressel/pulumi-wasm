@@ -11,10 +11,10 @@
 ///     properties:
 ///       publicKey:
 ///         fn::invoke:
-///           Function: std:file
-///           Arguments:
+///           function: std:file
+///           arguments:
 ///             input: ./public-key.pem
-///           Return: result
+///           return: result
 /// ```
 ///
 /// ## Import

@@ -114,13 +114,13 @@
 /// variables:
 ///   azs:
 ///     fn::invoke:
-///       Function: aws:getAvailabilityZones
-///       Arguments:
+///       function: aws:getAvailabilityZones
+///       arguments:
 ///         state: available
 ///   assumeRole:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - effect: Allow
 ///             principals:

@@ -4,43 +4,47 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let snsTopicPolicy = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .policy_id("__default_policy_ID")
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder().actions(vec!["SNS:Subscribe",
-///                     "SNS:SetTopicAttributes", "SNS:RemovePermission", "SNS:Receive",
-///                     "SNS:Publish", "SNS:ListSubscriptionsByTopic",
-///                     "SNS:GetTopicAttributes", "SNS:DeleteTopic", "SNS:AddPermission",])
-///                     .conditions(vec![GetPolicyDocumentStatementCondition::builder()
-///                     .test("StringEquals").values(vec!["${[\"account-id\"]}",])
-///                     .variable("AWS:SourceOwner").build_struct(),]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["*",]). type ("AWS").build_struct(),])
-///                     .resources(vec!["${test.arn}",]).sid("__default_statement_ID")
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let default = topic_policy::create(
-///         "default",
-///         TopicPolicyArgs::builder()
-///             .arn("${test.arn}")
-///             .policy("${snsTopicPolicy.json}")
-///             .build_struct(),
-///     );
-///     let test = topic::create(
-///         "test",
-///         TopicArgs::builder().name("my-topic-with-policy").build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   test:
+///     type: aws:sns:Topic
+///     properties:
+///       name: my-topic-with-policy
+///   default:
+///     type: aws:sns:TopicPolicy
+///     properties:
+///       arn: ${test.arn}
+///       policy: ${snsTopicPolicy.json}
+/// variables:
+///   snsTopicPolicy:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         policyId: __default_policy_ID
+///         statements:
+///           - actions:
+///               - SNS:Subscribe
+///               - SNS:SetTopicAttributes
+///               - SNS:RemovePermission
+///               - SNS:Receive
+///               - SNS:Publish
+///               - SNS:ListSubscriptionsByTopic
+///               - SNS:GetTopicAttributes
+///               - SNS:DeleteTopic
+///               - SNS:AddPermission
+///             conditions:
+///               - test: StringEquals
+///                 variable: AWS:SourceOwner
+///                 values:
+///                   - ${["account-id"]}
+///             effect: Allow
+///             principals:
+///               - type: AWS
+///                 identifiers:
+///                   - '*'
+///             resources:
+///               - ${test.arn}
+///             sid: __default_statement_ID
 /// ```
 ///
 /// ## Import

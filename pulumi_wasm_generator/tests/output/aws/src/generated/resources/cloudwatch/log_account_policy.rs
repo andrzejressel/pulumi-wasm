@@ -48,6 +48,23 @@
 ///       selectionCriteria: LogGroupName NOT IN ["excluded_log_group_name"]
 /// ```
 ///
+/// ### Field Index Policy
+///
+/// ```yaml
+/// resources:
+///   fieldIndex:
+///     type: aws:cloudwatch:LogAccountPolicy
+///     name: field_index
+///     properties:
+///       policyName: field-index
+///       policyType: FIELD_INDEX_POLICY
+///       policyDocument:
+///         fn::toJSON:
+///           Fields:
+///             - field1
+///             - field2
+/// ```
+///
 /// ## Import
 ///
 /// Using `pulumi import`, import this resource using the `policy_name` and `policy_type` separated by `:`. For example:
@@ -66,7 +83,7 @@ pub mod log_account_policy {
         /// Name of the account policy.
         #[builder(into)]
         pub policy_name: pulumi_wasm_rust::Output<String>,
-        /// Type of account policy. Either `DATA_PROTECTION_POLICY` or `SUBSCRIPTION_FILTER_POLICY`. You can have one account policy per type in an account.
+        /// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
         #[builder(into)]
         pub policy_type: pulumi_wasm_rust::Output<String>,
         /// Currently defaults to and only accepts the value: `ALL`.
@@ -82,7 +99,7 @@ pub mod log_account_policy {
         pub policy_document: pulumi_wasm_rust::Output<String>,
         /// Name of the account policy.
         pub policy_name: pulumi_wasm_rust::Output<String>,
-        /// Type of account policy. Either `DATA_PROTECTION_POLICY` or `SUBSCRIPTION_FILTER_POLICY`. You can have one account policy per type in an account.
+        /// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
         pub policy_type: pulumi_wasm_rust::Output<String>,
         /// Currently defaults to and only accepts the value: `ALL`.
         pub scope: pulumi_wasm_rust::Output<Option<String>>,

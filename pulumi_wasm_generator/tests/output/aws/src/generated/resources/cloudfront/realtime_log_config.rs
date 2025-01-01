@@ -2,72 +2,64 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let assumeRole = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sts:AssumeRole",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["cloudfront.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let example = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["kinesis:DescribeStreamSummary",
-///                     "kinesis:DescribeStream", "kinesis:PutRecord",
-///                     "kinesis:PutRecords",]).effect("Allow")
-///                     .resources(vec!["${exampleAwsKinesisStream.arn}",]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let exampleRealtimeLogConfig = realtime_log_config::create(
-///         "exampleRealtimeLogConfig",
-///         RealtimeLogConfigArgs::builder()
-///             .endpoint(
-///                 RealtimeLogConfigEndpoint::builder()
-///                     .kinesisStreamConfig(
-///                         RealtimeLogConfigEndpointKinesisStreamConfig::builder()
-///                             .roleArn("${exampleRole.arn}")
-///                             .streamArn("${exampleAwsKinesisStream.arn}")
-///                             .build_struct(),
-///                     )
-///                     .streamType("Kinesis")
-///                     .build_struct(),
-///             )
-///             .fields(vec!["timestamp", "c-ip",])
-///             .name("example")
-///             .sampling_rate(75)
-///             .build_struct(),
-///     );
-///     let exampleRole = role::create(
-///         "exampleRole",
-///         RoleArgs::builder()
-///             .assume_role_policy("${assumeRole.json}")
-///             .name("cloudfront-realtime-log-config-example")
-///             .build_struct(),
-///     );
-///     let exampleRolePolicy = role_policy::create(
-///         "exampleRolePolicy",
-///         RolePolicyArgs::builder()
-///             .name("cloudfront-realtime-log-config-example")
-///             .policy("${example.json}")
-///             .role("${exampleRole.id}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleRole:
+///     type: aws:iam:Role
+///     name: example
+///     properties:
+///       name: cloudfront-realtime-log-config-example
+///       assumeRolePolicy: ${assumeRole.json}
+///   exampleRolePolicy:
+///     type: aws:iam:RolePolicy
+///     name: example
+///     properties:
+///       name: cloudfront-realtime-log-config-example
+///       role: ${exampleRole.id}
+///       policy: ${example.json}
+///   exampleRealtimeLogConfig:
+///     type: aws:cloudfront:RealtimeLogConfig
+///     name: example
+///     properties:
+///       name: example
+///       samplingRate: 75
+///       fields:
+///         - timestamp
+///         - c-ip
+///       endpoint:
+///         streamType: Kinesis
+///         kinesisStreamConfig:
+///           roleArn: ${exampleRole.arn}
+///           streamArn: ${exampleAwsKinesisStream.arn}
+///     options:
+///       dependsOn:
+///         - ${exampleRolePolicy}
+/// variables:
+///   assumeRole:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - cloudfront.amazonaws.com
+///             actions:
+///               - sts:AssumeRole
+///   example:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             actions:
+///               - kinesis:DescribeStreamSummary
+///               - kinesis:DescribeStream
+///               - kinesis:PutRecord
+///               - kinesis:PutRecords
+///             resources:
+///               - ${exampleAwsKinesisStream.arn}
 /// ```
 ///
 /// ## Import

@@ -58,6 +58,9 @@ pub mod lustre_file_system {
         /// The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
         #[builder(into, default)]
         pub drive_cache_type: pulumi_wasm_rust::Output<Option<String>>,
+        /// Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `per_unit_storage_throughput`. This is only supported when deployment_type is set to `PERSISTENT_2`, `metadata_configuration` is used, and an EFA-enabled security group is attached.
+        #[builder(into, default)]
+        pub efa_enabled: pulumi_wasm_rust::Output<Option<bool>>,
         /// S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
         #[builder(into, default)]
         pub export_path: pulumi_wasm_rust::Output<Option<String>>,
@@ -148,6 +151,8 @@ pub mod lustre_file_system {
         pub dns_name: pulumi_wasm_rust::Output<String>,
         /// The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
         pub drive_cache_type: pulumi_wasm_rust::Output<Option<String>>,
+        /// Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `per_unit_storage_throughput`. This is only supported when deployment_type is set to `PERSISTENT_2`, `metadata_configuration` is used, and an EFA-enabled security group is attached.
+        pub efa_enabled: pulumi_wasm_rust::Output<bool>,
         /// S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
         pub export_path: pulumi_wasm_rust::Output<String>,
         /// Sets the Lustre version for the file system that you're creating. Valid values are 2.10 for `SCRATCH_1`, `SCRATCH_2` and `PERSISTENT_1` deployment types. Valid values for 2.12 include all deployment types.
@@ -230,6 +235,7 @@ pub mod lustre_file_system {
         let data_compression_type_binding = args.data_compression_type.get_inner();
         let deployment_type_binding = args.deployment_type.get_inner();
         let drive_cache_type_binding = args.drive_cache_type.get_inner();
+        let efa_enabled_binding = args.efa_enabled.get_inner();
         let export_path_binding = args.export_path.get_inner();
         let file_system_type_version_binding = args.file_system_type_version.get_inner();
         let final_backup_tags_binding = args.final_backup_tags.get_inner();
@@ -288,6 +294,10 @@ pub mod lustre_file_system {
                 register_interface::ObjectField {
                     name: "driveCacheType".into(),
                     value: &drive_cache_type_binding,
+                },
+                register_interface::ObjectField {
+                    name: "efaEnabled".into(),
+                    value: &efa_enabled_binding,
                 },
                 register_interface::ObjectField {
                     name: "exportPath".into(),
@@ -388,6 +398,9 @@ pub mod lustre_file_system {
                 },
                 register_interface::ResultField {
                     name: "driveCacheType".into(),
+                },
+                register_interface::ResultField {
+                    name: "efaEnabled".into(),
                 },
                 register_interface::ResultField {
                     name: "exportPath".into(),
@@ -493,6 +506,9 @@ pub mod lustre_file_system {
             ),
             drive_cache_type: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("driveCacheType").unwrap(),
+            ),
+            efa_enabled: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("efaEnabled").unwrap(),
             ),
             export_path: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("exportPath").unwrap(),

@@ -18,10 +18,10 @@
 ///       userName: ${exampleUser.userName}
 ///       body:
 ///         fn::invoke:
-///           Function: std:trimspace
-///           Arguments:
+///           function: std:trimspace
+///           arguments:
 ///             input: ${examplePrivateKey.publicKeyOpenssh}
-///           Return: result
+///           return: result
 ///   exampleServer:
 ///     type: aws:transfer:Server
 ///     name: example
@@ -54,8 +54,8 @@
 /// variables:
 ///   assumeRole:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - effect: Allow
 ///             principals:
@@ -66,8 +66,8 @@
 ///               - sts:AssumeRole
 ///   example:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - sid: AllowFullAccesstoS3
 ///             effect: Allow

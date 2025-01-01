@@ -17,10 +17,10 @@
 ///         description: Description
 ///         logoImageBlob:
 ///           fn::invoke:
-///             Function: std:filebase64
-///             Arguments:
+///             function: std:filebase64
+///             arguments:
 ///               input: ${png}
-///             Return: result
+///             return: result
 ///         operatingSystems:
 ///           - Linux
 ///         usageText: Usage Text

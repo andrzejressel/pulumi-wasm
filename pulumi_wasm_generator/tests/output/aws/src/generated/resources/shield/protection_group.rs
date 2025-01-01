@@ -24,42 +24,39 @@
 ///
 /// ### Create protection group for arbitrary number of resources
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_region::invoke(GetRegionArgs::builder().build_struct());
-///     let currentGetCallerIdentity = get_caller_identity::invoke(
-///         GetCallerIdentityArgs::builder().build_struct(),
-///     );
-///     let example = eip::create(
-///         "example",
-///         EipArgs::builder().domain("vpc").build_struct(),
-///     );
-///     let exampleProtection = protection::create(
-///         "exampleProtection",
-///         ProtectionArgs::builder()
-///             .name("example")
-///             .resource_arn(
-///                 "arn:aws:ec2:${current.name}:${currentGetCallerIdentity.accountId}:eip-allocation/${example.id}",
-///             )
-///             .build_struct(),
-///     );
-///     let exampleProtectionGroup = protection_group::create(
-///         "exampleProtectionGroup",
-///         ProtectionGroupArgs::builder()
-///             .aggregation("MEAN")
-///             .members(
-///                 vec![
-///                     "arn:aws:ec2:${current.name}:${currentGetCallerIdentity.accountId}:eip-allocation/${example.id}",
-///                 ],
-///             )
-///             .pattern("ARBITRARY")
-///             .protection_group_id("example")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:ec2:Eip
+///     properties:
+///       domain: vpc
+///   exampleProtection:
+///     type: aws:shield:Protection
+///     name: example
+///     properties:
+///       name: example
+///       resourceArn: arn:aws:ec2:${current.name}:${currentGetCallerIdentity.accountId}:eip-allocation/${example.id}
+///   exampleProtectionGroup:
+///     type: aws:shield:ProtectionGroup
+///     name: example
+///     properties:
+///       protectionGroupId: example
+///       aggregation: MEAN
+///       pattern: ARBITRARY
+///       members:
+///         - arn:aws:ec2:${current.name}:${currentGetCallerIdentity.accountId}:eip-allocation/${example.id}
+///     options:
+///       dependsOn:
+///         - ${exampleProtection}
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getRegion
+///       arguments: {}
+///   currentGetCallerIdentity:
+///     fn::invoke:
+///       function: aws:getCallerIdentity
+///       arguments: {}
 /// ```
 ///
 /// ### Create protection group for a type of resource

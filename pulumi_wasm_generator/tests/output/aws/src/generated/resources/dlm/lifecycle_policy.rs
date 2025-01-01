@@ -43,8 +43,8 @@
 /// variables:
 ///   assumeRole:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - effect: Allow
 ///             principals:
@@ -55,8 +55,8 @@
 ///               - sts:AssumeRole
 ///   dlmLifecycle:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - effect: Allow
 ///             actions:
@@ -118,12 +118,12 @@
 ///   # ...other configuration...
 ///   current:
 ///     fn::invoke:
-///       Function: aws:getCallerIdentity
-///       Arguments: {}
+///       function: aws:getCallerIdentity
+///       arguments: {}
 ///   key:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - sid: Enable IAM User Permissions
 ///             effect: Allow
@@ -173,12 +173,12 @@
 /// variables:
 ///   current:
 ///     fn::invoke:
-///       Function: aws:getCallerIdentity
-///       Arguments: {}
+///       function: aws:getCallerIdentity
+///       arguments: {}
 ///   example:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicy
-///       Arguments:
+///       function: aws:iam:getPolicy
+///       arguments:
 ///         name: AWSDataLifecycleManagerServiceRole
 /// ```
 ///

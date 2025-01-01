@@ -2,6 +2,10 @@
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
 pub struct ListenerMutualAuthentication {
+    /// Valid values are `off` and `on`.
+    #[builder(into, default)]
+    #[serde(rename = "advertiseTrustStoreCaNames")]
+    pub r#advertise_trust_store_ca_names: Box<Option<String>>,
     /// Whether client certificate expiry is ignored. Default is `false`.
     #[builder(into, default)]
     #[serde(rename = "ignoreClientCertificateExpiry")]

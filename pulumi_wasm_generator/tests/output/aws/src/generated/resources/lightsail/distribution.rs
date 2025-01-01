@@ -64,61 +64,50 @@
 ///
 /// Below is an example of an instance as the origin.
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let available = get_availability_zones::invoke(
-///         GetAvailabilityZonesArgs::builder()
-///             .filters(
-///                 vec![
-///                     GetAvailabilityZonesFilter::builder().name("opt-in-status")
-///                     .values(vec!["opt-in-not-required",]).build_struct(),
-///                 ],
-///             )
-///             .state("available")
-///             .build_struct(),
-///     );
-///     let test = static_ip_attachment::create(
-///         "test",
-///         StaticIpAttachmentArgs::builder()
-///             .instance_name("${testInstance.name}")
-///             .static_ip_name("${testStaticIp.name}")
-///             .build_struct(),
-///     );
-///     let testDistribution = distribution::create(
-///         "testDistribution",
-///         DistributionArgs::builder()
-///             .bundle_id("small_1_0")
-///             .default_cache_behavior(
-///                 DistributionDefaultCacheBehavior::builder()
-///                     .behavior("cache")
-///                     .build_struct(),
-///             )
-///             .name("test-distribution")
-///             .origin(
-///                 DistributionOrigin::builder()
-///                     .name("${testInstance.name}")
-///                     .regionName("${available.id}")
-///                     .build_struct(),
-///             )
-///             .build_struct(),
-///     );
-///     let testInstance = instance::create(
-///         "testInstance",
-///         InstanceArgs::builder()
-///             .availability_zone("${available.names[0]}")
-///             .blueprint_id("amazon_linux_2")
-///             .bundle_id("micro_1_0")
-///             .name("test-instance")
-///             .build_struct(),
-///     );
-///     let testStaticIp = static_ip::create(
-///         "testStaticIp",
-///         StaticIpArgs::builder().name("test-static-ip").build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   test:
+///     type: aws:lightsail:StaticIpAttachment
+///     properties:
+///       staticIpName: ${testStaticIp.name}
+///       instanceName: ${testInstance.name}
+///   testStaticIp:
+///     type: aws:lightsail:StaticIp
+///     name: test
+///     properties:
+///       name: test-static-ip
+///   testInstance:
+///     type: aws:lightsail:Instance
+///     name: test
+///     properties:
+///       name: test-instance
+///       availabilityZone: ${available.names[0]}
+///       blueprintId: amazon_linux_2
+///       bundleId: micro_1_0
+///   testDistribution:
+///     type: aws:lightsail:Distribution
+///     name: test
+///     properties:
+///       name: test-distribution
+///       bundleId: small_1_0
+///       origin:
+///         name: ${testInstance.name}
+///         regionName: ${available.id}
+///       defaultCacheBehavior:
+///         behavior: cache
+///     options:
+///       dependsOn:
+///         - ${test}
+/// variables:
+///   available:
+///     fn::invoke:
+///       function: aws:getAvailabilityZones
+///       arguments:
+///         state: available
+///         filters:
+///           - name: opt-in-status
+///             values:
+///               - opt-in-not-required
 /// ```
 ///
 /// ### lb origin example
@@ -161,13 +150,13 @@
 ///       defaultCacheBehavior:
 ///         behavior: cache
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${testLbAttachment}
 /// variables:
 ///   available:
 ///     fn::invoke:
-///       Function: aws:getAvailabilityZones
-///       Arguments:
+///       function: aws:getAvailabilityZones
+///       arguments:
 ///         state: available
 ///         filters:
 ///           - name: opt-in-status

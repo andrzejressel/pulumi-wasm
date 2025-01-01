@@ -2,40 +2,36 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let testDestinationPolicy = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["logs:PutSubscriptionFilter",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["123456789012",]). type ("AWS").build_struct(),])
-///                     .resources(vec!["${testDestination.arn}",]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let testDestination = log_destination::create(
-///         "testDestination",
-///         LogDestinationArgs::builder()
-///             .name("test_destination")
-///             .role_arn("${iamForCloudwatch.arn}")
-///             .target_arn("${kinesisForCloudwatch.arn}")
-///             .build_struct(),
-///     );
-///     let testDestinationPolicyLogDestinationPolicy = log_destination_policy::create(
-///         "testDestinationPolicyLogDestinationPolicy",
-///         LogDestinationPolicyArgs::builder()
-///             .access_policy("${testDestinationPolicy.json}")
-///             .destination_name("${testDestination.name}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   testDestination:
+///     type: aws:cloudwatch:LogDestination
+///     name: test_destination
+///     properties:
+///       name: test_destination
+///       roleArn: ${iamForCloudwatch.arn}
+///       targetArn: ${kinesisForCloudwatch.arn}
+///   testDestinationPolicyLogDestinationPolicy:
+///     type: aws:cloudwatch:LogDestinationPolicy
+///     name: test_destination_policy
+///     properties:
+///       destinationName: ${testDestination.name}
+///       accessPolicy: ${testDestinationPolicy.json}
+/// variables:
+///   testDestinationPolicy:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: AWS
+///                 identifiers:
+///                   - '123456789012'
+///             actions:
+///               - logs:PutSubscriptionFilter
+///             resources:
+///               - ${testDestination.arn}
 /// ```
 ///
 /// ## Import

@@ -4,21 +4,17 @@
 ///
 /// Basic usage:
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let delegated = get_caller_identity::invoke(
-///         GetCallerIdentityArgs::builder().build_struct(),
-///     );
-///     let example = organization_delegated_admin_account::create(
-///         "example",
-///         OrganizationDelegatedAdminAccountArgs::builder()
-///             .account_id("${delegated.accountId}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:cloudtrail:OrganizationDelegatedAdminAccount
+///     properties:
+///       accountId: ${delegated.accountId}
+/// variables:
+///   delegated:
+///     fn::invoke:
+///       function: aws:getCallerIdentity
+///       arguments: {}
 /// ```
 ///
 /// ## Import

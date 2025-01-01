@@ -4,21 +4,17 @@
 ///
 /// ### Basic Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_caller_identity::invoke(
-///         GetCallerIdentityArgs::builder().build_struct(),
-///     );
-///     let example = delegated_admin_account::create(
-///         "example",
-///         DelegatedAdminAccountArgs::builder()
-///             .account_id("${current.accountId}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:inspector2:DelegatedAdminAccount
+///     properties:
+///       accountId: ${current.accountId}
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getCallerIdentity
+///       arguments: {}
 /// ```
 ///
 /// ## Import

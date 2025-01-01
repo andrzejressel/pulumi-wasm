@@ -9,80 +9,64 @@
 ///
 /// Basic usage:
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_region::invoke(GetRegionArgs::builder().build_struct());
-///     let example = vpc_ipam::create(
-///         "example",
-///         VpcIpamArgs::builder()
-///             .operating_regions(
-///                 vec![
-///                     VpcIpamOperatingRegion::builder().regionName("${current.name}")
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let exampleVpcIpamPool = vpc_ipam_pool::create(
-///         "exampleVpcIpamPool",
-///         VpcIpamPoolArgs::builder()
-///             .address_family("ipv4")
-///             .ipam_scope_id("${example.privateDefaultScopeId}")
-///             .locale("${current.name}")
-///             .build_struct(),
-///     );
-///     let exampleVpcIpamPoolCidr = vpc_ipam_pool_cidr::create(
-///         "exampleVpcIpamPoolCidr",
-///         VpcIpamPoolCidrArgs::builder()
-///             .cidr("172.20.0.0/16")
-///             .ipam_pool_id("${exampleVpcIpamPool.id}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:ec2:VpcIpam
+///     properties:
+///       operatingRegions:
+///         - regionName: ${current.name}
+///   exampleVpcIpamPool:
+///     type: aws:ec2:VpcIpamPool
+///     name: example
+///     properties:
+///       addressFamily: ipv4
+///       ipamScopeId: ${example.privateDefaultScopeId}
+///       locale: ${current.name}
+///   exampleVpcIpamPoolCidr:
+///     type: aws:ec2:VpcIpamPoolCidr
+///     name: example
+///     properties:
+///       ipamPoolId: ${exampleVpcIpamPool.id}
+///       cidr: 172.20.0.0/16
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getRegion
+///       arguments: {}
 /// ```
 ///
 /// Provision Public IPv6 Pool CIDRs:
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_region::invoke(GetRegionArgs::builder().build_struct());
-///     let example = vpc_ipam::create(
-///         "example",
-///         VpcIpamArgs::builder()
-///             .operating_regions(
-///                 vec![
-///                     VpcIpamOperatingRegion::builder().regionName("${current.name}")
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let ipv6TestPublic = vpc_ipam_pool::create(
-///         "ipv6TestPublic",
-///         VpcIpamPoolArgs::builder()
-///             .address_family("ipv6")
-///             .aws_service("ec2")
-///             .description("public ipv6")
-///             .ipam_scope_id("${example.publicDefaultScopeId}")
-///             .locale("us-east-1")
-///             .public_ip_source("amazon")
-///             .publicly_advertisable(false)
-///             .build_struct(),
-///     );
-///     let ipv6TestPublicVpcIpamPoolCidr = vpc_ipam_pool_cidr::create(
-///         "ipv6TestPublicVpcIpamPoolCidr",
-///         VpcIpamPoolCidrArgs::builder()
-///             .ipam_pool_id("${ipv6TestPublic.id}")
-///             .netmask_length(52)
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:ec2:VpcIpam
+///     properties:
+///       operatingRegions:
+///         - regionName: ${current.name}
+///   ipv6TestPublic:
+///     type: aws:ec2:VpcIpamPool
+///     name: ipv6_test_public
+///     properties:
+///       addressFamily: ipv6
+///       ipamScopeId: ${example.publicDefaultScopeId}
+///       locale: us-east-1
+///       description: public ipv6
+///       publiclyAdvertisable: false
+///       publicIpSource: amazon
+///       awsService: ec2
+///   ipv6TestPublicVpcIpamPoolCidr:
+///     type: aws:ec2:VpcIpamPoolCidr
+///     name: ipv6_test_public
+///     properties:
+///       ipamPoolId: ${ipv6TestPublic.id}
+///       netmaskLength: 52
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getRegion
+///       arguments: {}
 /// ```
 ///
 /// ## Import

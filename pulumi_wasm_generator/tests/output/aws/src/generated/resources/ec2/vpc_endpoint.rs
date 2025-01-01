@@ -89,32 +89,30 @@
 ///
 /// ### Gateway Load Balancer Endpoint Type
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_caller_identity::invoke(
-///         GetCallerIdentityArgs::builder().build_struct(),
-///     );
-///     let example = vpc_endpoint_service::create(
-///         "example",
-///         VpcEndpointServiceArgs::builder()
-///             .acceptance_required(false)
-///             .allowed_principals(vec!["${current.arn}",])
-///             .gateway_load_balancer_arns(vec!["${exampleAwsLb.arn}",])
-///             .build_struct(),
-///     );
-///     let exampleVpcEndpoint = vpc_endpoint::create(
-///         "exampleVpcEndpoint",
-///         VpcEndpointArgs::builder()
-///             .service_name("${example.serviceName}")
-///             .subnet_ids(vec!["${exampleAwsSubnet.id}",])
-///             .vpc_endpoint_type("${example.serviceType}")
-///             .vpc_id("${exampleAwsVpc.id}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:ec2:VpcEndpointService
+///     properties:
+///       acceptanceRequired: false
+///       allowedPrincipals:
+///         - ${current.arn}
+///       gatewayLoadBalancerArns:
+///         - ${exampleAwsLb.arn}
+///   exampleVpcEndpoint:
+///     type: aws:ec2:VpcEndpoint
+///     name: example
+///     properties:
+///       serviceName: ${example.serviceName}
+///       subnetIds:
+///         - ${exampleAwsSubnet.id}
+///       vpcEndpointType: ${example.serviceType}
+///       vpcId: ${exampleAwsVpc.id}
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getCallerIdentity
+///       arguments: {}
 /// ```
 ///
 /// ## Import
@@ -157,6 +155,9 @@ pub mod vpc_endpoint {
         /// The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
         #[builder(into)]
         pub service_name: pulumi_wasm_rust::Output<String>,
+        /// The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+        #[builder(into, default)]
+        pub service_region: pulumi_wasm_rust::Output<Option<String>>,
         /// Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
         #[builder(into, default)]
         pub subnet_configurations: pulumi_wasm_rust::Output<
@@ -215,6 +216,8 @@ pub mod vpc_endpoint {
         pub security_group_ids: pulumi_wasm_rust::Output<Vec<String>>,
         /// The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
         pub service_name: pulumi_wasm_rust::Output<String>,
+        /// The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+        pub service_region: pulumi_wasm_rust::Output<String>,
         /// The state of the VPC endpoint.
         pub state: pulumi_wasm_rust::Output<String>,
         /// Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
@@ -251,6 +254,7 @@ pub mod vpc_endpoint {
         let route_table_ids_binding = args.route_table_ids.get_inner();
         let security_group_ids_binding = args.security_group_ids.get_inner();
         let service_name_binding = args.service_name.get_inner();
+        let service_region_binding = args.service_region.get_inner();
         let subnet_configurations_binding = args.subnet_configurations.get_inner();
         let subnet_ids_binding = args.subnet_ids.get_inner();
         let tags_binding = args.tags.get_inner();
@@ -291,6 +295,10 @@ pub mod vpc_endpoint {
                 register_interface::ObjectField {
                     name: "serviceName".into(),
                     value: &service_name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "serviceRegion".into(),
+                    value: &service_region_binding,
                 },
                 register_interface::ObjectField {
                     name: "subnetConfigurations".into(),
@@ -358,6 +366,9 @@ pub mod vpc_endpoint {
                 },
                 register_interface::ResultField {
                     name: "serviceName".into(),
+                },
+                register_interface::ResultField {
+                    name: "serviceRegion".into(),
                 },
                 register_interface::ResultField {
                     name: "state".into(),
@@ -433,6 +444,9 @@ pub mod vpc_endpoint {
             ),
             service_name: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("serviceName").unwrap(),
+            ),
+            service_region: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("serviceRegion").unwrap(),
             ),
             state: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("state").unwrap(),

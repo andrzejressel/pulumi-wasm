@@ -5,66 +5,61 @@
 ///
 /// ### CloudWatch Logging
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let assumeRole = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sts:AssumeRole",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["vpc-flow-logs.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let example = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["logs:CreateLogGroup", "logs:CreateLogStream",
-///                     "logs:PutLogEvents", "logs:DescribeLogGroups",
-///                     "logs:DescribeLogStreams",]).effect("Allow").resources(vec!["*",])
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let exampleFlowLog = flow_log::create(
-///         "exampleFlowLog",
-///         FlowLogArgs::builder()
-///             .iam_role_arn("${exampleRole.arn}")
-///             .log_destination("${exampleLogGroup.arn}")
-///             .traffic_type("ALL")
-///             .vpc_id("${exampleAwsVpc.id}")
-///             .build_struct(),
-///     );
-///     let exampleLogGroup = log_group::create(
-///         "exampleLogGroup",
-///         LogGroupArgs::builder().name("example").build_struct(),
-///     );
-///     let exampleRole = role::create(
-///         "exampleRole",
-///         RoleArgs::builder()
-///             .assume_role_policy("${assumeRole.json}")
-///             .name("example")
-///             .build_struct(),
-///     );
-///     let exampleRolePolicy = role_policy::create(
-///         "exampleRolePolicy",
-///         RolePolicyArgs::builder()
-///             .name("example")
-///             .policy("${example.json}")
-///             .role("${exampleRole.id}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleFlowLog:
+///     type: aws:ec2:FlowLog
+///     name: example
+///     properties:
+///       iamRoleArn: ${exampleRole.arn}
+///       logDestination: ${exampleLogGroup.arn}
+///       trafficType: ALL
+///       vpcId: ${exampleAwsVpc.id}
+///   exampleLogGroup:
+///     type: aws:cloudwatch:LogGroup
+///     name: example
+///     properties:
+///       name: example
+///   exampleRole:
+///     type: aws:iam:Role
+///     name: example
+///     properties:
+///       name: example
+///       assumeRolePolicy: ${assumeRole.json}
+///   exampleRolePolicy:
+///     type: aws:iam:RolePolicy
+///     name: example
+///     properties:
+///       name: example
+///       role: ${exampleRole.id}
+///       policy: ${example.json}
+/// variables:
+///   assumeRole:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - vpc-flow-logs.amazonaws.com
+///             actions:
+///               - sts:AssumeRole
+///   example:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             actions:
+///               - logs:CreateLogGroup
+///               - logs:CreateLogStream
+///               - logs:PutLogEvents
+///               - logs:DescribeLogGroups
+///               - logs:DescribeLogStreams
+///             resources:
+///               - '*'
 /// ```
 ///
 /// ### Amazon Kinesis Data Firehose logging
@@ -117,8 +112,8 @@
 /// variables:
 ///   assumeRole:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - effect: Allow
 ///             principals:
@@ -129,8 +124,8 @@
 ///               - sts:AssumeRole
 ///   example:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         effect: Allow
 ///         actions:
 ///           - logs:CreateLogDelivery

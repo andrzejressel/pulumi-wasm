@@ -6,33 +6,28 @@
 ///
 /// ### Local Cache
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let test = get_local_disk::invoke(
-///         GetLocalDiskArgs::builder()
-///             .disk_node("${testAwsVolumeAttachment.deviceName}")
-///             .gateway_arn("${testAwsStoragegatewayGateway.arn}")
-///             .build_struct(),
-///     );
-///     let testCache = cache::create(
-///         "testCache",
-///         CacheArgs::builder()
-///             .disk_id("${test.diskId}")
-///             .gateway_arn("${testAwsStoragegatewayGateway.arn}")
-///             .build_struct(),
-///     );
-///     let testVolumeAttachment = volume_attachment::create(
-///         "testVolumeAttachment",
-///         VolumeAttachmentArgs::builder()
-///             .device_name("/dev/xvdb")
-///             .instance_id("${testAwsInstance.id}")
-///             .volume_id("${testAwsEbsVolume.id}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   testVolumeAttachment:
+///     type: aws:ec2:VolumeAttachment
+///     name: test
+///     properties:
+///       deviceName: /dev/xvdb
+///       volumeId: ${testAwsEbsVolume.id}
+///       instanceId: ${testAwsInstance.id}
+///   testCache:
+///     type: aws:storagegateway:Cache
+///     name: test
+///     properties:
+///       diskId: ${test.diskId}
+///       gatewayArn: ${testAwsStoragegatewayGateway.arn}
+/// variables:
+///   test:
+///     fn::invoke:
+///       function: aws:storagegateway:getLocalDisk
+///       arguments:
+///         diskNode: ${testAwsVolumeAttachment.deviceName}
+///         gatewayArn: ${testAwsStoragegatewayGateway.arn}
 /// ```
 ///
 /// ### FSx File Gateway

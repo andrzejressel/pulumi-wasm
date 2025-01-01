@@ -10,10 +10,10 @@
 ///       name: myprovider
 ///       samlMetadataDocument:
 ///         fn::invoke:
-///           Function: std:file
-///           Arguments:
+///           function: std:file
+///           arguments:
 ///             input: saml-metadata.xml
-///           Return: result
+///           return: result
 /// ```
 ///
 /// ## Import

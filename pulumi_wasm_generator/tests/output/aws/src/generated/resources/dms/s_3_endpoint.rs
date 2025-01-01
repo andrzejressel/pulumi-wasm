@@ -83,7 +83,7 @@
 ///       useTaskStartTimeForFullLoadTimestamp: true
 ///       glueCatalogGeneration: true
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${exampleAwsIamRolePolicy}
 /// ```
 ///

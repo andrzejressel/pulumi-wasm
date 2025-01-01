@@ -4,47 +4,42 @@
 ///
 /// Basic usage:
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_region::invoke(GetRegionArgs::builder().build_struct());
-///     let example = vpc_ipam_preview_next_cidr::create(
-///         "example",
-///         VpcIpamPreviewNextCidrArgs::builder()
-///             .disallowed_cidrs(vec!["172.2.0.0/32",])
-///             .ipam_pool_id("${exampleVpcIpamPool.id}")
-///             .netmask_length(28)
-///             .build_struct(),
-///     );
-///     let exampleVpcIpam = vpc_ipam::create(
-///         "exampleVpcIpam",
-///         VpcIpamArgs::builder()
-///             .operating_regions(
-///                 vec![
-///                     VpcIpamOperatingRegion::builder().regionName("${current.name}")
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let exampleVpcIpamPool = vpc_ipam_pool::create(
-///         "exampleVpcIpamPool",
-///         VpcIpamPoolArgs::builder()
-///             .address_family("ipv4")
-///             .ipam_scope_id("${exampleVpcIpam.privateDefaultScopeId}")
-///             .locale("${current.name}")
-///             .build_struct(),
-///     );
-///     let exampleVpcIpamPoolCidr = vpc_ipam_pool_cidr::create(
-///         "exampleVpcIpamPoolCidr",
-///         VpcIpamPoolCidrArgs::builder()
-///             .cidr("172.20.0.0/16")
-///             .ipam_pool_id("${exampleVpcIpamPool.id}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:ec2:VpcIpamPreviewNextCidr
+///     properties:
+///       ipamPoolId: ${exampleVpcIpamPool.id}
+///       netmaskLength: 28
+///       disallowedCidrs:
+///         - 172.2.0.0/32
+///     options:
+///       dependsOn:
+///         - ${exampleVpcIpamPoolCidr}
+///   exampleVpcIpamPoolCidr:
+///     type: aws:ec2:VpcIpamPoolCidr
+///     name: example
+///     properties:
+///       ipamPoolId: ${exampleVpcIpamPool.id}
+///       cidr: 172.20.0.0/16
+///   exampleVpcIpamPool:
+///     type: aws:ec2:VpcIpamPool
+///     name: example
+///     properties:
+///       addressFamily: ipv4
+///       ipamScopeId: ${exampleVpcIpam.privateDefaultScopeId}
+///       locale: ${current.name}
+///   exampleVpcIpam:
+///     type: aws:ec2:VpcIpam
+///     name: example
+///     properties:
+///       operatingRegions:
+///         - regionName: ${current.name}
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getRegion
+///       arguments: {}
 /// ```
 pub mod vpc_ipam_preview_next_cidr {
     #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]

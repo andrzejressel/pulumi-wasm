@@ -42,10 +42,10 @@
 ///             Transitions:
 ///               - DisplayName: Success
 ///                 ReferenceName: Success
-///                 Description:
+///                 Description: ""
 ///               - DisplayName: Error
 ///                 ReferenceName: Error
-///                 Description:
+///                 Description: ""
 ///       tags:
 ///         Name: Example Contact Flow Module
 ///         Application: Example
@@ -73,10 +73,10 @@
 ///       filename: contact_flow_module.json
 ///       contentHash:
 ///         fn::invoke:
-///           Function: std:filebase64sha256
-///           Arguments:
+///           function: std:filebase64sha256
+///           arguments:
 ///             input: contact_flow_module.json
-///           Return: result
+///           return: result
 ///       tags:
 ///         Name: Example Contact Flow Module
 ///         Application: Example

@@ -66,30 +66,30 @@
 /// You can also find a specific Prefix List using the `aws.ec2.getPrefixList`
 /// or `ec2_managed_prefix_list` data sources:
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_region::invoke(GetRegionArgs::builder().build_struct());
-///     let s3 = get_prefix_list::invoke(
-///         GetPrefixListArgs::builder()
-///             .name("com.amazonaws.${current.name}.s3")
-///             .build_struct(),
-///     );
-///     let s3GatewayEgress = security_group_rule::create(
-///         "s3GatewayEgress",
-///         SecurityGroupRuleArgs::builder()
-///             .description("S3 Gateway Egress")
-///             .from_port(443)
-///             .prefix_list_ids(vec!["${s3.id}",])
-///             .protocol("tcp")
-///             .security_group_id("sg-123456")
-///             .to_port(443)
-///             .type_("egress")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   s3GatewayEgress:
+///     type: aws:ec2:SecurityGroupRule
+///     name: s3_gateway_egress
+///     properties:
+///       description: S3 Gateway Egress
+///       type: egress
+///       securityGroupId: sg-123456
+///       fromPort: 443
+///       toPort: 443
+///       protocol: tcp
+///       prefixListIds:
+///         - ${s3.id}
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getRegion
+///       arguments: {}
+///   s3:
+///     fn::invoke:
+///       function: aws:ec2:getPrefixList
+///       arguments:
+///         name: com.amazonaws.${current.name}.s3
 /// ```
 ///
 /// ## Import

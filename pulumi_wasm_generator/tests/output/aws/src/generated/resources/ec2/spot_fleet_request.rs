@@ -114,53 +114,43 @@
 ///
 /// ### Using multiple launch configurations
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = get_subnets::invoke(
-///         GetSubnetsArgs::builder()
-///             .filters(
-///                 vec![
-///                     GetSubnetsFilter::builder().name("vpc-id").values(vec!["${vpcId}",])
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let foo = launch_template::create(
-///         "foo",
-///         LaunchTemplateArgs::builder()
-///             .image_id("ami-516b9131")
-///             .instance_type("m1.small")
-///             .key_name("some-key")
-///             .name("launch-template")
-///             .build_struct(),
-///     );
-///     let fooSpotFleetRequest = spot_fleet_request::create(
-///         "fooSpotFleetRequest",
-///         SpotFleetRequestArgs::builder()
-///             .iam_fleet_role("arn:aws:iam::12345678:role/spot-fleet")
-///             .launch_template_configs(
-///                 vec![
-///                     SpotFleetRequestLaunchTemplateConfig::builder()
-///                     .launchTemplateSpecification(SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification::builder()
-///                     .id("${foo.id}").version("${foo.latestVersion}").build_struct())
-///                     .overrides(vec![SpotFleetRequestLaunchTemplateConfigOverride::builder()
-///                     .subnetId("${example.ids[0]}").build_struct(),
-///                     SpotFleetRequestLaunchTemplateConfigOverride::builder()
-///                     .subnetId("${example.ids[1]}").build_struct(),
-///                     SpotFleetRequestLaunchTemplateConfigOverride::builder()
-///                     .subnetId("${example.ids[2]}").build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .spot_price("0.005")
-///             .target_capacity(2)
-///             .valid_until("2019-11-04T20:44:20Z")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   foo:
+///     type: aws:ec2:LaunchTemplate
+///     properties:
+///       name: launch-template
+///       imageId: ami-516b9131
+///       instanceType: m1.small
+///       keyName: some-key
+///   fooSpotFleetRequest:
+///     type: aws:ec2:SpotFleetRequest
+///     name: foo
+///     properties:
+///       iamFleetRole: arn:aws:iam::12345678:role/spot-fleet
+///       spotPrice: '0.005'
+///       targetCapacity: 2
+///       validUntil: 2019-11-04T20:44:20Z
+///       launchTemplateConfigs:
+///         - launchTemplateSpecification:
+///             id: ${foo.id}
+///             version: ${foo.latestVersion}
+///           overrides:
+///             - subnetId: ${example.ids[0]}
+///             - subnetId: ${example.ids[1]}
+///             - subnetId: ${example.ids[2]}
+///     options:
+///       dependsOn:
+///         - ${["test-attach"]}
+/// variables:
+///   example:
+///     fn::invoke:
+///       function: aws:ec2:getSubnets
+///       arguments:
+///         filters:
+///           - name: vpc-id
+///             values:
+///               - ${vpcId}
 /// ```
 ///
 /// ## Import

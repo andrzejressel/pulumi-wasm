@@ -2,41 +2,39 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let main = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder().actions(vec!["es:*",])
-///                     .conditions(vec![GetPolicyDocumentStatementCondition::builder()
-///                     .test("IpAddress").values(vec!["127.0.0.1/32",])
-///                     .variable("aws:SourceIp").build_struct(),]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["*",]). type ("*").build_struct(),])
-///                     .resources(vec!["${example.arn}/*",]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let example = domain::create(
-///         "example",
-///         DomainArgs::builder()
-///             .domain_name("tf-test")
-///             .engine_version("OpenSearch_1.1")
-///             .build_struct(),
-///     );
-///     let mainDomainPolicy = domain_policy::create(
-///         "mainDomainPolicy",
-///         DomainPolicyArgs::builder()
-///             .access_policies("${main.json}")
-///             .domain_name("${example.domainName}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:opensearch:Domain
+///     properties:
+///       domainName: tf-test
+///       engineVersion: OpenSearch_1.1
+///   mainDomainPolicy:
+///     type: aws:opensearch:DomainPolicy
+///     name: main
+///     properties:
+///       domainName: ${example.domainName}
+///       accessPolicies: ${main.json}
+/// variables:
+///   main:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: '*'
+///                 identifiers:
+///                   - '*'
+///             actions:
+///               - es:*
+///             resources:
+///               - ${example.arn}/*
+///             conditions:
+///               - test: IpAddress
+///                 variable: aws:SourceIp
+///                 values:
+///                   - 127.0.0.1/32
 /// ```
 pub mod domain_policy {
     #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]

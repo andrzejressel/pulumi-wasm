@@ -8,104 +8,94 @@
 ///
 /// ### Add notification configuration to SNS Topic
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let topic = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder().actions(vec!["SNS:Publish",])
-///                     .conditions(vec![GetPolicyDocumentStatementCondition::builder()
-///                     .test("ArnLike").values(vec!["${bucket.arn}",])
-///                     .variable("aws:SourceArn").build_struct(),]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["s3.amazonaws.com",]). type ("Service")
-///                     .build_struct(),])
-///                     .resources(vec!["arn:aws:sns:*:*:s3-event-notification-topic",])
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let bucket = bucket_v_2::create(
-///         "bucket",
-///         BucketV2Args::builder().bucket("your-bucket-name").build_struct(),
-///     );
-///     let bucketNotification = bucket_notification::create(
-///         "bucketNotification",
-///         BucketNotificationArgs::builder()
-///             .bucket("${bucket.id}")
-///             .topics(
-///                 vec![
-///                     BucketNotificationTopic::builder()
-///                     .events(vec!["s3:ObjectCreated:*",]).filterSuffix(".log")
-///                     .topicArn("${topicTopic.arn}").build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let topicTopic = topic::create(
-///         "topicTopic",
-///         TopicArgs::builder()
-///             .name("s3-event-notification-topic")
-///             .policy("${topic.json}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   topicTopic:
+///     type: aws:sns:Topic
+///     name: topic
+///     properties:
+///       name: s3-event-notification-topic
+///       policy: ${topic.json}
+///   bucket:
+///     type: aws:s3:BucketV2
+///     properties:
+///       bucket: your-bucket-name
+///   bucketNotification:
+///     type: aws:s3:BucketNotification
+///     name: bucket_notification
+///     properties:
+///       bucket: ${bucket.id}
+///       topics:
+///         - topicArn: ${topicTopic.arn}
+///           events:
+///             - s3:ObjectCreated:*
+///           filterSuffix: .log
+/// variables:
+///   topic:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - s3.amazonaws.com
+///             actions:
+///               - SNS:Publish
+///             resources:
+///               - arn:aws:sns:*:*:s3-event-notification-topic
+///             conditions:
+///               - test: ArnLike
+///                 variable: aws:SourceArn
+///                 values:
+///                   - ${bucket.arn}
 /// ```
 ///
 /// ### Add notification configuration to SQS Queue
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let queue = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sqs:SendMessage",])
-///                     .conditions(vec![GetPolicyDocumentStatementCondition::builder()
-///                     .test("ArnEquals").values(vec!["${bucket.arn}",])
-///                     .variable("aws:SourceArn").build_struct(),]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["*",]). type ("*").build_struct(),])
-///                     .resources(vec!["arn:aws:sqs:*:*:s3-event-notification-queue",])
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let bucket = bucket_v_2::create(
-///         "bucket",
-///         BucketV2Args::builder().bucket("your-bucket-name").build_struct(),
-///     );
-///     let bucketNotification = bucket_notification::create(
-///         "bucketNotification",
-///         BucketNotificationArgs::builder()
-///             .bucket("${bucket.id}")
-///             .queues(
-///                 vec![
-///                     BucketNotificationQueue::builder()
-///                     .events(vec!["s3:ObjectCreated:*",]).filterSuffix(".log")
-///                     .queueArn("${queueQueue.arn}").build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let queueQueue = queue::create(
-///         "queueQueue",
-///         QueueArgs::builder()
-///             .name("s3-event-notification-queue")
-///             .policy("${queue.json}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   queueQueue:
+///     type: aws:sqs:Queue
+///     name: queue
+///     properties:
+///       name: s3-event-notification-queue
+///       policy: ${queue.json}
+///   bucket:
+///     type: aws:s3:BucketV2
+///     properties:
+///       bucket: your-bucket-name
+///   bucketNotification:
+///     type: aws:s3:BucketNotification
+///     name: bucket_notification
+///     properties:
+///       bucket: ${bucket.id}
+///       queues:
+///         - queueArn: ${queueQueue.arn}
+///           events:
+///             - s3:ObjectCreated:*
+///           filterSuffix: .log
+/// variables:
+///   queue:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: '*'
+///                 identifiers:
+///                   - '*'
+///             actions:
+///               - sqs:SendMessage
+///             resources:
+///               - arn:aws:sqs:*:*:s3-event-notification-queue
+///             conditions:
+///               - test: ArnEquals
+///                 variable: aws:SourceArn
+///                 values:
+///                   - ${bucket.arn}
 /// ```
 ///
 /// ### Add notification configuration to Lambda Function
@@ -152,13 +142,13 @@
 ///           filterPrefix: AWSLogs/
 ///           filterSuffix: .log
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${allowBucket}
 /// variables:
 ///   assumeRole:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - effect: Allow
 ///             principals:
@@ -235,14 +225,14 @@
 ///           filterPrefix: OtherLogs/
 ///           filterSuffix: .log
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${allowBucket1}
 ///         - ${allowBucket2}
 /// variables:
 ///   assumeRole:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - effect: Allow
 ///             principals:
@@ -255,57 +245,54 @@
 ///
 /// ### Add multiple notification configurations to SQS Queue
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let queue = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sqs:SendMessage",])
-///                     .conditions(vec![GetPolicyDocumentStatementCondition::builder()
-///                     .test("ArnEquals").values(vec!["${bucket.arn}",])
-///                     .variable("aws:SourceArn").build_struct(),]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["*",]). type ("*").build_struct(),])
-///                     .resources(vec!["arn:aws:sqs:*:*:s3-event-notification-queue",])
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let bucket = bucket_v_2::create(
-///         "bucket",
-///         BucketV2Args::builder().bucket("your-bucket-name").build_struct(),
-///     );
-///     let bucketNotification = bucket_notification::create(
-///         "bucketNotification",
-///         BucketNotificationArgs::builder()
-///             .bucket("${bucket.id}")
-///             .queues(
-///                 vec![
-///                     BucketNotificationQueue::builder()
-///                     .events(vec!["s3:ObjectCreated:*",]).filterPrefix("images/")
-///                     .id("image-upload-event").queueArn("${queueQueue.arn}")
-///                     .build_struct(), BucketNotificationQueue::builder()
-///                     .events(vec!["s3:ObjectCreated:*",]).filterPrefix("videos/")
-///                     .id("video-upload-event").queueArn("${queueQueue.arn}")
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let queueQueue = queue::create(
-///         "queueQueue",
-///         QueueArgs::builder()
-///             .name("s3-event-notification-queue")
-///             .policy("${queue.json}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   queueQueue:
+///     type: aws:sqs:Queue
+///     name: queue
+///     properties:
+///       name: s3-event-notification-queue
+///       policy: ${queue.json}
+///   bucket:
+///     type: aws:s3:BucketV2
+///     properties:
+///       bucket: your-bucket-name
+///   bucketNotification:
+///     type: aws:s3:BucketNotification
+///     name: bucket_notification
+///     properties:
+///       bucket: ${bucket.id}
+///       queues:
+///         - id: image-upload-event
+///           queueArn: ${queueQueue.arn}
+///           events:
+///             - s3:ObjectCreated:*
+///           filterPrefix: images/
+///         - id: video-upload-event
+///           queueArn: ${queueQueue.arn}
+///           events:
+///             - s3:ObjectCreated:*
+///           filterPrefix: videos/
+/// variables:
+///   queue:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: '*'
+///                 identifiers:
+///                   - '*'
+///             actions:
+///               - sqs:SendMessage
+///             resources:
+///               - arn:aws:sqs:*:*:s3-event-notification-queue
+///             conditions:
+///               - test: ArnEquals
+///                 variable: aws:SourceArn
+///                 values:
+///                   - ${bucket.arn}
 /// ```
 ///
 /// For JSON syntax, use an array instead of defining the `queue` key twice.

@@ -1,38 +1,36 @@
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = get_instances::invoke(GetInstancesArgs::builder().build_struct());
-///     let exampleGetPolicyDocument = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["s3:ListAllMyBuckets", "s3:GetBucketLocation",])
-///                     .resources(vec!["arn:aws:s3:::*",]).sid("1").build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let examplePermissionSet = permission_set::create(
-///         "examplePermissionSet",
-///         PermissionSetArgs::builder()
-///             .instance_arn("${example.arns[0]}")
-///             .name("Example")
-///             .build_struct(),
-///     );
-///     let examplePermissionSetInlinePolicy = permission_set_inline_policy::create(
-///         "examplePermissionSetInlinePolicy",
-///         PermissionSetInlinePolicyArgs::builder()
-///             .inline_policy("${exampleGetPolicyDocument.json}")
-///             .instance_arn("${example.arns[0]}")
-///             .permission_set_arn("${examplePermissionSet.arn}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   examplePermissionSet:
+///     type: aws:ssoadmin:PermissionSet
+///     name: example
+///     properties:
+///       name: Example
+///       instanceArn: ${example.arns[0]}
+///   examplePermissionSetInlinePolicy:
+///     type: aws:ssoadmin:PermissionSetInlinePolicy
+///     name: example
+///     properties:
+///       inlinePolicy: ${exampleGetPolicyDocument.json}
+///       instanceArn: ${example.arns[0]}
+///       permissionSetArn: ${examplePermissionSet.arn}
+/// variables:
+///   example:
+///     fn::invoke:
+///       function: aws:ssoadmin:getInstances
+///       arguments: {}
+///   exampleGetPolicyDocument:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - sid: '1'
+///             actions:
+///               - s3:ListAllMyBuckets
+///               - s3:GetBucketLocation
+///             resources:
+///               - arn:aws:s3:::*
 /// ```
 ///
 /// ## Import

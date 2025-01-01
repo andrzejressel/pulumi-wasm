@@ -57,7 +57,7 @@
 ///       vpcSecurityGroupIds:
 ///         - sg-12345678
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${["dms-access-for-endpoint-AmazonDMSRedshiftS3Role"]}
 ///         - ${["dms-cloudwatch-logs-role-AmazonDMSCloudWatchLogsRole"]}
 ///         - ${["dms-vpc-role-AmazonDMSVPCManagementRole"]}
@@ -70,8 +70,8 @@
 ///   #  * dms-access-for-endpoint
 ///   dmsAssumeRole:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - actions:
 ///               - sts:AssumeRole

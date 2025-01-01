@@ -4,44 +4,37 @@
 ///
 /// Basic usage:
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let assumeRole = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sts:AssumeRole",])
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["sagemaker.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let test = get_prebuilt_ecr_image::invoke(
-///         GetPrebuiltEcrImageArgs::builder().repository_name("kmeans").build_struct(),
-///     );
-///     let example = model::create(
-///         "example",
-///         ModelArgs::builder()
-///             .execution_role_arn("${exampleRole.arn}")
-///             .name("my-model")
-///             .primary_container(
-///                 ModelPrimaryContainer::builder()
-///                     .image("${test.registryPath}")
-///                     .build_struct(),
-///             )
-///             .build_struct(),
-///     );
-///     let exampleRole = role::create(
-///         "exampleRole",
-///         RoleArgs::builder().assume_role_policy("${assumeRole.json}").build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:sagemaker:Model
+///     properties:
+///       name: my-model
+///       executionRoleArn: ${exampleRole.arn}
+///       primaryContainer:
+///         image: ${test.registryPath}
+///   exampleRole:
+///     type: aws:iam:Role
+///     name: example
+///     properties:
+///       assumeRolePolicy: ${assumeRole.json}
+/// variables:
+///   assumeRole:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - actions:
+///               - sts:AssumeRole
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - sagemaker.amazonaws.com
+///   test:
+///     fn::invoke:
+///       function: aws:sagemaker:getPrebuiltEcrImage
+///       arguments:
+///         repositoryName: kmeans
 /// ```
 ///
 /// ## Inference Execution Config

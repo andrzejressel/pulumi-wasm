@@ -28,7 +28,7 @@
 ///     properties:
 ///       name: example
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${example}
 /// ```
 ///

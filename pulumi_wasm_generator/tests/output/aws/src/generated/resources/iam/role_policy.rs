@@ -33,7 +33,7 @@
 ///           Statement:
 ///             - Action: sts:AssumeRole
 ///               Effect: Allow
-///               Sid:
+///               Sid: ""
 ///               Principal:
 ///                 Service: ec2.amazonaws.com
 /// ```

@@ -41,13 +41,13 @@
 ///           acmPcaArn: ${example.arn}
 ///         sourceType: AWS_ACM_PCA
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${exampleCertificateAuthorityCertificate}
 /// variables:
 ///   current:
 ///     fn::invoke:
-///       Function: aws:getPartition
-///       Arguments: {}
+///       function: aws:getPartition
+///       arguments: {}
 /// ```
 ///
 /// ## Import

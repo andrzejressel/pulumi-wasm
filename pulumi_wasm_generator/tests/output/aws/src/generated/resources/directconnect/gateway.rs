@@ -40,6 +40,8 @@ pub mod gateway {
     pub struct GatewayResult {
         /// The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
         pub amazon_side_asn: pulumi_wasm_rust::Output<String>,
+        /// The ARN of the gateway.
+        pub arn: pulumi_wasm_rust::Output<String>,
         /// The name of the connection.
         pub name: pulumi_wasm_rust::Output<String>,
         /// AWS Account ID of the gateway.
@@ -72,6 +74,9 @@ pub mod gateway {
                     name: "amazonSideAsn".into(),
                 },
                 register_interface::ResultField {
+                    name: "arn".into(),
+                },
+                register_interface::ResultField {
                     name: "name".into(),
                 },
                 register_interface::ResultField {
@@ -88,6 +93,9 @@ pub mod gateway {
         GatewayResult {
             amazon_side_asn: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("amazonSideAsn").unwrap(),
+            ),
+            arn: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("arn").unwrap(),
             ),
             name: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("name").unwrap(),

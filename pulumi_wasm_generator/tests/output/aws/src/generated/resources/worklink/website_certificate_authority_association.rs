@@ -16,10 +16,10 @@
 ///       fleetArn: ${testAwsWorklinkFleet.arn}
 ///       certificate:
 ///         fn::invoke:
-///           Function: std:file
-///           Arguments:
+///           function: std:file
+///           arguments:
 ///             input: certificate.pem
-///           Return: result
+///           return: result
 /// ```
 ///
 /// ## Import

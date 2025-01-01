@@ -2,62 +2,55 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let assumeRole = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sts:AssumeRole",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["pinpoint.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let rolePolicy = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["mobileanalytics:PutEvents",
-///                     "mobileanalytics:PutItems",]).effect("Allow").resources(vec!["*",])
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let app = app::create("app", AppArgs::builder().build_struct());
-///     let email = email_channel::create(
-///         "email",
-///         EmailChannelArgs::builder()
-///             .application_id("${app.applicationId}")
-///             .from_address("user@example.com")
-///             .role_arn("${role.arn}")
-///             .build_struct(),
-///     );
-///     let identity = domain_identity::create(
-///         "identity",
-///         DomainIdentityArgs::builder().domain("example.com").build_struct(),
-///     );
-///     let role = role::create(
-///         "role",
-///         RoleArgs::builder().assume_role_policy("${assumeRole.json}").build_struct(),
-///     );
-///     let rolePolicyRolePolicy = role_policy::create(
-///         "rolePolicyRolePolicy",
-///         RolePolicyArgs::builder()
-///             .name("role_policy")
-///             .policy("${rolePolicy.json}")
-///             .role("${role.id}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   email:
+///     type: aws:pinpoint:EmailChannel
+///     properties:
+///       applicationId: ${app.applicationId}
+///       fromAddress: user@example.com
+///       roleArn: ${role.arn}
+///   app:
+///     type: aws:pinpoint:App
+///   identity:
+///     type: aws:ses:DomainIdentity
+///     properties:
+///       domain: example.com
+///   role:
+///     type: aws:iam:Role
+///     properties:
+///       assumeRolePolicy: ${assumeRole.json}
+///   rolePolicyRolePolicy:
+///     type: aws:iam:RolePolicy
+///     name: role_policy
+///     properties:
+///       name: role_policy
+///       role: ${role.id}
+///       policy: ${rolePolicy.json}
+/// variables:
+///   assumeRole:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - pinpoint.amazonaws.com
+///             actions:
+///               - sts:AssumeRole
+///   rolePolicy:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             actions:
+///               - mobileanalytics:PutEvents
+///               - mobileanalytics:PutItems
+///             resources:
+///               - '*'
 /// ```
 ///
 /// ## Import

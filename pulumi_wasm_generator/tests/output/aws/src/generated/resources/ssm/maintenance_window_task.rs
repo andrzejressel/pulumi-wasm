@@ -49,10 +49,10 @@
 ///         lambdaParameters:
 ///           clientContext:
 ///             fn::invoke:
-///               Function: std:base64encode
-///               Arguments:
+///               function: std:base64encode
+///               arguments:
 ///                 input: '{"key1":"value1"}'
-///               Return: result
+///               return: result
 ///           payload: '{"key1":"value1"}'
 /// ```
 ///

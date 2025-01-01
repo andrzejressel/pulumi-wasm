@@ -2,41 +2,39 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let lbRo = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder().actions(vec!["ec2:Describe*",])
-///                     .effect("Allow").resources(vec!["*",]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let lb = access_key::create(
-///         "lb",
-///         AccessKeyArgs::builder()
-///             .pgp_key("keybase:some_person_that_exists")
-///             .user("${lbUser.name}")
-///             .build_struct(),
-///     );
-///     let lbRoUserPolicy = user_policy::create(
-///         "lbRoUserPolicy",
-///         UserPolicyArgs::builder()
-///             .name("test")
-///             .policy("${lbRo.json}")
-///             .user("${lbUser.name}")
-///             .build_struct(),
-///     );
-///     let lbUser = user::create(
-///         "lbUser",
-///         UserArgs::builder().name("loadbalancer").path("/system/").build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   lb:
+///     type: aws:iam:AccessKey
+///     properties:
+///       user: ${lbUser.name}
+///       pgpKey: keybase:some_person_that_exists
+///   lbUser:
+///     type: aws:iam:User
+///     name: lb
+///     properties:
+///       name: loadbalancer
+///       path: /system/
+///   lbRoUserPolicy:
+///     type: aws:iam:UserPolicy
+///     name: lb_ro
+///     properties:
+///       name: test
+///       user: ${lbUser.name}
+///       policy: ${lbRo.json}
+/// variables:
+///   lbRo:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             actions:
+///               - ec2:Describe*
+///             resources:
+///               - '*'
+/// outputs:
+///   secret: ${lb.encryptedSecret}
 /// ```
 ///
 /// ```ignore

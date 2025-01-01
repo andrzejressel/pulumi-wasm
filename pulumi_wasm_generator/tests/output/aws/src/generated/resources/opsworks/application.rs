@@ -27,16 +27,16 @@
 ///       sslConfigurations:
 ///         - privateKey:
 ///             fn::invoke:
-///               Function: std:file
-///               Arguments:
+///               function: std:file
+///               arguments:
 ///                 input: ./foobar.key
-///               Return: result
+///               return: result
 ///           certificate:
 ///             fn::invoke:
-///               Function: std:file
-///               Arguments:
+///               function: std:file
+///               arguments:
 ///                 input: ./foobar.crt
-///               Return: result
+///               return: result
 ///       documentRoot: public
 ///       autoBundleOnDeploy: true
 ///       railsEnv: staging

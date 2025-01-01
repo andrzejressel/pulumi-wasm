@@ -73,6 +73,9 @@ pub mod vpc_endpoint_service {
         /// The supported IP address types. The possible values are `ipv4` and `ipv6`.
         #[builder(into, default)]
         pub supported_ip_address_types: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        /// The set of regions from which service consumers can access the service.
+        #[builder(into, default)]
+        pub supported_regions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
         pub tags: pulumi_wasm_rust::Output<
@@ -111,6 +114,8 @@ pub mod vpc_endpoint_service {
         pub state: pulumi_wasm_rust::Output<String>,
         /// The supported IP address types. The possible values are `ipv4` and `ipv6`.
         pub supported_ip_address_types: pulumi_wasm_rust::Output<Vec<String>>,
+        /// The set of regions from which service consumers can access the service.
+        pub supported_regions: pulumi_wasm_rust::Output<Vec<String>>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         pub tags: pulumi_wasm_rust::Output<
             Option<std::collections::HashMap<String, String>>,
@@ -139,6 +144,7 @@ pub mod vpc_endpoint_service {
         let supported_ip_address_types_binding = args
             .supported_ip_address_types
             .get_inner();
+        let supported_regions_binding = args.supported_regions.get_inner();
         let tags_binding = args.tags.get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpcEndpointService:VpcEndpointService".into(),
@@ -167,6 +173,10 @@ pub mod vpc_endpoint_service {
                 register_interface::ObjectField {
                     name: "supportedIpAddressTypes".into(),
                     value: &supported_ip_address_types_binding,
+                },
+                register_interface::ObjectField {
+                    name: "supportedRegions".into(),
+                    value: &supported_regions_binding,
                 },
                 register_interface::ObjectField {
                     name: "tags".into(),
@@ -215,6 +225,9 @@ pub mod vpc_endpoint_service {
                 },
                 register_interface::ResultField {
                     name: "supportedIpAddressTypes".into(),
+                },
+                register_interface::ResultField {
+                    name: "supportedRegions".into(),
                 },
                 register_interface::ResultField {
                     name: "tags".into(),
@@ -272,6 +285,9 @@ pub mod vpc_endpoint_service {
             ),
             supported_ip_address_types: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("supportedIpAddressTypes").unwrap(),
+            ),
+            supported_regions: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("supportedRegions").unwrap(),
             ),
             tags: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("tags").unwrap(),

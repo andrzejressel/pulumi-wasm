@@ -30,7 +30,7 @@
 ///     properties:
 ///       domain: ${example.id}
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${exampleAmazonsesVerificationRecord}
 /// ```
 pub mod domain_identity_verification {

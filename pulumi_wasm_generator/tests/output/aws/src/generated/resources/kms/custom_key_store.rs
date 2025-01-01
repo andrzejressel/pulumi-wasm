@@ -14,10 +14,10 @@
 ///       keyStorePassword: noplaintextpasswords1
 ///       trustAnchorCertificate:
 ///         fn::invoke:
-///           Function: std:file
-///           Arguments:
+///           function: std:file
+///           arguments:
 ///             input: anchor-certificate.crt
-///           Return: result
+///           return: result
 /// ```
 ///
 /// ## Import

@@ -45,7 +45,7 @@
 ///           Statement:
 ///             - Action: sts:AssumeRole
 ///               Effect: Allow
-///               Sid:
+///               Sid: ""
 ///               Principal:
 ///                 Service: lambda.amazonaws.com
 /// ```
@@ -93,7 +93,7 @@
 ///           Statement:
 ///             - Action: sts:AssumeRole
 ///               Effect: Allow
-///               Sid:
+///               Sid: ""
 ///               Principal:
 ///                 Service: lambda.amazonaws.com
 /// ```
@@ -145,11 +145,11 @@
 ///     name: logging
 ///     properties:
 ///       destinationArn: ${loggingFunction.arn}
-///       filterPattern:
+///       filterPattern: ""
 ///       logGroup: ${default.name}
 ///       name: logging_default
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${logging}
 ///   loggingFunction:
 ///     type: aws:lambda:Function
@@ -170,8 +170,8 @@
 /// variables:
 ///   assumeRole:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - effect: Allow
 ///             principals:

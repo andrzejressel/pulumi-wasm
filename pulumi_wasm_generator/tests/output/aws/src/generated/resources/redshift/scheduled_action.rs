@@ -2,75 +2,61 @@
 ///
 /// ### Pause Cluster Action
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let assumeRole = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sts:AssumeRole",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["scheduler.redshift.amazonaws.com",]). type
-///                     ("Service").build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let example = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["redshift:PauseCluster", "redshift:ResumeCluster",
-///                     "redshift:ResizeCluster",]).effect("Allow").resources(vec!["*",])
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let examplePolicy = policy::create(
-///         "examplePolicy",
-///         PolicyArgs::builder()
-///             .name("redshift_scheduled_action")
-///             .policy("${example.json}")
-///             .build_struct(),
-///     );
-///     let exampleRole = role::create(
-///         "exampleRole",
-///         RoleArgs::builder()
-///             .assume_role_policy("${assumeRole.json}")
-///             .name("redshift_scheduled_action")
-///             .build_struct(),
-///     );
-///     let exampleRolePolicyAttachment = role_policy_attachment::create(
-///         "exampleRolePolicyAttachment",
-///         RolePolicyAttachmentArgs::builder()
-///             .policy_arn("${examplePolicy.arn}")
-///             .role("${exampleRole.name}")
-///             .build_struct(),
-///     );
-///     let exampleScheduledAction = scheduled_action::create(
-///         "exampleScheduledAction",
-///         ScheduledActionArgs::builder()
-///             .iam_role("${exampleRole.arn}")
-///             .name("tf-redshift-scheduled-action")
-///             .schedule("cron(00 23 * * ? *)")
-///             .target_action(
-///                 ScheduledActionTargetAction::builder()
-///                     .pauseCluster(
-///                         ScheduledActionTargetActionPauseCluster::builder()
-///                             .clusterIdentifier("tf-redshift001")
-///                             .build_struct(),
-///                     )
-///                     .build_struct(),
-///             )
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleRole:
+///     type: aws:iam:Role
+///     name: example
+///     properties:
+///       name: redshift_scheduled_action
+///       assumeRolePolicy: ${assumeRole.json}
+///   examplePolicy:
+///     type: aws:iam:Policy
+///     name: example
+///     properties:
+///       name: redshift_scheduled_action
+///       policy: ${example.json}
+///   exampleRolePolicyAttachment:
+///     type: aws:iam:RolePolicyAttachment
+///     name: example
+///     properties:
+///       policyArn: ${examplePolicy.arn}
+///       role: ${exampleRole.name}
+///   exampleScheduledAction:
+///     type: aws:redshift:ScheduledAction
+///     name: example
+///     properties:
+///       name: tf-redshift-scheduled-action
+///       schedule: cron(00 23 * * ? *)
+///       iamRole: ${exampleRole.arn}
+///       targetAction:
+///         pauseCluster:
+///           clusterIdentifier: tf-redshift001
+/// variables:
+///   assumeRole:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - scheduler.redshift.amazonaws.com
+///             actions:
+///               - sts:AssumeRole
+///   example:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             actions:
+///               - redshift:PauseCluster
+///               - redshift:ResumeCluster
+///               - redshift:ResizeCluster
+///             resources:
+///               - '*'
 /// ```
 ///
 /// ### Resize Cluster Action

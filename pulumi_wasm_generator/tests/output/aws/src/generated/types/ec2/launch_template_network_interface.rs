@@ -2,14 +2,11 @@
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
 pub struct LaunchTemplateNetworkInterface {
-    /// Associate a Carrier IP address with `eth0` for a new network interface.
-    /// Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface.
-    /// Boolean value, can be left unset.
+    /// Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value, can be left unset.
     #[builder(into, default)]
     #[serde(rename = "associateCarrierIpAddress")]
     pub r#associate_carrier_ip_address: Box<Option<String>>,
-    /// Associate a public ip address with the network interface.
-    /// Boolean value, can be left unset.
+    /// Associate a public ip address with the network interface. Boolean value, can be left unset.
     #[builder(into, default)]
     #[serde(rename = "associatePublicIpAddress")]
     pub r#associate_public_ip_address: Box<Option<String>>,

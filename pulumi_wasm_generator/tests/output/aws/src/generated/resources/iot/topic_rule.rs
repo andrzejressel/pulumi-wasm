@@ -2,85 +2,68 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let assumeRole = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sts:AssumeRole",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["iot.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let mypolicy = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder().actions(vec!["sns:Publish",])
-///                     .effect("Allow").resources(vec!["${mytopic.arn}",]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let myerrortopic = topic::create(
-///         "myerrortopic",
-///         TopicArgs::builder().name("myerrortopic").build_struct(),
-///     );
-///     let mypolicyRolePolicy = role_policy::create(
-///         "mypolicyRolePolicy",
-///         RolePolicyArgs::builder()
-///             .name("mypolicy")
-///             .policy("${mypolicy.json}")
-///             .role("${myrole.id}")
-///             .build_struct(),
-///     );
-///     let myrole = role::create(
-///         "myrole",
-///         RoleArgs::builder()
-///             .assume_role_policy("${assumeRole.json}")
-///             .name("myrole")
-///             .build_struct(),
-///     );
-///     let mytopic = topic::create(
-///         "mytopic",
-///         TopicArgs::builder().name("mytopic").build_struct(),
-///     );
-///     let rule = topic_rule::create(
-///         "rule",
-///         TopicRuleArgs::builder()
-///             .description("Example rule")
-///             .enabled(true)
-///             .error_action(
-///                 TopicRuleErrorAction::builder()
-///                     .sns(
-///                         TopicRuleErrorActionSns::builder()
-///                             .messageFormat("RAW")
-///                             .roleArn("${role.arn}")
-///                             .targetArn("${myerrortopic.arn}")
-///                             .build_struct(),
-///                     )
-///                     .build_struct(),
-///             )
-///             .name("MyRule")
-///             .sns(
-///                 vec![
-///                     TopicRuleSns::builder().messageFormat("RAW").roleArn("${role.arn}")
-///                     .targetArn("${mytopic.arn}").build_struct(),
-///                 ],
-///             )
-///             .sql("SELECT * FROM 'topic/test'")
-///             .sql_version("2016-03-23")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   rule:
+///     type: aws:iot:TopicRule
+///     properties:
+///       name: MyRule
+///       description: Example rule
+///       enabled: true
+///       sql: SELECT * FROM 'topic/test'
+///       sqlVersion: 2016-03-23
+///       sns:
+///         - messageFormat: RAW
+///           roleArn: ${role.arn}
+///           targetArn: ${mytopic.arn}
+///       errorAction:
+///         sns:
+///           messageFormat: RAW
+///           roleArn: ${role.arn}
+///           targetArn: ${myerrortopic.arn}
+///   mytopic:
+///     type: aws:sns:Topic
+///     properties:
+///       name: mytopic
+///   myerrortopic:
+///     type: aws:sns:Topic
+///     properties:
+///       name: myerrortopic
+///   myrole:
+///     type: aws:iam:Role
+///     properties:
+///       name: myrole
+///       assumeRolePolicy: ${assumeRole.json}
+///   mypolicyRolePolicy:
+///     type: aws:iam:RolePolicy
+///     name: mypolicy
+///     properties:
+///       name: mypolicy
+///       role: ${myrole.id}
+///       policy: ${mypolicy.json}
+/// variables:
+///   assumeRole:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - iot.amazonaws.com
+///             actions:
+///               - sts:AssumeRole
+///   mypolicy:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             actions:
+///               - sns:Publish
+///             resources:
+///               - ${mytopic.arn}
 /// ```
 ///
 /// ## Import

@@ -11,10 +11,10 @@
 ///     properties:
 ///       csr:
 ///         fn::invoke:
-///           Function: std:file
-///           Arguments:
+///           function: std:file
+///           arguments:
 ///             input: /my/csr.pem
-///           Return: result
+///           return: result
 ///       active: true
 /// ```
 ///
@@ -41,10 +41,10 @@
 ///     properties:
 ///       certificatePem:
 ///         fn::invoke:
-///           Function: std:file
-///           Arguments:
+///           function: std:file
+///           arguments:
 ///             input: /my/cert.pem
-///           Return: result
+///           return: result
 ///       active: true
 /// ```
 pub mod certificate {

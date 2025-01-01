@@ -2,41 +2,40 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let policy = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["elasticfilesystem:ClientMount",
-///                     "elasticfilesystem:ClientWrite",])
-///                     .conditions(vec![GetPolicyDocumentStatementCondition::builder()
-///                     .test("Bool").values(vec!["true",]).variable("aws:SecureTransport")
-///                     .build_struct(),]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["*",]). type ("AWS").build_struct(),])
-///                     .resources(vec!["${fs.arn}",]).sid("ExampleStatement01")
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let fs = file_system::create(
-///         "fs",
-///         FileSystemArgs::builder().creation_token("my-product").build_struct(),
-///     );
-///     let policyFileSystemPolicy = file_system_policy::create(
-///         "policyFileSystemPolicy",
-///         FileSystemPolicyArgs::builder()
-///             .file_system_id("${fs.id}")
-///             .policy("${policy.json}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   fs:
+///     type: aws:efs:FileSystem
+///     properties:
+///       creationToken: my-product
+///   policyFileSystemPolicy:
+///     type: aws:efs:FileSystemPolicy
+///     name: policy
+///     properties:
+///       fileSystemId: ${fs.id}
+///       policy: ${policy.json}
+/// variables:
+///   policy:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - sid: ExampleStatement01
+///             effect: Allow
+///             principals:
+///               - type: AWS
+///                 identifiers:
+///                   - '*'
+///             actions:
+///               - elasticfilesystem:ClientMount
+///               - elasticfilesystem:ClientWrite
+///             resources:
+///               - ${fs.arn}
+///             conditions:
+///               - test: Bool
+///                 variable: aws:SecureTransport
+///                 values:
+///                   - 'true'
 /// ```
 ///
 /// ## Import

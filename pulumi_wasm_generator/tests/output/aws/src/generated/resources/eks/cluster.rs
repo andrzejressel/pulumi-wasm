@@ -2,226 +2,268 @@
 ///
 /// ## Example Usage
 ///
-/// ### Basic Usage
-///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = cluster::create(
-///         "example",
-///         ClusterArgs::builder()
-///             .name("example")
-///             .role_arn("${exampleAwsIamRole.arn}")
-///             .vpc_config(
-///                 ClusterVpcConfig::builder()
-///                     .subnetIds(vec!["${example1.id}", "${example2.id}",])
-///                     .build_struct(),
-///             )
-///             .build_struct(),
-///     );
-/// }
-/// ```
-///
-/// ### Example IAM Role for EKS Cluster
+/// ### EKS Cluster
 ///
 /// ```yaml
 /// resources:
 ///   example:
+///     type: aws:eks:Cluster
+///     properties:
+///       name: example
+///       accessConfig:
+///         authenticationMode: API
+///       roleArn: ${exampleAwsIamRole.arn}
+///       version: '1.31'
+///       vpcConfig:
+///         subnetIds:
+///           - ${az1.id}
+///           - ${az2.id}
+///           - ${az3.id}
+///     options:
+///       dependsOn:
+///         - ${clusterAmazonEKSClusterPolicy}
+///   cluster:
 ///     type: aws:iam:Role
 ///     properties:
 ///       name: eks-cluster-example
-///       assumeRolePolicy: ${assumeRole.json}
-///   example-AmazonEKSClusterPolicy:
+///       assumeRolePolicy:
+///         fn::toJSON:
+///           Version: 2012-10-17
+///           Statement:
+///             - Action:
+///                 - sts:AssumeRole
+///                 - sts:TagSession
+///               Effect: Allow
+///               Principal:
+///                 Service: eks.amazonaws.com
+///   clusterAmazonEKSClusterPolicy:
 ///     type: aws:iam:RolePolicyAttachment
+///     name: cluster_AmazonEKSClusterPolicy
 ///     properties:
 ///       policyArn: arn:aws:iam::aws:policy/AmazonEKSClusterPolicy
-///       role: ${example.name}
-///   # Optionally, enable Security Groups for Pods
-///   # Reference: https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
-///   example-AmazonEKSVPCResourceController:
-///     type: aws:iam:RolePolicyAttachment
+///       role: ${cluster.name}
+/// ```
+///
+/// ### EKS Cluster with EKS Auto Mode
+///
+/// > **NOTE:** When using EKS Auto Mode `compute_config.enabled`, `kubernetes_network_config.elastic_load_balancing.enabled`, and `storage_config.block_storage.enabled` must *ALL be set to `true`. Likewise for disabling EKS Auto Mode, all three arguments must be set to `false`. Enabling EKS Auto Mode also requires that `bootstrap_self_managed_addons` is set to `false`.
+///
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:eks:Cluster
 ///     properties:
-///       policyArn: arn:aws:iam::aws:policy/AmazonEKSVPCResourceController
-///       role: ${example.name}
-/// variables:
-///   assumeRole:
-///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
-///         statements:
-///           - effect: Allow
-///             principals:
-///               - type: Service
-///                 identifiers:
-///                   - eks.amazonaws.com
-///             actions:
-///               - sts:AssumeRole
+///       name: example
+///       accessConfig:
+///         authenticationMode: API
+///       roleArn: ${cluster.arn}
+///       version: '1.31'
+///       bootstrapSelfManagedAddons: false
+///       computeConfig:
+///         enabled: true
+///         nodePools:
+///           - general-purpose
+///         nodeRoleArn: ${node.arn}
+///       kubernetesNetworkConfig:
+///         elasticLoadBalancing:
+///           enabled: true
+///       storageConfig:
+///         blockStorage:
+///           enabled: true
+///       vpcConfig:
+///         endpointPrivateAccess: true
+///         endpointPublicAccess: true
+///         subnetIds:
+///           - ${az1.id}
+///           - ${az2.id}
+///           - ${az3.id}
+///     options:
+///       dependsOn:
+///         - ${clusterAmazonEKSClusterPolicy}
+///         - ${clusterAmazonEKSComputePolicy}
+///         - ${clusterAmazonEKSBlockStoragePolicy}
+///         - ${clusterAmazonEKSLoadBalancingPolicy}
+///         - ${clusterAmazonEKSNetworkingPolicy}
+///   node:
+///     type: aws:iam:Role
+///     properties:
+///       name: eks-auto-node-example
+///       assumeRolePolicy:
+///         fn::toJSON:
+///           Version: 2012-10-17
+///           Statement:
+///             - Action:
+///                 - sts:AssumeRole
+///               Effect: Allow
+///               Principal:
+///                 Service: ec2.amazonaws.com
+///   nodeAmazonEKSWorkerNodeMinimalPolicy:
+///     type: aws:iam:RolePolicyAttachment
+///     name: node_AmazonEKSWorkerNodeMinimalPolicy
+///     properties:
+///       policyArn: arn:aws:iam::aws:policy/AmazonEKSWorkerNodeMinimalPolicy
+///       role: ${node.name}
+///   nodeAmazonEC2ContainerRegistryPullOnly:
+///     type: aws:iam:RolePolicyAttachment
+///     name: node_AmazonEC2ContainerRegistryPullOnly
+///     properties:
+///       policyArn: arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPullOnly
+///       role: ${node.name}
+///   cluster:
+///     type: aws:iam:Role
+///     properties:
+///       name: eks-cluster-example
+///       assumeRolePolicy:
+///         fn::toJSON:
+///           Version: 2012-10-17
+///           Statement:
+///             - Action:
+///                 - sts:AssumeRole
+///                 - sts:TagSession
+///               Effect: Allow
+///               Principal:
+///                 Service: eks.amazonaws.com
+///   clusterAmazonEKSClusterPolicy:
+///     type: aws:iam:RolePolicyAttachment
+///     name: cluster_AmazonEKSClusterPolicy
+///     properties:
+///       policyArn: arn:aws:iam::aws:policy/AmazonEKSClusterPolicy
+///       role: ${cluster.name}
+///   clusterAmazonEKSComputePolicy:
+///     type: aws:iam:RolePolicyAttachment
+///     name: cluster_AmazonEKSComputePolicy
+///     properties:
+///       policyArn: arn:aws:iam::aws:policy/AmazonEKSComputePolicy
+///       role: ${cluster.name}
+///   clusterAmazonEKSBlockStoragePolicy:
+///     type: aws:iam:RolePolicyAttachment
+///     name: cluster_AmazonEKSBlockStoragePolicy
+///     properties:
+///       policyArn: arn:aws:iam::aws:policy/AmazonEKSBlockStoragePolicy
+///       role: ${cluster.name}
+///   clusterAmazonEKSLoadBalancingPolicy:
+///     type: aws:iam:RolePolicyAttachment
+///     name: cluster_AmazonEKSLoadBalancingPolicy
+///     properties:
+///       policyArn: arn:aws:iam::aws:policy/AmazonEKSLoadBalancingPolicy
+///       role: ${cluster.name}
+///   clusterAmazonEKSNetworkingPolicy:
+///     type: aws:iam:RolePolicyAttachment
+///     name: cluster_AmazonEKSNetworkingPolicy
+///     properties:
+///       policyArn: arn:aws:iam::aws:policy/AmazonEKSNetworkingPolicy
+///       role: ${cluster.name}
 /// ```
 ///
-/// ### Enabling Control Plane Logging
+/// ### EKS Cluster with EKS Hybrid Nodes
 ///
-/// [EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) can be enabled via the `enabled_cluster_log_types` argument. To manage the CloudWatch Log Group retention period, the `aws.cloudwatch.LogGroup` resource can be used.
-///
-/// > The below configuration uses [`dependsOn`](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson) to prevent ordering issues with EKS automatically creating the log group first and a variable for naming consistency. Other ordering and naming methodologies may be more appropriate for your environment.
-///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = cluster::create(
-///         "example",
-///         ClusterArgs::builder()
-///             .enabled_cluster_log_types(vec!["api", "audit",])
-///             .name("${clusterName}")
-///             .build_struct(),
-///     );
-///     let exampleLogGroup = log_group::create(
-///         "exampleLogGroup",
-///         LogGroupArgs::builder()
-///             .name("/aws/eks/${clusterName}/cluster")
-///             .retention_in_days(7)
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:eks:Cluster
+///     properties:
+///       name: example
+///       accessConfig:
+///         authenticationMode: API
+///       roleArn: ${cluster.arn}
+///       version: '1.31'
+///       clusterRemoteNetworkConfig:
+///         remoteNodeNetworks:
+///           cidrs:
+///             - 172.16.0.0/18
+///         remotePodNetworks:
+///           cidrs:
+///             - 172.16.64.0/18
+///       vpcConfig:
+///         endpointPrivateAccess: true
+///         endpointPublicAccess: true
+///         subnetIds:
+///           - ${az1.id}
+///           - ${az2.id}
+///           - ${az3.id}
+///     options:
+///       dependsOn:
+///         - ${clusterAmazonEKSClusterPolicy}
+///   cluster:
+///     type: aws:iam:Role
+///     properties:
+///       name: eks-cluster-example
+///       assumeRolePolicy:
+///         fn::toJSON:
+///           Version: 2012-10-17
+///           Statement:
+///             - Action:
+///                 - sts:AssumeRole
+///                 - sts:TagSession
+///               Effect: Allow
+///               Principal:
+///                 Service: eks.amazonaws.com
+///   clusterAmazonEKSClusterPolicy:
+///     type: aws:iam:RolePolicyAttachment
+///     name: cluster_AmazonEKSClusterPolicy
+///     properties:
+///       policyArn: arn:aws:iam::aws:policy/AmazonEKSClusterPolicy
+///       role: ${cluster.name}
 /// ```
 ///
-/// ### Enabling IAM Roles for Service Accounts
+/// ### Local EKS Cluster on AWS Outpost
 ///
-/// For more information about this feature, see the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html).
+/// [Creating a local Amazon EKS cluster on an AWS Outpost](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html)
 ///
 /// ```yaml
 /// resources:
 ///   exampleCluster:
 ///     type: aws:eks:Cluster
 ///     name: example
-///   exampleOpenIdConnectProvider:
-///     type: aws:iam:OpenIdConnectProvider
-///     name: example
 ///     properties:
-///       clientIdLists:
-///         - sts.amazonaws.com
-///       thumbprintLists:
-///         - ${example.certificates[0].sha1Fingerprint}
-///       url: ${example.url}
-///   exampleRole:
-///     type: aws:iam:Role
-///     name: example
-///     properties:
-///       assumeRolePolicy: ${exampleAssumeRolePolicy.json}
 ///       name: example
+///       accessConfig:
+///         authenticationMode: CONFIG_MAP
+///       roleArn: ${exampleAwsIamRole.arn}
+///       version: '1.31'
+///       vpcConfig:
+///         endpointPrivateAccess: true
+///         endpointPublicAccess: false
+///         subnetIds:
+///           - ${az1.id}
+///           - ${az2.id}
+///           - ${az3.id}
+///       outpostConfig:
+///         controlPlaneInstanceType: m5.large
+///         outpostArns:
+///           - ${example.arn}
+///     options:
+///       dependsOn:
+///         - ${clusterAmazonEKSLocalOutpostClusterPolicy}
+///   cluster:
+///     type: aws:iam:Role
+///     properties:
+///       name: eks-cluster-example
+///       assumeRolePolicy:
+///         fn::toJSON:
+///           Version: 2012-10-17
+///           Statement:
+///             - Action:
+///                 - sts:AssumeRole
+///                 - sts:TagSession
+///               Effect: Allow
+///               Principal:
+///                 Service:
+///                   - eks.amazonaws.com
+///                   - ec2.amazonaws.com
+///   clusterAmazonEKSLocalOutpostClusterPolicy:
+///     type: aws:iam:RolePolicyAttachment
+///     name: cluster_AmazonEKSLocalOutpostClusterPolicy
+///     properties:
+///       policyArn: arn:aws:iam::aws:policy/AmazonEKSLocalOutpostClusterPolicy
+///       role: ${cluster.name}
 /// variables:
 ///   example:
 ///     fn::invoke:
-///       Function: tls:getCertificate
-///       Arguments:
-///         url: ${exampleCluster.identities[0].oidcs[0].issuer}
-///   exampleAssumeRolePolicy:
-///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
-///         statements:
-///           - actions:
-///               - sts:AssumeRoleWithWebIdentity
-///             effect: Allow
-///             conditions:
-///               - test: StringEquals
-///                 variable:
-///                   fn::join:
-///                     -
-///                     - - fn::invoke:
-///                           Function: std:replace
-///                           Arguments:
-///                             text: ${exampleOpenIdConnectProvider.url}
-///                             search: https://
-///                             replace:
-///                           Return: result
-///                       - :sub
-///                 values:
-///                   - system:serviceaccount:kube-system:aws-node
-///             principals:
-///               - identifiers:
-///                   - ${exampleOpenIdConnectProvider.arn}
-///                 type: Federated
+///       function: aws:outposts:getOutpost
+///       arguments:
+///         name: example
 /// ```
-///
-/// ### EKS Cluster on AWS Outpost
-///
-/// [Creating a local Amazon EKS cluster on an AWS Outpost](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html)
-///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = role::create(
-///         "example",
-///         RoleArgs::builder()
-///             .assume_role_policy("${exampleAssumeRolePolicy.json}")
-///             .name("example")
-///             .build_struct(),
-///     );
-///     let exampleCluster = cluster::create(
-///         "exampleCluster",
-///         ClusterArgs::builder()
-///             .name("example-cluster")
-///             .outpost_config(
-///                 ClusterOutpostConfig::builder()
-///                     .controlPlaneInstanceType("m5d.large")
-///                     .outpostArns(vec!["${exampleAwsOutpostsOutpost.arn}",])
-///                     .build_struct(),
-///             )
-///             .role_arn("${example.arn}")
-///             .vpc_config(
-///                 ClusterVpcConfig::builder()
-///                     .endpointPrivateAccess(true)
-///                     .endpointPublicAccess(false)
-///                     .build_struct(),
-///             )
-///             .build_struct(),
-///     );
-/// }
-/// ```
-///
-/// ### EKS Cluster with Access Config
-///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = role::create(
-///         "example",
-///         RoleArgs::builder()
-///             .assume_role_policy("${exampleAssumeRolePolicy.json}")
-///             .name("example")
-///             .build_struct(),
-///     );
-///     let exampleCluster = cluster::create(
-///         "exampleCluster",
-///         ClusterArgs::builder()
-///             .access_config(
-///                 ClusterAccessConfig::builder()
-///                     .authenticationMode("CONFIG_MAP")
-///                     .bootstrapClusterCreatorAdminPermissions(true)
-///                     .build_struct(),
-///             )
-///             .name("example-cluster")
-///             .role_arn("${example.arn}")
-///             .vpc_config(
-///                 ClusterVpcConfig::builder()
-///                     .endpointPrivateAccess(true)
-///                     .endpointPublicAccess(false)
-///                     .build_struct(),
-///             )
-///             .build_struct(),
-///     );
-/// }
-/// ```
-///
-/// After adding inline IAM Policies (e.g., `aws.iam.RolePolicy` resource) or attaching IAM Policies (e.g., `aws.iam.Policy` resource and `aws.iam.RolePolicyAttachment` resource) with the desired permissions to the IAM Role, annotate the Kubernetes service account (e.g., `kubernetes_service_account` resource) and recreate any pods.
 ///
 /// ## Import
 ///
@@ -243,6 +285,11 @@ pub mod cluster {
         /// Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
         #[builder(into, default)]
         pub bootstrap_self_managed_addons: pulumi_wasm_rust::Output<Option<bool>>,
+        /// Configuration block with compute configuration for EKS Auto Mode. Detailed below.
+        #[builder(into, default)]
+        pub compute_config: pulumi_wasm_rust::Output<
+            Option<super::super::types::eks::ClusterComputeConfig>,
+        >,
         #[builder(into, default)]
         pub default_addons_to_removes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
         /// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
@@ -266,9 +313,19 @@ pub mod cluster {
         pub outpost_config: pulumi_wasm_rust::Output<
             Option<super::super::types::eks::ClusterOutpostConfig>,
         >,
+        /// Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
+        #[builder(into, default)]
+        pub remote_network_config: pulumi_wasm_rust::Output<
+            Option<super::super::types::eks::ClusterRemoteNetworkConfig>,
+        >,
         /// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
         #[builder(into)]
         pub role_arn: pulumi_wasm_rust::Output<String>,
+        /// Configuration block with storage configuration for EKS Auto Mode. Detailed below.
+        #[builder(into, default)]
+        pub storage_config: pulumi_wasm_rust::Output<
+            Option<super::super::types::eks::ClusterStorageConfig>,
+        >,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
         pub tags: pulumi_wasm_rust::Output<
@@ -314,6 +371,10 @@ pub mod cluster {
         >,
         /// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
         pub cluster_id: pulumi_wasm_rust::Output<String>,
+        /// Configuration block with compute configuration for EKS Auto Mode. Detailed below.
+        pub compute_config: pulumi_wasm_rust::Output<
+            Option<super::super::types::eks::ClusterComputeConfig>,
+        >,
         /// Unix epoch timestamp in seconds for when the cluster was created.
         pub created_at: pulumi_wasm_rust::Output<String>,
         pub default_addons_to_removes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
@@ -341,10 +402,18 @@ pub mod cluster {
         >,
         /// Platform version for the cluster.
         pub platform_version: pulumi_wasm_rust::Output<String>,
+        /// Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
+        pub remote_network_config: pulumi_wasm_rust::Output<
+            Option<super::super::types::eks::ClusterRemoteNetworkConfig>,
+        >,
         /// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
         pub role_arn: pulumi_wasm_rust::Output<String>,
         /// Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
         pub status: pulumi_wasm_rust::Output<String>,
+        /// Configuration block with storage configuration for EKS Auto Mode. Detailed below.
+        pub storage_config: pulumi_wasm_rust::Output<
+            Option<super::super::types::eks::ClusterStorageConfig>,
+        >,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         pub tags: pulumi_wasm_rust::Output<
             Option<std::collections::HashMap<String, String>>,
@@ -381,6 +450,7 @@ pub mod cluster {
         let bootstrap_self_managed_addons_binding = args
             .bootstrap_self_managed_addons
             .get_inner();
+        let compute_config_binding = args.compute_config.get_inner();
         let default_addons_to_removes_binding = args
             .default_addons_to_removes
             .get_inner();
@@ -393,7 +463,9 @@ pub mod cluster {
             .get_inner();
         let name_binding = args.name.get_inner();
         let outpost_config_binding = args.outpost_config.get_inner();
+        let remote_network_config_binding = args.remote_network_config.get_inner();
         let role_arn_binding = args.role_arn.get_inner();
+        let storage_config_binding = args.storage_config.get_inner();
         let tags_binding = args.tags.get_inner();
         let upgrade_policy_binding = args.upgrade_policy.get_inner();
         let version_binding = args.version.get_inner();
@@ -410,6 +482,10 @@ pub mod cluster {
                 register_interface::ObjectField {
                     name: "bootstrapSelfManagedAddons".into(),
                     value: &bootstrap_self_managed_addons_binding,
+                },
+                register_interface::ObjectField {
+                    name: "computeConfig".into(),
+                    value: &compute_config_binding,
                 },
                 register_interface::ObjectField {
                     name: "defaultAddonsToRemoves".into(),
@@ -436,8 +512,16 @@ pub mod cluster {
                     value: &outpost_config_binding,
                 },
                 register_interface::ObjectField {
+                    name: "remoteNetworkConfig".into(),
+                    value: &remote_network_config_binding,
+                },
+                register_interface::ObjectField {
                     name: "roleArn".into(),
                     value: &role_arn_binding,
+                },
+                register_interface::ObjectField {
+                    name: "storageConfig".into(),
+                    value: &storage_config_binding,
                 },
                 register_interface::ObjectField {
                     name: "tags".into(),
@@ -480,6 +564,9 @@ pub mod cluster {
                     name: "clusterId".into(),
                 },
                 register_interface::ResultField {
+                    name: "computeConfig".into(),
+                },
+                register_interface::ResultField {
                     name: "createdAt".into(),
                 },
                 register_interface::ResultField {
@@ -510,10 +597,16 @@ pub mod cluster {
                     name: "platformVersion".into(),
                 },
                 register_interface::ResultField {
+                    name: "remoteNetworkConfig".into(),
+                },
+                register_interface::ResultField {
                     name: "roleArn".into(),
                 },
                 register_interface::ResultField {
                     name: "status".into(),
+                },
+                register_interface::ResultField {
+                    name: "storageConfig".into(),
                 },
                 register_interface::ResultField {
                     name: "tags".into(),
@@ -560,6 +653,9 @@ pub mod cluster {
             cluster_id: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("clusterId").unwrap(),
             ),
+            compute_config: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("computeConfig").unwrap(),
+            ),
             created_at: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("createdAt").unwrap(),
             ),
@@ -590,11 +686,17 @@ pub mod cluster {
             platform_version: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("platformVersion").unwrap(),
             ),
+            remote_network_config: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("remoteNetworkConfig").unwrap(),
+            ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("roleArn").unwrap(),
             ),
             status: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("status").unwrap(),
+            ),
+            storage_config: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("storageConfig").unwrap(),
             ),
             tags: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("tags").unwrap(),

@@ -15,6 +15,7 @@
 ///             .configuration_set_name("example")
 ///             .delivery_options(
 ///                 ConfigurationSetDeliveryOptions::builder()
+///                     .maxDeliverySeconds(300)
 ///                     .tlsPolicy("REQUIRE")
 ///                     .build_struct(),
 ///             )
@@ -36,6 +37,7 @@
 ///             .tracking_options(
 ///                 ConfigurationSetTrackingOptions::builder()
 ///                     .customRedirectDomain("example.com")
+///                     .httpsPolicy("REQUIRE")
 ///                     .build_struct(),
 ///             )
 ///             .build_struct(),

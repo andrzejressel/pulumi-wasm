@@ -4,45 +4,38 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = get_ami::invoke(
-///         GetAmiArgs::builder()
-///             .filters(
-///                 vec![
-///                     GetAmiFilter::builder().name("name")
-///                     .values(vec!["amzn-ami-vpc-nat*",]).build_struct(),
-///                 ],
-///             )
-///             .most_recent(true)
-///             .owners(vec!["amazon",])
-///             .build_struct(),
-///     );
-///     let exampleAssociation = association::create(
-///         "exampleAssociation",
-///         AssociationArgs::builder()
-///             .license_configuration_arn("${exampleLicenseConfiguration.arn}")
-///             .resource_arn("${exampleInstance.arn}")
-///             .build_struct(),
-///     );
-///     let exampleInstance = instance::create(
-///         "exampleInstance",
-///         InstanceArgs::builder()
-///             .ami("${example.id}")
-///             .instance_type("t2.micro")
-///             .build_struct(),
-///     );
-///     let exampleLicenseConfiguration = license_configuration::create(
-///         "exampleLicenseConfiguration",
-///         LicenseConfigurationArgs::builder()
-///             .license_counting_type("Instance")
-///             .name("Example")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleInstance:
+///     type: aws:ec2:Instance
+///     name: example
+///     properties:
+///       ami: ${example.id}
+///       instanceType: t2.micro
+///   exampleLicenseConfiguration:
+///     type: aws:licensemanager:LicenseConfiguration
+///     name: example
+///     properties:
+///       name: Example
+///       licenseCountingType: Instance
+///   exampleAssociation:
+///     type: aws:licensemanager:Association
+///     name: example
+///     properties:
+///       licenseConfigurationArn: ${exampleLicenseConfiguration.arn}
+///       resourceArn: ${exampleInstance.arn}
+/// variables:
+///   example:
+///     fn::invoke:
+///       function: aws:ec2:getAmi
+///       arguments:
+///         mostRecent: true
+///         owners:
+///           - amazon
+///         filters:
+///           - name: name
+///             values:
+///               - amzn-ami-vpc-nat*
 /// ```
 ///
 /// ## Import

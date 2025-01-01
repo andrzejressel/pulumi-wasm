@@ -31,8 +31,8 @@
 /// variables:
 ///   example:
 ///     fn::invoke:
-///       Function: aws:secretsmanager:getSecret
-///       Arguments:
+///       function: aws:secretsmanager:getSecret
+///       arguments:
 ///         name: example-secret
 /// ```
 ///
@@ -70,7 +70,7 @@
 ///         CONNECTOR_CLASS_NAME: net.snowflake.client.jdbc.SnowflakeDriver
 ///         CONNECTION_TYPE: Jdbc
 ///         CONNECTOR_URL: s3://example/snowflake-jdbc.jar
-///         JDBC_CONNECTION_URL: '[["default=jdbc:snowflake://example.com/?user=${user}&password=${password}"],","]'
+///         JDBC_CONNECTION_URL: '[["default=jdbc:snowflake://example.com/?user=$${user}&password=$${password}"],","]'
 ///       matchCriterias:
 ///         - template-connection
 ///   # Reference the connector using match_criteria with the connector created above.
@@ -83,7 +83,7 @@
 ///         CONNECTOR_CLASS_NAME: net.snowflake.client.jdbc.SnowflakeDriver
 ///         CONNECTION_TYPE: Jdbc
 ///         CONNECTOR_URL: s3://example/snowflake-jdbc.jar
-///         JDBC_CONNECTION_URL: jdbc:snowflake://example.com/?user=${user}&password=${password}
+///         JDBC_CONNECTION_URL: jdbc:snowflake://example.com/?user=$${user}&password=$${password}
 ///         SECRET_ID: ${example.name}
 ///       matchCriterias:
 ///         - Connection
@@ -93,8 +93,8 @@
 ///   # Example here being a snowflake jdbc connector with a secret having user and password as keys
 ///   example:
 ///     fn::invoke:
-///       Function: aws:secretsmanager:getSecret
-///       Arguments:
+///       function: aws:secretsmanager:getSecret
+///       arguments:
 ///         name: example-secret
 /// ```
 ///
@@ -181,8 +181,8 @@
 ///         fn::toJSON:
 ///           credentials:
 ///             fn::invoke:
-///               Function: std:base64encode
-///               Arguments:
+///               function: std:base64encode
+///               arguments:
 ///                 input: |
 ///                   {
 ///                     "type": "service_account",
@@ -197,7 +197,7 @@
 ///                     "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/example-project%%40appspot.gserviceaccount.com",
 ///                     "universe_domain": "googleapis.com"
 ///                   }
-///               Return: result
+///               return: result
 ///   exampleConnection:
 ///     type: aws:glue:Connection
 ///     name: example

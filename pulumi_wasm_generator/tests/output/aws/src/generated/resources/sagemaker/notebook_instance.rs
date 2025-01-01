@@ -81,7 +81,7 @@ pub mod notebook_instance {
         /// The name of the notebook instance (must be unique).
         #[builder(into, default)]
         pub name: pulumi_wasm_rust::Output<Option<String>>,
-        /// The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
+        /// The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
         #[builder(into, default)]
         pub platform_identifier: pulumi_wasm_rust::Output<Option<String>>,
         /// The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
@@ -134,7 +134,7 @@ pub mod notebook_instance {
         pub name: pulumi_wasm_rust::Output<String>,
         /// The network interface ID that Amazon SageMaker created at the time of creating the instance. Only available when setting `subnet_id`.
         pub network_interface_id: pulumi_wasm_rust::Output<String>,
-        /// The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
+        /// The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
         pub platform_identifier: pulumi_wasm_rust::Output<String>,
         /// The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
         pub role_arn: pulumi_wasm_rust::Output<String>,

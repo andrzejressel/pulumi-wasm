@@ -97,6 +97,9 @@ pub mod spot_instance_request {
         /// If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
         #[builder(into, default)]
         pub ebs_optimized: pulumi_wasm_rust::Output<Option<bool>>,
+        /// Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
+        #[builder(into, default)]
+        pub enable_primary_ipv6: pulumi_wasm_rust::Output<Option<bool>>,
         /// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         #[builder(into, default)]
         pub enclave_options: pulumi_wasm_rust::Output<
@@ -291,6 +294,8 @@ pub mod spot_instance_request {
         >,
         /// If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
         pub ebs_optimized: pulumi_wasm_rust::Output<bool>,
+        /// Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
+        pub enable_primary_ipv6: pulumi_wasm_rust::Output<bool>,
         /// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         pub enclave_options: pulumi_wasm_rust::Output<
             super::super::types::ec2::SpotInstanceRequestEnclaveOptions,
@@ -455,6 +460,7 @@ pub mod spot_instance_request {
         let disable_api_termination_binding = args.disable_api_termination.get_inner();
         let ebs_block_devices_binding = args.ebs_block_devices.get_inner();
         let ebs_optimized_binding = args.ebs_optimized.get_inner();
+        let enable_primary_ipv6_binding = args.enable_primary_ipv6.get_inner();
         let enclave_options_binding = args.enclave_options.get_inner();
         let ephemeral_block_devices_binding = args.ephemeral_block_devices.get_inner();
         let get_password_data_binding = args.get_password_data.get_inner();
@@ -558,6 +564,10 @@ pub mod spot_instance_request {
                 register_interface::ObjectField {
                     name: "ebsOptimized".into(),
                     value: &ebs_optimized_binding,
+                },
+                register_interface::ObjectField {
+                    name: "enablePrimaryIpv6".into(),
+                    value: &enable_primary_ipv6_binding,
                 },
                 register_interface::ObjectField {
                     name: "enclaveOptions".into(),
@@ -764,6 +774,9 @@ pub mod spot_instance_request {
                     name: "ebsOptimized".into(),
                 },
                 register_interface::ResultField {
+                    name: "enablePrimaryIpv6".into(),
+                },
+                register_interface::ResultField {
                     name: "enclaveOptions".into(),
                 },
                 register_interface::ResultField {
@@ -966,6 +979,9 @@ pub mod spot_instance_request {
             ),
             ebs_optimized: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("ebsOptimized").unwrap(),
+            ),
+            enable_primary_ipv6: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("enablePrimaryIpv6").unwrap(),
             ),
             enclave_options: pulumi_wasm_rust::__private::into_domain(
                 hashmap.remove("enclaveOptions").unwrap(),

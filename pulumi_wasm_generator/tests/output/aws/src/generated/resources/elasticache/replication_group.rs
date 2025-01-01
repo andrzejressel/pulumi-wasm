@@ -228,6 +228,8 @@ pub mod replication_group {
         #[builder(into, default)]
         pub apply_immediately: pulumi_wasm_rust::Output<Option<bool>>,
         /// Whether to enable encryption at rest.
+        /// When `engine` is `redis`, default is `false`.
+        /// When `engine` is `valkey`, default is `true`.
         #[builder(into, default)]
         pub at_rest_encryption_enabled: pulumi_wasm_rust::Output<Option<bool>>,
         /// Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
@@ -253,7 +255,9 @@ pub mod replication_group {
         /// User-created description for the replication group. Must not be empty.
         #[builder(into)]
         pub description: pulumi_wasm_rust::Output<String>,
-        /// Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
+        /// Name of the cache engine to be used for the clusters in this replication group.
+        /// Valid values are `redis` or `valkey`.
+        /// Default is `redis`.
         #[builder(into, default)]
         pub engine: pulumi_wasm_rust::Output<Option<String>>,
         /// Version number of the cache engine to be used for the cache clusters in this replication group.
@@ -386,6 +390,8 @@ pub mod replication_group {
         /// ARN of the created ElastiCache Replication Group.
         pub arn: pulumi_wasm_rust::Output<String>,
         /// Whether to enable encryption at rest.
+        /// When `engine` is `redis`, default is `false`.
+        /// When `engine` is `valkey`, default is `true`.
         pub at_rest_encryption_enabled: pulumi_wasm_rust::Output<bool>,
         /// Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
         pub auth_token: pulumi_wasm_rust::Output<Option<String>>,
@@ -407,7 +413,9 @@ pub mod replication_group {
         pub data_tiering_enabled: pulumi_wasm_rust::Output<bool>,
         /// User-created description for the replication group. Must not be empty.
         pub description: pulumi_wasm_rust::Output<String>,
-        /// Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
+        /// Name of the cache engine to be used for the clusters in this replication group.
+        /// Valid values are `redis` or `valkey`.
+        /// Default is `redis`.
         pub engine: pulumi_wasm_rust::Output<Option<String>>,
         /// Version number of the cache engine to be used for the cache clusters in this replication group.
         /// If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.

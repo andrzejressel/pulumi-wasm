@@ -20,7 +20,7 @@
 ///               Principal:
 ///                 Service: rolesanywhere.amazonaws.com
 ///               Effect: Allow
-///               Sid:
+///               Sid: ""
 ///   testProfile:
 ///     type: aws:rolesanywhere:Profile
 ///     name: test

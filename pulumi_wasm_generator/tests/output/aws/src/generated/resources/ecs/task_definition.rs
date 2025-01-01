@@ -46,10 +46,10 @@
 ///       family: service
 ///       containerDefinitions:
 ///         fn::invoke:
-///           Function: std:file
-///           Arguments:
+///           function: std:file
+///           arguments:
 ///             input: task-definitions/service.json
-///           Return: result
+///           return: result
 ///       proxyConfiguration:
 ///         type: APPMESH
 ///         containerName: applicationContainerName
@@ -71,10 +71,10 @@
 ///       family: service
 ///       containerDefinitions:
 ///         fn::invoke:
-///           Function: std:file
-///           Arguments:
+///           function: std:file
+///           arguments:
 ///             input: task-definitions/service.json
-///           Return: result
+///           return: result
 ///       volumes:
 ///         - name: service-storage
 ///           dockerVolumeConfiguration:
@@ -97,10 +97,10 @@
 ///       family: service
 ///       containerDefinitions:
 ///         fn::invoke:
-///           Function: std:file
-///           Arguments:
+///           function: std:file
+///           arguments:
 ///             input: task-definitions/service.json
-///           Return: result
+///           return: result
 ///       volumes:
 ///         - name: service-storage
 ///           efsVolumeConfiguration:
@@ -123,10 +123,10 @@
 ///       family: service
 ///       containerDefinitions:
 ///         fn::invoke:
-///           Function: std:file
-///           Arguments:
+///           function: std:file
+///           arguments:
 ///             input: task-definitions/service.json
-///           Return: result
+///           return: result
 ///       volumes:
 ///         - name: service-storage
 ///           fsxWindowsFileServerVolumeConfiguration:

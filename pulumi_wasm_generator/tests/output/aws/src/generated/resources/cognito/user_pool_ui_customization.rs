@@ -32,10 +32,10 @@
 ///       css: '.label-customizable {font-weight: 400;}'
 ///       imageFile:
 ///         fn::invoke:
-///           Function: std:filebase64
-///           Arguments:
+///           function: std:filebase64
+///           arguments:
 ///             input: logo.png
-///           Return: result
+///           return: result
 ///       userPoolId: ${exampleUserPoolDomain.userPoolId}
 /// ```
 ///
@@ -60,10 +60,10 @@
 ///       css: '.label-customizable {font-weight: 400;}'
 ///       imageFile:
 ///         fn::invoke:
-///           Function: std:filebase64
-///           Arguments:
+///           function: std:filebase64
+///           arguments:
 ///             input: logo.png
-///           Return: result
+///           return: result
 ///       userPoolId: ${exampleUserPoolDomain.userPoolId}
 /// ```
 ///

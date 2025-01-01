@@ -2,6 +2,8 @@
 ///
 /// ## Example Usage
 ///
+/// ### Basic Usage
+///
 /// ```ignore
 /// use pulumi_wasm_rust::Output;
 /// use pulumi_wasm_rust::{add_export, pulumi_main};
@@ -20,6 +22,25 @@
 /// }
 /// ```
 ///
+/// ### Without A Thumbprint
+///
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let default = open_id_connect_provider::create(
+///         "default",
+///         OpenIdConnectProviderArgs::builder()
+///             .client_id_lists(
+///                 vec!["266362248691-342342xasdasdasda-apps.googleusercontent.com",],
+///             )
+///             .url("https://accounts.google.com")
+///             .build_struct(),
+///     );
+/// }
+/// ```
+///
 /// ## Import
 ///
 /// Using `pulumi import`, import IAM OpenID Connect Providers using the `arn`. For example:
@@ -32,7 +53,7 @@ pub mod open_id_connect_provider {
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OpenIdConnectProviderArgs {
-        /// A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the client_id parameter on OAuth requests.)
+        /// List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
         #[builder(into)]
         pub client_id_lists: pulumi_wasm_rust::Output<Vec<String>>,
         /// Map of resource tags for the IAM OIDC provider. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -40,30 +61,28 @@ pub mod open_id_connect_provider {
         pub tags: pulumi_wasm_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        /// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
-        #[builder(into)]
-        pub thumbprint_lists: pulumi_wasm_rust::Output<Vec<String>>,
-        /// The URL of the identity provider. Corresponds to the _iss_ claim.
+        #[builder(into, default)]
+        pub thumbprint_lists: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        /// URL of the identity provider, corresponding to the `iss` claim.
         #[builder(into)]
         pub url: pulumi_wasm_rust::Output<String>,
     }
     #[allow(dead_code)]
     pub struct OpenIdConnectProviderResult {
-        /// The ARN assigned by AWS for this provider.
+        /// ARN assigned by AWS for this provider.
         pub arn: pulumi_wasm_rust::Output<String>,
-        /// A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the client_id parameter on OAuth requests.)
+        /// List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
         pub client_id_lists: pulumi_wasm_rust::Output<Vec<String>>,
         /// Map of resource tags for the IAM OIDC provider. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         pub tags: pulumi_wasm_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         pub tags_all: pulumi_wasm_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        /// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
         pub thumbprint_lists: pulumi_wasm_rust::Output<Vec<String>>,
-        /// The URL of the identity provider. Corresponds to the _iss_ claim.
+        /// URL of the identity provider, corresponding to the `iss` claim.
         pub url: pulumi_wasm_rust::Output<String>,
     }
     ///

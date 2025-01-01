@@ -9,50 +9,42 @@
 ///
 /// ### Create MACSec key with CKN and CAK
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = get_connection::invoke(
-///         GetConnectionArgs::builder().name("tf-dx-connection").build_struct(),
-///     );
-///     let test = macsec_key_association::create(
-///         "test",
-///         MacsecKeyAssociationArgs::builder()
-///             .cak("abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789")
-///             .ckn("0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef")
-///             .connection_id("${example.id}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   test:
+///     type: aws:directconnect:MacsecKeyAssociation
+///     properties:
+///       connectionId: ${example.id}
+///       ckn: 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+///       cak: abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789
+/// variables:
+///   example:
+///     fn::invoke:
+///       function: aws:directconnect:getConnection
+///       arguments:
+///         name: tf-dx-connection
 /// ```
 ///
 /// ### Create MACSec key with existing Secrets Manager secret
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = get_connection::invoke(
-///         GetConnectionArgs::builder().name("tf-dx-connection").build_struct(),
-///     );
-///     let exampleGetSecret = get_secret::invoke(
-///         GetSecretArgs::builder()
-///             .name(
-///                 "directconnect!prod/us-east-1/directconnect/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
-///             )
-///             .build_struct(),
-///     );
-///     let test = macsec_key_association::create(
-///         "test",
-///         MacsecKeyAssociationArgs::builder()
-///             .connection_id("${example.id}")
-///             .secret_arn("${exampleGetSecret.arn}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   test:
+///     type: aws:directconnect:MacsecKeyAssociation
+///     properties:
+///       connectionId: ${example.id}
+///       secretArn: ${exampleGetSecret.arn}
+/// variables:
+///   example:
+///     fn::invoke:
+///       function: aws:directconnect:getConnection
+///       arguments:
+///         name: tf-dx-connection
+///   exampleGetSecret:
+///     fn::invoke:
+///       function: aws:secretsmanager:getSecret
+///       arguments:
+///         name: directconnect!prod/us-east-1/directconnect/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
 /// ```
 pub mod macsec_key_association {
     #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]

@@ -2,30 +2,25 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = get_local_gateway_route_table::invoke(
-///         GetLocalGatewayRouteTableArgs::builder()
-///             .outpost_arn(
-///                 "arn:aws:outposts:us-west-2:123456789012:outpost/op-1234567890abcdef",
-///             )
-///             .build_struct(),
-///     );
-///     let exampleLocalGatewayRouteTableVpcAssociation = local_gateway_route_table_vpc_association::create(
-///         "exampleLocalGatewayRouteTableVpcAssociation",
-///         LocalGatewayRouteTableVpcAssociationArgs::builder()
-///             .local_gateway_route_table_id("${example.id}")
-///             .vpc_id("${exampleVpc.id}")
-///             .build_struct(),
-///     );
-///     let exampleVpc = vpc::create(
-///         "exampleVpc",
-///         VpcArgs::builder().cidr_block("10.0.0.0/16").build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleVpc:
+///     type: aws:ec2:Vpc
+///     name: example
+///     properties:
+///       cidrBlock: 10.0.0.0/16
+///   exampleLocalGatewayRouteTableVpcAssociation:
+///     type: aws:ec2:LocalGatewayRouteTableVpcAssociation
+///     name: example
+///     properties:
+///       localGatewayRouteTableId: ${example.id}
+///       vpcId: ${exampleVpc.id}
+/// variables:
+///   example:
+///     fn::invoke:
+///       function: aws:ec2:getLocalGatewayRouteTable
+///       arguments:
+///         outpostArn: arn:aws:outposts:us-west-2:123456789012:outpost/op-1234567890abcdef
 /// ```
 ///
 /// ## Import

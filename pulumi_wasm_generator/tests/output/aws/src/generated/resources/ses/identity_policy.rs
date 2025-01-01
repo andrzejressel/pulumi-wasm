@@ -2,37 +2,35 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder().actions(vec!["SES:SendEmail",
-///                     "SES:SendRawEmail",])
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["*",]). type ("AWS").build_struct(),])
-///                     .resources(vec!["${exampleDomainIdentity.arn}",]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let exampleDomainIdentity = domain_identity::create(
-///         "exampleDomainIdentity",
-///         DomainIdentityArgs::builder().domain("example.com").build_struct(),
-///     );
-///     let exampleIdentityPolicy = identity_policy::create(
-///         "exampleIdentityPolicy",
-///         IdentityPolicyArgs::builder()
-///             .identity("${exampleDomainIdentity.arn}")
-///             .name("example")
-///             .policy("${example.json}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleDomainIdentity:
+///     type: aws:ses:DomainIdentity
+///     name: example
+///     properties:
+///       domain: example.com
+///   exampleIdentityPolicy:
+///     type: aws:ses:IdentityPolicy
+///     name: example
+///     properties:
+///       identity: ${exampleDomainIdentity.arn}
+///       name: example
+///       policy: ${example.json}
+/// variables:
+///   example:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - actions:
+///               - SES:SendEmail
+///               - SES:SendRawEmail
+///             resources:
+///               - ${exampleDomainIdentity.arn}
+///             principals:
+///               - identifiers:
+///                   - '*'
+///                 type: AWS
 /// ```
 ///
 /// ## Import

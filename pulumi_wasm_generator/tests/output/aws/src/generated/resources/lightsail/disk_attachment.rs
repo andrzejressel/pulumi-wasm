@@ -2,48 +2,39 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let available = get_availability_zones::invoke(
-///         GetAvailabilityZonesArgs::builder()
-///             .filters(
-///                 vec![
-///                     GetAvailabilityZonesFilter::builder().name("opt-in-status")
-///                     .values(vec!["opt-in-not-required",]).build_struct(),
-///                 ],
-///             )
-///             .state("available")
-///             .build_struct(),
-///     );
-///     let test = disk::create(
-///         "test",
-///         DiskArgs::builder()
-///             .availability_zone("${available.names[0]}")
-///             .name("test-disk")
-///             .size_in_gb(8)
-///             .build_struct(),
-///     );
-///     let testDisk_attachment = disk_attachment::create(
-///         "testDisk_attachment",
-///         DiskAttachmentArgs::builder()
-///             .disk_name("${test.name}")
-///             .disk_path("/dev/xvdf")
-///             .instance_name("${testInstance.name}")
-///             .build_struct(),
-///     );
-///     let testInstance = instance::create(
-///         "testInstance",
-///         InstanceArgs::builder()
-///             .availability_zone("${available.names[0]}")
-///             .blueprint_id("amazon_linux_2")
-///             .bundle_id("nano_3_0")
-///             .name("test-instance")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   test:
+///     type: aws:lightsail:Disk
+///     properties:
+///       name: test-disk
+///       sizeInGb: 8
+///       availabilityZone: ${available.names[0]}
+///   testInstance:
+///     type: aws:lightsail:Instance
+///     name: test
+///     properties:
+///       name: test-instance
+///       availabilityZone: ${available.names[0]}
+///       blueprintId: amazon_linux_2
+///       bundleId: nano_3_0
+///   testDisk_attachment:
+///     type: aws:lightsail:Disk_attachment
+///     name: test
+///     properties:
+///       diskName: ${test.name}
+///       instanceName: ${testInstance.name}
+///       diskPath: /dev/xvdf
+/// variables:
+///   available:
+///     fn::invoke:
+///       function: aws:getAvailabilityZones
+///       arguments:
+///         state: available
+///         filters:
+///           - name: opt-in-status
+///             values:
+///               - opt-in-not-required
 /// ```
 ///
 /// ## Import

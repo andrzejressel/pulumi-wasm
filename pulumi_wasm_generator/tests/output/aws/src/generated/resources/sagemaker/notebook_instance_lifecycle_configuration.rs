@@ -12,16 +12,16 @@
 ///       name: foo
 ///       onCreate:
 ///         fn::invoke:
-///           Function: std:base64encode
-///           Arguments:
+///           function: std:base64encode
+///           arguments:
 ///             input: echo foo
-///           Return: result
+///           return: result
 ///       onStart:
 ///         fn::invoke:
-///           Function: std:base64encode
-///           Arguments:
+///           function: std:base64encode
+///           arguments:
 ///             input: echo bar
-///           Return: result
+///           return: result
 /// ```
 ///
 /// ## Import

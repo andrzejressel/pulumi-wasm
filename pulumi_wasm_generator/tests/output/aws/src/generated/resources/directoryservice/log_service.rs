@@ -24,8 +24,8 @@
 /// variables:
 ///   ad-log-policy:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - actions:
 ///               - logs:CreateLogStream

@@ -22,6 +22,8 @@
 ///       name: example
 ///       profileId: ${example.id}
 ///       resourceId: ${exampleVpc.id}
+///       tags:
+///         Environment: dev
 /// ```
 ///
 /// ## Import
@@ -45,6 +47,7 @@ pub mod profiles_association {
         /// Resource ID of the VPC the profile to be associated with.
         #[builder(into)]
         pub resource_id: pulumi_wasm_rust::Output<String>,
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
         pub tags: pulumi_wasm_rust::Output<
             Option<std::collections::HashMap<String, String>>,
@@ -64,13 +67,15 @@ pub mod profiles_association {
         pub profile_id: pulumi_wasm_rust::Output<String>,
         /// Resource ID of the VPC the profile to be associated with.
         pub resource_id: pulumi_wasm_rust::Output<String>,
-        /// Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
+        /// Status of the Profile Association.
         pub status: pulumi_wasm_rust::Output<String>,
         /// Status message of the Profile Association.
         pub status_message: pulumi_wasm_rust::Output<String>,
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         pub tags: pulumi_wasm_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         pub tags_all: pulumi_wasm_rust::Output<
             std::collections::HashMap<String, String>,
         >,

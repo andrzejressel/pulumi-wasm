@@ -4,37 +4,30 @@
 ///
 /// ### Basic Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_caller_identity::invoke(
-///         GetCallerIdentityArgs::builder().build_struct(),
-///     );
-///     let currentGetRegion = get_region::invoke(GetRegionArgs::builder().build_struct());
-///     let foo = outbound_connection::create(
-///         "foo",
-///         OutboundConnectionArgs::builder()
-///             .connection_alias("outbound_connection")
-///             .connection_mode("DIRECT")
-///             .local_domain_info(
-///                 OutboundConnectionLocalDomainInfo::builder()
-///                     .domainName("${localDomain.domainName}")
-///                     .ownerId("${current.accountId}")
-///                     .region("${currentGetRegion.name}")
-///                     .build_struct(),
-///             )
-///             .remote_domain_info(
-///                 OutboundConnectionRemoteDomainInfo::builder()
-///                     .domainName("${remoteDomain.domainName}")
-///                     .ownerId("${current.accountId}")
-///                     .region("${currentGetRegion.name}")
-///                     .build_struct(),
-///             )
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   foo:
+///     type: aws:opensearch:OutboundConnection
+///     properties:
+///       connectionAlias: outbound_connection
+///       connectionMode: DIRECT
+///       localDomainInfo:
+///         ownerId: ${current.accountId}
+///         region: ${currentGetRegion.name}
+///         domainName: ${localDomain.domainName}
+///       remoteDomainInfo:
+///         ownerId: ${current.accountId}
+///         region: ${currentGetRegion.name}
+///         domainName: ${remoteDomain.domainName}
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getCallerIdentity
+///       arguments: {}
+///   currentGetRegion:
+///     fn::invoke:
+///       function: aws:getRegion
+///       arguments: {}
 /// ```
 ///
 /// ## Import

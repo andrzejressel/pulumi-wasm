@@ -2,6 +2,10 @@
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
 pub struct GetClusterKubernetesNetworkConfig {
+    /// Contains Elastic Load Balancing configuration for EKS Auto Mode enabled cluster.
+    #[builder(into)]
+    #[serde(rename = "elasticLoadBalancings")]
+    pub r#elastic_load_balancings: Box<Vec<super::super::types::eks::GetClusterKubernetesNetworkConfigElasticLoadBalancing>>,
     /// `ipv4` or `ipv6`.
     #[builder(into)]
     #[serde(rename = "ipFamily")]

@@ -4,33 +4,28 @@
 ///
 /// ### Basic Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = get_instances::invoke(GetInstancesArgs::builder().build_struct());
-///     let exampleApplication = application::create(
-///         "exampleApplication",
-///         ApplicationArgs::builder()
-///             .application_provider_arn("arn:aws:sso::aws:applicationProvider/custom")
-///             .instance_arn("${example.arns[0]}")
-///             .name("example")
-///             .build_struct(),
-///     );
-///     let exampleApplicationAccessScope = application_access_scope::create(
-///         "exampleApplicationAccessScope",
-///         ApplicationAccessScopeArgs::builder()
-///             .application_arn("${exampleApplication.applicationArn}")
-///             .authorized_targets(
-///                 vec![
-///                     "arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012",
-///                 ],
-///             )
-///             .scope("sso:account:access")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleApplication:
+///     type: aws:ssoadmin:Application
+///     name: example
+///     properties:
+///       name: example
+///       applicationProviderArn: arn:aws:sso::aws:applicationProvider/custom
+///       instanceArn: ${example.arns[0]}
+///   exampleApplicationAccessScope:
+///     type: aws:ssoadmin:ApplicationAccessScope
+///     name: example
+///     properties:
+///       applicationArn: ${exampleApplication.applicationArn}
+///       authorizedTargets:
+///         - arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012
+///       scope: sso:account:access
+/// variables:
+///   example:
+///     fn::invoke:
+///       function: aws:ssoadmin:getInstances
+///       arguments: {}
 /// ```
 ///
 /// ## Import

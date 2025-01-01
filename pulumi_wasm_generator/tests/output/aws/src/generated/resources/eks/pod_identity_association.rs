@@ -12,48 +12,41 @@
 ///
 /// ### Basic Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let assumeRole = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder().actions(vec!["sts:AssumeRole",
-///                     "sts:TagSession",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["pods.eks.amazonaws.com",]). type ("Service")
-///                     .build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let example = role::create(
-///         "example",
-///         RoleArgs::builder()
-///             .assume_role_policy("${assumeRole.json}")
-///             .name("eks-pod-identity-example")
-///             .build_struct(),
-///     );
-///     let examplePodIdentityAssociation = pod_identity_association::create(
-///         "examplePodIdentityAssociation",
-///         PodIdentityAssociationArgs::builder()
-///             .cluster_name("${exampleAwsEksCluster.name}")
-///             .namespace("example")
-///             .role_arn("${example.arn}")
-///             .service_account("example-sa")
-///             .build_struct(),
-///     );
-///     let exampleS3 = role_policy_attachment::create(
-///         "exampleS3",
-///         RolePolicyAttachmentArgs::builder()
-///             .policy_arn("arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess")
-///             .role("${example.name}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:iam:Role
+///     properties:
+///       name: eks-pod-identity-example
+///       assumeRolePolicy: ${assumeRole.json}
+///   exampleS3:
+///     type: aws:iam:RolePolicyAttachment
+///     name: example_s3
+///     properties:
+///       policyArn: arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess
+///       role: ${example.name}
+///   examplePodIdentityAssociation:
+///     type: aws:eks:PodIdentityAssociation
+///     name: example
+///     properties:
+///       clusterName: ${exampleAwsEksCluster.name}
+///       namespace: example
+///       serviceAccount: example-sa
+///       roleArn: ${example.arn}
+/// variables:
+///   assumeRole:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - pods.eks.amazonaws.com
+///             actions:
+///               - sts:AssumeRole
+///               - sts:TagSession
 /// ```
 ///
 /// ## Import

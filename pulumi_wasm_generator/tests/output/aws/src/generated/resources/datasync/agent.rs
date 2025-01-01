@@ -19,39 +19,41 @@
 ///
 /// ### With VPC Endpoints
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_region::invoke(GetRegionArgs::builder().build_struct());
-///     let example = get_network_interface::invoke(
-///         GetNetworkInterfaceArgs::builder()
-///             .id("${exampleVpcEndpoint.networkInterfaceIds[0]}")
-///             .build_struct(),
-///     );
-///     let exampleAgent = agent::create(
-///         "exampleAgent",
-///         AgentArgs::builder()
-///             .ip_address("1.2.3.4")
-///             .name("example")
-///             .private_link_endpoint("${example.privateIp}")
-///             .security_group_arns(vec!["${exampleAwsSecurityGroup.arn}",])
-///             .subnet_arns(vec!["${exampleAwsSubnet.arn}",])
-///             .vpc_endpoint_id("${exampleVpcEndpoint.id}")
-///             .build_struct(),
-///     );
-///     let exampleVpcEndpoint = vpc_endpoint::create(
-///         "exampleVpcEndpoint",
-///         VpcEndpointArgs::builder()
-///             .security_group_ids(vec!["${exampleAwsSecurityGroup.id}",])
-///             .service_name("com.amazonaws.${current.name}.datasync")
-///             .subnet_ids(vec!["${exampleAwsSubnet.id}",])
-///             .vpc_endpoint_type("Interface")
-///             .vpc_id("${exampleAwsVpc.id}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleAgent:
+///     type: aws:datasync:Agent
+///     name: example
+///     properties:
+///       ipAddress: 1.2.3.4
+///       securityGroupArns:
+///         - ${exampleAwsSecurityGroup.arn}
+///       subnetArns:
+///         - ${exampleAwsSubnet.arn}
+///       vpcEndpointId: ${exampleVpcEndpoint.id}
+///       privateLinkEndpoint: ${example.privateIp}
+///       name: example
+///   exampleVpcEndpoint:
+///     type: aws:ec2:VpcEndpoint
+///     name: example
+///     properties:
+///       serviceName: com.amazonaws.${current.name}.datasync
+///       vpcId: ${exampleAwsVpc.id}
+///       securityGroupIds:
+///         - ${exampleAwsSecurityGroup.id}
+///       subnetIds:
+///         - ${exampleAwsSubnet.id}
+///       vpcEndpointType: Interface
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getRegion
+///       arguments: {}
+///   example:
+///     fn::invoke:
+///       function: aws:ec2:getNetworkInterface
+///       arguments:
+///         id: ${exampleVpcEndpoint.networkInterfaceIds[0]}
 /// ```
 ///
 /// ## Import

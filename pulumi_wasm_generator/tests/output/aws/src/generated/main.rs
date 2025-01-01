@@ -49,6 +49,7 @@ pub mod apigateway {
     include!("resources/apigateway/documentation_part.rs");
     include!("resources/apigateway/documentation_version.rs");
     include!("resources/apigateway/domain_name.rs");
+    include!("resources/apigateway/domain_name_access_association.rs");
     include!("resources/apigateway/integration.rs");
     include!("resources/apigateway/integration_response.rs");
     include!("resources/apigateway/method.rs");
@@ -217,6 +218,7 @@ pub mod bedrock {
     include!("resources/bedrock/custom_model.rs");
     include!("resources/bedrock/guardrail.rs");
     include!("resources/bedrock/guardrail_version.rs");
+    include!("resources/bedrock/inference_profile.rs");
     include!("resources/bedrock/provisioned_model_throughput.rs");
 }
 pub mod bedrockmodel {
@@ -298,6 +300,7 @@ pub mod cloudfront {
     include!("resources/cloudfront/public_key.rs");
     include!("resources/cloudfront/realtime_log_config.rs");
     include!("resources/cloudfront/response_headers_policy.rs");
+    include!("resources/cloudfront/vpc_origin.rs");
 }
 pub mod cloudhsmv2 {
     include!("resources/cloudhsmv2/cluster.rs");
@@ -326,6 +329,7 @@ pub mod cloudwatch {
     include!("resources/cloudwatch/event_target.rs");
     include!("resources/cloudwatch/internet_monitor.rs");
     include!("resources/cloudwatch/log_account_policy.rs");
+    include!("resources/cloudwatch/log_anomaly_detector.rs");
     include!("resources/cloudwatch/log_data_protection_policy.rs");
     include!("resources/cloudwatch/log_destination.rs");
     include!("resources/cloudwatch/log_destination_policy.rs");
@@ -362,6 +366,10 @@ pub mod codecommit {
     include!("resources/codecommit/approval_rule_template_association.rs");
     include!("resources/codecommit/repository.rs");
     include!("resources/codecommit/trigger.rs");
+}
+pub mod codeconnections {
+    include!("resources/codeconnections/connection.rs");
+    include!("resources/codeconnections/host.rs");
 }
 pub mod codedeploy {
     include!("resources/codedeploy/application.rs");
@@ -656,6 +664,8 @@ pub mod ec2 {
     include!("resources/ec2/traffic_mirror_target.rs");
     include!("resources/ec2/volume_attachment.rs");
     include!("resources/ec2/vpc.rs");
+    include!("resources/ec2/vpc_block_public_access_exclusion.rs");
+    include!("resources/ec2/vpc_block_public_access_options.rs");
     include!("resources/ec2/vpc_dhcp_options.rs");
     include!("resources/ec2/vpc_dhcp_options_association.rs");
     include!("resources/ec2/vpc_endpoint.rs");
@@ -717,6 +727,7 @@ pub mod ec2transitgateway {
     include!("resources/ec2transitgateway/vpc_attachment_accepter.rs");
 }
 pub mod ecr {
+    include!("resources/ecr/account_setting.rs");
     include!("resources/ecr/lifecycle_policy.rs");
     include!("resources/ecr/pull_through_cache_rule.rs");
     include!("resources/ecr/registry_policy.rs");
@@ -1168,6 +1179,7 @@ pub mod mediastore {
 pub mod memorydb {
     include!("resources/memorydb/acl.rs");
     include!("resources/memorydb/cluster.rs");
+    include!("resources/memorydb/multi_region_cluster.rs");
     include!("resources/memorydb/parameter_group.rs");
     include!("resources/memorydb/snapshot.rs");
     include!("resources/memorydb/subnet_group.rs");
@@ -1184,6 +1196,7 @@ pub mod msk {
     include!("resources/msk/replicator.rs");
     include!("resources/msk/scram_secret_association.rs");
     include!("resources/msk/serverless_cluster.rs");
+    include!("resources/msk/single_scram_secret_association.rs");
     include!("resources/msk/vpc_connection.rs");
 }
 pub mod mskconnect {
@@ -1222,6 +1235,7 @@ pub mod networkmanager {
     include!("resources/networkmanager/core_network_policy_attachment.rs");
     include!("resources/networkmanager/customer_gateway_association.rs");
     include!("resources/networkmanager/device.rs");
+    include!("resources/networkmanager/dx_gateway_attachment.rs");
     include!("resources/networkmanager/global_network.rs");
     include!("resources/networkmanager/link.rs");
     include!("resources/networkmanager/link_association.rs");
@@ -1357,6 +1371,7 @@ pub mod rds {
     include!("resources/rds/cluster_parameter_group.rs");
     include!("resources/rds/cluster_role_association.rs");
     include!("resources/rds/cluster_snapshot.rs");
+    include!("resources/rds/cluster_snapshot_copy.rs");
     include!("resources/rds/custom_db_engine_version.rs");
     include!("resources/rds/event_subscription.rs");
     include!("resources/rds/export_task.rs");
@@ -1530,6 +1545,13 @@ pub mod s3control {
 pub mod s3outposts {
     include!("resources/s3outposts/endpoint.rs");
 }
+pub mod s3tables {
+    include!("resources/s3tables/namespace.rs");
+    include!("resources/s3tables/table.rs");
+    include!("resources/s3tables/table_bucket.rs");
+    include!("resources/s3tables/table_bucket_policy.rs");
+    include!("resources/s3tables/table_policy.rs");
+}
 pub mod sagemaker {
     include!("resources/sagemaker/app.rs");
     include!("resources/sagemaker/app_image_config.rs");
@@ -1607,6 +1629,8 @@ pub mod serverlessrepository {
 }
 pub mod servicecatalog {
     include!("resources/servicecatalog/appregistry_application.rs");
+    include!("resources/servicecatalog/appregistry_attribute_group.rs");
+    include!("resources/servicecatalog/appregistry_attribute_group_association.rs");
     include!("resources/servicecatalog/budget_resource_association.rs");
     include!("resources/servicecatalog/constraint.rs");
     include!("resources/servicecatalog/organizations_access.rs");
@@ -2598,6 +2622,10 @@ pub mod functions {
     }
     pub mod servicecatalog {
         include!("functions/servicecatalog/get_appregistry_application.rs");
+        include!("functions/servicecatalog/get_appregistry_attribute_group.rs");
+        include!(
+            "functions/servicecatalog/get_appregistry_attribute_group_associations.rs"
+        );
         include!("functions/servicecatalog/get_constraint.rs");
         include!("functions/servicecatalog/get_launch_paths.rs");
         include!("functions/servicecatalog/get_portfolio.rs");
@@ -4110,6 +4138,7 @@ pub mod types {
         include!("types/auditmanager/get_framework_control_set_control.rs");
     }
     pub mod autoscaling {
+        include!("types/autoscaling/group_availability_zone_distribution.rs");
         include!("types/autoscaling/group_initial_lifecycle_hook.rs");
         include!("types/autoscaling/group_instance_maintenance_policy.rs");
         include!("types/autoscaling/group_instance_refresh.rs");
@@ -4695,6 +4724,9 @@ pub mod types {
             "types/bedrock/guardrail_word_policy_config_managed_word_lists_config.rs"
         );
         include!("types/bedrock/guardrail_word_policy_config_words_config.rs");
+        include!("types/bedrock/inference_profile_model.rs");
+        include!("types/bedrock/inference_profile_model_source.rs");
+        include!("types/bedrock/inference_profile_timeouts.rs");
         include!("types/bedrock/provisioned_model_throughput_timeouts.rs");
         include!("types/bedrock/get_agent_agent_versions_agent_version_summary.rs");
         include!(
@@ -4931,6 +4963,7 @@ pub mod types {
         include!("types/cloudfront/distribution_origin_group_member.rs");
         include!("types/cloudfront/distribution_origin_origin_shield.rs");
         include!("types/cloudfront/distribution_origin_s_3_origin_config.rs");
+        include!("types/cloudfront/distribution_origin_vpc_origin_config.rs");
         include!("types/cloudfront/distribution_restrictions.rs");
         include!("types/cloudfront/distribution_restrictions_geo_restriction.rs");
         include!("types/cloudfront/distribution_trusted_key_group.rs");
@@ -5024,6 +5057,11 @@ pub mod types {
         );
         include!(
             "types/cloudfront/response_headers_policy_server_timing_headers_config.rs"
+        );
+        include!("types/cloudfront/vpc_origin_timeouts.rs");
+        include!("types/cloudfront/vpc_origin_vpc_origin_endpoint_config.rs");
+        include!(
+            "types/cloudfront/vpc_origin_vpc_origin_endpoint_config_origin_ssl_protocols.rs"
         );
         include!(
             "types/cloudfront/get_cache_policy_parameters_in_cache_key_and_forwarded_to_origin.rs"
@@ -5293,6 +5331,11 @@ pub mod types {
     }
     pub mod codecommit {
         include!("types/codecommit/trigger_trigger.rs");
+    }
+    pub mod codeconnections {
+        include!("types/codeconnections/connection_timeouts.rs");
+        include!("types/codeconnections/host_timeouts.rs");
+        include!("types/codeconnections/host_vpc_configuration.rs");
     }
     pub mod codedeploy {
         include!("types/codedeploy/deployment_config_minimum_healthy_hosts.rs");
@@ -6472,6 +6515,8 @@ pub mod types {
         include!("types/ec2/tenancy.rs");
         include!("types/ec2/traffic_mirror_filter_rule_destination_port_range.rs");
         include!("types/ec2/traffic_mirror_filter_rule_source_port_range.rs");
+        include!("types/ec2/vpc_block_public_access_exclusion_timeouts.rs");
+        include!("types/ec2/vpc_block_public_access_options_timeouts.rs");
         include!("types/ec2/vpc_endpoint_dns_entry.rs");
         include!("types/ec2/vpc_endpoint_dns_options.rs");
         include!("types/ec2/vpc_endpoint_service_private_dns_name_configuration.rs");
@@ -7007,13 +7052,22 @@ pub mod types {
         include!("types/eks/addon_pod_identity_association.rs");
         include!("types/eks/cluster_access_config.rs");
         include!("types/eks/cluster_certificate_authority.rs");
+        include!("types/eks/cluster_compute_config.rs");
         include!("types/eks/cluster_encryption_config.rs");
         include!("types/eks/cluster_encryption_config_provider.rs");
         include!("types/eks/cluster_identity.rs");
         include!("types/eks/cluster_identity_oidc.rs");
         include!("types/eks/cluster_kubernetes_network_config.rs");
+        include!(
+            "types/eks/cluster_kubernetes_network_config_elastic_load_balancing.rs"
+        );
         include!("types/eks/cluster_outpost_config.rs");
         include!("types/eks/cluster_outpost_config_control_plane_placement.rs");
+        include!("types/eks/cluster_remote_network_config.rs");
+        include!("types/eks/cluster_remote_network_config_remote_node_networks.rs");
+        include!("types/eks/cluster_remote_network_config_remote_pod_networks.rs");
+        include!("types/eks/cluster_storage_config.rs");
+        include!("types/eks/cluster_storage_config_block_storage.rs");
         include!("types/eks/cluster_upgrade_policy.rs");
         include!("types/eks/cluster_vpc_config.rs");
         include!("types/eks/cluster_zonal_shift_config.rs");
@@ -7029,11 +7083,20 @@ pub mod types {
         include!("types/eks/get_addon_pod_identity_association.rs");
         include!("types/eks/get_cluster_access_config.rs");
         include!("types/eks/get_cluster_certificate_authority.rs");
+        include!("types/eks/get_cluster_compute_config.rs");
         include!("types/eks/get_cluster_identity.rs");
         include!("types/eks/get_cluster_identity_oidc.rs");
         include!("types/eks/get_cluster_kubernetes_network_config.rs");
+        include!(
+            "types/eks/get_cluster_kubernetes_network_config_elastic_load_balancing.rs"
+        );
         include!("types/eks/get_cluster_outpost_config.rs");
         include!("types/eks/get_cluster_outpost_config_control_plane_placement.rs");
+        include!("types/eks/get_cluster_remote_network_config.rs");
+        include!("types/eks/get_cluster_remote_network_config_remote_node_network.rs");
+        include!("types/eks/get_cluster_remote_network_config_remote_pod_network.rs");
+        include!("types/eks/get_cluster_storage_config.rs");
+        include!("types/eks/get_cluster_storage_config_block_storage.rs");
         include!("types/eks/get_cluster_upgrade_policy.rs");
         include!("types/eks/get_cluster_vpc_config.rs");
         include!("types/eks/get_cluster_zonal_shift_config.rs");
@@ -7471,6 +7534,18 @@ pub mod types {
         include!("types/glue/catalog_table_open_table_format_input.rs");
         include!("types/glue/catalog_table_open_table_format_input_iceberg_input.rs");
         include!("types/glue/catalog_table_optimizer_configuration.rs");
+        include!(
+            "types/glue/catalog_table_optimizer_configuration_orphan_file_deletion_configuration.rs"
+        );
+        include!(
+            "types/glue/catalog_table_optimizer_configuration_orphan_file_deletion_configuration_iceberg_configuration.rs"
+        );
+        include!(
+            "types/glue/catalog_table_optimizer_configuration_retention_configuration.rs"
+        );
+        include!(
+            "types/glue/catalog_table_optimizer_configuration_retention_configuration_iceberg_configuration.rs"
+        );
         include!("types/glue/catalog_table_partition_index.rs");
         include!("types/glue/catalog_table_partition_key.rs");
         include!("types/glue/catalog_table_storage_descriptor.rs");
@@ -8563,6 +8638,8 @@ pub mod types {
         include!("types/lambda/event_source_mapping_document_db_event_source_config.rs");
         include!("types/lambda/event_source_mapping_filter_criteria.rs");
         include!("types/lambda/event_source_mapping_filter_criteria_filter.rs");
+        include!("types/lambda/event_source_mapping_metrics_config.rs");
+        include!("types/lambda/event_source_mapping_provisioned_poller_config.rs");
         include!("types/lambda/event_source_mapping_scaling_config.rs");
         include!("types/lambda/event_source_mapping_self_managed_event_source.rs");
         include!(
@@ -12464,6 +12541,7 @@ pub mod types {
         include!("types/memorydb/cluster_shard.rs");
         include!("types/memorydb/cluster_shard_node.rs");
         include!("types/memorydb/cluster_shard_node_endpoint.rs");
+        include!("types/memorydb/multi_region_cluster_timeouts.rs");
         include!("types/memorydb/parameter_group_parameter.rs");
         include!("types/memorydb/snapshot_cluster_configuration.rs");
         include!("types/memorydb/user_authentication_mode.rs");
@@ -12546,6 +12624,9 @@ pub mod types {
         include!("types/msk/replicator_replication_info_list_topic_replication.rs");
         include!(
             "types/msk/replicator_replication_info_list_topic_replication_starting_position.rs"
+        );
+        include!(
+            "types/msk/replicator_replication_info_list_topic_replication_topic_name_configuration.rs"
         );
         include!("types/msk/serverless_cluster_client_authentication.rs");
         include!("types/msk/serverless_cluster_client_authentication_sasl.rs");
@@ -12637,6 +12718,9 @@ pub mod types {
         );
         include!(
             "types/networkfirewall/firewall_policy_firewall_policy_stateful_engine_options.rs"
+        );
+        include!(
+            "types/networkfirewall/firewall_policy_firewall_policy_stateful_engine_options_flow_timeouts.rs"
         );
         include!(
             "types/networkfirewall/firewall_policy_firewall_policy_stateful_rule_group_reference.rs"
@@ -12823,6 +12907,7 @@ pub mod types {
         include!("types/networkmanager/core_network_segment.rs");
         include!("types/networkmanager/device_aws_location.rs");
         include!("types/networkmanager/device_location.rs");
+        include!("types/networkmanager/dx_gateway_attachment_timeouts.rs");
         include!("types/networkmanager/link_bandwidth.rs");
         include!("types/networkmanager/site_location.rs");
         include!("types/networkmanager/vpc_attachment_options.rs");
@@ -13501,6 +13586,7 @@ pub mod types {
         include!("types/rds/cluster_s_3_import.rs");
         include!("types/rds/cluster_scaling_configuration.rs");
         include!("types/rds/cluster_serverlessv_2_scaling_configuration.rs");
+        include!("types/rds/cluster_snapshot_copy_timeouts.rs");
         include!("types/rds/engine_mode.rs");
         include!("types/rds/engine_type.rs");
         include!("types/rds/export_task_timeouts.rs");
@@ -13967,6 +14053,26 @@ pub mod types {
     }
     pub mod s3outposts {
         include!("types/s3outposts/endpoint_network_interface.rs");
+    }
+    pub mod s3tables {
+        include!("types/s3tables/table_bucket_maintenance_configuration.rs");
+        include!(
+            "types/s3tables/table_bucket_maintenance_configuration_iceberg_unreferenced_file_removal.rs"
+        );
+        include!(
+            "types/s3tables/table_bucket_maintenance_configuration_iceberg_unreferenced_file_removal_settings.rs"
+        );
+        include!("types/s3tables/table_maintenance_configuration.rs");
+        include!("types/s3tables/table_maintenance_configuration_iceberg_compaction.rs");
+        include!(
+            "types/s3tables/table_maintenance_configuration_iceberg_compaction_settings.rs"
+        );
+        include!(
+            "types/s3tables/table_maintenance_configuration_iceberg_snapshot_management.rs"
+        );
+        include!(
+            "types/s3tables/table_maintenance_configuration_iceberg_snapshot_management_settings.rs"
+        );
     }
     pub mod sagemaker {
         include!("types/sagemaker/app_image_config_code_editor_app_image_config.rs");

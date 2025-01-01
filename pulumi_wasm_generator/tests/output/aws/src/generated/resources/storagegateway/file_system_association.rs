@@ -24,69 +24,61 @@
 ///
 /// ## Required Services Example
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let awsServiceStoragegatewayAmiFILES3Latest = get_parameter::invoke(
-///         GetParameterArgs::builder()
-///             .name("/aws/service/storagegateway/ami/FILE_S3/latest")
-///             .build_struct(),
-///     );
-///     let fsx = file_system_association::create(
-///         "fsx",
-///         FileSystemAssociationArgs::builder()
-///             .audit_destination_arn("${testAwsCloudwatchLogGroup.arn}")
-///             .cache_attributes(
-///                 FileSystemAssociationCacheAttributes::builder()
-///                     .cacheStaleTimeoutInSeconds(400)
-///                     .build_struct(),
-///             )
-///             .gateway_arn("${testGateway.arn}")
-///             .location_arn("${testWindowsFileSystem.arn}")
-///             .password("${testAwsDirectoryServiceDirectory.password}")
-///             .username("Admin")
-///             .build_struct(),
-///     );
-///     let test = instance::create(
-///         "test",
-///         InstanceArgs::builder()
-///             .ami("${awsServiceStoragegatewayAmiFILES3Latest.value}")
-///             .associate_public_ip_address(true)
-///             .instance_type("${available.instanceType}")
-///             .subnet_id("${testAwsSubnet[0].id}")
-///             .vpc_security_group_ids(vec!["${testAwsSecurityGroup.id}",])
-///             .build_struct(),
-///     );
-///     let testGateway = gateway::create(
-///         "testGateway",
-///         GatewayArgs::builder()
-///             .gateway_ip_address("${test.publicIp}")
-///             .gateway_name("test-sgw")
-///             .gateway_timezone("GMT")
-///             .gateway_type("FILE_FSX_SMB")
-///             .smb_active_directory_settings(
-///                 GatewaySmbActiveDirectorySettings::builder()
-///                     .domainName("${testAwsDirectoryServiceDirectory.name}")
-///                     .password("${testAwsDirectoryServiceDirectory.password}")
-///                     .username("Admin")
-///                     .build_struct(),
-///             )
-///             .build_struct(),
-///     );
-///     let testWindowsFileSystem = windows_file_system::create(
-///         "testWindowsFileSystem",
-///         WindowsFileSystemArgs::builder()
-///             .active_directory_id("${testAwsDirectoryServiceDirectory.id}")
-///             .security_group_ids(vec!["${testAwsSecurityGroup.id}",])
-///             .skip_final_backup(true)
-///             .storage_capacity(32)
-///             .subnet_ids(vec!["${testAwsSubnet[0].id}",])
-///             .throughput_capacity(8)
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   test:
+///     type: aws:ec2:Instance
+///     properties:
+///       ami: ${awsServiceStoragegatewayAmiFILES3Latest.value}
+///       associatePublicIpAddress: true
+///       instanceType: ${available.instanceType}
+///       vpcSecurityGroupIds:
+///         - ${testAwsSecurityGroup.id}
+///       subnetId: ${testAwsSubnet[0].id}
+///     options:
+///       dependsOn:
+///         - ${testAwsRoute}
+///         - ${testAwsVpcDhcpOptionsAssociation}
+///   testGateway:
+///     type: aws:storagegateway:Gateway
+///     name: test
+///     properties:
+///       gatewayIpAddress: ${test.publicIp}
+///       gatewayName: test-sgw
+///       gatewayTimezone: GMT
+///       gatewayType: FILE_FSX_SMB
+///       smbActiveDirectorySettings:
+///         domainName: ${testAwsDirectoryServiceDirectory.name}
+///         password: ${testAwsDirectoryServiceDirectory.password}
+///         username: Admin
+///   testWindowsFileSystem:
+///     type: aws:fsx:WindowsFileSystem
+///     name: test
+///     properties:
+///       activeDirectoryId: ${testAwsDirectoryServiceDirectory.id}
+///       securityGroupIds:
+///         - ${testAwsSecurityGroup.id}
+///       skipFinalBackup: true
+///       storageCapacity: 32
+///       subnetIds:
+///         - ${testAwsSubnet[0].id}
+///       throughputCapacity: 8
+///   fsx:
+///     type: aws:storagegateway:FileSystemAssociation
+///     properties:
+///       gatewayArn: ${testGateway.arn}
+///       locationArn: ${testWindowsFileSystem.arn}
+///       username: Admin
+///       password: ${testAwsDirectoryServiceDirectory.password}
+///       cacheAttributes:
+///         cacheStaleTimeoutInSeconds: 400
+///       auditDestinationArn: ${testAwsCloudwatchLogGroup.arn}
+/// variables:
+///   awsServiceStoragegatewayAmiFILES3Latest:
+///     fn::invoke:
+///       function: aws:ssm:getParameter
+///       arguments:
+///         name: /aws/service/storagegateway/ami/FILE_S3/latest
 /// ```
 ///
 /// ## Import

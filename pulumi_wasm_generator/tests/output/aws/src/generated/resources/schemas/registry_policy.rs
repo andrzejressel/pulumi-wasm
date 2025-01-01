@@ -4,34 +4,31 @@
 ///
 /// ### Basic Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder().actions(vec!["schemas:*",])
-///                     .effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["109876543210",]). type ("AWS").build_struct(),])
-///                     .resources(vec!["arn:aws:schemas:us-east-1:123456789012:registry/example",
-///                     "arn:aws:schemas:us-east-1:123456789012:schema/example*",])
-///                     .sid("example").build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let exampleRegistryPolicy = registry_policy::create(
-///         "exampleRegistryPolicy",
-///         RegistryPolicyArgs::builder()
-///             .policy("${example.json}")
-///             .registry_name("example")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleRegistryPolicy:
+///     type: aws:schemas:RegistryPolicy
+///     name: example
+///     properties:
+///       registryName: example
+///       policy: ${example.json}
+/// variables:
+///   example:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - sid: example
+///             effect: Allow
+///             principals:
+///               - type: AWS
+///                 identifiers:
+///                   - '109876543210'
+///             actions:
+///               - schemas:*
+///             resources:
+///               - arn:aws:schemas:us-east-1:123456789012:registry/example
+///               - arn:aws:schemas:us-east-1:123456789012:schema/example*
 /// ```
 ///
 /// ## Import

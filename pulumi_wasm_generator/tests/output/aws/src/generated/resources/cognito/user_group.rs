@@ -2,54 +2,49 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let groupRole = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sts:AssumeRoleWithWebIdentity",])
-///                     .conditions(vec![GetPolicyDocumentStatementCondition::builder()
-///                     .test("StringEquals")
-///                     .values(vec!["us-east-1:12345678-dead-beef-cafe-123456790ab",])
-///                     .variable("cognito-identity.amazonaws.com:aud").build_struct(),
-///                     GetPolicyDocumentStatementCondition::builder()
-///                     .test("ForAnyValue:StringLike").values(vec!["authenticated",])
-///                     .variable("cognito-identity.amazonaws.com:amr").build_struct(),])
-///                     .effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["cognito-identity.amazonaws.com",]). type
-///                     ("Federated").build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let groupRoleRole = role::create(
-///         "groupRoleRole",
-///         RoleArgs::builder()
-///             .assume_role_policy("${groupRole.json}")
-///             .name("user-group-role")
-///             .build_struct(),
-///     );
-///     let main = user_pool::create(
-///         "main",
-///         UserPoolArgs::builder().name("identity pool").build_struct(),
-///     );
-///     let mainUserGroup = user_group::create(
-///         "mainUserGroup",
-///         UserGroupArgs::builder()
-///             .description("Managed by Pulumi")
-///             .name("user-group")
-///             .precedence(42)
-///             .role_arn("${groupRoleRole.arn}")
-///             .user_pool_id("${main.id}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   main:
+///     type: aws:cognito:UserPool
+///     properties:
+///       name: identity pool
+///   groupRoleRole:
+///     type: aws:iam:Role
+///     name: group_role
+///     properties:
+///       name: user-group-role
+///       assumeRolePolicy: ${groupRole.json}
+///   mainUserGroup:
+///     type: aws:cognito:UserGroup
+///     name: main
+///     properties:
+///       name: user-group
+///       userPoolId: ${main.id}
+///       description: Managed by Pulumi
+///       precedence: 42
+///       roleArn: ${groupRoleRole.arn}
+/// variables:
+///   groupRole:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: Federated
+///                 identifiers:
+///                   - cognito-identity.amazonaws.com
+///             actions:
+///               - sts:AssumeRoleWithWebIdentity
+///             conditions:
+///               - test: StringEquals
+///                 variable: cognito-identity.amazonaws.com:aud
+///                 values:
+///                   - us-east-1:12345678-dead-beef-cafe-123456790ab
+///               - test: ForAnyValue:StringLike
+///                 variable: cognito-identity.amazonaws.com:amr
+///                 values:
+///                   - authenticated
 /// ```
 ///
 /// ## Import

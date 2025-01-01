@@ -17,7 +17,7 @@
 ///         findMatchesParameters:
 ///           primaryKeyColumnName: my_column_1
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${testAwsIamRolePolicyAttachment}
 ///   testCatalogDatabase:
 ///     type: aws:glue:CatalogDatabase

@@ -21,7 +21,7 @@
 ///       isDisabled: false
 ///       tags:
 ///         foo1: bar1
-///         foo2:
+///         foo2: ""
 /// ```
 ///
 /// ### Public Domain Names
@@ -52,47 +52,35 @@
 ///
 /// ### Private Registry Access
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let default = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["ecr:BatchGetImage", "ecr:GetDownloadUrlForLayer",])
-///                     .effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["${defaultContainerService.privateRegistryAccess.ecrImagePullerRole.principalArn}",])
-///                     . type ("AWS").build_struct(),]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let defaultContainerService = container_service::create(
-///         "defaultContainerService",
-///         ContainerServiceArgs::builder()
-///             .private_registry_access(
-///                 ContainerServicePrivateRegistryAccess::builder()
-///                     .ecrImagePullerRole(
-///                         ContainerServicePrivateRegistryAccessEcrImagePullerRole::builder()
-///                             .isActive(true)
-///                             .build_struct(),
-///                     )
-///                     .build_struct(),
-///             )
-///             .build_struct(),
-///     );
-///     let defaultRepositoryPolicy = repository_policy::create(
-///         "defaultRepositoryPolicy",
-///         RepositoryPolicyArgs::builder()
-///             .policy("${default.json}")
-///             .repository("${defaultAwsEcrRepository.name}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   defaultContainerService:
+///     type: aws:lightsail:ContainerService
+///     name: default
+///     properties:
+///       privateRegistryAccess:
+///         ecrImagePullerRole:
+///           isActive: true
+///   defaultRepositoryPolicy:
+///     type: aws:ecr:RepositoryPolicy
+///     name: default
+///     properties:
+///       repository: ${defaultAwsEcrRepository.name}
+///       policy: ${default.json}
+/// variables:
+///   default:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: AWS
+///                 identifiers:
+///                   - ${defaultContainerService.privateRegistryAccess.ecrImagePullerRole.principalArn}
+///             actions:
+///               - ecr:BatchGetImage
+///               - ecr:GetDownloadUrlForLayer
 /// ```
 ///
 /// ## Import

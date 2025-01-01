@@ -62,49 +62,43 @@
 ///         - subnet-12345678
 ///         - subnet-23456789
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${exampleAwsIamRolePolicyAttachment}
 /// ```
 ///
 /// ### Example IAM Role for GameLift Game Server Group
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let assumeRole = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["sts:AssumeRole",]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["autoscaling.amazonaws.com",
-///                     "gamelift.amazonaws.com",]). type ("Service").build_struct(),])
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let current = get_partition::invoke(GetPartitionArgs::builder().build_struct());
-///     let example = role::create(
-///         "example",
-///         RoleArgs::builder()
-///             .assume_role_policy("${assumeRole.json}")
-///             .name("gamelift-game-server-group-example")
-///             .build_struct(),
-///     );
-///     let exampleRolePolicyAttachment = role_policy_attachment::create(
-///         "exampleRolePolicyAttachment",
-///         RolePolicyAttachmentArgs::builder()
-///             .policy_arn(
-///                 "arn:${current.partition}:iam::aws:policy/GameLiftGameServerGroupPolicy",
-///             )
-///             .role("${example.name}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:iam:Role
+///     properties:
+///       assumeRolePolicy: ${assumeRole.json}
+///       name: gamelift-game-server-group-example
+///   exampleRolePolicyAttachment:
+///     type: aws:iam:RolePolicyAttachment
+///     name: example
+///     properties:
+///       policyArn: arn:${current.partition}:iam::aws:policy/GameLiftGameServerGroupPolicy
+///       role: ${example.name}
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getPartition
+///       arguments: {}
+///   assumeRole:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - autoscaling.amazonaws.com
+///                   - gamelift.amazonaws.com
+///             actions:
+///               - sts:AssumeRole
 /// ```
 ///
 /// ## Import

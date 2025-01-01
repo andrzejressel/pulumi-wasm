@@ -30,37 +30,32 @@
 ///
 /// ### Log all DynamoDB PutEvent actions for a specific DynamoDB table
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let table = get_table::invoke(
-///         GetTableArgs::builder().name("not-important-dynamodb-table").build_struct(),
-///     );
-///     let example = event_data_store::create(
-///         "example",
-///         EventDataStoreArgs::builder()
-///             .advanced_event_selectors(
-///                 vec![
-///                     EventDataStoreAdvancedEventSelector::builder()
-///                     .fieldSelectors(vec![EventDataStoreAdvancedEventSelectorFieldSelector::builder()
-///                     .equals(vec!["Data",]).field("eventCategory").build_struct(),
-///                     EventDataStoreAdvancedEventSelectorFieldSelector::builder()
-///                     .equals(vec!["AWS::DynamoDB::Table",]).field("resources.type")
-///                     .build_struct(),
-///                     EventDataStoreAdvancedEventSelectorFieldSelector::builder()
-///                     .equals(vec!["PutItem",]).field("eventName").build_struct(),
-///                     EventDataStoreAdvancedEventSelectorFieldSelector::builder()
-///                     .equals(vec!["${table.arn}",]).field("resources.ARN")
-///                     .build_struct(),])
-///                     .name("Log all DynamoDB PutEvent actions for a specific DynamoDB table")
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:cloudtrail:EventDataStore
+///     properties:
+///       advancedEventSelectors:
+///         - name: Log all DynamoDB PutEvent actions for a specific DynamoDB table
+///           fieldSelectors:
+///             - field: eventCategory
+///               equals:
+///                 - Data
+///             - field: resources.type
+///               equals:
+///                 - AWS::DynamoDB::Table
+///             - field: eventName
+///               equals:
+///                 - PutItem
+///             - field: resources.ARN
+///               equals:
+///                 - ${table.arn}
+/// variables:
+///   table:
+///     fn::invoke:
+///       function: aws:dynamodb:getTable
+///       arguments:
+///         name: not-important-dynamodb-table
 /// ```
 ///
 /// ## Import

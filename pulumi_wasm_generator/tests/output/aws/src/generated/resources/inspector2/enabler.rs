@@ -23,22 +23,21 @@
 ///
 /// ### For the Calling Account
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_caller_identity::invoke(
-///         GetCallerIdentityArgs::builder().build_struct(),
-///     );
-///     let test = enabler::create(
-///         "test",
-///         EnablerArgs::builder()
-///             .account_ids(vec!["${current.accountId}",])
-///             .resource_types(vec!["ECR", "EC2",])
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   test:
+///     type: aws:inspector2:Enabler
+///     properties:
+///       accountIds:
+///         - ${current.accountId}
+///       resourceTypes:
+///         - ECR
+///         - EC2
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getCallerIdentity
+///       arguments: {}
 /// ```
 pub mod enabler {
     #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]

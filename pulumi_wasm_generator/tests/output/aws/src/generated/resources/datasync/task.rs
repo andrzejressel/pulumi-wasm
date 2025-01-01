@@ -2,76 +2,50 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = task::create(
-///         "example",
-///         TaskArgs::builder()
-///             .destination_location_arn("${destination.arn}")
-///             .name("example")
-///             .options(TaskOptions::builder().bytesPerSecond(-1).build_struct())
-///             .source_location_arn("${source.arn}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:datasync:Task
+///     properties:
+///       destinationLocationArn: ${destination.arn}
+///       name: example
+///       sourceLocationArn: ${source.arn}
+///       options:
+///         bytesPerSecond: -1
 /// ```
 ///
 ///
 /// ### With Scheduling
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = task::create(
-///         "example",
-///         TaskArgs::builder()
-///             .destination_location_arn("${destination.arn}")
-///             .name("example")
-///             .schedule(
-///                 TaskSchedule::builder()
-///                     .scheduleExpression("cron(0 12 ? * SUN,WED *)")
-///                     .build_struct(),
-///             )
-///             .source_location_arn("${source.arn}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:datasync:Task
+///     properties:
+///       destinationLocationArn: ${destination.arn}
+///       name: example
+///       sourceLocationArn: ${source.arn}
+///       schedule:
+///         scheduleExpression: cron(0 12 ? * SUN,WED *)
 /// ```
 ///
 ///
 /// ### With Filtering
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = task::create(
-///         "example",
-///         TaskArgs::builder()
-///             .destination_location_arn("${destination.arn}")
-///             .excludes(
-///                 TaskExcludes::builder()
-///                     .filterType("SIMPLE_PATTERN")
-///                     .value("/folder1|/folder2")
-///                     .build_struct(),
-///             )
-///             .includes(
-///                 TaskIncludes::builder()
-///                     .filterType("SIMPLE_PATTERN")
-///                     .value("/folder1|/folder2")
-///                     .build_struct(),
-///             )
-///             .name("example")
-///             .source_location_arn("${source.arn}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:datasync:Task
+///     properties:
+///       destinationLocationArn: ${destination.arn}
+///       name: example
+///       sourceLocationArn: ${source.arn}
+///       excludes:
+///         filterType: SIMPLE_PATTERN
+///         value: /folder1|/folder2
+///       includes:
+///         filterType: SIMPLE_PATTERN
+///         value: /folder1|/folder2
 /// ```
 ///
 /// ## Import
@@ -88,10 +62,12 @@ pub mod task {
     pub struct TaskArgs {
         /// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
         #[builder(into, default)]
-        pub cloudwatch_log_group_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub cloudwatch_log_group_arn: pulumi_wasm_rust::Output<
+            Option<super::super::types::Arn>,
+        >,
         /// Amazon Resource Name (ARN) of destination DataSync Location.
         #[builder(into)]
-        pub destination_location_arn: pulumi_wasm_rust::Output<String>,
+        pub destination_location_arn: pulumi_wasm_rust::Output<super::super::types::Arn>,
         /// Filter rules that determines which files to exclude from a task.
         #[builder(into, default)]
         pub excludes: pulumi_wasm_rust::Output<
@@ -117,7 +93,7 @@ pub mod task {
         >,
         /// Amazon Resource Name (ARN) of source DataSync Location.
         #[builder(into)]
-        pub source_location_arn: pulumi_wasm_rust::Output<String>,
+        pub source_location_arn: pulumi_wasm_rust::Output<super::super::types::Arn>,
         /// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
         pub tags: pulumi_wasm_rust::Output<
@@ -134,9 +110,11 @@ pub mod task {
         /// Amazon Resource Name (ARN) of the DataSync Task.
         pub arn: pulumi_wasm_rust::Output<String>,
         /// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
-        pub cloudwatch_log_group_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub cloudwatch_log_group_arn: pulumi_wasm_rust::Output<
+            Option<super::super::types::Arn>,
+        >,
         /// Amazon Resource Name (ARN) of destination DataSync Location.
-        pub destination_location_arn: pulumi_wasm_rust::Output<String>,
+        pub destination_location_arn: pulumi_wasm_rust::Output<super::super::types::Arn>,
         /// Filter rules that determines which files to exclude from a task.
         pub excludes: pulumi_wasm_rust::Output<
             Option<super::super::types::datasync::TaskExcludes>,
@@ -156,7 +134,7 @@ pub mod task {
             Option<super::super::types::datasync::TaskSchedule>,
         >,
         /// Amazon Resource Name (ARN) of source DataSync Location.
-        pub source_location_arn: pulumi_wasm_rust::Output<String>,
+        pub source_location_arn: pulumi_wasm_rust::Output<super::super::types::Arn>,
         /// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         pub tags: pulumi_wasm_rust::Output<
             Option<std::collections::HashMap<String, String>>,

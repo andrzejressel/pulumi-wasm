@@ -26,13 +26,13 @@
 /// variables:
 ///   valueWindows10:
 ///     fn::invoke:
-///       Function: aws:workspaces:getBundle
-///       Arguments:
+///       function: aws:workspaces:getBundle
+///       arguments:
 ///         bundleId: wsb-bh8rsxt14
 ///   workspaces:
 ///     fn::invoke:
-///       Function: aws:kms:getKey
-///       Arguments:
+///       function: aws:kms:getKey
+///       arguments:
 ///         keyId: alias/aws/workspaces
 /// ```
 ///

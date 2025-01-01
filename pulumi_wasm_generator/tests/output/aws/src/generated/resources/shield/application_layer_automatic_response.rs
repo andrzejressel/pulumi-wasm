@@ -4,28 +4,29 @@
 ///
 /// ### Basic Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_region::invoke(GetRegionArgs::builder().build_struct());
-///     let currentGetCallerIdentity = get_caller_identity::invoke(
-///         GetCallerIdentityArgs::builder().build_struct(),
-///     );
-///     let currentGetPartition = get_partition::invoke(
-///         GetPartitionArgs::builder().build_struct(),
-///     );
-///     let example = application_layer_automatic_response::create(
-///         "example",
-///         ApplicationLayerAutomaticResponseArgs::builder()
-///             .action("COUNT")
-///             .resource_arn(
-///                 "arn:${currentGetPartition.partition}:cloudfront:${currentGetCallerIdentity.accountId}:distribution/${distributionId}",
-///             )
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// configuration:
+///   distributionId:
+///     type: string
+/// resources:
+///   example:
+///     type: aws:shield:ApplicationLayerAutomaticResponse
+///     properties:
+///       resourceArn: arn:${currentGetPartition.partition}:cloudfront:${currentGetCallerIdentity.accountId}:distribution/${distributionId}
+///       action: COUNT
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getRegion
+///       arguments: {}
+///   currentGetCallerIdentity:
+///     fn::invoke:
+///       function: aws:getCallerIdentity
+///       arguments: {}
+///   currentGetPartition:
+///     fn::invoke:
+///       function: aws:getPartition
+///       arguments: {}
 /// ```
 pub mod application_layer_automatic_response {
     #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]

@@ -48,10 +48,10 @@
 ///       name: importing
 ///       publicKey:
 ///         fn::invoke:
-///           Function: std:file
-///           Arguments:
+///           function: std:file
+///           arguments:
 ///             input: ~/.ssh/id_rsa.pub
-///           Return: result
+///           return: result
 /// ```
 ///
 /// ## Import

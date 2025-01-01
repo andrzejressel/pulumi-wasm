@@ -92,8 +92,8 @@
 /// variables:
 ///   assumeRole:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - effect: Allow
 ///             principals:
@@ -104,8 +104,8 @@
 ///               - sts:AssumeRole
 ///   codepipelinePolicy:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - effect: Allow
 ///             actions:
@@ -130,8 +130,8 @@
 ///               - '*'
 ///   s3kmskey:
 ///     fn::invoke:
-///       Function: aws:kms:getAlias
-///       Arguments:
+///       function: aws:kms:getAlias
+///       arguments:
 ///         name: alias/myKmsKey
 /// ```
 ///

@@ -6,29 +6,24 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let test = get_reserved_instance_offering::invoke(
-///         GetReservedInstanceOfferingArgs::builder()
-///             .db_instance_class("db.t2.micro")
-///             .duration(31536000)
-///             .multi_az(false)
-///             .offering_type("All Upfront")
-///             .product_description("mysql")
-///             .build_struct(),
-///     );
-///     let example = reserved_instance::create(
-///         "example",
-///         ReservedInstanceArgs::builder()
-///             .instance_count(3)
-///             .offering_id("${test.offeringId}")
-///             .reservation_id("optionalCustomReservationID")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:rds:ReservedInstance
+///     properties:
+///       offeringId: ${test.offeringId}
+///       reservationId: optionalCustomReservationID
+///       instanceCount: 3
+/// variables:
+///   test:
+///     fn::invoke:
+///       function: aws:rds:getReservedInstanceOffering
+///       arguments:
+///         dbInstanceClass: db.t2.micro
+///         duration: 3.1536e+07
+///         multiAz: false
+///         offeringType: All Upfront
+///         productDescription: mysql
 /// ```
 ///
 /// ## Import

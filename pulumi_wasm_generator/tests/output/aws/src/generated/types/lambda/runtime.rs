@@ -3,8 +3,6 @@
 pub enum Runtime {
     #[serde(rename = "dotnet6")]
     Dotnet6,
-    #[serde(rename = "dotnet7")]
-    Dotnet7,
     #[serde(rename = "dotnet8")]
     Dotnet8,
     #[serde(rename = "java11")]
@@ -19,6 +17,8 @@ pub enum Runtime {
     NodeJS18dX,
     #[serde(rename = "nodejs20.x")]
     NodeJS20dX,
+    #[serde(rename = "nodejs22.x")]
+    NodeJS22dX,
     #[serde(rename = "provided.al2")]
     CustomAL2,
     #[serde(rename = "provided.al2023")]
@@ -29,14 +29,18 @@ pub enum Runtime {
     Python3d11,
     #[serde(rename = "python3.12")]
     Python3d12,
-    #[serde(rename = "python3.8")]
-    Python3d8,
+    #[serde(rename = "python3.13")]
+    Python3d13,
     #[serde(rename = "python3.9")]
     Python3d9,
     #[serde(rename = "ruby3.2")]
     Ruby3d2,
+    #[serde(rename = "ruby3.3")]
+    Ruby3d3,
     #[serde(rename = "dotnet5.0")]
     Dotnet5d0,
+    #[serde(rename = "dotnet7")]
+    Dotnet7,
     #[serde(rename = "dotnetcore2.1")]
     DotnetCore2d1,
     #[serde(rename = "dotnetcore3.1")]
@@ -61,6 +65,8 @@ pub enum Runtime {
     Python3d6,
     #[serde(rename = "python3.7")]
     Python3d7,
+    #[serde(rename = "python3.8")]
+    Python3d8,
     #[serde(rename = "ruby2.5")]
     Ruby2d5,
     #[serde(rename = "ruby2.7")]

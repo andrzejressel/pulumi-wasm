@@ -38,8 +38,8 @@
 /// variables:
 ///   assumeRole:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - effect: Allow
 ///             principals:
@@ -50,8 +50,8 @@
 ///               - sts:AssumeRole
 ///   lambda:
 ///     fn::invoke:
-///       Function: archive:getFile
-///       Arguments:
+///       function: archive:getFile
+///       arguments:
 ///         type: zip
 ///         sourceFile: lambda.js
 ///         outputPath: lambda_function_payload.zip
@@ -102,8 +102,8 @@
 /// variables:
 ///   assumeRole:
 ///     fn::invoke:
-///       Function: aws:iam:getPolicyDocument
-///       Arguments:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
 ///         statements:
 ///           - effect: Allow
 ///             principals:
@@ -133,7 +133,7 @@
 ///         securityGroupIds:
 ///           - ${sgForLambda.id}
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${alpha}
 ///   # EFS file system
 ///   efsForLambda:
@@ -175,56 +175,58 @@
 ///
 /// For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let lambdaLogging = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["logs:CreateLogGroup", "logs:CreateLogStream",
-///                     "logs:PutLogEvents",]).effect("Allow")
-///                     .resources(vec!["arn:aws:logs:*:*:*",]).build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let example = log_group::create(
-///         "example",
-///         LogGroupArgs::builder()
-///             .name("/aws/lambda/${lambdaFunctionName}")
-///             .retention_in_days(14)
-///             .build_struct(),
-///     );
-///     let lambdaLoggingPolicy = policy::create(
-///         "lambdaLoggingPolicy",
-///         PolicyArgs::builder()
-///             .description("IAM policy for logging from a lambda")
-///             .name("lambda_logging")
-///             .path("/")
-///             .policy("${lambdaLogging.json}")
-///             .build_struct(),
-///     );
-///     let lambdaLogs = role_policy_attachment::create(
-///         "lambdaLogs",
-///         RolePolicyAttachmentArgs::builder()
-///             .policy_arn("${lambdaLoggingPolicy.arn}")
-///             .role("${iamForLambda.name}")
-///             .build_struct(),
-///     );
-///     let testLambda = function::create(
-///         "testLambda",
-///         FunctionArgs::builder()
-///             .logging_config(
-///                 FunctionLoggingConfig::builder().logFormat("Text").build_struct(),
-///             )
-///             .name("${lambdaFunctionName}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// configuration:
+///   lambdaFunctionName:
+///     type: string
+///     default: lambda_function_name
+/// resources:
+///   testLambda:
+///     type: aws:lambda:Function
+///     name: test_lambda
+///     properties:
+///       name: ${lambdaFunctionName}
+///       loggingConfig:
+///         logFormat: Text
+///     options:
+///       dependsOn:
+///         - ${lambdaLogs}
+///         - ${example}
+///   # This is to optionally manage the CloudWatch Log Group for the Lambda Function.
+///   # If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
+///   example:
+///     type: aws:cloudwatch:LogGroup
+///     properties:
+///       name: /aws/lambda/${lambdaFunctionName}
+///       retentionInDays: 14
+///   lambdaLoggingPolicy:
+///     type: aws:iam:Policy
+///     name: lambda_logging
+///     properties:
+///       name: lambda_logging
+///       path: /
+///       description: IAM policy for logging from a lambda
+///       policy: ${lambdaLogging.json}
+///   lambdaLogs:
+///     type: aws:iam:RolePolicyAttachment
+///     name: lambda_logs
+///     properties:
+///       role: ${iamForLambda.name}
+///       policyArn: ${lambdaLoggingPolicy.arn}
+/// variables:
+///   # See also the following AWS managed policy: AWSLambdaBasicExecutionRole
+///   lambdaLogging:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             actions:
+///               - logs:CreateLogGroup
+///               - logs:CreateLogStream
+///               - logs:PutLogEvents
+///             resources:
+///               - arn:aws:logs:*:*:*
 /// ```
 ///
 /// ## Specifying the Deployment Package
@@ -332,7 +334,7 @@ pub mod function {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub role: pulumi_wasm_rust::Output<String>,
+        pub role: pulumi_wasm_rust::Output<super::super::types::Arn>,
         /// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
         #[builder(into, default)]
         pub runtime: pulumi_wasm_rust::Output<Option<String>>,
@@ -452,7 +454,7 @@ pub mod function {
         /// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
         ///
         /// The following arguments are optional:
-        pub role: pulumi_wasm_rust::Output<String>,
+        pub role: pulumi_wasm_rust::Output<super::super::types::Arn>,
         /// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
         pub runtime: pulumi_wasm_rust::Output<Option<String>>,
         /// S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.

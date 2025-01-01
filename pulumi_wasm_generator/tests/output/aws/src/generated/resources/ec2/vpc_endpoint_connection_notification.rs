@@ -3,49 +3,44 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let topic = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder().actions(vec!["SNS:Publish",])
-///                     .effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["vpce.amazonaws.com",]). type ("Service")
-///                     .build_struct(),])
-///                     .resources(vec!["arn:aws:sns:*:*:vpce-notification-topic",])
-///                     .build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let foo = vpc_endpoint_service::create(
-///         "foo",
-///         VpcEndpointServiceArgs::builder()
-///             .acceptance_required(false)
-///             .network_load_balancer_arns(vec!["${test.arn}",])
-///             .build_struct(),
-///     );
-///     let fooVpcEndpointConnectionNotification = vpc_endpoint_connection_notification::create(
-///         "fooVpcEndpointConnectionNotification",
-///         VpcEndpointConnectionNotificationArgs::builder()
-///             .connection_events(vec!["Accept", "Reject",])
-///             .connection_notification_arn("${topicTopic.arn}")
-///             .vpc_endpoint_service_id("${foo.id}")
-///             .build_struct(),
-///     );
-///     let topicTopic = topic::create(
-///         "topicTopic",
-///         TopicArgs::builder()
-///             .name("vpce-notification-topic")
-///             .policy("${topic.json}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   topicTopic:
+///     type: aws:sns:Topic
+///     name: topic
+///     properties:
+///       name: vpce-notification-topic
+///       policy: ${topic.json}
+///   foo:
+///     type: aws:ec2:VpcEndpointService
+///     properties:
+///       acceptanceRequired: false
+///       networkLoadBalancerArns:
+///         - ${test.arn}
+///   fooVpcEndpointConnectionNotification:
+///     type: aws:ec2:VpcEndpointConnectionNotification
+///     name: foo
+///     properties:
+///       vpcEndpointServiceId: ${foo.id}
+///       connectionNotificationArn: ${topicTopic.arn}
+///       connectionEvents:
+///         - Accept
+///         - Reject
+/// variables:
+///   topic:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - effect: Allow
+///             principals:
+///               - type: Service
+///                 identifiers:
+///                   - vpce.amazonaws.com
+///             actions:
+///               - SNS:Publish
+///             resources:
+///               - arn:aws:sns:*:*:vpce-notification-topic
 /// ```
 ///
 /// ## Import

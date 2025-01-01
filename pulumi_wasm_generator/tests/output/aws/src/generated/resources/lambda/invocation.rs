@@ -17,12 +17,12 @@
 ///       triggers:
 ///         redeployment:
 ///           fn::invoke:
-///             Function: std:sha1
-///             Arguments:
+///             function: std:sha1
+///             arguments:
 ///               input:
 ///                 fn::toJSON:
 ///                   - ${exampleAwsLambdaFunction.environment}
-///             Return: result
+///             return: result
 ///       input:
 ///         fn::toJSON:
 ///           key1: value1

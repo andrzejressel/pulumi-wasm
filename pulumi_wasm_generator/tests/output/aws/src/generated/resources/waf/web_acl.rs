@@ -23,7 +23,7 @@
 ///           negated: false
 ///           type: IPMatch
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${ipset}
 ///   wafAcl:
 ///     type: aws:waf:WebAcl
@@ -40,7 +40,7 @@
 ///           ruleId: ${wafrule.id}
 ///           type: REGULAR
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${ipset}
 ///         - ${wafrule}
 /// ```

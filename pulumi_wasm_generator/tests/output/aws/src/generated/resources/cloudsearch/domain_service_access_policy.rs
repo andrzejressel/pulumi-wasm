@@ -4,39 +4,39 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let example = get_policy_document::invoke(
-///         GetPolicyDocumentArgs::builder()
-///             .statements(
-///                 vec![
-///                     GetPolicyDocumentStatement::builder()
-///                     .actions(vec!["cloudsearch:search", "cloudsearch:document",])
-///                     .conditions(vec![GetPolicyDocumentStatementCondition::builder()
-///                     .test("IpAddress").values(vec!["192.0.2.0/32",])
-///                     .variable("aws:SourceIp").build_struct(),]).effect("Allow")
-///                     .principals(vec![GetPolicyDocumentStatementPrincipal::builder()
-///                     .identifiers(vec!["*",]). type ("*").build_struct(),])
-///                     .sid("search_only").build_struct(),
-///                 ],
-///             )
-///             .build_struct(),
-///     );
-///     let exampleDomain = domain::create(
-///         "exampleDomain",
-///         DomainArgs::builder().name("example-domain").build_struct(),
-///     );
-///     let exampleDomainServiceAccessPolicy = domain_service_access_policy::create(
-///         "exampleDomainServiceAccessPolicy",
-///         DomainServiceAccessPolicyArgs::builder()
-///             .access_policy("${example.json}")
-///             .domain_name("${exampleDomain.id}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   exampleDomain:
+///     type: aws:cloudsearch:Domain
+///     name: example
+///     properties:
+///       name: example-domain
+///   exampleDomainServiceAccessPolicy:
+///     type: aws:cloudsearch:DomainServiceAccessPolicy
+///     name: example
+///     properties:
+///       domainName: ${exampleDomain.id}
+///       accessPolicy: ${example.json}
+/// variables:
+///   example:
+///     fn::invoke:
+///       function: aws:iam:getPolicyDocument
+///       arguments:
+///         statements:
+///           - sid: search_only
+///             effect: Allow
+///             principals:
+///               - type: '*'
+///                 identifiers:
+///                   - '*'
+///             actions:
+///               - cloudsearch:search
+///               - cloudsearch:document
+///             conditions:
+///               - test: IpAddress
+///                 variable: aws:SourceIp
+///                 values:
+///                   - 192.0.2.0/32
 /// ```
 ///
 /// ## Import

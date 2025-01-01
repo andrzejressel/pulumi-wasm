@@ -20,10 +20,10 @@
 ///         fn::FileAsset: ./example.txt
 ///       etag:
 ///         fn::invoke:
-///           Function: std:filemd5
-///           Arguments:
+///           function: std:filemd5
+///           arguments:
 ///             input: ./example.txt
-///           Return: result
+///           return: result
 ///   examplePackage:
 ///     type: aws:opensearch:Package
 ///     name: example

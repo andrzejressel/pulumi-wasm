@@ -2,6 +2,7 @@
 #[builder(finish_fn = build_struct)]
 #[allow(dead_code)]
 pub struct GroupSseConfiguration {
+    /// Boolean flag to indicate that the CMK should be used.
     #[builder(into, default)]
     #[serde(rename = "customerManagedKeyEnabled")]
     pub r#customer_managed_key_enabled: Box<Option<bool>>,

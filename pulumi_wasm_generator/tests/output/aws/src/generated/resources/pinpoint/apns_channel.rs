@@ -11,16 +11,16 @@
 ///       applicationId: ${app.applicationId}
 ///       certificate:
 ///         fn::invoke:
-///           Function: std:file
-///           Arguments:
+///           function: std:file
+///           arguments:
 ///             input: ./certificate.pem
-///           Return: result
+///           return: result
 ///       privateKey:
 ///         fn::invoke:
-///           Function: std:file
-///           Arguments:
+///           function: std:file
+///           arguments:
 ///             input: ./private_key.key
-///           Return: result
+///           return: result
 ///   app:
 ///     type: aws:pinpoint:App
 /// ```

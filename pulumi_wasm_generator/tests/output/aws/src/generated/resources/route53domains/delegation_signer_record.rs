@@ -63,7 +63,7 @@
 ///     properties:
 ///       hostedZoneId: ${exampleKeySigningKey.hostedZoneId}
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${exampleKeySigningKey}
 ///   exampleDelegationSignerRecord:
 ///     type: aws:route53domains:DelegationSignerRecord
@@ -77,8 +77,8 @@
 /// variables:
 ///   current:
 ///     fn::invoke:
-///       Function: aws:getCallerIdentity
-///       Arguments: {}
+///       function: aws:getCallerIdentity
+///       arguments: {}
 /// ```
 ///
 /// ## Import

@@ -13,10 +13,10 @@
 ///     properties:
 ///       csr:
 ///         fn::invoke:
-///           Function: std:file
-///           Arguments:
+///           function: std:file
+///           arguments:
 ///             input: csr.pem
-///           Return: result
+///           return: result
 ///       active: true
 ///   att:
 ///     type: aws:iot:ThingPrincipalAttachment
@@ -31,7 +31,7 @@ pub mod thing_principal_attachment {
     pub struct ThingPrincipalAttachmentArgs {
         /// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
         #[builder(into)]
-        pub principal: pulumi_wasm_rust::Output<String>,
+        pub principal: pulumi_wasm_rust::Output<super::super::types::Arn>,
         /// The name of the thing.
         #[builder(into)]
         pub thing: pulumi_wasm_rust::Output<String>,
@@ -39,7 +39,7 @@ pub mod thing_principal_attachment {
     #[allow(dead_code)]
     pub struct ThingPrincipalAttachmentResult {
         /// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-        pub principal: pulumi_wasm_rust::Output<String>,
+        pub principal: pulumi_wasm_rust::Output<super::super::types::Arn>,
         /// The name of the thing.
         pub thing: pulumi_wasm_rust::Output<String>,
     }

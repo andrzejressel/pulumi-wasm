@@ -2,22 +2,23 @@
 ///
 /// ## Example Usage
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let current = get_region::invoke(GetRegionArgs::builder().build_struct());
-///     let example = account::create("example", AccountArgs::builder().build_struct());
-///     let exampleProductSubscription = product_subscription::create(
-///         "exampleProductSubscription",
-///         ProductSubscriptionArgs::builder()
-///             .product_arn(
-///                 "arn:aws:securityhub:${current.name}:733251395267:product/alertlogic/althreatmanagement",
-///             )
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:securityhub:Account
+///   exampleProductSubscription:
+///     type: aws:securityhub:ProductSubscription
+///     name: example
+///     properties:
+///       productArn: arn:aws:securityhub:${current.name}:733251395267:product/alertlogic/althreatmanagement
+///     options:
+///       dependsOn:
+///         - ${example}
+/// variables:
+///   current:
+///     fn::invoke:
+///       function: aws:getRegion
+///       arguments: {}
 /// ```
 ///
 /// ## Import

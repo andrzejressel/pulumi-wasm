@@ -103,8 +103,8 @@
 ///   # Lookup the available instance classes for the custom engine for the region being operated in
 ///   custom-oracle:
 ///     fn::invoke:
-///       Function: aws:rds:getOrderableDbInstance
-///       Arguments:
+///       function: aws:rds:getOrderableDbInstance
+///       arguments:
 ///         engine: custom-oracle-ee
 ///         engineVersion: 19.c.ee.002
 ///         licenseModel: bring-your-own-license
@@ -116,8 +116,8 @@
 ///   # The RDS instance resource requires an ARN. Look up the ARN of the KMS key associated with the CEV.
 ///   byId:
 ///     fn::invoke:
-///       Function: aws:kms:getKey
-///       Arguments:
+///       function: aws:kms:getKey
+///       arguments:
 ///         keyId: example-ef278353ceba4a5a97de6784565b9f78
 /// ```
 ///
@@ -146,8 +146,8 @@
 ///   # Lookup the available instance classes for the custom engine for the region being operated in
 ///   custom-sqlserver:
 ///     fn::invoke:
-///       Function: aws:rds:getOrderableDbInstance
-///       Arguments:
+///       function: aws:rds:getOrderableDbInstance
+///       arguments:
 ///         engine: custom-sqlserver-se
 ///         engineVersion: 15.00.4249.2.v1
 ///         storageType: gp3
@@ -158,8 +158,8 @@
 ///   # The RDS instance resource requires an ARN. Look up the ARN of the KMS key.
 ///   byId:
 ///     fn::invoke:
-///       Function: aws:kms:getKey
-///       Arguments:
+///       function: aws:kms:getKey
+///       arguments:
 ///         keyId: example-ef278353ceba4a5a97de6784565b9f78
 /// ```
 ///
@@ -200,14 +200,14 @@
 ///   # Lookup the default version for the engine. Db2 Standard Edition is `db2-se`, Db2 Advanced Edition is `db2-ae`.
 ///   default:
 ///     fn::invoke:
-///       Function: aws:rds:getEngineVersion
-///       Arguments:
+///       function: aws:rds:getEngineVersion
+///       arguments:
 ///         engine: db2-se
 ///   # Lookup the available instance classes for the engine in the region being operated in
 ///   example:
 ///     fn::invoke:
-///       Function: aws:rds:getOrderableDbInstance
-///       Arguments:
+///       function: aws:rds:getOrderableDbInstance
+///       arguments:
 ///         engine: ${default.engine}
 ///         engineVersion: ${default.version}
 ///         licenseModel: bring-your-own-license
@@ -377,13 +377,12 @@ pub mod instance {
         /// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
         #[builder(into, default)]
         pub db_name: pulumi_wasm_rust::Output<Option<String>>,
-        /// Name of DB subnet group. DB instance will
-        /// be created in the VPC associated with the DB subnet group. If unspecified, will
-        /// be created in the `default` VPC, or in EC2 Classic, if available. When working
-        /// with read replicas, it should be specified only if the source database
-        /// specifies an instance in another AWS Region. See [DBSubnetGroupName in API
-        /// action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-        /// for additional read replica constraints.
+        /// Name of DB subnet group.
+        /// DB instance will be created in the VPC associated with the DB subnet group.
+        /// If unspecified, will be created in the `default` Subnet Group.
+        /// When working with read replicas created in the same region, defaults to the Subnet Group Name of the source DB.
+        /// When working with read replicas created in a different region, defaults to the `default` Subnet Group.
+        /// See [DBSubnetGroupName in API action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html) for additional read replica constraints.
         #[builder(into, default)]
         pub db_subnet_group_name: pulumi_wasm_rust::Output<Option<String>>,
         /// Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
@@ -535,18 +534,17 @@ pub mod instance {
         /// is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
         #[builder(into, default)]
         pub replica_mode: pulumi_wasm_rust::Output<Option<String>>,
-        /// Specifies that this resource is a Replicate
-        /// database, and to use this value as the source database. This correlates to the
-        /// `identifier` of another Amazon RDS Database to replicate (if replicating within
-        /// a single region) or ARN of the Amazon RDS Database to replicate (if replicating
-        /// cross-region). Note that if you are
-        /// creating a cross-region replica of an encrypted database you will also need to
-        /// specify a `kms_key_id`. See [DB Instance Replication][instance-replication] and [Working with
-        /// PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
-        /// for more information on using Replication.
+        /// Specifies that this resource is a Replica database, and to use this value as the source database.
+        /// If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `db_subnet_group_name`.
+        /// If specifying the `db_subnet_group_name` in the same region, use the `arn` of the source DB.
+        /// If replicating an Instance in a different region, use the `arn` of the source DB.
+        /// Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kms_key_id`.
+        /// See [DB Instance Replication][instance-replication] and [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for more information on using Replication.
         #[builder(into, default)]
         pub replicate_source_db: pulumi_wasm_rust::Output<Option<String>>,
-        /// A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+        /// A configuration block for restoring a DB instance to an arbitrary point in time.
+        /// Requires the `identifier` argument to be set with the name of the new DB instance to be created.
+        /// See Restore To Point In Time below for details.
         #[builder(into, default)]
         pub restore_to_point_in_time: pulumi_wasm_rust::Output<
             Option<super::super::types::rds::InstanceRestoreToPointInTime>,
@@ -563,9 +561,8 @@ pub mod instance {
         /// is `false`.
         #[builder(into, default)]
         pub skip_final_snapshot: pulumi_wasm_rust::Output<Option<bool>>,
-        /// Specifies whether or not to create this
-        /// database from a snapshot. This correlates to the snapshot ID you'd find in the
-        /// RDS console, e.g: rds:production-2015-06-26-06-05.
+        /// Specifies whether or not to create this database from a snapshot.
+        /// This corresponds to the snapshot ID you'd find in the RDS console, e.g: rds:production-2015-06-26-06-05.
         #[builder(into, default)]
         pub snapshot_identifier: pulumi_wasm_rust::Output<Option<String>>,
         /// Specifies whether the DB instance is
@@ -595,7 +592,8 @@ pub mod instance {
         /// for more information.
         #[builder(into, default)]
         pub timezone: pulumi_wasm_rust::Output<Option<String>>,
-        /// Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
+        /// Whether to upgrade the storage file system configuration on the read replica.
+        /// Can only be set with `replicate_source_db`.
         #[builder(into, default)]
         pub upgrade_storage_config: pulumi_wasm_rust::Output<Option<bool>>,
         /// (Required unless a `snapshot_identifier` or `replicate_source_db`
@@ -667,13 +665,12 @@ pub mod instance {
         pub customer_owned_ip_enabled: pulumi_wasm_rust::Output<Option<bool>>,
         /// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
         pub db_name: pulumi_wasm_rust::Output<String>,
-        /// Name of DB subnet group. DB instance will
-        /// be created in the VPC associated with the DB subnet group. If unspecified, will
-        /// be created in the `default` VPC, or in EC2 Classic, if available. When working
-        /// with read replicas, it should be specified only if the source database
-        /// specifies an instance in another AWS Region. See [DBSubnetGroupName in API
-        /// action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-        /// for additional read replica constraints.
+        /// Name of DB subnet group.
+        /// DB instance will be created in the VPC associated with the DB subnet group.
+        /// If unspecified, will be created in the `default` Subnet Group.
+        /// When working with read replicas created in the same region, defaults to the Subnet Group Name of the source DB.
+        /// When working with read replicas created in a different region, defaults to the `default` Subnet Group.
+        /// See [DBSubnetGroupName in API action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html) for additional read replica constraints.
         pub db_subnet_group_name: pulumi_wasm_rust::Output<String>,
         /// Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
         pub dedicated_log_volume: pulumi_wasm_rust::Output<Option<bool>>,
@@ -801,19 +798,18 @@ pub mod instance {
         /// is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
         pub replica_mode: pulumi_wasm_rust::Output<String>,
         pub replicas: pulumi_wasm_rust::Output<Vec<String>>,
-        /// Specifies that this resource is a Replicate
-        /// database, and to use this value as the source database. This correlates to the
-        /// `identifier` of another Amazon RDS Database to replicate (if replicating within
-        /// a single region) or ARN of the Amazon RDS Database to replicate (if replicating
-        /// cross-region). Note that if you are
-        /// creating a cross-region replica of an encrypted database you will also need to
-        /// specify a `kms_key_id`. See [DB Instance Replication][instance-replication] and [Working with
-        /// PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
-        /// for more information on using Replication.
+        /// Specifies that this resource is a Replica database, and to use this value as the source database.
+        /// If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `db_subnet_group_name`.
+        /// If specifying the `db_subnet_group_name` in the same region, use the `arn` of the source DB.
+        /// If replicating an Instance in a different region, use the `arn` of the source DB.
+        /// Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kms_key_id`.
+        /// See [DB Instance Replication][instance-replication] and [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for more information on using Replication.
         pub replicate_source_db: pulumi_wasm_rust::Output<Option<String>>,
         /// The RDS Resource ID of this instance.
         pub resource_id: pulumi_wasm_rust::Output<String>,
-        /// A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+        /// A configuration block for restoring a DB instance to an arbitrary point in time.
+        /// Requires the `identifier` argument to be set with the name of the new DB instance to be created.
+        /// See Restore To Point In Time below for details.
         pub restore_to_point_in_time: pulumi_wasm_rust::Output<
             Option<super::super::types::rds::InstanceRestoreToPointInTime>,
         >,
@@ -827,9 +823,8 @@ pub mod instance {
         /// instance is deleted, using the value from `final_snapshot_identifier`. Default
         /// is `false`.
         pub skip_final_snapshot: pulumi_wasm_rust::Output<Option<bool>>,
-        /// Specifies whether or not to create this
-        /// database from a snapshot. This correlates to the snapshot ID you'd find in the
-        /// RDS console, e.g: rds:production-2015-06-26-06-05.
+        /// Specifies whether or not to create this database from a snapshot.
+        /// This corresponds to the snapshot ID you'd find in the RDS console, e.g: rds:production-2015-06-26-06-05.
         pub snapshot_identifier: pulumi_wasm_rust::Output<String>,
         /// The RDS instance status.
         pub status: pulumi_wasm_rust::Output<String>,
@@ -859,7 +854,8 @@ pub mod instance {
         /// Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
         /// for more information.
         pub timezone: pulumi_wasm_rust::Output<String>,
-        /// Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
+        /// Whether to upgrade the storage file system configuration on the read replica.
+        /// Can only be set with `replicate_source_db`.
         pub upgrade_storage_config: pulumi_wasm_rust::Output<Option<bool>>,
         /// (Required unless a `snapshot_identifier` or `replicate_source_db`
         /// is provided) Username for the master DB user. Cannot be specified for a replica.

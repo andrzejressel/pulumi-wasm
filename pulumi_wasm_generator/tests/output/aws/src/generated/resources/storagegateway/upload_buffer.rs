@@ -6,48 +6,39 @@
 ///
 /// ### Cached and VTL Gateway Type
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let test = get_local_disk::invoke(
-///         GetLocalDiskArgs::builder()
-///             .disk_node("${testAwsVolumeAttachment.deviceName}")
-///             .gateway_arn("${testAwsStoragegatewayGateway.arn}")
-///             .build_struct(),
-///     );
-///     let testUploadBuffer = upload_buffer::create(
-///         "testUploadBuffer",
-///         UploadBufferArgs::builder()
-///             .disk_path("${test.diskPath}")
-///             .gateway_arn("${testAwsStoragegatewayGateway.arn}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   testUploadBuffer:
+///     type: aws:storagegateway:UploadBuffer
+///     name: test
+///     properties:
+///       diskPath: ${test.diskPath}
+///       gatewayArn: ${testAwsStoragegatewayGateway.arn}
+/// variables:
+///   test:
+///     fn::invoke:
+///       function: aws:storagegateway:getLocalDisk
+///       arguments:
+///         diskNode: ${testAwsVolumeAttachment.deviceName}
+///         gatewayArn: ${testAwsStoragegatewayGateway.arn}
 /// ```
 ///
 /// ### Stored Gateway Type
 ///
-/// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
-/// #[pulumi_main]
-/// fn test_main() -> Result<(), Error> {
-///     let test = get_local_disk::invoke(
-///         GetLocalDiskArgs::builder()
-///             .disk_node("${testAwsVolumeAttachment.deviceName}")
-///             .gateway_arn("${testAwsStoragegatewayGateway.arn}")
-///             .build_struct(),
-///     );
-///     let example = upload_buffer::create(
-///         "example",
-///         UploadBufferArgs::builder()
-///             .disk_id("${exampleAwsStoragegatewayLocalDisk.id}")
-///             .gateway_arn("${exampleAwsStoragegatewayGateway.arn}")
-///             .build_struct(),
-///     );
-/// }
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:storagegateway:UploadBuffer
+///     properties:
+///       diskId: ${exampleAwsStoragegatewayLocalDisk.id}
+///       gatewayArn: ${exampleAwsStoragegatewayGateway.arn}
+/// variables:
+///   test:
+///     fn::invoke:
+///       function: aws:storagegateway:getLocalDisk
+///       arguments:
+///         diskNode: ${testAwsVolumeAttachment.deviceName}
+///         gatewayArn: ${testAwsStoragegatewayGateway.arn}
 /// ```
 ///
 /// ## Import

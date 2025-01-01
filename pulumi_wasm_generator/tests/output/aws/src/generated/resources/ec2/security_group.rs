@@ -187,9 +187,9 @@
 ///       update: 'true'
 ///       delete: |2
 ///                     ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters "Name=tag:Name,Values=${tags.workaround1}" --query "VpcEndpoints[0].VpcEndpointId" --output text` &&
-///                     aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${ENDPOINT_ID} --add-security-group-ids ${tags.workaround2} --remove-security-group-ids ${id}
+///                     aws ec2 modify-vpc-endpoint --vpc-endpoint-id $${ENDPOINT_ID} --add-security-group-ids ${tags.workaround2} --remove-security-group-ids ${id}
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${example}
 ///   exampleResource:
 ///     type: null:Resource
@@ -198,24 +198,24 @@
 ///       triggers:
 ///         rerun_upon_change_of:
 ///           fn::invoke:
-///             Function: std:join
-///             Arguments:
+///             function: std:join
+///             arguments:
 ///               separator: ','
 ///               input: ${exampleAwsVpcEndpoint.securityGroupIds}
-///             Return: result
+///             return: result
 ///   exampleResourceProvisioner0:
 ///     type: command:local:Command
 ///     properties:
 ///       create: |2
 ///                     aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${exampleAwsVpcEndpoint.id} --remove-security-group-ids ${default.id}
 ///     options:
-///       dependson:
+///       dependsOn:
 ///         - ${exampleResource}
 /// variables:
 ///   default:
 ///     fn::invoke:
-///       Function: aws:ec2:getSecurityGroup
-///       Arguments:
+///       function: aws:ec2:getSecurityGroup
+///       arguments:
 ///         name: default
 /// ```
 ///
