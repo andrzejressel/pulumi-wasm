@@ -43,6 +43,12 @@ jobs:
         run: just install-requirements
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install Protoc
+        uses: arduino/setup-protoc@v3
+        with:
+          version: "25.3"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - run: protoc --version
       - uses: Swatinem/rust-cache@v2
       - run: just base-ci-flow
       - name: Upload coverage data to codecov
@@ -195,6 +201,12 @@ jobs:
           go-version: '^1.22.0'
           cache-dependency-path: "**/go.sum"
       - run: go version
+      - name: Install Protoc
+        uses: arduino/setup-protoc@v3
+        with:
+          version: "25.3"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - run: protoc --version
       - name: Install requirements
         run: just install-requirements
         env:
