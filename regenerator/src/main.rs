@@ -1,5 +1,7 @@
+use itertools::Itertools;
 use std::fs;
 use std::process::Command;
+use itertools;
 
 #[derive(Debug)]
 struct Provider<'a> {
@@ -58,76 +60,33 @@ fn main() {
 
     update_justfile(&providers);
     update_tests(&tests, &providers);
-    update_generator_cargo_toml(&providers);
+    update_generator_cargo_toml(&tests, &providers);
 }
 
 fn update_tests(tests: &[&str], providers: &[Provider]) {
-    update_github_actions_build(tests);
-    update_github_actions_deploy(tests, providers);
+    update_github_actions_build(tests, providers);
     update_test_rs(tests, providers);
 }
 
-fn update_github_actions_build(tests: &[&str]) {
-    let content = fs::read_to_string(".github/workflows/deploy.yml")
-        .expect("Failed to read .github/workflows/deploy.yml");
-
-    let mut replacement = String::new();
-    replacement.push_str("            ./\n");
-    for test in tests {
-        replacement.push_str(&format!(
-            "            pulumi_wasm_generator/tests/output/{}/\n",
-            test
-        ));
-    }
-    let start_marker = " # DO NOT EDIT - START 1";
-    let end_marker = "# DO NOT EDIT - END 1";
-    let content = replace_between_markers(&content, start_marker, end_marker, &replacement);
-
-    let start_marker = " # DO NOT EDIT - START 2";
-    let end_marker = "# DO NOT EDIT - END 2";
-    let content = replace_between_markers(&content, start_marker, end_marker, &replacement);
-
-    fs::write(".github/workflows/deploy.yml", content)
-        .expect("Failed to write to .github/workflows/deploy.yml");
-}
-
-fn update_github_actions_deploy(tests: &[&str], providers: &[Provider]) {
+fn update_github_actions_build(tests: &[&str], providers: &[Provider]) {
     let content = fs::read_to_string(".github/workflows/build.yml")
         .expect("Failed to read .github/workflows/build.yml");
 
     let mut replacement = String::new();
-    replacement.push_str("          ./\n");
-    for test in tests {
-        replacement.push_str(&format!(
-            "          pulumi_wasm_generator/tests/output/{}/\n",
-            test
-        ));
-    }
-    let start_marker = " # DO NOT EDIT - START 1";
-    let end_marker = "# DO NOT EDIT - END 1";
-    let content = replace_between_markers(&content, start_marker, end_marker, &replacement);
-
-    let start_marker = " # DO NOT EDIT - START 2";
-    let end_marker = "# DO NOT EDIT - END 2";
-    let content = replace_between_markers(&content, start_marker, end_marker, &replacement);
-
-    let mut replacement = String::new();
     replacement.push_str("        provider: [");
     replacement.push_str(
-        &providers
-            .iter()
-            .map(|p| p.name)
-            .collect::<Vec<_>>()
-            .join(", "),
+        &itertools::chain!(
+            providers
+                .iter()
+                .map(|p| p.name.to_string()),
+            tests.iter().map(|t| t.to_string())
+        )
+            .join(", ")
     );
     replacement.push_str("]\n");
     let start_marker = "# DO NOT EDIT - PROVIDER START";
     let end_marker = "# DO NOT EDIT - PROVIDER END";
     let content = replace_between_markers(&content, start_marker, end_marker, &replacement);
-
-    // # DO NOT EDIT - PROVIDER START
-    // provider: [cloudflare, docker, random]
-    // # DO NOT EDIT - PROVIDER END
 
     fs::write(".github/workflows/build.yml", content)
         .expect("Failed to write to .github/workflows/build.yml");
@@ -144,7 +103,7 @@ fn update_test_rs(tests: &[&str], providers: &[Provider]) {
         let code = format!(
             r#"
 #[test]
-#[cfg_attr(not(feature = "generator_fast"), ignore)]
+#[cfg_attr(not(feature = "generator_{test_directory}"), ignore)]
 fn {method_name}() -> Result<()> {{
     run_pulumi_generator_test("{test_directory}")
 }}
@@ -178,12 +137,15 @@ fn {method_name}() -> Result<()> {{
         .expect("Failed to write to pulumi_wasm_generator/tests/test.rs");
 }
 
-fn update_generator_cargo_toml(providers: &[Provider]) {
+fn update_generator_cargo_toml(tests: &[&str], providers: &[Provider]) {
     let content =
         fs::read_to_string("pulumi_wasm_generator/Cargo.toml").expect("Failed to read Cargo.toml");
     let mut replacement = String::new();
     for provider in providers {
         replacement.push_str(&format!("generator_{} = []\n", provider.name))
+    }
+    for test in tests {
+        replacement.push_str(&format!("generator_{} = []\n", test))
     }
     let start_marker = "# DO NOT EDIT - START";
     let end_marker = "# DO NOT EDIT - END";

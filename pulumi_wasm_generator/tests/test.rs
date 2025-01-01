@@ -9,91 +9,91 @@ use std::time::SystemTime;
 // DO NOT EDIT - START
 
 #[test]
-#[cfg_attr(not(feature = "generator_fast"), ignore)]
+#[cfg_attr(not(feature = "generator_array-of-enum-map"), ignore)]
 fn array_of_enum_map() -> Result<()> {
     run_pulumi_generator_test("array-of-enum-map")
 }
 
 #[test]
-#[cfg_attr(not(feature = "generator_fast"), ignore)]
+#[cfg_attr(not(feature = "generator_azure-native-nested-types"), ignore)]
 fn azure_native_nested_types() -> Result<()> {
     run_pulumi_generator_test("azure-native-nested-types")
 }
 
 #[test]
-#[cfg_attr(not(feature = "generator_fast"), ignore)]
+#[cfg_attr(not(feature = "generator_cyclic-types"), ignore)]
 fn cyclic_types() -> Result<()> {
     run_pulumi_generator_test("cyclic-types")
 }
 
 #[test]
-#[cfg_attr(not(feature = "generator_fast"), ignore)]
+#[cfg_attr(not(feature = "generator_different-enum"), ignore)]
 fn different_enum() -> Result<()> {
     run_pulumi_generator_test("different-enum")
 }
 
 #[test]
-#[cfg_attr(not(feature = "generator_fast"), ignore)]
+#[cfg_attr(not(feature = "generator_functions-secrets"), ignore)]
 fn functions_secrets() -> Result<()> {
     run_pulumi_generator_test("functions-secrets")
 }
 
 #[test]
-#[cfg_attr(not(feature = "generator_fast"), ignore)]
+#[cfg_attr(not(feature = "generator_mini-awsnative"), ignore)]
 fn mini_awsnative() -> Result<()> {
     run_pulumi_generator_test("mini-awsnative")
 }
 
 #[test]
-#[cfg_attr(not(feature = "generator_fast"), ignore)]
+#[cfg_attr(not(feature = "generator_nested-module"), ignore)]
 fn nested_module() -> Result<()> {
     run_pulumi_generator_test("nested-module")
 }
 
 #[test]
-#[cfg_attr(not(feature = "generator_fast"), ignore)]
+#[cfg_attr(not(feature = "generator_nested-module-thirdparty"), ignore)]
 fn nested_module_thirdparty() -> Result<()> {
     run_pulumi_generator_test("nested-module-thirdparty")
 }
 
 #[test]
-#[cfg_attr(not(feature = "generator_fast"), ignore)]
+#[cfg_attr(not(feature = "generator_output-funcs"), ignore)]
 fn output_funcs() -> Result<()> {
     run_pulumi_generator_test("output-funcs")
 }
 
 #[test]
-#[cfg_attr(not(feature = "generator_fast"), ignore)]
+#[cfg_attr(not(feature = "generator_output-funcs-edgeorder"), ignore)]
 fn output_funcs_edgeorder() -> Result<()> {
     run_pulumi_generator_test("output-funcs-edgeorder")
 }
 
 #[test]
-#[cfg_attr(not(feature = "generator_fast"), ignore)]
+#[cfg_attr(not(feature = "generator_plain-object-defaults"), ignore)]
 fn plain_object_defaults() -> Result<()> {
     run_pulumi_generator_test("plain-object-defaults")
 }
 
 #[test]
-#[cfg_attr(not(feature = "generator_fast"), ignore)]
+#[cfg_attr(not(feature = "generator_plain-object-disable-defaults"), ignore)]
 fn plain_object_disable_defaults() -> Result<()> {
     run_pulumi_generator_test("plain-object-disable-defaults")
 }
 
 #[test]
-#[cfg_attr(not(feature = "generator_fast"), ignore)]
+#[cfg_attr(not(feature = "generator_reserved_names"), ignore)]
 fn reserved_names() -> Result<()> {
     run_pulumi_generator_test("reserved_names")
 }
 
 #[test]
-#[cfg_attr(not(feature = "generator_fast"), ignore)]
+#[cfg_attr(not(feature = "generator_unions-inline"), ignore)]
 fn unions_inline() -> Result<()> {
     run_pulumi_generator_test("unions-inline")
 }
 
 #[test]
-#[cfg_attr(not(feature = "generator_fast"), ignore)]
+#[cfg_attr(not(feature = "generator_unions-inside-arrays"), ignore)]
 fn unions_inside_arrays() -> Result<()> {
     run_pulumi_generator_test("unions-inside-arrays")
 }

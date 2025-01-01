@@ -6,11 +6,25 @@ edition.workspace = true
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [features]
-generator_fast = []
 # DO NOT EDIT - START
 generator_cloudflare = []
 generator_docker = []
 generator_random = []
+generator_array-of-enum-map = []
+generator_azure-native-nested-types = []
+generator_cyclic-types = []
+generator_different-enum = []
+generator_functions-secrets = []
+generator_mini-awsnative = []
+generator_nested-module = []
+generator_nested-module-thirdparty = []
+generator_output-funcs = []
+generator_output-funcs-edgeorder = []
+generator_plain-object-defaults = []
+generator_plain-object-disable-defaults = []
+generator_reserved_names = []
+generator_unions-inline = []
+generator_unions-inside-arrays = []
 # DO NOT EDIT - END
 
 [lints]
