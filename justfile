@@ -107,7 +107,7 @@ test-examples:
         --cobertura --output-path covertura.xml --features example_test
 
 test-all:
-    cargo llvm-cov nextest --workspace --cobertura --output-path covertura.xml --all-features
+    cargo llvm-cov nextest --cobertura --output-path covertura.xml --all-features
 
 test:
     cargo llvm-cov nextest --cobertura --output-path covertura.xml
@@ -116,7 +116,7 @@ docs:
     docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material
 
 test-docs:
-    cargo test --doc --workspace
+    cargo test --doc
     just rust-docs
 
 # DO NOT EDIT - GENERATE-RUST-DOCS - START
