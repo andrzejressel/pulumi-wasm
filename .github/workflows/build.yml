@@ -134,7 +134,7 @@ jobs:
     - name: Ensure no files have changed
       run: git add . && git diff --quiet && git diff --cached --quiet
 
-  build-real:
+  build-generated-provider:
     runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
@@ -187,7 +187,7 @@ jobs:
         run: git add . && git diff --quiet && git diff --cached --quiet
   deploy:
     runs-on: ubuntu-24.04
-    needs: [build, build-real]
+    needs: [build, build-generated-provider]
     if: success() && github.ref == 'refs/heads/main'
     env:
       RUST_BACKTRACE: "full"
