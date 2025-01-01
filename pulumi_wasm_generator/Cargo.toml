@@ -6,11 +6,11 @@ edition.workspace = true
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [features]
-fast = []
+generator_fast = []
 # DO NOT EDIT - START
-cloudflare = []
-docker = []
-random = []
+generator_cloudflare = []
+generator_docker = []
+generator_random = []
 # DO NOT EDIT - END
 
 [lints]

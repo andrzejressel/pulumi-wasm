@@ -144,7 +144,7 @@ fn update_test_rs(tests: &[&str], providers: &[Provider]) {
         let code = format!(
             r#"
 #[test]
-#[cfg_attr(not(feature = "fast"), ignore)]
+#[cfg_attr(not(feature = "generator_fast"), ignore)]
 fn {method_name}() -> Result<()> {{
     run_pulumi_generator_test("{test_directory}")
 }}
@@ -161,7 +161,7 @@ fn {method_name}() -> Result<()> {{
         let code = format!(
             r#"
 #[test]
-#[cfg_attr(not(feature = "{provider_name}"), ignore)]
+#[cfg_attr(not(feature = "generator_{provider_name}"), ignore)]
 fn {method_name}() -> Result<()> {{
     run_pulumi_generator_test("{provider_name}")
 }}
@@ -183,7 +183,7 @@ fn update_generator_cargo_toml(providers: &[Provider]) {
         fs::read_to_string("pulumi_wasm_generator/Cargo.toml").expect("Failed to read Cargo.toml");
     let mut replacement = String::new();
     for provider in providers {
-        replacement.push_str(&format!("{} = []\n", provider.name))
+        replacement.push_str(&format!("generator_{} = []\n", provider.name))
     }
     let start_marker = "# DO NOT EDIT - START";
     let end_marker = "# DO NOT EDIT - END";

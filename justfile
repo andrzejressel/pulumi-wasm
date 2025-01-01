@@ -86,7 +86,7 @@ publish:
     cargo hack publish -p pulumi_wasm_runner --all-features --no-dev-deps --allow-dirty
 
 test-provider-compilation COMPILATION_NAME:
-    cargo llvm-cov nextest -p pulumi_wasm_generator --cobertura --output-path covertura.xml --features {{COMPILATION_NAME}} --test '*'
+    cargo llvm-cov nextest -p pulumi_wasm_generator --cobertura --output-path covertura.xml --features generator_{{COMPILATION_NAME}} --test '*'
 
 test-all:
     cargo test --doc --workspace
