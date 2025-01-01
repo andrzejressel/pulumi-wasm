@@ -2245,10 +2245,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "pulumi-wasm-parent"
-version = "0.0.0-DEV"
-
-[[package]]
 name = "pulumi_wasm"
 version = "0.0.0-DEV"
 dependencies = [

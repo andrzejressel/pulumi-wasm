@@ -21,8 +21,8 @@ build: build-language-plugin regenerator install-requirements build-wasm-compone
 
 # https://stackoverflow.com/questions/74524817/why-is-anyhow-not-working-in-the-stable-version
 fix-issues:
-    cargo component check --workspace
-    cargo check --workspace
+    cargo component check
+    cargo check
 
 build-language-plugin:
     cd pulumi-language-wasm && just
@@ -86,8 +86,8 @@ publish:
     cargo hack publish -p pulumi_wasm_runner --all-features --no-dev-deps --allow-dirty
 
 test:
-    cargo nextest run --profile ci --workspace --timings
-    cargo test --doc --workspace
+    cargo nextest run --profile ci --timings
+    cargo test --doc
     just rust-docs
 
 test-coverage:
