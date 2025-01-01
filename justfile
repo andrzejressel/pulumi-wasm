@@ -95,7 +95,7 @@ test-all:
 
 test:
     cargo test --doc --workspace
-    cargo llvm-cov nextest --workspace --cobertura --output-path covertura.xml --features fast
+    cargo llvm-cov nextest --workspace --cobertura --output-path covertura.xml --features generator_fast
     just rust-docs
 
 docs:
