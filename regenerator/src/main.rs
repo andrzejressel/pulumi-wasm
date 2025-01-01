@@ -113,7 +113,13 @@ fn update_github_actions_deploy(tests: &[&str], providers: &[Provider]) {
 
     let mut replacement = String::new();
     replacement.push_str("        provider: [");
-    replacement.push_str(&providers.iter().map(|p| p.name).collect::<Vec<_>>().join(", "));
+    replacement.push_str(
+        &providers
+            .iter()
+            .map(|p| p.name)
+            .collect::<Vec<_>>()
+            .join(", "),
+    );
     replacement.push_str("]\n");
     let start_marker = "# DO NOT EDIT - PROVIDER START";
     let end_marker = "# DO NOT EDIT - PROVIDER END";
@@ -173,7 +179,8 @@ fn {method_name}() -> Result<()> {{
 }
 
 fn update_generator_cargo_toml(providers: &[Provider]) {
-    let content = fs::read_to_string("pulumi_wasm_generator/Cargo.toml").expect("Failed to read Cargo.toml");
+    let content =
+        fs::read_to_string("pulumi_wasm_generator/Cargo.toml").expect("Failed to read Cargo.toml");
     let mut replacement = String::new();
     for provider in providers {
         replacement.push_str(&format!("{} = []\n", provider.name))
@@ -181,7 +188,8 @@ fn update_generator_cargo_toml(providers: &[Provider]) {
     let start_marker = "# DO NOT EDIT - START";
     let end_marker = "# DO NOT EDIT - END";
     let new_content = replace_between_markers(&content, start_marker, end_marker, &replacement);
-    fs::write("pulumi_wasm_generator/Cargo.toml", new_content).expect("Failed to write to pulumi_wasm_generator/Cargo.toml");
+    fs::write("pulumi_wasm_generator/Cargo.toml", new_content)
+        .expect("Failed to write to pulumi_wasm_generator/Cargo.toml");
 }
 
 fn update_justfile(providers: &[Provider]) {
