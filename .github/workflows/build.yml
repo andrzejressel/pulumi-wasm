@@ -175,6 +175,10 @@ jobs:
       - uses: cargo-bins/cargo-binstall@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: brew install pulumi
+        if: runner.os == 'macOS'
+      - run: pulumi version
+      - run: pulumi login --local
       - name: Install requirements
         run: just install-requirements
         env:
