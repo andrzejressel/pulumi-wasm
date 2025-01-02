@@ -149,29 +149,29 @@ pub fn run_pulumi_generator_test(test_name: &str) -> Result<()> {
         .set_times(times)
         .context("Cannot set times")?;
 
-    // Command::new("cargo")
-    //     .args(["component", "build"])
-    //     .env_remove("CARGO_LLVM_COV")
-    //     .env_remove("RUSTFLAGS")
-    //     .current_dir(root)
-    //     .assert()
-    //     .success();
-    //
-    // Command::new("cargo")
-    //     .args(["test", "--doc"])
-    //     .env_remove("CARGO_LLVM_COV")
-    //     .env_remove("RUSTFLAGS")
-    //     .current_dir(root)
-    //     .assert()
-    //     .success();
-    //
-    // Command::new("cargo")
-    //     .args(["doc", "--no-deps"])
-    //     .env_remove("CARGO_LLVM_COV")
-    //     .env_remove("RUSTFLAGS")
-    //     .current_dir(root)
-    //     .assert()
-    //     .success();
+    Command::new("cargo")
+        .args(["component", "build"])
+        .env_remove("CARGO_LLVM_COV")
+        .env_remove("RUSTFLAGS")
+        .current_dir(root)
+        .assert()
+        .success();
+
+    Command::new("cargo")
+        .args(["test", "--doc"])
+        .env_remove("CARGO_LLVM_COV")
+        .env_remove("RUSTFLAGS")
+        .current_dir(root)
+        .assert()
+        .success();
+
+    Command::new("cargo")
+        .args(["doc", "--no-deps"])
+        .env_remove("CARGO_LLVM_COV")
+        .env_remove("RUSTFLAGS")
+        .current_dir(root)
+        .assert()
+        .success();
 
     Ok(())
 }
