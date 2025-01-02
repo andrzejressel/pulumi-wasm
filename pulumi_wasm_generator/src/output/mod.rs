@@ -46,18 +46,6 @@ impl TreeNode {
 }
 
 pub(crate) fn generate_combined_code(package: &Package, result_path: &std::path::Path) {
-    generate_files(
-        package,
-        &result_path.join("functions"),
-        &package.functions,
-        &functions::generate_single_file,
-    );
-    generate_files(
-        package,
-        &result_path.join("resources"),
-        &package.resources,
-        &resources::generate_single_file,
-    );
     generate_types_code(package, &result_path.join("types"));
 
     let main = main::generate(
@@ -65,13 +53,13 @@ pub(crate) fn generate_combined_code(package: &Package, result_path: &std::path:
             package,
             "functions",
             &package.functions,
-            &functions::generate_single_file_docs,
+            &functions::generate_single_file,
         ),
         generate_includes(
             package,
             "resources",
             &package.resources,
-            &resources::generate_single_file_docs,
+            &resources::generate_single_file,
         ),
         types::generate_module_imports(package),
         find_consts(package),
@@ -132,7 +120,7 @@ fn generate_includes<T>(
     package: &Package,
     name: &str,
     objects: &BTreeMap<ElementId, T>,
-    generator: &(impl Fn(&Package, &ElementId) -> Vec<String> + 'static),
+    generator: &dyn Fn(&Package, &ElementId) -> String
 ) -> String {
     if objects.is_empty() {
         return "".to_string();
@@ -143,13 +131,14 @@ fn generate_includes<T>(
         tree.insert(element_id.clone());
     }
 
-    generate_includes_looper(package, &tree, std::path::Path::new(name))
+    generate_includes_looper(package, &tree, std::path::Path::new(name), generator)
 }
 
 fn generate_includes_looper(
     package: &Package,
     tree_node: &TreeNode,
     current_path: &std::path::Path,
+    generator: &dyn Fn(&Package, &ElementId) -> String
 ) -> String {
     match tree_node {
         TreeNode::Namespace(ns, functions) => {
@@ -161,16 +150,13 @@ fn generate_includes_looper(
                     package,
                     node,
                     &current_path.join(name),
+                    generator
                 ));
                 s.push_str("}\n");
             }
 
             for function in functions {
-                s.push_str(&format!(
-                    "include!(\"{}/{}.rs\");\n",
-                    current_path.to_str().unwrap().replace("\\", "/"),
-                    function.get_rust_struct_name().to_case(Case::Snake)
-                ));
+                s.push_str(&generator(package, function));
             }
 
             s

@@ -1,7 +1,8 @@
-{{#each interface.description_lines}}
-    /// {{&this}}
-{{/each}}
 pub mod {{function.package_name}} {
+
+{{#each interface.description_lines}}
+    //! {{&this}}
+{{/each}}
 
 {{#if function.input_properties}}
 #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
