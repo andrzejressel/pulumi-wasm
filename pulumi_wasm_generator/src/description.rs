@@ -114,8 +114,7 @@ impl<'a> Description<'a> {
                         );
                         new_lines.push("```".to_string());
                     }
-                    Err(err) => {
-                        eprintln!("ERROR: {:?}", err);
+                    Err(_) => {
                         new_lines.push("```yaml".to_string());
                         new_lines.extend(yaml_lines.clone());
                         new_lines.push("```".to_string());
