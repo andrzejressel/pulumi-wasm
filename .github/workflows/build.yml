@@ -78,7 +78,7 @@ jobs:
           fail_ci_if_error: true
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Publish Results to Testspace
-        run: testspace "[ examples/${{ matrix.os }} ]target/nextest/default/junit.xml"
+        run: testspace "[ base/${{ matrix.os }} ]target/nextest/default/junit.xml"
       - run: git add . && git diff
       - run: git diff --cached
       - name: Ensure no files have changed
