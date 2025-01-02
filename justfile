@@ -30,8 +30,8 @@ test-docs-ci-flow: test-docs
 
 # https://stackoverflow.com/questions/74524817/why-is-anyhow-not-working-in-the-stable-version
 fix-issues:
-    cargo component check --workspace
-    cargo check --workspace
+    cargo component check
+    cargo check
 
 build-language-plugin:
     cd pulumi-language-wasm && just
@@ -107,16 +107,16 @@ test-examples:
         --cobertura --output-path covertura.xml --features example_test
 
 test-all:
-    cargo llvm-cov nextest --workspace --cobertura --output-path covertura.xml --all-features
+    cargo llvm-cov nextest --cobertura --output-path covertura.xml --all-features
 
 test:
-    cargo llvm-cov nextest --workspace --cobertura --output-path covertura.xml
+    cargo llvm-cov nextest --cobertura --output-path covertura.xml
 
 docs:
     docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material
 
 test-docs:
-    cargo test --doc --workspace
+    cargo test --doc
     just rust-docs
 
 rust-docs:

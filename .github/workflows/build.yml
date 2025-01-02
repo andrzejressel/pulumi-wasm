@@ -56,8 +56,6 @@ jobs:
       - run: pulumi version
       - run: pulumi login --local
       - uses: Swatinem/rust-cache@v2
-        with:
-          shared-key: build-base
       - name: Cache Pulumi providers
         uses: actions/cache@v4
         with:
@@ -283,6 +281,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: Swatinem/rust-cache@v2
+        with:
+          shared-key: build-examples
       - run: just examples-ci-flow
       - name: Upload coverage data to codecov
         uses: codecov/codecov-action@v5
@@ -366,7 +366,7 @@ jobs:
 
     - uses: Swatinem/rust-cache@v2
       with:
-        shared-key: build
+        shared-key: build-examples
         save-if: false
     - uses: benjlevesque/short-sha@v3.0
       id: short-sha
