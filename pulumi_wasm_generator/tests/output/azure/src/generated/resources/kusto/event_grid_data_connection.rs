@@ -2,99 +2,113 @@
 ///
 /// ## Example Usage
 ///
-/// ```yaml
-/// resources:
-///   example:
-///     type: azure:core:ResourceGroup
-///     properties:
-///       name: example-resources
-///       location: West Europe
-///   exampleCluster:
-///     type: azure:kusto:Cluster
-///     name: example
-///     properties:
-///       name: examplekustocluster
-///       location: ${example.location}
-///       resourceGroupName: ${example.name}
-///       sku:
-///         name: Standard_D13_v2
-///         capacity: 2
-///   exampleDatabase:
-///     type: azure:kusto:Database
-///     name: example
-///     properties:
-///       name: example-kusto-database
-///       resourceGroupName: ${example.name}
-///       location: ${example.location}
-///       clusterName: ${exampleCluster.name}
-///       hotCachePeriod: P7D
-///       softDeletePeriod: P31D
-///   exampleAccount:
-///     type: azure:storage:Account
-///     name: example
-///     properties:
-///       name: storageaccountname
-///       resourceGroupName: ${example.name}
-///       location: ${example.location}
-///       accountTier: Standard
-///       accountReplicationType: GRS
-///   exampleEventHubNamespace:
-///     type: azure:eventhub:EventHubNamespace
-///     name: example
-///     properties:
-///       name: eventhubnamespace-example
-///       location: ${example.location}
-///       resourceGroupName: ${example.name}
-///       sku: Standard
-///   exampleEventHub:
-///     type: azure:eventhub:EventHub
-///     name: example
-///     properties:
-///       name: eventhub-example
-///       namespaceName: ${exampleEventHubNamespace.name}
-///       resourceGroupName: ${example.name}
-///       partitionCount: 1
-///       messageRetention: 1
-///   exampleConsumerGroup:
-///     type: azure:eventhub:ConsumerGroup
-///     name: example
-///     properties:
-///       name: consumergroup-example
-///       namespaceName: ${exampleEventHubNamespace.name}
-///       eventhubName: ${exampleEventHub.name}
-///       resourceGroupName: ${example.name}
-///   exampleEventSubscription:
-///     type: azure:eventgrid:EventSubscription
-///     name: example
-///     properties:
-///       name: eventgrid-example
-///       scope: ${exampleAccount.id}
-///       eventhubEndpointId: ${exampleEventHub.id}
-///       eventDeliverySchema: EventGridSchema
-///       includedEventTypes:
-///         - Microsoft.Storage.BlobCreated
-///         - Microsoft.Storage.BlobRenamed
-///       retryPolicy:
-///         eventTimeToLive: 144
-///         maxDeliveryAttempts: 10
-///   exampleEventGridDataConnection:
-///     type: azure:kusto:EventGridDataConnection
-///     name: example
-///     properties:
-///       name: my-kusto-eventgrid-data-connection
-///       resourceGroupName: ${example.name}
-///       location: ${example.location}
-///       clusterName: ${exampleCluster.name}
-///       databaseName: ${exampleDatabase.name}
-///       storageAccountId: ${exampleAccount.id}
-///       eventhubId: ${exampleEventHub.id}
-///       eventhubConsumerGroupName: ${exampleConsumerGroup.name}
-///       tableName: my-table
-///       mappingRuleName: my-table-mapping
-///       dataFormat: JSON
-///     options:
-///       dependsOn:
-///         - ${exampleEventSubscription}
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let example = resource_group::create(
+///         "example",
+///         ResourceGroupArgs::builder()
+///             .location("West Europe")
+///             .name("example-resources")
+///             .build_struct(),
+///     );
+///     let exampleAccount = account::create(
+///         "exampleAccount",
+///         AccountArgs::builder()
+///             .account_replication_type("GRS")
+///             .account_tier("Standard")
+///             .location("${example.location}")
+///             .name("storageaccountname")
+///             .resource_group_name("${example.name}")
+///             .build_struct(),
+///     );
+///     let exampleCluster = cluster::create(
+///         "exampleCluster",
+///         ClusterArgs::builder()
+///             .location("${example.location}")
+///             .name("examplekustocluster")
+///             .resource_group_name("${example.name}")
+///             .sku(
+///                 ClusterSku::builder().capacity(2).name("Standard_D13_v2").build_struct(),
+///             )
+///             .build_struct(),
+///     );
+///     let exampleConsumerGroup = consumer_group::create(
+///         "exampleConsumerGroup",
+///         ConsumerGroupArgs::builder()
+///             .eventhub_name("${exampleEventHub.name}")
+///             .name("consumergroup-example")
+///             .namespace_name("${exampleEventHubNamespace.name}")
+///             .resource_group_name("${example.name}")
+///             .build_struct(),
+///     );
+///     let exampleDatabase = database::create(
+///         "exampleDatabase",
+///         DatabaseArgs::builder()
+///             .cluster_name("${exampleCluster.name}")
+///             .hot_cache_period("P7D")
+///             .location("${example.location}")
+///             .name("example-kusto-database")
+///             .resource_group_name("${example.name}")
+///             .soft_delete_period("P31D")
+///             .build_struct(),
+///     );
+///     let exampleEventGridDataConnection = event_grid_data_connection::create(
+///         "exampleEventGridDataConnection",
+///         EventGridDataConnectionArgs::builder()
+///             .cluster_name("${exampleCluster.name}")
+///             .data_format("JSON")
+///             .database_name("${exampleDatabase.name}")
+///             .eventhub_consumer_group_name("${exampleConsumerGroup.name}")
+///             .eventhub_id("${exampleEventHub.id}")
+///             .location("${example.location}")
+///             .mapping_rule_name("my-table-mapping")
+///             .name("my-kusto-eventgrid-data-connection")
+///             .resource_group_name("${example.name}")
+///             .storage_account_id("${exampleAccount.id}")
+///             .table_name("my-table")
+///             .build_struct(),
+///     );
+///     let exampleEventHub = event_hub::create(
+///         "exampleEventHub",
+///         EventHubArgs::builder()
+///             .message_retention(1)
+///             .name("eventhub-example")
+///             .namespace_name("${exampleEventHubNamespace.name}")
+///             .partition_count(1)
+///             .resource_group_name("${example.name}")
+///             .build_struct(),
+///     );
+///     let exampleEventHubNamespace = event_hub_namespace::create(
+///         "exampleEventHubNamespace",
+///         EventHubNamespaceArgs::builder()
+///             .location("${example.location}")
+///             .name("eventhubnamespace-example")
+///             .resource_group_name("${example.name}")
+///             .sku("Standard")
+///             .build_struct(),
+///     );
+///     let exampleEventSubscription = event_subscription::create(
+///         "exampleEventSubscription",
+///         EventSubscriptionArgs::builder()
+///             .event_delivery_schema("EventGridSchema")
+///             .eventhub_endpoint_id("${exampleEventHub.id}")
+///             .included_event_types(
+///                 vec!["Microsoft.Storage.BlobCreated", "Microsoft.Storage.BlobRenamed",],
+///             )
+///             .name("eventgrid-example")
+///             .retry_policy(
+///                 EventSubscriptionRetryPolicy::builder()
+///                     .eventTimeToLive(144)
+///                     .maxDeliveryAttempts(10)
+///                     .build_struct(),
+///             )
+///             .scope("${exampleAccount.id}")
+///             .build_struct(),
+///     );
+/// }
 /// ```
 ///
 /// ## Import

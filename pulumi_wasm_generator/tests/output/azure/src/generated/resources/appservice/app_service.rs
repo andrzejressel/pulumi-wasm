@@ -68,12 +68,12 @@ pub mod app_service {
         /// A `auth_settings` block as defined below.
         #[builder(into, default)]
         pub auth_settings: pulumi_wasm_rust::Output<
-            Option<super::types::appservice::AppServiceAuthSettings>,
+            Option<super::super::types::appservice::AppServiceAuthSettings>,
         >,
         /// A `backup` block as defined below.
         #[builder(into, default)]
         pub backup: pulumi_wasm_rust::Output<
-            Option<super::types::appservice::AppServiceBackup>,
+            Option<super::super::types::appservice::AppServiceBackup>,
         >,
         /// Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
         #[builder(into, default)]
@@ -87,7 +87,7 @@ pub mod app_service {
         /// One or more `connection_string` blocks as defined below.
         #[builder(into, default)]
         pub connection_strings: pulumi_wasm_rust::Output<
-            Option<Vec<super::types::appservice::AppServiceConnectionString>>,
+            Option<Vec<super::super::types::appservice::AppServiceConnectionString>>,
         >,
         /// Is the App Service Enabled? Defaults to `true`.
         #[builder(into, default)]
@@ -98,7 +98,7 @@ pub mod app_service {
         /// An `identity` block as defined below.
         #[builder(into, default)]
         pub identity: pulumi_wasm_rust::Output<
-            Option<super::types::appservice::AppServiceIdentity>,
+            Option<super::super::types::appservice::AppServiceIdentity>,
         >,
         /// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         #[builder(into, default)]
@@ -109,7 +109,7 @@ pub mod app_service {
         /// A `logs` block as defined below.
         #[builder(into, default)]
         pub logs: pulumi_wasm_rust::Output<
-            Option<super::types::appservice::AppServiceLogs>,
+            Option<super::super::types::appservice::AppServiceLogs>,
         >,
         /// Specifies the name of the App Service. Changing this forces a new resource to be created.
         #[builder(into, default)]
@@ -120,17 +120,17 @@ pub mod app_service {
         /// A `site_config` block as defined below.
         #[builder(into, default)]
         pub site_config: pulumi_wasm_rust::Output<
-            Option<super::types::appservice::AppServiceSiteConfig>,
+            Option<super::super::types::appservice::AppServiceSiteConfig>,
         >,
         /// A `source_control` block as defined below.
         #[builder(into, default)]
         pub source_control: pulumi_wasm_rust::Output<
-            Option<super::types::appservice::AppServiceSourceControl>,
+            Option<super::super::types::appservice::AppServiceSourceControl>,
         >,
         /// One or more `storage_account` blocks as defined below.
         #[builder(into, default)]
         pub storage_accounts: pulumi_wasm_rust::Output<
-            Option<Vec<super::types::appservice::AppServiceStorageAccount>>,
+            Option<Vec<super::super::types::appservice::AppServiceStorageAccount>>,
         >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
@@ -148,11 +148,11 @@ pub mod app_service {
         >,
         /// A `auth_settings` block as defined below.
         pub auth_settings: pulumi_wasm_rust::Output<
-            super::types::appservice::AppServiceAuthSettings,
+            super::super::types::appservice::AppServiceAuthSettings,
         >,
         /// A `backup` block as defined below.
         pub backup: pulumi_wasm_rust::Output<
-            Option<super::types::appservice::AppServiceBackup>,
+            Option<super::super::types::appservice::AppServiceBackup>,
         >,
         /// Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
         pub client_affinity_enabled: pulumi_wasm_rust::Output<Option<bool>>,
@@ -162,7 +162,7 @@ pub mod app_service {
         pub client_cert_mode: pulumi_wasm_rust::Output<String>,
         /// One or more `connection_string` blocks as defined below.
         pub connection_strings: pulumi_wasm_rust::Output<
-            Vec<super::types::appservice::AppServiceConnectionString>,
+            Vec<super::super::types::appservice::AppServiceConnectionString>,
         >,
         /// An identifier used by App Service to perform domain ownership verification via DNS TXT record.
         pub custom_domain_verification_id: pulumi_wasm_rust::Output<String>,
@@ -174,14 +174,16 @@ pub mod app_service {
         pub https_only: pulumi_wasm_rust::Output<Option<bool>>,
         /// An `identity` block as defined below.
         pub identity: pulumi_wasm_rust::Output<
-            Option<super::types::appservice::AppServiceIdentity>,
+            Option<super::super::types::appservice::AppServiceIdentity>,
         >,
         /// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         pub key_vault_reference_identity_id: pulumi_wasm_rust::Output<String>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         pub location: pulumi_wasm_rust::Output<String>,
         /// A `logs` block as defined below.
-        pub logs: pulumi_wasm_rust::Output<super::types::appservice::AppServiceLogs>,
+        pub logs: pulumi_wasm_rust::Output<
+            super::super::types::appservice::AppServiceLogs,
+        >,
         /// Specifies the name of the App Service. Changing this forces a new resource to be created.
         pub name: pulumi_wasm_rust::Output<String>,
         /// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
@@ -196,19 +198,19 @@ pub mod app_service {
         pub resource_group_name: pulumi_wasm_rust::Output<String>,
         /// A `site_config` block as defined below.
         pub site_config: pulumi_wasm_rust::Output<
-            super::types::appservice::AppServiceSiteConfig,
+            super::super::types::appservice::AppServiceSiteConfig,
         >,
         /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         pub site_credentials: pulumi_wasm_rust::Output<
-            Vec<super::types::appservice::AppServiceSiteCredential>,
+            Vec<super::super::types::appservice::AppServiceSiteCredential>,
         >,
         /// A `source_control` block as defined below.
         pub source_control: pulumi_wasm_rust::Output<
-            super::types::appservice::AppServiceSourceControl,
+            super::super::types::appservice::AppServiceSourceControl,
         >,
         /// One or more `storage_account` blocks as defined below.
         pub storage_accounts: pulumi_wasm_rust::Output<
-            Vec<super::types::appservice::AppServiceStorageAccount>,
+            Vec<super::super::types::appservice::AppServiceStorageAccount>,
         >,
         /// A mapping of tags to assign to the resource.
         pub tags: pulumi_wasm_rust::Output<

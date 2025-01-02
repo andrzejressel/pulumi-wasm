@@ -61,7 +61,7 @@ pub mod key_vault {
         /// > **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         #[builder(into, default)]
         pub access_policies: pulumi_wasm_rust::Output<
-            Option<Vec<super::types::keyvault::KeyVaultAccessPolicy>>,
+            Option<Vec<super::super::types::keyvault::KeyVaultAccessPolicy>>,
         >,
         /// One or more `contact` block as defined below.
         ///
@@ -70,7 +70,7 @@ pub mod key_vault {
         /// > **Note:** This field can only be set when `public_network_access_enabled` is set to `true`. To manage the `contact` with `public_network_access_enabled` set to `false`, please use the `azure.keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `azure.keyvault.KeyVault`, this means you'll need to import the `azure.keyvault.CertificateContacts` manually.
         #[builder(into, default)]
         pub contacts: pulumi_wasm_rust::Output<
-            Option<Vec<super::types::keyvault::KeyVaultContact>>,
+            Option<Vec<super::super::types::keyvault::KeyVaultContact>>,
         >,
         /// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
         #[builder(into, default)]
@@ -93,7 +93,7 @@ pub mod key_vault {
         /// A `network_acls` block as defined below.
         #[builder(into, default)]
         pub network_acls: pulumi_wasm_rust::Output<
-            Option<super::types::keyvault::KeyVaultNetworkAcls>,
+            Option<super::super::types::keyvault::KeyVaultNetworkAcls>,
         >,
         /// Whether public network access is allowed for this Key Vault. Defaults to `true`.
         #[builder(into, default)]
@@ -131,7 +131,7 @@ pub mod key_vault {
         ///
         /// > **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         pub access_policies: pulumi_wasm_rust::Output<
-            Vec<super::types::keyvault::KeyVaultAccessPolicy>,
+            Vec<super::super::types::keyvault::KeyVaultAccessPolicy>,
         >,
         /// One or more `contact` block as defined below.
         ///
@@ -139,7 +139,7 @@ pub mod key_vault {
         ///
         /// > **Note:** This field can only be set when `public_network_access_enabled` is set to `true`. To manage the `contact` with `public_network_access_enabled` set to `false`, please use the `azure.keyvault.CertificateContacts` resource instead of this property, and remove this property from the configuration. Especially for existing `azure.keyvault.KeyVault`, this means you'll need to import the `azure.keyvault.CertificateContacts` manually.
         pub contacts: pulumi_wasm_rust::Output<
-            Vec<super::types::keyvault::KeyVaultContact>,
+            Vec<super::super::types::keyvault::KeyVaultContact>,
         >,
         /// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
         pub enable_rbac_authorization: pulumi_wasm_rust::Output<Option<bool>>,
@@ -155,7 +155,7 @@ pub mod key_vault {
         pub name: pulumi_wasm_rust::Output<String>,
         /// A `network_acls` block as defined below.
         pub network_acls: pulumi_wasm_rust::Output<
-            super::types::keyvault::KeyVaultNetworkAcls,
+            super::super::types::keyvault::KeyVaultNetworkAcls,
         >,
         /// Whether public network access is allowed for this Key Vault. Defaults to `true`.
         pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,

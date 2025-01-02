@@ -2,46 +2,54 @@
 ///
 /// ## Example Usage
 ///
-/// ```yaml
-/// resources:
-///   example:
-///     type: azure:core:ResourceGroup
-///     properties:
-///       name: some-resource-group
-///       location: West Europe
-///   examplePlan:
-///     type: azure:appservice:Plan
-///     name: example
-///     properties:
-///       name: some-app-service-plan
-///       location: ${example.location}
-///       resourceGroupName: ${example.name}
-///       sku:
-///         tier: Standard
-///         size: S1
-///   exampleAppService:
-///     type: azure:appservice:AppService
-///     name: example
-///     properties:
-///       name: some-app-service
-///       location: ${example.location}
-///       resourceGroupName: ${example.name}
-///       appServicePlanId: ${examplePlan.id}
-///   exampleSlot:
-///     type: azure:appservice:Slot
-///     name: example
-///     properties:
-///       name: staging
-///       location: ${example.location}
-///       resourceGroupName: ${example.name}
-///       appServiceName: ${exampleAppService.name}
-///       appServicePlanId: ${examplePlan.id}
-///   exampleSlotCustomHostnameBinding:
-///     type: azure:appservice:SlotCustomHostnameBinding
-///     name: example
-///     properties:
-///       appServiceSlotId: ${exampleSlot.id}
-///       hostname: www.mywebsite.com
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let example = resource_group::create(
+///         "example",
+///         ResourceGroupArgs::builder()
+///             .location("West Europe")
+///             .name("some-resource-group")
+///             .build_struct(),
+///     );
+///     let exampleAppService = app_service::create(
+///         "exampleAppService",
+///         AppServiceArgs::builder()
+///             .app_service_plan_id("${examplePlan.id}")
+///             .location("${example.location}")
+///             .name("some-app-service")
+///             .resource_group_name("${example.name}")
+///             .build_struct(),
+///     );
+///     let examplePlan = plan::create(
+///         "examplePlan",
+///         PlanArgs::builder()
+///             .location("${example.location}")
+///             .name("some-app-service-plan")
+///             .resource_group_name("${example.name}")
+///             .sku(PlanSku::builder().size("S1").tier("Standard").build_struct())
+///             .build_struct(),
+///     );
+///     let exampleSlot = slot::create(
+///         "exampleSlot",
+///         SlotArgs::builder()
+///             .app_service_name("${exampleAppService.name}")
+///             .app_service_plan_id("${examplePlan.id}")
+///             .location("${example.location}")
+///             .name("staging")
+///             .resource_group_name("${example.name}")
+///             .build_struct(),
+///     );
+///     let exampleSlotCustomHostnameBinding = slot_custom_hostname_binding::create(
+///         "exampleSlotCustomHostnameBinding",
+///         SlotCustomHostnameBindingArgs::builder()
+///             .app_service_slot_id("${exampleSlot.id}")
+///             .hostname("www.mywebsite.com")
+///             .build_struct(),
+///     );
+/// }
 /// ```
 ///
 /// ## Import

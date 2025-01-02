@@ -2,93 +2,113 @@
 ///
 /// ## Example Usage
 ///
-/// ```yaml
-/// resources:
-///   example:
-///     type: azure:core:ResourceGroup
-///     properties:
-///       name: example-rg
-///       location: West Europe
-///   exampleElasticSan:
-///     type: azure:elasticsan:ElasticSan
-///     name: example
-///     properties:
-///       name: example-es
-///       resourceGroupName: ${example.name}
-///       location: ${example.location}
-///       baseSizeInTib: 1
-///       sku:
-///         name: Premium_LRS
-///   exampleVolumeGroup:
-///     type: azure:elasticsan:VolumeGroup
-///     name: example
-///     properties:
-///       name: example-esvg
-///       elasticSanId: ${exampleElasticSan.id}
-///   exampleVolume:
-///     type: azure:elasticsan:Volume
-///     name: example
-///     properties:
-///       name: example-esv
-///       volumeGroupId: ${exampleVolumeGroup.id}
-///       sizeInGib: 1
-/// outputs:
-///   targetIqn: ${exampleVolume.targetIqn}
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let example = resource_group::create(
+///         "example",
+///         ResourceGroupArgs::builder()
+///             .location("West Europe")
+///             .name("example-rg")
+///             .build_struct(),
+///     );
+///     let exampleElasticSan = elastic_san::create(
+///         "exampleElasticSan",
+///         ElasticSanArgs::builder()
+///             .base_size_in_tib(1)
+///             .location("${example.location}")
+///             .name("example-es")
+///             .resource_group_name("${example.name}")
+///             .sku(ElasticSanSku::builder().name("Premium_LRS").build_struct())
+///             .build_struct(),
+///     );
+///     let exampleVolume = volume::create(
+///         "exampleVolume",
+///         VolumeArgs::builder()
+///             .name("example-esv")
+///             .size_in_gib(1)
+///             .volume_group_id("${exampleVolumeGroup.id}")
+///             .build_struct(),
+///     );
+///     let exampleVolumeGroup = volume_group::create(
+///         "exampleVolumeGroup",
+///         VolumeGroupArgs::builder()
+///             .elastic_san_id("${exampleElasticSan.id}")
+///             .name("example-esvg")
+///             .build_struct(),
+///     );
+/// }
 /// ```
 ///
 /// ## Example of creating an Elastic SAN Volume from a Disk Snapshot
 ///
-/// ```yaml
-/// resources:
-///   example:
-///     type: azure:core:ResourceGroup
-///     properties:
-///       name: example-rg
-///       location: West Europe
-///   exampleElasticSan:
-///     type: azure:elasticsan:ElasticSan
-///     name: example
-///     properties:
-///       name: example-es
-///       resourceGroupName: ${example.name}
-///       location: ${example.location}
-///       baseSizeInTib: 1
-///       sku:
-///         name: Premium_LRS
-///   exampleVolumeGroup:
-///     type: azure:elasticsan:VolumeGroup
-///     name: example
-///     properties:
-///       name: example-esvg
-///       elasticSanId: ${exampleElasticSan.id}
-///   exampleManagedDisk:
-///     type: azure:compute:ManagedDisk
-///     name: example
-///     properties:
-///       name: example-disk
-///       location: ${example.location}
-///       resourceGroupName: ${example.name}
-///       createOption: Empty
-///       storageAccountType: Standard_LRS
-///       diskSizeGb: 2
-///   exampleSnapshot:
-///     type: azure:compute:Snapshot
-///     name: example
-///     properties:
-///       name: example-ss
-///       location: ${example.location}
-///       resourceGroupName: ${example.name}
-///       createOption: Copy
-///       sourceUri: ${exampleManagedDisk.id}
-///   example2:
-///     type: azure:elasticsan:Volume
-///     properties:
-///       name: example-esv2
-///       volumeGroupId: ${exampleVolumeGroup.id}
-///       sizeInGib: 2
-///       createSource:
-///         sourceType: DiskSnapshot
-///         sourceId: ${exampleSnapshot.id}
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let example = resource_group::create(
+///         "example",
+///         ResourceGroupArgs::builder()
+///             .location("West Europe")
+///             .name("example-rg")
+///             .build_struct(),
+///     );
+///     let example2 = volume::create(
+///         "example2",
+///         VolumeArgs::builder()
+///             .create_source(
+///                 VolumeCreateSource::builder()
+///                     .sourceId("${exampleSnapshot.id}")
+///                     .sourceType("DiskSnapshot")
+///                     .build_struct(),
+///             )
+///             .name("example-esv2")
+///             .size_in_gib(2)
+///             .volume_group_id("${exampleVolumeGroup.id}")
+///             .build_struct(),
+///     );
+///     let exampleElasticSan = elastic_san::create(
+///         "exampleElasticSan",
+///         ElasticSanArgs::builder()
+///             .base_size_in_tib(1)
+///             .location("${example.location}")
+///             .name("example-es")
+///             .resource_group_name("${example.name}")
+///             .sku(ElasticSanSku::builder().name("Premium_LRS").build_struct())
+///             .build_struct(),
+///     );
+///     let exampleManagedDisk = managed_disk::create(
+///         "exampleManagedDisk",
+///         ManagedDiskArgs::builder()
+///             .create_option("Empty")
+///             .disk_size_gb(2)
+///             .location("${example.location}")
+///             .name("example-disk")
+///             .resource_group_name("${example.name}")
+///             .storage_account_type("Standard_LRS")
+///             .build_struct(),
+///     );
+///     let exampleSnapshot = snapshot::create(
+///         "exampleSnapshot",
+///         SnapshotArgs::builder()
+///             .create_option("Copy")
+///             .location("${example.location}")
+///             .name("example-ss")
+///             .resource_group_name("${example.name}")
+///             .source_uri("${exampleManagedDisk.id}")
+///             .build_struct(),
+///     );
+///     let exampleVolumeGroup = volume_group::create(
+///         "exampleVolumeGroup",
+///         VolumeGroupArgs::builder()
+///             .elastic_san_id("${exampleElasticSan.id}")
+///             .name("example-esvg")
+///             .build_struct(),
+///     );
+/// }
 /// ```
 ///
 /// ## Import

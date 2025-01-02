@@ -119,6 +119,7 @@ pub mod appplatform {
 pub mod appservice {
     include!("resources/appservice/active_slot.rs");
     include!("resources/appservice/app_connection.rs");
+    include!("resources/appservice/app_service.rs");
     include!("resources/appservice/certificate.rs");
     include!("resources/appservice/certificate_binding.rs");
     include!("resources/appservice/certificate_order.rs");
@@ -169,6 +170,7 @@ pub mod arckubernetes {
     include!("resources/arckubernetes/flux_configuration.rs");
 }
 pub mod arcmachine {
+    include!("resources/arcmachine/arc_machine.rs");
     include!("resources/arcmachine/automanage_configuration_assignment.rs");
     include!("resources/arcmachine/extension.rs");
 }
@@ -550,6 +552,7 @@ pub mod devcenter {
     include!("resources/devcenter/attached_network.rs");
     include!("resources/devcenter/catalog.rs");
     include!("resources/devcenter/dev_box_definition.rs");
+    include!("resources/devcenter/dev_center.rs");
     include!("resources/devcenter/environment_type.rs");
     include!("resources/devcenter/gallery.rs");
     include!("resources/devcenter/network_connection.rs");
@@ -597,6 +600,7 @@ pub mod elasticcloud {
     include!("resources/elasticcloud/elasticsearch.rs");
 }
 pub mod elasticsan {
+    include!("resources/elasticsan/elastic_san.rs");
     include!("resources/elasticsan/volume.rs");
     include!("resources/elasticsan/volume_group.rs");
 }
@@ -615,6 +619,7 @@ pub mod eventhub {
     include!("resources/eventhub/consumer_group.rs");
     include!("resources/eventhub/domain.rs");
     include!("resources/eventhub/event_grid_topic.rs");
+    include!("resources/eventhub/event_hub.rs");
     include!("resources/eventhub/event_hub_authorization_rule.rs");
     include!("resources/eventhub/event_hub_consumer_group.rs");
     include!("resources/eventhub/event_hub_namespace.rs");
@@ -644,6 +649,7 @@ pub mod fluidrelay {
 pub mod frontdoor {
     include!("resources/frontdoor/custom_https_configuration.rs");
     include!("resources/frontdoor/firewall_policy.rs");
+    include!("resources/frontdoor/frontdoor.rs");
     include!("resources/frontdoor/rules_engine.rs");
 }
 pub mod graph {
@@ -708,6 +714,7 @@ pub mod keyvault {
     include!("resources/keyvault/certificate_contacts.rs");
     include!("resources/keyvault/certificate_issuer.rs");
     include!("resources/keyvault/key.rs");
+    include!("resources/keyvault/key_vault.rs");
     include!("resources/keyvault/managed_hardware_security_module.rs");
     include!("resources/keyvault/managed_hardware_security_module_key.rs");
     include!(
@@ -746,6 +753,9 @@ pub mod lb {
 pub mod lighthouse {
     include!("resources/lighthouse/assignment.rs");
     include!("resources/lighthouse/definition.rs");
+}
+pub mod loadtest {
+    include!("resources/loadtest/load_test.rs");
 }
 pub mod loganalytics {
     include!("resources/loganalytics/cluster.rs");
@@ -1372,14 +1382,6 @@ pub mod workloadssap {
     include!("resources/workloadssap/single_node_virtual_instance.rs");
     include!("resources/workloadssap/three_tier_virtual_instance.rs");
 }
-include!("resources/app_service.rs");
-include!("resources/arc_machine.rs");
-include!("resources/dev_center.rs");
-include!("resources/elastic_san.rs");
-include!("resources/event_hub.rs");
-include!("resources/frontdoor.rs");
-include!("resources/key_vault.rs");
-include!("resources/load_test.rs");
 pub mod functions {
     pub mod aadb2c {
         include!("functions/aadb2c/get_directory.rs");

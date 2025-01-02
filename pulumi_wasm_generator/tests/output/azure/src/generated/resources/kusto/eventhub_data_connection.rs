@@ -2,69 +2,84 @@
 ///
 /// ## Example Usage
 ///
-/// ```yaml
-/// resources:
-///   example:
-///     type: azure:core:ResourceGroup
-///     properties:
-///       name: my-kusto-rg
-///       location: West Europe
-///   cluster:
-///     type: azure:kusto:Cluster
-///     properties:
-///       name: kustocluster
-///       location: ${example.location}
-///       resourceGroupName: ${example.name}
-///       sku:
-///         name: Standard_D13_v2
-///         capacity: 2
-///   database:
-///     type: azure:kusto:Database
-///     properties:
-///       name: my-kusto-database
-///       resourceGroupName: ${example.name}
-///       location: ${example.location}
-///       clusterName: ${cluster.name}
-///       hotCachePeriod: P7D
-///       softDeletePeriod: P31D
-///   eventhubNs:
-///     type: azure:eventhub:EventHubNamespace
-///     name: eventhub_ns
-///     properties:
-///       name: my-eventhub-ns
-///       location: ${example.location}
-///       resourceGroupName: ${example.name}
-///       sku: Standard
-///   eventhub:
-///     type: azure:eventhub:EventHub
-///     properties:
-///       name: my-eventhub
-///       namespaceName: ${eventhubNs.name}
-///       resourceGroupName: ${example.name}
-///       partitionCount: 1
-///       messageRetention: 1
-///   consumerGroup:
-///     type: azure:eventhub:ConsumerGroup
-///     name: consumer_group
-///     properties:
-///       name: my-eventhub-consumergroup
-///       namespaceName: ${eventhubNs.name}
-///       eventhubName: ${eventhub.name}
-///       resourceGroupName: ${example.name}
-///   eventhubConnection:
-///     type: azure:kusto:EventhubDataConnection
-///     name: eventhub_connection
-///     properties:
-///       name: my-kusto-eventhub-data-connection
-///       resourceGroupName: ${example.name}
-///       location: ${example.location}
-///       clusterName: ${cluster.name}
-///       databaseName: ${database.name}
-///       eventhubId: ${eventhub.id}
-///       consumerGroup: ${consumerGroup.name}
-///       tableName: my-table
-///       mappingRuleName: my-table-mapping
-///       dataFormat: JSON
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let cluster = cluster::create(
+///         "cluster",
+///         ClusterArgs::builder()
+///             .location("${example.location}")
+///             .name("kustocluster")
+///             .resource_group_name("${example.name}")
+///             .sku(
+///                 ClusterSku::builder().capacity(2).name("Standard_D13_v2").build_struct(),
+///             )
+///             .build_struct(),
+///     );
+///     let consumerGroup = consumer_group::create(
+///         "consumerGroup",
+///         ConsumerGroupArgs::builder()
+///             .eventhub_name("${eventhub.name}")
+///             .name("my-eventhub-consumergroup")
+///             .namespace_name("${eventhubNs.name}")
+///             .resource_group_name("${example.name}")
+///             .build_struct(),
+///     );
+///     let database = database::create(
+///         "database",
+///         DatabaseArgs::builder()
+///             .cluster_name("${cluster.name}")
+///             .hot_cache_period("P7D")
+///             .location("${example.location}")
+///             .name("my-kusto-database")
+///             .resource_group_name("${example.name}")
+///             .soft_delete_period("P31D")
+///             .build_struct(),
+///     );
+///     let eventhub = event_hub::create(
+///         "eventhub",
+///         EventHubArgs::builder()
+///             .message_retention(1)
+///             .name("my-eventhub")
+///             .namespace_name("${eventhubNs.name}")
+///             .partition_count(1)
+///             .resource_group_name("${example.name}")
+///             .build_struct(),
+///     );
+///     let eventhubConnection = eventhub_data_connection::create(
+///         "eventhubConnection",
+///         EventhubDataConnectionArgs::builder()
+///             .cluster_name("${cluster.name}")
+///             .consumer_group("${consumerGroup.name}")
+///             .data_format("JSON")
+///             .database_name("${database.name}")
+///             .eventhub_id("${eventhub.id}")
+///             .location("${example.location}")
+///             .mapping_rule_name("my-table-mapping")
+///             .name("my-kusto-eventhub-data-connection")
+///             .resource_group_name("${example.name}")
+///             .table_name("my-table")
+///             .build_struct(),
+///     );
+///     let eventhubNs = event_hub_namespace::create(
+///         "eventhubNs",
+///         EventHubNamespaceArgs::builder()
+///             .location("${example.location}")
+///             .name("my-eventhub-ns")
+///             .resource_group_name("${example.name}")
+///             .sku("Standard")
+///             .build_struct(),
+///     );
+///     let example = resource_group::create(
+///         "example",
+///         ResourceGroupArgs::builder()
+///             .location("West Europe")
+///             .name("my-kusto-rg")
+///             .build_struct(),
+///     );
+/// }
 /// ```
 ///
 /// ## Import

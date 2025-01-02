@@ -25,61 +25,70 @@
 ///
 /// ### With App Service)
 ///
-/// ```yaml
-/// resources:
-///   example:
-///     type: azure:core:ResourceGroup
-///     properties:
-///       name: example-resources
-///       location: West Europe
-///   exampleVirtualNetwork:
-///     type: azure:network:VirtualNetwork
-///     name: example
-///     properties:
-///       name: example-virtual-network
-///       addressSpaces:
-///         - 10.0.0.0/16
-///       location: ${example.location}
-///       resourceGroupName: ${example.name}
-///   exampleSubnet:
-///     type: azure:network:Subnet
-///     name: example
-///     properties:
-///       name: example-subnet
-///       resourceGroupName: ${example.name}
-///       virtualNetworkName: ${exampleVirtualNetwork.name}
-///       addressPrefixes:
-///         - 10.0.1.0/24
-///       delegations:
-///         - name: example-delegation
-///           serviceDelegation:
-///             name: Microsoft.Web/serverFarms
-///             actions:
-///               - Microsoft.Network/virtualNetworks/subnets/action
-///   examplePlan:
-///     type: azure:appservice:Plan
-///     name: example
-///     properties:
-///       name: example-app-service-plan
-///       location: ${example.location}
-///       resourceGroupName: ${example.name}
-///       sku:
-///         tier: Standard
-///         size: S1
-///   exampleAppService:
-///     type: azure:appservice:AppService
-///     name: example
-///     properties:
-///       name: example-app-service
-///       location: ${example.location}
-///       resourceGroupName: ${example.name}
-///       appServicePlanId: ${examplePlan.id}
-///   exampleVirtualNetworkSwiftConnection:
-///     type: azure:appservice:VirtualNetworkSwiftConnection
-///     name: example
-///     properties:
-///       appServiceId: ${exampleAppService.id}
-///       subnetId: ${exampleSubnet.id}
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let example = resource_group::create(
+///         "example",
+///         ResourceGroupArgs::builder()
+///             .location("West Europe")
+///             .name("example-resources")
+///             .build_struct(),
+///     );
+///     let exampleAppService = app_service::create(
+///         "exampleAppService",
+///         AppServiceArgs::builder()
+///             .app_service_plan_id("${examplePlan.id}")
+///             .location("${example.location}")
+///             .name("example-app-service")
+///             .resource_group_name("${example.name}")
+///             .build_struct(),
+///     );
+///     let examplePlan = plan::create(
+///         "examplePlan",
+///         PlanArgs::builder()
+///             .location("${example.location}")
+///             .name("example-app-service-plan")
+///             .resource_group_name("${example.name}")
+///             .sku(PlanSku::builder().size("S1").tier("Standard").build_struct())
+///             .build_struct(),
+///     );
+///     let exampleSubnet = subnet::create(
+///         "exampleSubnet",
+///         SubnetArgs::builder()
+///             .address_prefixes(vec!["10.0.1.0/24",])
+///             .delegations(
+///                 vec![
+///                     SubnetDelegation::builder().name("example-delegation")
+///                     .serviceDelegation(SubnetDelegationServiceDelegation::builder()
+///                     .actions(vec!["Microsoft.Network/virtualNetworks/subnets/action",])
+///                     .name("Microsoft.Web/serverFarms").build_struct()).build_struct(),
+///                 ],
+///             )
+///             .name("example-subnet")
+///             .resource_group_name("${example.name}")
+///             .virtual_network_name("${exampleVirtualNetwork.name}")
+///             .build_struct(),
+///     );
+///     let exampleVirtualNetwork = virtual_network::create(
+///         "exampleVirtualNetwork",
+///         VirtualNetworkArgs::builder()
+///             .address_spaces(vec!["10.0.0.0/16",])
+///             .location("${example.location}")
+///             .name("example-virtual-network")
+///             .resource_group_name("${example.name}")
+///             .build_struct(),
+///     );
+///     let exampleVirtualNetworkSwiftConnection = virtual_network_swift_connection::create(
+///         "exampleVirtualNetworkSwiftConnection",
+///         VirtualNetworkSwiftConnectionArgs::builder()
+///             .app_service_id("${exampleAppService.id}")
+///             .subnet_id("${exampleSubnet.id}")
+///             .build_struct(),
+///     );
+/// }
 /// ```
 ///
 ///

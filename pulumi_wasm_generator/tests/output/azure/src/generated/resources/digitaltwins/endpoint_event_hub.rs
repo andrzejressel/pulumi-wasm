@@ -2,56 +2,71 @@
 ///
 /// ## Example Usage
 ///
-/// ```yaml
-/// resources:
-///   example:
-///     type: azure:core:ResourceGroup
-///     properties:
-///       name: example_resources
-///       location: West Europe
-///   exampleInstance:
-///     type: azure:digitaltwins:Instance
-///     name: example
-///     properties:
-///       name: example-DT
-///       resourceGroupName: ${example.name}
-///       location: ${example.location}
-///   exampleEventHubNamespace:
-///     type: azure:eventhub:EventHubNamespace
-///     name: example
-///     properties:
-///       name: example-eh-ns
-///       location: ${example.location}
-///       resourceGroupName: ${example.name}
-///       sku: Standard
-///   exampleEventHub:
-///     type: azure:eventhub:EventHub
-///     name: example
-///     properties:
-///       name: example-eh
-///       namespaceName: ${exampleEventHubNamespace.name}
-///       resourceGroupName: ${example.name}
-///       partitionCount: 2
-///       messageRetention: 1
-///   exampleAuthorizationRule:
-///     type: azure:eventhub:AuthorizationRule
-///     name: example
-///     properties:
-///       name: example-ar
-///       namespaceName: ${exampleEventHubNamespace.name}
-///       eventhubName: ${exampleEventHub.name}
-///       resourceGroupName: ${example.name}
-///       listen: false
-///       send: true
-///       manage: false
-///   exampleEndpointEventHub:
-///     type: azure:digitaltwins:EndpointEventHub
-///     name: example
-///     properties:
-///       name: example-EH
-///       digitalTwinsId: ${exampleInstance.id}
-///       eventhubPrimaryConnectionString: ${exampleAuthorizationRule.primaryConnectionString}
-///       eventhubSecondaryConnectionString: ${exampleAuthorizationRule.secondaryConnectionString}
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let example = resource_group::create(
+///         "example",
+///         ResourceGroupArgs::builder()
+///             .location("West Europe")
+///             .name("example_resources")
+///             .build_struct(),
+///     );
+///     let exampleAuthorizationRule = authorization_rule::create(
+///         "exampleAuthorizationRule",
+///         AuthorizationRuleArgs::builder()
+///             .eventhub_name("${exampleEventHub.name}")
+///             .listen(false)
+///             .manage(false)
+///             .name("example-ar")
+///             .namespace_name("${exampleEventHubNamespace.name}")
+///             .resource_group_name("${example.name}")
+///             .send(true)
+///             .build_struct(),
+///     );
+///     let exampleEndpointEventHub = endpoint_event_hub::create(
+///         "exampleEndpointEventHub",
+///         EndpointEventHubArgs::builder()
+///             .digital_twins_id("${exampleInstance.id}")
+///             .eventhub_primary_connection_string(
+///                 "${exampleAuthorizationRule.primaryConnectionString}",
+///             )
+///             .eventhub_secondary_connection_string(
+///                 "${exampleAuthorizationRule.secondaryConnectionString}",
+///             )
+///             .name("example-EH")
+///             .build_struct(),
+///     );
+///     let exampleEventHub = event_hub::create(
+///         "exampleEventHub",
+///         EventHubArgs::builder()
+///             .message_retention(1)
+///             .name("example-eh")
+///             .namespace_name("${exampleEventHubNamespace.name}")
+///             .partition_count(2)
+///             .resource_group_name("${example.name}")
+///             .build_struct(),
+///     );
+///     let exampleEventHubNamespace = event_hub_namespace::create(
+///         "exampleEventHubNamespace",
+///         EventHubNamespaceArgs::builder()
+///             .location("${example.location}")
+///             .name("example-eh-ns")
+///             .resource_group_name("${example.name}")
+///             .sku("Standard")
+///             .build_struct(),
+///     );
+///     let exampleInstance = instance::create(
+///         "exampleInstance",
+///         InstanceArgs::builder()
+///             .location("${example.location}")
+///             .name("example-DT")
+///             .resource_group_name("${example.name}")
+///             .build_struct(),
+///     );
+/// }
 /// ```
 ///
 /// ## Import

@@ -2,24 +2,30 @@
 ///
 /// ## Example Usage
 ///
-/// ```yaml
-/// resources:
-///   example:
-///     type: azure:core:ResourceGroup
-///     properties:
-///       name: example-resources
-///       location: West Europe
-///   exampleElasticSan:
-///     type: azure:elasticsan:ElasticSan
-///     name: example
-///     properties:
-///       name: example
-///       resourceGroupName: ${example.name}
-///       location: ${example.location}
-///       baseSizeInTib: 1
-///       extendedSizeInTib: 2
-///       sku:
-///         name: example-value
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let example = resource_group::create(
+///         "example",
+///         ResourceGroupArgs::builder()
+///             .location("West Europe")
+///             .name("example-resources")
+///             .build_struct(),
+///     );
+///     let exampleElasticSan = elastic_san::create(
+///         "exampleElasticSan",
+///         ElasticSanArgs::builder()
+///             .base_size_in_tib(1)
+///             .extended_size_in_tib(2)
+///             .location("${example.location}")
+///             .name("example")
+///             .resource_group_name("${example.name}")
+///             .sku(ElasticSanSku::builder().name("example-value").build_struct())
+///             .build_struct(),
+///     );
+/// }
 /// ```
 ///
 /// ## Import
@@ -56,7 +62,9 @@ pub mod elastic_san {
         pub resource_group_name: pulumi_wasm_rust::Output<String>,
         /// A `sku` block as defined below.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::Output<super::types::elasticsan::ElasticSanSku>,
+        pub sku: pulumi_wasm_rust::Output<
+            super::super::types::elasticsan::ElasticSanSku,
+        >,
         /// A mapping of tags which should be assigned to the Elastic SAN resource.
         #[builder(into, default)]
         pub tags: pulumi_wasm_rust::Output<
@@ -85,7 +93,9 @@ pub mod elastic_san {
         /// Specifies the name of the Resource Group within which this Elastic SAN resource should exist. Changing this forces a new resource to be created.
         pub resource_group_name: pulumi_wasm_rust::Output<String>,
         /// A `sku` block as defined below.
-        pub sku: pulumi_wasm_rust::Output<super::types::elasticsan::ElasticSanSku>,
+        pub sku: pulumi_wasm_rust::Output<
+            super::super::types::elasticsan::ElasticSanSku,
+        >,
         /// A mapping of tags which should be assigned to the Elastic SAN resource.
         pub tags: pulumi_wasm_rust::Output<
             Option<std::collections::HashMap<String, String>>,

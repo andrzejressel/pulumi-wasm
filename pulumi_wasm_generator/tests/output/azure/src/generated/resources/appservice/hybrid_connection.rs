@@ -6,57 +6,66 @@
 ///
 /// This example provisions an App Service, a Relay Hybrid Connection, and a Service Bus using their outputs to create the App Service Hybrid Connection.
 ///
-/// ```yaml
-/// resources:
-///   example:
-///     type: azure:core:ResourceGroup
-///     properties:
-///       name: exampleResourceGroup1
-///       location: West Europe
-///   examplePlan:
-///     type: azure:appservice:Plan
-///     name: example
-///     properties:
-///       name: exampleAppServicePlan1
-///       location: ${example.location}
-///       resourceGroupName: ${example.name}
-///       sku:
-///         tier: Standard
-///         size: S1
-///   exampleAppService:
-///     type: azure:appservice:AppService
-///     name: example
-///     properties:
-///       name: exampleAppService1
-///       location: ${example.location}
-///       resourceGroupName: ${example.name}
-///       appServicePlanId: ${examplePlan.id}
-///   exampleNamespace:
-///     type: azure:relay:Namespace
-///     name: example
-///     properties:
-///       name: exampleRN1
-///       location: ${example.location}
-///       resourceGroupName: ${example.name}
-///       skuName: Standard
-///   exampleHybridConnection:
-///     type: azure:relay:HybridConnection
-///     name: example
-///     properties:
-///       name: exampleRHC1
-///       resourceGroupName: ${example.name}
-///       relayNamespaceName: ${exampleNamespace.name}
-///       userMetadata: examplemetadata
-///   exampleHybridConnection2:
-///     type: azure:appservice:HybridConnection
-///     name: example
-///     properties:
-///       appServiceName: ${exampleAppService.name}
-///       resourceGroupName: ${example.name}
-///       relayId: ${exampleHybridConnection.id}
-///       hostname: testhostname.example
-///       port: 8080
-///       sendKeyName: exampleSharedAccessKey
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let example = resource_group::create(
+///         "example",
+///         ResourceGroupArgs::builder()
+///             .location("West Europe")
+///             .name("exampleResourceGroup1")
+///             .build_struct(),
+///     );
+///     let exampleAppService = app_service::create(
+///         "exampleAppService",
+///         AppServiceArgs::builder()
+///             .app_service_plan_id("${examplePlan.id}")
+///             .location("${example.location}")
+///             .name("exampleAppService1")
+///             .resource_group_name("${example.name}")
+///             .build_struct(),
+///     );
+///     let exampleHybridConnection = hybrid_connection::create(
+///         "exampleHybridConnection",
+///         HybridConnectionArgs::builder()
+///             .name("exampleRHC1")
+///             .relay_namespace_name("${exampleNamespace.name}")
+///             .resource_group_name("${example.name}")
+///             .user_metadata("examplemetadata")
+///             .build_struct(),
+///     );
+///     let exampleHybridConnection2 = hybrid_connection::create(
+///         "exampleHybridConnection2",
+///         HybridConnectionArgs::builder()
+///             .app_service_name("${exampleAppService.name}")
+///             .hostname("testhostname.example")
+///             .port(8080)
+///             .relay_id("${exampleHybridConnection.id}")
+///             .resource_group_name("${example.name}")
+///             .send_key_name("exampleSharedAccessKey")
+///             .build_struct(),
+///     );
+///     let exampleNamespace = namespace::create(
+///         "exampleNamespace",
+///         NamespaceArgs::builder()
+///             .location("${example.location}")
+///             .name("exampleRN1")
+///             .resource_group_name("${example.name}")
+///             .sku_name("Standard")
+///             .build_struct(),
+///     );
+///     let examplePlan = plan::create(
+///         "examplePlan",
+///         PlanArgs::builder()
+///             .location("${example.location}")
+///             .name("exampleAppServicePlan1")
+///             .resource_group_name("${example.name}")
+///             .sku(PlanSku::builder().size("S1").tier("Standard").build_struct())
+///             .build_struct(),
+///     );
+/// }
 /// ```
 ///
 /// ## Import

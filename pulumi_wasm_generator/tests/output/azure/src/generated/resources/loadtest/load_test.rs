@@ -4,27 +4,35 @@
 ///
 /// ## Example Usage
 ///
-/// ```yaml
-/// resources:
-///   example:
-///     type: azure:core:ResourceGroup
-///     properties:
-///       name: example-resources
-///       location: West Europe
-///   exampleUserAssignedIdentity:
-///     type: azure:authorization:UserAssignedIdentity
-///     name: example
-///     properties:
-///       name: example
-///       resourceGroupName: ${example.name}
-///       location: ${example.location}
-///   exampleLoadTest:
-///     type: azure:loadtest:LoadTest
-///     name: example
-///     properties:
-///       location: ${example.location}
-///       name: example
-///       resourceGroupName: ${example.name}
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let example = resource_group::create(
+///         "example",
+///         ResourceGroupArgs::builder()
+///             .location("West Europe")
+///             .name("example-resources")
+///             .build_struct(),
+///     );
+///     let exampleLoadTest = load_test::create(
+///         "exampleLoadTest",
+///         LoadTestArgs::builder()
+///             .location("${example.location}")
+///             .name("example")
+///             .resource_group_name("${example.name}")
+///             .build_struct(),
+///     );
+///     let exampleUserAssignedIdentity = user_assigned_identity::create(
+///         "exampleUserAssignedIdentity",
+///         UserAssignedIdentityArgs::builder()
+///             .location("${example.location}")
+///             .name("example")
+///             .resource_group_name("${example.name}")
+///             .build_struct(),
+///     );
+/// }
 /// ```
 ///
 /// ## Import
@@ -52,12 +60,12 @@ pub mod load_test {
         /// An `encryption` block as defined below. Changing this forces a new Load Test to be created.
         #[builder(into, default)]
         pub encryption: pulumi_wasm_rust::Output<
-            Option<super::types::loadtest::LoadTestEncryption>,
+            Option<super::super::types::loadtest::LoadTestEncryption>,
         >,
         /// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         #[builder(into, default)]
         pub identity: pulumi_wasm_rust::Output<
-            Option<super::types::loadtest::LoadTestIdentity>,
+            Option<super::super::types::loadtest::LoadTestIdentity>,
         >,
         /// The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
         #[builder(into, default)]
@@ -82,11 +90,11 @@ pub mod load_test {
         pub description: pulumi_wasm_rust::Output<Option<String>>,
         /// An `encryption` block as defined below. Changing this forces a new Load Test to be created.
         pub encryption: pulumi_wasm_rust::Output<
-            Option<super::types::loadtest::LoadTestEncryption>,
+            Option<super::super::types::loadtest::LoadTestEncryption>,
         >,
         /// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         pub identity: pulumi_wasm_rust::Output<
-            Option<super::types::loadtest::LoadTestIdentity>,
+            Option<super::super::types::loadtest::LoadTestIdentity>,
         >,
         /// The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
         pub location: pulumi_wasm_rust::Output<String>,

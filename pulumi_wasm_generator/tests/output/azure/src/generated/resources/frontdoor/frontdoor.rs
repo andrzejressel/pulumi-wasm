@@ -12,47 +12,68 @@
 ///
 /// ## Example Usage
 ///
-/// ```yaml
-/// resources:
-///   example:
-///     type: azure:core:ResourceGroup
-///     properties:
-///       name: FrontDoorExampleResourceGroup
-///       location: West Europe
-///   exampleFrontdoor:
-///     type: azure:frontdoor:Frontdoor
-///     name: example
-///     properties:
-///       name: example-FrontDoor
-///       resourceGroupName: ${example.name}
-///       routingRules:
-///         - name: exampleRoutingRule1
-///           acceptedProtocols:
-///             - Http
-///             - Https
-///           patternsToMatches:
-///             - /*
-///           frontendEndpoints:
-///             - exampleFrontendEndpoint1
-///           forwardingConfiguration:
-///             forwardingProtocol: MatchRequest
-///             backendPoolName: exampleBackendBing
-///       backendPoolLoadBalancings:
-///         - name: exampleLoadBalancingSettings1
-///       backendPoolHealthProbes:
-///         - name: exampleHealthProbeSetting1
-///       backendPools:
-///         - name: exampleBackendBing
-///           backends:
-///             - hostHeader: www.bing.com
-///               address: www.bing.com
-///               httpPort: 80
-///               httpsPort: 443
-///           loadBalancingName: exampleLoadBalancingSettings1
-///           healthProbeName: exampleHealthProbeSetting1
-///       frontendEndpoints:
-///         - name: exampleFrontendEndpoint1
-///           hostName: example-FrontDoor.azurefd.net
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let example = resource_group::create(
+///         "example",
+///         ResourceGroupArgs::builder()
+///             .location("West Europe")
+///             .name("FrontDoorExampleResourceGroup")
+///             .build_struct(),
+///     );
+///     let exampleFrontdoor = frontdoor::create(
+///         "exampleFrontdoor",
+///         FrontdoorArgs::builder()
+///             .backend_pool_health_probes(
+///                 vec![
+///                     FrontdoorBackendPoolHealthProbe::builder()
+///                     .name("exampleHealthProbeSetting1").build_struct(),
+///                 ],
+///             )
+///             .backend_pool_load_balancings(
+///                 vec![
+///                     FrontdoorBackendPoolLoadBalancing::builder()
+///                     .name("exampleLoadBalancingSettings1").build_struct(),
+///                 ],
+///             )
+///             .backend_pools(
+///                 vec![
+///                     FrontdoorBackendPool::builder()
+///                     .backends(vec![FrontdoorBackendPoolBackend::builder()
+///                     .address("www.bing.com").hostHeader("www.bing.com").httpPort(80)
+///                     .httpsPort(443).build_struct(),])
+///                     .healthProbeName("exampleHealthProbeSetting1")
+///                     .loadBalancingName("exampleLoadBalancingSettings1")
+///                     .name("exampleBackendBing").build_struct(),
+///                 ],
+///             )
+///             .frontend_endpoints(
+///                 vec![
+///                     FrontdoorFrontendEndpoint::builder()
+///                     .hostName("example-FrontDoor.azurefd.net")
+///                     .name("exampleFrontendEndpoint1").build_struct(),
+///                 ],
+///             )
+///             .name("example-FrontDoor")
+///             .resource_group_name("${example.name}")
+///             .routing_rules(
+///                 vec![
+///                     FrontdoorRoutingRule::builder().acceptedProtocols(vec!["Http",
+///                     "Https",])
+///                     .forwardingConfiguration(FrontdoorRoutingRuleForwardingConfiguration::builder()
+///                     .backendPoolName("exampleBackendBing")
+///                     .forwardingProtocol("MatchRequest").build_struct())
+///                     .frontendEndpoints(vec!["exampleFrontendEndpoint1",])
+///                     .name("exampleRoutingRule1").patternsToMatches(vec!["/*",])
+///                     .build_struct(),
+///                 ],
+///             )
+///             .build_struct(),
+///     );
+/// }
 /// ```
 ///
 /// ## Import
@@ -71,24 +92,24 @@ pub mod frontdoor {
         /// A `backend_pool_health_probe` block as defined below.
         #[builder(into)]
         pub backend_pool_health_probes: pulumi_wasm_rust::Output<
-            Vec<super::types::frontdoor::FrontdoorBackendPoolHealthProbe>,
+            Vec<super::super::types::frontdoor::FrontdoorBackendPoolHealthProbe>,
         >,
         /// A `backend_pool_load_balancing` block as defined below.
         #[builder(into)]
         pub backend_pool_load_balancings: pulumi_wasm_rust::Output<
-            Vec<super::types::frontdoor::FrontdoorBackendPoolLoadBalancing>,
+            Vec<super::super::types::frontdoor::FrontdoorBackendPoolLoadBalancing>,
         >,
         /// A `backend_pool_settings` block as defined below.
         #[builder(into, default)]
         pub backend_pool_settings: pulumi_wasm_rust::Output<
-            Option<Vec<super::types::frontdoor::FrontdoorBackendPoolSetting>>,
+            Option<Vec<super::super::types::frontdoor::FrontdoorBackendPoolSetting>>,
         >,
         /// A `backend_pool` block as defined below.
         ///
         /// > Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
         #[builder(into)]
         pub backend_pools: pulumi_wasm_rust::Output<
-            Vec<super::types::frontdoor::FrontdoorBackendPool>,
+            Vec<super::super::types::frontdoor::FrontdoorBackendPool>,
         >,
         /// A friendly name for the Front Door service.
         #[builder(into, default)]
@@ -96,7 +117,7 @@ pub mod frontdoor {
         /// A `frontend_endpoint` block as defined below.
         #[builder(into)]
         pub frontend_endpoints: pulumi_wasm_rust::Output<
-            Vec<super::types::frontdoor::FrontdoorFrontendEndpoint>,
+            Vec<super::super::types::frontdoor::FrontdoorFrontendEndpoint>,
         >,
         /// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
         #[builder(into, default)]
@@ -110,7 +131,7 @@ pub mod frontdoor {
         /// A `routing_rule` block as defined below.
         #[builder(into)]
         pub routing_rules: pulumi_wasm_rust::Output<
-            Vec<super::types::frontdoor::FrontdoorRoutingRule>,
+            Vec<super::super::types::frontdoor::FrontdoorRoutingRule>,
         >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
@@ -122,7 +143,7 @@ pub mod frontdoor {
     pub struct FrontdoorResult {
         /// A `backend_pool_health_probe` block as defined below.
         pub backend_pool_health_probes: pulumi_wasm_rust::Output<
-            Vec<super::types::frontdoor::FrontdoorBackendPoolHealthProbe>,
+            Vec<super::super::types::frontdoor::FrontdoorBackendPoolHealthProbe>,
         >,
         /// A map/dictionary of Backend Pool Health Probe Names (key) to the Backend Pool Health Probe ID (value)
         pub backend_pool_health_probes_map: pulumi_wasm_rust::Output<
@@ -134,17 +155,17 @@ pub mod frontdoor {
         >,
         /// A `backend_pool_load_balancing` block as defined below.
         pub backend_pool_load_balancings: pulumi_wasm_rust::Output<
-            Vec<super::types::frontdoor::FrontdoorBackendPoolLoadBalancing>,
+            Vec<super::super::types::frontdoor::FrontdoorBackendPoolLoadBalancing>,
         >,
         /// A `backend_pool_settings` block as defined below.
         pub backend_pool_settings: pulumi_wasm_rust::Output<
-            Vec<super::types::frontdoor::FrontdoorBackendPoolSetting>,
+            Vec<super::super::types::frontdoor::FrontdoorBackendPoolSetting>,
         >,
         /// A `backend_pool` block as defined below.
         ///
         /// > Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
         pub backend_pools: pulumi_wasm_rust::Output<
-            Vec<super::types::frontdoor::FrontdoorBackendPool>,
+            Vec<super::super::types::frontdoor::FrontdoorBackendPool>,
         >,
         /// A map/dictionary of Backend Pool Names (key) to the Backend Pool ID (value)
         pub backend_pools_map: pulumi_wasm_rust::Output<
@@ -153,13 +174,13 @@ pub mod frontdoor {
         /// The host that each frontendEndpoint must CNAME to.
         pub cname: pulumi_wasm_rust::Output<String>,
         pub explicit_resource_orders: pulumi_wasm_rust::Output<
-            Vec<super::types::frontdoor::FrontdoorExplicitResourceOrder>,
+            Vec<super::super::types::frontdoor::FrontdoorExplicitResourceOrder>,
         >,
         /// A friendly name for the Front Door service.
         pub friendly_name: pulumi_wasm_rust::Output<Option<String>>,
         /// A `frontend_endpoint` block as defined below.
         pub frontend_endpoints: pulumi_wasm_rust::Output<
-            Vec<super::types::frontdoor::FrontdoorFrontendEndpoint>,
+            Vec<super::super::types::frontdoor::FrontdoorFrontendEndpoint>,
         >,
         /// A map/dictionary of Frontend Endpoint Names (key) to the Frontend Endpoint ID (value)
         pub frontend_endpoints_map: pulumi_wasm_rust::Output<
@@ -175,7 +196,7 @@ pub mod frontdoor {
         pub resource_group_name: pulumi_wasm_rust::Output<String>,
         /// A `routing_rule` block as defined below.
         pub routing_rules: pulumi_wasm_rust::Output<
-            Vec<super::types::frontdoor::FrontdoorRoutingRule>,
+            Vec<super::super::types::frontdoor::FrontdoorRoutingRule>,
         >,
         /// A map/dictionary of Routing Rule Names (key) to the Routing Rule ID (value)
         pub routing_rules_map: pulumi_wasm_rust::Output<

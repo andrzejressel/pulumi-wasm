@@ -46,7 +46,7 @@ pub mod event_hub {
         /// A `capture_description` block as defined below.
         #[builder(into, default)]
         pub capture_description: pulumi_wasm_rust::Output<
-            Option<super::types::eventhub::EventHubCaptureDescription>,
+            Option<super::super::types::eventhub::EventHubCaptureDescription>,
         >,
         /// Specifies the number of days to retain the events for this Event Hub.
         ///
@@ -78,7 +78,7 @@ pub mod event_hub {
     pub struct EventHubResult {
         /// A `capture_description` block as defined below.
         pub capture_description: pulumi_wasm_rust::Output<
-            Option<super::types::eventhub::EventHubCaptureDescription>,
+            Option<super::super::types::eventhub::EventHubCaptureDescription>,
         >,
         /// Specifies the number of days to retain the events for this Event Hub.
         ///

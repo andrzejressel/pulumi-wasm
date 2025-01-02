@@ -39,7 +39,7 @@ pub mod arc_machine {
         /// An `identity` block as defined below.
         #[builder(into, default)]
         pub identity: pulumi_wasm_rust::Output<
-            Option<super::types::arcmachine::ArcMachineIdentity>,
+            Option<super::super::types::arcmachine::ArcMachineIdentity>,
         >,
         /// The kind of the Arc Machine. Possible values are `AVS`, `AWS`, `EPS`, `GCP`, `HCI`, `SCVMM` and `VMware`. Changing this forces a new resource to be created.
         #[builder(into)]
@@ -63,7 +63,7 @@ pub mod arc_machine {
     pub struct ArcMachineResult {
         /// An `identity` block as defined below.
         pub identity: pulumi_wasm_rust::Output<
-            Option<super::types::arcmachine::ArcMachineIdentity>,
+            Option<super::super::types::arcmachine::ArcMachineIdentity>,
         >,
         /// The kind of the Arc Machine. Possible values are `AVS`, `AWS`, `EPS`, `GCP`, `HCI`, `SCVMM` and `VMware`. Changing this forces a new resource to be created.
         pub kind: pulumi_wasm_rust::Output<String>,

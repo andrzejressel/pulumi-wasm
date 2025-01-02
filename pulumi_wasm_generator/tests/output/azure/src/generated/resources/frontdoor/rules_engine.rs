@@ -4,75 +4,93 @@
 ///
 /// ## Example Usage
 ///
-/// ```yaml
-/// resources:
-///   example:
-///     type: azure:core:ResourceGroup
-///     properties:
-///       name: example-rg
-///       location: West Europe
-///   exampleFrontdoor:
-///     type: azure:frontdoor:Frontdoor
-///     name: example
-///     properties:
-///       name: example
-///       resourceGroupName: ${example.name}
-///       backendPools:
-///         - name: exampleBackendBing
-///           loadBalancingName: exampleLoadBalancingSettings1
-///           healthProbeName: exampleHealthProbeSetting1
-///           backends:
-///             - hostHeader: www.bing.com
-///               address: www.bing.com
-///               httpPort: 80
-///               httpsPort: 443
-///       backendPoolHealthProbes:
-///         - name: exampleHealthProbeSetting1
-///       backendPoolLoadBalancings:
-///         - name: exampleLoadBalancingSettings1
-///       frontendEndpoints:
-///         - name: exampleFrontendEndpoint1
-///           hostName: example-FrontDoor.azurefd.net
-///       routingRules:
-///         - name: exampleRoutingRule1
-///           acceptedProtocols:
-///             - Http
-///             - Https
-///           patternsToMatches:
-///             - /*
-///           frontendEndpoints:
-///             - exampleFrontendEndpoint1
-///   exampleRulesEngine:
-///     type: azure:frontdoor:RulesEngine
-///     name: example_rules_engine
-///     properties:
-///       name: exampleRulesEngineConfig1
-///       frontdoorName: ${exampleFrontdoor.name}
-///       resourceGroupName: ${exampleFrontdoor.resourceGroupName}
-///       rules:
-///         - name: debuggingoutput
-///           priority: 1
-///           action:
-///             responseHeaders:
-///               - headerActionType: Append
-///                 headerName: X-TEST-HEADER
-///                 value: Append Header Rule
-///         - name: overwriteorigin
-///           priority: 2
-///           matchConditions:
-///             - variable: RequestMethod
-///               operator: Equal
-///               values:
-///                 - GET
-///                 - POST
-///           action:
-///             responseHeaders:
-///               - headerActionType: Overwrite
-///                 headerName: Access-Control-Allow-Origin
-///                 value: '*'
-///               - headerActionType: Overwrite
-///                 headerName: Access-Control-Allow-Credentials
-///                 value: 'true'
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let example = resource_group::create(
+///         "example",
+///         ResourceGroupArgs::builder()
+///             .location("West Europe")
+///             .name("example-rg")
+///             .build_struct(),
+///     );
+///     let exampleFrontdoor = frontdoor::create(
+///         "exampleFrontdoor",
+///         FrontdoorArgs::builder()
+///             .backend_pool_health_probes(
+///                 vec![
+///                     FrontdoorBackendPoolHealthProbe::builder()
+///                     .name("exampleHealthProbeSetting1").build_struct(),
+///                 ],
+///             )
+///             .backend_pool_load_balancings(
+///                 vec![
+///                     FrontdoorBackendPoolLoadBalancing::builder()
+///                     .name("exampleLoadBalancingSettings1").build_struct(),
+///                 ],
+///             )
+///             .backend_pools(
+///                 vec![
+///                     FrontdoorBackendPool::builder()
+///                     .backends(vec![FrontdoorBackendPoolBackend::builder()
+///                     .address("www.bing.com").hostHeader("www.bing.com").httpPort(80)
+///                     .httpsPort(443).build_struct(),])
+///                     .healthProbeName("exampleHealthProbeSetting1")
+///                     .loadBalancingName("exampleLoadBalancingSettings1")
+///                     .name("exampleBackendBing").build_struct(),
+///                 ],
+///             )
+///             .frontend_endpoints(
+///                 vec![
+///                     FrontdoorFrontendEndpoint::builder()
+///                     .hostName("example-FrontDoor.azurefd.net")
+///                     .name("exampleFrontendEndpoint1").build_struct(),
+///                 ],
+///             )
+///             .name("example")
+///             .resource_group_name("${example.name}")
+///             .routing_rules(
+///                 vec![
+///                     FrontdoorRoutingRule::builder().acceptedProtocols(vec!["Http",
+///                     "Https",]).frontendEndpoints(vec!["exampleFrontendEndpoint1",])
+///                     .name("exampleRoutingRule1").patternsToMatches(vec!["/*",])
+///                     .build_struct(),
+///                 ],
+///             )
+///             .build_struct(),
+///     );
+///     let exampleRulesEngine = rules_engine::create(
+///         "exampleRulesEngine",
+///         RulesEngineArgs::builder()
+///             .frontdoor_name("${exampleFrontdoor.name}")
+///             .name("exampleRulesEngineConfig1")
+///             .resource_group_name("${exampleFrontdoor.resourceGroupName}")
+///             .rules(
+///                 vec![
+///                     RulesEngineRule::builder().action(RulesEngineRuleAction::builder()
+///                     .responseHeaders(vec![RulesEngineRuleActionResponseHeader::builder()
+///                     .headerActionType("Append").headerName("X-TEST-HEADER")
+///                     .value("Append Header Rule").build_struct(),]).build_struct())
+///                     .name("debuggingoutput").priority(1).build_struct(),
+///                     RulesEngineRule::builder().action(RulesEngineRuleAction::builder()
+///                     .responseHeaders(vec![RulesEngineRuleActionResponseHeader::builder()
+///                     .headerActionType("Overwrite")
+///                     .headerName("Access-Control-Allow-Origin").value("*").build_struct(),
+///                     RulesEngineRuleActionResponseHeader::builder()
+///                     .headerActionType("Overwrite")
+///                     .headerName("Access-Control-Allow-Credentials").value("true")
+///                     .build_struct(),]).build_struct())
+///                     .matchConditions(vec![RulesEngineRuleMatchCondition::builder()
+///                     .operator("Equal").values(vec!["GET", "POST",])
+///                     .variable("RequestMethod").build_struct(),]).name("overwriteorigin")
+///                     .priority(2).build_struct(),
+///                 ],
+///             )
+///             .build_struct(),
+///     );
+/// }
 /// ```
 ///
 /// ## Import

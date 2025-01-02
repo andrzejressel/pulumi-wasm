@@ -4,27 +4,35 @@
 ///
 /// ## Example Usage
 ///
-/// ```yaml
-/// resources:
-///   example:
-///     type: azure:core:ResourceGroup
-///     properties:
-///       name: example-resources
-///       location: West Europe
-///   exampleUserAssignedIdentity:
-///     type: azure:authorization:UserAssignedIdentity
-///     name: example
-///     properties:
-///       name: example
-///       resourceGroupName: ${example.name}
-///       location: ${example.location}
-///   exampleDevCenter:
-///     type: azure:devcenter:DevCenter
-///     name: example
-///     properties:
-///       location: ${example.location}
-///       name: example
-///       resourceGroupName: ${example.name}
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let example = resource_group::create(
+///         "example",
+///         ResourceGroupArgs::builder()
+///             .location("West Europe")
+///             .name("example-resources")
+///             .build_struct(),
+///     );
+///     let exampleDevCenter = dev_center::create(
+///         "exampleDevCenter",
+///         DevCenterArgs::builder()
+///             .location("${example.location}")
+///             .name("example")
+///             .resource_group_name("${example.name}")
+///             .build_struct(),
+///     );
+///     let exampleUserAssignedIdentity = user_assigned_identity::create(
+///         "exampleUserAssignedIdentity",
+///         UserAssignedIdentityArgs::builder()
+///             .location("${example.location}")
+///             .name("example")
+///             .resource_group_name("${example.name}")
+///             .build_struct(),
+///     );
+/// }
 /// ```
 ///
 /// ## Blocks Reference
@@ -65,7 +73,7 @@ pub mod dev_center {
         /// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Dev Center.
         #[builder(into, default)]
         pub identity: pulumi_wasm_rust::Output<
-            Option<super::types::devcenter::DevCenterIdentity>,
+            Option<super::super::types::devcenter::DevCenterIdentity>,
         >,
         /// The Azure Region where the Dev Center should exist. Changing this forces a new Dev Center to be created.
         #[builder(into, default)]
@@ -88,7 +96,7 @@ pub mod dev_center {
         pub dev_center_uri: pulumi_wasm_rust::Output<String>,
         /// An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Dev Center.
         pub identity: pulumi_wasm_rust::Output<
-            Option<super::types::devcenter::DevCenterIdentity>,
+            Option<super::super::types::devcenter::DevCenterIdentity>,
         >,
         /// The Azure Region where the Dev Center should exist. Changing this forces a new Dev Center to be created.
         pub location: pulumi_wasm_rust::Output<String>,
