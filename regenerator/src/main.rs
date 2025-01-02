@@ -57,7 +57,6 @@ fn main() {
             .expect("Failed to write schema to file");
     }
 
-    update_justfile(&providers);
     update_tests(&tests, &providers);
     update_generator_cargo_toml(&tests, &providers);
 }
@@ -144,13 +143,6 @@ fn update_generator_cargo_toml(tests: &[&str], providers: &[Provider]) {
     let new_content = replace_between_markers(&content, start_marker, end_marker, &replacement);
     fs::write("pulumi_wasm_generator/Cargo.toml", new_content)
         .expect("Failed to write to pulumi_wasm_generator/Cargo.toml");
-}
-
-fn update_justfile(providers: &[Provider]) {
-    let content = fs::read_to_string("justfile").expect("Failed to read justfile");
-    let content = replace_generate_rust_docs(providers, &content);
-
-    fs::write("justfile", content).expect("Failed to write to justfile");
 }
 
 fn replace_generate_rust_docs(providers: &[Provider], content: &str) -> String {
