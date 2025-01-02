@@ -2246,7 +2246,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-eb5f6cf"
 dependencies = [
  "log",
  "pulumi_wasm_common",
@@ -2258,7 +2258,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_build"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-eb5f6cf"
 dependencies = [
  "anyhow",
  "pulumi_wasm_generator",
@@ -2268,7 +2268,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_common"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-eb5f6cf"
 dependencies = [
  "log",
  "pulumi_wasm_wit",
@@ -2276,7 +2276,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_core"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-eb5f6cf"
 dependencies = [
  "log",
  "mockall",
@@ -2289,7 +2289,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_example_dependencies"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-eb5f6cf"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -2301,7 +2301,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_example_docker"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-eb5f6cf"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -2313,7 +2313,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_example_multiple_providers"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-eb5f6cf"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -2326,7 +2326,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_example_simple"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-eb5f6cf"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -2338,7 +2338,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_example_typesystem"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-eb5f6cf"
 dependencies = [
  "pulumi_wasm_providers_typesystem",
  "pulumi_wasm_rust",
@@ -2347,7 +2347,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_generator"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-eb5f6cf"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -2367,7 +2367,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_proto"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-eb5f6cf"
 dependencies = [
  "prost",
  "prost-types",
@@ -2377,7 +2377,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_providers_cloudflare"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-eb5f6cf"
 dependencies = [
  "bon",
  "pulumi_wasm_build",
@@ -2388,7 +2388,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_providers_docker"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-eb5f6cf"
 dependencies = [
  "bon",
  "pulumi_wasm_build",
@@ -2399,7 +2399,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_providers_random"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-eb5f6cf"
 dependencies = [
  "bon",
  "pulumi_wasm_build",
@@ -2410,7 +2410,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_providers_typesystem"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-eb5f6cf"
 dependencies = [
  "bon",
  "pulumi_wasm_build",
@@ -2421,7 +2421,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_runner"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-eb5f6cf"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -2441,7 +2441,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_runner_component_creator"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-eb5f6cf"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -2458,7 +2458,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_rust"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-eb5f6cf"
 dependencies = [
  "anyhow",
  "bon",
@@ -2479,7 +2479,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_rust_macro"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-eb5f6cf"
 dependencies = [
  "anyhow",
  "pulumi_wasm_providers_random",
@@ -2490,7 +2490,7 @@ dependencies = [
 
 [[package]]
 name = "pulumi_wasm_wit"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-eb5f6cf"
 dependencies = [
  "wasmtime",
  "wit-bindgen",
@@ -2591,7 +2591,7 @@ dependencies = [
 
 [[package]]
 name = "regenerator"
-version = "0.0.0-DEV"
+version = "0.0.0-NIGHTLY-eb5f6cf"
 dependencies = [
  "itertools 0.14.0",
 ]
