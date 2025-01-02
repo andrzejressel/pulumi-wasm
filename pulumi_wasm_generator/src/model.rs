@@ -286,7 +286,6 @@ impl ElementId {
             }
 
             final_namespaces.push(escape_rust_name(&s.replace("-", "_")).to_string());
-
         }
 
         Ok(ElementId {
