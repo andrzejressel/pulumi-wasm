@@ -155,9 +155,6 @@ fn update_generator_cargo_toml(tests: &[&str], filtered_tests: &Vec<FilteredTest
     let content =
         fs::read_to_string("pulumi_wasm_generator/Cargo.toml").expect("Failed to read Cargo.toml");
     let mut replacement = String::new();
-    // for provider in filtered_tests {
-    //     replacement.push_str(&format!("generator_{} = []\n", provider.name))
-    // }
     for test in tests {
         replacement.push_str(&format!("generator_{} = []\n", test))
     }

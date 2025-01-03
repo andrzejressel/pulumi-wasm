@@ -147,7 +147,7 @@ pub fn run_pulumi_generator_test(test_name: &str, filter: Option<&str>) -> Resul
     let schema = find_schema_files(test_name);
     fs::create_dir_all(root)?;
 
-    fs::copy(schema.clone(), root.join(schema.file_name().unwrap()))?;
+    create_symlink(&schema, &root.join(schema.file_name().unwrap()))?;
 
     generate_combined(
         schema.as_path(),
@@ -225,4 +225,17 @@ pub fn find_schema_files(name: &str) -> PathBuf {
     }
 
     panic!("No schema file found for provider: {name}");
+}
+
+fn create_symlink(src: &Path, dst: &Path) -> std::io::Result<()> {
+    if dst.exists() {
+        fs::remove_file(dst)?;
+    }
+    use pathdiff::diff_paths;
+    let relative_path = diff_paths(src, dst.parent().unwrap()).unwrap();
+    #[cfg(unix)]
+    std::os::unix::fs::symlink(&relative_path, dst)?;
+    #[cfg(windows)]
+    std::os::windows::fs::symlink_file(&relative_path, dst)?;
+    Ok(())
 }
