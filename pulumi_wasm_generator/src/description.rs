@@ -50,6 +50,10 @@ impl<'a> Description<'a> {
     }
 
     fn initial_transition(line: &str) -> (State, Vec<String>) {
+        // https://github.com/pulumi/pulumi-terraform-bridge/issues/2801
+        if line.starts_with("\t\t\t\t") {
+            return (Initial, vec![line.trim_start().to_string()]);
+        }
         match line.trim() {
             "<!--Start PulumiCodeChooser -->" | "{{% examples %}}" => (Examples, vec![]),
             // Rustdoc treats ``` as rust code block. Line may contain whitespace before
