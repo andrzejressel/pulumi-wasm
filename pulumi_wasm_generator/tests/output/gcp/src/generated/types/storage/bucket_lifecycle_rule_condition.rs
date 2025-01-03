@@ -19,7 +19,7 @@ pub struct BucketLifecycleRuleCondition {
     #[serde(rename = "daysSinceCustomTime")]
     pub r#days_since_custom_time: Box<Option<i32>>,
     /// Number of days elapsed since the noncurrent timestamp of an object. This
-    /// 										condition is relevant only for versioned objects.
+    /// condition is relevant only for versioned objects.
     #[builder(into, default)]
     #[serde(rename = "daysSinceNoncurrentTime")]
     pub r#days_since_noncurrent_time: Box<Option<i32>>,

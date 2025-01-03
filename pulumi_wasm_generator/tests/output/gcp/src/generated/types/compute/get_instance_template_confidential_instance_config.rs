@@ -3,9 +3,9 @@
 #[allow(dead_code)]
 pub struct GetInstanceTemplateConfidentialInstanceConfig {
     /// The confidential computing technology the instance uses.
-    /// 								SEV is an AMD feature. TDX is an Intel feature. One of the following
-    /// 								values is required: SEV, SEV_SNP, TDX. If SEV_SNP, min_cpu_platform =
-    /// 								"AMD Milan" is currently required.
+    /// SEV is an AMD feature. TDX is an Intel feature. One of the following
+    /// values is required: SEV, SEV_SNP, TDX. If SEV_SNP, min_cpu_platform =
+    /// "AMD Milan" is currently required.
     #[builder(into)]
     #[serde(rename = "confidentialInstanceType")]
     pub r#confidential_instance_type: Box<String>,

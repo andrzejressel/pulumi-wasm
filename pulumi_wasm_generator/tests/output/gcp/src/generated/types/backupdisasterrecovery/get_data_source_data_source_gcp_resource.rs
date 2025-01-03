@@ -15,7 +15,7 @@ pub struct GetDataSourceDataSourceGcpResource {
     #[serde(rename = "location")]
     pub r#location: Box<String>,
     /// The type of the Google Cloud resource. Use the Unified Resource Type,
-    /// 						eg. compute.googleapis.com/Instance.
+    /// eg. compute.googleapis.com/Instance.
     #[builder(into)]
     #[serde(rename = "type")]
     pub r#type: Box<String>,

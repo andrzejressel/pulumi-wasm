@@ -12,7 +12,7 @@ pub struct GetClusterClusterAutoscalingAutoProvisioningDefaultUpgradeSettingBlue
     pub r#batch_percentage: Box<f64>,
     /// Soak time after each batch gets drained.
     /// 
-    /// 																			A duration in seconds with up to nine fractional digits, ending with 's'. Example: "3.5s".
+    /// A duration in seconds with up to nine fractional digits, ending with 's'. Example: "3.5s".
     #[builder(into)]
     #[serde(rename = "batchSoakDuration")]
     pub r#batch_soak_duration: Box<String>,
