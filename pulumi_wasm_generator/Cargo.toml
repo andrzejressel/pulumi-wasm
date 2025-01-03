@@ -26,6 +26,7 @@ generator_plain-object-disable-defaults = []
 generator_reserved_names = []
 generator_unions-inline = []
 generator_unions-inside-arrays = []
+generator_workarounds = []
 # DO NOT EDIT - END
 
 [lints]
