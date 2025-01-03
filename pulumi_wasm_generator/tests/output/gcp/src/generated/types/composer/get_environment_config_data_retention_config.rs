@@ -1,0 +1,9 @@
+#[derive(pulumi_wasm_rust::__private::serde::Deserialize, pulumi_wasm_rust::__private::serde::Serialize, pulumi_wasm_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
+#[builder(finish_fn = build_struct)]
+#[allow(dead_code)]
+pub struct GetEnvironmentConfigDataRetentionConfig {
+    /// Optional. The configuration setting for Task Logs.
+    #[builder(into)]
+    #[serde(rename = "taskLogsRetentionConfigs")]
+    pub r#task_logs_retention_configs: Box<Vec<super::super::types::composer::GetEnvironmentConfigDataRetentionConfigTaskLogsRetentionConfig>>,
+}

@@ -1,0 +1,275 @@
+/// ## Example Usage
+///
+/// ### Kms Key Handle Basic
+///
+///
+/// ```yaml
+/// resources:
+///   # Create Folder in GCP Organization
+///   autokmsFolder:
+///     type: gcp:organizations:Folder
+///     name: autokms_folder
+///     properties:
+///       displayName: my-folder
+///       parent: organizations/123456789
+///       deletionProtection: false
+///   # Create the key project
+///   keyProject:
+///     type: gcp:organizations:Project
+///     name: key_project
+///     properties:
+///       projectId: key-proj
+///       name: key-proj
+///       folderId: ${autokmsFolder.folderId}
+///       billingAccount: 000000-0000000-0000000-000000
+///       deletionPolicy: DELETE
+///     options:
+///       dependsOn:
+///         - ${autokmsFolder}
+///   # Create the resource project
+///   resourceProject:
+///     type: gcp:organizations:Project
+///     name: resource_project
+///     properties:
+///       projectId: res-proj
+///       name: res-proj
+///       folderId: ${autokmsFolder.folderId}
+///       billingAccount: 000000-0000000-0000000-000000
+///       deletionPolicy: DELETE
+///     options:
+///       dependsOn:
+///         - ${autokmsFolder}
+///   # Enable the Cloud KMS API
+///   kmsApiService:
+///     type: gcp:projects:Service
+///     name: kms_api_service
+///     properties:
+///       service: cloudkms.googleapis.com
+///       project: ${keyProject.projectId}
+///       disableOnDestroy: false
+///       disableDependentServices: true
+///     options:
+///       dependsOn:
+///         - ${keyProject}
+///   # Wait delay after enabling APIs
+///   waitEnableServiceApi:
+///     type: time:sleep
+///     name: wait_enable_service_api
+///     properties:
+///       createDuration: 30s
+///     options:
+///       dependsOn:
+///         - ${kmsApiService}
+///   #Create KMS Service Agent
+///   kmsServiceAgent:
+///     type: gcp:projects:ServiceIdentity
+///     name: kms_service_agent
+///     properties:
+///       service: cloudkms.googleapis.com
+///       project: ${keyProject.number}
+///     options:
+///       dependsOn:
+///         - ${waitEnableServiceApi}
+///   # Wait delay after creating service agent.
+///   waitServiceAgent:
+///     type: time:sleep
+///     name: wait_service_agent
+///     properties:
+///       createDuration: 10s
+///     options:
+///       dependsOn:
+///         - ${kmsServiceAgent}
+///   #Grant the KMS Service Agent the Cloud KMS Admin role
+///   autokeyProjectAdmin:
+///     type: gcp:projects:IAMMember
+///     name: autokey_project_admin
+///     properties:
+///       project: ${keyProject.projectId}
+///       role: roles/cloudkms.admin
+///       member: serviceAccount:service-${keyProject.number}@gcp-sa-cloudkms.iam.gserviceaccount.com
+///     options:
+///       dependsOn:
+///         - ${waitServiceAgent}
+///   # Wait delay after granting IAM permissions
+///   waitSrvAccPermissions:
+///     type: time:sleep
+///     name: wait_srv_acc_permissions
+///     properties:
+///       createDuration: 10s
+///     options:
+///       dependsOn:
+///         - ${autokeyProjectAdmin}
+///   autokeyConfig:
+///     type: gcp:kms:AutokeyConfig
+///     name: autokey_config
+///     properties:
+///       folder: ${autokmsFolder.folderId}
+///       keyProject: projects/${keyProject.projectId}
+///     options:
+///       dependsOn:
+///         - ${waitSrvAccPermissions}
+///   # Wait delay for autokey config to take effect
+///   waitAutokeyConfig:
+///     type: time:sleep
+///     name: wait_autokey_config
+///     properties:
+///       createDuration: 10s
+///     options:
+///       dependsOn:
+///         - ${autokeyConfig}
+///   example-keyhandle:
+///     type: gcp:kms:KeyHandle
+///     properties:
+///       project: ${resourceProject.projectId}
+///       name: tf-test-key-handle
+///       location: global
+///       resourceTypeSelector: storage.googleapis.com/Bucket
+///     options:
+///       dependsOn:
+///         - ${waitAutokeyConfig}
+/// ```
+///
+/// ## Import
+///
+/// KeyHandle can be imported using any of these accepted formats:
+///
+/// * `projects/{{project}}/locations/{{location}}/keyHandles/{{name}}`
+///
+/// * `{{project}}/{{location}}/{{name}}`
+///
+/// * `{{location}}/{{name}}`
+///
+/// When using the `pulumi import` command, KeyHandle can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:kms/keyHandle:KeyHandle default projects/{{project}}/locations/{{location}}/keyHandles/{{name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:kms/keyHandle:KeyHandle default {{project}}/{{location}}/{{name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:kms/keyHandle:KeyHandle default {{location}}/{{name}}
+/// ```
+///
+pub mod key_handle {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct KeyHandleArgs {
+        /// The location for the KeyHandle.
+        /// A full list of valid locations can be found by running `gcloud kms locations list`.
+        ///
+        ///
+        /// - - -
+        #[builder(into)]
+        pub location: pulumi_wasm_rust::Output<String>,
+        /// The resource name for the KeyHandle.
+        #[builder(into, default)]
+        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        #[builder(into, default)]
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        /// Selector of the resource type where we want to protect resources.
+        /// For example, `storage.googleapis.com/Bucket`.
+        #[builder(into)]
+        pub resource_type_selector: pulumi_wasm_rust::Output<String>,
+    }
+    #[allow(dead_code)]
+    pub struct KeyHandleResult {
+        /// A reference to a Cloud KMS CryptoKey that can be used for CMEK in the requested
+        /// product/project/location, for example
+        /// `projects/1/locations/us-east1/keyRings/foo/cryptoKeys/bar-ffffff`
+        pub kms_key: pulumi_wasm_rust::Output<String>,
+        /// The location for the KeyHandle.
+        /// A full list of valid locations can be found by running `gcloud kms locations list`.
+        ///
+        ///
+        /// - - -
+        pub location: pulumi_wasm_rust::Output<String>,
+        /// The resource name for the KeyHandle.
+        pub name: pulumi_wasm_rust::Output<String>,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        pub project: pulumi_wasm_rust::Output<String>,
+        /// Selector of the resource type where we want to protect resources.
+        /// For example, `storage.googleapis.com/Bucket`.
+        pub resource_type_selector: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: KeyHandleArgs) -> KeyHandleResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let location_binding = args.location.get_inner();
+        let name_binding = args.name.get_inner();
+        let project_binding = args.project.get_inner();
+        let resource_type_selector_binding = args.resource_type_selector.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:kms/keyHandle:KeyHandle".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "location".into(),
+                    value: &location_binding,
+                },
+                register_interface::ObjectField {
+                    name: "name".into(),
+                    value: &name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+                register_interface::ObjectField {
+                    name: "resourceTypeSelector".into(),
+                    value: &resource_type_selector_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "kmsKey".into(),
+                },
+                register_interface::ResultField {
+                    name: "location".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+                register_interface::ResultField {
+                    name: "resourceTypeSelector".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        KeyHandleResult {
+            kms_key: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("kmsKey").unwrap(),
+            ),
+            location: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("location").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+            resource_type_selector: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("resourceTypeSelector").unwrap(),
+            ),
+        }
+    }
+}

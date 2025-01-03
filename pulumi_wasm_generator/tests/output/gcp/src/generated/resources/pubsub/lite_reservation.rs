@@ -1,0 +1,169 @@
+/// A named resource representing a shared pool of capacity.
+///
+///
+/// To get more information about Reservation, see:
+///
+/// * [API documentation](https://cloud.google.com/pubsub/lite/docs/reference/rest/v1/admin.projects.locations.reservations)
+/// * How-to Guides
+///     * [Managing Reservations](https://cloud.google.com/pubsub/lite/docs/reservations)
+///
+/// ## Example Usage
+///
+/// ### Pubsub Lite Reservation Basic
+///
+///
+/// ```yaml
+/// resources:
+///   example:
+///     type: gcp:pubsub:LiteReservation
+///     properties:
+///       name: example-reservation
+///       project: ${project.number}
+///       throughputCapacity: 2
+/// variables:
+///   project:
+///     fn::invoke:
+///       function: gcp:organizations:getProject
+///       arguments: {}
+/// ```
+///
+/// ## Import
+///
+/// Reservation can be imported using any of these accepted formats:
+///
+/// * `projects/{{project}}/locations/{{region}}/reservations/{{name}}`
+///
+/// * `{{project}}/{{region}}/{{name}}`
+///
+/// * `{{region}}/{{name}}`
+///
+/// * `{{name}}`
+///
+/// When using the `pulumi import` command, Reservation can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:pubsub/liteReservation:LiteReservation default projects/{{project}}/locations/{{region}}/reservations/{{name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:pubsub/liteReservation:LiteReservation default {{project}}/{{region}}/{{name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:pubsub/liteReservation:LiteReservation default {{region}}/{{name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:pubsub/liteReservation:LiteReservation default {{name}}
+/// ```
+///
+pub mod lite_reservation {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct LiteReservationArgs {
+        /// Name of the reservation.
+        ///
+        ///
+        /// - - -
+        #[builder(into, default)]
+        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        #[builder(into, default)]
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        /// The region of the pubsub lite reservation.
+        #[builder(into, default)]
+        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        /// The reserved throughput capacity. Every unit of throughput capacity is
+        /// equivalent to 1 MiB/s of published messages or 2 MiB/s of subscribed
+        /// messages.
+        #[builder(into)]
+        pub throughput_capacity: pulumi_wasm_rust::Output<i32>,
+    }
+    #[allow(dead_code)]
+    pub struct LiteReservationResult {
+        /// Name of the reservation.
+        ///
+        ///
+        /// - - -
+        pub name: pulumi_wasm_rust::Output<String>,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        pub project: pulumi_wasm_rust::Output<String>,
+        /// The region of the pubsub lite reservation.
+        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        /// The reserved throughput capacity. Every unit of throughput capacity is
+        /// equivalent to 1 MiB/s of published messages or 2 MiB/s of subscribed
+        /// messages.
+        pub throughput_capacity: pulumi_wasm_rust::Output<i32>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: LiteReservationArgs) -> LiteReservationResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let name_binding = args.name.get_inner();
+        let project_binding = args.project.get_inner();
+        let region_binding = args.region.get_inner();
+        let throughput_capacity_binding = args.throughput_capacity.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:pubsub/liteReservation:LiteReservation".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "name".into(),
+                    value: &name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+                register_interface::ObjectField {
+                    name: "region".into(),
+                    value: &region_binding,
+                },
+                register_interface::ObjectField {
+                    name: "throughputCapacity".into(),
+                    value: &throughput_capacity_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+                register_interface::ResultField {
+                    name: "region".into(),
+                },
+                register_interface::ResultField {
+                    name: "throughputCapacity".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        LiteReservationResult {
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+            region: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("region").unwrap(),
+            ),
+            throughput_capacity: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("throughputCapacity").unwrap(),
+            ),
+        }
+    }
+}

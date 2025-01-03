@@ -1,0 +1,163 @@
+/// The SSH public key information associated with a Google account.
+///
+///
+/// To get more information about SSHPublicKey, see:
+///
+/// * [API documentation](https://cloud.google.com/compute/docs/oslogin/rest/v1/users.sshPublicKeys)
+/// * How-to Guides
+///     * [Official Documentation](https://cloud.google.com/compute/docs/oslogin)
+///
+/// ## Example Usage
+///
+/// ### Os Login Ssh Key Basic
+///
+///
+/// ```yaml
+/// resources:
+///   cache:
+///     type: gcp:oslogin:SshPublicKey
+///     properties:
+///       user: ${me.email}
+///       key:
+///         fn::invoke:
+///           function: std:file
+///           arguments:
+///             input: path/to/id_rsa.pub
+///           return: result
+/// variables:
+///   me:
+///     fn::invoke:
+///       function: gcp:organizations:getClientOpenIdUserInfo
+///       arguments: {}
+/// ```
+///
+/// ## Import
+///
+/// SSHPublicKey can be imported using any of these accepted formats:
+///
+/// * `users/{{user}}/sshPublicKeys/{{fingerprint}}`
+///
+/// * `{{user}}/{{fingerprint}}`
+///
+/// When using the `pulumi import` command, SSHPublicKey can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:oslogin/sshPublicKey:SshPublicKey default users/{{user}}/sshPublicKeys/{{fingerprint}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:oslogin/sshPublicKey:SshPublicKey default {{user}}/{{fingerprint}}
+/// ```
+///
+pub mod ssh_public_key {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct SshPublicKeyArgs {
+        /// An expiration time in microseconds since epoch.
+        #[builder(into, default)]
+        pub expiration_time_usec: pulumi_wasm_rust::Output<Option<String>>,
+        /// Public key text in SSH format, defined by RFC4253 section 6.6.
+        #[builder(into)]
+        pub key: pulumi_wasm_rust::Output<String>,
+        /// The project ID of the Google Cloud Platform project.
+        #[builder(into, default)]
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        /// The user email.
+        ///
+        ///
+        /// - - -
+        #[builder(into)]
+        pub user: pulumi_wasm_rust::Output<String>,
+    }
+    #[allow(dead_code)]
+    pub struct SshPublicKeyResult {
+        /// An expiration time in microseconds since epoch.
+        pub expiration_time_usec: pulumi_wasm_rust::Output<Option<String>>,
+        /// The SHA-256 fingerprint of the SSH public key.
+        pub fingerprint: pulumi_wasm_rust::Output<String>,
+        /// Public key text in SSH format, defined by RFC4253 section 6.6.
+        pub key: pulumi_wasm_rust::Output<String>,
+        /// The project ID of the Google Cloud Platform project.
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        /// The user email.
+        ///
+        ///
+        /// - - -
+        pub user: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: SshPublicKeyArgs) -> SshPublicKeyResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let expiration_time_usec_binding = args.expiration_time_usec.get_inner();
+        let key_binding = args.key.get_inner();
+        let project_binding = args.project.get_inner();
+        let user_binding = args.user.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:oslogin/sshPublicKey:SshPublicKey".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "expirationTimeUsec".into(),
+                    value: &expiration_time_usec_binding,
+                },
+                register_interface::ObjectField {
+                    name: "key".into(),
+                    value: &key_binding,
+                },
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+                register_interface::ObjectField {
+                    name: "user".into(),
+                    value: &user_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "expirationTimeUsec".into(),
+                },
+                register_interface::ResultField {
+                    name: "fingerprint".into(),
+                },
+                register_interface::ResultField {
+                    name: "key".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+                register_interface::ResultField {
+                    name: "user".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        SshPublicKeyResult {
+            expiration_time_usec: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("expirationTimeUsec").unwrap(),
+            ),
+            fingerprint: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("fingerprint").unwrap(),
+            ),
+            key: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("key").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+            user: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("user").unwrap(),
+            ),
+        }
+    }
+}

@@ -1,0 +1,10 @@
+#[derive(pulumi_wasm_rust::__private::serde::Deserialize, pulumi_wasm_rust::__private::serde::Serialize, pulumi_wasm_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
+#[builder(finish_fn = build_struct)]
+#[allow(dead_code)]
+pub struct WorkloadIdentityPoolProviderX509TrustStoreIntermediateCa {
+    /// PEM certificate of the PKI used for validation. Must only contain one
+    /// ca certificate(either root or intermediate cert).
+    #[builder(into, default)]
+    #[serde(rename = "pemCertificate")]
+    pub r#pem_certificate: Box<Option<String>>,
+}

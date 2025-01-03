@@ -1,0 +1,192 @@
+/// A `KeyRingImportJob` can be used to create `CryptoKeys` and `CryptoKeyVersions` using pre-existing
+/// key material, generated outside of Cloud KMS. A `KeyRingImportJob` expires 3 days after it is created.
+/// Once expired, Cloud KMS will no longer be able to import or unwrap any key material that
+/// was wrapped with the `KeyRingImportJob`'s public key.
+///
+///
+/// > **Note:** KeyRingImportJobs cannot be deleted from Google Cloud Platform.
+/// Destroying a provider-managed KeyRingImportJob will remove it from state but
+/// *will not delete the resource from the project.*
+///
+///
+/// To get more information about KeyRingImportJob, see:
+///
+/// * [API documentation](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.importJobs)
+/// * How-to Guides
+///     * [Importing a key](https://cloud.google.com/kms/docs/importing-a-key)
+///
+/// ## Example Usage
+///
+/// ## Import
+///
+/// KeyRingImportJob can be imported using any of these accepted formats:
+///
+/// * `{{name}}`
+///
+/// When using the `pulumi import` command, KeyRingImportJob can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:kms/keyRingImportJob:KeyRingImportJob default {{name}}
+/// ```
+///
+pub mod key_ring_import_job {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct KeyRingImportJobArgs {
+        /// It must be unique within a KeyRing and match the regular expression [a-zA-Z0-9_-]{1,63}
+        ///
+        ///
+        /// - - -
+        #[builder(into)]
+        pub import_job_id: pulumi_wasm_rust::Output<String>,
+        /// The wrapping method to be used for incoming key material.
+        /// Possible values are: `RSA_OAEP_3072_SHA1_AES_256`, `RSA_OAEP_4096_SHA1_AES_256`.
+        #[builder(into)]
+        pub import_method: pulumi_wasm_rust::Output<String>,
+        /// The KeyRing that this import job belongs to.
+        /// Format: `'projects/{{project}}/locations/{{location}}/keyRings/{{keyRing}}'`.
+        #[builder(into)]
+        pub key_ring: pulumi_wasm_rust::Output<String>,
+        /// The protection level of the ImportJob. This must match the protectionLevel of the
+        /// versionTemplate on the CryptoKey you attempt to import into.
+        /// Possible values are: `SOFTWARE`, `HSM`, `EXTERNAL`.
+        #[builder(into)]
+        pub protection_level: pulumi_wasm_rust::Output<String>,
+    }
+    #[allow(dead_code)]
+    pub struct KeyRingImportJobResult {
+        /// Statement that was generated and signed by the key creator (for example, an HSM) at key creation time.
+        /// Use this statement to verify attributes of the key as stored on the HSM, independently of Google.
+        /// Only present if the chosen ImportMethod is one with a protection level of HSM.
+        /// Structure is documented below.
+        pub attestations: pulumi_wasm_rust::Output<
+            Vec<super::super::types::kms::KeyRingImportJobAttestation>,
+        >,
+        /// The time at which this resource is scheduled for expiration and can no longer be used.
+        /// This is in RFC3339 text format.
+        pub expire_time: pulumi_wasm_rust::Output<String>,
+        /// It must be unique within a KeyRing and match the regular expression [a-zA-Z0-9_-]{1,63}
+        ///
+        ///
+        /// - - -
+        pub import_job_id: pulumi_wasm_rust::Output<String>,
+        /// The wrapping method to be used for incoming key material.
+        /// Possible values are: `RSA_OAEP_3072_SHA1_AES_256`, `RSA_OAEP_4096_SHA1_AES_256`.
+        pub import_method: pulumi_wasm_rust::Output<String>,
+        /// The KeyRing that this import job belongs to.
+        /// Format: `'projects/{{project}}/locations/{{location}}/keyRings/{{keyRing}}'`.
+        pub key_ring: pulumi_wasm_rust::Output<String>,
+        /// The resource name for this ImportJob in the format projects/*/locations/*/keyRings/*/importJobs/*.
+        pub name: pulumi_wasm_rust::Output<String>,
+        /// The protection level of the ImportJob. This must match the protectionLevel of the
+        /// versionTemplate on the CryptoKey you attempt to import into.
+        /// Possible values are: `SOFTWARE`, `HSM`, `EXTERNAL`.
+        pub protection_level: pulumi_wasm_rust::Output<String>,
+        /// The public key with which to wrap key material prior to import. Only returned if state is `ACTIVE`.
+        /// Structure is documented below.
+        pub public_keys: pulumi_wasm_rust::Output<
+            Vec<super::super::types::kms::KeyRingImportJobPublicKey>,
+        >,
+        /// The current state of the ImportJob, indicating if it can be used.
+        pub state: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: KeyRingImportJobArgs) -> KeyRingImportJobResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let import_job_id_binding = args.import_job_id.get_inner();
+        let import_method_binding = args.import_method.get_inner();
+        let key_ring_binding = args.key_ring.get_inner();
+        let protection_level_binding = args.protection_level.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:kms/keyRingImportJob:KeyRingImportJob".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "importJobId".into(),
+                    value: &import_job_id_binding,
+                },
+                register_interface::ObjectField {
+                    name: "importMethod".into(),
+                    value: &import_method_binding,
+                },
+                register_interface::ObjectField {
+                    name: "keyRing".into(),
+                    value: &key_ring_binding,
+                },
+                register_interface::ObjectField {
+                    name: "protectionLevel".into(),
+                    value: &protection_level_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "attestations".into(),
+                },
+                register_interface::ResultField {
+                    name: "expireTime".into(),
+                },
+                register_interface::ResultField {
+                    name: "importJobId".into(),
+                },
+                register_interface::ResultField {
+                    name: "importMethod".into(),
+                },
+                register_interface::ResultField {
+                    name: "keyRing".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "protectionLevel".into(),
+                },
+                register_interface::ResultField {
+                    name: "publicKeys".into(),
+                },
+                register_interface::ResultField {
+                    name: "state".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        KeyRingImportJobResult {
+            attestations: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("attestations").unwrap(),
+            ),
+            expire_time: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("expireTime").unwrap(),
+            ),
+            import_job_id: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("importJobId").unwrap(),
+            ),
+            import_method: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("importMethod").unwrap(),
+            ),
+            key_ring: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("keyRing").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            protection_level: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("protectionLevel").unwrap(),
+            ),
+            public_keys: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("publicKeys").unwrap(),
+            ),
+            state: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("state").unwrap(),
+            ),
+        }
+    }
+}

@@ -1,0 +1,14 @@
+#[derive(pulumi_wasm_rust::__private::serde::Deserialize, pulumi_wasm_rust::__private::serde::Serialize, pulumi_wasm_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
+#[builder(finish_fn = build_struct)]
+#[allow(dead_code)]
+pub struct DefaultObjectAccessControlProjectTeam {
+    /// The project team associated with the entity
+    #[builder(into, default)]
+    #[serde(rename = "projectNumber")]
+    pub r#project_number: Box<Option<String>>,
+    /// The team.
+    /// Possible values are: `editors`, `owners`, `viewers`.
+    #[builder(into, default)]
+    #[serde(rename = "team")]
+    pub r#team: Box<Option<String>>,
+}

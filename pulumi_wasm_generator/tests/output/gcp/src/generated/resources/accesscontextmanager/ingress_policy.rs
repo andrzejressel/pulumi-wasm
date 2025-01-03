@@ -1,0 +1,91 @@
+/// This resource has been deprecated, please refer to ServicePerimeterIngressPolicy.
+///
+///
+/// To get more information about IngressPolicy, see:
+///
+/// * [API documentation](https://cloud.google.com/access-context-manager/docs/reference/rest/v1/accessPolicies.servicePerimeters#ingresspolicy)
+///
+/// ## Import
+///
+/// IngressPolicy can be imported using any of these accepted formats:
+///
+/// * `{{ingress_policy_name}}/{{resource}}`
+///
+/// When using the `pulumi import` command, IngressPolicy can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:accesscontextmanager/ingressPolicy:IngressPolicy default {{ingress_policy_name}}/{{resource}}
+/// ```
+///
+pub mod ingress_policy {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct IngressPolicyArgs {
+        /// The name of the Service Perimeter to add this resource to.
+        ///
+        ///
+        /// - - -
+        #[builder(into)]
+        pub ingress_policy_name: pulumi_wasm_rust::Output<String>,
+        /// A GCP resource that is inside of the service perimeter.
+        #[builder(into)]
+        pub resource: pulumi_wasm_rust::Output<String>,
+    }
+    #[allow(dead_code)]
+    pub struct IngressPolicyResult {
+        /// The name of the Service Perimeter to add this resource to.
+        ///
+        ///
+        /// - - -
+        pub ingress_policy_name: pulumi_wasm_rust::Output<String>,
+        /// A GCP resource that is inside of the service perimeter.
+        pub resource: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: IngressPolicyArgs) -> IngressPolicyResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let ingress_policy_name_binding = args.ingress_policy_name.get_inner();
+        let resource_binding = args.resource.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:accesscontextmanager/ingressPolicy:IngressPolicy".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "ingressPolicyName".into(),
+                    value: &ingress_policy_name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "resource".into(),
+                    value: &resource_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "ingressPolicyName".into(),
+                },
+                register_interface::ResultField {
+                    name: "resource".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        IngressPolicyResult {
+            ingress_policy_name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("ingressPolicyName").unwrap(),
+            ),
+            resource: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("resource").unwrap(),
+            ),
+        }
+    }
+}

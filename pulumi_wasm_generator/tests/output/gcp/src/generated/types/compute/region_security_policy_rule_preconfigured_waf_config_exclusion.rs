@@ -1,0 +1,36 @@
+#[derive(pulumi_wasm_rust::__private::serde::Deserialize, pulumi_wasm_rust::__private::serde::Serialize, pulumi_wasm_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
+#[builder(finish_fn = build_struct)]
+#[allow(dead_code)]
+pub struct RegionSecurityPolicyRulePreconfiguredWafConfigExclusion {
+    /// Request cookie whose value will be excluded from inspection during preconfigured WAF evaluation.
+    /// Structure is documented below.
+    #[builder(into, default)]
+    #[serde(rename = "requestCookies")]
+    pub r#request_cookies: Box<Option<Vec<super::super::types::compute::RegionSecurityPolicyRulePreconfiguredWafConfigExclusionRequestCooky>>>,
+    /// Request header whose value will be excluded from inspection during preconfigured WAF evaluation.
+    /// Structure is documented below.
+    #[builder(into, default)]
+    #[serde(rename = "requestHeaders")]
+    pub r#request_headers: Box<Option<Vec<super::super::types::compute::RegionSecurityPolicyRulePreconfiguredWafConfigExclusionRequestHeader>>>,
+    /// Request query parameter whose value will be excluded from inspection during preconfigured WAF evaluation.
+    /// Note that the parameter can be in the query string or in the POST body.
+    /// Structure is documented below.
+    #[builder(into, default)]
+    #[serde(rename = "requestQueryParams")]
+    pub r#request_query_params: Box<Option<Vec<super::super::types::compute::RegionSecurityPolicyRulePreconfiguredWafConfigExclusionRequestQueryParam>>>,
+    /// Request URI from the request line to be excluded from inspection during preconfigured WAF evaluation.
+    /// When specifying this field, the query or fragment part should be excluded.
+    /// Structure is documented below.
+    #[builder(into, default)]
+    #[serde(rename = "requestUris")]
+    pub r#request_uris: Box<Option<Vec<super::super::types::compute::RegionSecurityPolicyRulePreconfiguredWafConfigExclusionRequestUri>>>,
+    /// A list of target rule IDs under the WAF rule set to apply the preconfigured WAF exclusion.
+    /// If omitted, it refers to all the rule IDs under the WAF rule set.
+    #[builder(into, default)]
+    #[serde(rename = "targetRuleIds")]
+    pub r#target_rule_ids: Box<Option<Vec<String>>>,
+    /// Target WAF rule set to apply the preconfigured WAF exclusion.
+    #[builder(into)]
+    #[serde(rename = "targetRuleSet")]
+    pub r#target_rule_set: Box<String>,
+}

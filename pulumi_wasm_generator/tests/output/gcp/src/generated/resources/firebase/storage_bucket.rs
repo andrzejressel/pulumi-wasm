@@ -1,0 +1,128 @@
+/// ## Example Usage
+///
+/// ### Firebasestorage Bucket Basic
+///
+///
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let default = bucket::create(
+///         "default",
+///         BucketArgs::builder()
+///             .location("US")
+///             .name("test_bucket")
+///             .uniform_bucket_level_access(true)
+///             .build_struct(),
+///     );
+///     let defaultStorageBucket = storage_bucket::create(
+///         "defaultStorageBucket",
+///         StorageBucketArgs::builder()
+///             .bucket_id("${default.id}")
+///             .project("my-project-name")
+///             .build_struct(),
+///     );
+/// }
+/// ```
+///
+/// ## Import
+///
+/// Bucket can be imported using any of these accepted formats:
+///
+/// * `projects/{{project}}/buckets/{{bucket_id}}`
+///
+/// * `{{project}}/{{bucket_id}}`
+///
+/// * `{{bucket_id}}`
+///
+/// When using the `pulumi import` command, Bucket can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:firebase/storageBucket:StorageBucket default projects/{{project}}/buckets/{{bucket_id}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:firebase/storageBucket:StorageBucket default {{project}}/{{bucket_id}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:firebase/storageBucket:StorageBucket default {{bucket_id}}
+/// ```
+///
+pub mod storage_bucket {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct StorageBucketArgs {
+        /// Required. Immutable. The ID of the underlying Google Cloud Storage bucket
+        #[builder(into, default)]
+        pub bucket_id: pulumi_wasm_rust::Output<Option<String>>,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        #[builder(into, default)]
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+    }
+    #[allow(dead_code)]
+    pub struct StorageBucketResult {
+        /// Required. Immutable. The ID of the underlying Google Cloud Storage bucket
+        pub bucket_id: pulumi_wasm_rust::Output<Option<String>>,
+        /// Resource name of the bucket in the format projects/PROJECT_IDENTIFIER/buckets/BUCKET_ID
+        pub name: pulumi_wasm_rust::Output<String>,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        pub project: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: StorageBucketArgs) -> StorageBucketResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let bucket_id_binding = args.bucket_id.get_inner();
+        let project_binding = args.project.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:firebase/storageBucket:StorageBucket".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "bucketId".into(),
+                    value: &bucket_id_binding,
+                },
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "bucketId".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        StorageBucketResult {
+            bucket_id: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("bucketId").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+        }
+    }
+}

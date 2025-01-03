@@ -1,0 +1,11 @@
+#[derive(pulumi_wasm_rust::__private::serde::Deserialize, pulumi_wasm_rust::__private::serde::Serialize, pulumi_wasm_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
+#[builder(finish_fn = build_struct)]
+#[allow(dead_code)]
+pub struct OsPolicyAssignmentInstanceFilterInclusionLabel {
+    /// Labels are identified by key/value pairs in this map.
+    /// A VM should contain all the key/value pairs specified in this map to be
+    /// selected.
+    #[builder(into, default)]
+    #[serde(rename = "labels")]
+    pub r#labels: Box<Option<std::collections::HashMap<String, String>>>,
+}

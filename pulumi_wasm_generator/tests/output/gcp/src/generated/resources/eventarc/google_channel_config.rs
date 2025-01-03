@@ -1,0 +1,185 @@
+/// The Eventarc GoogleChannelConfig resource
+///
+/// ## Example Usage
+///
+/// ### Basic
+/// ```yaml
+/// resources:
+///   key1Member:
+///     type: gcp:kms:CryptoKeyIAMMember
+///     name: key1_member
+///     properties:
+///       cryptoKeyId: ${key1.id}
+///       role: roles/cloudkms.cryptoKeyEncrypterDecrypter
+///       member: serviceAccount:service-${testProject.number}@gcp-sa-eventarc.iam.gserviceaccount.com
+///   primary:
+///     type: gcp:eventarc:GoogleChannelConfig
+///     properties:
+///       location: us-west1
+///       name: channel
+///       project: ${testProject.projectId}
+///       cryptoKeyName: ${key1.id}
+///     options:
+///       dependsOn:
+///         - ${key1Member}
+/// variables:
+///   testProject:
+///     fn::invoke:
+///       function: gcp:organizations:getProject
+///       arguments:
+///         projectId: my-project-name
+///   testKeyRing:
+///     fn::invoke:
+///       function: gcp:kms:getKMSKeyRing
+///       arguments:
+///         name: keyring
+///         location: us-west1
+///   key:
+///     fn::invoke:
+///       function: gcp:kms:getKMSCryptoKey
+///       arguments:
+///         name: key
+///         keyRing: ${testKeyRing.id}
+/// ```
+///
+/// ## Import
+///
+/// GoogleChannelConfig can be imported using any of these accepted formats:
+///
+/// * `projects/{{project}}/locations/{{location}}/googleChannelConfig`
+///
+/// * `{{project}}/{{location}}`
+///
+/// * `{{location}}`
+///
+/// When using the `pulumi import` command, GoogleChannelConfig can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:eventarc/googleChannelConfig:GoogleChannelConfig default projects/{{project}}/locations/{{location}}/googleChannelConfig
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:eventarc/googleChannelConfig:GoogleChannelConfig default {{project}}/{{location}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:eventarc/googleChannelConfig:GoogleChannelConfig default {{location}}
+/// ```
+///
+pub mod google_channel_config {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct GoogleChannelConfigArgs {
+        /// Optional. Resource name of a KMS crypto key (managed by the user) used to encrypt/decrypt their event data. It must match the pattern `projects/*/locations/*/keyRings/*/cryptoKeys/*`.
+        #[builder(into, default)]
+        pub crypto_key_name: pulumi_wasm_rust::Output<Option<String>>,
+        /// The location for the resource
+        #[builder(into)]
+        pub location: pulumi_wasm_rust::Output<String>,
+        /// Required. The resource name of the config. Must be in the format of, `projects/{project}/locations/{location}/googleChannelConfig`.
+        ///
+        ///
+        ///
+        /// - - -
+        #[builder(into, default)]
+        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        /// The project for the resource
+        #[builder(into, default)]
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+    }
+    #[allow(dead_code)]
+    pub struct GoogleChannelConfigResult {
+        /// Optional. Resource name of a KMS crypto key (managed by the user) used to encrypt/decrypt their event data. It must match the pattern `projects/*/locations/*/keyRings/*/cryptoKeys/*`.
+        pub crypto_key_name: pulumi_wasm_rust::Output<Option<String>>,
+        /// The location for the resource
+        pub location: pulumi_wasm_rust::Output<String>,
+        /// Required. The resource name of the config. Must be in the format of, `projects/{project}/locations/{location}/googleChannelConfig`.
+        ///
+        ///
+        ///
+        /// - - -
+        pub name: pulumi_wasm_rust::Output<String>,
+        /// The project for the resource
+        pub project: pulumi_wasm_rust::Output<String>,
+        /// Output only. The last-modified time.
+        pub update_time: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(
+        name: &str,
+        args: GoogleChannelConfigArgs,
+    ) -> GoogleChannelConfigResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let crypto_key_name_binding = args.crypto_key_name.get_inner();
+        let location_binding = args.location.get_inner();
+        let name_binding = args.name.get_inner();
+        let project_binding = args.project.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:eventarc/googleChannelConfig:GoogleChannelConfig".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "cryptoKeyName".into(),
+                    value: &crypto_key_name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "location".into(),
+                    value: &location_binding,
+                },
+                register_interface::ObjectField {
+                    name: "name".into(),
+                    value: &name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "cryptoKeyName".into(),
+                },
+                register_interface::ResultField {
+                    name: "location".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+                register_interface::ResultField {
+                    name: "updateTime".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        GoogleChannelConfigResult {
+            crypto_key_name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("cryptoKeyName").unwrap(),
+            ),
+            location: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("location").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+            update_time: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("updateTime").unwrap(),
+            ),
+        }
+    }
+}

@@ -1,0 +1,13 @@
+#[derive(pulumi_wasm_rust::__private::serde::Deserialize, pulumi_wasm_rust::__private::serde::Serialize, pulumi_wasm_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
+#[builder(finish_fn = build_struct)]
+#[allow(dead_code)]
+pub struct AwsNodePoolAutoscaling {
+    /// Maximum number of nodes in the NodePool. Must be >= min_node_count.
+    #[builder(into)]
+    #[serde(rename = "maxNodeCount")]
+    pub r#max_node_count: Box<i32>,
+    /// Minimum number of nodes in the NodePool. Must be >= 1 and <= max_node_count.
+    #[builder(into)]
+    #[serde(rename = "minNodeCount")]
+    pub r#min_node_count: Box<i32>,
+}

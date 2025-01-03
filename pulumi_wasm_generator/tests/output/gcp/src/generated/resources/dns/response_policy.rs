@@ -1,0 +1,226 @@
+/// A Response Policy is a collection of selectors that apply to queries
+/// made against one or more Virtual Private Cloud networks.
+///
+///
+///
+/// ## Example Usage
+///
+/// ### Dns Response Policy Basic
+///
+///
+/// ```yaml
+/// resources:
+///   network-1:
+///     type: gcp:compute:Network
+///     properties:
+///       name: network-1
+///       autoCreateSubnetworks: false
+///   network-2:
+///     type: gcp:compute:Network
+///     properties:
+///       name: network-2
+///       autoCreateSubnetworks: false
+///   subnetwork-1:
+///     type: gcp:compute:Subnetwork
+///     properties:
+///       name: ${["network-1"].name}
+///       network: ${["network-1"].name}
+///       ipCidrRange: 10.0.36.0/24
+///       region: us-central1
+///       privateIpGoogleAccess: true
+///       secondaryIpRanges:
+///         - rangeName: pod
+///           ipCidrRange: 10.0.0.0/19
+///         - rangeName: svc
+///           ipCidrRange: 10.0.32.0/22
+///   cluster-1:
+///     type: gcp:container:Cluster
+///     properties:
+///       name: cluster-1
+///       location: us-central1-c
+///       initialNodeCount: 1
+///       networkingMode: VPC_NATIVE
+///       defaultSnatStatus:
+///         disabled: true
+///       network: ${["network-1"].name}
+///       subnetwork: ${["subnetwork-1"].name}
+///       privateClusterConfig:
+///         enablePrivateEndpoint: true
+///         enablePrivateNodes: true
+///         masterIpv4CidrBlock: 10.42.0.0/28
+///         masterGlobalAccessConfig:
+///           enabled: true
+///       masterAuthorizedNetworksConfig: {}
+///       ipAllocationPolicy:
+///         clusterSecondaryRangeName: ${["subnetwork-1"].secondaryIpRanges[0].rangeName}
+///         servicesSecondaryRangeName: ${["subnetwork-1"].secondaryIpRanges[1].rangeName}
+///       deletionProtection: true
+///   example-response-policy:
+///     type: gcp:dns:ResponsePolicy
+///     properties:
+///       responsePolicyName: example-response-policy
+///       networks:
+///         - networkUrl: ${["network-1"].id}
+///         - networkUrl: ${["network-2"].id}
+///       gkeClusters:
+///         - gkeClusterName: ${["cluster-1"].id}
+/// ```
+///
+/// ## Import
+///
+/// ResponsePolicy can be imported using any of these accepted formats:
+///
+/// * `projects/{{project}}/responsePolicies/{{response_policy_name}}`
+///
+/// * `{{project}}/{{response_policy_name}}`
+///
+/// * `{{response_policy_name}}`
+///
+/// When using the `pulumi import` command, ResponsePolicy can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:dns/responsePolicy:ResponsePolicy default projects/{{project}}/responsePolicies/{{response_policy_name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:dns/responsePolicy:ResponsePolicy default {{project}}/{{response_policy_name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:dns/responsePolicy:ResponsePolicy default {{response_policy_name}}
+/// ```
+///
+pub mod response_policy {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct ResponsePolicyArgs {
+        /// The description of the response policy, such as `My new response policy`.
+        #[builder(into, default)]
+        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        /// The list of Google Kubernetes Engine clusters that can see this zone.
+        /// Structure is documented below.
+        #[builder(into, default)]
+        pub gke_clusters: pulumi_wasm_rust::Output<
+            Option<Vec<super::super::types::dns::ResponsePolicyGkeCluster>>,
+        >,
+        /// The list of network names specifying networks to which this policy is applied.
+        /// Structure is documented below.
+        #[builder(into, default)]
+        pub networks: pulumi_wasm_rust::Output<
+            Option<Vec<super::super::types::dns::ResponsePolicyNetwork>>,
+        >,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        #[builder(into, default)]
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        /// The user assigned name for this Response Policy, such as `myresponsepolicy`.
+        ///
+        ///
+        /// - - -
+        #[builder(into)]
+        pub response_policy_name: pulumi_wasm_rust::Output<String>,
+    }
+    #[allow(dead_code)]
+    pub struct ResponsePolicyResult {
+        /// The description of the response policy, such as `My new response policy`.
+        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        /// The list of Google Kubernetes Engine clusters that can see this zone.
+        /// Structure is documented below.
+        pub gke_clusters: pulumi_wasm_rust::Output<
+            Option<Vec<super::super::types::dns::ResponsePolicyGkeCluster>>,
+        >,
+        /// The list of network names specifying networks to which this policy is applied.
+        /// Structure is documented below.
+        pub networks: pulumi_wasm_rust::Output<
+            Option<Vec<super::super::types::dns::ResponsePolicyNetwork>>,
+        >,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        pub project: pulumi_wasm_rust::Output<String>,
+        /// The user assigned name for this Response Policy, such as `myresponsepolicy`.
+        ///
+        ///
+        /// - - -
+        pub response_policy_name: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: ResponsePolicyArgs) -> ResponsePolicyResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let description_binding = args.description.get_inner();
+        let gke_clusters_binding = args.gke_clusters.get_inner();
+        let networks_binding = args.networks.get_inner();
+        let project_binding = args.project.get_inner();
+        let response_policy_name_binding = args.response_policy_name.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:dns/responsePolicy:ResponsePolicy".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "description".into(),
+                    value: &description_binding,
+                },
+                register_interface::ObjectField {
+                    name: "gkeClusters".into(),
+                    value: &gke_clusters_binding,
+                },
+                register_interface::ObjectField {
+                    name: "networks".into(),
+                    value: &networks_binding,
+                },
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+                register_interface::ObjectField {
+                    name: "responsePolicyName".into(),
+                    value: &response_policy_name_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "description".into(),
+                },
+                register_interface::ResultField {
+                    name: "gkeClusters".into(),
+                },
+                register_interface::ResultField {
+                    name: "networks".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+                register_interface::ResultField {
+                    name: "responsePolicyName".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        ResponsePolicyResult {
+            description: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("description").unwrap(),
+            ),
+            gke_clusters: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("gkeClusters").unwrap(),
+            ),
+            networks: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("networks").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+            response_policy_name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("responsePolicyName").unwrap(),
+            ),
+        }
+    }
+}

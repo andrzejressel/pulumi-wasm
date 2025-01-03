@@ -1,0 +1,170 @@
+/// Restricts access to Cloud Console and Google Cloud APIs for a set of users using Context-Aware Access.
+///
+///
+/// To get more information about GcpUserAccessBinding, see:
+///
+/// * [API documentation](https://cloud.google.com/access-context-manager/docs/reference/rest/v1/organizations.gcpUserAccessBindings)
+///
+/// ## Example Usage
+///
+/// ### Access Context Manager Gcp User Access Binding Basic
+///
+///
+/// ```yaml
+/// resources:
+///   group:
+///     type: gcp:cloudidentity:Group
+///     properties:
+///       displayName: my-identity-group
+///       parent: customers/A01b123xz
+///       groupKey:
+///         id: my-identity-group@example.com
+///       labels:
+///         cloudidentity.googleapis.com/groups.discussion_forum: ""
+///   accessLevelIdForUserAccessBinding:
+///     type: gcp:accesscontextmanager:AccessLevel
+///     name: access_level_id_for_user_access_binding
+///     properties:
+///       parent: accessPolicies/${["access-policy"].name}
+///       name: accessPolicies/${["access-policy"].name}/accessLevels/chromeos_no_lock
+///       title: chromeos_no_lock
+///       basic:
+///         conditions:
+///           - devicePolicy:
+///               requireScreenLock: true
+///               osConstraints:
+///                 - osType: DESKTOP_CHROME_OS
+///             regions:
+///               - US
+///   access-policy:
+///     type: gcp:accesscontextmanager:AccessPolicy
+///     properties:
+///       parent: organizations/123456789
+///       title: my policy
+///   gcpUserAccessBinding:
+///     type: gcp:accesscontextmanager:GcpUserAccessBinding
+///     name: gcp_user_access_binding
+///     properties:
+///       organizationId: '123456789'
+///       groupKey:
+///         fn::invoke:
+///           function: std:trimprefix
+///           arguments:
+///             input: ${group.id}
+///             prefix: groups/
+///           return: result
+///       accessLevels: ${accessLevelIdForUserAccessBinding.name}
+/// ```
+///
+/// ## Import
+///
+/// GcpUserAccessBinding can be imported using any of these accepted formats:
+///
+/// * `{{name}}`
+///
+/// When using the `pulumi import` command, GcpUserAccessBinding can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:accesscontextmanager/gcpUserAccessBinding:GcpUserAccessBinding default {{name}}
+/// ```
+///
+pub mod gcp_user_access_binding {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct GcpUserAccessBindingArgs {
+        /// Required. Access level that a user must have to be granted access. Only one access level is supported, not multiple. This repeated field must have exactly one element. Example: "accessPolicies/9522/accessLevels/device_trusted"
+        #[builder(into)]
+        pub access_levels: pulumi_wasm_rust::Output<String>,
+        /// Required. Immutable. Google Group id whose members are subject to this binding's restrictions. See "id" in the G Suite Directory API's Groups resource. If a group's email address/alias is changed, this resource will continue to point at the changed group. This field does not accept group email addresses or aliases. Example: "01d520gv4vjcrht"
+        #[builder(into)]
+        pub group_key: pulumi_wasm_rust::Output<String>,
+        /// Required. ID of the parent organization.
+        ///
+        ///
+        /// - - -
+        #[builder(into)]
+        pub organization_id: pulumi_wasm_rust::Output<String>,
+    }
+    #[allow(dead_code)]
+    pub struct GcpUserAccessBindingResult {
+        /// Required. Access level that a user must have to be granted access. Only one access level is supported, not multiple. This repeated field must have exactly one element. Example: "accessPolicies/9522/accessLevels/device_trusted"
+        pub access_levels: pulumi_wasm_rust::Output<String>,
+        /// Required. Immutable. Google Group id whose members are subject to this binding's restrictions. See "id" in the G Suite Directory API's Groups resource. If a group's email address/alias is changed, this resource will continue to point at the changed group. This field does not accept group email addresses or aliases. Example: "01d520gv4vjcrht"
+        pub group_key: pulumi_wasm_rust::Output<String>,
+        /// Immutable. Assigned by the server during creation. The last segment has an arbitrary length and has only URI unreserved characters (as defined by RFC 3986 Section 2.3). Should not be specified by the client during creation. Example: "organizations/256/gcpUserAccessBindings/b3-BhcX_Ud5N"
+        pub name: pulumi_wasm_rust::Output<String>,
+        /// Required. ID of the parent organization.
+        ///
+        ///
+        /// - - -
+        pub organization_id: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(
+        name: &str,
+        args: GcpUserAccessBindingArgs,
+    ) -> GcpUserAccessBindingResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let access_levels_binding = args.access_levels.get_inner();
+        let group_key_binding = args.group_key.get_inner();
+        let organization_id_binding = args.organization_id.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:accesscontextmanager/gcpUserAccessBinding:GcpUserAccessBinding"
+                .into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "accessLevels".into(),
+                    value: &access_levels_binding,
+                },
+                register_interface::ObjectField {
+                    name: "groupKey".into(),
+                    value: &group_key_binding,
+                },
+                register_interface::ObjectField {
+                    name: "organizationId".into(),
+                    value: &organization_id_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "accessLevels".into(),
+                },
+                register_interface::ResultField {
+                    name: "groupKey".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "organizationId".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        GcpUserAccessBindingResult {
+            access_levels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("accessLevels").unwrap(),
+            ),
+            group_key: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("groupKey").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            organization_id: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("organizationId").unwrap(),
+            ),
+        }
+    }
+}

@@ -1,0 +1,13 @@
+#[derive(pulumi_wasm_rust::__private::serde::Deserialize, pulumi_wasm_rust::__private::serde::Serialize, pulumi_wasm_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
+#[builder(finish_fn = build_struct)]
+#[allow(dead_code)]
+pub struct ClusterMonitoringConfigAdvancedDatapathObservabilityConfig {
+    /// Whether or not to enable advanced datapath metrics.
+    #[builder(into)]
+    #[serde(rename = "enableMetrics")]
+    pub r#enable_metrics: Box<bool>,
+    /// Whether or not Relay is enabled.
+    #[builder(into)]
+    #[serde(rename = "enableRelay")]
+    pub r#enable_relay: Box<bool>,
+}

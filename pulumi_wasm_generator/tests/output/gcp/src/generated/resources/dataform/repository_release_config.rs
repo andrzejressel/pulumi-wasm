@@ -1,0 +1,285 @@
+/// ## Example Usage
+///
+/// ### Dataform Repository Release Config
+///
+///
+/// ```yaml
+/// resources:
+///   gitRepository:
+///     type: gcp:sourcerepo:Repository
+///     name: git_repository
+///     properties:
+///       name: my/repository
+///   secret:
+///     type: gcp:secretmanager:Secret
+///     properties:
+///       secretId: my_secret
+///       replication:
+///         auto: {}
+///   secretVersion:
+///     type: gcp:secretmanager:SecretVersion
+///     name: secret_version
+///     properties:
+///       secret: ${secret.id}
+///       secretData: secret-data
+///   repository:
+///     type: gcp:dataform:Repository
+///     properties:
+///       name: dataform_repository
+///       region: us-central1
+///       gitRemoteSettings:
+///         url: ${gitRepository.url}
+///         defaultBranch: main
+///         authenticationTokenSecretVersion: ${secretVersion.id}
+///       workspaceCompilationOverrides:
+///         defaultDatabase: database
+///         schemaSuffix: _suffix
+///         tablePrefix: prefix_
+///   release:
+///     type: gcp:dataform:RepositoryReleaseConfig
+///     properties:
+///       project: ${repository.project}
+///       region: ${repository.region}
+///       repository: ${repository.name}
+///       name: my_release
+///       gitCommitish: main
+///       cronSchedule: 0 7 * * *
+///       timeZone: America/New_York
+///       codeCompilationConfig:
+///         defaultDatabase: gcp-example-project
+///         defaultSchema: example-dataset
+///         defaultLocation: us-central1
+///         assertionSchema: example-assertion-dataset
+///         databaseSuffix: ""
+///         schemaSuffix: ""
+///         tablePrefix: ""
+///         vars:
+///           var1: value
+/// ```
+///
+/// ## Import
+///
+/// RepositoryReleaseConfig can be imported using any of these accepted formats:
+///
+/// * `projects/{{project}}/locations/{{region}}/repositories/{{repository}}/releaseConfigs/{{name}}`
+///
+/// * `{{project}}/{{region}}/{{repository}}/{{name}}`
+///
+/// * `{{region}}/{{repository}}/{{name}}`
+///
+/// * `{{repository}}/{{name}}`
+///
+/// When using the `pulumi import` command, RepositoryReleaseConfig can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:dataform/repositoryReleaseConfig:RepositoryReleaseConfig default projects/{{project}}/locations/{{region}}/repositories/{{repository}}/releaseConfigs/{{name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:dataform/repositoryReleaseConfig:RepositoryReleaseConfig default {{project}}/{{region}}/{{repository}}/{{name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:dataform/repositoryReleaseConfig:RepositoryReleaseConfig default {{region}}/{{repository}}/{{name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:dataform/repositoryReleaseConfig:RepositoryReleaseConfig default {{repository}}/{{name}}
+/// ```
+///
+pub mod repository_release_config {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct RepositoryReleaseConfigArgs {
+        /// Optional. If set, fields of codeCompilationConfig override the default compilation settings that are specified in dataform.json.
+        /// Structure is documented below.
+        #[builder(into, default)]
+        pub code_compilation_config: pulumi_wasm_rust::Output<
+            Option<
+                super::super::types::dataform::RepositoryReleaseConfigCodeCompilationConfig,
+            >,
+        >,
+        /// Optional. Optional schedule (in cron format) for automatic creation of compilation results.
+        #[builder(into, default)]
+        pub cron_schedule: pulumi_wasm_rust::Output<Option<String>>,
+        /// Git commit/tag/branch name at which the repository should be compiled. Must exist in the remote repository.
+        ///
+        ///
+        /// - - -
+        #[builder(into)]
+        pub git_commitish: pulumi_wasm_rust::Output<String>,
+        /// The release's name.
+        #[builder(into, default)]
+        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        #[builder(into, default)]
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        /// A reference to the region
+        #[builder(into, default)]
+        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        /// A reference to the Dataform repository
+        #[builder(into, default)]
+        pub repository: pulumi_wasm_rust::Output<Option<String>>,
+        /// Optional. Specifies the time zone to be used when interpreting cronSchedule. Must be a time zone name from the time zone database (https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). If left unspecified, the default is UTC.
+        #[builder(into, default)]
+        pub time_zone: pulumi_wasm_rust::Output<Option<String>>,
+    }
+    #[allow(dead_code)]
+    pub struct RepositoryReleaseConfigResult {
+        /// Optional. If set, fields of codeCompilationConfig override the default compilation settings that are specified in dataform.json.
+        /// Structure is documented below.
+        pub code_compilation_config: pulumi_wasm_rust::Output<
+            Option<
+                super::super::types::dataform::RepositoryReleaseConfigCodeCompilationConfig,
+            >,
+        >,
+        /// Optional. Optional schedule (in cron format) for automatic creation of compilation results.
+        pub cron_schedule: pulumi_wasm_rust::Output<Option<String>>,
+        /// Git commit/tag/branch name at which the repository should be compiled. Must exist in the remote repository.
+        ///
+        ///
+        /// - - -
+        pub git_commitish: pulumi_wasm_rust::Output<String>,
+        /// The release's name.
+        pub name: pulumi_wasm_rust::Output<String>,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        pub project: pulumi_wasm_rust::Output<String>,
+        /// Records of the 10 most recent scheduled release attempts, ordered in in descending order of releaseTime. Updated whenever automatic creation of a compilation result is triggered by cronSchedule.
+        /// Structure is documented below.
+        pub recent_scheduled_release_records: pulumi_wasm_rust::Output<
+            Vec<
+                super::super::types::dataform::RepositoryReleaseConfigRecentScheduledReleaseRecord,
+            >,
+        >,
+        /// A reference to the region
+        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        /// A reference to the Dataform repository
+        pub repository: pulumi_wasm_rust::Output<Option<String>>,
+        /// Optional. Specifies the time zone to be used when interpreting cronSchedule. Must be a time zone name from the time zone database (https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). If left unspecified, the default is UTC.
+        pub time_zone: pulumi_wasm_rust::Output<Option<String>>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(
+        name: &str,
+        args: RepositoryReleaseConfigArgs,
+    ) -> RepositoryReleaseConfigResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let code_compilation_config_binding = args.code_compilation_config.get_inner();
+        let cron_schedule_binding = args.cron_schedule.get_inner();
+        let git_commitish_binding = args.git_commitish.get_inner();
+        let name_binding = args.name.get_inner();
+        let project_binding = args.project.get_inner();
+        let region_binding = args.region.get_inner();
+        let repository_binding = args.repository.get_inner();
+        let time_zone_binding = args.time_zone.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:dataform/repositoryReleaseConfig:RepositoryReleaseConfig".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "codeCompilationConfig".into(),
+                    value: &code_compilation_config_binding,
+                },
+                register_interface::ObjectField {
+                    name: "cronSchedule".into(),
+                    value: &cron_schedule_binding,
+                },
+                register_interface::ObjectField {
+                    name: "gitCommitish".into(),
+                    value: &git_commitish_binding,
+                },
+                register_interface::ObjectField {
+                    name: "name".into(),
+                    value: &name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+                register_interface::ObjectField {
+                    name: "region".into(),
+                    value: &region_binding,
+                },
+                register_interface::ObjectField {
+                    name: "repository".into(),
+                    value: &repository_binding,
+                },
+                register_interface::ObjectField {
+                    name: "timeZone".into(),
+                    value: &time_zone_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "codeCompilationConfig".into(),
+                },
+                register_interface::ResultField {
+                    name: "cronSchedule".into(),
+                },
+                register_interface::ResultField {
+                    name: "gitCommitish".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+                register_interface::ResultField {
+                    name: "recentScheduledReleaseRecords".into(),
+                },
+                register_interface::ResultField {
+                    name: "region".into(),
+                },
+                register_interface::ResultField {
+                    name: "repository".into(),
+                },
+                register_interface::ResultField {
+                    name: "timeZone".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        RepositoryReleaseConfigResult {
+            code_compilation_config: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("codeCompilationConfig").unwrap(),
+            ),
+            cron_schedule: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("cronSchedule").unwrap(),
+            ),
+            git_commitish: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("gitCommitish").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+            recent_scheduled_release_records: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("recentScheduledReleaseRecords").unwrap(),
+            ),
+            region: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("region").unwrap(),
+            ),
+            repository: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("repository").unwrap(),
+            ),
+            time_zone: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("timeZone").unwrap(),
+            ),
+        }
+    }
+}

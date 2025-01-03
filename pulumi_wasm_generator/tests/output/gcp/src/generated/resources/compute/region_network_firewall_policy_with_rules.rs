@@ -1,0 +1,326 @@
+/// ## Example Usage
+///
+/// ### Compute Region Network Firewall Policy With Rules Full
+///
+///
+/// ```yaml
+/// resources:
+///   region-network-firewall-policy-with-rules:
+///     type: gcp:compute:RegionNetworkFirewallPolicyWithRules
+///     properties:
+///       name: tf-region-fw-policy-with-rules
+///       region: us-west2
+///       description: Terraform test
+///       rules:
+///         - description: tcp rule
+///           priority: 1000
+///           enableLogging: true
+///           action: allow
+///           direction: EGRESS
+///           match:
+///             layer4Configs:
+///               - ipProtocol: tcp
+///                 ports:
+///                   - 8080
+///                   - 7070
+///             destIpRanges:
+///               - 11.100.0.1/32
+///             destFqdns:
+///               - www.yyy.com
+///               - www.zzz.com
+///             destRegionCodes:
+///               - HK
+///               - IN
+///             destThreatIntelligences:
+///               - iplist-search-engines-crawlers
+///               - iplist-tor-exit-nodes
+///             destAddressGroups:
+///               - ${addressGroup1.id}
+///           targetSecureTags:
+///             - name: ${secureTagValue1.id}
+///         - description: udp rule
+///           ruleName: test-rule
+///           priority: 2000
+///           enableLogging: false
+///           action: deny
+///           direction: INGRESS
+///           match:
+///             layer4Configs:
+///               - ipProtocol: udp
+///             srcIpRanges:
+///               - 0.0.0.0/0
+///             srcFqdns:
+///               - www.abc.com
+///               - www.def.com
+///             srcRegionCodes:
+///               - US
+///               - CA
+///             srcThreatIntelligences:
+///               - iplist-known-malicious-ips
+///               - iplist-public-clouds
+///             srcAddressGroups:
+///               - ${addressGroup1.id}
+///             srcSecureTags:
+///               - name: ${secureTagValue1.id}
+///           disabled: true
+///   addressGroup1:
+///     type: gcp:networksecurity:AddressGroup
+///     name: address_group_1
+///     properties:
+///       name: tf-address-group
+///       parent: ${project.id}
+///       description: Regional address group
+///       location: us-west2
+///       items:
+///         - 208.80.154.224/32
+///       type: IPV4
+///       capacity: 100
+///   secureTagKey1:
+///     type: gcp:tags:TagKey
+///     name: secure_tag_key_1
+///     properties:
+///       description: Tag key
+///       parent: ${project.id}
+///       purpose: GCE_FIREWALL
+///       shortName: tf-tag-key
+///       purposeData:
+///         network: ${project.name}/default
+///   secureTagValue1:
+///     type: gcp:tags:TagValue
+///     name: secure_tag_value_1
+///     properties:
+///       description: Tag value
+///       parent: ${secureTagKey1.id}
+///       shortName: tf-tag-value
+/// variables:
+///   project:
+///     fn::invoke:
+///       function: gcp:organizations:getProject
+///       arguments: {}
+/// ```
+///
+/// ## Import
+///
+/// RegionNetworkFirewallPolicyWithRules can be imported using any of these accepted formats:
+///
+/// * `projects/{{project}}/regions/{{region}}/firewallPolicies/{{name}}`
+///
+/// * `{{project}}/{{region}}/{{name}}`
+///
+/// * `{{region}}/{{name}}`
+///
+/// * `{{name}}`
+///
+/// When using the `pulumi import` command, RegionNetworkFirewallPolicyWithRules can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:compute/regionNetworkFirewallPolicyWithRules:RegionNetworkFirewallPolicyWithRules default projects/{{project}}/regions/{{region}}/firewallPolicies/{{name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:compute/regionNetworkFirewallPolicyWithRules:RegionNetworkFirewallPolicyWithRules default {{project}}/{{region}}/{{name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:compute/regionNetworkFirewallPolicyWithRules:RegionNetworkFirewallPolicyWithRules default {{region}}/{{name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:compute/regionNetworkFirewallPolicyWithRules:RegionNetworkFirewallPolicyWithRules default {{name}}
+/// ```
+///
+pub mod region_network_firewall_policy_with_rules {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct RegionNetworkFirewallPolicyWithRulesArgs {
+        /// (Output)
+        /// A description of the rule.
+        #[builder(into, default)]
+        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        /// User-provided name of the Network firewall policy.
+        /// The name should be unique in the project in which the firewall policy is created.
+        /// The name must be 1-63 characters long, and comply with RFC1035. Specifically,
+        /// the name must be 1-63 characters long and match the regular expression a-z?
+        /// which means the first character must be a lowercase letter, and all following characters must be a dash,
+        /// lowercase letter, or digit, except the last character, which cannot be a dash.
+        #[builder(into, default)]
+        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        #[builder(into, default)]
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        /// The region of this resource.
+        #[builder(into, default)]
+        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        /// A list of firewall policy rules.
+        /// Structure is documented below.
+        #[builder(into)]
+        pub rules: pulumi_wasm_rust::Output<
+            Vec<super::super::types::compute::RegionNetworkFirewallPolicyWithRulesRule>,
+        >,
+    }
+    #[allow(dead_code)]
+    pub struct RegionNetworkFirewallPolicyWithRulesResult {
+        /// Creation timestamp in RFC3339 text format.
+        pub creation_timestamp: pulumi_wasm_rust::Output<String>,
+        /// (Output)
+        /// A description of the rule.
+        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        /// Fingerprint of the resource. This field is used internally during updates of this resource.
+        pub fingerprint: pulumi_wasm_rust::Output<String>,
+        /// User-provided name of the Network firewall policy.
+        /// The name should be unique in the project in which the firewall policy is created.
+        /// The name must be 1-63 characters long, and comply with RFC1035. Specifically,
+        /// the name must be 1-63 characters long and match the regular expression a-z?
+        /// which means the first character must be a lowercase letter, and all following characters must be a dash,
+        /// lowercase letter, or digit, except the last character, which cannot be a dash.
+        pub name: pulumi_wasm_rust::Output<String>,
+        /// The unique identifier for the resource. This identifier is defined by the server.
+        pub network_firewall_policy_id: pulumi_wasm_rust::Output<String>,
+        /// A list of firewall policy pre-defined rules.
+        /// Structure is documented below.
+        pub predefined_rules: pulumi_wasm_rust::Output<
+            Vec<
+                super::super::types::compute::RegionNetworkFirewallPolicyWithRulesPredefinedRule,
+            >,
+        >,
+        pub project: pulumi_wasm_rust::Output<String>,
+        /// The region of this resource.
+        pub region: pulumi_wasm_rust::Output<String>,
+        /// Total count of all firewall policy rule tuples. A firewall policy can not exceed a set number of tuples.
+        pub rule_tuple_count: pulumi_wasm_rust::Output<i32>,
+        /// A list of firewall policy rules.
+        /// Structure is documented below.
+        pub rules: pulumi_wasm_rust::Output<
+            Vec<super::super::types::compute::RegionNetworkFirewallPolicyWithRulesRule>,
+        >,
+        /// Server-defined URL for the resource.
+        pub self_link: pulumi_wasm_rust::Output<String>,
+        /// Server-defined URL for this resource with the resource id.
+        pub self_link_with_id: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(
+        name: &str,
+        args: RegionNetworkFirewallPolicyWithRulesArgs,
+    ) -> RegionNetworkFirewallPolicyWithRulesResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let description_binding = args.description.get_inner();
+        let name_binding = args.name.get_inner();
+        let project_binding = args.project.get_inner();
+        let region_binding = args.region.get_inner();
+        let rules_binding = args.rules.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:compute/regionNetworkFirewallPolicyWithRules:RegionNetworkFirewallPolicyWithRules"
+                .into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "description".into(),
+                    value: &description_binding,
+                },
+                register_interface::ObjectField {
+                    name: "name".into(),
+                    value: &name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+                register_interface::ObjectField {
+                    name: "region".into(),
+                    value: &region_binding,
+                },
+                register_interface::ObjectField {
+                    name: "rules".into(),
+                    value: &rules_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "creationTimestamp".into(),
+                },
+                register_interface::ResultField {
+                    name: "description".into(),
+                },
+                register_interface::ResultField {
+                    name: "fingerprint".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "networkFirewallPolicyId".into(),
+                },
+                register_interface::ResultField {
+                    name: "predefinedRules".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+                register_interface::ResultField {
+                    name: "region".into(),
+                },
+                register_interface::ResultField {
+                    name: "ruleTupleCount".into(),
+                },
+                register_interface::ResultField {
+                    name: "rules".into(),
+                },
+                register_interface::ResultField {
+                    name: "selfLink".into(),
+                },
+                register_interface::ResultField {
+                    name: "selfLinkWithId".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        RegionNetworkFirewallPolicyWithRulesResult {
+            creation_timestamp: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("creationTimestamp").unwrap(),
+            ),
+            description: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("description").unwrap(),
+            ),
+            fingerprint: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("fingerprint").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            network_firewall_policy_id: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("networkFirewallPolicyId").unwrap(),
+            ),
+            predefined_rules: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("predefinedRules").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+            region: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("region").unwrap(),
+            ),
+            rule_tuple_count: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("ruleTupleCount").unwrap(),
+            ),
+            rules: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("rules").unwrap(),
+            ),
+            self_link: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("selfLink").unwrap(),
+            ),
+            self_link_with_id: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("selfLinkWithId").unwrap(),
+            ),
+        }
+    }
+}

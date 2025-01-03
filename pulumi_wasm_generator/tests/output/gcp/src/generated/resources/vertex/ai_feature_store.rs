@@ -1,0 +1,330 @@
+/// A collection of DataItems and Annotations on them.
+///
+///
+/// To get more information about Featurestore, see:
+///
+/// * [API documentation](https://cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.featurestores)
+/// * How-to Guides
+///     * [Official Documentation](https://cloud.google.com/vertex-ai/docs)
+///
+/// ## Example Usage
+///
+/// ### Vertex Ai Featurestore
+///
+///
+/// ```yaml
+/// resources:
+///   featurestore:
+///     type: gcp:vertex:AiFeatureStore
+///     properties:
+///       name: terraform
+///       labels:
+///         foo: bar
+///       region: us-central1
+///       onlineServingConfig:
+///         fixedNodeCount: 2
+///       encryptionSpec:
+///         kmsKeyName: kms-name
+///       forceDestroy: true
+/// ```
+/// ### Vertex Ai Featurestore With Beta Fields
+///
+///
+/// ```yaml
+/// resources:
+///   featurestore:
+///     type: gcp:vertex:AiFeatureStore
+///     properties:
+///       name: terraform2
+///       labels:
+///         foo: bar
+///       region: us-central1
+///       onlineServingConfig:
+///         fixedNodeCount: 2
+///       encryptionSpec:
+///         kmsKeyName: kms-name
+///       onlineStorageTtlDays: 30
+///       forceDestroy: true
+/// ```
+/// ### Vertex Ai Featurestore Scaling
+///
+///
+/// ```yaml
+/// resources:
+///   featurestore:
+///     type: gcp:vertex:AiFeatureStore
+///     properties:
+///       name: terraform3
+///       labels:
+///         foo: bar
+///       region: us-central1
+///       onlineServingConfig:
+///         scaling:
+///           minNodeCount: 2
+///           maxNodeCount: 10
+///       encryptionSpec:
+///         kmsKeyName: kms-name
+///       forceDestroy: true
+/// ```
+///
+/// ## Import
+///
+/// Featurestore can be imported using any of these accepted formats:
+///
+/// * `projects/{{project}}/locations/{{region}}/featurestores/{{name}}`
+///
+/// * `{{project}}/{{region}}/{{name}}`
+///
+/// * `{{region}}/{{name}}`
+///
+/// * `{{name}}`
+///
+/// When using the `pulumi import` command, Featurestore can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:vertex/aiFeatureStore:AiFeatureStore default projects/{{project}}/locations/{{region}}/featurestores/{{name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:vertex/aiFeatureStore:AiFeatureStore default {{project}}/{{region}}/{{name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:vertex/aiFeatureStore:AiFeatureStore default {{region}}/{{name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:vertex/aiFeatureStore:AiFeatureStore default {{name}}
+/// ```
+///
+pub mod ai_feature_store {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct AiFeatureStoreArgs {
+        /// If set, both of the online and offline data storage will be secured by this key.
+        /// Structure is documented below.
+        #[builder(into, default)]
+        pub encryption_spec: pulumi_wasm_rust::Output<
+            Option<super::super::types::vertex::AiFeatureStoreEncryptionSpec>,
+        >,
+        /// If set to true, any EntityTypes and Features for this Featurestore will also be deleted
+        #[builder(into, default)]
+        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        /// A set of key/value label pairs to assign to this Featurestore.
+        ///
+        /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
+        /// Please refer to the field `effective_labels` for all of the labels present on the resource.
+        #[builder(into, default)]
+        pub labels: pulumi_wasm_rust::Output<
+            Option<std::collections::HashMap<String, String>>,
+        >,
+        /// The name of the Featurestore. This value may be up to 60 characters, and valid characters are [a-z0-9_]. The first character cannot be a number.
+        #[builder(into, default)]
+        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        /// Config for online serving resources.
+        /// Structure is documented below.
+        #[builder(into, default)]
+        pub online_serving_config: pulumi_wasm_rust::Output<
+            Option<super::super::types::vertex::AiFeatureStoreOnlineServingConfig>,
+        >,
+        /// TTL in days for feature values that will be stored in online serving storage. The Feature Store online storage periodically removes obsolete feature values older than onlineStorageTtlDays since the feature generation time. Note that onlineStorageTtlDays should be less than or equal to offlineStorageTtlDays for each EntityType under a featurestore. If not set, default to 4000 days
+        #[builder(into, default)]
+        pub online_storage_ttl_days: pulumi_wasm_rust::Output<Option<i32>>,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        #[builder(into, default)]
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        /// The region of the dataset. eg us-central1
+        #[builder(into, default)]
+        pub region: pulumi_wasm_rust::Output<Option<String>>,
+    }
+    #[allow(dead_code)]
+    pub struct AiFeatureStoreResult {
+        /// The timestamp of when the featurestore was created in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits.
+        pub create_time: pulumi_wasm_rust::Output<String>,
+        /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
+        pub effective_labels: pulumi_wasm_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
+        /// If set, both of the online and offline data storage will be secured by this key.
+        /// Structure is documented below.
+        pub encryption_spec: pulumi_wasm_rust::Output<
+            Option<super::super::types::vertex::AiFeatureStoreEncryptionSpec>,
+        >,
+        /// Used to perform consistent read-modify-write updates.
+        pub etag: pulumi_wasm_rust::Output<String>,
+        /// If set to true, any EntityTypes and Features for this Featurestore will also be deleted
+        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        /// A set of key/value label pairs to assign to this Featurestore.
+        ///
+        /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
+        /// Please refer to the field `effective_labels` for all of the labels present on the resource.
+        pub labels: pulumi_wasm_rust::Output<
+            Option<std::collections::HashMap<String, String>>,
+        >,
+        /// The name of the Featurestore. This value may be up to 60 characters, and valid characters are [a-z0-9_]. The first character cannot be a number.
+        pub name: pulumi_wasm_rust::Output<String>,
+        /// Config for online serving resources.
+        /// Structure is documented below.
+        pub online_serving_config: pulumi_wasm_rust::Output<
+            Option<super::super::types::vertex::AiFeatureStoreOnlineServingConfig>,
+        >,
+        /// TTL in days for feature values that will be stored in online serving storage. The Feature Store online storage periodically removes obsolete feature values older than onlineStorageTtlDays since the feature generation time. Note that onlineStorageTtlDays should be less than or equal to offlineStorageTtlDays for each EntityType under a featurestore. If not set, default to 4000 days
+        pub online_storage_ttl_days: pulumi_wasm_rust::Output<Option<i32>>,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        pub project: pulumi_wasm_rust::Output<String>,
+        /// The combination of labels configured directly on the resource
+        /// and default labels configured on the provider.
+        pub pulumi_labels: pulumi_wasm_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
+        /// The region of the dataset. eg us-central1
+        pub region: pulumi_wasm_rust::Output<String>,
+        /// The timestamp of when the featurestore was last updated in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits.
+        pub update_time: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: AiFeatureStoreArgs) -> AiFeatureStoreResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let encryption_spec_binding = args.encryption_spec.get_inner();
+        let force_destroy_binding = args.force_destroy.get_inner();
+        let labels_binding = args.labels.get_inner();
+        let name_binding = args.name.get_inner();
+        let online_serving_config_binding = args.online_serving_config.get_inner();
+        let online_storage_ttl_days_binding = args.online_storage_ttl_days.get_inner();
+        let project_binding = args.project.get_inner();
+        let region_binding = args.region.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:vertex/aiFeatureStore:AiFeatureStore".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "encryptionSpec".into(),
+                    value: &encryption_spec_binding,
+                },
+                register_interface::ObjectField {
+                    name: "forceDestroy".into(),
+                    value: &force_destroy_binding,
+                },
+                register_interface::ObjectField {
+                    name: "labels".into(),
+                    value: &labels_binding,
+                },
+                register_interface::ObjectField {
+                    name: "name".into(),
+                    value: &name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "onlineServingConfig".into(),
+                    value: &online_serving_config_binding,
+                },
+                register_interface::ObjectField {
+                    name: "onlineStorageTtlDays".into(),
+                    value: &online_storage_ttl_days_binding,
+                },
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+                register_interface::ObjectField {
+                    name: "region".into(),
+                    value: &region_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "createTime".into(),
+                },
+                register_interface::ResultField {
+                    name: "effectiveLabels".into(),
+                },
+                register_interface::ResultField {
+                    name: "encryptionSpec".into(),
+                },
+                register_interface::ResultField {
+                    name: "etag".into(),
+                },
+                register_interface::ResultField {
+                    name: "forceDestroy".into(),
+                },
+                register_interface::ResultField {
+                    name: "labels".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "onlineServingConfig".into(),
+                },
+                register_interface::ResultField {
+                    name: "onlineStorageTtlDays".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+                register_interface::ResultField {
+                    name: "pulumiLabels".into(),
+                },
+                register_interface::ResultField {
+                    name: "region".into(),
+                },
+                register_interface::ResultField {
+                    name: "updateTime".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        AiFeatureStoreResult {
+            create_time: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("createTime").unwrap(),
+            ),
+            effective_labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("effectiveLabels").unwrap(),
+            ),
+            encryption_spec: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("encryptionSpec").unwrap(),
+            ),
+            etag: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("etag").unwrap(),
+            ),
+            force_destroy: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("forceDestroy").unwrap(),
+            ),
+            labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("labels").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            online_serving_config: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("onlineServingConfig").unwrap(),
+            ),
+            online_storage_ttl_days: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("onlineStorageTtlDays").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("pulumiLabels").unwrap(),
+            ),
+            region: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("region").unwrap(),
+            ),
+            update_time: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("updateTime").unwrap(),
+            ),
+        }
+    }
+}

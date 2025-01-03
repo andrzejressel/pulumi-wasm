@@ -1,0 +1,257 @@
+/// An authorized organizations description describes a list of organizations
+/// (1) that have been authorized to use certain asset (for example, device) data
+/// owned by different organizations at the enforcement points, or (2) with certain
+/// asset (for example, device) have been authorized to access the resources in
+/// another organization at the enforcement points.
+///
+///
+/// To get more information about AuthorizedOrgsDesc, see:
+///
+/// * [API documentation](https://cloud.google.com/access-context-manager/docs/reference/rest/v1/accessPolicies.authorizedOrgsDescs)
+/// * How-to Guides
+///     * [gcloud docs](https://cloud.google.com/beyondcorp-enterprise/docs/cross-org-authorization)
+///
+/// > **Warning:** If you are using User ADCs (Application Default Credentials) with this resource,
+/// you must specify a `billing_project` and set `user_project_override` to true
+/// in the provider configuration. Otherwise the ACM API will return a 403 error.
+/// Your account must have the `serviceusage.services.use` permission on the
+/// `billing_project` you defined.
+///
+/// ## Example Usage
+///
+/// ### Access Context Manager Authorized Orgs Desc Basic
+///
+///
+/// ```yaml
+/// resources:
+///   authorized-orgs-desc:
+///     type: gcp:accesscontextmanager:AuthorizedOrgsDesc
+///     properties:
+///       parent: accessPolicies/${["test-access"].name}
+///       name: accessPolicies/${["test-access"].name}/authorizedOrgsDescs/fakeDescName
+///       authorizationType: AUTHORIZATION_TYPE_TRUST
+///       assetType: ASSET_TYPE_CREDENTIAL_STRENGTH
+///       authorizationDirection: AUTHORIZATION_DIRECTION_TO
+///       orgs:
+///         - organizations/12345
+///         - organizations/98765
+///   test-access:
+///     type: gcp:accesscontextmanager:AccessPolicy
+///     properties:
+///       parent: organizations/
+///       title: my policy
+/// ```
+///
+/// ## Import
+///
+/// AuthorizedOrgsDesc can be imported using any of these accepted formats:
+///
+/// * `{{name}}`
+///
+/// When using the `pulumi import` command, AuthorizedOrgsDesc can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:accesscontextmanager/authorizedOrgsDesc:AuthorizedOrgsDesc default {{name}}
+/// ```
+///
+pub mod authorized_orgs_desc {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct AuthorizedOrgsDescArgs {
+        /// The type of entities that need to use the authorization relationship during
+        /// evaluation, such as a device. Valid values are "ASSET_TYPE_DEVICE" and
+        /// "ASSET_TYPE_CREDENTIAL_STRENGTH".
+        /// Possible values are: `ASSET_TYPE_DEVICE`, `ASSET_TYPE_CREDENTIAL_STRENGTH`.
+        #[builder(into, default)]
+        pub asset_type: pulumi_wasm_rust::Output<Option<String>>,
+        /// The direction of the authorization relationship between this organization
+        /// and the organizations listed in the "orgs" field. The valid values for this
+        /// field include the following:
+        /// AUTHORIZATION_DIRECTION_FROM: Allows this organization to evaluate traffic
+        /// in the organizations listed in the `orgs` field.
+        /// AUTHORIZATION_DIRECTION_TO: Allows the organizations listed in the `orgs`
+        /// field to evaluate the traffic in this organization.
+        /// For the authorization relationship to take effect, all of the organizations
+        /// must authorize and specify the appropriate relationship direction. For
+        /// example, if organization A authorized organization B and C to evaluate its
+        /// traffic, by specifying "AUTHORIZATION_DIRECTION_TO" as the authorization
+        /// direction, organizations B and C must specify
+        /// "AUTHORIZATION_DIRECTION_FROM" as the authorization direction in their
+        /// "AuthorizedOrgsDesc" resource.
+        /// Possible values are: `AUTHORIZATION_DIRECTION_TO`, `AUTHORIZATION_DIRECTION_FROM`.
+        #[builder(into, default)]
+        pub authorization_direction: pulumi_wasm_rust::Output<Option<String>>,
+        /// A granular control type for authorization levels. Valid value is "AUTHORIZATION_TYPE_TRUST".
+        /// Possible values are: `AUTHORIZATION_TYPE_TRUST`.
+        #[builder(into, default)]
+        pub authorization_type: pulumi_wasm_rust::Output<Option<String>>,
+        /// Resource name for the `AuthorizedOrgsDesc`. Format:
+        /// `accessPolicies/{access_policy}/authorizedOrgsDescs/{authorized_orgs_desc}`.
+        /// The `authorized_orgs_desc` component must begin with a letter, followed by
+        /// alphanumeric characters or `_`.
+        /// After you create an `AuthorizedOrgsDesc`, you cannot change its `name`.
+        ///
+        ///
+        /// - - -
+        #[builder(into, default)]
+        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        /// The list of organization ids in this AuthorizedOrgsDesc.
+        /// Format: `organizations/<org_number>`
+        /// Example: `organizations/123456`
+        #[builder(into, default)]
+        pub orgs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        /// Required. Resource name for the access policy which owns this `AuthorizedOrgsDesc`.
+        #[builder(into)]
+        pub parent: pulumi_wasm_rust::Output<String>,
+    }
+    #[allow(dead_code)]
+    pub struct AuthorizedOrgsDescResult {
+        /// The type of entities that need to use the authorization relationship during
+        /// evaluation, such as a device. Valid values are "ASSET_TYPE_DEVICE" and
+        /// "ASSET_TYPE_CREDENTIAL_STRENGTH".
+        /// Possible values are: `ASSET_TYPE_DEVICE`, `ASSET_TYPE_CREDENTIAL_STRENGTH`.
+        pub asset_type: pulumi_wasm_rust::Output<Option<String>>,
+        /// The direction of the authorization relationship between this organization
+        /// and the organizations listed in the "orgs" field. The valid values for this
+        /// field include the following:
+        /// AUTHORIZATION_DIRECTION_FROM: Allows this organization to evaluate traffic
+        /// in the organizations listed in the `orgs` field.
+        /// AUTHORIZATION_DIRECTION_TO: Allows the organizations listed in the `orgs`
+        /// field to evaluate the traffic in this organization.
+        /// For the authorization relationship to take effect, all of the organizations
+        /// must authorize and specify the appropriate relationship direction. For
+        /// example, if organization A authorized organization B and C to evaluate its
+        /// traffic, by specifying "AUTHORIZATION_DIRECTION_TO" as the authorization
+        /// direction, organizations B and C must specify
+        /// "AUTHORIZATION_DIRECTION_FROM" as the authorization direction in their
+        /// "AuthorizedOrgsDesc" resource.
+        /// Possible values are: `AUTHORIZATION_DIRECTION_TO`, `AUTHORIZATION_DIRECTION_FROM`.
+        pub authorization_direction: pulumi_wasm_rust::Output<Option<String>>,
+        /// A granular control type for authorization levels. Valid value is "AUTHORIZATION_TYPE_TRUST".
+        /// Possible values are: `AUTHORIZATION_TYPE_TRUST`.
+        pub authorization_type: pulumi_wasm_rust::Output<Option<String>>,
+        /// Time the AuthorizedOrgsDesc was created in UTC.
+        pub create_time: pulumi_wasm_rust::Output<String>,
+        /// Resource name for the `AuthorizedOrgsDesc`. Format:
+        /// `accessPolicies/{access_policy}/authorizedOrgsDescs/{authorized_orgs_desc}`.
+        /// The `authorized_orgs_desc` component must begin with a letter, followed by
+        /// alphanumeric characters or `_`.
+        /// After you create an `AuthorizedOrgsDesc`, you cannot change its `name`.
+        ///
+        ///
+        /// - - -
+        pub name: pulumi_wasm_rust::Output<String>,
+        /// The list of organization ids in this AuthorizedOrgsDesc.
+        /// Format: `organizations/<org_number>`
+        /// Example: `organizations/123456`
+        pub orgs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        /// Required. Resource name for the access policy which owns this `AuthorizedOrgsDesc`.
+        pub parent: pulumi_wasm_rust::Output<String>,
+        /// Time the AuthorizedOrgsDesc was updated in UTC.
+        pub update_time: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: AuthorizedOrgsDescArgs) -> AuthorizedOrgsDescResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let asset_type_binding = args.asset_type.get_inner();
+        let authorization_direction_binding = args.authorization_direction.get_inner();
+        let authorization_type_binding = args.authorization_type.get_inner();
+        let name_binding = args.name.get_inner();
+        let orgs_binding = args.orgs.get_inner();
+        let parent_binding = args.parent.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:accesscontextmanager/authorizedOrgsDesc:AuthorizedOrgsDesc"
+                .into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "assetType".into(),
+                    value: &asset_type_binding,
+                },
+                register_interface::ObjectField {
+                    name: "authorizationDirection".into(),
+                    value: &authorization_direction_binding,
+                },
+                register_interface::ObjectField {
+                    name: "authorizationType".into(),
+                    value: &authorization_type_binding,
+                },
+                register_interface::ObjectField {
+                    name: "name".into(),
+                    value: &name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "orgs".into(),
+                    value: &orgs_binding,
+                },
+                register_interface::ObjectField {
+                    name: "parent".into(),
+                    value: &parent_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "assetType".into(),
+                },
+                register_interface::ResultField {
+                    name: "authorizationDirection".into(),
+                },
+                register_interface::ResultField {
+                    name: "authorizationType".into(),
+                },
+                register_interface::ResultField {
+                    name: "createTime".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "orgs".into(),
+                },
+                register_interface::ResultField {
+                    name: "parent".into(),
+                },
+                register_interface::ResultField {
+                    name: "updateTime".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        AuthorizedOrgsDescResult {
+            asset_type: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("assetType").unwrap(),
+            ),
+            authorization_direction: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("authorizationDirection").unwrap(),
+            ),
+            authorization_type: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("authorizationType").unwrap(),
+            ),
+            create_time: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("createTime").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            orgs: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("orgs").unwrap(),
+            ),
+            parent: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("parent").unwrap(),
+            ),
+            update_time: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("updateTime").unwrap(),
+            ),
+        }
+    }
+}

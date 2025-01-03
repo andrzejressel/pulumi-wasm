@@ -1,0 +1,205 @@
+/// A single firewall rule that is evaluated against incoming traffic
+/// and provides an action to take on matched requests.
+///
+///
+/// To get more information about FirewallRule, see:
+///
+/// * [API documentation](https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.firewall.ingressRules)
+/// * How-to Guides
+///     * [Official Documentation](https://cloud.google.com/appengine/docs/standard/python/creating-firewalls#creating_firewall_rules)
+///
+/// ## Example Usage
+///
+/// ### App Engine Firewall Rule Basic
+///
+///
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let app = application::create(
+///         "app",
+///         ApplicationArgs::builder()
+///             .location_id("us-central")
+///             .project("${myProject.projectId}")
+///             .build_struct(),
+///     );
+///     let myProject = project::create(
+///         "myProject",
+///         ProjectArgs::builder()
+///             .billing_account("000000-0000000-0000000-000000")
+///             .deletion_policy("DELETE")
+///             .name("tf-test-project")
+///             .org_id("123456789")
+///             .project_id("ae-project")
+///             .build_struct(),
+///     );
+///     let rule = firewall_rule::create(
+///         "rule",
+///         FirewallRuleArgs::builder()
+///             .action("ALLOW")
+///             .priority(1000)
+///             .project("${app.project}")
+///             .source_range("*")
+///             .build_struct(),
+///     );
+/// }
+/// ```
+///
+/// ## Import
+///
+/// FirewallRule can be imported using any of these accepted formats:
+///
+/// * `apps/{{project}}/firewall/ingressRules/{{priority}}`
+///
+/// * `{{project}}/{{priority}}`
+///
+/// * `{{priority}}`
+///
+/// When using the `pulumi import` command, FirewallRule can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:appengine/firewallRule:FirewallRule default apps/{{project}}/firewall/ingressRules/{{priority}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:appengine/firewallRule:FirewallRule default {{project}}/{{priority}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:appengine/firewallRule:FirewallRule default {{priority}}
+/// ```
+///
+pub mod firewall_rule {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct FirewallRuleArgs {
+        /// The action to take if this rule matches.
+        /// Possible values are: `UNSPECIFIED_ACTION`, `ALLOW`, `DENY`.
+        ///
+        ///
+        /// - - -
+        #[builder(into)]
+        pub action: pulumi_wasm_rust::Output<String>,
+        /// An optional string description of this rule.
+        #[builder(into, default)]
+        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        /// A positive integer that defines the order of rule evaluation.
+        /// Rules with the lowest priority are evaluated first.
+        /// A default rule at priority Int32.MaxValue matches all IPv4 and
+        /// IPv6 traffic when no previous rule matches. Only the action of
+        /// this rule can be modified by the user.
+        #[builder(into, default)]
+        pub priority: pulumi_wasm_rust::Output<Option<i32>>,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        #[builder(into, default)]
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        /// IP address or range, defined using CIDR notation, of requests that this rule applies to.
+        #[builder(into)]
+        pub source_range: pulumi_wasm_rust::Output<String>,
+    }
+    #[allow(dead_code)]
+    pub struct FirewallRuleResult {
+        /// The action to take if this rule matches.
+        /// Possible values are: `UNSPECIFIED_ACTION`, `ALLOW`, `DENY`.
+        ///
+        ///
+        /// - - -
+        pub action: pulumi_wasm_rust::Output<String>,
+        /// An optional string description of this rule.
+        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        /// A positive integer that defines the order of rule evaluation.
+        /// Rules with the lowest priority are evaluated first.
+        /// A default rule at priority Int32.MaxValue matches all IPv4 and
+        /// IPv6 traffic when no previous rule matches. Only the action of
+        /// this rule can be modified by the user.
+        pub priority: pulumi_wasm_rust::Output<Option<i32>>,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        pub project: pulumi_wasm_rust::Output<String>,
+        /// IP address or range, defined using CIDR notation, of requests that this rule applies to.
+        pub source_range: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: FirewallRuleArgs) -> FirewallRuleResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let action_binding = args.action.get_inner();
+        let description_binding = args.description.get_inner();
+        let priority_binding = args.priority.get_inner();
+        let project_binding = args.project.get_inner();
+        let source_range_binding = args.source_range.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:appengine/firewallRule:FirewallRule".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "action".into(),
+                    value: &action_binding,
+                },
+                register_interface::ObjectField {
+                    name: "description".into(),
+                    value: &description_binding,
+                },
+                register_interface::ObjectField {
+                    name: "priority".into(),
+                    value: &priority_binding,
+                },
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+                register_interface::ObjectField {
+                    name: "sourceRange".into(),
+                    value: &source_range_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "action".into(),
+                },
+                register_interface::ResultField {
+                    name: "description".into(),
+                },
+                register_interface::ResultField {
+                    name: "priority".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+                register_interface::ResultField {
+                    name: "sourceRange".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        FirewallRuleResult {
+            action: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("action").unwrap(),
+            ),
+            description: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("description").unwrap(),
+            ),
+            priority: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("priority").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+            source_range: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("sourceRange").unwrap(),
+            ),
+        }
+    }
+}

@@ -1,0 +1,17 @@
+#[derive(pulumi_wasm_rust::__private::serde::Deserialize, pulumi_wasm_rust::__private::serde::Serialize, pulumi_wasm_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
+#[builder(finish_fn = build_struct)]
+#[allow(dead_code)]
+pub struct GetDatabaseInstanceRestoreBackupContext {
+    /// The ID of the backup run to restore from.
+    #[builder(into)]
+    #[serde(rename = "backupRunId")]
+    pub r#backup_run_id: Box<i32>,
+    /// The ID of the instance that the backup was taken from.
+    #[builder(into)]
+    #[serde(rename = "instanceId")]
+    pub r#instance_id: Box<String>,
+    /// The ID of the project in which the resource belongs.
+    #[builder(into)]
+    #[serde(rename = "project")]
+    pub r#project: Box<String>,
+}

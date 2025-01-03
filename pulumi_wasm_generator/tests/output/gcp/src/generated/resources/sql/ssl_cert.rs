@@ -1,0 +1,180 @@
+/// Creates a new Google SQL SSL Cert on a Google SQL Instance. For more information, see the [official documentation](https://cloud.google.com/sql/), or the [JSON API](https://cloud.google.com/sql/docs/mysql/admin-api/v1beta4/sslCerts).
+///
+///
+///
+/// ## Example Usage
+///
+/// Example creating a SQL Client Certificate.
+///
+/// ```yaml
+/// resources:
+///   dbNameSuffix:
+///     type: random:RandomId
+///     name: db_name_suffix
+///     properties:
+///       byteLength: 4
+///   main:
+///     type: gcp:sql:DatabaseInstance
+///     properties:
+///       name: main-instance-${dbNameSuffix.hex}
+///       databaseVersion: MYSQL_5_7
+///       settings:
+///         tier: db-f1-micro
+///   clientCert:
+///     type: gcp:sql:SslCert
+///     name: client_cert
+///     properties:
+///       commonName: client-name
+///       instance: ${main.name}
+/// ```
+///
+/// ## Import
+///
+/// Since the contents of the certificate cannot be accessed after its creation, this resource cannot be imported.
+///
+pub mod ssl_cert {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct SslCertArgs {
+        /// The common name to be used in the certificate to identify the
+        /// client. Constrained to [a-zA-Z.-_ ]+. Changing this forces a new resource to be created.
+        #[builder(into)]
+        pub common_name: pulumi_wasm_rust::Output<String>,
+        /// The name of the Cloud SQL instance. Changing this
+        /// forces a new resource to be created.
+        #[builder(into)]
+        pub instance: pulumi_wasm_rust::Output<String>,
+        /// The ID of the project in which the resource belongs. If it
+        /// is not provided, the provider project is used.
+        #[builder(into, default)]
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+    }
+    #[allow(dead_code)]
+    pub struct SslCertResult {
+        /// The actual certificate data for this client certificate.
+        pub cert: pulumi_wasm_rust::Output<String>,
+        /// The serial number extracted from the certificate data.
+        pub cert_serial_number: pulumi_wasm_rust::Output<String>,
+        /// The common name to be used in the certificate to identify the
+        /// client. Constrained to [a-zA-Z.-_ ]+. Changing this forces a new resource to be created.
+        pub common_name: pulumi_wasm_rust::Output<String>,
+        /// The time when the certificate was created in RFC 3339 format,
+        /// for example 2012-11-15T16:19:00.094Z.
+        pub create_time: pulumi_wasm_rust::Output<String>,
+        /// The time when the certificate expires in RFC 3339 format,
+        /// for example 2012-11-15T16:19:00.094Z.
+        pub expiration_time: pulumi_wasm_rust::Output<String>,
+        /// The name of the Cloud SQL instance. Changing this
+        /// forces a new resource to be created.
+        pub instance: pulumi_wasm_rust::Output<String>,
+        /// The private key associated with the client certificate.
+        pub private_key: pulumi_wasm_rust::Output<String>,
+        /// The ID of the project in which the resource belongs. If it
+        /// is not provided, the provider project is used.
+        pub project: pulumi_wasm_rust::Output<String>,
+        /// The CA cert of the server this client cert was generated from.
+        pub server_ca_cert: pulumi_wasm_rust::Output<String>,
+        /// The SHA1 Fingerprint of the certificate.
+        pub sha1_fingerprint: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: SslCertArgs) -> SslCertResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let common_name_binding = args.common_name.get_inner();
+        let instance_binding = args.instance.get_inner();
+        let project_binding = args.project.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:sql/sslCert:SslCert".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "commonName".into(),
+                    value: &common_name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "instance".into(),
+                    value: &instance_binding,
+                },
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "cert".into(),
+                },
+                register_interface::ResultField {
+                    name: "certSerialNumber".into(),
+                },
+                register_interface::ResultField {
+                    name: "commonName".into(),
+                },
+                register_interface::ResultField {
+                    name: "createTime".into(),
+                },
+                register_interface::ResultField {
+                    name: "expirationTime".into(),
+                },
+                register_interface::ResultField {
+                    name: "instance".into(),
+                },
+                register_interface::ResultField {
+                    name: "privateKey".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+                register_interface::ResultField {
+                    name: "serverCaCert".into(),
+                },
+                register_interface::ResultField {
+                    name: "sha1Fingerprint".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        SslCertResult {
+            cert: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("cert").unwrap(),
+            ),
+            cert_serial_number: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("certSerialNumber").unwrap(),
+            ),
+            common_name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("commonName").unwrap(),
+            ),
+            create_time: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("createTime").unwrap(),
+            ),
+            expiration_time: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("expirationTime").unwrap(),
+            ),
+            instance: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("instance").unwrap(),
+            ),
+            private_key: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("privateKey").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+            server_ca_cert: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("serverCaCert").unwrap(),
+            ),
+            sha1_fingerprint: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("sha1Fingerprint").unwrap(),
+            ),
+        }
+    }
+}

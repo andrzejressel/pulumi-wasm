@@ -1,0 +1,25 @@
+#[derive(pulumi_wasm_rust::__private::serde::Deserialize, pulumi_wasm_rust::__private::serde::Serialize, pulumi_wasm_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
+#[builder(finish_fn = build_struct)]
+#[allow(dead_code)]
+pub struct ServiceStatusCondition {
+    /// (Output)
+    /// Human readable message indicating details about the current status.
+    #[builder(into, default)]
+    #[serde(rename = "message")]
+    pub r#message: Box<Option<String>>,
+    /// (Output)
+    /// One-word CamelCase reason for the condition's current status.
+    #[builder(into, default)]
+    #[serde(rename = "reason")]
+    pub r#reason: Box<Option<String>>,
+    /// (Output)
+    /// Status of the condition, one of True, False, Unknown.
+    #[builder(into, default)]
+    #[serde(rename = "status")]
+    pub r#status: Box<Option<String>>,
+    /// (Output)
+    /// Type of domain mapping condition.
+    #[builder(into, default)]
+    #[serde(rename = "type")]
+    pub r#type: Box<Option<String>>,
+}

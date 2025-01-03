@@ -1,0 +1,13 @@
+#[derive(pulumi_wasm_rust::__private::serde::Deserialize, pulumi_wasm_rust::__private::serde::Serialize, pulumi_wasm_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
+#[builder(finish_fn = build_struct)]
+#[allow(dead_code)]
+pub struct CertificateMapGclbTargetIpConfig {
+    /// An external IP address
+    #[builder(into, default)]
+    #[serde(rename = "ipAddress")]
+    pub r#ip_address: Box<Option<String>>,
+    /// A list of ports
+    #[builder(into, default)]
+    #[serde(rename = "ports")]
+    pub r#ports: Box<Option<Vec<i32>>>,
+}

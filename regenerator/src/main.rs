@@ -11,6 +11,10 @@ struct Provider<'a> {
 fn main() {
     let mut providers = vec![
         Provider {
+            name: "gcp",
+            version: "8.12.1",
+        },
+        Provider {
             name: "docker",
             version: "4.5.3",
         },
@@ -144,19 +148,6 @@ fn update_generator_cargo_toml(tests: &[&str], providers: &[Provider]) {
     let new_content = replace_between_markers(&content, start_marker, end_marker, &replacement);
     fs::write("pulumi_wasm_generator/Cargo.toml", new_content)
         .expect("Failed to write to pulumi_wasm_generator/Cargo.toml");
-}
-
-fn replace_generate_rust_docs(providers: &[Provider], content: &str) -> String {
-    let mut replacement = String::new();
-    replacement.push_str("rust-docs:\n");
-    replacement.push_str("    cargo doc --no-deps -p pulumi_wasm_rust -p pulumi_wasm_build");
-    for provider in providers {
-        replacement.push_str(&format!(" -p pulumi_wasm_providers_{}", provider.name));
-    }
-    replacement.push('\n');
-    let start_marker = "# DO NOT EDIT - GENERATE-RUST-DOCS - START";
-    let end_marker = "# DO NOT EDIT - GENERATE-RUST-DOCS - END";
-    replace_between_markers(content, start_marker, end_marker, &replacement)
 }
 
 fn replace_between_markers(

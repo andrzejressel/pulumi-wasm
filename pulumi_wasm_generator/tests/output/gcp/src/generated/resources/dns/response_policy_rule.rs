@@ -1,0 +1,216 @@
+/// A Response Policy Rule is a selector that applies its behavior to queries that match the selector.
+/// Selectors are DNS names, which may be wildcards or exact matches.
+/// Each DNS query subject to a Response Policy matches at most one ResponsePolicyRule,
+/// as identified by the dns_name field with the longest matching suffix.
+///
+///
+///
+/// ## Example Usage
+///
+/// ### Dns Response Policy Rule Basic
+///
+///
+/// ```yaml
+/// resources:
+///   network-1:
+///     type: gcp:compute:Network
+///     properties:
+///       name: network-1
+///       autoCreateSubnetworks: false
+///   network-2:
+///     type: gcp:compute:Network
+///     properties:
+///       name: network-2
+///       autoCreateSubnetworks: false
+///   response-policy:
+///     type: gcp:dns:ResponsePolicy
+///     properties:
+///       responsePolicyName: example-response-policy
+///       networks:
+///         - networkUrl: ${["network-1"].id}
+///         - networkUrl: ${["network-2"].id}
+///   example-response-policy-rule:
+///     type: gcp:dns:ResponsePolicyRule
+///     properties:
+///       responsePolicy: ${["response-policy"].responsePolicyName}
+///       ruleName: example-rule
+///       dnsName: dns.example.com.
+///       localData:
+///         localDatas:
+///           - name: dns.example.com.
+///             type: A
+///             ttl: 300
+///             rrdatas:
+///               - 192.0.2.91
+/// ```
+///
+/// ## Import
+///
+/// ResponsePolicyRule can be imported using any of these accepted formats:
+///
+/// * `projects/{{project}}/responsePolicies/{{response_policy}}/rules/{{rule_name}}`
+///
+/// * `{{project}}/{{response_policy}}/{{rule_name}}`
+///
+/// * `{{response_policy}}/{{rule_name}}`
+///
+/// When using the `pulumi import` command, ResponsePolicyRule can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:dns/responsePolicyRule:ResponsePolicyRule default projects/{{project}}/responsePolicies/{{response_policy}}/rules/{{rule_name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:dns/responsePolicyRule:ResponsePolicyRule default {{project}}/{{response_policy}}/{{rule_name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:dns/responsePolicyRule:ResponsePolicyRule default {{response_policy}}/{{rule_name}}
+/// ```
+///
+pub mod response_policy_rule {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct ResponsePolicyRuleArgs {
+        /// Answer this query with a behavior rather than DNS data. Acceptable values are 'behaviorUnspecified', and 'bypassResponsePolicy'
+        #[builder(into, default)]
+        pub behavior: pulumi_wasm_rust::Output<Option<String>>,
+        /// The DNS name (wildcard or exact) to apply this rule to. Must be unique within the Response Policy Rule.
+        #[builder(into)]
+        pub dns_name: pulumi_wasm_rust::Output<String>,
+        /// Answer this query directly with DNS data. These ResourceRecordSets override any other DNS behavior for the matched name;
+        /// in particular they override private zones, the public internet, and GCP internal DNS. No SOA nor NS types are allowed.
+        /// Structure is documented below.
+        #[builder(into, default)]
+        pub local_data: pulumi_wasm_rust::Output<
+            Option<super::super::types::dns::ResponsePolicyRuleLocalData>,
+        >,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        #[builder(into, default)]
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        /// Identifies the response policy addressed by this request.
+        ///
+        ///
+        /// - - -
+        #[builder(into)]
+        pub response_policy: pulumi_wasm_rust::Output<String>,
+        /// An identifier for this rule. Must be unique with the ResponsePolicy.
+        #[builder(into)]
+        pub rule_name: pulumi_wasm_rust::Output<String>,
+    }
+    #[allow(dead_code)]
+    pub struct ResponsePolicyRuleResult {
+        /// Answer this query with a behavior rather than DNS data. Acceptable values are 'behaviorUnspecified', and 'bypassResponsePolicy'
+        pub behavior: pulumi_wasm_rust::Output<Option<String>>,
+        /// The DNS name (wildcard or exact) to apply this rule to. Must be unique within the Response Policy Rule.
+        pub dns_name: pulumi_wasm_rust::Output<String>,
+        /// Answer this query directly with DNS data. These ResourceRecordSets override any other DNS behavior for the matched name;
+        /// in particular they override private zones, the public internet, and GCP internal DNS. No SOA nor NS types are allowed.
+        /// Structure is documented below.
+        pub local_data: pulumi_wasm_rust::Output<
+            Option<super::super::types::dns::ResponsePolicyRuleLocalData>,
+        >,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        pub project: pulumi_wasm_rust::Output<String>,
+        /// Identifies the response policy addressed by this request.
+        ///
+        ///
+        /// - - -
+        pub response_policy: pulumi_wasm_rust::Output<String>,
+        /// An identifier for this rule. Must be unique with the ResponsePolicy.
+        pub rule_name: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: ResponsePolicyRuleArgs) -> ResponsePolicyRuleResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let behavior_binding = args.behavior.get_inner();
+        let dns_name_binding = args.dns_name.get_inner();
+        let local_data_binding = args.local_data.get_inner();
+        let project_binding = args.project.get_inner();
+        let response_policy_binding = args.response_policy.get_inner();
+        let rule_name_binding = args.rule_name.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:dns/responsePolicyRule:ResponsePolicyRule".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "behavior".into(),
+                    value: &behavior_binding,
+                },
+                register_interface::ObjectField {
+                    name: "dnsName".into(),
+                    value: &dns_name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "localData".into(),
+                    value: &local_data_binding,
+                },
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+                register_interface::ObjectField {
+                    name: "responsePolicy".into(),
+                    value: &response_policy_binding,
+                },
+                register_interface::ObjectField {
+                    name: "ruleName".into(),
+                    value: &rule_name_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "behavior".into(),
+                },
+                register_interface::ResultField {
+                    name: "dnsName".into(),
+                },
+                register_interface::ResultField {
+                    name: "localData".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+                register_interface::ResultField {
+                    name: "responsePolicy".into(),
+                },
+                register_interface::ResultField {
+                    name: "ruleName".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        ResponsePolicyRuleResult {
+            behavior: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("behavior").unwrap(),
+            ),
+            dns_name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("dnsName").unwrap(),
+            ),
+            local_data: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("localData").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+            response_policy: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("responsePolicy").unwrap(),
+            ),
+            rule_name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("ruleName").unwrap(),
+            ),
+        }
+    }
+}

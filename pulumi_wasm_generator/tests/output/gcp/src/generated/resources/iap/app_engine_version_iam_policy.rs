@@ -1,0 +1,498 @@
+/// Three different resources help you manage your IAM policy for Identity-Aware Proxy AppEngineVersion. Each of these resources serves a different use case:
+///
+/// * `gcp.iap.AppEngineVersionIamPolicy`: Authoritative. Sets the IAM policy for the appengineversion and replaces any existing policy already attached.
+/// * `gcp.iap.AppEngineVersionIamBinding`: Authoritative for a given role. Updates the IAM policy to grant a role to a list of members. Other roles within the IAM policy for the appengineversion are preserved.
+/// * `gcp.iap.AppEngineVersionIamMember`: Non-authoritative. Updates the IAM policy to grant a role to a new member. Other members for the role for the appengineversion are preserved.
+///
+/// A data source can be used to retrieve policy data in advent you do not need creation
+///
+/// * `gcp.iap.AppEngineVersionIamPolicy`: Retrieves the IAM policy for the appengineversion
+///
+/// > **Note:** `gcp.iap.AppEngineVersionIamPolicy` **cannot** be used in conjunction with `gcp.iap.AppEngineVersionIamBinding` and `gcp.iap.AppEngineVersionIamMember` or they will fight over what your policy should be.
+///
+/// > **Note:** `gcp.iap.AppEngineVersionIamBinding` resources **can be** used in conjunction with `gcp.iap.AppEngineVersionIamMember` resources **only if** they do not grant privilege to the same role.
+///
+/// > **Note:**  This resource supports IAM Conditions but they have some known limitations which can be found [here](https://cloud.google.com/iam/docs/conditions-overview#limitations). Please review this article if you are having issues with IAM Conditions.
+///
+///
+/// ## gcp.iap.AppEngineVersionIamPolicy
+///
+/// ```yaml
+/// resources:
+///   policy:
+///     type: gcp:iap:AppEngineVersionIamPolicy
+///     properties:
+///       project: ${version.project}
+///       appId: ${version.project}
+///       service: ${version.service}
+///       versionId: ${version.versionId}
+///       policyData: ${admin.policyData}
+/// variables:
+///   admin:
+///     fn::invoke:
+///       function: gcp:organizations:getIAMPolicy
+///       arguments:
+///         bindings:
+///           - role: roles/iap.httpsResourceAccessor
+///             members:
+///               - user:jane@example.com
+/// ```
+///
+/// With IAM Conditions:
+///
+/// ```yaml
+/// resources:
+///   policy:
+///     type: gcp:iap:AppEngineVersionIamPolicy
+///     properties:
+///       project: ${version.project}
+///       appId: ${version.project}
+///       service: ${version.service}
+///       versionId: ${version.versionId}
+///       policyData: ${admin.policyData}
+/// variables:
+///   admin:
+///     fn::invoke:
+///       function: gcp:organizations:getIAMPolicy
+///       arguments:
+///         bindings:
+///           - role: roles/iap.httpsResourceAccessor
+///             members:
+///               - user:jane@example.com
+///             condition:
+///               title: expires_after_2019_12_31
+///               description: Expiring at midnight of 2019-12-31
+///               expression: request.time < timestamp("2020-01-01T00:00:00Z")
+/// ```
+/// ## gcp.iap.AppEngineVersionIamBinding
+///
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let binding = app_engine_version_iam_binding::create(
+///         "binding",
+///         AppEngineVersionIamBindingArgs::builder()
+///             .app_id("${version.project}")
+///             .members(vec!["user:jane@example.com",])
+///             .project("${version.project}")
+///             .role("roles/iap.httpsResourceAccessor")
+///             .service("${version.service}")
+///             .version_id("${version.versionId}")
+///             .build_struct(),
+///     );
+/// }
+/// ```
+///
+/// With IAM Conditions:
+///
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let binding = app_engine_version_iam_binding::create(
+///         "binding",
+///         AppEngineVersionIamBindingArgs::builder()
+///             .app_id("${version.project}")
+///             .condition(
+///                 AppEngineVersionIamBindingCondition::builder()
+///                     .description("Expiring at midnight of 2019-12-31")
+///                     .expression("request.time < timestamp(\"2020-01-01T00:00:00Z\")")
+///                     .title("expires_after_2019_12_31")
+///                     .build_struct(),
+///             )
+///             .members(vec!["user:jane@example.com",])
+///             .project("${version.project}")
+///             .role("roles/iap.httpsResourceAccessor")
+///             .service("${version.service}")
+///             .version_id("${version.versionId}")
+///             .build_struct(),
+///     );
+/// }
+/// ```
+/// ## gcp.iap.AppEngineVersionIamMember
+///
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let member = app_engine_version_iam_member::create(
+///         "member",
+///         AppEngineVersionIamMemberArgs::builder()
+///             .app_id("${version.project}")
+///             .member("user:jane@example.com")
+///             .project("${version.project}")
+///             .role("roles/iap.httpsResourceAccessor")
+///             .service("${version.service}")
+///             .version_id("${version.versionId}")
+///             .build_struct(),
+///     );
+/// }
+/// ```
+///
+/// With IAM Conditions:
+///
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let member = app_engine_version_iam_member::create(
+///         "member",
+///         AppEngineVersionIamMemberArgs::builder()
+///             .app_id("${version.project}")
+///             .condition(
+///                 AppEngineVersionIamMemberCondition::builder()
+///                     .description("Expiring at midnight of 2019-12-31")
+///                     .expression("request.time < timestamp(\"2020-01-01T00:00:00Z\")")
+///                     .title("expires_after_2019_12_31")
+///                     .build_struct(),
+///             )
+///             .member("user:jane@example.com")
+///             .project("${version.project}")
+///             .role("roles/iap.httpsResourceAccessor")
+///             .service("${version.service}")
+///             .version_id("${version.versionId}")
+///             .build_struct(),
+///     );
+/// }
+/// ```
+///
+/// ## This resource supports User Project Overrides.
+///
+/// -
+///
+/// # IAM policy for Identity-Aware Proxy AppEngineVersion
+/// Three different resources help you manage your IAM policy for Identity-Aware Proxy AppEngineVersion. Each of these resources serves a different use case:
+///
+/// * `gcp.iap.AppEngineVersionIamPolicy`: Authoritative. Sets the IAM policy for the appengineversion and replaces any existing policy already attached.
+/// * `gcp.iap.AppEngineVersionIamBinding`: Authoritative for a given role. Updates the IAM policy to grant a role to a list of members. Other roles within the IAM policy for the appengineversion are preserved.
+/// * `gcp.iap.AppEngineVersionIamMember`: Non-authoritative. Updates the IAM policy to grant a role to a new member. Other members for the role for the appengineversion are preserved.
+///
+/// A data source can be used to retrieve policy data in advent you do not need creation
+///
+/// * `gcp.iap.AppEngineVersionIamPolicy`: Retrieves the IAM policy for the appengineversion
+///
+/// > **Note:** `gcp.iap.AppEngineVersionIamPolicy` **cannot** be used in conjunction with `gcp.iap.AppEngineVersionIamBinding` and `gcp.iap.AppEngineVersionIamMember` or they will fight over what your policy should be.
+///
+/// > **Note:** `gcp.iap.AppEngineVersionIamBinding` resources **can be** used in conjunction with `gcp.iap.AppEngineVersionIamMember` resources **only if** they do not grant privilege to the same role.
+///
+/// > **Note:**  This resource supports IAM Conditions but they have some known limitations which can be found [here](https://cloud.google.com/iam/docs/conditions-overview#limitations). Please review this article if you are having issues with IAM Conditions.
+///
+///
+/// ## gcp.iap.AppEngineVersionIamPolicy
+///
+/// ```yaml
+/// resources:
+///   policy:
+///     type: gcp:iap:AppEngineVersionIamPolicy
+///     properties:
+///       project: ${version.project}
+///       appId: ${version.project}
+///       service: ${version.service}
+///       versionId: ${version.versionId}
+///       policyData: ${admin.policyData}
+/// variables:
+///   admin:
+///     fn::invoke:
+///       function: gcp:organizations:getIAMPolicy
+///       arguments:
+///         bindings:
+///           - role: roles/iap.httpsResourceAccessor
+///             members:
+///               - user:jane@example.com
+/// ```
+///
+/// With IAM Conditions:
+///
+/// ```yaml
+/// resources:
+///   policy:
+///     type: gcp:iap:AppEngineVersionIamPolicy
+///     properties:
+///       project: ${version.project}
+///       appId: ${version.project}
+///       service: ${version.service}
+///       versionId: ${version.versionId}
+///       policyData: ${admin.policyData}
+/// variables:
+///   admin:
+///     fn::invoke:
+///       function: gcp:organizations:getIAMPolicy
+///       arguments:
+///         bindings:
+///           - role: roles/iap.httpsResourceAccessor
+///             members:
+///               - user:jane@example.com
+///             condition:
+///               title: expires_after_2019_12_31
+///               description: Expiring at midnight of 2019-12-31
+///               expression: request.time < timestamp("2020-01-01T00:00:00Z")
+/// ```
+/// ## gcp.iap.AppEngineVersionIamBinding
+///
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let binding = app_engine_version_iam_binding::create(
+///         "binding",
+///         AppEngineVersionIamBindingArgs::builder()
+///             .app_id("${version.project}")
+///             .members(vec!["user:jane@example.com",])
+///             .project("${version.project}")
+///             .role("roles/iap.httpsResourceAccessor")
+///             .service("${version.service}")
+///             .version_id("${version.versionId}")
+///             .build_struct(),
+///     );
+/// }
+/// ```
+///
+/// With IAM Conditions:
+///
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let binding = app_engine_version_iam_binding::create(
+///         "binding",
+///         AppEngineVersionIamBindingArgs::builder()
+///             .app_id("${version.project}")
+///             .condition(
+///                 AppEngineVersionIamBindingCondition::builder()
+///                     .description("Expiring at midnight of 2019-12-31")
+///                     .expression("request.time < timestamp(\"2020-01-01T00:00:00Z\")")
+///                     .title("expires_after_2019_12_31")
+///                     .build_struct(),
+///             )
+///             .members(vec!["user:jane@example.com",])
+///             .project("${version.project}")
+///             .role("roles/iap.httpsResourceAccessor")
+///             .service("${version.service}")
+///             .version_id("${version.versionId}")
+///             .build_struct(),
+///     );
+/// }
+/// ```
+/// ## gcp.iap.AppEngineVersionIamMember
+///
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let member = app_engine_version_iam_member::create(
+///         "member",
+///         AppEngineVersionIamMemberArgs::builder()
+///             .app_id("${version.project}")
+///             .member("user:jane@example.com")
+///             .project("${version.project}")
+///             .role("roles/iap.httpsResourceAccessor")
+///             .service("${version.service}")
+///             .version_id("${version.versionId}")
+///             .build_struct(),
+///     );
+/// }
+/// ```
+///
+/// With IAM Conditions:
+///
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let member = app_engine_version_iam_member::create(
+///         "member",
+///         AppEngineVersionIamMemberArgs::builder()
+///             .app_id("${version.project}")
+///             .condition(
+///                 AppEngineVersionIamMemberCondition::builder()
+///                     .description("Expiring at midnight of 2019-12-31")
+///                     .expression("request.time < timestamp(\"2020-01-01T00:00:00Z\")")
+///                     .title("expires_after_2019_12_31")
+///                     .build_struct(),
+///             )
+///             .member("user:jane@example.com")
+///             .project("${version.project}")
+///             .role("roles/iap.httpsResourceAccessor")
+///             .service("${version.service}")
+///             .version_id("${version.versionId}")
+///             .build_struct(),
+///     );
+/// }
+/// ```
+///
+/// ## Import
+///
+/// For all import syntaxes, the "resource in question" can take any of the following forms:
+///
+/// * projects/{{project}}/iap_web/appengine-{{appId}}/services/{{service}}/versions/{{versionId}}
+///
+/// * {{project}}/{{appId}}/{{service}}/{{versionId}}
+///
+/// * {{appId}}/{{service}}/{{versionId}}
+///
+/// * {{version}}
+///
+/// Any variables not passed in the import command will be taken from the provider configuration.
+///
+/// Identity-Aware Proxy appengineversion IAM resources can be imported using the resource identifiers, role, and member.
+///
+/// IAM member imports use space-delimited identifiers: the resource in question, the role, and the member identity, e.g.
+///
+/// ```sh
+/// $ pulumi import gcp:iap/appEngineVersionIamPolicy:AppEngineVersionIamPolicy editor "projects/{{project}}/iap_web/appengine-{{appId}}/services/{{service}}/versions/{{versionId}} roles/iap.httpsResourceAccessor user:jane@example.com"
+/// ```
+///
+/// IAM binding imports use space-delimited identifiers: the resource in question and the role, e.g.
+///
+/// ```sh
+/// $ pulumi import gcp:iap/appEngineVersionIamPolicy:AppEngineVersionIamPolicy editor "projects/{{project}}/iap_web/appengine-{{appId}}/services/{{service}}/versions/{{versionId}} roles/iap.httpsResourceAccessor"
+/// ```
+///
+/// IAM policy imports use the identifier of the resource in question, e.g.
+///
+/// ```sh
+/// $ pulumi import gcp:iap/appEngineVersionIamPolicy:AppEngineVersionIamPolicy editor projects/{{project}}/iap_web/appengine-{{appId}}/services/{{service}}/versions/{{versionId}}
+/// ```
+///
+/// -> **Custom Roles** If you're importing a IAM resource with a custom role, make sure to use the
+///
+///  full name of the custom role, e.g. `[projects/my-project|organizations/my-org]/roles/my-custom-role`.
+///
+pub mod app_engine_version_iam_policy {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct AppEngineVersionIamPolicyArgs {
+        /// Id of the App Engine application. Used to find the parent resource to bind the IAM policy to
+        #[builder(into)]
+        pub app_id: pulumi_wasm_rust::Output<String>,
+        /// The policy data generated by
+        /// a `gcp.organizations.getIAMPolicy` data source.
+        #[builder(into)]
+        pub policy_data: pulumi_wasm_rust::Output<String>,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the project will be parsed from the identifier of the parent resource. If no project is provided in the parent identifier and no project is specified, the provider project is used.
+        #[builder(into, default)]
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        /// Service id of the App Engine application Used to find the parent resource to bind the IAM policy to
+        #[builder(into)]
+        pub service: pulumi_wasm_rust::Output<String>,
+        /// Version id of the App Engine application Used to find the parent resource to bind the IAM policy to
+        #[builder(into)]
+        pub version_id: pulumi_wasm_rust::Output<String>,
+    }
+    #[allow(dead_code)]
+    pub struct AppEngineVersionIamPolicyResult {
+        /// Id of the App Engine application. Used to find the parent resource to bind the IAM policy to
+        pub app_id: pulumi_wasm_rust::Output<String>,
+        /// (Computed) The etag of the IAM policy.
+        pub etag: pulumi_wasm_rust::Output<String>,
+        /// The policy data generated by
+        /// a `gcp.organizations.getIAMPolicy` data source.
+        pub policy_data: pulumi_wasm_rust::Output<String>,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the project will be parsed from the identifier of the parent resource. If no project is provided in the parent identifier and no project is specified, the provider project is used.
+        pub project: pulumi_wasm_rust::Output<String>,
+        /// Service id of the App Engine application Used to find the parent resource to bind the IAM policy to
+        pub service: pulumi_wasm_rust::Output<String>,
+        /// Version id of the App Engine application Used to find the parent resource to bind the IAM policy to
+        pub version_id: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(
+        name: &str,
+        args: AppEngineVersionIamPolicyArgs,
+    ) -> AppEngineVersionIamPolicyResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let app_id_binding = args.app_id.get_inner();
+        let policy_data_binding = args.policy_data.get_inner();
+        let project_binding = args.project.get_inner();
+        let service_binding = args.service.get_inner();
+        let version_id_binding = args.version_id.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:iap/appEngineVersionIamPolicy:AppEngineVersionIamPolicy".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "appId".into(),
+                    value: &app_id_binding,
+                },
+                register_interface::ObjectField {
+                    name: "policyData".into(),
+                    value: &policy_data_binding,
+                },
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+                register_interface::ObjectField {
+                    name: "service".into(),
+                    value: &service_binding,
+                },
+                register_interface::ObjectField {
+                    name: "versionId".into(),
+                    value: &version_id_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "appId".into(),
+                },
+                register_interface::ResultField {
+                    name: "etag".into(),
+                },
+                register_interface::ResultField {
+                    name: "policyData".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+                register_interface::ResultField {
+                    name: "service".into(),
+                },
+                register_interface::ResultField {
+                    name: "versionId".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        AppEngineVersionIamPolicyResult {
+            app_id: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("appId").unwrap(),
+            ),
+            etag: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("etag").unwrap(),
+            ),
+            policy_data: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("policyData").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+            service: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("service").unwrap(),
+            ),
+            version_id: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("versionId").unwrap(),
+            ),
+        }
+    }
+}

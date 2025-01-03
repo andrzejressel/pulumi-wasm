@@ -1,0 +1,268 @@
+/// Configuration for discovery to scan resources for profile generation. Only one discovery configuration may exist per organization, folder, or project.
+///
+///
+/// To get more information about DiscoveryConfig, see:
+///
+/// * [API documentation](https://cloud.google.com/dlp/docs/reference/rest/v2/projects.locations.discoveryConfigs)
+/// * How-to Guides
+///     * [Schedule inspection scan](https://cloud.google.com/dlp/docs/schedule-inspection-scan)
+///
+/// ## Example Usage
+///
+/// ## Import
+///
+/// DiscoveryConfig can be imported using any of these accepted formats:
+///
+/// * `{{parent}}/discoveryConfigs/{{name}}`
+///
+/// * `{{parent}}/{{name}}`
+///
+/// When using the `pulumi import` command, DiscoveryConfig can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:dataloss/preventionDiscoveryConfig:PreventionDiscoveryConfig default {{parent}}/discoveryConfigs/{{name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:dataloss/preventionDiscoveryConfig:PreventionDiscoveryConfig default {{parent}}/{{name}}
+/// ```
+///
+pub mod prevention_discovery_config {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct PreventionDiscoveryConfigArgs {
+        /// Actions to execute at the completion of scanning
+        /// Structure is documented below.
+        #[builder(into, default)]
+        pub actions: pulumi_wasm_rust::Output<
+            Option<Vec<super::super::types::dataloss::PreventionDiscoveryConfigAction>>,
+        >,
+        /// Display Name (max 1000 Chars)
+        #[builder(into, default)]
+        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        /// Detection logic for profile generation
+        #[builder(into, default)]
+        pub inspect_templates: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        /// Location to create the discovery config in.
+        ///
+        ///
+        /// - - -
+        #[builder(into)]
+        pub location: pulumi_wasm_rust::Output<String>,
+        /// A nested object resource.
+        /// Structure is documented below.
+        #[builder(into, default)]
+        pub org_config: pulumi_wasm_rust::Output<
+            Option<super::super::types::dataloss::PreventionDiscoveryConfigOrgConfig>,
+        >,
+        /// The parent of the discovery config in any of the following formats:
+        /// * `projects/{{project}}/locations/{{location}}`
+        /// * `organizations/{{organization_id}}/locations/{{location}}`
+        #[builder(into)]
+        pub parent: pulumi_wasm_rust::Output<String>,
+        /// Required. A status for this configuration
+        /// Possible values are: `RUNNING`, `PAUSED`.
+        #[builder(into, default)]
+        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        /// Target to match against for determining what to scan and how frequently
+        /// Structure is documented below.
+        #[builder(into, default)]
+        pub targets: pulumi_wasm_rust::Output<
+            Option<Vec<super::super::types::dataloss::PreventionDiscoveryConfigTarget>>,
+        >,
+    }
+    #[allow(dead_code)]
+    pub struct PreventionDiscoveryConfigResult {
+        /// Actions to execute at the completion of scanning
+        /// Structure is documented below.
+        pub actions: pulumi_wasm_rust::Output<
+            Option<Vec<super::super::types::dataloss::PreventionDiscoveryConfigAction>>,
+        >,
+        /// Output only. The creation timestamp of a DiscoveryConfig.
+        pub create_time: pulumi_wasm_rust::Output<String>,
+        /// Display Name (max 1000 Chars)
+        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        /// Output only. A stream of errors encountered when the config was activated. Repeated errors may result in the config automatically being paused. Output only field. Will return the last 100 errors. Whenever the config is modified this list will be cleared.
+        /// Structure is documented below.
+        pub errors: pulumi_wasm_rust::Output<
+            Vec<super::super::types::dataloss::PreventionDiscoveryConfigError>,
+        >,
+        /// Detection logic for profile generation
+        pub inspect_templates: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        /// Output only. The timestamp of the last time this config was executed
+        pub last_run_time: pulumi_wasm_rust::Output<String>,
+        /// Location to create the discovery config in.
+        ///
+        ///
+        /// - - -
+        pub location: pulumi_wasm_rust::Output<String>,
+        /// Unique resource name for the DiscoveryConfig, assigned by the service when the DiscoveryConfig is created.
+        pub name: pulumi_wasm_rust::Output<String>,
+        /// A nested object resource.
+        /// Structure is documented below.
+        pub org_config: pulumi_wasm_rust::Output<
+            Option<super::super::types::dataloss::PreventionDiscoveryConfigOrgConfig>,
+        >,
+        /// The parent of the discovery config in any of the following formats:
+        /// * `projects/{{project}}/locations/{{location}}`
+        /// * `organizations/{{organization_id}}/locations/{{location}}`
+        pub parent: pulumi_wasm_rust::Output<String>,
+        /// Required. A status for this configuration
+        /// Possible values are: `RUNNING`, `PAUSED`.
+        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        /// Target to match against for determining what to scan and how frequently
+        /// Structure is documented below.
+        pub targets: pulumi_wasm_rust::Output<
+            Option<Vec<super::super::types::dataloss::PreventionDiscoveryConfigTarget>>,
+        >,
+        /// Output only. The last update timestamp of a DiscoveryConfig.
+        pub update_time: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(
+        name: &str,
+        args: PreventionDiscoveryConfigArgs,
+    ) -> PreventionDiscoveryConfigResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let actions_binding = args.actions.get_inner();
+        let display_name_binding = args.display_name.get_inner();
+        let inspect_templates_binding = args.inspect_templates.get_inner();
+        let location_binding = args.location.get_inner();
+        let org_config_binding = args.org_config.get_inner();
+        let parent_binding = args.parent.get_inner();
+        let status_binding = args.status.get_inner();
+        let targets_binding = args.targets.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:dataloss/preventionDiscoveryConfig:PreventionDiscoveryConfig"
+                .into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "actions".into(),
+                    value: &actions_binding,
+                },
+                register_interface::ObjectField {
+                    name: "displayName".into(),
+                    value: &display_name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "inspectTemplates".into(),
+                    value: &inspect_templates_binding,
+                },
+                register_interface::ObjectField {
+                    name: "location".into(),
+                    value: &location_binding,
+                },
+                register_interface::ObjectField {
+                    name: "orgConfig".into(),
+                    value: &org_config_binding,
+                },
+                register_interface::ObjectField {
+                    name: "parent".into(),
+                    value: &parent_binding,
+                },
+                register_interface::ObjectField {
+                    name: "status".into(),
+                    value: &status_binding,
+                },
+                register_interface::ObjectField {
+                    name: "targets".into(),
+                    value: &targets_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "actions".into(),
+                },
+                register_interface::ResultField {
+                    name: "createTime".into(),
+                },
+                register_interface::ResultField {
+                    name: "displayName".into(),
+                },
+                register_interface::ResultField {
+                    name: "errors".into(),
+                },
+                register_interface::ResultField {
+                    name: "inspectTemplates".into(),
+                },
+                register_interface::ResultField {
+                    name: "lastRunTime".into(),
+                },
+                register_interface::ResultField {
+                    name: "location".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "orgConfig".into(),
+                },
+                register_interface::ResultField {
+                    name: "parent".into(),
+                },
+                register_interface::ResultField {
+                    name: "status".into(),
+                },
+                register_interface::ResultField {
+                    name: "targets".into(),
+                },
+                register_interface::ResultField {
+                    name: "updateTime".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        PreventionDiscoveryConfigResult {
+            actions: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("actions").unwrap(),
+            ),
+            create_time: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("createTime").unwrap(),
+            ),
+            display_name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("displayName").unwrap(),
+            ),
+            errors: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("errors").unwrap(),
+            ),
+            inspect_templates: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("inspectTemplates").unwrap(),
+            ),
+            last_run_time: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("lastRunTime").unwrap(),
+            ),
+            location: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("location").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            org_config: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("orgConfig").unwrap(),
+            ),
+            parent: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("parent").unwrap(),
+            ),
+            status: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("status").unwrap(),
+            ),
+            targets: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("targets").unwrap(),
+            ),
+            update_time: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("updateTime").unwrap(),
+            ),
+        }
+    }
+}

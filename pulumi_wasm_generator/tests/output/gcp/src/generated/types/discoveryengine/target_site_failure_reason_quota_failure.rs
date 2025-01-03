@@ -1,0 +1,10 @@
+#[derive(pulumi_wasm_rust::__private::serde::Deserialize, pulumi_wasm_rust::__private::serde::Serialize, pulumi_wasm_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
+#[builder(finish_fn = build_struct)]
+#[allow(dead_code)]
+pub struct TargetSiteFailureReasonQuotaFailure {
+    /// This number is an estimation on how much total quota this project
+    /// needs to successfully complete indexing.
+    #[builder(into, default)]
+    #[serde(rename = "totalRequiredQuota")]
+    pub r#total_required_quota: Box<Option<i32>>,
+}

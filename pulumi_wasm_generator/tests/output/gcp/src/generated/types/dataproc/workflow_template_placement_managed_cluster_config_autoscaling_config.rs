@@ -1,0 +1,9 @@
+#[derive(pulumi_wasm_rust::__private::serde::Deserialize, pulumi_wasm_rust::__private::serde::Serialize, pulumi_wasm_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
+#[builder(finish_fn = build_struct)]
+#[allow(dead_code)]
+pub struct WorkflowTemplatePlacementManagedClusterConfigAutoscalingConfig {
+    /// The autoscaling policy used by the cluster. Only resource names including projectid and location (region) are valid. Examples: * `https://www.googleapis.com/compute/v1/projects/` Note that the policy must be in the same project and Dataproc region.
+    #[builder(into, default)]
+    #[serde(rename = "policy")]
+    pub r#policy: Box<Option<String>>,
+}

@@ -9,6 +9,7 @@ edition.workspace = true
 # DO NOT EDIT - START
 generator_cloudflare = []
 generator_docker = []
+generator_gcp = []
 generator_random = []
 generator_array-of-enum-map = []
 generator_azure-native-nested-types = []

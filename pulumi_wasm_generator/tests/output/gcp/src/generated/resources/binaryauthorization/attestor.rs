@@ -1,0 +1,226 @@
+/// An attestor that attests to container image artifacts.
+///
+///
+/// To get more information about Attestor, see:
+///
+/// * [API documentation](https://cloud.google.com/binary-authorization/docs/reference/rest/)
+/// * How-to Guides
+///     * [Official Documentation](https://cloud.google.com/binary-authorization/)
+///
+/// ## Example Usage
+///
+/// ### Binary Authorization Attestor Basic
+///
+///
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let attestor = attestor::create(
+///         "attestor",
+///         AttestorArgs::builder()
+///             .attestation_authority_note(
+///                 AttestorAttestationAuthorityNote::builder()
+///                     .noteReference("${note.name}")
+///                     .publicKeys(
+///                         vec![
+///                             AttestorAttestationAuthorityNotePublicKey::builder()
+///                             .asciiArmoredPgpPublicKey("mQENBFtP0doBCADF+joTiXWKVuP8kJt3fgpBSjT9h8ezMfKA4aXZctYLx5wslWQl\nbB7Iu2ezkECNzoEeU7WxUe8a61pMCh9cisS9H5mB2K2uM4Jnf8tgFeXn3akJDVo0\noR1IC+Dp9mXbRSK3MAvKkOwWlG99sx3uEdvmeBRHBOO+grchLx24EThXFOyP9Fk6\nV39j6xMjw4aggLD15B4V0v9JqBDdJiIYFzszZDL6pJwZrzcP0z8JO4rTZd+f64bD\nMpj52j/pQfA8lZHOaAgb1OrthLdMrBAjoDjArV4Ek7vSbrcgYWcI6BhsQrFoxKdX\n83TZKai55ZCfCLIskwUIzA1NLVwyzCS+fSN/ABEBAAG0KCJUZXN0IEF0dGVzdG9y\nIiA8ZGFuYWhvZmZtYW5AZ29vZ2xlLmNvbT6JAU4EEwEIADgWIQRfWkqHt6hpTA1L\nuY060eeM4dc66AUCW0/R2gIbLwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgAAKCRA6\n0eeM4dc66HdpCAC4ot3b0OyxPb0Ip+WT2U0PbpTBPJklesuwpIrM4Lh0N+1nVRLC\n51WSmVbM8BiAFhLbN9LpdHhds1kUrHF7+wWAjdR8sqAj9otc6HGRM/3qfa2qgh+U\nWTEk/3us/rYSi7T7TkMuutRMIa1IkR13uKiW56csEMnbOQpn9rDqwIr5R8nlZP5h\nMAU9vdm1DIv567meMqTaVZgR3w7bck2P49AO8lO5ERFpVkErtu/98y+rUy9d789l\n+OPuS1NGnxI1YKsNaWJF4uJVuvQuZ1twrhCbGNtVorO2U12+cEq+YtUxj7kmdOC1\nqoIRW6y0+UlAc+MbqfL0ziHDOAmcqz1GnROg\n=6Bvm\n")
+///                             .build_struct(),
+///                         ],
+///                     )
+///                     .build_struct(),
+///             )
+///             .name("test-attestor")
+///             .build_struct(),
+///     );
+///     let note = note::create(
+///         "note",
+///         NoteArgs::builder()
+///             .attestation_authority(
+///                 NoteAttestationAuthority::builder()
+///                     .hint(
+///                         NoteAttestationAuthorityHint::builder()
+///                             .humanReadableName("Attestor Note")
+///                             .build_struct(),
+///                     )
+///                     .build_struct(),
+///             )
+///             .name("test-attestor-note")
+///             .build_struct(),
+///     );
+/// }
+/// ```
+/// ### Binary Authorization Attestor Kms
+///
+///
+/// ```yaml
+/// resources:
+///   attestor:
+///     type: gcp:binaryauthorization:Attestor
+///     properties:
+///       name: test-attestor
+///       attestationAuthorityNote:
+///         noteReference: ${note.name}
+///         publicKeys:
+///           - id: ${version.id}
+///             pkixPublicKey:
+///               publicKeyPem: ${version.publicKeys[0].pem}
+///               signatureAlgorithm: ${version.publicKeys[0].algorithm}
+///   note:
+///     type: gcp:containeranalysis:Note
+///     properties:
+///       name: test-attestor-note
+///       attestationAuthority:
+///         hint:
+///           humanReadableName: Attestor Note
+///   crypto-key:
+///     type: gcp:kms:CryptoKey
+///     properties:
+///       name: test-attestor-key
+///       keyRing: ${keyring.id}
+///       purpose: ASYMMETRIC_SIGN
+///       versionTemplate:
+///         algorithm: RSA_SIGN_PKCS1_4096_SHA512
+///   keyring:
+///     type: gcp:kms:KeyRing
+///     properties:
+///       name: test-attestor-key-ring
+///       location: global
+/// variables:
+///   version:
+///     fn::invoke:
+///       function: gcp:kms:getKMSCryptoKeyVersion
+///       arguments:
+///         cryptoKey: ${["crypto-key"].id}
+/// ```
+///
+/// ## Import
+///
+/// Attestor can be imported using any of these accepted formats:
+///
+/// * `projects/{{project}}/attestors/{{name}}`
+///
+/// * `{{project}}/{{name}}`
+///
+/// * `{{name}}`
+///
+/// When using the `pulumi import` command, Attestor can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:binaryauthorization/attestor:Attestor default projects/{{project}}/attestors/{{name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:binaryauthorization/attestor:Attestor default {{project}}/{{name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:binaryauthorization/attestor:Attestor default {{name}}
+/// ```
+///
+pub mod attestor {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct AttestorArgs {
+        /// A Container Analysis ATTESTATION_AUTHORITY Note, created by the user.
+        /// Structure is documented below.
+        #[builder(into)]
+        pub attestation_authority_note: pulumi_wasm_rust::Output<
+            super::super::types::binaryauthorization::AttestorAttestationAuthorityNote,
+        >,
+        /// A descriptive comment. This field may be updated. The field may be displayed in chooser dialogs.
+        #[builder(into, default)]
+        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        /// The resource name.
+        #[builder(into, default)]
+        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        #[builder(into, default)]
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+    }
+    #[allow(dead_code)]
+    pub struct AttestorResult {
+        /// A Container Analysis ATTESTATION_AUTHORITY Note, created by the user.
+        /// Structure is documented below.
+        pub attestation_authority_note: pulumi_wasm_rust::Output<
+            super::super::types::binaryauthorization::AttestorAttestationAuthorityNote,
+        >,
+        /// A descriptive comment. This field may be updated. The field may be displayed in chooser dialogs.
+        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        /// The resource name.
+        pub name: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: AttestorArgs) -> AttestorResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let attestation_authority_note_binding = args
+            .attestation_authority_note
+            .get_inner();
+        let description_binding = args.description.get_inner();
+        let name_binding = args.name.get_inner();
+        let project_binding = args.project.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:binaryauthorization/attestor:Attestor".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "attestationAuthorityNote".into(),
+                    value: &attestation_authority_note_binding,
+                },
+                register_interface::ObjectField {
+                    name: "description".into(),
+                    value: &description_binding,
+                },
+                register_interface::ObjectField {
+                    name: "name".into(),
+                    value: &name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "attestationAuthorityNote".into(),
+                },
+                register_interface::ResultField {
+                    name: "description".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        AttestorResult {
+            attestation_authority_note: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("attestationAuthorityNote").unwrap(),
+            ),
+            description: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("description").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+        }
+    }
+}

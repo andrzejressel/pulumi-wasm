@@ -1,0 +1,286 @@
+/// Represents a machine learning solution.
+///
+/// A model can have multiple versions, each of which is a deployed, trained model
+/// ready to receive prediction requests. The model itself is just a container.
+///
+///
+/// To get more information about Model, see:
+///
+/// * [API documentation](https://cloud.google.com/ai-platform/prediction/docs/reference/rest/v1/projects.models)
+/// * How-to Guides
+///     * [Official Documentation](https://cloud.google.com/ai-platform/prediction/docs/deploying-models)
+///
+/// ## Example Usage
+///
+/// ### Ml Model Basic
+///
+///
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let default = engine_model::create(
+///         "default",
+///         EngineModelArgs::builder()
+///             .description("My model")
+///             .name("default")
+///             .regions("us-central1")
+///             .build_struct(),
+///     );
+/// }
+/// ```
+/// ### Ml Model Full
+///
+///
+/// ```yaml
+/// resources:
+///   default:
+///     type: gcp:ml:EngineModel
+///     properties:
+///       name: default
+///       description: My model
+///       regions: us-central1
+///       labels:
+///         my_model: foo
+///       onlinePredictionLogging: true
+///       onlinePredictionConsoleLogging: true
+/// ```
+///
+/// ## Import
+///
+/// Model can be imported using any of these accepted formats:
+///
+/// * `projects/{{project}}/models/{{name}}`
+///
+/// * `{{project}}/{{name}}`
+///
+/// * `{{name}}`
+///
+/// When using the `pulumi import` command, Model can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:ml/engineModel:EngineModel default projects/{{project}}/models/{{name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:ml/engineModel:EngineModel default {{project}}/{{name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:ml/engineModel:EngineModel default {{name}}
+/// ```
+///
+pub mod engine_model {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct EngineModelArgs {
+        /// The default version of the model. This version will be used to handle
+        /// prediction requests that do not specify a version.
+        /// Structure is documented below.
+        #[builder(into, default)]
+        pub default_version: pulumi_wasm_rust::Output<
+            Option<super::super::types::ml::EngineModelDefaultVersion>,
+        >,
+        /// The description specified for the model when it was created.
+        #[builder(into, default)]
+        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        /// One or more labels that you can add, to organize your models.
+        /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
+        /// Please refer to the field `effective_labels` for all of the labels present on the resource.
+        #[builder(into, default)]
+        pub labels: pulumi_wasm_rust::Output<
+            Option<std::collections::HashMap<String, String>>,
+        >,
+        /// The name specified for the model.
+        ///
+        ///
+        /// - - -
+        #[builder(into, default)]
+        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        /// If true, online prediction nodes send stderr and stdout streams to Stackdriver Logging
+        #[builder(into, default)]
+        pub online_prediction_console_logging: pulumi_wasm_rust::Output<Option<bool>>,
+        /// If true, online prediction access logs are sent to StackDriver Logging.
+        #[builder(into, default)]
+        pub online_prediction_logging: pulumi_wasm_rust::Output<Option<bool>>,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        #[builder(into, default)]
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        /// The list of regions where the model is going to be deployed.
+        /// Currently only one region per model is supported
+        #[builder(into, default)]
+        pub regions: pulumi_wasm_rust::Output<Option<String>>,
+    }
+    #[allow(dead_code)]
+    pub struct EngineModelResult {
+        /// The default version of the model. This version will be used to handle
+        /// prediction requests that do not specify a version.
+        /// Structure is documented below.
+        pub default_version: pulumi_wasm_rust::Output<
+            Option<super::super::types::ml::EngineModelDefaultVersion>,
+        >,
+        /// The description specified for the model when it was created.
+        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
+        pub effective_labels: pulumi_wasm_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
+        /// One or more labels that you can add, to organize your models.
+        /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
+        /// Please refer to the field `effective_labels` for all of the labels present on the resource.
+        pub labels: pulumi_wasm_rust::Output<
+            Option<std::collections::HashMap<String, String>>,
+        >,
+        /// The name specified for the model.
+        ///
+        ///
+        /// - - -
+        pub name: pulumi_wasm_rust::Output<String>,
+        /// If true, online prediction nodes send stderr and stdout streams to Stackdriver Logging
+        pub online_prediction_console_logging: pulumi_wasm_rust::Output<Option<bool>>,
+        /// If true, online prediction access logs are sent to StackDriver Logging.
+        pub online_prediction_logging: pulumi_wasm_rust::Output<Option<bool>>,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        pub project: pulumi_wasm_rust::Output<String>,
+        /// The combination of labels configured directly on the resource
+        /// and default labels configured on the provider.
+        pub pulumi_labels: pulumi_wasm_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
+        /// The list of regions where the model is going to be deployed.
+        /// Currently only one region per model is supported
+        pub regions: pulumi_wasm_rust::Output<Option<String>>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: EngineModelArgs) -> EngineModelResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let default_version_binding = args.default_version.get_inner();
+        let description_binding = args.description.get_inner();
+        let labels_binding = args.labels.get_inner();
+        let name_binding = args.name.get_inner();
+        let online_prediction_console_logging_binding = args
+            .online_prediction_console_logging
+            .get_inner();
+        let online_prediction_logging_binding = args
+            .online_prediction_logging
+            .get_inner();
+        let project_binding = args.project.get_inner();
+        let regions_binding = args.regions.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:ml/engineModel:EngineModel".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "defaultVersion".into(),
+                    value: &default_version_binding,
+                },
+                register_interface::ObjectField {
+                    name: "description".into(),
+                    value: &description_binding,
+                },
+                register_interface::ObjectField {
+                    name: "labels".into(),
+                    value: &labels_binding,
+                },
+                register_interface::ObjectField {
+                    name: "name".into(),
+                    value: &name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "onlinePredictionConsoleLogging".into(),
+                    value: &online_prediction_console_logging_binding,
+                },
+                register_interface::ObjectField {
+                    name: "onlinePredictionLogging".into(),
+                    value: &online_prediction_logging_binding,
+                },
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+                register_interface::ObjectField {
+                    name: "regions".into(),
+                    value: &regions_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "defaultVersion".into(),
+                },
+                register_interface::ResultField {
+                    name: "description".into(),
+                },
+                register_interface::ResultField {
+                    name: "effectiveLabels".into(),
+                },
+                register_interface::ResultField {
+                    name: "labels".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "onlinePredictionConsoleLogging".into(),
+                },
+                register_interface::ResultField {
+                    name: "onlinePredictionLogging".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+                register_interface::ResultField {
+                    name: "pulumiLabels".into(),
+                },
+                register_interface::ResultField {
+                    name: "regions".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        EngineModelResult {
+            default_version: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("defaultVersion").unwrap(),
+            ),
+            description: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("description").unwrap(),
+            ),
+            effective_labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("effectiveLabels").unwrap(),
+            ),
+            labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("labels").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            online_prediction_console_logging: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("onlinePredictionConsoleLogging").unwrap(),
+            ),
+            online_prediction_logging: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("onlinePredictionLogging").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("pulumiLabels").unwrap(),
+            ),
+            regions: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("regions").unwrap(),
+            ),
+        }
+    }
+}

@@ -1,0 +1,9 @@
+#[derive(pulumi_wasm_rust::__private::serde::Deserialize, pulumi_wasm_rust::__private::serde::Serialize, pulumi_wasm_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
+#[builder(finish_fn = build_struct)]
+#[allow(dead_code)]
+pub struct ConnectionSparkSparkHistoryServerConfig {
+    /// Resource name of an existing Dataproc Cluster to act as a Spark History Server for the connection if the form of projects/[projectId]/regions/[region]/clusters/[cluster_name].
+    #[builder(into, default)]
+    #[serde(rename = "dataprocCluster")]
+    pub r#dataproc_cluster: Box<Option<String>>,
+}

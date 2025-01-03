@@ -1,0 +1,21 @@
+#[derive(pulumi_wasm_rust::__private::serde::Deserialize, pulumi_wasm_rust::__private::serde::Serialize, pulumi_wasm_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
+#[builder(finish_fn = build_struct)]
+#[allow(dead_code)]
+pub struct JobTemplateConfigEncryptionDrmSystems {
+    /// Clearkey configuration.
+    #[builder(into, default)]
+    #[serde(rename = "clearkey")]
+    pub r#clearkey: Box<Option<super::super::types::transcoder::JobTemplateConfigEncryptionDrmSystemsClearkey>>,
+    /// Fairplay configuration.
+    #[builder(into, default)]
+    #[serde(rename = "fairplay")]
+    pub r#fairplay: Box<Option<super::super::types::transcoder::JobTemplateConfigEncryptionDrmSystemsFairplay>>,
+    /// Playready configuration.
+    #[builder(into, default)]
+    #[serde(rename = "playready")]
+    pub r#playready: Box<Option<super::super::types::transcoder::JobTemplateConfigEncryptionDrmSystemsPlayready>>,
+    /// Widevine configuration.
+    #[builder(into, default)]
+    #[serde(rename = "widevine")]
+    pub r#widevine: Box<Option<super::super::types::transcoder::JobTemplateConfigEncryptionDrmSystemsWidevine>>,
+}

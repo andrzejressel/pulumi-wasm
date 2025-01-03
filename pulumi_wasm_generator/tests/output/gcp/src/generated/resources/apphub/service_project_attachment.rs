@@ -1,0 +1,219 @@
+/// Represents a Service project attachment to the Host Project.
+///
+///
+///
+/// ## Example Usage
+///
+/// ### Service Project Attachment Basic
+///
+///
+/// ```yaml
+/// resources:
+///   example:
+///     type: gcp:apphub:ServiceProjectAttachment
+///     properties:
+///       serviceProjectAttachmentId: ${serviceProject.projectId}
+///     options:
+///       dependsOn:
+///         - ${wait120s}
+///   serviceProject:
+///     type: gcp:organizations:Project
+///     name: service_project
+///     properties:
+///       projectId: project-1
+///       name: Service Project
+///       orgId: '123456789'
+///       deletionPolicy: DELETE
+///   wait120s:
+///     type: time:sleep
+///     name: wait_120s
+///     properties:
+///       createDuration: 120s
+///     options:
+///       dependsOn:
+///         - ${serviceProject}
+/// ```
+/// ### Service Project Attachment Full
+///
+///
+/// ```yaml
+/// resources:
+///   example2:
+///     type: gcp:apphub:ServiceProjectAttachment
+///     properties:
+///       serviceProjectAttachmentId: ${serviceProjectFull.projectId}
+///       serviceProject: ${serviceProjectFull.projectId}
+///     options:
+///       dependsOn:
+///         - ${wait120s}
+///   serviceProjectFull:
+///     type: gcp:organizations:Project
+///     name: service_project_full
+///     properties:
+///       projectId: project-1
+///       name: Service Project Full
+///       orgId: '123456789'
+///       deletionPolicy: DELETE
+///   wait120s:
+///     type: time:sleep
+///     name: wait_120s
+///     properties:
+///       createDuration: 120s
+///     options:
+///       dependsOn:
+///         - ${serviceProjectFull}
+/// ```
+///
+/// ## Import
+///
+/// ServiceProjectAttachment can be imported using any of these accepted formats:
+///
+/// * `projects/{{project}}/locations/global/serviceProjectAttachments/{{service_project_attachment_id}}`
+///
+/// * `{{project}}/{{service_project_attachment_id}}`
+///
+/// * `{{service_project_attachment_id}}`
+///
+/// When using the `pulumi import` command, ServiceProjectAttachment can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:apphub/serviceProjectAttachment:ServiceProjectAttachment default projects/{{project}}/locations/global/serviceProjectAttachments/{{service_project_attachment_id}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:apphub/serviceProjectAttachment:ServiceProjectAttachment default {{project}}/{{service_project_attachment_id}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:apphub/serviceProjectAttachment:ServiceProjectAttachment default {{service_project_attachment_id}}
+/// ```
+///
+pub mod service_project_attachment {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct ServiceProjectAttachmentArgs {
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        #[builder(into, default)]
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        /// "Immutable. Service project name in the format: \"projects/abc\"
+        /// or \"projects/123\". As input, project name with either project id or number
+        /// are accepted. As output, this field will contain project number."
+        #[builder(into, default)]
+        pub service_project: pulumi_wasm_rust::Output<Option<String>>,
+        /// Required. The service project attachment identifier must contain the project_id of the service project specified in the service_project_attachment.service_project field. Hint: "projects/{project_id}"
+        ///
+        ///
+        /// - - -
+        #[builder(into)]
+        pub service_project_attachment_id: pulumi_wasm_rust::Output<String>,
+    }
+    #[allow(dead_code)]
+    pub struct ServiceProjectAttachmentResult {
+        /// Output only. Create time.
+        pub create_time: pulumi_wasm_rust::Output<String>,
+        /// "Identifier. The resource name of a ServiceProjectAttachment. Format:\"projects/{host-project-id}/locations/global/serviceProjectAttachments/{service-project-id}.\""
+        pub name: pulumi_wasm_rust::Output<String>,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        pub project: pulumi_wasm_rust::Output<String>,
+        /// "Immutable. Service project name in the format: \"projects/abc\"
+        /// or \"projects/123\". As input, project name with either project id or number
+        /// are accepted. As output, this field will contain project number."
+        pub service_project: pulumi_wasm_rust::Output<Option<String>>,
+        /// Required. The service project attachment identifier must contain the project_id of the service project specified in the service_project_attachment.service_project field. Hint: "projects/{project_id}"
+        ///
+        ///
+        /// - - -
+        pub service_project_attachment_id: pulumi_wasm_rust::Output<String>,
+        /// ServiceProjectAttachment state.
+        pub state: pulumi_wasm_rust::Output<String>,
+        /// Output only. A globally unique identifier (in UUID4 format) for the `ServiceProjectAttachment`.
+        pub uid: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(
+        name: &str,
+        args: ServiceProjectAttachmentArgs,
+    ) -> ServiceProjectAttachmentResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let project_binding = args.project.get_inner();
+        let service_project_binding = args.service_project.get_inner();
+        let service_project_attachment_id_binding = args
+            .service_project_attachment_id
+            .get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:apphub/serviceProjectAttachment:ServiceProjectAttachment".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+                register_interface::ObjectField {
+                    name: "serviceProject".into(),
+                    value: &service_project_binding,
+                },
+                register_interface::ObjectField {
+                    name: "serviceProjectAttachmentId".into(),
+                    value: &service_project_attachment_id_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "createTime".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+                register_interface::ResultField {
+                    name: "serviceProject".into(),
+                },
+                register_interface::ResultField {
+                    name: "serviceProjectAttachmentId".into(),
+                },
+                register_interface::ResultField {
+                    name: "state".into(),
+                },
+                register_interface::ResultField {
+                    name: "uid".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        ServiceProjectAttachmentResult {
+            create_time: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("createTime").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+            service_project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("serviceProject").unwrap(),
+            ),
+            service_project_attachment_id: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("serviceProjectAttachmentId").unwrap(),
+            ),
+            state: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("state").unwrap(),
+            ),
+            uid: pulumi_wasm_rust::__private::into_domain(hashmap.remove("uid").unwrap()),
+        }
+    }
+}

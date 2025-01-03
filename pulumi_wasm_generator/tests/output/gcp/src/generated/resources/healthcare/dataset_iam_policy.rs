@@ -1,0 +1,210 @@
+/// Three different resources help you manage your IAM policy for Healthcare dataset. Each of these resources serves a different use case:
+///
+/// * `gcp.healthcare.DatasetIamPolicy`: Authoritative. Sets the IAM policy for the dataset and replaces any existing policy already attached.
+/// * `gcp.healthcare.DatasetIamBinding`: Authoritative for a given role. Updates the IAM policy to grant a role to a list of members. Other roles within the IAM policy for the dataset are preserved.
+/// * `gcp.healthcare.DatasetIamMember`: Non-authoritative. Updates the IAM policy to grant a role to a new member. Other members for the role for the dataset are preserved.
+///
+/// > **Note:** `gcp.healthcare.DatasetIamPolicy` **cannot** be used in conjunction with `gcp.healthcare.DatasetIamBinding` and `gcp.healthcare.DatasetIamMember` or they will fight over what your policy should be.
+///
+/// > **Note:** `gcp.healthcare.DatasetIamBinding` resources **can be** used in conjunction with `gcp.healthcare.DatasetIamMember` resources **only if** they do not grant privilege to the same role.
+///
+/// ## gcp.healthcare.DatasetIamPolicy
+///
+/// ```yaml
+/// resources:
+///   dataset:
+///     type: gcp:healthcare:DatasetIamPolicy
+///     properties:
+///       datasetId: your-dataset-id
+///       policyData: ${admin.policyData}
+/// variables:
+///   admin:
+///     fn::invoke:
+///       function: gcp:organizations:getIAMPolicy
+///       arguments:
+///         bindings:
+///           - role: roles/editor
+///             members:
+///               - user:jane@example.com
+/// ```
+///
+/// ## gcp.healthcare.DatasetIamBinding
+///
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let dataset = dataset_iam_binding::create(
+///         "dataset",
+///         DatasetIamBindingArgs::builder()
+///             .dataset_id("your-dataset-id")
+///             .members(vec!["user:jane@example.com",])
+///             .role("roles/editor")
+///             .build_struct(),
+///     );
+/// }
+/// ```
+///
+/// ## gcp.healthcare.DatasetIamMember
+///
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let dataset = dataset_iam_member::create(
+///         "dataset",
+///         DatasetIamMemberArgs::builder()
+///             .dataset_id("your-dataset-id")
+///             .member("user:jane@example.com")
+///             .role("roles/editor")
+///             .build_struct(),
+///     );
+/// }
+/// ```
+///
+/// ## gcp.healthcare.DatasetIamBinding
+///
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let dataset = dataset_iam_binding::create(
+///         "dataset",
+///         DatasetIamBindingArgs::builder()
+///             .dataset_id("your-dataset-id")
+///             .members(vec!["user:jane@example.com",])
+///             .role("roles/editor")
+///             .build_struct(),
+///     );
+/// }
+/// ```
+///
+/// ## gcp.healthcare.DatasetIamMember
+///
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let dataset = dataset_iam_member::create(
+///         "dataset",
+///         DatasetIamMemberArgs::builder()
+///             .dataset_id("your-dataset-id")
+///             .member("user:jane@example.com")
+///             .role("roles/editor")
+///             .build_struct(),
+///     );
+/// }
+/// ```
+///
+/// ## Import
+///
+/// ### Importing IAM policies
+///
+/// IAM policy imports use the identifier of the Healthcase Dataset resource. For example:
+///
+/// * `"{{project_id}}/{{location}}/{{dataset}}"`
+///
+/// An `import` block (Terraform v1.5.0 and later) can be used to import IAM policies:
+///
+/// tf
+///
+/// import {
+///
+///   id = "{{project_id}}/{{location}}/{{dataset}}"
+///
+///   to = google_healthcare_dataset_iam_policy.default
+///
+/// }
+///
+/// The `pulumi import` command can also be used:
+///
+/// ```sh
+/// $ pulumi import gcp:healthcare/datasetIamPolicy:DatasetIamPolicy default {{project_id}}/{{location}}/{{dataset}}
+/// ```
+///
+pub mod dataset_iam_policy {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct DatasetIamPolicyArgs {
+        /// The dataset ID, in the form
+        /// `{project_id}/{location_name}/{dataset_name}` or
+        /// `{location_name}/{dataset_name}`. In the second form, the provider's
+        /// project setting will be used as a fallback.
+        #[builder(into)]
+        pub dataset_id: pulumi_wasm_rust::Output<String>,
+        /// The policy data generated by
+        /// a `gcp.organizations.getIAMPolicy` data source.
+        #[builder(into)]
+        pub policy_data: pulumi_wasm_rust::Output<String>,
+    }
+    #[allow(dead_code)]
+    pub struct DatasetIamPolicyResult {
+        /// The dataset ID, in the form
+        /// `{project_id}/{location_name}/{dataset_name}` or
+        /// `{location_name}/{dataset_name}`. In the second form, the provider's
+        /// project setting will be used as a fallback.
+        pub dataset_id: pulumi_wasm_rust::Output<String>,
+        /// (Computed) The etag of the dataset's IAM policy.
+        pub etag: pulumi_wasm_rust::Output<String>,
+        /// The policy data generated by
+        /// a `gcp.organizations.getIAMPolicy` data source.
+        pub policy_data: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: DatasetIamPolicyArgs) -> DatasetIamPolicyResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let dataset_id_binding = args.dataset_id.get_inner();
+        let policy_data_binding = args.policy_data.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:healthcare/datasetIamPolicy:DatasetIamPolicy".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "datasetId".into(),
+                    value: &dataset_id_binding,
+                },
+                register_interface::ObjectField {
+                    name: "policyData".into(),
+                    value: &policy_data_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "datasetId".into(),
+                },
+                register_interface::ResultField {
+                    name: "etag".into(),
+                },
+                register_interface::ResultField {
+                    name: "policyData".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        DatasetIamPolicyResult {
+            dataset_id: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("datasetId").unwrap(),
+            ),
+            etag: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("etag").unwrap(),
+            ),
+            policy_data: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("policyData").unwrap(),
+            ),
+        }
+    }
+}

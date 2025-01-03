@@ -1,0 +1,398 @@
+/// An isolated set of Cloud Spanner resources on which databases can be
+/// hosted.
+///
+///
+/// To get more information about Instance, see:
+///
+/// * [API documentation](https://cloud.google.com/spanner/docs/reference/rest/v1/projects.instances)
+/// * How-to Guides
+///     * [Official Documentation](https://cloud.google.com/spanner/)
+///
+/// ## Example Usage
+///
+/// ### Spanner Instance Basic
+///
+///
+/// ```yaml
+/// resources:
+///   example:
+///     type: gcp:spanner:Instance
+///     properties:
+///       config: regional-us-central1
+///       displayName: Test Spanner Instance
+///       numNodes: 2
+///       edition: STANDARD
+///       defaultBackupScheduleType: AUTOMATIC
+///       labels:
+///         foo: bar
+/// ```
+/// ### Spanner Instance Processing Units
+///
+///
+/// ```yaml
+/// resources:
+///   example:
+///     type: gcp:spanner:Instance
+///     properties:
+///       config: regional-us-central1
+///       displayName: Test Spanner Instance
+///       processingUnits: 200
+///       labels:
+///         foo: bar
+/// ```
+/// ### Spanner Instance With Autoscaling
+///
+///
+/// ```yaml
+/// resources:
+///   example:
+///     type: gcp:spanner:Instance
+///     properties:
+///       config: regional-us-central1
+///       displayName: Test Spanner Instance
+///       autoscalingConfig:
+///         autoscalingLimits:
+///           maxProcessingUnits: 3000
+///           minProcessingUnits: 2000
+///         autoscalingTargets:
+///           highPriorityCpuUtilizationPercent: 75
+///           storageUtilizationPercent: 90
+///       labels:
+///         foo: bar
+/// ```
+/// ### Spanner Instance Multi Regional
+///
+///
+/// ```yaml
+/// resources:
+///   example:
+///     type: gcp:spanner:Instance
+///     properties:
+///       config: nam-eur-asia1
+///       displayName: Multi Regional Instance
+///       numNodes: 2
+///       labels:
+///         foo: bar
+/// ```
+///
+/// ## Import
+///
+/// Instance can be imported using any of these accepted formats:
+///
+/// * `projects/{{project}}/instances/{{name}}`
+///
+/// * `{{project}}/{{name}}`
+///
+/// * `{{name}}`
+///
+/// When using the `pulumi import` command, Instance can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:spanner/instance:Instance default projects/{{project}}/instances/{{name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:spanner/instance:Instance default {{project}}/{{name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:spanner/instance:Instance default {{name}}
+/// ```
+///
+pub mod instance {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct InstanceArgs {
+        /// The autoscaling configuration. Autoscaling is enabled if this field is set.
+        /// When autoscaling is enabled, num_nodes and processing_units are treated as,
+        /// OUTPUT_ONLY fields and reflect the current compute capacity allocated to
+        /// the instance.
+        /// Structure is documented below.
+        #[builder(into, default)]
+        pub autoscaling_config: pulumi_wasm_rust::Output<
+            Option<super::super::types::spanner::InstanceAutoscalingConfig>,
+        >,
+        /// The name of the instance's configuration (similar but not
+        /// quite the same as a region) which defines the geographic placement and
+        /// replication of your databases in this instance. It determines where your data
+        /// is stored. Values are typically of the form `regional-europe-west1` , `us-central` etc.
+        /// In order to obtain a valid list please consult the
+        /// [Configuration section of the docs](https://cloud.google.com/spanner/docs/instances).
+        #[builder(into)]
+        pub config: pulumi_wasm_rust::Output<String>,
+        /// Controls the default backup behavior for new databases within the instance.
+        /// Note that `AUTOMATIC` is not permitted for free instances, as backups and backup schedules are not allowed for free instances.
+        /// if unset or NONE, no default backup schedule will be created for new databases within the instance.
+        /// Possible values are: `NONE`, `AUTOMATIC`.
+        #[builder(into, default)]
+        pub default_backup_schedule_type: pulumi_wasm_rust::Output<Option<String>>,
+        /// The descriptive name for this instance as it appears in UIs. Must be
+        /// unique per project and between 4 and 30 characters in length.
+        ///
+        ///
+        /// - - -
+        #[builder(into)]
+        pub display_name: pulumi_wasm_rust::Output<String>,
+        /// The edition selected for this instance. Different editions provide different capabilities at different price points.
+        /// Possible values are: `EDITION_UNSPECIFIED`, `STANDARD`, `ENTERPRISE`, `ENTERPRISE_PLUS`.
+        #[builder(into, default)]
+        pub edition: pulumi_wasm_rust::Output<Option<String>>,
+        /// When deleting a spanner instance, this boolean option will delete all backups of this instance.
+        /// This must be set to true if you created a backup manually in the console.
+        #[builder(into, default)]
+        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        /// An object containing a list of "key": value pairs.
+        /// Example: { "name": "wrench", "mass": "1.3kg", "count": "3" }.
+        ///
+        /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
+        /// Please refer to the field `effective_labels` for all of the labels present on the resource.
+        #[builder(into, default)]
+        pub labels: pulumi_wasm_rust::Output<
+            Option<std::collections::HashMap<String, String>>,
+        >,
+        /// A unique identifier for the instance, which cannot be changed after
+        /// the instance is created. The name must be between 6 and 30 characters
+        /// in length.
+        /// If not provided, a random string starting with `tf-` will be selected.
+        #[builder(into, default)]
+        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        #[builder(into, default)]
+        pub num_nodes: pulumi_wasm_rust::Output<Option<i32>>,
+        #[builder(into, default)]
+        pub processing_units: pulumi_wasm_rust::Output<Option<i32>>,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        #[builder(into, default)]
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+    }
+    #[allow(dead_code)]
+    pub struct InstanceResult {
+        /// The autoscaling configuration. Autoscaling is enabled if this field is set.
+        /// When autoscaling is enabled, num_nodes and processing_units are treated as,
+        /// OUTPUT_ONLY fields and reflect the current compute capacity allocated to
+        /// the instance.
+        /// Structure is documented below.
+        pub autoscaling_config: pulumi_wasm_rust::Output<
+            Option<super::super::types::spanner::InstanceAutoscalingConfig>,
+        >,
+        /// The name of the instance's configuration (similar but not
+        /// quite the same as a region) which defines the geographic placement and
+        /// replication of your databases in this instance. It determines where your data
+        /// is stored. Values are typically of the form `regional-europe-west1` , `us-central` etc.
+        /// In order to obtain a valid list please consult the
+        /// [Configuration section of the docs](https://cloud.google.com/spanner/docs/instances).
+        pub config: pulumi_wasm_rust::Output<String>,
+        /// Controls the default backup behavior for new databases within the instance.
+        /// Note that `AUTOMATIC` is not permitted for free instances, as backups and backup schedules are not allowed for free instances.
+        /// if unset or NONE, no default backup schedule will be created for new databases within the instance.
+        /// Possible values are: `NONE`, `AUTOMATIC`.
+        pub default_backup_schedule_type: pulumi_wasm_rust::Output<String>,
+        /// The descriptive name for this instance as it appears in UIs. Must be
+        /// unique per project and between 4 and 30 characters in length.
+        ///
+        ///
+        /// - - -
+        pub display_name: pulumi_wasm_rust::Output<String>,
+        /// The edition selected for this instance. Different editions provide different capabilities at different price points.
+        /// Possible values are: `EDITION_UNSPECIFIED`, `STANDARD`, `ENTERPRISE`, `ENTERPRISE_PLUS`.
+        pub edition: pulumi_wasm_rust::Output<String>,
+        /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
+        pub effective_labels: pulumi_wasm_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
+        /// When deleting a spanner instance, this boolean option will delete all backups of this instance.
+        /// This must be set to true if you created a backup manually in the console.
+        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        /// An object containing a list of "key": value pairs.
+        /// Example: { "name": "wrench", "mass": "1.3kg", "count": "3" }.
+        ///
+        /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
+        /// Please refer to the field `effective_labels` for all of the labels present on the resource.
+        pub labels: pulumi_wasm_rust::Output<
+            Option<std::collections::HashMap<String, String>>,
+        >,
+        /// A unique identifier for the instance, which cannot be changed after
+        /// the instance is created. The name must be between 6 and 30 characters
+        /// in length.
+        /// If not provided, a random string starting with `tf-` will be selected.
+        pub name: pulumi_wasm_rust::Output<String>,
+        pub num_nodes: pulumi_wasm_rust::Output<i32>,
+        pub processing_units: pulumi_wasm_rust::Output<i32>,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        pub project: pulumi_wasm_rust::Output<String>,
+        /// The combination of labels configured directly on the resource
+        /// and default labels configured on the provider.
+        pub pulumi_labels: pulumi_wasm_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
+        /// Instance status: `CREATING` or `READY`.
+        pub state: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: InstanceArgs) -> InstanceResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let autoscaling_config_binding = args.autoscaling_config.get_inner();
+        let config_binding = args.config.get_inner();
+        let default_backup_schedule_type_binding = args
+            .default_backup_schedule_type
+            .get_inner();
+        let display_name_binding = args.display_name.get_inner();
+        let edition_binding = args.edition.get_inner();
+        let force_destroy_binding = args.force_destroy.get_inner();
+        let labels_binding = args.labels.get_inner();
+        let name_binding = args.name.get_inner();
+        let num_nodes_binding = args.num_nodes.get_inner();
+        let processing_units_binding = args.processing_units.get_inner();
+        let project_binding = args.project.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:spanner/instance:Instance".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "autoscalingConfig".into(),
+                    value: &autoscaling_config_binding,
+                },
+                register_interface::ObjectField {
+                    name: "config".into(),
+                    value: &config_binding,
+                },
+                register_interface::ObjectField {
+                    name: "defaultBackupScheduleType".into(),
+                    value: &default_backup_schedule_type_binding,
+                },
+                register_interface::ObjectField {
+                    name: "displayName".into(),
+                    value: &display_name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "edition".into(),
+                    value: &edition_binding,
+                },
+                register_interface::ObjectField {
+                    name: "forceDestroy".into(),
+                    value: &force_destroy_binding,
+                },
+                register_interface::ObjectField {
+                    name: "labels".into(),
+                    value: &labels_binding,
+                },
+                register_interface::ObjectField {
+                    name: "name".into(),
+                    value: &name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "numNodes".into(),
+                    value: &num_nodes_binding,
+                },
+                register_interface::ObjectField {
+                    name: "processingUnits".into(),
+                    value: &processing_units_binding,
+                },
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "autoscalingConfig".into(),
+                },
+                register_interface::ResultField {
+                    name: "config".into(),
+                },
+                register_interface::ResultField {
+                    name: "defaultBackupScheduleType".into(),
+                },
+                register_interface::ResultField {
+                    name: "displayName".into(),
+                },
+                register_interface::ResultField {
+                    name: "edition".into(),
+                },
+                register_interface::ResultField {
+                    name: "effectiveLabels".into(),
+                },
+                register_interface::ResultField {
+                    name: "forceDestroy".into(),
+                },
+                register_interface::ResultField {
+                    name: "labels".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "numNodes".into(),
+                },
+                register_interface::ResultField {
+                    name: "processingUnits".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+                register_interface::ResultField {
+                    name: "pulumiLabels".into(),
+                },
+                register_interface::ResultField {
+                    name: "state".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        InstanceResult {
+            autoscaling_config: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("autoscalingConfig").unwrap(),
+            ),
+            config: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("config").unwrap(),
+            ),
+            default_backup_schedule_type: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("defaultBackupScheduleType").unwrap(),
+            ),
+            display_name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("displayName").unwrap(),
+            ),
+            edition: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("edition").unwrap(),
+            ),
+            effective_labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("effectiveLabels").unwrap(),
+            ),
+            force_destroy: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("forceDestroy").unwrap(),
+            ),
+            labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("labels").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            num_nodes: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("numNodes").unwrap(),
+            ),
+            processing_units: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("processingUnits").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("pulumiLabels").unwrap(),
+            ),
+            state: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("state").unwrap(),
+            ),
+        }
+    }
+}

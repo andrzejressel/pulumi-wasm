@@ -1,0 +1,443 @@
+/// A Secret is a logical secret whose value and versions can be accessed.
+///
+///
+/// To get more information about Secret, see:
+///
+/// * [API documentation](https://cloud.google.com/secret-manager/docs/reference/rest/v1/projects.secrets)
+///
+/// ## Example Usage
+///
+/// ### Secret Config Basic
+///
+///
+/// ```yaml
+/// resources:
+///   secret-basic:
+///     type: gcp:secretmanager:Secret
+///     properties:
+///       secretId: secret
+///       labels:
+///         label: my-label
+///       replication:
+///         userManaged:
+///           replicas:
+///             - location: us-central1
+///             - location: us-east1
+/// ```
+/// ### Secret With Annotations
+///
+///
+/// ```yaml
+/// resources:
+///   secret-with-annotations:
+///     type: gcp:secretmanager:Secret
+///     properties:
+///       secretId: secret
+///       labels:
+///         label: my-label
+///       annotations:
+///         key1: someval
+///         key2: someval2
+///         key3: someval3
+///         key4: someval4
+///         key5: someval5
+///       replication:
+///         auto: {}
+/// ```
+/// ### Secret With Version Destroy Ttl
+///
+///
+/// ```yaml
+/// resources:
+///   secret-with-version-destroy-ttl:
+///     type: gcp:secretmanager:Secret
+///     properties:
+///       secretId: secret
+///       versionDestroyTtl: 2592000s
+///       replication:
+///         auto: {}
+/// ```
+/// ### Secret With Automatic Cmek
+///
+///
+/// ```yaml
+/// resources:
+///   kms-secret-binding:
+///     type: gcp:kms:CryptoKeyIAMMember
+///     properties:
+///       cryptoKeyId: kms-key
+///       role: roles/cloudkms.cryptoKeyEncrypterDecrypter
+///       member: serviceAccount:service-${project.number}@gcp-sa-secretmanager.iam.gserviceaccount.com
+///   secret-with-automatic-cmek:
+///     type: gcp:secretmanager:Secret
+///     properties:
+///       secretId: secret
+///       replication:
+///         auto:
+///           customerManagedEncryption:
+///             kmsKeyName: kms-key
+///     options:
+///       dependsOn:
+///         - ${["kms-secret-binding"]}
+/// variables:
+///   project:
+///     fn::invoke:
+///       function: gcp:organizations:getProject
+///       arguments: {}
+/// ```
+///
+/// ## Import
+///
+/// Secret can be imported using any of these accepted formats:
+///
+/// * `projects/{{project}}/secrets/{{secret_id}}`
+///
+/// * `{{project}}/{{secret_id}}`
+///
+/// * `{{secret_id}}`
+///
+/// When using the `pulumi import` command, Secret can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:secretmanager/secret:Secret default projects/{{project}}/secrets/{{secret_id}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:secretmanager/secret:Secret default {{project}}/{{secret_id}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:secretmanager/secret:Secret default {{secret_id}}
+/// ```
+///
+pub mod secret {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct SecretArgs {
+        /// Custom metadata about the secret. Annotations are distinct from various forms of labels. Annotations exist to allow
+        /// client tools to store their own state information without requiring a database. Annotation keys must be between 1 and 63
+        /// characters long, have a UTF-8 encoding of maximum 128 bytes, begin and end with an alphanumeric character ([a-z0-9A-Z]),
+        /// and may have dashes (-), underscores (_), dots (.), and alphanumerics in between these symbols. The total size of
+        /// annotation keys and values must be less than 16KiB. An object containing a list of "key": value pairs. Example: {
+        /// "name": "wrench", "mass": "1.3kg", "count": "3" }. **Note**: This field is non-authoritative, and will only manage the
+        /// annotations present in your configuration. Please refer to the field 'effective_annotations' for all of the annotations
+        /// present on the resource.
+        #[builder(into, default)]
+        pub annotations: pulumi_wasm_rust::Output<
+            Option<std::collections::HashMap<String, String>>,
+        >,
+        /// Timestamp in UTC when the Secret is scheduled to expire. This is always provided on output, regardless of what was sent
+        /// on input. A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits.
+        /// Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z". Only one of 'expire_time' or 'ttl' can be
+        /// provided.
+        #[builder(into, default)]
+        pub expire_time: pulumi_wasm_rust::Output<Option<String>>,
+        /// The labels assigned to this Secret. Label keys must be between 1 and 63 characters long, have a UTF-8 encoding of
+        /// maximum 128 bytes, and must conform to the following PCRE regular expression: [\p{Ll}\p{Lo}][\p{Ll}\p{Lo}\p{N}_-]{0,62}
+        /// Label values must be between 0 and 63 characters long, have a UTF-8 encoding of maximum 128 bytes, and must conform to
+        /// the following PCRE regular expression: [\p{Ll}\p{Lo}\p{N}_-]{0,63} No more than 64 labels can be assigned to a given
+        /// resource. An object containing a list of "key": value pairs. Example: { "name": "wrench", "mass": "1.3kg", "count": "3"
+        /// }. **Note**: This field is non-authoritative, and will only manage the labels present in your configuration. Please
+        /// refer to the field 'effective_labels' for all of the labels present on the resource.
+        #[builder(into, default)]
+        pub labels: pulumi_wasm_rust::Output<
+            Option<std::collections::HashMap<String, String>>,
+        >,
+        #[builder(into, default)]
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        /// The replication policy of the secret data attached to the Secret. It cannot be changed
+        /// after the Secret has been created.
+        /// Structure is documented below.
+        #[builder(into)]
+        pub replication: pulumi_wasm_rust::Output<
+            super::super::types::secretmanager::SecretReplication,
+        >,
+        /// The rotation time and period for a Secret. At 'next_rotation_time', Secret Manager will send a Pub/Sub notification to
+        /// the topics configured on the Secret. 'topics' must be set to configure rotation.
+        #[builder(into, default)]
+        pub rotation: pulumi_wasm_rust::Output<
+            Option<super::super::types::secretmanager::SecretRotation>,
+        >,
+        /// This must be unique within the project.
+        #[builder(into)]
+        pub secret_id: pulumi_wasm_rust::Output<String>,
+        /// A list of up to 10 Pub/Sub topics to which messages are published when control plane operations are called on the secret
+        /// or its versions.
+        #[builder(into, default)]
+        pub topics: pulumi_wasm_rust::Output<
+            Option<Vec<super::super::types::secretmanager::SecretTopic>>,
+        >,
+        /// The TTL for the Secret. A duration in seconds with up to nine fractional digits, terminated by 's'. Example: "3.5s".
+        /// Only one of 'ttl' or 'expire_time' can be provided.
+        #[builder(into, default)]
+        pub ttl: pulumi_wasm_rust::Output<Option<String>>,
+        /// Mapping from version alias to version name. A version alias is a string with a maximum length of 63 characters and can
+        /// contain uppercase and lowercase letters, numerals, and the hyphen (-) and underscore ('_') characters. An alias string
+        /// must start with a letter and cannot be the string 'latest' or 'NEW'. No more than 50 aliases can be assigned to a given
+        /// secret. An object containing a list of "key": value pairs. Example: { "name": "wrench", "mass": "1.3kg", "count": "3" }.
+        #[builder(into, default)]
+        pub version_aliases: pulumi_wasm_rust::Output<
+            Option<std::collections::HashMap<String, String>>,
+        >,
+        /// Secret Version TTL after destruction request. This is a part of the delayed delete feature on Secret Version. For secret
+        /// with versionDestroyTtl>0, version destruction doesn't happen immediately on calling destroy instead the version goes to
+        /// a disabled state and the actual destruction happens after this TTL expires.
+        #[builder(into, default)]
+        pub version_destroy_ttl: pulumi_wasm_rust::Output<Option<String>>,
+    }
+    #[allow(dead_code)]
+    pub struct SecretResult {
+        /// Custom metadata about the secret. Annotations are distinct from various forms of labels. Annotations exist to allow
+        /// client tools to store their own state information without requiring a database. Annotation keys must be between 1 and 63
+        /// characters long, have a UTF-8 encoding of maximum 128 bytes, begin and end with an alphanumeric character ([a-z0-9A-Z]),
+        /// and may have dashes (-), underscores (_), dots (.), and alphanumerics in between these symbols. The total size of
+        /// annotation keys and values must be less than 16KiB. An object containing a list of "key": value pairs. Example: {
+        /// "name": "wrench", "mass": "1.3kg", "count": "3" }. **Note**: This field is non-authoritative, and will only manage the
+        /// annotations present in your configuration. Please refer to the field 'effective_annotations' for all of the annotations
+        /// present on the resource.
+        pub annotations: pulumi_wasm_rust::Output<
+            Option<std::collections::HashMap<String, String>>,
+        >,
+        /// The time at which the Secret was created.
+        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub effective_annotations: pulumi_wasm_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
+        /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
+        pub effective_labels: pulumi_wasm_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
+        /// Timestamp in UTC when the Secret is scheduled to expire. This is always provided on output, regardless of what was sent
+        /// on input. A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits.
+        /// Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z". Only one of 'expire_time' or 'ttl' can be
+        /// provided.
+        pub expire_time: pulumi_wasm_rust::Output<String>,
+        /// The labels assigned to this Secret. Label keys must be between 1 and 63 characters long, have a UTF-8 encoding of
+        /// maximum 128 bytes, and must conform to the following PCRE regular expression: [\p{Ll}\p{Lo}][\p{Ll}\p{Lo}\p{N}_-]{0,62}
+        /// Label values must be between 0 and 63 characters long, have a UTF-8 encoding of maximum 128 bytes, and must conform to
+        /// the following PCRE regular expression: [\p{Ll}\p{Lo}\p{N}_-]{0,63} No more than 64 labels can be assigned to a given
+        /// resource. An object containing a list of "key": value pairs. Example: { "name": "wrench", "mass": "1.3kg", "count": "3"
+        /// }. **Note**: This field is non-authoritative, and will only manage the labels present in your configuration. Please
+        /// refer to the field 'effective_labels' for all of the labels present on the resource.
+        pub labels: pulumi_wasm_rust::Output<
+            Option<std::collections::HashMap<String, String>>,
+        >,
+        /// The resource name of the Secret. Format:
+        /// `projects/{{project}}/secrets/{{secret_id}}`
+        pub name: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_wasm_rust::Output<String>,
+        /// The combination of labels configured directly on the resource
+        /// and default labels configured on the provider.
+        pub pulumi_labels: pulumi_wasm_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
+        /// The replication policy of the secret data attached to the Secret. It cannot be changed
+        /// after the Secret has been created.
+        /// Structure is documented below.
+        pub replication: pulumi_wasm_rust::Output<
+            super::super::types::secretmanager::SecretReplication,
+        >,
+        /// The rotation time and period for a Secret. At 'next_rotation_time', Secret Manager will send a Pub/Sub notification to
+        /// the topics configured on the Secret. 'topics' must be set to configure rotation.
+        pub rotation: pulumi_wasm_rust::Output<
+            Option<super::super::types::secretmanager::SecretRotation>,
+        >,
+        /// This must be unique within the project.
+        pub secret_id: pulumi_wasm_rust::Output<String>,
+        /// A list of up to 10 Pub/Sub topics to which messages are published when control plane operations are called on the secret
+        /// or its versions.
+        pub topics: pulumi_wasm_rust::Output<
+            Option<Vec<super::super::types::secretmanager::SecretTopic>>,
+        >,
+        /// The TTL for the Secret. A duration in seconds with up to nine fractional digits, terminated by 's'. Example: "3.5s".
+        /// Only one of 'ttl' or 'expire_time' can be provided.
+        pub ttl: pulumi_wasm_rust::Output<Option<String>>,
+        /// Mapping from version alias to version name. A version alias is a string with a maximum length of 63 characters and can
+        /// contain uppercase and lowercase letters, numerals, and the hyphen (-) and underscore ('_') characters. An alias string
+        /// must start with a letter and cannot be the string 'latest' or 'NEW'. No more than 50 aliases can be assigned to a given
+        /// secret. An object containing a list of "key": value pairs. Example: { "name": "wrench", "mass": "1.3kg", "count": "3" }.
+        pub version_aliases: pulumi_wasm_rust::Output<
+            Option<std::collections::HashMap<String, String>>,
+        >,
+        /// Secret Version TTL after destruction request. This is a part of the delayed delete feature on Secret Version. For secret
+        /// with versionDestroyTtl>0, version destruction doesn't happen immediately on calling destroy instead the version goes to
+        /// a disabled state and the actual destruction happens after this TTL expires.
+        pub version_destroy_ttl: pulumi_wasm_rust::Output<Option<String>>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: SecretArgs) -> SecretResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let annotations_binding = args.annotations.get_inner();
+        let expire_time_binding = args.expire_time.get_inner();
+        let labels_binding = args.labels.get_inner();
+        let project_binding = args.project.get_inner();
+        let replication_binding = args.replication.get_inner();
+        let rotation_binding = args.rotation.get_inner();
+        let secret_id_binding = args.secret_id.get_inner();
+        let topics_binding = args.topics.get_inner();
+        let ttl_binding = args.ttl.get_inner();
+        let version_aliases_binding = args.version_aliases.get_inner();
+        let version_destroy_ttl_binding = args.version_destroy_ttl.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:secretmanager/secret:Secret".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "annotations".into(),
+                    value: &annotations_binding,
+                },
+                register_interface::ObjectField {
+                    name: "expireTime".into(),
+                    value: &expire_time_binding,
+                },
+                register_interface::ObjectField {
+                    name: "labels".into(),
+                    value: &labels_binding,
+                },
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+                register_interface::ObjectField {
+                    name: "replication".into(),
+                    value: &replication_binding,
+                },
+                register_interface::ObjectField {
+                    name: "rotation".into(),
+                    value: &rotation_binding,
+                },
+                register_interface::ObjectField {
+                    name: "secretId".into(),
+                    value: &secret_id_binding,
+                },
+                register_interface::ObjectField {
+                    name: "topics".into(),
+                    value: &topics_binding,
+                },
+                register_interface::ObjectField {
+                    name: "ttl".into(),
+                    value: &ttl_binding,
+                },
+                register_interface::ObjectField {
+                    name: "versionAliases".into(),
+                    value: &version_aliases_binding,
+                },
+                register_interface::ObjectField {
+                    name: "versionDestroyTtl".into(),
+                    value: &version_destroy_ttl_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "annotations".into(),
+                },
+                register_interface::ResultField {
+                    name: "createTime".into(),
+                },
+                register_interface::ResultField {
+                    name: "effectiveAnnotations".into(),
+                },
+                register_interface::ResultField {
+                    name: "effectiveLabels".into(),
+                },
+                register_interface::ResultField {
+                    name: "expireTime".into(),
+                },
+                register_interface::ResultField {
+                    name: "labels".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+                register_interface::ResultField {
+                    name: "pulumiLabels".into(),
+                },
+                register_interface::ResultField {
+                    name: "replication".into(),
+                },
+                register_interface::ResultField {
+                    name: "rotation".into(),
+                },
+                register_interface::ResultField {
+                    name: "secretId".into(),
+                },
+                register_interface::ResultField {
+                    name: "topics".into(),
+                },
+                register_interface::ResultField {
+                    name: "ttl".into(),
+                },
+                register_interface::ResultField {
+                    name: "versionAliases".into(),
+                },
+                register_interface::ResultField {
+                    name: "versionDestroyTtl".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        SecretResult {
+            annotations: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("annotations").unwrap(),
+            ),
+            create_time: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("createTime").unwrap(),
+            ),
+            effective_annotations: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("effectiveAnnotations").unwrap(),
+            ),
+            effective_labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("effectiveLabels").unwrap(),
+            ),
+            expire_time: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("expireTime").unwrap(),
+            ),
+            labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("labels").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("pulumiLabels").unwrap(),
+            ),
+            replication: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("replication").unwrap(),
+            ),
+            rotation: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("rotation").unwrap(),
+            ),
+            secret_id: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("secretId").unwrap(),
+            ),
+            topics: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("topics").unwrap(),
+            ),
+            ttl: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("ttl").unwrap(),
+            ),
+            version_aliases: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("versionAliases").unwrap(),
+            ),
+            version_destroy_ttl: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("versionDestroyTtl").unwrap(),
+            ),
+        }
+    }
+}

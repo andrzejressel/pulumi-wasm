@@ -1,0 +1,9 @@
+#[derive(pulumi_wasm_rust::__private::serde::Deserialize, pulumi_wasm_rust::__private::serde::Serialize, pulumi_wasm_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
+#[builder(finish_fn = build_struct)]
+#[allow(dead_code)]
+pub struct FeatureMembershipPolicycontrollerPolicyControllerHubConfigMonitoring {
+    /// Specifies the list of backends Policy Controller will export to. Must be one of `CLOUD_MONITORING` or `PROMETHEUS`. Defaults to [`CLOUD_MONITORING`, `PROMETHEUS`]. Specifying an empty value `[]` disables metrics export.
+    #[builder(into, default)]
+    #[serde(rename = "backends")]
+    pub r#backends: Box<Option<Vec<String>>>,
+}

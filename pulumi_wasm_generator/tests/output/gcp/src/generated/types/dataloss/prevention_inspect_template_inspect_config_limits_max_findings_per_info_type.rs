@@ -1,0 +1,16 @@
+#[derive(pulumi_wasm_rust::__private::serde::Deserialize, pulumi_wasm_rust::__private::serde::Serialize, pulumi_wasm_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
+#[builder(finish_fn = build_struct)]
+#[allow(dead_code)]
+pub struct PreventionInspectTemplateInspectConfigLimitsMaxFindingsPerInfoType {
+    /// Type of information the findings limit applies to. Only one limit per infoType should be provided. If InfoTypeLimit does
+    /// not have an infoType, the DLP API applies the limit against all infoTypes that are found but not
+    /// specified in another InfoTypeLimit.
+    /// Structure is documented below.
+    #[builder(into, default)]
+    #[serde(rename = "infoType")]
+    pub r#info_type: Box<Option<super::super::types::dataloss::PreventionInspectTemplateInspectConfigLimitsMaxFindingsPerInfoTypeInfoType>>,
+    /// Max findings limit for the given infoType.
+    #[builder(into)]
+    #[serde(rename = "maxFindings")]
+    pub r#max_findings: Box<i32>,
+}

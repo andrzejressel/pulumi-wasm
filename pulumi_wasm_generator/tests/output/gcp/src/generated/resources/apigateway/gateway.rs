@@ -1,0 +1,229 @@
+/// A consumable API that can be used by multiple Gateways.
+///
+/// To get more information about Gateway, see:
+///
+/// * [API documentation](https://cloud.google.com/api-gateway/docs/reference/rest/v1beta/projects.locations.apis)
+/// * How-to Guides
+///     * [Official Documentation](https://cloud.google.com/api-gateway/docs/quickstart)
+///
+/// ## Example Usage
+///
+/// ## Import
+///
+/// Gateway can be imported using any of these accepted formats:
+///
+/// * `projects/{{project}}/locations/{{region}}/gateways/{{gateway_id}}`
+///
+/// * `{{project}}/{{region}}/{{gateway_id}}`
+///
+/// * `{{region}}/{{gateway_id}}`
+///
+/// * `{{gateway_id}}`
+///
+/// When using the `pulumi import` command, Gateway can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:apigateway/gateway:Gateway default projects/{{project}}/locations/{{region}}/gateways/{{gateway_id}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:apigateway/gateway:Gateway default {{project}}/{{region}}/{{gateway_id}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:apigateway/gateway:Gateway default {{region}}/{{gateway_id}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:apigateway/gateway:Gateway default {{gateway_id}}
+/// ```
+///
+pub mod gateway {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct GatewayArgs {
+        /// Resource name of the API Config for this Gateway. Format: projects/{project}/locations/global/apis/{api}/configs/{apiConfig}.
+        /// When changing api configs please ensure the new config is a new resource and the
+        /// lifecycle rule `create_before_destroy` is set.
+        #[builder(into)]
+        pub api_config: pulumi_wasm_rust::Output<String>,
+        /// A user-visible name for the API.
+        #[builder(into, default)]
+        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        /// Identifier to assign to the Gateway. Must be unique within scope of the parent resource(project).
+        ///
+        ///
+        /// - - -
+        #[builder(into)]
+        pub gateway_id: pulumi_wasm_rust::Output<String>,
+        /// Resource labels to represent user-provided metadata.
+        ///
+        /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
+        /// Please refer to the field `effective_labels` for all of the labels present on the resource.
+        #[builder(into, default)]
+        pub labels: pulumi_wasm_rust::Output<
+            Option<std::collections::HashMap<String, String>>,
+        >,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        #[builder(into, default)]
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        /// The region of the gateway for the API.
+        #[builder(into, default)]
+        pub region: pulumi_wasm_rust::Output<Option<String>>,
+    }
+    #[allow(dead_code)]
+    pub struct GatewayResult {
+        /// Resource name of the API Config for this Gateway. Format: projects/{project}/locations/global/apis/{api}/configs/{apiConfig}.
+        /// When changing api configs please ensure the new config is a new resource and the
+        /// lifecycle rule `create_before_destroy` is set.
+        pub api_config: pulumi_wasm_rust::Output<String>,
+        /// The default API Gateway host name of the form {gatewayId}-{hash}.{region_code}.gateway.dev.
+        pub default_hostname: pulumi_wasm_rust::Output<String>,
+        /// A user-visible name for the API.
+        pub display_name: pulumi_wasm_rust::Output<String>,
+        /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
+        pub effective_labels: pulumi_wasm_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
+        /// Identifier to assign to the Gateway. Must be unique within scope of the parent resource(project).
+        ///
+        ///
+        /// - - -
+        pub gateway_id: pulumi_wasm_rust::Output<String>,
+        /// Resource labels to represent user-provided metadata.
+        ///
+        /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
+        /// Please refer to the field `effective_labels` for all of the labels present on the resource.
+        pub labels: pulumi_wasm_rust::Output<
+            Option<std::collections::HashMap<String, String>>,
+        >,
+        /// Resource name of the Gateway. Format: projects/{project}/locations/{region}/gateways/{gateway}
+        pub name: pulumi_wasm_rust::Output<String>,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        pub project: pulumi_wasm_rust::Output<String>,
+        /// The combination of labels configured directly on the resource
+        /// and default labels configured on the provider.
+        pub pulumi_labels: pulumi_wasm_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
+        /// The region of the gateway for the API.
+        pub region: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: GatewayArgs) -> GatewayResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let api_config_binding = args.api_config.get_inner();
+        let display_name_binding = args.display_name.get_inner();
+        let gateway_id_binding = args.gateway_id.get_inner();
+        let labels_binding = args.labels.get_inner();
+        let project_binding = args.project.get_inner();
+        let region_binding = args.region.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:apigateway/gateway:Gateway".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "apiConfig".into(),
+                    value: &api_config_binding,
+                },
+                register_interface::ObjectField {
+                    name: "displayName".into(),
+                    value: &display_name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "gatewayId".into(),
+                    value: &gateway_id_binding,
+                },
+                register_interface::ObjectField {
+                    name: "labels".into(),
+                    value: &labels_binding,
+                },
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+                register_interface::ObjectField {
+                    name: "region".into(),
+                    value: &region_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "apiConfig".into(),
+                },
+                register_interface::ResultField {
+                    name: "defaultHostname".into(),
+                },
+                register_interface::ResultField {
+                    name: "displayName".into(),
+                },
+                register_interface::ResultField {
+                    name: "effectiveLabels".into(),
+                },
+                register_interface::ResultField {
+                    name: "gatewayId".into(),
+                },
+                register_interface::ResultField {
+                    name: "labels".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+                register_interface::ResultField {
+                    name: "pulumiLabels".into(),
+                },
+                register_interface::ResultField {
+                    name: "region".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        GatewayResult {
+            api_config: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("apiConfig").unwrap(),
+            ),
+            default_hostname: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("defaultHostname").unwrap(),
+            ),
+            display_name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("displayName").unwrap(),
+            ),
+            effective_labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("effectiveLabels").unwrap(),
+            ),
+            gateway_id: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("gatewayId").unwrap(),
+            ),
+            labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("labels").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("pulumiLabels").unwrap(),
+            ),
+            region: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("region").unwrap(),
+            ),
+        }
+    }
+}
