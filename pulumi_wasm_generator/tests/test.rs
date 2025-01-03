@@ -99,6 +99,12 @@ fn unions_inside_arrays() -> Result<()> {
 }
 
 #[test]
+#[cfg_attr(not(feature = "generator_workarounds"), ignore)]
+fn workarounds() -> Result<()> {
+    run_pulumi_generator_test("workarounds")
+}
+
+#[test]
 #[cfg_attr(not(feature = "generator_aws"), ignore)]
 fn aws() -> Result<()> {
     run_pulumi_generator_test("aws")
