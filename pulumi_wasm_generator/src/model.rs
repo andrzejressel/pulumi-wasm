@@ -272,15 +272,24 @@ impl ElementId {
         let name = parts[2].to_string();
         let namespace = parts[1].split('/').collect::<Vec<_>>();
 
-        let final_namespaces = namespace
-            .into_iter()
-            .filter(|s| *s != "index" && s.to_lowercase() != name.to_lowercase() && !s.is_empty())
-            .map(|s| s.replace("-", "_").to_string())
-            .map(|s| escape_rust_name(&s).to_string())
-            .collect::<Vec<_>>();
+        let mut final_namespaces = Vec::new();
+
+        for (i, s) in namespace.iter().enumerate() {
+            if i == 0 && s == &"index" {
+                continue;
+            }
+            if i == namespace.len() - 1 && s.to_lowercase() == name.to_lowercase() {
+                continue;
+            }
+            if s.is_empty() {
+                continue;
+            }
+
+            final_namespaces.push(escape_rust_name(&s.replace("-", "_")).to_string());
+        }
 
         Ok(ElementId {
-            namespace: final_namespaces.iter().map(|s| s.to_string()).collect(),
+            namespace: final_namespaces,
             name,
             raw: raw.to_string(),
         })
@@ -355,6 +364,19 @@ mod tests {
                     "module".to_string()
                 ],
                 name: "Resource".to_string(),
+                raw: id.to_string(),
+            }
+        )
+    }
+
+    #[test]
+    fn should_handle_nesting() {
+        let id = "azure:frontdoor/frontdoor:Frontdoor";
+        assert_eq!(
+            ElementId::new(id).unwrap(),
+            ElementId {
+                namespace: vec!["frontdoor".to_string()],
+                name: "Frontdoor".to_string(),
                 raw: id.to_string(),
             }
         )
