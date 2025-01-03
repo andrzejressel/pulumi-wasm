@@ -40,7 +40,7 @@ fn main() {
         "reserved_names",
         "unions-inline",
         "unions-inside-arrays",
-        "workarounds"
+        "workarounds",
     ];
     for provider in &providers {
         println!("{:?}", provider);
