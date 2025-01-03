@@ -32,7 +32,7 @@ mod tests {
                 assert_eq!(yaml_file, expected_yaml_file);
 
                 let schema_package: schema::Package = extract_schema_from_file(
-                    concat!("test_cases/", $package_name, ".json").as_ref(),
+                    concat!("tests/test_cases/", $package_name, ".json").as_ref(),
                 )
                 .unwrap();
 

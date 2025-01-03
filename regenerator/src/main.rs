@@ -8,7 +8,17 @@ struct Provider<'a> {
     version: &'a str,
 }
 
+#[derive(Debug)]
+struct FilteredTest<'a> {
+    name: &'a str,
+    filters: &'a [&'a str],
+}
+
 fn main() {
+    let mut filtered_tests = vec![FilteredTest {
+        name: "filtering",
+        filters: &["ns1", "ns2"],
+    }];
     let mut providers = vec![
         Provider {
             name: "docker",
@@ -23,11 +33,14 @@ fn main() {
             version: "5.43.1",
         },
     ];
+    filtered_tests.sort_by(|a, b| a.name.cmp(b.name));
     providers.sort_by(|a, b| a.name.cmp(b.name));
-    let tests = vec![
+    let mut tests = vec![
         "array-of-enum-map",
         "azure-native-nested-types",
+        "cloudflare",
         "cyclic-types",
+        "docker",
         "different-enum",
         "functions-secrets",
         "mini-awsnative",
@@ -37,11 +50,13 @@ fn main() {
         "output-funcs-edgeorder",
         "plain-object-defaults",
         "plain-object-disable-defaults",
+        "random",
         "reserved_names",
         "unions-inline",
         "unions-inside-arrays",
         "workarounds",
     ];
+    tests.sort();
     for provider in &providers {
         println!("{:?}", provider);
         let schema_output = Command::new("pulumi")
@@ -58,23 +73,28 @@ fn main() {
             .expect("Failed to write schema to file");
     }
 
-    update_tests(&tests, &providers);
-    update_generator_cargo_toml(&tests, &providers);
+    update_tests(&tests, &filtered_tests);
+    update_generator_cargo_toml(&tests, &filtered_tests);
 }
 
-fn update_tests(tests: &[&str], providers: &[Provider]) {
-    update_github_actions_build(tests, providers);
-    update_test_rs(tests, providers);
+fn update_tests(tests: &[&str], filtered_tests: &Vec<FilteredTest>) {
+    update_github_actions_build(tests, filtered_tests);
+    update_test_rs(tests, filtered_tests);
 }
 
-fn update_github_actions_build(tests: &[&str], providers: &[Provider]) {
+fn update_github_actions_build(tests: &[&str], filtered_tests: &Vec<FilteredTest>) {
     let content = fs::read_to_string(".github/workflows/build.yml")
         .expect("Failed to read .github/workflows/build.yml");
 
     let mut replacement = String::new();
     replacement.push_str("        provider: [");
-    replacement
-        .push_str(&itertools::chain!(providers.iter().map(|p| &p.name), tests.iter()).join(", "));
+    let mut test_names = tests.iter().map(|test| test.to_string()).collect_vec();
+    for provider in filtered_tests {
+        for filter in provider.filters {
+            test_names.push(format!("{}-{}", provider.name, filter).to_string());
+        }
+    }
+    replacement.push_str(&test_names.join(", "));
     replacement.push_str("]\n");
     let start_marker = "# DO NOT EDIT - PROVIDER START";
     let end_marker = "# DO NOT EDIT - PROVIDER END";
@@ -84,7 +104,7 @@ fn update_github_actions_build(tests: &[&str], providers: &[Provider]) {
         .expect("Failed to write to .github/workflows/build.yml");
 }
 
-fn update_test_rs(tests: &[&str], providers: &[Provider]) {
+fn update_test_rs(tests: &[&str], filtered_tests: &Vec<FilteredTest>) {
     let content = fs::read_to_string("pulumi_wasm_generator/tests/test.rs")
         .expect("Failed to read pulumi_wasm_generator/tests/test.rs");
 
@@ -97,7 +117,7 @@ fn update_test_rs(tests: &[&str], providers: &[Provider]) {
 #[test]
 #[cfg_attr(not(feature = "generator_{test_directory}"), ignore)]
 fn {method_name}() -> Result<()> {{
-    run_pulumi_generator_test("{test_directory}")
+    run_pulumi_generator_test("{test_directory}", None)
 }}
 "#
         );
@@ -105,20 +125,22 @@ fn {method_name}() -> Result<()> {{
         replacement.push_str(&code);
     }
 
-    for provider in providers {
-        let method_name = provider.name.replace("-", "_");
-        let provider_name = provider.name;
-
-        let code = format!(
-            r#"
+    for filtered_test in filtered_tests {
+        for filter in filtered_test.filters {
+            let provider_name = filtered_test.name;
+            let feature_name = format!("generator_{}-{}", filtered_test.name, filter);
+            let method_name = format!("{}_{}", filtered_test.name, filter).replace("-", "_");
+            let code = format!(
+                r#"
 #[test]
-#[cfg_attr(not(feature = "generator_{provider_name}"), ignore)]
+#[cfg_attr(not(feature = "{feature_name}"), ignore)]
 fn {method_name}() -> Result<()> {{
-    run_pulumi_generator_test("{provider_name}")
+    run_pulumi_generator_test("{provider_name}", Some("{filter}"))
 }}
 "#
-        );
-        replacement.push_str(&code);
+            );
+            replacement.push_str(&code);
+        }
     }
 
     let start_marker = "// DO NOT EDIT - START";
@@ -129,16 +151,25 @@ fn {method_name}() -> Result<()> {{
         .expect("Failed to write to pulumi_wasm_generator/tests/test.rs");
 }
 
-fn update_generator_cargo_toml(tests: &[&str], providers: &[Provider]) {
+fn update_generator_cargo_toml(tests: &[&str], filtered_tests: &Vec<FilteredTest>) {
     let content =
         fs::read_to_string("pulumi_wasm_generator/Cargo.toml").expect("Failed to read Cargo.toml");
     let mut replacement = String::new();
-    for provider in providers {
-        replacement.push_str(&format!("generator_{} = []\n", provider.name))
-    }
+    // for provider in filtered_tests {
+    //     replacement.push_str(&format!("generator_{} = []\n", provider.name))
+    // }
     for test in tests {
         replacement.push_str(&format!("generator_{} = []\n", test))
     }
+    for filtered_test in filtered_tests {
+        for filter in filtered_test.filters {
+            replacement.push_str(&format!(
+                "generator_{}-{} = []\n",
+                filtered_test.name, filter
+            ))
+        }
+    }
+
     let start_marker = "# DO NOT EDIT - START";
     let end_marker = "# DO NOT EDIT - END";
     let new_content = replace_between_markers(&content, start_marker, end_marker, &replacement);
