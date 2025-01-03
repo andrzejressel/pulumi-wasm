@@ -90,7 +90,7 @@ jobs:
       fail-fast: false
       matrix:
         # DO NOT EDIT - PROVIDER START
-        provider: [cloudflare, docker, random, array-of-enum-map, azure-native-nested-types, cyclic-types, different-enum, functions-secrets, mini-awsnative, nested-module, nested-module-thirdparty, output-funcs, output-funcs-edgeorder, plain-object-defaults, plain-object-disable-defaults, reserved_names, unions-inline, unions-inside-arrays]
+        provider: [cloudflare, docker, random, array-of-enum-map, azure-native-nested-types, cyclic-types, different-enum, functions-secrets, mini-awsnative, nested-module, nested-module-thirdparty, output-funcs, output-funcs-edgeorder, plain-object-defaults, plain-object-disable-defaults, reserved_names, unions-inline, unions-inside-arrays, workarounds]
 # DO NOT EDIT - PROVIDER END
     steps:
       - uses: actions/checkout@v4
