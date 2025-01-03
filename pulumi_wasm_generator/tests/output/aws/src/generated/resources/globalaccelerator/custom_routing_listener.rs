@@ -1,0 +1,120 @@
+/// Provides a Global Accelerator custom routing listener.
+///
+/// ## Example Usage
+///
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let example = custom_routing_accelerator::create(
+///         "example",
+///         CustomRoutingAcceleratorArgs::builder()
+///             .attributes(
+///                 CustomRoutingAcceleratorAttributes::builder()
+///                     .flowLogsEnabled(true)
+///                     .flowLogsS3Bucket("example-bucket")
+///                     .flowLogsS3Prefix("flow-logs/")
+///                     .build_struct(),
+///             )
+///             .enabled(true)
+///             .ip_address_type("IPV4")
+///             .name("Example")
+///             .build_struct(),
+///     );
+///     let exampleCustomRoutingListener = custom_routing_listener::create(
+///         "exampleCustomRoutingListener",
+///         CustomRoutingListenerArgs::builder()
+///             .accelerator_arn("${example.id}")
+///             .port_ranges(
+///                 vec![
+///                     CustomRoutingListenerPortRange::builder().fromPort(80).toPort(80)
+///                     .build_struct(),
+///                 ],
+///             )
+///             .build_struct(),
+///     );
+/// }
+/// ```
+///
+/// ## Import
+///
+/// Using `pulumi import`, import Global Accelerator custom routing listeners using the `id`. For example:
+///
+/// ```sh
+/// $ pulumi import aws:globalaccelerator/customRoutingListener:CustomRoutingListener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
+/// ```
+pub mod custom_routing_listener {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct CustomRoutingListenerArgs {
+        /// The Amazon Resource Name (ARN) of a custom routing accelerator.
+        #[builder(into)]
+        pub accelerator_arn: pulumi_wasm_rust::Output<String>,
+        /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+        #[builder(into)]
+        pub port_ranges: pulumi_wasm_rust::Output<
+            Vec<super::super::types::globalaccelerator::CustomRoutingListenerPortRange>,
+        >,
+    }
+    #[allow(dead_code)]
+    pub struct CustomRoutingListenerResult {
+        /// The Amazon Resource Name (ARN) of a custom routing accelerator.
+        pub accelerator_arn: pulumi_wasm_rust::Output<String>,
+        /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+        pub port_ranges: pulumi_wasm_rust::Output<
+            Vec<super::super::types::globalaccelerator::CustomRoutingListenerPortRange>,
+        >,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(
+        name: &str,
+        args: CustomRoutingListenerArgs,
+    ) -> CustomRoutingListenerResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let accelerator_arn_binding = args.accelerator_arn.get_inner();
+        let port_ranges_binding = args.port_ranges.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "aws:globalaccelerator/customRoutingListener:CustomRoutingListener"
+                .into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "acceleratorArn".into(),
+                    value: &accelerator_arn_binding,
+                },
+                register_interface::ObjectField {
+                    name: "portRanges".into(),
+                    value: &port_ranges_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "acceleratorArn".into(),
+                },
+                register_interface::ResultField {
+                    name: "portRanges".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        CustomRoutingListenerResult {
+            accelerator_arn: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("acceleratorArn").unwrap(),
+            ),
+            port_ranges: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("portRanges").unwrap(),
+            ),
+        }
+    }
+}

@@ -1,0 +1,277 @@
+/// Creates a Signer Signing Job.
+///
+/// ## Example Usage
+///
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let buildSigningJob = signing_job::create(
+///         "buildSigningJob",
+///         SigningJobArgs::builder()
+///             .destination(
+///                 SigningJobDestination::builder()
+///                     .s3(
+///                         SigningJobDestinationS3::builder()
+///                             .bucket("s3-bucket-name")
+///                             .prefix("signed/")
+///                             .build_struct(),
+///                     )
+///                     .build_struct(),
+///             )
+///             .ignore_signing_job_failure(true)
+///             .profile_name("${testSp.name}")
+///             .source(
+///                 SigningJobSource::builder()
+///                     .s3(
+///                         SigningJobSourceS3::builder()
+///                             .bucket("s3-bucket-name")
+///                             .key("object-to-be-signed.zip")
+///                             .version("jADjFYYYEXAMPLETszPjOmCMFDzd9dN1")
+///                             .build_struct(),
+///                     )
+///                     .build_struct(),
+///             )
+///             .build_struct(),
+///     );
+///     let testSp = signing_profile::create(
+///         "testSp",
+///         SigningProfileArgs::builder()
+///             .platform_id("AWSLambda-SHA384-ECDSA")
+///             .build_struct(),
+///     );
+/// }
+/// ```
+///
+/// ## Import
+///
+/// Using `pulumi import`, import Signer signing jobs using the `job_id`. For example:
+///
+/// ```sh
+/// $ pulumi import aws:signer/signingJob:SigningJob test_signer_signing_job 9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee
+/// ```
+pub mod signing_job {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct SigningJobArgs {
+        /// The S3 bucket in which to save your signed object. See Destination below for details.
+        #[builder(into)]
+        pub destination: pulumi_wasm_rust::Output<
+            super::super::types::signer::SigningJobDestination,
+        >,
+        /// Set this argument to `true` to ignore signing job failures and retrieve failed status and reason. Default `false`.
+        #[builder(into, default)]
+        pub ignore_signing_job_failure: pulumi_wasm_rust::Output<Option<bool>>,
+        /// The name of the profile to initiate the signing operation.
+        #[builder(into)]
+        pub profile_name: pulumi_wasm_rust::Output<String>,
+        /// The S3 bucket that contains the object to sign. See Source below for details.
+        #[builder(into)]
+        pub source: pulumi_wasm_rust::Output<
+            super::super::types::signer::SigningJobSource,
+        >,
+    }
+    #[allow(dead_code)]
+    pub struct SigningJobResult {
+        /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the signing job was completed.
+        pub completed_at: pulumi_wasm_rust::Output<String>,
+        /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the signing job was created.
+        pub created_at: pulumi_wasm_rust::Output<String>,
+        /// The S3 bucket in which to save your signed object. See Destination below for details.
+        pub destination: pulumi_wasm_rust::Output<
+            super::super::types::signer::SigningJobDestination,
+        >,
+        /// Set this argument to `true` to ignore signing job failures and retrieve failed status and reason. Default `false`.
+        pub ignore_signing_job_failure: pulumi_wasm_rust::Output<Option<bool>>,
+        /// The ID of the signing job on output.
+        pub job_id: pulumi_wasm_rust::Output<String>,
+        /// The IAM entity that initiated the signing job.
+        pub job_invoker: pulumi_wasm_rust::Output<String>,
+        /// The AWS account ID of the job owner.
+        pub job_owner: pulumi_wasm_rust::Output<String>,
+        /// A human-readable name for the signing platform associated with the signing job.
+        pub platform_display_name: pulumi_wasm_rust::Output<String>,
+        /// The platform to which your signed code image will be distributed.
+        pub platform_id: pulumi_wasm_rust::Output<String>,
+        /// The name of the profile to initiate the signing operation.
+        pub profile_name: pulumi_wasm_rust::Output<String>,
+        /// The version of the signing profile used to initiate the signing job.
+        pub profile_version: pulumi_wasm_rust::Output<String>,
+        /// The IAM principal that requested the signing job.
+        pub requested_by: pulumi_wasm_rust::Output<String>,
+        /// A revocation record if the signature generated by the signing job has been revoked. Contains a timestamp and the ID of the IAM entity that revoked the signature.
+        pub revocation_records: pulumi_wasm_rust::Output<
+            Vec<super::super::types::signer::SigningJobRevocationRecord>,
+        >,
+        /// The time when the signature of a signing job expires.
+        pub signature_expires_at: pulumi_wasm_rust::Output<String>,
+        /// Name of the S3 bucket where the signed code image is saved by code signing.
+        pub signed_objects: pulumi_wasm_rust::Output<
+            Vec<super::super::types::signer::SigningJobSignedObject>,
+        >,
+        /// The S3 bucket that contains the object to sign. See Source below for details.
+        pub source: pulumi_wasm_rust::Output<
+            super::super::types::signer::SigningJobSource,
+        >,
+        /// Status of the signing job.
+        pub status: pulumi_wasm_rust::Output<String>,
+        /// String value that contains the status reason.
+        pub status_reason: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: SigningJobArgs) -> SigningJobResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let destination_binding = args.destination.get_inner();
+        let ignore_signing_job_failure_binding = args
+            .ignore_signing_job_failure
+            .get_inner();
+        let profile_name_binding = args.profile_name.get_inner();
+        let source_binding = args.source.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "aws:signer/signingJob:SigningJob".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "destination".into(),
+                    value: &destination_binding,
+                },
+                register_interface::ObjectField {
+                    name: "ignoreSigningJobFailure".into(),
+                    value: &ignore_signing_job_failure_binding,
+                },
+                register_interface::ObjectField {
+                    name: "profileName".into(),
+                    value: &profile_name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "source".into(),
+                    value: &source_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "completedAt".into(),
+                },
+                register_interface::ResultField {
+                    name: "createdAt".into(),
+                },
+                register_interface::ResultField {
+                    name: "destination".into(),
+                },
+                register_interface::ResultField {
+                    name: "ignoreSigningJobFailure".into(),
+                },
+                register_interface::ResultField {
+                    name: "jobId".into(),
+                },
+                register_interface::ResultField {
+                    name: "jobInvoker".into(),
+                },
+                register_interface::ResultField {
+                    name: "jobOwner".into(),
+                },
+                register_interface::ResultField {
+                    name: "platformDisplayName".into(),
+                },
+                register_interface::ResultField {
+                    name: "platformId".into(),
+                },
+                register_interface::ResultField {
+                    name: "profileName".into(),
+                },
+                register_interface::ResultField {
+                    name: "profileVersion".into(),
+                },
+                register_interface::ResultField {
+                    name: "requestedBy".into(),
+                },
+                register_interface::ResultField {
+                    name: "revocationRecords".into(),
+                },
+                register_interface::ResultField {
+                    name: "signatureExpiresAt".into(),
+                },
+                register_interface::ResultField {
+                    name: "signedObjects".into(),
+                },
+                register_interface::ResultField {
+                    name: "source".into(),
+                },
+                register_interface::ResultField {
+                    name: "status".into(),
+                },
+                register_interface::ResultField {
+                    name: "statusReason".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        SigningJobResult {
+            completed_at: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("completedAt").unwrap(),
+            ),
+            created_at: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("createdAt").unwrap(),
+            ),
+            destination: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("destination").unwrap(),
+            ),
+            ignore_signing_job_failure: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("ignoreSigningJobFailure").unwrap(),
+            ),
+            job_id: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("jobId").unwrap(),
+            ),
+            job_invoker: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("jobInvoker").unwrap(),
+            ),
+            job_owner: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("jobOwner").unwrap(),
+            ),
+            platform_display_name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("platformDisplayName").unwrap(),
+            ),
+            platform_id: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("platformId").unwrap(),
+            ),
+            profile_name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("profileName").unwrap(),
+            ),
+            profile_version: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("profileVersion").unwrap(),
+            ),
+            requested_by: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("requestedBy").unwrap(),
+            ),
+            revocation_records: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("revocationRecords").unwrap(),
+            ),
+            signature_expires_at: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("signatureExpiresAt").unwrap(),
+            ),
+            signed_objects: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("signedObjects").unwrap(),
+            ),
+            source: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("source").unwrap(),
+            ),
+            status: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("status").unwrap(),
+            ),
+            status_reason: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("statusReason").unwrap(),
+            ),
+        }
+    }
+}

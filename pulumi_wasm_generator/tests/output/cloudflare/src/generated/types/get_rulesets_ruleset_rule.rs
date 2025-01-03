@@ -45,7 +45,7 @@ pub struct GetRulesetsRulesetRule {
     /// Rule reference.
     #[builder(into)]
     #[serde(rename = "ref")]
-    pub r#ref: Box<String>,
+    pub r#ref_: Box<String>,
     /// Version of the ruleset to deploy.
     #[builder(into)]
     #[serde(rename = "version")]

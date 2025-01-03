@@ -17,7 +17,7 @@ pub struct ServiceTaskSpecContainerSpecPrivilegesSeLinuxContext {
     /// SELinux type label
     #[builder(into, default)]
     #[serde(rename = "type")]
-    pub r#type: Box<Option<String>>,
+    pub r#type_: Box<Option<String>>,
     /// SELinux user label
     #[builder(into, default)]
     #[serde(rename = "user")]

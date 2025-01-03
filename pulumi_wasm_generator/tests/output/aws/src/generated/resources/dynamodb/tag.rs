@@ -1,0 +1,128 @@
+/// Manages an individual DynamoDB resource tag. This resource should only be used in cases where DynamoDB resources are created outside the provider (e.g., Table replicas in other regions).
+///
+/// > **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `aws.dynamodb.Table` and `aws.dynamodb.Tag` to manage tags of the same DynamoDB Table in the same region will cause a perpetual difference where the `aws_dynamodb_cluster` resource will try to remove the tag being added by the `aws.dynamodb.Tag` resource.
+///
+/// > **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
+///
+/// ## Example Usage
+///
+/// ```yaml
+/// resources:
+///   example:
+///     type: aws:dynamodb:Table
+///     properties:
+///       replicas:
+///         - regionName: ${replica.name}
+///   test:
+///     type: aws:dynamodb:Tag
+///     properties:
+///       resourceArn:
+///         fn::invoke:
+///           function: std:replace
+///           arguments:
+///             text: ${example.arn}
+///             search: ${current.name}
+///             replace: ${replica.name}
+///           return: result
+///       key: testkey
+///       value: testvalue
+/// variables:
+///   replica:
+///     fn::invoke:
+///       function: aws:getRegion
+///       arguments: {}
+///   current:
+///     fn::invoke:
+///       function: aws:getRegion
+///       arguments: {}
+/// ```
+///
+/// ## Import
+///
+/// Using `pulumi import`, import `aws_dynamodb_tag` using the DynamoDB resource identifier and key, separated by a comma (`,`). For example:
+///
+/// ```sh
+/// $ pulumi import aws:dynamodb/tag:Tag example arn:aws:dynamodb:us-east-1:123456789012:table/example,Name
+/// ```
+pub mod tag {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct TagArgs {
+        /// Tag name.
+        #[builder(into)]
+        pub key: pulumi_wasm_rust::Output<String>,
+        /// Amazon Resource Name (ARN) of the DynamoDB resource to tag.
+        #[builder(into)]
+        pub resource_arn: pulumi_wasm_rust::Output<String>,
+        /// Tag value.
+        #[builder(into)]
+        pub value: pulumi_wasm_rust::Output<String>,
+    }
+    #[allow(dead_code)]
+    pub struct TagResult {
+        /// Tag name.
+        pub key: pulumi_wasm_rust::Output<String>,
+        /// Amazon Resource Name (ARN) of the DynamoDB resource to tag.
+        pub resource_arn: pulumi_wasm_rust::Output<String>,
+        /// Tag value.
+        pub value: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: TagArgs) -> TagResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let key_binding = args.key.get_inner();
+        let resource_arn_binding = args.resource_arn.get_inner();
+        let value_binding = args.value.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "aws:dynamodb/tag:Tag".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "key".into(),
+                    value: &key_binding,
+                },
+                register_interface::ObjectField {
+                    name: "resourceArn".into(),
+                    value: &resource_arn_binding,
+                },
+                register_interface::ObjectField {
+                    name: "value".into(),
+                    value: &value_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "key".into(),
+                },
+                register_interface::ResultField {
+                    name: "resourceArn".into(),
+                },
+                register_interface::ResultField {
+                    name: "value".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        TagResult {
+            key: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("key").unwrap(),
+            ),
+            resource_arn: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("resourceArn").unwrap(),
+            ),
+            value: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("value").unwrap(),
+            ),
+        }
+    }
+}

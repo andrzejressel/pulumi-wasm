@@ -9,5 +9,5 @@ pub struct SpectrumApplicationDns {
     /// The type of DNS record associated with the application.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

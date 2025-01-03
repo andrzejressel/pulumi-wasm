@@ -1,0 +1,97 @@
+/// Resource for managing an AWS SESv2 (Simple Email V2) Dedicated IP Assignment.
+///
+/// This resource is used with "Standard" dedicated IP addresses. This includes addresses [requested and relinquished manually](https://docs.aws.amazon.com/ses/latest/dg/dedicated-ip-case.html) via an AWS support case, or [Bring Your Own IP](https://docs.aws.amazon.com/ses/latest/dg/dedicated-ip-byo.html) addresses. Once no longer assigned, this resource returns the IP to the [`ses-default-dedicated-pool`](https://docs.aws.amazon.com/ses/latest/dg/managing-ip-pools.html), managed by AWS.
+///
+/// ## Example Usage
+///
+/// ### Basic Usage
+///
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let example = dedicated_ip_assignment::create(
+///         "example",
+///         DedicatedIpAssignmentArgs::builder()
+///             .destination_pool_name("my-pool")
+///             .ip("0.0.0.0")
+///             .build_struct(),
+///     );
+/// }
+/// ```
+///
+/// ## Import
+///
+/// Using `pulumi import`, import SESv2 (Simple Email V2) Dedicated IP Assignment using the `id`, which is a comma-separated string made up of `ip` and `destination_pool_name`. For example:
+///
+/// ```sh
+/// $ pulumi import aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment example "0.0.0.0,my-pool"
+/// ```
+pub mod dedicated_ip_assignment {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct DedicatedIpAssignmentArgs {
+        /// Dedicated IP address.
+        #[builder(into)]
+        pub destination_pool_name: pulumi_wasm_rust::Output<String>,
+        /// Dedicated IP address.
+        #[builder(into)]
+        pub ip: pulumi_wasm_rust::Output<String>,
+    }
+    #[allow(dead_code)]
+    pub struct DedicatedIpAssignmentResult {
+        /// Dedicated IP address.
+        pub destination_pool_name: pulumi_wasm_rust::Output<String>,
+        /// Dedicated IP address.
+        pub ip: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(
+        name: &str,
+        args: DedicatedIpAssignmentArgs,
+    ) -> DedicatedIpAssignmentResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let destination_pool_name_binding = args.destination_pool_name.get_inner();
+        let ip_binding = args.ip.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "destinationPoolName".into(),
+                    value: &destination_pool_name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "ip".into(),
+                    value: &ip_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "destinationPoolName".into(),
+                },
+                register_interface::ResultField {
+                    name: "ip".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        DedicatedIpAssignmentResult {
+            destination_pool_name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("destinationPoolName").unwrap(),
+            ),
+            ip: pulumi_wasm_rust::__private::into_domain(hashmap.remove("ip").unwrap()),
+        }
+    }
+}

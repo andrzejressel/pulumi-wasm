@@ -1,0 +1,128 @@
+/// Attaches a Lightsail disk to a Lightsail Instance
+///
+/// ## Example Usage
+///
+/// ```yaml
+/// resources:
+///   test:
+///     type: aws:lightsail:Disk
+///     properties:
+///       name: test-disk
+///       sizeInGb: 8
+///       availabilityZone: ${available.names[0]}
+///   testInstance:
+///     type: aws:lightsail:Instance
+///     name: test
+///     properties:
+///       name: test-instance
+///       availabilityZone: ${available.names[0]}
+///       blueprintId: amazon_linux_2
+///       bundleId: nano_3_0
+///   testDisk_attachment:
+///     type: aws:lightsail:Disk_attachment
+///     name: test
+///     properties:
+///       diskName: ${test.name}
+///       instanceName: ${testInstance.name}
+///       diskPath: /dev/xvdf
+/// variables:
+///   available:
+///     fn::invoke:
+///       function: aws:getAvailabilityZones
+///       arguments:
+///         state: available
+///         filters:
+///           - name: opt-in-status
+///             values:
+///               - opt-in-not-required
+/// ```
+///
+/// ## Import
+///
+/// Using `pulumi import`, import `aws_lightsail_disk` using the id attribute. For example:
+///
+/// ```sh
+/// $ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance
+/// ```
+pub mod disk_attachment {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct Disk_attachmentArgs {
+        /// The name of the Lightsail Disk.
+        #[builder(into)]
+        pub disk_name: pulumi_wasm_rust::Output<String>,
+        /// The disk path to expose to the instance.
+        #[builder(into)]
+        pub disk_path: pulumi_wasm_rust::Output<String>,
+        /// The name of the Lightsail Instance to attach to.
+        #[builder(into)]
+        pub instance_name: pulumi_wasm_rust::Output<String>,
+    }
+    #[allow(dead_code)]
+    pub struct Disk_attachmentResult {
+        /// The name of the Lightsail Disk.
+        pub disk_name: pulumi_wasm_rust::Output<String>,
+        /// The disk path to expose to the instance.
+        pub disk_path: pulumi_wasm_rust::Output<String>,
+        /// The name of the Lightsail Instance to attach to.
+        pub instance_name: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: Disk_attachmentArgs) -> Disk_attachmentResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let disk_name_binding = args.disk_name.get_inner();
+        let disk_path_binding = args.disk_path.get_inner();
+        let instance_name_binding = args.instance_name.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "aws:lightsail/disk_attachment:Disk_attachment".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "diskName".into(),
+                    value: &disk_name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "diskPath".into(),
+                    value: &disk_path_binding,
+                },
+                register_interface::ObjectField {
+                    name: "instanceName".into(),
+                    value: &instance_name_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "diskName".into(),
+                },
+                register_interface::ResultField {
+                    name: "diskPath".into(),
+                },
+                register_interface::ResultField {
+                    name: "instanceName".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        Disk_attachmentResult {
+            disk_name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("diskName").unwrap(),
+            ),
+            disk_path: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("diskPath").unwrap(),
+            ),
+            instance_name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("instanceName").unwrap(),
+            ),
+        }
+    }
+}

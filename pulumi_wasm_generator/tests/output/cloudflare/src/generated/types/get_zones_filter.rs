@@ -13,7 +13,7 @@ pub struct GetZonesFilter {
     /// A RE2 compatible regular expression to filter the	results. This is performed client side whereas the `name` and `lookup_type`	are performed on the Cloudflare server side.
     #[builder(into, default)]
     #[serde(rename = "match")]
-    pub r#match: Box<Option<String>>,
+    pub r#match_: Box<Option<String>>,
     /// A string value to search for.
     #[builder(into, default)]
     #[serde(rename = "name")]

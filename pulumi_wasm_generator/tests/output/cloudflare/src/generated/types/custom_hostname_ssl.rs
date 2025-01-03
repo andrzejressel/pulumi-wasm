@@ -31,7 +31,7 @@ pub struct CustomHostnameSsl {
     /// Level of validation to be used for this hostname. Available values: `dv`. Defaults to `dv`.
     #[builder(into, default)]
     #[serde(rename = "type")]
-    pub r#type: Box<Option<String>>,
+    pub r#type_: Box<Option<String>>,
     #[builder(into, default)]
     #[serde(rename = "validationErrors")]
     pub r#validation_errors: Box<Option<Vec<super::types::CustomHostnameSslValidationError>>>,

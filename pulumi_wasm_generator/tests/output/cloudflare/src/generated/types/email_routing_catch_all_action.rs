@@ -5,7 +5,7 @@ pub struct EmailRoutingCatchAllAction {
     /// Type of supported action. Available values: `drop`, `forward`, `worker`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
     /// A list with items in the following form.
     #[builder(into)]
     #[serde(rename = "values")]

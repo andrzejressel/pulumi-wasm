@@ -18,5 +18,5 @@ pub struct SsisFolderResponse {
     /// Expected value is 'Folder'.
     #[builder(skip)]
     #[serde(rename = "type")]
-    r#type: Box<super::constants::ConstStringFolder>,
+    r#type_: Box<super::constants::ConstStringFolder>,
 }

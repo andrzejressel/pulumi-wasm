@@ -109,7 +109,7 @@ pub struct RecordData {
     pub r#target: Box<Option<String>>,
     #[builder(into, default)]
     #[serde(rename = "type")]
-    pub r#type: Box<Option<i32>>,
+    pub r#type_: Box<Option<i32>>,
     #[builder(into, default)]
     #[serde(rename = "usage")]
     pub r#usage: Box<Option<i32>>,

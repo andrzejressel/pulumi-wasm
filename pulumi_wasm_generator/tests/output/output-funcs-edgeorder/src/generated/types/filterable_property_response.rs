@@ -9,5 +9,5 @@ pub struct FilterablePropertyResponse {
     /// Type of product filter.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

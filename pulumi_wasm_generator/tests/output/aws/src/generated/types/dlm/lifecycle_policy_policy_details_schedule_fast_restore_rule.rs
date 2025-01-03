@@ -1,0 +1,18 @@
+#[derive(pulumi_wasm_rust::__private::serde::Deserialize, pulumi_wasm_rust::__private::serde::Serialize, pulumi_wasm_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
+#[builder(finish_fn = build_struct)]
+#[allow(dead_code)]
+pub struct LifecyclePolicyPolicyDetailsScheduleFastRestoreRule {
+    /// The Availability Zones in which to enable fast snapshot restore.
+    #[builder(into)]
+    #[serde(rename = "availabilityZones")]
+    pub r#availability_zones: Box<Vec<String>>,
+    #[builder(into, default)]
+    #[serde(rename = "count")]
+    pub r#count: Box<Option<i32>>,
+    #[builder(into, default)]
+    #[serde(rename = "interval")]
+    pub r#interval: Box<Option<i32>>,
+    #[builder(into, default)]
+    #[serde(rename = "intervalUnit")]
+    pub r#interval_unit: Box<Option<String>>,
+}

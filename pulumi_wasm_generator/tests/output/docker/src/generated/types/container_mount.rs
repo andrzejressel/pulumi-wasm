@@ -25,7 +25,7 @@ pub struct ContainerMount {
     /// The mount type
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
     /// Optional configuration for the volume type.
     #[builder(into, default)]
     #[serde(rename = "volumeOptions")]

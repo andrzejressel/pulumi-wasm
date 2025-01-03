@@ -13,5 +13,5 @@ pub struct SpectrumApplicationEdgeIps {
     /// The type of edge IP configuration specified. Available values: `dynamic`, `static`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

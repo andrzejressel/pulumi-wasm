@@ -9,5 +9,5 @@ pub struct FilterableProperty {
     /// Type of product filter.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<pulumi_wasm_rust::OneOf2<String, super::types::SupportedFilterTypes>>,
+    pub r#type_: Box<pulumi_wasm_rust::OneOf2<String, super::types::SupportedFilterTypes>>,
 }
