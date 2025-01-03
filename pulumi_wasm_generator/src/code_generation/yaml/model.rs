@@ -5,54 +5,13 @@ use crate::code_generation::yaml::yaml_model::{
 use crate::model::{ElementId, GlobalType, Package, Ref, Type};
 use anyhow::Result;
 use anyhow::{anyhow, Context};
-use std::collections::{BTreeMap, HashMap};
+use std::collections::BTreeMap;
 
-struct PackageContext<'a> {
-    package: &'a Package,
-    resource_name_map: HashMap<String, &'a crate::model::Resource>,
-    function_name_map: HashMap<String, &'a crate::model::Function>,
-}
-
-pub(crate) fn yaml_to_model(
-    yaml_file: YamlFile,
-    provider_name: String,
-    package: &Package,
-) -> Result<Example> {
-    let mut resource_name_map = HashMap::new();
-
-    for (element_id, resource) in &package.resources {
-        let mut chunks = Vec::new();
-        chunks.push(provider_name.clone());
-        chunks.extend(element_id.namespace.clone());
-        chunks.push(element_id.name.clone());
-
-        let name = chunks.join(":");
-
-        resource_name_map.insert(name.clone(), resource);
-    }
-
-    let mut function_name_map = HashMap::new();
-    for (element_id, function) in &package.functions {
-        let mut chunks = Vec::new();
-        chunks.push(provider_name.clone());
-        chunks.extend(element_id.namespace.clone());
-        chunks.push(element_id.name.clone());
-
-        let name = chunks.join(":");
-
-        function_name_map.insert(name.clone(), function);
-    }
-
-    let context = PackageContext {
-        package,
-        resource_name_map,
-        function_name_map,
-    };
-
+pub(crate) fn yaml_to_model(yaml_file: YamlFile, package: &Package) -> Result<Example> {
     let mut resources = BTreeMap::new();
 
     for (name, yaml_resource) in yaml_file.resources {
-        let resource = map_resource(&yaml_resource, &context).with_context(|| {
+        let resource = map_resource(&yaml_resource, package).with_context(|| {
             format!(
                 "Failed to map YAML resource name [{}] value [{:?}]",
                 name, yaml_resource
@@ -63,7 +22,7 @@ pub(crate) fn yaml_to_model(
 
     let mut variables = BTreeMap::new();
     for (name, yaml_variable) in yaml_file.variables {
-        let variable = map_variable(&yaml_variable, &context).with_context(|| {
+        let variable = map_variable(&yaml_variable, package).with_context(|| {
             format!(
                 "Failed to map YAML variable name [{}] value [{:?}]",
                 name, yaml_variable
@@ -113,7 +72,7 @@ pub(crate) enum Expression {
     Array(Vec<Expression>),
 }
 
-fn map_resource(yaml_resource: &YamlResource, context: &PackageContext) -> Result<Resource> {
+fn map_resource(yaml_resource: &YamlResource, context: &Package) -> Result<Resource> {
     let resource = context
         .resource_name_map
         .get(&yaml_resource.type_)
@@ -153,14 +112,14 @@ fn map_resource(yaml_resource: &YamlResource, context: &PackageContext) -> Resul
     })
 }
 
-fn map_variable(yaml_variable: &YamlVariable, context: &PackageContext) -> Result<Variable> {
+fn map_variable(yaml_variable: &YamlVariable, context: &Package) -> Result<Variable> {
     Ok(FnInvokeVariable(
         map_fn_invoke(&yaml_variable.fn_invoke, context)
             .with_context(|| format!("Failed to map yaml variable [{:?}]", yaml_variable))?,
     ))
 }
 
-fn map_fn_invoke(yaml_fn_invoke: &YamlFnInvoke, context: &PackageContext) -> Result<FnInvoke> {
+fn map_fn_invoke(yaml_fn_invoke: &YamlFnInvoke, context: &Package) -> Result<FnInvoke> {
     let function = context
         .function_name_map
         .get(&yaml_fn_invoke.function)
@@ -200,7 +159,7 @@ fn map_fn_invoke(yaml_fn_invoke: &YamlFnInvoke, context: &PackageContext) -> Res
 }
 
 fn map_array(
-    context: &PackageContext,
+    context: &Package,
     type_without_option: &TypeWithoutOption,
     yaml_expressions: &Vec<YamlExpression>,
 ) -> Result<Expression> {
@@ -242,7 +201,7 @@ fn remove_option(type_: &Type) -> Result<TypeWithoutOption> {
 }
 
 fn map_expression(
-    package_context: &PackageContext,
+    package_context: &Package,
     type_without_option: &TypeWithoutOption,
     yaml_expression: &YamlExpression,
 ) -> Result<Expression> {
@@ -282,7 +241,7 @@ fn map_expression(
 }
 
 fn map_type(
-    context: &PackageContext,
+    context: &Package,
     ref_: &Ref,
     properties: &BTreeMap<String, YamlExpression>,
 ) -> Result<Expression> {
@@ -293,7 +252,7 @@ fn map_type(
         Ref::Any => return Err(anyhow!("Any ref is not supported")),
     };
 
-    let tpe = &context.package.types[element_id];
+    let tpe = &context.types[element_id];
 
     let gtp = match tpe {
         GlobalType::Object(_, gtp) => gtp,

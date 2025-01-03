@@ -7,14 +7,22 @@ use std::path::Path;
 
 mod code_generation;
 mod description;
+mod filter;
 mod model;
 mod output;
 mod schema;
 mod utils;
 
-pub fn generate_combined(schema_json: &Path, result_path: &Path) -> Result<()> {
+pub fn generate_combined(
+    schema_json: &Path,
+    result_path: &Path,
+    filter: Option<&str>,
+) -> Result<()> {
     let schema_package: schema::Package = extract_schema_from_file(schema_json)?;
-    let package = schema::to_model(&schema_package)?;
+    let mut package = schema::to_model(&schema_package)?;
+    if let Some(filter) = filter {
+        filter::filter_package(&mut package, filter);
+    }
 
     fs::create_dir_all(result_path)?;
 

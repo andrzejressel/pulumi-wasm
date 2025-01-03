@@ -3,7 +3,8 @@ use anyhow::{Context, Result};
 use convert_case::Case;
 use convert_case::Case::UpperCamel;
 use convert_case::Casing;
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, HashMap};
+use std::rc::Rc;
 
 #[derive(Clone, Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
 pub(crate) enum Type {
@@ -169,9 +170,62 @@ pub(crate) struct Package {
     pub(crate) name: String,
     pub(crate) display_name: Option<String>,
     pub(crate) version: String,
-    pub(crate) resources: BTreeMap<ElementId, Resource>,
-    pub(crate) functions: BTreeMap<ElementId, Function>,
+    pub(crate) resources: BTreeMap<ElementId, Rc<Resource>>,
+    pub(crate) functions: BTreeMap<ElementId, Rc<Function>>,
     pub(crate) types: BTreeMap<ElementId, GlobalType>,
+
+    pub(crate) resource_name_map: HashMap<String, Rc<Resource>>,
+    pub(crate) function_name_map: HashMap<String, Rc<Function>>,
+}
+
+impl Package {
+    pub(crate) fn new(
+        name: String,
+        display_name: Option<String>,
+        version: String,
+        resources: BTreeMap<ElementId, Resource>,
+        functions: BTreeMap<ElementId, Function>,
+        types: BTreeMap<ElementId, GlobalType>,
+    ) -> Self {
+        let mut resource_name_map = HashMap::new();
+        let mut new_resources = BTreeMap::new();
+        for (element_id, resource) in resources {
+            let mut chunks = Vec::new();
+            chunks.push(name.clone());
+            chunks.extend(element_id.namespace.clone());
+            chunks.push(element_id.name.clone());
+            let rc = Rc::new(resource);
+            new_resources.insert(element_id, rc.clone());
+            let name = chunks.join(":");
+
+            resource_name_map.insert(name.clone(), rc.clone());
+        }
+
+        let mut new_function = BTreeMap::new();
+        let mut function_name_map = HashMap::new();
+        for (element_id, function) in functions {
+            let mut chunks = Vec::new();
+            chunks.push(name.clone());
+            chunks.extend(element_id.namespace.clone());
+            chunks.push(element_id.name.clone());
+
+            let rc = Rc::new(function);
+            new_function.insert(element_id, rc.clone());
+            let name = chunks.join(":");
+            function_name_map.insert(name.clone(), rc.clone());
+        }
+
+        Self {
+            name,
+            display_name,
+            version,
+            resources: new_resources,
+            functions: new_function,
+            types,
+            resource_name_map,
+            function_name_map,
+        }
+    }
 }
 
 #[derive(Clone, Eq, PartialEq, Hash, Ord, PartialOrd, Debug)]

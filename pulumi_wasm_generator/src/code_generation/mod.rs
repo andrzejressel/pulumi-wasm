@@ -12,7 +12,7 @@ pub fn generate_code_from_string(
 ) -> anyhow::Result<String> {
     let yaml_file =
         YamlFile::from_yaml(yaml.as_str()).context(format!("Failed to parse YAML: {}", yaml))?;
-    let example = yaml_to_model(yaml_file, package.name.clone(), package)
+    let example = yaml_to_model(yaml_file, package)
         .with_context(|| format!("Failed to convert YAML {} to model", yaml))?;
     generate_code(example)
 }

@@ -1,2 +1,6 @@
 [profile.default.junit]
 path = "junit.xml"
+
+[[profile.default.overrides]]
+filter = 'package(pulumi_wasm_generator) and kind(test)'
+threads-required = 4
