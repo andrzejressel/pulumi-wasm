@@ -372,7 +372,7 @@ pub(crate) fn to_model(package: &Package) -> Result<crate::model::Package> {
         package.version.clone().unwrap_or("0.0.1".to_string()),
         resources,
         functions,
-        types
+        types,
     ))
 }
 

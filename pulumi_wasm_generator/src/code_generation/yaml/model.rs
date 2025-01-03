@@ -7,15 +7,11 @@ use anyhow::Result;
 use anyhow::{anyhow, Context};
 use std::collections::BTreeMap;
 
-pub(crate) fn yaml_to_model(
-    yaml_file: YamlFile,
-    package: &Package,
-) -> Result<Example> {
-
+pub(crate) fn yaml_to_model(yaml_file: YamlFile, package: &Package) -> Result<Example> {
     let mut resources = BTreeMap::new();
 
     for (name, yaml_resource) in yaml_file.resources {
-        let resource = map_resource(&yaml_resource, &package).with_context(|| {
+        let resource = map_resource(&yaml_resource, package).with_context(|| {
             format!(
                 "Failed to map YAML resource name [{}] value [{:?}]",
                 name, yaml_resource
@@ -26,7 +22,7 @@ pub(crate) fn yaml_to_model(
 
     let mut variables = BTreeMap::new();
     for (name, yaml_variable) in yaml_file.variables {
-        let variable = map_variable(&yaml_variable, &package).with_context(|| {
+        let variable = map_variable(&yaml_variable, package).with_context(|| {
             format!(
                 "Failed to map YAML variable name [{}] value [{:?}]",
                 name, yaml_variable

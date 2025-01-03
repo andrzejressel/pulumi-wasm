@@ -4,7 +4,6 @@ use convert_case::Case;
 use convert_case::Case::UpperCamel;
 use convert_case::Casing;
 use std::collections::{BTreeMap, HashMap};
-use std::ops::Deref;
 use std::rc::Rc;
 
 #[derive(Clone, Debug, PartialEq, Hash, Ord, PartialOrd, Eq)]
@@ -179,7 +178,7 @@ pub(crate) struct Package {
     pub(crate) function_name_map: HashMap<String, Rc<Function>>,
 }
 
-impl<'a> Package {
+impl Package {
     pub(crate) fn new(
         name: String,
         display_name: Option<String>,
@@ -188,7 +187,6 @@ impl<'a> Package {
         functions: BTreeMap<ElementId, Function>,
         types: BTreeMap<ElementId, GlobalType>,
     ) -> Self {
-
         let mut resource_name_map = HashMap::new();
         let mut new_resources = BTreeMap::new();
         for (element_id, resource) in resources {

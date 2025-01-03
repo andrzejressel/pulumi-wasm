@@ -38,7 +38,7 @@ mod tests {
 
                 let package = schema::to_model(&schema_package).unwrap();
                 let yaml_file = $test_module::get_yaml_file();
-                let result = yaml_to_model(yaml_file,$package_name.to_string() &package)?;
+                let result = yaml_to_model(yaml_file, &package)?;
                 assert_eq!(result, $test_module::get_model());
 
                 let model = $test_module::get_model();
