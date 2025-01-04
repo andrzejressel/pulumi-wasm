@@ -156,7 +156,11 @@ fn main() {
         },
         FilteredTest {
             name: "azure",
-            filters: azure_modules.to_vec().chunks(10).map(|a| a.to_vec()).collect(),
+            filters: azure_modules
+                .to_vec()
+                .chunks(10)
+                .map(|a| a.to_vec())
+                .collect(),
         },
     ];
     let mut providers = vec![
