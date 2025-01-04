@@ -17,7 +17,11 @@ fn array_of_enum_map() -> Result<()> {
 #[test]
 #[cfg_attr(not(feature = "generator_azure-native-nested-types"), ignore)]
 fn azure_native_nested_types() -> Result<()> {
-    run_pulumi_generator_test("azure-native-nested-types", "azure-native-nested-types", None)
+    run_pulumi_generator_test(
+        "azure-native-nested-types",
+        "azure-native-nested-types",
+        None,
+    )
 }
 
 #[test]
@@ -89,7 +93,11 @@ fn plain_object_defaults() -> Result<()> {
 #[test]
 #[cfg_attr(not(feature = "generator_plain-object-disable-defaults"), ignore)]
 fn plain_object_disable_defaults() -> Result<()> {
-    run_pulumi_generator_test("plain-object-disable-defaults", "plain-object-disable-defaults", None)
+    run_pulumi_generator_test(
+        "plain-object-disable-defaults",
+        "plain-object-disable-defaults",
+        None,
+    )
 }
 
 #[test]
@@ -137,7 +145,7 @@ fn filtering_1() -> Result<()> {
 #[test]
 #[cfg_attr(not(feature = "generator_filtering-2"), ignore)]
 fn filtering_2() -> Result<()> {
-    run_pulumi_generator_test("filtering", "filtering-2", Some(&["ns1","ns2"]))
+    run_pulumi_generator_test("filtering", "filtering-2", Some(&["ns1", "ns2"]))
 }
 // DO NOT EDIT - END
 
