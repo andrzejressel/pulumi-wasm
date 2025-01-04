@@ -73,6 +73,22 @@ pub fn generate(provider_name: &str, provider_version: &str) -> Result<()> {
 
 /// Generates glue code for given schema json/yaml. Can be included using [`pulumi_wasm_rust::include_provider!(provider_name)`]
 pub fn generate_from_schema(schema_file: &Path) -> Result<()> {
+    generate_from_schema_with_optional_filter(schema_file, None)
+}
+
+/// Generates glue code for given schema json/yaml and modules. Can be included using [`pulumi_wasm_rust::include_provider!(provider_name)`]
+/// Modules for provider can be found in Pulumi registry on left side with (M) icon:
+/// - [AWS](https://www.pulumi.com/registry/packages/aws/)
+/// - [Azure](https://www.pulumi.com/registry/packages/azure/)
+/// - [GCP](https://www.pulumi.com/registry/packages/gcp/)
+pub fn generate_from_schema_with_filter(schema_file: &Path, modules: &[&str]) -> Result<()> {
+    generate_from_schema_with_optional_filter(schema_file, Some(modules))
+}
+
+fn generate_from_schema_with_optional_filter(
+    schema_file: &Path,
+    modules: Option<&[&str]>,
+) -> Result<()> {
     let package = extract_micro_package(schema_file).context("Failed to deserialize package")?;
     let provider_name = package.name;
 
@@ -82,7 +98,7 @@ pub fn generate_from_schema(schema_file: &Path) -> Result<()> {
         .context(format!("Failed to convert [{:?}] to string", out_dir))?;
     let location = Path::new(out_dir).join("pulumi").join(provider_name);
 
-    generate_combined(schema_file, &location, None).context("Failed to generate glue files")?;
+    generate_combined(schema_file, &location, modules).context("Failed to generate glue files")?;
     println!("cargo::rerun-if-changed=build.rs");
     println!("cargo::rerun-if-changed={}", schema_file.display());
     Ok(())
