@@ -1,0 +1,209 @@
+/// Manages a Synapse Workspace Extended Auditing Policy.
+///
+/// ## Example Usage
+///
+/// ```yaml
+/// resources:
+///   example:
+///     type: azure:core:ResourceGroup
+///     properties:
+///       name: example-resources
+///       location: West Europe
+///   exampleAccount:
+///     type: azure:storage:Account
+///     name: example
+///     properties:
+///       name: examplestorageacc
+///       resourceGroupName: ${example.name}
+///       location: ${example.location}
+///       accountTier: Standard
+///       accountReplicationType: LRS
+///       accountKind: BlobStorage
+///   exampleDataLakeGen2Filesystem:
+///     type: azure:storage:DataLakeGen2Filesystem
+///     name: example
+///     properties:
+///       name: example
+///       storageAccountId: ${exampleAccount.id}
+///   exampleWorkspace:
+///     type: azure:synapse:Workspace
+///     name: example
+///     properties:
+///       name: example
+///       resourceGroupName: ${example.name}
+///       location: ${example.location}
+///       storageDataLakeGen2FilesystemId: ${exampleDataLakeGen2Filesystem.id}
+///       sqlAdministratorLogin: sqladminuser
+///       sqlAdministratorLoginPassword: H@Sh1CoR3!
+///       identity:
+///         type: SystemAssigned
+///   auditLogs:
+///     type: azure:storage:Account
+///     name: audit_logs
+///     properties:
+///       name: examplesa
+///       resourceGroupName: ${example.name}
+///       location: ${example.location}
+///       accountTier: Standard
+///       accountReplicationType: LRS
+///   exampleWorkspaceExtendedAuditingPolicy:
+///     type: azure:synapse:WorkspaceExtendedAuditingPolicy
+///     name: example
+///     properties:
+///       synapseWorkspaceId: ${exampleWorkspace.id}
+///       storageEndpoint: ${auditLogs.primaryBlobEndpoint}
+///       storageAccountAccessKey: ${auditLogs.primaryAccessKey}
+///       storageAccountAccessKeyIsSecondary: false
+///       retentionInDays: 6
+/// ```
+///
+/// ## Import
+///
+/// Synapse Workspace Extended Auditing Policies can be imported using the `resource id`, e.g.
+///
+/// ```sh
+/// $ pulumi import azure:synapse/workspaceExtendedAuditingPolicy:WorkspaceExtendedAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/extendedAuditingSettings/default
+/// ```
+///
+pub mod workspace_extended_auditing_policy {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct WorkspaceExtendedAuditingPolicyArgs {
+        /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
+        #[builder(into, default)]
+        pub log_monitoring_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        /// The number of days to retain logs for in the storage account. Defaults to `0`.
+        #[builder(into, default)]
+        pub retention_in_days: pulumi_wasm_rust::Output<Option<i32>>,
+        /// The access key to use for the auditing storage account.
+        #[builder(into, default)]
+        pub storage_account_access_key: pulumi_wasm_rust::Output<Option<String>>,
+        /// Is `storage_account_access_key` value the storage's secondary key?
+        #[builder(into, default)]
+        pub storage_account_access_key_is_secondary: pulumi_wasm_rust::Output<
+            Option<bool>,
+        >,
+        /// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
+        #[builder(into, default)]
+        pub storage_endpoint: pulumi_wasm_rust::Output<Option<String>>,
+        /// The ID of the Synapse workspace to set the extended auditing policy. Changing this forces a new resource to be created.
+        #[builder(into)]
+        pub synapse_workspace_id: pulumi_wasm_rust::Output<String>,
+    }
+    #[allow(dead_code)]
+    pub struct WorkspaceExtendedAuditingPolicyResult {
+        /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
+        pub log_monitoring_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        /// The number of days to retain logs for in the storage account. Defaults to `0`.
+        pub retention_in_days: pulumi_wasm_rust::Output<Option<i32>>,
+        /// The access key to use for the auditing storage account.
+        pub storage_account_access_key: pulumi_wasm_rust::Output<Option<String>>,
+        /// Is `storage_account_access_key` value the storage's secondary key?
+        pub storage_account_access_key_is_secondary: pulumi_wasm_rust::Output<
+            Option<bool>,
+        >,
+        /// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
+        pub storage_endpoint: pulumi_wasm_rust::Output<Option<String>>,
+        /// The ID of the Synapse workspace to set the extended auditing policy. Changing this forces a new resource to be created.
+        pub synapse_workspace_id: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(
+        name: &str,
+        args: WorkspaceExtendedAuditingPolicyArgs,
+    ) -> WorkspaceExtendedAuditingPolicyResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let log_monitoring_enabled_binding = args.log_monitoring_enabled.get_inner();
+        let retention_in_days_binding = args.retention_in_days.get_inner();
+        let storage_account_access_key_binding = args
+            .storage_account_access_key
+            .get_inner();
+        let storage_account_access_key_is_secondary_binding = args
+            .storage_account_access_key_is_secondary
+            .get_inner();
+        let storage_endpoint_binding = args.storage_endpoint.get_inner();
+        let synapse_workspace_id_binding = args.synapse_workspace_id.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "azure:synapse/workspaceExtendedAuditingPolicy:WorkspaceExtendedAuditingPolicy"
+                .into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "logMonitoringEnabled".into(),
+                    value: &log_monitoring_enabled_binding,
+                },
+                register_interface::ObjectField {
+                    name: "retentionInDays".into(),
+                    value: &retention_in_days_binding,
+                },
+                register_interface::ObjectField {
+                    name: "storageAccountAccessKey".into(),
+                    value: &storage_account_access_key_binding,
+                },
+                register_interface::ObjectField {
+                    name: "storageAccountAccessKeyIsSecondary".into(),
+                    value: &storage_account_access_key_is_secondary_binding,
+                },
+                register_interface::ObjectField {
+                    name: "storageEndpoint".into(),
+                    value: &storage_endpoint_binding,
+                },
+                register_interface::ObjectField {
+                    name: "synapseWorkspaceId".into(),
+                    value: &synapse_workspace_id_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "logMonitoringEnabled".into(),
+                },
+                register_interface::ResultField {
+                    name: "retentionInDays".into(),
+                },
+                register_interface::ResultField {
+                    name: "storageAccountAccessKey".into(),
+                },
+                register_interface::ResultField {
+                    name: "storageAccountAccessKeyIsSecondary".into(),
+                },
+                register_interface::ResultField {
+                    name: "storageEndpoint".into(),
+                },
+                register_interface::ResultField {
+                    name: "synapseWorkspaceId".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        WorkspaceExtendedAuditingPolicyResult {
+            log_monitoring_enabled: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("logMonitoringEnabled").unwrap(),
+            ),
+            retention_in_days: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("retentionInDays").unwrap(),
+            ),
+            storage_account_access_key: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("storageAccountAccessKey").unwrap(),
+            ),
+            storage_account_access_key_is_secondary: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("storageAccountAccessKeyIsSecondary").unwrap(),
+            ),
+            storage_endpoint: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("storageEndpoint").unwrap(),
+            ),
+            synapse_workspace_id: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("synapseWorkspaceId").unwrap(),
+            ),
+        }
+    }
+}

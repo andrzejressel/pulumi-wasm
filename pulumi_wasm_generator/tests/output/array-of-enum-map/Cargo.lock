@@ -21,6 +21,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "34ac096ce696dc2fcabef30516bb13c0a68a11d30131d3df6f04711467681b04"
 
 [[package]]
+name = "array-of-enum-map"
+version = "0.0.1"
+dependencies = [
+ "bon",
+ "pulumi_wasm_rust",
+ "serde",
+ "wit-bindgen",
+]
+
+[[package]]
 name = "bitflags"
 version = "2.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -182,16 +192,6 @@ name = "log"
 version = "0.4.22"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a7a70ba024b9dc04c27ea2f0c0548feb474ec5c54bba33a7f72f873a39d07b24"
-
-[[package]]
-name = "main"
-version = "0.0.1"
-dependencies = [
- "bon",
- "pulumi_wasm_rust",
- "serde",
- "wit-bindgen",
-]
 
 [[package]]
 name = "memchr"
