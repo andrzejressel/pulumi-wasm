@@ -16,7 +16,7 @@ mod utils;
 pub fn generate_combined(
     schema_json: &Path,
     result_path: &Path,
-    filter: Option<&str>,
+    filter: Option<&[&str]>,
 ) -> Result<()> {
     let schema_package: schema::Package = extract_schema_from_file(schema_json)?;
     let mut package = schema::to_model(&schema_package)?;

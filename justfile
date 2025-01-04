@@ -12,7 +12,7 @@ CARGO_HACK_VERSION := "0.6.33"
 
 @default: build-language-plugin regenerator install-requirements build-wasm-components build-wasm-components-release test-all rust-docs fmt
 
-# Checks formatting and regenerator
+# Regenerate "DO NOT EDIT" sections, recreate generator examples (but does not compile them), reformat whole project
 housekeeping-ci-flow: regenerator regenerate-generator-tests fmt
 
 # Runs all amd64 unit and doc tests tests

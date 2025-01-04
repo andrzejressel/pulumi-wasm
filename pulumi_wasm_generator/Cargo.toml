@@ -26,8 +26,9 @@ generator_reserved_names = []
 generator_unions-inline = []
 generator_unions-inside-arrays = []
 generator_workarounds = []
-generator_filtering-ns1 = []
-generator_filtering-ns2 = []
+generator_filtering-0 = []
+generator_filtering-1 = []
+generator_filtering-2 = []
 # DO NOT EDIT - END
 
 [lints]

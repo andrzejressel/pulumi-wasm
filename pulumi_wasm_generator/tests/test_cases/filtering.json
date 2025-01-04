@@ -37,6 +37,24 @@
           "$ref": "#/types/example:common:CommonType"
         }
       }
+    },
+    "example:ns3:Resource3": {
+      "inputProperties": {
+        "type3": {
+          "$ref": "#/types/example:ns3:Type3"
+        },
+        "commonType": {
+          "$ref": "#/types/example:common:CommonType"
+        }
+      },
+      "properties": {
+        "type3": {
+          "$ref": "#/types/example:ns3:Type3"
+        },
+        "commonType": {
+          "$ref": "#/types/example:common:CommonType"
+        }
+      }
     }
   },
   "functions": {
@@ -92,6 +110,14 @@
       "type": "object",
       "properties": {
         "property2": {
+          "type": "number"
+        }
+      }
+    },
+    "example:ns3:Type3": {
+      "type": "object",
+      "properties": {
+        "property3": {
           "type": "number"
         }
       }
