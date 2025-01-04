@@ -187,7 +187,7 @@ fn main() {
         "cloudscheduler",
         "cloudtasks",
         "composer",
-        "compute",
+        // "compute", too large - has to be compiled separately
         "container",
         "containeranalysis",
         "databasemigrationservice",
@@ -275,6 +275,12 @@ fn main() {
         "workstations",
     ];
 
+    let mut grouped_gcp = gcp_modules
+        .to_vec()
+        .chunks(10)
+        .map(|a| a.to_vec())
+        .collect::<Vec<_>>();
+    grouped_gcp.push(vec!["compute"]);
     let mut filtered_tests = vec![
         FilteredTest {
             name: "filtering",
@@ -290,11 +296,7 @@ fn main() {
         },
         FilteredTest {
             name: "gcp",
-            filters: gcp_modules
-                .to_vec()
-                .chunks(10)
-                .map(|a| a.to_vec())
-                .collect(),
+            filters: grouped_gcp,
         },
     ];
     let mut providers = vec![

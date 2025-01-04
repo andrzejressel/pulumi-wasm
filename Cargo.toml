@@ -12,6 +12,7 @@ members = [
     "providers/azure-mini",
     "providers/cloudflare",
     "providers/docker",
+    "providers/gcp-mini",
     "providers/typesystem",
     "providers/random",
     "pulumi_wasm",

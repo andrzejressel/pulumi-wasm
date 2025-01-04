@@ -1,6 +1,3 @@
-pub mod vpcaccess {
-    include!("resources/vpcaccess/connector.rs");
-}
 pub mod workbench {
     include!("resources/workbench/instance.rs");
     include!("resources/workbench/instance_iam_binding.rs");
@@ -22,9 +19,6 @@ pub mod workstations {
     include!("resources/workstations/workstation_iam_policy.rs");
 }
 pub mod functions {
-    pub mod vpcaccess {
-        include!("functions/vpcaccess/get_connector.rs");
-    }
     pub mod workbench {
         include!("functions/workbench/get_instance_iam_policy.rs");
     }
@@ -34,10 +28,6 @@ pub mod functions {
     }
 }
 pub mod types {
-    pub mod vpcaccess {
-        include!("types/vpcaccess/connector_subnet.rs");
-        include!("types/vpcaccess/get_connector_subnet.rs");
-    }
     pub mod workbench {
         include!("types/workbench/instance_gce_setup.rs");
         include!("types/workbench/instance_gce_setup_accelerator_config.rs");

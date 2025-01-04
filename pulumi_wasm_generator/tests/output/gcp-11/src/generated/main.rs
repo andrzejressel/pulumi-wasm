@@ -1,7 +1,3 @@
-pub mod siteverification {
-    include!("resources/siteverification/owner.rs");
-    include!("resources/siteverification/web_resource.rs");
-}
 pub mod sourcerepo {
     include!("resources/sourcerepo/repository.rs");
     include!("resources/sourcerepo/repository_iam_binding.rs");
@@ -106,10 +102,10 @@ pub mod vmwareengine {
     include!("resources/vmwareengine/private_cloud.rs");
     include!("resources/vmwareengine/subnet.rs");
 }
+pub mod vpcaccess {
+    include!("resources/vpcaccess/connector.rs");
+}
 pub mod functions {
-    pub mod siteverification {
-        include!("functions/siteverification/get_token.rs");
-    }
     pub mod sourcerepo {
         include!("functions/sourcerepo/get_repository.rs");
         include!("functions/sourcerepo/get_repository_iam_policy.rs");
@@ -174,11 +170,11 @@ pub mod functions {
         include!("functions/vmwareengine/get_subnet.rs");
         include!("functions/vmwareengine/get_vcenter_credentials.rs");
     }
+    pub mod vpcaccess {
+        include!("functions/vpcaccess/get_connector.rs");
+    }
 }
 pub mod types {
-    pub mod siteverification {
-        include!("types/siteverification/web_resource_site.rs");
-    }
     pub mod sourcerepo {
         include!("types/sourcerepo/repository_iam_binding_condition.rs");
         include!("types/sourcerepo/repository_iam_member_condition.rs");
@@ -751,6 +747,10 @@ pub mod types {
         include!("types/vmwareengine/get_private_cloud_nsx.rs");
         include!("types/vmwareengine/get_private_cloud_vcenter.rs");
         include!("types/vmwareengine/get_subnet_dhcp_address_range.rs");
+    }
+    pub mod vpcaccess {
+        include!("types/vpcaccess/connector_subnet.rs");
+        include!("types/vpcaccess/get_connector_subnet.rs");
     }
 }
 #[doc(hidden)]

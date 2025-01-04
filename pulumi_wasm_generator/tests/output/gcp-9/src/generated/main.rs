@@ -1,14 +1,3 @@
-pub mod organizations {
-    include!("resources/organizations/access_approval_settings.rs");
-    include!("resources/organizations/folder.rs");
-    include!("resources/organizations/iam_binding.rs");
-    include!("resources/organizations/iam_custom_role.rs");
-    include!("resources/organizations/iam_member.rs");
-    include!("resources/organizations/iam_policy.rs");
-    include!("resources/organizations/iam_audit_config.rs");
-    include!("resources/organizations/policy.rs");
-    include!("resources/organizations/project.rs");
-}
 pub mod orgpolicy {
     include!("resources/orgpolicy/custom_constraint.rs");
     include!("resources/orgpolicy/policy.rs");
@@ -66,18 +55,10 @@ pub mod redis {
     include!("resources/redis/cluster.rs");
     include!("resources/redis/instance.rs");
 }
+pub mod resourcemanager {
+    include!("resources/resourcemanager/lien.rs");
+}
 pub mod functions {
-    pub mod organizations {
-        include!("functions/organizations/get_active_folder.rs");
-        include!("functions/organizations/get_billing_account.rs");
-        include!("functions/organizations/get_client_config.rs");
-        include!("functions/organizations/get_client_open_id_user_info.rs");
-        include!("functions/organizations/get_folder.rs");
-        include!("functions/organizations/get_folders.rs");
-        include!("functions/organizations/get_iam_policy.rs");
-        include!("functions/organizations/get_organization.rs");
-        include!("functions/organizations/get_project.rs");
-    }
     pub mod privilegedaccessmanager {
         include!("functions/privilegedaccessmanager/get_entitlement.rs");
     }
@@ -99,22 +80,6 @@ pub mod functions {
     }
 }
 pub mod types {
-    pub mod organizations {
-        include!("types/organizations/access_approval_settings_enrolled_service.rs");
-        include!("types/organizations/iam_binding_condition.rs");
-        include!("types/organizations/iam_member_condition.rs");
-        include!("types/organizations/iam_audit_config_audit_log_config.rs");
-        include!("types/organizations/policy_boolean_policy.rs");
-        include!("types/organizations/policy_list_policy.rs");
-        include!("types/organizations/policy_list_policy_allow.rs");
-        include!("types/organizations/policy_list_policy_deny.rs");
-        include!("types/organizations/policy_restore_policy.rs");
-        include!("types/organizations/get_folders_folder.rs");
-        include!("types/organizations/get_iam_policy_audit_config.rs");
-        include!("types/organizations/get_iam_policy_audit_config_audit_log_config.rs");
-        include!("types/organizations/get_iam_policy_binding.rs");
-        include!("types/organizations/get_iam_policy_binding_condition.rs");
-    }
     pub mod orgpolicy {
         include!("types/orgpolicy/policy_dry_run_spec.rs");
         include!("types/orgpolicy/policy_dry_run_spec_rule.rs");

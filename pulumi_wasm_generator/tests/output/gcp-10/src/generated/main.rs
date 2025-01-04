@@ -1,6 +1,3 @@
-pub mod resourcemanager {
-    include!("resources/resourcemanager/lien.rs");
-}
 pub mod runtimeconfig {
     include!("resources/runtimeconfig/config.rs");
     include!("resources/runtimeconfig/config_iam_binding.rs");
@@ -107,6 +104,10 @@ pub mod servicenetworking {
 pub mod serviceusage {
     include!("resources/serviceusage/consumer_quota_override.rs");
 }
+pub mod siteverification {
+    include!("resources/siteverification/owner.rs");
+    include!("resources/siteverification/web_resource.rs");
+}
 pub mod functions {
     pub mod runtimeconfig {
         include!("functions/runtimeconfig/get_config.rs");
@@ -148,6 +149,9 @@ pub mod functions {
     }
     pub mod servicenetworking {
         include!("functions/servicenetworking/get_peered_dns_domain.rs");
+    }
+    pub mod siteverification {
+        include!("functions/siteverification/get_token.rs");
     }
 }
 pub mod types {
@@ -424,6 +428,9 @@ pub mod types {
         include!("types/servicedirectory/namespace_iam_member_condition.rs");
         include!("types/servicedirectory/service_iam_binding_condition.rs");
         include!("types/servicedirectory/service_iam_member_condition.rs");
+    }
+    pub mod siteverification {
+        include!("types/siteverification/web_resource_site.rs");
     }
 }
 #[doc(hidden)]

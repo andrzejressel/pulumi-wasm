@@ -2416,6 +2416,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "pulumi_wasm_providers_gcp_mini"
+version = "0.0.0-DEV"
+dependencies = [
+ "bon",
+ "pulumi_wasm_build",
+ "pulumi_wasm_rust",
+ "serde",
+ "wit-bindgen",
+]
+
+[[package]]
 name = "pulumi_wasm_providers_random"
 version = "0.0.0-DEV"
 dependencies = [

@@ -1,7 +1,3 @@
-pub mod migrationcenter {
-    include!("resources/migrationcenter/group.rs");
-    include!("resources/migrationcenter/preference_set.rs");
-}
 pub mod ml {
     include!("resources/ml/engine_model.rs");
 }
@@ -99,6 +95,17 @@ pub mod oracledatabase {
     include!("resources/oracledatabase/cloud_exadata_infrastructure.rs");
     include!("resources/oracledatabase/cloud_vm_cluster.rs");
 }
+pub mod organizations {
+    include!("resources/organizations/access_approval_settings.rs");
+    include!("resources/organizations/folder.rs");
+    include!("resources/organizations/iam_binding.rs");
+    include!("resources/organizations/iam_custom_role.rs");
+    include!("resources/organizations/iam_member.rs");
+    include!("resources/organizations/iam_policy.rs");
+    include!("resources/organizations/iam_audit_config.rs");
+    include!("resources/organizations/policy.rs");
+    include!("resources/organizations/project.rs");
+}
 pub mod functions {
     pub mod monitoring {
         include!("functions/monitoring/get_app_engine_service.rs");
@@ -126,32 +133,19 @@ pub mod functions {
         include!("functions/oracledatabase/get_db_nodes.rs");
         include!("functions/oracledatabase/get_db_servers.rs");
     }
+    pub mod organizations {
+        include!("functions/organizations/get_active_folder.rs");
+        include!("functions/organizations/get_billing_account.rs");
+        include!("functions/organizations/get_client_config.rs");
+        include!("functions/organizations/get_client_open_id_user_info.rs");
+        include!("functions/organizations/get_folder.rs");
+        include!("functions/organizations/get_folders.rs");
+        include!("functions/organizations/get_iam_policy.rs");
+        include!("functions/organizations/get_organization.rs");
+        include!("functions/organizations/get_project.rs");
+    }
 }
 pub mod types {
-    pub mod migrationcenter {
-        include!("types/migrationcenter/preference_set_virtual_machine_preferences.rs");
-        include!(
-            "types/migrationcenter/preference_set_virtual_machine_preferences_compute_engine_preferences.rs"
-        );
-        include!(
-            "types/migrationcenter/preference_set_virtual_machine_preferences_compute_engine_preferences_machine_preferences.rs"
-        );
-        include!(
-            "types/migrationcenter/preference_set_virtual_machine_preferences_compute_engine_preferences_machine_preferences_allowed_machine_series.rs"
-        );
-        include!(
-            "types/migrationcenter/preference_set_virtual_machine_preferences_region_preferences.rs"
-        );
-        include!(
-            "types/migrationcenter/preference_set_virtual_machine_preferences_sole_tenancy_preferences.rs"
-        );
-        include!(
-            "types/migrationcenter/preference_set_virtual_machine_preferences_sole_tenancy_preferences_node_type.rs"
-        );
-        include!(
-            "types/migrationcenter/preference_set_virtual_machine_preferences_vmware_engine_preferences.rs"
-        );
-    }
     pub mod ml {
         include!("types/ml/engine_model_default_version.rs");
     }
@@ -745,6 +739,22 @@ pub mod types {
         include!("types/oracledatabase/get_db_nodes_db_node_property.rs");
         include!("types/oracledatabase/get_db_servers_db_server.rs");
         include!("types/oracledatabase/get_db_servers_db_server_property.rs");
+    }
+    pub mod organizations {
+        include!("types/organizations/access_approval_settings_enrolled_service.rs");
+        include!("types/organizations/iam_binding_condition.rs");
+        include!("types/organizations/iam_member_condition.rs");
+        include!("types/organizations/iam_audit_config_audit_log_config.rs");
+        include!("types/organizations/policy_boolean_policy.rs");
+        include!("types/organizations/policy_list_policy.rs");
+        include!("types/organizations/policy_list_policy_allow.rs");
+        include!("types/organizations/policy_list_policy_deny.rs");
+        include!("types/organizations/policy_restore_policy.rs");
+        include!("types/organizations/get_folders_folder.rs");
+        include!("types/organizations/get_iam_policy_audit_config.rs");
+        include!("types/organizations/get_iam_policy_audit_config_audit_log_config.rs");
+        include!("types/organizations/get_iam_policy_binding.rs");
+        include!("types/organizations/get_iam_policy_binding_condition.rs");
     }
 }
 #[doc(hidden)]

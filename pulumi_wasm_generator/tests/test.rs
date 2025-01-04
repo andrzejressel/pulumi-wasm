@@ -506,8 +506,8 @@ fn gcp_3() -> Result<()> {
             "cloudscheduler",
             "cloudtasks",
             "composer",
-            "compute",
             "container",
+            "containeranalysis",
         ]),
     )
 }
@@ -519,7 +519,6 @@ fn gcp_4() -> Result<()> {
         "gcp",
         "gcp-4",
         Some(&[
-            "containeranalysis",
             "databasemigrationservice",
             "datacatalog",
             "dataflow",
@@ -529,6 +528,7 @@ fn gcp_4() -> Result<()> {
             "dataplex",
             "dataproc",
             "datastream",
+            "deploymentmanager",
         ]),
     )
 }
@@ -540,7 +540,6 @@ fn gcp_5() -> Result<()> {
         "gcp",
         "gcp-5",
         Some(&[
-            "deploymentmanager",
             "developerconnect",
             "diagflow",
             "discoveryengine",
@@ -550,6 +549,7 @@ fn gcp_5() -> Result<()> {
             "endpoints",
             "essentialcontacts",
             "eventarc",
+            "filestore",
         ]),
     )
 }
@@ -561,7 +561,6 @@ fn gcp_6() -> Result<()> {
         "gcp",
         "gcp-6",
         Some(&[
-            "filestore",
             "firebase",
             "firebaserules",
             "firestore",
@@ -571,6 +570,7 @@ fn gcp_6() -> Result<()> {
             "gkehub",
             "gkeonprem",
             "healthcare",
+            "iam",
         ]),
     )
 }
@@ -582,7 +582,6 @@ fn gcp_7() -> Result<()> {
         "gcp",
         "gcp-7",
         Some(&[
-            "iam",
             "iap",
             "identityplatform",
             "integrationconnectors",
@@ -592,6 +591,7 @@ fn gcp_7() -> Result<()> {
             "managedkafka",
             "memcache",
             "memorystore",
+            "migrationcenter",
         ]),
     )
 }
@@ -603,7 +603,6 @@ fn gcp_8() -> Result<()> {
         "gcp",
         "gcp-8",
         Some(&[
-            "migrationcenter",
             "ml",
             "monitoring",
             "netapp",
@@ -613,6 +612,7 @@ fn gcp_8() -> Result<()> {
             "networkservices",
             "notebooks",
             "oracledatabase",
+            "organizations",
         ]),
     )
 }
@@ -624,7 +624,6 @@ fn gcp_9() -> Result<()> {
         "gcp",
         "gcp-9",
         Some(&[
-            "organizations",
             "orgpolicy",
             "osconfig",
             "oslogin",
@@ -634,6 +633,7 @@ fn gcp_9() -> Result<()> {
             "pubsub",
             "recaptcha",
             "redis",
+            "resourcemanager",
         ]),
     )
 }
@@ -645,7 +645,6 @@ fn gcp_10() -> Result<()> {
         "gcp",
         "gcp-10",
         Some(&[
-            "resourcemanager",
             "runtimeconfig",
             "secretmanager",
             "securesourcemanager",
@@ -655,6 +654,7 @@ fn gcp_10() -> Result<()> {
             "servicedirectory",
             "servicenetworking",
             "serviceusage",
+            "siteverification",
         ]),
     )
 }
@@ -666,7 +666,6 @@ fn gcp_11() -> Result<()> {
         "gcp",
         "gcp-11",
         Some(&[
-            "siteverification",
             "sourcerepo",
             "spanner",
             "sql",
@@ -676,6 +675,7 @@ fn gcp_11() -> Result<()> {
             "transcoder",
             "vertex",
             "vmwareengine",
+            "vpcaccess",
         ]),
     )
 }
@@ -686,8 +686,14 @@ fn gcp_12() -> Result<()> {
     run_pulumi_generator_test(
         "gcp",
         "gcp-12",
-        Some(&["vpcaccess", "workbench", "workflows", "workstations"]),
+        Some(&["workbench", "workflows", "workstations"]),
     )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_gcp-13"), ignore)]
+fn gcp_13() -> Result<()> {
+    run_pulumi_generator_test("gcp", "gcp-13", Some(&["compute"]))
 }
 // DO NOT EDIT - END
 
