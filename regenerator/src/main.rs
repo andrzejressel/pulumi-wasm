@@ -77,12 +77,12 @@ fn main() {
     update_generator_cargo_toml(&tests, &filtered_tests);
 }
 
-fn update_tests(tests: &[&str], filtered_tests: &Vec<FilteredTest>) {
+fn update_tests(tests: &[&str], filtered_tests: &[FilteredTest]) {
     update_github_actions_build(tests, filtered_tests);
     update_test_rs(tests, filtered_tests);
 }
 
-fn update_github_actions_build(tests: &[&str], filtered_tests: &Vec<FilteredTest>) {
+fn update_github_actions_build(tests: &[&str], filtered_tests: &[FilteredTest]) {
     let content = fs::read_to_string(".github/workflows/build.yml")
         .expect("Failed to read .github/workflows/build.yml");
 
@@ -104,7 +104,7 @@ fn update_github_actions_build(tests: &[&str], filtered_tests: &Vec<FilteredTest
         .expect("Failed to write to .github/workflows/build.yml");
 }
 
-fn update_test_rs(tests: &[&str], filtered_tests: &Vec<FilteredTest>) {
+fn update_test_rs(tests: &[&str], filtered_tests: &[FilteredTest]) {
     let content = fs::read_to_string("pulumi_wasm_generator/tests/test.rs")
         .expect("Failed to read pulumi_wasm_generator/tests/test.rs");
 
@@ -151,7 +151,7 @@ fn {method_name}() -> Result<()> {{
         .expect("Failed to write to pulumi_wasm_generator/tests/test.rs");
 }
 
-fn update_generator_cargo_toml(tests: &[&str], filtered_tests: &Vec<FilteredTest>) {
+fn update_generator_cargo_toml(tests: &[&str], filtered_tests: &[FilteredTest]) {
     let content =
         fs::read_to_string("pulumi_wasm_generator/Cargo.toml").expect("Failed to read Cargo.toml");
     let mut replacement = String::new();

@@ -175,7 +175,7 @@ jobs:
           key: ${{ runner.os }}-pulumi-${{ hashFiles('regenerator/src/main.rs') }}
           restore-keys: |
             ${{ runner.os }}-pulumi-
-      - run: just househeeping-ci-flow
+      - run: just housekeeping-ci-flow
       - run: git add . && git diff
       - run: git diff --cached
       - name: Ensure no files have changed
