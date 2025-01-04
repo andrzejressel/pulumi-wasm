@@ -9,6 +9,7 @@ members = [
     "examples/multiple_providers",
     "examples/simple",
     "examples/typesystem",
+    "providers/aws-mini",
     "providers/azure-mini",
     "providers/cloudflare",
     "providers/docker",

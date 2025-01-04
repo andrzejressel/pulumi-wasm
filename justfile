@@ -135,6 +135,7 @@ rust-docs:
     cargo doc --no-deps \
         -p pulumi_wasm_rust \
         -p pulumi_wasm_build \
+        -p pulumi_wasm_providers_aws_mini \
         -p pulumi_wasm_providers_azure_mini \
         -p pulumi_wasm_providers_cloudflare \
         -p pulumi_wasm_providers_docker \

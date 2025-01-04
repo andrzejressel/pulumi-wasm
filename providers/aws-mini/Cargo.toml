@@ -1,0 +1,13 @@
+[package]
+name = "pulumi_wasm_providers_aws_mini"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+wit-bindgen.workspace = true
+pulumi_wasm_rust.workspace = true
+bon.workspace = true
+serde.workspace = true
+
+[build-dependencies]
+pulumi_wasm_build.workspace = true
