@@ -113,7 +113,8 @@ fn generate_with_optional_filter(
     let file = temp_dir.path().join("schema.json");
     fs::write(&file, &schema).context("Failed to write schema")?;
 
-    generate_combined(file.as_path(), &location, filter).context("Failed to generate glue files")?;
+    generate_combined(file.as_path(), &location, filter)
+        .context("Failed to generate glue files")?;
     println!("cargo::rerun-if-changed=build.rs");
 
     Ok(())
