@@ -1,0 +1,270 @@
+/// A collection of resources that are deployed and managed together using
+/// a configuration file
+///
+///
+///
+/// > **Warning:** This resource is intended only to manage a Deployment resource,
+/// and attempts to manage the Deployment's resources in the provider as well
+/// will likely result in errors or unexpected behavior as the two tools
+/// fight over ownership. We strongly discourage doing so unless you are an
+/// experienced user of both tools.
+///
+/// In addition, due to limitations of the API, the provider will treat
+/// deployments in preview as recreate-only for any update operation other
+/// than actually deploying an in-preview deployment (i.e. `preview=true` to
+/// `preview=false`).
+///
+/// ## Example Usage
+///
+/// ### Deployment Manager Deployment Basic
+///
+///
+/// ```yaml
+/// resources:
+///   deployment:
+///     type: gcp:deploymentmanager:Deployment
+///     properties:
+///       name: my-deployment
+///       target:
+///         config:
+///           content:
+///             fn::invoke:
+///               function: std:file
+///               arguments:
+///                 input: path/to/config.yml
+///               return: result
+///       labels:
+///         - key: foo
+///           value: bar
+/// ```
+/// ## Import
+///
+/// Deployment can be imported using any of these accepted formats:
+///
+/// * `projects/{{project}}/deployments/{{name}}`
+///
+/// * `{{project}}/{{name}}`
+///
+/// * `{{name}}`
+///
+/// When using the `pulumi import` command, Deployment can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:deploymentmanager/deployment:Deployment default projects/{{project}}/deployments/{{name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:deploymentmanager/deployment:Deployment default {{project}}/{{name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:deploymentmanager/deployment:Deployment default {{name}}
+/// ```
+///
+pub mod deployment {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct DeploymentArgs {
+        /// Set the policy to use for creating new resources. Only used on create and update. Valid values are 'CREATE_OR_ACQUIRE'
+        /// (default) or 'ACQUIRE'. If set to 'ACQUIRE' and resources do not already exist, the deployment will fail. Note that
+        /// updating this field does not actually affect the deployment, just how it is updated. Default value: "CREATE_OR_ACQUIRE"
+        /// Possible values: ["ACQUIRE", "CREATE_OR_ACQUIRE"]
+        #[builder(into, default)]
+        pub create_policy: pulumi_wasm_rust::Output<Option<String>>,
+        /// Set the policy to use for deleting new resources on update/delete. Valid values are 'DELETE' (default) or 'ABANDON'. If
+        /// 'DELETE', resource is deleted after removal from Deployment Manager. If 'ABANDON', the resource is only removed from
+        /// Deployment Manager and is not actually deleted. Note that updating this field does not actually change the deployment,
+        /// just how it is updated. Default value: "DELETE" Possible values: ["ABANDON", "DELETE"]
+        #[builder(into, default)]
+        pub delete_policy: pulumi_wasm_rust::Output<Option<String>>,
+        /// Optional user-provided description of deployment.
+        #[builder(into, default)]
+        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        /// Key-value pairs to apply to this labels.
+        #[builder(into, default)]
+        pub labels: pulumi_wasm_rust::Output<
+            Option<Vec<super::super::types::deploymentmanager::DeploymentLabel>>,
+        >,
+        /// Unique name for the deployment
+        #[builder(into, default)]
+        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        #[builder(into, default)]
+        pub preview: pulumi_wasm_rust::Output<Option<bool>>,
+        #[builder(into, default)]
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        /// Parameters that define your deployment, including the deployment
+        /// configuration and relevant templates.
+        /// Structure is documented below.
+        #[builder(into)]
+        pub target: pulumi_wasm_rust::Output<
+            super::super::types::deploymentmanager::DeploymentTarget,
+        >,
+    }
+    #[allow(dead_code)]
+    pub struct DeploymentResult {
+        /// Set the policy to use for creating new resources. Only used on create and update. Valid values are 'CREATE_OR_ACQUIRE'
+        /// (default) or 'ACQUIRE'. If set to 'ACQUIRE' and resources do not already exist, the deployment will fail. Note that
+        /// updating this field does not actually affect the deployment, just how it is updated. Default value: "CREATE_OR_ACQUIRE"
+        /// Possible values: ["ACQUIRE", "CREATE_OR_ACQUIRE"]
+        pub create_policy: pulumi_wasm_rust::Output<Option<String>>,
+        /// Set the policy to use for deleting new resources on update/delete. Valid values are 'DELETE' (default) or 'ABANDON'. If
+        /// 'DELETE', resource is deleted after removal from Deployment Manager. If 'ABANDON', the resource is only removed from
+        /// Deployment Manager and is not actually deleted. Note that updating this field does not actually change the deployment,
+        /// just how it is updated. Default value: "DELETE" Possible values: ["ABANDON", "DELETE"]
+        pub delete_policy: pulumi_wasm_rust::Output<Option<String>>,
+        /// Unique identifier for deployment. Output only.
+        pub deployment_id: pulumi_wasm_rust::Output<String>,
+        /// Optional user-provided description of deployment.
+        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        /// Key-value pairs to apply to this labels.
+        pub labels: pulumi_wasm_rust::Output<
+            Option<Vec<super::super::types::deploymentmanager::DeploymentLabel>>,
+        >,
+        /// Output only. URL of the manifest representing the last manifest that
+        /// was successfully deployed.
+        pub manifest: pulumi_wasm_rust::Output<String>,
+        /// Unique name for the deployment
+        pub name: pulumi_wasm_rust::Output<String>,
+        pub preview: pulumi_wasm_rust::Output<Option<bool>>,
+        pub project: pulumi_wasm_rust::Output<String>,
+        /// Output only. Server defined URL for the resource.
+        pub self_link: pulumi_wasm_rust::Output<String>,
+        /// Parameters that define your deployment, including the deployment
+        /// configuration and relevant templates.
+        /// Structure is documented below.
+        pub target: pulumi_wasm_rust::Output<
+            super::super::types::deploymentmanager::DeploymentTarget,
+        >,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: DeploymentArgs) -> DeploymentResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let create_policy_binding = args.create_policy.get_inner();
+        let delete_policy_binding = args.delete_policy.get_inner();
+        let description_binding = args.description.get_inner();
+        let labels_binding = args.labels.get_inner();
+        let name_binding = args.name.get_inner();
+        let preview_binding = args.preview.get_inner();
+        let project_binding = args.project.get_inner();
+        let target_binding = args.target.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:deploymentmanager/deployment:Deployment".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "createPolicy".into(),
+                    value: &create_policy_binding,
+                },
+                register_interface::ObjectField {
+                    name: "deletePolicy".into(),
+                    value: &delete_policy_binding,
+                },
+                register_interface::ObjectField {
+                    name: "description".into(),
+                    value: &description_binding,
+                },
+                register_interface::ObjectField {
+                    name: "labels".into(),
+                    value: &labels_binding,
+                },
+                register_interface::ObjectField {
+                    name: "name".into(),
+                    value: &name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "preview".into(),
+                    value: &preview_binding,
+                },
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+                register_interface::ObjectField {
+                    name: "target".into(),
+                    value: &target_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "createPolicy".into(),
+                },
+                register_interface::ResultField {
+                    name: "deletePolicy".into(),
+                },
+                register_interface::ResultField {
+                    name: "deploymentId".into(),
+                },
+                register_interface::ResultField {
+                    name: "description".into(),
+                },
+                register_interface::ResultField {
+                    name: "labels".into(),
+                },
+                register_interface::ResultField {
+                    name: "manifest".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "preview".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+                register_interface::ResultField {
+                    name: "selfLink".into(),
+                },
+                register_interface::ResultField {
+                    name: "target".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        DeploymentResult {
+            create_policy: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("createPolicy").unwrap(),
+            ),
+            delete_policy: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("deletePolicy").unwrap(),
+            ),
+            deployment_id: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("deploymentId").unwrap(),
+            ),
+            description: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("description").unwrap(),
+            ),
+            labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("labels").unwrap(),
+            ),
+            manifest: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("manifest").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            preview: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("preview").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+            self_link: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("selfLink").unwrap(),
+            ),
+            target: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("target").unwrap(),
+            ),
+        }
+    }
+}

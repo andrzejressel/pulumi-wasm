@@ -1,0 +1,303 @@
+/// A Bigquery Analytics Hub data exchange
+///
+///
+/// To get more information about DataExchange, see:
+///
+/// * [API documentation](https://cloud.google.com/bigquery/docs/reference/analytics-hub/rest/v1/projects.locations.dataExchanges)
+/// * How-to Guides
+///     * [Official Documentation](https://cloud.google.com/bigquery/docs/analytics-hub-introduction)
+///
+/// ## Example Usage
+///
+/// ### Bigquery Analyticshub Data Exchange Basic
+///
+///
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let dataExchange = data_exchange::create(
+///         "dataExchange",
+///         DataExchangeArgs::builder()
+///             .data_exchange_id("my_data_exchange")
+///             .description("example data exchange")
+///             .display_name("my_data_exchange")
+///             .location("US")
+///             .build_struct(),
+///     );
+/// }
+/// ```
+/// ### Bigquery Analyticshub Data Exchange Dcr
+///
+///
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let dataExchange = data_exchange::create(
+///         "dataExchange",
+///         DataExchangeArgs::builder()
+///             .data_exchange_id("dcr_data_exchange")
+///             .description("example dcr data exchange")
+///             .display_name("dcr_data_exchange")
+///             .location("US")
+///             .sharing_environment_config(
+///                 DataExchangeSharingEnvironmentConfig::builder()
+///                     .dcrExchangeConfig(
+///                         DataExchangeSharingEnvironmentConfigDcrExchangeConfig::builder()
+///                             .build_struct(),
+///                     )
+///                     .build_struct(),
+///             )
+///             .build_struct(),
+///     );
+/// }
+/// ```
+///
+/// ## Import
+///
+/// DataExchange can be imported using any of these accepted formats:
+///
+/// * `projects/{{project}}/locations/{{location}}/dataExchanges/{{data_exchange_id}}`
+///
+/// * `{{project}}/{{location}}/{{data_exchange_id}}`
+///
+/// * `{{location}}/{{data_exchange_id}}`
+///
+/// * `{{data_exchange_id}}`
+///
+/// When using the `pulumi import` command, DataExchange can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:bigqueryanalyticshub/dataExchange:DataExchange default projects/{{project}}/locations/{{location}}/dataExchanges/{{data_exchange_id}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:bigqueryanalyticshub/dataExchange:DataExchange default {{project}}/{{location}}/{{data_exchange_id}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:bigqueryanalyticshub/dataExchange:DataExchange default {{location}}/{{data_exchange_id}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:bigqueryanalyticshub/dataExchange:DataExchange default {{data_exchange_id}}
+/// ```
+///
+pub mod data_exchange {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct DataExchangeArgs {
+        /// The ID of the data exchange. Must contain only Unicode letters, numbers (0-9), underscores (_). Should not use characters that require URL-escaping, or characters outside of ASCII, spaces.
+        #[builder(into)]
+        pub data_exchange_id: pulumi_wasm_rust::Output<String>,
+        /// Description of the data exchange.
+        #[builder(into, default)]
+        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        /// Human-readable display name of the data exchange. The display name must contain only Unicode letters, numbers (0-9), underscores (_), dashes (-), spaces ( ), and must not start or end with spaces.
+        ///
+        ///
+        /// - - -
+        #[builder(into)]
+        pub display_name: pulumi_wasm_rust::Output<String>,
+        /// Documentation describing the data exchange.
+        #[builder(into, default)]
+        pub documentation: pulumi_wasm_rust::Output<Option<String>>,
+        /// Base64 encoded image representing the data exchange.
+        #[builder(into, default)]
+        pub icon: pulumi_wasm_rust::Output<Option<String>>,
+        /// The name of the location this data exchange.
+        #[builder(into)]
+        pub location: pulumi_wasm_rust::Output<String>,
+        /// Email or URL of the primary point of contact of the data exchange.
+        #[builder(into, default)]
+        pub primary_contact: pulumi_wasm_rust::Output<Option<String>>,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        #[builder(into, default)]
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        /// Configurable data sharing environment option for a data exchange.
+        /// This field is required for data clean room exchanges.
+        /// Structure is documented below.
+        #[builder(into, default)]
+        pub sharing_environment_config: pulumi_wasm_rust::Output<
+            Option<
+                super::super::types::bigqueryanalyticshub::DataExchangeSharingEnvironmentConfig,
+            >,
+        >,
+    }
+    #[allow(dead_code)]
+    pub struct DataExchangeResult {
+        /// The ID of the data exchange. Must contain only Unicode letters, numbers (0-9), underscores (_). Should not use characters that require URL-escaping, or characters outside of ASCII, spaces.
+        pub data_exchange_id: pulumi_wasm_rust::Output<String>,
+        /// Description of the data exchange.
+        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        /// Human-readable display name of the data exchange. The display name must contain only Unicode letters, numbers (0-9), underscores (_), dashes (-), spaces ( ), and must not start or end with spaces.
+        ///
+        ///
+        /// - - -
+        pub display_name: pulumi_wasm_rust::Output<String>,
+        /// Documentation describing the data exchange.
+        pub documentation: pulumi_wasm_rust::Output<Option<String>>,
+        /// Base64 encoded image representing the data exchange.
+        pub icon: pulumi_wasm_rust::Output<Option<String>>,
+        /// Number of listings contained in the data exchange.
+        pub listing_count: pulumi_wasm_rust::Output<i32>,
+        /// The name of the location this data exchange.
+        pub location: pulumi_wasm_rust::Output<String>,
+        /// The resource name of the data exchange, for example:
+        /// "projects/myproject/locations/US/dataExchanges/123"
+        pub name: pulumi_wasm_rust::Output<String>,
+        /// Email or URL of the primary point of contact of the data exchange.
+        pub primary_contact: pulumi_wasm_rust::Output<Option<String>>,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        pub project: pulumi_wasm_rust::Output<String>,
+        /// Configurable data sharing environment option for a data exchange.
+        /// This field is required for data clean room exchanges.
+        /// Structure is documented below.
+        pub sharing_environment_config: pulumi_wasm_rust::Output<
+            super::super::types::bigqueryanalyticshub::DataExchangeSharingEnvironmentConfig,
+        >,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: DataExchangeArgs) -> DataExchangeResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let data_exchange_id_binding = args.data_exchange_id.get_inner();
+        let description_binding = args.description.get_inner();
+        let display_name_binding = args.display_name.get_inner();
+        let documentation_binding = args.documentation.get_inner();
+        let icon_binding = args.icon.get_inner();
+        let location_binding = args.location.get_inner();
+        let primary_contact_binding = args.primary_contact.get_inner();
+        let project_binding = args.project.get_inner();
+        let sharing_environment_config_binding = args
+            .sharing_environment_config
+            .get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:bigqueryanalyticshub/dataExchange:DataExchange".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "dataExchangeId".into(),
+                    value: &data_exchange_id_binding,
+                },
+                register_interface::ObjectField {
+                    name: "description".into(),
+                    value: &description_binding,
+                },
+                register_interface::ObjectField {
+                    name: "displayName".into(),
+                    value: &display_name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "documentation".into(),
+                    value: &documentation_binding,
+                },
+                register_interface::ObjectField {
+                    name: "icon".into(),
+                    value: &icon_binding,
+                },
+                register_interface::ObjectField {
+                    name: "location".into(),
+                    value: &location_binding,
+                },
+                register_interface::ObjectField {
+                    name: "primaryContact".into(),
+                    value: &primary_contact_binding,
+                },
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+                register_interface::ObjectField {
+                    name: "sharingEnvironmentConfig".into(),
+                    value: &sharing_environment_config_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "dataExchangeId".into(),
+                },
+                register_interface::ResultField {
+                    name: "description".into(),
+                },
+                register_interface::ResultField {
+                    name: "displayName".into(),
+                },
+                register_interface::ResultField {
+                    name: "documentation".into(),
+                },
+                register_interface::ResultField {
+                    name: "icon".into(),
+                },
+                register_interface::ResultField {
+                    name: "listingCount".into(),
+                },
+                register_interface::ResultField {
+                    name: "location".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "primaryContact".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+                register_interface::ResultField {
+                    name: "sharingEnvironmentConfig".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        DataExchangeResult {
+            data_exchange_id: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("dataExchangeId").unwrap(),
+            ),
+            description: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("description").unwrap(),
+            ),
+            display_name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("displayName").unwrap(),
+            ),
+            documentation: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("documentation").unwrap(),
+            ),
+            icon: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("icon").unwrap(),
+            ),
+            listing_count: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("listingCount").unwrap(),
+            ),
+            location: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("location").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            primary_contact: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("primaryContact").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+            sharing_environment_config: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("sharingEnvironmentConfig").unwrap(),
+            ),
+        }
+    }
+}

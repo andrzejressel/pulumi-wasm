@@ -1,0 +1,388 @@
+/// ## Example Usage
+///
+/// ### Clouddomains Registration Full
+///
+///
+/// ```yaml
+/// resources:
+///   myRegistration:
+///     type: gcp:clouddomains:Registration
+///     name: my_registration
+///     properties:
+///       domainName: example-domain.com
+///       location: global
+///       labels:
+///         labelkey: labelvalue
+///       yearlyPrice:
+///         currencyCode: USD
+///         units: 12
+///       dnsSettings:
+///         customDns:
+///           nameServers:
+///             - ns-cloud-a1.googledomains.com.
+///             - ns-cloud-a2.googledomains.com.
+///             - ns-cloud-a3.googledomains.com.
+///             - ns-cloud-a4.googledomains.com.
+///       contactSettings:
+///         privacy: REDACTED_CONTACT_DATA
+///         registrantContact:
+///           phoneNumber: '+12345000000'
+///           email: user@example.com
+///           postalAddress:
+///             regionCode: US
+///             postalCode: '95050'
+///             administrativeArea: CA
+///             locality: Example City
+///             addressLines:
+///               - 1234 Example street
+///             recipients:
+///               - example recipient
+///         adminContact:
+///           phoneNumber: '+12345000000'
+///           email: user@example.com
+///           postalAddress:
+///             regionCode: US
+///             postalCode: '95050'
+///             administrativeArea: CA
+///             locality: Example City
+///             addressLines:
+///               - 1234 Example street
+///             recipients:
+///               - example recipient
+///         technicalContact:
+///           phoneNumber: '+12345000000'
+///           email: user@example.com
+///           postalAddress:
+///             regionCode: US
+///             postalCode: '95050'
+///             administrativeArea: CA
+///             locality: Example City
+///             addressLines:
+///               - 1234 Example street
+///             recipients:
+///               - example recipient
+/// ```
+///
+/// ## Import
+///
+/// Registration can be imported using any of these accepted formats:
+///
+/// * `projects/{{project}}/locations/{{location}}/registrations/{{domain_name}}`
+///
+/// * `{{project}}/{{location}}/{{domain_name}}`
+///
+/// * `{{location}}/{{domain_name}}`
+///
+/// When using the `pulumi import` command, Registration can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:clouddomains/registration:Registration default projects/{{project}}/locations/{{location}}/registrations/{{domain_name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:clouddomains/registration:Registration default {{project}}/{{location}}/{{domain_name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:clouddomains/registration:Registration default {{location}}/{{domain_name}}
+/// ```
+///
+pub mod registration {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct RegistrationArgs {
+        /// The list of contact notices that the caller acknowledges. Possible value is PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT
+        #[builder(into, default)]
+        pub contact_notices: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        /// Required. Settings for contact information linked to the Registration.
+        /// Structure is documented below.
+        #[builder(into)]
+        pub contact_settings: pulumi_wasm_rust::Output<
+            super::super::types::clouddomains::RegistrationContactSettings,
+        >,
+        /// Settings controlling the DNS configuration of the Registration.
+        #[builder(into, default)]
+        pub dns_settings: pulumi_wasm_rust::Output<
+            Option<super::super::types::clouddomains::RegistrationDnsSettings>,
+        >,
+        /// Required. The domain name. Unicode domain names must be expressed in Punycode format.
+        #[builder(into)]
+        pub domain_name: pulumi_wasm_rust::Output<String>,
+        /// The list of domain notices that you acknowledge. Possible value is HSTS_PRELOADED
+        #[builder(into, default)]
+        pub domain_notices: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        /// Set of labels associated with the Registration. **Note**: This field is non-authoritative, and will only manage the
+        /// labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels present on the
+        /// resource.
+        #[builder(into, default)]
+        pub labels: pulumi_wasm_rust::Output<
+            Option<std::collections::HashMap<String, String>>,
+        >,
+        /// The location for the resource
+        #[builder(into)]
+        pub location: pulumi_wasm_rust::Output<String>,
+        /// Settings for management of the Registration, including renewal, billing, and transfer
+        #[builder(into, default)]
+        pub management_settings: pulumi_wasm_rust::Output<
+            Option<super::super::types::clouddomains::RegistrationManagementSettings>,
+        >,
+        #[builder(into, default)]
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        /// Required. Yearly price to register or renew the domain. The value that should be put here can be obtained from
+        /// registrations.retrieveRegisterParameters or registrations.searchDomains calls.
+        /// Structure is documented below.
+        #[builder(into)]
+        pub yearly_price: pulumi_wasm_rust::Output<
+            super::super::types::clouddomains::RegistrationYearlyPrice,
+        >,
+    }
+    #[allow(dead_code)]
+    pub struct RegistrationResult {
+        /// The list of contact notices that the caller acknowledges. Possible value is PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT
+        pub contact_notices: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        /// Required. Settings for contact information linked to the Registration.
+        /// Structure is documented below.
+        pub contact_settings: pulumi_wasm_rust::Output<
+            super::super::types::clouddomains::RegistrationContactSettings,
+        >,
+        /// Output only. Time at which the automation was created.
+        pub create_time: pulumi_wasm_rust::Output<String>,
+        /// Settings controlling the DNS configuration of the Registration.
+        pub dns_settings: pulumi_wasm_rust::Output<
+            Option<super::super::types::clouddomains::RegistrationDnsSettings>,
+        >,
+        /// Required. The domain name. Unicode domain names must be expressed in Punycode format.
+        pub domain_name: pulumi_wasm_rust::Output<String>,
+        /// The list of domain notices that you acknowledge. Possible value is HSTS_PRELOADED
+        pub domain_notices: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
+        pub effective_labels: pulumi_wasm_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
+        /// Output only. Time at which the automation was updated.
+        pub expire_time: pulumi_wasm_rust::Output<String>,
+        /// Output only. The set of issues with the Registration that require attention.
+        pub issues: pulumi_wasm_rust::Output<Vec<String>>,
+        /// Set of labels associated with the Registration. **Note**: This field is non-authoritative, and will only manage the
+        /// labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels present on the
+        /// resource.
+        pub labels: pulumi_wasm_rust::Output<
+            Option<std::collections::HashMap<String, String>>,
+        >,
+        /// The location for the resource
+        pub location: pulumi_wasm_rust::Output<String>,
+        /// Settings for management of the Registration, including renewal, billing, and transfer
+        pub management_settings: pulumi_wasm_rust::Output<
+            super::super::types::clouddomains::RegistrationManagementSettings,
+        >,
+        /// Output only. Name of the Registration resource, in the format projects/*/locations/*/registrations/<domain_name>.
+        pub name: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_wasm_rust::Output<String>,
+        /// The combination of labels configured directly on the resource
+        /// and default labels configured on the provider.
+        pub pulumi_labels: pulumi_wasm_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
+        /// Output only. The reason the domain registration failed. Only set for domains in REGISTRATION_FAILED state.
+        pub register_failure_reason: pulumi_wasm_rust::Output<String>,
+        /// Output only. The current state of the Registration.
+        pub state: pulumi_wasm_rust::Output<String>,
+        /// Output only. Set of options for the contactSettings.privacy field that this Registration supports.
+        pub supported_privacies: pulumi_wasm_rust::Output<Vec<String>>,
+        /// Required. Yearly price to register or renew the domain. The value that should be put here can be obtained from
+        /// registrations.retrieveRegisterParameters or registrations.searchDomains calls.
+        /// Structure is documented below.
+        pub yearly_price: pulumi_wasm_rust::Output<
+            super::super::types::clouddomains::RegistrationYearlyPrice,
+        >,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: RegistrationArgs) -> RegistrationResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let contact_notices_binding = args.contact_notices.get_inner();
+        let contact_settings_binding = args.contact_settings.get_inner();
+        let dns_settings_binding = args.dns_settings.get_inner();
+        let domain_name_binding = args.domain_name.get_inner();
+        let domain_notices_binding = args.domain_notices.get_inner();
+        let labels_binding = args.labels.get_inner();
+        let location_binding = args.location.get_inner();
+        let management_settings_binding = args.management_settings.get_inner();
+        let project_binding = args.project.get_inner();
+        let yearly_price_binding = args.yearly_price.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:clouddomains/registration:Registration".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "contactNotices".into(),
+                    value: &contact_notices_binding,
+                },
+                register_interface::ObjectField {
+                    name: "contactSettings".into(),
+                    value: &contact_settings_binding,
+                },
+                register_interface::ObjectField {
+                    name: "dnsSettings".into(),
+                    value: &dns_settings_binding,
+                },
+                register_interface::ObjectField {
+                    name: "domainName".into(),
+                    value: &domain_name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "domainNotices".into(),
+                    value: &domain_notices_binding,
+                },
+                register_interface::ObjectField {
+                    name: "labels".into(),
+                    value: &labels_binding,
+                },
+                register_interface::ObjectField {
+                    name: "location".into(),
+                    value: &location_binding,
+                },
+                register_interface::ObjectField {
+                    name: "managementSettings".into(),
+                    value: &management_settings_binding,
+                },
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+                register_interface::ObjectField {
+                    name: "yearlyPrice".into(),
+                    value: &yearly_price_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "contactNotices".into(),
+                },
+                register_interface::ResultField {
+                    name: "contactSettings".into(),
+                },
+                register_interface::ResultField {
+                    name: "createTime".into(),
+                },
+                register_interface::ResultField {
+                    name: "dnsSettings".into(),
+                },
+                register_interface::ResultField {
+                    name: "domainName".into(),
+                },
+                register_interface::ResultField {
+                    name: "domainNotices".into(),
+                },
+                register_interface::ResultField {
+                    name: "effectiveLabels".into(),
+                },
+                register_interface::ResultField {
+                    name: "expireTime".into(),
+                },
+                register_interface::ResultField {
+                    name: "issues".into(),
+                },
+                register_interface::ResultField {
+                    name: "labels".into(),
+                },
+                register_interface::ResultField {
+                    name: "location".into(),
+                },
+                register_interface::ResultField {
+                    name: "managementSettings".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+                register_interface::ResultField {
+                    name: "pulumiLabels".into(),
+                },
+                register_interface::ResultField {
+                    name: "registerFailureReason".into(),
+                },
+                register_interface::ResultField {
+                    name: "state".into(),
+                },
+                register_interface::ResultField {
+                    name: "supportedPrivacies".into(),
+                },
+                register_interface::ResultField {
+                    name: "yearlyPrice".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        RegistrationResult {
+            contact_notices: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("contactNotices").unwrap(),
+            ),
+            contact_settings: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("contactSettings").unwrap(),
+            ),
+            create_time: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("createTime").unwrap(),
+            ),
+            dns_settings: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("dnsSettings").unwrap(),
+            ),
+            domain_name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("domainName").unwrap(),
+            ),
+            domain_notices: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("domainNotices").unwrap(),
+            ),
+            effective_labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("effectiveLabels").unwrap(),
+            ),
+            expire_time: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("expireTime").unwrap(),
+            ),
+            issues: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("issues").unwrap(),
+            ),
+            labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("labels").unwrap(),
+            ),
+            location: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("location").unwrap(),
+            ),
+            management_settings: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("managementSettings").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("pulumiLabels").unwrap(),
+            ),
+            register_failure_reason: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("registerFailureReason").unwrap(),
+            ),
+            state: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("state").unwrap(),
+            ),
+            supported_privacies: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("supportedPrivacies").unwrap(),
+            ),
+            yearly_price: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("yearlyPrice").unwrap(),
+            ),
+        }
+    }
+}

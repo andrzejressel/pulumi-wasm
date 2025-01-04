@@ -1,0 +1,176 @@
+/// Represents a BI Reservation.
+///
+///
+/// To get more information about BiReservation, see:
+///
+/// * [API documentation](https://cloud.google.com/bigquery/docs/reference/reservations/rest/v1/BiReservation)
+/// * How-to Guides
+///     * [Introduction to Reservations](https://cloud.google.com/bigquery/docs/reservations-intro)
+///
+/// ## Example Usage
+///
+/// ### Bigquery Reservation Bi Reservation Basic
+///
+///
+/// ```yaml
+/// resources:
+///   reservation:
+///     type: gcp:bigquery:BiReservation
+///     properties:
+///       location: us-west2
+///       size: '3000000000'
+/// ```
+///
+/// ## Import
+///
+/// BiReservation can be imported using any of these accepted formats:
+///
+/// * `projects/{{project}}/locations/{{location}}/biReservation`
+///
+/// * `{{project}}/{{location}}`
+///
+/// * `{{location}}`
+///
+/// When using the `pulumi import` command, BiReservation can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:bigquery/biReservation:BiReservation default projects/{{project}}/locations/{{location}}/biReservation
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:bigquery/biReservation:BiReservation default {{project}}/{{location}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:bigquery/biReservation:BiReservation default {{location}}
+/// ```
+///
+pub mod bi_reservation {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct BiReservationArgs {
+        /// LOCATION_DESCRIPTION
+        ///
+        ///
+        /// - - -
+        #[builder(into)]
+        pub location: pulumi_wasm_rust::Output<String>,
+        /// Preferred tables to use BI capacity for.
+        /// Structure is documented below.
+        #[builder(into, default)]
+        pub preferred_tables: pulumi_wasm_rust::Output<
+            Option<Vec<super::super::types::bigquery::BiReservationPreferredTable>>,
+        >,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        #[builder(into, default)]
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        /// Size of a reservation, in bytes.
+        #[builder(into, default)]
+        pub size: pulumi_wasm_rust::Output<Option<i32>>,
+    }
+    #[allow(dead_code)]
+    pub struct BiReservationResult {
+        /// LOCATION_DESCRIPTION
+        ///
+        ///
+        /// - - -
+        pub location: pulumi_wasm_rust::Output<String>,
+        /// The resource name of the singleton BI reservation. Reservation names have the form `projects/{projectId}/locations/{locationId}/biReservation`.
+        pub name: pulumi_wasm_rust::Output<String>,
+        /// Preferred tables to use BI capacity for.
+        /// Structure is documented below.
+        pub preferred_tables: pulumi_wasm_rust::Output<
+            Option<Vec<super::super::types::bigquery::BiReservationPreferredTable>>,
+        >,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        pub project: pulumi_wasm_rust::Output<String>,
+        /// Size of a reservation, in bytes.
+        pub size: pulumi_wasm_rust::Output<Option<i32>>,
+        /// The last update timestamp of a reservation.
+        /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits. Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
+        pub update_time: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: BiReservationArgs) -> BiReservationResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let location_binding = args.location.get_inner();
+        let preferred_tables_binding = args.preferred_tables.get_inner();
+        let project_binding = args.project.get_inner();
+        let size_binding = args.size.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:bigquery/biReservation:BiReservation".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "location".into(),
+                    value: &location_binding,
+                },
+                register_interface::ObjectField {
+                    name: "preferredTables".into(),
+                    value: &preferred_tables_binding,
+                },
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+                register_interface::ObjectField {
+                    name: "size".into(),
+                    value: &size_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "location".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "preferredTables".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+                register_interface::ResultField {
+                    name: "size".into(),
+                },
+                register_interface::ResultField {
+                    name: "updateTime".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        BiReservationResult {
+            location: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("location").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            preferred_tables: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("preferredTables").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+            size: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("size").unwrap(),
+            ),
+            update_time: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("updateTime").unwrap(),
+            ),
+        }
+    }
+}

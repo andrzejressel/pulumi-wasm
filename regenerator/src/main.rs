@@ -148,7 +148,139 @@ fn main() {
         "webpubsub",
         "workloadssap",
     ];
+    let gcp_modules = [
+        "accessapproval",
+        "accesscontextmanager",
+        "activedirectory",
+        "alloydb",
+        "apigateway",
+        "apigee",
+        "appengine",
+        "apphub",
+        "applicationintegration",
+        "artifactregistry",
+        "assuredworkloads",
+        "backupdisasterrecovery",
+        "beyondcorp",
+        "biglake",
+        "bigquery",
+        "bigqueryanalyticshub",
+        "bigquerydatapolicy",
+        "bigtable",
+        "billing",
+        "binaryauthorization",
+        "blockchainnodeengine",
+        "certificateauthority",
+        "certificatemanager",
+        "cloudasset",
+        "cloudbuild",
+        "cloudbuildv2",
+        "clouddeploy",
+        "clouddomains",
+        "cloudfunctions",
+        "cloudfunctionsv2",
+        "cloudidentity",
+        "cloudids",
+        "cloudquota",
+        "cloudrun",
+        "cloudrunv2",
+        "cloudscheduler",
+        "cloudtasks",
+        "composer",
+        // "compute", too large - has to be compiled separately
+        "container",
+        "containeranalysis",
+        "databasemigrationservice",
+        "datacatalog",
+        "dataflow",
+        "dataform",
+        "datafusion",
+        "dataloss",
+        "dataplex",
+        "dataproc",
+        "datastream",
+        "deploymentmanager",
+        "developerconnect",
+        "diagflow",
+        "discoveryengine",
+        "dns",
+        "edgecontainer",
+        "edgenetwork",
+        "endpoints",
+        "essentialcontacts",
+        "eventarc",
+        "filestore",
+        "firebase",
+        "firebaserules",
+        "firestore",
+        "folder",
+        "gemini",
+        "gkebackup",
+        "gkehub",
+        "gkeonprem",
+        "healthcare",
+        "iam",
+        "iap",
+        "identityplatform",
+        "integrationconnectors",
+        "kms",
+        "logging",
+        "looker",
+        "managedkafka",
+        "memcache",
+        "memorystore",
+        "migrationcenter",
+        "ml",
+        "monitoring",
+        "netapp",
+        "networkconnectivity",
+        "networkmanagement",
+        "networksecurity",
+        "networkservices",
+        "notebooks",
+        "oracledatabase",
+        "organizations",
+        "orgpolicy",
+        "osconfig",
+        "oslogin",
+        "parallelstore",
+        "privilegedaccessmanager",
+        "projects",
+        "pubsub",
+        "recaptcha",
+        "redis",
+        "resourcemanager",
+        "runtimeconfig",
+        "secretmanager",
+        "securesourcemanager",
+        "securitycenter",
+        "securityposture",
+        "serviceaccount",
+        "servicedirectory",
+        "servicenetworking",
+        "serviceusage",
+        "siteverification",
+        "sourcerepo",
+        "spanner",
+        "sql",
+        "storage",
+        "tags",
+        "tpu",
+        "transcoder",
+        "vertex",
+        "vmwareengine",
+        "vpcaccess",
+        "workbench",
+        "workflows",
+        "workstations",
+    ];
 
+    let mut grouped_gcp = gcp_modules
+        .to_vec()
+        .chunks(10)
+        .map(|a| a.to_vec())
+        .collect::<Vec<_>>();
+    grouped_gcp.push(vec!["compute"]);
     let mut filtered_tests = vec![
         FilteredTest {
             name: "filtering",
@@ -162,11 +294,19 @@ fn main() {
                 .map(|a| a.to_vec())
                 .collect(),
         },
+        FilteredTest {
+            name: "gcp",
+            filters: grouped_gcp,
+        },
     ];
     let mut providers = vec![
         Provider {
             name: "azure",
             version: "6.14.0",
+        },
+        Provider {
+            name: "gcp",
+            version: "8.12.1",
         },
         Provider {
             name: "docker",
@@ -322,19 +462,6 @@ fn update_generator_cargo_toml(tests: &[&str], filtered_tests: &[FilteredTest]) 
     let new_content = replace_between_markers(&content, start_marker, end_marker, &replacement);
     fs::write("pulumi_wasm_generator/Cargo.toml", new_content)
         .expect("Failed to write to pulumi_wasm_generator/Cargo.toml");
-}
-
-fn replace_generate_rust_docs(providers: &[Provider], content: &str) -> String {
-    let mut replacement = String::new();
-    replacement.push_str("rust-docs:\n");
-    replacement.push_str("    cargo doc --no-deps -p pulumi_wasm_rust -p pulumi_wasm_build");
-    for provider in providers {
-        replacement.push_str(&format!(" -p pulumi_wasm_providers_{}", provider.name));
-    }
-    replacement.push('\n');
-    let start_marker = "# DO NOT EDIT - GENERATE-RUST-DOCS - START";
-    let end_marker = "# DO NOT EDIT - GENERATE-RUST-DOCS - END";
-    replace_between_markers(content, start_marker, end_marker, &replacement)
 }
 
 fn replace_between_markers(

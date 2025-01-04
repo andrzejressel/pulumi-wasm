@@ -90,7 +90,7 @@ jobs:
       fail-fast: false
       matrix:
         # DO NOT EDIT - PROVIDER START
-        provider: [array-of-enum-map, azure-native-nested-types, cloudflare, cyclic-types, different-enum, docker, functions-secrets, mini-awsnative, nested-module, nested-module-thirdparty, output-funcs, output-funcs-edgeorder, plain-object-defaults, plain-object-disable-defaults, random, reserved_names, unions-inline, unions-inside-arrays, workarounds, azure-0, azure-1, azure-2, azure-3, azure-4, azure-5, azure-6, azure-7, azure-8, azure-9, azure-10, azure-11, azure-12, azure-13, filtering-0, filtering-1, filtering-2]
+        provider: [array-of-enum-map, azure-native-nested-types, cloudflare, cyclic-types, different-enum, docker, functions-secrets, mini-awsnative, nested-module, nested-module-thirdparty, output-funcs, output-funcs-edgeorder, plain-object-defaults, plain-object-disable-defaults, random, reserved_names, unions-inline, unions-inside-arrays, workarounds, azure-0, azure-1, azure-2, azure-3, azure-4, azure-5, azure-6, azure-7, azure-8, azure-9, azure-10, azure-11, azure-12, azure-13, filtering-0, filtering-1, filtering-2, gcp-0, gcp-1, gcp-2, gcp-3, gcp-4, gcp-5, gcp-6, gcp-7, gcp-8, gcp-9, gcp-10, gcp-11, gcp-12, gcp-13]
 # DO NOT EDIT - PROVIDER END
     steps:
       - uses: actions/checkout@v4

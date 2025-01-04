@@ -1,0 +1,136 @@
+/// A Google Stackdriver dashboard. Dashboards define the content and layout of pages in the Stackdriver web application.
+///
+/// To get more information about Dashboards, see:
+///
+/// * [API documentation](https://cloud.google.com/monitoring/api/ref_v3/rest/v1/projects.dashboards)
+/// * How-to Guides
+///     * [Official Documentation](https://cloud.google.com/monitoring/dashboards)
+///
+/// ## Example Usage
+///
+/// ### Monitoring Dashboard Basic
+///
+///
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let dashboard = dashboard::create(
+///         "dashboard",
+///         DashboardArgs::builder()
+///             .dashboard_json(
+///                 "{\n  \"displayName\": \"Demo Dashboard\",\n  \"gridLayout\": {\n    \"widgets\": [\n      {\n        \"blank\": {}\n      }\n    ]\n  }\n}",
+///             )
+///             .build_struct(),
+///     );
+/// }
+/// ```
+///
+/// ### Monitoring Dashboard GridLayout
+///
+///
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let dashboard = dashboard::create(
+///         "dashboard",
+///         DashboardArgs::builder()
+///             .dashboard_json(
+///                 "{\n  \"displayName\": \"Grid Layout Example\",\n  \"gridLayout\": {\n    \"columns\": \"2\",\n    \"widgets\": [\n      {\n        \"title\": \"Widget 1\",\n        \"xyChart\": {\n          \"dataSets\": [{\n            \"timeSeriesQuery\": {\n              \"timeSeriesFilter\": {\n                \"filter\": \"metric.type=\\\"agent.googleapis.com/nginx/connections/accepted_count\\\"\",\n                \"aggregation\": {\n                  \"perSeriesAligner\": \"ALIGN_RATE\"\n                }\n              },\n              \"unitOverride\": \"1\"\n            },\n            \"plotType\": \"LINE\"\n          }],\n          \"timeshiftDuration\": \"0s\",\n          \"yAxis\": {\n            \"label\": \"y1Axis\",\n            \"scale\": \"LINEAR\"\n          }\n        }\n      },\n      {\n        \"text\": {\n          \"content\": \"Widget 2\",\n          \"format\": \"MARKDOWN\"\n        }\n      },\n      {\n        \"title\": \"Widget 3\",\n        \"xyChart\": {\n          \"dataSets\": [{\n            \"timeSeriesQuery\": {\n              \"timeSeriesFilter\": {\n                \"filter\": \"metric.type=\\\"agent.googleapis.com/nginx/connections/accepted_count\\\"\",\n                \"aggregation\": {\n                  \"perSeriesAligner\": \"ALIGN_RATE\"\n                }\n              },\n              \"unitOverride\": \"1\"\n            },\n            \"plotType\": \"STACKED_BAR\"\n          }],\n          \"timeshiftDuration\": \"0s\",\n          \"yAxis\": {\n            \"label\": \"y1Axis\",\n            \"scale\": \"LINEAR\"\n          }\n        }\n      }\n    ]\n  }\n}",
+///             )
+///             .build_struct(),
+///     );
+/// }
+/// ```
+///
+/// ## Import
+///
+/// Dashboard can be imported using any of these accepted formats:
+///
+/// * `projects/{{project}}/dashboards/{{dashboard_id}}`
+///
+/// * `{{dashboard_id}}`
+///
+/// When using the `pulumi import` command, Dashboard can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:monitoring/dashboard:Dashboard default projects/{{project}}/dashboards/{{dashboard_id}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:monitoring/dashboard:Dashboard default {{dashboard_id}}
+/// ```
+///
+pub mod dashboard {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct DashboardArgs {
+        /// The JSON representation of a dashboard, following the format at
+        /// https://cloud.google.com/monitoring/api/ref_v3/rest/v1/projects.dashboards.
+        #[builder(into)]
+        pub dashboard_json: pulumi_wasm_rust::Output<String>,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        #[builder(into, default)]
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+    }
+    #[allow(dead_code)]
+    pub struct DashboardResult {
+        /// The JSON representation of a dashboard, following the format at
+        /// https://cloud.google.com/monitoring/api/ref_v3/rest/v1/projects.dashboards.
+        pub dashboard_json: pulumi_wasm_rust::Output<String>,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        pub project: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: DashboardArgs) -> DashboardResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let dashboard_json_binding = args.dashboard_json.get_inner();
+        let project_binding = args.project.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:monitoring/dashboard:Dashboard".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "dashboardJson".into(),
+                    value: &dashboard_json_binding,
+                },
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "dashboardJson".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        DashboardResult {
+            dashboard_json: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("dashboardJson").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+        }
+    }
+}

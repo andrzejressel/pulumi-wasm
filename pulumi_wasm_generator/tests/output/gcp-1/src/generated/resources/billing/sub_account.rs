@@ -1,0 +1,143 @@
+/// Allows creation and management of a Google Cloud Billing Subaccount.
+///
+/// !> **WARNING:** Deleting this resource will not delete or close the billing subaccount.
+///
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let subaccount = sub_account::create(
+///         "subaccount",
+///         SubAccountArgs::builder()
+///             .display_name("My Billing Account")
+///             .master_billing_account("012345-567890-ABCDEF")
+///             .build_struct(),
+///     );
+/// }
+/// ```
+///
+/// ## Import
+///
+/// Billing Subaccounts can be imported using any of these accepted formats:
+///
+/// * `billingAccounts/{billing_account_id}`
+///
+/// When using the `pulumi import` command, Billing Subaccounts can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:billing/subAccount:SubAccount default billingAccounts/{billing_account_id}
+/// ```
+///
+pub mod sub_account {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct SubAccountArgs {
+        /// If set to "RENAME_ON_DESTROY" the billing account display_name
+        /// will be changed to "Destroyed" along with a timestamp.  If set to "" this will not occur.
+        /// Default is "".
+        #[builder(into, default)]
+        pub deletion_policy: pulumi_wasm_rust::Output<Option<String>>,
+        /// The display name of the billing account.
+        #[builder(into)]
+        pub display_name: pulumi_wasm_rust::Output<String>,
+        /// The name of the master billing account that the subaccount
+        /// will be created under in the form `{billing_account_id}` or `billingAccounts/{billing_account_id}`.
+        #[builder(into)]
+        pub master_billing_account: pulumi_wasm_rust::Output<String>,
+    }
+    #[allow(dead_code)]
+    pub struct SubAccountResult {
+        /// The billing account id.
+        pub billing_account_id: pulumi_wasm_rust::Output<String>,
+        /// If set to "RENAME_ON_DESTROY" the billing account display_name
+        /// will be changed to "Destroyed" along with a timestamp.  If set to "" this will not occur.
+        /// Default is "".
+        pub deletion_policy: pulumi_wasm_rust::Output<Option<String>>,
+        /// The display name of the billing account.
+        pub display_name: pulumi_wasm_rust::Output<String>,
+        /// The name of the master billing account that the subaccount
+        /// will be created under in the form `{billing_account_id}` or `billingAccounts/{billing_account_id}`.
+        pub master_billing_account: pulumi_wasm_rust::Output<String>,
+        /// The resource name of the billing account in the form `billingAccounts/{billing_account_id}`.
+        pub name: pulumi_wasm_rust::Output<String>,
+        /// `true` if the billing account is open, `false` if the billing account is closed.
+        pub open: pulumi_wasm_rust::Output<bool>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: SubAccountArgs) -> SubAccountResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let deletion_policy_binding = args.deletion_policy.get_inner();
+        let display_name_binding = args.display_name.get_inner();
+        let master_billing_account_binding = args.master_billing_account.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:billing/subAccount:SubAccount".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "deletionPolicy".into(),
+                    value: &deletion_policy_binding,
+                },
+                register_interface::ObjectField {
+                    name: "displayName".into(),
+                    value: &display_name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "masterBillingAccount".into(),
+                    value: &master_billing_account_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "billingAccountId".into(),
+                },
+                register_interface::ResultField {
+                    name: "deletionPolicy".into(),
+                },
+                register_interface::ResultField {
+                    name: "displayName".into(),
+                },
+                register_interface::ResultField {
+                    name: "masterBillingAccount".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "open".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        SubAccountResult {
+            billing_account_id: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("billingAccountId").unwrap(),
+            ),
+            deletion_policy: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("deletionPolicy").unwrap(),
+            ),
+            display_name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("displayName").unwrap(),
+            ),
+            master_billing_account: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("masterBillingAccount").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            open: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("open").unwrap(),
+            ),
+        }
+    }
+}

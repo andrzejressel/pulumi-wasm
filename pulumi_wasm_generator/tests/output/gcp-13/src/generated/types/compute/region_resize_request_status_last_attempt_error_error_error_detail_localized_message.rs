@@ -1,0 +1,15 @@
+#[derive(pulumi_wasm_rust::__private::serde::Deserialize, pulumi_wasm_rust::__private::serde::Serialize, pulumi_wasm_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
+#[builder(finish_fn = build_struct)]
+#[allow(dead_code)]
+pub struct RegionResizeRequestStatusLastAttemptErrorErrorErrorDetailLocalizedMessage {
+    /// (Output)
+    /// The locale used following the specification defined at https://www.rfc-editor.org/rfc/bcp/bcp47.txt. Examples are: "en-US", "fr-CH", "es-MX"
+    #[builder(into, default)]
+    #[serde(rename = "locale")]
+    pub r#locale: Box<Option<String>>,
+    /// (Output)
+    /// The localized error message in the above locale.
+    #[builder(into, default)]
+    #[serde(rename = "message")]
+    pub r#message: Box<Option<String>>,
+}

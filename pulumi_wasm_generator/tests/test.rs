@@ -427,6 +427,274 @@ fn filtering_1() -> Result<()> {
 fn filtering_2() -> Result<()> {
     run_pulumi_generator_test("filtering", "filtering-2", Some(&["ns1", "ns2"]))
 }
+
+#[test]
+#[cfg_attr(not(feature = "generator_gcp-0"), ignore)]
+fn gcp_0() -> Result<()> {
+    run_pulumi_generator_test(
+        "gcp",
+        "gcp-0",
+        Some(&[
+            "accessapproval",
+            "accesscontextmanager",
+            "activedirectory",
+            "alloydb",
+            "apigateway",
+            "apigee",
+            "appengine",
+            "apphub",
+            "applicationintegration",
+            "artifactregistry",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_gcp-1"), ignore)]
+fn gcp_1() -> Result<()> {
+    run_pulumi_generator_test(
+        "gcp",
+        "gcp-1",
+        Some(&[
+            "assuredworkloads",
+            "backupdisasterrecovery",
+            "beyondcorp",
+            "biglake",
+            "bigquery",
+            "bigqueryanalyticshub",
+            "bigquerydatapolicy",
+            "bigtable",
+            "billing",
+            "binaryauthorization",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_gcp-2"), ignore)]
+fn gcp_2() -> Result<()> {
+    run_pulumi_generator_test(
+        "gcp",
+        "gcp-2",
+        Some(&[
+            "blockchainnodeengine",
+            "certificateauthority",
+            "certificatemanager",
+            "cloudasset",
+            "cloudbuild",
+            "cloudbuildv2",
+            "clouddeploy",
+            "clouddomains",
+            "cloudfunctions",
+            "cloudfunctionsv2",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_gcp-3"), ignore)]
+fn gcp_3() -> Result<()> {
+    run_pulumi_generator_test(
+        "gcp",
+        "gcp-3",
+        Some(&[
+            "cloudidentity",
+            "cloudids",
+            "cloudquota",
+            "cloudrun",
+            "cloudrunv2",
+            "cloudscheduler",
+            "cloudtasks",
+            "composer",
+            "container",
+            "containeranalysis",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_gcp-4"), ignore)]
+fn gcp_4() -> Result<()> {
+    run_pulumi_generator_test(
+        "gcp",
+        "gcp-4",
+        Some(&[
+            "databasemigrationservice",
+            "datacatalog",
+            "dataflow",
+            "dataform",
+            "datafusion",
+            "dataloss",
+            "dataplex",
+            "dataproc",
+            "datastream",
+            "deploymentmanager",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_gcp-5"), ignore)]
+fn gcp_5() -> Result<()> {
+    run_pulumi_generator_test(
+        "gcp",
+        "gcp-5",
+        Some(&[
+            "developerconnect",
+            "diagflow",
+            "discoveryengine",
+            "dns",
+            "edgecontainer",
+            "edgenetwork",
+            "endpoints",
+            "essentialcontacts",
+            "eventarc",
+            "filestore",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_gcp-6"), ignore)]
+fn gcp_6() -> Result<()> {
+    run_pulumi_generator_test(
+        "gcp",
+        "gcp-6",
+        Some(&[
+            "firebase",
+            "firebaserules",
+            "firestore",
+            "folder",
+            "gemini",
+            "gkebackup",
+            "gkehub",
+            "gkeonprem",
+            "healthcare",
+            "iam",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_gcp-7"), ignore)]
+fn gcp_7() -> Result<()> {
+    run_pulumi_generator_test(
+        "gcp",
+        "gcp-7",
+        Some(&[
+            "iap",
+            "identityplatform",
+            "integrationconnectors",
+            "kms",
+            "logging",
+            "looker",
+            "managedkafka",
+            "memcache",
+            "memorystore",
+            "migrationcenter",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_gcp-8"), ignore)]
+fn gcp_8() -> Result<()> {
+    run_pulumi_generator_test(
+        "gcp",
+        "gcp-8",
+        Some(&[
+            "ml",
+            "monitoring",
+            "netapp",
+            "networkconnectivity",
+            "networkmanagement",
+            "networksecurity",
+            "networkservices",
+            "notebooks",
+            "oracledatabase",
+            "organizations",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_gcp-9"), ignore)]
+fn gcp_9() -> Result<()> {
+    run_pulumi_generator_test(
+        "gcp",
+        "gcp-9",
+        Some(&[
+            "orgpolicy",
+            "osconfig",
+            "oslogin",
+            "parallelstore",
+            "privilegedaccessmanager",
+            "projects",
+            "pubsub",
+            "recaptcha",
+            "redis",
+            "resourcemanager",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_gcp-10"), ignore)]
+fn gcp_10() -> Result<()> {
+    run_pulumi_generator_test(
+        "gcp",
+        "gcp-10",
+        Some(&[
+            "runtimeconfig",
+            "secretmanager",
+            "securesourcemanager",
+            "securitycenter",
+            "securityposture",
+            "serviceaccount",
+            "servicedirectory",
+            "servicenetworking",
+            "serviceusage",
+            "siteverification",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_gcp-11"), ignore)]
+fn gcp_11() -> Result<()> {
+    run_pulumi_generator_test(
+        "gcp",
+        "gcp-11",
+        Some(&[
+            "sourcerepo",
+            "spanner",
+            "sql",
+            "storage",
+            "tags",
+            "tpu",
+            "transcoder",
+            "vertex",
+            "vmwareengine",
+            "vpcaccess",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_gcp-12"), ignore)]
+fn gcp_12() -> Result<()> {
+    run_pulumi_generator_test(
+        "gcp",
+        "gcp-12",
+        Some(&["workbench", "workflows", "workstations"]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_gcp-13"), ignore)]
+fn gcp_13() -> Result<()> {
+    run_pulumi_generator_test("gcp", "gcp-13", Some(&["compute"]))
+}
 // DO NOT EDIT - END
 
 // provider_name is `name` from yaml file

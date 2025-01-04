@@ -1,0 +1,510 @@
+/// The AssuredWorkloads Workload resource
+///
+/// ## Example Usage
+///
+/// ### Basic_workload
+/// A basic test of a assuredworkloads api
+/// ```yaml
+/// resources:
+///   primary:
+///     type: gcp:assuredworkloads:Workload
+///     properties:
+///       complianceRegime: FEDRAMP_MODERATE
+///       displayName: '{{display}}'
+///       location: us-west1
+///       organization: '123456789'
+///       billingAccount: billingAccounts/000000-0000000-0000000-000000
+///       kmsSettings:
+///         nextRotationTime: 9999-10-02T15:01:23Z
+///         rotationPeriod: 10368000s
+///       provisionedResourcesParent: folders/519620126891
+///       resourceSettings:
+///         - displayName: '{{name}}'
+///           resourceType: CONSUMER_FOLDER
+///         - resourceType: ENCRYPTION_KEYS_PROJECT
+///         - resourceId: ring
+///           resourceType: KEYRING
+///       violationNotificationsEnabled: true
+///       workloadOptions:
+///         kajEnrollmentType: KEY_ACCESS_TRANSPARENCY_OFF
+///       labels:
+///         label-one: value-one
+/// ```
+/// ### Sovereign_controls_workload
+/// A Sovereign Controls test of the assuredworkloads api
+/// ```yaml
+/// resources:
+///   primary:
+///     type: gcp:assuredworkloads:Workload
+///     properties:
+///       complianceRegime: EU_REGIONS_AND_SUPPORT
+///       displayName: display
+///       location: europe-west9
+///       organization: '123456789'
+///       billingAccount: billingAccounts/000000-0000000-0000000-000000
+///       enableSovereignControls: true
+///       kmsSettings:
+///         nextRotationTime: 9999-10-02T15:01:23Z
+///         rotationPeriod: 10368000s
+///       resourceSettings:
+///         - resourceType: CONSUMER_FOLDER
+///         - resourceType: ENCRYPTION_KEYS_PROJECT
+///         - resourceId: ring
+///           resourceType: KEYRING
+///       labels:
+///         label-one: value-one
+/// ```
+/// ### Split_billing_partner_workload
+/// A Split billing partner test of the assuredworkloads api
+/// ```yaml
+/// resources:
+///   primary:
+///     type: gcp:assuredworkloads:Workload
+///     properties:
+///       complianceRegime: ASSURED_WORKLOADS_FOR_PARTNERS
+///       displayName: display
+///       location: europe-west8
+///       organization: '123456789'
+///       billingAccount: billingAccounts/000000-0000000-0000000-000000
+///       partner: SOVEREIGN_CONTROLS_BY_PSN
+///       partnerPermissions:
+///         assuredWorkloadsMonitoring: true
+///         dataLogsViewer: true
+///         serviceAccessApprover: true
+///       partnerServicesBillingAccount: billingAccounts/01BF3F-2C6DE5-30C607
+///       resourceSettings:
+///         - resourceType: CONSUMER_FOLDER
+///         - resourceType: ENCRYPTION_KEYS_PROJECT
+///         - resourceId: ring
+///           resourceType: KEYRING
+///       violationNotificationsEnabled: true
+///       labels:
+///         label-one: value-one
+/// ```
+///
+/// ## Import
+///
+/// Workload can be imported using any of these accepted formats:
+///
+/// * `organizations/{{organization}}/locations/{{location}}/workloads/{{name}}`
+///
+/// * `{{organization}}/{{location}}/{{name}}`
+///
+/// When using the `pulumi import` command, Workload can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:assuredworkloads/workload:Workload default organizations/{{organization}}/locations/{{location}}/workloads/{{name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:assuredworkloads/workload:Workload default {{organization}}/{{location}}/{{name}}
+/// ```
+///
+pub mod workload {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct WorkloadArgs {
+        /// Optional. Input only. The billing account used for the resources which are direct children of workload. This billing account is initially associated with the resources created as part of Workload creation. After the initial creation of these resources, the customer can change the assigned billing account. The resource name has the form `billingAccounts/{billing_account_id}`. For example, `billingAccounts/012345-567890-ABCDEF`.
+        #[builder(into, default)]
+        pub billing_account: pulumi_wasm_rust::Output<Option<String>>,
+        /// Required. Immutable. Compliance Regime associated with this workload. Possible values: COMPLIANCE_REGIME_UNSPECIFIED, IL4, CJIS, FEDRAMP_HIGH, FEDRAMP_MODERATE, US_REGIONAL_ACCESS, HIPAA, HITRUST, EU_REGIONS_AND_SUPPORT, CA_REGIONS_AND_SUPPORT, ITAR, AU_REGIONS_AND_US_SUPPORT, ASSURED_WORKLOADS_FOR_PARTNERS, ISR_REGIONS, ISR_REGIONS_AND_SUPPORT, CA_PROTECTED_B, IL5, IL2, JP_REGIONS_AND_SUPPORT, KSA_REGIONS_AND_SUPPORT_WITH_SOVEREIGNTY_CONTROLS, REGIONAL_CONTROLS, HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS, HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS_WITH_US_SUPPORT, IRS_1075
+        #[builder(into)]
+        pub compliance_regime: pulumi_wasm_rust::Output<String>,
+        /// Required. The user-assigned display name of the Workload. When present it must be between 4 to 30 characters. Allowed characters are: lowercase and uppercase letters, numbers, hyphen, and spaces. Example: My Workload
+        #[builder(into)]
+        pub display_name: pulumi_wasm_rust::Output<String>,
+        /// Optional. Indicates the sovereignty status of the given workload. Currently meant to be used by Europe/Canada customers.
+        #[builder(into, default)]
+        pub enable_sovereign_controls: pulumi_wasm_rust::Output<Option<bool>>,
+        /// **DEPRECATED** Input only. Settings used to create a CMEK crypto key. When set, a project with a KMS CMEK key is provisioned. This field is deprecated as of Feb 28, 2022. In order to create a Keyring, callers should specify, ENCRYPTION_KEYS_PROJECT or KEYRING in ResourceSettings.resource_type field.
+        #[builder(into, default)]
+        pub kms_settings: pulumi_wasm_rust::Output<
+            Option<super::super::types::assuredworkloads::WorkloadKmsSettings>,
+        >,
+        /// Optional. Labels applied to the workload.
+        ///
+        /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
+        /// Please refer to the field `effective_labels` for all of the labels present on the resource.
+        #[builder(into, default)]
+        pub labels: pulumi_wasm_rust::Output<
+            Option<std::collections::HashMap<String, String>>,
+        >,
+        /// The location for the resource
+        #[builder(into)]
+        pub location: pulumi_wasm_rust::Output<String>,
+        /// The organization for the resource
+        ///
+        ///
+        ///
+        /// - - -
+        #[builder(into)]
+        pub organization: pulumi_wasm_rust::Output<String>,
+        /// Optional. Partner regime associated with this workload. Possible values: PARTNER_UNSPECIFIED, LOCAL_CONTROLS_BY_S3NS, SOVEREIGN_CONTROLS_BY_T_SYSTEMS, SOVEREIGN_CONTROLS_BY_SIA_MINSAIT, SOVEREIGN_CONTROLS_BY_PSN, SOVEREIGN_CONTROLS_BY_CNTXT, SOVEREIGN_CONTROLS_BY_CNTXT_NO_EKM
+        #[builder(into, default)]
+        pub partner: pulumi_wasm_rust::Output<Option<String>>,
+        /// Optional. Permissions granted to the AW Partner SA account for the customer workload
+        #[builder(into, default)]
+        pub partner_permissions: pulumi_wasm_rust::Output<
+            Option<super::super::types::assuredworkloads::WorkloadPartnerPermissions>,
+        >,
+        /// Optional. Input only. Billing account necessary for purchasing services from Sovereign Partners. This field is required for creating SIA/PSN/CNTXT partner workloads. The caller should have 'billing.resourceAssociations.create' IAM permission on this billing-account. The format of this string is billingAccounts/AAAAAA-BBBBBB-CCCCCC.
+        #[builder(into, default)]
+        pub partner_services_billing_account: pulumi_wasm_rust::Output<Option<String>>,
+        /// Input only. The parent resource for the resources managed by this Assured Workload. May be either empty or a folder resource which is a child of the Workload parent. If not specified all resources are created under the parent organization. Format: folders/{folder_id}
+        #[builder(into, default)]
+        pub provisioned_resources_parent: pulumi_wasm_rust::Output<Option<String>>,
+        /// Input only. Resource properties that are used to customize workload resources. These properties (such as custom project id) will be used to create workload resources if possible. This field is optional.
+        #[builder(into, default)]
+        pub resource_settings: pulumi_wasm_rust::Output<
+            Option<Vec<super::super::types::assuredworkloads::WorkloadResourceSetting>>,
+        >,
+        /// Optional. Indicates whether the e-mail notification for a violation is enabled for a workload. This value will be by default True, and if not present will be considered as true. This should only be updated via updateWorkload call. Any Changes to this field during the createWorkload call will not be honored. This will always be true while creating the workload.
+        #[builder(into, default)]
+        pub violation_notifications_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        /// Optional. Used to specify certain options for a workload during workload creation - currently only supporting KAT Optionality for Regional Controls workloads.
+        #[builder(into, default)]
+        pub workload_options: pulumi_wasm_rust::Output<
+            Option<super::super::types::assuredworkloads::WorkloadWorkloadOptions>,
+        >,
+    }
+    #[allow(dead_code)]
+    pub struct WorkloadResult {
+        /// Optional. Input only. The billing account used for the resources which are direct children of workload. This billing account is initially associated with the resources created as part of Workload creation. After the initial creation of these resources, the customer can change the assigned billing account. The resource name has the form `billingAccounts/{billing_account_id}`. For example, `billingAccounts/012345-567890-ABCDEF`.
+        pub billing_account: pulumi_wasm_rust::Output<Option<String>>,
+        /// Required. Immutable. Compliance Regime associated with this workload. Possible values: COMPLIANCE_REGIME_UNSPECIFIED, IL4, CJIS, FEDRAMP_HIGH, FEDRAMP_MODERATE, US_REGIONAL_ACCESS, HIPAA, HITRUST, EU_REGIONS_AND_SUPPORT, CA_REGIONS_AND_SUPPORT, ITAR, AU_REGIONS_AND_US_SUPPORT, ASSURED_WORKLOADS_FOR_PARTNERS, ISR_REGIONS, ISR_REGIONS_AND_SUPPORT, CA_PROTECTED_B, IL5, IL2, JP_REGIONS_AND_SUPPORT, KSA_REGIONS_AND_SUPPORT_WITH_SOVEREIGNTY_CONTROLS, REGIONAL_CONTROLS, HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS, HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS_WITH_US_SUPPORT, IRS_1075
+        pub compliance_regime: pulumi_wasm_rust::Output<String>,
+        /// Output only. Count of active Violations in the Workload.
+        pub compliance_statuses: pulumi_wasm_rust::Output<
+            Vec<super::super::types::assuredworkloads::WorkloadComplianceStatus>,
+        >,
+        /// Output only. Urls for services which are compliant for this Assured Workload, but which are currently disallowed by the ResourceUsageRestriction org policy. Invoke workloads.restrictAllowedResources endpoint to allow your project developers to use these services in their environment.
+        pub compliant_but_disallowed_services: pulumi_wasm_rust::Output<Vec<String>>,
+        /// Output only. Immutable. The Workload creation timestamp.
+        pub create_time: pulumi_wasm_rust::Output<String>,
+        /// Required. The user-assigned display name of the Workload. When present it must be between 4 to 30 characters. Allowed characters are: lowercase and uppercase letters, numbers, hyphen, and spaces. Example: My Workload
+        pub display_name: pulumi_wasm_rust::Output<String>,
+        /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
+        pub effective_labels: pulumi_wasm_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
+        /// Optional. Represents the Ekm Provisioning State of the given workload.
+        pub ekm_provisioning_responses: pulumi_wasm_rust::Output<
+            Vec<super::super::types::assuredworkloads::WorkloadEkmProvisioningResponse>,
+        >,
+        /// Optional. Indicates the sovereignty status of the given workload. Currently meant to be used by Europe/Canada customers.
+        pub enable_sovereign_controls: pulumi_wasm_rust::Output<bool>,
+        /// Output only. Represents the KAJ enrollment state of the given workload. Possible values: KAJ_ENROLLMENT_STATE_UNSPECIFIED, KAJ_ENROLLMENT_STATE_PENDING, KAJ_ENROLLMENT_STATE_COMPLETE
+        pub kaj_enrollment_state: pulumi_wasm_rust::Output<String>,
+        /// **DEPRECATED** Input only. Settings used to create a CMEK crypto key. When set, a project with a KMS CMEK key is provisioned. This field is deprecated as of Feb 28, 2022. In order to create a Keyring, callers should specify, ENCRYPTION_KEYS_PROJECT or KEYRING in ResourceSettings.resource_type field.
+        pub kms_settings: pulumi_wasm_rust::Output<
+            Option<super::super::types::assuredworkloads::WorkloadKmsSettings>,
+        >,
+        /// Optional. Labels applied to the workload.
+        ///
+        /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
+        /// Please refer to the field `effective_labels` for all of the labels present on the resource.
+        pub labels: pulumi_wasm_rust::Output<
+            Option<std::collections::HashMap<String, String>>,
+        >,
+        /// The location for the resource
+        pub location: pulumi_wasm_rust::Output<String>,
+        /// Output only. The resource name of the workload.
+        pub name: pulumi_wasm_rust::Output<String>,
+        /// The organization for the resource
+        ///
+        ///
+        ///
+        /// - - -
+        pub organization: pulumi_wasm_rust::Output<String>,
+        /// Optional. Partner regime associated with this workload. Possible values: PARTNER_UNSPECIFIED, LOCAL_CONTROLS_BY_S3NS, SOVEREIGN_CONTROLS_BY_T_SYSTEMS, SOVEREIGN_CONTROLS_BY_SIA_MINSAIT, SOVEREIGN_CONTROLS_BY_PSN, SOVEREIGN_CONTROLS_BY_CNTXT, SOVEREIGN_CONTROLS_BY_CNTXT_NO_EKM
+        pub partner: pulumi_wasm_rust::Output<Option<String>>,
+        /// Optional. Permissions granted to the AW Partner SA account for the customer workload
+        pub partner_permissions: pulumi_wasm_rust::Output<
+            Option<super::super::types::assuredworkloads::WorkloadPartnerPermissions>,
+        >,
+        /// Optional. Input only. Billing account necessary for purchasing services from Sovereign Partners. This field is required for creating SIA/PSN/CNTXT partner workloads. The caller should have 'billing.resourceAssociations.create' IAM permission on this billing-account. The format of this string is billingAccounts/AAAAAA-BBBBBB-CCCCCC.
+        pub partner_services_billing_account: pulumi_wasm_rust::Output<Option<String>>,
+        /// Input only. The parent resource for the resources managed by this Assured Workload. May be either empty or a folder resource which is a child of the Workload parent. If not specified all resources are created under the parent organization. Format: folders/{folder_id}
+        pub provisioned_resources_parent: pulumi_wasm_rust::Output<Option<String>>,
+        /// The combination of labels configured directly on the resource and default labels configured on the provider.
+        pub pulumi_labels: pulumi_wasm_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
+        /// Input only. Resource properties that are used to customize workload resources. These properties (such as custom project id) will be used to create workload resources if possible. This field is optional.
+        pub resource_settings: pulumi_wasm_rust::Output<
+            Option<Vec<super::super::types::assuredworkloads::WorkloadResourceSetting>>,
+        >,
+        /// Output only. The resources associated with this workload. These resources will be created when creating the workload. If any of the projects already exist, the workload creation will fail. Always read only.
+        pub resources: pulumi_wasm_rust::Output<
+            Vec<super::super::types::assuredworkloads::WorkloadResource>,
+        >,
+        /// Output only. Represents the SAA enrollment response of the given workload. SAA enrollment response is queried during workloads.get call. In failure cases, user friendly error message is shown in SAA details page.
+        pub saa_enrollment_responses: pulumi_wasm_rust::Output<
+            Vec<super::super::types::assuredworkloads::WorkloadSaaEnrollmentResponse>,
+        >,
+        /// Optional. Indicates whether the e-mail notification for a violation is enabled for a workload. This value will be by default True, and if not present will be considered as true. This should only be updated via updateWorkload call. Any Changes to this field during the createWorkload call will not be honored. This will always be true while creating the workload.
+        pub violation_notifications_enabled: pulumi_wasm_rust::Output<bool>,
+        /// Optional. Used to specify certain options for a workload during workload creation - currently only supporting KAT Optionality for Regional Controls workloads.
+        pub workload_options: pulumi_wasm_rust::Output<
+            Option<super::super::types::assuredworkloads::WorkloadWorkloadOptions>,
+        >,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: WorkloadArgs) -> WorkloadResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let billing_account_binding = args.billing_account.get_inner();
+        let compliance_regime_binding = args.compliance_regime.get_inner();
+        let display_name_binding = args.display_name.get_inner();
+        let enable_sovereign_controls_binding = args
+            .enable_sovereign_controls
+            .get_inner();
+        let kms_settings_binding = args.kms_settings.get_inner();
+        let labels_binding = args.labels.get_inner();
+        let location_binding = args.location.get_inner();
+        let organization_binding = args.organization.get_inner();
+        let partner_binding = args.partner.get_inner();
+        let partner_permissions_binding = args.partner_permissions.get_inner();
+        let partner_services_billing_account_binding = args
+            .partner_services_billing_account
+            .get_inner();
+        let provisioned_resources_parent_binding = args
+            .provisioned_resources_parent
+            .get_inner();
+        let resource_settings_binding = args.resource_settings.get_inner();
+        let violation_notifications_enabled_binding = args
+            .violation_notifications_enabled
+            .get_inner();
+        let workload_options_binding = args.workload_options.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:assuredworkloads/workload:Workload".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "billingAccount".into(),
+                    value: &billing_account_binding,
+                },
+                register_interface::ObjectField {
+                    name: "complianceRegime".into(),
+                    value: &compliance_regime_binding,
+                },
+                register_interface::ObjectField {
+                    name: "displayName".into(),
+                    value: &display_name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "enableSovereignControls".into(),
+                    value: &enable_sovereign_controls_binding,
+                },
+                register_interface::ObjectField {
+                    name: "kmsSettings".into(),
+                    value: &kms_settings_binding,
+                },
+                register_interface::ObjectField {
+                    name: "labels".into(),
+                    value: &labels_binding,
+                },
+                register_interface::ObjectField {
+                    name: "location".into(),
+                    value: &location_binding,
+                },
+                register_interface::ObjectField {
+                    name: "organization".into(),
+                    value: &organization_binding,
+                },
+                register_interface::ObjectField {
+                    name: "partner".into(),
+                    value: &partner_binding,
+                },
+                register_interface::ObjectField {
+                    name: "partnerPermissions".into(),
+                    value: &partner_permissions_binding,
+                },
+                register_interface::ObjectField {
+                    name: "partnerServicesBillingAccount".into(),
+                    value: &partner_services_billing_account_binding,
+                },
+                register_interface::ObjectField {
+                    name: "provisionedResourcesParent".into(),
+                    value: &provisioned_resources_parent_binding,
+                },
+                register_interface::ObjectField {
+                    name: "resourceSettings".into(),
+                    value: &resource_settings_binding,
+                },
+                register_interface::ObjectField {
+                    name: "violationNotificationsEnabled".into(),
+                    value: &violation_notifications_enabled_binding,
+                },
+                register_interface::ObjectField {
+                    name: "workloadOptions".into(),
+                    value: &workload_options_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "billingAccount".into(),
+                },
+                register_interface::ResultField {
+                    name: "complianceRegime".into(),
+                },
+                register_interface::ResultField {
+                    name: "complianceStatuses".into(),
+                },
+                register_interface::ResultField {
+                    name: "compliantButDisallowedServices".into(),
+                },
+                register_interface::ResultField {
+                    name: "createTime".into(),
+                },
+                register_interface::ResultField {
+                    name: "displayName".into(),
+                },
+                register_interface::ResultField {
+                    name: "effectiveLabels".into(),
+                },
+                register_interface::ResultField {
+                    name: "ekmProvisioningResponses".into(),
+                },
+                register_interface::ResultField {
+                    name: "enableSovereignControls".into(),
+                },
+                register_interface::ResultField {
+                    name: "kajEnrollmentState".into(),
+                },
+                register_interface::ResultField {
+                    name: "kmsSettings".into(),
+                },
+                register_interface::ResultField {
+                    name: "labels".into(),
+                },
+                register_interface::ResultField {
+                    name: "location".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "organization".into(),
+                },
+                register_interface::ResultField {
+                    name: "partner".into(),
+                },
+                register_interface::ResultField {
+                    name: "partnerPermissions".into(),
+                },
+                register_interface::ResultField {
+                    name: "partnerServicesBillingAccount".into(),
+                },
+                register_interface::ResultField {
+                    name: "provisionedResourcesParent".into(),
+                },
+                register_interface::ResultField {
+                    name: "pulumiLabels".into(),
+                },
+                register_interface::ResultField {
+                    name: "resourceSettings".into(),
+                },
+                register_interface::ResultField {
+                    name: "resources".into(),
+                },
+                register_interface::ResultField {
+                    name: "saaEnrollmentResponses".into(),
+                },
+                register_interface::ResultField {
+                    name: "violationNotificationsEnabled".into(),
+                },
+                register_interface::ResultField {
+                    name: "workloadOptions".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        WorkloadResult {
+            billing_account: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("billingAccount").unwrap(),
+            ),
+            compliance_regime: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("complianceRegime").unwrap(),
+            ),
+            compliance_statuses: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("complianceStatuses").unwrap(),
+            ),
+            compliant_but_disallowed_services: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("compliantButDisallowedServices").unwrap(),
+            ),
+            create_time: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("createTime").unwrap(),
+            ),
+            display_name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("displayName").unwrap(),
+            ),
+            effective_labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("effectiveLabels").unwrap(),
+            ),
+            ekm_provisioning_responses: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("ekmProvisioningResponses").unwrap(),
+            ),
+            enable_sovereign_controls: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("enableSovereignControls").unwrap(),
+            ),
+            kaj_enrollment_state: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("kajEnrollmentState").unwrap(),
+            ),
+            kms_settings: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("kmsSettings").unwrap(),
+            ),
+            labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("labels").unwrap(),
+            ),
+            location: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("location").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            organization: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("organization").unwrap(),
+            ),
+            partner: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("partner").unwrap(),
+            ),
+            partner_permissions: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("partnerPermissions").unwrap(),
+            ),
+            partner_services_billing_account: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("partnerServicesBillingAccount").unwrap(),
+            ),
+            provisioned_resources_parent: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("provisionedResourcesParent").unwrap(),
+            ),
+            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("pulumiLabels").unwrap(),
+            ),
+            resource_settings: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("resourceSettings").unwrap(),
+            ),
+            resources: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("resources").unwrap(),
+            ),
+            saa_enrollment_responses: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("saaEnrollmentResponses").unwrap(),
+            ),
+            violation_notifications_enabled: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("violationNotificationsEnabled").unwrap(),
+            ),
+            workload_options: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("workloadOptions").unwrap(),
+            ),
+        }
+    }
+}

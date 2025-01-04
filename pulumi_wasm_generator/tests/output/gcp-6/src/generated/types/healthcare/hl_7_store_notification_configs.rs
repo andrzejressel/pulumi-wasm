@@ -1,0 +1,27 @@
+#[derive(pulumi_wasm_rust::__private::serde::Deserialize, pulumi_wasm_rust::__private::serde::Serialize, pulumi_wasm_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
+#[builder(finish_fn = build_struct)]
+#[allow(dead_code)]
+pub struct Hl7StoreNotificationConfigs {
+    /// Restricts notifications sent for messages matching a filter. If this is empty, all messages
+    /// are matched. Syntax: https://cloud.google.com/appengine/docs/standard/python/search/query_strings
+    /// Fields/functions available for filtering are:
+    /// * messageType, from the MSH-9.1 field. For example, NOT messageType = "ADT".
+    /// * send_date or sendDate, the YYYY-MM-DD date the message was sent in the dataset's timeZone, from the MSH-7 segment. For example, send_date < "2017-01-02".
+    /// * sendTime, the timestamp when the message was sent, using the RFC3339 time format for comparisons, from the MSH-7 segment. For example, sendTime < "2017-01-02T00:00:00-05:00".
+    /// * sendFacility, the care center that the message came from, from the MSH-4 segment. For example, sendFacility = "ABC".
+    /// * PatientId(value, type), which matches if the message lists a patient having an ID of the given value and type in the PID-2, PID-3, or PID-4 segments. For example, PatientId("123456", "MRN").
+    /// * labels.x, a string value of the label with key x as set using the Message.labels map. For example, labels."priority"="high". The operator :* can be used to assert the existence of a label. For example, labels."priority":*.
+    #[builder(into, default)]
+    #[serde(rename = "filter")]
+    pub r#filter: Box<Option<String>>,
+    /// The Cloud Pub/Sub topic that notifications of changes are published on. Supplied by the client.
+    /// PubsubMessage.Data will contain the resource name. PubsubMessage.MessageId is the ID of this message.
+    /// It is guaranteed to be unique within the topic. PubsubMessage.PublishTime is the time at which the message
+    /// was published. Notifications are only sent if the topic is non-empty. Topic names must be scoped to a
+    /// project. service-PROJECT_NUMBER@gcp-sa-healthcare.iam.gserviceaccount.com must have publisher permissions on the given
+    /// Cloud Pub/Sub topic. Not having adequate permissions will cause the calls that send notifications to fail.
+    /// If a notification cannot be published to Cloud Pub/Sub, errors will be logged to Stackdriver
+    #[builder(into)]
+    #[serde(rename = "pubsubTopic")]
+    pub r#pubsub_topic: Box<String>,
+}

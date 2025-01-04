@@ -1,0 +1,827 @@
+pub mod firebase {
+    include!("resources/firebase/android_app.rs");
+    include!("resources/firebase/app_check_app_attest_config.rs");
+    include!("resources/firebase/app_check_debug_token.rs");
+    include!("resources/firebase/app_check_device_check_config.rs");
+    include!("resources/firebase/app_check_play_integrity_config.rs");
+    include!("resources/firebase/app_check_recaptcha_enterprise_config.rs");
+    include!("resources/firebase/app_check_recaptcha_v_3_config.rs");
+    include!("resources/firebase/app_check_service_config.rs");
+    include!("resources/firebase/apple_app.rs");
+    include!("resources/firebase/database_instance.rs");
+    include!("resources/firebase/extensions_instance.rs");
+    include!("resources/firebase/hosting_channel.rs");
+    include!("resources/firebase/hosting_custom_domain.rs");
+    include!("resources/firebase/hosting_release.rs");
+    include!("resources/firebase/hosting_site.rs");
+    include!("resources/firebase/hosting_version.rs");
+    include!("resources/firebase/project.rs");
+    include!("resources/firebase/storage_bucket.rs");
+    include!("resources/firebase/web_app.rs");
+}
+pub mod firebaserules {
+    include!("resources/firebaserules/release.rs");
+    include!("resources/firebaserules/ruleset.rs");
+}
+pub mod firestore {
+    include!("resources/firestore/backup_schedule.rs");
+    include!("resources/firestore/database.rs");
+    include!("resources/firestore/document.rs");
+    include!("resources/firestore/field.rs");
+    include!("resources/firestore/index.rs");
+}
+pub mod folder {
+    include!("resources/folder/access_approval_settings.rs");
+    include!("resources/folder/iam_binding.rs");
+    include!("resources/folder/iam_member.rs");
+    include!("resources/folder/iam_policy.rs");
+    include!("resources/folder/iam_audit_config.rs");
+    include!("resources/folder/organization_policy.rs");
+}
+pub mod gemini {
+    include!("resources/gemini/code_repository_index.rs");
+    include!("resources/gemini/repository_group.rs");
+    include!("resources/gemini/repository_group_iam_binding.rs");
+    include!("resources/gemini/repository_group_iam_member.rs");
+    include!("resources/gemini/repository_group_iam_policy.rs");
+}
+pub mod gkebackup {
+    include!("resources/gkebackup/backup_plan.rs");
+    include!("resources/gkebackup/backup_plan_iam_binding.rs");
+    include!("resources/gkebackup/backup_plan_iam_member.rs");
+    include!("resources/gkebackup/backup_plan_iam_policy.rs");
+    include!("resources/gkebackup/restore_plan.rs");
+    include!("resources/gkebackup/restore_plan_iam_binding.rs");
+    include!("resources/gkebackup/restore_plan_iam_member.rs");
+    include!("resources/gkebackup/restore_plan_iam_policy.rs");
+}
+pub mod gkehub {
+    include!("resources/gkehub/feature.rs");
+    include!("resources/gkehub/feature_iam_binding.rs");
+    include!("resources/gkehub/feature_iam_member.rs");
+    include!("resources/gkehub/feature_iam_policy.rs");
+    include!("resources/gkehub/feature_membership.rs");
+    include!("resources/gkehub/fleet.rs");
+    include!("resources/gkehub/membership.rs");
+    include!("resources/gkehub/membership_binding.rs");
+    include!("resources/gkehub/membership_iam_binding.rs");
+    include!("resources/gkehub/membership_iam_member.rs");
+    include!("resources/gkehub/membership_iam_policy.rs");
+    include!("resources/gkehub/membership_rbac_role_binding.rs");
+    include!("resources/gkehub/namespace.rs");
+    include!("resources/gkehub/scope.rs");
+    include!("resources/gkehub/scope_iam_binding.rs");
+    include!("resources/gkehub/scope_iam_member.rs");
+    include!("resources/gkehub/scope_iam_policy.rs");
+    include!("resources/gkehub/scope_rbac_role_binding.rs");
+}
+pub mod gkeonprem {
+    include!("resources/gkeonprem/bare_metal_admin_cluster.rs");
+    include!("resources/gkeonprem/bare_metal_cluster.rs");
+    include!("resources/gkeonprem/bare_metal_node_pool.rs");
+    include!("resources/gkeonprem/v_mware_cluster.rs");
+    include!("resources/gkeonprem/v_mware_node_pool.rs");
+}
+pub mod healthcare {
+    include!("resources/healthcare/consent_store.rs");
+    include!("resources/healthcare/consent_store_iam_binding.rs");
+    include!("resources/healthcare/consent_store_iam_member.rs");
+    include!("resources/healthcare/consent_store_iam_policy.rs");
+    include!("resources/healthcare/dataset.rs");
+    include!("resources/healthcare/dataset_iam_binding.rs");
+    include!("resources/healthcare/dataset_iam_member.rs");
+    include!("resources/healthcare/dataset_iam_policy.rs");
+    include!("resources/healthcare/dicom_store.rs");
+    include!("resources/healthcare/dicom_store_iam_binding.rs");
+    include!("resources/healthcare/dicom_store_iam_member.rs");
+    include!("resources/healthcare/dicom_store_iam_policy.rs");
+    include!("resources/healthcare/fhir_store.rs");
+    include!("resources/healthcare/fhir_store_iam_binding.rs");
+    include!("resources/healthcare/fhir_store_iam_member.rs");
+    include!("resources/healthcare/fhir_store_iam_policy.rs");
+    include!("resources/healthcare/hl_7_store.rs");
+    include!("resources/healthcare/hl_7_store_iam_binding.rs");
+    include!("resources/healthcare/hl_7_store_iam_member.rs");
+    include!("resources/healthcare/hl_7_store_iam_policy.rs");
+    include!("resources/healthcare/pipeline_job.rs");
+    include!("resources/healthcare/workspace.rs");
+}
+pub mod iam {
+    include!("resources/iam/access_boundary_policy.rs");
+    include!("resources/iam/deny_policy.rs");
+    include!("resources/iam/folders_policy_binding.rs");
+    include!("resources/iam/organizations_policy_binding.rs");
+    include!("resources/iam/principal_access_boundary_policy.rs");
+    include!("resources/iam/projects_policy_binding.rs");
+    include!("resources/iam/workforce_pool.rs");
+    include!("resources/iam/workforce_pool_provider.rs");
+    include!("resources/iam/workload_identity_pool.rs");
+    include!("resources/iam/workload_identity_pool_provider.rs");
+}
+pub mod functions {
+    pub mod firebase {
+        include!("functions/firebase/get_android_app.rs");
+        include!("functions/firebase/get_android_app_config.rs");
+        include!("functions/firebase/get_apple_app.rs");
+        include!("functions/firebase/get_apple_app_config.rs");
+        include!("functions/firebase/get_hosting_channel.rs");
+        include!("functions/firebase/get_web_app.rs");
+        include!("functions/firebase/get_web_app_config.rs");
+    }
+    pub mod folder {
+        include!("functions/folder/get_iam_policy.rs");
+        include!("functions/folder/get_organization_policy.rs");
+    }
+    pub mod gemini {
+        include!("functions/gemini/get_repository_group_iam_policy.rs");
+    }
+    pub mod gkebackup {
+        include!("functions/gkebackup/get_backup_plan_iam_policy.rs");
+        include!("functions/gkebackup/get_restore_plan_iam_policy.rs");
+    }
+    pub mod gkehub {
+        include!("functions/gkehub/get_feature_iam_policy.rs");
+        include!("functions/gkehub/get_membership_binding.rs");
+        include!("functions/gkehub/get_membership_iam_policy.rs");
+        include!("functions/gkehub/get_scope_iam_policy.rs");
+    }
+    pub mod healthcare {
+        include!("functions/healthcare/get_consent_store_iam_policy.rs");
+        include!("functions/healthcare/get_dataset_iam_policy.rs");
+        include!("functions/healthcare/get_dicom_store_iam_policy.rs");
+        include!("functions/healthcare/get_fhir_store_iam_policy.rs");
+        include!("functions/healthcare/get_hl_7_v_2_store_iam_policy.rs");
+    }
+    pub mod iam {
+        include!("functions/iam/get_rule.rs");
+        include!("functions/iam/get_testable_permissions.rs");
+        include!("functions/iam/get_workload_identity_pool.rs");
+        include!("functions/iam/get_workload_identity_pool_provider.rs");
+    }
+}
+pub mod types {
+    pub mod firebase {
+        include!("types/firebase/extensions_instance_config.rs");
+        include!("types/firebase/extensions_instance_error_status.rs");
+        include!("types/firebase/extensions_instance_runtime_data.rs");
+        include!("types/firebase/extensions_instance_runtime_data_fatal_error.rs");
+        include!("types/firebase/extensions_instance_runtime_data_processing_state.rs");
+        include!("types/firebase/hosting_custom_domain_cert.rs");
+        include!("types/firebase/hosting_custom_domain_cert_verification.rs");
+        include!("types/firebase/hosting_custom_domain_cert_verification_dns.rs");
+        include!(
+            "types/firebase/hosting_custom_domain_cert_verification_dns_desired.rs"
+        );
+        include!(
+            "types/firebase/hosting_custom_domain_cert_verification_dns_desired_record.rs"
+        );
+        include!(
+            "types/firebase/hosting_custom_domain_cert_verification_dns_discovered.rs"
+        );
+        include!(
+            "types/firebase/hosting_custom_domain_cert_verification_dns_discovered_record.rs"
+        );
+        include!("types/firebase/hosting_custom_domain_cert_verification_http.rs");
+        include!("types/firebase/hosting_custom_domain_issue.rs");
+        include!("types/firebase/hosting_custom_domain_required_dns_update.rs");
+        include!("types/firebase/hosting_custom_domain_required_dns_update_desired.rs");
+        include!(
+            "types/firebase/hosting_custom_domain_required_dns_update_desired_record.rs"
+        );
+        include!(
+            "types/firebase/hosting_custom_domain_required_dns_update_discovered.rs"
+        );
+        include!(
+            "types/firebase/hosting_custom_domain_required_dns_update_discovered_record.rs"
+        );
+        include!("types/firebase/hosting_version_config.rs");
+        include!("types/firebase/hosting_version_config_header.rs");
+        include!("types/firebase/hosting_version_config_redirect.rs");
+        include!("types/firebase/hosting_version_config_rewrite.rs");
+        include!("types/firebase/hosting_version_config_rewrite_run.rs");
+    }
+    pub mod firebaserules {
+        include!("types/firebaserules/ruleset_metadata.rs");
+        include!("types/firebaserules/ruleset_source.rs");
+        include!("types/firebaserules/ruleset_source_file.rs");
+    }
+    pub mod firestore {
+        include!("types/firestore/backup_schedule_daily_recurrence.rs");
+        include!("types/firestore/backup_schedule_weekly_recurrence.rs");
+        include!("types/firestore/database_cmek_config.rs");
+        include!("types/firestore/field_index_config.rs");
+        include!("types/firestore/field_index_config_index.rs");
+        include!("types/firestore/field_ttl_config.rs");
+        include!("types/firestore/index_field.rs");
+        include!("types/firestore/index_field_vector_config.rs");
+        include!("types/firestore/index_field_vector_config_flat.rs");
+    }
+    pub mod folder {
+        include!("types/folder/access_approval_settings_enrolled_service.rs");
+        include!("types/folder/iam_binding_condition.rs");
+        include!("types/folder/iam_member_condition.rs");
+        include!("types/folder/iam_audit_config_audit_log_config.rs");
+        include!("types/folder/organization_policy_boolean_policy.rs");
+        include!("types/folder/organization_policy_list_policy.rs");
+        include!("types/folder/organization_policy_list_policy_allow.rs");
+        include!("types/folder/organization_policy_list_policy_deny.rs");
+        include!("types/folder/organization_policy_restore_policy.rs");
+        include!("types/folder/get_organization_policy_boolean_policy.rs");
+        include!("types/folder/get_organization_policy_list_policy.rs");
+        include!("types/folder/get_organization_policy_list_policy_allow.rs");
+        include!("types/folder/get_organization_policy_list_policy_deny.rs");
+        include!("types/folder/get_organization_policy_restore_policy.rs");
+    }
+    pub mod gemini {
+        include!("types/gemini/repository_group_iam_binding_condition.rs");
+        include!("types/gemini/repository_group_iam_member_condition.rs");
+        include!("types/gemini/repository_group_repository.rs");
+    }
+    pub mod gkebackup {
+        include!("types/gkebackup/backup_plan_backup_config.rs");
+        include!("types/gkebackup/backup_plan_backup_config_encryption_key.rs");
+        include!("types/gkebackup/backup_plan_backup_config_selected_applications.rs");
+        include!(
+            "types/gkebackup/backup_plan_backup_config_selected_applications_namespaced_name.rs"
+        );
+        include!("types/gkebackup/backup_plan_backup_config_selected_namespaces.rs");
+        include!("types/gkebackup/backup_plan_backup_schedule.rs");
+        include!("types/gkebackup/backup_plan_backup_schedule_rpo_config.rs");
+        include!(
+            "types/gkebackup/backup_plan_backup_schedule_rpo_config_exclusion_window.rs"
+        );
+        include!(
+            "types/gkebackup/backup_plan_backup_schedule_rpo_config_exclusion_window_days_of_week.rs"
+        );
+        include!(
+            "types/gkebackup/backup_plan_backup_schedule_rpo_config_exclusion_window_single_occurrence_date.rs"
+        );
+        include!(
+            "types/gkebackup/backup_plan_backup_schedule_rpo_config_exclusion_window_start_time.rs"
+        );
+        include!("types/gkebackup/backup_plan_iam_binding_condition.rs");
+        include!("types/gkebackup/backup_plan_iam_member_condition.rs");
+        include!("types/gkebackup/backup_plan_retention_policy.rs");
+        include!("types/gkebackup/restore_plan_iam_binding_condition.rs");
+        include!("types/gkebackup/restore_plan_iam_member_condition.rs");
+        include!("types/gkebackup/restore_plan_restore_config.rs");
+        include!(
+            "types/gkebackup/restore_plan_restore_config_cluster_resource_restore_scope.rs"
+        );
+        include!(
+            "types/gkebackup/restore_plan_restore_config_cluster_resource_restore_scope_excluded_group_kind.rs"
+        );
+        include!(
+            "types/gkebackup/restore_plan_restore_config_cluster_resource_restore_scope_selected_group_kind.rs"
+        );
+        include!("types/gkebackup/restore_plan_restore_config_excluded_namespaces.rs");
+        include!("types/gkebackup/restore_plan_restore_config_restore_order.rs");
+        include!(
+            "types/gkebackup/restore_plan_restore_config_restore_order_group_kind_dependency.rs"
+        );
+        include!(
+            "types/gkebackup/restore_plan_restore_config_restore_order_group_kind_dependency_requiring.rs"
+        );
+        include!(
+            "types/gkebackup/restore_plan_restore_config_restore_order_group_kind_dependency_satisfying.rs"
+        );
+        include!("types/gkebackup/restore_plan_restore_config_selected_applications.rs");
+        include!(
+            "types/gkebackup/restore_plan_restore_config_selected_applications_namespaced_name.rs"
+        );
+        include!("types/gkebackup/restore_plan_restore_config_selected_namespaces.rs");
+        include!("types/gkebackup/restore_plan_restore_config_transformation_rule.rs");
+        include!(
+            "types/gkebackup/restore_plan_restore_config_transformation_rule_field_action.rs"
+        );
+        include!(
+            "types/gkebackup/restore_plan_restore_config_transformation_rule_resource_filter.rs"
+        );
+        include!(
+            "types/gkebackup/restore_plan_restore_config_transformation_rule_resource_filter_group_kind.rs"
+        );
+        include!(
+            "types/gkebackup/restore_plan_restore_config_volume_data_restore_policy_binding.rs"
+        );
+    }
+    pub mod gkehub {
+        include!("types/gkehub/feature_fleet_default_member_config.rs");
+        include!("types/gkehub/feature_fleet_default_member_config_configmanagement.rs");
+        include!(
+            "types/gkehub/feature_fleet_default_member_config_configmanagement_config_sync.rs"
+        );
+        include!(
+            "types/gkehub/feature_fleet_default_member_config_configmanagement_config_sync_git.rs"
+        );
+        include!(
+            "types/gkehub/feature_fleet_default_member_config_configmanagement_config_sync_oci.rs"
+        );
+        include!("types/gkehub/feature_fleet_default_member_config_mesh.rs");
+        include!("types/gkehub/feature_fleet_default_member_config_policycontroller.rs");
+        include!(
+            "types/gkehub/feature_fleet_default_member_config_policycontroller_policy_controller_hub_config.rs"
+        );
+        include!(
+            "types/gkehub/feature_fleet_default_member_config_policycontroller_policy_controller_hub_config_deployment_config.rs"
+        );
+        include!(
+            "types/gkehub/feature_fleet_default_member_config_policycontroller_policy_controller_hub_config_deployment_config_container_resources.rs"
+        );
+        include!(
+            "types/gkehub/feature_fleet_default_member_config_policycontroller_policy_controller_hub_config_deployment_config_container_resources_limits.rs"
+        );
+        include!(
+            "types/gkehub/feature_fleet_default_member_config_policycontroller_policy_controller_hub_config_deployment_config_container_resources_requests.rs"
+        );
+        include!(
+            "types/gkehub/feature_fleet_default_member_config_policycontroller_policy_controller_hub_config_deployment_config_pod_toleration.rs"
+        );
+        include!(
+            "types/gkehub/feature_fleet_default_member_config_policycontroller_policy_controller_hub_config_monitoring.rs"
+        );
+        include!(
+            "types/gkehub/feature_fleet_default_member_config_policycontroller_policy_controller_hub_config_policy_content.rs"
+        );
+        include!(
+            "types/gkehub/feature_fleet_default_member_config_policycontroller_policy_controller_hub_config_policy_content_bundle.rs"
+        );
+        include!(
+            "types/gkehub/feature_fleet_default_member_config_policycontroller_policy_controller_hub_config_policy_content_template_library.rs"
+        );
+        include!("types/gkehub/feature_iam_binding_condition.rs");
+        include!("types/gkehub/feature_iam_member_condition.rs");
+        include!("types/gkehub/feature_membership_configmanagement.rs");
+        include!("types/gkehub/feature_membership_configmanagement_binauthz.rs");
+        include!("types/gkehub/feature_membership_configmanagement_config_sync.rs");
+        include!("types/gkehub/feature_membership_configmanagement_config_sync_git.rs");
+        include!("types/gkehub/feature_membership_configmanagement_config_sync_oci.rs");
+        include!(
+            "types/gkehub/feature_membership_configmanagement_hierarchy_controller.rs"
+        );
+        include!(
+            "types/gkehub/feature_membership_configmanagement_policy_controller.rs"
+        );
+        include!(
+            "types/gkehub/feature_membership_configmanagement_policy_controller_monitoring.rs"
+        );
+        include!("types/gkehub/feature_membership_mesh.rs");
+        include!("types/gkehub/feature_membership_policycontroller.rs");
+        include!(
+            "types/gkehub/feature_membership_policycontroller_policy_controller_hub_config.rs"
+        );
+        include!(
+            "types/gkehub/feature_membership_policycontroller_policy_controller_hub_config_deployment_config.rs"
+        );
+        include!(
+            "types/gkehub/feature_membership_policycontroller_policy_controller_hub_config_deployment_config_container_resources.rs"
+        );
+        include!(
+            "types/gkehub/feature_membership_policycontroller_policy_controller_hub_config_deployment_config_container_resources_limits.rs"
+        );
+        include!(
+            "types/gkehub/feature_membership_policycontroller_policy_controller_hub_config_deployment_config_container_resources_requests.rs"
+        );
+        include!(
+            "types/gkehub/feature_membership_policycontroller_policy_controller_hub_config_deployment_config_pod_toleration.rs"
+        );
+        include!(
+            "types/gkehub/feature_membership_policycontroller_policy_controller_hub_config_monitoring.rs"
+        );
+        include!(
+            "types/gkehub/feature_membership_policycontroller_policy_controller_hub_config_policy_content.rs"
+        );
+        include!(
+            "types/gkehub/feature_membership_policycontroller_policy_controller_hub_config_policy_content_bundle.rs"
+        );
+        include!(
+            "types/gkehub/feature_membership_policycontroller_policy_controller_hub_config_policy_content_template_library.rs"
+        );
+        include!("types/gkehub/feature_resource_state.rs");
+        include!("types/gkehub/feature_spec.rs");
+        include!("types/gkehub/feature_spec_clusterupgrade.rs");
+        include!("types/gkehub/feature_spec_clusterupgrade_gke_upgrade_override.rs");
+        include!(
+            "types/gkehub/feature_spec_clusterupgrade_gke_upgrade_override_post_conditions.rs"
+        );
+        include!(
+            "types/gkehub/feature_spec_clusterupgrade_gke_upgrade_override_upgrade.rs"
+        );
+        include!("types/gkehub/feature_spec_clusterupgrade_post_conditions.rs");
+        include!("types/gkehub/feature_spec_fleetobservability.rs");
+        include!("types/gkehub/feature_spec_fleetobservability_logging_config.rs");
+        include!(
+            "types/gkehub/feature_spec_fleetobservability_logging_config_default_config.rs"
+        );
+        include!(
+            "types/gkehub/feature_spec_fleetobservability_logging_config_fleet_scope_logs_config.rs"
+        );
+        include!("types/gkehub/feature_spec_multiclusteringress.rs");
+        include!("types/gkehub/feature_state.rs");
+        include!("types/gkehub/feature_state_state.rs");
+        include!("types/gkehub/fleet_default_cluster_config.rs");
+        include!(
+            "types/gkehub/fleet_default_cluster_config_binary_authorization_config.rs"
+        );
+        include!(
+            "types/gkehub/fleet_default_cluster_config_binary_authorization_config_policy_binding.rs"
+        );
+        include!("types/gkehub/fleet_default_cluster_config_security_posture_config.rs");
+        include!("types/gkehub/fleet_state.rs");
+        include!("types/gkehub/membership_authority.rs");
+        include!("types/gkehub/membership_binding_state.rs");
+        include!("types/gkehub/membership_endpoint.rs");
+        include!("types/gkehub/membership_endpoint_gke_cluster.rs");
+        include!("types/gkehub/membership_iam_binding_condition.rs");
+        include!("types/gkehub/membership_iam_member_condition.rs");
+        include!("types/gkehub/membership_rbac_role_binding_role.rs");
+        include!("types/gkehub/membership_rbac_role_binding_state.rs");
+        include!("types/gkehub/namespace_state.rs");
+        include!("types/gkehub/scope_iam_binding_condition.rs");
+        include!("types/gkehub/scope_iam_member_condition.rs");
+        include!("types/gkehub/scope_rbac_role_binding_role.rs");
+        include!("types/gkehub/scope_rbac_role_binding_state.rs");
+        include!("types/gkehub/scope_state.rs");
+        include!("types/gkehub/get_membership_binding_state.rs");
+    }
+    pub mod gkeonprem {
+        include!("types/gkeonprem/bare_metal_admin_cluster_cluster_operations.rs");
+        include!("types/gkeonprem/bare_metal_admin_cluster_control_plane.rs");
+        include!(
+            "types/gkeonprem/bare_metal_admin_cluster_control_plane_api_server_arg.rs"
+        );
+        include!(
+            "types/gkeonprem/bare_metal_admin_cluster_control_plane_control_plane_node_pool_config.rs"
+        );
+        include!(
+            "types/gkeonprem/bare_metal_admin_cluster_control_plane_control_plane_node_pool_config_node_pool_config.rs"
+        );
+        include!(
+            "types/gkeonprem/bare_metal_admin_cluster_control_plane_control_plane_node_pool_config_node_pool_config_node_config.rs"
+        );
+        include!(
+            "types/gkeonprem/bare_metal_admin_cluster_control_plane_control_plane_node_pool_config_node_pool_config_taint.rs"
+        );
+        include!("types/gkeonprem/bare_metal_admin_cluster_fleet.rs");
+        include!("types/gkeonprem/bare_metal_admin_cluster_load_balancer.rs");
+        include!(
+            "types/gkeonprem/bare_metal_admin_cluster_load_balancer_manual_lb_config.rs"
+        );
+        include!(
+            "types/gkeonprem/bare_metal_admin_cluster_load_balancer_port_config.rs"
+        );
+        include!("types/gkeonprem/bare_metal_admin_cluster_load_balancer_vip_config.rs");
+        include!("types/gkeonprem/bare_metal_admin_cluster_maintenance_config.rs");
+        include!("types/gkeonprem/bare_metal_admin_cluster_network_config.rs");
+        include!(
+            "types/gkeonprem/bare_metal_admin_cluster_network_config_island_mode_cidr.rs"
+        );
+        include!("types/gkeonprem/bare_metal_admin_cluster_node_access_config.rs");
+        include!("types/gkeonprem/bare_metal_admin_cluster_node_config.rs");
+        include!("types/gkeonprem/bare_metal_admin_cluster_proxy.rs");
+        include!("types/gkeonprem/bare_metal_admin_cluster_security_config.rs");
+        include!(
+            "types/gkeonprem/bare_metal_admin_cluster_security_config_authorization.rs"
+        );
+        include!(
+            "types/gkeonprem/bare_metal_admin_cluster_security_config_authorization_admin_user.rs"
+        );
+        include!("types/gkeonprem/bare_metal_admin_cluster_status.rs");
+        include!("types/gkeonprem/bare_metal_admin_cluster_status_condition.rs");
+        include!("types/gkeonprem/bare_metal_admin_cluster_storage.rs");
+        include!(
+            "types/gkeonprem/bare_metal_admin_cluster_storage_lvp_node_mounts_config.rs"
+        );
+        include!("types/gkeonprem/bare_metal_admin_cluster_storage_lvp_share_config.rs");
+        include!(
+            "types/gkeonprem/bare_metal_admin_cluster_storage_lvp_share_config_lvp_config.rs"
+        );
+        include!("types/gkeonprem/bare_metal_admin_cluster_validation_check.rs");
+        include!("types/gkeonprem/bare_metal_admin_cluster_validation_check_status.rs");
+        include!(
+            "types/gkeonprem/bare_metal_admin_cluster_validation_check_status_result.rs"
+        );
+        include!("types/gkeonprem/bare_metal_cluster_binary_authorization.rs");
+        include!("types/gkeonprem/bare_metal_cluster_cluster_operations.rs");
+        include!("types/gkeonprem/bare_metal_cluster_control_plane.rs");
+        include!("types/gkeonprem/bare_metal_cluster_control_plane_api_server_arg.rs");
+        include!(
+            "types/gkeonprem/bare_metal_cluster_control_plane_control_plane_node_pool_config.rs"
+        );
+        include!(
+            "types/gkeonprem/bare_metal_cluster_control_plane_control_plane_node_pool_config_node_pool_config.rs"
+        );
+        include!(
+            "types/gkeonprem/bare_metal_cluster_control_plane_control_plane_node_pool_config_node_pool_config_node_config.rs"
+        );
+        include!(
+            "types/gkeonprem/bare_metal_cluster_control_plane_control_plane_node_pool_config_node_pool_config_taint.rs"
+        );
+        include!("types/gkeonprem/bare_metal_cluster_fleet.rs");
+        include!("types/gkeonprem/bare_metal_cluster_load_balancer.rs");
+        include!("types/gkeonprem/bare_metal_cluster_load_balancer_bgp_lb_config.rs");
+        include!(
+            "types/gkeonprem/bare_metal_cluster_load_balancer_bgp_lb_config_address_pool.rs"
+        );
+        include!(
+            "types/gkeonprem/bare_metal_cluster_load_balancer_bgp_lb_config_bgp_peer_config.rs"
+        );
+        include!(
+            "types/gkeonprem/bare_metal_cluster_load_balancer_bgp_lb_config_load_balancer_node_pool_config.rs"
+        );
+        include!(
+            "types/gkeonprem/bare_metal_cluster_load_balancer_bgp_lb_config_load_balancer_node_pool_config_node_pool_config.rs"
+        );
+        include!(
+            "types/gkeonprem/bare_metal_cluster_load_balancer_bgp_lb_config_load_balancer_node_pool_config_node_pool_config_kubelet_config.rs"
+        );
+        include!(
+            "types/gkeonprem/bare_metal_cluster_load_balancer_bgp_lb_config_load_balancer_node_pool_config_node_pool_config_node_config.rs"
+        );
+        include!(
+            "types/gkeonprem/bare_metal_cluster_load_balancer_bgp_lb_config_load_balancer_node_pool_config_node_pool_config_taint.rs"
+        );
+        include!("types/gkeonprem/bare_metal_cluster_load_balancer_manual_lb_config.rs");
+        include!("types/gkeonprem/bare_metal_cluster_load_balancer_metal_lb_config.rs");
+        include!(
+            "types/gkeonprem/bare_metal_cluster_load_balancer_metal_lb_config_address_pool.rs"
+        );
+        include!(
+            "types/gkeonprem/bare_metal_cluster_load_balancer_metal_lb_config_load_balancer_node_pool_config.rs"
+        );
+        include!(
+            "types/gkeonprem/bare_metal_cluster_load_balancer_metal_lb_config_load_balancer_node_pool_config_node_pool_config.rs"
+        );
+        include!(
+            "types/gkeonprem/bare_metal_cluster_load_balancer_metal_lb_config_load_balancer_node_pool_config_node_pool_config_node_config.rs"
+        );
+        include!(
+            "types/gkeonprem/bare_metal_cluster_load_balancer_metal_lb_config_load_balancer_node_pool_config_node_pool_config_taint.rs"
+        );
+        include!("types/gkeonprem/bare_metal_cluster_load_balancer_port_config.rs");
+        include!("types/gkeonprem/bare_metal_cluster_load_balancer_vip_config.rs");
+        include!("types/gkeonprem/bare_metal_cluster_maintenance_config.rs");
+        include!("types/gkeonprem/bare_metal_cluster_network_config.rs");
+        include!(
+            "types/gkeonprem/bare_metal_cluster_network_config_island_mode_cidr.rs"
+        );
+        include!(
+            "types/gkeonprem/bare_metal_cluster_network_config_multiple_network_interfaces_config.rs"
+        );
+        include!("types/gkeonprem/bare_metal_cluster_network_config_sr_iov_config.rs");
+        include!("types/gkeonprem/bare_metal_cluster_node_access_config.rs");
+        include!("types/gkeonprem/bare_metal_cluster_node_config.rs");
+        include!("types/gkeonprem/bare_metal_cluster_os_environment_config.rs");
+        include!("types/gkeonprem/bare_metal_cluster_proxy.rs");
+        include!("types/gkeonprem/bare_metal_cluster_security_config.rs");
+        include!("types/gkeonprem/bare_metal_cluster_security_config_authorization.rs");
+        include!(
+            "types/gkeonprem/bare_metal_cluster_security_config_authorization_admin_user.rs"
+        );
+        include!("types/gkeonprem/bare_metal_cluster_status.rs");
+        include!("types/gkeonprem/bare_metal_cluster_status_condition.rs");
+        include!("types/gkeonprem/bare_metal_cluster_storage.rs");
+        include!("types/gkeonprem/bare_metal_cluster_storage_lvp_node_mounts_config.rs");
+        include!("types/gkeonprem/bare_metal_cluster_storage_lvp_share_config.rs");
+        include!(
+            "types/gkeonprem/bare_metal_cluster_storage_lvp_share_config_lvp_config.rs"
+        );
+        include!("types/gkeonprem/bare_metal_cluster_upgrade_policy.rs");
+        include!("types/gkeonprem/bare_metal_cluster_validation_check.rs");
+        include!("types/gkeonprem/bare_metal_cluster_validation_check_status.rs");
+        include!("types/gkeonprem/bare_metal_cluster_validation_check_status_result.rs");
+        include!("types/gkeonprem/bare_metal_node_pool_node_pool_config.rs");
+        include!("types/gkeonprem/bare_metal_node_pool_node_pool_config_node_config.rs");
+        include!("types/gkeonprem/bare_metal_node_pool_node_pool_config_taint.rs");
+        include!("types/gkeonprem/bare_metal_node_pool_status.rs");
+        include!("types/gkeonprem/bare_metal_node_pool_status_condition.rs");
+        include!("types/gkeonprem/v_mware_cluster_anti_affinity_groups.rs");
+        include!("types/gkeonprem/v_mware_cluster_authorization.rs");
+        include!("types/gkeonprem/v_mware_cluster_authorization_admin_user.rs");
+        include!("types/gkeonprem/v_mware_cluster_auto_repair_config.rs");
+        include!("types/gkeonprem/v_mware_cluster_control_plane_node.rs");
+        include!(
+            "types/gkeonprem/v_mware_cluster_control_plane_node_auto_resize_config.rs"
+        );
+        include!("types/gkeonprem/v_mware_cluster_control_plane_node_vsphere_config.rs");
+        include!("types/gkeonprem/v_mware_cluster_dataplane_v_2.rs");
+        include!("types/gkeonprem/v_mware_cluster_fleet.rs");
+        include!("types/gkeonprem/v_mware_cluster_load_balancer.rs");
+        include!("types/gkeonprem/v_mware_cluster_load_balancer_f_5_config.rs");
+        include!("types/gkeonprem/v_mware_cluster_load_balancer_manual_lb_config.rs");
+        include!("types/gkeonprem/v_mware_cluster_load_balancer_metal_lb_config.rs");
+        include!(
+            "types/gkeonprem/v_mware_cluster_load_balancer_metal_lb_config_address_pool.rs"
+        );
+        include!("types/gkeonprem/v_mware_cluster_load_balancer_vip_config.rs");
+        include!("types/gkeonprem/v_mware_cluster_network_config.rs");
+        include!(
+            "types/gkeonprem/v_mware_cluster_network_config_control_plane_v_2_config.rs"
+        );
+        include!(
+            "types/gkeonprem/v_mware_cluster_network_config_control_plane_v_2_config_control_plane_ip_block.rs"
+        );
+        include!(
+            "types/gkeonprem/v_mware_cluster_network_config_control_plane_v_2_config_control_plane_ip_block_ip.rs"
+        );
+        include!("types/gkeonprem/v_mware_cluster_network_config_dhcp_ip_config.rs");
+        include!("types/gkeonprem/v_mware_cluster_network_config_host_config.rs");
+        include!("types/gkeonprem/v_mware_cluster_network_config_static_ip_config.rs");
+        include!(
+            "types/gkeonprem/v_mware_cluster_network_config_static_ip_config_ip_block.rs"
+        );
+        include!(
+            "types/gkeonprem/v_mware_cluster_network_config_static_ip_config_ip_block_ip.rs"
+        );
+        include!("types/gkeonprem/v_mware_cluster_status.rs");
+        include!("types/gkeonprem/v_mware_cluster_status_condition.rs");
+        include!("types/gkeonprem/v_mware_cluster_storage.rs");
+        include!("types/gkeonprem/v_mware_cluster_upgrade_policy.rs");
+        include!("types/gkeonprem/v_mware_cluster_validation_check.rs");
+        include!("types/gkeonprem/v_mware_cluster_validation_check_status.rs");
+        include!("types/gkeonprem/v_mware_cluster_validation_check_status_result.rs");
+        include!("types/gkeonprem/v_mware_cluster_vcenter.rs");
+        include!("types/gkeonprem/v_mware_node_pool_config.rs");
+        include!("types/gkeonprem/v_mware_node_pool_config_taint.rs");
+        include!("types/gkeonprem/v_mware_node_pool_config_vsphere_config.rs");
+        include!("types/gkeonprem/v_mware_node_pool_config_vsphere_config_tag.rs");
+        include!("types/gkeonprem/v_mware_node_pool_node_pool_autoscaling.rs");
+        include!("types/gkeonprem/v_mware_node_pool_status.rs");
+        include!("types/gkeonprem/v_mware_node_pool_status_condition.rs");
+    }
+    pub mod healthcare {
+        include!("types/healthcare/consent_store_iam_binding_condition.rs");
+        include!("types/healthcare/consent_store_iam_member_condition.rs");
+        include!("types/healthcare/dataset_encryption_spec.rs");
+        include!("types/healthcare/dataset_iam_binding_condition.rs");
+        include!("types/healthcare/dataset_iam_member_condition.rs");
+        include!("types/healthcare/dicom_store_iam_binding_condition.rs");
+        include!("types/healthcare/dicom_store_iam_member_condition.rs");
+        include!("types/healthcare/dicom_store_notification_config.rs");
+        include!("types/healthcare/dicom_store_stream_config.rs");
+        include!("types/healthcare/dicom_store_stream_config_bigquery_destination.rs");
+        include!("types/healthcare/fhir_store_iam_binding_condition.rs");
+        include!("types/healthcare/fhir_store_iam_member_condition.rs");
+        include!("types/healthcare/fhir_store_notification_config.rs");
+        include!("types/healthcare/fhir_store_stream_config.rs");
+        include!("types/healthcare/fhir_store_stream_config_bigquery_destination.rs");
+        include!(
+            "types/healthcare/fhir_store_stream_config_bigquery_destination_schema_config.rs"
+        );
+        include!(
+            "types/healthcare/fhir_store_stream_config_bigquery_destination_schema_config_last_updated_partition_config.rs"
+        );
+        include!("types/healthcare/hl_7_store_iam_binding_condition.rs");
+        include!("types/healthcare/hl_7_store_iam_member_condition.rs");
+        include!("types/healthcare/hl_7_store_notification_config.rs");
+        include!("types/healthcare/hl_7_store_notification_configs.rs");
+        include!("types/healthcare/hl_7_store_parser_config.rs");
+        include!("types/healthcare/pipeline_job_backfill_pipeline_job.rs");
+        include!("types/healthcare/pipeline_job_mapping_pipeline_job.rs");
+        include!(
+            "types/healthcare/pipeline_job_mapping_pipeline_job_fhir_streaming_source.rs"
+        );
+        include!("types/healthcare/pipeline_job_mapping_pipeline_job_mapping_config.rs");
+        include!(
+            "types/healthcare/pipeline_job_mapping_pipeline_job_mapping_config_whistle_config_source.rs"
+        );
+        include!("types/healthcare/pipeline_job_reconciliation_pipeline_job.rs");
+        include!(
+            "types/healthcare/pipeline_job_reconciliation_pipeline_job_merge_config.rs"
+        );
+        include!(
+            "types/healthcare/pipeline_job_reconciliation_pipeline_job_merge_config_whistle_config_source.rs"
+        );
+        include!("types/healthcare/workspace_settings.rs");
+    }
+    pub mod iam {
+        include!("types/iam/access_boundary_policy_rule.rs");
+        include!("types/iam/access_boundary_policy_rule_access_boundary_rule.rs");
+        include!(
+            "types/iam/access_boundary_policy_rule_access_boundary_rule_availability_condition.rs"
+        );
+        include!("types/iam/deny_policy_rule.rs");
+        include!("types/iam/deny_policy_rule_deny_rule.rs");
+        include!("types/iam/deny_policy_rule_deny_rule_denial_condition.rs");
+        include!("types/iam/folders_policy_binding_condition.rs");
+        include!("types/iam/folders_policy_binding_target.rs");
+        include!("types/iam/organizations_policy_binding_condition.rs");
+        include!("types/iam/organizations_policy_binding_target.rs");
+        include!("types/iam/principal_access_boundary_policy_details.rs");
+        include!("types/iam/principal_access_boundary_policy_details_rule.rs");
+        include!("types/iam/projects_policy_binding_condition.rs");
+        include!("types/iam/projects_policy_binding_target.rs");
+        include!("types/iam/workforce_pool_access_restrictions.rs");
+        include!("types/iam/workforce_pool_access_restrictions_allowed_service.rs");
+        include!("types/iam/workforce_pool_provider_extra_attributes_oauth_2_client.rs");
+        include!(
+            "types/iam/workforce_pool_provider_extra_attributes_oauth_2_client_client_secret.rs"
+        );
+        include!(
+            "types/iam/workforce_pool_provider_extra_attributes_oauth_2_client_client_secret_value.rs"
+        );
+        include!(
+            "types/iam/workforce_pool_provider_extra_attributes_oauth_2_client_query_parameters.rs"
+        );
+        include!("types/iam/workforce_pool_provider_oidc.rs");
+        include!("types/iam/workforce_pool_provider_oidc_client_secret.rs");
+        include!("types/iam/workforce_pool_provider_oidc_client_secret_value.rs");
+        include!("types/iam/workforce_pool_provider_oidc_web_sso_config.rs");
+        include!("types/iam/workforce_pool_provider_saml.rs");
+        include!("types/iam/workload_identity_pool_provider_aws.rs");
+        include!("types/iam/workload_identity_pool_provider_oidc.rs");
+        include!("types/iam/workload_identity_pool_provider_saml.rs");
+        include!("types/iam/workload_identity_pool_provider_x_509.rs");
+        include!("types/iam/workload_identity_pool_provider_x_509_trust_store.rs");
+        include!(
+            "types/iam/workload_identity_pool_provider_x_509_trust_store_intermediate_ca.rs"
+        );
+        include!(
+            "types/iam/workload_identity_pool_provider_x_509_trust_store_trust_anchor.rs"
+        );
+        include!("types/iam/get_testable_permissions_permission.rs");
+        include!("types/iam/get_workload_identity_pool_provider_aw.rs");
+        include!("types/iam/get_workload_identity_pool_provider_oidc.rs");
+        include!("types/iam/get_workload_identity_pool_provider_saml.rs");
+        include!("types/iam/get_workload_identity_pool_provider_x_509.rs");
+        include!("types/iam/get_workload_identity_pool_provider_x_509_trust_store.rs");
+        include!(
+            "types/iam/get_workload_identity_pool_provider_x_509_trust_store_intermediate_ca.rs"
+        );
+        include!(
+            "types/iam/get_workload_identity_pool_provider_x_509_trust_store_trust_anchor.rs"
+        );
+    }
+}
+#[doc(hidden)]
+pub mod constants {}
+mod bindings {
+    pulumi_wasm_rust::__private::wit_bindgen::generate!(
+        { inline :
+        r"package component:pulumi-wasm@0.0.0-DEV;
+
+world world-gcp {
+    import output-interface;
+}
+
+interface output-interface {
+
+    resource output {
+        constructor(value: string);
+        map: func(function-name: string) -> output;
+    }
+    combine: func(outputs: list<borrow<output>>) -> output;
+}
+
+
+interface register-interface {
+    use output-interface.{output};
+
+    record object-field {
+        name: string,
+        value: borrow<output>
+    }
+
+    record result-field {
+        name: string
+    }
+
+    record register-resource-result-field {
+        name: string,
+        output: output
+    }
+
+    record register-resource-request {
+        %type: string,
+        name: string,
+        object: list<object-field>,
+        results: list<result-field>
+    }
+
+    record register-resource-result {
+        fields: list<register-resource-result-field>
+    }
+
+    register: func(request: register-resource-request) -> register-resource-result;
+
+    record resource-invoke-result-field {
+        name: string,
+        output: output
+    }
+
+    record resource-invoke-request {
+        token: string,
+        object: list<object-field>,
+        results: list<result-field>
+    }
+
+    record resource-invoke-result {
+        fields: list<resource-invoke-result-field>
+    }
+
+    invoke: func(request: resource-invoke-request) -> resource-invoke-result;
+}",
+        with : { "component:pulumi-wasm/output-interface@0.0.0-DEV" :
+        pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface
+        } }
+    );
+}

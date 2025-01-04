@@ -132,7 +132,14 @@ test-docs:
     just rust-docs
 
 rust-docs:
-    cargo doc --no-deps -p pulumi_wasm_rust -p pulumi_wasm_build -p pulumi_wasm_providers_azure_mini -p pulumi_wasm_providers_cloudflare -p pulumi_wasm_providers_docker -p pulumi_wasm_providers_random
+    cargo doc --no-deps \
+        -p pulumi_wasm_rust \
+        -p pulumi_wasm_build \
+        -p pulumi_wasm_providers_azure_mini \
+        -p pulumi_wasm_providers_cloudflare \
+        -p pulumi_wasm_providers_docker \
+        -p pulumi_wasm_providers_gcp_mini \
+        -p pulumi_wasm_providers_random
 
 update-version NEW_VERSION:
     sd "0.0.0-DEV" "{{NEW_VERSION}}" "pulumi_wasm_wit/wit/world.wit" "pulumi_wasm_rust_macro/src/lib.rs" \

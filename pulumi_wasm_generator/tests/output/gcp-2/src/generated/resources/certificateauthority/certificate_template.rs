@@ -1,0 +1,372 @@
+/// Certificate Authority Service provides reusable and parameterized templates that you can use for common certificate issuance scenarios. A certificate template represents a relatively static and well-defined certificate issuance schema within an organization. A certificate template can essentially become a full-fledged vertical certificate issuance framework.
+///
+///
+/// To get more information about CertificateTemplate, see:
+///
+/// * [API documentation](https://cloud.google.com/certificate-authority-service/docs/reference/rest)
+/// * How-to Guides
+///     * [Common configurations and Certificate Profiles](https://cloud.google.com/certificate-authority-service/docs/certificate-profile)
+///     * [Official Documentation](https://cloud.google.com/certificate-authority-service)
+///     * [Understanding Certificate Templates](https://cloud.google.com/certificate-authority-service/docs/certificate-template)
+///
+/// ## Example Usage
+///
+/// ### Privateca Template Basic
+///
+///
+/// ```yaml
+/// resources:
+///   default:
+///     type: gcp:certificateauthority:CertificateTemplate
+///     properties:
+///       name: my-template
+///       location: us-central1
+///       description: A sample certificate template
+///       identityConstraints:
+///         allowSubjectAltNamesPassthrough: true
+///         allowSubjectPassthrough: true
+///         celExpression:
+///           description: Always true
+///           expression: 'true'
+///           location: any.file.anywhere
+///           title: Sample expression
+///       maximumLifetime: 86400s
+///       passthroughExtensions:
+///         additionalExtensions:
+///           - objectIdPaths:
+///               - 1
+///               - 6
+///         knownExtensions:
+///           - EXTENDED_KEY_USAGE
+///       predefinedValues:
+///         additionalExtensions:
+///           - objectId:
+///               objectIdPaths:
+///                 - 1
+///                 - 6
+///             value: c3RyaW5nCg==
+///             critical: true
+///         aiaOcspServers:
+///           - string
+///         caOptions:
+///           isCa: false
+///           maxIssuerPathLength: 6
+///         keyUsage:
+///           baseKeyUsage:
+///             certSign: false
+///             contentCommitment: true
+///             crlSign: false
+///             dataEncipherment: true
+///             decipherOnly: true
+///             digitalSignature: true
+///             encipherOnly: true
+///             keyAgreement: true
+///             keyEncipherment: true
+///           extendedKeyUsage:
+///             clientAuth: true
+///             codeSigning: true
+///             emailProtection: true
+///             ocspSigning: true
+///             serverAuth: true
+///             timeStamping: true
+///           unknownExtendedKeyUsages:
+///             - objectIdPaths:
+///                 - 1
+///                 - 6
+///         policyIds:
+///           - objectIdPaths:
+///               - 1
+///               - 6
+///       labels:
+///         label-one: value-one
+/// ```
+///
+/// ## Import
+///
+/// CertificateTemplate can be imported using any of these accepted formats:
+///
+/// * `projects/{{project}}/locations/{{location}}/certificateTemplates/{{name}}`
+///
+/// * `{{project}}/{{location}}/{{name}}`
+///
+/// * `{{location}}/{{name}}`
+///
+/// When using the `pulumi import` command, CertificateTemplate can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:certificateauthority/certificateTemplate:CertificateTemplate default projects/{{project}}/locations/{{location}}/certificateTemplates/{{name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:certificateauthority/certificateTemplate:CertificateTemplate default {{project}}/{{location}}/{{name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:certificateauthority/certificateTemplate:CertificateTemplate default {{location}}/{{name}}
+/// ```
+///
+pub mod certificate_template {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct CertificateTemplateArgs {
+        /// Optional. A human-readable description of scenarios this template is intended for.
+        #[builder(into, default)]
+        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        /// Optional. Describes constraints on identities that may be appear in Certificates issued using this template. If this is omitted, then this template will not add restrictions on a certificate's identity.
+        /// Structure is documented below.
+        #[builder(into, default)]
+        pub identity_constraints: pulumi_wasm_rust::Output<
+            Option<
+                super::super::types::certificateauthority::CertificateTemplateIdentityConstraints,
+            >,
+        >,
+        /// Optional. Labels with user-defined metadata.
+        /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
+        /// Please refer to the field `effective_labels` for all of the labels present on the resource.
+        #[builder(into, default)]
+        pub labels: pulumi_wasm_rust::Output<
+            Option<std::collections::HashMap<String, String>>,
+        >,
+        /// The location for the resource
+        ///
+        ///
+        /// - - -
+        #[builder(into)]
+        pub location: pulumi_wasm_rust::Output<String>,
+        /// Optional. The maximum lifetime allowed for all issued certificates that use this template. If the issuing CaPool's IssuancePolicy specifies a maximum lifetime the minimum of the two durations will be the maximum lifetime for issued. Note that if the issuing CertificateAuthority expires before a Certificate's requested maximum_lifetime, the effective lifetime will be explicitly truncated to match it.
+        #[builder(into, default)]
+        pub maximum_lifetime: pulumi_wasm_rust::Output<Option<String>>,
+        /// The resource name for this CertificateTemplate in the format `projects/*/locations/*/certificateTemplates/*`.
+        #[builder(into, default)]
+        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        /// Optional. Describes the set of X.509 extensions that may appear in a Certificate issued using this CertificateTemplate. If a certificate request sets extensions that don't appear in the passthrough_extensions, those extensions will be dropped. If the issuing CaPool's IssuancePolicy defines baseline_values that don't appear here, the certificate issuance request will fail. If this is omitted, then this template will not add restrictions on a certificate's X.509 extensions. These constraints do not apply to X.509 extensions set in this CertificateTemplate's predefined_values.
+        /// Structure is documented below.
+        #[builder(into, default)]
+        pub passthrough_extensions: pulumi_wasm_rust::Output<
+            Option<
+                super::super::types::certificateauthority::CertificateTemplatePassthroughExtensions,
+            >,
+        >,
+        /// Optional. A set of X.509 values that will be applied to all issued certificates that use this template. If the certificate request includes conflicting values for the same properties, they will be overwritten by the values defined here. If the issuing CaPool's IssuancePolicy defines conflicting baseline_values for the same properties, the certificate issuance request will fail.
+        /// Structure is documented below.
+        #[builder(into, default)]
+        pub predefined_values: pulumi_wasm_rust::Output<
+            Option<
+                super::super::types::certificateauthority::CertificateTemplatePredefinedValues,
+            >,
+        >,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        #[builder(into, default)]
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+    }
+    #[allow(dead_code)]
+    pub struct CertificateTemplateResult {
+        /// Output only. The time at which this CertificateTemplate was created.
+        pub create_time: pulumi_wasm_rust::Output<String>,
+        /// Optional. A human-readable description of scenarios this template is intended for.
+        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
+        pub effective_labels: pulumi_wasm_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
+        /// Optional. Describes constraints on identities that may be appear in Certificates issued using this template. If this is omitted, then this template will not add restrictions on a certificate's identity.
+        /// Structure is documented below.
+        pub identity_constraints: pulumi_wasm_rust::Output<
+            Option<
+                super::super::types::certificateauthority::CertificateTemplateIdentityConstraints,
+            >,
+        >,
+        /// Optional. Labels with user-defined metadata.
+        /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
+        /// Please refer to the field `effective_labels` for all of the labels present on the resource.
+        pub labels: pulumi_wasm_rust::Output<
+            Option<std::collections::HashMap<String, String>>,
+        >,
+        /// The location for the resource
+        ///
+        ///
+        /// - - -
+        pub location: pulumi_wasm_rust::Output<String>,
+        /// Optional. The maximum lifetime allowed for all issued certificates that use this template. If the issuing CaPool's IssuancePolicy specifies a maximum lifetime the minimum of the two durations will be the maximum lifetime for issued. Note that if the issuing CertificateAuthority expires before a Certificate's requested maximum_lifetime, the effective lifetime will be explicitly truncated to match it.
+        pub maximum_lifetime: pulumi_wasm_rust::Output<Option<String>>,
+        /// The resource name for this CertificateTemplate in the format `projects/*/locations/*/certificateTemplates/*`.
+        pub name: pulumi_wasm_rust::Output<String>,
+        /// Optional. Describes the set of X.509 extensions that may appear in a Certificate issued using this CertificateTemplate. If a certificate request sets extensions that don't appear in the passthrough_extensions, those extensions will be dropped. If the issuing CaPool's IssuancePolicy defines baseline_values that don't appear here, the certificate issuance request will fail. If this is omitted, then this template will not add restrictions on a certificate's X.509 extensions. These constraints do not apply to X.509 extensions set in this CertificateTemplate's predefined_values.
+        /// Structure is documented below.
+        pub passthrough_extensions: pulumi_wasm_rust::Output<
+            Option<
+                super::super::types::certificateauthority::CertificateTemplatePassthroughExtensions,
+            >,
+        >,
+        /// Optional. A set of X.509 values that will be applied to all issued certificates that use this template. If the certificate request includes conflicting values for the same properties, they will be overwritten by the values defined here. If the issuing CaPool's IssuancePolicy defines conflicting baseline_values for the same properties, the certificate issuance request will fail.
+        /// Structure is documented below.
+        pub predefined_values: pulumi_wasm_rust::Output<
+            Option<
+                super::super::types::certificateauthority::CertificateTemplatePredefinedValues,
+            >,
+        >,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        pub project: pulumi_wasm_rust::Output<String>,
+        /// The combination of labels configured directly on the resource
+        /// and default labels configured on the provider.
+        pub pulumi_labels: pulumi_wasm_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
+        /// Output only. The time at which this CertificateTemplate was updated.
+        pub update_time: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(
+        name: &str,
+        args: CertificateTemplateArgs,
+    ) -> CertificateTemplateResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let description_binding = args.description.get_inner();
+        let identity_constraints_binding = args.identity_constraints.get_inner();
+        let labels_binding = args.labels.get_inner();
+        let location_binding = args.location.get_inner();
+        let maximum_lifetime_binding = args.maximum_lifetime.get_inner();
+        let name_binding = args.name.get_inner();
+        let passthrough_extensions_binding = args.passthrough_extensions.get_inner();
+        let predefined_values_binding = args.predefined_values.get_inner();
+        let project_binding = args.project.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:certificateauthority/certificateTemplate:CertificateTemplate"
+                .into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "description".into(),
+                    value: &description_binding,
+                },
+                register_interface::ObjectField {
+                    name: "identityConstraints".into(),
+                    value: &identity_constraints_binding,
+                },
+                register_interface::ObjectField {
+                    name: "labels".into(),
+                    value: &labels_binding,
+                },
+                register_interface::ObjectField {
+                    name: "location".into(),
+                    value: &location_binding,
+                },
+                register_interface::ObjectField {
+                    name: "maximumLifetime".into(),
+                    value: &maximum_lifetime_binding,
+                },
+                register_interface::ObjectField {
+                    name: "name".into(),
+                    value: &name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "passthroughExtensions".into(),
+                    value: &passthrough_extensions_binding,
+                },
+                register_interface::ObjectField {
+                    name: "predefinedValues".into(),
+                    value: &predefined_values_binding,
+                },
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "createTime".into(),
+                },
+                register_interface::ResultField {
+                    name: "description".into(),
+                },
+                register_interface::ResultField {
+                    name: "effectiveLabels".into(),
+                },
+                register_interface::ResultField {
+                    name: "identityConstraints".into(),
+                },
+                register_interface::ResultField {
+                    name: "labels".into(),
+                },
+                register_interface::ResultField {
+                    name: "location".into(),
+                },
+                register_interface::ResultField {
+                    name: "maximumLifetime".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "passthroughExtensions".into(),
+                },
+                register_interface::ResultField {
+                    name: "predefinedValues".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+                register_interface::ResultField {
+                    name: "pulumiLabels".into(),
+                },
+                register_interface::ResultField {
+                    name: "updateTime".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        CertificateTemplateResult {
+            create_time: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("createTime").unwrap(),
+            ),
+            description: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("description").unwrap(),
+            ),
+            effective_labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("effectiveLabels").unwrap(),
+            ),
+            identity_constraints: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("identityConstraints").unwrap(),
+            ),
+            labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("labels").unwrap(),
+            ),
+            location: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("location").unwrap(),
+            ),
+            maximum_lifetime: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("maximumLifetime").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            passthrough_extensions: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("passthroughExtensions").unwrap(),
+            ),
+            predefined_values: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("predefinedValues").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("pulumiLabels").unwrap(),
+            ),
+            update_time: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("updateTime").unwrap(),
+            ),
+        }
+    }
+}

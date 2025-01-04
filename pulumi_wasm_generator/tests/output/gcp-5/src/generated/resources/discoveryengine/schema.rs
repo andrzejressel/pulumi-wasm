@@ -1,0 +1,205 @@
+/// Schema defines the structure and layout of a type of document data.
+///
+///
+/// To get more information about Schema, see:
+///
+/// * [API documentation](https://cloud.google.com/generative-ai-app-builder/docs/reference/rest/v1/projects.locations.collections.dataStores.schemas)
+/// * How-to Guides
+///     * [Provide a schema for your data store](https://cloud.google.com/generative-ai-app-builder/docs/provide-schema)
+///
+/// ## Example Usage
+///
+/// ### Discoveryengine Schema Basic
+///
+///
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let basic = schema::create(
+///         "basic",
+///         SchemaArgs::builder()
+///             .data_store_id("${basicDataStore.dataStoreId}")
+///             .json_schema(
+///                 "{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"datetime_detection\":true,\"type\":\"object\",\"geolocation_detection\":true}",
+///             )
+///             .location("${basicDataStore.location}")
+///             .schema_id("schema-id")
+///             .build_struct(),
+///     );
+///     let basicDataStore = data_store::create(
+///         "basicDataStore",
+///         DataStoreArgs::builder()
+///             .content_config("NO_CONTENT")
+///             .create_advanced_site_search(false)
+///             .data_store_id("data-store-id")
+///             .display_name("tf-test-structured-datastore")
+///             .industry_vertical("GENERIC")
+///             .location("global")
+///             .skip_default_schema_creation(true)
+///             .solution_types(vec!["SOLUTION_TYPE_SEARCH",])
+///             .build_struct(),
+///     );
+/// }
+/// ```
+///
+/// ## Import
+///
+/// Schema can be imported using any of these accepted formats:
+///
+/// * `projects/{{project}}/locations/{{location}}/collections/default_collection/dataStores/{{data_store_id}}/schemas/{{schema_id}}`
+///
+/// * `{{project}}/{{location}}/{{data_store_id}}/{{schema_id}}`
+///
+/// * `{{location}}/{{data_store_id}}/{{schema_id}}`
+///
+/// When using the `pulumi import` command, Schema can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:discoveryengine/schema:Schema default projects/{{project}}/locations/{{location}}/collections/default_collection/dataStores/{{data_store_id}}/schemas/{{schema_id}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:discoveryengine/schema:Schema default {{project}}/{{location}}/{{data_store_id}}/{{schema_id}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:discoveryengine/schema:Schema default {{location}}/{{data_store_id}}/{{schema_id}}
+/// ```
+///
+pub mod schema {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct SchemaArgs {
+        /// The unique id of the data store.
+        #[builder(into)]
+        pub data_store_id: pulumi_wasm_rust::Output<String>,
+        /// The JSON representation of the schema.
+        #[builder(into, default)]
+        pub json_schema: pulumi_wasm_rust::Output<Option<String>>,
+        /// The geographic location where the data store should reside. The value can
+        /// only be one of "global", "us" and "eu".
+        #[builder(into)]
+        pub location: pulumi_wasm_rust::Output<String>,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        #[builder(into, default)]
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        /// The unique id of the schema.
+        ///
+        ///
+        /// - - -
+        #[builder(into)]
+        pub schema_id: pulumi_wasm_rust::Output<String>,
+    }
+    #[allow(dead_code)]
+    pub struct SchemaResult {
+        /// The unique id of the data store.
+        pub data_store_id: pulumi_wasm_rust::Output<String>,
+        /// The JSON representation of the schema.
+        pub json_schema: pulumi_wasm_rust::Output<Option<String>>,
+        /// The geographic location where the data store should reside. The value can
+        /// only be one of "global", "us" and "eu".
+        pub location: pulumi_wasm_rust::Output<String>,
+        /// The unique full resource name of the schema. Values are of the format
+        /// `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/schemas/{schema_id}`.
+        /// This field must be a UTF-8 encoded string with a length limit of 1024
+        /// characters.
+        pub name: pulumi_wasm_rust::Output<String>,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        pub project: pulumi_wasm_rust::Output<String>,
+        /// The unique id of the schema.
+        ///
+        ///
+        /// - - -
+        pub schema_id: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: SchemaArgs) -> SchemaResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let data_store_id_binding = args.data_store_id.get_inner();
+        let json_schema_binding = args.json_schema.get_inner();
+        let location_binding = args.location.get_inner();
+        let project_binding = args.project.get_inner();
+        let schema_id_binding = args.schema_id.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:discoveryengine/schema:Schema".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "dataStoreId".into(),
+                    value: &data_store_id_binding,
+                },
+                register_interface::ObjectField {
+                    name: "jsonSchema".into(),
+                    value: &json_schema_binding,
+                },
+                register_interface::ObjectField {
+                    name: "location".into(),
+                    value: &location_binding,
+                },
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+                register_interface::ObjectField {
+                    name: "schemaId".into(),
+                    value: &schema_id_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "dataStoreId".into(),
+                },
+                register_interface::ResultField {
+                    name: "jsonSchema".into(),
+                },
+                register_interface::ResultField {
+                    name: "location".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+                register_interface::ResultField {
+                    name: "schemaId".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        SchemaResult {
+            data_store_id: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("dataStoreId").unwrap(),
+            ),
+            json_schema: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("jsonSchema").unwrap(),
+            ),
+            location: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("location").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+            schema_id: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("schemaId").unwrap(),
+            ),
+        }
+    }
+}
