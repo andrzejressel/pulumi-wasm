@@ -23,5 +23,5 @@ pub struct HostingCustomDomainCertVerificationDnsDiscoveredRecord {
     /// The record's type, which determines what data the record contains.
     #[builder(into, default)]
     #[serde(rename = "type")]
-    pub r#type: Box<Option<String>>,
+    pub r#type_: Box<Option<String>>,
 }

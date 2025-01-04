@@ -33,7 +33,7 @@ pub struct FirewallPolicyWithRulesRule {
     /// Structure is documented below.
     #[builder(into)]
     #[serde(rename = "match")]
-    pub r#match: Box<super::super::types::compute::FirewallPolicyWithRulesRuleMatch>,
+    pub r#match_: Box<super::super::types::compute::FirewallPolicyWithRulesRuleMatch>,
     /// An integer indicating the priority of a rule in the list. The priority must be a value
     /// between 0 and 2147483647. Rules are evaluated from highest to lowest priority where 0 is the
     /// highest priority and 2147483647 is the lowest priority.

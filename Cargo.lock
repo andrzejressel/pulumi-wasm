@@ -2363,6 +2363,7 @@ dependencies = [
  "pathdiff",
  "prettyplease",
  "proc-macro2",
+ "pulumi_wasm_rust",
  "quote",
  "regex",
  "rinja",
@@ -2380,6 +2381,17 @@ dependencies = [
  "prost-types",
  "tonic",
  "tonic-build",
+]
+
+[[package]]
+name = "pulumi_wasm_providers_aws_mini"
+version = "0.0.0-DEV"
+dependencies = [
+ "bon",
+ "pulumi_wasm_build",
+ "pulumi_wasm_rust",
+ "serde",
+ "wit-bindgen",
 ]
 
 [[package]]

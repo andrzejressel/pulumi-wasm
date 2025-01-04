@@ -5,6 +5,7 @@ use crate::model::{
 use crate::utils::sanitize_identifier;
 use anyhow::{anyhow, Context, Result};
 use convert_case::{Case, Casing};
+use pulumi_wasm_rust::generate_string_const;
 use serde::Deserialize;
 use std::collections::{BTreeMap, BTreeSet, HashSet};
 
@@ -47,6 +48,8 @@ struct Type {
 enum OneOfType {
     Ref(OneOfTypeRef),
     Primitive(OneOfTypePrimitive),
+    Array(OneOfTypeArray),
+    Object(OneOfTypeObject),
 }
 
 #[derive(Deserialize, Debug)]
@@ -54,13 +57,32 @@ struct OneOfTypeRef {
     #[serde(rename = "$ref")]
     ref_: String,
 }
+
 #[derive(Deserialize, Debug)]
 struct OneOfTypePrimitive {
     #[serde(rename = "type")]
     type_: OneOfTypePrimitiveType,
 }
-#[derive(Deserialize, Debug)]
 
+#[derive(Deserialize, Debug)]
+struct OneOfTypeArray {
+    #[serde(rename = "type")]
+    type_: ArrayConstant,
+    items: OneOfTypePrimitive,
+}
+
+#[derive(Deserialize, Debug)]
+struct OneOfTypeObject {
+    #[serde(rename = "type")]
+    type_: ObjectConstant,
+    #[serde(rename = "additionalProperties")]
+    additional_properties: OneOfTypePrimitive,
+}
+
+generate_string_const!(ObjectConstant, "object");
+generate_string_const!(ArrayConstant, "array");
+
+#[derive(Deserialize, Debug)]
 enum OneOfTypePrimitiveType {
     #[serde(rename = "string")]
     String,
@@ -234,6 +256,16 @@ fn create_discriminated_union(one_of: &[OneOfType]) -> Result<crate::model::Type
                 ),
                 OneOfType::Primitive(primitive) => match primitive.type_ {
                     OneOfTypePrimitiveType::String => crate::model::Type::String,
+                },
+                OneOfType::Array(arr) => match arr.items.type_ {
+                    OneOfTypePrimitiveType::String => {
+                        crate::model::Type::Array(Box::new(crate::model::Type::String))
+                    }
+                },
+                OneOfType::Object(obj) => match obj.additional_properties.type_ {
+                    OneOfTypePrimitiveType::String => {
+                        crate::model::Type::Object(Box::new(crate::model::Type::String))
+                    }
                 },
             })
             .collect(),
@@ -489,18 +521,9 @@ fn create_string_enum(description: &Option<String>, enum_values: &[StringEnumVal
             .iter()
             .map(|enum_value| {
                 let (name, value) = match (&enum_value.name, &enum_value.value) {
-                    (Some(name), Some(value)) => (
-                        sanitize_identifier(name).to_case(Case::UpperCamel),
-                        value.clone(),
-                    ),
-                    (Some(name), None) => (
-                        sanitize_identifier(name).to_case(Case::UpperCamel),
-                        name.clone(),
-                    ),
-                    (None, Some(value)) => (
-                        sanitize_identifier(value).to_case(Case::UpperCamel),
-                        value.clone(),
-                    ),
+                    (Some(name), Some(value)) => (sanitize_identifier(name), value.clone()),
+                    (Some(name), None) => (sanitize_identifier(name), name.clone()),
+                    (None, Some(value)) => (sanitize_identifier(value), value.clone()),
                     (None, None) => {
                         panic!("Invalid enum value: {enum_value:?}")
                     }

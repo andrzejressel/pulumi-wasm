@@ -16,5 +16,5 @@ pub struct PatchDeploymentPatchConfigApt {
     /// Possible values are: `DIST`, `UPGRADE`.
     #[builder(into, default)]
     #[serde(rename = "type")]
-    pub r#type: Box<Option<String>>,
+    pub r#type_: Box<Option<String>>,
 }

@@ -9,5 +9,5 @@ pub struct GetDatabaseIdentity {
     /// The type of Managed Service Identity that is configured on this Microsoft SQL Database.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

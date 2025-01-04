@@ -47,7 +47,7 @@ pub struct WindowsVirtualMachineScaleSetExtension {
     /// Specifies the Type of the Extension.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
     /// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
     #[builder(into)]
     #[serde(rename = "typeHandlerVersion")]

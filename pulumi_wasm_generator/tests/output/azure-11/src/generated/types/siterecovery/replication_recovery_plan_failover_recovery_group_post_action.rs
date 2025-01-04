@@ -41,5 +41,5 @@ pub struct ReplicationRecoveryPlanFailoverRecoveryGroupPostAction {
     /// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

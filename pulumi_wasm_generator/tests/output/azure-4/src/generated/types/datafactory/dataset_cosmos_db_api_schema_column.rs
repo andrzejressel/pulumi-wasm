@@ -13,5 +13,5 @@ pub struct DatasetCosmosDbApiSchemaColumn {
     /// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
     #[builder(into, default)]
     #[serde(rename = "type")]
-    pub r#type: Box<Option<String>>,
+    pub r#type_: Box<Option<String>>,
 }

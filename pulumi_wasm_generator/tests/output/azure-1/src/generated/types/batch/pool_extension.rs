@@ -35,7 +35,7 @@ pub struct PoolExtension {
     /// The type of the extensions.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
     /// The version of script handler.
     #[builder(into, default)]
     #[serde(rename = "typeHandlerVersion")]

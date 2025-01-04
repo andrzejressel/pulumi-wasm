@@ -9,5 +9,5 @@ pub struct FirewallApplicationRuleCollectionRuleProtocol {
     /// Specifies the type of connection. Possible values are `Http`, `Https` and `Mssql`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

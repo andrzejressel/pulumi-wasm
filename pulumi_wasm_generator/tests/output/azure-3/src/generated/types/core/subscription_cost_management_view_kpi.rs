@@ -5,5 +5,5 @@ pub struct SubscriptionCostManagementViewKpi {
     /// KPI type. Possible values are `Budget` and `Forecast`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

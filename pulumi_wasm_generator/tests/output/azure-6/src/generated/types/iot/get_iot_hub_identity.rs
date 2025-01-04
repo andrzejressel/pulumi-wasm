@@ -17,5 +17,5 @@ pub struct GetIotHubIdentity {
     /// The identity type of the Managed Identity assigned to the Virtual Machine.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

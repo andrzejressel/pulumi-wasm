@@ -1,0 +1,110 @@
+/// Registers sources (network interfaces) with the transit gateway multicast group.
+/// A multicast source is a network interface attached to a supported instance that sends multicast traffic.
+///
+/// ## Example Usage
+///
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let example = multicast_group_source::create(
+///         "example",
+///         MulticastGroupSourceArgs::builder()
+///             .group_ip_address("224.0.0.1")
+///             .network_interface_id("${exampleAwsNetworkInterface.id}")
+///             .transit_gateway_multicast_domain_id(
+///                 "${exampleAwsEc2TransitGatewayMulticastDomain.id}",
+///             )
+///             .build_struct(),
+///     );
+/// }
+/// ```
+pub mod multicast_group_source {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct MulticastGroupSourceArgs {
+        /// The IP address assigned to the transit gateway multicast group.
+        #[builder(into)]
+        pub group_ip_address: pulumi_wasm_rust::Output<String>,
+        /// The group members' network interface ID to register with the transit gateway multicast group.
+        #[builder(into)]
+        pub network_interface_id: pulumi_wasm_rust::Output<String>,
+        /// The ID of the transit gateway multicast domain.
+        #[builder(into)]
+        pub transit_gateway_multicast_domain_id: pulumi_wasm_rust::Output<String>,
+    }
+    #[allow(dead_code)]
+    pub struct MulticastGroupSourceResult {
+        /// The IP address assigned to the transit gateway multicast group.
+        pub group_ip_address: pulumi_wasm_rust::Output<String>,
+        /// The group members' network interface ID to register with the transit gateway multicast group.
+        pub network_interface_id: pulumi_wasm_rust::Output<String>,
+        /// The ID of the transit gateway multicast domain.
+        pub transit_gateway_multicast_domain_id: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(
+        name: &str,
+        args: MulticastGroupSourceArgs,
+    ) -> MulticastGroupSourceResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let group_ip_address_binding = args.group_ip_address.get_inner();
+        let network_interface_id_binding = args.network_interface_id.get_inner();
+        let transit_gateway_multicast_domain_id_binding = args
+            .transit_gateway_multicast_domain_id
+            .get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "aws:ec2transitgateway/multicastGroupSource:MulticastGroupSource"
+                .into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "groupIpAddress".into(),
+                    value: &group_ip_address_binding,
+                },
+                register_interface::ObjectField {
+                    name: "networkInterfaceId".into(),
+                    value: &network_interface_id_binding,
+                },
+                register_interface::ObjectField {
+                    name: "transitGatewayMulticastDomainId".into(),
+                    value: &transit_gateway_multicast_domain_id_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "groupIpAddress".into(),
+                },
+                register_interface::ResultField {
+                    name: "networkInterfaceId".into(),
+                },
+                register_interface::ResultField {
+                    name: "transitGatewayMulticastDomainId".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        MulticastGroupSourceResult {
+            group_ip_address: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("groupIpAddress").unwrap(),
+            ),
+            network_interface_id: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("networkInterfaceId").unwrap(),
+            ),
+            transit_gateway_multicast_domain_id: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("transitGatewayMulticastDomainId").unwrap(),
+            ),
+        }
+    }
+}

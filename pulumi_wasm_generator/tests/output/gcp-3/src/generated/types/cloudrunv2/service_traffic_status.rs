@@ -21,7 +21,7 @@ pub struct ServiceTrafficStatus {
     /// The allocation type for this traffic target.
     #[builder(into, default)]
     #[serde(rename = "type")]
-    pub r#type: Box<Option<String>>,
+    pub r#type_: Box<Option<String>>,
     /// (Output)
     /// Displays the target URI.
     #[builder(into, default)]

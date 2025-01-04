@@ -41,5 +41,5 @@ pub struct InstanceFromTemplateBootDiskInitializeParams {
     /// The Google Compute Engine disk type. Such as pd-standard, pd-ssd or pd-balanced.
     #[builder(into, default)]
     #[serde(rename = "type")]
-    pub r#type: Box<Option<String>>,
+    pub r#type_: Box<Option<String>>,
 }

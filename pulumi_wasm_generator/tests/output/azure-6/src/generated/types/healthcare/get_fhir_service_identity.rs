@@ -16,5 +16,5 @@ pub struct GetFhirServiceIdentity {
     /// The type of identity used for the Healthcare FHIR service.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

@@ -14,5 +14,5 @@ pub struct DatabaseInstanceIpAddress {
     /// The type of this IP address.
     #[builder(into, default)]
     #[serde(rename = "type")]
-    pub r#type: Box<Option<String>>,
+    pub r#type_: Box<Option<String>>,
 }

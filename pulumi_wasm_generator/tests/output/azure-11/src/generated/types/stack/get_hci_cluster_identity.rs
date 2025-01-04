@@ -13,5 +13,5 @@ pub struct GetHciClusterIdentity {
     /// (Required) The type of Managed Service Identity configured on the Azure Stack HCI Cluster.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

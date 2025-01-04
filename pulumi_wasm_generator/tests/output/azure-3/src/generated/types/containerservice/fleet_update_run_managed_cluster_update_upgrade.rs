@@ -9,5 +9,5 @@ pub struct FleetUpdateRunManagedClusterUpdateUpgrade {
     /// Specifies the type of upgrade to perform. Possible values are `Full` and `NodeImageOnly`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

@@ -16,5 +16,5 @@ pub struct JobLoadTimePartitioning {
     /// but in OnePlatform the field will be treated as unset.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

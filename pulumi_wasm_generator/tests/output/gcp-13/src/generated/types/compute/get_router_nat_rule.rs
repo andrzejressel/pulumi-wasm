@@ -24,7 +24,7 @@ pub struct GetRouterNatRule {
     /// "nexthop.hub == 'https://networkconnectivity.googleapis.com/v1alpha1/projects/my-project/global/hub/hub-1'"
     #[builder(into)]
     #[serde(rename = "match")]
-    pub r#match: Box<String>,
+    pub r#match_: Box<String>,
     /// An integer uniquely identifying a rule in the list.
     /// The rule number must be a positive value between 0 and 65000, and must be unique among rules within a NAT.
     #[builder(into)]

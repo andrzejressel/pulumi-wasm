@@ -9,5 +9,5 @@ pub struct GetKeysZoneSigningKeyDigest {
     /// Specifies the algorithm used to calculate this digest. Possible values are `sha1`, `sha256` and `sha384`
     #[builder(into, default)]
     #[serde(rename = "type")]
-    pub r#type: Box<Option<String>>,
+    pub r#type_: Box<Option<String>>,
 }

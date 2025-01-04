@@ -113,6 +113,7 @@ fn generate_with_optional_filter(
         .arg("package")
         .arg("get-schema")
         .arg(format!("{}@{}", provider_name, provider_version))
+        .env("PULUMI_AWS_MINIMAL_SCHEMA", "true") // https://github.com/pulumi/pulumi-aws/issues/2565
         .output()
         .context("Failed to execute pulumi command")?;
 

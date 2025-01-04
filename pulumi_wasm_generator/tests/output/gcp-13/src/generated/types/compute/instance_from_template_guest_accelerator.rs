@@ -9,5 +9,5 @@ pub struct InstanceFromTemplateGuestAccelerator {
     /// The accelerator type resource exposed to this instance. E.g. nvidia-tesla-k80.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

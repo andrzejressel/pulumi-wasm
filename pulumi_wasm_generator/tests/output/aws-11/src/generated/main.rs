@@ -1,0 +1,943 @@
+pub mod inspector2 {
+    include!("resources/inspector2/delegated_admin_account.rs");
+    include!("resources/inspector2/enabler.rs");
+    include!("resources/inspector2/member_association.rs");
+    include!("resources/inspector2/organization_configuration.rs");
+}
+pub mod iot {
+    include!("resources/iot/authorizer.rs");
+    include!("resources/iot/billing_group.rs");
+    include!("resources/iot/ca_certificate.rs");
+    include!("resources/iot/certificate.rs");
+    include!("resources/iot/domain_configuration.rs");
+    include!("resources/iot/event_configurations.rs");
+    include!("resources/iot/indexing_configuration.rs");
+    include!("resources/iot/logging_options.rs");
+    include!("resources/iot/policy.rs");
+    include!("resources/iot/policy_attachment.rs");
+    include!("resources/iot/provisioning_template.rs");
+    include!("resources/iot/role_alias.rs");
+    include!("resources/iot/thing.rs");
+    include!("resources/iot/thing_group.rs");
+    include!("resources/iot/thing_group_membership.rs");
+    include!("resources/iot/thing_principal_attachment.rs");
+    include!("resources/iot/thing_type.rs");
+    include!("resources/iot/topic_rule.rs");
+    include!("resources/iot/topic_rule_destination.rs");
+}
+pub mod ivs {
+    include!("resources/ivs/channel.rs");
+    include!("resources/ivs/playback_key_pair.rs");
+    include!("resources/ivs/recording_configuration.rs");
+}
+pub mod ivschat {
+    include!("resources/ivschat/logging_configuration.rs");
+    include!("resources/ivschat/room.rs");
+}
+pub mod kendra {
+    include!("resources/kendra/data_source.rs");
+    include!("resources/kendra/experience.rs");
+    include!("resources/kendra/faq.rs");
+    include!("resources/kendra/index.rs");
+    include!("resources/kendra/query_suggestions_block_list.rs");
+    include!("resources/kendra/thesaurus.rs");
+}
+pub mod keyspaces {
+    include!("resources/keyspaces/keyspace.rs");
+    include!("resources/keyspaces/table.rs");
+}
+pub mod kinesis {
+    include!("resources/kinesis/analytics_application.rs");
+    include!("resources/kinesis/firehose_delivery_stream.rs");
+    include!("resources/kinesis/resource_policy.rs");
+    include!("resources/kinesis/stream.rs");
+    include!("resources/kinesis/stream_consumer.rs");
+    include!("resources/kinesis/video_stream.rs");
+}
+pub mod kinesisanalyticsv2 {
+    include!("resources/kinesisanalyticsv2/application.rs");
+    include!("resources/kinesisanalyticsv2/application_snapshot.rs");
+}
+pub mod kms {
+    include!("resources/kms/alias.rs");
+    include!("resources/kms/ciphertext.rs");
+    include!("resources/kms/custom_key_store.rs");
+    include!("resources/kms/external_key.rs");
+    include!("resources/kms/grant.rs");
+    include!("resources/kms/key.rs");
+    include!("resources/kms/key_policy.rs");
+    include!("resources/kms/replica_external_key.rs");
+    include!("resources/kms/replica_key.rs");
+}
+pub mod lakeformation {
+    include!("resources/lakeformation/data_cells_filter.rs");
+    include!("resources/lakeformation/data_lake_settings.rs");
+    include!("resources/lakeformation/lf_tag.rs");
+    include!("resources/lakeformation/permissions.rs");
+    include!("resources/lakeformation/resource.rs");
+    include!("resources/lakeformation/resource_lf_tag.rs");
+    include!("resources/lakeformation/resource_lf_tags.rs");
+}
+pub mod functions {
+    pub mod iot {
+        include!("functions/iot/get_endpoint.rs");
+        include!("functions/iot/get_registration_code.rs");
+    }
+    pub mod ivs {
+        include!("functions/ivs/get_stream_key.rs");
+    }
+    pub mod kendra {
+        include!("functions/kendra/get_experience.rs");
+        include!("functions/kendra/get_faq.rs");
+        include!("functions/kendra/get_index.rs");
+        include!("functions/kendra/get_query_suggestions_block_list.rs");
+        include!("functions/kendra/get_thesaurus.rs");
+    }
+    pub mod kinesis {
+        include!("functions/kinesis/get_firehose_delivery_stream.rs");
+        include!("functions/kinesis/get_stream.rs");
+        include!("functions/kinesis/get_stream_consumer.rs");
+    }
+    pub mod kms {
+        include!("functions/kms/get_alias.rs");
+        include!("functions/kms/get_cipher_text.rs");
+        include!("functions/kms/get_custom_key_store.rs");
+        include!("functions/kms/get_key.rs");
+        include!("functions/kms/get_public_key.rs");
+        include!("functions/kms/get_secret.rs");
+        include!("functions/kms/get_secrets.rs");
+    }
+    pub mod lakeformation {
+        include!("functions/lakeformation/get_data_lake_settings.rs");
+        include!("functions/lakeformation/get_permissions.rs");
+        include!("functions/lakeformation/get_resource.rs");
+    }
+    include!("functions/get_arn.rs");
+    include!("functions/get_availability_zone.rs");
+    include!("functions/get_availability_zones.rs");
+    include!("functions/get_billing_service_account.rs");
+    include!("functions/get_caller_identity.rs");
+    include!("functions/get_default_tags.rs");
+    include!("functions/get_ip_ranges.rs");
+    include!("functions/get_partition.rs");
+    include!("functions/get_region.rs");
+    include!("functions/get_regions.rs");
+    include!("functions/get_service.rs");
+    include!("functions/get_service_principal.rs");
+}
+pub mod types {
+    pub mod inspector2 {
+        include!("types/inspector2/organization_configuration_auto_enable.rs");
+    }
+    pub mod iot {
+        include!("types/iot/billing_group_metadata.rs");
+        include!("types/iot/billing_group_properties.rs");
+        include!("types/iot/ca_certificate_registration_config.rs");
+        include!("types/iot/ca_certificate_validity.rs");
+        include!("types/iot/domain_configuration_authorizer_config.rs");
+        include!("types/iot/domain_configuration_tls_config.rs");
+        include!(
+            "types/iot/indexing_configuration_thing_group_indexing_configuration.rs"
+        );
+        include!(
+            "types/iot/indexing_configuration_thing_group_indexing_configuration_custom_field.rs"
+        );
+        include!(
+            "types/iot/indexing_configuration_thing_group_indexing_configuration_managed_field.rs"
+        );
+        include!("types/iot/indexing_configuration_thing_indexing_configuration.rs");
+        include!(
+            "types/iot/indexing_configuration_thing_indexing_configuration_custom_field.rs"
+        );
+        include!(
+            "types/iot/indexing_configuration_thing_indexing_configuration_filter.rs"
+        );
+        include!(
+            "types/iot/indexing_configuration_thing_indexing_configuration_managed_field.rs"
+        );
+        include!("types/iot/provisioning_template_pre_provisioning_hook.rs");
+        include!("types/iot/thing_group_metadata.rs");
+        include!("types/iot/thing_group_metadata_root_to_parent_group.rs");
+        include!("types/iot/thing_group_properties.rs");
+        include!("types/iot/thing_group_properties_attribute_payload.rs");
+        include!("types/iot/thing_type_properties.rs");
+        include!("types/iot/topic_rule_cloudwatch_alarm.rs");
+        include!("types/iot/topic_rule_cloudwatch_log.rs");
+        include!("types/iot/topic_rule_cloudwatch_metric.rs");
+        include!("types/iot/topic_rule_destination_vpc_configuration.rs");
+        include!("types/iot/topic_rule_dynamodb.rs");
+        include!("types/iot/topic_rule_dynamodbv_2.rs");
+        include!("types/iot/topic_rule_dynamodbv_2_put_item.rs");
+        include!("types/iot/topic_rule_elasticsearch.rs");
+        include!("types/iot/topic_rule_error_action.rs");
+        include!("types/iot/topic_rule_error_action_cloudwatch_alarm.rs");
+        include!("types/iot/topic_rule_error_action_cloudwatch_logs.rs");
+        include!("types/iot/topic_rule_error_action_cloudwatch_metric.rs");
+        include!("types/iot/topic_rule_error_action_dynamodb.rs");
+        include!("types/iot/topic_rule_error_action_dynamodbv_2.rs");
+        include!("types/iot/topic_rule_error_action_dynamodbv_2_put_item.rs");
+        include!("types/iot/topic_rule_error_action_elasticsearch.rs");
+        include!("types/iot/topic_rule_error_action_firehose.rs");
+        include!("types/iot/topic_rule_error_action_http.rs");
+        include!("types/iot/topic_rule_error_action_http_http_header.rs");
+        include!("types/iot/topic_rule_error_action_iot_analytics.rs");
+        include!("types/iot/topic_rule_error_action_iot_events.rs");
+        include!("types/iot/topic_rule_error_action_kafka.rs");
+        include!("types/iot/topic_rule_error_action_kafka_header.rs");
+        include!("types/iot/topic_rule_error_action_kinesis.rs");
+        include!("types/iot/topic_rule_error_action_lambda.rs");
+        include!("types/iot/topic_rule_error_action_republish.rs");
+        include!("types/iot/topic_rule_error_action_s_3.rs");
+        include!("types/iot/topic_rule_error_action_sns.rs");
+        include!("types/iot/topic_rule_error_action_sqs.rs");
+        include!("types/iot/topic_rule_error_action_step_functions.rs");
+        include!("types/iot/topic_rule_error_action_timestream.rs");
+        include!("types/iot/topic_rule_error_action_timestream_dimension.rs");
+        include!("types/iot/topic_rule_error_action_timestream_timestamp.rs");
+        include!("types/iot/topic_rule_firehose.rs");
+        include!("types/iot/topic_rule_http.rs");
+        include!("types/iot/topic_rule_http_http_header.rs");
+        include!("types/iot/topic_rule_iot_analytic.rs");
+        include!("types/iot/topic_rule_iot_event.rs");
+        include!("types/iot/topic_rule_kafka.rs");
+        include!("types/iot/topic_rule_kafka_header.rs");
+        include!("types/iot/topic_rule_kinesis.rs");
+        include!("types/iot/topic_rule_lambda.rs");
+        include!("types/iot/topic_rule_republish.rs");
+        include!("types/iot/topic_rule_s_3.rs");
+        include!("types/iot/topic_rule_sns.rs");
+        include!("types/iot/topic_rule_sqs.rs");
+        include!("types/iot/topic_rule_step_function.rs");
+        include!("types/iot/topic_rule_timestream.rs");
+        include!("types/iot/topic_rule_timestream_dimension.rs");
+        include!("types/iot/topic_rule_timestream_timestamp.rs");
+    }
+    pub mod ivs {
+        include!("types/ivs/recording_configuration_destination_configuration.rs");
+        include!("types/ivs/recording_configuration_destination_configuration_s_3.rs");
+        include!("types/ivs/recording_configuration_thumbnail_configuration.rs");
+    }
+    pub mod ivschat {
+        include!("types/ivschat/logging_configuration_destination_configuration.rs");
+        include!(
+            "types/ivschat/logging_configuration_destination_configuration_cloudwatch_logs.rs"
+        );
+        include!(
+            "types/ivschat/logging_configuration_destination_configuration_firehose.rs"
+        );
+        include!("types/ivschat/logging_configuration_destination_configuration_s_3.rs");
+        include!("types/ivschat/room_message_review_handler.rs");
+    }
+    pub mod kendra {
+        include!("types/kendra/data_source_configuration.rs");
+        include!("types/kendra/data_source_configuration_s_3_configuration.rs");
+        include!(
+            "types/kendra/data_source_configuration_s_3_configuration_access_control_list_configuration.rs"
+        );
+        include!(
+            "types/kendra/data_source_configuration_s_3_configuration_documents_metadata_configuration.rs"
+        );
+        include!("types/kendra/data_source_configuration_web_crawler_configuration.rs");
+        include!(
+            "types/kendra/data_source_configuration_web_crawler_configuration_authentication_configuration.rs"
+        );
+        include!(
+            "types/kendra/data_source_configuration_web_crawler_configuration_authentication_configuration_basic_authentication.rs"
+        );
+        include!(
+            "types/kendra/data_source_configuration_web_crawler_configuration_proxy_configuration.rs"
+        );
+        include!(
+            "types/kendra/data_source_configuration_web_crawler_configuration_urls.rs"
+        );
+        include!(
+            "types/kendra/data_source_configuration_web_crawler_configuration_urls_seed_url_configuration.rs"
+        );
+        include!(
+            "types/kendra/data_source_configuration_web_crawler_configuration_urls_site_maps_configuration.rs"
+        );
+        include!("types/kendra/data_source_custom_document_enrichment_configuration.rs");
+        include!(
+            "types/kendra/data_source_custom_document_enrichment_configuration_inline_configuration.rs"
+        );
+        include!(
+            "types/kendra/data_source_custom_document_enrichment_configuration_inline_configuration_condition.rs"
+        );
+        include!(
+            "types/kendra/data_source_custom_document_enrichment_configuration_inline_configuration_condition_condition_on_value.rs"
+        );
+        include!(
+            "types/kendra/data_source_custom_document_enrichment_configuration_inline_configuration_target.rs"
+        );
+        include!(
+            "types/kendra/data_source_custom_document_enrichment_configuration_inline_configuration_target_target_document_attribute_value.rs"
+        );
+        include!(
+            "types/kendra/data_source_custom_document_enrichment_configuration_post_extraction_hook_configuration.rs"
+        );
+        include!(
+            "types/kendra/data_source_custom_document_enrichment_configuration_post_extraction_hook_configuration_invocation_condition.rs"
+        );
+        include!(
+            "types/kendra/data_source_custom_document_enrichment_configuration_post_extraction_hook_configuration_invocation_condition_condition_on_value.rs"
+        );
+        include!(
+            "types/kendra/data_source_custom_document_enrichment_configuration_pre_extraction_hook_configuration.rs"
+        );
+        include!(
+            "types/kendra/data_source_custom_document_enrichment_configuration_pre_extraction_hook_configuration_invocation_condition.rs"
+        );
+        include!(
+            "types/kendra/data_source_custom_document_enrichment_configuration_pre_extraction_hook_configuration_invocation_condition_condition_on_value.rs"
+        );
+        include!("types/kendra/experience_configuration.rs");
+        include!(
+            "types/kendra/experience_configuration_content_source_configuration.rs"
+        );
+        include!("types/kendra/experience_configuration_user_identity_configuration.rs");
+        include!("types/kendra/experience_endpoint.rs");
+        include!("types/kendra/faq_s_3_path.rs");
+        include!("types/kendra/index_capacity_units.rs");
+        include!("types/kendra/index_document_metadata_configuration_update.rs");
+        include!(
+            "types/kendra/index_document_metadata_configuration_update_relevance.rs"
+        );
+        include!("types/kendra/index_document_metadata_configuration_update_search.rs");
+        include!("types/kendra/index_index_statistic.rs");
+        include!("types/kendra/index_index_statistic_faq_statistic.rs");
+        include!("types/kendra/index_index_statistic_text_document_statistic.rs");
+        include!("types/kendra/index_server_side_encryption_configuration.rs");
+        include!("types/kendra/index_user_group_resolution_configuration.rs");
+        include!("types/kendra/index_user_token_configurations.rs");
+        include!(
+            "types/kendra/index_user_token_configurations_json_token_type_configuration.rs"
+        );
+        include!(
+            "types/kendra/index_user_token_configurations_jwt_token_type_configuration.rs"
+        );
+        include!("types/kendra/query_suggestions_block_list_source_s_3_path.rs");
+        include!("types/kendra/thesaurus_source_s_3_path.rs");
+        include!("types/kendra/get_experience_configuration.rs");
+        include!(
+            "types/kendra/get_experience_configuration_content_source_configuration.rs"
+        );
+        include!(
+            "types/kendra/get_experience_configuration_user_identity_configuration.rs"
+        );
+        include!("types/kendra/get_experience_endpoint.rs");
+        include!("types/kendra/get_faq_s_3_path.rs");
+        include!("types/kendra/get_index_capacity_unit.rs");
+        include!("types/kendra/get_index_document_metadata_configuration_update.rs");
+        include!(
+            "types/kendra/get_index_document_metadata_configuration_update_relevance.rs"
+        );
+        include!(
+            "types/kendra/get_index_document_metadata_configuration_update_search.rs"
+        );
+        include!("types/kendra/get_index_index_statistic.rs");
+        include!("types/kendra/get_index_index_statistic_faq_statistic.rs");
+        include!("types/kendra/get_index_index_statistic_text_document_statistic.rs");
+        include!("types/kendra/get_index_server_side_encryption_configuration.rs");
+        include!("types/kendra/get_index_user_group_resolution_configuration.rs");
+        include!("types/kendra/get_index_user_token_configuration.rs");
+        include!(
+            "types/kendra/get_index_user_token_configuration_json_token_type_configuration.rs"
+        );
+        include!(
+            "types/kendra/get_index_user_token_configuration_jwt_token_type_configuration.rs"
+        );
+        include!("types/kendra/get_query_suggestions_block_list_source_s_3_path.rs");
+        include!("types/kendra/get_thesaurus_source_s_3_path.rs");
+    }
+    pub mod keyspaces {
+        include!("types/keyspaces/keyspace_replication_specification.rs");
+        include!("types/keyspaces/table_capacity_specification.rs");
+        include!("types/keyspaces/table_client_side_timestamps.rs");
+        include!("types/keyspaces/table_comment.rs");
+        include!("types/keyspaces/table_encryption_specification.rs");
+        include!("types/keyspaces/table_point_in_time_recovery.rs");
+        include!("types/keyspaces/table_schema_definition.rs");
+        include!("types/keyspaces/table_schema_definition_clustering_key.rs");
+        include!("types/keyspaces/table_schema_definition_column.rs");
+        include!("types/keyspaces/table_schema_definition_partition_key.rs");
+        include!("types/keyspaces/table_schema_definition_static_column.rs");
+        include!("types/keyspaces/table_ttl.rs");
+    }
+    pub mod kinesis {
+        include!("types/kinesis/analytics_application_cloudwatch_logging_options.rs");
+        include!("types/kinesis/analytics_application_inputs.rs");
+        include!("types/kinesis/analytics_application_inputs_kinesis_firehose.rs");
+        include!("types/kinesis/analytics_application_inputs_kinesis_stream.rs");
+        include!("types/kinesis/analytics_application_inputs_parallelism.rs");
+        include!(
+            "types/kinesis/analytics_application_inputs_processing_configuration.rs"
+        );
+        include!(
+            "types/kinesis/analytics_application_inputs_processing_configuration_lambda.rs"
+        );
+        include!("types/kinesis/analytics_application_inputs_schema.rs");
+        include!("types/kinesis/analytics_application_inputs_schema_record_column.rs");
+        include!("types/kinesis/analytics_application_inputs_schema_record_format.rs");
+        include!(
+            "types/kinesis/analytics_application_inputs_schema_record_format_mapping_parameters.rs"
+        );
+        include!(
+            "types/kinesis/analytics_application_inputs_schema_record_format_mapping_parameters_csv.rs"
+        );
+        include!(
+            "types/kinesis/analytics_application_inputs_schema_record_format_mapping_parameters_json.rs"
+        );
+        include!(
+            "types/kinesis/analytics_application_inputs_starting_position_configuration.rs"
+        );
+        include!("types/kinesis/analytics_application_output.rs");
+        include!("types/kinesis/analytics_application_output_kinesis_firehose.rs");
+        include!("types/kinesis/analytics_application_output_kinesis_stream.rs");
+        include!("types/kinesis/analytics_application_output_lambda.rs");
+        include!("types/kinesis/analytics_application_output_schema.rs");
+        include!("types/kinesis/analytics_application_reference_data_sources.rs");
+        include!("types/kinesis/analytics_application_reference_data_sources_s_3.rs");
+        include!("types/kinesis/analytics_application_reference_data_sources_schema.rs");
+        include!(
+            "types/kinesis/analytics_application_reference_data_sources_schema_record_column.rs"
+        );
+        include!(
+            "types/kinesis/analytics_application_reference_data_sources_schema_record_format.rs"
+        );
+        include!(
+            "types/kinesis/analytics_application_reference_data_sources_schema_record_format_mapping_parameters.rs"
+        );
+        include!(
+            "types/kinesis/analytics_application_reference_data_sources_schema_record_format_mapping_parameters_csv.rs"
+        );
+        include!(
+            "types/kinesis/analytics_application_reference_data_sources_schema_record_format_mapping_parameters_json.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_elasticsearch_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_elasticsearch_configuration_cloudwatch_logging_options.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_elasticsearch_configuration_processing_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_elasticsearch_configuration_processing_configuration_processor.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_elasticsearch_configuration_processing_configuration_processor_parameter.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_elasticsearch_configuration_s_3_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_elasticsearch_configuration_s_3_configuration_cloudwatch_logging_options.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_elasticsearch_configuration_vpc_config.rs"
+        );
+        include!("types/kinesis/firehose_delivery_stream_extended_s_3_configuration.rs");
+        include!(
+            "types/kinesis/firehose_delivery_stream_extended_s_3_configuration_cloudwatch_logging_options.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_extended_s_3_configuration_data_format_conversion_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_extended_s_3_configuration_data_format_conversion_configuration_input_format_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_extended_s_3_configuration_data_format_conversion_configuration_input_format_configuration_deserializer.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_extended_s_3_configuration_data_format_conversion_configuration_input_format_configuration_deserializer_hive_json_ser_de.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_extended_s_3_configuration_data_format_conversion_configuration_input_format_configuration_deserializer_open_x_json_ser_de.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_extended_s_3_configuration_data_format_conversion_configuration_output_format_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_extended_s_3_configuration_data_format_conversion_configuration_output_format_configuration_serializer.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_extended_s_3_configuration_data_format_conversion_configuration_output_format_configuration_serializer_orc_ser_de.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_extended_s_3_configuration_data_format_conversion_configuration_output_format_configuration_serializer_parquet_ser_de.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_extended_s_3_configuration_data_format_conversion_configuration_schema_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_extended_s_3_configuration_dynamic_partitioning_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_extended_s_3_configuration_processing_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_extended_s_3_configuration_processing_configuration_processor.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_extended_s_3_configuration_processing_configuration_processor_parameter.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_extended_s_3_configuration_s_3_backup_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_extended_s_3_configuration_s_3_backup_configuration_cloudwatch_logging_options.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_http_endpoint_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_http_endpoint_configuration_cloudwatch_logging_options.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_http_endpoint_configuration_processing_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_http_endpoint_configuration_processing_configuration_processor.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_http_endpoint_configuration_processing_configuration_processor_parameter.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_http_endpoint_configuration_request_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_http_endpoint_configuration_request_configuration_common_attribute.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_http_endpoint_configuration_s_3_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_http_endpoint_configuration_s_3_configuration_cloudwatch_logging_options.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_http_endpoint_configuration_secrets_manager_configuration.rs"
+        );
+        include!("types/kinesis/firehose_delivery_stream_iceberg_configuration.rs");
+        include!(
+            "types/kinesis/firehose_delivery_stream_iceberg_configuration_cloudwatch_logging_options.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_iceberg_configuration_destination_table_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_iceberg_configuration_processing_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_iceberg_configuration_processing_configuration_processor.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_iceberg_configuration_processing_configuration_processor_parameter.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_iceberg_configuration_s_3_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_iceberg_configuration_s_3_configuration_cloudwatch_logging_options.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_kinesis_source_configuration.rs"
+        );
+        include!("types/kinesis/firehose_delivery_stream_msk_source_configuration.rs");
+        include!(
+            "types/kinesis/firehose_delivery_stream_msk_source_configuration_authentication_configuration.rs"
+        );
+        include!("types/kinesis/firehose_delivery_stream_opensearch_configuration.rs");
+        include!(
+            "types/kinesis/firehose_delivery_stream_opensearch_configuration_cloudwatch_logging_options.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_opensearch_configuration_document_id_options.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_opensearch_configuration_processing_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_opensearch_configuration_processing_configuration_processor.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_opensearch_configuration_processing_configuration_processor_parameter.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_opensearch_configuration_s_3_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_opensearch_configuration_s_3_configuration_cloudwatch_logging_options.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_opensearch_configuration_vpc_config.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_opensearchserverless_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_opensearchserverless_configuration_cloudwatch_logging_options.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_opensearchserverless_configuration_processing_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_opensearchserverless_configuration_processing_configuration_processor.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_opensearchserverless_configuration_processing_configuration_processor_parameter.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_opensearchserverless_configuration_s_3_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_opensearchserverless_configuration_s_3_configuration_cloudwatch_logging_options.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_opensearchserverless_configuration_vpc_config.rs"
+        );
+        include!("types/kinesis/firehose_delivery_stream_redshift_configuration.rs");
+        include!(
+            "types/kinesis/firehose_delivery_stream_redshift_configuration_cloudwatch_logging_options.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_redshift_configuration_processing_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_redshift_configuration_processing_configuration_processor.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_redshift_configuration_processing_configuration_processor_parameter.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_redshift_configuration_s_3_backup_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_redshift_configuration_s_3_backup_configuration_cloudwatch_logging_options.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_redshift_configuration_s_3_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_redshift_configuration_s_3_configuration_cloudwatch_logging_options.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_redshift_configuration_secrets_manager_configuration.rs"
+        );
+        include!("types/kinesis/firehose_delivery_stream_server_side_encryption.rs");
+        include!("types/kinesis/firehose_delivery_stream_snowflake_configuration.rs");
+        include!(
+            "types/kinesis/firehose_delivery_stream_snowflake_configuration_cloudwatch_logging_options.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_snowflake_configuration_processing_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_snowflake_configuration_processing_configuration_processor.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_snowflake_configuration_processing_configuration_processor_parameter.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_snowflake_configuration_s_3_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_snowflake_configuration_s_3_configuration_cloudwatch_logging_options.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_snowflake_configuration_secrets_manager_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_snowflake_configuration_snowflake_role_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_snowflake_configuration_snowflake_vpc_configuration.rs"
+        );
+        include!("types/kinesis/firehose_delivery_stream_splunk_configuration.rs");
+        include!(
+            "types/kinesis/firehose_delivery_stream_splunk_configuration_cloudwatch_logging_options.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_splunk_configuration_processing_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_splunk_configuration_processing_configuration_processor.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_splunk_configuration_processing_configuration_processor_parameter.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_splunk_configuration_s_3_configuration.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_splunk_configuration_s_3_configuration_cloudwatch_logging_options.rs"
+        );
+        include!(
+            "types/kinesis/firehose_delivery_stream_splunk_configuration_secrets_manager_configuration.rs"
+        );
+        include!("types/kinesis/stream_stream_mode_details.rs");
+        include!("types/kinesis/get_stream_stream_mode_detail.rs");
+    }
+    pub mod kinesisanalyticsv2 {
+        include!("types/kinesisanalyticsv2/application_application_configuration.rs");
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_application_code_configuration.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_application_code_configuration_code_content.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_application_code_configuration_code_content_s_3_content_location.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_application_snapshot_configuration.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_environment_properties.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_environment_properties_property_group.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_flink_application_configuration.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_flink_application_configuration_checkpoint_configuration.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_flink_application_configuration_monitoring_configuration.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_flink_application_configuration_parallelism_configuration.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_run_configuration.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_run_configuration_application_restore_configuration.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_run_configuration_flink_run_configuration.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_input_parallelism.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_input_processing_configuration.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_input_processing_configuration_input_lambda_processor.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_input_schema.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_input_schema_record_column.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_input_schema_record_format.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_input_schema_record_format_mapping_parameters.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_input_schema_record_format_mapping_parameters_csv_mapping_parameters.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_input_schema_record_format_mapping_parameters_json_mapping_parameters.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_input_starting_position_configuration.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_kinesis_firehose_input.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_kinesis_streams_input.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_output.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_output_destination_schema.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_output_kinesis_firehose_output.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_output_kinesis_streams_output.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_output_lambda_output.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_reference_data_source.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_reference_data_source_reference_schema.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_reference_data_source_reference_schema_record_column.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_reference_data_source_reference_schema_record_format.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_reference_data_source_reference_schema_record_format_mapping_parameters.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_reference_data_source_reference_schema_record_format_mapping_parameters_csv_mapping_parameters.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_reference_data_source_reference_schema_record_format_mapping_parameters_json_mapping_parameters.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_reference_data_source_s_3_reference_data_source.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_vpc_configuration.rs"
+        );
+        include!("types/kinesisanalyticsv2/application_cloudwatch_logging_options.rs");
+    }
+    pub mod kms {
+        include!("types/kms/grant_constraint.rs");
+        include!("types/kms/get_key_multi_region_configuration.rs");
+        include!("types/kms/get_key_multi_region_configuration_primary_key.rs");
+        include!("types/kms/get_key_multi_region_configuration_replica_key.rs");
+        include!("types/kms/get_key_xks_key_configuration.rs");
+        include!("types/kms/get_secret_secret.rs");
+        include!("types/kms/get_secrets_secret.rs");
+    }
+    pub mod lakeformation {
+        include!("types/lakeformation/data_cells_filter_table_data.rs");
+        include!("types/lakeformation/data_cells_filter_table_data_column_wildcard.rs");
+        include!("types/lakeformation/data_cells_filter_table_data_row_filter.rs");
+        include!(
+            "types/lakeformation/data_cells_filter_table_data_row_filter_all_rows_wildcard.rs"
+        );
+        include!("types/lakeformation/data_cells_filter_timeouts.rs");
+        include!(
+            "types/lakeformation/data_lake_settings_create_database_default_permission.rs"
+        );
+        include!(
+            "types/lakeformation/data_lake_settings_create_table_default_permission.rs"
+        );
+        include!("types/lakeformation/permissions_data_cells_filter.rs");
+        include!("types/lakeformation/permissions_data_location.rs");
+        include!("types/lakeformation/permissions_database.rs");
+        include!("types/lakeformation/permissions_lf_tag.rs");
+        include!("types/lakeformation/permissions_lf_tag_policy.rs");
+        include!("types/lakeformation/permissions_lf_tag_policy_expression.rs");
+        include!("types/lakeformation/permissions_table.rs");
+        include!("types/lakeformation/permissions_table_with_columns.rs");
+        include!("types/lakeformation/resource_lf_tag_database.rs");
+        include!("types/lakeformation/resource_lf_tag_lf_tag.rs");
+        include!("types/lakeformation/resource_lf_tag_table.rs");
+        include!("types/lakeformation/resource_lf_tag_table_with_columns.rs");
+        include!(
+            "types/lakeformation/resource_lf_tag_table_with_columns_column_wildcard.rs"
+        );
+        include!("types/lakeformation/resource_lf_tag_timeouts.rs");
+        include!("types/lakeformation/resource_lf_tags_database.rs");
+        include!("types/lakeformation/resource_lf_tags_lf_tag.rs");
+        include!("types/lakeformation/resource_lf_tags_table.rs");
+        include!("types/lakeformation/resource_lf_tags_table_with_columns.rs");
+        include!(
+            "types/lakeformation/get_data_lake_settings_create_database_default_permission.rs"
+        );
+        include!(
+            "types/lakeformation/get_data_lake_settings_create_table_default_permission.rs"
+        );
+        include!("types/lakeformation/get_permissions_data_cells_filter.rs");
+        include!("types/lakeformation/get_permissions_data_location.rs");
+        include!("types/lakeformation/get_permissions_database.rs");
+        include!("types/lakeformation/get_permissions_lf_tag.rs");
+        include!("types/lakeformation/get_permissions_lf_tag_policy.rs");
+        include!("types/lakeformation/get_permissions_lf_tag_policy_expression.rs");
+        include!("types/lakeformation/get_permissions_table.rs");
+        include!("types/lakeformation/get_permissions_table_with_columns.rs");
+    }
+    include!("types/get_availability_zone_filter.rs");
+    include!("types/get_availability_zones_filter.rs");
+    include!("types/get_regions_filter.rs");
+}
+#[doc(hidden)]
+pub mod constants {}
+mod bindings {
+    pulumi_wasm_rust::__private::wit_bindgen::generate!(
+        { inline :
+        r"package component:pulumi-wasm@0.0.0-DEV;
+
+world world-aws {
+    import output-interface;
+}
+
+interface output-interface {
+
+    resource output {
+        constructor(value: string);
+        map: func(function-name: string) -> output;
+    }
+    combine: func(outputs: list<borrow<output>>) -> output;
+}
+
+
+interface register-interface {
+    use output-interface.{output};
+
+    record object-field {
+        name: string,
+        value: borrow<output>
+    }
+
+    record result-field {
+        name: string
+    }
+
+    record register-resource-result-field {
+        name: string,
+        output: output
+    }
+
+    record register-resource-request {
+        %type: string,
+        name: string,
+        object: list<object-field>,
+        results: list<result-field>
+    }
+
+    record register-resource-result {
+        fields: list<register-resource-result-field>
+    }
+
+    register: func(request: register-resource-request) -> register-resource-result;
+
+    record resource-invoke-result-field {
+        name: string,
+        output: output
+    }
+
+    record resource-invoke-request {
+        token: string,
+        object: list<object-field>,
+        results: list<result-field>
+    }
+
+    record resource-invoke-result {
+        fields: list<resource-invoke-result-field>
+    }
+
+    invoke: func(request: resource-invoke-request) -> resource-invoke-result;
+}",
+        with : { "component:pulumi-wasm/output-interface@0.0.0-DEV" :
+        pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface
+        } }
+    );
+}

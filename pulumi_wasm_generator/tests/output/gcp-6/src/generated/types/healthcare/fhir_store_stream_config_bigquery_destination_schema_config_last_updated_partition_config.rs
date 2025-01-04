@@ -10,5 +10,5 @@ pub struct FhirStoreStreamConfigBigqueryDestinationSchemaConfigLastUpdatedPartit
     /// Possible values are: `PARTITION_TYPE_UNSPECIFIED`, `HOUR`, `DAY`, `MONTH`, `YEAR`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

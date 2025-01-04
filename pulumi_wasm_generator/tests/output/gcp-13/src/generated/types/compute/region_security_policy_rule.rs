@@ -20,7 +20,7 @@ pub struct RegionSecurityPolicyRule {
     /// Structure is documented below.
     #[builder(into, default)]
     #[serde(rename = "match")]
-    pub r#match: Box<Option<super::super::types::compute::RegionSecurityPolicyRuleMatch>>,
+    pub r#match_: Box<Option<super::super::types::compute::RegionSecurityPolicyRuleMatch>>,
     /// A match condition that incoming packets are evaluated against for CLOUD_ARMOR_NETWORK security policies. If it matches, the corresponding 'action' is enforced.
     /// The match criteria for a rule consists of built-in match fields (like 'srcIpRanges') and potentially multiple user-defined match fields ('userDefinedFields').
     /// Field values may be extracted directly from the packet or derived from it (e.g. 'srcRegionCodes'). Some fields may not be present in every packet (e.g. 'srcPorts'). A user-defined field is only present if the base header is found in the packet and the entire field is in bounds.

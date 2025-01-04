@@ -25,5 +25,5 @@ pub struct OutputBlobSerialization {
     /// > **NOTE:** `batch_max_wait_time` and `batch_min_rows` are required when `type` is set to `Parquet`
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

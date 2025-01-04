@@ -102,11 +102,7 @@ fn convert_resource(package: &crate::model::Package, element_id: &ElementId) -> 
                 fields: properties
                     .iter()
                     .map(|global_type_property| Property {
-                        name: global_type_property
-                            .name
-                            .clone()
-                            .from_case(Case::Camel)
-                            .to_case(Case::Snake),
+                        name: global_type_property.get_field_name(),
                         original_name: global_type_property.name.clone(),
                         type_: global_type_property.r#type.get_rust_type(depth),
                         default: matches!(global_type_property.r#type, Type::Option(_)),

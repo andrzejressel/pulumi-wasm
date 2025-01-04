@@ -13,5 +13,5 @@ pub struct PoolContainerConfiguration {
     /// The type of container configuration. Possible value is `DockerCompatible`.
     #[builder(into, default)]
     #[serde(rename = "type")]
-    pub r#type: Box<Option<String>>,
+    pub r#type_: Box<Option<String>>,
 }

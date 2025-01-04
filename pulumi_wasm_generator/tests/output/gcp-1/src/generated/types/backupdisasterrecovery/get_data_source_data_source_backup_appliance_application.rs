@@ -29,5 +29,5 @@ pub struct GetDataSourceDataSourceBackupApplianceApplication {
     /// The type of the application. e.g. VMBackup
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

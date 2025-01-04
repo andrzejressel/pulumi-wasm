@@ -18,7 +18,7 @@ pub struct SecurityPolicyRule {
     /// If it evaluates to true, the corresponding `action` is enforced. Structure is documented below.
     #[builder(into)]
     #[serde(rename = "match")]
-    pub r#match: Box<super::super::types::compute::SecurityPolicyRuleMatch>,
+    pub r#match_: Box<super::super::types::compute::SecurityPolicyRuleMatch>,
     /// Preconfigured WAF configuration to be applied for the rule. If the rule does not evaluate preconfigured WAF rules, i.e., if `evaluatePreconfiguredWaf()` is not used, this field will have no effect. Structure is documented below.
     #[builder(into, default)]
     #[serde(rename = "preconfiguredWafConfig")]

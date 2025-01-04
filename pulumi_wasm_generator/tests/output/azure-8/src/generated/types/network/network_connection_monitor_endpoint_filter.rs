@@ -9,5 +9,5 @@ pub struct NetworkConnectionMonitorEndpointFilter {
     /// The behaviour type of this endpoint filter. Currently the only allowed value is `Include`. Defaults to `Include`.
     #[builder(into, default)]
     #[serde(rename = "type")]
-    pub r#type: Box<Option<String>>,
+    pub r#type_: Box<Option<String>>,
 }

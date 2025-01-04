@@ -16,5 +16,5 @@ pub struct GetSpringCloudAppIdentity {
     /// The Type of Managed Identity assigned to the Spring Cloud Application.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

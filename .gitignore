@@ -22,7 +22,6 @@ target
 output.log
 *.wasm
 covertura.xml
-__target
 
 # codecov
 /codecov

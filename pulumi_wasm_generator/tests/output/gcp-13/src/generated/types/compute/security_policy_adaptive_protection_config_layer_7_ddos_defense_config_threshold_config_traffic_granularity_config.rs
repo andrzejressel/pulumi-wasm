@@ -11,7 +11,7 @@ pub struct SecurityPolicyAdaptiveProtectionConfigLayer7DdosDefenseConfigThreshol
     /// * `HTTP_PATH`
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
     /// Requests that match this value constitute a granular traffic unit.
     #[builder(into, default)]
     #[serde(rename = "value")]

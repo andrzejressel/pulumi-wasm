@@ -17,5 +17,5 @@ pub struct GetFunctionAppIdentity {
     /// The identity type of the Managed Identity assigned to the Function App.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

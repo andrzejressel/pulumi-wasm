@@ -14,5 +14,5 @@ pub struct DomainMappingResourceRecord {
     /// Possible values are: `A`, `AAAA`, `CNAME`.
     #[builder(into, default)]
     #[serde(rename = "type")]
-    pub r#type: Box<Option<String>>,
+    pub r#type_: Box<Option<String>>,
 }

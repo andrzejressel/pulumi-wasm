@@ -25,5 +25,5 @@ pub struct AppServiceStorageAccount {
     /// The type of storage. Possible values are `AzureBlob` and `AzureFiles`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

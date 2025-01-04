@@ -16,5 +16,5 @@ pub struct GetWorkspaceIdentity {
     /// The Identity Type for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

@@ -9,7 +9,7 @@ pub struct VirtualNetworkGatewayPolicyGroupPolicyMember {
     /// The VPN Policy Member attribute type. Possible values are `AADGroupId`, `CertificateGroupId` and `RadiusAzureGroupId`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
     /// The value of attribute that is used for this Virtual Network Gateway Policy Group Member.
     #[builder(into)]
     #[serde(rename = "value")]

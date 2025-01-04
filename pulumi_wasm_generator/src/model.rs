@@ -118,6 +118,19 @@ pub(crate) struct GlobalTypeProperty {
     pub(crate) description: Option<String>,
 }
 
+impl GlobalTypeProperty {
+    pub(crate) fn get_field_name(&self) -> String {
+        escape_rust_name(
+            &self
+                .name
+                .clone()
+                .from_case(Case::Camel)
+                .to_case(Case::Snake),
+        )
+        .to_string()
+    }
+}
+
 #[derive(Debug, PartialEq, PartialOrd)]
 pub(crate) enum GlobalType {
     Object(Option<String>, Vec<GlobalTypeProperty>),

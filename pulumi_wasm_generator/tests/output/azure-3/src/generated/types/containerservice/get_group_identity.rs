@@ -17,5 +17,5 @@ pub struct GetGroupIdentity {
     /// Type of Managed Service Identity configured on this Container Group.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

@@ -46,7 +46,7 @@ pub struct ClusterMaintenanceEvent {
     /// Indicates the maintenance event type.
     #[builder(into, default)]
     #[serde(rename = "type")]
-    pub r#type: Box<Option<String>>,
+    pub r#type_: Box<Option<String>>,
     /// (Output)
     /// The time when the maintenance event message was updated.
     #[builder(into, default)]

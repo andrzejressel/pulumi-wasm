@@ -10,5 +10,5 @@ pub struct GetDatabaseInstancesInstanceIpAddress {
     pub r#time_to_retire: Box<String>,
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

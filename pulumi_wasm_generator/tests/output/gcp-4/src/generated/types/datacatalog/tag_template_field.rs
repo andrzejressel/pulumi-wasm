@@ -33,5 +33,5 @@ pub struct TagTemplateField {
     /// Structure is documented below.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<super::super::types::datacatalog::TagTemplateFieldType>,
+    pub r#type_: Box<super::super::types::datacatalog::TagTemplateFieldType>,
 }

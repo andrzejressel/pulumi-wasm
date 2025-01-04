@@ -24,5 +24,5 @@ pub struct TableTimePartitioning {
     /// which will generate one partition per day, hour, month, and year, respectively.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

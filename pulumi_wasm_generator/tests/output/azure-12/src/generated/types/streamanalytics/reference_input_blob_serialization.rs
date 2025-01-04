@@ -17,5 +17,5 @@ pub struct ReferenceInputBlobSerialization {
     /// The serialization format used for the reference data. Possible values are `Avro`, `Csv` and `Json`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

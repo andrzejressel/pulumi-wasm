@@ -17,7 +17,7 @@ pub struct GetServiceTrafficStatus {
     /// The allocation type for this traffic target.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
     /// Displays the target URI.
     #[builder(into)]
     #[serde(rename = "uri")]

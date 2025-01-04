@@ -13,5 +13,5 @@ pub struct GetServerIdentity {
     /// The identity type of the Managed Identity assigned to the PostgreSQL Server.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

@@ -17,5 +17,5 @@ pub struct StreamInputEventHubV2Serialization {
     /// The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

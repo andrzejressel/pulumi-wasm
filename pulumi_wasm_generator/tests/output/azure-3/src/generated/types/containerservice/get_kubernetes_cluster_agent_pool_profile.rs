@@ -59,7 +59,7 @@ pub struct GetKubernetesClusterAgentPoolProfile {
     /// The type of Managed Service Identity that is configured on this Kubernetes Cluster.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
     /// A `upgrade_settings` block as documented below.
     #[builder(into)]
     #[serde(rename = "upgradeSettings")]

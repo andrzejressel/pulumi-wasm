@@ -22,7 +22,7 @@ pub struct SsisEnvironmentResponse {
     /// Expected value is 'Environment'.
     #[builder(skip)]
     #[serde(rename = "type")]
-    r#type: Box<super::constants::ConstStringEnvironment>,
+    r#type_: Box<super::constants::ConstStringEnvironment>,
     /// Variable in environment
     #[builder(into, default)]
     #[serde(rename = "variables")]

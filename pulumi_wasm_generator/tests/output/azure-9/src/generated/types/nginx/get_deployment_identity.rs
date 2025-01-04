@@ -15,5 +15,5 @@ pub struct GetDeploymentIdentity {
     /// Type of identity attached to the NGINX Deployment.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

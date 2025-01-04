@@ -1,0 +1,1021 @@
+pub mod medialive {
+    include!("resources/medialive/channel.rs");
+    include!("resources/medialive/input.rs");
+    include!("resources/medialive/input_security_group.rs");
+    include!("resources/medialive/multiplex.rs");
+    include!("resources/medialive/multiplex_program.rs");
+}
+pub mod mediapackage {
+    include!("resources/mediapackage/channel.rs");
+}
+pub mod mediastore {
+    include!("resources/mediastore/container.rs");
+    include!("resources/mediastore/container_policy.rs");
+}
+pub mod memorydb {
+    include!("resources/memorydb/acl.rs");
+    include!("resources/memorydb/cluster.rs");
+    include!("resources/memorydb/multi_region_cluster.rs");
+    include!("resources/memorydb/parameter_group.rs");
+    include!("resources/memorydb/snapshot.rs");
+    include!("resources/memorydb/subnet_group.rs");
+    include!("resources/memorydb/user.rs");
+}
+pub mod mq {
+    include!("resources/mq/broker.rs");
+    include!("resources/mq/configuration.rs");
+}
+pub mod msk {
+    include!("resources/msk/cluster.rs");
+    include!("resources/msk/cluster_policy.rs");
+    include!("resources/msk/configuration.rs");
+    include!("resources/msk/replicator.rs");
+    include!("resources/msk/scram_secret_association.rs");
+    include!("resources/msk/serverless_cluster.rs");
+    include!("resources/msk/single_scram_secret_association.rs");
+    include!("resources/msk/vpc_connection.rs");
+}
+pub mod mskconnect {
+    include!("resources/mskconnect/connector.rs");
+    include!("resources/mskconnect/custom_plugin.rs");
+    include!("resources/mskconnect/worker_configuration.rs");
+}
+pub mod mwaa {
+    include!("resources/mwaa/environment.rs");
+}
+pub mod neptune {
+    include!("resources/neptune/cluster.rs");
+    include!("resources/neptune/cluster_endpoint.rs");
+    include!("resources/neptune/cluster_instance.rs");
+    include!("resources/neptune/cluster_parameter_group.rs");
+    include!("resources/neptune/cluster_snapshot.rs");
+    include!("resources/neptune/event_subscription.rs");
+    include!("resources/neptune/global_cluster.rs");
+    include!("resources/neptune/parameter_group.rs");
+    include!("resources/neptune/subnet_group.rs");
+}
+pub mod networkfirewall {
+    include!("resources/networkfirewall/firewall.rs");
+    include!("resources/networkfirewall/firewall_policy.rs");
+    include!("resources/networkfirewall/logging_configuration.rs");
+    include!("resources/networkfirewall/resource_policy.rs");
+    include!("resources/networkfirewall/rule_group.rs");
+    include!("resources/networkfirewall/tls_inspection_configuration.rs");
+}
+pub mod functions {
+    pub mod medialive {
+        include!("functions/medialive/get_input.rs");
+    }
+    pub mod memorydb {
+        include!("functions/memorydb/get_acl.rs");
+        include!("functions/memorydb/get_cluster.rs");
+        include!("functions/memorydb/get_parameter_group.rs");
+        include!("functions/memorydb/get_snapshot.rs");
+        include!("functions/memorydb/get_subnet_group.rs");
+        include!("functions/memorydb/get_user.rs");
+    }
+    pub mod mq {
+        include!("functions/mq/get_broker.rs");
+        include!("functions/mq/get_broker_engine_types.rs");
+        include!("functions/mq/get_instance_type_offerings.rs");
+    }
+    pub mod msk {
+        include!("functions/msk/get_bootstrap_brokers.rs");
+        include!("functions/msk/get_broker_nodes.rs");
+        include!("functions/msk/get_cluster.rs");
+        include!("functions/msk/get_configuration.rs");
+        include!("functions/msk/get_kafka_version.rs");
+        include!("functions/msk/get_vpc_connection.rs");
+    }
+    pub mod mskconnect {
+        include!("functions/mskconnect/get_connector.rs");
+        include!("functions/mskconnect/get_custom_plugin.rs");
+        include!("functions/mskconnect/get_worker_configuration.rs");
+    }
+    pub mod neptune {
+        include!("functions/neptune/get_engine_version.rs");
+        include!("functions/neptune/get_orderable_db_instance.rs");
+    }
+    pub mod networkfirewall {
+        include!("functions/networkfirewall/get_firewall.rs");
+        include!("functions/networkfirewall/get_firewall_policy.rs");
+        include!("functions/networkfirewall/get_resource_policy.rs");
+    }
+    include!("functions/get_arn.rs");
+    include!("functions/get_availability_zone.rs");
+    include!("functions/get_availability_zones.rs");
+    include!("functions/get_billing_service_account.rs");
+    include!("functions/get_caller_identity.rs");
+    include!("functions/get_default_tags.rs");
+    include!("functions/get_ip_ranges.rs");
+    include!("functions/get_partition.rs");
+    include!("functions/get_region.rs");
+    include!("functions/get_regions.rs");
+    include!("functions/get_service.rs");
+    include!("functions/get_service_principal.rs");
+}
+pub mod types {
+    pub mod medialive {
+        include!("types/medialive/channel_cdi_input_specification.rs");
+        include!("types/medialive/channel_destination.rs");
+        include!("types/medialive/channel_destination_media_package_setting.rs");
+        include!("types/medialive/channel_destination_multiplex_settings.rs");
+        include!("types/medialive/channel_destination_setting.rs");
+        include!("types/medialive/channel_encoder_settings.rs");
+        include!("types/medialive/channel_encoder_settings_audio_description.rs");
+        include!(
+            "types/medialive/channel_encoder_settings_audio_description_audio_normalization_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_audio_description_audio_watermark_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_audio_description_audio_watermark_settings_nielsen_watermarks_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_audio_description_audio_watermark_settings_nielsen_watermarks_settings_nielsen_cbet_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_audio_description_audio_watermark_settings_nielsen_watermarks_settings_nielsen_naes_ii_nw_setting.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_audio_description_codec_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_audio_description_codec_settings_aac_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_audio_description_codec_settings_ac_3_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_audio_description_codec_settings_eac_3_atmos_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_audio_description_codec_settings_eac_3_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_audio_description_codec_settings_mp_2_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_audio_description_codec_settings_pass_through_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_audio_description_codec_settings_wav_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_audio_description_remix_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_audio_description_remix_settings_channel_mapping.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_audio_description_remix_settings_channel_mapping_input_channel_level.rs"
+        );
+        include!("types/medialive/channel_encoder_settings_avail_blanking.rs");
+        include!(
+            "types/medialive/channel_encoder_settings_avail_blanking_avail_blanking_image.rs"
+        );
+        include!("types/medialive/channel_encoder_settings_caption_description.rs");
+        include!(
+            "types/medialive/channel_encoder_settings_caption_description_destination_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_caption_description_destination_settings_arib_destination_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_caption_description_destination_settings_burn_in_destination_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_caption_description_destination_settings_burn_in_destination_settings_font.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_caption_description_destination_settings_dvb_sub_destination_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_caption_description_destination_settings_dvb_sub_destination_settings_font.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_caption_description_destination_settings_ebu_tt_d_destination_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_caption_description_destination_settings_embedded_destination_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_caption_description_destination_settings_embedded_plus_scte_20_destination_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_caption_description_destination_settings_rtmp_caption_info_destination_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_caption_description_destination_settings_scte_20_plus_embedded_destination_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_caption_description_destination_settings_scte_27_destination_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_caption_description_destination_settings_smpte_tt_destination_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_caption_description_destination_settings_teletext_destination_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_caption_description_destination_settings_ttml_destination_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_caption_description_destination_settings_webvtt_destination_settings.rs"
+        );
+        include!("types/medialive/channel_encoder_settings_global_configuration.rs");
+        include!(
+            "types/medialive/channel_encoder_settings_global_configuration_input_loss_behavior.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_global_configuration_input_loss_behavior_input_loss_image_slate.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_motion_graphics_configuration.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_motion_graphics_configuration_motion_graphics_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_motion_graphics_configuration_motion_graphics_settings_html_motion_graphics_settings.rs"
+        );
+        include!("types/medialive/channel_encoder_settings_nielsen_configuration.rs");
+        include!("types/medialive/channel_encoder_settings_output_group.rs");
+        include!("types/medialive/channel_encoder_settings_output_group_output.rs");
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_group_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_group_settings_archive_group_setting.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_group_settings_archive_group_setting_archive_cdn_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_group_settings_archive_group_setting_archive_cdn_settings_archive_s_3_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_group_settings_archive_group_setting_destination.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_group_settings_frame_capture_group_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_group_settings_frame_capture_group_settings_destination.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_group_settings_frame_capture_group_settings_frame_capture_cdn_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_group_settings_frame_capture_group_settings_frame_capture_cdn_settings_frame_capture_s_3_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_group_settings_hls_group_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_group_settings_hls_group_settings_caption_language_mapping.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_group_settings_hls_group_settings_destination.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_group_settings_hls_group_settings_hls_cdn_setting.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_group_settings_hls_group_settings_hls_cdn_setting_hls_akamai_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_group_settings_hls_group_settings_hls_cdn_setting_hls_basic_put_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_group_settings_hls_group_settings_hls_cdn_setting_hls_media_store_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_group_settings_hls_group_settings_hls_cdn_setting_hls_s_3_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_group_settings_hls_group_settings_hls_cdn_setting_hls_webdav_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_group_settings_hls_group_settings_key_provider_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_group_settings_hls_group_settings_key_provider_settings_static_key_setting.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_group_settings_hls_group_settings_key_provider_settings_static_key_setting_key_provider_server.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_group_settings_media_package_group_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_group_settings_media_package_group_settings_destination.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_group_settings_ms_smooth_group_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_group_settings_ms_smooth_group_settings_destination.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_group_settings_multiplex_group_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_group_settings_rtmp_group_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_group_settings_udp_group_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings_archive_output_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings_archive_output_settings_container_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings_archive_output_settings_container_settings_m_2_ts_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings_archive_output_settings_container_settings_m_2_ts_settings_dvb_nit_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings_archive_output_settings_container_settings_m_2_ts_settings_dvb_sdt_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings_archive_output_settings_container_settings_m_2_ts_settings_dvb_tdt_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings_archive_output_settings_container_settings_raw_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings_frame_capture_output_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings_hls_output_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings_hls_output_settings_hls_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings_hls_output_settings_hls_settings_audio_only_hls_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings_hls_output_settings_hls_settings_audio_only_hls_settings_audio_only_image.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings_hls_output_settings_hls_settings_fmp_4_hls_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings_hls_output_settings_hls_settings_frame_capture_hls_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings_hls_output_settings_hls_settings_standard_hls_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings_hls_output_settings_hls_settings_standard_hls_settings_m_3_u_8_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings_media_package_output_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings_ms_smooth_output_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings_multiplex_output_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings_multiplex_output_settings_destination.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings_rtmp_output_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings_rtmp_output_settings_destination.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings_udp_output_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings_udp_output_settings_container_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings_udp_output_settings_container_settings_m_2_ts_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings_udp_output_settings_container_settings_m_2_ts_settings_dvb_nit_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings_udp_output_settings_container_settings_m_2_ts_settings_dvb_sdt_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings_udp_output_settings_container_settings_m_2_ts_settings_dvb_tdt_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings_udp_output_settings_destination.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_output_group_output_output_settings_udp_output_settings_fec_output_settings.rs"
+        );
+        include!("types/medialive/channel_encoder_settings_timecode_config.rs");
+        include!("types/medialive/channel_encoder_settings_video_description.rs");
+        include!(
+            "types/medialive/channel_encoder_settings_video_description_codec_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_video_description_codec_settings_frame_capture_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_video_description_codec_settings_h_264_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_video_description_codec_settings_h_264_settings_filter_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_video_description_codec_settings_h_264_settings_filter_settings_temporal_filter_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_video_description_codec_settings_h_265_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_video_description_codec_settings_h_265_settings_color_space_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_video_description_codec_settings_h_265_settings_color_space_settings_color_space_passthrough_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_video_description_codec_settings_h_265_settings_color_space_settings_dolby_vision_81_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_video_description_codec_settings_h_265_settings_color_space_settings_hdr_10_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_video_description_codec_settings_h_265_settings_color_space_settings_rec_601_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_video_description_codec_settings_h_265_settings_color_space_settings_rec_709_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_video_description_codec_settings_h_265_settings_filter_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_video_description_codec_settings_h_265_settings_filter_settings_temporal_filter_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_encoder_settings_video_description_codec_settings_h_265_settings_timecode_burnin_settings.rs"
+        );
+        include!("types/medialive/channel_input_attachment.rs");
+        include!(
+            "types/medialive/channel_input_attachment_automatic_input_failover_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_input_attachment_automatic_input_failover_settings_failover_condition.rs"
+        );
+        include!(
+            "types/medialive/channel_input_attachment_automatic_input_failover_settings_failover_condition_failover_condition_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_input_attachment_automatic_input_failover_settings_failover_condition_failover_condition_settings_audio_silence_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_input_attachment_automatic_input_failover_settings_failover_condition_failover_condition_settings_input_loss_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_input_attachment_automatic_input_failover_settings_failover_condition_failover_condition_settings_video_black_settings.rs"
+        );
+        include!("types/medialive/channel_input_attachment_input_settings.rs");
+        include!(
+            "types/medialive/channel_input_attachment_input_settings_audio_selector.rs"
+        );
+        include!(
+            "types/medialive/channel_input_attachment_input_settings_audio_selector_selector_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_input_attachment_input_settings_audio_selector_selector_settings_audio_hls_rendition_selection.rs"
+        );
+        include!(
+            "types/medialive/channel_input_attachment_input_settings_audio_selector_selector_settings_audio_language_selection.rs"
+        );
+        include!(
+            "types/medialive/channel_input_attachment_input_settings_audio_selector_selector_settings_audio_pid_selection.rs"
+        );
+        include!(
+            "types/medialive/channel_input_attachment_input_settings_audio_selector_selector_settings_audio_track_selection.rs"
+        );
+        include!(
+            "types/medialive/channel_input_attachment_input_settings_audio_selector_selector_settings_audio_track_selection_dolby_e_decode.rs"
+        );
+        include!(
+            "types/medialive/channel_input_attachment_input_settings_audio_selector_selector_settings_audio_track_selection_track.rs"
+        );
+        include!(
+            "types/medialive/channel_input_attachment_input_settings_caption_selector.rs"
+        );
+        include!(
+            "types/medialive/channel_input_attachment_input_settings_caption_selector_selector_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_input_attachment_input_settings_caption_selector_selector_settings_ancillary_source_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_input_attachment_input_settings_caption_selector_selector_settings_arib_source_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_input_attachment_input_settings_caption_selector_selector_settings_dvb_sub_source_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_input_attachment_input_settings_caption_selector_selector_settings_embedded_source_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_input_attachment_input_settings_caption_selector_selector_settings_scte_20_source_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_input_attachment_input_settings_caption_selector_selector_settings_scte_27_source_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_input_attachment_input_settings_caption_selector_selector_settings_teletext_source_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_input_attachment_input_settings_caption_selector_selector_settings_teletext_source_settings_output_rectangle.rs"
+        );
+        include!(
+            "types/medialive/channel_input_attachment_input_settings_network_input_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_input_attachment_input_settings_network_input_settings_hls_input_settings.rs"
+        );
+        include!(
+            "types/medialive/channel_input_attachment_input_settings_video_selector.rs"
+        );
+        include!("types/medialive/channel_input_specification.rs");
+        include!("types/medialive/channel_maintenance.rs");
+        include!("types/medialive/channel_vpc.rs");
+        include!("types/medialive/input_destination.rs");
+        include!("types/medialive/input_input_device.rs");
+        include!("types/medialive/input_media_connect_flow.rs");
+        include!("types/medialive/input_security_group_whitelist_rule.rs");
+        include!("types/medialive/input_source.rs");
+        include!("types/medialive/input_vpc.rs");
+        include!("types/medialive/multiplex_multiplex_settings.rs");
+        include!("types/medialive/multiplex_program_multiplex_program_settings.rs");
+        include!(
+            "types/medialive/multiplex_program_multiplex_program_settings_service_descriptor.rs"
+        );
+        include!(
+            "types/medialive/multiplex_program_multiplex_program_settings_video_settings.rs"
+        );
+        include!(
+            "types/medialive/multiplex_program_multiplex_program_settings_video_settings_statmux_settings.rs"
+        );
+        include!("types/medialive/get_input_destination.rs");
+        include!("types/medialive/get_input_destination_vpc.rs");
+        include!("types/medialive/get_input_input_device.rs");
+        include!("types/medialive/get_input_media_connect_flow.rs");
+        include!("types/medialive/get_input_source.rs");
+    }
+    pub mod mediapackage {
+        include!("types/mediapackage/channel_hls_ingest.rs");
+        include!("types/mediapackage/channel_hls_ingest_ingest_endpoint.rs");
+    }
+    pub mod memorydb {
+        include!("types/memorydb/cluster_cluster_endpoint.rs");
+        include!("types/memorydb/cluster_shard.rs");
+        include!("types/memorydb/cluster_shard_node.rs");
+        include!("types/memorydb/cluster_shard_node_endpoint.rs");
+        include!("types/memorydb/multi_region_cluster_timeouts.rs");
+        include!("types/memorydb/parameter_group_parameter.rs");
+        include!("types/memorydb/snapshot_cluster_configuration.rs");
+        include!("types/memorydb/user_authentication_mode.rs");
+        include!("types/memorydb/get_cluster_cluster_endpoint.rs");
+        include!("types/memorydb/get_cluster_shard.rs");
+        include!("types/memorydb/get_cluster_shard_node.rs");
+        include!("types/memorydb/get_cluster_shard_node_endpoint.rs");
+        include!("types/memorydb/get_parameter_group_parameter.rs");
+        include!("types/memorydb/get_snapshot_cluster_configuration.rs");
+        include!("types/memorydb/get_user_authentication_mode.rs");
+    }
+    pub mod mq {
+        include!("types/mq/broker_configuration.rs");
+        include!("types/mq/broker_encryption_options.rs");
+        include!("types/mq/broker_instance.rs");
+        include!("types/mq/broker_ldap_server_metadata.rs");
+        include!("types/mq/broker_logs.rs");
+        include!("types/mq/broker_maintenance_window_start_time.rs");
+        include!("types/mq/broker_user.rs");
+        include!("types/mq/get_broker_configuration.rs");
+        include!("types/mq/get_broker_encryption_option.rs");
+        include!("types/mq/get_broker_engine_types_broker_engine_type.rs");
+        include!(
+            "types/mq/get_broker_engine_types_broker_engine_type_engine_version.rs"
+        );
+        include!("types/mq/get_broker_instance.rs");
+        include!("types/mq/get_broker_ldap_server_metadata.rs");
+        include!("types/mq/get_broker_logs.rs");
+        include!("types/mq/get_broker_maintenance_window_start_time.rs");
+        include!("types/mq/get_broker_user.rs");
+        include!("types/mq/get_instance_type_offerings_broker_instance_option.rs");
+        include!(
+            "types/mq/get_instance_type_offerings_broker_instance_option_availability_zone.rs"
+        );
+    }
+    pub mod msk {
+        include!("types/msk/cluster_broker_node_group_info.rs");
+        include!("types/msk/cluster_broker_node_group_info_connectivity_info.rs");
+        include!(
+            "types/msk/cluster_broker_node_group_info_connectivity_info_public_access.rs"
+        );
+        include!(
+            "types/msk/cluster_broker_node_group_info_connectivity_info_vpc_connectivity.rs"
+        );
+        include!(
+            "types/msk/cluster_broker_node_group_info_connectivity_info_vpc_connectivity_client_authentication.rs"
+        );
+        include!(
+            "types/msk/cluster_broker_node_group_info_connectivity_info_vpc_connectivity_client_authentication_sasl.rs"
+        );
+        include!("types/msk/cluster_broker_node_group_info_storage_info.rs");
+        include!(
+            "types/msk/cluster_broker_node_group_info_storage_info_ebs_storage_info.rs"
+        );
+        include!(
+            "types/msk/cluster_broker_node_group_info_storage_info_ebs_storage_info_provisioned_throughput.rs"
+        );
+        include!("types/msk/cluster_client_authentication.rs");
+        include!("types/msk/cluster_client_authentication_sasl.rs");
+        include!("types/msk/cluster_client_authentication_tls.rs");
+        include!("types/msk/cluster_configuration_info.rs");
+        include!("types/msk/cluster_encryption_info.rs");
+        include!("types/msk/cluster_encryption_info_encryption_in_transit.rs");
+        include!("types/msk/cluster_logging_info.rs");
+        include!("types/msk/cluster_logging_info_broker_logs.rs");
+        include!("types/msk/cluster_logging_info_broker_logs_cloudwatch_logs.rs");
+        include!("types/msk/cluster_logging_info_broker_logs_firehose.rs");
+        include!("types/msk/cluster_logging_info_broker_logs_s_3.rs");
+        include!("types/msk/cluster_open_monitoring.rs");
+        include!("types/msk/cluster_open_monitoring_prometheus.rs");
+        include!("types/msk/cluster_open_monitoring_prometheus_jmx_exporter.rs");
+        include!("types/msk/cluster_open_monitoring_prometheus_node_exporter.rs");
+        include!("types/msk/replicator_kafka_cluster.rs");
+        include!("types/msk/replicator_kafka_cluster_amazon_msk_cluster.rs");
+        include!("types/msk/replicator_kafka_cluster_vpc_config.rs");
+        include!("types/msk/replicator_replication_info_list.rs");
+        include!(
+            "types/msk/replicator_replication_info_list_consumer_group_replication.rs"
+        );
+        include!("types/msk/replicator_replication_info_list_topic_replication.rs");
+        include!(
+            "types/msk/replicator_replication_info_list_topic_replication_starting_position.rs"
+        );
+        include!(
+            "types/msk/replicator_replication_info_list_topic_replication_topic_name_configuration.rs"
+        );
+        include!("types/msk/serverless_cluster_client_authentication.rs");
+        include!("types/msk/serverless_cluster_client_authentication_sasl.rs");
+        include!("types/msk/serverless_cluster_client_authentication_sasl_iam.rs");
+        include!("types/msk/serverless_cluster_vpc_config.rs");
+        include!("types/msk/get_broker_nodes_node_info_list.rs");
+        include!("types/msk/get_cluster_broker_node_group_info.rs");
+        include!("types/msk/get_cluster_broker_node_group_info_connectivity_info.rs");
+        include!(
+            "types/msk/get_cluster_broker_node_group_info_connectivity_info_public_access.rs"
+        );
+        include!(
+            "types/msk/get_cluster_broker_node_group_info_connectivity_info_vpc_connectivity.rs"
+        );
+        include!(
+            "types/msk/get_cluster_broker_node_group_info_connectivity_info_vpc_connectivity_client_authentication.rs"
+        );
+        include!(
+            "types/msk/get_cluster_broker_node_group_info_connectivity_info_vpc_connectivity_client_authentication_sasl.rs"
+        );
+        include!("types/msk/get_cluster_broker_node_group_info_storage_info.rs");
+        include!(
+            "types/msk/get_cluster_broker_node_group_info_storage_info_ebs_storage_info.rs"
+        );
+        include!(
+            "types/msk/get_cluster_broker_node_group_info_storage_info_ebs_storage_info_provisioned_throughput.rs"
+        );
+    }
+    pub mod mskconnect {
+        include!("types/mskconnect/connector_capacity.rs");
+        include!("types/mskconnect/connector_capacity_autoscaling.rs");
+        include!("types/mskconnect/connector_capacity_autoscaling_scale_in_policy.rs");
+        include!("types/mskconnect/connector_capacity_autoscaling_scale_out_policy.rs");
+        include!("types/mskconnect/connector_capacity_provisioned_capacity.rs");
+        include!("types/mskconnect/connector_kafka_cluster.rs");
+        include!("types/mskconnect/connector_kafka_cluster_apache_kafka_cluster.rs");
+        include!("types/mskconnect/connector_kafka_cluster_apache_kafka_cluster_vpc.rs");
+        include!("types/mskconnect/connector_kafka_cluster_client_authentication.rs");
+        include!("types/mskconnect/connector_kafka_cluster_encryption_in_transit.rs");
+        include!("types/mskconnect/connector_log_delivery.rs");
+        include!("types/mskconnect/connector_log_delivery_worker_log_delivery.rs");
+        include!(
+            "types/mskconnect/connector_log_delivery_worker_log_delivery_cloudwatch_logs.rs"
+        );
+        include!(
+            "types/mskconnect/connector_log_delivery_worker_log_delivery_firehose.rs"
+        );
+        include!("types/mskconnect/connector_log_delivery_worker_log_delivery_s_3.rs");
+        include!("types/mskconnect/connector_plugin.rs");
+        include!("types/mskconnect/connector_plugin_custom_plugin.rs");
+        include!("types/mskconnect/connector_worker_configuration.rs");
+        include!("types/mskconnect/custom_plugin_location.rs");
+        include!("types/mskconnect/custom_plugin_location_s_3.rs");
+    }
+    pub mod mwaa {
+        include!("types/mwaa/environment_last_updated.rs");
+        include!("types/mwaa/environment_last_updated_error.rs");
+        include!("types/mwaa/environment_logging_configuration.rs");
+        include!("types/mwaa/environment_logging_configuration_dag_processing_logs.rs");
+        include!("types/mwaa/environment_logging_configuration_scheduler_logs.rs");
+        include!("types/mwaa/environment_logging_configuration_task_logs.rs");
+        include!("types/mwaa/environment_logging_configuration_webserver_logs.rs");
+        include!("types/mwaa/environment_logging_configuration_worker_logs.rs");
+        include!("types/mwaa/environment_network_configuration.rs");
+    }
+    pub mod neptune {
+        include!("types/neptune/cluster_parameter_group_parameter.rs");
+        include!("types/neptune/cluster_serverless_v_2_scaling_configuration.rs");
+        include!("types/neptune/global_cluster_global_cluster_member.rs");
+        include!("types/neptune/parameter_group_parameter.rs");
+    }
+    pub mod networkfirewall {
+        include!("types/networkfirewall/firewall_encryption_configuration.rs");
+        include!("types/networkfirewall/firewall_firewall_status.rs");
+        include!("types/networkfirewall/firewall_firewall_status_sync_state.rs");
+        include!(
+            "types/networkfirewall/firewall_firewall_status_sync_state_attachment.rs"
+        );
+        include!("types/networkfirewall/firewall_policy_encryption_configuration.rs");
+        include!("types/networkfirewall/firewall_policy_firewall_policy.rs");
+        include!(
+            "types/networkfirewall/firewall_policy_firewall_policy_policy_variables.rs"
+        );
+        include!(
+            "types/networkfirewall/firewall_policy_firewall_policy_policy_variables_rule_variable.rs"
+        );
+        include!(
+            "types/networkfirewall/firewall_policy_firewall_policy_policy_variables_rule_variable_ip_set.rs"
+        );
+        include!(
+            "types/networkfirewall/firewall_policy_firewall_policy_stateful_engine_options.rs"
+        );
+        include!(
+            "types/networkfirewall/firewall_policy_firewall_policy_stateful_engine_options_flow_timeouts.rs"
+        );
+        include!(
+            "types/networkfirewall/firewall_policy_firewall_policy_stateful_rule_group_reference.rs"
+        );
+        include!(
+            "types/networkfirewall/firewall_policy_firewall_policy_stateful_rule_group_reference_override.rs"
+        );
+        include!(
+            "types/networkfirewall/firewall_policy_firewall_policy_stateless_custom_action.rs"
+        );
+        include!(
+            "types/networkfirewall/firewall_policy_firewall_policy_stateless_custom_action_action_definition.rs"
+        );
+        include!(
+            "types/networkfirewall/firewall_policy_firewall_policy_stateless_custom_action_action_definition_publish_metric_action.rs"
+        );
+        include!(
+            "types/networkfirewall/firewall_policy_firewall_policy_stateless_custom_action_action_definition_publish_metric_action_dimension.rs"
+        );
+        include!(
+            "types/networkfirewall/firewall_policy_firewall_policy_stateless_rule_group_reference.rs"
+        );
+        include!("types/networkfirewall/firewall_subnet_mapping.rs");
+        include!("types/networkfirewall/logging_configuration_logging_configuration.rs");
+        include!(
+            "types/networkfirewall/logging_configuration_logging_configuration_log_destination_config.rs"
+        );
+        include!("types/networkfirewall/rule_group_encryption_configuration.rs");
+        include!("types/networkfirewall/rule_group_rule_group.rs");
+        include!("types/networkfirewall/rule_group_rule_group_reference_sets.rs");
+        include!(
+            "types/networkfirewall/rule_group_rule_group_reference_sets_ip_set_reference.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_reference_sets_ip_set_reference_ip_set_reference.rs"
+        );
+        include!("types/networkfirewall/rule_group_rule_group_rule_variables.rs");
+        include!("types/networkfirewall/rule_group_rule_group_rule_variables_ip_set.rs");
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rule_variables_ip_set_ip_set.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rule_variables_port_set.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rule_variables_port_set_port_set.rs"
+        );
+        include!("types/networkfirewall/rule_group_rule_group_rules_source.rs");
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_rules_source_list.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateful_rule.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateful_rule_header.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateful_rule_rule_option.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_custom_action.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_custom_action_action_definition.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_custom_action_action_definition_publish_metric_action.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_custom_action_action_definition_publish_metric_action_dimension.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_stateless_rule.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_stateless_rule_rule_definition.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_stateless_rule_rule_definition_match_attributes.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_stateless_rule_rule_definition_match_attributes_destination.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_stateless_rule_rule_definition_match_attributes_destination_port.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_stateless_rule_rule_definition_match_attributes_source.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_stateless_rule_rule_definition_match_attributes_source_port.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_stateless_rule_rule_definition_match_attributes_tcp_flag.rs"
+        );
+        include!("types/networkfirewall/rule_group_rule_group_stateful_rule_options.rs");
+        include!("types/networkfirewall/tls_inspection_configuration_certificate.rs");
+        include!(
+            "types/networkfirewall/tls_inspection_configuration_certificate_authority.rs"
+        );
+        include!(
+            "types/networkfirewall/tls_inspection_configuration_encryption_configuration.rs"
+        );
+        include!("types/networkfirewall/tls_inspection_configuration_timeouts.rs");
+        include!(
+            "types/networkfirewall/tls_inspection_configuration_tls_inspection_configuration.rs"
+        );
+        include!(
+            "types/networkfirewall/tls_inspection_configuration_tls_inspection_configuration_server_certificate_configuration.rs"
+        );
+        include!(
+            "types/networkfirewall/tls_inspection_configuration_tls_inspection_configuration_server_certificate_configuration_check_certificate_revocation_status.rs"
+        );
+        include!(
+            "types/networkfirewall/tls_inspection_configuration_tls_inspection_configuration_server_certificate_configuration_scope.rs"
+        );
+        include!(
+            "types/networkfirewall/tls_inspection_configuration_tls_inspection_configuration_server_certificate_configuration_scope_destination.rs"
+        );
+        include!(
+            "types/networkfirewall/tls_inspection_configuration_tls_inspection_configuration_server_certificate_configuration_scope_destination_port.rs"
+        );
+        include!(
+            "types/networkfirewall/tls_inspection_configuration_tls_inspection_configuration_server_certificate_configuration_scope_source.rs"
+        );
+        include!(
+            "types/networkfirewall/tls_inspection_configuration_tls_inspection_configuration_server_certificate_configuration_scope_source_port.rs"
+        );
+        include!(
+            "types/networkfirewall/tls_inspection_configuration_tls_inspection_configuration_server_certificate_configuration_server_certificate.rs"
+        );
+        include!("types/networkfirewall/get_firewall_encryption_configuration.rs");
+        include!("types/networkfirewall/get_firewall_firewall_status.rs");
+        include!(
+            "types/networkfirewall/get_firewall_firewall_status_capacity_usage_summary.rs"
+        );
+        include!(
+            "types/networkfirewall/get_firewall_firewall_status_capacity_usage_summary_cidr.rs"
+        );
+        include!(
+            "types/networkfirewall/get_firewall_firewall_status_capacity_usage_summary_cidr_ip_set_reference.rs"
+        );
+        include!("types/networkfirewall/get_firewall_firewall_status_sync_state.rs");
+        include!(
+            "types/networkfirewall/get_firewall_firewall_status_sync_state_attachment.rs"
+        );
+        include!("types/networkfirewall/get_firewall_policy_firewall_policy.rs");
+        include!(
+            "types/networkfirewall/get_firewall_policy_firewall_policy_stateful_engine_option.rs"
+        );
+        include!(
+            "types/networkfirewall/get_firewall_policy_firewall_policy_stateful_rule_group_reference.rs"
+        );
+        include!(
+            "types/networkfirewall/get_firewall_policy_firewall_policy_stateful_rule_group_reference_override.rs"
+        );
+        include!(
+            "types/networkfirewall/get_firewall_policy_firewall_policy_stateless_custom_action.rs"
+        );
+        include!(
+            "types/networkfirewall/get_firewall_policy_firewall_policy_stateless_custom_action_action_definition.rs"
+        );
+        include!(
+            "types/networkfirewall/get_firewall_policy_firewall_policy_stateless_custom_action_action_definition_publish_metric_action.rs"
+        );
+        include!(
+            "types/networkfirewall/get_firewall_policy_firewall_policy_stateless_custom_action_action_definition_publish_metric_action_dimension.rs"
+        );
+        include!(
+            "types/networkfirewall/get_firewall_policy_firewall_policy_stateless_rule_group_reference.rs"
+        );
+        include!("types/networkfirewall/get_firewall_subnet_mapping.rs");
+    }
+    include!("types/get_availability_zone_filter.rs");
+    include!("types/get_availability_zones_filter.rs");
+    include!("types/get_regions_filter.rs");
+}
+#[doc(hidden)]
+pub mod constants {}
+mod bindings {
+    pulumi_wasm_rust::__private::wit_bindgen::generate!(
+        { inline :
+        r"package component:pulumi-wasm@0.0.0-DEV;
+
+world world-aws {
+    import output-interface;
+}
+
+interface output-interface {
+
+    resource output {
+        constructor(value: string);
+        map: func(function-name: string) -> output;
+    }
+    combine: func(outputs: list<borrow<output>>) -> output;
+}
+
+
+interface register-interface {
+    use output-interface.{output};
+
+    record object-field {
+        name: string,
+        value: borrow<output>
+    }
+
+    record result-field {
+        name: string
+    }
+
+    record register-resource-result-field {
+        name: string,
+        output: output
+    }
+
+    record register-resource-request {
+        %type: string,
+        name: string,
+        object: list<object-field>,
+        results: list<result-field>
+    }
+
+    record register-resource-result {
+        fields: list<register-resource-result-field>
+    }
+
+    register: func(request: register-resource-request) -> register-resource-result;
+
+    record resource-invoke-result-field {
+        name: string,
+        output: output
+    }
+
+    record resource-invoke-request {
+        token: string,
+        object: list<object-field>,
+        results: list<result-field>
+    }
+
+    record resource-invoke-result {
+        fields: list<resource-invoke-result-field>
+    }
+
+    invoke: func(request: resource-invoke-request) -> resource-invoke-result;
+}",
+        with : { "component:pulumi-wasm/output-interface@0.0.0-DEV" :
+        pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface
+        } }
+    );
+}

@@ -9,5 +9,5 @@ pub struct InstanceFromTemplateReservationAffinity {
     /// The type of reservation from which this instance can consume resources.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

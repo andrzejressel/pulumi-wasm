@@ -17,5 +17,5 @@ pub struct GetPolicyAssignmentIdentity {
     /// The Type of Managed Identity which is added to this Policy Assignment.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

@@ -7,5 +7,5 @@ pub struct FulfillmentFeature {
     /// Possible values are: `SMALLTALK`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

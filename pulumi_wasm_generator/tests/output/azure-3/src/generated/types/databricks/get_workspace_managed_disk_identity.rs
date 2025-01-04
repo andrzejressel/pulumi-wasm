@@ -13,5 +13,5 @@ pub struct GetWorkspaceManagedDiskIdentity {
     /// The type of the internal databricks storage account.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

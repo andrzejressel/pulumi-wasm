@@ -17,5 +17,5 @@ pub struct GetReplicationRecoveryPlanRecoveryGroup {
     /// Type of the action detail.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

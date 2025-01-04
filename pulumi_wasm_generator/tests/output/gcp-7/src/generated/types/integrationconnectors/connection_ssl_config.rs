@@ -46,7 +46,7 @@ pub struct ConnectionSslConfig {
     /// Possible values are: `TLS`, `MTLS`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
     /// Bool for enabling SSL
     #[builder(into, default)]
     #[serde(rename = "useSsl")]

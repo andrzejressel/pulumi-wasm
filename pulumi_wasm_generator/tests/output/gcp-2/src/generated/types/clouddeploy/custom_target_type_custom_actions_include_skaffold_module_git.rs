@@ -9,7 +9,7 @@ pub struct CustomTargetTypeCustomActionsIncludeSkaffoldModuleGit {
     /// Git ref the package should be cloned from.
     #[builder(into, default)]
     #[serde(rename = "ref")]
-    pub r#ref: Box<Option<String>>,
+    pub r#ref_: Box<Option<String>>,
     /// Git repository the package should be cloned from.
     #[builder(into)]
     #[serde(rename = "repo")]

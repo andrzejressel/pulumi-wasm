@@ -5,7 +5,7 @@ pub struct CustomLocationAuthentication {
     /// Specifies the type of authentication.
     #[builder(into, default)]
     #[serde(rename = "type")]
-    pub r#type: Box<Option<String>>,
+    pub r#type_: Box<Option<String>>,
     /// Specifies the value of authentication.
     #[builder(into)]
     #[serde(rename = "value")]

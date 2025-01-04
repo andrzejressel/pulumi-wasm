@@ -9,5 +9,5 @@ pub struct FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtoco
     /// Protocol type. Possible values are `Http` and `Https`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

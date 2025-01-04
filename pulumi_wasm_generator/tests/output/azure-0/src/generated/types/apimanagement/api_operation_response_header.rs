@@ -29,7 +29,7 @@ pub struct ApiOperationResponseHeader {
     /// The Type of this Header, such as a `string`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
     /// The type name defined by the Schema.
     #[builder(into, default)]
     #[serde(rename = "typeName")]

@@ -18,5 +18,5 @@ pub struct GetDataSourceDataSourceGcpResource {
     /// eg. compute.googleapis.com/Instance.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }
