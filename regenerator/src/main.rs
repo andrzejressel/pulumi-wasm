@@ -84,16 +84,21 @@ fn update_tests(tests: &[&str], filtered_tests: &[FilteredTest]) {
 }
 
 fn update_mergify(tests: &[&str], filtered_tests: &[FilteredTest]) {
-    let content = fs::read_to_string(".mergify.yml")
-        .expect("Failed to read .mergify.yml");
+    let content = fs::read_to_string(".mergify.yml").expect("Failed to read .mergify.yml");
 
     let mut replacement = String::new();
     for test in tests {
-        replacement.push_str(&format!("      - check-success = build-generated-provider ({})\n", test))
+        replacement.push_str(&format!(
+            "      - check-success = build-generated-provider ({})\n",
+            test
+        ))
     }
     for filtered_test in filtered_tests {
         for (index, _) in filtered_test.filters.iter().enumerate() {
-            replacement.push_str(&format!("      - check-success = build-generated-provider ({}-{})\n", filtered_test.name, index))
+            replacement.push_str(&format!(
+                "      - check-success = build-generated-provider ({}-{})\n",
+                filtered_test.name, index
+            ))
         }
     }
 
@@ -101,8 +106,7 @@ fn update_mergify(tests: &[&str], filtered_tests: &[FilteredTest]) {
     let end_marker = "# DO NOT EDIT - PROVIDER END";
     let content = replace_between_markers(&content, start_marker, end_marker, &replacement);
 
-    fs::write(".mergify.yml", content)
-        .expect("Failed to write to .mergify.yml");
+    fs::write(".mergify.yml", content).expect("Failed to write to .mergify.yml");
 }
 
 fn update_github_actions_build(tests: &[&str], filtered_tests: &[FilteredTest]) {
