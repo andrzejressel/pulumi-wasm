@@ -53,17 +53,17 @@ use pulumi_wasm_generator::{extract_micro_package, generate_combined};
 use std::path::Path;
 use std::{env, fs};
 
-/// Generates glue code for given provider, version and namespace. Can be included using [`pulumi_wasm_rust::include_provider!(provider_name)`]
-/// Namespaces for provider can be found in Pulumi registry on left hand side with (M) icon:
+/// Generates glue code for given provider, version and modules. Can be included using [`pulumi_wasm_rust::include_provider!(provider_name)`]
+/// Modules for provider can be found in Pulumi registry on left side with (M) icon:
 /// - [AWS](https://www.pulumi.com/registry/packages/aws/)
 /// - [Azure](https://www.pulumi.com/registry/packages/azure/)
 /// - [GCP](https://www.pulumi.com/registry/packages/gcp/)
 pub fn generate_with_filter(
     provider_name: &str,
     provider_version: &str,
-    filter: &str,
+    modules: &[&str],
 ) -> Result<()> {
-    generate_with_optional_filter(provider_name, provider_version, Some(filter))
+    generate_with_optional_filter(provider_name, provider_version, Some(modules))
 }
 
 /// Generates glue code for given provider and version. Can be included using [`pulumi_wasm_rust::include_provider!(provider_name)`]
@@ -91,7 +91,7 @@ pub fn generate_from_schema(schema_file: &Path) -> Result<()> {
 fn generate_with_optional_filter(
     provider_name: &str,
     provider_version: &str,
-    filter: Option<&str>,
+    modules: Option<&[&str]>,
 ) -> Result<()> {
     let schema_output = std::process::Command::new("pulumi")
         .arg("package")
@@ -113,7 +113,8 @@ fn generate_with_optional_filter(
     let file = temp_dir.path().join("schema.json");
     fs::write(&file, &schema).context("Failed to write schema")?;
 
-    generate_combined(file.as_path(), &location, None).context("Failed to generate glue files")?;
+    generate_combined(file.as_path(), &location, modules)
+        .context("Failed to generate glue files")?;
     println!("cargo::rerun-if-changed=build.rs");
 
     Ok(())

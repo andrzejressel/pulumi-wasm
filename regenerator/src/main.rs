@@ -11,13 +11,13 @@ struct Provider<'a> {
 #[derive(Debug)]
 struct FilteredTest<'a> {
     name: &'a str,
-    filters: &'a [&'a str],
+    filters: &'a [&'a [&'a str]],
 }
 
 fn main() {
     let mut filtered_tests = vec![FilteredTest {
         name: "filtering",
-        filters: &["ns1", "ns2"],
+        filters: &[&["ns1"], &["ns2"], &["ns1", "ns2"]],
     }];
     let mut providers = vec![
         Provider {
@@ -90,8 +90,8 @@ fn update_github_actions_build(tests: &[&str], filtered_tests: &Vec<FilteredTest
     replacement.push_str("        provider: [");
     let mut test_names = tests.iter().map(|test| test.to_string()).collect_vec();
     for provider in filtered_tests {
-        for filter in provider.filters {
-            test_names.push(format!("{}-{}", provider.name, filter).to_string());
+        for (index, _) in provider.filters.iter().enumerate() {
+            test_names.push(format!("{}-{}", provider.name, index).to_string());
         }
     }
     replacement.push_str(&test_names.join(", "));
@@ -117,7 +117,7 @@ fn update_test_rs(tests: &[&str], filtered_tests: &Vec<FilteredTest>) {
 #[test]
 #[cfg_attr(not(feature = "generator_{test_directory}"), ignore)]
 fn {method_name}() -> Result<()> {{
-    run_pulumi_generator_test("{test_directory}", None)
+    run_pulumi_generator_test("{test_directory}", "{method_name}", None)
 }}
 "#
         );
@@ -126,16 +126,17 @@ fn {method_name}() -> Result<()> {{
     }
 
     for filtered_test in filtered_tests {
-        for filter in filtered_test.filters {
+        for (index, filter) in filtered_test.filters.iter().enumerate() {
             let provider_name = filtered_test.name;
-            let feature_name = format!("generator_{}-{}", filtered_test.name, filter);
-            let method_name = format!("{}_{}", filtered_test.name, filter).replace("-", "_");
+            let feature_name = format!("generator_{}-{}", filtered_test.name, index);
+            let method_name = format!("{}_{}", filtered_test.name, index).replace("-", "_");
+            let filter_name = filter.iter().map(|s| format!("\"{s}\"")).join(",");
             let code = format!(
                 r#"
 #[test]
 #[cfg_attr(not(feature = "{feature_name}"), ignore)]
 fn {method_name}() -> Result<()> {{
-    run_pulumi_generator_test("{provider_name}", Some("{filter}"))
+    run_pulumi_generator_test("{provider_name}", "{method_name}", Some(&[{filter_name}]))
 }}
 "#
             );
@@ -159,10 +160,10 @@ fn update_generator_cargo_toml(tests: &[&str], filtered_tests: &Vec<FilteredTest
         replacement.push_str(&format!("generator_{} = []\n", test))
     }
     for filtered_test in filtered_tests {
-        for filter in filtered_test.filters {
+        for (index, _) in filtered_test.filters.iter().enumerate() {
             replacement.push_str(&format!(
                 "generator_{}-{} = []\n",
-                filtered_test.name, filter
+                filtered_test.name, index
             ))
         }
     }

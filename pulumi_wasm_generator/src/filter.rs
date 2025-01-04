@@ -2,9 +2,13 @@ use crate::model::{ElementId, GlobalType, InputProperty, OutputProperty, Package
 use std::collections::{BTreeMap, HashSet};
 use std::rc::Rc;
 
-pub(crate) fn filter_package(package: &mut Package, namespace: &str) {
-    filter_elements(&mut package.resources, namespace);
-    filter_elements(&mut package.functions, namespace);
+pub(crate) fn filter_package(package: &mut Package, modules: &[&str]) {
+    let modules_set = modules
+        .iter()
+        .map(|s| s.to_string())
+        .collect::<HashSet<_>>();
+    filter_elements(&mut package.resources, &modules_set);
+    filter_elements(&mut package.functions, &modules_set);
 
     let mut used_types = HashSet::new();
     for resource in package.resources.values() {
@@ -19,11 +23,10 @@ pub(crate) fn filter_package(package: &mut Package, namespace: &str) {
     package.types.retain(|id, _| used_types.contains(id));
 }
 
-fn filter_elements<T>(elements: &mut BTreeMap<ElementId, Rc<T>>, namespace_parts: &str) {
-    elements.retain(|id, _| {
-        id.namespace
-            .first()
-            .map_or(true, |ns| ns == namespace_parts)
+fn filter_elements<T>(elements: &mut BTreeMap<ElementId, Rc<T>>, modules: &HashSet<String>) {
+    elements.retain(|id, _| match id.namespace.first() {
+        Some(module) => modules.contains(module),
+        None => true,
     });
 }
 fn collect_used_types_input(

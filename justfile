@@ -13,7 +13,7 @@ CARGO_HACK_VERSION := "0.6.33"
 @default: build-language-plugin regenerator install-requirements build-wasm-components build-wasm-components-release test-all rust-docs fmt
 
 # Checks formatting and regenerator
-househeeping-ci-flow: regenerator fmt
+housekeeping-ci-flow: regenerator fmt
 
 # Runs all amd64 unit and doc tests tests
 base-ci-flow: test
