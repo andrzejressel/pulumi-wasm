@@ -1,6 +1,31 @@
 queue_rules:
   - name: default
     merge_method: squash
+    allow_inplace_checks: false
+    queue_conditions:
+# DO NOT EDIT - PROVIDER START
+      - check-success = build-generated-provider (array-of-enum-map)
+      - check-success = build-generated-provider (azure-native-nested-types)
+      - check-success = build-generated-provider (cloudflare)
+      - check-success = build-generated-provider (cyclic-types)
+      - check-success = build-generated-provider (different-enum)
+      - check-success = build-generated-provider (docker)
+      - check-success = build-generated-provider (functions-secrets)
+      - check-success = build-generated-provider (mini-awsnative)
+      - check-success = build-generated-provider (nested-module)
+      - check-success = build-generated-provider (nested-module-thirdparty)
+      - check-success = build-generated-provider (output-funcs)
+      - check-success = build-generated-provider (output-funcs-edgeorder)
+      - check-success = build-generated-provider (plain-object-defaults)
+      - check-success = build-generated-provider (plain-object-disable-defaults)
+      - check-success = build-generated-provider (random)
+      - check-success = build-generated-provider (reserved_names)
+      - check-success = build-generated-provider (unions-inline)
+      - check-success = build-generated-provider (unions-inside-arrays)
+      - check-success = build-generated-provider (workarounds)
+      - check-success = build-generated-provider (filtering-0)
+      - check-success = build-generated-provider (filtering-1)
+# DO NOT EDIT - PROVIDER END
     commit_message_template: |
       {{ title }} (#{{ number }})
         

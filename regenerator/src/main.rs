@@ -77,12 +77,35 @@ fn main() {
     update_generator_cargo_toml(&tests, &filtered_tests);
 }
 
-fn update_tests(tests: &[&str], filtered_tests: &Vec<FilteredTest>) {
+fn update_tests(tests: &[&str], filtered_tests: &[FilteredTest]) {
     update_github_actions_build(tests, filtered_tests);
     update_test_rs(tests, filtered_tests);
+    update_mergify(tests, filtered_tests);
 }
 
-fn update_github_actions_build(tests: &[&str], filtered_tests: &Vec<FilteredTest>) {
+fn update_mergify(tests: &[&str], filtered_tests: &[FilteredTest]) {
+    let content = fs::read_to_string(".mergify.yml")
+        .expect("Failed to read .mergify.yml");
+
+    let mut replacement = String::new();
+    for test in tests {
+        replacement.push_str(&format!("      - check-success = build-generated-provider ({})\n", test))
+    }
+    for filtered_test in filtered_tests {
+        for (index, _) in filtered_test.filters.iter().enumerate() {
+            replacement.push_str(&format!("      - check-success = build-generated-provider ({}-{})\n", filtered_test.name, index))
+        }
+    }
+
+    let start_marker = "# DO NOT EDIT - PROVIDER START";
+    let end_marker = "# DO NOT EDIT - PROVIDER END";
+    let content = replace_between_markers(&content, start_marker, end_marker, &replacement);
+
+    fs::write(".mergify.yml", content)
+        .expect("Failed to write to .mergify.yml");
+}
+
+fn update_github_actions_build(tests: &[&str], filtered_tests: &[FilteredTest]) {
     let content = fs::read_to_string(".github/workflows/build.yml")
         .expect("Failed to read .github/workflows/build.yml");
 
@@ -104,7 +127,7 @@ fn update_github_actions_build(tests: &[&str], filtered_tests: &Vec<FilteredTest
         .expect("Failed to write to .github/workflows/build.yml");
 }
 
-fn update_test_rs(tests: &[&str], filtered_tests: &Vec<FilteredTest>) {
+fn update_test_rs(tests: &[&str], filtered_tests: &[FilteredTest]) {
     let content = fs::read_to_string("pulumi_wasm_generator/tests/test.rs")
         .expect("Failed to read pulumi_wasm_generator/tests/test.rs");
 
@@ -151,7 +174,7 @@ fn {method_name}() -> Result<()> {{
         .expect("Failed to write to pulumi_wasm_generator/tests/test.rs");
 }
 
-fn update_generator_cargo_toml(tests: &[&str], filtered_tests: &Vec<FilteredTest>) {
+fn update_generator_cargo_toml(tests: &[&str], filtered_tests: &[FilteredTest]) {
     let content =
         fs::read_to_string("pulumi_wasm_generator/Cargo.toml").expect("Failed to read Cargo.toml");
     let mut replacement = String::new();
