@@ -6,6 +6,7 @@ use crate::model::{ElementId, GlobalType, Package, Ref, Type};
 use anyhow::Result;
 use anyhow::{anyhow, Context};
 use std::collections::BTreeMap;
+use std::ops::Deref;
 
 pub(crate) fn yaml_to_model(yaml_file: YamlFile, package: &Package) -> Result<Example> {
     let mut resources = BTreeMap::new();
@@ -252,9 +253,9 @@ fn map_type(
         Ref::Any => return Err(anyhow!("Any ref is not supported")),
     };
 
-    let tpe = &context.types[element_id];
+    let tpe = &context.all_types[element_id];
 
-    let gtp = match tpe {
+    let gtp = match tpe.deref() {
         GlobalType::Object(_, gtp) => gtp,
         GlobalType::NumberEnum(_, _) => return Err(anyhow!("NumberEnum type is not supported")),
         GlobalType::IntegerEnum(_, _) => return Err(anyhow!("IntegerEnum type is not supported")),

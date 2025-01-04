@@ -90,7 +90,7 @@ jobs:
       fail-fast: false
       matrix:
         # DO NOT EDIT - PROVIDER START
-        provider: [array-of-enum-map, azure-native-nested-types, cloudflare, cyclic-types, different-enum, docker, functions-secrets, mini-awsnative, nested-module, nested-module-thirdparty, output-funcs, output-funcs-edgeorder, plain-object-defaults, plain-object-disable-defaults, random, reserved_names, unions-inline, unions-inside-arrays, workarounds, filtering-0, filtering-1, filtering-2]
+        provider: [array-of-enum-map, azure-native-nested-types, cloudflare, cyclic-types, different-enum, docker, functions-secrets, mini-awsnative, nested-module, nested-module-thirdparty, output-funcs, output-funcs-edgeorder, plain-object-defaults, plain-object-disable-defaults, random, reserved_names, unions-inline, unions-inside-arrays, workarounds, azure-0, azure-1, azure-2, azure-3, azure-4, azure-5, azure-6, azure-7, azure-8, azure-9, azure-10, azure-11, azure-12, azure-13, filtering-0, filtering-1, filtering-2]
 # DO NOT EDIT - PROVIDER END
     steps:
       - uses: actions/checkout@v4
@@ -111,10 +111,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: Swatinem/rust-cache@v2
         with:
-          shared-key: build-real-${{ matrix.provider }}
-          workspaces: |
-            ./
-            pulumi_wasm_generator/tests/output/${{ matrix.provider }}/
+          lookup-only: "true"
+          save-if: "false"
       - run: just test-provider-compilation ${{ matrix.provider }}
       - name: Upload coverage data to codecov
         uses: codecov/codecov-action@v5

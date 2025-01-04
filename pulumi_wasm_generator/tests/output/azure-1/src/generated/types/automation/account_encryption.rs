@@ -1,0 +1,16 @@
+#[derive(pulumi_wasm_rust::__private::serde::Deserialize, pulumi_wasm_rust::__private::serde::Serialize, pulumi_wasm_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
+#[builder(finish_fn = build_struct)]
+#[allow(dead_code)]
+pub struct AccountEncryption {
+    #[builder(into, default)]
+    #[serde(rename = "keySource")]
+    pub r#key_source: Box<Option<String>>,
+    /// The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
+    #[builder(into)]
+    #[serde(rename = "keyVaultKeyId")]
+    pub r#key_vault_key_id: Box<String>,
+    /// The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
+    #[builder(into, default)]
+    #[serde(rename = "userAssignedIdentityId")]
+    pub r#user_assigned_identity_id: Box<Option<String>>,
+}

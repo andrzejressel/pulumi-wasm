@@ -1,5 +1,6 @@
 use crate::model::{ElementId, GlobalType, InputProperty, OutputProperty, Package, Ref, Type};
 use std::collections::{BTreeMap, HashSet};
+use std::ops::Deref;
 use std::rc::Rc;
 
 pub(crate) fn filter_package(package: &mut Package, modules: &[&str]) {
@@ -55,7 +56,7 @@ fn collect_type(package: &Package, r#type: &Type, used_types: &mut HashSet<Eleme
             if used_types.insert(id.clone()) {
                 // Recursively collect types used by this type
                 if let Some(t) = package.types.get(id) {
-                    match t {
+                    match t.deref() {
                         GlobalType::Object(_, props) => {
                             for prop in props {
                                 collect_type(package, &prop.r#type, used_types);
