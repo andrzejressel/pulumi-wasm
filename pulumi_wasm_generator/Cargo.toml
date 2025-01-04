@@ -157,8 +157,9 @@ generator_azure-voice = []
 generator_azure-waf = []
 generator_azure-webpubsub = []
 generator_azure-workloadssap = []
-generator_filtering-ns1 = []
-generator_filtering-ns2 = []
+generator_filtering-0 = []
+generator_filtering-1 = []
+generator_filtering-2 = []
 # DO NOT EDIT - END
 
 [lints]

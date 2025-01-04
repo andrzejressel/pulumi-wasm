@@ -12,115 +12,123 @@ use std::time::SystemTime;
 #[test]
 #[cfg_attr(not(feature = "generator_array-of-enum-map"), ignore)]
 fn array_of_enum_map() -> Result<()> {
-    run_pulumi_generator_test("array-of-enum-map", None)
+    run_pulumi_generator_test("array-of-enum-map", "array-of-enum-map", None)
 }
 
 #[test]
 #[cfg_attr(not(feature = "generator_azure-native-nested-types"), ignore)]
 fn azure_native_nested_types() -> Result<()> {
-    run_pulumi_generator_test("azure-native-nested-types", None)
+    run_pulumi_generator_test(
+        "azure-native-nested-types",
+        "azure-native-nested-types",
+        None,
+    )
 }
 
 #[test]
 #[cfg_attr(not(feature = "generator_cloudflare"), ignore)]
 fn cloudflare() -> Result<()> {
-    run_pulumi_generator_test("cloudflare", None)
+    run_pulumi_generator_test("cloudflare", "cloudflare", None)
 }
 
 #[test]
 #[cfg_attr(not(feature = "generator_cyclic-types"), ignore)]
 fn cyclic_types() -> Result<()> {
-    run_pulumi_generator_test("cyclic-types", None)
+    run_pulumi_generator_test("cyclic-types", "cyclic-types", None)
 }
 
 #[test]
 #[cfg_attr(not(feature = "generator_different-enum"), ignore)]
 fn different_enum() -> Result<()> {
-    run_pulumi_generator_test("different-enum", None)
+    run_pulumi_generator_test("different-enum", "different-enum", None)
 }
 
 #[test]
 #[cfg_attr(not(feature = "generator_docker"), ignore)]
 fn docker() -> Result<()> {
-    run_pulumi_generator_test("docker", None)
+    run_pulumi_generator_test("docker", "docker", None)
 }
 
 #[test]
 #[cfg_attr(not(feature = "generator_functions-secrets"), ignore)]
 fn functions_secrets() -> Result<()> {
-    run_pulumi_generator_test("functions-secrets", None)
+    run_pulumi_generator_test("functions-secrets", "functions-secrets", None)
 }
 
 #[test]
 #[cfg_attr(not(feature = "generator_mini-awsnative"), ignore)]
 fn mini_awsnative() -> Result<()> {
-    run_pulumi_generator_test("mini-awsnative", None)
+    run_pulumi_generator_test("mini-awsnative", "mini-awsnative", None)
 }
 
 #[test]
 #[cfg_attr(not(feature = "generator_nested-module"), ignore)]
 fn nested_module() -> Result<()> {
-    run_pulumi_generator_test("nested-module", None)
+    run_pulumi_generator_test("nested-module", "nested-module", None)
 }
 
 #[test]
 #[cfg_attr(not(feature = "generator_nested-module-thirdparty"), ignore)]
 fn nested_module_thirdparty() -> Result<()> {
-    run_pulumi_generator_test("nested-module-thirdparty", None)
+    run_pulumi_generator_test("nested-module-thirdparty", "nested-module-thirdparty", None)
 }
 
 #[test]
 #[cfg_attr(not(feature = "generator_output-funcs"), ignore)]
 fn output_funcs() -> Result<()> {
-    run_pulumi_generator_test("output-funcs", None)
+    run_pulumi_generator_test("output-funcs", "output-funcs", None)
 }
 
 #[test]
 #[cfg_attr(not(feature = "generator_output-funcs-edgeorder"), ignore)]
 fn output_funcs_edgeorder() -> Result<()> {
-    run_pulumi_generator_test("output-funcs-edgeorder", None)
+    run_pulumi_generator_test("output-funcs-edgeorder", "output-funcs-edgeorder", None)
 }
 
 #[test]
 #[cfg_attr(not(feature = "generator_plain-object-defaults"), ignore)]
 fn plain_object_defaults() -> Result<()> {
-    run_pulumi_generator_test("plain-object-defaults", None)
+    run_pulumi_generator_test("plain-object-defaults", "plain-object-defaults", None)
 }
 
 #[test]
 #[cfg_attr(not(feature = "generator_plain-object-disable-defaults"), ignore)]
 fn plain_object_disable_defaults() -> Result<()> {
-    run_pulumi_generator_test("plain-object-disable-defaults", None)
+    run_pulumi_generator_test(
+        "plain-object-disable-defaults",
+        "plain-object-disable-defaults",
+        None,
+    )
 }
 
 #[test]
 #[cfg_attr(not(feature = "generator_random"), ignore)]
 fn random() -> Result<()> {
-    run_pulumi_generator_test("random", None)
+    run_pulumi_generator_test("random", "random", None)
 }
 
 #[test]
 #[cfg_attr(not(feature = "generator_reserved_names"), ignore)]
 fn reserved_names() -> Result<()> {
-    run_pulumi_generator_test("reserved_names", None)
+    run_pulumi_generator_test("reserved_names", "reserved_names", None)
 }
 
 #[test]
 #[cfg_attr(not(feature = "generator_unions-inline"), ignore)]
 fn unions_inline() -> Result<()> {
-    run_pulumi_generator_test("unions-inline", None)
+    run_pulumi_generator_test("unions-inline", "unions-inline", None)
 }
 
 #[test]
 #[cfg_attr(not(feature = "generator_unions-inside-arrays"), ignore)]
 fn unions_inside_arrays() -> Result<()> {
-    run_pulumi_generator_test("unions-inside-arrays", None)
+    run_pulumi_generator_test("unions-inside-arrays", "unions-inside-arrays", None)
 }
 
 #[test]
 #[cfg_attr(not(feature = "generator_workarounds"), ignore)]
 fn workarounds() -> Result<()> {
-    run_pulumi_generator_test("workarounds", None)
+    run_pulumi_generator_test("workarounds", "workarounds", None)
 }
 
 #[test]
@@ -910,28 +918,34 @@ fn azure_workloadssap() -> Result<()> {
 }
 
 #[test]
-#[cfg_attr(not(feature = "generator_filtering-ns1"), ignore)]
-fn filtering_ns1() -> Result<()> {
-    run_pulumi_generator_test("filtering", Some("ns1"))
+#[cfg_attr(not(feature = "generator_filtering-0"), ignore)]
+fn filtering_0() -> Result<()> {
+    run_pulumi_generator_test("filtering", "filtering-0", Some(&["ns1"]))
 }
 
 #[test]
-#[cfg_attr(not(feature = "generator_filtering-ns2"), ignore)]
-fn filtering_ns2() -> Result<()> {
-    run_pulumi_generator_test("filtering", Some("ns2"))
+#[cfg_attr(not(feature = "generator_filtering-1"), ignore)]
+fn filtering_1() -> Result<()> {
+    run_pulumi_generator_test("filtering", "filtering-1", Some(&["ns2"]))
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_filtering-2"), ignore)]
+fn filtering_2() -> Result<()> {
+    run_pulumi_generator_test("filtering", "filtering-2", Some(&["ns1", "ns2"]))
 }
 // DO NOT EDIT - END
 
 // provider_name is `name` from yaml file
-pub fn run_pulumi_generator_test(test_name: &str, filter: Option<&str>) -> Result<()> {
-    let directory_name = match filter {
-        Some(filter) => format!("{test_name}-{filter}"),
-        None => test_name.to_string(),
-    };
+pub fn run_pulumi_generator_test(
+    schema_name: &str,
+    directory_name: &str,
+    modules: Option<&[&str]>,
+) -> Result<()> {
     let root_path = format!("tests/output/{directory_name}");
     let root = Path::new(&root_path);
 
-    let schema = find_schema_files(test_name);
+    let schema = find_schema_files(schema_name);
     fs::create_dir_all(root)?;
 
     create_symlink(&schema, &root.join(schema.file_name().unwrap()))?;
@@ -939,7 +953,7 @@ pub fn run_pulumi_generator_test(test_name: &str, filter: Option<&str>) -> Resul
     generate_combined(
         schema.as_path(),
         &root.join("src").join("generated"),
-        filter,
+        modules,
     )?;
 
     let times = FileTimes::new().set_modified(SystemTime::UNIX_EPOCH);
@@ -953,6 +967,13 @@ pub fn run_pulumi_generator_test(test_name: &str, filter: Option<&str>) -> Resul
     fs::create_dir_all(root.join("src"))?;
     fs::write(&lib_rs, "include!(\"generated/main.rs\");")?;
     fs::copy("../rust-toolchain.toml", root.join("rust-toolchain.toml"))?;
+
+    if let Some(env) = std::env::var_os("DO_NOT_COMPILE") {
+        if env == "true" {
+            return Ok(());
+        }
+    }
+
     File::options()
         .write(true)
         .open(lib_rs)
