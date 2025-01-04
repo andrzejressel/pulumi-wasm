@@ -18,7 +18,11 @@ fn array_of_enum_map() -> Result<()> {
 #[test]
 #[cfg_attr(not(feature = "generator_azure-native-nested-types"), ignore)]
 fn azure_native_nested_types() -> Result<()> {
-    run_pulumi_generator_test("azure-native-nested-types", "azure-native-nested-types", None)
+    run_pulumi_generator_test(
+        "azure-native-nested-types",
+        "azure-native-nested-types",
+        None,
+    )
 }
 
 #[test]
@@ -90,7 +94,11 @@ fn plain_object_defaults() -> Result<()> {
 #[test]
 #[cfg_attr(not(feature = "generator_plain-object-disable-defaults"), ignore)]
 fn plain_object_disable_defaults() -> Result<()> {
-    run_pulumi_generator_test("plain-object-disable-defaults", "plain-object-disable-defaults", None)
+    run_pulumi_generator_test(
+        "plain-object-disable-defaults",
+        "plain-object-disable-defaults",
+        None,
+    )
 }
 
 #[test]
@@ -126,79 +134,274 @@ fn workarounds() -> Result<()> {
 #[test]
 #[cfg_attr(not(feature = "generator_azure-0"), ignore)]
 fn azure_0() -> Result<()> {
-    run_pulumi_generator_test("azure", "azure-0", Some(&["aadb2c","advisor","analysisservices","apimanagement","appconfiguration","appinsights","appplatform","appservice","arc","arckubernetes"]))
+    run_pulumi_generator_test(
+        "azure",
+        "azure-0",
+        Some(&[
+            "aadb2c",
+            "advisor",
+            "analysisservices",
+            "apimanagement",
+            "appconfiguration",
+            "appinsights",
+            "appplatform",
+            "appservice",
+            "arc",
+            "arckubernetes",
+        ]),
+    )
 }
 
 #[test]
 #[cfg_attr(not(feature = "generator_azure-1"), ignore)]
 fn azure_1() -> Result<()> {
-    run_pulumi_generator_test("azure", "azure-1", Some(&["arcmachine","armmsi","attestation","authorization","automanage","automation","avs","backup","batch","billing"]))
+    run_pulumi_generator_test(
+        "azure",
+        "azure-1",
+        Some(&[
+            "arcmachine",
+            "armmsi",
+            "attestation",
+            "authorization",
+            "automanage",
+            "automation",
+            "avs",
+            "backup",
+            "batch",
+            "billing",
+        ]),
+    )
 }
 
 #[test]
 #[cfg_attr(not(feature = "generator_azure-2"), ignore)]
 fn azure_2() -> Result<()> {
-    run_pulumi_generator_test("azure", "azure-2", Some(&["blueprint","bot","cdn","chaosstudio","cognitive","communication","compute","confidentialledger","connections","consumption"]))
+    run_pulumi_generator_test(
+        "azure",
+        "azure-2",
+        Some(&[
+            "blueprint",
+            "bot",
+            "cdn",
+            "chaosstudio",
+            "cognitive",
+            "communication",
+            "compute",
+            "confidentialledger",
+            "connections",
+            "consumption",
+        ]),
+    )
 }
 
 #[test]
 #[cfg_attr(not(feature = "generator_azure-3"), ignore)]
 fn azure_3() -> Result<()> {
-    run_pulumi_generator_test("azure", "azure-3", Some(&["containerapp","containerservice","core","cosmosdb","costmanagement","customip","dashboard","databasemigration","databoxedge","databricks"]))
+    run_pulumi_generator_test(
+        "azure",
+        "azure-3",
+        Some(&[
+            "containerapp",
+            "containerservice",
+            "core",
+            "cosmosdb",
+            "costmanagement",
+            "customip",
+            "dashboard",
+            "databasemigration",
+            "databoxedge",
+            "databricks",
+        ]),
+    )
 }
 
 #[test]
 #[cfg_attr(not(feature = "generator_azure-4"), ignore)]
 fn azure_4() -> Result<()> {
-    run_pulumi_generator_test("azure", "azure-4", Some(&["datadog","datafactory","dataprotection","datashare","desktopvirtualization","devcenter","devtest","digitaltwins","dns","domainservices"]))
+    run_pulumi_generator_test(
+        "azure",
+        "azure-4",
+        Some(&[
+            "datadog",
+            "datafactory",
+            "dataprotection",
+            "datashare",
+            "desktopvirtualization",
+            "devcenter",
+            "devtest",
+            "digitaltwins",
+            "dns",
+            "domainservices",
+        ]),
+    )
 }
 
 #[test]
 #[cfg_attr(not(feature = "generator_azure-5"), ignore)]
 fn azure_5() -> Result<()> {
-    run_pulumi_generator_test("azure", "azure-5", Some(&["dynatrace","elasticcloud","elasticsan","eventgrid","eventhub","expressroute","extendedlocation","fluidrelay","frontdoor","graph"]))
+    run_pulumi_generator_test(
+        "azure",
+        "azure-5",
+        Some(&[
+            "dynatrace",
+            "elasticcloud",
+            "elasticsan",
+            "eventgrid",
+            "eventhub",
+            "expressroute",
+            "extendedlocation",
+            "fluidrelay",
+            "frontdoor",
+            "graph",
+        ]),
+    )
 }
 
 #[test]
 #[cfg_attr(not(feature = "generator_azure-6"), ignore)]
 fn azure_6() -> Result<()> {
-    run_pulumi_generator_test("azure", "azure-6", Some(&["hdinsight","healthcare","hpc","hsm","iot","iotcentral","keyvault","kusto","lb","lighthouse"]))
+    run_pulumi_generator_test(
+        "azure",
+        "azure-6",
+        Some(&[
+            "hdinsight",
+            "healthcare",
+            "hpc",
+            "hsm",
+            "iot",
+            "iotcentral",
+            "keyvault",
+            "kusto",
+            "lb",
+            "lighthouse",
+        ]),
+    )
 }
 
 #[test]
 #[cfg_attr(not(feature = "generator_azure-7"), ignore)]
 fn azure_7() -> Result<()> {
-    run_pulumi_generator_test("azure", "azure-7", Some(&["loadtest","loganalytics","logicapps","machinelearning","maintenance","managedapplication","managedlustre","management","managementgroups","managementresource"]))
+    run_pulumi_generator_test(
+        "azure",
+        "azure-7",
+        Some(&[
+            "loadtest",
+            "loganalytics",
+            "logicapps",
+            "machinelearning",
+            "maintenance",
+            "managedapplication",
+            "managedlustre",
+            "management",
+            "managementgroups",
+            "managementresource",
+        ]),
+    )
 }
 
 #[test]
 #[cfg_attr(not(feature = "generator_azure-8"), ignore)]
 fn azure_8() -> Result<()> {
-    run_pulumi_generator_test("azure", "azure-8", Some(&["maps","marketplace","mixedreality","mobile","monitoring","msi","mssql","mysql","netapp","network"]))
+    run_pulumi_generator_test(
+        "azure",
+        "azure-8",
+        Some(&[
+            "maps",
+            "marketplace",
+            "mixedreality",
+            "mobile",
+            "monitoring",
+            "msi",
+            "mssql",
+            "mysql",
+            "netapp",
+            "network",
+        ]),
+    )
 }
 
 #[test]
 #[cfg_attr(not(feature = "generator_azure-9"), ignore)]
 fn azure_9() -> Result<()> {
-    run_pulumi_generator_test("azure", "azure-9", Some(&["networkfunction","newrelic","nginx","notificationhub","operationalinsights","oracle","orbital","paloalto","pim","policy"]))
+    run_pulumi_generator_test(
+        "azure",
+        "azure-9",
+        Some(&[
+            "networkfunction",
+            "newrelic",
+            "nginx",
+            "notificationhub",
+            "operationalinsights",
+            "oracle",
+            "orbital",
+            "paloalto",
+            "pim",
+            "policy",
+        ]),
+    )
 }
 
 #[test]
 #[cfg_attr(not(feature = "generator_azure-10"), ignore)]
 fn azure_10() -> Result<()> {
-    run_pulumi_generator_test("azure", "azure-10", Some(&["portal","postgresql","powerbi","privatedns","privatelink","proximity","purview","recoveryservices","redhatopenshift","redis"]))
+    run_pulumi_generator_test(
+        "azure",
+        "azure-10",
+        Some(&[
+            "portal",
+            "postgresql",
+            "powerbi",
+            "privatedns",
+            "privatelink",
+            "proximity",
+            "purview",
+            "recoveryservices",
+            "redhatopenshift",
+            "redis",
+        ]),
+    )
 }
 
 #[test]
 #[cfg_attr(not(feature = "generator_azure-11"), ignore)]
 fn azure_11() -> Result<()> {
-    run_pulumi_generator_test("azure", "azure-11", Some(&["relay","role","search","securitycenter","sentinel","servicebus","servicefabric","signalr","siterecovery","stack"]))
+    run_pulumi_generator_test(
+        "azure",
+        "azure-11",
+        Some(&[
+            "relay",
+            "role",
+            "search",
+            "securitycenter",
+            "sentinel",
+            "servicebus",
+            "servicefabric",
+            "signalr",
+            "siterecovery",
+            "stack",
+        ]),
+    )
 }
 
 #[test]
 #[cfg_attr(not(feature = "generator_azure-12"), ignore)]
 fn azure_12() -> Result<()> {
-    run_pulumi_generator_test("azure", "azure-12", Some(&["storage","streamanalytics","synapse","systemcenter","trafficmanager","trustedsigning","videoindexer","voice","waf","webpubsub"]))
+    run_pulumi_generator_test(
+        "azure",
+        "azure-12",
+        Some(&[
+            "storage",
+            "streamanalytics",
+            "synapse",
+            "systemcenter",
+            "trafficmanager",
+            "trustedsigning",
+            "videoindexer",
+            "voice",
+            "waf",
+            "webpubsub",
+        ]),
+    )
 }
 
 #[test]
@@ -222,7 +425,7 @@ fn filtering_1() -> Result<()> {
 #[test]
 #[cfg_attr(not(feature = "generator_filtering-2"), ignore)]
 fn filtering_2() -> Result<()> {
-    run_pulumi_generator_test("filtering", "filtering-2", Some(&["ns1","ns2"]))
+    run_pulumi_generator_test("filtering", "filtering-2", Some(&["ns1", "ns2"]))
 }
 // DO NOT EDIT - END
 
