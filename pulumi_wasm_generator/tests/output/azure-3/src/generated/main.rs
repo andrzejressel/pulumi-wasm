@@ -1,0 +1,739 @@
+pub mod containerapp {
+    include!("resources/containerapp/app.rs");
+    include!("resources/containerapp/custom_domain.rs");
+    include!("resources/containerapp/environment.rs");
+    include!("resources/containerapp/environment_certificate.rs");
+    include!("resources/containerapp/environment_custom_domain.rs");
+    include!("resources/containerapp/environment_dapr_component.rs");
+    include!("resources/containerapp/environment_storage.rs");
+    include!("resources/containerapp/job.rs");
+}
+pub mod containerservice {
+    include!("resources/containerservice/cluster_trusted_access_role_binding.rs");
+    include!("resources/containerservice/connected_registry.rs");
+    include!("resources/containerservice/fleet_member.rs");
+    include!("resources/containerservice/fleet_update_run.rs");
+    include!("resources/containerservice/fleet_update_strategy.rs");
+    include!("resources/containerservice/flux_configuration.rs");
+    include!("resources/containerservice/group.rs");
+    include!("resources/containerservice/kubernetes_cluster.rs");
+    include!("resources/containerservice/kubernetes_cluster_extension.rs");
+    include!("resources/containerservice/kubernetes_cluster_node_pool.rs");
+    include!("resources/containerservice/kubernetes_fleet_manager.rs");
+    include!("resources/containerservice/registry.rs");
+    include!("resources/containerservice/registry_agent_pool.rs");
+    include!("resources/containerservice/registry_cache_rule.rs");
+    include!("resources/containerservice/registry_scope_map.rs");
+    include!("resources/containerservice/registry_task.rs");
+    include!("resources/containerservice/registry_task_schedule_run_now.rs");
+    include!("resources/containerservice/registry_token.rs");
+    include!("resources/containerservice/registry_webhook.rs");
+    include!("resources/containerservice/registry_webook.rs");
+    include!("resources/containerservice/token_password.rs");
+}
+pub mod core {
+    include!("resources/core/custom_provider.rs");
+    include!("resources/core/portal_tenant_configuration.rs");
+    include!("resources/core/resource_deployment_script_azure_cli.rs");
+    include!("resources/core/resource_deployment_script_power_shell.rs");
+    include!("resources/core/resource_group.rs");
+    include!("resources/core/resource_group_cost_management_export.rs");
+    include!("resources/core/resource_group_cost_management_view.rs");
+    include!("resources/core/resource_group_policy_assignment.rs");
+    include!("resources/core/resource_group_policy_exemption.rs");
+    include!("resources/core/resource_group_policy_remediation.rs");
+    include!("resources/core/resource_group_template_deployment.rs");
+    include!("resources/core/resource_policy_assignment.rs");
+    include!("resources/core/resource_policy_exemption.rs");
+    include!("resources/core/resource_policy_remediation.rs");
+    include!("resources/core/resource_provider_registration.rs");
+    include!("resources/core/subscription.rs");
+    include!("resources/core/subscription_cost_management_export.rs");
+    include!("resources/core/subscription_cost_management_view.rs");
+    include!("resources/core/subscription_policy_assignment.rs");
+    include!("resources/core/subscription_policy_exemption.rs");
+    include!("resources/core/subscription_policy_remediation.rs");
+    include!("resources/core/subscription_template_deployment.rs");
+    include!("resources/core/tenant_template_deployment.rs");
+}
+pub mod cosmosdb {
+    include!("resources/cosmosdb/account.rs");
+    include!("resources/cosmosdb/cassandra_cluster.rs");
+    include!("resources/cosmosdb/cassandra_datacenter.rs");
+    include!("resources/cosmosdb/cassandra_keyspace.rs");
+    include!("resources/cosmosdb/cassandra_table.rs");
+    include!("resources/cosmosdb/gremlin_database.rs");
+    include!("resources/cosmosdb/gremlin_graph.rs");
+    include!("resources/cosmosdb/mongo_cluster.rs");
+    include!("resources/cosmosdb/mongo_collection.rs");
+    include!("resources/cosmosdb/mongo_database.rs");
+    include!("resources/cosmosdb/mongo_role_definition.rs");
+    include!("resources/cosmosdb/mongo_user_definition.rs");
+    include!("resources/cosmosdb/postgresql_cluster.rs");
+    include!("resources/cosmosdb/postgresql_coordinator_configuration.rs");
+    include!("resources/cosmosdb/postgresql_firewall_rule.rs");
+    include!("resources/cosmosdb/postgresql_node_configuration.rs");
+    include!("resources/cosmosdb/postgresql_role.rs");
+    include!("resources/cosmosdb/sql_container.rs");
+    include!("resources/cosmosdb/sql_database.rs");
+    include!("resources/cosmosdb/sql_dedicated_gateway.rs");
+    include!("resources/cosmosdb/sql_function.rs");
+    include!("resources/cosmosdb/sql_role_assignment.rs");
+    include!("resources/cosmosdb/sql_role_definition.rs");
+    include!("resources/cosmosdb/sql_stored_procedure.rs");
+    include!("resources/cosmosdb/sql_trigger.rs");
+    include!("resources/cosmosdb/table.rs");
+}
+pub mod costmanagement {
+    include!("resources/costmanagement/anomaly_alert.rs");
+    include!("resources/costmanagement/scheduled_action.rs");
+}
+pub mod customip {
+    include!("resources/customip/prefix.rs");
+}
+pub mod dashboard {
+    include!("resources/dashboard/grafana.rs");
+    include!("resources/dashboard/grafana_managed_private_endpoint.rs");
+}
+pub mod databasemigration {
+    include!("resources/databasemigration/project.rs");
+    include!("resources/databasemigration/service.rs");
+}
+pub mod databoxedge {
+    include!("resources/databoxedge/device.rs");
+}
+pub mod databricks {
+    include!("resources/databricks/access_connector.rs");
+    include!("resources/databricks/virtual_network_peering.rs");
+    include!("resources/databricks/workspace.rs");
+    include!("resources/databricks/workspace_customer_managed_key.rs");
+    include!("resources/databricks/workspace_root_dbfs_customer_managed_key.rs");
+}
+pub mod functions {
+    pub mod containerapp {
+        include!("functions/containerapp/get_app.rs");
+        include!("functions/containerapp/get_environment.rs");
+        include!("functions/containerapp/get_environment_certificate.rs");
+    }
+    pub mod containerservice {
+        include!("functions/containerservice/get_cluster_node_pool.rs");
+        include!("functions/containerservice/get_group.rs");
+        include!("functions/containerservice/get_kubernetes_cluster.rs");
+        include!("functions/containerservice/get_kubernetes_node_pool_snapshot.rs");
+        include!("functions/containerservice/get_kubernetes_service_versions.rs");
+        include!("functions/containerservice/get_registry.rs");
+        include!("functions/containerservice/get_registry_cache_rule.rs");
+        include!("functions/containerservice/get_registry_scope_map.rs");
+        include!("functions/containerservice/get_registry_token.rs");
+    }
+    pub mod core {
+        include!("functions/core/get_client_config.rs");
+        include!("functions/core/get_extended_locations.rs");
+        include!("functions/core/get_location.rs");
+        include!("functions/core/get_resource_group.rs");
+        include!("functions/core/get_resource_group_template_deployment.rs");
+        include!("functions/core/get_resources.rs");
+        include!("functions/core/get_subscription.rs");
+        include!("functions/core/get_subscription_template_deployment.rs");
+        include!("functions/core/get_subscriptions.rs");
+        include!("functions/core/get_template_spec_version.rs");
+        include!("functions/core/get_tenant_template_deployment.rs");
+        include!("functions/core/get_user_assigned_identity.rs");
+    }
+    pub mod cosmosdb {
+        include!("functions/cosmosdb/get_account.rs");
+        include!("functions/cosmosdb/get_mongo_database.rs");
+        include!("functions/cosmosdb/get_restorable_database_accounts.rs");
+        include!("functions/cosmosdb/get_sql_database.rs");
+        include!("functions/cosmosdb/get_sql_role_definition.rs");
+    }
+    pub mod dashboard {
+        include!("functions/dashboard/azurerm_portal_dashboard.rs");
+        include!("functions/dashboard/get_grafana.rs");
+    }
+    pub mod databasemigration {
+        include!("functions/databasemigration/get_project.rs");
+        include!("functions/databasemigration/get_service.rs");
+    }
+    pub mod databoxedge {
+        include!("functions/databoxedge/get_device.rs");
+    }
+    pub mod databricks {
+        include!("functions/databricks/get_access_connector.rs");
+        include!("functions/databricks/get_workspace.rs");
+        include!("functions/databricks/get_workspace_private_endpoint_connection.rs");
+    }
+}
+pub mod types {
+    pub mod containerapp {
+        include!("types/containerapp/app_dapr.rs");
+        include!("types/containerapp/app_identity.rs");
+        include!("types/containerapp/app_ingress.rs");
+        include!("types/containerapp/app_ingress_custom_domain.rs");
+        include!("types/containerapp/app_ingress_ip_security_restriction.rs");
+        include!("types/containerapp/app_ingress_traffic_weight.rs");
+        include!("types/containerapp/app_registry.rs");
+        include!("types/containerapp/app_secret.rs");
+        include!("types/containerapp/app_template.rs");
+        include!("types/containerapp/app_template_azure_queue_scale_rule.rs");
+        include!(
+            "types/containerapp/app_template_azure_queue_scale_rule_authentication.rs"
+        );
+        include!("types/containerapp/app_template_container.rs");
+        include!("types/containerapp/app_template_container_env.rs");
+        include!("types/containerapp/app_template_container_liveness_probe.rs");
+        include!("types/containerapp/app_template_container_liveness_probe_header.rs");
+        include!("types/containerapp/app_template_container_readiness_probe.rs");
+        include!("types/containerapp/app_template_container_readiness_probe_header.rs");
+        include!("types/containerapp/app_template_container_startup_probe.rs");
+        include!("types/containerapp/app_template_container_startup_probe_header.rs");
+        include!("types/containerapp/app_template_container_volume_mount.rs");
+        include!("types/containerapp/app_template_custom_scale_rule.rs");
+        include!("types/containerapp/app_template_custom_scale_rule_authentication.rs");
+        include!("types/containerapp/app_template_http_scale_rule.rs");
+        include!("types/containerapp/app_template_http_scale_rule_authentication.rs");
+        include!("types/containerapp/app_template_init_container.rs");
+        include!("types/containerapp/app_template_init_container_env.rs");
+        include!("types/containerapp/app_template_init_container_volume_mount.rs");
+        include!("types/containerapp/app_template_tcp_scale_rule.rs");
+        include!("types/containerapp/app_template_tcp_scale_rule_authentication.rs");
+        include!("types/containerapp/app_template_volume.rs");
+        include!("types/containerapp/environment_dapr_component_metadata.rs");
+        include!("types/containerapp/environment_dapr_component_secret.rs");
+        include!("types/containerapp/environment_workload_profile.rs");
+        include!("types/containerapp/job_event_trigger_config.rs");
+        include!("types/containerapp/job_event_trigger_config_scale.rs");
+        include!("types/containerapp/job_event_trigger_config_scale_rule.rs");
+        include!(
+            "types/containerapp/job_event_trigger_config_scale_rule_authentication.rs"
+        );
+        include!("types/containerapp/job_identity.rs");
+        include!("types/containerapp/job_manual_trigger_config.rs");
+        include!("types/containerapp/job_registry.rs");
+        include!("types/containerapp/job_schedule_trigger_config.rs");
+        include!("types/containerapp/job_secret.rs");
+        include!("types/containerapp/job_template.rs");
+        include!("types/containerapp/job_template_container.rs");
+        include!("types/containerapp/job_template_container_env.rs");
+        include!("types/containerapp/job_template_container_liveness_probe.rs");
+        include!("types/containerapp/job_template_container_liveness_probe_header.rs");
+        include!("types/containerapp/job_template_container_readiness_probe.rs");
+        include!("types/containerapp/job_template_container_readiness_probe_header.rs");
+        include!("types/containerapp/job_template_container_startup_probe.rs");
+        include!("types/containerapp/job_template_container_startup_probe_header.rs");
+        include!("types/containerapp/job_template_container_volume_mount.rs");
+        include!("types/containerapp/job_template_init_container.rs");
+        include!("types/containerapp/job_template_init_container_env.rs");
+        include!("types/containerapp/job_template_init_container_volume_mount.rs");
+        include!("types/containerapp/job_template_volume.rs");
+        include!("types/containerapp/get_app_dapr.rs");
+        include!("types/containerapp/get_app_identity.rs");
+        include!("types/containerapp/get_app_ingress.rs");
+        include!("types/containerapp/get_app_ingress_custom_domain.rs");
+        include!("types/containerapp/get_app_ingress_ip_security_restriction.rs");
+        include!("types/containerapp/get_app_ingress_traffic_weight.rs");
+        include!("types/containerapp/get_app_registry.rs");
+        include!("types/containerapp/get_app_secret.rs");
+        include!("types/containerapp/get_app_template.rs");
+        include!("types/containerapp/get_app_template_azure_queue_scale_rule.rs");
+        include!(
+            "types/containerapp/get_app_template_azure_queue_scale_rule_authentication.rs"
+        );
+        include!("types/containerapp/get_app_template_container.rs");
+        include!("types/containerapp/get_app_template_container_env.rs");
+        include!("types/containerapp/get_app_template_container_liveness_probe.rs");
+        include!(
+            "types/containerapp/get_app_template_container_liveness_probe_header.rs"
+        );
+        include!("types/containerapp/get_app_template_container_readiness_probe.rs");
+        include!(
+            "types/containerapp/get_app_template_container_readiness_probe_header.rs"
+        );
+        include!("types/containerapp/get_app_template_container_startup_probe.rs");
+        include!(
+            "types/containerapp/get_app_template_container_startup_probe_header.rs"
+        );
+        include!("types/containerapp/get_app_template_container_volume_mount.rs");
+        include!("types/containerapp/get_app_template_custom_scale_rule.rs");
+        include!(
+            "types/containerapp/get_app_template_custom_scale_rule_authentication.rs"
+        );
+        include!("types/containerapp/get_app_template_http_scale_rule.rs");
+        include!(
+            "types/containerapp/get_app_template_http_scale_rule_authentication.rs"
+        );
+        include!("types/containerapp/get_app_template_init_container.rs");
+        include!("types/containerapp/get_app_template_init_container_env.rs");
+        include!("types/containerapp/get_app_template_init_container_volume_mount.rs");
+        include!("types/containerapp/get_app_template_tcp_scale_rule.rs");
+        include!("types/containerapp/get_app_template_tcp_scale_rule_authentication.rs");
+        include!("types/containerapp/get_app_template_volume.rs");
+    }
+    pub mod containerservice {
+        include!("types/containerservice/connected_registry_notification.rs");
+        include!("types/containerservice/fleet_update_run_managed_cluster_update.rs");
+        include!(
+            "types/containerservice/fleet_update_run_managed_cluster_update_node_image_selection.rs"
+        );
+        include!(
+            "types/containerservice/fleet_update_run_managed_cluster_update_upgrade.rs"
+        );
+        include!("types/containerservice/fleet_update_run_stage.rs");
+        include!("types/containerservice/fleet_update_run_stage_group.rs");
+        include!("types/containerservice/fleet_update_strategy_stage.rs");
+        include!("types/containerservice/fleet_update_strategy_stage_group.rs");
+        include!("types/containerservice/flux_configuration_blob_storage.rs");
+        include!(
+            "types/containerservice/flux_configuration_blob_storage_managed_identity.rs"
+        );
+        include!(
+            "types/containerservice/flux_configuration_blob_storage_service_principal.rs"
+        );
+        include!("types/containerservice/flux_configuration_bucket.rs");
+        include!("types/containerservice/flux_configuration_git_repository.rs");
+        include!("types/containerservice/flux_configuration_kustomization.rs");
+        include!("types/containerservice/group_container.rs");
+        include!("types/containerservice/group_container_liveness_probe.rs");
+        include!("types/containerservice/group_container_liveness_probe_http_get.rs");
+        include!("types/containerservice/group_container_port.rs");
+        include!("types/containerservice/group_container_readiness_probe.rs");
+        include!("types/containerservice/group_container_readiness_probe_http_get.rs");
+        include!("types/containerservice/group_container_security.rs");
+        include!("types/containerservice/group_container_volume.rs");
+        include!("types/containerservice/group_container_volume_git_repo.rs");
+        include!("types/containerservice/group_diagnostics.rs");
+        include!("types/containerservice/group_diagnostics_log_analytics.rs");
+        include!("types/containerservice/group_dns_config.rs");
+        include!("types/containerservice/group_exposed_port.rs");
+        include!("types/containerservice/group_identity.rs");
+        include!("types/containerservice/group_image_registry_credential.rs");
+        include!("types/containerservice/group_init_container.rs");
+        include!("types/containerservice/group_init_container_security.rs");
+        include!("types/containerservice/group_init_container_volume.rs");
+        include!("types/containerservice/group_init_container_volume_git_repo.rs");
+        include!("types/containerservice/kubernetes_cluster_aci_connector_linux.rs");
+        include!(
+            "types/containerservice/kubernetes_cluster_aci_connector_linux_connector_identity.rs"
+        );
+        include!(
+            "types/containerservice/kubernetes_cluster_api_server_access_profile.rs"
+        );
+        include!("types/containerservice/kubernetes_cluster_auto_scaler_profile.rs");
+        include!(
+            "types/containerservice/kubernetes_cluster_azure_active_directory_role_based_access_control.rs"
+        );
+        include!("types/containerservice/kubernetes_cluster_confidential_computing.rs");
+        include!("types/containerservice/kubernetes_cluster_default_node_pool.rs");
+        include!(
+            "types/containerservice/kubernetes_cluster_default_node_pool_kubelet_config.rs"
+        );
+        include!(
+            "types/containerservice/kubernetes_cluster_default_node_pool_linux_os_config.rs"
+        );
+        include!(
+            "types/containerservice/kubernetes_cluster_default_node_pool_linux_os_config_sysctl_config.rs"
+        );
+        include!(
+            "types/containerservice/kubernetes_cluster_default_node_pool_node_network_profile.rs"
+        );
+        include!(
+            "types/containerservice/kubernetes_cluster_default_node_pool_node_network_profile_allowed_host_port.rs"
+        );
+        include!(
+            "types/containerservice/kubernetes_cluster_default_node_pool_upgrade_settings.rs"
+        );
+        include!(
+            "types/containerservice/kubernetes_cluster_extension_aks_assigned_identity.rs"
+        );
+        include!("types/containerservice/kubernetes_cluster_extension_plan.rs");
+        include!("types/containerservice/kubernetes_cluster_http_proxy_config.rs");
+        include!("types/containerservice/kubernetes_cluster_identity.rs");
+        include!(
+            "types/containerservice/kubernetes_cluster_ingress_application_gateway.rs"
+        );
+        include!(
+            "types/containerservice/kubernetes_cluster_ingress_application_gateway_ingress_application_gateway_identity.rs"
+        );
+        include!("types/containerservice/kubernetes_cluster_key_management_service.rs");
+        include!(
+            "types/containerservice/kubernetes_cluster_key_vault_secrets_provider.rs"
+        );
+        include!(
+            "types/containerservice/kubernetes_cluster_key_vault_secrets_provider_secret_identity.rs"
+        );
+        include!("types/containerservice/kubernetes_cluster_kube_admin_config.rs");
+        include!("types/containerservice/kubernetes_cluster_kube_config.rs");
+        include!("types/containerservice/kubernetes_cluster_kubelet_identity.rs");
+        include!("types/containerservice/kubernetes_cluster_linux_profile.rs");
+        include!("types/containerservice/kubernetes_cluster_linux_profile_ssh_key.rs");
+        include!("types/containerservice/kubernetes_cluster_maintenance_window.rs");
+        include!(
+            "types/containerservice/kubernetes_cluster_maintenance_window_allowed.rs"
+        );
+        include!(
+            "types/containerservice/kubernetes_cluster_maintenance_window_auto_upgrade.rs"
+        );
+        include!(
+            "types/containerservice/kubernetes_cluster_maintenance_window_auto_upgrade_not_allowed.rs"
+        );
+        include!(
+            "types/containerservice/kubernetes_cluster_maintenance_window_node_os.rs"
+        );
+        include!(
+            "types/containerservice/kubernetes_cluster_maintenance_window_node_os_not_allowed.rs"
+        );
+        include!(
+            "types/containerservice/kubernetes_cluster_maintenance_window_not_allowed.rs"
+        );
+        include!("types/containerservice/kubernetes_cluster_microsoft_defender.rs");
+        include!("types/containerservice/kubernetes_cluster_monitor_metrics.rs");
+        include!("types/containerservice/kubernetes_cluster_network_profile.rs");
+        include!(
+            "types/containerservice/kubernetes_cluster_network_profile_load_balancer_profile.rs"
+        );
+        include!(
+            "types/containerservice/kubernetes_cluster_network_profile_nat_gateway_profile.rs"
+        );
+        include!(
+            "types/containerservice/kubernetes_cluster_node_pool_kubelet_config.rs"
+        );
+        include!(
+            "types/containerservice/kubernetes_cluster_node_pool_linux_os_config.rs"
+        );
+        include!(
+            "types/containerservice/kubernetes_cluster_node_pool_linux_os_config_sysctl_config.rs"
+        );
+        include!(
+            "types/containerservice/kubernetes_cluster_node_pool_node_network_profile.rs"
+        );
+        include!(
+            "types/containerservice/kubernetes_cluster_node_pool_node_network_profile_allowed_host_port.rs"
+        );
+        include!(
+            "types/containerservice/kubernetes_cluster_node_pool_upgrade_settings.rs"
+        );
+        include!(
+            "types/containerservice/kubernetes_cluster_node_pool_windows_profile.rs"
+        );
+        include!("types/containerservice/kubernetes_cluster_oms_agent.rs");
+        include!(
+            "types/containerservice/kubernetes_cluster_oms_agent_oms_agent_identity.rs"
+        );
+        include!("types/containerservice/kubernetes_cluster_service_mesh_profile.rs");
+        include!(
+            "types/containerservice/kubernetes_cluster_service_mesh_profile_certificate_authority.rs"
+        );
+        include!("types/containerservice/kubernetes_cluster_service_principal.rs");
+        include!("types/containerservice/kubernetes_cluster_storage_profile.rs");
+        include!("types/containerservice/kubernetes_cluster_web_app_routing.rs");
+        include!(
+            "types/containerservice/kubernetes_cluster_web_app_routing_web_app_routing_identity.rs"
+        );
+        include!("types/containerservice/kubernetes_cluster_windows_profile.rs");
+        include!("types/containerservice/kubernetes_cluster_windows_profile_gmsa.rs");
+        include!(
+            "types/containerservice/kubernetes_cluster_workload_autoscaler_profile.rs"
+        );
+        include!("types/containerservice/kubernetes_fleet_manager_hub_profile.rs");
+        include!("types/containerservice/registry_encryption.rs");
+        include!("types/containerservice/registry_georeplication.rs");
+        include!("types/containerservice/registry_identity.rs");
+        include!("types/containerservice/registry_network_rule_set.rs");
+        include!("types/containerservice/registry_network_rule_set_ip_rule.rs");
+        include!("types/containerservice/registry_task_agent_setting.rs");
+        include!("types/containerservice/registry_task_base_image_trigger.rs");
+        include!("types/containerservice/registry_task_docker_step.rs");
+        include!("types/containerservice/registry_task_encoded_step.rs");
+        include!("types/containerservice/registry_task_file_step.rs");
+        include!("types/containerservice/registry_task_identity.rs");
+        include!("types/containerservice/registry_task_platform.rs");
+        include!("types/containerservice/registry_task_registry_credential.rs");
+        include!("types/containerservice/registry_task_registry_credential_custom.rs");
+        include!("types/containerservice/registry_task_registry_credential_source.rs");
+        include!("types/containerservice/registry_task_source_trigger.rs");
+        include!(
+            "types/containerservice/registry_task_source_trigger_authentication.rs"
+        );
+        include!("types/containerservice/registry_task_timer_trigger.rs");
+        include!("types/containerservice/token_password_password_1.rs");
+        include!("types/containerservice/token_password_password_2.rs");
+        include!("types/containerservice/get_cluster_node_pool_upgrade_setting.rs");
+        include!("types/containerservice/get_group_identity.rs");
+        include!("types/containerservice/get_kubernetes_cluster_aci_connector_linux.rs");
+        include!("types/containerservice/get_kubernetes_cluster_agent_pool_profile.rs");
+        include!(
+            "types/containerservice/get_kubernetes_cluster_agent_pool_profile_upgrade_setting.rs"
+        );
+        include!(
+            "types/containerservice/get_kubernetes_cluster_azure_active_directory_role_based_access_control.rs"
+        );
+        include!("types/containerservice/get_kubernetes_cluster_identity.rs");
+        include!(
+            "types/containerservice/get_kubernetes_cluster_ingress_application_gateway.rs"
+        );
+        include!(
+            "types/containerservice/get_kubernetes_cluster_ingress_application_gateway_ingress_application_gateway_identity.rs"
+        );
+        include!(
+            "types/containerservice/get_kubernetes_cluster_key_management_service.rs"
+        );
+        include!(
+            "types/containerservice/get_kubernetes_cluster_key_vault_secrets_provider.rs"
+        );
+        include!(
+            "types/containerservice/get_kubernetes_cluster_key_vault_secrets_provider_secret_identity.rs"
+        );
+        include!("types/containerservice/get_kubernetes_cluster_kube_admin_config.rs");
+        include!("types/containerservice/get_kubernetes_cluster_kube_config.rs");
+        include!("types/containerservice/get_kubernetes_cluster_kubelet_identity.rs");
+        include!("types/containerservice/get_kubernetes_cluster_linux_profile.rs");
+        include!(
+            "types/containerservice/get_kubernetes_cluster_linux_profile_ssh_key.rs"
+        );
+        include!("types/containerservice/get_kubernetes_cluster_microsoft_defender.rs");
+        include!("types/containerservice/get_kubernetes_cluster_network_profile.rs");
+        include!("types/containerservice/get_kubernetes_cluster_oms_agent.rs");
+        include!(
+            "types/containerservice/get_kubernetes_cluster_oms_agent_oms_agent_identity.rs"
+        );
+        include!(
+            "types/containerservice/get_kubernetes_cluster_service_mesh_profile.rs"
+        );
+        include!(
+            "types/containerservice/get_kubernetes_cluster_service_mesh_profile_certificate_authority.rs"
+        );
+        include!("types/containerservice/get_kubernetes_cluster_service_principal.rs");
+        include!("types/containerservice/get_kubernetes_cluster_storage_profile.rs");
+        include!("types/containerservice/get_kubernetes_cluster_windows_profile.rs");
+    }
+    pub mod core {
+        include!("types/core/custom_provider_action.rs");
+        include!("types/core/custom_provider_resource_type.rs");
+        include!("types/core/custom_provider_validation.rs");
+        include!("types/core/resource_deployment_script_azure_cli_container.rs");
+        include!(
+            "types/core/resource_deployment_script_azure_cli_environment_variable.rs"
+        );
+        include!("types/core/resource_deployment_script_azure_cli_identity.rs");
+        include!("types/core/resource_deployment_script_azure_cli_storage_account.rs");
+        include!("types/core/resource_deployment_script_power_shell_container.rs");
+        include!(
+            "types/core/resource_deployment_script_power_shell_environment_variable.rs"
+        );
+        include!("types/core/resource_deployment_script_power_shell_identity.rs");
+        include!("types/core/resource_deployment_script_power_shell_storage_account.rs");
+        include!(
+            "types/core/resource_group_cost_management_export_export_data_options.rs"
+        );
+        include!(
+            "types/core/resource_group_cost_management_export_export_data_storage_location.rs"
+        );
+        include!("types/core/resource_group_cost_management_view_dataset.rs");
+        include!(
+            "types/core/resource_group_cost_management_view_dataset_aggregation.rs"
+        );
+        include!("types/core/resource_group_cost_management_view_dataset_grouping.rs");
+        include!("types/core/resource_group_cost_management_view_dataset_sorting.rs");
+        include!("types/core/resource_group_cost_management_view_kpi.rs");
+        include!("types/core/resource_group_cost_management_view_pivot.rs");
+        include!("types/core/resource_group_policy_assignment_identity.rs");
+        include!(
+            "types/core/resource_group_policy_assignment_non_compliance_message.rs"
+        );
+        include!("types/core/resource_group_policy_assignment_override.rs");
+        include!("types/core/resource_group_policy_assignment_override_selector.rs");
+        include!("types/core/resource_group_policy_assignment_resource_selector.rs");
+        include!(
+            "types/core/resource_group_policy_assignment_resource_selector_selector.rs"
+        );
+        include!("types/core/resource_policy_assignment_identity.rs");
+        include!("types/core/resource_policy_assignment_non_compliance_message.rs");
+        include!("types/core/resource_policy_assignment_override.rs");
+        include!("types/core/resource_policy_assignment_override_selector.rs");
+        include!("types/core/resource_policy_assignment_resource_selector.rs");
+        include!("types/core/resource_policy_assignment_resource_selector_selector.rs");
+        include!("types/core/resource_provider_registration_feature.rs");
+        include!(
+            "types/core/subscription_cost_management_export_export_data_options.rs"
+        );
+        include!(
+            "types/core/subscription_cost_management_export_export_data_storage_location.rs"
+        );
+        include!("types/core/subscription_cost_management_view_dataset.rs");
+        include!("types/core/subscription_cost_management_view_dataset_aggregation.rs");
+        include!("types/core/subscription_cost_management_view_dataset_grouping.rs");
+        include!("types/core/subscription_cost_management_view_dataset_sorting.rs");
+        include!("types/core/subscription_cost_management_view_kpi.rs");
+        include!("types/core/subscription_cost_management_view_pivot.rs");
+        include!("types/core/subscription_policy_assignment_identity.rs");
+        include!("types/core/subscription_policy_assignment_non_compliance_message.rs");
+        include!("types/core/subscription_policy_assignment_override.rs");
+        include!("types/core/subscription_policy_assignment_override_selector.rs");
+        include!("types/core/subscription_policy_assignment_resource_selector.rs");
+        include!(
+            "types/core/subscription_policy_assignment_resource_selector_selector.rs"
+        );
+        include!("types/core/get_location_zone_mapping.rs");
+        include!("types/core/get_resources_resource.rs");
+        include!("types/core/get_subscriptions_subscription.rs");
+    }
+    pub mod cosmosdb {
+        include!("types/cosmosdb/account_analytical_storage.rs");
+        include!("types/cosmosdb/account_backup.rs");
+        include!("types/cosmosdb/account_capability.rs");
+        include!("types/cosmosdb/account_capacity.rs");
+        include!("types/cosmosdb/account_consistency_policy.rs");
+        include!("types/cosmosdb/account_cors_rule.rs");
+        include!("types/cosmosdb/account_geo_location.rs");
+        include!("types/cosmosdb/account_identity.rs");
+        include!("types/cosmosdb/account_restore.rs");
+        include!("types/cosmosdb/account_restore_database.rs");
+        include!("types/cosmosdb/account_restore_gremlin_database.rs");
+        include!("types/cosmosdb/account_virtual_network_rule.rs");
+        include!("types/cosmosdb/cassandra_cluster_identity.rs");
+        include!("types/cosmosdb/cassandra_keyspace_autoscale_settings.rs");
+        include!("types/cosmosdb/cassandra_table_autoscale_settings.rs");
+        include!("types/cosmosdb/cassandra_table_schema.rs");
+        include!("types/cosmosdb/cassandra_table_schema_cluster_key.rs");
+        include!("types/cosmosdb/cassandra_table_schema_column.rs");
+        include!("types/cosmosdb/cassandra_table_schema_partition_key.rs");
+        include!("types/cosmosdb/gremlin_database_autoscale_settings.rs");
+        include!("types/cosmosdb/gremlin_graph_autoscale_settings.rs");
+        include!("types/cosmosdb/gremlin_graph_conflict_resolution_policy.rs");
+        include!("types/cosmosdb/gremlin_graph_index_policy.rs");
+        include!("types/cosmosdb/gremlin_graph_index_policy_composite_index.rs");
+        include!("types/cosmosdb/gremlin_graph_index_policy_composite_index_index.rs");
+        include!("types/cosmosdb/gremlin_graph_index_policy_spatial_index.rs");
+        include!("types/cosmosdb/gremlin_graph_unique_key.rs");
+        include!("types/cosmosdb/mongo_collection_autoscale_settings.rs");
+        include!("types/cosmosdb/mongo_collection_index.rs");
+        include!("types/cosmosdb/mongo_collection_system_index.rs");
+        include!("types/cosmosdb/mongo_database_autoscale_settings.rs");
+        include!("types/cosmosdb/mongo_role_definition_privilege.rs");
+        include!("types/cosmosdb/mongo_role_definition_privilege_resource.rs");
+        include!("types/cosmosdb/postgresql_cluster_maintenance_window.rs");
+        include!("types/cosmosdb/postgresql_cluster_server.rs");
+        include!("types/cosmosdb/sql_container_autoscale_settings.rs");
+        include!("types/cosmosdb/sql_container_conflict_resolution_policy.rs");
+        include!("types/cosmosdb/sql_container_indexing_policy.rs");
+        include!("types/cosmosdb/sql_container_indexing_policy_composite_index.rs");
+        include!(
+            "types/cosmosdb/sql_container_indexing_policy_composite_index_index.rs"
+        );
+        include!("types/cosmosdb/sql_container_indexing_policy_excluded_path.rs");
+        include!("types/cosmosdb/sql_container_indexing_policy_included_path.rs");
+        include!("types/cosmosdb/sql_container_indexing_policy_spatial_index.rs");
+        include!("types/cosmosdb/sql_container_unique_key.rs");
+        include!("types/cosmosdb/sql_database_autoscale_settings.rs");
+        include!("types/cosmosdb/sql_role_definition_permission.rs");
+        include!("types/cosmosdb/table_autoscale_settings.rs");
+        include!("types/cosmosdb/get_account_capability.rs");
+        include!("types/cosmosdb/get_account_consistency_policy.rs");
+        include!("types/cosmosdb/get_account_geo_location.rs");
+        include!("types/cosmosdb/get_account_virtual_network_rule.rs");
+        include!("types/cosmosdb/get_restorable_database_accounts_account.rs");
+        include!(
+            "types/cosmosdb/get_restorable_database_accounts_account_restorable_location.rs"
+        );
+        include!("types/cosmosdb/get_sql_database_autoscale_setting.rs");
+        include!("types/cosmosdb/get_sql_role_definition_permission.rs");
+    }
+    pub mod dashboard {
+        include!("types/dashboard/grafana_azure_monitor_workspace_integration.rs");
+        include!("types/dashboard/grafana_identity.rs");
+        include!("types/dashboard/grafana_smtp.rs");
+        include!("types/dashboard/get_grafana_azure_monitor_workspace_integration.rs");
+        include!("types/dashboard/get_grafana_identity.rs");
+    }
+    pub mod databoxedge {
+        include!("types/databoxedge/device_device_property.rs");
+        include!("types/databoxedge/get_device_device_property.rs");
+    }
+    pub mod databricks {
+        include!("types/databricks/access_connector_identity.rs");
+        include!("types/databricks/workspace_custom_parameters.rs");
+        include!("types/databricks/workspace_enhanced_security_compliance.rs");
+        include!("types/databricks/workspace_managed_disk_identity.rs");
+        include!("types/databricks/workspace_storage_account_identity.rs");
+        include!("types/databricks/get_access_connector_identity.rs");
+        include!("types/databricks/get_workspace_enhanced_security_compliance.rs");
+        include!("types/databricks/get_workspace_managed_disk_identity.rs");
+        include!(
+            "types/databricks/get_workspace_private_endpoint_connection_connection.rs"
+        );
+        include!("types/databricks/get_workspace_storage_account_identity.rs");
+    }
+}
+#[doc(hidden)]
+pub mod constants {}
+mod bindings {
+    pulumi_wasm_rust::__private::wit_bindgen::generate!(
+        { inline :
+        r"package component:pulumi-wasm@0.0.0-DEV;
+
+world world-azure {
+    import output-interface;
+}
+
+interface output-interface {
+
+    resource output {
+        constructor(value: string);
+        map: func(function-name: string) -> output;
+    }
+    combine: func(outputs: list<borrow<output>>) -> output;
+}
+
+
+interface register-interface {
+    use output-interface.{output};
+
+    record object-field {
+        name: string,
+        value: borrow<output>
+    }
+
+    record result-field {
+        name: string
+    }
+
+    record register-resource-result-field {
+        name: string,
+        output: output
+    }
+
+    record register-resource-request {
+        %type: string,
+        name: string,
+        object: list<object-field>,
+        results: list<result-field>
+    }
+
+    record register-resource-result {
+        fields: list<register-resource-result-field>
+    }
+
+    register: func(request: register-resource-request) -> register-resource-result;
+
+    record resource-invoke-result-field {
+        name: string,
+        output: output
+    }
+
+    record resource-invoke-request {
+        token: string,
+        object: list<object-field>,
+        results: list<result-field>
+    }
+
+    record resource-invoke-result {
+        fields: list<resource-invoke-result-field>
+    }
+
+    invoke: func(request: resource-invoke-request) -> resource-invoke-result;
+}",
+        with : { "component:pulumi-wasm/output-interface@0.0.0-DEV" :
+        pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface
+        } }
+    );
+}

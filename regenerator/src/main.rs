@@ -11,7 +11,7 @@ struct Provider<'a> {
 #[derive(Debug)]
 struct FilteredTest<'a> {
     name: &'a str,
-    filters: &'a [&'a [&'a str]],
+    filters: Vec<Vec<&'a str>>,
 }
 
 fn main() {
@@ -152,11 +152,11 @@ fn main() {
     let mut filtered_tests = vec![
         FilteredTest {
             name: "filtering",
-            filters: &[&["ns1"], &["ns2"], &["ns1", "ns2"]],
+            filters: vec![vec!["ns1"], vec!["ns2"], vec!["ns1", "ns2"]],
         },
         FilteredTest {
             name: "azure",
-            filters: &azure_modules,
+            filters: azure_modules.to_vec().chunks(10).map(|a| a.to_vec()).collect(),
         },
     ];
     let mut providers = vec![

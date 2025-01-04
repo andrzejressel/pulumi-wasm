@@ -1,1 +1,0 @@
-include!("generated/main.rs");
