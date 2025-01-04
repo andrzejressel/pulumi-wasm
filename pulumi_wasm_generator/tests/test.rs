@@ -176,6 +176,13 @@ pub fn run_pulumi_generator_test(
     fs::create_dir_all(root.join("src"))?;
     fs::write(&lib_rs, "include!(\"generated/main.rs\");")?;
     fs::copy("../rust-toolchain.toml", root.join("rust-toolchain.toml"))?;
+
+    if let Some(env) = std::env::var_os("DO_NOT_COMPILE") {
+        if env == "true" {
+            return Ok(());
+        }
+    }
+
     File::options()
         .write(true)
         .open(lib_rs)

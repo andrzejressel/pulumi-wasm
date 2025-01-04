@@ -12,8 +12,8 @@ CARGO_HACK_VERSION := "0.6.33"
 
 @default: build-language-plugin regenerator install-requirements build-wasm-components build-wasm-components-release test-all rust-docs fmt
 
-# Checks formatting and regenerator
-housekeeping-ci-flow: regenerator fmt
+# Regenerate "DO NOT EDIT" sections, recreate generator examples (but does not compile them), reformat whole project
+housekeeping-ci-flow: regenerator regenerate-generator-tests fmt
 
 # Runs all amd64 unit and doc tests tests
 base-ci-flow: test
@@ -81,6 +81,9 @@ clippy-to-file:
 
 regenerator:
     cargo run -p regenerator
+
+regenerate-generator-tests $DO_NOT_COMPILE="true":
+    cargo nextest run -p pulumi_wasm_generator --all-features --test '*' --profile all_cores
 
 publish:
     cargo hack publish -p pulumi_wasm_wit --all-features --no-dev-deps --allow-dirty
