@@ -1,12 +1,12 @@
 use anyhow::{Context, Result};
 use assert_cmd::assert::OutputAssertExt;
 use pulumi_wasm_generator::generate_combined;
+use rinja::Template;
 use std::fs;
 use std::fs::{File, FileTimes};
 use std::path::{Path, PathBuf};
 use std::process::Command;
 use std::time::SystemTime;
-use rinja::Template;
 // DO NOT EDIT - START
 
 #[test]
@@ -946,7 +946,8 @@ pub fn run_pulumi_generator_test(test_name: &str, filter: Option<&str>) -> Resul
 
     let cargo_toml_content = CargoToml {
         version: directory_name.as_str(),
-    }.render()?;
+    }
+    .render()?;
     let lib_rs = root.join("src/lib.rs");
     fs::write(root.join("Cargo.toml"), cargo_toml_content)?;
     fs::create_dir_all(root.join("src"))?;

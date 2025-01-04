@@ -176,7 +176,7 @@ pub(crate) struct Package {
 
     pub(crate) resource_name_map: HashMap<String, Rc<Resource>>,
     pub(crate) function_name_map: HashMap<String, Rc<Function>>,
-    pub(crate) all_types: BTreeMap<ElementId, Rc<GlobalType>>
+    pub(crate) all_types: BTreeMap<ElementId, Rc<GlobalType>>,
 }
 
 impl Package {
@@ -230,7 +230,7 @@ impl Package {
             types: all_types.clone(),
             resource_name_map,
             function_name_map,
-            all_types: all_types
+            all_types,
         }
     }
 }

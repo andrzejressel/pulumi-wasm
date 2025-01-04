@@ -149,13 +149,16 @@ fn main() {
         "workloadssap",
     ];
 
-    let mut filtered_tests = vec![FilteredTest {
-        name: "filtering",
-        filters: &["ns1", "ns2"],
-    }, FilteredTest {
-        name: "azure",
-        filters: &azure_modules,
-    }];
+    let mut filtered_tests = vec![
+        FilteredTest {
+            name: "filtering",
+            filters: &["ns1", "ns2"],
+        },
+        FilteredTest {
+            name: "azure",
+            filters: &azure_modules,
+        },
+    ];
     let mut providers = vec![
         Provider {
             name: "azure",
