@@ -184,16 +184,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a7a70ba024b9dc04c27ea2f0c0548feb474ec5c54bba33a7f72f873a39d07b24"
 
 [[package]]
-name = "main"
-version = "0.0.1"
-dependencies = [
- "bon",
- "pulumi_wasm_rust",
- "serde",
- "wit-bindgen",
-]
-
-[[package]]
 name = "memchr"
 version = "2.7.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -526,6 +516,16 @@ dependencies = [
  "serde_json",
  "unicode-xid",
  "wasmparser",
+]
+
+[[package]]
+name = "workarounds"
+version = "0.0.1"
+dependencies = [
+ "bon",
+ "pulumi_wasm_rust",
+ "serde",
+ "wit-bindgen",
 ]
 
 [[package]]

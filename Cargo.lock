@@ -2003,6 +2003,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a"
 
 [[package]]
+name = "pathdiff"
+version = "0.2.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "df94ce210e5bc13cb6651479fa48d14f601d9858cfe0467f43ae157023b938d3"
+
+[[package]]
 name = "percent-encoding"
 version = "2.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2354,6 +2360,7 @@ dependencies = [
  "convert_case",
  "handlebars",
  "itertools 0.14.0",
+ "pathdiff",
  "prettyplease",
  "proc-macro2",
  "quote",
@@ -2373,6 +2380,17 @@ dependencies = [
  "prost-types",
  "tonic",
  "tonic-build",
+]
+
+[[package]]
+name = "pulumi_wasm_providers_azure_mini"
+version = "0.0.0-DEV"
+dependencies = [
+ "bon",
+ "pulumi_wasm_build",
+ "pulumi_wasm_rust",
+ "serde",
+ "wit-bindgen",
 ]
 
 [[package]]
@@ -4184,7 +4202,7 @@ version = "0.1.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "cf221c93e13a30d793f7645a0e7762c55d169dbb0a49671918a2319d289b10bb"
 dependencies = [
- "windows-sys 0.48.0",
+ "windows-sys 0.59.0",
 ]
 
 [[package]]
