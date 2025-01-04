@@ -6,6 +6,7 @@ use itertools::Itertools;
 use std::collections::{BTreeMap, BTreeSet};
 use std::fs::{File, FileTimes};
 use std::io::Write;
+use std::ops::Deref;
 use std::time::SystemTime;
 
 pub(crate) mod functions;
@@ -197,7 +198,7 @@ fn find_consts(package: &crate::model::Package) -> Vec<String> {
         }
     }
     for type_ in package.types.values() {
-        if let GlobalType::Object(_, obj) = type_ {
+        if let GlobalType::Object(_, obj) = type_.deref() {
             for gtp in obj {
                 consts.extend(gtp.r#type.get_consts().clone());
             }

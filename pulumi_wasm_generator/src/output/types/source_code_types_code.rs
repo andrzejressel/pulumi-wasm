@@ -4,6 +4,7 @@ use handlebars::Handlebars;
 use serde::Serialize;
 use serde_json::json;
 use std::collections::BTreeSet;
+use std::ops::Deref;
 
 static TEMPLATE: &str = include_str!("types_code.rs.handlebars");
 static STRING_ENUM_TEMPLATE: &str = include_str!("types_code_string_enum.rs.handlebars");
@@ -92,7 +93,7 @@ enum GenerateResource {
 fn convert_resource(package: &crate::model::Package, element_id: &ElementId) -> GenerateResource {
     let resource = package.types.get(element_id).unwrap();
     let depth = element_id.namespace.len() + 1;
-    match resource {
+    match resource.deref() {
         GlobalType::Object(description, properties) => {
             let ref_type = RefType {
                 struct_name: element_id.get_rust_struct_name(),

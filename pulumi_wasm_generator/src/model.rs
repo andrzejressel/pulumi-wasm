@@ -172,10 +172,11 @@ pub(crate) struct Package {
     pub(crate) version: String,
     pub(crate) resources: BTreeMap<ElementId, Rc<Resource>>,
     pub(crate) functions: BTreeMap<ElementId, Rc<Function>>,
-    pub(crate) types: BTreeMap<ElementId, GlobalType>,
+    pub(crate) types: BTreeMap<ElementId, Rc<GlobalType>>,
 
     pub(crate) resource_name_map: HashMap<String, Rc<Resource>>,
     pub(crate) function_name_map: HashMap<String, Rc<Function>>,
+    pub(crate) all_types: BTreeMap<ElementId, Rc<GlobalType>>
 }
 
 impl Package {
@@ -215,15 +216,21 @@ impl Package {
             function_name_map.insert(name.clone(), rc.clone());
         }
 
+        let mut all_types = BTreeMap::new();
+        for (element_id, t) in types {
+            all_types.insert(element_id.clone(), Rc::new(t));
+        }
+
         Self {
             name,
             display_name,
             version,
             resources: new_resources,
             functions: new_function,
-            types,
+            types: all_types.clone(),
             resource_name_map,
             function_name_map,
+            all_types: all_types
         }
     }
 }

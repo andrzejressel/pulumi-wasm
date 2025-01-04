@@ -106,8 +106,17 @@ test-examples:
         -p pulumi_wasm_example_typesystem \
         --cobertura --output-path covertura.xml --features example_test
 
+generator-tests:
+    cargo nextest run --all-features -p pulumi_wasm_generator
+
+generator-tests-release:
+    cargo nextest run --all-features -p pulumi_wasm_generator --release
+
 test-all:
     cargo llvm-cov nextest --cobertura --output-path covertura.xml --all-features
+
+test-all-release:
+    cargo llvm-cov nextest --cobertura --output-path covertura.xml --all-features --release
 
 test:
     cargo llvm-cov nextest --cobertura --output-path covertura.xml
