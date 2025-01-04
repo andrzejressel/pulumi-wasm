@@ -9,7 +9,7 @@ pub struct GetFunctionAppConnectionString {
     /// The identity type of the Managed Identity assigned to the Function App.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
     /// The value for the Connection String.
     #[builder(into)]
     #[serde(rename = "value")]

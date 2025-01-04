@@ -21,5 +21,5 @@ pub struct ClusterNodePoolNodeConfigGuestAccelerator {
     /// The accelerator type resource to expose to this instance. E.g. `nvidia-tesla-k80`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

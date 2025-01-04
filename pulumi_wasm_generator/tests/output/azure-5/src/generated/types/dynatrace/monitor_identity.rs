@@ -11,5 +11,5 @@ pub struct MonitorIdentity {
     /// The type of identity used for the resource. Only possible value is `SystemAssigned`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

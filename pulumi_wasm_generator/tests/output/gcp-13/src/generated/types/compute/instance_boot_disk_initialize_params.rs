@@ -69,5 +69,5 @@ pub struct InstanceBootDiskInitializeParams {
     /// The GCE disk type. Such as pd-standard, pd-balanced or pd-ssd.
     #[builder(into, default)]
     #[serde(rename = "type")]
-    pub r#type: Box<Option<String>>,
+    pub r#type_: Box<Option<String>>,
 }

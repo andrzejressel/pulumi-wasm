@@ -9,7 +9,7 @@ pub struct GetAppServiceConnectionString {
     /// The type of the Connection String.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
     /// The value for the Connection String.
     #[builder(into)]
     #[serde(rename = "value")]

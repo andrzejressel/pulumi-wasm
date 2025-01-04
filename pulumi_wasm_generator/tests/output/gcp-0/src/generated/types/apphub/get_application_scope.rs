@@ -8,5 +8,5 @@ pub struct GetApplicationScope {
     /// GLOBAL Possible values: ["REGIONAL", "GLOBAL"]
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

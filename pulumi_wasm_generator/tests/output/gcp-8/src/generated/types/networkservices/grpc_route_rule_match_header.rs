@@ -11,7 +11,7 @@ pub struct GrpcRouteRuleMatchHeader {
     /// Possible values are: `TYPE_UNSPECIFIED`, `EXACT`, `REGULAR_EXPRESSION`.
     #[builder(into, default)]
     #[serde(rename = "type")]
-    pub r#type: Box<Option<String>>,
+    pub r#type_: Box<Option<String>>,
     /// Required. The value of the header.
     #[builder(into)]
     #[serde(rename = "value")]

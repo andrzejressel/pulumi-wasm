@@ -17,5 +17,5 @@ pub struct NodePoolPlacementPolicy {
     /// physical proximity in order to reduce network latency between nodes.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

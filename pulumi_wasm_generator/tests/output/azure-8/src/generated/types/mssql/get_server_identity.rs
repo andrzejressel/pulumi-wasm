@@ -17,5 +17,5 @@ pub struct GetServerIdentity {
     /// The type of Managed Service Identity that is configured on this Microsoft SQL Server.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

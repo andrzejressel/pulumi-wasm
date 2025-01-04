@@ -16,7 +16,7 @@ pub struct AppConnectionGateway {
     /// for a list of possible values.
     #[builder(into, default)]
     #[serde(rename = "type")]
-    pub r#type: Box<Option<String>>,
+    pub r#type_: Box<Option<String>>,
     /// (Output)
     /// Server-defined URI for this resource.
     #[builder(into, default)]

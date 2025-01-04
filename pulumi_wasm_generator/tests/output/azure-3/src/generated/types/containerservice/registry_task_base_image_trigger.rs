@@ -13,7 +13,7 @@ pub struct RegistryTaskBaseImageTrigger {
     /// The type of the trigger. Possible values are `All` and `Runtime`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
     /// The endpoint URL for receiving the trigger.
     #[builder(into, default)]
     #[serde(rename = "updateTriggerEndpoint")]

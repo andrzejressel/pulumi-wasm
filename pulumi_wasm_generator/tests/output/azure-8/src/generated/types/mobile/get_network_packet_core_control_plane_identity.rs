@@ -9,5 +9,5 @@ pub struct GetNetworkPacketCoreControlPlaneIdentity {
     /// The platform type where the packet core is deployed.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

@@ -9,5 +9,5 @@ pub struct GetSecurityPolicyRuleRateLimitOptionExceedRedirectOption {
     /// Type of the redirect action.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

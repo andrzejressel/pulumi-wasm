@@ -9,5 +9,5 @@ pub struct LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAdd
     /// The Type of IP Tag, such as `FirstPartyUsage`. Changing this forces a new resource to be created.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

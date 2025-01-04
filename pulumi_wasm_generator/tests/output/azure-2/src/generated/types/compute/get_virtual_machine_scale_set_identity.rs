@@ -17,5 +17,5 @@ pub struct GetVirtualMachineScaleSetIdentity {
     /// The Type of IP Tag.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

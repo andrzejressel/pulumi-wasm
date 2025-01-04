@@ -9,7 +9,7 @@ pub struct GetWindowsWebAppConnectionString {
     /// The Azure Storage Type.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
     /// The Connection String value.
     #[builder(into)]
     #[serde(rename = "value")]

@@ -13,5 +13,5 @@ pub struct DevCenterIdentity {
     pub r#tenant_id: Box<Option<String>>,
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

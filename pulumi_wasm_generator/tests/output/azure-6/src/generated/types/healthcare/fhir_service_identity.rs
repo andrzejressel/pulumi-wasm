@@ -15,5 +15,5 @@ pub struct FhirServiceIdentity {
     /// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

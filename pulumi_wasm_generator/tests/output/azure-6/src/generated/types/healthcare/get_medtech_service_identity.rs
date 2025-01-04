@@ -16,5 +16,5 @@ pub struct GetMedtechServiceIdentity {
     /// The type of identity used for the Healthcare Med Tech Service. Possible values are `SystemAssigned`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

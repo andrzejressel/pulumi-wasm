@@ -29,7 +29,7 @@ pub struct GetPoolExtension {
     /// The type of container configuration.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
     /// The version of script handler.
     #[builder(into)]
     #[serde(rename = "typeHandlerVersion")]

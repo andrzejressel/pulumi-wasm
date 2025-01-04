@@ -13,5 +13,5 @@ pub struct WebResourceSite {
     /// Possible values are: `INET_DOMAIN`, `SITE`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

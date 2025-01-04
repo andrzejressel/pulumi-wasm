@@ -13,7 +13,7 @@ pub struct HostingCustomDomainCert {
     /// The record's type, which determines what data the record contains.
     #[builder(into, default)]
     #[serde(rename = "type")]
-    pub r#type: Box<Option<String>>,
+    pub r#type_: Box<Option<String>>,
     /// A set of ACME challenges you can add to your DNS records or existing,
     /// non-Hosting hosting provider to allow Hosting to create an SSL certificate
     /// for your domain name before you point traffic toward hosting. You can use

@@ -19,5 +19,5 @@ pub struct DataLakeGen2FilesystemAce {
     /// Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

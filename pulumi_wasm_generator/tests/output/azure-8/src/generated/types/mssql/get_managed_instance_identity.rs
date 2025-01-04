@@ -17,5 +17,5 @@ pub struct GetManagedInstanceIdentity {
     /// The identity type of the SQL Managed Instance.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

@@ -9,5 +9,5 @@ pub struct NetworkSimGroupIdentity {
     /// Specifies the type of Managed Service Identity. Possible value is `UserAssigned`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

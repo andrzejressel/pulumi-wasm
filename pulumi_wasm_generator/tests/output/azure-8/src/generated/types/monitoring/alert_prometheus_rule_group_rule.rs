@@ -29,7 +29,7 @@ pub struct AlertPrometheusRuleGroupRule {
     /// Specifies the amount of time alert must be active before firing, represented in ISO 8601 duration format.
     #[builder(into, default)]
     #[serde(rename = "for")]
-    pub r#for: Box<Option<String>>,
+    pub r#for_: Box<Option<String>>,
     /// Specifies the labels to add or overwrite before storing the result.
     #[builder(into, default)]
     #[serde(rename = "labels")]

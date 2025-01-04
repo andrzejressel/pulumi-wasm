@@ -13,5 +13,5 @@ pub struct GetResourceBridgeApplianceIdentity {
     /// The type of this Managed Service Identity.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

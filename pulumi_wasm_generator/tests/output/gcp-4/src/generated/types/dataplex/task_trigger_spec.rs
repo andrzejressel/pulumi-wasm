@@ -22,5 +22,5 @@ pub struct TaskTriggerSpec {
     /// Possible values are: `ON_DEMAND`, `RECURRING`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

@@ -13,7 +13,7 @@ pub struct FirewallPolicyManagedRule {
     /// The name of the managed rule to use with this resource.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
     /// The version on the managed rule to use with this resource.
     #[builder(into)]
     #[serde(rename = "version")]

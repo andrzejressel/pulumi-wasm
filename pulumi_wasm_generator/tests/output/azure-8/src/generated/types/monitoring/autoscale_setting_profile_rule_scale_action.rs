@@ -13,7 +13,7 @@ pub struct AutoscaleSettingProfileRuleScaleAction {
     /// The type of action that should occur. Possible values are `ChangeCount`, `ExactCount`, `PercentChangeCount` and `ServiceAllowedNextValue`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
     /// The number of instances involved in the scaling action.
     #[builder(into)]
     #[serde(rename = "value")]

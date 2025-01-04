@@ -9,7 +9,7 @@ pub struct GetSecurityPolicyAdaptiveProtectionConfigLayer7DdosDefenseConfigThres
     /// Type of this configuration.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
     /// Requests that match this value constitute a granular traffic unit.
     #[builder(into)]
     #[serde(rename = "value")]

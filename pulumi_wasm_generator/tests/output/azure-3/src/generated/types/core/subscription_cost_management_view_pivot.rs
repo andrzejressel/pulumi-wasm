@@ -9,5 +9,5 @@ pub struct SubscriptionCostManagementViewPivot {
     /// The data type to show in this sub-view. Possible values are `Dimension` and `TagKey`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

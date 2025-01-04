@@ -15,5 +15,5 @@ pub struct GetStaticWebAppIdentity {
     /// The Type of Managed Identity assigned to this Static Web App resource.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

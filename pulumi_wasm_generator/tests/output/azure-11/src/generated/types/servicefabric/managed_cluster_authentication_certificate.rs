@@ -13,5 +13,5 @@ pub struct ManagedClusterAuthenticationCertificate {
     /// The type of the certificate. Can be `AdminClient` or `ReadOnlyClient`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

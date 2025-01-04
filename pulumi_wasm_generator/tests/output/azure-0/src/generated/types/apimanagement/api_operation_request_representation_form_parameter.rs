@@ -29,7 +29,7 @@ pub struct ApiOperationRequestRepresentationFormParameter {
     /// The Type of this Form Parameter, such as a `string`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
     /// The type name defined by the Schema.
     #[builder(into, default)]
     #[serde(rename = "typeName")]

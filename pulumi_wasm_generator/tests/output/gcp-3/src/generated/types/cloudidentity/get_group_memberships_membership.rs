@@ -29,7 +29,7 @@ pub struct GetGroupMembershipsMembership {
     /// The type of the membership.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
     /// The time when the Membership was last updated.
     #[builder(into)]
     #[serde(rename = "updateTime")]

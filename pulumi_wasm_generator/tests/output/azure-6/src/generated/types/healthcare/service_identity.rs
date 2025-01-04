@@ -11,5 +11,5 @@ pub struct ServiceIdentity {
     /// The type of managed identity to assign. The only possible value is `SystemAssigned`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

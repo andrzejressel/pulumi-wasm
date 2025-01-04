@@ -13,7 +13,7 @@ pub struct EmailServiceDomainVerificationRecordDkim {
     /// Type of the DNS record. Example: TXT
     #[builder(into, default)]
     #[serde(rename = "type")]
-    pub r#type: Box<Option<String>>,
+    pub r#type_: Box<Option<String>>,
     /// Value of the DNS record.
     #[builder(into, default)]
     #[serde(rename = "value")]

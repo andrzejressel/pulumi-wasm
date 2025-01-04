@@ -26,12 +26,6 @@ fn azure_native_nested_types() -> Result<()> {
 }
 
 #[test]
-#[cfg_attr(not(feature = "generator_aws"), ignore)]
-fn aws() -> Result<()> {
-    run_pulumi_generator_test("aws")
-}
-
-#[test]
 #[cfg_attr(not(feature = "generator_cloudflare"), ignore)]
 fn cloudflare() -> Result<()> {
     run_pulumi_generator_test("cloudflare", "cloudflare", None)
@@ -135,6 +129,457 @@ fn unions_inside_arrays() -> Result<()> {
 #[cfg_attr(not(feature = "generator_workarounds"), ignore)]
 fn workarounds() -> Result<()> {
     run_pulumi_generator_test("workarounds", "workarounds", None)
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_aws-0"), ignore)]
+fn aws_0() -> Result<()> {
+    run_pulumi_generator_test(
+        "aws",
+        "aws-0",
+        Some(&[
+            "accessanalyzer",
+            "account",
+            "acm",
+            "acmpca",
+            "alb",
+            "amp",
+            "amplify",
+            "apigateway",
+            "apigatewayv2",
+            "appautoscaling",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_aws-1"), ignore)]
+fn aws_1() -> Result<()> {
+    run_pulumi_generator_test(
+        "aws",
+        "aws-1",
+        Some(&[
+            "appconfig",
+            "appfabric",
+            "appflow",
+            "appintegrations",
+            "applicationinsights",
+            "appmesh",
+            "apprunner",
+            "appstream",
+            "appsync",
+            "athena",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_aws-2"), ignore)]
+fn aws_2() -> Result<()> {
+    run_pulumi_generator_test(
+        "aws",
+        "aws-2",
+        Some(&[
+            "auditmanager",
+            "autoscaling",
+            "autoscalingplans",
+            "backup",
+            "batch",
+            "bcmdata",
+            "bedrock",
+            "bedrockfoundation",
+            "bedrockmodel",
+            "budgets",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_aws-3"), ignore)]
+fn aws_3() -> Result<()> {
+    run_pulumi_generator_test(
+        "aws",
+        "aws-3",
+        Some(&[
+            "cfg",
+            "chatbot",
+            "chime",
+            "chimesdkmediapipelines",
+            "cleanrooms",
+            "cloud9",
+            "cloudcontrol",
+            "cloudformation",
+            "cloudfront",
+            "cloudhsmv2",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_aws-4"), ignore)]
+fn aws_4() -> Result<()> {
+    run_pulumi_generator_test(
+        "aws",
+        "aws-4",
+        Some(&[
+            "cloudsearch",
+            "cloudtrail",
+            "cloudwatch",
+            "codeartifact",
+            "codebuild",
+            "codecatalyst",
+            "codecommit",
+            "codeconnections",
+            "codedeploy",
+            "codeguruprofiler",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_aws-5"), ignore)]
+fn aws_5() -> Result<()> {
+    run_pulumi_generator_test(
+        "aws",
+        "aws-5",
+        Some(&[
+            "codegurureviewer",
+            "codepipeline",
+            "codestarconnections",
+            "codestarnotifications",
+            "cognito",
+            "comprehend",
+            "computeoptimizer",
+            "connect",
+            "controltower",
+            "costexplorer",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_aws-6"), ignore)]
+fn aws_6() -> Result<()> {
+    run_pulumi_generator_test(
+        "aws",
+        "aws-6",
+        Some(&[
+            "costoptimizationhub",
+            "cur",
+            "customerprofiles",
+            "dataexchange",
+            "datapipeline",
+            "datasync",
+            "datazone",
+            "dax",
+            "detective",
+            "devicefarm",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_aws-7"), ignore)]
+fn aws_7() -> Result<()> {
+    run_pulumi_generator_test(
+        "aws",
+        "aws-7",
+        Some(&[
+            "devopsguru",
+            "directconnect",
+            "directoryservice",
+            "dlm",
+            "dms",
+            "docdb",
+            "drs",
+            "dynamodb",
+            "ebs",
+            "ec2",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_aws-8"), ignore)]
+fn aws_8() -> Result<()> {
+    run_pulumi_generator_test(
+        "aws",
+        "aws-8",
+        Some(&[
+            "ec2clientvpn",
+            "ec2transitgateway",
+            "ecr",
+            "ecrpublic",
+            "ecs",
+            "efs",
+            "eks",
+            "elasticache",
+            "elasticbeanstalk",
+            "elasticsearch",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_aws-9"), ignore)]
+fn aws_9() -> Result<()> {
+    run_pulumi_generator_test(
+        "aws",
+        "aws-9",
+        Some(&[
+            "elastictranscoder",
+            "elb",
+            "emr",
+            "emrcontainers",
+            "emrserverless",
+            "evidently",
+            "finspace",
+            "fis",
+            "fms",
+            "fsx",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_aws-10"), ignore)]
+fn aws_10() -> Result<()> {
+    run_pulumi_generator_test(
+        "aws",
+        "aws-10",
+        Some(&[
+            "gamelift",
+            "glacier",
+            "globalaccelerator",
+            "glue",
+            "grafana",
+            "guardduty",
+            "iam",
+            "identitystore",
+            "imagebuilder",
+            "inspector",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_aws-11"), ignore)]
+fn aws_11() -> Result<()> {
+    run_pulumi_generator_test(
+        "aws",
+        "aws-11",
+        Some(&[
+            "inspector2",
+            "iot",
+            "ivs",
+            "ivschat",
+            "kendra",
+            "keyspaces",
+            "kinesis",
+            "kinesisanalyticsv2",
+            "kms",
+            "lakeformation",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_aws-12"), ignore)]
+fn aws_12() -> Result<()> {
+    run_pulumi_generator_test(
+        "aws",
+        "aws-12",
+        Some(&[
+            "lambda",
+            "lb",
+            "lex",
+            "licensemanager",
+            "lightsail",
+            "location",
+            "m2",
+            "macie",
+            "macie2",
+            "mediaconvert",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_aws-13"), ignore)]
+fn aws_13() -> Result<()> {
+    run_pulumi_generator_test(
+        "aws",
+        "aws-13",
+        Some(&[
+            "medialive",
+            "mediapackage",
+            "mediastore",
+            "memorydb",
+            "mq",
+            "msk",
+            "mskconnect",
+            "mwaa",
+            "neptune",
+            "networkfirewall",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_aws-14"), ignore)]
+fn aws_14() -> Result<()> {
+    run_pulumi_generator_test(
+        "aws",
+        "aws-14",
+        Some(&[
+            "networkmanager",
+            "networkmonitor",
+            "oam",
+            "opensearch",
+            "opensearchingest",
+            "opsworks",
+            "organizations",
+            "outposts",
+            "paymentcryptography",
+            "pinpoint",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_aws-15"), ignore)]
+fn aws_15() -> Result<()> {
+    run_pulumi_generator_test(
+        "aws",
+        "aws-15",
+        Some(&[
+            "pipes",
+            "polly",
+            "pricing",
+            "qldb",
+            "quicksight",
+            "ram",
+            "rbin",
+            "rds",
+            "redshift",
+            "redshiftdata",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_aws-16"), ignore)]
+fn aws_16() -> Result<()> {
+    run_pulumi_generator_test(
+        "aws",
+        "aws-16",
+        Some(&[
+            "redshiftserverless",
+            "rekognition",
+            "resiliencehub",
+            "resourceexplorer",
+            "resourcegroups",
+            "resourcegroupstaggingapi",
+            "rolesanywhere",
+            "route53",
+            "route53domains",
+            "route53recoverycontrol",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_aws-17"), ignore)]
+fn aws_17() -> Result<()> {
+    run_pulumi_generator_test(
+        "aws",
+        "aws-17",
+        Some(&[
+            "route53recoveryreadiness",
+            "rum",
+            "s3",
+            "s3control",
+            "s3outposts",
+            "s3tables",
+            "sagemaker",
+            "scheduler",
+            "schemas",
+            "secretsmanager",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_aws-18"), ignore)]
+fn aws_18() -> Result<()> {
+    run_pulumi_generator_test(
+        "aws",
+        "aws-18",
+        Some(&[
+            "securityhub",
+            "securitylake",
+            "serverlessrepository",
+            "servicecatalog",
+            "servicediscovery",
+            "servicequotas",
+            "ses",
+            "sesv2",
+            "sfn",
+            "shield",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_aws-19"), ignore)]
+fn aws_19() -> Result<()> {
+    run_pulumi_generator_test(
+        "aws",
+        "aws-19",
+        Some(&[
+            "signer",
+            "simpledb",
+            "sns",
+            "sqs",
+            "ssm",
+            "ssmcontacts",
+            "ssmincidents",
+            "ssoadmin",
+            "storagegateway",
+            "swf",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_aws-20"), ignore)]
+fn aws_20() -> Result<()> {
+    run_pulumi_generator_test(
+        "aws",
+        "aws-20",
+        Some(&[
+            "synthetics",
+            "timestreaminfluxdb",
+            "timestreamwrite",
+            "transcribe",
+            "transfer",
+            "verifiedaccess",
+            "verifiedpermissions",
+            "vpc",
+            "vpclattice",
+            "waf",
+        ]),
+    )
+}
+
+#[test]
+#[cfg_attr(not(feature = "generator_aws-21"), ignore)]
+fn aws_21() -> Result<()> {
+    run_pulumi_generator_test(
+        "aws",
+        "aws-21",
+        Some(&["wafregional", "wafv2", "worklink", "workspaces", "xray"]),
+    )
 }
 
 #[test]

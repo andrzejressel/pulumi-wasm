@@ -1,0 +1,857 @@
+pub mod auditmanager {
+    include!("resources/auditmanager/account_registration.rs");
+    include!("resources/auditmanager/assessment.rs");
+    include!("resources/auditmanager/assessment_delegation.rs");
+    include!("resources/auditmanager/assessment_report.rs");
+    include!("resources/auditmanager/control.rs");
+    include!("resources/auditmanager/framework.rs");
+    include!("resources/auditmanager/framework_share.rs");
+    include!("resources/auditmanager/organization_admin_account_registration.rs");
+}
+pub mod autoscaling {
+    include!("resources/autoscaling/attachment.rs");
+    include!("resources/autoscaling/group.rs");
+    include!("resources/autoscaling/lifecycle_hook.rs");
+    include!("resources/autoscaling/notification.rs");
+    include!("resources/autoscaling/policy.rs");
+    include!("resources/autoscaling/schedule.rs");
+    include!("resources/autoscaling/tag.rs");
+    include!("resources/autoscaling/traffic_source_attachment.rs");
+}
+pub mod autoscalingplans {
+    include!("resources/autoscalingplans/scaling_plan.rs");
+}
+pub mod backup {
+    include!("resources/backup/framework.rs");
+    include!("resources/backup/global_settings.rs");
+    include!("resources/backup/logically_air_gapped_vault.rs");
+    include!("resources/backup/plan.rs");
+    include!("resources/backup/region_settings.rs");
+    include!("resources/backup/report_plan.rs");
+    include!("resources/backup/restore_testing_plan.rs");
+    include!("resources/backup/restore_testing_selection.rs");
+    include!("resources/backup/selection.rs");
+    include!("resources/backup/vault.rs");
+    include!("resources/backup/vault_lock_configuration.rs");
+    include!("resources/backup/vault_notifications.rs");
+    include!("resources/backup/vault_policy.rs");
+}
+pub mod batch {
+    include!("resources/batch/compute_environment.rs");
+    include!("resources/batch/job_definition.rs");
+    include!("resources/batch/job_queue.rs");
+    include!("resources/batch/scheduling_policy.rs");
+}
+pub mod bcmdata {
+    include!("resources/bcmdata/export.rs");
+}
+pub mod bedrock {
+    include!("resources/bedrock/agent_agent.rs");
+    include!("resources/bedrock/agent_agent_action_group.rs");
+    include!("resources/bedrock/agent_agent_alias.rs");
+    include!("resources/bedrock/agent_agent_knowledge_base_association.rs");
+    include!("resources/bedrock/agent_data_source.rs");
+    include!("resources/bedrock/agent_knowledge_base.rs");
+    include!("resources/bedrock/custom_model.rs");
+    include!("resources/bedrock/guardrail.rs");
+    include!("resources/bedrock/guardrail_version.rs");
+    include!("resources/bedrock/inference_profile.rs");
+    include!("resources/bedrock/provisioned_model_throughput.rs");
+}
+pub mod bedrockmodel {
+    include!("resources/bedrockmodel/invocation_logging_configuration.rs");
+}
+pub mod budgets {
+    include!("resources/budgets/budget.rs");
+    include!("resources/budgets/budget_action.rs");
+}
+pub mod functions {
+    pub mod auditmanager {
+        include!("functions/auditmanager/get_control.rs");
+        include!("functions/auditmanager/get_framework.rs");
+    }
+    pub mod autoscaling {
+        include!("functions/autoscaling/get_ami_ids.rs");
+        include!("functions/autoscaling/get_group.rs");
+    }
+    pub mod backup {
+        include!("functions/backup/get_framework.rs");
+        include!("functions/backup/get_plan.rs");
+        include!("functions/backup/get_report_plan.rs");
+        include!("functions/backup/get_selection.rs");
+        include!("functions/backup/get_vault.rs");
+    }
+    pub mod batch {
+        include!("functions/batch/get_compute_environment.rs");
+        include!("functions/batch/get_job_definition.rs");
+        include!("functions/batch/get_job_queue.rs");
+        include!("functions/batch/get_scheduling_policy.rs");
+    }
+    pub mod bedrock {
+        include!("functions/bedrock/get_agent_agent_versions.rs");
+        include!("functions/bedrock/get_custom_model.rs");
+        include!("functions/bedrock/get_custom_models.rs");
+        include!("functions/bedrock/get_inference_profile.rs");
+        include!("functions/bedrock/get_inference_profiles.rs");
+    }
+    pub mod bedrockfoundation {
+        include!("functions/bedrockfoundation/get_model.rs");
+        include!("functions/bedrockfoundation/get_models.rs");
+    }
+    pub mod budgets {
+        include!("functions/budgets/get_budget.rs");
+    }
+    include!("functions/get_arn.rs");
+    include!("functions/get_availability_zone.rs");
+    include!("functions/get_availability_zones.rs");
+    include!("functions/get_billing_service_account.rs");
+    include!("functions/get_caller_identity.rs");
+    include!("functions/get_default_tags.rs");
+    include!("functions/get_ip_ranges.rs");
+    include!("functions/get_partition.rs");
+    include!("functions/get_region.rs");
+    include!("functions/get_regions.rs");
+    include!("functions/get_service.rs");
+    include!("functions/get_service_principal.rs");
+}
+pub mod types {
+    pub mod auditmanager {
+        include!("types/auditmanager/assessment_assessment_reports_destination.rs");
+        include!("types/auditmanager/assessment_role.rs");
+        include!("types/auditmanager/assessment_roles_all.rs");
+        include!("types/auditmanager/assessment_scope.rs");
+        include!("types/auditmanager/assessment_scope_aws_account.rs");
+        include!("types/auditmanager/assessment_scope_aws_service.rs");
+        include!("types/auditmanager/control_control_mapping_source.rs");
+        include!("types/auditmanager/control_control_mapping_source_source_keyword.rs");
+        include!("types/auditmanager/framework_control_set.rs");
+        include!("types/auditmanager/framework_control_set_control.rs");
+        include!("types/auditmanager/get_control_control_mapping_source.rs");
+        include!(
+            "types/auditmanager/get_control_control_mapping_source_source_keyword.rs"
+        );
+        include!("types/auditmanager/get_framework_control_set.rs");
+        include!("types/auditmanager/get_framework_control_set_control.rs");
+    }
+    pub mod autoscaling {
+        include!("types/autoscaling/group_availability_zone_distribution.rs");
+        include!("types/autoscaling/group_initial_lifecycle_hook.rs");
+        include!("types/autoscaling/group_instance_maintenance_policy.rs");
+        include!("types/autoscaling/group_instance_refresh.rs");
+        include!("types/autoscaling/group_instance_refresh_preferences.rs");
+        include!(
+            "types/autoscaling/group_instance_refresh_preferences_alarm_specification.rs"
+        );
+        include!("types/autoscaling/group_launch_template.rs");
+        include!("types/autoscaling/group_mixed_instances_policy.rs");
+        include!(
+            "types/autoscaling/group_mixed_instances_policy_instances_distribution.rs"
+        );
+        include!("types/autoscaling/group_mixed_instances_policy_launch_template.rs");
+        include!(
+            "types/autoscaling/group_mixed_instances_policy_launch_template_launch_template_specification.rs"
+        );
+        include!(
+            "types/autoscaling/group_mixed_instances_policy_launch_template_override.rs"
+        );
+        include!(
+            "types/autoscaling/group_mixed_instances_policy_launch_template_override_instance_requirements.rs"
+        );
+        include!(
+            "types/autoscaling/group_mixed_instances_policy_launch_template_override_instance_requirements_accelerator_count.rs"
+        );
+        include!(
+            "types/autoscaling/group_mixed_instances_policy_launch_template_override_instance_requirements_accelerator_total_memory_mib.rs"
+        );
+        include!(
+            "types/autoscaling/group_mixed_instances_policy_launch_template_override_instance_requirements_baseline_ebs_bandwidth_mbps.rs"
+        );
+        include!(
+            "types/autoscaling/group_mixed_instances_policy_launch_template_override_instance_requirements_memory_gib_per_vcpu.rs"
+        );
+        include!(
+            "types/autoscaling/group_mixed_instances_policy_launch_template_override_instance_requirements_memory_mib.rs"
+        );
+        include!(
+            "types/autoscaling/group_mixed_instances_policy_launch_template_override_instance_requirements_network_bandwidth_gbps.rs"
+        );
+        include!(
+            "types/autoscaling/group_mixed_instances_policy_launch_template_override_instance_requirements_network_interface_count.rs"
+        );
+        include!(
+            "types/autoscaling/group_mixed_instances_policy_launch_template_override_instance_requirements_total_local_storage_gb.rs"
+        );
+        include!(
+            "types/autoscaling/group_mixed_instances_policy_launch_template_override_instance_requirements_vcpu_count.rs"
+        );
+        include!(
+            "types/autoscaling/group_mixed_instances_policy_launch_template_override_launch_template_specification.rs"
+        );
+        include!("types/autoscaling/group_tag.rs");
+        include!("types/autoscaling/group_traffic_source.rs");
+        include!("types/autoscaling/group_warm_pool.rs");
+        include!("types/autoscaling/group_warm_pool_instance_reuse_policy.rs");
+        include!("types/autoscaling/policy_predictive_scaling_configuration.rs");
+        include!(
+            "types/autoscaling/policy_predictive_scaling_configuration_metric_specification.rs"
+        );
+        include!(
+            "types/autoscaling/policy_predictive_scaling_configuration_metric_specification_customized_capacity_metric_specification.rs"
+        );
+        include!(
+            "types/autoscaling/policy_predictive_scaling_configuration_metric_specification_customized_capacity_metric_specification_metric_data_query.rs"
+        );
+        include!(
+            "types/autoscaling/policy_predictive_scaling_configuration_metric_specification_customized_capacity_metric_specification_metric_data_query_metric_stat.rs"
+        );
+        include!(
+            "types/autoscaling/policy_predictive_scaling_configuration_metric_specification_customized_capacity_metric_specification_metric_data_query_metric_stat_metric.rs"
+        );
+        include!(
+            "types/autoscaling/policy_predictive_scaling_configuration_metric_specification_customized_capacity_metric_specification_metric_data_query_metric_stat_metric_dimension.rs"
+        );
+        include!(
+            "types/autoscaling/policy_predictive_scaling_configuration_metric_specification_customized_load_metric_specification.rs"
+        );
+        include!(
+            "types/autoscaling/policy_predictive_scaling_configuration_metric_specification_customized_load_metric_specification_metric_data_query.rs"
+        );
+        include!(
+            "types/autoscaling/policy_predictive_scaling_configuration_metric_specification_customized_load_metric_specification_metric_data_query_metric_stat.rs"
+        );
+        include!(
+            "types/autoscaling/policy_predictive_scaling_configuration_metric_specification_customized_load_metric_specification_metric_data_query_metric_stat_metric.rs"
+        );
+        include!(
+            "types/autoscaling/policy_predictive_scaling_configuration_metric_specification_customized_load_metric_specification_metric_data_query_metric_stat_metric_dimension.rs"
+        );
+        include!(
+            "types/autoscaling/policy_predictive_scaling_configuration_metric_specification_customized_scaling_metric_specification.rs"
+        );
+        include!(
+            "types/autoscaling/policy_predictive_scaling_configuration_metric_specification_customized_scaling_metric_specification_metric_data_query.rs"
+        );
+        include!(
+            "types/autoscaling/policy_predictive_scaling_configuration_metric_specification_customized_scaling_metric_specification_metric_data_query_metric_stat.rs"
+        );
+        include!(
+            "types/autoscaling/policy_predictive_scaling_configuration_metric_specification_customized_scaling_metric_specification_metric_data_query_metric_stat_metric.rs"
+        );
+        include!(
+            "types/autoscaling/policy_predictive_scaling_configuration_metric_specification_customized_scaling_metric_specification_metric_data_query_metric_stat_metric_dimension.rs"
+        );
+        include!(
+            "types/autoscaling/policy_predictive_scaling_configuration_metric_specification_predefined_load_metric_specification.rs"
+        );
+        include!(
+            "types/autoscaling/policy_predictive_scaling_configuration_metric_specification_predefined_metric_pair_specification.rs"
+        );
+        include!(
+            "types/autoscaling/policy_predictive_scaling_configuration_metric_specification_predefined_scaling_metric_specification.rs"
+        );
+        include!("types/autoscaling/policy_step_adjustment.rs");
+        include!("types/autoscaling/policy_target_tracking_configuration.rs");
+        include!(
+            "types/autoscaling/policy_target_tracking_configuration_customized_metric_specification.rs"
+        );
+        include!(
+            "types/autoscaling/policy_target_tracking_configuration_customized_metric_specification_metric.rs"
+        );
+        include!(
+            "types/autoscaling/policy_target_tracking_configuration_customized_metric_specification_metric_dimension.rs"
+        );
+        include!(
+            "types/autoscaling/policy_target_tracking_configuration_customized_metric_specification_metric_metric_stat.rs"
+        );
+        include!(
+            "types/autoscaling/policy_target_tracking_configuration_customized_metric_specification_metric_metric_stat_metric.rs"
+        );
+        include!(
+            "types/autoscaling/policy_target_tracking_configuration_customized_metric_specification_metric_metric_stat_metric_dimension.rs"
+        );
+        include!(
+            "types/autoscaling/policy_target_tracking_configuration_predefined_metric_specification.rs"
+        );
+        include!("types/autoscaling/tag_tag.rs");
+        include!("types/autoscaling/traffic_source_attachment_traffic_source.rs");
+        include!("types/autoscaling/get_ami_ids_filter.rs");
+        include!("types/autoscaling/get_group_instance_maintenance_policy.rs");
+        include!("types/autoscaling/get_group_launch_template.rs");
+        include!("types/autoscaling/get_group_mixed_instances_policy.rs");
+        include!(
+            "types/autoscaling/get_group_mixed_instances_policy_instances_distribution.rs"
+        );
+        include!(
+            "types/autoscaling/get_group_mixed_instances_policy_launch_template.rs"
+        );
+        include!(
+            "types/autoscaling/get_group_mixed_instances_policy_launch_template_launch_template_specification.rs"
+        );
+        include!(
+            "types/autoscaling/get_group_mixed_instances_policy_launch_template_override.rs"
+        );
+        include!(
+            "types/autoscaling/get_group_mixed_instances_policy_launch_template_override_instance_requirement.rs"
+        );
+        include!(
+            "types/autoscaling/get_group_mixed_instances_policy_launch_template_override_instance_requirement_accelerator_count.rs"
+        );
+        include!(
+            "types/autoscaling/get_group_mixed_instances_policy_launch_template_override_instance_requirement_accelerator_total_memory_mib.rs"
+        );
+        include!(
+            "types/autoscaling/get_group_mixed_instances_policy_launch_template_override_instance_requirement_baseline_ebs_bandwidth_mbp.rs"
+        );
+        include!(
+            "types/autoscaling/get_group_mixed_instances_policy_launch_template_override_instance_requirement_memory_gib_per_vcpus.rs"
+        );
+        include!(
+            "types/autoscaling/get_group_mixed_instances_policy_launch_template_override_instance_requirement_memory_mib.rs"
+        );
+        include!(
+            "types/autoscaling/get_group_mixed_instances_policy_launch_template_override_instance_requirement_network_bandwidth_gbp.rs"
+        );
+        include!(
+            "types/autoscaling/get_group_mixed_instances_policy_launch_template_override_instance_requirement_network_interface_count.rs"
+        );
+        include!(
+            "types/autoscaling/get_group_mixed_instances_policy_launch_template_override_instance_requirement_total_local_storage_gb.rs"
+        );
+        include!(
+            "types/autoscaling/get_group_mixed_instances_policy_launch_template_override_instance_requirement_vcpu_count.rs"
+        );
+        include!(
+            "types/autoscaling/get_group_mixed_instances_policy_launch_template_override_launch_template_specification.rs"
+        );
+        include!("types/autoscaling/get_group_tag.rs");
+        include!("types/autoscaling/get_group_traffic_source.rs");
+        include!("types/autoscaling/get_group_warm_pool.rs");
+        include!("types/autoscaling/get_group_warm_pool_instance_reuse_policy.rs");
+    }
+    pub mod autoscalingplans {
+        include!("types/autoscalingplans/scaling_plan_application_source.rs");
+        include!("types/autoscalingplans/scaling_plan_application_source_tag_filter.rs");
+        include!("types/autoscalingplans/scaling_plan_scaling_instruction.rs");
+        include!(
+            "types/autoscalingplans/scaling_plan_scaling_instruction_customized_load_metric_specification.rs"
+        );
+        include!(
+            "types/autoscalingplans/scaling_plan_scaling_instruction_predefined_load_metric_specification.rs"
+        );
+        include!(
+            "types/autoscalingplans/scaling_plan_scaling_instruction_target_tracking_configuration.rs"
+        );
+        include!(
+            "types/autoscalingplans/scaling_plan_scaling_instruction_target_tracking_configuration_customized_scaling_metric_specification.rs"
+        );
+        include!(
+            "types/autoscalingplans/scaling_plan_scaling_instruction_target_tracking_configuration_predefined_scaling_metric_specification.rs"
+        );
+    }
+    pub mod backup {
+        include!("types/backup/framework_control.rs");
+        include!("types/backup/framework_control_input_parameter.rs");
+        include!("types/backup/framework_control_scope.rs");
+        include!("types/backup/logically_air_gapped_vault_timeouts.rs");
+        include!("types/backup/plan_advanced_backup_setting.rs");
+        include!("types/backup/plan_rule.rs");
+        include!("types/backup/plan_rule_copy_action.rs");
+        include!("types/backup/plan_rule_copy_action_lifecycle.rs");
+        include!("types/backup/plan_rule_lifecycle.rs");
+        include!("types/backup/report_plan_report_delivery_channel.rs");
+        include!("types/backup/report_plan_report_setting.rs");
+        include!("types/backup/restore_testing_plan_recovery_point_selection.rs");
+        include!(
+            "types/backup/restore_testing_selection_protected_resource_conditions.rs"
+        );
+        include!(
+            "types/backup/restore_testing_selection_protected_resource_conditions_string_equal.rs"
+        );
+        include!(
+            "types/backup/restore_testing_selection_protected_resource_conditions_string_not_equal.rs"
+        );
+        include!("types/backup/selection_condition.rs");
+        include!("types/backup/selection_condition_string_equal.rs");
+        include!("types/backup/selection_condition_string_like.rs");
+        include!("types/backup/selection_condition_string_not_equal.rs");
+        include!("types/backup/selection_condition_string_not_like.rs");
+        include!("types/backup/selection_selection_tag.rs");
+        include!("types/backup/get_framework_control.rs");
+        include!("types/backup/get_framework_control_input_parameter.rs");
+        include!("types/backup/get_framework_control_scope.rs");
+        include!("types/backup/get_plan_rule.rs");
+        include!("types/backup/get_plan_rule_copy_action.rs");
+        include!("types/backup/get_plan_rule_copy_action_lifecycle.rs");
+        include!("types/backup/get_plan_rule_lifecycle.rs");
+        include!("types/backup/get_report_plan_report_delivery_channel.rs");
+        include!("types/backup/get_report_plan_report_setting.rs");
+    }
+    pub mod batch {
+        include!("types/batch/compute_environment_compute_resources.rs");
+        include!(
+            "types/batch/compute_environment_compute_resources_ec_2_configuration.rs"
+        );
+        include!("types/batch/compute_environment_compute_resources_launch_template.rs");
+        include!("types/batch/compute_environment_eks_configuration.rs");
+        include!("types/batch/compute_environment_update_policy.rs");
+        include!("types/batch/job_definition_eks_properties.rs");
+        include!("types/batch/job_definition_eks_properties_pod_properties.rs");
+        include!(
+            "types/batch/job_definition_eks_properties_pod_properties_containers.rs"
+        );
+        include!(
+            "types/batch/job_definition_eks_properties_pod_properties_containers_env.rs"
+        );
+        include!(
+            "types/batch/job_definition_eks_properties_pod_properties_containers_resources.rs"
+        );
+        include!(
+            "types/batch/job_definition_eks_properties_pod_properties_containers_security_context.rs"
+        );
+        include!(
+            "types/batch/job_definition_eks_properties_pod_properties_containers_volume_mount.rs"
+        );
+        include!(
+            "types/batch/job_definition_eks_properties_pod_properties_image_pull_secret.rs"
+        );
+        include!(
+            "types/batch/job_definition_eks_properties_pod_properties_init_container.rs"
+        );
+        include!(
+            "types/batch/job_definition_eks_properties_pod_properties_init_container_env.rs"
+        );
+        include!(
+            "types/batch/job_definition_eks_properties_pod_properties_init_container_resources.rs"
+        );
+        include!(
+            "types/batch/job_definition_eks_properties_pod_properties_init_container_security_context.rs"
+        );
+        include!(
+            "types/batch/job_definition_eks_properties_pod_properties_init_container_volume_mount.rs"
+        );
+        include!("types/batch/job_definition_eks_properties_pod_properties_metadata.rs");
+        include!("types/batch/job_definition_eks_properties_pod_properties_volume.rs");
+        include!(
+            "types/batch/job_definition_eks_properties_pod_properties_volume_empty_dir.rs"
+        );
+        include!(
+            "types/batch/job_definition_eks_properties_pod_properties_volume_host_path.rs"
+        );
+        include!(
+            "types/batch/job_definition_eks_properties_pod_properties_volume_secret.rs"
+        );
+        include!("types/batch/job_definition_retry_strategy.rs");
+        include!("types/batch/job_definition_retry_strategy_evaluate_on_exit.rs");
+        include!("types/batch/job_definition_timeout.rs");
+        include!("types/batch/job_queue_compute_environment_order.rs");
+        include!("types/batch/job_queue_job_state_time_limit_action.rs");
+        include!("types/batch/job_queue_timeouts.rs");
+        include!("types/batch/scheduling_policy_fair_share_policy.rs");
+        include!(
+            "types/batch/scheduling_policy_fair_share_policy_share_distribution.rs"
+        );
+        include!("types/batch/get_compute_environment_update_policy.rs");
+        include!("types/batch/get_job_definition_eks_property.rs");
+        include!("types/batch/get_job_definition_eks_property_pod_property.rs");
+        include!(
+            "types/batch/get_job_definition_eks_property_pod_property_container.rs"
+        );
+        include!(
+            "types/batch/get_job_definition_eks_property_pod_property_container_env.rs"
+        );
+        include!(
+            "types/batch/get_job_definition_eks_property_pod_property_container_resource.rs"
+        );
+        include!(
+            "types/batch/get_job_definition_eks_property_pod_property_container_security_context.rs"
+        );
+        include!(
+            "types/batch/get_job_definition_eks_property_pod_property_container_volume_mount.rs"
+        );
+        include!(
+            "types/batch/get_job_definition_eks_property_pod_property_image_pull_secret.rs"
+        );
+        include!(
+            "types/batch/get_job_definition_eks_property_pod_property_init_container.rs"
+        );
+        include!(
+            "types/batch/get_job_definition_eks_property_pod_property_init_container_env.rs"
+        );
+        include!(
+            "types/batch/get_job_definition_eks_property_pod_property_init_container_resource.rs"
+        );
+        include!(
+            "types/batch/get_job_definition_eks_property_pod_property_init_container_security_context.rs"
+        );
+        include!(
+            "types/batch/get_job_definition_eks_property_pod_property_init_container_volume_mount.rs"
+        );
+        include!("types/batch/get_job_definition_eks_property_pod_property_metadata.rs");
+        include!("types/batch/get_job_definition_eks_property_pod_property_volume.rs");
+        include!(
+            "types/batch/get_job_definition_eks_property_pod_property_volume_empty_dir.rs"
+        );
+        include!(
+            "types/batch/get_job_definition_eks_property_pod_property_volume_host_path.rs"
+        );
+        include!(
+            "types/batch/get_job_definition_eks_property_pod_property_volume_secret.rs"
+        );
+        include!("types/batch/get_job_definition_node_property.rs");
+        include!("types/batch/get_job_definition_node_property_node_range_property.rs");
+        include!(
+            "types/batch/get_job_definition_node_property_node_range_property_container.rs"
+        );
+        include!(
+            "types/batch/get_job_definition_node_property_node_range_property_container_environment.rs"
+        );
+        include!(
+            "types/batch/get_job_definition_node_property_node_range_property_container_ephemeral_storage.rs"
+        );
+        include!(
+            "types/batch/get_job_definition_node_property_node_range_property_container_fargate_platform_configuration.rs"
+        );
+        include!(
+            "types/batch/get_job_definition_node_property_node_range_property_container_linux_parameter.rs"
+        );
+        include!(
+            "types/batch/get_job_definition_node_property_node_range_property_container_linux_parameter_device.rs"
+        );
+        include!(
+            "types/batch/get_job_definition_node_property_node_range_property_container_linux_parameter_tmpf.rs"
+        );
+        include!(
+            "types/batch/get_job_definition_node_property_node_range_property_container_log_configuration.rs"
+        );
+        include!(
+            "types/batch/get_job_definition_node_property_node_range_property_container_log_configuration_secret_option.rs"
+        );
+        include!(
+            "types/batch/get_job_definition_node_property_node_range_property_container_mount_point.rs"
+        );
+        include!(
+            "types/batch/get_job_definition_node_property_node_range_property_container_network_configuration.rs"
+        );
+        include!(
+            "types/batch/get_job_definition_node_property_node_range_property_container_resource_requirement.rs"
+        );
+        include!(
+            "types/batch/get_job_definition_node_property_node_range_property_container_runtime_platform.rs"
+        );
+        include!(
+            "types/batch/get_job_definition_node_property_node_range_property_container_secret.rs"
+        );
+        include!(
+            "types/batch/get_job_definition_node_property_node_range_property_container_ulimit.rs"
+        );
+        include!(
+            "types/batch/get_job_definition_node_property_node_range_property_container_volume.rs"
+        );
+        include!(
+            "types/batch/get_job_definition_node_property_node_range_property_container_volume_efs_volume_configuration.rs"
+        );
+        include!(
+            "types/batch/get_job_definition_node_property_node_range_property_container_volume_efs_volume_configuration_authorization_config.rs"
+        );
+        include!(
+            "types/batch/get_job_definition_node_property_node_range_property_container_volume_host.rs"
+        );
+        include!("types/batch/get_job_definition_retry_strategy.rs");
+        include!("types/batch/get_job_definition_retry_strategy_evaluate_on_exit.rs");
+        include!("types/batch/get_job_definition_timeout.rs");
+        include!("types/batch/get_job_queue_compute_environment_order.rs");
+        include!("types/batch/get_job_queue_job_state_time_limit_action.rs");
+        include!("types/batch/get_scheduling_policy_fair_share_policy.rs");
+        include!(
+            "types/batch/get_scheduling_policy_fair_share_policy_share_distribution.rs"
+        );
+    }
+    pub mod bcmdata {
+        include!("types/bcmdata/export_export.rs");
+        include!("types/bcmdata/export_export_data_query.rs");
+        include!("types/bcmdata/export_export_destination_configuration.rs");
+        include!(
+            "types/bcmdata/export_export_destination_configuration_s_3_destination.rs"
+        );
+        include!(
+            "types/bcmdata/export_export_destination_configuration_s_3_destination_s_3_output_configuration.rs"
+        );
+        include!("types/bcmdata/export_export_refresh_cadence.rs");
+        include!("types/bcmdata/export_timeouts.rs");
+    }
+    pub mod bedrock {
+        include!("types/bedrock/agent_agent_action_group_action_group_executor.rs");
+        include!("types/bedrock/agent_agent_action_group_api_schema.rs");
+        include!("types/bedrock/agent_agent_action_group_api_schema_s_3.rs");
+        include!("types/bedrock/agent_agent_action_group_function_schema.rs");
+        include!(
+            "types/bedrock/agent_agent_action_group_function_schema_member_functions.rs"
+        );
+        include!(
+            "types/bedrock/agent_agent_action_group_function_schema_member_functions_function.rs"
+        );
+        include!(
+            "types/bedrock/agent_agent_action_group_function_schema_member_functions_function_parameter.rs"
+        );
+        include!("types/bedrock/agent_agent_action_group_timeouts.rs");
+        include!("types/bedrock/agent_agent_alias_routing_configuration.rs");
+        include!("types/bedrock/agent_agent_alias_timeouts.rs");
+        include!("types/bedrock/agent_agent_guardrail_configuration.rs");
+        include!("types/bedrock/agent_agent_knowledge_base_association_timeouts.rs");
+        include!("types/bedrock/agent_agent_prompt_override_configuration.rs");
+        include!(
+            "types/bedrock/agent_agent_prompt_override_configuration_prompt_configuration.rs"
+        );
+        include!(
+            "types/bedrock/agent_agent_prompt_override_configuration_prompt_configuration_inference_configuration.rs"
+        );
+        include!("types/bedrock/agent_agent_timeouts.rs");
+        include!("types/bedrock/agent_data_source_data_source_configuration.rs");
+        include!(
+            "types/bedrock/agent_data_source_data_source_configuration_s_3_configuration.rs"
+        );
+        include!(
+            "types/bedrock/agent_data_source_server_side_encryption_configuration.rs"
+        );
+        include!("types/bedrock/agent_data_source_timeouts.rs");
+        include!("types/bedrock/agent_data_source_vector_ingestion_configuration.rs");
+        include!(
+            "types/bedrock/agent_data_source_vector_ingestion_configuration_chunking_configuration.rs"
+        );
+        include!(
+            "types/bedrock/agent_data_source_vector_ingestion_configuration_chunking_configuration_fixed_size_chunking_configuration.rs"
+        );
+        include!(
+            "types/bedrock/agent_data_source_vector_ingestion_configuration_chunking_configuration_hierarchical_chunking_configuration.rs"
+        );
+        include!(
+            "types/bedrock/agent_data_source_vector_ingestion_configuration_chunking_configuration_hierarchical_chunking_configuration_level_configuration.rs"
+        );
+        include!(
+            "types/bedrock/agent_data_source_vector_ingestion_configuration_chunking_configuration_semantic_chunking_configuration.rs"
+        );
+        include!(
+            "types/bedrock/agent_data_source_vector_ingestion_configuration_custom_transformation_configuration.rs"
+        );
+        include!(
+            "types/bedrock/agent_data_source_vector_ingestion_configuration_custom_transformation_configuration_intermediate_storage.rs"
+        );
+        include!(
+            "types/bedrock/agent_data_source_vector_ingestion_configuration_custom_transformation_configuration_intermediate_storage_s_3_location.rs"
+        );
+        include!(
+            "types/bedrock/agent_data_source_vector_ingestion_configuration_custom_transformation_configuration_transformation.rs"
+        );
+        include!(
+            "types/bedrock/agent_data_source_vector_ingestion_configuration_custom_transformation_configuration_transformation_transformation_function.rs"
+        );
+        include!(
+            "types/bedrock/agent_data_source_vector_ingestion_configuration_custom_transformation_configuration_transformation_transformation_function_transformation_lambda_configuration.rs"
+        );
+        include!(
+            "types/bedrock/agent_data_source_vector_ingestion_configuration_parsing_configuration.rs"
+        );
+        include!(
+            "types/bedrock/agent_data_source_vector_ingestion_configuration_parsing_configuration_bedrock_foundation_model_configuration.rs"
+        );
+        include!(
+            "types/bedrock/agent_data_source_vector_ingestion_configuration_parsing_configuration_bedrock_foundation_model_configuration_parsing_prompt.rs"
+        );
+        include!("types/bedrock/agent_knowledge_base_knowledge_base_configuration.rs");
+        include!(
+            "types/bedrock/agent_knowledge_base_knowledge_base_configuration_vector_knowledge_base_configuration.rs"
+        );
+        include!("types/bedrock/agent_knowledge_base_storage_configuration.rs");
+        include!(
+            "types/bedrock/agent_knowledge_base_storage_configuration_opensearch_serverless_configuration.rs"
+        );
+        include!(
+            "types/bedrock/agent_knowledge_base_storage_configuration_opensearch_serverless_configuration_field_mapping.rs"
+        );
+        include!(
+            "types/bedrock/agent_knowledge_base_storage_configuration_pinecone_configuration.rs"
+        );
+        include!(
+            "types/bedrock/agent_knowledge_base_storage_configuration_pinecone_configuration_field_mapping.rs"
+        );
+        include!(
+            "types/bedrock/agent_knowledge_base_storage_configuration_rds_configuration.rs"
+        );
+        include!(
+            "types/bedrock/agent_knowledge_base_storage_configuration_rds_configuration_field_mapping.rs"
+        );
+        include!(
+            "types/bedrock/agent_knowledge_base_storage_configuration_redis_enterprise_cloud_configuration.rs"
+        );
+        include!(
+            "types/bedrock/agent_knowledge_base_storage_configuration_redis_enterprise_cloud_configuration_field_mapping.rs"
+        );
+        include!("types/bedrock/agent_knowledge_base_timeouts.rs");
+        include!("types/bedrock/custom_model_output_data_config.rs");
+        include!("types/bedrock/custom_model_timeouts.rs");
+        include!("types/bedrock/custom_model_training_data_config.rs");
+        include!("types/bedrock/custom_model_training_metric.rs");
+        include!("types/bedrock/custom_model_validation_data_config.rs");
+        include!("types/bedrock/custom_model_validation_data_config_validator.rs");
+        include!("types/bedrock/custom_model_validation_metric.rs");
+        include!("types/bedrock/custom_model_vpc_config.rs");
+        include!("types/bedrock/guardrail_content_policy_config.rs");
+        include!("types/bedrock/guardrail_content_policy_config_filters_config.rs");
+        include!("types/bedrock/guardrail_contextual_grounding_policy_config.rs");
+        include!(
+            "types/bedrock/guardrail_contextual_grounding_policy_config_filters_config.rs"
+        );
+        include!("types/bedrock/guardrail_sensitive_information_policy_config.rs");
+        include!(
+            "types/bedrock/guardrail_sensitive_information_policy_config_pii_entities_config.rs"
+        );
+        include!(
+            "types/bedrock/guardrail_sensitive_information_policy_config_regexes_config.rs"
+        );
+        include!("types/bedrock/guardrail_timeouts.rs");
+        include!("types/bedrock/guardrail_topic_policy_config.rs");
+        include!("types/bedrock/guardrail_topic_policy_config_topics_config.rs");
+        include!("types/bedrock/guardrail_version_timeouts.rs");
+        include!("types/bedrock/guardrail_word_policy_config.rs");
+        include!(
+            "types/bedrock/guardrail_word_policy_config_managed_word_lists_config.rs"
+        );
+        include!("types/bedrock/guardrail_word_policy_config_words_config.rs");
+        include!("types/bedrock/inference_profile_model.rs");
+        include!("types/bedrock/inference_profile_model_source.rs");
+        include!("types/bedrock/inference_profile_timeouts.rs");
+        include!("types/bedrock/provisioned_model_throughput_timeouts.rs");
+        include!("types/bedrock/get_agent_agent_versions_agent_version_summary.rs");
+        include!(
+            "types/bedrock/get_agent_agent_versions_agent_version_summary_guardrail_configuration.rs"
+        );
+        include!("types/bedrock/get_custom_model_output_data_config.rs");
+        include!("types/bedrock/get_custom_model_training_data_config.rs");
+        include!("types/bedrock/get_custom_model_training_metric.rs");
+        include!("types/bedrock/get_custom_model_validation_data_config.rs");
+        include!("types/bedrock/get_custom_model_validation_data_config_validator.rs");
+        include!("types/bedrock/get_custom_model_validation_metric.rs");
+        include!("types/bedrock/get_custom_models_model_summary.rs");
+        include!("types/bedrock/get_inference_profile_model.rs");
+        include!("types/bedrock/get_inference_profiles_inference_profile_summary.rs");
+        include!(
+            "types/bedrock/get_inference_profiles_inference_profile_summary_model.rs"
+        );
+    }
+    pub mod bedrockfoundation {
+        include!("types/bedrockfoundation/get_models_model_summary.rs");
+    }
+    pub mod bedrockmodel {
+        include!(
+            "types/bedrockmodel/invocation_logging_configuration_logging_config.rs"
+        );
+        include!(
+            "types/bedrockmodel/invocation_logging_configuration_logging_config_cloudwatch_config.rs"
+        );
+        include!(
+            "types/bedrockmodel/invocation_logging_configuration_logging_config_cloudwatch_config_large_data_delivery_s_3_config.rs"
+        );
+        include!(
+            "types/bedrockmodel/invocation_logging_configuration_logging_config_s_3_config.rs"
+        );
+    }
+    pub mod budgets {
+        include!("types/budgets/budget_action_action_threshold.rs");
+        include!("types/budgets/budget_action_definition.rs");
+        include!("types/budgets/budget_action_definition_iam_action_definition.rs");
+        include!("types/budgets/budget_action_definition_scp_action_definition.rs");
+        include!("types/budgets/budget_action_definition_ssm_action_definition.rs");
+        include!("types/budgets/budget_action_subscriber.rs");
+        include!("types/budgets/budget_auto_adjust_data.rs");
+        include!("types/budgets/budget_auto_adjust_data_historical_options.rs");
+        include!("types/budgets/budget_cost_filter.rs");
+        include!("types/budgets/budget_cost_types.rs");
+        include!("types/budgets/budget_notification.rs");
+        include!("types/budgets/budget_planned_limit.rs");
+        include!("types/budgets/get_budget_auto_adjust_data.rs");
+        include!("types/budgets/get_budget_auto_adjust_data_historical_option.rs");
+        include!("types/budgets/get_budget_budget_limit.rs");
+        include!("types/budgets/get_budget_calculated_spend.rs");
+        include!("types/budgets/get_budget_calculated_spend_actual_spend.rs");
+        include!("types/budgets/get_budget_cost_filter.rs");
+        include!("types/budgets/get_budget_cost_type.rs");
+        include!("types/budgets/get_budget_notification.rs");
+        include!("types/budgets/get_budget_planned_limit.rs");
+    }
+    include!("types/get_availability_zone_filter.rs");
+    include!("types/get_availability_zones_filter.rs");
+    include!("types/get_regions_filter.rs");
+}
+#[doc(hidden)]
+pub mod constants {}
+mod bindings {
+    pulumi_wasm_rust::__private::wit_bindgen::generate!(
+        { inline :
+        r"package component:pulumi-wasm@0.0.0-DEV;
+
+world world-aws {
+    import output-interface;
+}
+
+interface output-interface {
+
+    resource output {
+        constructor(value: string);
+        map: func(function-name: string) -> output;
+    }
+    combine: func(outputs: list<borrow<output>>) -> output;
+}
+
+
+interface register-interface {
+    use output-interface.{output};
+
+    record object-field {
+        name: string,
+        value: borrow<output>
+    }
+
+    record result-field {
+        name: string
+    }
+
+    record register-resource-result-field {
+        name: string,
+        output: output
+    }
+
+    record register-resource-request {
+        %type: string,
+        name: string,
+        object: list<object-field>,
+        results: list<result-field>
+    }
+
+    record register-resource-result {
+        fields: list<register-resource-result-field>
+    }
+
+    register: func(request: register-resource-request) -> register-resource-result;
+
+    record resource-invoke-result-field {
+        name: string,
+        output: output
+    }
+
+    record resource-invoke-request {
+        token: string,
+        object: list<object-field>,
+        results: list<result-field>
+    }
+
+    record resource-invoke-result {
+        fields: list<resource-invoke-result-field>
+    }
+
+    invoke: func(request: resource-invoke-request) -> resource-invoke-result;
+}",
+        with : { "component:pulumi-wasm/output-interface@0.0.0-DEV" :
+        pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface
+        } }
+    );
+}

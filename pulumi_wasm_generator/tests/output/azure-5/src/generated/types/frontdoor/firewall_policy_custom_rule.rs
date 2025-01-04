@@ -33,5 +33,5 @@ pub struct FirewallPolicyCustomRule {
     /// The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

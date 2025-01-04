@@ -9,7 +9,7 @@ pub struct GetStandardConnectionString {
     /// The Type of Managed Identity assigned to this Logic App Workflow.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
     #[builder(into)]
     #[serde(rename = "value")]
     pub r#value: Box<String>,

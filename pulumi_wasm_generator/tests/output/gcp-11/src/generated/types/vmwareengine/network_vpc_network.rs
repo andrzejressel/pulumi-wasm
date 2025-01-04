@@ -12,5 +12,5 @@ pub struct NetworkVpcNetwork {
     /// Possible values are: `LEGACY`, `STANDARD`.
     #[builder(into, default)]
     #[serde(rename = "type")]
-    pub r#type: Box<Option<String>>,
+    pub r#type_: Box<Option<String>>,
 }

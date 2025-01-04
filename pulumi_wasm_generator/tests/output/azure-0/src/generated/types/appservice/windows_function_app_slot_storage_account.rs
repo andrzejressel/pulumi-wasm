@@ -25,5 +25,5 @@ pub struct WindowsFunctionAppSlotStorageAccount {
     /// The Azure Storage Type. Possible values include `AzureFiles`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

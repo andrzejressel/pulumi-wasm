@@ -11,7 +11,7 @@ pub struct RouterRoutePolicyTerm {
     /// Structure is documented below.
     #[builder(into, default)]
     #[serde(rename = "match")]
-    pub r#match: Box<Option<super::super::types::compute::RouterRoutePolicyTermMatch>>,
+    pub r#match_: Box<Option<super::super::types::compute::RouterRoutePolicyTermMatch>>,
     /// The evaluation priority for this term, which must be between 0 (inclusive) and 231 (exclusive), and unique within the list.
     #[builder(into)]
     #[serde(rename = "priority")]

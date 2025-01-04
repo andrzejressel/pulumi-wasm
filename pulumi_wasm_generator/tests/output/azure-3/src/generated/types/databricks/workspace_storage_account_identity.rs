@@ -13,5 +13,5 @@ pub struct WorkspaceStorageAccountIdentity {
     /// The type of the internal databricks storage account.
     #[builder(into, default)]
     #[serde(rename = "type")]
-    pub r#type: Box<Option<String>>,
+    pub r#type_: Box<Option<String>>,
 }

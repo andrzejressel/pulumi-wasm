@@ -10,5 +10,5 @@ pub struct GetNetworkVpcNetwork {
     /// Type of VPC network (INTRANET, INTERNET, or GOOGLE_CLOUD)
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

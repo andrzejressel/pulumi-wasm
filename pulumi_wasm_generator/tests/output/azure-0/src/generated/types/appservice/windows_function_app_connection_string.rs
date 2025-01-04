@@ -9,7 +9,7 @@ pub struct WindowsFunctionAppConnectionString {
     /// Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
     /// The connection string value.
     #[builder(into)]
     #[serde(rename = "value")]

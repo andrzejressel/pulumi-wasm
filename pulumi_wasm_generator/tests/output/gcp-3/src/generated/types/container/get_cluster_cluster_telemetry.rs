@@ -5,5 +5,5 @@ pub struct GetClusterClusterTelemetry {
     /// Type of the integration.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

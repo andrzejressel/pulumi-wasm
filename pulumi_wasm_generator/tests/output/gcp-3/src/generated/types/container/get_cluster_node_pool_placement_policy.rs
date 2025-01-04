@@ -13,5 +13,5 @@ pub struct GetClusterNodePoolPlacementPolicy {
     /// Type defines the type of placement policy
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

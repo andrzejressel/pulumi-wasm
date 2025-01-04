@@ -25,5 +25,5 @@ pub struct LinuxWebAppSlotStorageAccount {
     /// The Azure Storage Type. Possible values include `AzureFiles` and `AzureBlob`
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

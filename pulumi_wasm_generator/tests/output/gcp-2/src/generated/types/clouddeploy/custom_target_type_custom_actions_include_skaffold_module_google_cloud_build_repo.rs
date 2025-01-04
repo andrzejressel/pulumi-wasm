@@ -9,7 +9,7 @@ pub struct CustomTargetTypeCustomActionsIncludeSkaffoldModuleGoogleCloudBuildRep
     /// Branch or tag to use when cloning the repository.
     #[builder(into, default)]
     #[serde(rename = "ref")]
-    pub r#ref: Box<Option<String>>,
+    pub r#ref_: Box<Option<String>>,
     /// Cloud Build 2nd gen repository in the format of 'projects/<project>/locations/<location>/connections/<connection>/repositories/<repository>'.
     #[builder(into)]
     #[serde(rename = "repository")]

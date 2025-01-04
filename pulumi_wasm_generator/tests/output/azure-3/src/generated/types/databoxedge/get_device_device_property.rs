@@ -45,5 +45,5 @@ pub struct GetDeviceDeviceProperty {
     /// The type of the Data Box Edge/Gateway device.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

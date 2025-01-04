@@ -17,7 +17,7 @@ pub struct EventSubscriptionDeliveryProperty {
     /// Either `Static` or `Dynamic`
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
     /// If the `type` is `Static`, then provide the value to use
     #[builder(into, default)]
     #[serde(rename = "value")]

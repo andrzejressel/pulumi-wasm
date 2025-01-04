@@ -9,5 +9,5 @@ pub struct SubscriptionCostManagementExportExportDataOptions {
     /// The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

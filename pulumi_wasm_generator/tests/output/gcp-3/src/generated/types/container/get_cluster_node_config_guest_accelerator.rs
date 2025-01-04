@@ -21,5 +21,5 @@ pub struct GetClusterNodeConfigGuestAccelerator {
     /// The accelerator type resource name.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

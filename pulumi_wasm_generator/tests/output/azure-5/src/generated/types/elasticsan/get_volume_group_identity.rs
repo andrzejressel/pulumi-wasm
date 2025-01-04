@@ -17,5 +17,5 @@ pub struct GetVolumeGroupIdentity {
     /// The type of Managed Identity assigned to this Elastic SAN Volume Group.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

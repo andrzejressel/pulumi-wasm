@@ -12,5 +12,5 @@ pub struct ConnectionConfigVariableEncryptionKeyValue {
     /// Possible values are: `GOOGLE_MANAGED`, `CUSTOMER_MANAGED`.
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }

@@ -9,5 +9,5 @@ pub struct WorkstationConfigHostGceInstanceBoostConfigAccelerator {
     /// Type of accelerator resource to attach to the instance, for example, "nvidia-tesla-p100".
     #[builder(into)]
     #[serde(rename = "type")]
-    pub r#type: Box<String>,
+    pub r#type_: Box<String>,
 }
