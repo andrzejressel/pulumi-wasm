@@ -1,0 +1,13 @@
+#[derive(pulumi_wasm_rust::__private::serde::Deserialize, pulumi_wasm_rust::__private::serde::Serialize, pulumi_wasm_rust::__private::bon::Builder, Debug, PartialEq, Clone)]
+#[builder(finish_fn = build_struct)]
+#[allow(dead_code)]
+pub struct BitbucketServerConfigConnectedRepository {
+    /// Identifier for the project storing the repository.
+    #[builder(into)]
+    #[serde(rename = "projectKey")]
+    pub r#project_key: Box<String>,
+    /// Identifier for the repository.
+    #[builder(into)]
+    #[serde(rename = "repoSlug")]
+    pub r#repo_slug: Box<String>,
+}

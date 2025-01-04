@@ -1,0 +1,134 @@
+{
+  "version": "1.0.0",
+  "name": "example",
+  "resources": {
+    "example:ns1:Resource1": {
+      "inputProperties": {
+        "type1": {
+          "$ref": "#/types/example:ns1:Type1"
+        },
+        "commonType": {
+          "$ref": "#/types/example:common:CommonType"
+        }
+      },
+      "properties": {
+        "type1": {
+          "$ref": "#/types/example:ns1:Type1"
+        },
+        "commonType": {
+          "$ref": "#/types/example:common:CommonType"
+        }
+      }
+    },
+    "example:ns2:Resource2": {
+      "inputProperties": {
+        "type2": {
+          "$ref": "#/types/example:ns2:Type2"
+        },
+        "commonType": {
+          "$ref": "#/types/example:common:CommonType"
+        }
+      },
+      "properties": {
+        "type2": {
+          "$ref": "#/types/example:ns2:Type2"
+        },
+        "commonType": {
+          "$ref": "#/types/example:common:CommonType"
+        }
+      }
+    },
+    "example:ns3:Resource3": {
+      "inputProperties": {
+        "type3": {
+          "$ref": "#/types/example:ns3:Type3"
+        },
+        "commonType": {
+          "$ref": "#/types/example:common:CommonType"
+        }
+      },
+      "properties": {
+        "type3": {
+          "$ref": "#/types/example:ns3:Type3"
+        },
+        "commonType": {
+          "$ref": "#/types/example:common:CommonType"
+        }
+      }
+    }
+  },
+  "functions": {
+    "example:ns1:Function1": {
+      "inputs": {
+        "properties": {
+          "type1": {
+            "$ref": "#/types/example:ns1:Type1"
+          },
+          "commonType": {
+            "$ref": "#/types/example:common:CommonType"
+          }
+        }
+      },
+      "outputs": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "example:ns2:Function2": {
+      "inputs": {
+        "properties": {
+          "type2": {
+            "$ref": "#/types/example:ns2:Type2"
+          },
+          "commonType": {
+            "$ref": "#/types/example:common:CommonType"
+          }
+        }
+      },
+      "outputs": {
+        "properties": {
+          "result": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  },
+  "types": {
+    "example:ns1:Type1": {
+      "type": "object",
+      "properties": {
+        "property1": {
+          "type": "string"
+        }
+      }
+    },
+    "example:ns2:Type2": {
+      "type": "object",
+      "properties": {
+        "property2": {
+          "type": "number"
+        }
+      }
+    },
+    "example:ns3:Type3": {
+      "type": "object",
+      "properties": {
+        "property3": {
+          "type": "number"
+        }
+      }
+    },
+    "example:common:CommonType": {
+      "type": "object",
+      "properties": {
+        "commonProperty": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

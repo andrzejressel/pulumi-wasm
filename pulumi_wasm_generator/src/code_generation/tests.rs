@@ -32,13 +32,13 @@ mod tests {
                 assert_eq!(yaml_file, expected_yaml_file);
 
                 let schema_package: schema::Package = extract_schema_from_file(
-                    concat!("test_cases/", $package_name, ".json").as_ref(),
+                    concat!("tests/test_cases/", $package_name, ".json").as_ref(),
                 )
                 .unwrap();
 
                 let package = schema::to_model(&schema_package).unwrap();
                 let yaml_file = $test_module::get_yaml_file();
-                let result = yaml_to_model(yaml_file, $package_name.to_string(), &package)?;
+                let result = yaml_to_model(yaml_file, &package)?;
                 assert_eq!(result, $test_module::get_model());
 
                 let model = $test_module::get_model();

@@ -111,10 +111,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: Swatinem/rust-cache@v2
         with:
-          shared-key: build-real-${{ matrix.provider }}
-          workspaces: |
-            ./
-            pulumi_wasm_generator/tests/output/${{ matrix.provider }}/
+          lookup-only: "true"
+          save-if: "false"
       - run: just test-provider-compilation ${{ matrix.provider }}
       - name: Upload coverage data to codecov
         uses: codecov/codecov-action@v5
@@ -175,7 +173,7 @@ jobs:
           key: ${{ runner.os }}-pulumi-${{ hashFiles('regenerator/src/main.rs') }}
           restore-keys: |
             ${{ runner.os }}-pulumi-
-      - run: just househeeping-ci-flow
+      - run: just housekeeping-ci-flow
       - run: git add . && git diff
       - run: git diff --cached
       - name: Ensure no files have changed

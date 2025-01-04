@@ -1,0 +1,354 @@
+/// ## Example Usage
+///
+/// ### Developer Connect Git Repository Link Github Doc
+///
+///
+/// ```yaml
+/// resources:
+///   github-token-secret:
+///     type: gcp:secretmanager:Secret
+///     properties:
+///       secretId: github-token-secret
+///       replication:
+///         auto: {}
+///   github-token-secret-version:
+///     type: gcp:secretmanager:SecretVersion
+///     properties:
+///       secret: ${["github-token-secret"].id}
+///       secretData:
+///         fn::invoke:
+///           function: std:file
+///           arguments:
+///             input: my-github-token.txt
+///           return: result
+///   policy:
+///     type: gcp:secretmanager:SecretIamPolicy
+///     properties:
+///       secretId: ${["github-token-secret"].secretId}
+///       policyData: ${["p4sa-secretAccessor"].policyData}
+///   my-connection:
+///     type: gcp:developerconnect:Connection
+///     properties:
+///       location: us-central1
+///       connectionId: my-connection
+///       githubConfig:
+///         githubApp: DEVELOPER_CONNECT
+///         appInstallationId: 123123
+///         authorizerCredential:
+///           oauthTokenSecretVersion: ${["github-token-secret-version"].id}
+///   my-repository:
+///     type: gcp:developerconnect:GitRepositoryLink
+///     properties:
+///       location: us-central1
+///       gitRepositoryLinkId: my-repo
+///       parentConnection: ${["my-connection"].connectionId}
+///       remoteUri: https://github.com/myuser/myrepo.git
+/// variables:
+///   p4sa-secretAccessor:
+///     fn::invoke:
+///       function: gcp:organizations:getIAMPolicy
+///       arguments:
+///         bindings:
+///           - role: roles/secretmanager.secretAccessor
+///             members:
+///               - serviceAccount:service-123456789@gcp-sa-devconnect.iam.gserviceaccount.com
+/// ```
+///
+/// ## Import
+///
+/// GitRepositoryLink can be imported using any of these accepted formats:
+///
+/// * `projects/{{project}}/locations/{{location}}/connections/{{parent_connection}}/gitRepositoryLinks/{{git_repository_link_id}}`
+///
+/// * `{{project}}/{{location}}/{{parent_connection}}/{{git_repository_link_id}}`
+///
+/// * `{{location}}/{{parent_connection}}/{{git_repository_link_id}}`
+///
+/// When using the `pulumi import` command, GitRepositoryLink can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:developerconnect/gitRepositoryLink:GitRepositoryLink default projects/{{project}}/locations/{{location}}/connections/{{parent_connection}}/gitRepositoryLinks/{{git_repository_link_id}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:developerconnect/gitRepositoryLink:GitRepositoryLink default {{project}}/{{location}}/{{parent_connection}}/{{git_repository_link_id}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:developerconnect/gitRepositoryLink:GitRepositoryLink default {{location}}/{{parent_connection}}/{{git_repository_link_id}}
+/// ```
+///
+pub mod git_repository_link {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct GitRepositoryLinkArgs {
+        /// Optional. Allows clients to store small amounts of arbitrary data.
+        /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
+        /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
+        #[builder(into, default)]
+        pub annotations: pulumi_wasm_rust::Output<
+            Option<std::collections::HashMap<String, String>>,
+        >,
+        /// Required. Git Clone URI.
+        #[builder(into)]
+        pub clone_uri: pulumi_wasm_rust::Output<String>,
+        /// Optional. This checksum is computed by the server based on the value of other
+        /// fields, and may be sent on update and delete requests to ensure the
+        /// client has an up-to-date value before proceeding.
+        #[builder(into, default)]
+        pub etag: pulumi_wasm_rust::Output<Option<String>>,
+        /// Required. The ID to use for the repository, which will become the final component of
+        /// the repository's resource name. This ID should be unique in the connection.
+        /// Allows alphanumeric characters and any of -._~%!$&'()*+,;=@.
+        ///
+        ///
+        /// - - -
+        #[builder(into)]
+        pub git_repository_link_id: pulumi_wasm_rust::Output<String>,
+        /// Optional. Labels as key value pairs
+        /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
+        /// Please refer to the field `effective_labels` for all of the labels present on the resource.
+        #[builder(into, default)]
+        pub labels: pulumi_wasm_rust::Output<
+            Option<std::collections::HashMap<String, String>>,
+        >,
+        /// Resource ID segment making up resource `name`. It identifies the resource within its parent collection as described in https://google.aip.dev/122. See documentation for resource type `developerconnect.googleapis.com/GitRepositoryLink`.
+        #[builder(into)]
+        pub location: pulumi_wasm_rust::Output<String>,
+        /// Resource ID segment making up resource `name`. It identifies the resource within its parent collection as described in https://google.aip.dev/122. See documentation for resource type `developerconnect.googleapis.com/GitRepositoryLink`.
+        #[builder(into)]
+        pub parent_connection: pulumi_wasm_rust::Output<String>,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        #[builder(into, default)]
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+    }
+    #[allow(dead_code)]
+    pub struct GitRepositoryLinkResult {
+        /// Optional. Allows clients to store small amounts of arbitrary data.
+        /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
+        /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
+        pub annotations: pulumi_wasm_rust::Output<
+            Option<std::collections::HashMap<String, String>>,
+        >,
+        /// Required. Git Clone URI.
+        pub clone_uri: pulumi_wasm_rust::Output<String>,
+        /// Output only. [Output only] Create timestamp
+        pub create_time: pulumi_wasm_rust::Output<String>,
+        /// Output only. [Output only] Delete timestamp
+        pub delete_time: pulumi_wasm_rust::Output<String>,
+        pub effective_annotations: pulumi_wasm_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
+        /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
+        pub effective_labels: pulumi_wasm_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
+        /// Optional. This checksum is computed by the server based on the value of other
+        /// fields, and may be sent on update and delete requests to ensure the
+        /// client has an up-to-date value before proceeding.
+        pub etag: pulumi_wasm_rust::Output<Option<String>>,
+        /// Required. The ID to use for the repository, which will become the final component of
+        /// the repository's resource name. This ID should be unique in the connection.
+        /// Allows alphanumeric characters and any of -._~%!$&'()*+,;=@.
+        ///
+        ///
+        /// - - -
+        pub git_repository_link_id: pulumi_wasm_rust::Output<String>,
+        /// Optional. Labels as key value pairs
+        /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
+        /// Please refer to the field `effective_labels` for all of the labels present on the resource.
+        pub labels: pulumi_wasm_rust::Output<
+            Option<std::collections::HashMap<String, String>>,
+        >,
+        /// Resource ID segment making up resource `name`. It identifies the resource within its parent collection as described in https://google.aip.dev/122. See documentation for resource type `developerconnect.googleapis.com/GitRepositoryLink`.
+        pub location: pulumi_wasm_rust::Output<String>,
+        /// Identifier. Resource name of the repository, in the format
+        /// `projects/*/locations/*/connections/*/gitRepositoryLinks/*`.
+        pub name: pulumi_wasm_rust::Output<String>,
+        /// Resource ID segment making up resource `name`. It identifies the resource within its parent collection as described in https://google.aip.dev/122. See documentation for resource type `developerconnect.googleapis.com/GitRepositoryLink`.
+        pub parent_connection: pulumi_wasm_rust::Output<String>,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        pub project: pulumi_wasm_rust::Output<String>,
+        /// The combination of labels configured directly on the resource
+        /// and default labels configured on the provider.
+        pub pulumi_labels: pulumi_wasm_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
+        /// Output only. Set to true when the connection is being set up or updated in the
+        /// background.
+        pub reconciling: pulumi_wasm_rust::Output<bool>,
+        /// Output only. A system-assigned unique identifier for a the GitRepositoryLink.
+        pub uid: pulumi_wasm_rust::Output<String>,
+        /// Output only. [Output only] Update timestamp
+        pub update_time: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: GitRepositoryLinkArgs) -> GitRepositoryLinkResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let annotations_binding = args.annotations.get_inner();
+        let clone_uri_binding = args.clone_uri.get_inner();
+        let etag_binding = args.etag.get_inner();
+        let git_repository_link_id_binding = args.git_repository_link_id.get_inner();
+        let labels_binding = args.labels.get_inner();
+        let location_binding = args.location.get_inner();
+        let parent_connection_binding = args.parent_connection.get_inner();
+        let project_binding = args.project.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:developerconnect/gitRepositoryLink:GitRepositoryLink".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "annotations".into(),
+                    value: &annotations_binding,
+                },
+                register_interface::ObjectField {
+                    name: "cloneUri".into(),
+                    value: &clone_uri_binding,
+                },
+                register_interface::ObjectField {
+                    name: "etag".into(),
+                    value: &etag_binding,
+                },
+                register_interface::ObjectField {
+                    name: "gitRepositoryLinkId".into(),
+                    value: &git_repository_link_id_binding,
+                },
+                register_interface::ObjectField {
+                    name: "labels".into(),
+                    value: &labels_binding,
+                },
+                register_interface::ObjectField {
+                    name: "location".into(),
+                    value: &location_binding,
+                },
+                register_interface::ObjectField {
+                    name: "parentConnection".into(),
+                    value: &parent_connection_binding,
+                },
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "annotations".into(),
+                },
+                register_interface::ResultField {
+                    name: "cloneUri".into(),
+                },
+                register_interface::ResultField {
+                    name: "createTime".into(),
+                },
+                register_interface::ResultField {
+                    name: "deleteTime".into(),
+                },
+                register_interface::ResultField {
+                    name: "effectiveAnnotations".into(),
+                },
+                register_interface::ResultField {
+                    name: "effectiveLabels".into(),
+                },
+                register_interface::ResultField {
+                    name: "etag".into(),
+                },
+                register_interface::ResultField {
+                    name: "gitRepositoryLinkId".into(),
+                },
+                register_interface::ResultField {
+                    name: "labels".into(),
+                },
+                register_interface::ResultField {
+                    name: "location".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "parentConnection".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+                register_interface::ResultField {
+                    name: "pulumiLabels".into(),
+                },
+                register_interface::ResultField {
+                    name: "reconciling".into(),
+                },
+                register_interface::ResultField {
+                    name: "uid".into(),
+                },
+                register_interface::ResultField {
+                    name: "updateTime".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        GitRepositoryLinkResult {
+            annotations: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("annotations").unwrap(),
+            ),
+            clone_uri: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("cloneUri").unwrap(),
+            ),
+            create_time: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("createTime").unwrap(),
+            ),
+            delete_time: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("deleteTime").unwrap(),
+            ),
+            effective_annotations: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("effectiveAnnotations").unwrap(),
+            ),
+            effective_labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("effectiveLabels").unwrap(),
+            ),
+            etag: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("etag").unwrap(),
+            ),
+            git_repository_link_id: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("gitRepositoryLinkId").unwrap(),
+            ),
+            labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("labels").unwrap(),
+            ),
+            location: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("location").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            parent_connection: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("parentConnection").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("pulumiLabels").unwrap(),
+            ),
+            reconciling: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("reconciling").unwrap(),
+            ),
+            uid: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("uid").unwrap(),
+            ),
+            update_time: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("updateTime").unwrap(),
+            ),
+        }
+    }
+}

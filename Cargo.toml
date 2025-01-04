@@ -9,9 +9,11 @@ members = [
     "examples/multiple_providers",
     "examples/simple",
     "examples/typesystem",
-    "providers/typesystem",
+    "providers/azure-mini",
     "providers/cloudflare",
     "providers/docker",
+    "providers/gcp-mini",
+    "providers/typesystem",
     "providers/random",
     "pulumi_wasm",
     "pulumi_wasm_common",
@@ -85,3 +87,4 @@ bon = "3.0.0"
 proc-macro2 = "1.0.92"
 rinja = "0.3.5"
 tempfile = "3.14.0"
+pathdiff = "0.2.3"

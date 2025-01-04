@@ -1,0 +1,210 @@
+/// Represents an instance of an Event Threat Detection custom module, including
+/// its full module name, display name, enablement state, andlast updated time.
+/// You can create a custom module at the organization level only.
+///
+///
+/// To get more information about EventThreatDetectionCustomModule, see:
+///
+/// * [API documentation](https://cloud.google.com/security-command-center/docs/reference/rest/v1/organizations.eventThreatDetectionSettings.customModules)
+/// * How-to Guides
+///     * [Overview of custom modules for Event Threat Detection](https://cloud.google.com/security-command-center/docs/custom-modules-etd-overview)
+///
+/// ## Example Usage
+///
+/// ### Scc Event Threat Detection Custom Module
+///
+///
+/// ```yaml
+/// resources:
+///   example:
+///     type: gcp:securitycenter:EventThreatDetectionCustomModule
+///     properties:
+///       organization: '123456789'
+///       displayName: basic_custom_module
+///       enablementState: ENABLED
+///       type: CONFIGURABLE_BAD_IP
+///       description: My Event Threat Detection Custom Module
+///       config:
+///         fn::toJSON:
+///           metadata:
+///             severity: LOW
+///             description: Flagged by Forcepoint as malicious
+///             recommendation: Contact the owner of the relevant project.
+///           ips:
+///             - 192.0.2.1
+///             - 192.0.2.0/24
+/// ```
+///
+/// ## Import
+///
+/// EventThreatDetectionCustomModule can be imported using any of these accepted formats:
+///
+/// * `organizations/{{organization}}/eventThreatDetectionSettings/customModules/{{name}}`
+///
+/// * `{{organization}}/{{name}}`
+///
+/// When using the `pulumi import` command, EventThreatDetectionCustomModule can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:securitycenter/eventThreatDetectionCustomModule:EventThreatDetectionCustomModule default organizations/{{organization}}/eventThreatDetectionSettings/customModules/{{name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:securitycenter/eventThreatDetectionCustomModule:EventThreatDetectionCustomModule default {{organization}}/{{name}}
+/// ```
+///
+pub mod event_threat_detection_custom_module {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct EventThreatDetectionCustomModuleArgs {
+        /// Config for the module. For the resident module, its config value is defined at this level.
+        /// For the inherited module, its config value is inherited from the ancestor module.
+        #[builder(into)]
+        pub config: pulumi_wasm_rust::Output<String>,
+        /// The human readable name to be displayed for the module.
+        #[builder(into, default)]
+        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        /// The state of enablement for the module at the given level of the hierarchy.
+        /// Possible values are: `ENABLED`, `DISABLED`.
+        #[builder(into)]
+        pub enablement_state: pulumi_wasm_rust::Output<String>,
+        /// Numerical ID of the parent organization.
+        ///
+        ///
+        /// - - -
+        #[builder(into)]
+        pub organization: pulumi_wasm_rust::Output<String>,
+        /// Immutable. Type for the module. e.g. CONFIGURABLE_BAD_IP.
+        #[builder(into)]
+        pub type_: pulumi_wasm_rust::Output<String>,
+    }
+    #[allow(dead_code)]
+    pub struct EventThreatDetectionCustomModuleResult {
+        /// Config for the module. For the resident module, its config value is defined at this level.
+        /// For the inherited module, its config value is inherited from the ancestor module.
+        pub config: pulumi_wasm_rust::Output<String>,
+        /// The human readable name to be displayed for the module.
+        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        /// The state of enablement for the module at the given level of the hierarchy.
+        /// Possible values are: `ENABLED`, `DISABLED`.
+        pub enablement_state: pulumi_wasm_rust::Output<String>,
+        /// The editor that last updated the custom module
+        pub last_editor: pulumi_wasm_rust::Output<String>,
+        /// The resource name of the Event Threat Detection custom module.
+        /// Its format is "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
+        pub name: pulumi_wasm_rust::Output<String>,
+        /// Numerical ID of the parent organization.
+        ///
+        ///
+        /// - - -
+        pub organization: pulumi_wasm_rust::Output<String>,
+        /// Immutable. Type for the module. e.g. CONFIGURABLE_BAD_IP.
+        pub type_: pulumi_wasm_rust::Output<String>,
+        /// The time at which the custom module was last updated.
+        /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and
+        /// up to nine fractional digits. Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
+        pub update_time: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(
+        name: &str,
+        args: EventThreatDetectionCustomModuleArgs,
+    ) -> EventThreatDetectionCustomModuleResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let config_binding = args.config.get_inner();
+        let display_name_binding = args.display_name.get_inner();
+        let enablement_state_binding = args.enablement_state.get_inner();
+        let organization_binding = args.organization.get_inner();
+        let type__binding = args.type_.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:securitycenter/eventThreatDetectionCustomModule:EventThreatDetectionCustomModule"
+                .into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "config".into(),
+                    value: &config_binding,
+                },
+                register_interface::ObjectField {
+                    name: "displayName".into(),
+                    value: &display_name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "enablementState".into(),
+                    value: &enablement_state_binding,
+                },
+                register_interface::ObjectField {
+                    name: "organization".into(),
+                    value: &organization_binding,
+                },
+                register_interface::ObjectField {
+                    name: "type".into(),
+                    value: &type__binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "config".into(),
+                },
+                register_interface::ResultField {
+                    name: "displayName".into(),
+                },
+                register_interface::ResultField {
+                    name: "enablementState".into(),
+                },
+                register_interface::ResultField {
+                    name: "lastEditor".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "organization".into(),
+                },
+                register_interface::ResultField {
+                    name: "type".into(),
+                },
+                register_interface::ResultField {
+                    name: "updateTime".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        EventThreatDetectionCustomModuleResult {
+            config: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("config").unwrap(),
+            ),
+            display_name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("displayName").unwrap(),
+            ),
+            enablement_state: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("enablementState").unwrap(),
+            ),
+            last_editor: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("lastEditor").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            organization: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("organization").unwrap(),
+            ),
+            type_: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("type").unwrap(),
+            ),
+            update_time: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("updateTime").unwrap(),
+            ),
+        }
+    }
+}

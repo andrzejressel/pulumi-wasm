@@ -398,14 +398,14 @@ pub(crate) fn to_model(package: &Package) -> Result<crate::model::Package> {
         })
         .collect::<Result<BTreeMap<_, _>>>()
         .context("Cannot handle types")?;
-    Ok(crate::model::Package {
-        name: package.name.clone(),
-        version: package.version.clone().unwrap_or("0.0.1".to_string()),
-        display_name: package.display_name.clone(),
-        types,
+    Ok(crate::model::Package::new(
+        package.name.clone(),
+        package.display_name.clone(),
+        package.version.clone().unwrap_or("0.0.1".to_string()),
         resources,
         functions,
-    })
+        types,
+    ))
 }
 
 fn convert_to_global_type(

@@ -1,0 +1,166 @@
+pub mod get_subnetwork {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct GetSubnetworkArgs {
+        /// The name of the subnetwork. One of `name` or `self_link`
+        /// must be specified.
+        #[builder(into, default)]
+        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        /// The ID of the project in which the resource belongs. If it
+        /// is not provided, the provider project is used.
+        #[builder(into, default)]
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        /// The region this subnetwork has been created in. If
+        /// unspecified, this defaults to the region configured in the provider.
+        #[builder(into, default)]
+        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        /// The self link of the subnetwork. If `self_link` is
+        /// specified, `name`, `project`, and `region` are ignored.
+        #[builder(into, default)]
+        pub self_link: pulumi_wasm_rust::Output<Option<String>>,
+    }
+    #[allow(dead_code)]
+    pub struct GetSubnetworkResult {
+        /// Description of this subnetwork.
+        pub description: pulumi_wasm_rust::Output<String>,
+        /// The IP address of the gateway.
+        pub gateway_address: pulumi_wasm_rust::Output<String>,
+        /// The provider-assigned unique ID for this managed resource.
+        pub id: pulumi_wasm_rust::Output<String>,
+        /// The internal IPv6 address range that is assigned to this subnetwork.
+        pub internal_ipv6_prefix: pulumi_wasm_rust::Output<String>,
+        /// The range of IP addresses belonging to this subnetwork
+        /// secondary range.
+        pub ip_cidr_range: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        /// The network name or resource link to the parent
+        /// network of this subnetwork.
+        pub network: pulumi_wasm_rust::Output<String>,
+        /// Whether the VMs in this subnet
+        /// can access Google services without assigned external IP
+        /// addresses.
+        pub private_ip_google_access: pulumi_wasm_rust::Output<bool>,
+        pub project: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_wasm_rust::Output<String>,
+        /// An array of configurations for secondary IP ranges for
+        /// VM instances contained in this subnetwork. Structure is documented below.
+        pub secondary_ip_ranges: pulumi_wasm_rust::Output<
+            Vec<super::super::super::types::compute::GetSubnetworkSecondaryIpRange>,
+        >,
+        pub self_link: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn invoke(args: GetSubnetworkArgs) -> GetSubnetworkResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let name_binding = args.name.get_inner();
+        let project_binding = args.project.get_inner();
+        let region_binding = args.region.get_inner();
+        let self_link_binding = args.self_link.get_inner();
+        let request = register_interface::ResourceInvokeRequest {
+            token: "gcp:compute/getSubnetwork:getSubnetwork".into(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "name".into(),
+                    value: &name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+                register_interface::ObjectField {
+                    name: "region".into(),
+                    value: &region_binding,
+                },
+                register_interface::ObjectField {
+                    name: "selfLink".into(),
+                    value: &self_link_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "description".into(),
+                },
+                register_interface::ResultField {
+                    name: "gatewayAddress".into(),
+                },
+                register_interface::ResultField {
+                    name: "id".into(),
+                },
+                register_interface::ResultField {
+                    name: "internalIpv6Prefix".into(),
+                },
+                register_interface::ResultField {
+                    name: "ipCidrRange".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "network".into(),
+                },
+                register_interface::ResultField {
+                    name: "privateIpGoogleAccess".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+                register_interface::ResultField {
+                    name: "region".into(),
+                },
+                register_interface::ResultField {
+                    name: "secondaryIpRanges".into(),
+                },
+                register_interface::ResultField {
+                    name: "selfLink".into(),
+                },
+            ]),
+        };
+        let o = register_interface::invoke(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        GetSubnetworkResult {
+            description: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("description").unwrap(),
+            ),
+            gateway_address: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("gatewayAddress").unwrap(),
+            ),
+            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            internal_ipv6_prefix: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("internalIpv6Prefix").unwrap(),
+            ),
+            ip_cidr_range: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("ipCidrRange").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            network: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("network").unwrap(),
+            ),
+            private_ip_google_access: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("privateIpGoogleAccess").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+            region: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("region").unwrap(),
+            ),
+            secondary_ip_ranges: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("secondaryIpRanges").unwrap(),
+            ),
+            self_link: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("selfLink").unwrap(),
+            ),
+        }
+    }
+}

@@ -1,0 +1,334 @@
+/// A config defined for a single managed instance that belongs to an instance group manager. It preserves the instance name
+/// across instance group manager operations and can define stateful disks or metadata that are unique to the instance.
+///
+///
+/// To get more information about PerInstanceConfig, see:
+///
+/// * [API documentation](https://cloud.google.com/compute/docs/reference/rest/v1/instanceGroupManagers)
+/// * How-to Guides
+///     * [Official Documentation](https://cloud.google.com/compute/docs/instance-groups/stateful-migs#per-instance_configs)
+///
+/// ## Example Usage
+///
+/// ### Stateful Igm
+///
+///
+/// ```yaml
+/// resources:
+///   igm-basic:
+///     type: gcp:compute:InstanceTemplate
+///     properties:
+///       name: my-template
+///       machineType: e2-medium
+///       canIpForward: false
+///       tags:
+///         - foo
+///         - bar
+///       disks:
+///         - sourceImage: ${myImage.selfLink}
+///           autoDelete: true
+///           boot: true
+///       networkInterfaces:
+///         - network: default
+///       serviceAccount:
+///         scopes:
+///           - userinfo-email
+///           - compute-ro
+///           - storage-ro
+///   igm-no-tp:
+///     type: gcp:compute:InstanceGroupManager
+///     properties:
+///       description: Test instance group manager
+///       name: my-igm
+///       versions:
+///         - name: prod
+///           instanceTemplate: ${["igm-basic"].selfLink}
+///       baseInstanceName: igm-no-tp
+///       zone: us-central1-c
+///       targetSize: 2
+///   default:
+///     type: gcp:compute:Disk
+///     properties:
+///       name: my-disk-name
+///       type: pd-ssd
+///       zone: ${igm.zone}
+///       image: debian-11-bullseye-v20220719
+///       physicalBlockSizeBytes: 4096
+///   withDisk:
+///     type: gcp:compute:PerInstanceConfig
+///     name: with_disk
+///     properties:
+///       zone: ${igm.zone}
+///       instanceGroupManager: ${igm.name}
+///       name: instance-1
+///       preservedState:
+///         metadata:
+///           foo: bar
+///           instance_template: ${["igm-basic"].selfLink}
+///         disks:
+///           - deviceName: my-stateful-disk
+///             source: ${default.id}
+///             mode: READ_ONLY
+/// variables:
+///   myImage:
+///     fn::invoke:
+///       function: gcp:compute:getImage
+///       arguments:
+///         family: debian-11
+///         project: debian-cloud
+/// ```
+///
+/// ## Import
+///
+/// PerInstanceConfig can be imported using any of these accepted formats:
+///
+/// * `projects/{{project}}/zones/{{zone}}/instanceGroupManagers/{{instance_group_manager}}/{{name}}`
+///
+/// * `{{project}}/{{zone}}/{{instance_group_manager}}/{{name}}`
+///
+/// * `{{zone}}/{{instance_group_manager}}/{{name}}`
+///
+/// * `{{instance_group_manager}}/{{name}}`
+///
+/// When using the `pulumi import` command, PerInstanceConfig can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:compute/perInstanceConfig:PerInstanceConfig default projects/{{project}}/zones/{{zone}}/instanceGroupManagers/{{instance_group_manager}}/{{name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:compute/perInstanceConfig:PerInstanceConfig default {{project}}/{{zone}}/{{instance_group_manager}}/{{name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:compute/perInstanceConfig:PerInstanceConfig default {{zone}}/{{instance_group_manager}}/{{name}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:compute/perInstanceConfig:PerInstanceConfig default {{instance_group_manager}}/{{name}}
+/// ```
+///
+pub mod per_instance_config {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct PerInstanceConfigArgs {
+        /// The instance group manager this instance config is part of.
+        ///
+        ///
+        /// - - -
+        #[builder(into)]
+        pub instance_group_manager: pulumi_wasm_rust::Output<String>,
+        /// The minimal action to perform on the instance during an update.
+        /// Default is `NONE`. Possible values are:
+        /// * REPLACE
+        /// * RESTART
+        /// * REFRESH
+        /// * NONE
+        #[builder(into, default)]
+        pub minimal_action: pulumi_wasm_rust::Output<Option<String>>,
+        /// The most disruptive action to perform on the instance during an update.
+        /// Default is `REPLACE`. Possible values are:
+        /// * REPLACE
+        /// * RESTART
+        /// * REFRESH
+        /// * NONE
+        #[builder(into, default)]
+        pub most_disruptive_allowed_action: pulumi_wasm_rust::Output<Option<String>>,
+        /// The name for this per-instance config and its corresponding instance.
+        #[builder(into, default)]
+        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        /// The preserved state for this instance.
+        /// Structure is documented below.
+        #[builder(into, default)]
+        pub preserved_state: pulumi_wasm_rust::Output<
+            Option<super::super::types::compute::PerInstanceConfigPreservedState>,
+        >,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        #[builder(into, default)]
+        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        /// When true, deleting this config will immediately remove the underlying instance.
+        /// When false, deleting this config will use the behavior as determined by remove_instance_on_destroy.
+        #[builder(into, default)]
+        pub remove_instance_on_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        /// When true, deleting this config will immediately remove any specified state from the underlying instance.
+        /// When false, deleting this config will *not* immediately remove any state from the underlying instance.
+        /// State will be removed on the next instance recreation or update.
+        #[builder(into, default)]
+        pub remove_instance_state_on_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        /// Zone where the containing instance group manager is located
+        #[builder(into, default)]
+        pub zone: pulumi_wasm_rust::Output<Option<String>>,
+    }
+    #[allow(dead_code)]
+    pub struct PerInstanceConfigResult {
+        /// The instance group manager this instance config is part of.
+        ///
+        ///
+        /// - - -
+        pub instance_group_manager: pulumi_wasm_rust::Output<String>,
+        /// The minimal action to perform on the instance during an update.
+        /// Default is `NONE`. Possible values are:
+        /// * REPLACE
+        /// * RESTART
+        /// * REFRESH
+        /// * NONE
+        pub minimal_action: pulumi_wasm_rust::Output<Option<String>>,
+        /// The most disruptive action to perform on the instance during an update.
+        /// Default is `REPLACE`. Possible values are:
+        /// * REPLACE
+        /// * RESTART
+        /// * REFRESH
+        /// * NONE
+        pub most_disruptive_allowed_action: pulumi_wasm_rust::Output<Option<String>>,
+        /// The name for this per-instance config and its corresponding instance.
+        pub name: pulumi_wasm_rust::Output<String>,
+        /// The preserved state for this instance.
+        /// Structure is documented below.
+        pub preserved_state: pulumi_wasm_rust::Output<
+            Option<super::super::types::compute::PerInstanceConfigPreservedState>,
+        >,
+        /// The ID of the project in which the resource belongs.
+        /// If it is not provided, the provider project is used.
+        pub project: pulumi_wasm_rust::Output<String>,
+        /// When true, deleting this config will immediately remove the underlying instance.
+        /// When false, deleting this config will use the behavior as determined by remove_instance_on_destroy.
+        pub remove_instance_on_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        /// When true, deleting this config will immediately remove any specified state from the underlying instance.
+        /// When false, deleting this config will *not* immediately remove any state from the underlying instance.
+        /// State will be removed on the next instance recreation or update.
+        pub remove_instance_state_on_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        /// Zone where the containing instance group manager is located
+        pub zone: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: PerInstanceConfigArgs) -> PerInstanceConfigResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let instance_group_manager_binding = args.instance_group_manager.get_inner();
+        let minimal_action_binding = args.minimal_action.get_inner();
+        let most_disruptive_allowed_action_binding = args
+            .most_disruptive_allowed_action
+            .get_inner();
+        let name_binding = args.name.get_inner();
+        let preserved_state_binding = args.preserved_state.get_inner();
+        let project_binding = args.project.get_inner();
+        let remove_instance_on_destroy_binding = args
+            .remove_instance_on_destroy
+            .get_inner();
+        let remove_instance_state_on_destroy_binding = args
+            .remove_instance_state_on_destroy
+            .get_inner();
+        let zone_binding = args.zone.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:compute/perInstanceConfig:PerInstanceConfig".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "instanceGroupManager".into(),
+                    value: &instance_group_manager_binding,
+                },
+                register_interface::ObjectField {
+                    name: "minimalAction".into(),
+                    value: &minimal_action_binding,
+                },
+                register_interface::ObjectField {
+                    name: "mostDisruptiveAllowedAction".into(),
+                    value: &most_disruptive_allowed_action_binding,
+                },
+                register_interface::ObjectField {
+                    name: "name".into(),
+                    value: &name_binding,
+                },
+                register_interface::ObjectField {
+                    name: "preservedState".into(),
+                    value: &preserved_state_binding,
+                },
+                register_interface::ObjectField {
+                    name: "project".into(),
+                    value: &project_binding,
+                },
+                register_interface::ObjectField {
+                    name: "removeInstanceOnDestroy".into(),
+                    value: &remove_instance_on_destroy_binding,
+                },
+                register_interface::ObjectField {
+                    name: "removeInstanceStateOnDestroy".into(),
+                    value: &remove_instance_state_on_destroy_binding,
+                },
+                register_interface::ObjectField {
+                    name: "zone".into(),
+                    value: &zone_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "instanceGroupManager".into(),
+                },
+                register_interface::ResultField {
+                    name: "minimalAction".into(),
+                },
+                register_interface::ResultField {
+                    name: "mostDisruptiveAllowedAction".into(),
+                },
+                register_interface::ResultField {
+                    name: "name".into(),
+                },
+                register_interface::ResultField {
+                    name: "preservedState".into(),
+                },
+                register_interface::ResultField {
+                    name: "project".into(),
+                },
+                register_interface::ResultField {
+                    name: "removeInstanceOnDestroy".into(),
+                },
+                register_interface::ResultField {
+                    name: "removeInstanceStateOnDestroy".into(),
+                },
+                register_interface::ResultField {
+                    name: "zone".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        PerInstanceConfigResult {
+            instance_group_manager: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("instanceGroupManager").unwrap(),
+            ),
+            minimal_action: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("minimalAction").unwrap(),
+            ),
+            most_disruptive_allowed_action: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("mostDisruptiveAllowedAction").unwrap(),
+            ),
+            name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("name").unwrap(),
+            ),
+            preserved_state: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("preservedState").unwrap(),
+            ),
+            project: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("project").unwrap(),
+            ),
+            remove_instance_on_destroy: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("removeInstanceOnDestroy").unwrap(),
+            ),
+            remove_instance_state_on_destroy: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("removeInstanceStateOnDestroy").unwrap(),
+            ),
+            zone: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("zone").unwrap(),
+            ),
+        }
+    }
+}

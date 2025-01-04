@@ -1,0 +1,170 @@
+/// Contains the data that describes an Identity Aware Proxy owned client.
+///
+/// > **Note:** Only internal org clients can be created via declarative tools. External clients must be
+/// manually created via the GCP console. This restriction is due to the existing APIs and not lack of support
+/// in this tool.
+///
+///
+/// To get more information about Client, see:
+///
+/// * [API documentation](https://cloud.google.com/iap/docs/reference/rest/v1/projects.brands.identityAwareProxyClients)
+/// * How-to Guides
+///     * [Setting up IAP Client](https://cloud.google.com/iap/docs/authentication-howto)
+///
+///
+///
+/// ## Example Usage
+///
+/// ### Iap Client
+///
+///
+/// ```ignore
+/// use pulumi_wasm_rust::Output;
+/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// #[pulumi_main]
+/// fn test_main() -> Result<(), Error> {
+///     let project = project::create(
+///         "project",
+///         ProjectArgs::builder()
+///             .deletion_policy("DELETE")
+///             .name("my-project")
+///             .org_id("123456789")
+///             .project_id("my-project")
+///             .build_struct(),
+///     );
+///     let projectBrand = brand::create(
+///         "projectBrand",
+///         BrandArgs::builder()
+///             .application_title("Cloud IAP protected Application")
+///             .project("${projectService.project}")
+///             .support_email("support@example.com")
+///             .build_struct(),
+///     );
+///     let projectClient = client::create(
+///         "projectClient",
+///         ClientArgs::builder()
+///             .brand("${projectBrand.name}")
+///             .display_name("Test Client")
+///             .build_struct(),
+///     );
+///     let projectService = service::create(
+///         "projectService",
+///         ServiceArgs::builder()
+///             .project("${project.projectId}")
+///             .service("iap.googleapis.com")
+///             .build_struct(),
+///     );
+/// }
+/// ```
+///
+/// ## Import
+///
+/// Client can be imported using any of these accepted formats:
+///
+/// * `{{brand}}/identityAwareProxyClients/{{client_id}}`
+///
+/// * `{{brand}}/{{client_id}}`
+///
+/// When using the `pulumi import` command, Client can be imported using one of the formats above. For example:
+///
+/// ```sh
+/// $ pulumi import gcp:iap/client:Client default {{brand}}/identityAwareProxyClients/{{client_id}}
+/// ```
+///
+/// ```sh
+/// $ pulumi import gcp:iap/client:Client default {{brand}}/{{client_id}}
+/// ```
+///
+pub mod client {
+    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[builder(finish_fn = build_struct)]
+    #[allow(dead_code)]
+    pub struct ClientArgs {
+        /// Identifier of the brand to which this client
+        /// is attached to. The format is
+        /// `projects/{project_number}/brands/{brand_id}`.
+        ///
+        ///
+        /// - - -
+        #[builder(into)]
+        pub brand: pulumi_wasm_rust::Output<String>,
+        /// Human-friendly name given to the OAuth client.
+        #[builder(into)]
+        pub display_name: pulumi_wasm_rust::Output<String>,
+    }
+    #[allow(dead_code)]
+    pub struct ClientResult {
+        /// Identifier of the brand to which this client
+        /// is attached to. The format is
+        /// `projects/{project_number}/brands/{brand_id}`.
+        ///
+        ///
+        /// - - -
+        pub brand: pulumi_wasm_rust::Output<String>,
+        /// Output only. Unique identifier of the OAuth client.
+        pub client_id: pulumi_wasm_rust::Output<String>,
+        /// Human-friendly name given to the OAuth client.
+        pub display_name: pulumi_wasm_rust::Output<String>,
+        /// Output only. Client secret of the OAuth client.
+        /// **Note**: This property is sensitive and will not be displayed in the plan.
+        pub secret: pulumi_wasm_rust::Output<String>,
+    }
+    ///
+    /// Registers a new resource with the given unique name and arguments
+    ///
+    #[allow(non_snake_case, unused_imports, dead_code)]
+    pub fn create(name: &str, args: ClientArgs) -> ClientResult {
+        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use std::collections::HashMap;
+        let brand_binding = args.brand.get_inner();
+        let display_name_binding = args.display_name.get_inner();
+        let request = register_interface::RegisterResourceRequest {
+            type_: "gcp:iap/client:Client".into(),
+            name: name.to_string(),
+            object: Vec::from([
+                register_interface::ObjectField {
+                    name: "brand".into(),
+                    value: &brand_binding,
+                },
+                register_interface::ObjectField {
+                    name: "displayName".into(),
+                    value: &display_name_binding,
+                },
+            ]),
+            results: Vec::from([
+                register_interface::ResultField {
+                    name: "brand".into(),
+                },
+                register_interface::ResultField {
+                    name: "clientId".into(),
+                },
+                register_interface::ResultField {
+                    name: "displayName".into(),
+                },
+                register_interface::ResultField {
+                    name: "secret".into(),
+                },
+            ]),
+        };
+        let o = register_interface::register(&request);
+        let mut hashmap: HashMap<String, _> = o
+            .fields
+            .into_iter()
+            .map(|f| (f.name, f.output))
+            .collect();
+        ClientResult {
+            brand: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("brand").unwrap(),
+            ),
+            client_id: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("clientId").unwrap(),
+            ),
+            display_name: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("displayName").unwrap(),
+            ),
+            secret: pulumi_wasm_rust::__private::into_domain(
+                hashmap.remove("secret").unwrap(),
+            ),
+        }
+    }
+}

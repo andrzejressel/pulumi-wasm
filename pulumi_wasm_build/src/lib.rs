@@ -53,8 +53,62 @@ use pulumi_wasm_generator::{extract_micro_package, generate_combined};
 use std::path::Path;
 use std::{env, fs};
 
+/// Generates glue code for given provider, version and modules. Can be included using [`pulumi_wasm_rust::include_provider!(provider_name)`]
+/// Modules for provider can be found in Pulumi registry on left side with (M) icon:
+/// - [AWS](https://www.pulumi.com/registry/packages/aws/)
+/// - [Azure](https://www.pulumi.com/registry/packages/azure/)
+/// - [GCP](https://www.pulumi.com/registry/packages/gcp/)
+pub fn generate_with_filter(
+    provider_name: &str,
+    provider_version: &str,
+    modules: &[&str],
+) -> Result<()> {
+    generate_with_optional_filter(provider_name, provider_version, Some(modules))
+}
+
 /// Generates glue code for given provider and version. Can be included using [`pulumi_wasm_rust::include_provider!(provider_name)`]
 pub fn generate(provider_name: &str, provider_version: &str) -> Result<()> {
+    generate_with_optional_filter(provider_name, provider_version, None)
+}
+
+/// Generates glue code for given schema json/yaml. Can be included using [`pulumi_wasm_rust::include_provider!(provider_name)`]
+pub fn generate_from_schema(schema_file: &Path) -> Result<()> {
+    generate_from_schema_with_optional_filter(schema_file, None)
+}
+
+/// Generates glue code for given schema json/yaml and modules. Can be included using [`pulumi_wasm_rust::include_provider!(provider_name)`]
+/// Modules for provider can be found in Pulumi registry on left side with (M) icon:
+/// - [AWS](https://www.pulumi.com/registry/packages/aws/)
+/// - [Azure](https://www.pulumi.com/registry/packages/azure/)
+/// - [GCP](https://www.pulumi.com/registry/packages/gcp/)
+pub fn generate_from_schema_with_filter(schema_file: &Path, modules: &[&str]) -> Result<()> {
+    generate_from_schema_with_optional_filter(schema_file, Some(modules))
+}
+
+fn generate_from_schema_with_optional_filter(
+    schema_file: &Path,
+    modules: Option<&[&str]>,
+) -> Result<()> {
+    let package = extract_micro_package(schema_file).context("Failed to deserialize package")?;
+    let provider_name = package.name;
+
+    let out_dir = env::var_os("OUT_DIR").context("Failed to get OUT_DIR environment variable")?;
+    let out_dir = out_dir
+        .to_str()
+        .context(format!("Failed to convert [{:?}] to string", out_dir))?;
+    let location = Path::new(out_dir).join("pulumi").join(provider_name);
+
+    generate_combined(schema_file, &location, modules).context("Failed to generate glue files")?;
+    println!("cargo::rerun-if-changed=build.rs");
+    println!("cargo::rerun-if-changed={}", schema_file.display());
+    Ok(())
+}
+
+fn generate_with_optional_filter(
+    provider_name: &str,
+    provider_version: &str,
+    modules: Option<&[&str]>,
+) -> Result<()> {
     let schema_output = std::process::Command::new("pulumi")
         .arg("package")
         .arg("get-schema")
@@ -76,25 +130,9 @@ pub fn generate(provider_name: &str, provider_version: &str) -> Result<()> {
     let file = temp_dir.path().join("schema.json");
     fs::write(&file, &schema).context("Failed to write schema")?;
 
-    generate_combined(file.as_path(), &location).context("Failed to generate glue files")?;
+    generate_combined(file.as_path(), &location, modules)
+        .context("Failed to generate glue files")?;
     println!("cargo::rerun-if-changed=build.rs");
 
-    Ok(())
-}
-
-/// Generates glue code for given schema json/yaml. Can be included using [`pulumi_wasm_rust::include_provider!(provider_name)`]
-pub fn generate_from_schema(schema_file: &Path) -> Result<()> {
-    let package = extract_micro_package(schema_file).context("Failed to deserialize package")?;
-    let provider_name = package.name;
-
-    let out_dir = env::var_os("OUT_DIR").context("Failed to get OUT_DIR environment variable")?;
-    let out_dir = out_dir
-        .to_str()
-        .context(format!("Failed to convert [{:?}] to string", out_dir))?;
-    let location = Path::new(out_dir).join("pulumi").join(provider_name);
-
-    generate_combined(schema_file, &location).context("Failed to generate glue files")?;
-    println!("cargo::rerun-if-changed=build.rs");
-    println!("cargo::rerun-if-changed={}", schema_file.display());
     Ok(())
 }
