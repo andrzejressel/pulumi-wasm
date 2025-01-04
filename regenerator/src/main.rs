@@ -117,7 +117,7 @@ fn update_test_rs(tests: &[&str], filtered_tests: &Vec<FilteredTest>) {
 #[test]
 #[cfg_attr(not(feature = "generator_{test_directory}"), ignore)]
 fn {method_name}() -> Result<()> {{
-    run_pulumi_generator_test("{test_directory}", "{method_name}", None)
+    run_pulumi_generator_test("{test_directory}", "{test_directory}", None)
 }}
 "#
         );
@@ -129,14 +129,15 @@ fn {method_name}() -> Result<()> {{
         for (index, filter) in filtered_test.filters.iter().enumerate() {
             let provider_name = filtered_test.name;
             let feature_name = format!("generator_{}-{}", filtered_test.name, index);
-            let method_name = format!("{}_{}", filtered_test.name, index).replace("-", "_");
+            let directory_name = format!("{}-{}", filtered_test.name, index);
+            let method_name = directory_name.replace("-", "_");
             let filter_name = filter.iter().map(|s| format!("\"{s}\"")).join(",");
             let code = format!(
                 r#"
 #[test]
 #[cfg_attr(not(feature = "{feature_name}"), ignore)]
 fn {method_name}() -> Result<()> {{
-    run_pulumi_generator_test("{provider_name}", "{method_name}", Some(&[{filter_name}]))
+    run_pulumi_generator_test("{provider_name}", "{directory_name}", Some(&[{filter_name}]))
 }}
 "#
             );
