@@ -1,5 +1,4 @@
 use anyhow::Result;
-use itertools::Itertools;
 use serde::Deserialize;
 use std::collections::{HashMap, HashSet};
 use std::fs;
