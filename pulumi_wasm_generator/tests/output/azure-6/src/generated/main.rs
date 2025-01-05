@@ -1,3 +1,12 @@
+pub mod frontdoor {
+    include!("resources/frontdoor/custom_https_configuration.rs");
+    include!("resources/frontdoor/firewall_policy.rs");
+    include!("resources/frontdoor/frontdoor.rs");
+    include!("resources/frontdoor/rules_engine.rs");
+}
+pub mod graph {
+    include!("resources/graph/services_account.rs");
+}
 pub mod hdinsight {
     include!("resources/hdinsight/h_base_cluster.rs");
     include!("resources/hdinsight/hadoop_cluster.rs");
@@ -69,34 +78,6 @@ pub mod keyvault {
     include!("resources/keyvault/managed_storage_account_sas_token_definition.rs");
     include!("resources/keyvault/secret.rs");
 }
-pub mod kusto {
-    include!("resources/kusto/attached_database_configuration.rs");
-    include!("resources/kusto/cluster.rs");
-    include!("resources/kusto/cluster_customer_managed_key.rs");
-    include!("resources/kusto/cluster_managed_private_endpoint.rs");
-    include!("resources/kusto/cluster_principal_assignment.rs");
-    include!("resources/kusto/cosmosdb_data_connection.rs");
-    include!("resources/kusto/database.rs");
-    include!("resources/kusto/database_principal_assignment.rs");
-    include!("resources/kusto/event_grid_data_connection.rs");
-    include!("resources/kusto/eventhub_data_connection.rs");
-    include!("resources/kusto/iot_hub_data_connection.rs");
-    include!("resources/kusto/script.rs");
-}
-pub mod lb {
-    include!("resources/lb/backend_address_pool.rs");
-    include!("resources/lb/backend_address_pool_address.rs");
-    include!("resources/lb/load_balancer.rs");
-    include!("resources/lb/nat_pool.rs");
-    include!("resources/lb/nat_rule.rs");
-    include!("resources/lb/outbound_rule.rs");
-    include!("resources/lb/probe.rs");
-    include!("resources/lb/rule.rs");
-}
-pub mod lighthouse {
-    include!("resources/lighthouse/assignment.rs");
-    include!("resources/lighthouse/definition.rs");
-}
 pub mod functions {
     pub mod hdinsight {
         include!("functions/hdinsight/get_cluster.rs");
@@ -131,18 +112,38 @@ pub mod functions {
         include!("functions/keyvault/get_secret.rs");
         include!("functions/keyvault/get_secrets.rs");
     }
-    pub mod kusto {
-        include!("functions/kusto/get_cluster.rs");
-        include!("functions/kusto/get_database.rs");
-    }
-    pub mod lb {
-        include!("functions/lb/get_backend_address_pool.rs");
-        include!("functions/lb/get_lb.rs");
-        include!("functions/lb/get_lb_outbound_rule.rs");
-        include!("functions/lb/get_lb_rule.rs");
-    }
 }
 pub mod types {
+    pub mod frontdoor {
+        include!(
+            "types/frontdoor/custom_https_configuration_custom_https_configuration.rs"
+        );
+        include!("types/frontdoor/firewall_policy_custom_rule.rs");
+        include!("types/frontdoor/firewall_policy_custom_rule_match_condition.rs");
+        include!("types/frontdoor/firewall_policy_managed_rule.rs");
+        include!("types/frontdoor/firewall_policy_managed_rule_exclusion.rs");
+        include!("types/frontdoor/firewall_policy_managed_rule_override.rs");
+        include!("types/frontdoor/firewall_policy_managed_rule_override_exclusion.rs");
+        include!("types/frontdoor/firewall_policy_managed_rule_override_rule.rs");
+        include!(
+            "types/frontdoor/firewall_policy_managed_rule_override_rule_exclusion.rs"
+        );
+        include!("types/frontdoor/frontdoor_backend_pool.rs");
+        include!("types/frontdoor/frontdoor_backend_pool_backend.rs");
+        include!("types/frontdoor/frontdoor_backend_pool_health_probe.rs");
+        include!("types/frontdoor/frontdoor_backend_pool_load_balancing.rs");
+        include!("types/frontdoor/frontdoor_backend_pool_setting.rs");
+        include!("types/frontdoor/frontdoor_explicit_resource_order.rs");
+        include!("types/frontdoor/frontdoor_frontend_endpoint.rs");
+        include!("types/frontdoor/frontdoor_routing_rule.rs");
+        include!("types/frontdoor/frontdoor_routing_rule_forwarding_configuration.rs");
+        include!("types/frontdoor/frontdoor_routing_rule_redirect_configuration.rs");
+        include!("types/frontdoor/rules_engine_rule.rs");
+        include!("types/frontdoor/rules_engine_rule_action.rs");
+        include!("types/frontdoor/rules_engine_rule_action_request_header.rs");
+        include!("types/frontdoor/rules_engine_rule_action_response_header.rs");
+        include!("types/frontdoor/rules_engine_rule_match_condition.rs");
+    }
     pub mod hdinsight {
         include!("types/hdinsight/h_base_cluster_component_version.rs");
         include!("types/hdinsight/h_base_cluster_compute_isolation.rs");
@@ -474,41 +475,6 @@ pub mod types {
             "types/keyvault/get_managed_hardware_security_module_role_definition_permission.rs"
         );
         include!("types/keyvault/get_secrets_secret.rs");
-    }
-    pub mod kusto {
-        include!("types/kusto/attached_database_configuration_sharing.rs");
-        include!("types/kusto/cluster_identity.rs");
-        include!("types/kusto/cluster_language_extension.rs");
-        include!("types/kusto/cluster_optimized_auto_scale.rs");
-        include!("types/kusto/cluster_sku.rs");
-        include!("types/kusto/cluster_virtual_network_configuration.rs");
-        include!("types/kusto/get_cluster_identity.rs");
-    }
-    pub mod lb {
-        include!(
-            "types/lb/backend_address_pool_address_inbound_nat_rule_port_mapping.rs"
-        );
-        include!("types/lb/backend_address_pool_tunnel_interface.rs");
-        include!("types/lb/load_balancer_frontend_ip_configuration.rs");
-        include!("types/lb/outbound_rule_frontend_ip_configuration.rs");
-        include!("types/lb/get_backend_address_pool_backend_address.rs");
-        include!(
-            "types/lb/get_backend_address_pool_backend_address_inbound_nat_rule_port_mapping.rs"
-        );
-        include!("types/lb/get_backend_address_pool_backend_ip_configuration.rs");
-        include!("types/lb/get_lb_frontend_ip_configuration.rs");
-        include!("types/lb/get_lb_outbound_rule_frontend_ip_configuration.rs");
-    }
-    pub mod lighthouse {
-        include!("types/lighthouse/definition_authorization.rs");
-        include!("types/lighthouse/definition_eligible_authorization.rs");
-        include!(
-            "types/lighthouse/definition_eligible_authorization_just_in_time_access_policy.rs"
-        );
-        include!(
-            "types/lighthouse/definition_eligible_authorization_just_in_time_access_policy_approver.rs"
-        );
-        include!("types/lighthouse/definition_plan.rs");
     }
 }
 #[doc(hidden)]

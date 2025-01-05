@@ -1,3 +1,6 @@
+pub mod codeguruprofiler {
+    include!("resources/codeguruprofiler/profiling_group.rs");
+}
 pub mod codegurureviewer {
     include!("resources/codegurureviewer/repository_association.rs");
 }
@@ -55,17 +58,10 @@ pub mod connect {
     include!("resources/connect/user_hierarchy_structure.rs");
     include!("resources/connect/vocabulary.rs");
 }
-pub mod controltower {
-    include!("resources/controltower/control_tower_control.rs");
-    include!("resources/controltower/landing_zone.rs");
-}
-pub mod costexplorer {
-    include!("resources/costexplorer/anomaly_monitor.rs");
-    include!("resources/costexplorer/anomaly_subscription.rs");
-    include!("resources/costexplorer/cost_allocation_tag.rs");
-    include!("resources/costexplorer/cost_category.rs");
-}
 pub mod functions {
+    pub mod codeguruprofiler {
+        include!("functions/codeguruprofiler/get_profiling_group.rs");
+    }
     pub mod codestarconnections {
         include!("functions/codestarconnections/get_connection.rs");
     }
@@ -97,13 +93,6 @@ pub mod functions {
         include!("functions/connect/get_user_hierarchy_structure.rs");
         include!("functions/connect/get_vocabulary.rs");
     }
-    pub mod controltower {
-        include!("functions/controltower/get_controls.rs");
-    }
-    pub mod costexplorer {
-        include!("functions/costexplorer/get_cost_category.rs");
-        include!("functions/costexplorer/get_tags.rs");
-    }
     include!("functions/get_arn.rs");
     include!("functions/get_availability_zone.rs");
     include!("functions/get_availability_zones.rs");
@@ -118,6 +107,16 @@ pub mod functions {
     include!("functions/get_service_principal.rs");
 }
 pub mod types {
+    pub mod codeguruprofiler {
+        include!("types/codeguruprofiler/profiling_group_agent_orchestration_config.rs");
+        include!(
+            "types/codeguruprofiler/get_profiling_group_agent_orchestration_config.rs"
+        );
+        include!("types/codeguruprofiler/get_profiling_group_profiling_status.rs");
+        include!(
+            "types/codeguruprofiler/get_profiling_group_profiling_status_latest_aggregated_profile.rs"
+        );
+    }
     pub mod codegurureviewer {
         include!("types/codegurureviewer/repository_association_kms_key_details.rs");
         include!("types/codegurureviewer/repository_association_repository.rs");
@@ -416,199 +415,6 @@ pub mod types {
         );
         include!("types/connect/get_user_identity_info.rs");
         include!("types/connect/get_user_phone_config.rs");
-    }
-    pub mod controltower {
-        include!("types/controltower/control_tower_control_parameter.rs");
-        include!("types/controltower/landing_zone_drift_status.rs");
-    }
-    pub mod costexplorer {
-        include!("types/costexplorer/anomaly_subscription_subscriber.rs");
-        include!("types/costexplorer/anomaly_subscription_threshold_expression.rs");
-        include!("types/costexplorer/anomaly_subscription_threshold_expression_and.rs");
-        include!(
-            "types/costexplorer/anomaly_subscription_threshold_expression_and_cost_category.rs"
-        );
-        include!(
-            "types/costexplorer/anomaly_subscription_threshold_expression_and_dimension.rs"
-        );
-        include!(
-            "types/costexplorer/anomaly_subscription_threshold_expression_and_tags.rs"
-        );
-        include!(
-            "types/costexplorer/anomaly_subscription_threshold_expression_cost_category.rs"
-        );
-        include!(
-            "types/costexplorer/anomaly_subscription_threshold_expression_dimension.rs"
-        );
-        include!("types/costexplorer/anomaly_subscription_threshold_expression_not.rs");
-        include!(
-            "types/costexplorer/anomaly_subscription_threshold_expression_not_cost_category.rs"
-        );
-        include!(
-            "types/costexplorer/anomaly_subscription_threshold_expression_not_dimension.rs"
-        );
-        include!(
-            "types/costexplorer/anomaly_subscription_threshold_expression_not_tags.rs"
-        );
-        include!("types/costexplorer/anomaly_subscription_threshold_expression_or.rs");
-        include!(
-            "types/costexplorer/anomaly_subscription_threshold_expression_or_cost_category.rs"
-        );
-        include!(
-            "types/costexplorer/anomaly_subscription_threshold_expression_or_dimension.rs"
-        );
-        include!(
-            "types/costexplorer/anomaly_subscription_threshold_expression_or_tags.rs"
-        );
-        include!("types/costexplorer/anomaly_subscription_threshold_expression_tags.rs");
-        include!("types/costexplorer/cost_category_rule.rs");
-        include!("types/costexplorer/cost_category_rule_inherited_value.rs");
-        include!("types/costexplorer/cost_category_rule_rule.rs");
-        include!("types/costexplorer/cost_category_rule_rule_and.rs");
-        include!("types/costexplorer/cost_category_rule_rule_and_and.rs");
-        include!("types/costexplorer/cost_category_rule_rule_and_and_cost_category.rs");
-        include!("types/costexplorer/cost_category_rule_rule_and_and_dimension.rs");
-        include!("types/costexplorer/cost_category_rule_rule_and_and_tags.rs");
-        include!("types/costexplorer/cost_category_rule_rule_and_cost_category.rs");
-        include!("types/costexplorer/cost_category_rule_rule_and_dimension.rs");
-        include!("types/costexplorer/cost_category_rule_rule_and_not.rs");
-        include!("types/costexplorer/cost_category_rule_rule_and_not_cost_category.rs");
-        include!("types/costexplorer/cost_category_rule_rule_and_not_dimension.rs");
-        include!("types/costexplorer/cost_category_rule_rule_and_not_tags.rs");
-        include!("types/costexplorer/cost_category_rule_rule_and_or.rs");
-        include!("types/costexplorer/cost_category_rule_rule_and_or_cost_category.rs");
-        include!("types/costexplorer/cost_category_rule_rule_and_or_dimension.rs");
-        include!("types/costexplorer/cost_category_rule_rule_and_or_tags.rs");
-        include!("types/costexplorer/cost_category_rule_rule_and_tags.rs");
-        include!("types/costexplorer/cost_category_rule_rule_cost_category.rs");
-        include!("types/costexplorer/cost_category_rule_rule_dimension.rs");
-        include!("types/costexplorer/cost_category_rule_rule_not.rs");
-        include!("types/costexplorer/cost_category_rule_rule_not_and.rs");
-        include!("types/costexplorer/cost_category_rule_rule_not_and_cost_category.rs");
-        include!("types/costexplorer/cost_category_rule_rule_not_and_dimension.rs");
-        include!("types/costexplorer/cost_category_rule_rule_not_and_tags.rs");
-        include!("types/costexplorer/cost_category_rule_rule_not_cost_category.rs");
-        include!("types/costexplorer/cost_category_rule_rule_not_dimension.rs");
-        include!("types/costexplorer/cost_category_rule_rule_not_not.rs");
-        include!("types/costexplorer/cost_category_rule_rule_not_not_cost_category.rs");
-        include!("types/costexplorer/cost_category_rule_rule_not_not_dimension.rs");
-        include!("types/costexplorer/cost_category_rule_rule_not_not_tags.rs");
-        include!("types/costexplorer/cost_category_rule_rule_not_or.rs");
-        include!("types/costexplorer/cost_category_rule_rule_not_or_cost_category.rs");
-        include!("types/costexplorer/cost_category_rule_rule_not_or_dimension.rs");
-        include!("types/costexplorer/cost_category_rule_rule_not_or_tags.rs");
-        include!("types/costexplorer/cost_category_rule_rule_not_tags.rs");
-        include!("types/costexplorer/cost_category_rule_rule_or.rs");
-        include!("types/costexplorer/cost_category_rule_rule_or_and.rs");
-        include!("types/costexplorer/cost_category_rule_rule_or_and_cost_category.rs");
-        include!("types/costexplorer/cost_category_rule_rule_or_and_dimension.rs");
-        include!("types/costexplorer/cost_category_rule_rule_or_and_tags.rs");
-        include!("types/costexplorer/cost_category_rule_rule_or_cost_category.rs");
-        include!("types/costexplorer/cost_category_rule_rule_or_dimension.rs");
-        include!("types/costexplorer/cost_category_rule_rule_or_not.rs");
-        include!("types/costexplorer/cost_category_rule_rule_or_not_cost_category.rs");
-        include!("types/costexplorer/cost_category_rule_rule_or_not_dimension.rs");
-        include!("types/costexplorer/cost_category_rule_rule_or_not_tags.rs");
-        include!("types/costexplorer/cost_category_rule_rule_or_or.rs");
-        include!("types/costexplorer/cost_category_rule_rule_or_or_cost_category.rs");
-        include!("types/costexplorer/cost_category_rule_rule_or_or_dimension.rs");
-        include!("types/costexplorer/cost_category_rule_rule_or_or_tags.rs");
-        include!("types/costexplorer/cost_category_rule_rule_or_tags.rs");
-        include!("types/costexplorer/cost_category_rule_rule_tags.rs");
-        include!("types/costexplorer/cost_category_split_charge_rule.rs");
-        include!("types/costexplorer/cost_category_split_charge_rule_parameter.rs");
-        include!("types/costexplorer/get_cost_category_rule.rs");
-        include!("types/costexplorer/get_cost_category_rule_inherited_value.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_and.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_and_and.rs");
-        include!(
-            "types/costexplorer/get_cost_category_rule_rule_and_and_cost_category.rs"
-        );
-        include!("types/costexplorer/get_cost_category_rule_rule_and_and_dimension.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_and_and_tag.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_and_cost_category.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_and_dimension.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_and_not.rs");
-        include!(
-            "types/costexplorer/get_cost_category_rule_rule_and_not_cost_category.rs"
-        );
-        include!("types/costexplorer/get_cost_category_rule_rule_and_not_dimension.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_and_not_tag.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_and_or.rs");
-        include!(
-            "types/costexplorer/get_cost_category_rule_rule_and_or_cost_category.rs"
-        );
-        include!("types/costexplorer/get_cost_category_rule_rule_and_or_dimension.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_and_or_tag.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_and_tag.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_cost_category.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_dimension.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_not.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_not_and.rs");
-        include!(
-            "types/costexplorer/get_cost_category_rule_rule_not_and_cost_category.rs"
-        );
-        include!("types/costexplorer/get_cost_category_rule_rule_not_and_dimension.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_not_and_tag.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_not_cost_category.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_not_dimension.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_not_not.rs");
-        include!(
-            "types/costexplorer/get_cost_category_rule_rule_not_not_cost_category.rs"
-        );
-        include!("types/costexplorer/get_cost_category_rule_rule_not_not_dimension.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_not_not_tag.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_not_or.rs");
-        include!(
-            "types/costexplorer/get_cost_category_rule_rule_not_or_cost_category.rs"
-        );
-        include!("types/costexplorer/get_cost_category_rule_rule_not_or_dimension.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_not_or_tag.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_not_tag.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_or.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_or_and.rs");
-        include!(
-            "types/costexplorer/get_cost_category_rule_rule_or_and_cost_category.rs"
-        );
-        include!("types/costexplorer/get_cost_category_rule_rule_or_and_dimension.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_or_and_tag.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_or_cost_category.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_or_dimension.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_or_not.rs");
-        include!(
-            "types/costexplorer/get_cost_category_rule_rule_or_not_cost_category.rs"
-        );
-        include!("types/costexplorer/get_cost_category_rule_rule_or_not_dimension.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_or_not_tag.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_or_or.rs");
-        include!(
-            "types/costexplorer/get_cost_category_rule_rule_or_or_cost_category.rs"
-        );
-        include!("types/costexplorer/get_cost_category_rule_rule_or_or_dimension.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_or_or_tag.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_or_tag.rs");
-        include!("types/costexplorer/get_cost_category_rule_rule_tag.rs");
-        include!("types/costexplorer/get_cost_category_split_charge_rule.rs");
-        include!("types/costexplorer/get_cost_category_split_charge_rule_parameter.rs");
-        include!("types/costexplorer/get_tags_filter.rs");
-        include!("types/costexplorer/get_tags_filter_and.rs");
-        include!("types/costexplorer/get_tags_filter_and_cost_category.rs");
-        include!("types/costexplorer/get_tags_filter_and_dimension.rs");
-        include!("types/costexplorer/get_tags_filter_and_tags.rs");
-        include!("types/costexplorer/get_tags_filter_cost_category.rs");
-        include!("types/costexplorer/get_tags_filter_dimension.rs");
-        include!("types/costexplorer/get_tags_filter_not.rs");
-        include!("types/costexplorer/get_tags_filter_not_cost_category.rs");
-        include!("types/costexplorer/get_tags_filter_not_dimension.rs");
-        include!("types/costexplorer/get_tags_filter_not_tags.rs");
-        include!("types/costexplorer/get_tags_filter_or.rs");
-        include!("types/costexplorer/get_tags_filter_or_cost_category.rs");
-        include!("types/costexplorer/get_tags_filter_or_dimension.rs");
-        include!("types/costexplorer/get_tags_filter_or_tags.rs");
-        include!("types/costexplorer/get_tags_filter_tags.rs");
-        include!("types/costexplorer/get_tags_sort_by.rs");
-        include!("types/costexplorer/get_tags_time_period.rs");
     }
     include!("types/get_availability_zone_filter.rs");
     include!("types/get_availability_zones_filter.rs");

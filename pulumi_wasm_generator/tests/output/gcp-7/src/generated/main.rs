@@ -1,3 +1,15 @@
+pub mod iam {
+    include!("resources/iam/access_boundary_policy.rs");
+    include!("resources/iam/deny_policy.rs");
+    include!("resources/iam/folders_policy_binding.rs");
+    include!("resources/iam/organizations_policy_binding.rs");
+    include!("resources/iam/principal_access_boundary_policy.rs");
+    include!("resources/iam/projects_policy_binding.rs");
+    include!("resources/iam/workforce_pool.rs");
+    include!("resources/iam/workforce_pool_provider.rs");
+    include!("resources/iam/workload_identity_pool.rs");
+    include!("resources/iam/workload_identity_pool_provider.rs");
+}
 pub mod iap {
     include!("resources/iap/app_engine_service_iam_binding.rs");
     include!("resources/iap/app_engine_service_iam_member.rs");
@@ -101,14 +113,13 @@ pub mod managedkafka {
 pub mod memcache {
     include!("resources/memcache/instance.rs");
 }
-pub mod memorystore {
-    include!("resources/memorystore/instance.rs");
-}
-pub mod migrationcenter {
-    include!("resources/migrationcenter/group.rs");
-    include!("resources/migrationcenter/preference_set.rs");
-}
 pub mod functions {
+    pub mod iam {
+        include!("functions/iam/get_rule.rs");
+        include!("functions/iam/get_testable_permissions.rs");
+        include!("functions/iam/get_workload_identity_pool.rs");
+        include!("functions/iam/get_workload_identity_pool_provider.rs");
+    }
     pub mod iap {
         include!("functions/iap/get_app_engine_service_iam_policy.rs");
         include!("functions/iap/get_app_engine_version_iam_policy.rs");
@@ -147,6 +158,64 @@ pub mod functions {
     }
 }
 pub mod types {
+    pub mod iam {
+        include!("types/iam/access_boundary_policy_rule.rs");
+        include!("types/iam/access_boundary_policy_rule_access_boundary_rule.rs");
+        include!(
+            "types/iam/access_boundary_policy_rule_access_boundary_rule_availability_condition.rs"
+        );
+        include!("types/iam/deny_policy_rule.rs");
+        include!("types/iam/deny_policy_rule_deny_rule.rs");
+        include!("types/iam/deny_policy_rule_deny_rule_denial_condition.rs");
+        include!("types/iam/folders_policy_binding_condition.rs");
+        include!("types/iam/folders_policy_binding_target.rs");
+        include!("types/iam/organizations_policy_binding_condition.rs");
+        include!("types/iam/organizations_policy_binding_target.rs");
+        include!("types/iam/principal_access_boundary_policy_details.rs");
+        include!("types/iam/principal_access_boundary_policy_details_rule.rs");
+        include!("types/iam/projects_policy_binding_condition.rs");
+        include!("types/iam/projects_policy_binding_target.rs");
+        include!("types/iam/workforce_pool_access_restrictions.rs");
+        include!("types/iam/workforce_pool_access_restrictions_allowed_service.rs");
+        include!("types/iam/workforce_pool_provider_extra_attributes_oauth_2_client.rs");
+        include!(
+            "types/iam/workforce_pool_provider_extra_attributes_oauth_2_client_client_secret.rs"
+        );
+        include!(
+            "types/iam/workforce_pool_provider_extra_attributes_oauth_2_client_client_secret_value.rs"
+        );
+        include!(
+            "types/iam/workforce_pool_provider_extra_attributes_oauth_2_client_query_parameters.rs"
+        );
+        include!("types/iam/workforce_pool_provider_oidc.rs");
+        include!("types/iam/workforce_pool_provider_oidc_client_secret.rs");
+        include!("types/iam/workforce_pool_provider_oidc_client_secret_value.rs");
+        include!("types/iam/workforce_pool_provider_oidc_web_sso_config.rs");
+        include!("types/iam/workforce_pool_provider_saml.rs");
+        include!("types/iam/workload_identity_pool_provider_aws.rs");
+        include!("types/iam/workload_identity_pool_provider_oidc.rs");
+        include!("types/iam/workload_identity_pool_provider_saml.rs");
+        include!("types/iam/workload_identity_pool_provider_x_509.rs");
+        include!("types/iam/workload_identity_pool_provider_x_509_trust_store.rs");
+        include!(
+            "types/iam/workload_identity_pool_provider_x_509_trust_store_intermediate_ca.rs"
+        );
+        include!(
+            "types/iam/workload_identity_pool_provider_x_509_trust_store_trust_anchor.rs"
+        );
+        include!("types/iam/get_testable_permissions_permission.rs");
+        include!("types/iam/get_workload_identity_pool_provider_aw.rs");
+        include!("types/iam/get_workload_identity_pool_provider_oidc.rs");
+        include!("types/iam/get_workload_identity_pool_provider_saml.rs");
+        include!("types/iam/get_workload_identity_pool_provider_x_509.rs");
+        include!("types/iam/get_workload_identity_pool_provider_x_509_trust_store.rs");
+        include!(
+            "types/iam/get_workload_identity_pool_provider_x_509_trust_store_intermediate_ca.rs"
+        );
+        include!(
+            "types/iam/get_workload_identity_pool_provider_x_509_trust_store_trust_anchor.rs"
+        );
+    }
     pub mod iap {
         include!("types/iap/app_engine_service_iam_binding_condition.rs");
         include!("types/iap/app_engine_service_iam_member_condition.rs");
@@ -451,42 +520,6 @@ pub mod types {
         include!("types/memcache/instance_memcache_node.rs");
         include!("types/memcache/instance_memcache_parameters.rs");
         include!("types/memcache/instance_node_config.rs");
-    }
-    pub mod memorystore {
-        include!("types/memorystore/instance_desired_psc_auto_connection.rs");
-        include!("types/memorystore/instance_discovery_endpoint.rs");
-        include!("types/memorystore/instance_node_config.rs");
-        include!("types/memorystore/instance_persistence_config.rs");
-        include!("types/memorystore/instance_persistence_config_aof_config.rs");
-        include!("types/memorystore/instance_persistence_config_rdb_config.rs");
-        include!("types/memorystore/instance_psc_auto_connection.rs");
-        include!("types/memorystore/instance_state_info.rs");
-        include!("types/memorystore/instance_state_info_update_info.rs");
-        include!("types/memorystore/instance_zone_distribution_config.rs");
-    }
-    pub mod migrationcenter {
-        include!("types/migrationcenter/preference_set_virtual_machine_preferences.rs");
-        include!(
-            "types/migrationcenter/preference_set_virtual_machine_preferences_compute_engine_preferences.rs"
-        );
-        include!(
-            "types/migrationcenter/preference_set_virtual_machine_preferences_compute_engine_preferences_machine_preferences.rs"
-        );
-        include!(
-            "types/migrationcenter/preference_set_virtual_machine_preferences_compute_engine_preferences_machine_preferences_allowed_machine_series.rs"
-        );
-        include!(
-            "types/migrationcenter/preference_set_virtual_machine_preferences_region_preferences.rs"
-        );
-        include!(
-            "types/migrationcenter/preference_set_virtual_machine_preferences_sole_tenancy_preferences.rs"
-        );
-        include!(
-            "types/migrationcenter/preference_set_virtual_machine_preferences_sole_tenancy_preferences_node_type.rs"
-        );
-        include!(
-            "types/migrationcenter/preference_set_virtual_machine_preferences_vmware_engine_preferences.rs"
-        );
     }
 }
 #[doc(hidden)]

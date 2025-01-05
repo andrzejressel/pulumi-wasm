@@ -1,3 +1,31 @@
+pub mod kusto {
+    include!("resources/kusto/attached_database_configuration.rs");
+    include!("resources/kusto/cluster.rs");
+    include!("resources/kusto/cluster_customer_managed_key.rs");
+    include!("resources/kusto/cluster_managed_private_endpoint.rs");
+    include!("resources/kusto/cluster_principal_assignment.rs");
+    include!("resources/kusto/cosmosdb_data_connection.rs");
+    include!("resources/kusto/database.rs");
+    include!("resources/kusto/database_principal_assignment.rs");
+    include!("resources/kusto/event_grid_data_connection.rs");
+    include!("resources/kusto/eventhub_data_connection.rs");
+    include!("resources/kusto/iot_hub_data_connection.rs");
+    include!("resources/kusto/script.rs");
+}
+pub mod lb {
+    include!("resources/lb/backend_address_pool.rs");
+    include!("resources/lb/backend_address_pool_address.rs");
+    include!("resources/lb/load_balancer.rs");
+    include!("resources/lb/nat_pool.rs");
+    include!("resources/lb/nat_rule.rs");
+    include!("resources/lb/outbound_rule.rs");
+    include!("resources/lb/probe.rs");
+    include!("resources/lb/rule.rs");
+}
+pub mod lighthouse {
+    include!("resources/lighthouse/assignment.rs");
+    include!("resources/lighthouse/definition.rs");
+}
 pub mod loadtest {
     include!("resources/loadtest/load_test.rs");
 }
@@ -57,24 +85,17 @@ pub mod managedapplication {
 pub mod managedlustre {
     include!("resources/managedlustre/file_system.rs");
 }
-pub mod management {
-    include!("resources/management/group.rs");
-    include!("resources/management/group_policy_assignment.rs");
-    include!("resources/management/group_policy_exemption.rs");
-    include!("resources/management/group_policy_remediation.rs");
-    include!("resources/management/group_subscription_association.rs");
-    include!("resources/management/group_template_deployment.rs");
-    include!("resources/management/lock.rs");
-    include!("resources/management/private_link.rs");
-    include!("resources/management/private_link_association.rs");
-}
-pub mod managementgroups {
-    include!("resources/managementgroups/management_group.rs");
-}
-pub mod managementresource {
-    include!("resources/managementresource/manangement_lock.rs");
-}
 pub mod functions {
+    pub mod kusto {
+        include!("functions/kusto/get_cluster.rs");
+        include!("functions/kusto/get_database.rs");
+    }
+    pub mod lb {
+        include!("functions/lb/get_backend_address_pool.rs");
+        include!("functions/lb/get_lb.rs");
+        include!("functions/lb/get_lb_outbound_rule.rs");
+        include!("functions/lb/get_lb_rule.rs");
+    }
     pub mod loadtest {
         include!("functions/loadtest/get.rs");
     }
@@ -93,15 +114,43 @@ pub mod functions {
     pub mod managedapplication {
         include!("functions/managedapplication/get_definition.rs");
     }
-    pub mod management {
-        include!("functions/management/get_group.rs");
-        include!("functions/management/get_group_template_deployment.rs");
-    }
-    pub mod managementgroups {
-        include!("functions/managementgroups/get_management_group.rs");
-    }
 }
 pub mod types {
+    pub mod kusto {
+        include!("types/kusto/attached_database_configuration_sharing.rs");
+        include!("types/kusto/cluster_identity.rs");
+        include!("types/kusto/cluster_language_extension.rs");
+        include!("types/kusto/cluster_optimized_auto_scale.rs");
+        include!("types/kusto/cluster_sku.rs");
+        include!("types/kusto/cluster_virtual_network_configuration.rs");
+        include!("types/kusto/get_cluster_identity.rs");
+    }
+    pub mod lb {
+        include!(
+            "types/lb/backend_address_pool_address_inbound_nat_rule_port_mapping.rs"
+        );
+        include!("types/lb/backend_address_pool_tunnel_interface.rs");
+        include!("types/lb/load_balancer_frontend_ip_configuration.rs");
+        include!("types/lb/outbound_rule_frontend_ip_configuration.rs");
+        include!("types/lb/get_backend_address_pool_backend_address.rs");
+        include!(
+            "types/lb/get_backend_address_pool_backend_address_inbound_nat_rule_port_mapping.rs"
+        );
+        include!("types/lb/get_backend_address_pool_backend_ip_configuration.rs");
+        include!("types/lb/get_lb_frontend_ip_configuration.rs");
+        include!("types/lb/get_lb_outbound_rule_frontend_ip_configuration.rs");
+    }
+    pub mod lighthouse {
+        include!("types/lighthouse/definition_authorization.rs");
+        include!("types/lighthouse/definition_eligible_authorization.rs");
+        include!(
+            "types/lighthouse/definition_eligible_authorization_just_in_time_access_policy.rs"
+        );
+        include!(
+            "types/lighthouse/definition_eligible_authorization_just_in_time_access_policy_approver.rs"
+        );
+        include!("types/lighthouse/definition_plan.rs");
+    }
     pub mod loadtest {
         include!("types/loadtest/load_test_encryption.rs");
         include!("types/loadtest/load_test_encryption_identity.rs");
@@ -205,16 +254,6 @@ pub mod types {
         include!("types/managedlustre/file_system_hsm_setting.rs");
         include!("types/managedlustre/file_system_identity.rs");
         include!("types/managedlustre/file_system_maintenance_window.rs");
-    }
-    pub mod management {
-        include!("types/management/group_policy_assignment_identity.rs");
-        include!("types/management/group_policy_assignment_non_compliance_message.rs");
-        include!("types/management/group_policy_assignment_override.rs");
-        include!("types/management/group_policy_assignment_override_selector.rs");
-        include!("types/management/group_policy_assignment_resource_selector.rs");
-        include!(
-            "types/management/group_policy_assignment_resource_selector_selector.rs"
-        );
     }
 }
 #[doc(hidden)]

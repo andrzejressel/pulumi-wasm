@@ -1,3 +1,36 @@
+pub mod signalr {
+    include!("resources/signalr/service.rs");
+    include!("resources/signalr/service_custom_certificate.rs");
+    include!("resources/signalr/service_custom_domain.rs");
+    include!("resources/signalr/service_network_acl.rs");
+    include!("resources/signalr/shared_private_link_resource.rs");
+}
+pub mod siterecovery {
+    include!("resources/siterecovery/fabric.rs");
+    include!("resources/siterecovery/hyper_v_replication_policy.rs");
+    include!("resources/siterecovery/hyper_v_replication_policy_association.rs");
+    include!("resources/siterecovery/hyper_v_site.rs");
+    include!("resources/siterecovery/hyperv_network_mapping.rs");
+    include!("resources/siterecovery/network_mapping.rs");
+    include!("resources/siterecovery/protection_container.rs");
+    include!("resources/siterecovery/protection_container_mapping.rs");
+    include!("resources/siterecovery/replicated_vm.rs");
+    include!("resources/siterecovery/replication_policy.rs");
+    include!("resources/siterecovery/replication_recovery_plan.rs");
+    include!("resources/siterecovery/vm_ware_replication_policy.rs");
+    include!("resources/siterecovery/vmware_replicated_vm.rs");
+    include!("resources/siterecovery/vmware_replication_policy_association.rs");
+}
+pub mod stack {
+    include!("resources/stack/hci_cluster.rs");
+    include!("resources/stack/hci_deployment_setting.rs");
+    include!("resources/stack/hci_extension.rs");
+    include!("resources/stack/hci_logical_network.rs");
+    include!("resources/stack/hci_marketplace_gallery_image.rs");
+    include!("resources/stack/hci_network_interface.rs");
+    include!("resources/stack/hci_storage_path.rs");
+    include!("resources/stack/hci_virtual_hard_disk.rs");
+}
 pub mod storage {
     include!("resources/storage/account.rs");
     include!("resources/storage/account_network_rules.rs");
@@ -98,22 +131,19 @@ pub mod trustedsigning {
 pub mod videoindexer {
     include!("resources/videoindexer/account.rs");
 }
-pub mod voice {
-    include!("resources/voice/services_communications_gateway.rs");
-    include!("resources/voice/services_communications_gateway_test_line.rs");
-}
-pub mod waf {
-    include!("resources/waf/policy.rs");
-}
-pub mod webpubsub {
-    include!("resources/webpubsub/custom_certificate.rs");
-    include!("resources/webpubsub/custom_domain.rs");
-    include!("resources/webpubsub/hub.rs");
-    include!("resources/webpubsub/network_acl.rs");
-    include!("resources/webpubsub/service.rs");
-    include!("resources/webpubsub/shared_private_link_resource.rs");
-}
 pub mod functions {
+    pub mod signalr {
+        include!("functions/signalr/get_service.rs");
+    }
+    pub mod siterecovery {
+        include!("functions/siterecovery/get_fabric.rs");
+        include!("functions/siterecovery/get_protection_container.rs");
+        include!("functions/siterecovery/get_replication_policy.rs");
+        include!("functions/siterecovery/get_replication_recovery_plan.rs");
+    }
+    pub mod stack {
+        include!("functions/stack/get_hci_cluster.rs");
+    }
     pub mod storage {
         include!("functions/storage/get_account.rs");
         include!("functions/storage/get_account_blob_container_sas.rs");
@@ -145,15 +175,106 @@ pub mod functions {
     pub mod trafficmanager {
         include!("functions/trafficmanager/get_geographical_location.rs");
     }
-    pub mod waf {
-        include!("functions/waf/get_firewall_policy.rs");
-    }
-    pub mod webpubsub {
-        include!("functions/webpubsub/get_private_link_resource.rs");
-        include!("functions/webpubsub/get_service.rs");
-    }
 }
 pub mod types {
+    pub mod signalr {
+        include!("types/signalr/service_cor.rs");
+        include!("types/signalr/service_identity.rs");
+        include!("types/signalr/service_live_trace.rs");
+        include!("types/signalr/service_network_acl_private_endpoint.rs");
+        include!("types/signalr/service_network_acl_public_network.rs");
+        include!("types/signalr/service_sku.rs");
+        include!("types/signalr/service_upstream_endpoint.rs");
+    }
+    pub mod siterecovery {
+        include!("types/siterecovery/protection_container_mapping_automatic_update.rs");
+        include!("types/siterecovery/replicated_vm_managed_disk.rs");
+        include!(
+            "types/siterecovery/replicated_vm_managed_disk_target_disk_encryption.rs"
+        );
+        include!(
+            "types/siterecovery/replicated_vm_managed_disk_target_disk_encryption_disk_encryption_key.rs"
+        );
+        include!(
+            "types/siterecovery/replicated_vm_managed_disk_target_disk_encryption_key_encryption_key.rs"
+        );
+        include!("types/siterecovery/replicated_vm_network_interface.rs");
+        include!("types/siterecovery/replicated_vm_unmanaged_disk.rs");
+        include!(
+            "types/siterecovery/replication_recovery_plan_azure_to_azure_settings.rs"
+        );
+        include!("types/siterecovery/replication_recovery_plan_boot_recovery_group.rs");
+        include!(
+            "types/siterecovery/replication_recovery_plan_boot_recovery_group_post_action.rs"
+        );
+        include!(
+            "types/siterecovery/replication_recovery_plan_boot_recovery_group_pre_action.rs"
+        );
+        include!(
+            "types/siterecovery/replication_recovery_plan_failover_recovery_group.rs"
+        );
+        include!(
+            "types/siterecovery/replication_recovery_plan_failover_recovery_group_post_action.rs"
+        );
+        include!(
+            "types/siterecovery/replication_recovery_plan_failover_recovery_group_pre_action.rs"
+        );
+        include!(
+            "types/siterecovery/replication_recovery_plan_shutdown_recovery_group.rs"
+        );
+        include!(
+            "types/siterecovery/replication_recovery_plan_shutdown_recovery_group_post_action.rs"
+        );
+        include!(
+            "types/siterecovery/replication_recovery_plan_shutdown_recovery_group_pre_action.rs"
+        );
+        include!("types/siterecovery/vmware_replicated_vm_managed_disk.rs");
+        include!("types/siterecovery/vmware_replicated_vm_network_interface.rs");
+        include!(
+            "types/siterecovery/get_replication_recovery_plan_azure_to_azure_setting.rs"
+        );
+        include!("types/siterecovery/get_replication_recovery_plan_recovery_group.rs");
+        include!(
+            "types/siterecovery/get_replication_recovery_plan_recovery_group_post_action.rs"
+        );
+        include!(
+            "types/siterecovery/get_replication_recovery_plan_recovery_group_pre_action.rs"
+        );
+    }
+    pub mod stack {
+        include!("types/stack/hci_cluster_identity.rs");
+        include!("types/stack/hci_deployment_setting_scale_unit.rs");
+        include!("types/stack/hci_deployment_setting_scale_unit_cluster.rs");
+        include!("types/stack/hci_deployment_setting_scale_unit_host_network.rs");
+        include!("types/stack/hci_deployment_setting_scale_unit_host_network_intent.rs");
+        include!(
+            "types/stack/hci_deployment_setting_scale_unit_host_network_intent_adapter_property_override.rs"
+        );
+        include!(
+            "types/stack/hci_deployment_setting_scale_unit_host_network_intent_qos_policy_override.rs"
+        );
+        include!(
+            "types/stack/hci_deployment_setting_scale_unit_host_network_intent_virtual_switch_configuration_override.rs"
+        );
+        include!(
+            "types/stack/hci_deployment_setting_scale_unit_host_network_storage_network.rs"
+        );
+        include!(
+            "types/stack/hci_deployment_setting_scale_unit_infrastructure_network.rs"
+        );
+        include!(
+            "types/stack/hci_deployment_setting_scale_unit_infrastructure_network_ip_pool.rs"
+        );
+        include!("types/stack/hci_deployment_setting_scale_unit_optional_service.rs");
+        include!("types/stack/hci_deployment_setting_scale_unit_physical_node.rs");
+        include!("types/stack/hci_deployment_setting_scale_unit_storage.rs");
+        include!("types/stack/hci_logical_network_subnet.rs");
+        include!("types/stack/hci_logical_network_subnet_ip_pool.rs");
+        include!("types/stack/hci_logical_network_subnet_route.rs");
+        include!("types/stack/hci_marketplace_gallery_image_identifier.rs");
+        include!("types/stack/hci_network_interface_ip_configuration.rs");
+        include!("types/stack/get_hci_cluster_identity.rs");
+    }
     pub mod storage {
         include!("types/storage/account_azure_files_authentication.rs");
         include!("types/storage/account_azure_files_authentication_active_directory.rs");
@@ -273,42 +394,6 @@ pub mod types {
     pub mod videoindexer {
         include!("types/videoindexer/account_identity.rs");
         include!("types/videoindexer/account_storage.rs");
-    }
-    pub mod voice {
-        include!("types/voice/services_communications_gateway_service_location.rs");
-    }
-    pub mod waf {
-        include!("types/waf/policy_custom_rule.rs");
-        include!("types/waf/policy_custom_rule_match_condition.rs");
-        include!("types/waf/policy_custom_rule_match_condition_match_variable.rs");
-        include!("types/waf/policy_managed_rules.rs");
-        include!("types/waf/policy_managed_rules_exclusion.rs");
-        include!("types/waf/policy_managed_rules_exclusion_excluded_rule_set.rs");
-        include!(
-            "types/waf/policy_managed_rules_exclusion_excluded_rule_set_rule_group.rs"
-        );
-        include!("types/waf/policy_managed_rules_managed_rule_set.rs");
-        include!(
-            "types/waf/policy_managed_rules_managed_rule_set_rule_group_override.rs"
-        );
-        include!(
-            "types/waf/policy_managed_rules_managed_rule_set_rule_group_override_rule.rs"
-        );
-        include!("types/waf/policy_policy_settings.rs");
-        include!("types/waf/policy_policy_settings_log_scrubbing.rs");
-        include!("types/waf/policy_policy_settings_log_scrubbing_rule.rs");
-    }
-    pub mod webpubsub {
-        include!("types/webpubsub/hub_event_handler.rs");
-        include!("types/webpubsub/hub_event_handler_auth.rs");
-        include!("types/webpubsub/hub_event_listener.rs");
-        include!("types/webpubsub/network_acl_private_endpoint.rs");
-        include!("types/webpubsub/network_acl_public_network.rs");
-        include!("types/webpubsub/service_identity.rs");
-        include!("types/webpubsub/service_live_trace.rs");
-        include!(
-            "types/webpubsub/get_private_link_resource_shared_private_link_resource_type.rs"
-        );
     }
 }
 #[doc(hidden)]

@@ -1,3 +1,32 @@
+pub mod ssoadmin {
+    include!("resources/ssoadmin/account_assignment.rs");
+    include!("resources/ssoadmin/application.rs");
+    include!("resources/ssoadmin/application_access_scope.rs");
+    include!("resources/ssoadmin/application_assignment.rs");
+    include!("resources/ssoadmin/application_assignment_configuration.rs");
+    include!("resources/ssoadmin/customer_managed_policy_attachment.rs");
+    include!("resources/ssoadmin/instance_access_control_attributes.rs");
+    include!("resources/ssoadmin/managed_policy_attachment.rs");
+    include!("resources/ssoadmin/permission_set.rs");
+    include!("resources/ssoadmin/permission_set_inline_policy.rs");
+    include!("resources/ssoadmin/permissions_boundary_attachment.rs");
+    include!("resources/ssoadmin/trusted_token_issuer.rs");
+}
+pub mod storagegateway {
+    include!("resources/storagegateway/cache.rs");
+    include!("resources/storagegateway/caches_iscsi_volume.rs");
+    include!("resources/storagegateway/file_system_association.rs");
+    include!("resources/storagegateway/gateway.rs");
+    include!("resources/storagegateway/nfs_file_share.rs");
+    include!("resources/storagegateway/smb_file_share.rs");
+    include!("resources/storagegateway/stored_iscsi_volume.rs");
+    include!("resources/storagegateway/tape_pool.rs");
+    include!("resources/storagegateway/upload_buffer.rs");
+    include!("resources/storagegateway/working_storage.rs");
+}
+pub mod swf {
+    include!("resources/swf/domain.rs");
+}
 pub mod synthetics {
     include!("resources/synthetics/canary.rs");
     include!("resources/synthetics/group.rs");
@@ -43,41 +72,19 @@ pub mod verifiedpermissions {
     include!("resources/verifiedpermissions/policy_template.rs");
     include!("resources/verifiedpermissions/schema.rs");
 }
-pub mod vpc {
-    include!("resources/vpc/endpoint_private_dns.rs");
-    include!("resources/vpc/endpoint_service_private_dns_verification.rs");
-    include!("resources/vpc/security_group_egress_rule.rs");
-    include!("resources/vpc/security_group_ingress_rule.rs");
-    include!("resources/vpc/security_group_vpc_association.rs");
-}
-pub mod vpclattice {
-    include!("resources/vpclattice/access_log_subscription.rs");
-    include!("resources/vpclattice/auth_policy.rs");
-    include!("resources/vpclattice/listener.rs");
-    include!("resources/vpclattice/listener_rule.rs");
-    include!("resources/vpclattice/resource_policy.rs");
-    include!("resources/vpclattice/service.rs");
-    include!("resources/vpclattice/service_network.rs");
-    include!("resources/vpclattice/service_network_service_association.rs");
-    include!("resources/vpclattice/service_network_vpc_association.rs");
-    include!("resources/vpclattice/target_group.rs");
-    include!("resources/vpclattice/target_group_attachment.rs");
-}
-pub mod waf {
-    include!("resources/waf/byte_match_set.rs");
-    include!("resources/waf/geo_match_set.rs");
-    include!("resources/waf/ip_set.rs");
-    include!("resources/waf/rate_based_rule.rs");
-    include!("resources/waf/regex_match_set.rs");
-    include!("resources/waf/regex_pattern_set.rs");
-    include!("resources/waf/rule.rs");
-    include!("resources/waf/rule_group.rs");
-    include!("resources/waf/size_constraint_set.rs");
-    include!("resources/waf/sql_injection_match_set.rs");
-    include!("resources/waf/web_acl.rs");
-    include!("resources/waf/xss_match_set.rs");
-}
 pub mod functions {
+    pub mod ssoadmin {
+        include!("functions/ssoadmin/get_application.rs");
+        include!("functions/ssoadmin/get_application_assignments.rs");
+        include!("functions/ssoadmin/get_application_providers.rs");
+        include!("functions/ssoadmin/get_instances.rs");
+        include!("functions/ssoadmin/get_permission_set.rs");
+        include!("functions/ssoadmin/get_permission_sets.rs");
+        include!("functions/ssoadmin/get_principal_application_assignments.rs");
+    }
+    pub mod storagegateway {
+        include!("functions/storagegateway/get_local_disk.rs");
+    }
     pub mod synthetics {
         include!("functions/synthetics/get_runtime_version.rs");
         include!("functions/synthetics/get_runtime_versions.rs");
@@ -93,24 +100,6 @@ pub mod functions {
     pub mod verifiedpermissions {
         include!("functions/verifiedpermissions/get_policy_store.rs");
     }
-    pub mod vpc {
-        include!("functions/vpc/get_security_group_rule.rs");
-        include!("functions/vpc/get_security_group_rules.rs");
-    }
-    pub mod vpclattice {
-        include!("functions/vpclattice/get_auth_policy.rs");
-        include!("functions/vpclattice/get_listener.rs");
-        include!("functions/vpclattice/get_resource_policy.rs");
-        include!("functions/vpclattice/get_service.rs");
-        include!("functions/vpclattice/get_service_network.rs");
-    }
-    pub mod waf {
-        include!("functions/waf/get_ipset.rs");
-        include!("functions/waf/get_rate_based_rule.rs");
-        include!("functions/waf/get_rule.rs");
-        include!("functions/waf/get_subscribed_rule_group.rs");
-        include!("functions/waf/get_web_acl.rs");
-    }
     include!("functions/get_arn.rs");
     include!("functions/get_availability_zone.rs");
     include!("functions/get_availability_zones.rs");
@@ -125,6 +114,46 @@ pub mod functions {
     include!("functions/get_service_principal.rs");
 }
 pub mod types {
+    pub mod ssoadmin {
+        include!("types/ssoadmin/application_portal_options.rs");
+        include!("types/ssoadmin/application_portal_options_sign_in_options.rs");
+        include!(
+            "types/ssoadmin/customer_managed_policy_attachment_customer_managed_policy_reference.rs"
+        );
+        include!("types/ssoadmin/instance_access_control_attributes_attribute.rs");
+        include!("types/ssoadmin/instance_access_control_attributes_attribute_value.rs");
+        include!(
+            "types/ssoadmin/permissions_boundary_attachment_permissions_boundary.rs"
+        );
+        include!(
+            "types/ssoadmin/permissions_boundary_attachment_permissions_boundary_customer_managed_policy_reference.rs"
+        );
+        include!(
+            "types/ssoadmin/trusted_token_issuer_trusted_token_issuer_configuration.rs"
+        );
+        include!(
+            "types/ssoadmin/trusted_token_issuer_trusted_token_issuer_configuration_oidc_jwt_configuration.rs"
+        );
+        include!("types/ssoadmin/get_application_assignments_application_assignment.rs");
+        include!("types/ssoadmin/get_application_portal_option.rs");
+        include!("types/ssoadmin/get_application_portal_option_sign_in_option.rs");
+        include!("types/ssoadmin/get_application_providers_application_provider.rs");
+        include!(
+            "types/ssoadmin/get_application_providers_application_provider_display_data.rs"
+        );
+        include!(
+            "types/ssoadmin/get_principal_application_assignments_application_assignment.rs"
+        );
+    }
+    pub mod storagegateway {
+        include!("types/storagegateway/file_system_association_cache_attributes.rs");
+        include!("types/storagegateway/gateway_gateway_network_interface.rs");
+        include!("types/storagegateway/gateway_maintenance_start_time.rs");
+        include!("types/storagegateway/gateway_smb_active_directory_settings.rs");
+        include!("types/storagegateway/nfs_file_share_cache_attributes.rs");
+        include!("types/storagegateway/nfs_file_share_nfs_file_share_defaults.rs");
+        include!("types/storagegateway/smb_file_share_cache_attributes.rs");
+    }
     pub mod synthetics {
         include!("types/synthetics/canary_artifact_config.rs");
         include!("types/synthetics/canary_artifact_config_s_3_encryption.rs");
@@ -286,70 +315,6 @@ pub mod types {
         include!("types/verifiedpermissions/policy_store_validation_settings.rs");
         include!("types/verifiedpermissions/schema_definition.rs");
         include!("types/verifiedpermissions/get_policy_store_validation_setting.rs");
-    }
-    pub mod vpc {
-        include!("types/vpc/endpoint_service_private_dns_verification_timeouts.rs");
-        include!("types/vpc/security_group_vpc_association_timeouts.rs");
-        include!("types/vpc/get_security_group_rule_filter.rs");
-        include!("types/vpc/get_security_group_rules_filter.rs");
-    }
-    pub mod vpclattice {
-        include!("types/vpclattice/listener_default_action.rs");
-        include!("types/vpclattice/listener_default_action_fixed_response.rs");
-        include!("types/vpclattice/listener_default_action_forward.rs");
-        include!("types/vpclattice/listener_default_action_forward_target_group.rs");
-        include!("types/vpclattice/listener_rule_action.rs");
-        include!("types/vpclattice/listener_rule_action_fixed_response.rs");
-        include!("types/vpclattice/listener_rule_action_forward.rs");
-        include!("types/vpclattice/listener_rule_action_forward_target_group.rs");
-        include!("types/vpclattice/listener_rule_match.rs");
-        include!("types/vpclattice/listener_rule_match_http_match.rs");
-        include!("types/vpclattice/listener_rule_match_http_match_header_match.rs");
-        include!(
-            "types/vpclattice/listener_rule_match_http_match_header_match_match.rs"
-        );
-        include!("types/vpclattice/listener_rule_match_http_match_path_match.rs");
-        include!("types/vpclattice/listener_rule_match_http_match_path_match_match.rs");
-        include!("types/vpclattice/service_dns_entry.rs");
-        include!("types/vpclattice/service_network_service_association_dns_entry.rs");
-        include!("types/vpclattice/target_group_attachment_target.rs");
-        include!("types/vpclattice/target_group_config.rs");
-        include!("types/vpclattice/target_group_config_health_check.rs");
-        include!("types/vpclattice/target_group_config_health_check_matcher.rs");
-        include!("types/vpclattice/get_listener_default_action.rs");
-        include!("types/vpclattice/get_listener_default_action_fixed_response.rs");
-        include!("types/vpclattice/get_listener_default_action_forward.rs");
-        include!("types/vpclattice/get_listener_default_action_forward_target_group.rs");
-        include!("types/vpclattice/get_service_dns_entry.rs");
-    }
-    pub mod waf {
-        include!("types/waf/byte_match_set_byte_match_tuple.rs");
-        include!("types/waf/byte_match_set_byte_match_tuple_field_to_match.rs");
-        include!("types/waf/geo_match_set_geo_match_constraint.rs");
-        include!("types/waf/ip_set_ip_set_descriptor.rs");
-        include!("types/waf/rate_based_rule_predicate.rs");
-        include!("types/waf/regex_match_set_regex_match_tuple.rs");
-        include!("types/waf/regex_match_set_regex_match_tuple_field_to_match.rs");
-        include!("types/waf/rule_group_activated_rule.rs");
-        include!("types/waf/rule_group_activated_rule_action.rs");
-        include!("types/waf/rule_predicate.rs");
-        include!("types/waf/size_constraint_set_size_constraint.rs");
-        include!("types/waf/size_constraint_set_size_constraint_field_to_match.rs");
-        include!("types/waf/sql_injection_match_set_sql_injection_match_tuple.rs");
-        include!(
-            "types/waf/sql_injection_match_set_sql_injection_match_tuple_field_to_match.rs"
-        );
-        include!("types/waf/web_acl_default_action.rs");
-        include!("types/waf/web_acl_logging_configuration.rs");
-        include!("types/waf/web_acl_logging_configuration_redacted_fields.rs");
-        include!(
-            "types/waf/web_acl_logging_configuration_redacted_fields_field_to_match.rs"
-        );
-        include!("types/waf/web_acl_rule.rs");
-        include!("types/waf/web_acl_rule_action.rs");
-        include!("types/waf/web_acl_rule_override_action.rs");
-        include!("types/waf/xss_match_set_xss_match_tuple.rs");
-        include!("types/waf/xss_match_set_xss_match_tuple_field_to_match.rs");
     }
     include!("types/get_availability_zone_filter.rs");
     include!("types/get_availability_zones_filter.rs");

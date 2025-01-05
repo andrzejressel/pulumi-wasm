@@ -1,3 +1,10 @@
+pub mod databricks {
+    include!("resources/databricks/access_connector.rs");
+    include!("resources/databricks/virtual_network_peering.rs");
+    include!("resources/databricks/workspace.rs");
+    include!("resources/databricks/workspace_customer_managed_key.rs");
+    include!("resources/databricks/workspace_root_dbfs_customer_managed_key.rs");
+}
 pub mod datadog {
     include!("resources/datadog/monitor.rs");
     include!("resources/datadog/monitor_sso_configuration.rs");
@@ -130,12 +137,12 @@ pub mod dns {
     include!("resources/dns/txt_record.rs");
     include!("resources/dns/zone.rs");
 }
-pub mod domainservices {
-    include!("resources/domainservices/replica_set.rs");
-    include!("resources/domainservices/service.rs");
-    include!("resources/domainservices/service_trust.rs");
-}
 pub mod functions {
+    pub mod databricks {
+        include!("functions/databricks/get_access_connector.rs");
+        include!("functions/databricks/get_workspace.rs");
+        include!("functions/databricks/get_workspace_private_endpoint_connection.rs");
+    }
     pub mod datafactory {
         include!("functions/datafactory/get_factory.rs");
         include!("functions/datafactory/get_trigger_schedule.rs");
@@ -177,11 +184,22 @@ pub mod functions {
         include!("functions/dns/get_txt_record.rs");
         include!("functions/dns/get_zone.rs");
     }
-    pub mod domainservices {
-        include!("functions/domainservices/get_service.rs");
-    }
 }
 pub mod types {
+    pub mod databricks {
+        include!("types/databricks/access_connector_identity.rs");
+        include!("types/databricks/workspace_custom_parameters.rs");
+        include!("types/databricks/workspace_enhanced_security_compliance.rs");
+        include!("types/databricks/workspace_managed_disk_identity.rs");
+        include!("types/databricks/workspace_storage_account_identity.rs");
+        include!("types/databricks/get_access_connector_identity.rs");
+        include!("types/databricks/get_workspace_enhanced_security_compliance.rs");
+        include!("types/databricks/get_workspace_managed_disk_identity.rs");
+        include!(
+            "types/databricks/get_workspace_private_endpoint_connection_connection.rs"
+        );
+        include!("types/databricks/get_workspace_storage_account_identity.rs");
+    }
     pub mod datadog {
         include!("types/datadog/monitor_datadog_organization.rs");
         include!("types/datadog/monitor_identity.rs");
@@ -456,16 +474,6 @@ pub mod types {
         include!("types/dns/get_mx_record_record.rs");
         include!("types/dns/get_srv_record_record.rs");
         include!("types/dns/get_txt_record_record.rs");
-    }
-    pub mod domainservices {
-        include!("types/domainservices/service_initial_replica_set.rs");
-        include!("types/domainservices/service_notifications.rs");
-        include!("types/domainservices/service_secure_ldap.rs");
-        include!("types/domainservices/service_security.rs");
-        include!("types/domainservices/get_service_notification.rs");
-        include!("types/domainservices/get_service_replica_set.rs");
-        include!("types/domainservices/get_service_secure_ldap.rs");
-        include!("types/domainservices/get_service_security.rs");
     }
 }
 #[doc(hidden)]

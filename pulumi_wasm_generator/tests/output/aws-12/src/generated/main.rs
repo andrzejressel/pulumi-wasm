@@ -1,3 +1,27 @@
+pub mod kinesisanalyticsv2 {
+    include!("resources/kinesisanalyticsv2/application.rs");
+    include!("resources/kinesisanalyticsv2/application_snapshot.rs");
+}
+pub mod kms {
+    include!("resources/kms/alias.rs");
+    include!("resources/kms/ciphertext.rs");
+    include!("resources/kms/custom_key_store.rs");
+    include!("resources/kms/external_key.rs");
+    include!("resources/kms/grant.rs");
+    include!("resources/kms/key.rs");
+    include!("resources/kms/key_policy.rs");
+    include!("resources/kms/replica_external_key.rs");
+    include!("resources/kms/replica_key.rs");
+}
+pub mod lakeformation {
+    include!("resources/lakeformation/data_cells_filter.rs");
+    include!("resources/lakeformation/data_lake_settings.rs");
+    include!("resources/lakeformation/lf_tag.rs");
+    include!("resources/lakeformation/permissions.rs");
+    include!("resources/lakeformation/resource.rs");
+    include!("resources/lakeformation/resource_lf_tag.rs");
+    include!("resources/lakeformation/resource_lf_tags.rs");
+}
 pub mod lambda {
     include!("resources/lambda/alias.rs");
     include!("resources/lambda/callback_function.rs");
@@ -80,22 +104,21 @@ pub mod m2 {
     include!("resources/m2/deployment.rs");
     include!("resources/m2/environment.rs");
 }
-pub mod macie {
-    include!("resources/macie/custom_data_identifier.rs");
-    include!("resources/macie/findings_filter.rs");
-}
-pub mod macie2 {
-    include!("resources/macie2/account.rs");
-    include!("resources/macie2/classification_export_configuration.rs");
-    include!("resources/macie2/classification_job.rs");
-    include!("resources/macie2/invitation_accepter.rs");
-    include!("resources/macie2/member.rs");
-    include!("resources/macie2/organization_admin_account.rs");
-}
-pub mod mediaconvert {
-    include!("resources/mediaconvert/queue.rs");
-}
 pub mod functions {
+    pub mod kms {
+        include!("functions/kms/get_alias.rs");
+        include!("functions/kms/get_cipher_text.rs");
+        include!("functions/kms/get_custom_key_store.rs");
+        include!("functions/kms/get_key.rs");
+        include!("functions/kms/get_public_key.rs");
+        include!("functions/kms/get_secret.rs");
+        include!("functions/kms/get_secrets.rs");
+    }
+    pub mod lakeformation {
+        include!("functions/lakeformation/get_data_lake_settings.rs");
+        include!("functions/lakeformation/get_permissions.rs");
+        include!("functions/lakeformation/get_resource.rs");
+    }
     pub mod lambda {
         include!("functions/lambda/get_alias.rs");
         include!("functions/lambda/get_code_signing_config.rs");
@@ -134,9 +157,6 @@ pub mod functions {
         include!("functions/location/get_tracker_association.rs");
         include!("functions/location/get_tracker_associations.rs");
     }
-    pub mod mediaconvert {
-        include!("functions/mediaconvert/get_queue.rs");
-    }
     include!("functions/get_arn.rs");
     include!("functions/get_availability_zone.rs");
     include!("functions/get_availability_zones.rs");
@@ -151,6 +171,191 @@ pub mod functions {
     include!("functions/get_service_principal.rs");
 }
 pub mod types {
+    pub mod kinesisanalyticsv2 {
+        include!("types/kinesisanalyticsv2/application_application_configuration.rs");
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_application_code_configuration.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_application_code_configuration_code_content.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_application_code_configuration_code_content_s_3_content_location.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_application_snapshot_configuration.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_environment_properties.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_environment_properties_property_group.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_flink_application_configuration.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_flink_application_configuration_checkpoint_configuration.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_flink_application_configuration_monitoring_configuration.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_flink_application_configuration_parallelism_configuration.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_run_configuration.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_run_configuration_application_restore_configuration.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_run_configuration_flink_run_configuration.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_input_parallelism.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_input_processing_configuration.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_input_processing_configuration_input_lambda_processor.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_input_schema.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_input_schema_record_column.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_input_schema_record_format.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_input_schema_record_format_mapping_parameters.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_input_schema_record_format_mapping_parameters_csv_mapping_parameters.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_input_schema_record_format_mapping_parameters_json_mapping_parameters.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_input_starting_position_configuration.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_kinesis_firehose_input.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_kinesis_streams_input.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_output.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_output_destination_schema.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_output_kinesis_firehose_output.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_output_kinesis_streams_output.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_output_lambda_output.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_reference_data_source.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_reference_data_source_reference_schema.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_reference_data_source_reference_schema_record_column.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_reference_data_source_reference_schema_record_format.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_reference_data_source_reference_schema_record_format_mapping_parameters.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_reference_data_source_reference_schema_record_format_mapping_parameters_csv_mapping_parameters.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_reference_data_source_reference_schema_record_format_mapping_parameters_json_mapping_parameters.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_reference_data_source_s_3_reference_data_source.rs"
+        );
+        include!(
+            "types/kinesisanalyticsv2/application_application_configuration_vpc_configuration.rs"
+        );
+        include!("types/kinesisanalyticsv2/application_cloudwatch_logging_options.rs");
+    }
+    pub mod kms {
+        include!("types/kms/grant_constraint.rs");
+        include!("types/kms/get_key_multi_region_configuration.rs");
+        include!("types/kms/get_key_multi_region_configuration_primary_key.rs");
+        include!("types/kms/get_key_multi_region_configuration_replica_key.rs");
+        include!("types/kms/get_key_xks_key_configuration.rs");
+        include!("types/kms/get_secret_secret.rs");
+        include!("types/kms/get_secrets_secret.rs");
+    }
+    pub mod lakeformation {
+        include!("types/lakeformation/data_cells_filter_table_data.rs");
+        include!("types/lakeformation/data_cells_filter_table_data_column_wildcard.rs");
+        include!("types/lakeformation/data_cells_filter_table_data_row_filter.rs");
+        include!(
+            "types/lakeformation/data_cells_filter_table_data_row_filter_all_rows_wildcard.rs"
+        );
+        include!("types/lakeformation/data_cells_filter_timeouts.rs");
+        include!(
+            "types/lakeformation/data_lake_settings_create_database_default_permission.rs"
+        );
+        include!(
+            "types/lakeformation/data_lake_settings_create_table_default_permission.rs"
+        );
+        include!("types/lakeformation/permissions_data_cells_filter.rs");
+        include!("types/lakeformation/permissions_data_location.rs");
+        include!("types/lakeformation/permissions_database.rs");
+        include!("types/lakeformation/permissions_lf_tag.rs");
+        include!("types/lakeformation/permissions_lf_tag_policy.rs");
+        include!("types/lakeformation/permissions_lf_tag_policy_expression.rs");
+        include!("types/lakeformation/permissions_table.rs");
+        include!("types/lakeformation/permissions_table_with_columns.rs");
+        include!("types/lakeformation/resource_lf_tag_database.rs");
+        include!("types/lakeformation/resource_lf_tag_lf_tag.rs");
+        include!("types/lakeformation/resource_lf_tag_table.rs");
+        include!("types/lakeformation/resource_lf_tag_table_with_columns.rs");
+        include!(
+            "types/lakeformation/resource_lf_tag_table_with_columns_column_wildcard.rs"
+        );
+        include!("types/lakeformation/resource_lf_tag_timeouts.rs");
+        include!("types/lakeformation/resource_lf_tags_database.rs");
+        include!("types/lakeformation/resource_lf_tags_lf_tag.rs");
+        include!("types/lakeformation/resource_lf_tags_table.rs");
+        include!("types/lakeformation/resource_lf_tags_table_with_columns.rs");
+        include!(
+            "types/lakeformation/get_data_lake_settings_create_database_default_permission.rs"
+        );
+        include!(
+            "types/lakeformation/get_data_lake_settings_create_table_default_permission.rs"
+        );
+        include!("types/lakeformation/get_permissions_data_cells_filter.rs");
+        include!("types/lakeformation/get_permissions_data_location.rs");
+        include!("types/lakeformation/get_permissions_database.rs");
+        include!("types/lakeformation/get_permissions_lf_tag.rs");
+        include!("types/lakeformation/get_permissions_lf_tag_policy.rs");
+        include!("types/lakeformation/get_permissions_lf_tag_policy_expression.rs");
+        include!("types/lakeformation/get_permissions_table.rs");
+        include!("types/lakeformation/get_permissions_table_with_columns.rs");
+    }
     pub mod lambda {
         include!("types/lambda/alias_routing_config.rs");
         include!("types/lambda/code_path_options.rs");
@@ -3516,86 +3721,6 @@ pub mod types {
         include!("types/m2/environment_storage_configuration_efs.rs");
         include!("types/m2/environment_storage_configuration_fsx.rs");
         include!("types/m2/environment_timeouts.rs");
-    }
-    pub mod macie {
-        include!("types/macie/findings_filter_finding_criteria.rs");
-        include!("types/macie/findings_filter_finding_criteria_criterion.rs");
-    }
-    pub mod macie2 {
-        include!("types/macie2/classification_export_configuration_s_3_destination.rs");
-        include!("types/macie2/classification_job_s_3_job_definition.rs");
-        include!(
-            "types/macie2/classification_job_s_3_job_definition_bucket_criteria.rs"
-        );
-        include!(
-            "types/macie2/classification_job_s_3_job_definition_bucket_criteria_excludes.rs"
-        );
-        include!(
-            "types/macie2/classification_job_s_3_job_definition_bucket_criteria_excludes_and.rs"
-        );
-        include!(
-            "types/macie2/classification_job_s_3_job_definition_bucket_criteria_excludes_and_simple_criterion.rs"
-        );
-        include!(
-            "types/macie2/classification_job_s_3_job_definition_bucket_criteria_excludes_and_tag_criterion.rs"
-        );
-        include!(
-            "types/macie2/classification_job_s_3_job_definition_bucket_criteria_excludes_and_tag_criterion_tag_value.rs"
-        );
-        include!(
-            "types/macie2/classification_job_s_3_job_definition_bucket_criteria_includes.rs"
-        );
-        include!(
-            "types/macie2/classification_job_s_3_job_definition_bucket_criteria_includes_and.rs"
-        );
-        include!(
-            "types/macie2/classification_job_s_3_job_definition_bucket_criteria_includes_and_simple_criterion.rs"
-        );
-        include!(
-            "types/macie2/classification_job_s_3_job_definition_bucket_criteria_includes_and_tag_criterion.rs"
-        );
-        include!(
-            "types/macie2/classification_job_s_3_job_definition_bucket_criteria_includes_and_tag_criterion_tag_value.rs"
-        );
-        include!(
-            "types/macie2/classification_job_s_3_job_definition_bucket_definition.rs"
-        );
-        include!("types/macie2/classification_job_s_3_job_definition_scoping.rs");
-        include!(
-            "types/macie2/classification_job_s_3_job_definition_scoping_excludes.rs"
-        );
-        include!(
-            "types/macie2/classification_job_s_3_job_definition_scoping_excludes_and.rs"
-        );
-        include!(
-            "types/macie2/classification_job_s_3_job_definition_scoping_excludes_and_simple_scope_term.rs"
-        );
-        include!(
-            "types/macie2/classification_job_s_3_job_definition_scoping_excludes_and_tag_scope_term.rs"
-        );
-        include!(
-            "types/macie2/classification_job_s_3_job_definition_scoping_excludes_and_tag_scope_term_tag_value.rs"
-        );
-        include!(
-            "types/macie2/classification_job_s_3_job_definition_scoping_includes.rs"
-        );
-        include!(
-            "types/macie2/classification_job_s_3_job_definition_scoping_includes_and.rs"
-        );
-        include!(
-            "types/macie2/classification_job_s_3_job_definition_scoping_includes_and_simple_scope_term.rs"
-        );
-        include!(
-            "types/macie2/classification_job_s_3_job_definition_scoping_includes_and_tag_scope_term.rs"
-        );
-        include!(
-            "types/macie2/classification_job_s_3_job_definition_scoping_includes_and_tag_scope_term_tag_value.rs"
-        );
-        include!("types/macie2/classification_job_schedule_frequency.rs");
-        include!("types/macie2/classification_job_user_paused_detail.rs");
-    }
-    pub mod mediaconvert {
-        include!("types/mediaconvert/queue_reservation_plan_settings.rs");
     }
     include!("types/get_availability_zone_filter.rs");
     include!("types/get_availability_zones_filter.rs");
