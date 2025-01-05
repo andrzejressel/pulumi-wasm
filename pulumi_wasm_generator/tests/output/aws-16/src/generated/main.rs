@@ -1,3 +1,60 @@
+pub mod rds {
+    include!("resources/rds/certificate.rs");
+    include!("resources/rds/cluster.rs");
+    include!("resources/rds/cluster_activity_stream.rs");
+    include!("resources/rds/cluster_endpoint.rs");
+    include!("resources/rds/cluster_instance.rs");
+    include!("resources/rds/cluster_parameter_group.rs");
+    include!("resources/rds/cluster_role_association.rs");
+    include!("resources/rds/cluster_snapshot.rs");
+    include!("resources/rds/cluster_snapshot_copy.rs");
+    include!("resources/rds/custom_db_engine_version.rs");
+    include!("resources/rds/event_subscription.rs");
+    include!("resources/rds/export_task.rs");
+    include!("resources/rds/global_cluster.rs");
+    include!("resources/rds/instance.rs");
+    include!("resources/rds/instance_automated_backups_replication.rs");
+    include!("resources/rds/instance_desired_state.rs");
+    include!("resources/rds/integration.rs");
+    include!("resources/rds/option_group.rs");
+    include!("resources/rds/parameter_group.rs");
+    include!("resources/rds/proxy.rs");
+    include!("resources/rds/proxy_default_target_group.rs");
+    include!("resources/rds/proxy_endpoint.rs");
+    include!("resources/rds/proxy_target.rs");
+    include!("resources/rds/reserved_instance.rs");
+    include!("resources/rds/role_association.rs");
+    include!("resources/rds/snapshot.rs");
+    include!("resources/rds/snapshot_copy.rs");
+    include!("resources/rds/subnet_group.rs");
+}
+pub mod redshift {
+    include!("resources/redshift/authentication_profile.rs");
+    include!("resources/redshift/cluster.rs");
+    include!("resources/redshift/cluster_iam_roles.rs");
+    include!("resources/redshift/cluster_snapshot.rs");
+    include!("resources/redshift/data_share_authorization.rs");
+    include!("resources/redshift/data_share_consumer_association.rs");
+    include!("resources/redshift/endpoint_access.rs");
+    include!("resources/redshift/endpoint_authorization.rs");
+    include!("resources/redshift/event_subscription.rs");
+    include!("resources/redshift/hsm_client_certificate.rs");
+    include!("resources/redshift/hsm_configuration.rs");
+    include!("resources/redshift/logging.rs");
+    include!("resources/redshift/parameter_group.rs");
+    include!("resources/redshift/partner.rs");
+    include!("resources/redshift/resource_policy.rs");
+    include!("resources/redshift/scheduled_action.rs");
+    include!("resources/redshift/snapshot_copy.rs");
+    include!("resources/redshift/snapshot_copy_grant.rs");
+    include!("resources/redshift/snapshot_schedule.rs");
+    include!("resources/redshift/snapshot_schedule_association.rs");
+    include!("resources/redshift/subnet_group.rs");
+    include!("resources/redshift/usage_limit.rs");
+}
+pub mod redshiftdata {
+    include!("resources/redshiftdata/statement.rs");
+}
 pub mod redshiftserverless {
     include!("resources/redshiftserverless/custom_domain_association.rs");
     include!("resources/redshiftserverless/endpoint_access.rs");
@@ -27,47 +84,33 @@ pub mod rolesanywhere {
     include!("resources/rolesanywhere/profile.rs");
     include!("resources/rolesanywhere/trust_anchor.rs");
 }
-pub mod route53 {
-    include!("resources/route53/cidr_collection.rs");
-    include!("resources/route53/cidr_location.rs");
-    include!("resources/route53/delegation_set.rs");
-    include!("resources/route53/health_check.rs");
-    include!("resources/route53/hosted_zone_dns_sec.rs");
-    include!("resources/route53/key_signing_key.rs");
-    include!("resources/route53/profiles_association.rs");
-    include!("resources/route53/profiles_profile.rs");
-    include!("resources/route53/profiles_resource_association.rs");
-    include!("resources/route53/query_log.rs");
-    include!("resources/route53/record.rs");
-    include!("resources/route53/resolver_config.rs");
-    include!("resources/route53/resolver_dns_sec_config.rs");
-    include!("resources/route53/resolver_endpoint.rs");
-    include!("resources/route53/resolver_firewall_config.rs");
-    include!("resources/route53/resolver_firewall_domain_list.rs");
-    include!("resources/route53/resolver_firewall_rule.rs");
-    include!("resources/route53/resolver_firewall_rule_group.rs");
-    include!("resources/route53/resolver_firewall_rule_group_association.rs");
-    include!("resources/route53/resolver_query_log_config.rs");
-    include!("resources/route53/resolver_query_log_config_association.rs");
-    include!("resources/route53/resolver_rule.rs");
-    include!("resources/route53/resolver_rule_association.rs");
-    include!("resources/route53/traffic_policy.rs");
-    include!("resources/route53/traffic_policy_instance.rs");
-    include!("resources/route53/vpc_association_authorization.rs");
-    include!("resources/route53/zone.rs");
-    include!("resources/route53/zone_association.rs");
-}
-pub mod route53domains {
-    include!("resources/route53domains/delegation_signer_record.rs");
-    include!("resources/route53domains/registered_domain.rs");
-}
-pub mod route53recoverycontrol {
-    include!("resources/route53recoverycontrol/cluster.rs");
-    include!("resources/route53recoverycontrol/control_panel.rs");
-    include!("resources/route53recoverycontrol/routing_control.rs");
-    include!("resources/route53recoverycontrol/safety_rule.rs");
-}
 pub mod functions {
+    pub mod rds {
+        include!("functions/rds/get_certificate.rs");
+        include!("functions/rds/get_cluster.rs");
+        include!("functions/rds/get_cluster_parameter_group.rs");
+        include!("functions/rds/get_cluster_snapshot.rs");
+        include!("functions/rds/get_clusters.rs");
+        include!("functions/rds/get_engine_version.rs");
+        include!("functions/rds/get_event_categories.rs");
+        include!("functions/rds/get_instance.rs");
+        include!("functions/rds/get_instances.rs");
+        include!("functions/rds/get_orderable_db_instance.rs");
+        include!("functions/rds/get_parameter_group.rs");
+        include!("functions/rds/get_proxy.rs");
+        include!("functions/rds/get_reserved_instance_offering.rs");
+        include!("functions/rds/get_snapshot.rs");
+        include!("functions/rds/get_subnet_group.rs");
+    }
+    pub mod redshift {
+        include!("functions/redshift/get_cluster.rs");
+        include!("functions/redshift/get_cluster_credentials.rs");
+        include!("functions/redshift/get_data_shares.rs");
+        include!("functions/redshift/get_orderable_cluster.rs");
+        include!("functions/redshift/get_producer_data_shares.rs");
+        include!("functions/redshift/get_service_account.rs");
+        include!("functions/redshift/get_subnet_group.rs");
+    }
     pub mod redshiftserverless {
         include!("functions/redshiftserverless/get_credentials.rs");
         include!("functions/redshiftserverless/get_namespace.rs");
@@ -78,22 +121,6 @@ pub mod functions {
     }
     pub mod resourcegroupstaggingapi {
         include!("functions/resourcegroupstaggingapi/get_resources.rs");
-    }
-    pub mod route53 {
-        include!("functions/route53/get_delegation_set.rs");
-        include!("functions/route53/get_profiles_profiles.rs");
-        include!("functions/route53/get_query_log_config.rs");
-        include!("functions/route53/get_resolver_endpoint.rs");
-        include!("functions/route53/get_resolver_firewall_config.rs");
-        include!("functions/route53/get_resolver_firewall_domain_list.rs");
-        include!("functions/route53/get_resolver_firewall_rule_group.rs");
-        include!("functions/route53/get_resolver_firewall_rule_group_association.rs");
-        include!("functions/route53/get_resolver_firewall_rules.rs");
-        include!("functions/route53/get_resolver_rule.rs");
-        include!("functions/route53/get_resolver_rules.rs");
-        include!("functions/route53/get_traffic_policy_document.rs");
-        include!("functions/route53/get_zone.rs");
-        include!("functions/route53/get_zones.rs");
     }
     include!("functions/get_arn.rs");
     include!("functions/get_availability_zone.rs");
@@ -109,6 +136,54 @@ pub mod functions {
     include!("functions/get_service_principal.rs");
 }
 pub mod types {
+    pub mod rds {
+        include!("types/rds/cluster_master_user_secret.rs");
+        include!("types/rds/cluster_parameter_group_parameter.rs");
+        include!("types/rds/cluster_restore_to_point_in_time.rs");
+        include!("types/rds/cluster_s_3_import.rs");
+        include!("types/rds/cluster_scaling_configuration.rs");
+        include!("types/rds/cluster_serverlessv_2_scaling_configuration.rs");
+        include!("types/rds/cluster_snapshot_copy_timeouts.rs");
+        include!("types/rds/export_task_timeouts.rs");
+        include!("types/rds/global_cluster_global_cluster_member.rs");
+        include!("types/rds/instance_blue_green_update.rs");
+        include!("types/rds/instance_desired_state_timeouts.rs");
+        include!("types/rds/instance_listener_endpoint.rs");
+        include!("types/rds/instance_master_user_secret.rs");
+        include!("types/rds/instance_restore_to_point_in_time.rs");
+        include!("types/rds/instance_s_3_import.rs");
+        include!("types/rds/integration_timeouts.rs");
+        include!("types/rds/option_group_option.rs");
+        include!("types/rds/option_group_option_option_setting.rs");
+        include!("types/rds/parameter_group_parameter.rs");
+        include!("types/rds/proxy_auth.rs");
+        include!("types/rds/proxy_default_target_group_connection_pool_config.rs");
+        include!("types/rds/reserved_instance_recurring_charge.rs");
+        include!("types/rds/get_cluster_master_user_secret.rs");
+        include!("types/rds/get_clusters_filter.rs");
+        include!("types/rds/get_engine_version_filter.rs");
+        include!("types/rds/get_instance_master_user_secret.rs");
+        include!("types/rds/get_instances_filter.rs");
+        include!("types/rds/get_proxy_auth.rs");
+    }
+    pub mod redshift {
+        include!("types/redshift/cluster_cluster_node.rs");
+        include!("types/redshift/cluster_logging.rs");
+        include!("types/redshift/cluster_snapshot_copy.rs");
+        include!("types/redshift/endpoint_access_vpc_endpoint.rs");
+        include!("types/redshift/endpoint_access_vpc_endpoint_network_interface.rs");
+        include!("types/redshift/parameter_group_parameter.rs");
+        include!("types/redshift/scheduled_action_target_action.rs");
+        include!("types/redshift/scheduled_action_target_action_pause_cluster.rs");
+        include!("types/redshift/scheduled_action_target_action_resize_cluster.rs");
+        include!("types/redshift/scheduled_action_target_action_resume_cluster.rs");
+        include!("types/redshift/get_cluster_cluster_node.rs");
+        include!("types/redshift/get_data_shares_data_share.rs");
+        include!("types/redshift/get_producer_data_shares_data_share.rs");
+    }
+    pub mod redshiftdata {
+        include!("types/redshiftdata/statement_parameter.rs");
+    }
     pub mod redshiftserverless {
         include!("types/redshiftserverless/endpoint_access_vpc_endpoint.rs");
         include!(
@@ -180,49 +255,6 @@ pub mod types {
         include!("types/rolesanywhere/trust_anchor_notification_setting.rs");
         include!("types/rolesanywhere/trust_anchor_source.rs");
         include!("types/rolesanywhere/trust_anchor_source_source_data.rs");
-    }
-    pub mod route53 {
-        include!("types/route53/profiles_association_timeouts.rs");
-        include!("types/route53/profiles_profile_timeouts.rs");
-        include!("types/route53/profiles_resource_association_timeouts.rs");
-        include!("types/route53/record_alias.rs");
-        include!("types/route53/record_cidr_routing_policy.rs");
-        include!("types/route53/record_failover_routing_policy.rs");
-        include!("types/route53/record_geolocation_routing_policy.rs");
-        include!("types/route53/record_geoproximity_routing_policy.rs");
-        include!("types/route53/record_geoproximity_routing_policy_coordinate.rs");
-        include!("types/route53/record_latency_routing_policy.rs");
-        include!("types/route53/record_weighted_routing_policy.rs");
-        include!("types/route53/resolver_endpoint_ip_address.rs");
-        include!("types/route53/resolver_rule_target_ip.rs");
-        include!("types/route53/zone_vpc.rs");
-        include!("types/route53/get_profiles_profiles_profile.rs");
-        include!("types/route53/get_query_log_config_filter.rs");
-        include!("types/route53/get_resolver_endpoint_filter.rs");
-        include!("types/route53/get_resolver_firewall_rules_firewall_rule.rs");
-        include!("types/route53/get_traffic_policy_document_endpoint.rs");
-        include!("types/route53/get_traffic_policy_document_rule.rs");
-        include!(
-            "types/route53/get_traffic_policy_document_rule_geo_proximity_location.rs"
-        );
-        include!("types/route53/get_traffic_policy_document_rule_item.rs");
-        include!("types/route53/get_traffic_policy_document_rule_location.rs");
-        include!("types/route53/get_traffic_policy_document_rule_primary.rs");
-        include!("types/route53/get_traffic_policy_document_rule_region.rs");
-        include!("types/route53/get_traffic_policy_document_rule_secondary.rs");
-    }
-    pub mod route53domains {
-        include!("types/route53domains/delegation_signer_record_signing_attributes.rs");
-        include!("types/route53domains/delegation_signer_record_timeouts.rs");
-        include!("types/route53domains/registered_domain_admin_contact.rs");
-        include!("types/route53domains/registered_domain_billing_contact.rs");
-        include!("types/route53domains/registered_domain_name_server.rs");
-        include!("types/route53domains/registered_domain_registrant_contact.rs");
-        include!("types/route53domains/registered_domain_tech_contact.rs");
-    }
-    pub mod route53recoverycontrol {
-        include!("types/route53recoverycontrol/cluster_cluster_endpoint.rs");
-        include!("types/route53recoverycontrol/safety_rule_rule_config.rs");
     }
     include!("types/get_availability_zone_filter.rs");
     include!("types/get_availability_zones_filter.rs");

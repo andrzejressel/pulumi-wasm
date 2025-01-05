@@ -1,3 +1,10 @@
+pub mod redis {
+    include!("resources/redis/cluster.rs");
+    include!("resources/redis/instance.rs");
+}
+pub mod resourcemanager {
+    include!("resources/resourcemanager/lien.rs");
+}
 pub mod runtimeconfig {
     include!("resources/runtimeconfig/config.rs");
     include!("resources/runtimeconfig/config_iam_binding.rs");
@@ -101,14 +108,10 @@ pub mod servicenetworking {
     include!("resources/servicenetworking/peered_dns_domain.rs");
     include!("resources/servicenetworking/vpc_service_controls.rs");
 }
-pub mod serviceusage {
-    include!("resources/serviceusage/consumer_quota_override.rs");
-}
-pub mod siteverification {
-    include!("resources/siteverification/owner.rs");
-    include!("resources/siteverification/web_resource.rs");
-}
 pub mod functions {
+    pub mod redis {
+        include!("functions/redis/get_instance.rs");
+    }
     pub mod runtimeconfig {
         include!("functions/runtimeconfig/get_config.rs");
         include!("functions/runtimeconfig/get_config_iam_policy.rs");
@@ -150,11 +153,60 @@ pub mod functions {
     pub mod servicenetworking {
         include!("functions/servicenetworking/get_peered_dns_domain.rs");
     }
-    pub mod siteverification {
-        include!("functions/siteverification/get_token.rs");
-    }
 }
 pub mod types {
+    pub mod redis {
+        include!("types/redis/cluster_cross_cluster_replication_config.rs");
+        include!("types/redis/cluster_cross_cluster_replication_config_membership.rs");
+        include!(
+            "types/redis/cluster_cross_cluster_replication_config_membership_primary_cluster.rs"
+        );
+        include!(
+            "types/redis/cluster_cross_cluster_replication_config_membership_secondary_cluster.rs"
+        );
+        include!(
+            "types/redis/cluster_cross_cluster_replication_config_primary_cluster.rs"
+        );
+        include!(
+            "types/redis/cluster_cross_cluster_replication_config_secondary_cluster.rs"
+        );
+        include!("types/redis/cluster_discovery_endpoint.rs");
+        include!("types/redis/cluster_discovery_endpoint_psc_config.rs");
+        include!("types/redis/cluster_maintenance_policy.rs");
+        include!("types/redis/cluster_maintenance_policy_weekly_maintenance_window.rs");
+        include!(
+            "types/redis/cluster_maintenance_policy_weekly_maintenance_window_start_time.rs"
+        );
+        include!("types/redis/cluster_maintenance_schedule.rs");
+        include!("types/redis/cluster_persistence_config.rs");
+        include!("types/redis/cluster_persistence_config_aof_config.rs");
+        include!("types/redis/cluster_persistence_config_rdb_config.rs");
+        include!("types/redis/cluster_psc_config.rs");
+        include!("types/redis/cluster_psc_connection.rs");
+        include!("types/redis/cluster_state_info.rs");
+        include!("types/redis/cluster_state_info_update_info.rs");
+        include!("types/redis/cluster_zone_distribution_config.rs");
+        include!("types/redis/instance_maintenance_policy.rs");
+        include!("types/redis/instance_maintenance_policy_weekly_maintenance_window.rs");
+        include!(
+            "types/redis/instance_maintenance_policy_weekly_maintenance_window_start_time.rs"
+        );
+        include!("types/redis/instance_maintenance_schedule.rs");
+        include!("types/redis/instance_node.rs");
+        include!("types/redis/instance_persistence_config.rs");
+        include!("types/redis/instance_server_ca_cert.rs");
+        include!("types/redis/get_instance_maintenance_policy.rs");
+        include!(
+            "types/redis/get_instance_maintenance_policy_weekly_maintenance_window.rs"
+        );
+        include!(
+            "types/redis/get_instance_maintenance_policy_weekly_maintenance_window_start_time.rs"
+        );
+        include!("types/redis/get_instance_maintenance_schedule.rs");
+        include!("types/redis/get_instance_node.rs");
+        include!("types/redis/get_instance_persistence_config.rs");
+        include!("types/redis/get_instance_server_ca_cert.rs");
+    }
     pub mod runtimeconfig {
         include!("types/runtimeconfig/config_iam_binding_condition.rs");
         include!("types/runtimeconfig/config_iam_member_condition.rs");
@@ -428,9 +480,6 @@ pub mod types {
         include!("types/servicedirectory/namespace_iam_member_condition.rs");
         include!("types/servicedirectory/service_iam_binding_condition.rs");
         include!("types/servicedirectory/service_iam_member_condition.rs");
-    }
-    pub mod siteverification {
-        include!("types/siteverification/web_resource_site.rs");
     }
 }
 #[doc(hidden)]

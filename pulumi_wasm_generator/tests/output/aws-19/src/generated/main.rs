@@ -1,3 +1,31 @@
+pub mod sesv2 {
+    include!("resources/sesv2/account_suppression_attributes.rs");
+    include!("resources/sesv2/account_vdm_attributes.rs");
+    include!("resources/sesv2/configuration_set.rs");
+    include!("resources/sesv2/configuration_set_event_destination.rs");
+    include!("resources/sesv2/contact_list.rs");
+    include!("resources/sesv2/dedicated_ip_assignment.rs");
+    include!("resources/sesv2/dedicated_ip_pool.rs");
+    include!("resources/sesv2/email_identity.rs");
+    include!("resources/sesv2/email_identity_feedback_attributes.rs");
+    include!("resources/sesv2/email_identity_mail_from_attributes.rs");
+    include!("resources/sesv2/email_identity_policy.rs");
+}
+pub mod sfn {
+    include!("resources/sfn/activity.rs");
+    include!("resources/sfn/alias.rs");
+    include!("resources/sfn/state_machine.rs");
+}
+pub mod shield {
+    include!("resources/shield/application_layer_automatic_response.rs");
+    include!("resources/shield/drt_access_log_bucket_association.rs");
+    include!("resources/shield/drt_access_role_arn_association.rs");
+    include!("resources/shield/proactive_engagement.rs");
+    include!("resources/shield/protection.rs");
+    include!("resources/shield/protection_group.rs");
+    include!("resources/shield/protection_health_check_association.rs");
+    include!("resources/shield/subscription.rs");
+}
 pub mod signer {
     include!("resources/signer/signing_job.rs");
     include!("resources/signer/signing_profile.rs");
@@ -45,36 +73,22 @@ pub mod ssmincidents {
     include!("resources/ssmincidents/replication_set.rs");
     include!("resources/ssmincidents/response_plan.rs");
 }
-pub mod ssoadmin {
-    include!("resources/ssoadmin/account_assignment.rs");
-    include!("resources/ssoadmin/application.rs");
-    include!("resources/ssoadmin/application_access_scope.rs");
-    include!("resources/ssoadmin/application_assignment.rs");
-    include!("resources/ssoadmin/application_assignment_configuration.rs");
-    include!("resources/ssoadmin/customer_managed_policy_attachment.rs");
-    include!("resources/ssoadmin/instance_access_control_attributes.rs");
-    include!("resources/ssoadmin/managed_policy_attachment.rs");
-    include!("resources/ssoadmin/permission_set.rs");
-    include!("resources/ssoadmin/permission_set_inline_policy.rs");
-    include!("resources/ssoadmin/permissions_boundary_attachment.rs");
-    include!("resources/ssoadmin/trusted_token_issuer.rs");
-}
-pub mod storagegateway {
-    include!("resources/storagegateway/cache.rs");
-    include!("resources/storagegateway/caches_iscsi_volume.rs");
-    include!("resources/storagegateway/file_system_association.rs");
-    include!("resources/storagegateway/gateway.rs");
-    include!("resources/storagegateway/nfs_file_share.rs");
-    include!("resources/storagegateway/smb_file_share.rs");
-    include!("resources/storagegateway/stored_iscsi_volume.rs");
-    include!("resources/storagegateway/tape_pool.rs");
-    include!("resources/storagegateway/upload_buffer.rs");
-    include!("resources/storagegateway/working_storage.rs");
-}
-pub mod swf {
-    include!("resources/swf/domain.rs");
-}
 pub mod functions {
+    pub mod sesv2 {
+        include!("functions/sesv2/get_configuration_set.rs");
+        include!("functions/sesv2/get_dedicated_ip_pool.rs");
+        include!("functions/sesv2/get_email_identity.rs");
+        include!("functions/sesv2/get_email_identity_mail_from_attributes.rs");
+    }
+    pub mod sfn {
+        include!("functions/sfn/get_activity.rs");
+        include!("functions/sfn/get_alias.rs");
+        include!("functions/sfn/get_state_machine.rs");
+        include!("functions/sfn/get_state_machine_versions.rs");
+    }
+    pub mod shield {
+        include!("functions/shield/get_protection.rs");
+    }
     pub mod signer {
         include!("functions/signer/get_signing_job.rs");
         include!("functions/signer/get_signing_profile.rs");
@@ -105,18 +119,6 @@ pub mod functions {
         include!("functions/ssmincidents/get_replication_set.rs");
         include!("functions/ssmincidents/get_response_plan.rs");
     }
-    pub mod ssoadmin {
-        include!("functions/ssoadmin/get_application.rs");
-        include!("functions/ssoadmin/get_application_assignments.rs");
-        include!("functions/ssoadmin/get_application_providers.rs");
-        include!("functions/ssoadmin/get_instances.rs");
-        include!("functions/ssoadmin/get_permission_set.rs");
-        include!("functions/ssoadmin/get_permission_sets.rs");
-        include!("functions/ssoadmin/get_principal_application_assignments.rs");
-    }
-    pub mod storagegateway {
-        include!("functions/storagegateway/get_local_disk.rs");
-    }
     include!("functions/get_arn.rs");
     include!("functions/get_availability_zone.rs");
     include!("functions/get_availability_zones.rs");
@@ -131,6 +133,63 @@ pub mod functions {
     include!("functions/get_service_principal.rs");
 }
 pub mod types {
+    pub mod sesv2 {
+        include!("types/sesv2/account_vdm_attributes_dashboard_attributes.rs");
+        include!("types/sesv2/account_vdm_attributes_guardian_attributes.rs");
+        include!("types/sesv2/configuration_set_delivery_options.rs");
+        include!("types/sesv2/configuration_set_event_destination_event_destination.rs");
+        include!(
+            "types/sesv2/configuration_set_event_destination_event_destination_cloud_watch_destination.rs"
+        );
+        include!(
+            "types/sesv2/configuration_set_event_destination_event_destination_cloud_watch_destination_dimension_configuration.rs"
+        );
+        include!(
+            "types/sesv2/configuration_set_event_destination_event_destination_event_bridge_destination.rs"
+        );
+        include!(
+            "types/sesv2/configuration_set_event_destination_event_destination_kinesis_firehose_destination.rs"
+        );
+        include!(
+            "types/sesv2/configuration_set_event_destination_event_destination_pinpoint_destination.rs"
+        );
+        include!(
+            "types/sesv2/configuration_set_event_destination_event_destination_sns_destination.rs"
+        );
+        include!("types/sesv2/configuration_set_reputation_options.rs");
+        include!("types/sesv2/configuration_set_sending_options.rs");
+        include!("types/sesv2/configuration_set_suppression_options.rs");
+        include!("types/sesv2/configuration_set_tracking_options.rs");
+        include!("types/sesv2/configuration_set_vdm_options.rs");
+        include!("types/sesv2/configuration_set_vdm_options_dashboard_options.rs");
+        include!("types/sesv2/configuration_set_vdm_options_guardian_options.rs");
+        include!("types/sesv2/contact_list_topic.rs");
+        include!("types/sesv2/email_identity_dkim_signing_attributes.rs");
+        include!("types/sesv2/get_configuration_set_delivery_option.rs");
+        include!("types/sesv2/get_configuration_set_reputation_option.rs");
+        include!("types/sesv2/get_configuration_set_sending_option.rs");
+        include!("types/sesv2/get_configuration_set_suppression_option.rs");
+        include!("types/sesv2/get_configuration_set_tracking_option.rs");
+        include!("types/sesv2/get_configuration_set_vdm_option.rs");
+        include!("types/sesv2/get_configuration_set_vdm_option_dashboard_option.rs");
+        include!("types/sesv2/get_configuration_set_vdm_option_guardian_option.rs");
+        include!("types/sesv2/get_dedicated_ip_pool_dedicated_ip.rs");
+        include!("types/sesv2/get_email_identity_dkim_signing_attribute.rs");
+    }
+    pub mod sfn {
+        include!("types/sfn/activity_encryption_configuration.rs");
+        include!("types/sfn/alias_routing_configuration.rs");
+        include!("types/sfn/state_machine_encryption_configuration.rs");
+        include!("types/sfn/state_machine_logging_configuration.rs");
+        include!("types/sfn/state_machine_tracing_configuration.rs");
+        include!("types/sfn/get_alias_routing_configuration.rs");
+    }
+    pub mod shield {
+        include!("types/shield/application_layer_automatic_response_timeouts.rs");
+        include!("types/shield/drt_access_log_bucket_association_timeouts.rs");
+        include!("types/shield/drt_access_role_arn_association_timeouts.rs");
+        include!("types/shield/proactive_engagement_emergency_contact.rs");
+    }
     pub mod signer {
         include!("types/signer/signing_job_destination.rs");
         include!("types/signer/signing_job_destination_s_3.rs");
@@ -276,46 +335,6 @@ pub mod types {
         );
         include!("types/ssmincidents/get_response_plan_integration.rs");
         include!("types/ssmincidents/get_response_plan_integration_pagerduty.rs");
-    }
-    pub mod ssoadmin {
-        include!("types/ssoadmin/application_portal_options.rs");
-        include!("types/ssoadmin/application_portal_options_sign_in_options.rs");
-        include!(
-            "types/ssoadmin/customer_managed_policy_attachment_customer_managed_policy_reference.rs"
-        );
-        include!("types/ssoadmin/instance_access_control_attributes_attribute.rs");
-        include!("types/ssoadmin/instance_access_control_attributes_attribute_value.rs");
-        include!(
-            "types/ssoadmin/permissions_boundary_attachment_permissions_boundary.rs"
-        );
-        include!(
-            "types/ssoadmin/permissions_boundary_attachment_permissions_boundary_customer_managed_policy_reference.rs"
-        );
-        include!(
-            "types/ssoadmin/trusted_token_issuer_trusted_token_issuer_configuration.rs"
-        );
-        include!(
-            "types/ssoadmin/trusted_token_issuer_trusted_token_issuer_configuration_oidc_jwt_configuration.rs"
-        );
-        include!("types/ssoadmin/get_application_assignments_application_assignment.rs");
-        include!("types/ssoadmin/get_application_portal_option.rs");
-        include!("types/ssoadmin/get_application_portal_option_sign_in_option.rs");
-        include!("types/ssoadmin/get_application_providers_application_provider.rs");
-        include!(
-            "types/ssoadmin/get_application_providers_application_provider_display_data.rs"
-        );
-        include!(
-            "types/ssoadmin/get_principal_application_assignments_application_assignment.rs"
-        );
-    }
-    pub mod storagegateway {
-        include!("types/storagegateway/file_system_association_cache_attributes.rs");
-        include!("types/storagegateway/gateway_gateway_network_interface.rs");
-        include!("types/storagegateway/gateway_maintenance_start_time.rs");
-        include!("types/storagegateway/gateway_smb_active_directory_settings.rs");
-        include!("types/storagegateway/nfs_file_share_cache_attributes.rs");
-        include!("types/storagegateway/nfs_file_share_nfs_file_share_defaults.rs");
-        include!("types/storagegateway/smb_file_share_cache_attributes.rs");
     }
     include!("types/get_availability_zone_filter.rs");
     include!("types/get_availability_zones_filter.rs");

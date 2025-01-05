@@ -1,3 +1,10 @@
+pub mod memorystore {
+    include!("resources/memorystore/instance.rs");
+}
+pub mod migrationcenter {
+    include!("resources/migrationcenter/group.rs");
+    include!("resources/migrationcenter/preference_set.rs");
+}
 pub mod ml {
     include!("resources/ml/engine_model.rs");
 }
@@ -90,22 +97,6 @@ pub mod notebooks {
     include!("resources/notebooks/runtime_iam_member.rs");
     include!("resources/notebooks/runtime_iam_policy.rs");
 }
-pub mod oracledatabase {
-    include!("resources/oracledatabase/autonomous_database.rs");
-    include!("resources/oracledatabase/cloud_exadata_infrastructure.rs");
-    include!("resources/oracledatabase/cloud_vm_cluster.rs");
-}
-pub mod organizations {
-    include!("resources/organizations/access_approval_settings.rs");
-    include!("resources/organizations/folder.rs");
-    include!("resources/organizations/iam_binding.rs");
-    include!("resources/organizations/iam_custom_role.rs");
-    include!("resources/organizations/iam_member.rs");
-    include!("resources/organizations/iam_policy.rs");
-    include!("resources/organizations/iam_audit_config.rs");
-    include!("resources/organizations/policy.rs");
-    include!("resources/organizations/project.rs");
-}
 pub mod functions {
     pub mod monitoring {
         include!("functions/monitoring/get_app_engine_service.rs");
@@ -123,29 +114,44 @@ pub mod functions {
         include!("functions/notebooks/get_instance_iam_policy.rs");
         include!("functions/notebooks/get_runtime_iam_policy.rs");
     }
-    pub mod oracledatabase {
-        include!("functions/oracledatabase/get_autonomous_database.rs");
-        include!("functions/oracledatabase/get_autonomous_databases.rs");
-        include!("functions/oracledatabase/get_cloud_exadata_infrastructure.rs");
-        include!("functions/oracledatabase/get_cloud_exadata_infrastructures.rs");
-        include!("functions/oracledatabase/get_cloud_vm_cluster.rs");
-        include!("functions/oracledatabase/get_cloud_vm_clusters.rs");
-        include!("functions/oracledatabase/get_db_nodes.rs");
-        include!("functions/oracledatabase/get_db_servers.rs");
-    }
-    pub mod organizations {
-        include!("functions/organizations/get_active_folder.rs");
-        include!("functions/organizations/get_billing_account.rs");
-        include!("functions/organizations/get_client_config.rs");
-        include!("functions/organizations/get_client_open_id_user_info.rs");
-        include!("functions/organizations/get_folder.rs");
-        include!("functions/organizations/get_folders.rs");
-        include!("functions/organizations/get_iam_policy.rs");
-        include!("functions/organizations/get_organization.rs");
-        include!("functions/organizations/get_project.rs");
-    }
 }
 pub mod types {
+    pub mod memorystore {
+        include!("types/memorystore/instance_desired_psc_auto_connection.rs");
+        include!("types/memorystore/instance_discovery_endpoint.rs");
+        include!("types/memorystore/instance_node_config.rs");
+        include!("types/memorystore/instance_persistence_config.rs");
+        include!("types/memorystore/instance_persistence_config_aof_config.rs");
+        include!("types/memorystore/instance_persistence_config_rdb_config.rs");
+        include!("types/memorystore/instance_psc_auto_connection.rs");
+        include!("types/memorystore/instance_state_info.rs");
+        include!("types/memorystore/instance_state_info_update_info.rs");
+        include!("types/memorystore/instance_zone_distribution_config.rs");
+    }
+    pub mod migrationcenter {
+        include!("types/migrationcenter/preference_set_virtual_machine_preferences.rs");
+        include!(
+            "types/migrationcenter/preference_set_virtual_machine_preferences_compute_engine_preferences.rs"
+        );
+        include!(
+            "types/migrationcenter/preference_set_virtual_machine_preferences_compute_engine_preferences_machine_preferences.rs"
+        );
+        include!(
+            "types/migrationcenter/preference_set_virtual_machine_preferences_compute_engine_preferences_machine_preferences_allowed_machine_series.rs"
+        );
+        include!(
+            "types/migrationcenter/preference_set_virtual_machine_preferences_region_preferences.rs"
+        );
+        include!(
+            "types/migrationcenter/preference_set_virtual_machine_preferences_sole_tenancy_preferences.rs"
+        );
+        include!(
+            "types/migrationcenter/preference_set_virtual_machine_preferences_sole_tenancy_preferences_node_type.rs"
+        );
+        include!(
+            "types/migrationcenter/preference_set_virtual_machine_preferences_vmware_engine_preferences.rs"
+        );
+    }
     pub mod ml {
         include!("types/ml/engine_model_default_version.rs");
     }
@@ -595,166 +601,6 @@ pub mod types {
         include!(
             "types/notebooks/runtime_virtual_machine_virtual_machine_config_shielded_instance_config.rs"
         );
-    }
-    pub mod oracledatabase {
-        include!("types/oracledatabase/autonomous_database_properties.rs");
-        include!("types/oracledatabase/autonomous_database_properties_apex_detail.rs");
-        include!(
-            "types/oracledatabase/autonomous_database_properties_connection_string.rs"
-        );
-        include!(
-            "types/oracledatabase/autonomous_database_properties_connection_string_all_connection_string.rs"
-        );
-        include!(
-            "types/oracledatabase/autonomous_database_properties_connection_string_profile.rs"
-        );
-        include!(
-            "types/oracledatabase/autonomous_database_properties_connection_url.rs"
-        );
-        include!(
-            "types/oracledatabase/autonomous_database_properties_customer_contact.rs"
-        );
-        include!(
-            "types/oracledatabase/autonomous_database_properties_local_standby_db.rs"
-        );
-        include!(
-            "types/oracledatabase/autonomous_database_properties_scheduled_operation_detail.rs"
-        );
-        include!(
-            "types/oracledatabase/autonomous_database_properties_scheduled_operation_detail_start_time.rs"
-        );
-        include!(
-            "types/oracledatabase/autonomous_database_properties_scheduled_operation_detail_stop_time.rs"
-        );
-        include!("types/oracledatabase/cloud_exadata_infrastructure_properties.rs");
-        include!(
-            "types/oracledatabase/cloud_exadata_infrastructure_properties_customer_contact.rs"
-        );
-        include!(
-            "types/oracledatabase/cloud_exadata_infrastructure_properties_maintenance_window.rs"
-        );
-        include!("types/oracledatabase/cloud_vm_cluster_properties.rs");
-        include!(
-            "types/oracledatabase/cloud_vm_cluster_properties_diagnostics_data_collection_options.rs"
-        );
-        include!("types/oracledatabase/cloud_vm_cluster_properties_time_zone.rs");
-        include!("types/oracledatabase/get_autonomous_database_property.rs");
-        include!("types/oracledatabase/get_autonomous_database_property_apex_detail.rs");
-        include!(
-            "types/oracledatabase/get_autonomous_database_property_connection_string.rs"
-        );
-        include!(
-            "types/oracledatabase/get_autonomous_database_property_connection_string_all_connection_string.rs"
-        );
-        include!(
-            "types/oracledatabase/get_autonomous_database_property_connection_string_profile.rs"
-        );
-        include!(
-            "types/oracledatabase/get_autonomous_database_property_connection_url.rs"
-        );
-        include!(
-            "types/oracledatabase/get_autonomous_database_property_customer_contact.rs"
-        );
-        include!(
-            "types/oracledatabase/get_autonomous_database_property_local_standby_db.rs"
-        );
-        include!(
-            "types/oracledatabase/get_autonomous_database_property_scheduled_operation_detail.rs"
-        );
-        include!(
-            "types/oracledatabase/get_autonomous_database_property_scheduled_operation_detail_start_time.rs"
-        );
-        include!(
-            "types/oracledatabase/get_autonomous_database_property_scheduled_operation_detail_stop_time.rs"
-        );
-        include!("types/oracledatabase/get_autonomous_databases_autonomous_database.rs");
-        include!(
-            "types/oracledatabase/get_autonomous_databases_autonomous_database_property.rs"
-        );
-        include!(
-            "types/oracledatabase/get_autonomous_databases_autonomous_database_property_apex_detail.rs"
-        );
-        include!(
-            "types/oracledatabase/get_autonomous_databases_autonomous_database_property_connection_string.rs"
-        );
-        include!(
-            "types/oracledatabase/get_autonomous_databases_autonomous_database_property_connection_string_all_connection_string.rs"
-        );
-        include!(
-            "types/oracledatabase/get_autonomous_databases_autonomous_database_property_connection_string_profile.rs"
-        );
-        include!(
-            "types/oracledatabase/get_autonomous_databases_autonomous_database_property_connection_url.rs"
-        );
-        include!(
-            "types/oracledatabase/get_autonomous_databases_autonomous_database_property_customer_contact.rs"
-        );
-        include!(
-            "types/oracledatabase/get_autonomous_databases_autonomous_database_property_local_standby_db.rs"
-        );
-        include!(
-            "types/oracledatabase/get_autonomous_databases_autonomous_database_property_scheduled_operation_detail.rs"
-        );
-        include!(
-            "types/oracledatabase/get_autonomous_databases_autonomous_database_property_scheduled_operation_detail_start_time.rs"
-        );
-        include!(
-            "types/oracledatabase/get_autonomous_databases_autonomous_database_property_scheduled_operation_detail_stop_time.rs"
-        );
-        include!("types/oracledatabase/get_cloud_exadata_infrastructure_property.rs");
-        include!(
-            "types/oracledatabase/get_cloud_exadata_infrastructure_property_customer_contact.rs"
-        );
-        include!(
-            "types/oracledatabase/get_cloud_exadata_infrastructure_property_maintenance_window.rs"
-        );
-        include!(
-            "types/oracledatabase/get_cloud_exadata_infrastructures_cloud_exadata_infrastructure.rs"
-        );
-        include!(
-            "types/oracledatabase/get_cloud_exadata_infrastructures_cloud_exadata_infrastructure_property.rs"
-        );
-        include!(
-            "types/oracledatabase/get_cloud_exadata_infrastructures_cloud_exadata_infrastructure_property_customer_contact.rs"
-        );
-        include!(
-            "types/oracledatabase/get_cloud_exadata_infrastructures_cloud_exadata_infrastructure_property_maintenance_window.rs"
-        );
-        include!("types/oracledatabase/get_cloud_vm_cluster_property.rs");
-        include!(
-            "types/oracledatabase/get_cloud_vm_cluster_property_diagnostics_data_collection_option.rs"
-        );
-        include!("types/oracledatabase/get_cloud_vm_cluster_property_time_zone.rs");
-        include!("types/oracledatabase/get_cloud_vm_clusters_cloud_vm_cluster.rs");
-        include!(
-            "types/oracledatabase/get_cloud_vm_clusters_cloud_vm_cluster_property.rs"
-        );
-        include!(
-            "types/oracledatabase/get_cloud_vm_clusters_cloud_vm_cluster_property_diagnostics_data_collection_option.rs"
-        );
-        include!(
-            "types/oracledatabase/get_cloud_vm_clusters_cloud_vm_cluster_property_time_zone.rs"
-        );
-        include!("types/oracledatabase/get_db_nodes_db_node.rs");
-        include!("types/oracledatabase/get_db_nodes_db_node_property.rs");
-        include!("types/oracledatabase/get_db_servers_db_server.rs");
-        include!("types/oracledatabase/get_db_servers_db_server_property.rs");
-    }
-    pub mod organizations {
-        include!("types/organizations/access_approval_settings_enrolled_service.rs");
-        include!("types/organizations/iam_binding_condition.rs");
-        include!("types/organizations/iam_member_condition.rs");
-        include!("types/organizations/iam_audit_config_audit_log_config.rs");
-        include!("types/organizations/policy_boolean_policy.rs");
-        include!("types/organizations/policy_list_policy.rs");
-        include!("types/organizations/policy_list_policy_allow.rs");
-        include!("types/organizations/policy_list_policy_deny.rs");
-        include!("types/organizations/policy_restore_policy.rs");
-        include!("types/organizations/get_folders_folder.rs");
-        include!("types/organizations/get_iam_policy_audit_config.rs");
-        include!("types/organizations/get_iam_policy_audit_config_audit_log_config.rs");
-        include!("types/organizations/get_iam_policy_binding.rs");
-        include!("types/organizations/get_iam_policy_binding_condition.rs");
     }
 }
 #[doc(hidden)]

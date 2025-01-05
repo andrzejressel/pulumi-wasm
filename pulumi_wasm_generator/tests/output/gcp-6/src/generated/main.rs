@@ -1,3 +1,8 @@
+pub mod filestore {
+    include!("resources/filestore/backup.rs");
+    include!("resources/filestore/instance.rs");
+    include!("resources/filestore/snapshot.rs");
+}
 pub mod firebase {
     include!("resources/firebase/android_app.rs");
     include!("resources/firebase/app_check_app_attest_config.rs");
@@ -106,19 +111,10 @@ pub mod healthcare {
     include!("resources/healthcare/pipeline_job.rs");
     include!("resources/healthcare/workspace.rs");
 }
-pub mod iam {
-    include!("resources/iam/access_boundary_policy.rs");
-    include!("resources/iam/deny_policy.rs");
-    include!("resources/iam/folders_policy_binding.rs");
-    include!("resources/iam/organizations_policy_binding.rs");
-    include!("resources/iam/principal_access_boundary_policy.rs");
-    include!("resources/iam/projects_policy_binding.rs");
-    include!("resources/iam/workforce_pool.rs");
-    include!("resources/iam/workforce_pool_provider.rs");
-    include!("resources/iam/workload_identity_pool.rs");
-    include!("resources/iam/workload_identity_pool_provider.rs");
-}
 pub mod functions {
+    pub mod filestore {
+        include!("functions/filestore/get_instance.rs");
+    }
     pub mod firebase {
         include!("functions/firebase/get_android_app.rs");
         include!("functions/firebase/get_android_app_config.rs");
@@ -152,14 +148,22 @@ pub mod functions {
         include!("functions/healthcare/get_fhir_store_iam_policy.rs");
         include!("functions/healthcare/get_hl_7_v_2_store_iam_policy.rs");
     }
-    pub mod iam {
-        include!("functions/iam/get_rule.rs");
-        include!("functions/iam/get_testable_permissions.rs");
-        include!("functions/iam/get_workload_identity_pool.rs");
-        include!("functions/iam/get_workload_identity_pool_provider.rs");
-    }
 }
 pub mod types {
+    pub mod filestore {
+        include!("types/filestore/instance_file_shares.rs");
+        include!("types/filestore/instance_file_shares_nfs_export_option.rs");
+        include!("types/filestore/instance_network.rs");
+        include!("types/filestore/instance_performance_config.rs");
+        include!("types/filestore/instance_performance_config_fixed_iops.rs");
+        include!("types/filestore/instance_performance_config_iops_per_tb.rs");
+        include!("types/filestore/get_instance_file_share.rs");
+        include!("types/filestore/get_instance_file_share_nfs_export_option.rs");
+        include!("types/filestore/get_instance_network.rs");
+        include!("types/filestore/get_instance_performance_config.rs");
+        include!("types/filestore/get_instance_performance_config_fixed_iop.rs");
+        include!("types/filestore/get_instance_performance_config_iops_per_tb.rs");
+    }
     pub mod firebase {
         include!("types/firebase/extensions_instance_config.rs");
         include!("types/firebase/extensions_instance_error_status.rs");
@@ -692,64 +696,6 @@ pub mod types {
             "types/healthcare/pipeline_job_reconciliation_pipeline_job_merge_config_whistle_config_source.rs"
         );
         include!("types/healthcare/workspace_settings.rs");
-    }
-    pub mod iam {
-        include!("types/iam/access_boundary_policy_rule.rs");
-        include!("types/iam/access_boundary_policy_rule_access_boundary_rule.rs");
-        include!(
-            "types/iam/access_boundary_policy_rule_access_boundary_rule_availability_condition.rs"
-        );
-        include!("types/iam/deny_policy_rule.rs");
-        include!("types/iam/deny_policy_rule_deny_rule.rs");
-        include!("types/iam/deny_policy_rule_deny_rule_denial_condition.rs");
-        include!("types/iam/folders_policy_binding_condition.rs");
-        include!("types/iam/folders_policy_binding_target.rs");
-        include!("types/iam/organizations_policy_binding_condition.rs");
-        include!("types/iam/organizations_policy_binding_target.rs");
-        include!("types/iam/principal_access_boundary_policy_details.rs");
-        include!("types/iam/principal_access_boundary_policy_details_rule.rs");
-        include!("types/iam/projects_policy_binding_condition.rs");
-        include!("types/iam/projects_policy_binding_target.rs");
-        include!("types/iam/workforce_pool_access_restrictions.rs");
-        include!("types/iam/workforce_pool_access_restrictions_allowed_service.rs");
-        include!("types/iam/workforce_pool_provider_extra_attributes_oauth_2_client.rs");
-        include!(
-            "types/iam/workforce_pool_provider_extra_attributes_oauth_2_client_client_secret.rs"
-        );
-        include!(
-            "types/iam/workforce_pool_provider_extra_attributes_oauth_2_client_client_secret_value.rs"
-        );
-        include!(
-            "types/iam/workforce_pool_provider_extra_attributes_oauth_2_client_query_parameters.rs"
-        );
-        include!("types/iam/workforce_pool_provider_oidc.rs");
-        include!("types/iam/workforce_pool_provider_oidc_client_secret.rs");
-        include!("types/iam/workforce_pool_provider_oidc_client_secret_value.rs");
-        include!("types/iam/workforce_pool_provider_oidc_web_sso_config.rs");
-        include!("types/iam/workforce_pool_provider_saml.rs");
-        include!("types/iam/workload_identity_pool_provider_aws.rs");
-        include!("types/iam/workload_identity_pool_provider_oidc.rs");
-        include!("types/iam/workload_identity_pool_provider_saml.rs");
-        include!("types/iam/workload_identity_pool_provider_x_509.rs");
-        include!("types/iam/workload_identity_pool_provider_x_509_trust_store.rs");
-        include!(
-            "types/iam/workload_identity_pool_provider_x_509_trust_store_intermediate_ca.rs"
-        );
-        include!(
-            "types/iam/workload_identity_pool_provider_x_509_trust_store_trust_anchor.rs"
-        );
-        include!("types/iam/get_testable_permissions_permission.rs");
-        include!("types/iam/get_workload_identity_pool_provider_aw.rs");
-        include!("types/iam/get_workload_identity_pool_provider_oidc.rs");
-        include!("types/iam/get_workload_identity_pool_provider_saml.rs");
-        include!("types/iam/get_workload_identity_pool_provider_x_509.rs");
-        include!("types/iam/get_workload_identity_pool_provider_x_509_trust_store.rs");
-        include!(
-            "types/iam/get_workload_identity_pool_provider_x_509_trust_store_intermediate_ca.rs"
-        );
-        include!(
-            "types/iam/get_workload_identity_pool_provider_x_509_trust_store_trust_anchor.rs"
-        );
     }
 }
 #[doc(hidden)]

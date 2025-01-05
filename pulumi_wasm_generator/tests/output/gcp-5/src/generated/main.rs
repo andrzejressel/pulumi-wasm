@@ -1,3 +1,6 @@
+pub mod deploymentmanager {
+    include!("resources/deploymentmanager/deployment.rs");
+}
 pub mod developerconnect {
     include!("resources/developerconnect/connection.rs");
     include!("resources/developerconnect/git_repository_link.rs");
@@ -65,11 +68,6 @@ pub mod eventarc {
     include!("resources/eventarc/google_channel_config.rs");
     include!("resources/eventarc/trigger.rs");
 }
-pub mod filestore {
-    include!("resources/filestore/backup.rs");
-    include!("resources/filestore/instance.rs");
-    include!("resources/filestore/snapshot.rs");
-}
 pub mod functions {
     pub mod dns {
         include!("functions/dns/get_keys.rs");
@@ -82,11 +80,14 @@ pub mod functions {
         include!("functions/endpoints/get_service_consumers_iam_policy.rs");
         include!("functions/endpoints/get_service_iam_policy.rs");
     }
-    pub mod filestore {
-        include!("functions/filestore/get_instance.rs");
-    }
 }
 pub mod types {
+    pub mod deploymentmanager {
+        include!("types/deploymentmanager/deployment_label.rs");
+        include!("types/deploymentmanager/deployment_target.rs");
+        include!("types/deploymentmanager/deployment_target_config.rs");
+        include!("types/deploymentmanager/deployment_target_import.rs");
+    }
     pub mod developerconnect {
         include!("types/developerconnect/connection_github_config.rs");
         include!(
@@ -605,20 +606,6 @@ pub mod types {
         include!("types/eventarc/trigger_matching_criteria.rs");
         include!("types/eventarc/trigger_transport.rs");
         include!("types/eventarc/trigger_transport_pubsub.rs");
-    }
-    pub mod filestore {
-        include!("types/filestore/instance_file_shares.rs");
-        include!("types/filestore/instance_file_shares_nfs_export_option.rs");
-        include!("types/filestore/instance_network.rs");
-        include!("types/filestore/instance_performance_config.rs");
-        include!("types/filestore/instance_performance_config_fixed_iops.rs");
-        include!("types/filestore/instance_performance_config_iops_per_tb.rs");
-        include!("types/filestore/get_instance_file_share.rs");
-        include!("types/filestore/get_instance_file_share_nfs_export_option.rs");
-        include!("types/filestore/get_instance_network.rs");
-        include!("types/filestore/get_instance_performance_config.rs");
-        include!("types/filestore/get_instance_performance_config_fixed_iop.rs");
-        include!("types/filestore/get_instance_performance_config_iops_per_tb.rs");
     }
 }
 #[doc(hidden)]

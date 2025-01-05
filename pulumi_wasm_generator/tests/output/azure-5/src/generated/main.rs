@@ -1,3 +1,8 @@
+pub mod domainservices {
+    include!("resources/domainservices/replica_set.rs");
+    include!("resources/domainservices/service.rs");
+    include!("resources/domainservices/service_trust.rs");
+}
 pub mod dynatrace {
     include!("resources/dynatrace/monitor.rs");
 }
@@ -45,19 +50,16 @@ pub mod eventhub {
 pub mod extendedlocation {
     include!("resources/extendedlocation/custom_location.rs");
 }
+pub mod fabric {
+    include!("resources/fabric/capacity.rs");
+}
 pub mod fluidrelay {
     include!("resources/fluidrelay/server.rs");
 }
-pub mod frontdoor {
-    include!("resources/frontdoor/custom_https_configuration.rs");
-    include!("resources/frontdoor/firewall_policy.rs");
-    include!("resources/frontdoor/frontdoor.rs");
-    include!("resources/frontdoor/rules_engine.rs");
-}
-pub mod graph {
-    include!("resources/graph/services_account.rs");
-}
 pub mod functions {
+    pub mod domainservices {
+        include!("functions/domainservices/get_service.rs");
+    }
     pub mod elasticcloud {
         include!("functions/elasticcloud/get_elasticsearch.rs");
     }
@@ -88,6 +90,16 @@ pub mod functions {
     }
 }
 pub mod types {
+    pub mod domainservices {
+        include!("types/domainservices/service_initial_replica_set.rs");
+        include!("types/domainservices/service_notifications.rs");
+        include!("types/domainservices/service_secure_ldap.rs");
+        include!("types/domainservices/service_security.rs");
+        include!("types/domainservices/get_service_notification.rs");
+        include!("types/domainservices/get_service_replica_set.rs");
+        include!("types/domainservices/get_service_secure_ldap.rs");
+        include!("types/domainservices/get_service_security.rs");
+    }
     pub mod dynatrace {
         include!("types/dynatrace/monitor_identity.rs");
         include!("types/dynatrace/monitor_plan.rs");
@@ -345,39 +357,12 @@ pub mod types {
     pub mod extendedlocation {
         include!("types/extendedlocation/custom_location_authentication.rs");
     }
+    pub mod fabric {
+        include!("types/fabric/capacity_sku.rs");
+    }
     pub mod fluidrelay {
         include!("types/fluidrelay/server_customer_managed_key.rs");
         include!("types/fluidrelay/server_identity.rs");
-    }
-    pub mod frontdoor {
-        include!(
-            "types/frontdoor/custom_https_configuration_custom_https_configuration.rs"
-        );
-        include!("types/frontdoor/firewall_policy_custom_rule.rs");
-        include!("types/frontdoor/firewall_policy_custom_rule_match_condition.rs");
-        include!("types/frontdoor/firewall_policy_managed_rule.rs");
-        include!("types/frontdoor/firewall_policy_managed_rule_exclusion.rs");
-        include!("types/frontdoor/firewall_policy_managed_rule_override.rs");
-        include!("types/frontdoor/firewall_policy_managed_rule_override_exclusion.rs");
-        include!("types/frontdoor/firewall_policy_managed_rule_override_rule.rs");
-        include!(
-            "types/frontdoor/firewall_policy_managed_rule_override_rule_exclusion.rs"
-        );
-        include!("types/frontdoor/frontdoor_backend_pool.rs");
-        include!("types/frontdoor/frontdoor_backend_pool_backend.rs");
-        include!("types/frontdoor/frontdoor_backend_pool_health_probe.rs");
-        include!("types/frontdoor/frontdoor_backend_pool_load_balancing.rs");
-        include!("types/frontdoor/frontdoor_backend_pool_setting.rs");
-        include!("types/frontdoor/frontdoor_explicit_resource_order.rs");
-        include!("types/frontdoor/frontdoor_frontend_endpoint.rs");
-        include!("types/frontdoor/frontdoor_routing_rule.rs");
-        include!("types/frontdoor/frontdoor_routing_rule_forwarding_configuration.rs");
-        include!("types/frontdoor/frontdoor_routing_rule_redirect_configuration.rs");
-        include!("types/frontdoor/rules_engine_rule.rs");
-        include!("types/frontdoor/rules_engine_rule_action.rs");
-        include!("types/frontdoor/rules_engine_rule_action_request_header.rs");
-        include!("types/frontdoor/rules_engine_rule_action_response_header.rs");
-        include!("types/frontdoor/rules_engine_rule_match_condition.rs");
     }
 }
 #[doc(hidden)]

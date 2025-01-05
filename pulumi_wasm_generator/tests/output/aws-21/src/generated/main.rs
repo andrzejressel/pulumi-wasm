@@ -1,3 +1,37 @@
+pub mod vpc {
+    include!("resources/vpc/endpoint_private_dns.rs");
+    include!("resources/vpc/endpoint_service_private_dns_verification.rs");
+    include!("resources/vpc/security_group_egress_rule.rs");
+    include!("resources/vpc/security_group_ingress_rule.rs");
+    include!("resources/vpc/security_group_vpc_association.rs");
+}
+pub mod vpclattice {
+    include!("resources/vpclattice/access_log_subscription.rs");
+    include!("resources/vpclattice/auth_policy.rs");
+    include!("resources/vpclattice/listener.rs");
+    include!("resources/vpclattice/listener_rule.rs");
+    include!("resources/vpclattice/resource_policy.rs");
+    include!("resources/vpclattice/service.rs");
+    include!("resources/vpclattice/service_network.rs");
+    include!("resources/vpclattice/service_network_service_association.rs");
+    include!("resources/vpclattice/service_network_vpc_association.rs");
+    include!("resources/vpclattice/target_group.rs");
+    include!("resources/vpclattice/target_group_attachment.rs");
+}
+pub mod waf {
+    include!("resources/waf/byte_match_set.rs");
+    include!("resources/waf/geo_match_set.rs");
+    include!("resources/waf/ip_set.rs");
+    include!("resources/waf/rate_based_rule.rs");
+    include!("resources/waf/regex_match_set.rs");
+    include!("resources/waf/regex_pattern_set.rs");
+    include!("resources/waf/rule.rs");
+    include!("resources/waf/rule_group.rs");
+    include!("resources/waf/size_constraint_set.rs");
+    include!("resources/waf/sql_injection_match_set.rs");
+    include!("resources/waf/web_acl.rs");
+    include!("resources/waf/xss_match_set.rs");
+}
 pub mod wafregional {
     include!("resources/wafregional/byte_match_set.rs");
     include!("resources/wafregional/geo_match_set.rs");
@@ -37,6 +71,24 @@ pub mod xray {
     include!("resources/xray/sampling_rule.rs");
 }
 pub mod functions {
+    pub mod vpc {
+        include!("functions/vpc/get_security_group_rule.rs");
+        include!("functions/vpc/get_security_group_rules.rs");
+    }
+    pub mod vpclattice {
+        include!("functions/vpclattice/get_auth_policy.rs");
+        include!("functions/vpclattice/get_listener.rs");
+        include!("functions/vpclattice/get_resource_policy.rs");
+        include!("functions/vpclattice/get_service.rs");
+        include!("functions/vpclattice/get_service_network.rs");
+    }
+    pub mod waf {
+        include!("functions/waf/get_ipset.rs");
+        include!("functions/waf/get_rate_based_rule.rs");
+        include!("functions/waf/get_rule.rs");
+        include!("functions/waf/get_subscribed_rule_group.rs");
+        include!("functions/waf/get_web_acl.rs");
+    }
     pub mod wafregional {
         include!("functions/wafregional/get_ipset.rs");
         include!("functions/wafregional/get_rate_based_mod.rs");
@@ -70,6 +122,70 @@ pub mod functions {
     include!("functions/get_service_principal.rs");
 }
 pub mod types {
+    pub mod vpc {
+        include!("types/vpc/endpoint_service_private_dns_verification_timeouts.rs");
+        include!("types/vpc/security_group_vpc_association_timeouts.rs");
+        include!("types/vpc/get_security_group_rule_filter.rs");
+        include!("types/vpc/get_security_group_rules_filter.rs");
+    }
+    pub mod vpclattice {
+        include!("types/vpclattice/listener_default_action.rs");
+        include!("types/vpclattice/listener_default_action_fixed_response.rs");
+        include!("types/vpclattice/listener_default_action_forward.rs");
+        include!("types/vpclattice/listener_default_action_forward_target_group.rs");
+        include!("types/vpclattice/listener_rule_action.rs");
+        include!("types/vpclattice/listener_rule_action_fixed_response.rs");
+        include!("types/vpclattice/listener_rule_action_forward.rs");
+        include!("types/vpclattice/listener_rule_action_forward_target_group.rs");
+        include!("types/vpclattice/listener_rule_match.rs");
+        include!("types/vpclattice/listener_rule_match_http_match.rs");
+        include!("types/vpclattice/listener_rule_match_http_match_header_match.rs");
+        include!(
+            "types/vpclattice/listener_rule_match_http_match_header_match_match.rs"
+        );
+        include!("types/vpclattice/listener_rule_match_http_match_path_match.rs");
+        include!("types/vpclattice/listener_rule_match_http_match_path_match_match.rs");
+        include!("types/vpclattice/service_dns_entry.rs");
+        include!("types/vpclattice/service_network_service_association_dns_entry.rs");
+        include!("types/vpclattice/target_group_attachment_target.rs");
+        include!("types/vpclattice/target_group_config.rs");
+        include!("types/vpclattice/target_group_config_health_check.rs");
+        include!("types/vpclattice/target_group_config_health_check_matcher.rs");
+        include!("types/vpclattice/get_listener_default_action.rs");
+        include!("types/vpclattice/get_listener_default_action_fixed_response.rs");
+        include!("types/vpclattice/get_listener_default_action_forward.rs");
+        include!("types/vpclattice/get_listener_default_action_forward_target_group.rs");
+        include!("types/vpclattice/get_service_dns_entry.rs");
+    }
+    pub mod waf {
+        include!("types/waf/byte_match_set_byte_match_tuple.rs");
+        include!("types/waf/byte_match_set_byte_match_tuple_field_to_match.rs");
+        include!("types/waf/geo_match_set_geo_match_constraint.rs");
+        include!("types/waf/ip_set_ip_set_descriptor.rs");
+        include!("types/waf/rate_based_rule_predicate.rs");
+        include!("types/waf/regex_match_set_regex_match_tuple.rs");
+        include!("types/waf/regex_match_set_regex_match_tuple_field_to_match.rs");
+        include!("types/waf/rule_group_activated_rule.rs");
+        include!("types/waf/rule_group_activated_rule_action.rs");
+        include!("types/waf/rule_predicate.rs");
+        include!("types/waf/size_constraint_set_size_constraint.rs");
+        include!("types/waf/size_constraint_set_size_constraint_field_to_match.rs");
+        include!("types/waf/sql_injection_match_set_sql_injection_match_tuple.rs");
+        include!(
+            "types/waf/sql_injection_match_set_sql_injection_match_tuple_field_to_match.rs"
+        );
+        include!("types/waf/web_acl_default_action.rs");
+        include!("types/waf/web_acl_logging_configuration.rs");
+        include!("types/waf/web_acl_logging_configuration_redacted_fields.rs");
+        include!(
+            "types/waf/web_acl_logging_configuration_redacted_fields_field_to_match.rs"
+        );
+        include!("types/waf/web_acl_rule.rs");
+        include!("types/waf/web_acl_rule_action.rs");
+        include!("types/waf/web_acl_rule_override_action.rs");
+        include!("types/waf/xss_match_set_xss_match_tuple.rs");
+        include!("types/waf/xss_match_set_xss_match_tuple_field_to_match.rs");
+    }
     pub mod wafregional {
         include!("types/wafregional/byte_match_set_byte_match_tuple.rs");
         include!("types/wafregional/byte_match_set_byte_match_tuple_field_to_match.rs");

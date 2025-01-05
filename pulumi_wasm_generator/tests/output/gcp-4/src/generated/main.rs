@@ -1,3 +1,10 @@
+pub mod containeranalysis {
+    include!("resources/containeranalysis/note.rs");
+    include!("resources/containeranalysis/note_iam_binding.rs");
+    include!("resources/containeranalysis/note_iam_member.rs");
+    include!("resources/containeranalysis/note_iam_policy.rs");
+    include!("resources/containeranalysis/occurence.rs");
+}
 pub mod databasemigrationservice {
     include!("resources/databasemigrationservice/connection_profile.rs");
     include!("resources/databasemigrationservice/migration_job.rs");
@@ -112,10 +119,10 @@ pub mod datastream {
     include!("resources/datastream/private_connection.rs");
     include!("resources/datastream/stream.rs");
 }
-pub mod deploymentmanager {
-    include!("resources/deploymentmanager/deployment.rs");
-}
 pub mod functions {
+    pub mod containeranalysis {
+        include!("functions/containeranalysis/get_note_iam_policy.rs");
+    }
     pub mod datacatalog {
         include!("functions/datacatalog/get_entry_group_iam_policy.rs");
         include!("functions/datacatalog/get_policy_tag_iam_policy.rs");
@@ -151,6 +158,15 @@ pub mod functions {
     }
 }
 pub mod types {
+    pub mod containeranalysis {
+        include!("types/containeranalysis/note_attestation_authority.rs");
+        include!("types/containeranalysis/note_attestation_authority_hint.rs");
+        include!("types/containeranalysis/note_iam_binding_condition.rs");
+        include!("types/containeranalysis/note_iam_member_condition.rs");
+        include!("types/containeranalysis/note_related_url.rs");
+        include!("types/containeranalysis/occurence_attestation.rs");
+        include!("types/containeranalysis/occurence_attestation_signature.rs");
+    }
     pub mod databasemigrationservice {
         include!("types/databasemigrationservice/connection_profile_alloydb.rs");
         include!(
@@ -1953,12 +1969,6 @@ pub mod types {
         include!(
             "types/datastream/stream_source_config_sql_server_source_config_transaction_logs.rs"
         );
-    }
-    pub mod deploymentmanager {
-        include!("types/deploymentmanager/deployment_label.rs");
-        include!("types/deploymentmanager/deployment_target.rs");
-        include!("types/deploymentmanager/deployment_target_config.rs");
-        include!("types/deploymentmanager/deployment_target_import.rs");
     }
 }
 #[doc(hidden)]

@@ -1,3 +1,16 @@
+pub mod vmwareengine {
+    include!("resources/vmwareengine/cluster.rs");
+    include!("resources/vmwareengine/external_access_rule.rs");
+    include!("resources/vmwareengine/external_address.rs");
+    include!("resources/vmwareengine/network.rs");
+    include!("resources/vmwareengine/network_peering.rs");
+    include!("resources/vmwareengine/network_policy.rs");
+    include!("resources/vmwareengine/private_cloud.rs");
+    include!("resources/vmwareengine/subnet.rs");
+}
+pub mod vpcaccess {
+    include!("resources/vpcaccess/connector.rs");
+}
 pub mod workbench {
     include!("resources/workbench/instance.rs");
     include!("resources/workbench/instance_iam_binding.rs");
@@ -19,6 +32,21 @@ pub mod workstations {
     include!("resources/workstations/workstation_iam_policy.rs");
 }
 pub mod functions {
+    pub mod vmwareengine {
+        include!("functions/vmwareengine/get_cluster.rs");
+        include!("functions/vmwareengine/get_external_access_rule.rs");
+        include!("functions/vmwareengine/get_external_address.rs");
+        include!("functions/vmwareengine/get_network.rs");
+        include!("functions/vmwareengine/get_network_peering.rs");
+        include!("functions/vmwareengine/get_network_policy.rs");
+        include!("functions/vmwareengine/get_nsx_credentials.rs");
+        include!("functions/vmwareengine/get_private_cloud.rs");
+        include!("functions/vmwareengine/get_subnet.rs");
+        include!("functions/vmwareengine/get_vcenter_credentials.rs");
+    }
+    pub mod vpcaccess {
+        include!("functions/vpcaccess/get_connector.rs");
+    }
     pub mod workbench {
         include!("functions/workbench/get_instance_iam_policy.rs");
     }
@@ -28,6 +56,104 @@ pub mod functions {
     }
 }
 pub mod types {
+    pub mod vmwareengine {
+        include!("types/vmwareengine/cluster_autoscaling_settings.rs");
+        include!(
+            "types/vmwareengine/cluster_autoscaling_settings_autoscaling_policy.rs"
+        );
+        include!(
+            "types/vmwareengine/cluster_autoscaling_settings_autoscaling_policy_consumed_memory_thresholds.rs"
+        );
+        include!(
+            "types/vmwareengine/cluster_autoscaling_settings_autoscaling_policy_cpu_thresholds.rs"
+        );
+        include!(
+            "types/vmwareengine/cluster_autoscaling_settings_autoscaling_policy_storage_thresholds.rs"
+        );
+        include!("types/vmwareengine/cluster_node_type_config.rs");
+        include!("types/vmwareengine/external_access_rule_destination_ip_range.rs");
+        include!("types/vmwareengine/external_access_rule_source_ip_range.rs");
+        include!("types/vmwareengine/network_policy_external_ip.rs");
+        include!("types/vmwareengine/network_policy_internet_access.rs");
+        include!("types/vmwareengine/network_vpc_network.rs");
+        include!("types/vmwareengine/private_cloud_hcx.rs");
+        include!("types/vmwareengine/private_cloud_management_cluster.rs");
+        include!(
+            "types/vmwareengine/private_cloud_management_cluster_autoscaling_settings.rs"
+        );
+        include!(
+            "types/vmwareengine/private_cloud_management_cluster_autoscaling_settings_autoscaling_policy.rs"
+        );
+        include!(
+            "types/vmwareengine/private_cloud_management_cluster_autoscaling_settings_autoscaling_policy_consumed_memory_thresholds.rs"
+        );
+        include!(
+            "types/vmwareengine/private_cloud_management_cluster_autoscaling_settings_autoscaling_policy_cpu_thresholds.rs"
+        );
+        include!(
+            "types/vmwareengine/private_cloud_management_cluster_autoscaling_settings_autoscaling_policy_storage_thresholds.rs"
+        );
+        include!(
+            "types/vmwareengine/private_cloud_management_cluster_node_type_config.rs"
+        );
+        include!(
+            "types/vmwareengine/private_cloud_management_cluster_stretched_cluster_config.rs"
+        );
+        include!("types/vmwareengine/private_cloud_network_config.rs");
+        include!("types/vmwareengine/private_cloud_nsx.rs");
+        include!("types/vmwareengine/private_cloud_vcenter.rs");
+        include!("types/vmwareengine/subnet_dhcp_address_range.rs");
+        include!("types/vmwareengine/get_cluster_autoscaling_setting.rs");
+        include!(
+            "types/vmwareengine/get_cluster_autoscaling_setting_autoscaling_policy.rs"
+        );
+        include!(
+            "types/vmwareengine/get_cluster_autoscaling_setting_autoscaling_policy_consumed_memory_threshold.rs"
+        );
+        include!(
+            "types/vmwareengine/get_cluster_autoscaling_setting_autoscaling_policy_cpu_threshold.rs"
+        );
+        include!(
+            "types/vmwareengine/get_cluster_autoscaling_setting_autoscaling_policy_storage_threshold.rs"
+        );
+        include!("types/vmwareengine/get_cluster_node_type_config.rs");
+        include!("types/vmwareengine/get_external_access_rule_destination_ip_range.rs");
+        include!("types/vmwareengine/get_external_access_rule_source_ip_range.rs");
+        include!("types/vmwareengine/get_network_policy_external_ip.rs");
+        include!("types/vmwareengine/get_network_policy_internet_access.rs");
+        include!("types/vmwareengine/get_network_vpc_network.rs");
+        include!("types/vmwareengine/get_private_cloud_hcx.rs");
+        include!("types/vmwareengine/get_private_cloud_management_cluster.rs");
+        include!(
+            "types/vmwareengine/get_private_cloud_management_cluster_autoscaling_setting.rs"
+        );
+        include!(
+            "types/vmwareengine/get_private_cloud_management_cluster_autoscaling_setting_autoscaling_policy.rs"
+        );
+        include!(
+            "types/vmwareengine/get_private_cloud_management_cluster_autoscaling_setting_autoscaling_policy_consumed_memory_threshold.rs"
+        );
+        include!(
+            "types/vmwareengine/get_private_cloud_management_cluster_autoscaling_setting_autoscaling_policy_cpu_threshold.rs"
+        );
+        include!(
+            "types/vmwareengine/get_private_cloud_management_cluster_autoscaling_setting_autoscaling_policy_storage_threshold.rs"
+        );
+        include!(
+            "types/vmwareengine/get_private_cloud_management_cluster_node_type_config.rs"
+        );
+        include!(
+            "types/vmwareengine/get_private_cloud_management_cluster_stretched_cluster_config.rs"
+        );
+        include!("types/vmwareengine/get_private_cloud_network_config.rs");
+        include!("types/vmwareengine/get_private_cloud_nsx.rs");
+        include!("types/vmwareengine/get_private_cloud_vcenter.rs");
+        include!("types/vmwareengine/get_subnet_dhcp_address_range.rs");
+    }
+    pub mod vpcaccess {
+        include!("types/vpcaccess/connector_subnet.rs");
+        include!("types/vpcaccess/get_connector_subnet.rs");
+    }
     pub mod workbench {
         include!("types/workbench/instance_gce_setup.rs");
         include!("types/workbench/instance_gce_setup_accelerator_config.rs");

@@ -50,13 +50,6 @@ pub mod container {
     include!("resources/container/node_pool.rs");
     include!("resources/container/registry.rs");
 }
-pub mod containeranalysis {
-    include!("resources/containeranalysis/note.rs");
-    include!("resources/containeranalysis/note_iam_binding.rs");
-    include!("resources/containeranalysis/note_iam_member.rs");
-    include!("resources/containeranalysis/note_iam_policy.rs");
-    include!("resources/containeranalysis/occurence.rs");
-}
 pub mod functions {
     pub mod cloudidentity {
         include!("functions/cloudidentity/get_group_lookup.rs");
@@ -97,9 +90,6 @@ pub mod functions {
         include!("functions/container/get_engine_versions.rs");
         include!("functions/container/get_registry_image.rs");
         include!("functions/container/get_registry_repository.rs");
-    }
-    pub mod containeranalysis {
-        include!("functions/containeranalysis/get_note_iam_policy.rs");
     }
 }
 pub mod types {
@@ -1261,15 +1251,6 @@ pub mod types {
         include!("types/container/get_cluster_vertical_pod_autoscaling.rs");
         include!("types/container/get_cluster_workload_alts_config.rs");
         include!("types/container/get_cluster_workload_identity_config.rs");
-    }
-    pub mod containeranalysis {
-        include!("types/containeranalysis/note_attestation_authority.rs");
-        include!("types/containeranalysis/note_attestation_authority_hint.rs");
-        include!("types/containeranalysis/note_iam_binding_condition.rs");
-        include!("types/containeranalysis/note_iam_member_condition.rs");
-        include!("types/containeranalysis/note_related_url.rs");
-        include!("types/containeranalysis/occurence_attestation.rs");
-        include!("types/containeranalysis/occurence_attestation_signature.rs");
     }
 }
 #[doc(hidden)]

@@ -1,3 +1,19 @@
+pub mod scheduler {
+    include!("resources/scheduler/schedule.rs");
+    include!("resources/scheduler/schedule_group.rs");
+}
+pub mod schemas {
+    include!("resources/schemas/discoverer.rs");
+    include!("resources/schemas/registry.rs");
+    include!("resources/schemas/registry_policy.rs");
+    include!("resources/schemas/schema.rs");
+}
+pub mod secretsmanager {
+    include!("resources/secretsmanager/secret.rs");
+    include!("resources/secretsmanager/secret_policy.rs");
+    include!("resources/secretsmanager/secret_rotation.rs");
+    include!("resources/secretsmanager/secret_version.rs");
+}
 pub mod securityhub {
     include!("resources/securityhub/account.rs");
     include!("resources/securityhub/action_target.rs");
@@ -71,35 +87,15 @@ pub mod ses {
     include!("resources/ses/receipt_rule_set.rs");
     include!("resources/ses/template.rs");
 }
-pub mod sesv2 {
-    include!("resources/sesv2/account_suppression_attributes.rs");
-    include!("resources/sesv2/account_vdm_attributes.rs");
-    include!("resources/sesv2/configuration_set.rs");
-    include!("resources/sesv2/configuration_set_event_destination.rs");
-    include!("resources/sesv2/contact_list.rs");
-    include!("resources/sesv2/dedicated_ip_assignment.rs");
-    include!("resources/sesv2/dedicated_ip_pool.rs");
-    include!("resources/sesv2/email_identity.rs");
-    include!("resources/sesv2/email_identity_feedback_attributes.rs");
-    include!("resources/sesv2/email_identity_mail_from_attributes.rs");
-    include!("resources/sesv2/email_identity_policy.rs");
-}
-pub mod sfn {
-    include!("resources/sfn/activity.rs");
-    include!("resources/sfn/alias.rs");
-    include!("resources/sfn/state_machine.rs");
-}
-pub mod shield {
-    include!("resources/shield/application_layer_automatic_response.rs");
-    include!("resources/shield/drt_access_log_bucket_association.rs");
-    include!("resources/shield/drt_access_role_arn_association.rs");
-    include!("resources/shield/proactive_engagement.rs");
-    include!("resources/shield/protection.rs");
-    include!("resources/shield/protection_group.rs");
-    include!("resources/shield/protection_health_check_association.rs");
-    include!("resources/shield/subscription.rs");
-}
 pub mod functions {
+    pub mod secretsmanager {
+        include!("functions/secretsmanager/get_random_password.rs");
+        include!("functions/secretsmanager/get_secret.rs");
+        include!("functions/secretsmanager/get_secret_rotation.rs");
+        include!("functions/secretsmanager/get_secret_version.rs");
+        include!("functions/secretsmanager/get_secret_versions.rs");
+        include!("functions/secretsmanager/get_secrets.rs");
+    }
     pub mod securityhub {
         include!("functions/securityhub/get_standards_control_associations.rs");
     }
@@ -134,21 +130,6 @@ pub mod functions {
         include!("functions/ses/get_domain_identity.rs");
         include!("functions/ses/get_email_identity.rs");
     }
-    pub mod sesv2 {
-        include!("functions/sesv2/get_configuration_set.rs");
-        include!("functions/sesv2/get_dedicated_ip_pool.rs");
-        include!("functions/sesv2/get_email_identity.rs");
-        include!("functions/sesv2/get_email_identity_mail_from_attributes.rs");
-    }
-    pub mod sfn {
-        include!("functions/sfn/get_activity.rs");
-        include!("functions/sfn/get_alias.rs");
-        include!("functions/sfn/get_state_machine.rs");
-        include!("functions/sfn/get_state_machine_versions.rs");
-    }
-    pub mod shield {
-        include!("functions/shield/get_protection.rs");
-    }
     include!("functions/get_arn.rs");
     include!("functions/get_availability_zone.rs");
     include!("functions/get_availability_zones.rs");
@@ -163,6 +144,37 @@ pub mod functions {
     include!("functions/get_service_principal.rs");
 }
 pub mod types {
+    pub mod scheduler {
+        include!("types/scheduler/schedule_flexible_time_window.rs");
+        include!("types/scheduler/schedule_target.rs");
+        include!("types/scheduler/schedule_target_dead_letter_config.rs");
+        include!("types/scheduler/schedule_target_ecs_parameters.rs");
+        include!(
+            "types/scheduler/schedule_target_ecs_parameters_capacity_provider_strategy.rs"
+        );
+        include!(
+            "types/scheduler/schedule_target_ecs_parameters_network_configuration.rs"
+        );
+        include!(
+            "types/scheduler/schedule_target_ecs_parameters_placement_constraint.rs"
+        );
+        include!("types/scheduler/schedule_target_ecs_parameters_placement_strategy.rs");
+        include!("types/scheduler/schedule_target_eventbridge_parameters.rs");
+        include!("types/scheduler/schedule_target_kinesis_parameters.rs");
+        include!("types/scheduler/schedule_target_retry_policy.rs");
+        include!("types/scheduler/schedule_target_sagemaker_pipeline_parameters.rs");
+        include!(
+            "types/scheduler/schedule_target_sagemaker_pipeline_parameters_pipeline_parameter.rs"
+        );
+        include!("types/scheduler/schedule_target_sqs_parameters.rs");
+    }
+    pub mod secretsmanager {
+        include!("types/secretsmanager/secret_replica.rs");
+        include!("types/secretsmanager/secret_rotation_rotation_rules.rs");
+        include!("types/secretsmanager/get_secret_rotation_rotation_rule.rs");
+        include!("types/secretsmanager/get_secret_versions_version.rs");
+        include!("types/secretsmanager/get_secrets_filter.rs");
+    }
     pub mod securityhub {
         include!("types/securityhub/automation_rule_action.rs");
         include!("types/securityhub/automation_rule_action_finding_fields_update.rs");
@@ -525,63 +537,6 @@ pub mod types {
         include!("types/ses/receipt_rule_sns_action.rs");
         include!("types/ses/receipt_rule_stop_action.rs");
         include!("types/ses/receipt_rule_workmail_action.rs");
-    }
-    pub mod sesv2 {
-        include!("types/sesv2/account_vdm_attributes_dashboard_attributes.rs");
-        include!("types/sesv2/account_vdm_attributes_guardian_attributes.rs");
-        include!("types/sesv2/configuration_set_delivery_options.rs");
-        include!("types/sesv2/configuration_set_event_destination_event_destination.rs");
-        include!(
-            "types/sesv2/configuration_set_event_destination_event_destination_cloud_watch_destination.rs"
-        );
-        include!(
-            "types/sesv2/configuration_set_event_destination_event_destination_cloud_watch_destination_dimension_configuration.rs"
-        );
-        include!(
-            "types/sesv2/configuration_set_event_destination_event_destination_event_bridge_destination.rs"
-        );
-        include!(
-            "types/sesv2/configuration_set_event_destination_event_destination_kinesis_firehose_destination.rs"
-        );
-        include!(
-            "types/sesv2/configuration_set_event_destination_event_destination_pinpoint_destination.rs"
-        );
-        include!(
-            "types/sesv2/configuration_set_event_destination_event_destination_sns_destination.rs"
-        );
-        include!("types/sesv2/configuration_set_reputation_options.rs");
-        include!("types/sesv2/configuration_set_sending_options.rs");
-        include!("types/sesv2/configuration_set_suppression_options.rs");
-        include!("types/sesv2/configuration_set_tracking_options.rs");
-        include!("types/sesv2/configuration_set_vdm_options.rs");
-        include!("types/sesv2/configuration_set_vdm_options_dashboard_options.rs");
-        include!("types/sesv2/configuration_set_vdm_options_guardian_options.rs");
-        include!("types/sesv2/contact_list_topic.rs");
-        include!("types/sesv2/email_identity_dkim_signing_attributes.rs");
-        include!("types/sesv2/get_configuration_set_delivery_option.rs");
-        include!("types/sesv2/get_configuration_set_reputation_option.rs");
-        include!("types/sesv2/get_configuration_set_sending_option.rs");
-        include!("types/sesv2/get_configuration_set_suppression_option.rs");
-        include!("types/sesv2/get_configuration_set_tracking_option.rs");
-        include!("types/sesv2/get_configuration_set_vdm_option.rs");
-        include!("types/sesv2/get_configuration_set_vdm_option_dashboard_option.rs");
-        include!("types/sesv2/get_configuration_set_vdm_option_guardian_option.rs");
-        include!("types/sesv2/get_dedicated_ip_pool_dedicated_ip.rs");
-        include!("types/sesv2/get_email_identity_dkim_signing_attribute.rs");
-    }
-    pub mod sfn {
-        include!("types/sfn/activity_encryption_configuration.rs");
-        include!("types/sfn/alias_routing_configuration.rs");
-        include!("types/sfn/state_machine_encryption_configuration.rs");
-        include!("types/sfn/state_machine_logging_configuration.rs");
-        include!("types/sfn/state_machine_tracing_configuration.rs");
-        include!("types/sfn/get_alias_routing_configuration.rs");
-    }
-    pub mod shield {
-        include!("types/shield/application_layer_automatic_response_timeouts.rs");
-        include!("types/shield/drt_access_log_bucket_association_timeouts.rs");
-        include!("types/shield/drt_access_role_arn_association_timeouts.rs");
-        include!("types/shield/proactive_engagement_emergency_contact.rs");
     }
     include!("types/get_availability_zone_filter.rs");
     include!("types/get_availability_zones_filter.rs");

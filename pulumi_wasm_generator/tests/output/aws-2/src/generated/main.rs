@@ -1,3 +1,10 @@
+pub mod athena {
+    include!("resources/athena/data_catalog.rs");
+    include!("resources/athena/database.rs");
+    include!("resources/athena/named_query.rs");
+    include!("resources/athena/prepared_statement.rs");
+    include!("resources/athena/workgroup.rs");
+}
 pub mod auditmanager {
     include!("resources/auditmanager/account_registration.rs");
     include!("resources/auditmanager/assessment.rs");
@@ -61,11 +68,10 @@ pub mod bedrock {
 pub mod bedrockmodel {
     include!("resources/bedrockmodel/invocation_logging_configuration.rs");
 }
-pub mod budgets {
-    include!("resources/budgets/budget.rs");
-    include!("resources/budgets/budget_action.rs");
-}
 pub mod functions {
+    pub mod athena {
+        include!("functions/athena/get_named_query.rs");
+    }
     pub mod auditmanager {
         include!("functions/auditmanager/get_control.rs");
         include!("functions/auditmanager/get_framework.rs");
@@ -98,9 +104,6 @@ pub mod functions {
         include!("functions/bedrockfoundation/get_model.rs");
         include!("functions/bedrockfoundation/get_models.rs");
     }
-    pub mod budgets {
-        include!("functions/budgets/get_budget.rs");
-    }
     include!("functions/get_arn.rs");
     include!("functions/get_availability_zone.rs");
     include!("functions/get_availability_zones.rs");
@@ -115,6 +118,19 @@ pub mod functions {
     include!("functions/get_service_principal.rs");
 }
 pub mod types {
+    pub mod athena {
+        include!("types/athena/database_acl_configuration.rs");
+        include!("types/athena/database_encryption_configuration.rs");
+        include!("types/athena/workgroup_configuration.rs");
+        include!("types/athena/workgroup_configuration_engine_version.rs");
+        include!("types/athena/workgroup_configuration_result_configuration.rs");
+        include!(
+            "types/athena/workgroup_configuration_result_configuration_acl_configuration.rs"
+        );
+        include!(
+            "types/athena/workgroup_configuration_result_configuration_encryption_configuration.rs"
+        );
+    }
     pub mod auditmanager {
         include!("types/auditmanager/assessment_assessment_reports_destination.rs");
         include!("types/auditmanager/assessment_role.rs");
@@ -754,29 +770,6 @@ pub mod types {
         include!(
             "types/bedrockmodel/invocation_logging_configuration_logging_config_s_3_config.rs"
         );
-    }
-    pub mod budgets {
-        include!("types/budgets/budget_action_action_threshold.rs");
-        include!("types/budgets/budget_action_definition.rs");
-        include!("types/budgets/budget_action_definition_iam_action_definition.rs");
-        include!("types/budgets/budget_action_definition_scp_action_definition.rs");
-        include!("types/budgets/budget_action_definition_ssm_action_definition.rs");
-        include!("types/budgets/budget_action_subscriber.rs");
-        include!("types/budgets/budget_auto_adjust_data.rs");
-        include!("types/budgets/budget_auto_adjust_data_historical_options.rs");
-        include!("types/budgets/budget_cost_filter.rs");
-        include!("types/budgets/budget_cost_types.rs");
-        include!("types/budgets/budget_notification.rs");
-        include!("types/budgets/budget_planned_limit.rs");
-        include!("types/budgets/get_budget_auto_adjust_data.rs");
-        include!("types/budgets/get_budget_auto_adjust_data_historical_option.rs");
-        include!("types/budgets/get_budget_budget_limit.rs");
-        include!("types/budgets/get_budget_calculated_spend.rs");
-        include!("types/budgets/get_budget_calculated_spend_actual_spend.rs");
-        include!("types/budgets/get_budget_cost_filter.rs");
-        include!("types/budgets/get_budget_cost_type.rs");
-        include!("types/budgets/get_budget_notification.rs");
-        include!("types/budgets/get_budget_planned_limit.rs");
     }
     include!("types/get_availability_zone_filter.rs");
     include!("types/get_availability_zones_filter.rs");

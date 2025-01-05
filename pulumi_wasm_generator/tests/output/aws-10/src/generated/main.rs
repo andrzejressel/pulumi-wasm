@@ -1,3 +1,21 @@
+pub mod fms {
+    include!("resources/fms/admin_account.rs");
+    include!("resources/fms/policy.rs");
+    include!("resources/fms/resource_set.rs");
+}
+pub mod fsx {
+    include!("resources/fsx/backup.rs");
+    include!("resources/fsx/data_repository_association.rs");
+    include!("resources/fsx/file_cache.rs");
+    include!("resources/fsx/lustre_file_system.rs");
+    include!("resources/fsx/ontap_file_system.rs");
+    include!("resources/fsx/ontap_storage_virtual_machine.rs");
+    include!("resources/fsx/ontap_volume.rs");
+    include!("resources/fsx/open_zfs_file_system.rs");
+    include!("resources/fsx/open_zfs_snapshot.rs");
+    include!("resources/fsx/open_zfs_volume.rs");
+    include!("resources/fsx/windows_file_system.rs");
+}
 pub mod gamelift {
     include!("resources/gamelift/alias.rs");
     include!("resources/gamelift/build.rs");
@@ -107,23 +125,14 @@ pub mod identitystore {
     include!("resources/identitystore/group_membership.rs");
     include!("resources/identitystore/user.rs");
 }
-pub mod imagebuilder {
-    include!("resources/imagebuilder/component.rs");
-    include!("resources/imagebuilder/container_recipe.rs");
-    include!("resources/imagebuilder/distribution_configuration.rs");
-    include!("resources/imagebuilder/image.rs");
-    include!("resources/imagebuilder/image_pipeline.rs");
-    include!("resources/imagebuilder/image_recipe.rs");
-    include!("resources/imagebuilder/infrastructure_configuration.rs");
-    include!("resources/imagebuilder/lifecycle_policy.rs");
-    include!("resources/imagebuilder/workflow.rs");
-}
-pub mod inspector {
-    include!("resources/inspector/assessment_target.rs");
-    include!("resources/inspector/assessment_template.rs");
-    include!("resources/inspector/resource_group.rs");
-}
 pub mod functions {
+    pub mod fsx {
+        include!("functions/fsx/get_ontap_file_system.rs");
+        include!("functions/fsx/get_ontap_storage_virtual_machine.rs");
+        include!("functions/fsx/get_ontap_storage_virtual_machines.rs");
+        include!("functions/fsx/get_open_zfs_snapshot.rs");
+        include!("functions/fsx/get_windows_file_system.rs");
+    }
     pub mod globalaccelerator {
         include!("functions/globalaccelerator/get_accelerator.rs");
         include!("functions/globalaccelerator/get_custom_routing_accelerator.rs");
@@ -166,24 +175,6 @@ pub mod functions {
         include!("functions/identitystore/get_groups.rs");
         include!("functions/identitystore/get_user.rs");
     }
-    pub mod imagebuilder {
-        include!("functions/imagebuilder/get_component.rs");
-        include!("functions/imagebuilder/get_components.rs");
-        include!("functions/imagebuilder/get_container_recipe.rs");
-        include!("functions/imagebuilder/get_container_recipes.rs");
-        include!("functions/imagebuilder/get_distribution_configuration.rs");
-        include!("functions/imagebuilder/get_distribution_configurations.rs");
-        include!("functions/imagebuilder/get_image.rs");
-        include!("functions/imagebuilder/get_image_pipeline.rs");
-        include!("functions/imagebuilder/get_image_pipelines.rs");
-        include!("functions/imagebuilder/get_image_recipe.rs");
-        include!("functions/imagebuilder/get_image_recipes.rs");
-        include!("functions/imagebuilder/get_infrastructure_configuration.rs");
-        include!("functions/imagebuilder/get_infrastructure_configurations.rs");
-    }
-    pub mod inspector {
-        include!("functions/inspector/get_rules_packages.rs");
-    }
     include!("functions/get_arn.rs");
     include!("functions/get_availability_zone.rs");
     include!("functions/get_availability_zones.rs");
@@ -198,6 +189,103 @@ pub mod functions {
     include!("functions/get_service_principal.rs");
 }
 pub mod types {
+    pub mod fms {
+        include!("types/fms/policy_exclude_map.rs");
+        include!("types/fms/policy_include_map.rs");
+        include!("types/fms/policy_security_service_policy_data.rs");
+        include!("types/fms/policy_security_service_policy_data_policy_option.rs");
+        include!(
+            "types/fms/policy_security_service_policy_data_policy_option_network_firewall_policy.rs"
+        );
+        include!(
+            "types/fms/policy_security_service_policy_data_policy_option_third_party_firewall_policy.rs"
+        );
+        include!("types/fms/resource_set_resource_set.rs");
+        include!("types/fms/resource_set_timeouts.rs");
+    }
+    pub mod fsx {
+        include!("types/fsx/data_repository_association_s_3.rs");
+        include!("types/fsx/data_repository_association_s_3_auto_export_policy.rs");
+        include!("types/fsx/data_repository_association_s_3_auto_import_policy.rs");
+        include!("types/fsx/file_cache_data_repository_association.rs");
+        include!("types/fsx/file_cache_data_repository_association_nf.rs");
+        include!("types/fsx/file_cache_lustre_configuration.rs");
+        include!("types/fsx/file_cache_lustre_configuration_log_configuration.rs");
+        include!("types/fsx/file_cache_lustre_configuration_metadata_configuration.rs");
+        include!("types/fsx/lustre_file_system_log_configuration.rs");
+        include!("types/fsx/lustre_file_system_metadata_configuration.rs");
+        include!("types/fsx/lustre_file_system_root_squash_configuration.rs");
+        include!("types/fsx/ontap_file_system_disk_iops_configuration.rs");
+        include!("types/fsx/ontap_file_system_endpoint.rs");
+        include!("types/fsx/ontap_file_system_endpoint_intercluster.rs");
+        include!("types/fsx/ontap_file_system_endpoint_management.rs");
+        include!(
+            "types/fsx/ontap_storage_virtual_machine_active_directory_configuration.rs"
+        );
+        include!(
+            "types/fsx/ontap_storage_virtual_machine_active_directory_configuration_self_managed_active_directory_configuration.rs"
+        );
+        include!("types/fsx/ontap_storage_virtual_machine_endpoint.rs");
+        include!("types/fsx/ontap_storage_virtual_machine_endpoint_iscsi.rs");
+        include!("types/fsx/ontap_storage_virtual_machine_endpoint_management.rs");
+        include!("types/fsx/ontap_storage_virtual_machine_endpoint_nf.rs");
+        include!("types/fsx/ontap_storage_virtual_machine_endpoint_smb.rs");
+        include!("types/fsx/ontap_volume_aggregate_configuration.rs");
+        include!("types/fsx/ontap_volume_snaplock_configuration.rs");
+        include!("types/fsx/ontap_volume_snaplock_configuration_autocommit_period.rs");
+        include!("types/fsx/ontap_volume_snaplock_configuration_retention_period.rs");
+        include!(
+            "types/fsx/ontap_volume_snaplock_configuration_retention_period_default_retention.rs"
+        );
+        include!(
+            "types/fsx/ontap_volume_snaplock_configuration_retention_period_maximum_retention.rs"
+        );
+        include!(
+            "types/fsx/ontap_volume_snaplock_configuration_retention_period_minimum_retention.rs"
+        );
+        include!("types/fsx/ontap_volume_tiering_policy.rs");
+        include!("types/fsx/open_zfs_file_system_disk_iops_configuration.rs");
+        include!("types/fsx/open_zfs_file_system_root_volume_configuration.rs");
+        include!(
+            "types/fsx/open_zfs_file_system_root_volume_configuration_nfs_exports.rs"
+        );
+        include!(
+            "types/fsx/open_zfs_file_system_root_volume_configuration_nfs_exports_client_configuration.rs"
+        );
+        include!(
+            "types/fsx/open_zfs_file_system_root_volume_configuration_user_and_group_quota.rs"
+        );
+        include!("types/fsx/open_zfs_volume_nfs_exports.rs");
+        include!("types/fsx/open_zfs_volume_nfs_exports_client_configuration.rs");
+        include!("types/fsx/open_zfs_volume_origin_snapshot.rs");
+        include!("types/fsx/open_zfs_volume_user_and_group_quota.rs");
+        include!("types/fsx/windows_file_system_audit_log_configuration.rs");
+        include!("types/fsx/windows_file_system_disk_iops_configuration.rs");
+        include!("types/fsx/windows_file_system_self_managed_active_directory.rs");
+        include!("types/fsx/get_ontap_file_system_disk_iops_configuration.rs");
+        include!("types/fsx/get_ontap_file_system_endpoint.rs");
+        include!("types/fsx/get_ontap_file_system_endpoint_intercluster.rs");
+        include!("types/fsx/get_ontap_file_system_endpoint_management.rs");
+        include!(
+            "types/fsx/get_ontap_storage_virtual_machine_active_directory_configuration.rs"
+        );
+        include!(
+            "types/fsx/get_ontap_storage_virtual_machine_active_directory_configuration_self_managed_active_directory_configuration.rs"
+        );
+        include!("types/fsx/get_ontap_storage_virtual_machine_endpoint.rs");
+        include!("types/fsx/get_ontap_storage_virtual_machine_endpoint_iscsi.rs");
+        include!("types/fsx/get_ontap_storage_virtual_machine_endpoint_management.rs");
+        include!("types/fsx/get_ontap_storage_virtual_machine_endpoint_nf.rs");
+        include!("types/fsx/get_ontap_storage_virtual_machine_endpoint_smb.rs");
+        include!("types/fsx/get_ontap_storage_virtual_machine_filter.rs");
+        include!(
+            "types/fsx/get_ontap_storage_virtual_machine_lifecycle_transition_reason.rs"
+        );
+        include!("types/fsx/get_ontap_storage_virtual_machines_filter.rs");
+        include!("types/fsx/get_open_zfs_snapshot_filter.rs");
+        include!("types/fsx/get_windows_file_system_audit_log_configuration.rs");
+        include!("types/fsx/get_windows_file_system_disk_iops_configuration.rs");
+    }
     pub mod gamelift {
         include!("types/gamelift/alias_routing_strategy.rs");
         include!("types/gamelift/build_storage_location.rs");
@@ -444,163 +532,6 @@ pub mod types {
         include!("types/identitystore/get_user_filter.rs");
         include!("types/identitystore/get_user_name.rs");
         include!("types/identitystore/get_user_phone_number.rs");
-    }
-    pub mod imagebuilder {
-        include!("types/imagebuilder/container_recipe_component.rs");
-        include!("types/imagebuilder/container_recipe_component_parameter.rs");
-        include!("types/imagebuilder/container_recipe_instance_configuration.rs");
-        include!(
-            "types/imagebuilder/container_recipe_instance_configuration_block_device_mapping.rs"
-        );
-        include!(
-            "types/imagebuilder/container_recipe_instance_configuration_block_device_mapping_ebs.rs"
-        );
-        include!("types/imagebuilder/container_recipe_target_repository.rs");
-        include!("types/imagebuilder/distribution_configuration_distribution.rs");
-        include!(
-            "types/imagebuilder/distribution_configuration_distribution_ami_distribution_configuration.rs"
-        );
-        include!(
-            "types/imagebuilder/distribution_configuration_distribution_ami_distribution_configuration_launch_permission.rs"
-        );
-        include!(
-            "types/imagebuilder/distribution_configuration_distribution_container_distribution_configuration.rs"
-        );
-        include!(
-            "types/imagebuilder/distribution_configuration_distribution_container_distribution_configuration_target_repository.rs"
-        );
-        include!(
-            "types/imagebuilder/distribution_configuration_distribution_fast_launch_configuration.rs"
-        );
-        include!(
-            "types/imagebuilder/distribution_configuration_distribution_fast_launch_configuration_launch_template.rs"
-        );
-        include!(
-            "types/imagebuilder/distribution_configuration_distribution_fast_launch_configuration_snapshot_configuration.rs"
-        );
-        include!(
-            "types/imagebuilder/distribution_configuration_distribution_launch_template_configuration.rs"
-        );
-        include!(
-            "types/imagebuilder/distribution_configuration_distribution_s_3_export_configuration.rs"
-        );
-        include!("types/imagebuilder/image_image_scanning_configuration.rs");
-        include!(
-            "types/imagebuilder/image_image_scanning_configuration_ecr_configuration.rs"
-        );
-        include!("types/imagebuilder/image_image_tests_configuration.rs");
-        include!("types/imagebuilder/image_output_resource.rs");
-        include!("types/imagebuilder/image_output_resource_ami.rs");
-        include!("types/imagebuilder/image_output_resource_container.rs");
-        include!("types/imagebuilder/image_pipeline_image_scanning_configuration.rs");
-        include!(
-            "types/imagebuilder/image_pipeline_image_scanning_configuration_ecr_configuration.rs"
-        );
-        include!("types/imagebuilder/image_pipeline_image_tests_configuration.rs");
-        include!("types/imagebuilder/image_pipeline_schedule.rs");
-        include!("types/imagebuilder/image_pipeline_workflow.rs");
-        include!("types/imagebuilder/image_pipeline_workflow_parameter.rs");
-        include!("types/imagebuilder/image_recipe_block_device_mapping.rs");
-        include!("types/imagebuilder/image_recipe_block_device_mapping_ebs.rs");
-        include!("types/imagebuilder/image_recipe_component.rs");
-        include!("types/imagebuilder/image_recipe_component_parameter.rs");
-        include!("types/imagebuilder/image_recipe_systems_manager_agent.rs");
-        include!("types/imagebuilder/image_workflow.rs");
-        include!("types/imagebuilder/image_workflow_parameter.rs");
-        include!(
-            "types/imagebuilder/infrastructure_configuration_instance_metadata_options.rs"
-        );
-        include!("types/imagebuilder/infrastructure_configuration_logging.rs");
-        include!("types/imagebuilder/infrastructure_configuration_logging_s_3_logs.rs");
-        include!("types/imagebuilder/lifecycle_policy_policy_detail.rs");
-        include!("types/imagebuilder/lifecycle_policy_policy_detail_action.rs");
-        include!(
-            "types/imagebuilder/lifecycle_policy_policy_detail_action_include_resources.rs"
-        );
-        include!("types/imagebuilder/lifecycle_policy_policy_detail_exclusion_rules.rs");
-        include!(
-            "types/imagebuilder/lifecycle_policy_policy_detail_exclusion_rules_amis.rs"
-        );
-        include!(
-            "types/imagebuilder/lifecycle_policy_policy_detail_exclusion_rules_amis_last_launched.rs"
-        );
-        include!("types/imagebuilder/lifecycle_policy_policy_detail_filter.rs");
-        include!("types/imagebuilder/lifecycle_policy_resource_selection.rs");
-        include!("types/imagebuilder/lifecycle_policy_resource_selection_recipe.rs");
-        include!("types/imagebuilder/get_components_filter.rs");
-        include!("types/imagebuilder/get_container_recipe_component.rs");
-        include!("types/imagebuilder/get_container_recipe_component_parameter.rs");
-        include!("types/imagebuilder/get_container_recipe_instance_configuration.rs");
-        include!(
-            "types/imagebuilder/get_container_recipe_instance_configuration_block_device_mapping.rs"
-        );
-        include!(
-            "types/imagebuilder/get_container_recipe_instance_configuration_block_device_mapping_eb.rs"
-        );
-        include!("types/imagebuilder/get_container_recipe_target_repository.rs");
-        include!("types/imagebuilder/get_container_recipes_filter.rs");
-        include!("types/imagebuilder/get_distribution_configuration_distribution.rs");
-        include!(
-            "types/imagebuilder/get_distribution_configuration_distribution_ami_distribution_configuration.rs"
-        );
-        include!(
-            "types/imagebuilder/get_distribution_configuration_distribution_ami_distribution_configuration_launch_permission.rs"
-        );
-        include!(
-            "types/imagebuilder/get_distribution_configuration_distribution_container_distribution_configuration.rs"
-        );
-        include!(
-            "types/imagebuilder/get_distribution_configuration_distribution_container_distribution_configuration_target_repository.rs"
-        );
-        include!(
-            "types/imagebuilder/get_distribution_configuration_distribution_fast_launch_configuration.rs"
-        );
-        include!(
-            "types/imagebuilder/get_distribution_configuration_distribution_fast_launch_configuration_launch_template.rs"
-        );
-        include!(
-            "types/imagebuilder/get_distribution_configuration_distribution_fast_launch_configuration_snapshot_configuration.rs"
-        );
-        include!(
-            "types/imagebuilder/get_distribution_configuration_distribution_launch_template_configuration.rs"
-        );
-        include!(
-            "types/imagebuilder/get_distribution_configuration_distribution_s_3_export_configuration.rs"
-        );
-        include!("types/imagebuilder/get_distribution_configurations_filter.rs");
-        include!("types/imagebuilder/get_image_image_scanning_configuration.rs");
-        include!(
-            "types/imagebuilder/get_image_image_scanning_configuration_ecr_configuration.rs"
-        );
-        include!("types/imagebuilder/get_image_image_tests_configuration.rs");
-        include!("types/imagebuilder/get_image_output_resource.rs");
-        include!("types/imagebuilder/get_image_output_resource_ami.rs");
-        include!("types/imagebuilder/get_image_output_resource_container.rs");
-        include!(
-            "types/imagebuilder/get_image_pipeline_image_scanning_configuration.rs"
-        );
-        include!(
-            "types/imagebuilder/get_image_pipeline_image_scanning_configuration_ecr_configuration.rs"
-        );
-        include!("types/imagebuilder/get_image_pipeline_image_tests_configuration.rs");
-        include!("types/imagebuilder/get_image_pipeline_schedule.rs");
-        include!("types/imagebuilder/get_image_pipelines_filter.rs");
-        include!("types/imagebuilder/get_image_recipe_block_device_mapping.rs");
-        include!("types/imagebuilder/get_image_recipe_block_device_mapping_eb.rs");
-        include!("types/imagebuilder/get_image_recipe_component.rs");
-        include!("types/imagebuilder/get_image_recipe_component_parameter.rs");
-        include!("types/imagebuilder/get_image_recipes_filter.rs");
-        include!(
-            "types/imagebuilder/get_infrastructure_configuration_instance_metadata_option.rs"
-        );
-        include!("types/imagebuilder/get_infrastructure_configuration_logging.rs");
-        include!(
-            "types/imagebuilder/get_infrastructure_configuration_logging_s_3_log.rs"
-        );
-        include!("types/imagebuilder/get_infrastructure_configurations_filter.rs");
-    }
-    pub mod inspector {
-        include!("types/inspector/assessment_template_event_subscription.rs");
     }
     include!("types/get_availability_zone_filter.rs");
     include!("types/get_availability_zones_filter.rs");

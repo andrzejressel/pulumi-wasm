@@ -1,3 +1,8 @@
+pub mod consumption {
+    include!("resources/consumption/budget_management_group.rs");
+    include!("resources/consumption/budget_resource_group.rs");
+    include!("resources/consumption/budget_subscription.rs");
+}
 pub mod containerapp {
     include!("resources/containerapp/app.rs");
     include!("resources/containerapp/custom_domain.rs");
@@ -102,14 +107,11 @@ pub mod databasemigration {
 pub mod databoxedge {
     include!("resources/databoxedge/device.rs");
 }
-pub mod databricks {
-    include!("resources/databricks/access_connector.rs");
-    include!("resources/databricks/virtual_network_peering.rs");
-    include!("resources/databricks/workspace.rs");
-    include!("resources/databricks/workspace_customer_managed_key.rs");
-    include!("resources/databricks/workspace_root_dbfs_customer_managed_key.rs");
-}
 pub mod functions {
+    pub mod consumption {
+        include!("functions/consumption/get_budget_resource_group.rs");
+        include!("functions/consumption/get_budget_subscription.rs");
+    }
     pub mod containerapp {
         include!("functions/containerapp/get_app.rs");
         include!("functions/containerapp/get_environment.rs");
@@ -158,13 +160,41 @@ pub mod functions {
     pub mod databoxedge {
         include!("functions/databoxedge/get_device.rs");
     }
-    pub mod databricks {
-        include!("functions/databricks/get_access_connector.rs");
-        include!("functions/databricks/get_workspace.rs");
-        include!("functions/databricks/get_workspace_private_endpoint_connection.rs");
-    }
 }
 pub mod types {
+    pub mod consumption {
+        include!("types/consumption/budget_management_group_filter.rs");
+        include!("types/consumption/budget_management_group_filter_dimension.rs");
+        include!("types/consumption/budget_management_group_filter_tag.rs");
+        include!("types/consumption/budget_management_group_notification.rs");
+        include!("types/consumption/budget_management_group_time_period.rs");
+        include!("types/consumption/budget_resource_group_filter.rs");
+        include!("types/consumption/budget_resource_group_filter_dimension.rs");
+        include!("types/consumption/budget_resource_group_filter_tag.rs");
+        include!("types/consumption/budget_resource_group_notification.rs");
+        include!("types/consumption/budget_resource_group_time_period.rs");
+        include!("types/consumption/budget_subscription_filter.rs");
+        include!("types/consumption/budget_subscription_filter_dimension.rs");
+        include!("types/consumption/budget_subscription_filter_tag.rs");
+        include!("types/consumption/budget_subscription_notification.rs");
+        include!("types/consumption/budget_subscription_time_period.rs");
+        include!("types/consumption/get_budget_resource_group_filter.rs");
+        include!("types/consumption/get_budget_resource_group_filter_dimension.rs");
+        include!("types/consumption/get_budget_resource_group_filter_not.rs");
+        include!("types/consumption/get_budget_resource_group_filter_not_dimension.rs");
+        include!("types/consumption/get_budget_resource_group_filter_not_tag.rs");
+        include!("types/consumption/get_budget_resource_group_filter_tag.rs");
+        include!("types/consumption/get_budget_resource_group_notification.rs");
+        include!("types/consumption/get_budget_resource_group_time_period.rs");
+        include!("types/consumption/get_budget_subscription_filter.rs");
+        include!("types/consumption/get_budget_subscription_filter_dimension.rs");
+        include!("types/consumption/get_budget_subscription_filter_not.rs");
+        include!("types/consumption/get_budget_subscription_filter_not_dimension.rs");
+        include!("types/consumption/get_budget_subscription_filter_not_tag.rs");
+        include!("types/consumption/get_budget_subscription_filter_tag.rs");
+        include!("types/consumption/get_budget_subscription_notification.rs");
+        include!("types/consumption/get_budget_subscription_time_period.rs");
+    }
     pub mod containerapp {
         include!("types/containerapp/app_dapr.rs");
         include!("types/containerapp/app_identity.rs");
@@ -648,20 +678,6 @@ pub mod types {
     pub mod databoxedge {
         include!("types/databoxedge/device_device_property.rs");
         include!("types/databoxedge/get_device_device_property.rs");
-    }
-    pub mod databricks {
-        include!("types/databricks/access_connector_identity.rs");
-        include!("types/databricks/workspace_custom_parameters.rs");
-        include!("types/databricks/workspace_enhanced_security_compliance.rs");
-        include!("types/databricks/workspace_managed_disk_identity.rs");
-        include!("types/databricks/workspace_storage_account_identity.rs");
-        include!("types/databricks/get_access_connector_identity.rs");
-        include!("types/databricks/get_workspace_enhanced_security_compliance.rs");
-        include!("types/databricks/get_workspace_managed_disk_identity.rs");
-        include!(
-            "types/databricks/get_workspace_private_endpoint_connection_connection.rs"
-        );
-        include!("types/databricks/get_workspace_storage_account_identity.rs");
     }
 }
 #[doc(hidden)]

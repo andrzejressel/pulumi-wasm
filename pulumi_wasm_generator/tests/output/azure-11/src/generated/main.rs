@@ -1,3 +1,19 @@
+pub mod recoveryservices {
+    include!("resources/recoveryservices/vault.rs");
+    include!("resources/recoveryservices/vault_resource_guard_association.rs");
+}
+pub mod redhatopenshift {
+    include!("resources/redhatopenshift/cluster.rs");
+}
+pub mod redis {
+    include!("resources/redis/cache.rs");
+    include!("resources/redis/cache_access_policy.rs");
+    include!("resources/redis/cache_access_policy_assignment.rs");
+    include!("resources/redis/enterprise_cluster.rs");
+    include!("resources/redis/enterprise_database.rs");
+    include!("resources/redis/firewall_rule.rs");
+    include!("resources/redis/linked_server.rs");
+}
 pub mod relay {
     include!("resources/relay/hybrid_connection.rs");
     include!("resources/relay/hybrid_connection_authorization_rule.rs");
@@ -80,40 +96,14 @@ pub mod servicefabric {
     include!("resources/servicefabric/cluster.rs");
     include!("resources/servicefabric/managed_cluster.rs");
 }
-pub mod signalr {
-    include!("resources/signalr/service.rs");
-    include!("resources/signalr/service_custom_certificate.rs");
-    include!("resources/signalr/service_custom_domain.rs");
-    include!("resources/signalr/service_network_acl.rs");
-    include!("resources/signalr/shared_private_link_resource.rs");
-}
-pub mod siterecovery {
-    include!("resources/siterecovery/fabric.rs");
-    include!("resources/siterecovery/hyper_v_replication_policy.rs");
-    include!("resources/siterecovery/hyper_v_replication_policy_association.rs");
-    include!("resources/siterecovery/hyper_v_site.rs");
-    include!("resources/siterecovery/hyperv_network_mapping.rs");
-    include!("resources/siterecovery/network_mapping.rs");
-    include!("resources/siterecovery/protection_container.rs");
-    include!("resources/siterecovery/protection_container_mapping.rs");
-    include!("resources/siterecovery/replicated_vm.rs");
-    include!("resources/siterecovery/replication_policy.rs");
-    include!("resources/siterecovery/replication_recovery_plan.rs");
-    include!("resources/siterecovery/vm_ware_replication_policy.rs");
-    include!("resources/siterecovery/vmware_replicated_vm.rs");
-    include!("resources/siterecovery/vmware_replication_policy_association.rs");
-}
-pub mod stack {
-    include!("resources/stack/hci_cluster.rs");
-    include!("resources/stack/hci_deployment_setting.rs");
-    include!("resources/stack/hci_extension.rs");
-    include!("resources/stack/hci_logical_network.rs");
-    include!("resources/stack/hci_marketplace_gallery_image.rs");
-    include!("resources/stack/hci_network_interface.rs");
-    include!("resources/stack/hci_storage_path.rs");
-    include!("resources/stack/hci_virtual_hard_disk.rs");
-}
 pub mod functions {
+    pub mod recoveryservices {
+        include!("functions/recoveryservices/get_vault.rs");
+    }
+    pub mod redis {
+        include!("functions/redis/get_cache.rs");
+        include!("functions/redis/get_enterprise_database.rs");
+    }
     pub mod role {
         include!("functions/role/get_role_definition.rs");
     }
@@ -135,20 +125,31 @@ pub mod functions {
         include!("functions/servicebus/get_topic.rs");
         include!("functions/servicebus/get_topic_authorization_rule.rs");
     }
-    pub mod signalr {
-        include!("functions/signalr/get_service.rs");
-    }
-    pub mod siterecovery {
-        include!("functions/siterecovery/get_fabric.rs");
-        include!("functions/siterecovery/get_protection_container.rs");
-        include!("functions/siterecovery/get_replication_policy.rs");
-        include!("functions/siterecovery/get_replication_recovery_plan.rs");
-    }
-    pub mod stack {
-        include!("functions/stack/get_hci_cluster.rs");
-    }
 }
 pub mod types {
+    pub mod recoveryservices {
+        include!("types/recoveryservices/vault_encryption.rs");
+        include!("types/recoveryservices/vault_identity.rs");
+        include!("types/recoveryservices/vault_monitoring.rs");
+        include!("types/recoveryservices/get_vault_identity.rs");
+    }
+    pub mod redhatopenshift {
+        include!("types/redhatopenshift/cluster_api_server_profile.rs");
+        include!("types/redhatopenshift/cluster_cluster_profile.rs");
+        include!("types/redhatopenshift/cluster_ingress_profile.rs");
+        include!("types/redhatopenshift/cluster_main_profile.rs");
+        include!("types/redhatopenshift/cluster_network_profile.rs");
+        include!("types/redhatopenshift/cluster_service_principal.rs");
+        include!("types/redhatopenshift/cluster_worker_profile.rs");
+    }
+    pub mod redis {
+        include!("types/redis/cache_identity.rs");
+        include!("types/redis/cache_patch_schedule.rs");
+        include!("types/redis/cache_redis_configuration.rs");
+        include!("types/redis/enterprise_database_module.rs");
+        include!("types/redis/get_cache_patch_schedule.rs");
+        include!("types/redis/get_cache_redis_configuration.rs");
+    }
     pub mod role {
         include!("types/role/definition_permission.rs");
         include!("types/role/get_role_definition_permission.rs");
@@ -284,104 +285,6 @@ pub mod types {
         include!(
             "types/servicefabric/managed_cluster_node_type_vm_secret_certificate.rs"
         );
-    }
-    pub mod signalr {
-        include!("types/signalr/service_cor.rs");
-        include!("types/signalr/service_identity.rs");
-        include!("types/signalr/service_live_trace.rs");
-        include!("types/signalr/service_network_acl_private_endpoint.rs");
-        include!("types/signalr/service_network_acl_public_network.rs");
-        include!("types/signalr/service_sku.rs");
-        include!("types/signalr/service_upstream_endpoint.rs");
-    }
-    pub mod siterecovery {
-        include!("types/siterecovery/protection_container_mapping_automatic_update.rs");
-        include!("types/siterecovery/replicated_vm_managed_disk.rs");
-        include!(
-            "types/siterecovery/replicated_vm_managed_disk_target_disk_encryption.rs"
-        );
-        include!(
-            "types/siterecovery/replicated_vm_managed_disk_target_disk_encryption_disk_encryption_key.rs"
-        );
-        include!(
-            "types/siterecovery/replicated_vm_managed_disk_target_disk_encryption_key_encryption_key.rs"
-        );
-        include!("types/siterecovery/replicated_vm_network_interface.rs");
-        include!("types/siterecovery/replicated_vm_unmanaged_disk.rs");
-        include!(
-            "types/siterecovery/replication_recovery_plan_azure_to_azure_settings.rs"
-        );
-        include!("types/siterecovery/replication_recovery_plan_boot_recovery_group.rs");
-        include!(
-            "types/siterecovery/replication_recovery_plan_boot_recovery_group_post_action.rs"
-        );
-        include!(
-            "types/siterecovery/replication_recovery_plan_boot_recovery_group_pre_action.rs"
-        );
-        include!(
-            "types/siterecovery/replication_recovery_plan_failover_recovery_group.rs"
-        );
-        include!(
-            "types/siterecovery/replication_recovery_plan_failover_recovery_group_post_action.rs"
-        );
-        include!(
-            "types/siterecovery/replication_recovery_plan_failover_recovery_group_pre_action.rs"
-        );
-        include!(
-            "types/siterecovery/replication_recovery_plan_shutdown_recovery_group.rs"
-        );
-        include!(
-            "types/siterecovery/replication_recovery_plan_shutdown_recovery_group_post_action.rs"
-        );
-        include!(
-            "types/siterecovery/replication_recovery_plan_shutdown_recovery_group_pre_action.rs"
-        );
-        include!("types/siterecovery/vmware_replicated_vm_managed_disk.rs");
-        include!("types/siterecovery/vmware_replicated_vm_network_interface.rs");
-        include!(
-            "types/siterecovery/get_replication_recovery_plan_azure_to_azure_setting.rs"
-        );
-        include!("types/siterecovery/get_replication_recovery_plan_recovery_group.rs");
-        include!(
-            "types/siterecovery/get_replication_recovery_plan_recovery_group_post_action.rs"
-        );
-        include!(
-            "types/siterecovery/get_replication_recovery_plan_recovery_group_pre_action.rs"
-        );
-    }
-    pub mod stack {
-        include!("types/stack/hci_cluster_identity.rs");
-        include!("types/stack/hci_deployment_setting_scale_unit.rs");
-        include!("types/stack/hci_deployment_setting_scale_unit_cluster.rs");
-        include!("types/stack/hci_deployment_setting_scale_unit_host_network.rs");
-        include!("types/stack/hci_deployment_setting_scale_unit_host_network_intent.rs");
-        include!(
-            "types/stack/hci_deployment_setting_scale_unit_host_network_intent_adapter_property_override.rs"
-        );
-        include!(
-            "types/stack/hci_deployment_setting_scale_unit_host_network_intent_qos_policy_override.rs"
-        );
-        include!(
-            "types/stack/hci_deployment_setting_scale_unit_host_network_intent_virtual_switch_configuration_override.rs"
-        );
-        include!(
-            "types/stack/hci_deployment_setting_scale_unit_host_network_storage_network.rs"
-        );
-        include!(
-            "types/stack/hci_deployment_setting_scale_unit_infrastructure_network.rs"
-        );
-        include!(
-            "types/stack/hci_deployment_setting_scale_unit_infrastructure_network_ip_pool.rs"
-        );
-        include!("types/stack/hci_deployment_setting_scale_unit_optional_service.rs");
-        include!("types/stack/hci_deployment_setting_scale_unit_physical_node.rs");
-        include!("types/stack/hci_deployment_setting_scale_unit_storage.rs");
-        include!("types/stack/hci_logical_network_subnet.rs");
-        include!("types/stack/hci_logical_network_subnet_ip_pool.rs");
-        include!("types/stack/hci_logical_network_subnet_route.rs");
-        include!("types/stack/hci_marketplace_gallery_image_identifier.rs");
-        include!("types/stack/hci_network_interface_ip_configuration.rs");
-        include!("types/stack/get_hci_cluster_identity.rs");
     }
 }
 #[doc(hidden)]
