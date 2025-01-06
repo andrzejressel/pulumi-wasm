@@ -2,7 +2,7 @@ name: Build
 
 on:
   push:
-    branches: [ "main", "calver" ]
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
@@ -315,7 +315,7 @@ jobs:
   deploy:
     runs-on: ubuntu-24.04
     needs: [build-base, build-generated-provider, build-examples, build-housekeeping, build-rust-docs]
-    if: success() && github.ref == 'refs/heads/calver'
+    if: success() && github.ref == 'refs/heads/main'
     steps:
     - name: Cleanup unused stuff
       run: |
