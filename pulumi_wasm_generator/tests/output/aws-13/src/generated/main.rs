@@ -1,3 +1,18 @@
+pub mod macie {
+    include!("resources/macie/custom_data_identifier.rs");
+    include!("resources/macie/findings_filter.rs");
+}
+pub mod macie2 {
+    include!("resources/macie2/account.rs");
+    include!("resources/macie2/classification_export_configuration.rs");
+    include!("resources/macie2/classification_job.rs");
+    include!("resources/macie2/invitation_accepter.rs");
+    include!("resources/macie2/member.rs");
+    include!("resources/macie2/organization_admin_account.rs");
+}
+pub mod mediaconvert {
+    include!("resources/mediaconvert/queue.rs");
+}
 pub mod medialive {
     include!("resources/medialive/channel.rs");
     include!("resources/medialive/input.rs");
@@ -40,29 +55,10 @@ pub mod mskconnect {
     include!("resources/mskconnect/custom_plugin.rs");
     include!("resources/mskconnect/worker_configuration.rs");
 }
-pub mod mwaa {
-    include!("resources/mwaa/environment.rs");
-}
-pub mod neptune {
-    include!("resources/neptune/cluster.rs");
-    include!("resources/neptune/cluster_endpoint.rs");
-    include!("resources/neptune/cluster_instance.rs");
-    include!("resources/neptune/cluster_parameter_group.rs");
-    include!("resources/neptune/cluster_snapshot.rs");
-    include!("resources/neptune/event_subscription.rs");
-    include!("resources/neptune/global_cluster.rs");
-    include!("resources/neptune/parameter_group.rs");
-    include!("resources/neptune/subnet_group.rs");
-}
-pub mod networkfirewall {
-    include!("resources/networkfirewall/firewall.rs");
-    include!("resources/networkfirewall/firewall_policy.rs");
-    include!("resources/networkfirewall/logging_configuration.rs");
-    include!("resources/networkfirewall/resource_policy.rs");
-    include!("resources/networkfirewall/rule_group.rs");
-    include!("resources/networkfirewall/tls_inspection_configuration.rs");
-}
 pub mod functions {
+    pub mod mediaconvert {
+        include!("functions/mediaconvert/get_queue.rs");
+    }
     pub mod medialive {
         include!("functions/medialive/get_input.rs");
     }
@@ -92,15 +88,6 @@ pub mod functions {
         include!("functions/mskconnect/get_custom_plugin.rs");
         include!("functions/mskconnect/get_worker_configuration.rs");
     }
-    pub mod neptune {
-        include!("functions/neptune/get_engine_version.rs");
-        include!("functions/neptune/get_orderable_db_instance.rs");
-    }
-    pub mod networkfirewall {
-        include!("functions/networkfirewall/get_firewall.rs");
-        include!("functions/networkfirewall/get_firewall_policy.rs");
-        include!("functions/networkfirewall/get_resource_policy.rs");
-    }
     include!("functions/get_arn.rs");
     include!("functions/get_availability_zone.rs");
     include!("functions/get_availability_zones.rs");
@@ -115,6 +102,86 @@ pub mod functions {
     include!("functions/get_service_principal.rs");
 }
 pub mod types {
+    pub mod macie {
+        include!("types/macie/findings_filter_finding_criteria.rs");
+        include!("types/macie/findings_filter_finding_criteria_criterion.rs");
+    }
+    pub mod macie2 {
+        include!("types/macie2/classification_export_configuration_s_3_destination.rs");
+        include!("types/macie2/classification_job_s_3_job_definition.rs");
+        include!(
+            "types/macie2/classification_job_s_3_job_definition_bucket_criteria.rs"
+        );
+        include!(
+            "types/macie2/classification_job_s_3_job_definition_bucket_criteria_excludes.rs"
+        );
+        include!(
+            "types/macie2/classification_job_s_3_job_definition_bucket_criteria_excludes_and.rs"
+        );
+        include!(
+            "types/macie2/classification_job_s_3_job_definition_bucket_criteria_excludes_and_simple_criterion.rs"
+        );
+        include!(
+            "types/macie2/classification_job_s_3_job_definition_bucket_criteria_excludes_and_tag_criterion.rs"
+        );
+        include!(
+            "types/macie2/classification_job_s_3_job_definition_bucket_criteria_excludes_and_tag_criterion_tag_value.rs"
+        );
+        include!(
+            "types/macie2/classification_job_s_3_job_definition_bucket_criteria_includes.rs"
+        );
+        include!(
+            "types/macie2/classification_job_s_3_job_definition_bucket_criteria_includes_and.rs"
+        );
+        include!(
+            "types/macie2/classification_job_s_3_job_definition_bucket_criteria_includes_and_simple_criterion.rs"
+        );
+        include!(
+            "types/macie2/classification_job_s_3_job_definition_bucket_criteria_includes_and_tag_criterion.rs"
+        );
+        include!(
+            "types/macie2/classification_job_s_3_job_definition_bucket_criteria_includes_and_tag_criterion_tag_value.rs"
+        );
+        include!(
+            "types/macie2/classification_job_s_3_job_definition_bucket_definition.rs"
+        );
+        include!("types/macie2/classification_job_s_3_job_definition_scoping.rs");
+        include!(
+            "types/macie2/classification_job_s_3_job_definition_scoping_excludes.rs"
+        );
+        include!(
+            "types/macie2/classification_job_s_3_job_definition_scoping_excludes_and.rs"
+        );
+        include!(
+            "types/macie2/classification_job_s_3_job_definition_scoping_excludes_and_simple_scope_term.rs"
+        );
+        include!(
+            "types/macie2/classification_job_s_3_job_definition_scoping_excludes_and_tag_scope_term.rs"
+        );
+        include!(
+            "types/macie2/classification_job_s_3_job_definition_scoping_excludes_and_tag_scope_term_tag_value.rs"
+        );
+        include!(
+            "types/macie2/classification_job_s_3_job_definition_scoping_includes.rs"
+        );
+        include!(
+            "types/macie2/classification_job_s_3_job_definition_scoping_includes_and.rs"
+        );
+        include!(
+            "types/macie2/classification_job_s_3_job_definition_scoping_includes_and_simple_scope_term.rs"
+        );
+        include!(
+            "types/macie2/classification_job_s_3_job_definition_scoping_includes_and_tag_scope_term.rs"
+        );
+        include!(
+            "types/macie2/classification_job_s_3_job_definition_scoping_includes_and_tag_scope_term_tag_value.rs"
+        );
+        include!("types/macie2/classification_job_schedule_frequency.rs");
+        include!("types/macie2/classification_job_user_paused_detail.rs");
+    }
+    pub mod mediaconvert {
+        include!("types/mediaconvert/queue_reservation_plan_settings.rs");
+    }
     pub mod medialive {
         include!("types/medialive/channel_cdi_input_specification.rs");
         include!("types/medialive/channel_destination.rs");
@@ -724,223 +791,6 @@ pub mod types {
         include!("types/mskconnect/connector_worker_configuration.rs");
         include!("types/mskconnect/custom_plugin_location.rs");
         include!("types/mskconnect/custom_plugin_location_s_3.rs");
-    }
-    pub mod mwaa {
-        include!("types/mwaa/environment_last_updated.rs");
-        include!("types/mwaa/environment_last_updated_error.rs");
-        include!("types/mwaa/environment_logging_configuration.rs");
-        include!("types/mwaa/environment_logging_configuration_dag_processing_logs.rs");
-        include!("types/mwaa/environment_logging_configuration_scheduler_logs.rs");
-        include!("types/mwaa/environment_logging_configuration_task_logs.rs");
-        include!("types/mwaa/environment_logging_configuration_webserver_logs.rs");
-        include!("types/mwaa/environment_logging_configuration_worker_logs.rs");
-        include!("types/mwaa/environment_network_configuration.rs");
-    }
-    pub mod neptune {
-        include!("types/neptune/cluster_parameter_group_parameter.rs");
-        include!("types/neptune/cluster_serverless_v_2_scaling_configuration.rs");
-        include!("types/neptune/global_cluster_global_cluster_member.rs");
-        include!("types/neptune/parameter_group_parameter.rs");
-    }
-    pub mod networkfirewall {
-        include!("types/networkfirewall/firewall_encryption_configuration.rs");
-        include!("types/networkfirewall/firewall_firewall_status.rs");
-        include!("types/networkfirewall/firewall_firewall_status_sync_state.rs");
-        include!(
-            "types/networkfirewall/firewall_firewall_status_sync_state_attachment.rs"
-        );
-        include!("types/networkfirewall/firewall_policy_encryption_configuration.rs");
-        include!("types/networkfirewall/firewall_policy_firewall_policy.rs");
-        include!(
-            "types/networkfirewall/firewall_policy_firewall_policy_policy_variables.rs"
-        );
-        include!(
-            "types/networkfirewall/firewall_policy_firewall_policy_policy_variables_rule_variable.rs"
-        );
-        include!(
-            "types/networkfirewall/firewall_policy_firewall_policy_policy_variables_rule_variable_ip_set.rs"
-        );
-        include!(
-            "types/networkfirewall/firewall_policy_firewall_policy_stateful_engine_options.rs"
-        );
-        include!(
-            "types/networkfirewall/firewall_policy_firewall_policy_stateful_engine_options_flow_timeouts.rs"
-        );
-        include!(
-            "types/networkfirewall/firewall_policy_firewall_policy_stateful_rule_group_reference.rs"
-        );
-        include!(
-            "types/networkfirewall/firewall_policy_firewall_policy_stateful_rule_group_reference_override.rs"
-        );
-        include!(
-            "types/networkfirewall/firewall_policy_firewall_policy_stateless_custom_action.rs"
-        );
-        include!(
-            "types/networkfirewall/firewall_policy_firewall_policy_stateless_custom_action_action_definition.rs"
-        );
-        include!(
-            "types/networkfirewall/firewall_policy_firewall_policy_stateless_custom_action_action_definition_publish_metric_action.rs"
-        );
-        include!(
-            "types/networkfirewall/firewall_policy_firewall_policy_stateless_custom_action_action_definition_publish_metric_action_dimension.rs"
-        );
-        include!(
-            "types/networkfirewall/firewall_policy_firewall_policy_stateless_rule_group_reference.rs"
-        );
-        include!("types/networkfirewall/firewall_subnet_mapping.rs");
-        include!("types/networkfirewall/logging_configuration_logging_configuration.rs");
-        include!(
-            "types/networkfirewall/logging_configuration_logging_configuration_log_destination_config.rs"
-        );
-        include!("types/networkfirewall/rule_group_encryption_configuration.rs");
-        include!("types/networkfirewall/rule_group_rule_group.rs");
-        include!("types/networkfirewall/rule_group_rule_group_reference_sets.rs");
-        include!(
-            "types/networkfirewall/rule_group_rule_group_reference_sets_ip_set_reference.rs"
-        );
-        include!(
-            "types/networkfirewall/rule_group_rule_group_reference_sets_ip_set_reference_ip_set_reference.rs"
-        );
-        include!("types/networkfirewall/rule_group_rule_group_rule_variables.rs");
-        include!("types/networkfirewall/rule_group_rule_group_rule_variables_ip_set.rs");
-        include!(
-            "types/networkfirewall/rule_group_rule_group_rule_variables_ip_set_ip_set.rs"
-        );
-        include!(
-            "types/networkfirewall/rule_group_rule_group_rule_variables_port_set.rs"
-        );
-        include!(
-            "types/networkfirewall/rule_group_rule_group_rule_variables_port_set_port_set.rs"
-        );
-        include!("types/networkfirewall/rule_group_rule_group_rules_source.rs");
-        include!(
-            "types/networkfirewall/rule_group_rule_group_rules_source_rules_source_list.rs"
-        );
-        include!(
-            "types/networkfirewall/rule_group_rule_group_rules_source_stateful_rule.rs"
-        );
-        include!(
-            "types/networkfirewall/rule_group_rule_group_rules_source_stateful_rule_header.rs"
-        );
-        include!(
-            "types/networkfirewall/rule_group_rule_group_rules_source_stateful_rule_rule_option.rs"
-        );
-        include!(
-            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions.rs"
-        );
-        include!(
-            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_custom_action.rs"
-        );
-        include!(
-            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_custom_action_action_definition.rs"
-        );
-        include!(
-            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_custom_action_action_definition_publish_metric_action.rs"
-        );
-        include!(
-            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_custom_action_action_definition_publish_metric_action_dimension.rs"
-        );
-        include!(
-            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_stateless_rule.rs"
-        );
-        include!(
-            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_stateless_rule_rule_definition.rs"
-        );
-        include!(
-            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_stateless_rule_rule_definition_match_attributes.rs"
-        );
-        include!(
-            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_stateless_rule_rule_definition_match_attributes_destination.rs"
-        );
-        include!(
-            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_stateless_rule_rule_definition_match_attributes_destination_port.rs"
-        );
-        include!(
-            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_stateless_rule_rule_definition_match_attributes_source.rs"
-        );
-        include!(
-            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_stateless_rule_rule_definition_match_attributes_source_port.rs"
-        );
-        include!(
-            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_stateless_rule_rule_definition_match_attributes_tcp_flag.rs"
-        );
-        include!("types/networkfirewall/rule_group_rule_group_stateful_rule_options.rs");
-        include!("types/networkfirewall/tls_inspection_configuration_certificate.rs");
-        include!(
-            "types/networkfirewall/tls_inspection_configuration_certificate_authority.rs"
-        );
-        include!(
-            "types/networkfirewall/tls_inspection_configuration_encryption_configuration.rs"
-        );
-        include!("types/networkfirewall/tls_inspection_configuration_timeouts.rs");
-        include!(
-            "types/networkfirewall/tls_inspection_configuration_tls_inspection_configuration.rs"
-        );
-        include!(
-            "types/networkfirewall/tls_inspection_configuration_tls_inspection_configuration_server_certificate_configuration.rs"
-        );
-        include!(
-            "types/networkfirewall/tls_inspection_configuration_tls_inspection_configuration_server_certificate_configuration_check_certificate_revocation_status.rs"
-        );
-        include!(
-            "types/networkfirewall/tls_inspection_configuration_tls_inspection_configuration_server_certificate_configuration_scope.rs"
-        );
-        include!(
-            "types/networkfirewall/tls_inspection_configuration_tls_inspection_configuration_server_certificate_configuration_scope_destination.rs"
-        );
-        include!(
-            "types/networkfirewall/tls_inspection_configuration_tls_inspection_configuration_server_certificate_configuration_scope_destination_port.rs"
-        );
-        include!(
-            "types/networkfirewall/tls_inspection_configuration_tls_inspection_configuration_server_certificate_configuration_scope_source.rs"
-        );
-        include!(
-            "types/networkfirewall/tls_inspection_configuration_tls_inspection_configuration_server_certificate_configuration_scope_source_port.rs"
-        );
-        include!(
-            "types/networkfirewall/tls_inspection_configuration_tls_inspection_configuration_server_certificate_configuration_server_certificate.rs"
-        );
-        include!("types/networkfirewall/get_firewall_encryption_configuration.rs");
-        include!("types/networkfirewall/get_firewall_firewall_status.rs");
-        include!(
-            "types/networkfirewall/get_firewall_firewall_status_capacity_usage_summary.rs"
-        );
-        include!(
-            "types/networkfirewall/get_firewall_firewall_status_capacity_usage_summary_cidr.rs"
-        );
-        include!(
-            "types/networkfirewall/get_firewall_firewall_status_capacity_usage_summary_cidr_ip_set_reference.rs"
-        );
-        include!("types/networkfirewall/get_firewall_firewall_status_sync_state.rs");
-        include!(
-            "types/networkfirewall/get_firewall_firewall_status_sync_state_attachment.rs"
-        );
-        include!("types/networkfirewall/get_firewall_policy_firewall_policy.rs");
-        include!(
-            "types/networkfirewall/get_firewall_policy_firewall_policy_stateful_engine_option.rs"
-        );
-        include!(
-            "types/networkfirewall/get_firewall_policy_firewall_policy_stateful_rule_group_reference.rs"
-        );
-        include!(
-            "types/networkfirewall/get_firewall_policy_firewall_policy_stateful_rule_group_reference_override.rs"
-        );
-        include!(
-            "types/networkfirewall/get_firewall_policy_firewall_policy_stateless_custom_action.rs"
-        );
-        include!(
-            "types/networkfirewall/get_firewall_policy_firewall_policy_stateless_custom_action_action_definition.rs"
-        );
-        include!(
-            "types/networkfirewall/get_firewall_policy_firewall_policy_stateless_custom_action_action_definition_publish_metric_action.rs"
-        );
-        include!(
-            "types/networkfirewall/get_firewall_policy_firewall_policy_stateless_custom_action_action_definition_publish_metric_action_dimension.rs"
-        );
-        include!(
-            "types/networkfirewall/get_firewall_policy_firewall_policy_stateless_rule_group_reference.rs"
-        );
-        include!("types/networkfirewall/get_firewall_subnet_mapping.rs");
     }
     include!("types/get_availability_zone_filter.rs");
     include!("types/get_availability_zones_filter.rs");

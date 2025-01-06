@@ -67,13 +67,6 @@ pub mod appsync {
     include!("resources/appsync/source_api_association.rs");
     include!("resources/appsync/type.rs");
 }
-pub mod athena {
-    include!("resources/athena/data_catalog.rs");
-    include!("resources/athena/database.rs");
-    include!("resources/athena/named_query.rs");
-    include!("resources/athena/prepared_statement.rs");
-    include!("resources/athena/workgroup.rs");
-}
 pub mod functions {
     pub mod appconfig {
         include!("functions/appconfig/get_configuration_profile.rs");
@@ -98,9 +91,6 @@ pub mod functions {
     }
     pub mod appstream {
         include!("functions/appstream/get_image.rs");
-    }
-    pub mod athena {
-        include!("functions/athena/get_named_query.rs");
     }
     include!("functions/get_arn.rs");
     include!("functions/get_availability_zone.rs");
@@ -1279,19 +1269,6 @@ pub mod types {
             "types/appsync/source_api_association_source_api_association_config.rs"
         );
         include!("types/appsync/source_api_association_timeouts.rs");
-    }
-    pub mod athena {
-        include!("types/athena/database_acl_configuration.rs");
-        include!("types/athena/database_encryption_configuration.rs");
-        include!("types/athena/workgroup_configuration.rs");
-        include!("types/athena/workgroup_configuration_engine_version.rs");
-        include!("types/athena/workgroup_configuration_result_configuration.rs");
-        include!(
-            "types/athena/workgroup_configuration_result_configuration_acl_configuration.rs"
-        );
-        include!(
-            "types/athena/workgroup_configuration_result_configuration_encryption_configuration.rs"
-        );
     }
     include!("types/get_availability_zone_filter.rs");
     include!("types/get_availability_zones_filter.rs");

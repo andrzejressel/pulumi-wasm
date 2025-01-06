@@ -1,3 +1,7 @@
+pub mod budgets {
+    include!("resources/budgets/budget.rs");
+    include!("resources/budgets/budget_action.rs");
+}
 pub mod cfg {
     include!("resources/cfg/aggregate_authorization.rs");
     include!("resources/cfg/configuration_aggregator.rs");
@@ -72,11 +76,10 @@ pub mod cloudfront {
     include!("resources/cloudfront/response_headers_policy.rs");
     include!("resources/cloudfront/vpc_origin.rs");
 }
-pub mod cloudhsmv2 {
-    include!("resources/cloudhsmv2/cluster.rs");
-    include!("resources/cloudhsmv2/hsm.rs");
-}
 pub mod functions {
+    pub mod budgets {
+        include!("functions/budgets/get_budget.rs");
+    }
     pub mod chatbot {
         include!("functions/chatbot/get_slack_workspace.rs");
     }
@@ -100,9 +103,6 @@ pub mod functions {
         include!("functions/cloudfront/get_realtime_log_config.rs");
         include!("functions/cloudfront/get_response_headers_policy.rs");
     }
-    pub mod cloudhsmv2 {
-        include!("functions/cloudhsmv2/get_cluster.rs");
-    }
     include!("functions/get_arn.rs");
     include!("functions/get_availability_zone.rs");
     include!("functions/get_availability_zones.rs");
@@ -117,6 +117,29 @@ pub mod functions {
     include!("functions/get_service_principal.rs");
 }
 pub mod types {
+    pub mod budgets {
+        include!("types/budgets/budget_action_action_threshold.rs");
+        include!("types/budgets/budget_action_definition.rs");
+        include!("types/budgets/budget_action_definition_iam_action_definition.rs");
+        include!("types/budgets/budget_action_definition_scp_action_definition.rs");
+        include!("types/budgets/budget_action_definition_ssm_action_definition.rs");
+        include!("types/budgets/budget_action_subscriber.rs");
+        include!("types/budgets/budget_auto_adjust_data.rs");
+        include!("types/budgets/budget_auto_adjust_data_historical_options.rs");
+        include!("types/budgets/budget_cost_filter.rs");
+        include!("types/budgets/budget_cost_types.rs");
+        include!("types/budgets/budget_notification.rs");
+        include!("types/budgets/budget_planned_limit.rs");
+        include!("types/budgets/get_budget_auto_adjust_data.rs");
+        include!("types/budgets/get_budget_auto_adjust_data_historical_option.rs");
+        include!("types/budgets/get_budget_budget_limit.rs");
+        include!("types/budgets/get_budget_calculated_spend.rs");
+        include!("types/budgets/get_budget_calculated_spend_actual_spend.rs");
+        include!("types/budgets/get_budget_cost_filter.rs");
+        include!("types/budgets/get_budget_cost_type.rs");
+        include!("types/budgets/get_budget_notification.rs");
+        include!("types/budgets/get_budget_planned_limit.rs");
+    }
     pub mod cfg {
         include!("types/cfg/configuration_aggregator_account_aggregation_source.rs");
         include!(
@@ -477,10 +500,6 @@ pub mod types {
         include!(
             "types/cloudfront/get_response_headers_policy_server_timing_headers_config.rs"
         );
-    }
-    pub mod cloudhsmv2 {
-        include!("types/cloudhsmv2/cluster_cluster_certificate.rs");
-        include!("types/cloudhsmv2/get_cluster_cluster_certificate.rs");
     }
     include!("types/get_availability_zone_filter.rs");
     include!("types/get_availability_zones_filter.rs");

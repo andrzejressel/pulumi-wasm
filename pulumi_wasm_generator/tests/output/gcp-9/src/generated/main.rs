@@ -1,3 +1,19 @@
+pub mod oracledatabase {
+    include!("resources/oracledatabase/autonomous_database.rs");
+    include!("resources/oracledatabase/cloud_exadata_infrastructure.rs");
+    include!("resources/oracledatabase/cloud_vm_cluster.rs");
+}
+pub mod organizations {
+    include!("resources/organizations/access_approval_settings.rs");
+    include!("resources/organizations/folder.rs");
+    include!("resources/organizations/iam_binding.rs");
+    include!("resources/organizations/iam_custom_role.rs");
+    include!("resources/organizations/iam_member.rs");
+    include!("resources/organizations/iam_policy.rs");
+    include!("resources/organizations/iam_audit_config.rs");
+    include!("resources/organizations/policy.rs");
+    include!("resources/organizations/project.rs");
+}
 pub mod orgpolicy {
     include!("resources/orgpolicy/custom_constraint.rs");
     include!("resources/orgpolicy/policy.rs");
@@ -51,14 +67,28 @@ pub mod pubsub {
 pub mod recaptcha {
     include!("resources/recaptcha/enterprise_key.rs");
 }
-pub mod redis {
-    include!("resources/redis/cluster.rs");
-    include!("resources/redis/instance.rs");
-}
-pub mod resourcemanager {
-    include!("resources/resourcemanager/lien.rs");
-}
 pub mod functions {
+    pub mod oracledatabase {
+        include!("functions/oracledatabase/get_autonomous_database.rs");
+        include!("functions/oracledatabase/get_autonomous_databases.rs");
+        include!("functions/oracledatabase/get_cloud_exadata_infrastructure.rs");
+        include!("functions/oracledatabase/get_cloud_exadata_infrastructures.rs");
+        include!("functions/oracledatabase/get_cloud_vm_cluster.rs");
+        include!("functions/oracledatabase/get_cloud_vm_clusters.rs");
+        include!("functions/oracledatabase/get_db_nodes.rs");
+        include!("functions/oracledatabase/get_db_servers.rs");
+    }
+    pub mod organizations {
+        include!("functions/organizations/get_active_folder.rs");
+        include!("functions/organizations/get_billing_account.rs");
+        include!("functions/organizations/get_client_config.rs");
+        include!("functions/organizations/get_client_open_id_user_info.rs");
+        include!("functions/organizations/get_folder.rs");
+        include!("functions/organizations/get_folders.rs");
+        include!("functions/organizations/get_iam_policy.rs");
+        include!("functions/organizations/get_organization.rs");
+        include!("functions/organizations/get_project.rs");
+    }
     pub mod privilegedaccessmanager {
         include!("functions/privilegedaccessmanager/get_entitlement.rs");
     }
@@ -75,11 +105,168 @@ pub mod functions {
         include!("functions/pubsub/get_topic.rs");
         include!("functions/pubsub/get_topic_iam_policy.rs");
     }
-    pub mod redis {
-        include!("functions/redis/get_instance.rs");
-    }
 }
 pub mod types {
+    pub mod oracledatabase {
+        include!("types/oracledatabase/autonomous_database_properties.rs");
+        include!("types/oracledatabase/autonomous_database_properties_apex_detail.rs");
+        include!(
+            "types/oracledatabase/autonomous_database_properties_connection_string.rs"
+        );
+        include!(
+            "types/oracledatabase/autonomous_database_properties_connection_string_all_connection_string.rs"
+        );
+        include!(
+            "types/oracledatabase/autonomous_database_properties_connection_string_profile.rs"
+        );
+        include!(
+            "types/oracledatabase/autonomous_database_properties_connection_url.rs"
+        );
+        include!(
+            "types/oracledatabase/autonomous_database_properties_customer_contact.rs"
+        );
+        include!(
+            "types/oracledatabase/autonomous_database_properties_local_standby_db.rs"
+        );
+        include!(
+            "types/oracledatabase/autonomous_database_properties_scheduled_operation_detail.rs"
+        );
+        include!(
+            "types/oracledatabase/autonomous_database_properties_scheduled_operation_detail_start_time.rs"
+        );
+        include!(
+            "types/oracledatabase/autonomous_database_properties_scheduled_operation_detail_stop_time.rs"
+        );
+        include!("types/oracledatabase/cloud_exadata_infrastructure_properties.rs");
+        include!(
+            "types/oracledatabase/cloud_exadata_infrastructure_properties_customer_contact.rs"
+        );
+        include!(
+            "types/oracledatabase/cloud_exadata_infrastructure_properties_maintenance_window.rs"
+        );
+        include!("types/oracledatabase/cloud_vm_cluster_properties.rs");
+        include!(
+            "types/oracledatabase/cloud_vm_cluster_properties_diagnostics_data_collection_options.rs"
+        );
+        include!("types/oracledatabase/cloud_vm_cluster_properties_time_zone.rs");
+        include!("types/oracledatabase/get_autonomous_database_property.rs");
+        include!("types/oracledatabase/get_autonomous_database_property_apex_detail.rs");
+        include!(
+            "types/oracledatabase/get_autonomous_database_property_connection_string.rs"
+        );
+        include!(
+            "types/oracledatabase/get_autonomous_database_property_connection_string_all_connection_string.rs"
+        );
+        include!(
+            "types/oracledatabase/get_autonomous_database_property_connection_string_profile.rs"
+        );
+        include!(
+            "types/oracledatabase/get_autonomous_database_property_connection_url.rs"
+        );
+        include!(
+            "types/oracledatabase/get_autonomous_database_property_customer_contact.rs"
+        );
+        include!(
+            "types/oracledatabase/get_autonomous_database_property_local_standby_db.rs"
+        );
+        include!(
+            "types/oracledatabase/get_autonomous_database_property_scheduled_operation_detail.rs"
+        );
+        include!(
+            "types/oracledatabase/get_autonomous_database_property_scheduled_operation_detail_start_time.rs"
+        );
+        include!(
+            "types/oracledatabase/get_autonomous_database_property_scheduled_operation_detail_stop_time.rs"
+        );
+        include!("types/oracledatabase/get_autonomous_databases_autonomous_database.rs");
+        include!(
+            "types/oracledatabase/get_autonomous_databases_autonomous_database_property.rs"
+        );
+        include!(
+            "types/oracledatabase/get_autonomous_databases_autonomous_database_property_apex_detail.rs"
+        );
+        include!(
+            "types/oracledatabase/get_autonomous_databases_autonomous_database_property_connection_string.rs"
+        );
+        include!(
+            "types/oracledatabase/get_autonomous_databases_autonomous_database_property_connection_string_all_connection_string.rs"
+        );
+        include!(
+            "types/oracledatabase/get_autonomous_databases_autonomous_database_property_connection_string_profile.rs"
+        );
+        include!(
+            "types/oracledatabase/get_autonomous_databases_autonomous_database_property_connection_url.rs"
+        );
+        include!(
+            "types/oracledatabase/get_autonomous_databases_autonomous_database_property_customer_contact.rs"
+        );
+        include!(
+            "types/oracledatabase/get_autonomous_databases_autonomous_database_property_local_standby_db.rs"
+        );
+        include!(
+            "types/oracledatabase/get_autonomous_databases_autonomous_database_property_scheduled_operation_detail.rs"
+        );
+        include!(
+            "types/oracledatabase/get_autonomous_databases_autonomous_database_property_scheduled_operation_detail_start_time.rs"
+        );
+        include!(
+            "types/oracledatabase/get_autonomous_databases_autonomous_database_property_scheduled_operation_detail_stop_time.rs"
+        );
+        include!("types/oracledatabase/get_cloud_exadata_infrastructure_property.rs");
+        include!(
+            "types/oracledatabase/get_cloud_exadata_infrastructure_property_customer_contact.rs"
+        );
+        include!(
+            "types/oracledatabase/get_cloud_exadata_infrastructure_property_maintenance_window.rs"
+        );
+        include!(
+            "types/oracledatabase/get_cloud_exadata_infrastructures_cloud_exadata_infrastructure.rs"
+        );
+        include!(
+            "types/oracledatabase/get_cloud_exadata_infrastructures_cloud_exadata_infrastructure_property.rs"
+        );
+        include!(
+            "types/oracledatabase/get_cloud_exadata_infrastructures_cloud_exadata_infrastructure_property_customer_contact.rs"
+        );
+        include!(
+            "types/oracledatabase/get_cloud_exadata_infrastructures_cloud_exadata_infrastructure_property_maintenance_window.rs"
+        );
+        include!("types/oracledatabase/get_cloud_vm_cluster_property.rs");
+        include!(
+            "types/oracledatabase/get_cloud_vm_cluster_property_diagnostics_data_collection_option.rs"
+        );
+        include!("types/oracledatabase/get_cloud_vm_cluster_property_time_zone.rs");
+        include!("types/oracledatabase/get_cloud_vm_clusters_cloud_vm_cluster.rs");
+        include!(
+            "types/oracledatabase/get_cloud_vm_clusters_cloud_vm_cluster_property.rs"
+        );
+        include!(
+            "types/oracledatabase/get_cloud_vm_clusters_cloud_vm_cluster_property_diagnostics_data_collection_option.rs"
+        );
+        include!(
+            "types/oracledatabase/get_cloud_vm_clusters_cloud_vm_cluster_property_time_zone.rs"
+        );
+        include!("types/oracledatabase/get_db_nodes_db_node.rs");
+        include!("types/oracledatabase/get_db_nodes_db_node_property.rs");
+        include!("types/oracledatabase/get_db_servers_db_server.rs");
+        include!("types/oracledatabase/get_db_servers_db_server_property.rs");
+    }
+    pub mod organizations {
+        include!("types/organizations/access_approval_settings_enrolled_service.rs");
+        include!("types/organizations/iam_binding_condition.rs");
+        include!("types/organizations/iam_member_condition.rs");
+        include!("types/organizations/iam_audit_config_audit_log_config.rs");
+        include!("types/organizations/policy_boolean_policy.rs");
+        include!("types/organizations/policy_list_policy.rs");
+        include!("types/organizations/policy_list_policy_allow.rs");
+        include!("types/organizations/policy_list_policy_deny.rs");
+        include!("types/organizations/policy_restore_policy.rs");
+        include!("types/organizations/get_folders_folder.rs");
+        include!("types/organizations/get_iam_policy_audit_config.rs");
+        include!("types/organizations/get_iam_policy_audit_config_audit_log_config.rs");
+        include!("types/organizations/get_iam_policy_binding.rs");
+        include!("types/organizations/get_iam_policy_binding_condition.rs");
+    }
     pub mod orgpolicy {
         include!("types/orgpolicy/policy_dry_run_spec.rs");
         include!("types/orgpolicy/policy_dry_run_spec_rule.rs");
@@ -462,58 +649,6 @@ pub mod types {
         include!("types/recaptcha/enterprise_key_testing_options.rs");
         include!("types/recaptcha/enterprise_key_waf_settings.rs");
         include!("types/recaptcha/enterprise_key_web_settings.rs");
-    }
-    pub mod redis {
-        include!("types/redis/cluster_cross_cluster_replication_config.rs");
-        include!("types/redis/cluster_cross_cluster_replication_config_membership.rs");
-        include!(
-            "types/redis/cluster_cross_cluster_replication_config_membership_primary_cluster.rs"
-        );
-        include!(
-            "types/redis/cluster_cross_cluster_replication_config_membership_secondary_cluster.rs"
-        );
-        include!(
-            "types/redis/cluster_cross_cluster_replication_config_primary_cluster.rs"
-        );
-        include!(
-            "types/redis/cluster_cross_cluster_replication_config_secondary_cluster.rs"
-        );
-        include!("types/redis/cluster_discovery_endpoint.rs");
-        include!("types/redis/cluster_discovery_endpoint_psc_config.rs");
-        include!("types/redis/cluster_maintenance_policy.rs");
-        include!("types/redis/cluster_maintenance_policy_weekly_maintenance_window.rs");
-        include!(
-            "types/redis/cluster_maintenance_policy_weekly_maintenance_window_start_time.rs"
-        );
-        include!("types/redis/cluster_maintenance_schedule.rs");
-        include!("types/redis/cluster_persistence_config.rs");
-        include!("types/redis/cluster_persistence_config_aof_config.rs");
-        include!("types/redis/cluster_persistence_config_rdb_config.rs");
-        include!("types/redis/cluster_psc_config.rs");
-        include!("types/redis/cluster_psc_connection.rs");
-        include!("types/redis/cluster_state_info.rs");
-        include!("types/redis/cluster_state_info_update_info.rs");
-        include!("types/redis/cluster_zone_distribution_config.rs");
-        include!("types/redis/instance_maintenance_policy.rs");
-        include!("types/redis/instance_maintenance_policy_weekly_maintenance_window.rs");
-        include!(
-            "types/redis/instance_maintenance_policy_weekly_maintenance_window_start_time.rs"
-        );
-        include!("types/redis/instance_maintenance_schedule.rs");
-        include!("types/redis/instance_node.rs");
-        include!("types/redis/instance_persistence_config.rs");
-        include!("types/redis/instance_server_ca_cert.rs");
-        include!("types/redis/get_instance_maintenance_policy.rs");
-        include!(
-            "types/redis/get_instance_maintenance_policy_weekly_maintenance_window.rs"
-        );
-        include!(
-            "types/redis/get_instance_maintenance_policy_weekly_maintenance_window_start_time.rs"
-        );
-        include!("types/redis/get_instance_maintenance_schedule.rs");
-        include!("types/redis/get_instance_node.rs");
-        include!("types/redis/get_instance_persistence_config.rs");
-        include!("types/redis/get_instance_server_ca_cert.rs");
     }
 }
 #[doc(hidden)]

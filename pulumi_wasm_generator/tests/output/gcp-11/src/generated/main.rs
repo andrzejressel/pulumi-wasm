@@ -1,3 +1,10 @@
+pub mod serviceusage {
+    include!("resources/serviceusage/consumer_quota_override.rs");
+}
+pub mod siteverification {
+    include!("resources/siteverification/owner.rs");
+    include!("resources/siteverification/web_resource.rs");
+}
 pub mod sourcerepo {
     include!("resources/sourcerepo/repository.rs");
     include!("resources/sourcerepo/repository_iam_binding.rs");
@@ -92,20 +99,10 @@ pub mod vertex {
     include!("resources/vertex/ai_metadata_store.rs");
     include!("resources/vertex/ai_tensorboard.rs");
 }
-pub mod vmwareengine {
-    include!("resources/vmwareengine/cluster.rs");
-    include!("resources/vmwareengine/external_access_rule.rs");
-    include!("resources/vmwareengine/external_address.rs");
-    include!("resources/vmwareengine/network.rs");
-    include!("resources/vmwareengine/network_peering.rs");
-    include!("resources/vmwareengine/network_policy.rs");
-    include!("resources/vmwareengine/private_cloud.rs");
-    include!("resources/vmwareengine/subnet.rs");
-}
-pub mod vpcaccess {
-    include!("resources/vpcaccess/connector.rs");
-}
 pub mod functions {
+    pub mod siteverification {
+        include!("functions/siteverification/get_token.rs");
+    }
     pub mod sourcerepo {
         include!("functions/sourcerepo/get_repository.rs");
         include!("functions/sourcerepo/get_repository_iam_policy.rs");
@@ -158,23 +155,11 @@ pub mod functions {
         include!("functions/vertex/get_ai_featurestore_iam_policy.rs");
         include!("functions/vertex/get_ai_index.rs");
     }
-    pub mod vmwareengine {
-        include!("functions/vmwareengine/get_cluster.rs");
-        include!("functions/vmwareengine/get_external_access_rule.rs");
-        include!("functions/vmwareengine/get_external_address.rs");
-        include!("functions/vmwareengine/get_network.rs");
-        include!("functions/vmwareengine/get_network_peering.rs");
-        include!("functions/vmwareengine/get_network_policy.rs");
-        include!("functions/vmwareengine/get_nsx_credentials.rs");
-        include!("functions/vmwareengine/get_private_cloud.rs");
-        include!("functions/vmwareengine/get_subnet.rs");
-        include!("functions/vmwareengine/get_vcenter_credentials.rs");
-    }
-    pub mod vpcaccess {
-        include!("functions/vpcaccess/get_connector.rs");
-    }
 }
 pub mod types {
+    pub mod siteverification {
+        include!("types/siteverification/web_resource_site.rs");
+    }
     pub mod sourcerepo {
         include!("types/sourcerepo/repository_iam_binding_condition.rs");
         include!("types/sourcerepo/repository_iam_member_condition.rs");
@@ -653,104 +638,6 @@ pub mod types {
         include!(
             "types/vertex/get_ai_index_metadata_config_algorithm_config_tree_ah_config.rs"
         );
-    }
-    pub mod vmwareengine {
-        include!("types/vmwareengine/cluster_autoscaling_settings.rs");
-        include!(
-            "types/vmwareengine/cluster_autoscaling_settings_autoscaling_policy.rs"
-        );
-        include!(
-            "types/vmwareengine/cluster_autoscaling_settings_autoscaling_policy_consumed_memory_thresholds.rs"
-        );
-        include!(
-            "types/vmwareengine/cluster_autoscaling_settings_autoscaling_policy_cpu_thresholds.rs"
-        );
-        include!(
-            "types/vmwareengine/cluster_autoscaling_settings_autoscaling_policy_storage_thresholds.rs"
-        );
-        include!("types/vmwareengine/cluster_node_type_config.rs");
-        include!("types/vmwareengine/external_access_rule_destination_ip_range.rs");
-        include!("types/vmwareengine/external_access_rule_source_ip_range.rs");
-        include!("types/vmwareengine/network_policy_external_ip.rs");
-        include!("types/vmwareengine/network_policy_internet_access.rs");
-        include!("types/vmwareengine/network_vpc_network.rs");
-        include!("types/vmwareengine/private_cloud_hcx.rs");
-        include!("types/vmwareengine/private_cloud_management_cluster.rs");
-        include!(
-            "types/vmwareengine/private_cloud_management_cluster_autoscaling_settings.rs"
-        );
-        include!(
-            "types/vmwareengine/private_cloud_management_cluster_autoscaling_settings_autoscaling_policy.rs"
-        );
-        include!(
-            "types/vmwareengine/private_cloud_management_cluster_autoscaling_settings_autoscaling_policy_consumed_memory_thresholds.rs"
-        );
-        include!(
-            "types/vmwareengine/private_cloud_management_cluster_autoscaling_settings_autoscaling_policy_cpu_thresholds.rs"
-        );
-        include!(
-            "types/vmwareengine/private_cloud_management_cluster_autoscaling_settings_autoscaling_policy_storage_thresholds.rs"
-        );
-        include!(
-            "types/vmwareengine/private_cloud_management_cluster_node_type_config.rs"
-        );
-        include!(
-            "types/vmwareengine/private_cloud_management_cluster_stretched_cluster_config.rs"
-        );
-        include!("types/vmwareengine/private_cloud_network_config.rs");
-        include!("types/vmwareengine/private_cloud_nsx.rs");
-        include!("types/vmwareengine/private_cloud_vcenter.rs");
-        include!("types/vmwareengine/subnet_dhcp_address_range.rs");
-        include!("types/vmwareengine/get_cluster_autoscaling_setting.rs");
-        include!(
-            "types/vmwareengine/get_cluster_autoscaling_setting_autoscaling_policy.rs"
-        );
-        include!(
-            "types/vmwareengine/get_cluster_autoscaling_setting_autoscaling_policy_consumed_memory_threshold.rs"
-        );
-        include!(
-            "types/vmwareengine/get_cluster_autoscaling_setting_autoscaling_policy_cpu_threshold.rs"
-        );
-        include!(
-            "types/vmwareengine/get_cluster_autoscaling_setting_autoscaling_policy_storage_threshold.rs"
-        );
-        include!("types/vmwareengine/get_cluster_node_type_config.rs");
-        include!("types/vmwareengine/get_external_access_rule_destination_ip_range.rs");
-        include!("types/vmwareengine/get_external_access_rule_source_ip_range.rs");
-        include!("types/vmwareengine/get_network_policy_external_ip.rs");
-        include!("types/vmwareengine/get_network_policy_internet_access.rs");
-        include!("types/vmwareengine/get_network_vpc_network.rs");
-        include!("types/vmwareengine/get_private_cloud_hcx.rs");
-        include!("types/vmwareengine/get_private_cloud_management_cluster.rs");
-        include!(
-            "types/vmwareengine/get_private_cloud_management_cluster_autoscaling_setting.rs"
-        );
-        include!(
-            "types/vmwareengine/get_private_cloud_management_cluster_autoscaling_setting_autoscaling_policy.rs"
-        );
-        include!(
-            "types/vmwareengine/get_private_cloud_management_cluster_autoscaling_setting_autoscaling_policy_consumed_memory_threshold.rs"
-        );
-        include!(
-            "types/vmwareengine/get_private_cloud_management_cluster_autoscaling_setting_autoscaling_policy_cpu_threshold.rs"
-        );
-        include!(
-            "types/vmwareengine/get_private_cloud_management_cluster_autoscaling_setting_autoscaling_policy_storage_threshold.rs"
-        );
-        include!(
-            "types/vmwareengine/get_private_cloud_management_cluster_node_type_config.rs"
-        );
-        include!(
-            "types/vmwareengine/get_private_cloud_management_cluster_stretched_cluster_config.rs"
-        );
-        include!("types/vmwareengine/get_private_cloud_network_config.rs");
-        include!("types/vmwareengine/get_private_cloud_nsx.rs");
-        include!("types/vmwareengine/get_private_cloud_vcenter.rs");
-        include!("types/vmwareengine/get_subnet_dhcp_address_range.rs");
-    }
-    pub mod vpcaccess {
-        include!("types/vpcaccess/connector_subnet.rs");
-        include!("types/vpcaccess/get_connector_subnet.rs");
     }
 }
 #[doc(hidden)]

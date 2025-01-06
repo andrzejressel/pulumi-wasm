@@ -1,3 +1,19 @@
+pub mod imagebuilder {
+    include!("resources/imagebuilder/component.rs");
+    include!("resources/imagebuilder/container_recipe.rs");
+    include!("resources/imagebuilder/distribution_configuration.rs");
+    include!("resources/imagebuilder/image.rs");
+    include!("resources/imagebuilder/image_pipeline.rs");
+    include!("resources/imagebuilder/image_recipe.rs");
+    include!("resources/imagebuilder/infrastructure_configuration.rs");
+    include!("resources/imagebuilder/lifecycle_policy.rs");
+    include!("resources/imagebuilder/workflow.rs");
+}
+pub mod inspector {
+    include!("resources/inspector/assessment_target.rs");
+    include!("resources/inspector/assessment_template.rs");
+    include!("resources/inspector/resource_group.rs");
+}
 pub mod inspector2 {
     include!("resources/inspector2/delegated_admin_account.rs");
     include!("resources/inspector2/enabler.rs");
@@ -54,31 +70,25 @@ pub mod kinesis {
     include!("resources/kinesis/stream_consumer.rs");
     include!("resources/kinesis/video_stream.rs");
 }
-pub mod kinesisanalyticsv2 {
-    include!("resources/kinesisanalyticsv2/application.rs");
-    include!("resources/kinesisanalyticsv2/application_snapshot.rs");
-}
-pub mod kms {
-    include!("resources/kms/alias.rs");
-    include!("resources/kms/ciphertext.rs");
-    include!("resources/kms/custom_key_store.rs");
-    include!("resources/kms/external_key.rs");
-    include!("resources/kms/grant.rs");
-    include!("resources/kms/key.rs");
-    include!("resources/kms/key_policy.rs");
-    include!("resources/kms/replica_external_key.rs");
-    include!("resources/kms/replica_key.rs");
-}
-pub mod lakeformation {
-    include!("resources/lakeformation/data_cells_filter.rs");
-    include!("resources/lakeformation/data_lake_settings.rs");
-    include!("resources/lakeformation/lf_tag.rs");
-    include!("resources/lakeformation/permissions.rs");
-    include!("resources/lakeformation/resource.rs");
-    include!("resources/lakeformation/resource_lf_tag.rs");
-    include!("resources/lakeformation/resource_lf_tags.rs");
-}
 pub mod functions {
+    pub mod imagebuilder {
+        include!("functions/imagebuilder/get_component.rs");
+        include!("functions/imagebuilder/get_components.rs");
+        include!("functions/imagebuilder/get_container_recipe.rs");
+        include!("functions/imagebuilder/get_container_recipes.rs");
+        include!("functions/imagebuilder/get_distribution_configuration.rs");
+        include!("functions/imagebuilder/get_distribution_configurations.rs");
+        include!("functions/imagebuilder/get_image.rs");
+        include!("functions/imagebuilder/get_image_pipeline.rs");
+        include!("functions/imagebuilder/get_image_pipelines.rs");
+        include!("functions/imagebuilder/get_image_recipe.rs");
+        include!("functions/imagebuilder/get_image_recipes.rs");
+        include!("functions/imagebuilder/get_infrastructure_configuration.rs");
+        include!("functions/imagebuilder/get_infrastructure_configurations.rs");
+    }
+    pub mod inspector {
+        include!("functions/inspector/get_rules_packages.rs");
+    }
     pub mod iot {
         include!("functions/iot/get_endpoint.rs");
         include!("functions/iot/get_registration_code.rs");
@@ -98,20 +108,6 @@ pub mod functions {
         include!("functions/kinesis/get_stream.rs");
         include!("functions/kinesis/get_stream_consumer.rs");
     }
-    pub mod kms {
-        include!("functions/kms/get_alias.rs");
-        include!("functions/kms/get_cipher_text.rs");
-        include!("functions/kms/get_custom_key_store.rs");
-        include!("functions/kms/get_key.rs");
-        include!("functions/kms/get_public_key.rs");
-        include!("functions/kms/get_secret.rs");
-        include!("functions/kms/get_secrets.rs");
-    }
-    pub mod lakeformation {
-        include!("functions/lakeformation/get_data_lake_settings.rs");
-        include!("functions/lakeformation/get_permissions.rs");
-        include!("functions/lakeformation/get_resource.rs");
-    }
     include!("functions/get_arn.rs");
     include!("functions/get_availability_zone.rs");
     include!("functions/get_availability_zones.rs");
@@ -126,6 +122,163 @@ pub mod functions {
     include!("functions/get_service_principal.rs");
 }
 pub mod types {
+    pub mod imagebuilder {
+        include!("types/imagebuilder/container_recipe_component.rs");
+        include!("types/imagebuilder/container_recipe_component_parameter.rs");
+        include!("types/imagebuilder/container_recipe_instance_configuration.rs");
+        include!(
+            "types/imagebuilder/container_recipe_instance_configuration_block_device_mapping.rs"
+        );
+        include!(
+            "types/imagebuilder/container_recipe_instance_configuration_block_device_mapping_ebs.rs"
+        );
+        include!("types/imagebuilder/container_recipe_target_repository.rs");
+        include!("types/imagebuilder/distribution_configuration_distribution.rs");
+        include!(
+            "types/imagebuilder/distribution_configuration_distribution_ami_distribution_configuration.rs"
+        );
+        include!(
+            "types/imagebuilder/distribution_configuration_distribution_ami_distribution_configuration_launch_permission.rs"
+        );
+        include!(
+            "types/imagebuilder/distribution_configuration_distribution_container_distribution_configuration.rs"
+        );
+        include!(
+            "types/imagebuilder/distribution_configuration_distribution_container_distribution_configuration_target_repository.rs"
+        );
+        include!(
+            "types/imagebuilder/distribution_configuration_distribution_fast_launch_configuration.rs"
+        );
+        include!(
+            "types/imagebuilder/distribution_configuration_distribution_fast_launch_configuration_launch_template.rs"
+        );
+        include!(
+            "types/imagebuilder/distribution_configuration_distribution_fast_launch_configuration_snapshot_configuration.rs"
+        );
+        include!(
+            "types/imagebuilder/distribution_configuration_distribution_launch_template_configuration.rs"
+        );
+        include!(
+            "types/imagebuilder/distribution_configuration_distribution_s_3_export_configuration.rs"
+        );
+        include!("types/imagebuilder/image_image_scanning_configuration.rs");
+        include!(
+            "types/imagebuilder/image_image_scanning_configuration_ecr_configuration.rs"
+        );
+        include!("types/imagebuilder/image_image_tests_configuration.rs");
+        include!("types/imagebuilder/image_output_resource.rs");
+        include!("types/imagebuilder/image_output_resource_ami.rs");
+        include!("types/imagebuilder/image_output_resource_container.rs");
+        include!("types/imagebuilder/image_pipeline_image_scanning_configuration.rs");
+        include!(
+            "types/imagebuilder/image_pipeline_image_scanning_configuration_ecr_configuration.rs"
+        );
+        include!("types/imagebuilder/image_pipeline_image_tests_configuration.rs");
+        include!("types/imagebuilder/image_pipeline_schedule.rs");
+        include!("types/imagebuilder/image_pipeline_workflow.rs");
+        include!("types/imagebuilder/image_pipeline_workflow_parameter.rs");
+        include!("types/imagebuilder/image_recipe_block_device_mapping.rs");
+        include!("types/imagebuilder/image_recipe_block_device_mapping_ebs.rs");
+        include!("types/imagebuilder/image_recipe_component.rs");
+        include!("types/imagebuilder/image_recipe_component_parameter.rs");
+        include!("types/imagebuilder/image_recipe_systems_manager_agent.rs");
+        include!("types/imagebuilder/image_workflow.rs");
+        include!("types/imagebuilder/image_workflow_parameter.rs");
+        include!(
+            "types/imagebuilder/infrastructure_configuration_instance_metadata_options.rs"
+        );
+        include!("types/imagebuilder/infrastructure_configuration_logging.rs");
+        include!("types/imagebuilder/infrastructure_configuration_logging_s_3_logs.rs");
+        include!("types/imagebuilder/lifecycle_policy_policy_detail.rs");
+        include!("types/imagebuilder/lifecycle_policy_policy_detail_action.rs");
+        include!(
+            "types/imagebuilder/lifecycle_policy_policy_detail_action_include_resources.rs"
+        );
+        include!("types/imagebuilder/lifecycle_policy_policy_detail_exclusion_rules.rs");
+        include!(
+            "types/imagebuilder/lifecycle_policy_policy_detail_exclusion_rules_amis.rs"
+        );
+        include!(
+            "types/imagebuilder/lifecycle_policy_policy_detail_exclusion_rules_amis_last_launched.rs"
+        );
+        include!("types/imagebuilder/lifecycle_policy_policy_detail_filter.rs");
+        include!("types/imagebuilder/lifecycle_policy_resource_selection.rs");
+        include!("types/imagebuilder/lifecycle_policy_resource_selection_recipe.rs");
+        include!("types/imagebuilder/get_components_filter.rs");
+        include!("types/imagebuilder/get_container_recipe_component.rs");
+        include!("types/imagebuilder/get_container_recipe_component_parameter.rs");
+        include!("types/imagebuilder/get_container_recipe_instance_configuration.rs");
+        include!(
+            "types/imagebuilder/get_container_recipe_instance_configuration_block_device_mapping.rs"
+        );
+        include!(
+            "types/imagebuilder/get_container_recipe_instance_configuration_block_device_mapping_eb.rs"
+        );
+        include!("types/imagebuilder/get_container_recipe_target_repository.rs");
+        include!("types/imagebuilder/get_container_recipes_filter.rs");
+        include!("types/imagebuilder/get_distribution_configuration_distribution.rs");
+        include!(
+            "types/imagebuilder/get_distribution_configuration_distribution_ami_distribution_configuration.rs"
+        );
+        include!(
+            "types/imagebuilder/get_distribution_configuration_distribution_ami_distribution_configuration_launch_permission.rs"
+        );
+        include!(
+            "types/imagebuilder/get_distribution_configuration_distribution_container_distribution_configuration.rs"
+        );
+        include!(
+            "types/imagebuilder/get_distribution_configuration_distribution_container_distribution_configuration_target_repository.rs"
+        );
+        include!(
+            "types/imagebuilder/get_distribution_configuration_distribution_fast_launch_configuration.rs"
+        );
+        include!(
+            "types/imagebuilder/get_distribution_configuration_distribution_fast_launch_configuration_launch_template.rs"
+        );
+        include!(
+            "types/imagebuilder/get_distribution_configuration_distribution_fast_launch_configuration_snapshot_configuration.rs"
+        );
+        include!(
+            "types/imagebuilder/get_distribution_configuration_distribution_launch_template_configuration.rs"
+        );
+        include!(
+            "types/imagebuilder/get_distribution_configuration_distribution_s_3_export_configuration.rs"
+        );
+        include!("types/imagebuilder/get_distribution_configurations_filter.rs");
+        include!("types/imagebuilder/get_image_image_scanning_configuration.rs");
+        include!(
+            "types/imagebuilder/get_image_image_scanning_configuration_ecr_configuration.rs"
+        );
+        include!("types/imagebuilder/get_image_image_tests_configuration.rs");
+        include!("types/imagebuilder/get_image_output_resource.rs");
+        include!("types/imagebuilder/get_image_output_resource_ami.rs");
+        include!("types/imagebuilder/get_image_output_resource_container.rs");
+        include!(
+            "types/imagebuilder/get_image_pipeline_image_scanning_configuration.rs"
+        );
+        include!(
+            "types/imagebuilder/get_image_pipeline_image_scanning_configuration_ecr_configuration.rs"
+        );
+        include!("types/imagebuilder/get_image_pipeline_image_tests_configuration.rs");
+        include!("types/imagebuilder/get_image_pipeline_schedule.rs");
+        include!("types/imagebuilder/get_image_pipelines_filter.rs");
+        include!("types/imagebuilder/get_image_recipe_block_device_mapping.rs");
+        include!("types/imagebuilder/get_image_recipe_block_device_mapping_eb.rs");
+        include!("types/imagebuilder/get_image_recipe_component.rs");
+        include!("types/imagebuilder/get_image_recipe_component_parameter.rs");
+        include!("types/imagebuilder/get_image_recipes_filter.rs");
+        include!(
+            "types/imagebuilder/get_infrastructure_configuration_instance_metadata_option.rs"
+        );
+        include!("types/imagebuilder/get_infrastructure_configuration_logging.rs");
+        include!(
+            "types/imagebuilder/get_infrastructure_configuration_logging_s_3_log.rs"
+        );
+        include!("types/imagebuilder/get_infrastructure_configurations_filter.rs");
+    }
+    pub mod inspector {
+        include!("types/inspector/assessment_template_event_subscription.rs");
+    }
     pub mod inspector2 {
         include!("types/inspector2/organization_configuration_auto_enable.rs");
     }
@@ -678,191 +831,6 @@ pub mod types {
         );
         include!("types/kinesis/stream_stream_mode_details.rs");
         include!("types/kinesis/get_stream_stream_mode_detail.rs");
-    }
-    pub mod kinesisanalyticsv2 {
-        include!("types/kinesisanalyticsv2/application_application_configuration.rs");
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_application_code_configuration.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_application_code_configuration_code_content.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_application_code_configuration_code_content_s_3_content_location.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_application_snapshot_configuration.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_environment_properties.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_environment_properties_property_group.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_flink_application_configuration.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_flink_application_configuration_checkpoint_configuration.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_flink_application_configuration_monitoring_configuration.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_flink_application_configuration_parallelism_configuration.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_run_configuration.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_run_configuration_application_restore_configuration.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_run_configuration_flink_run_configuration.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_input_parallelism.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_input_processing_configuration.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_input_processing_configuration_input_lambda_processor.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_input_schema.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_input_schema_record_column.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_input_schema_record_format.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_input_schema_record_format_mapping_parameters.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_input_schema_record_format_mapping_parameters_csv_mapping_parameters.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_input_schema_record_format_mapping_parameters_json_mapping_parameters.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_input_starting_position_configuration.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_kinesis_firehose_input.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_input_kinesis_streams_input.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_output.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_output_destination_schema.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_output_kinesis_firehose_output.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_output_kinesis_streams_output.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_output_lambda_output.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_reference_data_source.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_reference_data_source_reference_schema.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_reference_data_source_reference_schema_record_column.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_reference_data_source_reference_schema_record_format.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_reference_data_source_reference_schema_record_format_mapping_parameters.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_reference_data_source_reference_schema_record_format_mapping_parameters_csv_mapping_parameters.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_reference_data_source_reference_schema_record_format_mapping_parameters_json_mapping_parameters.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_sql_application_configuration_reference_data_source_s_3_reference_data_source.rs"
-        );
-        include!(
-            "types/kinesisanalyticsv2/application_application_configuration_vpc_configuration.rs"
-        );
-        include!("types/kinesisanalyticsv2/application_cloudwatch_logging_options.rs");
-    }
-    pub mod kms {
-        include!("types/kms/grant_constraint.rs");
-        include!("types/kms/get_key_multi_region_configuration.rs");
-        include!("types/kms/get_key_multi_region_configuration_primary_key.rs");
-        include!("types/kms/get_key_multi_region_configuration_replica_key.rs");
-        include!("types/kms/get_key_xks_key_configuration.rs");
-        include!("types/kms/get_secret_secret.rs");
-        include!("types/kms/get_secrets_secret.rs");
-    }
-    pub mod lakeformation {
-        include!("types/lakeformation/data_cells_filter_table_data.rs");
-        include!("types/lakeformation/data_cells_filter_table_data_column_wildcard.rs");
-        include!("types/lakeformation/data_cells_filter_table_data_row_filter.rs");
-        include!(
-            "types/lakeformation/data_cells_filter_table_data_row_filter_all_rows_wildcard.rs"
-        );
-        include!("types/lakeformation/data_cells_filter_timeouts.rs");
-        include!(
-            "types/lakeformation/data_lake_settings_create_database_default_permission.rs"
-        );
-        include!(
-            "types/lakeformation/data_lake_settings_create_table_default_permission.rs"
-        );
-        include!("types/lakeformation/permissions_data_cells_filter.rs");
-        include!("types/lakeformation/permissions_data_location.rs");
-        include!("types/lakeformation/permissions_database.rs");
-        include!("types/lakeformation/permissions_lf_tag.rs");
-        include!("types/lakeformation/permissions_lf_tag_policy.rs");
-        include!("types/lakeformation/permissions_lf_tag_policy_expression.rs");
-        include!("types/lakeformation/permissions_table.rs");
-        include!("types/lakeformation/permissions_table_with_columns.rs");
-        include!("types/lakeformation/resource_lf_tag_database.rs");
-        include!("types/lakeformation/resource_lf_tag_lf_tag.rs");
-        include!("types/lakeformation/resource_lf_tag_table.rs");
-        include!("types/lakeformation/resource_lf_tag_table_with_columns.rs");
-        include!(
-            "types/lakeformation/resource_lf_tag_table_with_columns_column_wildcard.rs"
-        );
-        include!("types/lakeformation/resource_lf_tag_timeouts.rs");
-        include!("types/lakeformation/resource_lf_tags_database.rs");
-        include!("types/lakeformation/resource_lf_tags_lf_tag.rs");
-        include!("types/lakeformation/resource_lf_tags_table.rs");
-        include!("types/lakeformation/resource_lf_tags_table_with_columns.rs");
-        include!(
-            "types/lakeformation/get_data_lake_settings_create_database_default_permission.rs"
-        );
-        include!(
-            "types/lakeformation/get_data_lake_settings_create_table_default_permission.rs"
-        );
-        include!("types/lakeformation/get_permissions_data_cells_filter.rs");
-        include!("types/lakeformation/get_permissions_data_location.rs");
-        include!("types/lakeformation/get_permissions_database.rs");
-        include!("types/lakeformation/get_permissions_lf_tag.rs");
-        include!("types/lakeformation/get_permissions_lf_tag_policy.rs");
-        include!("types/lakeformation/get_permissions_lf_tag_policy_expression.rs");
-        include!("types/lakeformation/get_permissions_table.rs");
-        include!("types/lakeformation/get_permissions_table_with_columns.rs");
     }
     include!("types/get_availability_zone_filter.rs");
     include!("types/get_availability_zones_filter.rs");

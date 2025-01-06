@@ -164,11 +164,11 @@ fn aws_1() -> Result<()> {
             "appflow",
             "appintegrations",
             "applicationinsights",
+            "applicationloadbalancing",
             "appmesh",
             "apprunner",
             "appstream",
             "appsync",
-            "athena",
         ]),
     )
 }
@@ -180,6 +180,7 @@ fn aws_2() -> Result<()> {
         "aws",
         "aws-2",
         Some(&[
+            "athena",
             "auditmanager",
             "autoscaling",
             "autoscalingplans",
@@ -189,7 +190,6 @@ fn aws_2() -> Result<()> {
             "bedrock",
             "bedrockfoundation",
             "bedrockmodel",
-            "budgets",
         ]),
     )
 }
@@ -201,6 +201,7 @@ fn aws_3() -> Result<()> {
         "aws",
         "aws-3",
         Some(&[
+            "budgets",
             "cfg",
             "chatbot",
             "chime",
@@ -210,7 +211,6 @@ fn aws_3() -> Result<()> {
             "cloudcontrol",
             "cloudformation",
             "cloudfront",
-            "cloudhsmv2",
         ]),
     )
 }
@@ -222,6 +222,7 @@ fn aws_4() -> Result<()> {
         "aws",
         "aws-4",
         Some(&[
+            "cloudhsmv2",
             "cloudsearch",
             "cloudtrail",
             "cloudwatch",
@@ -231,7 +232,6 @@ fn aws_4() -> Result<()> {
             "codecommit",
             "codeconnections",
             "codedeploy",
-            "codeguruprofiler",
         ]),
     )
 }
@@ -243,6 +243,7 @@ fn aws_5() -> Result<()> {
         "aws",
         "aws-5",
         Some(&[
+            "codeguruprofiler",
             "codegurureviewer",
             "codepipeline",
             "codestarconnections",
@@ -250,9 +251,8 @@ fn aws_5() -> Result<()> {
             "cognito",
             "comprehend",
             "computeoptimizer",
+            "config",
             "connect",
-            "controltower",
-            "costexplorer",
         ]),
     )
 }
@@ -264,6 +264,8 @@ fn aws_6() -> Result<()> {
         "aws",
         "aws-6",
         Some(&[
+            "controltower",
+            "costexplorer",
             "costoptimizationhub",
             "cur",
             "customerprofiles",
@@ -272,8 +274,6 @@ fn aws_6() -> Result<()> {
             "datasync",
             "datazone",
             "dax",
-            "detective",
-            "devicefarm",
         ]),
     )
 }
@@ -285,6 +285,8 @@ fn aws_7() -> Result<()> {
         "aws",
         "aws-7",
         Some(&[
+            "detective",
+            "devicefarm",
             "devopsguru",
             "directconnect",
             "directoryservice",
@@ -293,8 +295,6 @@ fn aws_7() -> Result<()> {
             "docdb",
             "drs",
             "dynamodb",
-            "ebs",
-            "ec2",
         ]),
     )
 }
@@ -306,6 +306,8 @@ fn aws_8() -> Result<()> {
         "aws",
         "aws-8",
         Some(&[
+            "ebs",
+            "ec2",
             "ec2clientvpn",
             "ec2transitgateway",
             "ecr",
@@ -314,8 +316,6 @@ fn aws_8() -> Result<()> {
             "efs",
             "eks",
             "elasticache",
-            "elasticbeanstalk",
-            "elasticsearch",
         ]),
     )
 }
@@ -327,6 +327,8 @@ fn aws_9() -> Result<()> {
         "aws",
         "aws-9",
         Some(&[
+            "elasticbeanstalk",
+            "elasticsearch",
             "elastictranscoder",
             "elb",
             "emr",
@@ -335,8 +337,6 @@ fn aws_9() -> Result<()> {
             "evidently",
             "finspace",
             "fis",
-            "fms",
-            "fsx",
         ]),
     )
 }
@@ -348,6 +348,8 @@ fn aws_10() -> Result<()> {
         "aws",
         "aws-10",
         Some(&[
+            "fms",
+            "fsx",
             "gamelift",
             "glacier",
             "globalaccelerator",
@@ -356,8 +358,6 @@ fn aws_10() -> Result<()> {
             "guardduty",
             "iam",
             "identitystore",
-            "imagebuilder",
-            "inspector",
         ]),
     )
 }
@@ -369,6 +369,9 @@ fn aws_11() -> Result<()> {
         "aws",
         "aws-11",
         Some(&[
+            "imagebuilder",
+            "index",
+            "inspector",
             "inspector2",
             "iot",
             "ivs",
@@ -376,9 +379,6 @@ fn aws_11() -> Result<()> {
             "kendra",
             "keyspaces",
             "kinesis",
-            "kinesisanalyticsv2",
-            "kms",
-            "lakeformation",
         ]),
     )
 }
@@ -390,6 +390,9 @@ fn aws_12() -> Result<()> {
         "aws",
         "aws-12",
         Some(&[
+            "kinesisanalyticsv2",
+            "kms",
+            "lakeformation",
             "lambda",
             "lb",
             "lex",
@@ -397,9 +400,6 @@ fn aws_12() -> Result<()> {
             "lightsail",
             "location",
             "m2",
-            "macie",
-            "macie2",
-            "mediaconvert",
         ]),
     )
 }
@@ -411,6 +411,9 @@ fn aws_13() -> Result<()> {
         "aws",
         "aws-13",
         Some(&[
+            "macie",
+            "macie2",
+            "mediaconvert",
             "medialive",
             "mediapackage",
             "mediastore",
@@ -418,9 +421,6 @@ fn aws_13() -> Result<()> {
             "mq",
             "msk",
             "mskconnect",
-            "mwaa",
-            "neptune",
-            "networkfirewall",
         ]),
     )
 }
@@ -432,6 +432,9 @@ fn aws_14() -> Result<()> {
         "aws",
         "aws-14",
         Some(&[
+            "mwaa",
+            "neptune",
+            "networkfirewall",
             "networkmanager",
             "networkmonitor",
             "oam",
@@ -439,9 +442,6 @@ fn aws_14() -> Result<()> {
             "opensearchingest",
             "opsworks",
             "organizations",
-            "outposts",
-            "paymentcryptography",
-            "pinpoint",
         ]),
     )
 }
@@ -453,6 +453,9 @@ fn aws_15() -> Result<()> {
         "aws",
         "aws-15",
         Some(&[
+            "outposts",
+            "paymentcryptography",
+            "pinpoint",
             "pipes",
             "polly",
             "pricing",
@@ -460,9 +463,6 @@ fn aws_15() -> Result<()> {
             "quicksight",
             "ram",
             "rbin",
-            "rds",
-            "redshift",
-            "redshiftdata",
         ]),
     )
 }
@@ -474,6 +474,9 @@ fn aws_16() -> Result<()> {
         "aws",
         "aws-16",
         Some(&[
+            "rds",
+            "redshift",
+            "redshiftdata",
             "redshiftserverless",
             "rekognition",
             "resiliencehub",
@@ -481,9 +484,6 @@ fn aws_16() -> Result<()> {
             "resourcegroups",
             "resourcegroupstaggingapi",
             "rolesanywhere",
-            "route53",
-            "route53domains",
-            "route53recoverycontrol",
         ]),
     )
 }
@@ -495,6 +495,9 @@ fn aws_17() -> Result<()> {
         "aws",
         "aws-17",
         Some(&[
+            "route53",
+            "route53domains",
+            "route53recoverycontrol",
             "route53recoveryreadiness",
             "rum",
             "s3",
@@ -502,9 +505,6 @@ fn aws_17() -> Result<()> {
             "s3outposts",
             "s3tables",
             "sagemaker",
-            "scheduler",
-            "schemas",
-            "secretsmanager",
         ]),
     )
 }
@@ -516,6 +516,9 @@ fn aws_18() -> Result<()> {
         "aws",
         "aws-18",
         Some(&[
+            "scheduler",
+            "schemas",
+            "secretsmanager",
             "securityhub",
             "securitylake",
             "serverlessrepository",
@@ -523,9 +526,6 @@ fn aws_18() -> Result<()> {
             "servicediscovery",
             "servicequotas",
             "ses",
-            "sesv2",
-            "sfn",
-            "shield",
         ]),
     )
 }
@@ -537,6 +537,9 @@ fn aws_19() -> Result<()> {
         "aws",
         "aws-19",
         Some(&[
+            "sesv2",
+            "sfn",
+            "shield",
             "signer",
             "simpledb",
             "sns",
@@ -544,9 +547,6 @@ fn aws_19() -> Result<()> {
             "ssm",
             "ssmcontacts",
             "ssmincidents",
-            "ssoadmin",
-            "storagegateway",
-            "swf",
         ]),
     )
 }
@@ -558,6 +558,9 @@ fn aws_20() -> Result<()> {
         "aws",
         "aws-20",
         Some(&[
+            "ssoadmin",
+            "storagegateway",
+            "swf",
             "synthetics",
             "timestreaminfluxdb",
             "timestreamwrite",
@@ -565,9 +568,6 @@ fn aws_20() -> Result<()> {
             "transfer",
             "verifiedaccess",
             "verifiedpermissions",
-            "vpc",
-            "vpclattice",
-            "waf",
         ]),
     )
 }
@@ -578,7 +578,16 @@ fn aws_21() -> Result<()> {
     run_pulumi_generator_test(
         "aws",
         "aws-21",
-        Some(&["wafregional", "wafv2", "worklink", "workspaces", "xray"]),
+        Some(&[
+            "vpc",
+            "vpclattice",
+            "waf",
+            "wafregional",
+            "wafv2",
+            "worklink",
+            "workspaces",
+            "xray",
+        ]),
     )
 }
 
@@ -639,8 +648,8 @@ fn azure_2() -> Result<()> {
             "communication",
             "compute",
             "confidentialledger",
+            "config",
             "connections",
-            "consumption",
         ]),
     )
 }
@@ -652,6 +661,7 @@ fn azure_3() -> Result<()> {
         "azure",
         "azure-3",
         Some(&[
+            "consumption",
             "containerapp",
             "containerservice",
             "core",
@@ -661,7 +671,6 @@ fn azure_3() -> Result<()> {
             "dashboard",
             "databasemigration",
             "databoxedge",
-            "databricks",
         ]),
     )
 }
@@ -673,6 +682,7 @@ fn azure_4() -> Result<()> {
         "azure",
         "azure-4",
         Some(&[
+            "databricks",
             "datadog",
             "datafactory",
             "dataprotection",
@@ -682,7 +692,6 @@ fn azure_4() -> Result<()> {
             "devtest",
             "digitaltwins",
             "dns",
-            "domainservices",
         ]),
     )
 }
@@ -694,6 +703,7 @@ fn azure_5() -> Result<()> {
         "azure",
         "azure-5",
         Some(&[
+            "domainservices",
             "dynatrace",
             "elasticcloud",
             "elasticsan",
@@ -701,9 +711,8 @@ fn azure_5() -> Result<()> {
             "eventhub",
             "expressroute",
             "extendedlocation",
+            "fabric",
             "fluidrelay",
-            "frontdoor",
-            "graph",
         ]),
     )
 }
@@ -715,16 +724,16 @@ fn azure_6() -> Result<()> {
         "azure",
         "azure-6",
         Some(&[
+            "frontdoor",
+            "graph",
             "hdinsight",
             "healthcare",
             "hpc",
             "hsm",
+            "index",
             "iot",
             "iotcentral",
             "keyvault",
-            "kusto",
-            "lb",
-            "lighthouse",
         ]),
     )
 }
@@ -736,6 +745,9 @@ fn azure_7() -> Result<()> {
         "azure",
         "azure-7",
         Some(&[
+            "kusto",
+            "lb",
+            "lighthouse",
             "loadtest",
             "loganalytics",
             "logicapps",
@@ -743,9 +755,6 @@ fn azure_7() -> Result<()> {
             "maintenance",
             "managedapplication",
             "managedlustre",
-            "management",
-            "managementgroups",
-            "managementresource",
         ]),
     )
 }
@@ -757,6 +766,9 @@ fn azure_8() -> Result<()> {
         "azure",
         "azure-8",
         Some(&[
+            "management",
+            "managementgroups",
+            "managementresource",
             "maps",
             "marketplace",
             "mixedreality",
@@ -764,9 +776,6 @@ fn azure_8() -> Result<()> {
             "monitoring",
             "msi",
             "mssql",
-            "mysql",
-            "netapp",
-            "network",
         ]),
     )
 }
@@ -778,6 +787,9 @@ fn azure_9() -> Result<()> {
         "azure",
         "azure-9",
         Some(&[
+            "mysql",
+            "netapp",
+            "network",
             "networkfunction",
             "newrelic",
             "nginx",
@@ -785,9 +797,6 @@ fn azure_9() -> Result<()> {
             "operationalinsights",
             "oracle",
             "orbital",
-            "paloalto",
-            "pim",
-            "policy",
         ]),
     )
 }
@@ -799,6 +808,9 @@ fn azure_10() -> Result<()> {
         "azure",
         "azure-10",
         Some(&[
+            "paloalto",
+            "pim",
+            "policy",
             "portal",
             "postgresql",
             "powerbi",
@@ -806,9 +818,6 @@ fn azure_10() -> Result<()> {
             "privatelink",
             "proximity",
             "purview",
-            "recoveryservices",
-            "redhatopenshift",
-            "redis",
         ]),
     )
 }
@@ -820,6 +829,9 @@ fn azure_11() -> Result<()> {
         "azure",
         "azure-11",
         Some(&[
+            "recoveryservices",
+            "redhatopenshift",
+            "redis",
             "relay",
             "role",
             "search",
@@ -827,9 +839,6 @@ fn azure_11() -> Result<()> {
             "sentinel",
             "servicebus",
             "servicefabric",
-            "signalr",
-            "siterecovery",
-            "stack",
         ]),
     )
 }
@@ -841,6 +850,9 @@ fn azure_12() -> Result<()> {
         "azure",
         "azure-12",
         Some(&[
+            "signalr",
+            "siterecovery",
+            "stack",
             "storage",
             "streamanalytics",
             "synapse",
@@ -848,9 +860,6 @@ fn azure_12() -> Result<()> {
             "trafficmanager",
             "trustedsigning",
             "videoindexer",
-            "voice",
-            "waf",
-            "webpubsub",
         ]),
     )
 }
@@ -858,7 +867,11 @@ fn azure_12() -> Result<()> {
 #[test]
 #[cfg_attr(not(feature = "generator_azure-13"), ignore)]
 fn azure_13() -> Result<()> {
-    run_pulumi_generator_test("azure", "azure-13", Some(&["workloadssap"]))
+    run_pulumi_generator_test(
+        "azure",
+        "azure-13",
+        Some(&["voice", "waf", "webpubsub", "workloadssap"]),
+    )
 }
 
 #[test]
@@ -957,8 +970,8 @@ fn gcp_3() -> Result<()> {
             "cloudscheduler",
             "cloudtasks",
             "composer",
+            "config",
             "container",
-            "containeranalysis",
         ]),
     )
 }
@@ -970,6 +983,7 @@ fn gcp_4() -> Result<()> {
         "gcp",
         "gcp-4",
         Some(&[
+            "containeranalysis",
             "databasemigrationservice",
             "datacatalog",
             "dataflow",
@@ -979,7 +993,6 @@ fn gcp_4() -> Result<()> {
             "dataplex",
             "dataproc",
             "datastream",
-            "deploymentmanager",
         ]),
     )
 }
@@ -991,6 +1004,7 @@ fn gcp_5() -> Result<()> {
         "gcp",
         "gcp-5",
         Some(&[
+            "deploymentmanager",
             "developerconnect",
             "diagflow",
             "discoveryengine",
@@ -1000,7 +1014,6 @@ fn gcp_5() -> Result<()> {
             "endpoints",
             "essentialcontacts",
             "eventarc",
-            "filestore",
         ]),
     )
 }
@@ -1012,6 +1025,7 @@ fn gcp_6() -> Result<()> {
         "gcp",
         "gcp-6",
         Some(&[
+            "filestore",
             "firebase",
             "firebaserules",
             "firestore",
@@ -1021,7 +1035,6 @@ fn gcp_6() -> Result<()> {
             "gkehub",
             "gkeonprem",
             "healthcare",
-            "iam",
         ]),
     )
 }
@@ -1033,16 +1046,16 @@ fn gcp_7() -> Result<()> {
         "gcp",
         "gcp-7",
         Some(&[
+            "iam",
             "iap",
             "identityplatform",
+            "index",
             "integrationconnectors",
             "kms",
             "logging",
             "looker",
             "managedkafka",
             "memcache",
-            "memorystore",
-            "migrationcenter",
         ]),
     )
 }
@@ -1054,6 +1067,8 @@ fn gcp_8() -> Result<()> {
         "gcp",
         "gcp-8",
         Some(&[
+            "memorystore",
+            "migrationcenter",
             "ml",
             "monitoring",
             "netapp",
@@ -1062,8 +1077,6 @@ fn gcp_8() -> Result<()> {
             "networksecurity",
             "networkservices",
             "notebooks",
-            "oracledatabase",
-            "organizations",
         ]),
     )
 }
@@ -1075,6 +1088,8 @@ fn gcp_9() -> Result<()> {
         "gcp",
         "gcp-9",
         Some(&[
+            "oracledatabase",
+            "organizations",
             "orgpolicy",
             "osconfig",
             "oslogin",
@@ -1083,8 +1098,6 @@ fn gcp_9() -> Result<()> {
             "projects",
             "pubsub",
             "recaptcha",
-            "redis",
-            "resourcemanager",
         ]),
     )
 }
@@ -1096,6 +1109,8 @@ fn gcp_10() -> Result<()> {
         "gcp",
         "gcp-10",
         Some(&[
+            "redis",
+            "resourcemanager",
             "runtimeconfig",
             "secretmanager",
             "securesourcemanager",
@@ -1104,8 +1119,6 @@ fn gcp_10() -> Result<()> {
             "serviceaccount",
             "servicedirectory",
             "servicenetworking",
-            "serviceusage",
-            "siteverification",
         ]),
     )
 }
@@ -1117,6 +1130,8 @@ fn gcp_11() -> Result<()> {
         "gcp",
         "gcp-11",
         Some(&[
+            "serviceusage",
+            "siteverification",
             "sourcerepo",
             "spanner",
             "sql",
@@ -1125,8 +1140,6 @@ fn gcp_11() -> Result<()> {
             "tpu",
             "transcoder",
             "vertex",
-            "vmwareengine",
-            "vpcaccess",
         ]),
     )
 }
@@ -1137,7 +1150,13 @@ fn gcp_12() -> Result<()> {
     run_pulumi_generator_test(
         "gcp",
         "gcp-12",
-        Some(&["workbench", "workflows", "workstations"]),
+        Some(&[
+            "vmwareengine",
+            "vpcaccess",
+            "workbench",
+            "workflows",
+            "workstations",
+        ]),
     )
 }
 

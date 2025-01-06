@@ -1,3 +1,15 @@
+pub mod elasticbeanstalk {
+    include!("resources/elasticbeanstalk/application.rs");
+    include!("resources/elasticbeanstalk/application_version.rs");
+    include!("resources/elasticbeanstalk/configuration_template.rs");
+    include!("resources/elasticbeanstalk/environment.rs");
+}
+pub mod elasticsearch {
+    include!("resources/elasticsearch/domain.rs");
+    include!("resources/elasticsearch/domain_policy.rs");
+    include!("resources/elasticsearch/domain_saml_options.rs");
+    include!("resources/elasticsearch/vpc_endpoint.rs");
+}
 pub mod elastictranscoder {
     include!("resources/elastictranscoder/pipeline.rs");
     include!("resources/elastictranscoder/preset.rs");
@@ -47,25 +59,15 @@ pub mod finspace {
 pub mod fis {
     include!("resources/fis/experiment_template.rs");
 }
-pub mod fms {
-    include!("resources/fms/admin_account.rs");
-    include!("resources/fms/policy.rs");
-    include!("resources/fms/resource_set.rs");
-}
-pub mod fsx {
-    include!("resources/fsx/backup.rs");
-    include!("resources/fsx/data_repository_association.rs");
-    include!("resources/fsx/file_cache.rs");
-    include!("resources/fsx/lustre_file_system.rs");
-    include!("resources/fsx/ontap_file_system.rs");
-    include!("resources/fsx/ontap_storage_virtual_machine.rs");
-    include!("resources/fsx/ontap_volume.rs");
-    include!("resources/fsx/open_zfs_file_system.rs");
-    include!("resources/fsx/open_zfs_snapshot.rs");
-    include!("resources/fsx/open_zfs_volume.rs");
-    include!("resources/fsx/windows_file_system.rs");
-}
 pub mod functions {
+    pub mod elasticbeanstalk {
+        include!("functions/elasticbeanstalk/get_application.rs");
+        include!("functions/elasticbeanstalk/get_hosted_zone.rs");
+        include!("functions/elasticbeanstalk/get_solution_stack.rs");
+    }
+    pub mod elasticsearch {
+        include!("functions/elasticsearch/get_domain.rs");
+    }
     pub mod elb {
         include!("functions/elb/get_hosted_zone_id.rs");
         include!("functions/elb/get_load_balancer.rs");
@@ -77,13 +79,6 @@ pub mod functions {
     }
     pub mod emrcontainers {
         include!("functions/emrcontainers/get_virtual_cluster.rs");
-    }
-    pub mod fsx {
-        include!("functions/fsx/get_ontap_file_system.rs");
-        include!("functions/fsx/get_ontap_storage_virtual_machine.rs");
-        include!("functions/fsx/get_ontap_storage_virtual_machines.rs");
-        include!("functions/fsx/get_open_zfs_snapshot.rs");
-        include!("functions/fsx/get_windows_file_system.rs");
     }
     include!("functions/get_arn.rs");
     include!("functions/get_availability_zone.rs");
@@ -99,6 +94,58 @@ pub mod functions {
     include!("functions/get_service_principal.rs");
 }
 pub mod types {
+    pub mod elasticbeanstalk {
+        include!("types/elasticbeanstalk/application_appversion_lifecycle.rs");
+        include!("types/elasticbeanstalk/configuration_template_setting.rs");
+        include!("types/elasticbeanstalk/environment_all_setting.rs");
+        include!("types/elasticbeanstalk/environment_setting.rs");
+        include!("types/elasticbeanstalk/get_application_appversion_lifecycle.rs");
+    }
+    pub mod elasticsearch {
+        include!("types/elasticsearch/domain_advanced_security_options.rs");
+        include!(
+            "types/elasticsearch/domain_advanced_security_options_master_user_options.rs"
+        );
+        include!("types/elasticsearch/domain_auto_tune_options.rs");
+        include!("types/elasticsearch/domain_auto_tune_options_maintenance_schedule.rs");
+        include!(
+            "types/elasticsearch/domain_auto_tune_options_maintenance_schedule_duration.rs"
+        );
+        include!("types/elasticsearch/domain_cluster_config.rs");
+        include!("types/elasticsearch/domain_cluster_config_cold_storage_options.rs");
+        include!("types/elasticsearch/domain_cluster_config_zone_awareness_config.rs");
+        include!("types/elasticsearch/domain_cognito_options.rs");
+        include!("types/elasticsearch/domain_domain_endpoint_options.rs");
+        include!("types/elasticsearch/domain_ebs_options.rs");
+        include!("types/elasticsearch/domain_encrypt_at_rest.rs");
+        include!("types/elasticsearch/domain_log_publishing_option.rs");
+        include!("types/elasticsearch/domain_node_to_node_encryption.rs");
+        include!("types/elasticsearch/domain_saml_options_saml_options.rs");
+        include!("types/elasticsearch/domain_saml_options_saml_options_idp.rs");
+        include!("types/elasticsearch/domain_snapshot_options.rs");
+        include!("types/elasticsearch/domain_vpc_options.rs");
+        include!("types/elasticsearch/vpc_endpoint_vpc_options.rs");
+        include!("types/elasticsearch/get_domain_advanced_security_option.rs");
+        include!("types/elasticsearch/get_domain_auto_tune_option.rs");
+        include!(
+            "types/elasticsearch/get_domain_auto_tune_option_maintenance_schedule.rs"
+        );
+        include!(
+            "types/elasticsearch/get_domain_auto_tune_option_maintenance_schedule_duration.rs"
+        );
+        include!("types/elasticsearch/get_domain_cluster_config.rs");
+        include!("types/elasticsearch/get_domain_cluster_config_cold_storage_option.rs");
+        include!(
+            "types/elasticsearch/get_domain_cluster_config_zone_awareness_config.rs"
+        );
+        include!("types/elasticsearch/get_domain_cognito_option.rs");
+        include!("types/elasticsearch/get_domain_ebs_option.rs");
+        include!("types/elasticsearch/get_domain_encryption_at_rest.rs");
+        include!("types/elasticsearch/get_domain_log_publishing_option.rs");
+        include!("types/elasticsearch/get_domain_node_to_node_encryption.rs");
+        include!("types/elasticsearch/get_domain_snapshot_option.rs");
+        include!("types/elasticsearch/get_domain_vpc_option.rs");
+    }
     pub mod elastictranscoder {
         include!("types/elastictranscoder/pipeline_content_config.rs");
         include!("types/elastictranscoder/pipeline_content_config_permission.rs");
@@ -289,103 +336,6 @@ pub mod types {
         include!("types/fis/experiment_template_target.rs");
         include!("types/fis/experiment_template_target_filter.rs");
         include!("types/fis/experiment_template_target_resource_tag.rs");
-    }
-    pub mod fms {
-        include!("types/fms/policy_exclude_map.rs");
-        include!("types/fms/policy_include_map.rs");
-        include!("types/fms/policy_security_service_policy_data.rs");
-        include!("types/fms/policy_security_service_policy_data_policy_option.rs");
-        include!(
-            "types/fms/policy_security_service_policy_data_policy_option_network_firewall_policy.rs"
-        );
-        include!(
-            "types/fms/policy_security_service_policy_data_policy_option_third_party_firewall_policy.rs"
-        );
-        include!("types/fms/resource_set_resource_set.rs");
-        include!("types/fms/resource_set_timeouts.rs");
-    }
-    pub mod fsx {
-        include!("types/fsx/data_repository_association_s_3.rs");
-        include!("types/fsx/data_repository_association_s_3_auto_export_policy.rs");
-        include!("types/fsx/data_repository_association_s_3_auto_import_policy.rs");
-        include!("types/fsx/file_cache_data_repository_association.rs");
-        include!("types/fsx/file_cache_data_repository_association_nf.rs");
-        include!("types/fsx/file_cache_lustre_configuration.rs");
-        include!("types/fsx/file_cache_lustre_configuration_log_configuration.rs");
-        include!("types/fsx/file_cache_lustre_configuration_metadata_configuration.rs");
-        include!("types/fsx/lustre_file_system_log_configuration.rs");
-        include!("types/fsx/lustre_file_system_metadata_configuration.rs");
-        include!("types/fsx/lustre_file_system_root_squash_configuration.rs");
-        include!("types/fsx/ontap_file_system_disk_iops_configuration.rs");
-        include!("types/fsx/ontap_file_system_endpoint.rs");
-        include!("types/fsx/ontap_file_system_endpoint_intercluster.rs");
-        include!("types/fsx/ontap_file_system_endpoint_management.rs");
-        include!(
-            "types/fsx/ontap_storage_virtual_machine_active_directory_configuration.rs"
-        );
-        include!(
-            "types/fsx/ontap_storage_virtual_machine_active_directory_configuration_self_managed_active_directory_configuration.rs"
-        );
-        include!("types/fsx/ontap_storage_virtual_machine_endpoint.rs");
-        include!("types/fsx/ontap_storage_virtual_machine_endpoint_iscsi.rs");
-        include!("types/fsx/ontap_storage_virtual_machine_endpoint_management.rs");
-        include!("types/fsx/ontap_storage_virtual_machine_endpoint_nf.rs");
-        include!("types/fsx/ontap_storage_virtual_machine_endpoint_smb.rs");
-        include!("types/fsx/ontap_volume_aggregate_configuration.rs");
-        include!("types/fsx/ontap_volume_snaplock_configuration.rs");
-        include!("types/fsx/ontap_volume_snaplock_configuration_autocommit_period.rs");
-        include!("types/fsx/ontap_volume_snaplock_configuration_retention_period.rs");
-        include!(
-            "types/fsx/ontap_volume_snaplock_configuration_retention_period_default_retention.rs"
-        );
-        include!(
-            "types/fsx/ontap_volume_snaplock_configuration_retention_period_maximum_retention.rs"
-        );
-        include!(
-            "types/fsx/ontap_volume_snaplock_configuration_retention_period_minimum_retention.rs"
-        );
-        include!("types/fsx/ontap_volume_tiering_policy.rs");
-        include!("types/fsx/open_zfs_file_system_disk_iops_configuration.rs");
-        include!("types/fsx/open_zfs_file_system_root_volume_configuration.rs");
-        include!(
-            "types/fsx/open_zfs_file_system_root_volume_configuration_nfs_exports.rs"
-        );
-        include!(
-            "types/fsx/open_zfs_file_system_root_volume_configuration_nfs_exports_client_configuration.rs"
-        );
-        include!(
-            "types/fsx/open_zfs_file_system_root_volume_configuration_user_and_group_quota.rs"
-        );
-        include!("types/fsx/open_zfs_volume_nfs_exports.rs");
-        include!("types/fsx/open_zfs_volume_nfs_exports_client_configuration.rs");
-        include!("types/fsx/open_zfs_volume_origin_snapshot.rs");
-        include!("types/fsx/open_zfs_volume_user_and_group_quota.rs");
-        include!("types/fsx/windows_file_system_audit_log_configuration.rs");
-        include!("types/fsx/windows_file_system_disk_iops_configuration.rs");
-        include!("types/fsx/windows_file_system_self_managed_active_directory.rs");
-        include!("types/fsx/get_ontap_file_system_disk_iops_configuration.rs");
-        include!("types/fsx/get_ontap_file_system_endpoint.rs");
-        include!("types/fsx/get_ontap_file_system_endpoint_intercluster.rs");
-        include!("types/fsx/get_ontap_file_system_endpoint_management.rs");
-        include!(
-            "types/fsx/get_ontap_storage_virtual_machine_active_directory_configuration.rs"
-        );
-        include!(
-            "types/fsx/get_ontap_storage_virtual_machine_active_directory_configuration_self_managed_active_directory_configuration.rs"
-        );
-        include!("types/fsx/get_ontap_storage_virtual_machine_endpoint.rs");
-        include!("types/fsx/get_ontap_storage_virtual_machine_endpoint_iscsi.rs");
-        include!("types/fsx/get_ontap_storage_virtual_machine_endpoint_management.rs");
-        include!("types/fsx/get_ontap_storage_virtual_machine_endpoint_nf.rs");
-        include!("types/fsx/get_ontap_storage_virtual_machine_endpoint_smb.rs");
-        include!("types/fsx/get_ontap_storage_virtual_machine_filter.rs");
-        include!(
-            "types/fsx/get_ontap_storage_virtual_machine_lifecycle_transition_reason.rs"
-        );
-        include!("types/fsx/get_ontap_storage_virtual_machines_filter.rs");
-        include!("types/fsx/get_open_zfs_snapshot_filter.rs");
-        include!("types/fsx/get_windows_file_system_audit_log_configuration.rs");
-        include!("types/fsx/get_windows_file_system_disk_iops_configuration.rs");
     }
     include!("types/get_availability_zone_filter.rs");
     include!("types/get_availability_zones_filter.rs");

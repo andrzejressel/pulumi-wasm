@@ -1,3 +1,43 @@
+pub mod route53 {
+    include!("resources/route53/cidr_collection.rs");
+    include!("resources/route53/cidr_location.rs");
+    include!("resources/route53/delegation_set.rs");
+    include!("resources/route53/health_check.rs");
+    include!("resources/route53/hosted_zone_dns_sec.rs");
+    include!("resources/route53/key_signing_key.rs");
+    include!("resources/route53/profiles_association.rs");
+    include!("resources/route53/profiles_profile.rs");
+    include!("resources/route53/profiles_resource_association.rs");
+    include!("resources/route53/query_log.rs");
+    include!("resources/route53/record.rs");
+    include!("resources/route53/resolver_config.rs");
+    include!("resources/route53/resolver_dns_sec_config.rs");
+    include!("resources/route53/resolver_endpoint.rs");
+    include!("resources/route53/resolver_firewall_config.rs");
+    include!("resources/route53/resolver_firewall_domain_list.rs");
+    include!("resources/route53/resolver_firewall_rule.rs");
+    include!("resources/route53/resolver_firewall_rule_group.rs");
+    include!("resources/route53/resolver_firewall_rule_group_association.rs");
+    include!("resources/route53/resolver_query_log_config.rs");
+    include!("resources/route53/resolver_query_log_config_association.rs");
+    include!("resources/route53/resolver_rule.rs");
+    include!("resources/route53/resolver_rule_association.rs");
+    include!("resources/route53/traffic_policy.rs");
+    include!("resources/route53/traffic_policy_instance.rs");
+    include!("resources/route53/vpc_association_authorization.rs");
+    include!("resources/route53/zone.rs");
+    include!("resources/route53/zone_association.rs");
+}
+pub mod route53domains {
+    include!("resources/route53domains/delegation_signer_record.rs");
+    include!("resources/route53domains/registered_domain.rs");
+}
+pub mod route53recoverycontrol {
+    include!("resources/route53recoverycontrol/cluster.rs");
+    include!("resources/route53recoverycontrol/control_panel.rs");
+    include!("resources/route53recoverycontrol/routing_control.rs");
+    include!("resources/route53recoverycontrol/safety_rule.rs");
+}
 pub mod route53recoveryreadiness {
     include!("resources/route53recoveryreadiness/cell.rs");
     include!("resources/route53recoveryreadiness/readiness_check.rs");
@@ -94,23 +134,23 @@ pub mod sagemaker {
     include!("resources/sagemaker/workforce.rs");
     include!("resources/sagemaker/workteam.rs");
 }
-pub mod scheduler {
-    include!("resources/scheduler/schedule.rs");
-    include!("resources/scheduler/schedule_group.rs");
-}
-pub mod schemas {
-    include!("resources/schemas/discoverer.rs");
-    include!("resources/schemas/registry.rs");
-    include!("resources/schemas/registry_policy.rs");
-    include!("resources/schemas/schema.rs");
-}
-pub mod secretsmanager {
-    include!("resources/secretsmanager/secret.rs");
-    include!("resources/secretsmanager/secret_policy.rs");
-    include!("resources/secretsmanager/secret_rotation.rs");
-    include!("resources/secretsmanager/secret_version.rs");
-}
 pub mod functions {
+    pub mod route53 {
+        include!("functions/route53/get_delegation_set.rs");
+        include!("functions/route53/get_profiles_profiles.rs");
+        include!("functions/route53/get_query_log_config.rs");
+        include!("functions/route53/get_resolver_endpoint.rs");
+        include!("functions/route53/get_resolver_firewall_config.rs");
+        include!("functions/route53/get_resolver_firewall_domain_list.rs");
+        include!("functions/route53/get_resolver_firewall_rule_group.rs");
+        include!("functions/route53/get_resolver_firewall_rule_group_association.rs");
+        include!("functions/route53/get_resolver_firewall_rules.rs");
+        include!("functions/route53/get_resolver_rule.rs");
+        include!("functions/route53/get_resolver_rules.rs");
+        include!("functions/route53/get_traffic_policy_document.rs");
+        include!("functions/route53/get_zone.rs");
+        include!("functions/route53/get_zones.rs");
+    }
     pub mod s3 {
         include!("functions/s3/get_account_public_access_block.rs");
         include!("functions/s3/get_bucket.rs");
@@ -128,14 +168,6 @@ pub mod functions {
     pub mod sagemaker {
         include!("functions/sagemaker/get_prebuilt_ecr_image.rs");
     }
-    pub mod secretsmanager {
-        include!("functions/secretsmanager/get_random_password.rs");
-        include!("functions/secretsmanager/get_secret.rs");
-        include!("functions/secretsmanager/get_secret_rotation.rs");
-        include!("functions/secretsmanager/get_secret_version.rs");
-        include!("functions/secretsmanager/get_secret_versions.rs");
-        include!("functions/secretsmanager/get_secrets.rs");
-    }
     include!("functions/get_arn.rs");
     include!("functions/get_availability_zone.rs");
     include!("functions/get_availability_zones.rs");
@@ -150,6 +182,49 @@ pub mod functions {
     include!("functions/get_service_principal.rs");
 }
 pub mod types {
+    pub mod route53 {
+        include!("types/route53/profiles_association_timeouts.rs");
+        include!("types/route53/profiles_profile_timeouts.rs");
+        include!("types/route53/profiles_resource_association_timeouts.rs");
+        include!("types/route53/record_alias.rs");
+        include!("types/route53/record_cidr_routing_policy.rs");
+        include!("types/route53/record_failover_routing_policy.rs");
+        include!("types/route53/record_geolocation_routing_policy.rs");
+        include!("types/route53/record_geoproximity_routing_policy.rs");
+        include!("types/route53/record_geoproximity_routing_policy_coordinate.rs");
+        include!("types/route53/record_latency_routing_policy.rs");
+        include!("types/route53/record_weighted_routing_policy.rs");
+        include!("types/route53/resolver_endpoint_ip_address.rs");
+        include!("types/route53/resolver_rule_target_ip.rs");
+        include!("types/route53/zone_vpc.rs");
+        include!("types/route53/get_profiles_profiles_profile.rs");
+        include!("types/route53/get_query_log_config_filter.rs");
+        include!("types/route53/get_resolver_endpoint_filter.rs");
+        include!("types/route53/get_resolver_firewall_rules_firewall_rule.rs");
+        include!("types/route53/get_traffic_policy_document_endpoint.rs");
+        include!("types/route53/get_traffic_policy_document_rule.rs");
+        include!(
+            "types/route53/get_traffic_policy_document_rule_geo_proximity_location.rs"
+        );
+        include!("types/route53/get_traffic_policy_document_rule_item.rs");
+        include!("types/route53/get_traffic_policy_document_rule_location.rs");
+        include!("types/route53/get_traffic_policy_document_rule_primary.rs");
+        include!("types/route53/get_traffic_policy_document_rule_region.rs");
+        include!("types/route53/get_traffic_policy_document_rule_secondary.rs");
+    }
+    pub mod route53domains {
+        include!("types/route53domains/delegation_signer_record_signing_attributes.rs");
+        include!("types/route53domains/delegation_signer_record_timeouts.rs");
+        include!("types/route53domains/registered_domain_admin_contact.rs");
+        include!("types/route53domains/registered_domain_billing_contact.rs");
+        include!("types/route53domains/registered_domain_name_server.rs");
+        include!("types/route53domains/registered_domain_registrant_contact.rs");
+        include!("types/route53domains/registered_domain_tech_contact.rs");
+    }
+    pub mod route53recoverycontrol {
+        include!("types/route53recoverycontrol/cluster_cluster_endpoint.rs");
+        include!("types/route53recoverycontrol/safety_rule_rule_config.rs");
+    }
     pub mod route53recoveryreadiness {
         include!("types/route53recoveryreadiness/resource_set_resource.rs");
         include!(
@@ -1048,37 +1123,6 @@ pub mod types {
         include!(
             "types/sagemaker/workteam_worker_access_configuration_s_3_presign_iam_policy_constraints.rs"
         );
-    }
-    pub mod scheduler {
-        include!("types/scheduler/schedule_flexible_time_window.rs");
-        include!("types/scheduler/schedule_target.rs");
-        include!("types/scheduler/schedule_target_dead_letter_config.rs");
-        include!("types/scheduler/schedule_target_ecs_parameters.rs");
-        include!(
-            "types/scheduler/schedule_target_ecs_parameters_capacity_provider_strategy.rs"
-        );
-        include!(
-            "types/scheduler/schedule_target_ecs_parameters_network_configuration.rs"
-        );
-        include!(
-            "types/scheduler/schedule_target_ecs_parameters_placement_constraint.rs"
-        );
-        include!("types/scheduler/schedule_target_ecs_parameters_placement_strategy.rs");
-        include!("types/scheduler/schedule_target_eventbridge_parameters.rs");
-        include!("types/scheduler/schedule_target_kinesis_parameters.rs");
-        include!("types/scheduler/schedule_target_retry_policy.rs");
-        include!("types/scheduler/schedule_target_sagemaker_pipeline_parameters.rs");
-        include!(
-            "types/scheduler/schedule_target_sagemaker_pipeline_parameters_pipeline_parameter.rs"
-        );
-        include!("types/scheduler/schedule_target_sqs_parameters.rs");
-    }
-    pub mod secretsmanager {
-        include!("types/secretsmanager/secret_replica.rs");
-        include!("types/secretsmanager/secret_rotation_rotation_rules.rs");
-        include!("types/secretsmanager/get_secret_rotation_rotation_rule.rs");
-        include!("types/secretsmanager/get_secret_versions_version.rs");
-        include!("types/secretsmanager/get_secrets_filter.rs");
     }
     include!("types/get_availability_zone_filter.rs");
     include!("types/get_availability_zones_filter.rs");

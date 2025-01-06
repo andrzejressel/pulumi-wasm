@@ -1,3 +1,25 @@
+pub mod mwaa {
+    include!("resources/mwaa/environment.rs");
+}
+pub mod neptune {
+    include!("resources/neptune/cluster.rs");
+    include!("resources/neptune/cluster_endpoint.rs");
+    include!("resources/neptune/cluster_instance.rs");
+    include!("resources/neptune/cluster_parameter_group.rs");
+    include!("resources/neptune/cluster_snapshot.rs");
+    include!("resources/neptune/event_subscription.rs");
+    include!("resources/neptune/global_cluster.rs");
+    include!("resources/neptune/parameter_group.rs");
+    include!("resources/neptune/subnet_group.rs");
+}
+pub mod networkfirewall {
+    include!("resources/networkfirewall/firewall.rs");
+    include!("resources/networkfirewall/firewall_policy.rs");
+    include!("resources/networkfirewall/logging_configuration.rs");
+    include!("resources/networkfirewall/resource_policy.rs");
+    include!("resources/networkfirewall/rule_group.rs");
+    include!("resources/networkfirewall/tls_inspection_configuration.rs");
+}
 pub mod networkmanager {
     include!("resources/networkmanager/attachment_accepter.rs");
     include!("resources/networkmanager/connect_attachment.rs");
@@ -76,28 +98,16 @@ pub mod organizations {
     include!("resources/organizations/policy_attachment.rs");
     include!("resources/organizations/resource_policy.rs");
 }
-pub mod paymentcryptography {
-    include!("resources/paymentcryptography/key.rs");
-    include!("resources/paymentcryptography/key_alias.rs");
-}
-pub mod pinpoint {
-    include!("resources/pinpoint/adm_channel.rs");
-    include!("resources/pinpoint/apns_channel.rs");
-    include!("resources/pinpoint/apns_sandbox_channel.rs");
-    include!("resources/pinpoint/apns_voip_channel.rs");
-    include!("resources/pinpoint/apns_voip_sandbox_channel.rs");
-    include!("resources/pinpoint/app.rs");
-    include!("resources/pinpoint/baidu_channel.rs");
-    include!("resources/pinpoint/email_channel.rs");
-    include!("resources/pinpoint/email_template.rs");
-    include!("resources/pinpoint/event_stream.rs");
-    include!("resources/pinpoint/gcm_channel.rs");
-    include!("resources/pinpoint/sms_channel.rs");
-    include!("resources/pinpoint/smsvoicev_2_configuration_set.rs");
-    include!("resources/pinpoint/smsvoicev_2_opt_out_list.rs");
-    include!("resources/pinpoint/smsvoicev_2_phone_number.rs");
-}
 pub mod functions {
+    pub mod neptune {
+        include!("functions/neptune/get_engine_version.rs");
+        include!("functions/neptune/get_orderable_db_instance.rs");
+    }
+    pub mod networkfirewall {
+        include!("functions/networkfirewall/get_firewall.rs");
+        include!("functions/networkfirewall/get_firewall_policy.rs");
+        include!("functions/networkfirewall/get_resource_policy.rs");
+    }
     pub mod networkmanager {
         include!("functions/networkmanager/get_connection.rs");
         include!("functions/networkmanager/get_connections.rs");
@@ -144,16 +154,6 @@ pub mod functions {
         include!("functions/organizations/get_policy.rs");
         include!("functions/organizations/get_resource_tags.rs");
     }
-    pub mod outposts {
-        include!("functions/outposts/get_asset.rs");
-        include!("functions/outposts/get_assets.rs");
-        include!("functions/outposts/get_outpost.rs");
-        include!("functions/outposts/get_outpost_instance_type.rs");
-        include!("functions/outposts/get_outpost_instance_types.rs");
-        include!("functions/outposts/get_outposts.rs");
-        include!("functions/outposts/get_site.rs");
-        include!("functions/outposts/get_sites.rs");
-    }
     include!("functions/get_arn.rs");
     include!("functions/get_availability_zone.rs");
     include!("functions/get_availability_zones.rs");
@@ -168,6 +168,223 @@ pub mod functions {
     include!("functions/get_service_principal.rs");
 }
 pub mod types {
+    pub mod mwaa {
+        include!("types/mwaa/environment_last_updated.rs");
+        include!("types/mwaa/environment_last_updated_error.rs");
+        include!("types/mwaa/environment_logging_configuration.rs");
+        include!("types/mwaa/environment_logging_configuration_dag_processing_logs.rs");
+        include!("types/mwaa/environment_logging_configuration_scheduler_logs.rs");
+        include!("types/mwaa/environment_logging_configuration_task_logs.rs");
+        include!("types/mwaa/environment_logging_configuration_webserver_logs.rs");
+        include!("types/mwaa/environment_logging_configuration_worker_logs.rs");
+        include!("types/mwaa/environment_network_configuration.rs");
+    }
+    pub mod neptune {
+        include!("types/neptune/cluster_parameter_group_parameter.rs");
+        include!("types/neptune/cluster_serverless_v_2_scaling_configuration.rs");
+        include!("types/neptune/global_cluster_global_cluster_member.rs");
+        include!("types/neptune/parameter_group_parameter.rs");
+    }
+    pub mod networkfirewall {
+        include!("types/networkfirewall/firewall_encryption_configuration.rs");
+        include!("types/networkfirewall/firewall_firewall_status.rs");
+        include!("types/networkfirewall/firewall_firewall_status_sync_state.rs");
+        include!(
+            "types/networkfirewall/firewall_firewall_status_sync_state_attachment.rs"
+        );
+        include!("types/networkfirewall/firewall_policy_encryption_configuration.rs");
+        include!("types/networkfirewall/firewall_policy_firewall_policy.rs");
+        include!(
+            "types/networkfirewall/firewall_policy_firewall_policy_policy_variables.rs"
+        );
+        include!(
+            "types/networkfirewall/firewall_policy_firewall_policy_policy_variables_rule_variable.rs"
+        );
+        include!(
+            "types/networkfirewall/firewall_policy_firewall_policy_policy_variables_rule_variable_ip_set.rs"
+        );
+        include!(
+            "types/networkfirewall/firewall_policy_firewall_policy_stateful_engine_options.rs"
+        );
+        include!(
+            "types/networkfirewall/firewall_policy_firewall_policy_stateful_engine_options_flow_timeouts.rs"
+        );
+        include!(
+            "types/networkfirewall/firewall_policy_firewall_policy_stateful_rule_group_reference.rs"
+        );
+        include!(
+            "types/networkfirewall/firewall_policy_firewall_policy_stateful_rule_group_reference_override.rs"
+        );
+        include!(
+            "types/networkfirewall/firewall_policy_firewall_policy_stateless_custom_action.rs"
+        );
+        include!(
+            "types/networkfirewall/firewall_policy_firewall_policy_stateless_custom_action_action_definition.rs"
+        );
+        include!(
+            "types/networkfirewall/firewall_policy_firewall_policy_stateless_custom_action_action_definition_publish_metric_action.rs"
+        );
+        include!(
+            "types/networkfirewall/firewall_policy_firewall_policy_stateless_custom_action_action_definition_publish_metric_action_dimension.rs"
+        );
+        include!(
+            "types/networkfirewall/firewall_policy_firewall_policy_stateless_rule_group_reference.rs"
+        );
+        include!("types/networkfirewall/firewall_subnet_mapping.rs");
+        include!("types/networkfirewall/logging_configuration_logging_configuration.rs");
+        include!(
+            "types/networkfirewall/logging_configuration_logging_configuration_log_destination_config.rs"
+        );
+        include!("types/networkfirewall/rule_group_encryption_configuration.rs");
+        include!("types/networkfirewall/rule_group_rule_group.rs");
+        include!("types/networkfirewall/rule_group_rule_group_reference_sets.rs");
+        include!(
+            "types/networkfirewall/rule_group_rule_group_reference_sets_ip_set_reference.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_reference_sets_ip_set_reference_ip_set_reference.rs"
+        );
+        include!("types/networkfirewall/rule_group_rule_group_rule_variables.rs");
+        include!("types/networkfirewall/rule_group_rule_group_rule_variables_ip_set.rs");
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rule_variables_ip_set_ip_set.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rule_variables_port_set.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rule_variables_port_set_port_set.rs"
+        );
+        include!("types/networkfirewall/rule_group_rule_group_rules_source.rs");
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_rules_source_list.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateful_rule.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateful_rule_header.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateful_rule_rule_option.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_custom_action.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_custom_action_action_definition.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_custom_action_action_definition_publish_metric_action.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_custom_action_action_definition_publish_metric_action_dimension.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_stateless_rule.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_stateless_rule_rule_definition.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_stateless_rule_rule_definition_match_attributes.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_stateless_rule_rule_definition_match_attributes_destination.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_stateless_rule_rule_definition_match_attributes_destination_port.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_stateless_rule_rule_definition_match_attributes_source.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_stateless_rule_rule_definition_match_attributes_source_port.rs"
+        );
+        include!(
+            "types/networkfirewall/rule_group_rule_group_rules_source_stateless_rules_and_custom_actions_stateless_rule_rule_definition_match_attributes_tcp_flag.rs"
+        );
+        include!("types/networkfirewall/rule_group_rule_group_stateful_rule_options.rs");
+        include!("types/networkfirewall/tls_inspection_configuration_certificate.rs");
+        include!(
+            "types/networkfirewall/tls_inspection_configuration_certificate_authority.rs"
+        );
+        include!(
+            "types/networkfirewall/tls_inspection_configuration_encryption_configuration.rs"
+        );
+        include!("types/networkfirewall/tls_inspection_configuration_timeouts.rs");
+        include!(
+            "types/networkfirewall/tls_inspection_configuration_tls_inspection_configuration.rs"
+        );
+        include!(
+            "types/networkfirewall/tls_inspection_configuration_tls_inspection_configuration_server_certificate_configuration.rs"
+        );
+        include!(
+            "types/networkfirewall/tls_inspection_configuration_tls_inspection_configuration_server_certificate_configuration_check_certificate_revocation_status.rs"
+        );
+        include!(
+            "types/networkfirewall/tls_inspection_configuration_tls_inspection_configuration_server_certificate_configuration_scope.rs"
+        );
+        include!(
+            "types/networkfirewall/tls_inspection_configuration_tls_inspection_configuration_server_certificate_configuration_scope_destination.rs"
+        );
+        include!(
+            "types/networkfirewall/tls_inspection_configuration_tls_inspection_configuration_server_certificate_configuration_scope_destination_port.rs"
+        );
+        include!(
+            "types/networkfirewall/tls_inspection_configuration_tls_inspection_configuration_server_certificate_configuration_scope_source.rs"
+        );
+        include!(
+            "types/networkfirewall/tls_inspection_configuration_tls_inspection_configuration_server_certificate_configuration_scope_source_port.rs"
+        );
+        include!(
+            "types/networkfirewall/tls_inspection_configuration_tls_inspection_configuration_server_certificate_configuration_server_certificate.rs"
+        );
+        include!("types/networkfirewall/get_firewall_encryption_configuration.rs");
+        include!("types/networkfirewall/get_firewall_firewall_status.rs");
+        include!(
+            "types/networkfirewall/get_firewall_firewall_status_capacity_usage_summary.rs"
+        );
+        include!(
+            "types/networkfirewall/get_firewall_firewall_status_capacity_usage_summary_cidr.rs"
+        );
+        include!(
+            "types/networkfirewall/get_firewall_firewall_status_capacity_usage_summary_cidr_ip_set_reference.rs"
+        );
+        include!("types/networkfirewall/get_firewall_firewall_status_sync_state.rs");
+        include!(
+            "types/networkfirewall/get_firewall_firewall_status_sync_state_attachment.rs"
+        );
+        include!("types/networkfirewall/get_firewall_policy_firewall_policy.rs");
+        include!(
+            "types/networkfirewall/get_firewall_policy_firewall_policy_stateful_engine_option.rs"
+        );
+        include!(
+            "types/networkfirewall/get_firewall_policy_firewall_policy_stateful_rule_group_reference.rs"
+        );
+        include!(
+            "types/networkfirewall/get_firewall_policy_firewall_policy_stateful_rule_group_reference_override.rs"
+        );
+        include!(
+            "types/networkfirewall/get_firewall_policy_firewall_policy_stateless_custom_action.rs"
+        );
+        include!(
+            "types/networkfirewall/get_firewall_policy_firewall_policy_stateless_custom_action_action_definition.rs"
+        );
+        include!(
+            "types/networkfirewall/get_firewall_policy_firewall_policy_stateless_custom_action_action_definition_publish_metric_action.rs"
+        );
+        include!(
+            "types/networkfirewall/get_firewall_policy_firewall_policy_stateless_custom_action_action_definition_publish_metric_action_dimension.rs"
+        );
+        include!(
+            "types/networkfirewall/get_firewall_policy_firewall_policy_stateless_rule_group_reference.rs"
+        );
+        include!("types/networkfirewall/get_firewall_subnet_mapping.rs");
+    }
     pub mod networkmanager {
         include!("types/networkmanager/connect_attachment_options.rs");
         include!("types/networkmanager/connect_peer_bgp_options.rs");
@@ -425,19 +642,6 @@ pub mod types {
             "types/organizations/get_organizational_unit_descendant_organizational_units_children.rs"
         );
         include!("types/organizations/get_organizational_units_child.rs");
-    }
-    pub mod paymentcryptography {
-        include!("types/paymentcryptography/key_key_attributes.rs");
-        include!("types/paymentcryptography/key_key_attributes_key_modes_of_use.rs");
-        include!("types/paymentcryptography/key_timeouts.rs");
-    }
-    pub mod pinpoint {
-        include!("types/pinpoint/app_campaign_hook.rs");
-        include!("types/pinpoint/app_limits.rs");
-        include!("types/pinpoint/app_quiet_time.rs");
-        include!("types/pinpoint/email_template_email_template.rs");
-        include!("types/pinpoint/email_template_email_template_header.rs");
-        include!("types/pinpoint/smsvoicev_2_phone_number_timeouts.rs");
     }
     include!("types/get_availability_zone_filter.rs");
     include!("types/get_availability_zones_filter.rs");

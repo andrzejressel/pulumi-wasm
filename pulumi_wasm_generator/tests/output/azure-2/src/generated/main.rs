@@ -97,11 +97,6 @@ pub mod confidentialledger {
 pub mod connections {
     include!("resources/connections/api_connection.rs");
 }
-pub mod consumption {
-    include!("resources/consumption/budget_management_group.rs");
-    include!("resources/consumption/budget_resource_group.rs");
-    include!("resources/consumption/budget_subscription.rs");
-}
 pub mod functions {
     pub mod blueprint {
         include!("functions/blueprint/get_definition.rs");
@@ -147,10 +142,6 @@ pub mod functions {
     }
     pub mod connections {
         include!("functions/connections/get_managed_api.rs");
-    }
-    pub mod consumption {
-        include!("functions/consumption/get_budget_resource_group.rs");
-        include!("functions/consumption/get_budget_subscription.rs");
     }
 }
 pub mod types {
@@ -633,39 +624,6 @@ pub mod types {
         include!(
             "types/confidentialledger/ledger_certificate_based_security_principal.rs"
         );
-    }
-    pub mod consumption {
-        include!("types/consumption/budget_management_group_filter.rs");
-        include!("types/consumption/budget_management_group_filter_dimension.rs");
-        include!("types/consumption/budget_management_group_filter_tag.rs");
-        include!("types/consumption/budget_management_group_notification.rs");
-        include!("types/consumption/budget_management_group_time_period.rs");
-        include!("types/consumption/budget_resource_group_filter.rs");
-        include!("types/consumption/budget_resource_group_filter_dimension.rs");
-        include!("types/consumption/budget_resource_group_filter_tag.rs");
-        include!("types/consumption/budget_resource_group_notification.rs");
-        include!("types/consumption/budget_resource_group_time_period.rs");
-        include!("types/consumption/budget_subscription_filter.rs");
-        include!("types/consumption/budget_subscription_filter_dimension.rs");
-        include!("types/consumption/budget_subscription_filter_tag.rs");
-        include!("types/consumption/budget_subscription_notification.rs");
-        include!("types/consumption/budget_subscription_time_period.rs");
-        include!("types/consumption/get_budget_resource_group_filter.rs");
-        include!("types/consumption/get_budget_resource_group_filter_dimension.rs");
-        include!("types/consumption/get_budget_resource_group_filter_not.rs");
-        include!("types/consumption/get_budget_resource_group_filter_not_dimension.rs");
-        include!("types/consumption/get_budget_resource_group_filter_not_tag.rs");
-        include!("types/consumption/get_budget_resource_group_filter_tag.rs");
-        include!("types/consumption/get_budget_resource_group_notification.rs");
-        include!("types/consumption/get_budget_resource_group_time_period.rs");
-        include!("types/consumption/get_budget_subscription_filter.rs");
-        include!("types/consumption/get_budget_subscription_filter_dimension.rs");
-        include!("types/consumption/get_budget_subscription_filter_not.rs");
-        include!("types/consumption/get_budget_subscription_filter_not_dimension.rs");
-        include!("types/consumption/get_budget_subscription_filter_not_tag.rs");
-        include!("types/consumption/get_budget_subscription_filter_tag.rs");
-        include!("types/consumption/get_budget_subscription_notification.rs");
-        include!("types/consumption/get_budget_subscription_time_period.rs");
     }
 }
 #[doc(hidden)]

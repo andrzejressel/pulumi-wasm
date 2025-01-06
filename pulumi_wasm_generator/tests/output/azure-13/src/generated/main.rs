@@ -1,10 +1,69 @@
+pub mod voice {
+    include!("resources/voice/services_communications_gateway.rs");
+    include!("resources/voice/services_communications_gateway_test_line.rs");
+}
+pub mod waf {
+    include!("resources/waf/policy.rs");
+}
+pub mod webpubsub {
+    include!("resources/webpubsub/custom_certificate.rs");
+    include!("resources/webpubsub/custom_domain.rs");
+    include!("resources/webpubsub/hub.rs");
+    include!("resources/webpubsub/network_acl.rs");
+    include!("resources/webpubsub/service.rs");
+    include!("resources/webpubsub/shared_private_link_resource.rs");
+}
 pub mod workloadssap {
     include!("resources/workloadssap/discovery_virtual_instance.rs");
     include!("resources/workloadssap/single_node_virtual_instance.rs");
     include!("resources/workloadssap/three_tier_virtual_instance.rs");
 }
-pub mod functions {}
+pub mod functions {
+    pub mod waf {
+        include!("functions/waf/get_firewall_policy.rs");
+    }
+    pub mod webpubsub {
+        include!("functions/webpubsub/get_private_link_resource.rs");
+        include!("functions/webpubsub/get_service.rs");
+    }
+}
 pub mod types {
+    pub mod voice {
+        include!("types/voice/services_communications_gateway_service_location.rs");
+    }
+    pub mod waf {
+        include!("types/waf/policy_custom_rule.rs");
+        include!("types/waf/policy_custom_rule_match_condition.rs");
+        include!("types/waf/policy_custom_rule_match_condition_match_variable.rs");
+        include!("types/waf/policy_managed_rules.rs");
+        include!("types/waf/policy_managed_rules_exclusion.rs");
+        include!("types/waf/policy_managed_rules_exclusion_excluded_rule_set.rs");
+        include!(
+            "types/waf/policy_managed_rules_exclusion_excluded_rule_set_rule_group.rs"
+        );
+        include!("types/waf/policy_managed_rules_managed_rule_set.rs");
+        include!(
+            "types/waf/policy_managed_rules_managed_rule_set_rule_group_override.rs"
+        );
+        include!(
+            "types/waf/policy_managed_rules_managed_rule_set_rule_group_override_rule.rs"
+        );
+        include!("types/waf/policy_policy_settings.rs");
+        include!("types/waf/policy_policy_settings_log_scrubbing.rs");
+        include!("types/waf/policy_policy_settings_log_scrubbing_rule.rs");
+    }
+    pub mod webpubsub {
+        include!("types/webpubsub/hub_event_handler.rs");
+        include!("types/webpubsub/hub_event_handler_auth.rs");
+        include!("types/webpubsub/hub_event_listener.rs");
+        include!("types/webpubsub/network_acl_private_endpoint.rs");
+        include!("types/webpubsub/network_acl_public_network.rs");
+        include!("types/webpubsub/service_identity.rs");
+        include!("types/webpubsub/service_live_trace.rs");
+        include!(
+            "types/webpubsub/get_private_link_resource_shared_private_link_resource_type.rs"
+        );
+    }
     pub mod workloadssap {
         include!("types/workloadssap/discovery_virtual_instance_identity.rs");
         include!("types/workloadssap/single_node_virtual_instance_identity.rs");

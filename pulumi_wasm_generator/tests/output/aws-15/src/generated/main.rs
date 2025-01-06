@@ -1,3 +1,24 @@
+pub mod paymentcryptography {
+    include!("resources/paymentcryptography/key.rs");
+    include!("resources/paymentcryptography/key_alias.rs");
+}
+pub mod pinpoint {
+    include!("resources/pinpoint/adm_channel.rs");
+    include!("resources/pinpoint/apns_channel.rs");
+    include!("resources/pinpoint/apns_sandbox_channel.rs");
+    include!("resources/pinpoint/apns_voip_channel.rs");
+    include!("resources/pinpoint/apns_voip_sandbox_channel.rs");
+    include!("resources/pinpoint/app.rs");
+    include!("resources/pinpoint/baidu_channel.rs");
+    include!("resources/pinpoint/email_channel.rs");
+    include!("resources/pinpoint/email_template.rs");
+    include!("resources/pinpoint/event_stream.rs");
+    include!("resources/pinpoint/gcm_channel.rs");
+    include!("resources/pinpoint/sms_channel.rs");
+    include!("resources/pinpoint/smsvoicev_2_configuration_set.rs");
+    include!("resources/pinpoint/smsvoicev_2_opt_out_list.rs");
+    include!("resources/pinpoint/smsvoicev_2_phone_number.rs");
+}
 pub mod pipes {
     include!("resources/pipes/pipe.rs");
 }
@@ -35,64 +56,17 @@ pub mod ram {
 pub mod rbin {
     include!("resources/rbin/rule.rs");
 }
-pub mod rds {
-    include!("resources/rds/certificate.rs");
-    include!("resources/rds/cluster.rs");
-    include!("resources/rds/cluster_activity_stream.rs");
-    include!("resources/rds/cluster_endpoint.rs");
-    include!("resources/rds/cluster_instance.rs");
-    include!("resources/rds/cluster_parameter_group.rs");
-    include!("resources/rds/cluster_role_association.rs");
-    include!("resources/rds/cluster_snapshot.rs");
-    include!("resources/rds/cluster_snapshot_copy.rs");
-    include!("resources/rds/custom_db_engine_version.rs");
-    include!("resources/rds/event_subscription.rs");
-    include!("resources/rds/export_task.rs");
-    include!("resources/rds/global_cluster.rs");
-    include!("resources/rds/instance.rs");
-    include!("resources/rds/instance_automated_backups_replication.rs");
-    include!("resources/rds/instance_desired_state.rs");
-    include!("resources/rds/integration.rs");
-    include!("resources/rds/option_group.rs");
-    include!("resources/rds/parameter_group.rs");
-    include!("resources/rds/proxy.rs");
-    include!("resources/rds/proxy_default_target_group.rs");
-    include!("resources/rds/proxy_endpoint.rs");
-    include!("resources/rds/proxy_target.rs");
-    include!("resources/rds/reserved_instance.rs");
-    include!("resources/rds/role_association.rs");
-    include!("resources/rds/snapshot.rs");
-    include!("resources/rds/snapshot_copy.rs");
-    include!("resources/rds/subnet_group.rs");
-}
-pub mod redshift {
-    include!("resources/redshift/authentication_profile.rs");
-    include!("resources/redshift/cluster.rs");
-    include!("resources/redshift/cluster_iam_roles.rs");
-    include!("resources/redshift/cluster_snapshot.rs");
-    include!("resources/redshift/data_share_authorization.rs");
-    include!("resources/redshift/data_share_consumer_association.rs");
-    include!("resources/redshift/endpoint_access.rs");
-    include!("resources/redshift/endpoint_authorization.rs");
-    include!("resources/redshift/event_subscription.rs");
-    include!("resources/redshift/hsm_client_certificate.rs");
-    include!("resources/redshift/hsm_configuration.rs");
-    include!("resources/redshift/logging.rs");
-    include!("resources/redshift/parameter_group.rs");
-    include!("resources/redshift/partner.rs");
-    include!("resources/redshift/resource_policy.rs");
-    include!("resources/redshift/scheduled_action.rs");
-    include!("resources/redshift/snapshot_copy.rs");
-    include!("resources/redshift/snapshot_copy_grant.rs");
-    include!("resources/redshift/snapshot_schedule.rs");
-    include!("resources/redshift/snapshot_schedule_association.rs");
-    include!("resources/redshift/subnet_group.rs");
-    include!("resources/redshift/usage_limit.rs");
-}
-pub mod redshiftdata {
-    include!("resources/redshiftdata/statement.rs");
-}
 pub mod functions {
+    pub mod outposts {
+        include!("functions/outposts/get_asset.rs");
+        include!("functions/outposts/get_assets.rs");
+        include!("functions/outposts/get_outpost.rs");
+        include!("functions/outposts/get_outpost_instance_type.rs");
+        include!("functions/outposts/get_outpost_instance_types.rs");
+        include!("functions/outposts/get_outposts.rs");
+        include!("functions/outposts/get_site.rs");
+        include!("functions/outposts/get_sites.rs");
+    }
     pub mod polly {
         include!("functions/polly/get_voices.rs");
     }
@@ -113,32 +87,6 @@ pub mod functions {
     pub mod ram {
         include!("functions/ram/get_resource_share.rs");
     }
-    pub mod rds {
-        include!("functions/rds/get_certificate.rs");
-        include!("functions/rds/get_cluster.rs");
-        include!("functions/rds/get_cluster_parameter_group.rs");
-        include!("functions/rds/get_cluster_snapshot.rs");
-        include!("functions/rds/get_clusters.rs");
-        include!("functions/rds/get_engine_version.rs");
-        include!("functions/rds/get_event_categories.rs");
-        include!("functions/rds/get_instance.rs");
-        include!("functions/rds/get_instances.rs");
-        include!("functions/rds/get_orderable_db_instance.rs");
-        include!("functions/rds/get_parameter_group.rs");
-        include!("functions/rds/get_proxy.rs");
-        include!("functions/rds/get_reserved_instance_offering.rs");
-        include!("functions/rds/get_snapshot.rs");
-        include!("functions/rds/get_subnet_group.rs");
-    }
-    pub mod redshift {
-        include!("functions/redshift/get_cluster.rs");
-        include!("functions/redshift/get_cluster_credentials.rs");
-        include!("functions/redshift/get_data_shares.rs");
-        include!("functions/redshift/get_orderable_cluster.rs");
-        include!("functions/redshift/get_producer_data_shares.rs");
-        include!("functions/redshift/get_service_account.rs");
-        include!("functions/redshift/get_subnet_group.rs");
-    }
     include!("functions/get_arn.rs");
     include!("functions/get_availability_zone.rs");
     include!("functions/get_availability_zones.rs");
@@ -153,6 +101,19 @@ pub mod functions {
     include!("functions/get_service_principal.rs");
 }
 pub mod types {
+    pub mod paymentcryptography {
+        include!("types/paymentcryptography/key_key_attributes.rs");
+        include!("types/paymentcryptography/key_key_attributes_key_modes_of_use.rs");
+        include!("types/paymentcryptography/key_timeouts.rs");
+    }
+    pub mod pinpoint {
+        include!("types/pinpoint/app_campaign_hook.rs");
+        include!("types/pinpoint/app_limits.rs");
+        include!("types/pinpoint/app_quiet_time.rs");
+        include!("types/pinpoint/email_template_email_template.rs");
+        include!("types/pinpoint/email_template_email_template_header.rs");
+        include!("types/pinpoint/smsvoicev_2_phone_number_timeouts.rs");
+    }
     pub mod pipes {
         include!("types/pipes/pipe_enrichment_parameters.rs");
         include!("types/pipes/pipe_enrichment_parameters_http_parameters.rs");
@@ -562,54 +523,6 @@ pub mod types {
         include!("types/rbin/rule_lock_configuration_unlock_delay.rs");
         include!("types/rbin/rule_resource_tag.rs");
         include!("types/rbin/rule_retention_period.rs");
-    }
-    pub mod rds {
-        include!("types/rds/cluster_master_user_secret.rs");
-        include!("types/rds/cluster_parameter_group_parameter.rs");
-        include!("types/rds/cluster_restore_to_point_in_time.rs");
-        include!("types/rds/cluster_s_3_import.rs");
-        include!("types/rds/cluster_scaling_configuration.rs");
-        include!("types/rds/cluster_serverlessv_2_scaling_configuration.rs");
-        include!("types/rds/cluster_snapshot_copy_timeouts.rs");
-        include!("types/rds/export_task_timeouts.rs");
-        include!("types/rds/global_cluster_global_cluster_member.rs");
-        include!("types/rds/instance_blue_green_update.rs");
-        include!("types/rds/instance_desired_state_timeouts.rs");
-        include!("types/rds/instance_listener_endpoint.rs");
-        include!("types/rds/instance_master_user_secret.rs");
-        include!("types/rds/instance_restore_to_point_in_time.rs");
-        include!("types/rds/instance_s_3_import.rs");
-        include!("types/rds/integration_timeouts.rs");
-        include!("types/rds/option_group_option.rs");
-        include!("types/rds/option_group_option_option_setting.rs");
-        include!("types/rds/parameter_group_parameter.rs");
-        include!("types/rds/proxy_auth.rs");
-        include!("types/rds/proxy_default_target_group_connection_pool_config.rs");
-        include!("types/rds/reserved_instance_recurring_charge.rs");
-        include!("types/rds/get_cluster_master_user_secret.rs");
-        include!("types/rds/get_clusters_filter.rs");
-        include!("types/rds/get_engine_version_filter.rs");
-        include!("types/rds/get_instance_master_user_secret.rs");
-        include!("types/rds/get_instances_filter.rs");
-        include!("types/rds/get_proxy_auth.rs");
-    }
-    pub mod redshift {
-        include!("types/redshift/cluster_cluster_node.rs");
-        include!("types/redshift/cluster_logging.rs");
-        include!("types/redshift/cluster_snapshot_copy.rs");
-        include!("types/redshift/endpoint_access_vpc_endpoint.rs");
-        include!("types/redshift/endpoint_access_vpc_endpoint_network_interface.rs");
-        include!("types/redshift/parameter_group_parameter.rs");
-        include!("types/redshift/scheduled_action_target_action.rs");
-        include!("types/redshift/scheduled_action_target_action_pause_cluster.rs");
-        include!("types/redshift/scheduled_action_target_action_resize_cluster.rs");
-        include!("types/redshift/scheduled_action_target_action_resume_cluster.rs");
-        include!("types/redshift/get_cluster_cluster_node.rs");
-        include!("types/redshift/get_data_shares_data_share.rs");
-        include!("types/redshift/get_producer_data_shares_data_share.rs");
-    }
-    pub mod redshiftdata {
-        include!("types/redshiftdata/statement_parameter.rs");
     }
     include!("types/get_availability_zone_filter.rs");
     include!("types/get_availability_zones_filter.rs");

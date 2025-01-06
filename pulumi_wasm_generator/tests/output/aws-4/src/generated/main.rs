@@ -1,3 +1,7 @@
+pub mod cloudhsmv2 {
+    include!("resources/cloudhsmv2/cluster.rs");
+    include!("resources/cloudhsmv2/hsm.rs");
+}
 pub mod cloudsearch {
     include!("resources/cloudsearch/domain.rs");
     include!("resources/cloudsearch/domain_service_access_policy.rs");
@@ -68,10 +72,10 @@ pub mod codedeploy {
     include!("resources/codedeploy/deployment_config.rs");
     include!("resources/codedeploy/deployment_group.rs");
 }
-pub mod codeguruprofiler {
-    include!("resources/codeguruprofiler/profiling_group.rs");
-}
 pub mod functions {
+    pub mod cloudhsmv2 {
+        include!("functions/cloudhsmv2/get_cluster.rs");
+    }
     pub mod cloudtrail {
         include!("functions/cloudtrail/get_service_account.rs");
     }
@@ -97,9 +101,6 @@ pub mod functions {
         include!("functions/codecommit/get_approval_rule_template.rs");
         include!("functions/codecommit/get_repository.rs");
     }
-    pub mod codeguruprofiler {
-        include!("functions/codeguruprofiler/get_profiling_group.rs");
-    }
     include!("functions/get_arn.rs");
     include!("functions/get_availability_zone.rs");
     include!("functions/get_availability_zones.rs");
@@ -114,6 +115,10 @@ pub mod functions {
     include!("functions/get_service_principal.rs");
 }
 pub mod types {
+    pub mod cloudhsmv2 {
+        include!("types/cloudhsmv2/cluster_cluster_certificate.rs");
+        include!("types/cloudhsmv2/get_cluster_cluster_certificate.rs");
+    }
     pub mod cloudsearch {
         include!("types/cloudsearch/domain_endpoint_options.rs");
         include!("types/cloudsearch/domain_index_field.rs");
@@ -350,16 +355,6 @@ pub mod types {
         );
         include!("types/codedeploy/deployment_group_on_premises_instance_tag_filter.rs");
         include!("types/codedeploy/deployment_group_trigger_configuration.rs");
-    }
-    pub mod codeguruprofiler {
-        include!("types/codeguruprofiler/profiling_group_agent_orchestration_config.rs");
-        include!(
-            "types/codeguruprofiler/get_profiling_group_agent_orchestration_config.rs"
-        );
-        include!("types/codeguruprofiler/get_profiling_group_profiling_status.rs");
-        include!(
-            "types/codeguruprofiler/get_profiling_group_profiling_status_latest_aggregated_profile.rs"
-        );
     }
     include!("types/get_availability_zone_filter.rs");
     include!("types/get_availability_zones_filter.rs");
