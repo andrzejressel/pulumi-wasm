@@ -64,6 +64,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pulumi-
       - run: just base-ci-flow
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload coverage data to codecov
         uses: codecov/codecov-action@v5
         with:
@@ -114,6 +116,8 @@ jobs:
           lookup-only: "true"
           save-if: "false"
       - run: just test-provider-compilation ${{ matrix.provider }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload coverage data to codecov
         uses: codecov/codecov-action@v5
         with:
@@ -174,6 +178,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pulumi-
       - run: just housekeeping-ci-flow
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: git add . && git diff
       - run: git diff --cached
       - name: Ensure no files have changed
@@ -225,6 +231,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pulumi-
       - run: just test-docs-ci-flow
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: git add . && git diff
       - run: git diff --cached
       - name: Ensure no files have changed
@@ -282,6 +290,8 @@ jobs:
         with:
           shared-key: build-examples
       - run: just examples-ci-flow
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload coverage data to codecov
         uses: codecov/codecov-action@v5
         with:
@@ -371,7 +381,7 @@ jobs:
       with:
         length: 7
     - name: Replace version
-      run: just update-version "0.0.0-NIGHTLY-${{ steps.short-sha.outputs.sha }}"
+      run: just update-version "$(date +'%y.%-m.%-d')-${{ steps.short-sha.outputs.sha }}"
 
     - name: Base and e2e tests
       run: just base-ci-flow examples-ci-flow
@@ -383,6 +393,6 @@ jobs:
         git config --local user.name "GitHub Actions"
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git add -A
-        git commit -m "Release v0.0.0-NIGHTLY-${{ steps.short-sha.outputs.sha }}"
-        git tag "v0.0.0-NIGHTLY-${{ steps.short-sha.outputs.sha }}"
-        git push origin "v0.0.0-NIGHTLY-${{ steps.short-sha.outputs.sha }}"
+        git commit -m "Release v$(date +'%y.%-m.%-d')-${{ steps.short-sha.outputs.sha }}"
+        git tag "v$(date +'%y.%-m.%-d')-${{ steps.short-sha.outputs.sha }}"
+        git push origin "v$(date +'%y.%-m.%-d')-${{ steps.short-sha.outputs.sha }}"
