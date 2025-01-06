@@ -2,7 +2,7 @@ name: Build
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "calver" ]
   pull_request:
     branches: [ "main" ]
 
@@ -305,7 +305,7 @@ jobs:
   deploy:
     runs-on: ubuntu-24.04
     needs: [build-base, build-generated-provider, build-examples, build-housekeeping, build-rust-docs]
-    if: success() && github.ref == 'refs/heads/main'
+    if: success() && github.ref == 'refs/heads/calver'
     steps:
     - name: Cleanup unused stuff
       run: |
@@ -371,7 +371,7 @@ jobs:
       with:
         length: 7
     - name: Replace version
-      run: just update-version "0.0.0-NIGHTLY-${{ steps.short-sha.outputs.sha }}"
+      run: just update-version "$(date +'%y.%-m.%-d')-${{ steps.short-sha.outputs.sha }}"
 
     - name: Base and e2e tests
       run: just base-ci-flow examples-ci-flow
@@ -383,6 +383,6 @@ jobs:
         git config --local user.name "GitHub Actions"
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git add -A
-        git commit -m "Release v0.0.0-NIGHTLY-${{ steps.short-sha.outputs.sha }}"
-        git tag "v0.0.0-NIGHTLY-${{ steps.short-sha.outputs.sha }}"
-        git push origin "v0.0.0-NIGHTLY-${{ steps.short-sha.outputs.sha }}"
+        git commit -m "Release v$(date +'%y.%-m.%-d')-${{ steps.short-sha.outputs.sha }}"
+        git tag "v$(date +'%y.%-m.%-d')-${{ steps.short-sha.outputs.sha }}"
+        git push origin "v$(date +'%y.%-m.%-d')-${{ steps.short-sha.outputs.sha }}"
