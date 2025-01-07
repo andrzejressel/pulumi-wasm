@@ -6,6 +6,12 @@
   ],
   "labels": ["dependencies"],
   "packageRules": [
+    {
+      "matchDepTypes": [
+        "action"
+      ],
+      "pinDigests": true
+    },
     { 
       "matchPackageNames": [
         "wasmtime",
