@@ -1,0 +1,2 @@
+name: Pulumi-WASM-AWS-example
+runtime: wasm

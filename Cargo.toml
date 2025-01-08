@@ -4,6 +4,7 @@ panic = "deny"
 [workspace]
 resolver = "2"
 members = [
+    "examples/aws",
     "examples/dependencies",
     "examples/docker",
     "examples/multiple_providers",
@@ -48,6 +49,7 @@ pulumi_wasm_runner_component_creator = { version = "=0.0.0-DEV", path = "pulumi_
 pulumi_wasm_providers_docker = { version = "=0.0.0-DEV", path = "providers/docker", registry = "cloudsmith" }
 pulumi_wasm_providers_random = { version = "=0.0.0-DEV", path = "providers/random", registry = "cloudsmith" }
 pulumi_wasm_providers_typesystem = { version = "=0.0.0-DEV", path = "providers/typesystem", registry = "cloudsmith" }
+pulumi_wasm_providers_aws_mini = { version = "=0.0.0-DEV", path = "providers/aws-mini", registry = "cloudsmith" }
 
 anyhow = "1.0.82"
 prost = "0.13.1"
