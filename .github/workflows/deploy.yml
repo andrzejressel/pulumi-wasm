@@ -9,9 +9,6 @@ env:
   CARGO_TERM_COLOR: always
   RUST_BACKTRACE: "full"
 
-permissions:
-  contents: write
-
 jobs:
 
   deploy_rust_registry:
@@ -135,6 +132,8 @@ jobs:
           tag_name: ${{ env.GITHUB_REF_NAME }}
           fail_on_unmatched_files: true
           prerelease: true
+          repository: andrzejressel/pulumi-wasm-nightly-releases
+          token: ${{ secrets.RELEASE_TOKEN }}
           body: ""
           files: |
             target/wasm32-wasip1/release/*-release.wasm
@@ -172,6 +171,8 @@ jobs:
           tag_name: ${{ env.GITHUB_REF_NAME }}
           fail_on_unmatched_files: true
           prerelease: true
+          repository: andrzejressel/pulumi-wasm-nightly-releases
+          token: ${{ secrets.RELEASE_TOKEN }}
           body: ""
           files: |
             pulumi-language-wasm/*.tar.gz
@@ -273,6 +274,8 @@ jobs:
           tag_name: ${{ env.GITHUB_REF_NAME }}
           fail_on_unmatched_files: true
           prerelease: true
+          repository: andrzejressel/pulumi-wasm-nightly-releases
+          token: ${{ secrets.RELEASE_TOKEN }}
           body: ""
           files: |
             ./target/${{ matrix.rust-target }}/debug/pulumi_wasm_runner-${{ matrix.rust-target }}-debug
