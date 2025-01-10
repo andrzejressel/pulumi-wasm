@@ -3,8 +3,8 @@ name: Build
 on:
   push:
     branches: [ "main", "deploy_to_separate_repository" ]
-  pull_request:
-    branches: [ "main" ]
+#  pull_request:
+#    branches: [ "main" ]
 
 env:
   CARGO_TERM_COLOR: always
