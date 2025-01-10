@@ -1,4 +1,4 @@
-package component:pulumi-wasm@0.0.0-DEV;
+package component:pulumi-wasm@25.1.10-4b772b4;
 
 world pulumi-wasm {
     export output-interface;
