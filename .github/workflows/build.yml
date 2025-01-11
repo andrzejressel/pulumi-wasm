@@ -417,7 +417,6 @@ jobs:
             repo: "pulumi-wasm-releases",
             message: commitMessage,
             tree: refData.object.sha, // Use the current tree SHA (no changes)
-            parents: [currentSha]
           });
 
           // Update the reference to point to the new commit
