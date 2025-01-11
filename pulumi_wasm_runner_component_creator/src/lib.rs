@@ -1,9 +1,9 @@
-use crate::source::{DefaultProviderSource, ProviderSource, PulumiWasmSource};
+use crate::source::PulumiWasmSource;
 use anyhow::{bail, Context};
 use itertools::Itertools;
 use log::info;
 use regex::Regex;
-use std::collections::{BTreeMap, BTreeSet};
+use std::collections::BTreeSet;
 use std::hash::Hash;
 use wac_graph::types::{Package, SubtypeChecker};
 use wac_graph::{CompositionGraph, EncodeOptions, NodeId, PackageId};
@@ -13,8 +13,6 @@ pub mod source;
 const PROVIDER_REGEX: &str = r"pulumi:(.*)/.*@(.*)--(.*)";
 
 pub async fn create(
-    providers_paths: BTreeMap<String, Box<dyn ProviderSource>>,
-    default_provider_source: &dyn DefaultProviderSource,
     pulumi_wasm: &dyn PulumiWasmSource,
     program: Vec<u8>,
     debug: bool,
@@ -32,22 +30,6 @@ pub async fn create(
         .imports
         .iter()
         .map(|(name, _)| name);
-
-    let all_providers: BTreeMap<_, BTreeSet<_>> = import_names
-        .clone()
-        .filter_map(extract_provider_info)
-        .chunk_by(|pi| pi.name.clone())
-        .into_iter()
-        .map(|(name, providers)| (name, providers.collect()))
-        .collect();
-
-    check_for_multiple_instances_of_same_provider(&all_providers)?;
-
-    // After check_for_multiple_instances_of_same_provider we are sure each set has only one element
-    let all_providers: BTreeMap<_, _> = all_providers
-        .iter()
-        .map(|(key, value)| (key.clone(), value.iter().next().unwrap()))
-        .collect();
 
     let pulumi_wasm_versions: BTreeSet<String> = import_names
         .filter_map(|import| pulumi_wasm_version_regex.captures(import))
@@ -67,53 +49,6 @@ pub async fn create(
 
     info!("Pulumi WASM version: {pulumi_wasm_version}");
 
-    // Is not getting invoked, because different version are capture before
-    // (because of transitive output dependency)
-    //
-    // {
-    //     let providers_per_pulumi_wasm_version: BTreeMap<_, BTreeSet<_>> = all_providers
-    //         .iter()
-    //         .map(|(_, pi)| { pi })
-    //         .chunk_by(|pi| pi.pulumi_wasm_version.clone())
-    //         .into_iter()
-    //         .map(|(name, providers)| (name, providers.collect()))
-    //         .collect();
-    //
-    //     if providers_per_pulumi_wasm_version.len() > 1 {
-    //
-    //         let mut message = "References to multiple pulumi-wasm versions detected\n:".to_string();
-    //
-    //         for (version, providers) in providers_per_pulumi_wasm_version {
-    //             message.push_str(format!("- Pulumi WASM {version}:\n").as_str());
-    //
-    //             for (provider) in providers {
-    //                 message.push_str(format!("  - {}@{}\n", provider.name, provider.version).as_str());
-    //             }
-    //         }
-    //
-    //         bail!("{}", message);
-    //
-    //         // bail!("Found multiple providers with the same Pulumi-Wasm version: {}. Ensure only one is used.", providers_per_pulumi_wasm_version.keys().sorted().join(", "));
-    //     }
-    //
-    // }
-
-    let mut provider_wasm_files = BTreeMap::new();
-
-    for provider in all_providers.values() {
-        let provider_name = &provider.name;
-        let downloaded = match providers_paths.get(provider_name) {
-            None => {
-                default_provider_source
-                    .get_component(provider_name, &provider.version, pulumi_wasm_version, debug)
-                    .await
-            }
-            Some(provider_source) => provider_source.get_component(pulumi_wasm_version).await,
-        }
-        .context(format!("Cannot obtain provider {}", provider_name))?;
-        provider_wasm_files.insert(provider_name.clone(), downloaded);
-    }
-
     let pulumi_wasm = pulumi_wasm
         .get(pulumi_wasm_version, debug)
         .await
@@ -123,36 +58,6 @@ pub async fn create(
         Package::from_bytes("pulumi_wasm", None, pulumi_wasm, graph.types_mut()).unwrap();
     let pulumi_wasm_package_id = graph.register_package(pulumi_wasm.clone()).unwrap();
     let pulumi_wasm_instance = graph.instantiate(pulumi_wasm_package_id);
-
-    for (i, (_, provider)) in provider_wasm_files.into_iter().enumerate() {
-        let provider = Package::from_bytes(
-            format!("provider-{}", i).as_str(),
-            None,
-            provider,
-            graph.types_mut(),
-        )
-        .unwrap();
-        let provider_package_id = graph.register_package(provider.clone()).unwrap();
-        let provider_instance = graph.instantiate(provider_package_id);
-
-        plug_into_socket(
-            main_package_id,
-            main_instance,
-            provider_package_id,
-            provider_instance,
-            &mut graph,
-        )
-        .unwrap();
-
-        plug_into_socket(
-            provider_package_id,
-            provider_instance,
-            pulumi_wasm_package_id,
-            pulumi_wasm_instance,
-            &mut graph,
-        )
-        .unwrap();
-    }
 
     plug_into_socket(
         main_package_id,
@@ -181,29 +86,6 @@ pub async fn create(
         .unwrap();
 
     Ok(graph.encode(EncodeOptions::default()).unwrap())
-}
-
-fn check_for_multiple_instances_of_same_provider(
-    all_providers: &BTreeMap<String, BTreeSet<ProviderInfo>>,
-) -> anyhow::Result<()> {
-    for (provider_name, provider_infos) in all_providers {
-        if provider_infos.len() > 1 {
-            let mut message =
-                format!("Provider \"{provider_name}\" is requested in multiple versions:\n");
-            for pi in provider_infos {
-                message.push_str(
-                    format!(
-                        "- {} that requires pulumi_wasm in version {}\n",
-                        pi.version, pi.pulumi_wasm_version
-                    )
-                    .as_str(),
-                )
-            }
-            let message = message.trim().to_string();
-            bail!(message)
-        }
-    }
-    Ok(())
 }
 
 /// https://github.com/bytecodealliance/wac/blob/290c10068a080b33a49cb8d0b4f83601840cec51/src/commands/plug.rs#L282-L316

@@ -17,13 +17,13 @@ https://github.com/andrzejressel/pulumi-wasm-example
 #### Language plugin
 
 ```
-pulumi plugin install language wasm "0.0.0-NIGHTLY-SHORTSHA1" --server github://api.github.com/andrzejressel/pulumi-wasm
+pulumi plugin install language wasm "VERSION" --server github://api.github.com/andrzejressel/pulumi-wasm-releases
 ```
 
 #### WASM Runner
 
 ```
-cargo binstall -y --index "sparse+https://cargo.cloudsmith.io/andrzej-ressel-github/pulumi-wasm/" pulumi_wasm_runner@0.0.0-NIGHTLY-SHORTSHA1
+cargo binstall -y --index "sparse+https://cargo.cloudsmith.io/andrzej-ressel-github/pulumi-wasm/" pulumi_wasm_runner@VERSION
 ```
 
 ### Acknowledgements
