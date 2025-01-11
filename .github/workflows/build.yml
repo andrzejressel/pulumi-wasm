@@ -393,41 +393,20 @@ jobs:
 #      env:
 #        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Create commit (release repository)
-      uses: actions/github-script@v6
-      with:
-        github-token: ${{ secrets.RELEASE_TOKEN }}
-        script: |
-          const branch = 'main';
-          const newVersion = process.env.new_version;
-          const commitMessage = `Update to version ${newVersion}`;
+    - name: Clone Repository
+      run: |
+        git clone https://${{ secrets.RELEASE_TOKEN }}@github.com/andrzejressel/pulumi-wasm-releases /tmp/repo
+        cd /tmp/repo
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          // Get the current reference (branch HEAD SHA)
-          const ref = `heads/${branch}`;
-          const { data: refData } = await github.rest.git.getRef({
-            owner: context.repo.owner,
-            repo: "pulumi-wasm-releases",
-            ref
-          });
-          const currentSha = refData.object.sha;
-
-          // Create a new commit object
-          const { data: commitData } = await github.rest.git.createCommit({
-            owner: context.repo.owner,
-            repo: "pulumi-wasm-releases",
-            message: commitMessage,
-            tree: refData.object.sha, // Use the current tree SHA (no changes)
-          });
-
-          // Update the reference to point to the new commit
-          await github.rest.git.updateRef({
-            owner: context.repo.owner,
-            repo: "pulumi-wasm-releases",
-            ref,
-            sha: commitData.sha
-          });
-      env:
-        NEW_VERSION: ${{ env.new_version }}
+    - name: Create Empty Commit
+      run: |
+        cd /tmp/repo
+        git commit --allow-empty -m "Empty commit for version ${{ env.new_version }}"
+        git push origin main
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.MY_CUSTOM_TOKEN }}
 
 #
 #    - name: Create commit
