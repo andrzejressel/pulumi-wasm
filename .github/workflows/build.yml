@@ -396,6 +396,7 @@ jobs:
     - name: Create commit (release repository)
       uses: actions/github-script@v6
       with:
+        github-token: ${{ secrets.RELEASE_TOKEN }}
         script: |
           const branch = 'main';
           const newVersion = process.env.new_version;
@@ -427,7 +428,6 @@ jobs:
             sha: commitData.sha
           });
       env:
-        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         NEW_VERSION: ${{ env.new_version }}
 
 #
