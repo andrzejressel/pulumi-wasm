@@ -7,10 +7,7 @@ use log4rs::config::{Appender, Root};
 use log4rs::encode::json::JsonEncoder;
 use log4rs::Config;
 use pulumi_wasm_proto::grpc;
-use pulumi_wasm_runner_component_creator::source::{
-    GithubPulumiWasmSource, ProviderSource, PulumiWasmSource,
-};
-use std::collections::BTreeMap;
+use pulumi_wasm_runner_component_creator::source::{GithubPulumiWasmSource, PulumiWasmSource};
 use std::fs;
 use std::path::PathBuf;
 mod model;
@@ -27,12 +24,6 @@ struct App {
 #[derive(Debug, Subcommand)]
 enum Command {
     Run {
-        #[arg(
-            long="provider",
-            value_parser = parse_key_val::<String, PathBuf>,
-            help="Example: --provider provider_name=provider.wasm --provider provider2_name=provider2.wasm "
-        )]
-        providers: Vec<(String, PathBuf)>,
         #[arg(long)]
         pulumi_wasm: Option<PathBuf>,
         #[clap(
@@ -54,22 +45,6 @@ struct GlobalOpts {
     cwasm: Option<String>,
 }
 
-/// Parse a single key-value pair
-fn parse_key_val<T, U>(
-    s: &str,
-) -> Result<(T, U), Box<dyn std::error::Error + Send + Sync + 'static>>
-where
-    T: std::str::FromStr,
-    T::Err: std::error::Error + Send + Sync + 'static,
-    U: std::str::FromStr,
-    U::Err: std::error::Error + Send + Sync + 'static,
-{
-    let pos = s
-        .find('=')
-        .ok_or_else(|| format!("invalid KEY=value: no `=` found in `{s}`"))?;
-    Ok((s[..pos].parse()?, s[pos + 1..].parse()?))
-}
-
 #[tokio::main]
 async fn main() -> Result<(), Error> {
     let args = App::parse();
@@ -87,21 +62,11 @@ async fn main() -> Result<(), Error> {
 
     match &args.command {
         Command::Run {
-            providers,
             pulumi_wasm,
             debug,
             program,
         } => {
             use pulumi_wasm_runner_component_creator::source::FileSource;
-            let providers: BTreeMap<_, _> = providers
-                .iter()
-                .map(|(k, v)| {
-                    (
-                        k.clone(),
-                        Box::new(FileSource::new(v.clone())) as Box<dyn ProviderSource>,
-                    )
-                })
-                .collect();
             log::info!("Debug set to {debug}");
             log::info!("Creating final component");
             let pulumi_wasm_source: Box<dyn PulumiWasmSource> = match pulumi_wasm {
@@ -110,8 +75,6 @@ async fn main() -> Result<(), Error> {
             };
 
             let component = pulumi_wasm_runner_component_creator::create(
-                providers,
-                &GithubPulumiWasmSource {},
                 pulumi_wasm_source.as_ref(),
                 fs::read(program)
                     .context(format!("Cannot read program {}", program.to_str().unwrap()))?,

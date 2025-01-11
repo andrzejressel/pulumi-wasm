@@ -33,7 +33,7 @@ members = [
 [workspace.package]
 version = "0.0.0-DEV"
 edition = "2021"
-repository = "https://github.com/andrzejressel/pulumi-wasm"
+repository = "https://github.com/andrzejressel/pulumi-wasm-releases"
 
 [workspace.dependencies]
 pulumi_wasm_core = { version = "=0.0.0-DEV", path = "pulumi_wasm_core", registry = "cloudsmith" }
