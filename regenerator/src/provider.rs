@@ -32,11 +32,7 @@ pub(crate) fn find_modules(provider_name: &str) -> Result<Vec<String>> {
 }
 
 fn extract_module(input: &str) -> Option<&str> {
-    input
-        .split(':')
-        .nth(1)
-        .map(|s| s.split('/').next())
-        .flatten()
+    input.split(':').nth(1).and_then(|s| s.split('/').next())
 }
 
 #[derive(Deserialize)]
