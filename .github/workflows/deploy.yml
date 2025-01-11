@@ -132,7 +132,7 @@ jobs:
           tag_name: ${{ env.GITHUB_REF_NAME }}
           fail_on_unmatched_files: true
           prerelease: true
-          repository: andrzejressel/pulumi-wasm-nightly-releases
+          repository: andrzejressel/pulumi-wasm-releases
           token: ${{ secrets.RELEASE_TOKEN }}
           body: ""
           files: |
@@ -171,7 +171,7 @@ jobs:
           tag_name: ${{ env.GITHUB_REF_NAME }}
           fail_on_unmatched_files: true
           prerelease: true
-          repository: andrzejressel/pulumi-wasm-nightly-releases
+          repository: andrzejressel/pulumi-wasm-releases
           token: ${{ secrets.RELEASE_TOKEN }}
           body: ""
           files: |
@@ -274,7 +274,7 @@ jobs:
           tag_name: ${{ env.GITHUB_REF_NAME }}
           fail_on_unmatched_files: true
           prerelease: true
-          repository: andrzejressel/pulumi-wasm-nightly-releases
+          repository: andrzejressel/pulumi-wasm-releases
           token: ${{ secrets.RELEASE_TOKEN }}
           body: ""
           files: |
