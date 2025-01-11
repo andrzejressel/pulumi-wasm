@@ -380,19 +380,35 @@ jobs:
       id: short-sha
       with:
         length: 7
+    - name: Generate new version
+      run: |
+        echo "new_version=$(date +'%y.%-m.%-d')-${{ steps.short-sha.outputs.sha }}" >> $GITHUB_ENV
     - name: Replace version
-      run: just update-version "$(date +'%y.%-m.%-d')-${{ steps.short-sha.outputs.sha }}"
+      run: just update-version "${{ env.new_version }}"
 
     - name: Base and e2e tests
       run: just base-ci-flow examples-ci-flow
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+    - name: Clone Repository
+      run: |
+        git clone https://${{ secrets.RELEASE_TOKEN }}@github.com/andrzejressel/pulumi-wasm-releases /tmp/repo
+        cd /tmp/repo
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+
+    - name: Create Empty Commit
+      run: |
+        cd /tmp/repo
+        git commit --allow-empty -m "Commit for version ${{ env.new_version }}"
+        git push origin main
+
     - name: Create commit
       run: |
         git config --local user.name "GitHub Actions"
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git add -A
-        git commit -m "Release v$(date +'%y.%-m.%-d')-${{ steps.short-sha.outputs.sha }}"
-        git tag "v$(date +'%y.%-m.%-d')-${{ steps.short-sha.outputs.sha }}"
-        git push origin "v$(date +'%y.%-m.%-d')-${{ steps.short-sha.outputs.sha }}"
+        git commit -m "Release v${{ env.new_version }}"
+        git tag "v${{ env.new_version }}"
+        git push origin "v${{ env.new_version }}"
