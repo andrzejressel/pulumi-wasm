@@ -383,10 +383,8 @@ jobs:
     - name: Generate new version
       run: |
         echo "new_version=$(date +'%y.%-m.%-d')-${{ steps.short-sha.outputs.sha }}" >> $GITHUB_ENV
-#    - name: Replace version
-#      run: just update-version ${NEW_VERSION}
-#      env:
-#        NEW_VERSION: ${{ env.new_version }}
+    - name: Replace version
+      run: just update-version "${{ env.new_version }}"
 
 #    - name: Base and e2e tests
 #      run: just base-ci-flow examples-ci-flow
@@ -403,19 +401,16 @@ jobs:
     - name: Create Empty Commit
       run: |
         cd /tmp/repo
-        git commit --allow-empty -m "Empty commit for version ${{ env.new_version }}"
+        git commit --allow-empty -m "Commit for version ${{ env.new_version }}"
         git push origin main
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.MY_CUSTOM_TOKEN }}
 
-#
-#    - name: Create commit
-#      run: |
-#        git config --local user.name "GitHub Actions"
-#        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-#        git add -A
-#        git commit -m "Release v${NEW_VERSION}"
-#        git tag "v${NEW_VERSION}"
-#        git push origin "v${NEW_VERSION}"
-#      env:
-#        NEW_VERSION: ${{ env.new_version }}
+    - name: Create commit
+      run: |
+        git config --local user.name "GitHub Actions"
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git add -A
+        git commit -m "Release v${NEW_VERSION}"
+        git tag "v${NEW_VERSION}"
+        git push origin "v${NEW_VERSION}"
+      env:
+        NEW_VERSION: ${{ env.new_version }}
