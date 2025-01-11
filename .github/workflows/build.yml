@@ -403,7 +403,7 @@ jobs:
 
           // Get the current reference (branch HEAD SHA)
           const ref = `heads/${branch}`;
-          const { data: refData } = await github.git.getRef({
+          const { data: refData } = await github.rest.git.getRef({
             owner: context.repo.owner,
             repo: context.repo.repo,
             ref
@@ -411,7 +411,7 @@ jobs:
           const currentSha = refData.object.sha;
 
           // Create a new commit object
-          const { data: commitData } = await github.git.createCommit({
+          const { data: commitData } = await github.rest.git.createCommit({
             owner: context.repo.owner,
             repo: context.repo.repo,
             message: commitMessage,
@@ -420,7 +420,7 @@ jobs:
           });
 
           // Update the reference to point to the new commit
-          await github.git.updateRef({
+          await github.rest.git.updateRef({
             owner: context.repo.owner,
             repo: context.repo.repo,
             ref,
