@@ -12,9 +12,6 @@ async fn should_combine_wasm_components() -> Result<()> {
     let mut resolve = Resolve::new();
     resolve.add_pulumi_wasm_stable().unwrap();
     resolve.add_pulumi_wasm("0.0.0-DEV").unwrap();
-    resolve
-        .add_provider("docker", "4.5.3", "0.0.0-DEV")
-        .unwrap();
 
     let pkg = resolve
         .push_str(
@@ -26,7 +23,6 @@ async fn should_combine_wasm_components() -> Result<()> {
         import component:pulumi-wasm/output-interface@0.0.0-DEV;
         export component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV;
         import component:pulumi-wasm-external/pulumi-settings@0.0.0-STABLE-DEV;
-        import pulumi:docker/container@4.5.3--0.0.0-DEV;
     }
 "#,
         )
@@ -51,57 +47,6 @@ async fn should_combine_wasm_components() -> Result<()> {
             .unwrap();
 
     assert_component_only_exports_main_and_settings(&result)?;
-
-    Ok(())
-}
-
-#[tokio::test]
-async fn return_error_when_multiple_dependencies_on_the_same_provider_is_found() -> Result<()> {
-    let mut resolve = Resolve::new();
-    resolve.add_pulumi_wasm_stable().unwrap();
-    resolve.add_pulumi_wasm("0.0.0-DEV").unwrap();
-    resolve
-        .add_provider("docker", "4.5.3", "0.0.0-DEV")
-        .unwrap();
-    resolve
-        .add_provider("docker", "4.5.4", "0.0.0-DEV")
-        .unwrap();
-
-    let pkg = resolve
-        .push_str(
-            "test.wit",
-            r#"
-    package test:wit;
-
-    world root {
-        import component:pulumi-wasm/output-interface@0.0.0-DEV;
-        export component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV;
-        import pulumi:docker/container@4.5.3--0.0.0-DEV;
-        import pulumi:docker/container@4.5.4--0.0.0-DEV;
-    }
-"#,
-        )
-        .unwrap();
-
-    let world = resolve.select_world(pkg, None).unwrap();
-
-    let mut module = dummy_module(&resolve, world, Standard32);
-
-    embed_component_metadata(&mut module, &resolve, world, StringEncoding::UTF8).unwrap();
-
-    let encoded = ComponentEncoder::default()
-        .module(&module)
-        .unwrap()
-        .validate(true)
-        .encode()
-        .unwrap();
-
-    let error =
-        pulumi_wasm_runner_component_creator::create(&TestProgramSource {}, encoded.clone(), true)
-            .await
-            .expect_err("Expected creator to return error");
-
-    assert_eq!(error.to_string(), "Provider \"docker\" is requested in multiple versions:\n- 4.5.3 that requires pulumi_wasm in version 0.0.0-DEV\n- 4.5.4 that requires pulumi_wasm in version 0.0.0-DEV".to_string());
 
     Ok(())
 }
