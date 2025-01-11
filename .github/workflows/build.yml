@@ -317,65 +317,65 @@ jobs:
 #    needs: [build-base, build-generated-provider, build-examples, build-housekeeping, build-rust-docs]
 #    if: success() && github.ref == 'refs/heads/main'
     steps:
-    - name: Cleanup unused stuff
-      run: |
-        df -h /
-        sudo rm -rf \
-        "$AGENT_TOOLSDIRECTORY" \
-        /opt/google/chrome \
-        /opt/microsoft/msedge \
-        /opt/microsoft/powershell \
-        /opt/pipx \
-        /usr/lib/mono \
-        /usr/local/julia* \
-        /usr/local/lib/android \
-        /usr/local/lib/node_modules \
-        /usr/local/share/chromium \
-        /usr/local/share/powershell \
-        /usr/share/dotnet \
-        /usr/share/swift
-        df -h /
-    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-      with:
-        submodules: true
-        token: ${{ secrets.PAT }}
-    - uses: extractions/setup-just@dd310ad5a97d8e7b41793f8ef055398d51ad4de6 # v2
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - uses: cargo-bins/cargo-binstall@main
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Install requirements
-      run: just install-requirements
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Pull required docker images
-      if: runner.os == 'Linux'
-      uses: nick-fields/retry@7152eba30c6575329ac0576536151aca5a72780e # v3
-      with:
-        timeout_minutes: 10
-        max_attempts: 10
-        command: docker pull public.ecr.aws/ubuntu/ubuntu:latest
-    - uses: actions/setup-go@3041bf56c941b39c61721a86cd11f3bb1338122a # v5
-      with:
-        go-version: '^1.22.0'
-        cache-dependency-path: "**/go.sum"
-    - run: go version
-    - name: Install Protoc
-      uses: arduino/setup-protoc@v3
-      with:
-        version: "25.3"
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-    - run: protoc --version
-    - run: brew install pulumi
-      if: runner.os == 'macOS'
-    - run: pulumi version
-    - run: pulumi login --local
-
-    - uses: Swatinem/rust-cache@f0deed1e0edfc6a9be95417288c0e1099b1eeec3 # v2
-      with:
-        shared-key: build-examples
-        save-if: false
+#    - name: Cleanup unused stuff
+#      run: |
+#        df -h /
+#        sudo rm -rf \
+#        "$AGENT_TOOLSDIRECTORY" \
+#        /opt/google/chrome \
+#        /opt/microsoft/msedge \
+#        /opt/microsoft/powershell \
+#        /opt/pipx \
+#        /usr/lib/mono \
+#        /usr/local/julia* \
+#        /usr/local/lib/android \
+#        /usr/local/lib/node_modules \
+#        /usr/local/share/chromium \
+#        /usr/local/share/powershell \
+#        /usr/share/dotnet \
+#        /usr/share/swift
+#        df -h /
+#    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+#      with:
+#        submodules: true
+#        token: ${{ secrets.PAT }}
+#    - uses: extractions/setup-just@dd310ad5a97d8e7b41793f8ef055398d51ad4de6 # v2
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#    - uses: cargo-bins/cargo-binstall@main
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#    - name: Install requirements
+#      run: just install-requirements
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#    - name: Pull required docker images
+#      if: runner.os == 'Linux'
+#      uses: nick-fields/retry@7152eba30c6575329ac0576536151aca5a72780e # v3
+#      with:
+#        timeout_minutes: 10
+#        max_attempts: 10
+#        command: docker pull public.ecr.aws/ubuntu/ubuntu:latest
+#    - uses: actions/setup-go@3041bf56c941b39c61721a86cd11f3bb1338122a # v5
+#      with:
+#        go-version: '^1.22.0'
+#        cache-dependency-path: "**/go.sum"
+#    - run: go version
+#    - name: Install Protoc
+#      uses: arduino/setup-protoc@v3
+#      with:
+#        version: "25.3"
+#        repo-token: ${{ secrets.GITHUB_TOKEN }}
+#    - run: protoc --version
+#    - run: brew install pulumi
+#      if: runner.os == 'macOS'
+#    - run: pulumi version
+#    - run: pulumi login --local
+#
+#    - uses: Swatinem/rust-cache@f0deed1e0edfc6a9be95417288c0e1099b1eeec3 # v2
+#      with:
+#        shared-key: build-examples
+#        save-if: false
     - uses: benjlevesque/short-sha@599815c8ee942a9616c92bcfb4f947a3b670ab0b # v3.0
       id: short-sha
       with:
@@ -383,10 +383,10 @@ jobs:
     - name: Generate new version
       run: |
         echo "new_version=$(date +'%y.%-m.%-d')-${{ steps.short-sha.outputs.sha }}" >> $GITHUB_ENV
-    - name: Replace version
-      run: just update-version ${NEW_VERSION}
-      env:
-        NEW_VERSION: ${{ env.new_version }}
+#    - name: Replace version
+#      run: just update-version ${NEW_VERSION}
+#      env:
+#        NEW_VERSION: ${{ env.new_version }}
 
 #    - name: Base and e2e tests
 #      run: just base-ci-flow examples-ci-flow
@@ -405,7 +405,7 @@ jobs:
           const ref = `heads/${branch}`;
           const { data: refData } = await github.rest.git.getRef({
             owner: context.repo.owner,
-            repo: context.repo.repo,
+            repo: "pulumi-wasm-releases",
             ref
           });
           const currentSha = refData.object.sha;
@@ -413,7 +413,7 @@ jobs:
           // Create a new commit object
           const { data: commitData } = await github.rest.git.createCommit({
             owner: context.repo.owner,
-            repo: context.repo.repo,
+            repo: "pulumi-wasm-releases",
             message: commitMessage,
             tree: refData.object.sha, // Use the current tree SHA (no changes)
             parents: [currentSha]
@@ -422,7 +422,7 @@ jobs:
           // Update the reference to point to the new commit
           await github.rest.git.updateRef({
             owner: context.repo.owner,
-            repo: context.repo.repo,
+            repo: "pulumi-wasm-releases",
             ref,
             sha: commitData.sha
           });
@@ -430,14 +430,14 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         NEW_VERSION: ${{ env.new_version }}
 
-
-    - name: Create commit
-      run: |
-        git config --local user.name "GitHub Actions"
-        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git add -A
-        git commit -m "Release v${NEW_VERSION}"
-        git tag "v${NEW_VERSION}"
-        git push origin "v${NEW_VERSION}"
-      env:
-        NEW_VERSION: ${{ env.new_version }}
+#
+#    - name: Create commit
+#      run: |
+#        git config --local user.name "GitHub Actions"
+#        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+#        git add -A
+#        git commit -m "Release v${NEW_VERSION}"
+#        git tag "v${NEW_VERSION}"
+#        git push origin "v${NEW_VERSION}"
+#      env:
+#        NEW_VERSION: ${{ env.new_version }}
