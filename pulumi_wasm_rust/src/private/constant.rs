@@ -1,3 +1,4 @@
+#[doc(hidden)]
 #[macro_export]
 macro_rules! generate_string_const {
     ($struct_name:ident, $constant:tt) => {
