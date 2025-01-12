@@ -8,15 +8,6 @@ mod tests {
     };
     use pulumi_wasm_providers_typesystem::typesystem_server::TypesystemServerArgs;
     use pulumi_wasm_rust::{OneOf2, Output};
-    use std::panic::catch_unwind;
-
-    #[test]
-    fn test_compilation() {
-        let _ = catch_unwind(compilation_test);
-        let _ = catch_unwind(function_compilation_test);
-        let _ = catch_unwind(resource_compilation_test);
-        let _ = catch_unwind(types_compilation_test);
-    }
 
     #[test]
     fn test_case_deserialization() {
@@ -117,6 +108,7 @@ mod tests {
         assert_eq!(deserialized2, oneof2);
     }
 
+    #[allow(dead_code)]
     fn compilation_test() {
         // String
         let output = Output::new(&"Hello, World!".to_string());
@@ -185,6 +177,7 @@ mod tests {
         //     .required_string_input(true);
     }
 
+    #[allow(dead_code)]
     fn resource_compilation_test() {
         pulumi_wasm_providers_typesystem::deep::nested::module::some_resource::create(
             "test",
@@ -192,10 +185,12 @@ mod tests {
         );
     }
 
+    #[allow(dead_code)]
     fn function_compilation_test() {
         pulumi_wasm_providers_typesystem::functions::deep::nested::module::some_function::invoke();
     }
 
+    #[allow(dead_code)]
     fn types_compilation_test() {
         let _ = pulumi_wasm_providers_typesystem::types::deep::nested::module::SomeType::builder()
             .build_struct();
