@@ -2,7 +2,8 @@ use anyhow::Error;
 use pulumi_wasm_providers_random::random_string;
 use pulumi_wasm_providers_random::random_string::RandomStringArgs;
 use pulumi_wasm_rust::Output;
-use pulumi_wasm_rust::{add_export, pulumi_main};
+use pulumi_wasm_rust::ToOutput;
+use pulumi_wasm_rust::{add_export, pulumi_combine, pulumi_format, pulumi_main};
 
 #[pulumi_main]
 fn test_main() -> Result<(), Error> {
@@ -26,11 +27,11 @@ fn test_main() -> Result<(), Error> {
     let val2 = Output::new(&"abc".to_string());
 
     // Outputs can be reused
-    let combined = Output::combine2(val1, val2);
-    let combined_2 = Output::combine2(val1, val2);
+    let combined = pulumi_combine!(val1, val2);
+    let combined_2 = pulumi_combine!(val1, val2);
 
-    let combined_string = combined.map(|values| format!("Values: {values:?}"));
-    let combined_2_string = combined_2.map(|values| format!("Values: {values:?}"));
+    let combined_string = pulumi_format!("Values: {:?}", combined);
+    let combined_2_string = pulumi_format!("Values: {:?}", combined_2);
 
     let random_string_2 = random_string::create(
         "test_2",
