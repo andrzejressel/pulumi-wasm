@@ -4,7 +4,7 @@ use pulumi_wasm_runner_component_creator::source::PulumiWasmSource;
 use wac_graph::types::Package;
 use wac_graph::CompositionGraph;
 use wit_component::{dummy_module, embed_component_metadata, ComponentEncoder, StringEncoding};
-use wit_parser::Mangling::Standard32;
+use wit_parser::ManglingAndAbi::Standard32;
 use wit_parser::{PackageId, Resolve};
 
 #[tokio::test]
