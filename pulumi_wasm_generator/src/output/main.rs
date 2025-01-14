@@ -12,8 +12,8 @@ struct TemplateModel<'a> {
     constants: Vec<String>,
     pulumi_wasm_wit: String,
     pulumi_wasm_version: &'a str,
-    provider_name: String,
-    provider_version: String,
+    provider_name: &'a str,
+    provider_version: &'a str,
 }
 
 pub(crate) fn generate(
@@ -32,8 +32,8 @@ pub(crate) fn generate(
         constants,
         pulumi_wasm_wit: wit,
         pulumi_wasm_version: get_main_version(),
-        provider_name: package.name.clone(),
-        provider_version: package.version.clone(),
+        provider_name: &package.name,
+        provider_version: &package.version,
     }
     .render()?;
 
