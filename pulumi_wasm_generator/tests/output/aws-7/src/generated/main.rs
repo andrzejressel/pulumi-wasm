@@ -326,3 +326,6 @@ interface register-interface {
         } }
     );
 }
+#[link_section = "pulumi_wasm_provider::aws"]
+#[no_mangle]
+pub static PULUMI_WASM_PROVIDER_aws: [u8; 6] = *b"6.66.2";

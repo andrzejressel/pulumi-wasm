@@ -158,3 +158,6 @@ interface register-interface {
         } }
     );
 }
+#[link_section = "pulumi_wasm_provider::docker"]
+#[no_mangle]
+pub static PULUMI_WASM_PROVIDER_docker: [u8; 5] = *b"4.5.3";

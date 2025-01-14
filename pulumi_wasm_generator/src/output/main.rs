@@ -1,16 +1,19 @@
 use crate::output::wit;
 use crate::utils::get_main_version;
 use rinja::Template;
+use crate::model::Package;
 
 #[derive(Template)]
 #[template(path = "main.rs.jinja")]
-struct TemplateModel {
+struct TemplateModel<'a> {
     functions: String,
     resources: String,
     types: String,
     constants: Vec<String>,
     pulumi_wasm_wit: String,
-    pulumi_wasm_version: String,
+    pulumi_wasm_version: &'a str,
+    provider_name: String,
+    provider_version: String,
 }
 
 pub(crate) fn generate(
@@ -18,9 +21,9 @@ pub(crate) fn generate(
     resources: String,
     types: String,
     constants: Vec<String>,
-    provider_name: String,
+    package: &Package,
 ) -> anyhow::Result<String> {
-    let wit = wit::get_dependencies(provider_name)?;
+    let wit = wit::get_dependencies(&package.name)?;
 
     let file = TemplateModel {
         functions,
@@ -29,6 +32,8 @@ pub(crate) fn generate(
         constants,
         pulumi_wasm_wit: wit,
         pulumi_wasm_version: get_main_version(),
+        provider_name: package.name.clone(),
+        provider_version: package.version.clone(),
     }
     .render()?;
 

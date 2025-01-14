@@ -182,6 +182,6 @@ pub(crate) fn reformat_code(code: &str) -> anyhow::Result<String> {
     Ok(prettyplease::unparse(&syntax_tree))
 }
 
-pub(crate) fn get_main_version() -> String {
-    env!("CARGO_PKG_VERSION").to_string()
+pub(crate) fn get_main_version() -> &'static str {
+    env!("CARGO_PKG_VERSION")
 }

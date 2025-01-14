@@ -93,3 +93,6 @@ interface register-interface {
         } }
     );
 }
+#[link_section = "pulumi_wasm_provider::plant"]
+#[no_mangle]
+pub static PULUMI_WASM_PROVIDER_plant: [u8; 5] = *b"0.0.1";

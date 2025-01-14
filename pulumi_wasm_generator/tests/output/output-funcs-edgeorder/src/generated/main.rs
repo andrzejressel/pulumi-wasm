@@ -106,3 +106,6 @@ interface register-interface {
         } }
     );
 }
+#[link_section = "pulumi_wasm_provider::myedgeorder"]
+#[no_mangle]
+pub static PULUMI_WASM_PROVIDER_myedgeorder: [u8; 5] = *b"0.0.1";

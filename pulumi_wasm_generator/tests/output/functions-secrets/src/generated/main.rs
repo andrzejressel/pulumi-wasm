@@ -75,3 +75,6 @@ interface register-interface {
         } }
     );
 }
+#[link_section = "pulumi_wasm_provider::mypkg"]
+#[no_mangle]
+pub static PULUMI_WASM_PROVIDER_mypkg: [u8; 5] = *b"0.0.1";

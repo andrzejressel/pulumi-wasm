@@ -248,3 +248,6 @@ interface register-interface {
         } }
     );
 }
+#[link_section = "pulumi_wasm_provider::azure"]
+#[no_mangle]
+pub static PULUMI_WASM_PROVIDER_azure: [u8; 6] = *b"6.14.0";

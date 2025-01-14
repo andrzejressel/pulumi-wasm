@@ -1326,3 +1326,6 @@ interface register-interface {
         } }
     );
 }
+#[link_section = "pulumi_wasm_provider::gcp"]
+#[no_mangle]
+pub static PULUMI_WASM_PROVIDER_gcp: [u8; 6] = *b"8.12.1";
