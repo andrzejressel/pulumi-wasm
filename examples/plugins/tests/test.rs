@@ -35,9 +35,13 @@ fn test_integration() -> Result<(), anyhow::Error> {
     let stack = &command_up.get_output().stderr;
     let str = str::from_utf8(stack)?;
 
-    assert!(str.contains(
-        "GetRequiredPlugins: plugins=[name:\"random\"  kind:\"resource\"  version:\"4.15.0\"]"
-    ));
+    assert!(
+        str.contains(
+            "GetRequiredPlugins: plugins=[name:\"random\"  kind:\"resource\"  version:\"4.15.0\"]"
+        ),
+        "random plugin not found in stack output [{}]",
+        str
+    );
 
     Ok(())
 }
