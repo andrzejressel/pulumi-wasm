@@ -188,9 +188,21 @@ func (host *wasmLanguageHost) determinePulumiPackages(
 		return nil, err
 	}
 
+	tmpFile, err := os.CreateTemp("", "plugins-*.json")
+	if err != nil {
+		logging.V(3).Infof("Could not create temporary file", err)
+		return []plugin.PulumiPluginJSON{}, nil
+	}
+	err = tmpFile.Close()
+	if err != nil {
+		logging.V(3).Infof("Cannot close temporary file", err)
+		return []plugin.PulumiPluginJSON{}, nil
+	}
+
 	// Run our classpath introspection from the SDK and parse the resulting JSON
 	cmd := exec.Cmd
 	args := exec.PluginArgs
+	args = append(args, tmpFile.Name())
 	output, err := host.runHostCommand(ctx, exec.Dir, cmd, args, true, false)
 	if err != nil {
 		// Plugin determination is an advisory feature, so it does not need to escalate to an error.
@@ -203,8 +215,16 @@ func (host *wasmLanguageHost) determinePulumiPackages(
 
 	logging.V(5).Infof("GetRequiredPlugins: bootstrap raw output=%v", output)
 
+	content, err := os.ReadFile(tmpFile.Name())
+	if err != nil {
+		logging.V(3).Infof("Cannot read temporary file: %s %s", tmpFile.Name(), err)
+		return []plugin.PulumiPluginJSON{}, nil
+	}
+
+	logging.V(5).Infof("GetRequiredPlugins file: bootstrap raw output=%v", content)
+
 	var plugins []plugin.PulumiPluginJSON
-	err = json.Unmarshal([]byte(output.stdout), &plugins)
+	err = json.Unmarshal([]byte(content), &plugins)
 	if err != nil {
 		if e, ok := err.(*json.SyntaxError); ok {
 			logging.V(5).Infof("JSON syntax error at byte offset %d", e.Offset)

@@ -27,7 +27,7 @@ func (justfile) newWasmCliExecutor() (*WasmExecutor, error) {
 		Cmd:         "just",
 		BuildArgs:   []string{"build"},
 		RunArgs:     []string{"run"},
-		PluginArgs:  []string{"plugin"},
+		PluginArgs:  []string{"plugins"},
 		VersionArgs: []string{"version"},
 	}, nil
 }

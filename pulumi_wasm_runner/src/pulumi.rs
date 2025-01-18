@@ -42,7 +42,7 @@ struct MyState {
 impl Host for MyState {
     async fn is_in_preview(&mut self) -> wasmtime::Result<bool> {
         Ok(std::env::var("PULUMI_DRY_RUN")
-            .map(|s| s.to_ascii_lowercase() == "true")
+            .map(|s| s.eq_ignore_ascii_case("true"))
             .unwrap_or_else(|_| false))
     }
     async fn get_root_resource(&mut self) -> wasmtime::Result<String> {

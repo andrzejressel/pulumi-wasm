@@ -2372,6 +2372,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "pulumi_wasm_example_plugins"
+version = "0.0.0-DEV"
+dependencies = [
+ "anyhow",
+ "assert_cmd",
+ "pulumi_wasm_providers_random",
+ "pulumi_wasm_rust",
+]
+
+[[package]]
 name = "pulumi_wasm_example_simple"
 version = "0.0.0-DEV"
 dependencies = [
@@ -2515,10 +2525,14 @@ dependencies = [
  "pulumi_wasm_proto",
  "pulumi_wasm_runner_component_creator",
  "pulumi_wasm_wit",
+ "serde",
+ "serde_json",
  "tokio",
  "tonic",
+ "wasmparser 0.223.0",
  "wasmtime",
  "wasmtime-wasi",
+ "wat",
 ]
 
 [[package]]
@@ -3865,6 +3879,7 @@ dependencies = [
  "hashbrown 0.15.2",
  "indexmap 2.7.0",
  "semver",
+ "serde",
 ]
 
 [[package]]

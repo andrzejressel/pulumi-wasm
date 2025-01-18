@@ -160,4 +160,8 @@ interface register-interface {
 }
 #[link_section = "pulumi_wasm_provider::docker"]
 #[no_mangle]
-pub static PULUMI_WASM_PROVIDER_docker: [u8; 5] = *b"4.5.3";
+#[cfg(target_arch = "wasm32")]
+pub static PULUMI_WASM_PROVIDER_DOCKER: [u8; 44] = *b"{\"version\":\"4.5.3\",\"pluginDownloadURL\":null}";
+pub(crate) fn get_version() -> &'static str {
+    "4.5.3"
+}

@@ -86,4 +86,8 @@ interface register-interface {
 }
 #[link_section = "pulumi_wasm_provider::example"]
 #[no_mangle]
-pub static PULUMI_WASM_PROVIDER_example: [u8; 5] = *b"1.0.0";
+#[cfg(target_arch = "wasm32")]
+pub static PULUMI_WASM_PROVIDER_EXAMPLE: [u8; 44] = *b"{\"version\":\"1.0.0\",\"pluginDownloadURL\":null}";
+pub(crate) fn get_version() -> &'static str {
+    "1.0.0"
+}

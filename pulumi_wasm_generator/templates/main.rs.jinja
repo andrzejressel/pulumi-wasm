@@ -29,4 +29,9 @@ mod bindings {
 
 #[link_section = "pulumi_wasm_provider::{{ provider_name }}"]
 #[no_mangle]
-pub static PULUMI_WASM_PROVIDER_{{ provider_name.replace("-", "_") }}: [u8; {{ provider_version.len() }}] = *b"{{ provider_version }}";
+#[cfg(target_arch = "wasm32")]
+pub static PULUMI_WASM_PROVIDER_{{ provider_name.replace("-", "_").to_ascii_uppercase() }}: [u8; {{ provider_metadata.len() }}] = *b"{{ provider_metadata.replace("\"", "\\\"")|safe }}";
+
+pub(crate) fn get_version() -> &'static str {
+    "{{ provider_version }}"
+}

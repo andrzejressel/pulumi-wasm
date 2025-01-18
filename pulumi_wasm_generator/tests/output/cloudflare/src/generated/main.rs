@@ -780,4 +780,8 @@ interface register-interface {
 }
 #[link_section = "pulumi_wasm_provider::cloudflare"]
 #[no_mangle]
-pub static PULUMI_WASM_PROVIDER_cloudflare: [u8; 6] = *b"5.43.1";
+#[cfg(target_arch = "wasm32")]
+pub static PULUMI_WASM_PROVIDER_CLOUDFLARE: [u8; 45] = *b"{\"version\":\"5.43.1\",\"pluginDownloadURL\":null}";
+pub(crate) fn get_version() -> &'static str {
+    "5.43.1"
+}

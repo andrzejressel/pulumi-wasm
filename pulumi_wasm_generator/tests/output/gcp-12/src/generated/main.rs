@@ -283,4 +283,8 @@ interface register-interface {
 }
 #[link_section = "pulumi_wasm_provider::gcp"]
 #[no_mangle]
-pub static PULUMI_WASM_PROVIDER_gcp: [u8; 6] = *b"8.12.1";
+#[cfg(target_arch = "wasm32")]
+pub static PULUMI_WASM_PROVIDER_GCP: [u8; 45] = *b"{\"version\":\"8.12.1\",\"pluginDownloadURL\":null}";
+pub(crate) fn get_version() -> &'static str {
+    "8.12.1"
+}

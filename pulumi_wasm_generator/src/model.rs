@@ -182,6 +182,7 @@ pub(crate) struct Function {
 pub(crate) struct Package {
     pub(crate) name: String,
     pub(crate) display_name: Option<String>,
+    pub(crate) plugin_download_url: Option<String>,
     pub(crate) version: String,
     pub(crate) resources: BTreeMap<ElementId, Rc<Resource>>,
     pub(crate) functions: BTreeMap<ElementId, Rc<Function>>,
@@ -196,6 +197,7 @@ impl Package {
     pub(crate) fn new(
         name: String,
         display_name: Option<String>,
+        plugin_download_url: Option<String>,
         version: String,
         resources: BTreeMap<ElementId, Resource>,
         functions: BTreeMap<ElementId, Function>,
@@ -238,6 +240,7 @@ impl Package {
             name,
             display_name,
             version,
+            plugin_download_url,
             resources: new_resources,
             functions: new_function,
             types: all_types.clone(),
