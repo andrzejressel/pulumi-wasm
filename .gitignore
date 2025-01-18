@@ -18,6 +18,7 @@ target
 *.wasm
 
 .idea/
+.fleet/
 
 output.log
 *.wasm
